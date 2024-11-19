@@ -23,10 +23,7 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfoOs(string $os, string $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            SysInfo::getOs($os)
-        );
+        self::assertSame($expected, SysInfo::getOs($os));
     }
 
     /**
@@ -59,7 +56,7 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfo(): void
     {
-        $this->assertInstanceOf(Base::class, SysInfo::get());
+        self::assertInstanceOf(Base::class, SysInfo::get());
     }
 
     /**
@@ -67,6 +64,6 @@ class SysInfoTest extends AbstractTestCase
      */
     public function testGetSysInfoSupported(): void
     {
-        $this->assertTrue(SysInfo::get()->supported());
+        self::assertTrue(SysInfo::get()->supported());
     }
 }

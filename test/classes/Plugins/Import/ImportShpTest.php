@@ -67,8 +67,8 @@ class ImportShpTest extends AbstractTestCase
         $GLOBALS['message'] = '';
         $GLOBALS['error'] = false;
         $this->object->doImport($importHandle);
-        $this->assertEquals('', $GLOBALS['message']);
-        $this->assertFalse($GLOBALS['error']);
+        self::assertSame('', $GLOBALS['message']);
+        self::assertFalse($GLOBALS['error']);
     }
 
     /**
@@ -89,19 +89,10 @@ class ImportShpTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        $this->assertEquals(
-            __('ESRI Shape File'),
-            $properties->getText()
-        );
-        $this->assertEquals(
-            'shp',
-            $properties->getExtension()
-        );
-        $this->assertNull($properties->getOptions());
-        $this->assertEquals(
-            __('Options'),
-            $properties->getOptionsText()
-        );
+        self::assertSame(__('ESRI Shape File'), $properties->getText());
+        self::assertSame('shp', $properties->getExtension());
+        self::assertNull($properties->getOptions());
+        self::assertSame(__('Options'), $properties->getOptionsText());
     }
 
     /**
@@ -128,15 +119,12 @@ class ImportShpTest extends AbstractTestCase
             $endsWith = "13.737122 51.0542065)))'),";
         }
 
-        $this->assertStringContainsString(
-            "(GeomFromText('MULTIPOLYGON((("
-            . '13.737122 51.0542065,'
-            . '13.7373039 51.0541298,'
-            . '13.7372661 51.0540944,'
-            . '13.7370842 51.0541711,'
-            . $endsWith,
-            $sql_query
-        );
+        self::assertStringContainsString("(GeomFromText('MULTIPOLYGON((("
+        . '13.737122 51.0542065,'
+        . '13.7373039 51.0541298,'
+        . '13.7372661 51.0540944,'
+        . '13.7370842 51.0541711,'
+        . $endsWith, $sql_query);
     }
 
     /**
@@ -156,34 +144,31 @@ class ImportShpTest extends AbstractTestCase
         $this->runImport('test/test_data/timezone.shp.zip');
 
         // asset that all sql are executed
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
             $sql_query
         );
 
         // dbase extension will generate different sql statement
         if (extension_loaded('dbase')) {
-            $this->assertStringContainsString(
-                'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
-                . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42)) '
-                . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;',
-                $sql_query
-            );
+            self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
+            . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42)) '
+            . 'DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;', $sql_query);
 
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`, `ID`, `AUTHORITY`, `NAME`) VALUES',
                 $sql_query
             );
         } else {
-            $this->assertStringContainsString(
+            self::assertStringContainsString(
                 'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` (`SPATIAL` geometry)',
                 $sql_query
             );
 
-            $this->assertStringContainsString('INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES', $sql_query);
+            self::assertStringContainsString('INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES', $sql_query);
         }
 
-        $this->assertStringContainsString("GeomFromText('POINT(1294523.1759236", $sql_query);
+        self::assertStringContainsString("GeomFromText('POINT(1294523.1759236", $sql_query);
 
         //asset that all databases and tables are imported
         $this->assertMessages($import_notice);
@@ -196,16 +181,16 @@ class ImportShpTest extends AbstractTestCase
      */
     protected function assertMessages(string $import_notice): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString('Go to database: `SHP_DB`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `SHP_DB`', $import_notice);
-        $this->assertStringContainsString('Go to table: `TBL_NAME`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `TBL_NAME`', $import_notice);
+        self::assertStringContainsString('Go to database: `SHP_DB`', $import_notice);
+        self::assertStringContainsString('Edit settings for `SHP_DB`', $import_notice);
+        self::assertStringContainsString('Go to table: `TBL_NAME`', $import_notice);
+        self::assertStringContainsString('Edit settings for `TBL_NAME`', $import_notice);
 
         //asset that the import process is finished
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertTrue($GLOBALS['finished']);
     }
 }

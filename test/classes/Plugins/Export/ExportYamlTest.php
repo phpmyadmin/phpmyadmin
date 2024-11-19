@@ -65,134 +65,104 @@ class ExportYamlTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'YAML',
-            $properties->getText()
-        );
+        self::assertSame('YAML', $properties->getText());
 
-        $this->assertEquals(
-            'yml',
-            $properties->getExtension()
-        );
+        self::assertSame('yml', $properties->getExtension());
 
-        $this->assertEquals(
-            'text/yaml',
-            $properties->getMimeType()
-        );
+        self::assertSame('text/yaml', $properties->getMimeType());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'general_opts',
-            $generalOptions->getName()
-        );
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
     }
 
     public function testExportHeader(): void
     {
         ob_start();
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
+        self::assertTrue($this->object->exportHeader());
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString("%YAML 1.1\n---\n", $result);
+        self::assertStringContainsString("%YAML 1.1\n---\n", $result);
     }
 
     public function testExportFooter(): void
     {
         $this->expectOutputString("...\n");
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
+        self::assertTrue($this->object->exportFooter());
     }
 
     public function testExportDBHeader(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBHeader('&db')
-        );
+        self::assertTrue($this->object->exportDBHeader('&db'));
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBFooter('&db')
-        );
+        self::assertTrue($this->object->exportDBFooter('&db'));
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB', 'database'));
     }
 
     public function testExportData(): void
     {
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'SELECT * FROM `test_db`.`test_table_yaml`;'
-            )
-        );
+        self::assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table_yaml`;'
+        ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '# test_db.test_table' . "\n" .
-            '-' . "\n" .
-            '  id: 1' . "\n" .
-            '  name: &quot;abcd&quot;' . "\n" .
-            '  datetimefield: &quot;2011-01-20 02:00:02&quot;' . "\n" .
-            '  textfield: null' . "\n" .
-            '-' . "\n" .
-            '  id: 2' . "\n" .
-            '  name: &quot;foo&quot;' . "\n" .
-            '  datetimefield: &quot;2010-01-20 02:00:02&quot;' . "\n" .
-            '  textfield: null' . "\n" .
-            '-' . "\n" .
-            '  id: 3' . "\n" .
-            '  name: &quot;Abcd&quot;' . "\n" .
-            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
-            '  textfield: null' . "\n" .
-            '-' . "\n" .
-            '  id: 4' . "\n" .
-            '  name: &quot;Abcd&quot;' . "\n" .
-            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
-            '  textfield: &quot;123&quot;' . "\n" .
-            '-' . "\n" .
-            '  id: 5' . "\n" .
-            '  name: &quot;Abcd&quot;' . "\n" .
-            '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
-            '  textfield: &quot;+30.2103210000&quot;' . "\n",
-            $result
-        );
+        self::assertSame('# test_db.test_table' . "\n" .
+        '-' . "\n" .
+        '  id: 1' . "\n" .
+        '  name: &quot;abcd&quot;' . "\n" .
+        '  datetimefield: &quot;2011-01-20 02:00:02&quot;' . "\n" .
+        '  textfield: null' . "\n" .
+        '-' . "\n" .
+        '  id: 2' . "\n" .
+        '  name: &quot;foo&quot;' . "\n" .
+        '  datetimefield: &quot;2010-01-20 02:00:02&quot;' . "\n" .
+        '  textfield: null' . "\n" .
+        '-' . "\n" .
+        '  id: 3' . "\n" .
+        '  name: &quot;Abcd&quot;' . "\n" .
+        '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+        '  textfield: null' . "\n" .
+        '-' . "\n" .
+        '  id: 4' . "\n" .
+        '  name: &quot;Abcd&quot;' . "\n" .
+        '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+        '  textfield: &quot;123&quot;' . "\n" .
+        '-' . "\n" .
+        '  id: 5' . "\n" .
+        '  name: &quot;Abcd&quot;' . "\n" .
+        '  datetimefield: &quot;2012-01-20 02:00:02&quot;' . "\n" .
+        '  textfield: &quot;+30.2103210000&quot;' . "\n", $result);
     }
 }

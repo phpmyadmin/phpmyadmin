@@ -67,11 +67,11 @@ class GitTest extends AbstractTestCase
 
         $git_location = '';
 
-        $this->assertTrue($this->object->isGitRevision($git_location));
+        self::assertTrue($this->object->isGitRevision($git_location));
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
-        $this->assertEquals('.cachedgitlocation', $git_location);
+        self::assertSame('.cachedgitlocation', $git_location);
     }
 
     /**
@@ -80,9 +80,7 @@ class GitTest extends AbstractTestCase
     public function testIsGitRevisionSkipped(): void
     {
         $this->object = new Git(false);
-        $this->assertFalse(
-            $this->object->isGitRevision($git_location)
-        );
+        self::assertFalse($this->object->isGitRevision($git_location));
     }
 
     /**
@@ -92,31 +90,27 @@ class GitTest extends AbstractTestCase
      */
     public function testIsGitRevisionLocalGitDir(): void
     {
-        $this->assertFalse(
-            $this->object->isGitRevision()
-        );
+        self::assertFalse($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         mkdir($this->testDir . '.git');
 
-        $this->assertFalse(
-            $this->object->isGitRevision()
-        );
+        self::assertFalse($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         file_put_contents($this->testDir . '.git/config', '');
 
-        $this->assertTrue($this->object->isGitRevision());
+        self::assertTrue($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unlink($this->testDir . '.git/config');
         rmdir($this->testDir . '.git');
@@ -130,31 +124,27 @@ class GitTest extends AbstractTestCase
     public function testIsGitRevisionExternalGitDir(): void
     {
         file_put_contents($this->testDir . '.git', 'gitdir: ' . $this->testDir . '.customgitdir');
-        $this->assertFalse(
-            $this->object->isGitRevision()
-        );
+        self::assertFalse($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         mkdir($this->testDir . '.customgitdir');
 
-        $this->assertTrue($this->object->isGitRevision());
+        self::assertTrue($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unset($_SESSION['git_location']);
         unset($_SESSION['is_git_revision']);
 
         file_put_contents($this->testDir . '.git', 'random data here');
 
-        $this->assertFalse(
-            $this->object->isGitRevision()
-        );
+        self::assertFalse($this->object->isGitRevision());
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
 
         unlink($this->testDir . '.git');
         rmdir($this->testDir . '.customgitdir');
@@ -172,14 +162,14 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
+        self::assertNull($commit);
 
         file_put_contents(
             $this->testDir . '.git/packed-refs',
@@ -206,39 +196,39 @@ class GitTest extends AbstractTestCase
             $this->markTestSkipped('Unable to get remote commit information.');
         }
 
-        $this->assertIsArray($commit);
-        $this->assertArrayHasKey('hash', $commit);
-        $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
+        self::assertIsArray($commit);
+        self::assertArrayHasKey('hash', $commit);
+        self::assertSame('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
 
-        $this->assertArrayHasKey('branch', $commit);
-        $this->assertEquals('master', $commit['branch']);
+        self::assertArrayHasKey('branch', $commit);
+        self::assertSame('master', $commit['branch']);
 
-        $this->assertArrayHasKey('message', $commit);
-        $this->assertIsString($commit['message']);
+        self::assertArrayHasKey('message', $commit);
+        self::assertIsString($commit['message']);
 
-        $this->assertArrayHasKey('is_remote_commit', $commit);
-        $this->assertIsBool($commit['is_remote_commit']);
+        self::assertArrayHasKey('is_remote_commit', $commit);
+        self::assertIsBool($commit['is_remote_commit']);
 
-        $this->assertArrayHasKey('is_remote_branch', $commit);
-        $this->assertIsBool($commit['is_remote_branch']);
+        self::assertArrayHasKey('is_remote_branch', $commit);
+        self::assertIsBool($commit['is_remote_branch']);
 
-        $this->assertArrayHasKey('author', $commit);
-        $this->assertIsArray($commit['author']);
-        $this->assertArrayHasKey('name', $commit['author']);
-        $this->assertArrayHasKey('email', $commit['author']);
-        $this->assertArrayHasKey('date', $commit['author']);
-        $this->assertIsString($commit['author']['name']);
-        $this->assertIsString($commit['author']['email']);
-        $this->assertIsString($commit['author']['date']);
+        self::assertArrayHasKey('author', $commit);
+        self::assertIsArray($commit['author']);
+        self::assertArrayHasKey('name', $commit['author']);
+        self::assertArrayHasKey('email', $commit['author']);
+        self::assertArrayHasKey('date', $commit['author']);
+        self::assertIsString($commit['author']['name']);
+        self::assertIsString($commit['author']['email']);
+        self::assertIsString($commit['author']['date']);
 
-        $this->assertArrayHasKey('committer', $commit);
-        $this->assertIsArray($commit['committer']);
-        $this->assertArrayHasKey('name', $commit['committer']);
-        $this->assertArrayHasKey('email', $commit['committer']);
-        $this->assertArrayHasKey('date', $commit['committer']);
-        $this->assertIsString($commit['committer']['name']);
-        $this->assertIsString($commit['committer']['email']);
-        $this->assertIsString($commit['committer']['date']);
+        self::assertArrayHasKey('committer', $commit);
+        self::assertIsArray($commit['committer']);
+        self::assertArrayHasKey('name', $commit['committer']);
+        self::assertArrayHasKey('email', $commit['committer']);
+        self::assertArrayHasKey('date', $commit['committer']);
+        self::assertIsString($commit['committer']['name']);
+        self::assertIsString($commit['committer']['email']);
+        self::assertIsString($commit['committer']['date']);
     }
 
     /**
@@ -253,8 +243,8 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
         mkdir($this->testDir . '.git/refs/remotes/origin', 0777, true);
@@ -265,8 +255,8 @@ class GitTest extends AbstractTestCase
         mkdir($this->testDir . '.git/objects/pack', 0777, true);//default = 0777, recursive mode
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         unlink($this->testDir . '.git/refs/remotes/origin/master');
         rmdir($this->testDir . '.git/refs/remotes/origin');
@@ -291,14 +281,14 @@ class GitTest extends AbstractTestCase
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertNull($commit);
+        self::assertFalse($this->object->hasGitInformation());
 
         file_put_contents($this->testDir . '.git/HEAD', 'ref: refs/remotes/origin/master');
 
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
+        self::assertNull($commit);
 
         file_put_contents(
             $this->testDir . '.git/packed-refs',
@@ -334,39 +324,39 @@ class GitTest extends AbstractTestCase
             $this->markTestSkipped('Unable to get remote commit information.');
         }
 
-        $this->assertIsArray($commit);
-        $this->assertArrayHasKey('hash', $commit);
-        $this->assertEquals('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
+        self::assertIsArray($commit);
+        self::assertArrayHasKey('hash', $commit);
+        self::assertSame('17bf8b7309919f8ac593d7c563b31472780ee83b', $commit['hash']);
 
-        $this->assertArrayHasKey('branch', $commit);
-        $this->assertEquals('master', $commit['branch']);
+        self::assertArrayHasKey('branch', $commit);
+        self::assertSame('master', $commit['branch']);
 
-        $this->assertArrayHasKey('message', $commit);
-        $this->assertIsString($commit['message']);
+        self::assertArrayHasKey('message', $commit);
+        self::assertIsString($commit['message']);
 
-        $this->assertArrayHasKey('is_remote_commit', $commit);
-        $this->assertIsBool($commit['is_remote_commit']);
+        self::assertArrayHasKey('is_remote_commit', $commit);
+        self::assertIsBool($commit['is_remote_commit']);
 
-        $this->assertArrayHasKey('is_remote_branch', $commit);
-        $this->assertIsBool($commit['is_remote_branch']);
+        self::assertArrayHasKey('is_remote_branch', $commit);
+        self::assertIsBool($commit['is_remote_branch']);
 
-        $this->assertArrayHasKey('author', $commit);
-        $this->assertIsArray($commit['author']);
-        $this->assertArrayHasKey('name', $commit['author']);
-        $this->assertArrayHasKey('email', $commit['author']);
-        $this->assertArrayHasKey('date', $commit['author']);
-        $this->assertIsString($commit['author']['name']);
-        $this->assertIsString($commit['author']['email']);
-        $this->assertIsString($commit['author']['date']);
+        self::assertArrayHasKey('author', $commit);
+        self::assertIsArray($commit['author']);
+        self::assertArrayHasKey('name', $commit['author']);
+        self::assertArrayHasKey('email', $commit['author']);
+        self::assertArrayHasKey('date', $commit['author']);
+        self::assertIsString($commit['author']['name']);
+        self::assertIsString($commit['author']['email']);
+        self::assertIsString($commit['author']['date']);
 
-        $this->assertArrayHasKey('committer', $commit);
-        $this->assertIsArray($commit['committer']);
-        $this->assertArrayHasKey('name', $commit['committer']);
-        $this->assertArrayHasKey('email', $commit['committer']);
-        $this->assertArrayHasKey('date', $commit['committer']);
-        $this->assertIsString($commit['committer']['name']);
-        $this->assertIsString($commit['committer']['email']);
-        $this->assertIsString($commit['committer']['date']);
+        self::assertArrayHasKey('committer', $commit);
+        self::assertIsArray($commit['committer']);
+        self::assertArrayHasKey('name', $commit['committer']);
+        self::assertArrayHasKey('email', $commit['committer']);
+        self::assertArrayHasKey('date', $commit['committer']);
+        self::assertIsString($commit['committer']['name']);
+        self::assertIsString($commit['committer']['email']);
+        self::assertIsString($commit['committer']['date']);
     }
 
     /**
@@ -377,9 +367,9 @@ class GitTest extends AbstractTestCase
         $this->object = new Git(false);
         $commit = $this->object->checkGitRevision();
 
-        $this->assertNull($commit);
+        self::assertNull($commit);
 
-        $this->assertFalse($this->object->hasGitInformation());
+        self::assertFalse($this->object->hasGitInformation());
     }
 
     /**
@@ -390,9 +380,9 @@ class GitTest extends AbstractTestCase
         $_SESSION['git_location'] = 'customdir/.git';
         $_SESSION['is_git_revision'] = true;
         $gitFolder = '';
-        $this->assertTrue($this->object->isGitRevision($gitFolder));
+        self::assertTrue($this->object->isGitRevision($gitFolder));
 
-        $this->assertEquals($gitFolder, 'customdir/.git');
+        self::assertSame($gitFolder, 'customdir/.git');
     }
 
     /**
@@ -403,10 +393,10 @@ class GitTest extends AbstractTestCase
         $_SESSION['is_git_revision'] = false;
         $_SESSION['git_location'] = null;
         $gitFolder = 'defaultvaluebyref';
-        $this->assertFalse($this->object->isGitRevision($gitFolder));
+        self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        $this->assertEquals($gitFolder, null);
+        self::assertSame($gitFolder, null);
     }
 
     /**
@@ -417,10 +407,10 @@ class GitTest extends AbstractTestCase
         $_SESSION['is_git_revision'] = false;
         $_SESSION['git_location'] = 'randomdir/.git';
         $gitFolder = 'defaultvaluebyref';
-        $this->assertFalse($this->object->isGitRevision($gitFolder));
+        self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        $this->assertEquals($gitFolder, 'randomdir/.git');
+        self::assertSame($gitFolder, 'randomdir/.git');
     }
 
     /**
@@ -463,7 +453,7 @@ class GitTest extends AbstractTestCase
             ]
         );
 
-        $this->assertSame([
+        self::assertSame([
             [
                 'name' => 'William Desportes',
                 'email' => 'williamdes@wdes.fr',

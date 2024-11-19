@@ -44,34 +44,28 @@ class TablePropertyTest extends AbstractTestCase
 
     public function testConstructor(): void
     {
-        $this->assertEquals('name', $this->object->name);
+        self::assertSame('name', $this->object->name);
 
-        $this->assertEquals('int', $this->object->type);
+        self::assertSame('int', $this->object->type);
 
-        $this->assertEquals(1, $this->object->nullable);
+        self::assertEquals(1, $this->object->nullable);
 
-        $this->assertEquals('PRI', $this->object->key);
+        self::assertSame('PRI', $this->object->key);
 
-        $this->assertEquals('0', $this->object->defaultValue);
+        self::assertSame('0', $this->object->defaultValue);
 
-        $this->assertEquals('mysql', $this->object->ext);
+        self::assertSame('mysql', $this->object->ext);
     }
 
     public function testGetPureType(): void
     {
         $this->object->type = 'int(10)';
 
-        $this->assertEquals(
-            'int',
-            $this->object->getPureType()
-        );
+        self::assertSame('int', $this->object->getPureType());
 
         $this->object->type = 'char';
 
-        $this->assertEquals(
-            'char',
-            $this->object->getPureType()
-        );
+        self::assertSame('char', $this->object->getPureType());
     }
 
     /**
@@ -84,10 +78,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->nullable = $nullable;
 
-        $this->assertEquals(
-            $expected,
-            $this->object->isNotNull()
-        );
+        self::assertSame($expected, $this->object->isNotNull());
     }
 
     /**
@@ -123,10 +114,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->key = $key;
 
-        $this->assertEquals(
-            $expected,
-            $this->object->isUnique()
-        );
+        self::assertSame($expected, $this->object->isUnique());
     }
 
     /**
@@ -170,10 +158,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->type = $type;
 
-        $this->assertEquals(
-            $expected,
-            $this->object->getDotNetPrimitiveType()
-        );
+        self::assertSame($expected, $this->object->getDotNetPrimitiveType());
     }
 
     /**
@@ -241,10 +226,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         $this->object->type = $type;
 
-        $this->assertEquals(
-            $expected,
-            $this->object->getDotNetObjectType()
-        );
+        self::assertSame($expected, $this->object->getDotNetObjectType());
     }
 
     /**
@@ -307,61 +289,42 @@ class TablePropertyTest extends AbstractTestCase
         $this->object->name = "ä'7<ab>";
         $this->object->key = 'PRI';
 
-        $this->assertEquals(
-            "index=\"ä'7&lt;ab&gt;\"",
-            $this->object->getIndexName()
-        );
+        self::assertSame("index=\"ä'7&lt;ab&gt;\"", $this->object->getIndexName());
 
         $this->object->key = '';
 
-        $this->assertEquals(
-            '',
-            $this->object->getIndexName()
-        );
+        self::assertSame('', $this->object->getIndexName());
     }
 
     public function testIsPK(): void
     {
         $this->object->key = 'PRI';
 
-        $this->assertTrue(
-            $this->object->isPK()
-        );
+        self::assertTrue($this->object->isPK());
 
         $this->object->key = '';
 
-        $this->assertFalse(
-            $this->object->isPK()
-        );
+        self::assertFalse($this->object->isPK());
     }
 
     public function testFormatCs(): void
     {
         $this->object->name = 'Name#name#123';
 
-        $this->assertEquals(
-            'text123Namename',
-            $this->object->formatCs('text123#name#')
-        );
+        self::assertSame('text123Namename', $this->object->formatCs('text123#name#'));
     }
 
     public function testFormatXml(): void
     {
         $this->object->name = '"a\'';
 
-        $this->assertEquals(
-            '&quot;a\'index="&quot;a\'"',
-            $this->object->formatXml('#name##indexName#')
-        );
+        self::assertSame('&quot;a\'index="&quot;a\'"', $this->object->formatXml('#name##indexName#'));
     }
 
     public function testFormat(): void
     {
-        $this->assertEquals(
-            'NameintInt32intfalsetrue',
-            $this->object->format(
-                '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type##notNull##unique#'
-            )
-        );
+        self::assertSame('NameintInt32intfalsetrue', $this->object->format(
+            '#ucfirstName##dotNetPrimitiveType##dotNetObjectType##type##notNull##unique#'
+        ));
     }
 }

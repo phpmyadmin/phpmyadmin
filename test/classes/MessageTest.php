@@ -32,7 +32,7 @@ class MessageTest extends AbstractTestCase
     public function testToString(): void
     {
         $this->object->setMessage('test<&>', true);
-        $this->assertEquals('test&lt;&amp;&gt;', (string) $this->object);
+        self::assertSame('test&lt;&amp;&gt;', (string) $this->object);
     }
 
     /**
@@ -41,11 +41,8 @@ class MessageTest extends AbstractTestCase
     public function testSuccess(): void
     {
         $this->object = new Message('test<&>', Message::SUCCESS);
-        $this->assertEquals($this->object, Message::success('test<&>'));
-        $this->assertEquals(
-            'Your SQL query has been executed successfully.',
-            Message::success()->getString()
-        );
+        self::assertEquals($this->object, Message::success('test<&>'));
+        self::assertSame('Your SQL query has been executed successfully.', Message::success()->getString());
     }
 
     /**
@@ -54,8 +51,8 @@ class MessageTest extends AbstractTestCase
     public function testError(): void
     {
         $this->object = new Message('test<&>', Message::ERROR);
-        $this->assertEquals($this->object, Message::error('test<&>'));
-        $this->assertEquals('Error', Message::error()->getString());
+        self::assertEquals($this->object, Message::error('test<&>'));
+        self::assertSame('Error', Message::error()->getString());
     }
 
     /**
@@ -64,7 +61,7 @@ class MessageTest extends AbstractTestCase
     public function testNotice(): void
     {
         $this->object = new Message('test<&>', Message::NOTICE);
-        $this->assertEquals($this->object, Message::notice('test<&>'));
+        self::assertEquals($this->object, Message::notice('test<&>'));
     }
 
     /**
@@ -76,7 +73,7 @@ class MessageTest extends AbstractTestCase
         $this->object->setMessage('test<&>');
         $this->object->setBBCode(false);
 
-        $this->assertEquals($this->object, Message::rawError('test<&>'));
+        self::assertEquals($this->object, Message::rawError('test<&>'));
     }
 
     /**
@@ -88,7 +85,7 @@ class MessageTest extends AbstractTestCase
         $this->object->setMessage('test<&>');
         $this->object->setBBCode(false);
 
-        $this->assertEquals($this->object, Message::rawNotice('test<&>'));
+        self::assertEquals($this->object, Message::rawNotice('test<&>'));
     }
 
     /**
@@ -100,7 +97,7 @@ class MessageTest extends AbstractTestCase
         $this->object->setMessage('test<&>');
         $this->object->setBBCode(false);
 
-        $this->assertEquals($this->object, Message::rawSuccess('test<&>'));
+        self::assertEquals($this->object, Message::rawSuccess('test<&>'));
     }
 
     /**
@@ -108,8 +105,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testIsSuccess(): void
     {
-        $this->assertFalse($this->object->isSuccess());
-        $this->assertTrue($this->object->isSuccess(true));
+        self::assertFalse($this->object->isSuccess());
+        self::assertTrue($this->object->isSuccess(true));
     }
 
     /**
@@ -117,10 +114,10 @@ class MessageTest extends AbstractTestCase
      */
     public function testIsNotice(): void
     {
-        $this->assertTrue($this->object->isNotice());
+        self::assertTrue($this->object->isNotice());
         $this->object->isError(true);
-        $this->assertFalse($this->object->isNotice());
-        $this->assertTrue($this->object->isNotice(true));
+        self::assertFalse($this->object->isNotice());
+        self::assertTrue($this->object->isNotice(true));
     }
 
     /**
@@ -128,8 +125,8 @@ class MessageTest extends AbstractTestCase
      */
     public function testIsError(): void
     {
-        $this->assertFalse($this->object->isError());
-        $this->assertTrue($this->object->isError(true));
+        self::assertFalse($this->object->isError());
+        self::assertTrue($this->object->isError(true));
     }
 
     /**
@@ -138,9 +135,9 @@ class MessageTest extends AbstractTestCase
     public function testSetMessage(): void
     {
         $this->object->setMessage('test&<>', false);
-        $this->assertEquals('test&<>', $this->object->getMessage());
+        self::assertSame('test&<>', $this->object->getMessage());
         $this->object->setMessage('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getMessage());
+        self::assertSame('test&amp;&lt;&gt;', $this->object->getMessage());
     }
 
     /**
@@ -149,9 +146,9 @@ class MessageTest extends AbstractTestCase
     public function testSetString(): void
     {
         $this->object->setString('test&<>', false);
-        $this->assertEquals('test&<>', $this->object->getString());
+        self::assertSame('test&<>', $this->object->getString());
         $this->object->setString('test&<>', true);
-        $this->assertEquals('test&amp;&lt;&gt;', $this->object->getString());
+        self::assertSame('test&amp;&lt;&gt;', $this->object->getString());
     }
 
     /**
@@ -160,27 +157,18 @@ class MessageTest extends AbstractTestCase
     public function testAddParam(): void
     {
         $this->object->addParam(Message::notice('test'));
-        $this->assertEquals(
-            [Message::notice('test')],
-            $this->object->getParams()
-        );
+        self::assertEquals([Message::notice('test')], $this->object->getParams());
         $this->object->addParam('test');
-        $this->assertEquals(
-            [
-                Message::notice('test'),
-                'test',
-            ],
-            $this->object->getParams()
-        );
+        self::assertEquals([
+            Message::notice('test'),
+            'test',
+        ], $this->object->getParams());
         $this->object->addParam('test');
-        $this->assertEquals(
-            [
-                Message::notice('test'),
-                'test',
-                Message::notice('test'),
-            ],
-            $this->object->getParams()
-        );
+        self::assertEquals([
+            Message::notice('test'),
+            'test',
+            Message::notice('test'),
+        ], $this->object->getParams());
     }
 
     /**
@@ -192,10 +180,7 @@ class MessageTest extends AbstractTestCase
         $this->object->addParamHtml('<a href="">');
         $this->object->addParam('user<>');
         $this->object->addParamHtml('</a>');
-        $this->assertEquals(
-            'Hello <a href="">user&lt;&gt;</a>',
-            $this->object->getMessage()
-        );
+        self::assertSame('Hello <a href="">user&lt;&gt;</a>', $this->object->getMessage());
     }
 
     /**
@@ -204,22 +189,16 @@ class MessageTest extends AbstractTestCase
     public function testAddString(): void
     {
         $this->object->addText('test', '*');
-        $this->assertEquals(
-            [
-                '*',
-                Message::notice('test'),
-            ],
-            $this->object->getAddedMessages()
-        );
+        self::assertEquals([
+            '*',
+            Message::notice('test'),
+        ], $this->object->getAddedMessages());
         $this->object->addText('test', '');
-        $this->assertEquals(
-            [
-                '*',
-                Message::notice('test'),
-                Message::notice('test'),
-            ],
-            $this->object->getAddedMessages()
-        );
+        self::assertEquals([
+            '*',
+            Message::notice('test'),
+            Message::notice('test'),
+        ], $this->object->getAddedMessages());
     }
 
     /**
@@ -228,24 +207,15 @@ class MessageTest extends AbstractTestCase
     public function testAddMessage(): void
     {
         $this->object->addText('test<>', '');
-        $this->assertEquals(
-            [Message::notice('test&lt;&gt;')],
-            $this->object->getAddedMessages()
-        );
+        self::assertEquals([Message::notice('test&lt;&gt;')], $this->object->getAddedMessages());
         $this->object->addHtml('<b>test</b>');
-        $this->assertEquals(
-            [
-                Message::notice('test&lt;&gt;'),
-                ' ',
-                Message::rawNotice('<b>test</b>'),
-            ],
-            $this->object->getAddedMessages()
-        );
+        self::assertEquals([
+            Message::notice('test&lt;&gt;'),
+            ' ',
+            Message::rawNotice('<b>test</b>'),
+        ], $this->object->getAddedMessages());
         $this->object->addMessage(Message::notice('test<>'));
-        $this->assertEquals(
-            'test&lt;&gt; <b>test</b> test<>',
-            $this->object->getMessage()
-        );
+        self::assertSame('test&lt;&gt; <b>test</b> test<>', $this->object->getMessage());
     }
 
     /**
@@ -259,14 +229,11 @@ class MessageTest extends AbstractTestCase
         $messages[] = new Message('Test3');
         $this->object->addMessages($messages, '');
 
-        $this->assertEquals(
-            [
-                Message::notice('Test1'),
-                Message::error('PMA_Test2'),
-                Message::notice('Test3'),
-            ],
-            $this->object->getAddedMessages()
-        );
+        self::assertEquals([
+            Message::notice('Test1'),
+            Message::error('PMA_Test2'),
+            Message::notice('Test3'),
+        ], $this->object->getAddedMessages());
     }
 
     /**
@@ -281,19 +248,13 @@ class MessageTest extends AbstractTestCase
         ];
         $this->object->addMessagesString($messages, '');
 
-        $this->assertEquals(
-            [
-                Message::notice('test1'),
-                Message::notice('test&lt;b&gt;'),
-                Message::notice('test2'),
-            ],
-            $this->object->getAddedMessages()
-        );
+        self::assertEquals([
+            Message::notice('test1'),
+            Message::notice('test&lt;b&gt;'),
+            Message::notice('test2'),
+        ], $this->object->getAddedMessages());
 
-        $this->assertEquals(
-            'test1test&lt;b&gt;test2',
-            $this->object->getMessage()
-        );
+        self::assertSame('test1test&lt;b&gt;test2', $this->object->getMessage());
     }
 
     /**
@@ -302,9 +263,9 @@ class MessageTest extends AbstractTestCase
     public function testSetParams(): void
     {
         $this->object->setParams(['test&<>']);
-        $this->assertEquals(['test&<>'], $this->object->getParams());
+        self::assertSame(['test&<>'], $this->object->getParams());
         $this->object->setParams(['test&<>'], true);
-        $this->assertEquals(['test&amp;&lt;&gt;'], $this->object->getParams());
+        self::assertSame(['test&amp;&lt;&gt;'], $this->object->getParams());
     }
 
     /**
@@ -313,17 +274,11 @@ class MessageTest extends AbstractTestCase
     public function testSanitize(): void
     {
         $this->object->setString('test&string<>', false);
-        $this->assertEquals(
+        self::assertSame('test&amp;string&lt;&gt;', Message::sanitize($this->object));
+        self::assertSame([
             'test&amp;string&lt;&gt;',
-            Message::sanitize($this->object)
-        );
-        $this->assertEquals(
-            [
-                'test&amp;string&lt;&gt;',
-                'test&amp;string&lt;&gt;',
-            ],
-            Message::sanitize([$this->object, $this->object])
-        );
+            'test&amp;string&lt;&gt;',
+        ], Message::sanitize([$this->object, $this->object]));
     }
 
     /**
@@ -390,7 +345,7 @@ class MessageTest extends AbstractTestCase
     public function testDecodeBB(string $actual, string $expected): void
     {
         unset($GLOBALS['server']);
-        $this->assertEquals($expected, Message::decodeBB($actual));
+        self::assertSame($expected, Message::decodeBB($actual));
     }
 
     /**
@@ -398,22 +353,10 @@ class MessageTest extends AbstractTestCase
      */
     public function testFormat(): void
     {
-        $this->assertEquals(
-            'test string',
-            Message::format('test string')
-        );
-        $this->assertEquals(
-            'test string',
-            Message::format('test string', 'a')
-        );
-        $this->assertEquals(
-            'test string',
-            Message::format('test string', [])
-        );
-        $this->assertEquals(
-            'test string',
-            Message::format('%s string', ['test'])
-        );
+        self::assertSame('test string', Message::format('test string'));
+        self::assertSame('test string', Message::format('test string', 'a'));
+        self::assertSame('test string', Message::format('test string', []));
+        self::assertSame('test string', Message::format('%s string', ['test']));
     }
 
     /**
@@ -423,10 +366,7 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->setString('<&>test', false);
         $this->object->setMessage('<&>test', false);
-        $this->assertEquals(
-            md5(Message::NOTICE . '<&>test<&>test'),
-            $this->object->getHash()
-        );
+        self::assertSame(md5(Message::NOTICE . '<&>test<&>test'), $this->object->getHash());
     }
 
     /**
@@ -439,10 +379,7 @@ class MessageTest extends AbstractTestCase
         $this->object->setString('test string %s %s');
         $this->object->addParam('test param 1');
         $this->object->addParam('test param 2');
-        $this->assertEquals(
-            'test string test param 1 test param 2',
-            $this->object->getMessage()
-        );
+        self::assertSame('test string test param 1 test param 2', $this->object->getMessage());
     }
 
     /**
@@ -452,7 +389,7 @@ class MessageTest extends AbstractTestCase
     {
         $this->object->setMessage('');
         $this->object->setString('');
-        $this->assertEquals('', $this->object->getMessage());
+        self::assertSame('', $this->object->getMessage());
     }
 
     /**
@@ -462,12 +399,9 @@ class MessageTest extends AbstractTestCase
     public function testGetMessageWithMessageWithBBCode(): void
     {
         $this->object->setMessage('[kbd]test[/kbd] [doc@cfg_Example]test[/doc]');
-        $this->assertEquals(
-            '<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.'
-            . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
-            . ' target="documentation">test</a>',
-            $this->object->getMessage()
-        );
+        self::assertSame('<kbd>test</kbd> <a href="./url.php?url=https%3A%2F%2Fdocs.phpmyadmin.'
+        . 'net%2Fen%2Flatest%2Fconfig.html%23cfg_Example"'
+        . ' target="documentation">test</a>', $this->object->getMessage());
     }
 
     /**
@@ -475,11 +409,11 @@ class MessageTest extends AbstractTestCase
      */
     public function testGetLevel(): void
     {
-        $this->assertEquals('notice', $this->object->getLevel());
+        self::assertSame('notice', $this->object->getLevel());
         $this->object->setNumber(Message::SUCCESS);
-        $this->assertEquals('success', $this->object->getLevel());
+        self::assertSame('success', $this->object->getLevel());
         $this->object->setNumber(Message::ERROR);
-        $this->assertEquals('error', $this->object->getLevel());
+        self::assertSame('error', $this->object->getLevel());
     }
 
     /**
@@ -487,15 +421,12 @@ class MessageTest extends AbstractTestCase
      */
     public function testGetDisplay(): void
     {
-        $this->assertFalse($this->object->isDisplayed());
+        self::assertFalse($this->object->isDisplayed());
         $this->object->setMessage('Test Message');
-        $this->assertEquals(
-            '<div class="alert alert-primary" role="alert">' . "\n"
-            . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
-            . '</div>' . "\n",
-            $this->object->getDisplay()
-        );
-        $this->assertTrue($this->object->isDisplayed());
+        self::assertSame('<div class="alert alert-primary" role="alert">' . "\n"
+        . '  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Test Message' . "\n"
+        . '</div>' . "\n", $this->object->getDisplay());
+        self::assertTrue($this->object->isDisplayed());
     }
 
     /**
@@ -503,9 +434,9 @@ class MessageTest extends AbstractTestCase
      */
     public function testIsDisplayed(): void
     {
-        $this->assertFalse($this->object->isDisplayed(false));
-        $this->assertTrue($this->object->isDisplayed(true));
-        $this->assertTrue($this->object->isDisplayed(false));
+        self::assertFalse($this->object->isDisplayed(false));
+        self::assertTrue($this->object->isDisplayed(true));
+        self::assertTrue($this->object->isDisplayed(false));
     }
 
     /**
@@ -550,7 +481,7 @@ class MessageTest extends AbstractTestCase
         $this->object = new Message();
         $msg = $this->object->getMessageForAffectedRows($rows);
         $this->object->addMessage($msg);
-        $this->assertEquals($output, $this->object->getDisplay());
+        self::assertSame($output, $this->object->getDisplay());
     }
 
     /**
@@ -595,7 +526,7 @@ class MessageTest extends AbstractTestCase
         $this->object = new Message();
         $msg = $this->object->getMessageForInsertedRows($rows);
         $this->object->addMessage($msg);
-        $this->assertEquals($output, $this->object->getDisplay());
+        self::assertSame($output, $this->object->getDisplay());
     }
 
     /**
@@ -640,6 +571,6 @@ class MessageTest extends AbstractTestCase
         $this->object = new Message();
         $msg = $this->object->getMessageForDeletedRows($rows);
         $this->object->addMessage($msg);
-        $this->assertEquals($output, $this->object->getDisplay());
+        self::assertSame($output, $this->object->getDisplay());
     }
 }

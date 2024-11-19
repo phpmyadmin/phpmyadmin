@@ -45,29 +45,29 @@ class ChangePasswordTest extends TestBase
         $this->waitForElement('xpath', "//span[contains(., 'Change password')]");
         try {
             $ele = $this->waitForElement('name', 'pma_pw');
-            $this->assertEquals('', $ele->getAttribute('value'));
+            self::assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->getMessage());
         }
 
         try {
             $ele = $this->waitForElement('name', 'pma_pw2');
-            $this->assertEquals('', $ele->getAttribute('value'));
+            self::assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->getMessage());
         }
 
         try {
             $ele = $this->waitForElement('name', 'generated_pw');
-            $this->assertEquals('', $ele->getAttribute('value'));
+            self::assertEquals('', $ele->getAttribute('value'));
         } catch (AssertionFailedError $e) {
             array_push($this->verificationErrors, $e->getMessage());
         }
 
         $this->byId('button_generate_password')->click();
-        $this->assertNotEquals('', $this->byName('pma_pw')->getAttribute('value'));
-        $this->assertNotEquals('', $this->byName('pma_pw2')->getAttribute('value'));
-        $this->assertNotEquals('', $this->byName('generated_pw')->getAttribute('value'));
+        self::assertNotEquals('', $this->byName('pma_pw')->getAttribute('value'));
+        self::assertNotEquals('', $this->byName('pma_pw2')->getAttribute('value'));
+        self::assertNotEquals('', $this->byName('generated_pw')->getAttribute('value'));
 
         if ($this->getTestSuiteUserPassword() !== '') {
             $this->byName('pma_pw')->clear();
@@ -82,9 +82,6 @@ class ChangePasswordTest extends TestBase
 
         $this->byCssSelector('#change_password_dialog + div button')->click();
         $ele = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertEquals(
-            'The profile has been updated.',
-            trim($ele->getText())
-        );
+        self::assertEquals('The profile has been updated.', trim($ele->getText()));
     }
 }

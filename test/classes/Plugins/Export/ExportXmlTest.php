@@ -70,94 +70,73 @@ class ExportXmlTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'XML',
-            $properties->getText()
-        );
+        self::assertSame('XML', $properties->getText());
 
-        $this->assertEquals(
-            'xml',
-            $properties->getExtension()
-        );
+        self::assertSame('xml', $properties->getExtension());
 
-        $this->assertEquals(
-            'text/xml',
-            $properties->getMimeType()
-        );
+        self::assertSame('text/xml', $properties->getMimeType());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'general_opts',
-            $generalOptions->getName()
-        );
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'structure',
-            $generalOptions->getName()
-        );
+        self::assertSame('structure', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'data',
-            $generalOptions->getName()
-        );
+        self::assertSame('data', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
     }
 
     /**
@@ -235,39 +214,31 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['table'] = 'table';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
+        self::assertTrue($this->object->exportHeader());
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString(
-            '&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
-            'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;',
-            $result
-        );
+        self::assertStringContainsString('&lt;pma_xml_export version=&quot;1.0&quot; xmlns:pma=&quot;' .
+        'https://www.phpmyadmin.net/some_doc_url/&quot;&gt;', $result);
 
-        $this->assertStringContainsString(
-            '&lt;pma:structure_schemas&gt;' . "\n" .
-            '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
-            'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
-            '            &lt;pma:table name=&quot;table&quot;&gt;' . "\n" .
-            '                &amp;quot;tbl&amp;quot;;' . "\n" .
-            '            &lt;/pma:table&gt;' . "\n" .
-            '            &lt;pma:trigger name=&quot;trname&quot;&gt;' . "\n" .
-            '                ' . "\n" .
-            '            &lt;/pma:trigger&gt;' . "\n" .
-            '            &lt;pma:function name=&quot;fn&quot;&gt;' . "\n" .
-            '                fndef' . "\n" .
-            '            &lt;/pma:function&gt;' . "\n" .
-            '            &lt;pma:procedure name=&quot;pr&quot;&gt;' . "\n" .
-            '                prdef' . "\n" .
-            '            &lt;/pma:procedure&gt;' . "\n" .
-            '        &lt;/pma:database&gt;' . "\n" .
-            '    &lt;/pma:structure_schemas&gt;',
-            $result
-        );
+        self::assertStringContainsString('&lt;pma:structure_schemas&gt;' . "\n" .
+        '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
+        'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
+        '            &lt;pma:table name=&quot;table&quot;&gt;' . "\n" .
+        '                &amp;quot;tbl&amp;quot;;' . "\n" .
+        '            &lt;/pma:table&gt;' . "\n" .
+        '            &lt;pma:trigger name=&quot;trname&quot;&gt;' . "\n" .
+        '                ' . "\n" .
+        '            &lt;/pma:trigger&gt;' . "\n" .
+        '            &lt;pma:function name=&quot;fn&quot;&gt;' . "\n" .
+        '                fndef' . "\n" .
+        '            &lt;/pma:function&gt;' . "\n" .
+        '            &lt;pma:procedure name=&quot;pr&quot;&gt;' . "\n" .
+        '                prdef' . "\n" .
+        '            &lt;/pma:procedure&gt;' . "\n" .
+        '        &lt;/pma:database&gt;' . "\n" .
+        '    &lt;/pma:structure_schemas&gt;', $result);
 
         // case 2 with isView as true and false
 
@@ -319,29 +290,22 @@ class ExportXmlTest extends AbstractTestCase
         ];
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
+        self::assertTrue($this->object->exportHeader());
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString(
-            '&lt;pma:structure_schemas&gt;' . "\n" .
-            '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
-            'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
-            '        &lt;/pma:database&gt;' . "\n" .
-            '    &lt;/pma:structure_schemas&gt;',
-            $result
-        );
+        self::assertStringContainsString('&lt;pma:structure_schemas&gt;' . "\n" .
+        '        &lt;pma:database name=&quot;d&amp;lt;&amp;quot;b&quot; collat' .
+        'ion=&quot;utf8_general_ci&quot; charset=&quot;utf-8&quot;&gt;' . "\n" .
+        '        &lt;/pma:database&gt;' . "\n" .
+        '    &lt;/pma:structure_schemas&gt;', $result);
     }
 
     public function testExportFooter(): void
     {
         $this->expectOutputString('&lt;/pma_xml_export&gt;');
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
+        self::assertTrue($this->object->exportFooter());
     }
 
     public function testExportDBHeader(): void
@@ -349,20 +313,16 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = true;
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportDBHeader('&db')
-        );
+        self::assertTrue($this->object->exportDBHeader('&db'));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
+        self::assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
-        $this->assertTrue(
-            $this->object->exportDBHeader('&db')
-        );
+        self::assertTrue($this->object->exportDBHeader('&db'));
     }
 
     public function testExportDBFooter(): void
@@ -370,27 +330,21 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['xml_export_contents'] = true;
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportDBFooter('&db')
-        );
+        self::assertTrue($this->object->exportDBFooter('&db'));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('&lt;/database&gt;', $result);
+        self::assertStringContainsString('&lt;/database&gt;', $result);
 
         $GLOBALS['xml_export_contents'] = false;
 
-        $this->assertTrue(
-            $this->object->exportDBFooter('&db')
-        );
+        self::assertTrue($this->object->exportDBFooter('&db'));
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB', 'database'));
     }
 
     public function testExportData(): void
@@ -400,36 +354,31 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
-        );
+        self::assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
-            '        <!-- Table test_table -->' . "\n"
-            . '        <table name="test_table">' . "\n"
-            . '            <column name="id">1</column>' . "\n"
-            . '            <column name="name">abcd</column>' . "\n"
-            . '            <column name="datetimefield">2011-01-20 02:00:02</column>' . "\n"
-            . '        </table>' . "\n"
-            . '        <table name="test_table">' . "\n"
-            . '            <column name="id">2</column>' . "\n"
-            . '            <column name="name">foo</column>' . "\n"
-            . '            <column name="datetimefield">2010-01-20 02:00:02</column>' . "\n"
-            . '        </table>' . "\n"
-            . '        <table name="test_table">' . "\n"
-            . '            <column name="id">3</column>' . "\n"
-            . '            <column name="name">Abcd</column>' . "\n"
-            . '            <column name="datetimefield">2012-01-20 02:00:02</column>' . "\n"
-            . '        </table>' . "\n",
-            $result
-        );
+        self::assertIsString($result);
+        self::assertSame('        <!-- Table test_table -->' . "\n"
+        . '        <table name="test_table">' . "\n"
+        . '            <column name="id">1</column>' . "\n"
+        . '            <column name="name">abcd</column>' . "\n"
+        . '            <column name="datetimefield">2011-01-20 02:00:02</column>' . "\n"
+        . '        </table>' . "\n"
+        . '        <table name="test_table">' . "\n"
+        . '            <column name="id">2</column>' . "\n"
+        . '            <column name="name">foo</column>' . "\n"
+        . '            <column name="datetimefield">2010-01-20 02:00:02</column>' . "\n"
+        . '        </table>' . "\n"
+        . '        <table name="test_table">' . "\n"
+        . '            <column name="id">3</column>' . "\n"
+        . '            <column name="name">Abcd</column>' . "\n"
+        . '            <column name="datetimefield">2012-01-20 02:00:02</column>' . "\n"
+        . '        </table>' . "\n", $result);
     }
 }

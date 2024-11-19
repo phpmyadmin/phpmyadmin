@@ -37,12 +37,12 @@ class TemplateTest extends AbstractTestCase
 
         $cfg['environment'] = 'production';
         $twig = Template::getTwigEnvironment(null);
-        $this->assertFalse($twig->isDebug());
-        $this->assertFalse(TransNode::$enableAddDebugInfo);
+        self::assertFalse($twig->isDebug());
+        self::assertFalse(TransNode::$enableAddDebugInfo);
         $cfg['environment'] = 'development';
         $twig = Template::getTwigEnvironment(null);
-        $this->assertTrue($twig->isDebug());
-        $this->assertTrue(TransNode::$enableAddDebugInfo);
+        self::assertTrue($twig->isDebug());
+        self::assertTrue(TransNode::$enableAddDebugInfo);
     }
 
     /**
@@ -58,8 +58,8 @@ class TemplateTest extends AbstractTestCase
             'variable1' => 'value1',
             'variable2' => 'value2',
         ]);
-        $this->assertStringContainsString('value1', $result);
-        $this->assertStringContainsString('value2', $result);
+        self::assertStringContainsString('value1', $result);
+        self::assertStringContainsString('value2', $result);
     }
 
     /**
@@ -85,10 +85,7 @@ class TemplateTest extends AbstractTestCase
      */
     public function testDynamicRender(string $templateFile, string $key, string $value): void
     {
-        $this->assertEquals(
-            $value,
-            $this->template->render($templateFile, [$key => $value])
-        );
+        self::assertSame($value, $this->template->render($templateFile, [$key => $value]));
     }
 
     /**
@@ -126,10 +123,7 @@ class TemplateTest extends AbstractTestCase
      */
     public function testRender(string $templateFile, string $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            $this->template->render($templateFile)
-        );
+        self::assertSame($expectedResult, $this->template->render($templateFile));
     }
 
     /**
@@ -158,10 +152,7 @@ class TemplateTest extends AbstractTestCase
      */
     public function testRenderGettext(string $templateFile, array $renderParams, string $expectedResult): void
     {
-        $this->assertEquals(
-            $expectedResult,
-            $this->template->render($templateFile, $renderParams)
-        );
+        self::assertSame($expectedResult, $this->template->render($templateFile, $renderParams));
     }
 
     /**

@@ -70,14 +70,8 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        $this->assertEquals('cached_affected_rows', $ret['message']['affectedRows']);
-        $this->assertEquals(
-            [],
-            $ret['message']['profiling']
-        );
-        $this->assertEquals(
-            [$value],
-            $ret['message']['explain']
-        );
+        self::assertSame('cached_affected_rows', $ret['message']['affectedRows']);
+        self::assertSame([], $ret['message']['profiling']);
+        self::assertSame([$value], $ret['message']['explain']);
     }
 }

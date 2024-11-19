@@ -198,7 +198,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testArea(array $ring, float $area): void
     {
-        $this->assertEquals($this->object->area($ring), $area);
+        self::assertSame($this->object->area($ring), $area);
     }
 
     /**
@@ -280,10 +280,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testIsPointInsidePolygon(array $point, array $polygon, bool $isInside): void
     {
-        $this->assertEquals(
-            $this->object->isPointInsidePolygon($point, $polygon),
-            $isInside
-        );
+        self::assertSame($this->object->isPointInsidePolygon($point, $polygon), $isInside);
     }
 
     /**
@@ -362,8 +359,8 @@ class GisPolygonTest extends GisGeomTestCase
     public function testGetPointOnSurface(array $ring): void
     {
         $point = $this->object->getPointOnSurface($ring);
-        $this->assertIsArray($point);
-        $this->assertTrue($this->object->isPointInsidePolygon($point, $ring));
+        self::assertIsArray($point);
+        self::assertTrue($this->object->isPointInsidePolygon($point, $ring));
     }
 
     /**
@@ -422,7 +419,7 @@ class GisPolygonTest extends GisGeomTestCase
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'POLYGON((123 0,23 30,17 63,123 0))',
             'image',
@@ -430,8 +427,8 @@ class GisPolygonTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -453,7 +450,7 @@ class GisPolygonTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $fill_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        self::assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -498,7 +495,7 @@ class GisPolygonTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $fillColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -547,16 +544,13 @@ class GisPolygonTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $fill_color,
-                $scale_data
-            )
-        );
+        self::assertSame($output, $this->object->prepareRowAsOl(
+            $spatial,
+            $srid,
+            $label,
+            $fill_color,
+            $scale_data
+        ));
     }
 
     /**
@@ -606,7 +600,7 @@ class GisPolygonTest extends GisGeomTestCase
      */
     public function testIsOuterRing(array $ring): void
     {
-        $this->assertTrue($this->object->isOuterRing($ring));
+        self::assertTrue($this->object->isOuterRing($ring));
     }
 
     /**

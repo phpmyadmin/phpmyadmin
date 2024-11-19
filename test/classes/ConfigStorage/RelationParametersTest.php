@@ -34,37 +34,37 @@ class RelationParametersTest extends TestCase
 {
     public function testFeaturesWithTwoTables(): void
     {
-        $this->assertNull(RelationParameters::fromArray([
+        self::assertNull(RelationParameters::fromArray([
             'db' => 'db',
             'pdf_pages' => 'pdf_pages',
             'table_coords' => ' invalid ',
             'pdfwork' => true,
         ])->pdfFeature);
-        $this->assertNull(RelationParameters::fromArray([
+        self::assertNull(RelationParameters::fromArray([
             'db' => 'db',
             'pdf_pages' => ' invalid ',
             'table_coords' => 'table_coords',
             'pdfwork' => true,
         ])->pdfFeature);
-        $this->assertNull(RelationParameters::fromArray([
+        self::assertNull(RelationParameters::fromArray([
             'db' => 'db',
             'relation' => 'relation',
             'table_info' => ' invalid ',
             'displaywork' => true,
         ])->displayFeature);
-        $this->assertNull(RelationParameters::fromArray([
+        self::assertNull(RelationParameters::fromArray([
             'db' => 'db',
             'relation' => ' invalid ',
             'table_info' => 'table_info',
             'displaywork' => true,
         ])->displayFeature);
-        $this->assertNull(RelationParameters::fromArray([
+        self::assertNull(RelationParameters::fromArray([
             'db' => 'db',
             'usergroups' => 'usergroups',
             'users' => ' invalid ',
             'menuwork' => true,
         ])->configurableMenusFeature);
-        $this->assertNull(RelationParameters::fromArray([
+        self::assertNull(RelationParameters::fromArray([
             'db' => 'db',
             'usergroups' => ' invalid ',
             'users' => 'users',
@@ -84,18 +84,15 @@ class RelationParametersTest extends TestCase
             'displaywork' => true,
             'relwork' => true,
         ]);
-        $this->assertNotNull($relationParameters->browserTransformationFeature);
-        $this->assertNotNull($relationParameters->columnCommentsFeature);
-        $this->assertNotNull($relationParameters->displayFeature);
-        $this->assertNotNull($relationParameters->relationFeature);
-        $this->assertSame(
+        self::assertNotNull($relationParameters->browserTransformationFeature);
+        self::assertNotNull($relationParameters->columnCommentsFeature);
+        self::assertNotNull($relationParameters->displayFeature);
+        self::assertNotNull($relationParameters->relationFeature);
+        self::assertSame(
             $relationParameters->browserTransformationFeature->columnInfo,
             $relationParameters->columnCommentsFeature->columnInfo
         );
-        $this->assertSame(
-            $relationParameters->relationFeature->relation,
-            $relationParameters->displayFeature->relation
-        );
+        self::assertSame($relationParameters->relationFeature->relation, $relationParameters->displayFeature->relation);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
@@ -107,10 +104,10 @@ class RelationParametersTest extends TestCase
             'displaywork' => true,
             'relwork' => false,
         ]);
-        $this->assertNull($relationParameters->browserTransformationFeature);
-        $this->assertNotNull($relationParameters->columnCommentsFeature);
-        $this->assertNotNull($relationParameters->displayFeature);
-        $this->assertNull($relationParameters->relationFeature);
+        self::assertNull($relationParameters->browserTransformationFeature);
+        self::assertNotNull($relationParameters->columnCommentsFeature);
+        self::assertNotNull($relationParameters->displayFeature);
+        self::assertNull($relationParameters->relationFeature);
     }
 
     public function testFeaturesHaveSameDatabase(): void
@@ -155,44 +152,44 @@ class RelationParametersTest extends TestCase
             'uiprefswork' => true,
             'userconfigwork' => true,
         ]);
-        $this->assertInstanceOf(DatabaseName::class, $relationParameters->db);
-        $this->assertEquals('db', $relationParameters->db->getName());
-        $this->assertNotNull($relationParameters->bookmarkFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->bookmarkFeature->database);
-        $this->assertNotNull($relationParameters->browserTransformationFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->browserTransformationFeature->database);
-        $this->assertNotNull($relationParameters->centralColumnsFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->centralColumnsFeature->database);
-        $this->assertNotNull($relationParameters->columnCommentsFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->columnCommentsFeature->database);
-        $this->assertNotNull($relationParameters->configurableMenusFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->configurableMenusFeature->database);
-        $this->assertNotNull($relationParameters->databaseDesignerSettingsFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->databaseDesignerSettingsFeature->database);
-        $this->assertNotNull($relationParameters->displayFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->displayFeature->database);
-        $this->assertNotNull($relationParameters->exportTemplatesFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->exportTemplatesFeature->database);
-        $this->assertNotNull($relationParameters->favoriteTablesFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->favoriteTablesFeature->database);
-        $this->assertNotNull($relationParameters->navigationItemsHidingFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->navigationItemsHidingFeature->database);
-        $this->assertNotNull($relationParameters->pdfFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->pdfFeature->database);
-        $this->assertNotNull($relationParameters->recentlyUsedTablesFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->recentlyUsedTablesFeature->database);
-        $this->assertNotNull($relationParameters->relationFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->relationFeature->database);
-        $this->assertNotNull($relationParameters->savedQueryByExampleSearchesFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->savedQueryByExampleSearchesFeature->database);
-        $this->assertNotNull($relationParameters->sqlHistoryFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->sqlHistoryFeature->database);
-        $this->assertNotNull($relationParameters->trackingFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->trackingFeature->database);
-        $this->assertNotNull($relationParameters->uiPreferencesFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->uiPreferencesFeature->database);
-        $this->assertNotNull($relationParameters->userPreferencesFeature);
-        $this->assertSame($relationParameters->db, $relationParameters->userPreferencesFeature->database);
+        self::assertInstanceOf(DatabaseName::class, $relationParameters->db);
+        self::assertSame('db', $relationParameters->db->getName());
+        self::assertNotNull($relationParameters->bookmarkFeature);
+        self::assertSame($relationParameters->db, $relationParameters->bookmarkFeature->database);
+        self::assertNotNull($relationParameters->browserTransformationFeature);
+        self::assertSame($relationParameters->db, $relationParameters->browserTransformationFeature->database);
+        self::assertNotNull($relationParameters->centralColumnsFeature);
+        self::assertSame($relationParameters->db, $relationParameters->centralColumnsFeature->database);
+        self::assertNotNull($relationParameters->columnCommentsFeature);
+        self::assertSame($relationParameters->db, $relationParameters->columnCommentsFeature->database);
+        self::assertNotNull($relationParameters->configurableMenusFeature);
+        self::assertSame($relationParameters->db, $relationParameters->configurableMenusFeature->database);
+        self::assertNotNull($relationParameters->databaseDesignerSettingsFeature);
+        self::assertSame($relationParameters->db, $relationParameters->databaseDesignerSettingsFeature->database);
+        self::assertNotNull($relationParameters->displayFeature);
+        self::assertSame($relationParameters->db, $relationParameters->displayFeature->database);
+        self::assertNotNull($relationParameters->exportTemplatesFeature);
+        self::assertSame($relationParameters->db, $relationParameters->exportTemplatesFeature->database);
+        self::assertNotNull($relationParameters->favoriteTablesFeature);
+        self::assertSame($relationParameters->db, $relationParameters->favoriteTablesFeature->database);
+        self::assertNotNull($relationParameters->navigationItemsHidingFeature);
+        self::assertSame($relationParameters->db, $relationParameters->navigationItemsHidingFeature->database);
+        self::assertNotNull($relationParameters->pdfFeature);
+        self::assertSame($relationParameters->db, $relationParameters->pdfFeature->database);
+        self::assertNotNull($relationParameters->recentlyUsedTablesFeature);
+        self::assertSame($relationParameters->db, $relationParameters->recentlyUsedTablesFeature->database);
+        self::assertNotNull($relationParameters->relationFeature);
+        self::assertSame($relationParameters->db, $relationParameters->relationFeature->database);
+        self::assertNotNull($relationParameters->savedQueryByExampleSearchesFeature);
+        self::assertSame($relationParameters->db, $relationParameters->savedQueryByExampleSearchesFeature->database);
+        self::assertNotNull($relationParameters->sqlHistoryFeature);
+        self::assertSame($relationParameters->db, $relationParameters->sqlHistoryFeature->database);
+        self::assertNotNull($relationParameters->trackingFeature);
+        self::assertSame($relationParameters->db, $relationParameters->trackingFeature->database);
+        self::assertNotNull($relationParameters->uiPreferencesFeature);
+        self::assertSame($relationParameters->db, $relationParameters->uiPreferencesFeature->database);
+        self::assertNotNull($relationParameters->userPreferencesFeature);
+        self::assertSame($relationParameters->db, $relationParameters->userPreferencesFeature->database);
     }
 
     public function testHasAllFeatures(): void
@@ -237,10 +234,10 @@ class RelationParametersTest extends TestCase
             'uiprefswork' => true,
             'userconfigwork' => true,
         ];
-        $this->assertFalse(RelationParameters::fromArray([])->hasAllFeatures());
-        $this->assertTrue(RelationParameters::fromArray($params)->hasAllFeatures());
+        self::assertFalse(RelationParameters::fromArray([])->hasAllFeatures());
+        self::assertTrue(RelationParameters::fromArray($params)->hasAllFeatures());
         $params['bookmarkwork'] = false;
-        $this->assertFalse(RelationParameters::fromArray($params)->hasAllFeatures());
+        self::assertFalse(RelationParameters::fromArray($params)->hasAllFeatures());
     }
 
     /**
@@ -251,7 +248,7 @@ class RelationParametersTest extends TestCase
      */
     public function testToArray(array $params, array $expected): void
     {
-        $this->assertSame($expected, RelationParameters::fromArray($params)->toArray());
+        self::assertSame($expected, RelationParameters::fromArray($params)->toArray());
     }
 
     /**

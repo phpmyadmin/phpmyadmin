@@ -43,62 +43,59 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
-            [
-                'innodb_data_home_dir' => [
-                    'title' => __('Data home directory'),
-                    'desc' => __('The common part of the directory path for all InnoDB data files.'),
-                ],
-                'innodb_data_file_path' => [
-                    'title' => __('Data files'),
-                ],
-                'innodb_autoextend_increment' => [
-                    'title' => __('Autoextend increment'),
-                    'desc' => __(
-                        'The increment size for extending the size of an autoextending tablespace when it becomes full.'
-                    ),
-                    'type' => 2,
-                ],
-                'innodb_buffer_pool_size' => [
-                    'title' => __('Buffer pool size'),
-                    'desc' => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
-                    'type' => 1,
-                ],
-                'innodb_additional_mem_pool_size' => [
-                    'title' => 'innodb_additional_mem_pool_size',
-                    'type' => 1,
-                ],
-                'innodb_buffer_pool_awe_mem_mb' => ['type' => 1],
-                'innodb_checksums' => [],
-                'innodb_commit_concurrency' => [],
-                'innodb_concurrency_tickets' => ['type' => 2],
-                'innodb_doublewrite' => [],
-                'innodb_fast_shutdown' => [],
-                'innodb_file_io_threads' => ['type' => 2],
-                'innodb_file_per_table' => [],
-                'innodb_flush_log_at_trx_commit' => [],
-                'innodb_flush_method' => [],
-                'innodb_force_recovery' => [],
-                'innodb_lock_wait_timeout' => ['type' => 2],
-                'innodb_locks_unsafe_for_binlog' => [],
-                'innodb_log_arch_dir' => [],
-                'innodb_log_archive' => [],
-                'innodb_log_buffer_size' => ['type' => 1],
-                'innodb_log_file_size' => ['type' => 1],
-                'innodb_log_files_in_group' => ['type' => 2],
-                'innodb_log_group_home_dir' => [],
-                'innodb_max_dirty_pages_pct' => ['type' => 2],
-                'innodb_max_purge_lag' => [],
-                'innodb_mirrored_log_groups' => ['type' => 2],
-                'innodb_open_files' => ['type' => 2],
-                'innodb_support_xa' => [],
-                'innodb_sync_spin_loops' => ['type' => 2],
-                'innodb_table_locks' => ['type' => 3],
-                'innodb_thread_concurrency' => ['type' => 2],
-                'innodb_thread_sleep_delay' => ['type' => 2],
+        self::assertSame([
+            'innodb_data_home_dir' => [
+                'title' => __('Data home directory'),
+                'desc' => __('The common part of the directory path for all InnoDB data files.'),
             ],
-            $this->object->getVariables()
-        );
+            'innodb_data_file_path' => [
+                'title' => __('Data files'),
+            ],
+            'innodb_autoextend_increment' => [
+                'title' => __('Autoextend increment'),
+                'desc' => __(
+                    'The increment size for extending the size of an autoextending tablespace when it becomes full.'
+                ),
+                'type' => 2,
+            ],
+            'innodb_buffer_pool_size' => [
+                'title' => __('Buffer pool size'),
+                'desc' => __('The size of the memory buffer InnoDB uses to cache data and indexes of its tables.'),
+                'type' => 1,
+            ],
+            'innodb_additional_mem_pool_size' => [
+                'title' => 'innodb_additional_mem_pool_size',
+                'type' => 1,
+            ],
+            'innodb_buffer_pool_awe_mem_mb' => ['type' => 1],
+            'innodb_checksums' => [],
+            'innodb_commit_concurrency' => [],
+            'innodb_concurrency_tickets' => ['type' => 2],
+            'innodb_doublewrite' => [],
+            'innodb_fast_shutdown' => [],
+            'innodb_file_io_threads' => ['type' => 2],
+            'innodb_file_per_table' => [],
+            'innodb_flush_log_at_trx_commit' => [],
+            'innodb_flush_method' => [],
+            'innodb_force_recovery' => [],
+            'innodb_lock_wait_timeout' => ['type' => 2],
+            'innodb_locks_unsafe_for_binlog' => [],
+            'innodb_log_arch_dir' => [],
+            'innodb_log_archive' => [],
+            'innodb_log_buffer_size' => ['type' => 1],
+            'innodb_log_file_size' => ['type' => 1],
+            'innodb_log_files_in_group' => ['type' => 2],
+            'innodb_log_group_home_dir' => [],
+            'innodb_max_dirty_pages_pct' => ['type' => 2],
+            'innodb_max_purge_lag' => [],
+            'innodb_mirrored_log_groups' => ['type' => 2],
+            'innodb_open_files' => ['type' => 2],
+            'innodb_support_xa' => [],
+            'innodb_sync_spin_loops' => ['type' => 2],
+            'innodb_table_locks' => ['type' => 3],
+            'innodb_thread_concurrency' => ['type' => 2],
+            'innodb_thread_sleep_delay' => ['type' => 2],
+        ], $this->object->getVariables());
     }
 
     /**
@@ -106,10 +103,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        $this->assertEquals(
-            'innodb\\_%',
-            $this->object->getVariablesLikePattern()
-        );
+        self::assertSame('innodb\\_%', $this->object->getVariablesLikePattern());
     }
 
     /**
@@ -117,18 +111,12 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInfoPages(): void
     {
-        $this->assertEquals(
-            [],
-            $this->object->getInfoPages()
-        );
+        self::assertSame([], $this->object->getInfoPages());
         $this->object->support = 2;
-        $this->assertEquals(
-            [
-                'Bufferpool' => 'Buffer Pool',
-                'Status' => 'InnoDB Status',
-            ],
-            $this->object->getInfoPages()
-        );
+        self::assertSame([
+            'Bufferpool' => 'Buffer Pool',
+            'Status' => 'InnoDB Status',
+        ], $this->object->getInfoPages());
     }
 
     /**
@@ -136,82 +124,79 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPageBufferpool(): void
     {
-        $this->assertEquals(
-            '<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
-            '    <caption>' . "\n" .
-            '        Buffer Pool Usage' . "\n" .
-            '    </caption>' . "\n" .
-            '    <tfoot>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th colspan="2">' . "\n" .
-            '                Total: 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
-            '            </th>' . "\n" .
-            '        </tr>' . "\n" .
-            '    </tfoot>' . "\n" .
-            '    <tbody>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Free pages</th>' . "\n" .
-            '            <td class="font-monospace text-end">0</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Dirty pages</th>' . "\n" .
-            '            <td class="font-monospace text-end">0</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Pages containing data</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Pages to be flushed</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Busy pages</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>    </tbody>' . "\n" .
-            '</table>' . "\n\n" .
-            '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
-            '    <caption>' . "\n" .
-            '        Buffer Pool Activity' . "\n" .
-            '    </caption>' . "\n" .
-            '    <tbody>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Read requests</th>' . "\n" .
-            '            <td class="font-monospace text-end">64' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Write requests</th>' . "\n" .
-            '            <td class="font-monospace text-end">64' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Read misses</th>' . "\n" .
-            '            <td class="font-monospace text-end">32' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Write waits</th>' . "\n" .
-            '            <td class="font-monospace text-end">0' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Read misses in %</th>' . "\n" .
-            '            <td class="font-monospace text-end">50   %' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '        <tr>' . "\n" .
-            '            <th scope="row">Write waits in %</th>' . "\n" .
-            '            <td class="font-monospace text-end">0 %' . "\n" .
-            '</td>' . "\n" .
-            '        </tr>' . "\n" .
-            '    </tbody>' . "\n" .
-            '</table>' . "\n",
-            $this->object->getPageBufferpool()
-        );
+        self::assertSame('<table class="table table-striped table-hover w-auto float-start caption-top">' . "\n" .
+        '    <caption>' . "\n" .
+        '        Buffer Pool Usage' . "\n" .
+        '    </caption>' . "\n" .
+        '    <tfoot>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th colspan="2">' . "\n" .
+        '                Total: 4,096&nbsp;pages / 65,536&nbsp;KiB' . "\n" .
+        '            </th>' . "\n" .
+        '        </tr>' . "\n" .
+        '    </tfoot>' . "\n" .
+        '    <tbody>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Free pages</th>' . "\n" .
+        '            <td class="font-monospace text-end">0</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Dirty pages</th>' . "\n" .
+        '            <td class="font-monospace text-end">0</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Pages containing data</th>' . "\n" .
+        '            <td class="font-monospace text-end">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Pages to be flushed</th>' . "\n" .
+        '            <td class="font-monospace text-end">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Busy pages</th>' . "\n" .
+        '            <td class="font-monospace text-end">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>    </tbody>' . "\n" .
+        '</table>' . "\n\n" .
+        '<table class="table table-striped table-hover w-auto ms-4 float-start caption-top">' . "\n" .
+        '    <caption>' . "\n" .
+        '        Buffer Pool Activity' . "\n" .
+        '    </caption>' . "\n" .
+        '    <tbody>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Read requests</th>' . "\n" .
+        '            <td class="font-monospace text-end">64' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Write requests</th>' . "\n" .
+        '            <td class="font-monospace text-end">64' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Read misses</th>' . "\n" .
+        '            <td class="font-monospace text-end">32' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Write waits</th>' . "\n" .
+        '            <td class="font-monospace text-end">0' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Read misses in %</th>' . "\n" .
+        '            <td class="font-monospace text-end">50   %' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '        <tr>' . "\n" .
+        '            <th scope="row">Write waits in %</th>' . "\n" .
+        '            <td class="font-monospace text-end">0 %' . "\n" .
+        '</td>' . "\n" .
+        '        </tr>' . "\n" .
+        '    </tbody>' . "\n" .
+        '</table>' . "\n", $this->object->getPageBufferpool());
     }
 
     /**
@@ -219,10 +204,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPageStatus(): void
     {
-        $this->assertEquals(
-            '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
-            $this->object->getPageStatus()
-        );
+        self::assertSame('<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n", $this->object->getPageStatus());
     }
 
     /**
@@ -230,15 +212,9 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetPage(): void
     {
-        $this->assertEquals(
-            '',
-            $this->object->getPage('Status')
-        );
+        self::assertSame('', $this->object->getPage('Status'));
         $this->object->support = 2;
-        $this->assertEquals(
-            '<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n",
-            $this->object->getPage('Status')
-        );
+        self::assertSame('<pre id="pre_innodb_status">' . "\n\n" . '</pre>' . "\n", $this->object->getPage('Status'));
     }
 
     /**
@@ -246,10 +222,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
-            'innodb-storage-engine',
-            $this->object->getMysqlHelpPage()
-        );
+        self::assertSame('innodb-storage-engine', $this->object->getMysqlHelpPage());
     }
 
     /**
@@ -257,10 +230,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInnodbPluginVersion(): void
     {
-        $this->assertEquals(
-            '1.1.8',
-            $this->object->getInnodbPluginVersion()
-        );
+        self::assertSame('1.1.8', $this->object->getInnodbPluginVersion());
     }
 
     /**
@@ -268,9 +238,7 @@ class InnodbTest extends AbstractTestCase
      */
     public function testSupportsFilePerTable(): void
     {
-        $this->assertFalse(
-            $this->object->supportsFilePerTable()
-        );
+        self::assertFalse($this->object->supportsFilePerTable());
     }
 
     /**
@@ -278,9 +246,6 @@ class InnodbTest extends AbstractTestCase
      */
     public function testGetInnodbFileFormat(): void
     {
-        $this->assertEquals(
-            'Antelope',
-            $this->object->getInnodbFileFormat()
-        );
+        self::assertSame('Antelope', $this->object->getInnodbFileFormat());
     }
 }

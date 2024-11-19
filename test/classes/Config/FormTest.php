@@ -57,9 +57,9 @@ class FormTest extends AbstractTestCase
      */
     public function testContructor(): void
     {
-        $this->assertEquals(1, $this->object->index);
-        $this->assertEquals('pma_form_name', $this->object->name);
-        $this->assertArrayHasKey('pma_form1', $this->object->fields);
+        self::assertSame(1, $this->object->index);
+        self::assertSame('pma_form_name', $this->object->name);
+        self::assertArrayHasKey('pma_form1', $this->object->fields);
     }
 
     /**
@@ -74,14 +74,9 @@ class FormTest extends AbstractTestCase
             ['7' => 'Seven']
         );
 
-        $this->assertNull(
-            $this->object->getOptionType('123/4/5/6')
-        );
+        self::assertNull($this->object->getOptionType('123/4/5/6'));
 
-        $this->assertEquals(
-            'Seven',
-            $this->object->getOptionType('123/4/5/7')
-        );
+        self::assertSame('Seven', $this->object->getOptionType('123/4/5/7'));
     }
 
     /**
@@ -89,32 +84,23 @@ class FormTest extends AbstractTestCase
      */
     public function testGetOptionValueList(): void
     {
-        $this->assertEquals(
-            [
-                'NHibernate C# DO',
-                'NHibernate XML',
-            ],
-            $this->object->getOptionValueList('Export/codegen_format')
-        );
+        self::assertSame([
+            'NHibernate C# DO',
+            'NHibernate XML',
+        ], $this->object->getOptionValueList('Export/codegen_format'));
 
-        $this->assertEquals(
-            [
-                'auto' => 'auto',
-                '1' => 1,
-                '0' => 0,
-            ],
-            $this->object->getOptionValueList('OBGzip')
-        );
+        self::assertEquals([
+            'auto' => 'auto',
+            '1' => 1,
+            '0' => 0,
+        ], $this->object->getOptionValueList('OBGzip'));
 
-        $this->assertEquals(
-            [
-                'none' => 'Nowhere',
-                'left' => 'Left',
-                'right' => 'Right',
-                'both' => 'Both',
-            ],
-            $this->object->getOptionValueList('RowActionLinks')
-        );
+        self::assertSame([
+            'none' => 'Nowhere',
+            'left' => 'Left',
+            'right' => 'Right',
+            'both' => 'Both',
+        ], $this->object->getOptionValueList('RowActionLinks'));
     }
 
     /**
@@ -139,18 +125,18 @@ class FormTest extends AbstractTestCase
 
         $result = $this->object->fields;
 
-        $this->assertCount(4, $result);
+        self::assertCount(4, $result);
 
-        $this->assertEquals('pma_form1', $result['pma_form1']);
+        self::assertSame('pma_form1', $result['pma_form1']);
 
-        $this->assertEquals('pma_form2', $result['pma_form2']);
+        self::assertSame('pma_form2', $result['pma_form2']);
 
-        $this->assertEquals('preffoo/foo/bar/test', $result[0]);
+        self::assertSame('preffoo/foo/bar/test', $result[0]);
 
-        $this->assertIsString($result[1]);
+        self::assertIsString($result[1]);
 
         // needs regexp because the counter is static
-        $this->assertMatchesRegularExpressionCompat('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
+        self::assertMatchesRegularExpressionCompat('/^preffoo\/foo\/bar\/\:group\:end\:\d+$/', $result[1]);
     }
 
     /**
@@ -175,9 +161,9 @@ class FormTest extends AbstractTestCase
 
         $result = $this->object->fields;
 
-        $this->assertCount(2, $result);
+        self::assertCount(2, $result);
 
-        $this->assertEquals('foo/bar/test', $result['test']);
+        self::assertSame('foo/bar/test', $result['test']);
 
         unset($result['test']);
 
@@ -185,13 +171,13 @@ class FormTest extends AbstractTestCase
 
         $keys = array_keys($result);
         $key = $keys[0];
-        $this->assertIsString($key);
-        $this->assertMatchesRegularExpressionCompat('/^\:group\:end\:(\d+)$/', $key);
+        self::assertIsString($key);
+        self::assertMatchesRegularExpressionCompat('/^\:group\:end\:(\d+)$/', $key);
 
         preg_match('/^\:group\:end\:(\d+)$/', $key, $matches);
         $digit = $matches[1];
 
-        $this->assertEquals('foo/bar/:group:end:' . $digit, $result[':group:end:' . $digit]);
+        self::assertSame('foo/bar/:group:end:' . $digit, $result[':group:end:' . $digit]);
     }
 
     /**
@@ -215,15 +201,12 @@ class FormTest extends AbstractTestCase
 
         $method->invoke($this->object, null);
 
-        $this->assertEquals(
-            [
-                'pma_form1' => 'integer',
-                'pma_form2' => 'select',
-                ':group:end:0' => 'group',
-                '1' => 'NULL',
-            ],
-            $attrFieldsTypes->getValue($this->object)
-        );
+        self::assertSame([
+            'pma_form1' => 'integer',
+            'pma_form2' => 'select',
+            ':group:end:0' => 'group',
+            '1' => 'NULL',
+        ], $attrFieldsTypes->getValue($this->object));
     }
 
     /**
@@ -245,7 +228,7 @@ class FormTest extends AbstractTestCase
 
         $this->object->loadForm('pmaform', ['testForm']);
 
-        $this->assertEquals('pmaform', $this->object->name);
+        self::assertSame('pmaform', $this->object->name);
     }
 
     /**

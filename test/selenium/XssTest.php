@@ -38,6 +38,6 @@ class XssTest extends TestBase
 
         $this->waitForElement('id', 'querybox');
         $this->byId('button_submit_query')->click();
-        $this->assertEquals('Missing value in the form!', $this->alertText());
+        self::assertEquals('Missing value in the form!', $this->alertText());
     }
 }

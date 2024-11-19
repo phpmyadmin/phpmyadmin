@@ -20,10 +20,10 @@ class ProfilingTest extends AbstractTestCase
 
         SessionCache::set('profiling_supported', true);
         $condition = Profiling::isSupported($dbi);
-        $this->assertTrue($condition);
+        self::assertTrue($condition);
 
         SessionCache::set('profiling_supported', false);
         $condition = Profiling::isSupported($dbi);
-        $this->assertFalse($condition);
+        self::assertFalse($condition);
     }
 }

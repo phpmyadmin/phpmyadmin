@@ -70,9 +70,9 @@ class CreateRemoveUserTest extends TestBase
         $genButton = $this->waitForElement('id', 'button_generate_password');
         $genButton->click();
 
-        $this->assertNotEquals('', $this->byId('text_pma_pw')->getAttribute('value'));
-        $this->assertNotEquals('', $this->byId('text_pma_pw2')->getAttribute('value'));
-        $this->assertNotEquals('', $this->byId('generated_pw')->getAttribute('value'));
+        self::assertNotEquals('', $this->byId('text_pma_pw')->getAttribute('value'));
+        self::assertNotEquals('', $this->byId('text_pma_pw2')->getAttribute('value'));
+        self::assertNotEquals('', $this->byId('generated_pw')->getAttribute('value'));
 
         $this->byId('text_pma_pw')->sendKeys($this->txtPassword);
         $this->byId('text_pma_pw2')->sendKeys($this->txtPassword);
@@ -89,7 +89,7 @@ class CreateRemoveUserTest extends TestBase
         $this->waitForElement('id', 'adduser_submit')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString('You have added a new user', $success->getText());
+        self::assertStringContainsString('You have added a new user', $success->getText());
 
         // Removing the newly added user
         $this->waitForElement('partialLinkText', 'User accounts')->click();
@@ -106,9 +106,6 @@ class CreateRemoveUserTest extends TestBase
         $this->acceptAlert();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
-        $this->assertStringContainsString(
-            'The selected users have been deleted',
-            $success->getText()
-        );
+        self::assertStringContainsString('The selected users have been deleted', $success->getText());
     }
 }

@@ -125,21 +125,19 @@ class EventsTest extends TestBase
         // Refresh the page
         $this->webDriver->navigate()->refresh();
 
-        $this->assertTrue(
-            $this->isElementPresent(
-                'xpath',
-                "//td[contains(., 'test_event')]"
-            )
-        );
+        self::assertTrue($this->isElementPresent(
+            'xpath',
+            "//td[contains(., 'test_event')]"
+        ));
 
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
-                $this->assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
-                $this->assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
+                self::assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
             }
         );
 
@@ -149,7 +147,7 @@ class EventsTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | <number>
-                $this->assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 6));
+                self::assertGreaterThan(2, (int) $this->getCellByTableClass('table_results', 1, 6));
             }
         );
     }
@@ -187,7 +185,7 @@ class EventsTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 4
-                $this->assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 6));
+                self::assertGreaterThan(3, (int) $this->getCellByTableClass('table_results', 1, 6));
             }
         );
     }
@@ -215,8 +213,8 @@ class EventsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             }
         );
     }

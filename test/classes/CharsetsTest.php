@@ -46,32 +46,32 @@ class CharsetsTest extends AbstractTestCase
         );
 
         $charset = Charsets::getServerCharset($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
-        $this->assertSame('utf8', $charset->getName());
+        self::assertSame('utf8', $charset->getName());
 
         $charset = Charsets::getServerCharset($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
-        $this->assertSame('Unknown', $charset->getName());
+        self::assertSame('Unknown', $charset->getName());
 
         $charset = Charsets::getServerCharset($GLOBALS['dbi'], $GLOBALS['cfg']['Server']['DisableIS']);
-        $this->assertSame('utf8', $charset->getName());
+        self::assertSame('utf8', $charset->getName());
 
         $this->assertAllQueriesConsumed();
     }
 
     public function testFindCollationByName(): void
     {
-        $this->assertNull(Charsets::findCollationByName(
+        self::assertNull(Charsets::findCollationByName(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             null
         ));
 
-        $this->assertNull(Charsets::findCollationByName(
+        self::assertNull(Charsets::findCollationByName(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             ''
         ));
 
-        $this->assertNull(Charsets::findCollationByName(
+        self::assertNull(Charsets::findCollationByName(
             $GLOBALS['dbi'],
             $GLOBALS['cfg']['Server']['DisableIS'],
             'invalid'
@@ -83,19 +83,19 @@ class CharsetsTest extends AbstractTestCase
             'utf8_general_ci'
         );
 
-        $this->assertInstanceOf(Charsets\Collation::class, $actual);
+        self::assertInstanceOf(Charsets\Collation::class, $actual);
 
-        $this->assertSame('utf8_general_ci', $actual->getName());
+        self::assertSame('utf8_general_ci', $actual->getName());
     }
 
     public function testGetCollationsMariaDB(): void
     {
         $this->dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($this->dbi, false);
-        $this->assertCount(4, $collations);
-        $this->assertContainsOnly('array', $collations);
+        self::assertCount(4, $collations);
+        self::assertContainsOnly('array', $collations);
         foreach ($collations as $collation) {
-            $this->assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
+            self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
     }
 }

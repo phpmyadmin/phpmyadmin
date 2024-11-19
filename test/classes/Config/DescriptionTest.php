@@ -34,7 +34,7 @@ class DescriptionTest extends AbstractTestCase
      */
     public function testGet(string $item, string $type, string $expected): void
     {
-        $this->assertEquals($expected, Descriptions::get($item, $type));
+        self::assertSame($expected, Descriptions::get($item, $type));
     }
 
     /**
@@ -68,9 +68,9 @@ class DescriptionTest extends AbstractTestCase
      */
     public function assertGet(string $key): void
     {
-        $this->assertNotNull(Descriptions::get($key, 'name'));
-        $this->assertNotNull(Descriptions::get($key, 'desc'));
-        $this->assertNotNull(Descriptions::get($key, 'cmt'));
+        self::assertNotNull(Descriptions::get($key, 'name'));
+        self::assertNotNull(Descriptions::get($key, 'desc'));
+        self::assertNotNull(Descriptions::get($key, 'cmt'));
     }
 
     /**
@@ -93,8 +93,8 @@ class DescriptionTest extends AbstractTestCase
         foreach ($cfg as $key => $value) {
             $this->assertGet($key);
             if ($key == 'Servers') {
-                $this->assertIsArray($value);
-                $this->assertIsArray($value[1]);
+                self::assertIsArray($value);
+                self::assertIsArray($value[1]);
                 foreach ($value[1] as $item => $val) {
                     $this->assertGet($key . '/1/' . $item);
                     if ($item != 'AllowDeny') {
@@ -102,12 +102,12 @@ class DescriptionTest extends AbstractTestCase
                     }
 
                     foreach ($val as $second => $val2) {
-                        $this->assertNotNull($val2);
+                        self::assertNotNull($val2);
                         $this->assertGet($key . '/1/' . $item . '/' . $second);
                     }
                 }
             } elseif (in_array($key, $nested)) {
-                $this->assertIsArray($value);
+                self::assertIsArray($value);
                 foreach (array_keys($value) as $item) {
                     $this->assertGet($key . '/' . $item);
                 }

@@ -16,13 +16,13 @@ class PartitionTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
         $actual = Partition::getPartitionMethod('database', 'no_partition_method');
-        $this->assertNull($actual);
+        self::assertNull($actual);
     }
 
     public function testGetPartitionMethodWithRangeMethod(): void
     {
         $GLOBALS['server'] = 1;
         $actual = Partition::getPartitionMethod('database', 'range_partition_method');
-        $this->assertEquals('RANGE', $actual);
+        self::assertSame('RANGE', $actual);
     }
 }

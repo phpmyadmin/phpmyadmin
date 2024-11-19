@@ -73,124 +73,74 @@ class ExportHtmlwordTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'Microsoft Word 2000',
-            $properties->getText()
-        );
+        self::assertSame('Microsoft Word 2000', $properties->getText());
 
-        $this->assertEquals(
-            'doc',
-            $properties->getExtension()
-        );
+        self::assertSame('doc', $properties->getExtension());
 
-        $this->assertEquals(
-            'application/vnd.ms-word',
-            $properties->getMimeType()
-        );
+        self::assertSame('application/vnd.ms-word', $properties->getMimeType());
 
-        $this->assertEquals(
-            'Options',
-            $properties->getOptionsText()
-        );
+        self::assertSame('Options', $properties->getOptionsText());
 
-        $this->assertTrue(
-            $properties->getForceFile()
-        );
+        self::assertTrue($properties->getForceFile());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'dump_what',
-            $generalOptions->getName()
-        );
+        self::assertSame('dump_what', $generalOptions->getName());
 
-        $this->assertEquals(
-            'Dump table',
-            $generalOptions->getText()
-        );
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_or_data',
-            $property->getName()
-        );
+        self::assertSame('structure_or_data', $property->getName());
 
-        $this->assertEquals(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
-            $property->getValues()
-        );
+        self::assertSame([
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data'),
+        ], $property->getValues());
 
         $generalOptions = $generalOptionsArray[1];
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'dump_what',
-            $generalOptions->getName()
-        );
+        self::assertSame('dump_what', $generalOptions->getName());
 
-        $this->assertEquals(
-            'Data dump options',
-            $generalOptions->getText()
-        );
+        self::assertSame('Data dump options', $generalOptions->getText());
 
-        $this->assertEquals(
-            'structure',
-            $generalOptions->getForce()
-        );
+        self::assertSame('structure', $generalOptions->getForce());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'null',
-            $property->getName()
-        );
+        self::assertSame('null', $property->getName());
 
-        $this->assertEquals(
-            'Replace NULL with:',
-            $property->getText()
-        );
+        self::assertSame('Replace NULL with:', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'columns',
-            $property->getName()
-        );
+        self::assertSame('columns', $property->getName());
 
-        $this->assertEquals(
-            'Put columns names in the first row',
-            $property->getText()
-        );
+        self::assertSame('Put columns names in the first row', $property->getText());
     }
 
     public function testExportHeader(): void
@@ -212,7 +162,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals($expected, $result);
+        self::assertSame($expected, $result);
 
         // case 2
 
@@ -234,43 +184,35 @@ class ExportHtmlwordTest extends AbstractTestCase
             </head>
             <body>';
 
-        $this->assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
     public function testExportFooter(): void
     {
         ob_start();
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
+        self::assertTrue($this->object->exportFooter());
         $result = ob_get_clean();
 
-        $this->assertEquals('</body></html>', $result);
+        self::assertSame('</body></html>', $result);
     }
 
     public function testExportDBHeader(): void
     {
         ob_start();
-        $this->assertTrue(
-            $this->object->exportDBHeader('d"b')
-        );
+        self::assertTrue($this->object->exportDBHeader('d"b'));
         $result = ob_get_clean();
 
-        $this->assertEquals('<h1>Database d&quot;b</h1>', $result);
+        self::assertSame('<h1>Database d&quot;b</h1>', $result);
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
-        );
+        self::assertTrue($this->object->exportDBFooter('testDB'));
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB', 'database'));
     }
 
     public function testExportData(): void
@@ -286,7 +228,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             "\n",
@@ -295,21 +237,18 @@ class ExportHtmlwordTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h2>Dumping data for table test_table</h2>'
-            . '<table width="100%" cellspacing="1"><tr class="print-category">'
-            . '<td class="print"><strong>id</strong></td>'
-            . '<td class="print"><strong>name</strong></td>'
-            . '<td class="print"><strong>datetimefield</strong></td>'
-            . '</tr><tr class="print-category">'
-            . '<td class="print">1</td><td class="print">abcd</td><td class="print">2011-01-20 02:00:02</td>'
-            . '</tr><tr class="print-category">'
-            . '<td class="print">2</td><td class="print">foo</td><td class="print">2010-01-20 02:00:02</td>'
-            . '</tr><tr class="print-category">'
-            . '<td class="print">3</td><td class="print">Abcd</td><td class="print">2012-01-20 02:00:02</td>'
-            . '</tr></table>',
-            $result
-        );
+        self::assertSame('<h2>Dumping data for table test_table</h2>'
+        . '<table width="100%" cellspacing="1"><tr class="print-category">'
+        . '<td class="print"><strong>id</strong></td>'
+        . '<td class="print"><strong>name</strong></td>'
+        . '<td class="print"><strong>datetimefield</strong></td>'
+        . '</tr><tr class="print-category">'
+        . '<td class="print">1</td><td class="print">abcd</td><td class="print">2011-01-20 02:00:02</td>'
+        . '</tr><tr class="print-category">'
+        . '<td class="print">2</td><td class="print">foo</td><td class="print">2010-01-20 02:00:02</td>'
+        . '</tr><tr class="print-category">'
+        . '<td class="print">3</td><td class="print">Abcd</td><td class="print">2012-01-20 02:00:02</td>'
+        . '</tr></table>', $result);
     }
 
     public function testGetTableDefStandIn(): void
@@ -352,15 +291,12 @@ class ExportHtmlwordTest extends AbstractTestCase
             ->with(['Field' => 'column'], ['name1'], 'column')
             ->will($this->returnValue(1));
 
-        $this->assertEquals(
-            '<table width="100%" cellspacing="1">' .
-            '<tr class="print-category"><th class="print">Column</th>' .
-            '<td class="print"><strong>Type</strong></td>' .
-            '<td class="print"><strong>Null</strong></td>' .
-            '<td class="print"><strong>Default</strong></td></tr>' .
-            '1</tr></table>',
-            $this->object->getTableDefStandIn('database', 'view', "\n")
-        );
+        self::assertSame('<table width="100%" cellspacing="1">' .
+        '<tr class="print-category"><th class="print">Column</th>' .
+        '<td class="print"><strong>Type</strong></td>' .
+        '<td class="print"><strong>Null</strong></td>' .
+        '<td class="print"><strong>Default</strong></td></tr>' .
+        '1</tr></table>', $this->object->getTableDefStandIn('database', 'view', "\n"));
     }
 
     public function testGetTableDef(): void
@@ -447,17 +383,14 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
-        $this->assertEquals(
-            '<table width="100%" cellspacing="1">' .
-            '<tr class="print-category"><th class="print">Column</th>' .
-            '<td class="print"><strong>Type</strong></td>' .
-            '<td class="print"><strong>Null</strong></td>' .
-            '<td class="print"><strong>Default</strong></td>' .
-            '<td class="print"><strong>Comments</strong></td>' .
-            '<td class="print"><strong>Media type</strong></td></tr>' .
-            '1<td class="print"></td><td class="print">Test&lt;</td></tr></table>',
-            $result
-        );
+        self::assertSame('<table width="100%" cellspacing="1">' .
+        '<tr class="print-category"><th class="print">Column</th>' .
+        '<td class="print"><strong>Type</strong></td>' .
+        '<td class="print"><strong>Null</strong></td>' .
+        '<td class="print"><strong>Default</strong></td>' .
+        '<td class="print"><strong>Comments</strong></td>' .
+        '<td class="print"><strong>Media type</strong></td></tr>' .
+        '1<td class="print"></td><td class="print">Test&lt;</td></tr></table>', $result);
 
         // case 2
 
@@ -527,9 +460,9 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', true, true, true);
 
-        $this->assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
+        self::assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
-        $this->assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
+        self::assertStringContainsString('<td class="print"></td><td class="print"></td>', $result);
 
         // case 3
 
@@ -566,14 +499,11 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('database', '', false, false, false);
 
-        $this->assertEquals(
-            '<table width="100%" cellspacing="1">' .
-            '<tr class="print-category"><th class="print">Column</th>' .
-            '<td class="print"><strong>Type</strong></td>' .
-            '<td class="print"><strong>Null</strong></td>' .
-            '<td class="print"><strong>Default</strong></td></tr>1</tr></table>',
-            $result
-        );
+        self::assertSame('<table width="100%" cellspacing="1">' .
+        '<tr class="print-category"><th class="print">Column</th>' .
+        '<td class="print"><strong>Type</strong></td>' .
+        '<td class="print"><strong>Null</strong></td>' .
+        '<td class="print"><strong>Default</strong></td></tr>1</tr></table>', $result);
     }
 
     public function testGetTriggers(): void
@@ -602,125 +532,102 @@ class ExportHtmlwordTest extends AbstractTestCase
         $method->setAccessible(true);
         $result = $method->invoke($this->object, 'database', 'table');
 
-        $this->assertStringContainsString(
-            '<td class="print">tna&quot;me</td>' .
-            '<td class="print">ac&gt;t</td>' .
-            '<td class="print">manip&amp;</td>' .
-            '<td class="print">def</td>',
-            $result
-        );
+        self::assertStringContainsString('<td class="print">tna&quot;me</td>' .
+        '<td class="print">ac&gt;t</td>' .
+        '<td class="print">manip&amp;</td>' .
+        '<td class="print">def</td>', $result);
     }
 
     public function testExportStructure(): void
     {
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'create_table',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'create_table',
+            'test'
+        ));
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h2>Table structure for table test_table</h2>'
-            . '<table width="100%" cellspacing="1"><tr class="print-category">'
-            . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
-            . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td></tr>'
-            . '<tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
-            . '<td class="print">int(11)</td><td class="print">No</td><td class="print">NULL</td></tr>'
-            . '<tr class="print-category"><td class="print">name</td><td class="print">varchar(20)</td>'
-            . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
-            . '<td class="print">datetimefield</td><td class="print">datetime</td>'
-            . '<td class="print">No</td><td class="print">NULL</td></tr></table>',
-            $result
-        );
+        self::assertSame('<h2>Table structure for table test_table</h2>'
+        . '<table width="100%" cellspacing="1"><tr class="print-category">'
+        . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
+        . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td></tr>'
+        . '<tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
+        . '<td class="print">int(11)</td><td class="print">No</td><td class="print">NULL</td></tr>'
+        . '<tr class="print-category"><td class="print">name</td><td class="print">varchar(20)</td>'
+        . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
+        . '<td class="print">datetimefield</td><td class="print">datetime</td>'
+        . '<td class="print">No</td><td class="print">NULL</td></tr></table>', $result);
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'triggers',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'triggers',
+            'test'
+        ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
-            . '<tr class="print-category"><th class="print">Name</th>'
-            . '<td class="print"><strong>Time</strong></td><td class="print"><strong>Event</strong></td>'
-            . '<td class="print"><strong>Definition</strong></td></tr><tr class="print-category">'
-            . '<td class="print">test_trigger</td><td class="print">AFTER</td>'
-            . '<td class="print">INSERT</td><td class="print">BEGIN END</td></tr></table>',
-            $result
-        );
+        self::assertSame('<h2>Triggers test_table</h2><table width="100%" cellspacing="1">'
+        . '<tr class="print-category"><th class="print">Name</th>'
+        . '<td class="print"><strong>Time</strong></td><td class="print"><strong>Event</strong></td>'
+        . '<td class="print"><strong>Definition</strong></td></tr><tr class="print-category">'
+        . '<td class="print">test_trigger</td><td class="print">AFTER</td>'
+        . '<td class="print">INSERT</td><td class="print">BEGIN END</td></tr></table>', $result);
 
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'create_view',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'create_view',
+            'test'
+        ));
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h2>Structure for view test_table</h2>'
-            . '<table width="100%" cellspacing="1"><tr class="print-category">'
-            . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
-            . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong>'
-            . '</td></tr><tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
-            . '<td class="print">int(11)</td><td class="print">No</td><td class="print">NULL</td></tr>'
-            . '<tr class="print-category"><td class="print">name</td><td class="print">varchar(20)</td>'
-            . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
-            . '<td class="print">datetimefield</td><td class="print">datetime</td>'
-            . '<td class="print">No</td><td class="print">NULL</td></tr></table>',
-            $result
-        );
+        self::assertSame('<h2>Structure for view test_table</h2>'
+        . '<table width="100%" cellspacing="1"><tr class="print-category">'
+        . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
+        . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong>'
+        . '</td></tr><tr class="print-category"><td class="print"><em><strong>id</strong></em></td>'
+        . '<td class="print">int(11)</td><td class="print">No</td><td class="print">NULL</td></tr>'
+        . '<tr class="print-category"><td class="print">name</td><td class="print">varchar(20)</td>'
+        . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
+        . '<td class="print">datetimefield</td><td class="print">datetime</td>'
+        . '<td class="print">No</td><td class="print">NULL</td></tr></table>', $result);
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'stand_in',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'stand_in',
+            'test'
+        ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '<h2>Stand-in structure for view test_table</h2>'
-            . '<table width="100%" cellspacing="1"><tr class="print-category">'
-            . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
-            . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td>'
-            . '</tr><tr class="print-category">'
-            . '<td class="print"><em><strong>id</strong></em></td><td class="print">int(11)</td>'
-            . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
-            . '<td class="print">name</td><td class="print">varchar(20)</td><td class="print">No</td>'
-            . '<td class="print">NULL</td></tr><tr class="print-category">'
-            . '<td class="print">datetimefield</td><td class="print">datetime</td>'
-            . '<td class="print">No</td><td class="print">NULL</td></tr></table>',
-            $result
-        );
+        self::assertSame('<h2>Stand-in structure for view test_table</h2>'
+        . '<table width="100%" cellspacing="1"><tr class="print-category">'
+        . '<th class="print">Column</th><td class="print"><strong>Type</strong></td>'
+        . '<td class="print"><strong>Null</strong></td><td class="print"><strong>Default</strong></td>'
+        . '</tr><tr class="print-category">'
+        . '<td class="print"><em><strong>id</strong></em></td><td class="print">int(11)</td>'
+        . '<td class="print">No</td><td class="print">NULL</td></tr><tr class="print-category">'
+        . '<td class="print">name</td><td class="print">varchar(20)</td><td class="print">No</td>'
+        . '<td class="print">NULL</td></tr><tr class="print-category">'
+        . '<td class="print">datetimefield</td><td class="print">datetime</td>'
+        . '<td class="print">No</td><td class="print">NULL</td></tr></table>', $result);
     }
 
     public function testFormatOneColumnDefinition(): void
@@ -737,12 +644,9 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        $this->assertEquals(
-            '<tr class="print-category"><td class="print"><em>' .
-            '<strong>field</strong></em></td><td class="print">set(abc)</td>' .
-            '<td class="print">Yes</td><td class="print">NULL</td>',
-            $method->invoke($this->object, $cols, $unique_keys)
-        );
+        self::assertSame('<tr class="print-category"><td class="print"><em>' .
+        '<strong>field</strong></em></td><td class="print">set(abc)</td>' .
+        '<td class="print">Yes</td><td class="print">NULL</td>', $method->invoke($this->object, $cols, $unique_keys));
 
         $cols = [
             'Null' => 'NO',
@@ -754,11 +658,8 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        $this->assertEquals(
-            '<tr class="print-category"><td class="print">fields</td>' .
-            '<td class="print">&amp;nbsp;</td><td class="print">No</td>' .
-            '<td class="print">def</td>',
-            $method->invoke($this->object, $cols, $unique_keys)
-        );
+        self::assertSame('<tr class="print-category"><td class="print">fields</td>' .
+        '<td class="print">&amp;nbsp;</td><td class="print">No</td>' .
+        '<td class="print">def</td>', $method->invoke($this->object, $cols, $unique_keys));
     }
 }

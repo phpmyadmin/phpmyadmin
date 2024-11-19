@@ -8,6 +8,7 @@ use PhpMyAdmin\Cache;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -101,26 +102,32 @@ abstract class AbstractTestCase extends TestCase
         Cache::purge();
     }
 
+    protected function createDatabaseInterface(?DbiExtension $extension = null): DatabaseInterface
+    {
+        return new DatabaseInterface($extension ?? $this->createDbiDummy());
+    }
+
+    protected function createDbiDummy(): DbiDummy
+    {
+        return new DbiDummy();
+    }
+
     protected function assertAllQueriesConsumed(): void
     {
         $unUsedQueries = $this->dummyDbi->getUnUsedQueries();
-        $this->assertSame([], $unUsedQueries, 'Some queries where not used !');
+        self::assertSame([], $unUsedQueries, 'Some queries where not used !');
     }
 
     protected function assertAllSelectsConsumed(): void
     {
         $unUsedSelects = $this->dummyDbi->getUnUsedDatabaseSelects();
-        $this->assertSame(
-            [],
-            $unUsedSelects,
-            'Some database selects where not used !'
-        );
+        self::assertSame([], $unUsedSelects, 'Some database selects where not used !');
     }
 
     protected function assertAllErrorCodesConsumed(): void
     {
         if ($this->dummyDbi->hasUnUsedErrors() === false) {
-            $this->assertTrue(true);// increment the assertion count
+            self::assertTrue(true);// increment the assertion count
 
             return;
         }
@@ -205,7 +212,7 @@ abstract class AbstractTestCase extends TestCase
         /** @var ResponseRenderer $response */
         $response = $containerBuilder->get(ResponseRenderer::class);
 
-        $this->assertFalse($response->hasSuccessState(), 'expected the request to fail');
+        self::assertFalse($response->hasSuccessState(), 'expected the request to fail');
     }
 
     protected function assertResponseWasSuccessfull(): void
@@ -214,7 +221,7 @@ abstract class AbstractTestCase extends TestCase
         /** @var ResponseRenderer $response */
         $response = $containerBuilder->get(ResponseRenderer::class);
 
-        $this->assertTrue($response->hasSuccessState(), 'expected the request not to fail');
+        self::assertTrue($response->hasSuccessState(), 'expected the request not to fail');
     }
 
     protected function setGlobalDbi(): void

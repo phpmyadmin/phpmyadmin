@@ -45,15 +45,12 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $this->stub->addProperty(2);
         $this->stub->addProperty('2');
 
-        $this->assertEquals(
-            [
-                1,
-                2,
-                3,
-                '2',
-            ],
-            $properties->getValue($this->stub)
-        );
+        self::assertSame([
+            1,
+            2,
+            3,
+            '2',
+        ], $properties->getValue($this->stub));
     }
 
     public function testRemoveProperty(): void
@@ -64,22 +61,16 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $properties->setValue($this->stub, [1, 2, 'test', 3]);
         $this->stub->removeProperty('test');
 
-        $this->assertEquals(
-            [
-                0 => 1,
-                1 => 2,
-                3 => 3,
-            ],
-            $properties->getValue($this->stub)
-        );
+        self::assertSame([
+            0 => 1,
+            1 => 2,
+            3 => 3,
+        ], $properties->getValue($this->stub));
     }
 
     public function testGetGroup(): void
     {
-        $this->assertInstanceOf(
-            OptionsPropertyGroup::class,
-            $this->stub->getGroup()
-        );
+        self::assertInstanceOf(OptionsPropertyGroup::class, $this->stub->getGroup());
     }
 
     public function testGetProperties(): void
@@ -88,14 +79,11 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $properties->setAccessible(true);
         $properties->setValue($this->stub, [1, 2, 3]);
 
-        $this->assertEquals(
-            [
-                1,
-                2,
-                3,
-            ],
-            $this->stub->getProperties()
-        );
+        self::assertSame([
+            1,
+            2,
+            3,
+        ], $this->stub->getProperties());
     }
 
     public function testGetNrOfProperties(): void
@@ -104,9 +92,6 @@ class OptionsPropertyGroupTest extends AbstractTestCase
         $properties->setAccessible(true);
         $properties->setValue($this->stub, [1, 2, 3]);
 
-        $this->assertEquals(
-            3,
-            $this->stub->getNrOfProperties()
-        );
+        self::assertSame(3, $this->stub->getNrOfProperties());
     }
 }

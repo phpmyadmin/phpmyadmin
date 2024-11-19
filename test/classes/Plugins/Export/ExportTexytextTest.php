@@ -73,118 +73,81 @@ class ExportTexytextTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'Texy! text',
-            $properties->getText()
-        );
+        self::assertSame('Texy! text', $properties->getText());
 
-        $this->assertEquals(
-            'txt',
-            $properties->getExtension()
-        );
+        self::assertSame('txt', $properties->getExtension());
 
-        $this->assertEquals(
-            'text/plain',
-            $properties->getMimeType()
-        );
+        self::assertSame('text/plain', $properties->getMimeType());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'general_opts',
-            $generalOptions->getName()
-        );
+        self::assertSame('general_opts', $generalOptions->getName());
 
-        $this->assertEquals(
-            'Dump table',
-            $generalOptions->getText()
-        );
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'data',
-            $generalOptions->getName()
-        );
+        self::assertSame('data', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'columns',
-            $property->getName()
-        );
+        self::assertSame('columns', $property->getName());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'null',
-            $property->getName()
-        );
+        self::assertSame('null', $property->getName());
     }
 
     public function testExportHeader(): void
     {
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
+        self::assertTrue($this->object->exportHeader());
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
+        self::assertTrue($this->object->exportFooter());
     }
 
     public function testExportDBHeader(): void
     {
         $this->expectOutputString("===Database testDb\n\n");
-        $this->assertTrue(
-            $this->object->exportDBHeader('testDb')
-        );
+        self::assertTrue($this->object->exportDBHeader('testDb'));
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
-        );
+        self::assertTrue($this->object->exportDBFooter('testDB'));
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB', 'database'));
     }
 
     public function testExportData(): void
@@ -194,28 +157,23 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['foo_null'] = '>';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'SELECT * FROM `test_db`.`test_table`;'
-            )
-        );
+        self::assertTrue($this->object->exportData(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'SELECT * FROM `test_db`.`test_table`;'
+        ));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
-            '== Dumping data for table test_table' . "\n\n"
-                . '|------' . "\n"
-                . '|id|name|datetimefield' . "\n"
-                . '|------' . "\n"
-                . '|1|abcd|2011-01-20 02:00:02' . "\n"
-                . '|2|foo|2010-01-20 02:00:02' . "\n"
-                . '|3|Abcd|2012-01-20 02:00:02' . "\n",
-            $result
-        );
+        self::assertIsString($result);
+        self::assertSame('== Dumping data for table test_table' . "\n\n"
+            . '|------' . "\n"
+            . '|id|name|datetimefield' . "\n"
+            . '|------' . "\n"
+            . '|1|abcd|2011-01-20 02:00:02' . "\n"
+            . '|2|foo|2010-01-20 02:00:02' . "\n"
+            . '|3|Abcd|2012-01-20 02:00:02' . "\n", $result);
     }
 
     public function testGetTableDefStandIn(): void
@@ -224,15 +182,12 @@ class ExportTexytextTest extends AbstractTestCase
         $result = $this->object->getTableDefStandIn('test_db', 'test_table', "\n");
         $this->assertAllSelectsConsumed();
 
-        $this->assertEquals(
-            '|------' . "\n"
-            . '|Column|Type|Null|Default' . "\n"
-            . '|------' . "\n"
-            . '|//**id**//|int(11)|No|NULL' . "\n"
-            . '|name|varchar(20)|No|NULL' . "\n"
-            . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
-        );
+        self::assertSame('|------' . "\n"
+        . '|Column|Type|Null|Default' . "\n"
+        . '|------' . "\n"
+        . '|//**id**//|int(11)|No|NULL' . "\n"
+        . '|name|varchar(20)|No|NULL' . "\n"
+        . '|datetimefield|datetime|No|NULL' . "\n", $result);
     }
 
     public function testGetTableDef(): void
@@ -319,7 +274,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $result = $this->object->getTableDef('db', 'table', "\n", 'example.com', true, true, true);
 
-        $this->assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
+        self::assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
 
     public function testGetTriggers(): void
@@ -346,9 +301,9 @@ class ExportTexytextTest extends AbstractTestCase
 
         $result = $this->object->getTriggers('database', 'ta<ble');
 
-        $this->assertStringContainsString('|tna"me|ac>t|manip&|def', $result);
+        self::assertStringContainsString('|tna"me|ac>t|manip&|def', $result);
 
-        $this->assertStringContainsString('|Name|Time|Event|Definition', $result);
+        self::assertStringContainsString('|Name|Time|Event|Definition', $result);
     }
 
     public function testExportStructure(): void
@@ -356,107 +311,87 @@ class ExportTexytextTest extends AbstractTestCase
         // case 1
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'create_table',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'create_table',
+            'test'
+        ));
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
-            '== Table structure for table test_table' . "\n\n"
-            . '|------' . "\n"
-            . '|Column|Type|Null|Default' . "\n"
-            . '|------' . "\n"
-            . '|//**id**//|int(11)|No|NULL' . "\n"
-            . '|name|varchar(20)|No|NULL' . "\n"
-            . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
-        );
+        self::assertIsString($result);
+        self::assertSame('== Table structure for table test_table' . "\n\n"
+        . '|------' . "\n"
+        . '|Column|Type|Null|Default' . "\n"
+        . '|------' . "\n"
+        . '|//**id**//|int(11)|No|NULL' . "\n"
+        . '|name|varchar(20)|No|NULL' . "\n"
+        . '|datetimefield|datetime|No|NULL' . "\n", $result);
 
         // case 2
         ob_start();
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'triggers',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'triggers',
+            'test'
+        ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '== Triggers test_table' . "\n\n"
-            . '|------' . "\n"
-            . '|Name|Time|Event|Definition' . "\n"
-            . '|------' . "\n"
-            . '|test_trigger|AFTER|INSERT|BEGIN END' . "\n",
-            $result
-        );
+        self::assertSame('== Triggers test_table' . "\n\n"
+        . '|------' . "\n"
+        . '|Name|Time|Event|Definition' . "\n"
+        . '|------' . "\n"
+        . '|test_trigger|AFTER|INSERT|BEGIN END' . "\n", $result);
 
         // case 3
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'create_view',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'create_view',
+            'test'
+        ));
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '== Structure for view test_table' . "\n\n"
-            . '|------' . "\n"
-            . '|Column|Type|Null|Default' . "\n"
-            . '|------' . "\n"
-            . '|//**id**//|int(11)|No|NULL' . "\n"
-            . '|name|varchar(20)|No|NULL' . "\n"
-            . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
-        );
+        self::assertSame('== Structure for view test_table' . "\n\n"
+        . '|------' . "\n"
+        . '|Column|Type|Null|Default' . "\n"
+        . '|------' . "\n"
+        . '|//**id**//|int(11)|No|NULL' . "\n"
+        . '|name|varchar(20)|No|NULL' . "\n"
+        . '|datetimefield|datetime|No|NULL' . "\n", $result);
 
         // case 4
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                "\n",
-                'localhost',
-                'stand_in',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'test_db',
+            'test_table',
+            "\n",
+            'localhost',
+            'stand_in',
+            'test'
+        ));
         $this->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            '== Stand-in structure for view test_table' . "\n\n"
-            . '|------' . "\n"
-            . '|Column|Type|Null|Default' . "\n"
-            . '|------' . "\n"
-            . '|//**id**//|int(11)|No|NULL' . "\n"
-            . '|name|varchar(20)|No|NULL' . "\n"
-            . '|datetimefield|datetime|No|NULL' . "\n",
-            $result
-        );
+        self::assertSame('== Stand-in structure for view test_table' . "\n\n"
+        . '|------' . "\n"
+        . '|Column|Type|Null|Default' . "\n"
+        . '|------' . "\n"
+        . '|//**id**//|int(11)|No|NULL' . "\n"
+        . '|name|varchar(20)|No|NULL' . "\n"
+        . '|datetimefield|datetime|No|NULL' . "\n", $result);
     }
 
     public function testFormatOneColumnDefinition(): void
@@ -470,7 +405,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        $this->assertEquals(
+        self::assertSame(
             '|//**field**//|set(abc)|Yes|NULL',
             $this->object->formatOneColumnDefinition($cols, $unique_keys)
         );
@@ -485,9 +420,6 @@ class ExportTexytextTest extends AbstractTestCase
 
         $unique_keys = ['field'];
 
-        $this->assertEquals(
-            '|fields|&amp;nbsp;|No|def',
-            $this->object->formatOneColumnDefinition($cols, $unique_keys)
-        );
+        self::assertSame('|fields|&amp;nbsp;|No|def', $this->object->formatOneColumnDefinition($cols, $unique_keys));
     }
 }

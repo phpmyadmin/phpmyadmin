@@ -69,7 +69,7 @@ class SystemDatabaseTest extends AbstractTestCase
         $ret = $this->sysDb->getExistingTransformationData($db);
 
         //validate that is the same as $dbi->tryQuery
-        $this->assertInstanceOf(DummyResult::class, $ret);
+        self::assertInstanceOf(DummyResult::class, $ret);
     }
 
     /**
@@ -116,6 +116,6 @@ class SystemDatabaseTest extends AbstractTestCase
             . "('PMA_db', 'view_name', 'column_name', 'comment', 'mimetype', "
             . "'transformation', 'transformation_options')";
 
-        $this->assertEquals($sql, $ret);
+        self::assertSame($sql, $ret);
     }
 }

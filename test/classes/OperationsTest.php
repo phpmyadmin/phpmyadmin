@@ -47,7 +47,7 @@ class OperationsTest extends AbstractTestCase
         $expected = array_merge($choices, $extraChoice);
 
         $actual = $this->object->getPartitionMaintenanceChoices();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**

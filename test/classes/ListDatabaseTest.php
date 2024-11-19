@@ -36,7 +36,7 @@ class ListDatabaseTest extends AbstractTestCase
     public function testEmpty(): void
     {
         $arr = new ListDatabase();
-        $this->assertEquals('', $arr->getEmpty());
+        self::assertSame('', $arr->getEmpty());
     }
 
     /**
@@ -45,7 +45,7 @@ class ListDatabaseTest extends AbstractTestCase
     public function testExists(): void
     {
         $arr = new ListDatabase();
-        $this->assertTrue($arr->exists('single_db'));
+        self::assertTrue($arr->exists('single_db'));
     }
 
     public function testGetList(): void
@@ -53,26 +53,20 @@ class ListDatabaseTest extends AbstractTestCase
         $arr = new ListDatabase();
 
         $GLOBALS['db'] = 'db';
-        $this->assertEquals(
+        self::assertSame([
             [
-                [
-                    'name' => 'single_db',
-                    'is_selected' => false,
-                ],
+                'name' => 'single_db',
+                'is_selected' => false,
             ],
-            $arr->getList()
-        );
+        ], $arr->getList());
 
         $GLOBALS['db'] = 'single_db';
-        $this->assertEquals(
+        self::assertSame([
             [
-                [
-                    'name' => 'single_db',
-                    'is_selected' => true,
-                ],
+                'name' => 'single_db',
+                'is_selected' => true,
             ],
-            $arr->getList()
-        );
+        ], $arr->getList());
     }
 
     /**
@@ -81,15 +75,12 @@ class ListDatabaseTest extends AbstractTestCase
     public function testCheckHideDatabase(): void
     {
         $GLOBALS['cfg']['Server']['hide_db'] = 'single\\_db';
-        $this->assertEquals(
-            $this->callFunction(
-                $this->object,
-                ListDatabase::class,
-                'checkHideDatabase',
-                []
-            ),
-            ''
-        );
+        self::assertEquals($this->callFunction(
+            $this->object,
+            ListDatabase::class,
+            'checkHideDatabase',
+            []
+        ), '');
     }
 
     /**
@@ -98,15 +89,9 @@ class ListDatabaseTest extends AbstractTestCase
     public function testGetDefault(): void
     {
         $GLOBALS['db'] = '';
-        $this->assertEquals(
-            $this->object->getDefault(),
-            ''
-        );
+        self::assertSame($this->object->getDefault(), '');
 
         $GLOBALS['db'] = 'mysql';
-        $this->assertEquals(
-            $this->object->getDefault(),
-            'mysql'
-        );
+        self::assertSame($this->object->getDefault(), 'mysql');
     }
 }

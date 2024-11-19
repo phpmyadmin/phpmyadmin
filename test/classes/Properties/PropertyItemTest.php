@@ -36,9 +36,6 @@ class PropertyItemTest extends AbstractTestCase
 
     public function testGetGroup(): void
     {
-        $this->assertEquals(
-            null,
-            $this->stub->getGroup()
-        );
+        self::assertNull($this->stub->getGroup());
     }
 }

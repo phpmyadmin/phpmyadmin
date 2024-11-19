@@ -16,10 +16,10 @@ class FlashMessagesTest extends AbstractTestCase
 
     public function testConstructor(): void
     {
-        $this->assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
+        self::assertArrayNotHasKey(self::STORAGE_KEY, $_SESSION);
         $flash = new FlashMessages();
-        $this->assertIsArray($_SESSION[self::STORAGE_KEY]);
-        $this->assertSame([], $flash->getMessages());
+        self::assertIsArray($_SESSION[self::STORAGE_KEY]);
+        self::assertSame([], $flash->getMessages());
     }
 
     public function testConstructorSessionNotFound(): void
@@ -33,11 +33,11 @@ class FlashMessagesTest extends AbstractTestCase
     public function testAddMessage(): void
     {
         $flash = new FlashMessages();
-        $this->assertArrayNotHasKey('error', $_SESSION[self::STORAGE_KEY]);
+        self::assertArrayNotHasKey('error', $_SESSION[self::STORAGE_KEY]);
         $flash->addMessage('error', 'Error');
-        $this->assertArrayHasKey('error', $_SESSION[self::STORAGE_KEY]);
-        $this->assertIsArray($_SESSION[self::STORAGE_KEY]['error']);
-        $this->assertEquals(['Error'], $_SESSION[self::STORAGE_KEY]['error']);
+        self::assertArrayHasKey('error', $_SESSION[self::STORAGE_KEY]);
+        self::assertIsArray($_SESSION[self::STORAGE_KEY]['error']);
+        self::assertSame(['Error'], $_SESSION[self::STORAGE_KEY]['error']);
     }
 
     public function testGetMessage(): void
@@ -45,9 +45,9 @@ class FlashMessagesTest extends AbstractTestCase
         $_SESSION[self::STORAGE_KEY] = ['warning' => ['Warning']];
         $flash = new FlashMessages();
         $message = $flash->getMessage('error');
-        $this->assertNull($message);
+        self::assertNull($message);
         $message = $flash->getMessage('warning');
-        $this->assertEquals(['Warning'], $message);
+        self::assertSame(['Warning'], $message);
     }
 
     public function testGetMessages(): void
@@ -59,12 +59,9 @@ class FlashMessagesTest extends AbstractTestCase
         $flash = new FlashMessages();
         $flash->addMessage('notice', 'Notice');
         $messages = $flash->getMessages();
-        $this->assertEquals(
-            [
-                'error' => ['Error1', 'Error2'],
-                'warning' => ['Warning'],
-            ],
-            $messages
-        );
+        self::assertSame([
+            'error' => ['Error1', 'Error2'],
+            'warning' => ['Warning'],
+        ], $messages);
     }
 }

@@ -75,7 +75,7 @@ class CreateControllerTest extends AbstractTestCase
             'selected_template' => null,
         ]);
 
-        $this->assertTrue($response->hasSuccessState());
-        $this->assertEquals(['data' => $options], $response->getJSONResult());
+        self::assertTrue($response->hasSuccessState());
+        self::assertSame(['data' => $options], $response->getJSONResult());
     }
 }

@@ -31,15 +31,15 @@ class JavaScriptMessagesControllerTest extends TestCase
         $actual = ob_get_contents();
         ob_end_clean();
 
-        $this->assertIsString($actual);
-        $this->assertStringStartsWith('var Messages = {', $actual);
-        $this->assertStringEndsWith('};', $actual);
+        self::assertIsString($actual);
+        self::assertStringStartsWith('var Messages = {', $actual);
+        self::assertStringEndsWith('};', $actual);
 
         $json = substr($actual, strlen('var Messages = '), -1);
         $array = json_decode($json, true);
 
-        $this->assertIsArray($array);
-        $this->assertArrayHasKey('strConfirm', $array);
-        $this->assertEquals(__('Confirm'), $array['strConfirm']);
+        self::assertIsArray($array);
+        self::assertArrayHasKey('strConfirm', $array);
+        self::assertSame(__('Confirm'), $array['strConfirm']);
     }
 }

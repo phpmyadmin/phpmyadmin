@@ -45,15 +45,15 @@ class EnginesControllerTest extends AbstractTestCase
 
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString('<th scope="col">Storage Engine</th>', $actual);
-        $this->assertStringContainsString('<th scope="col">Description</th>', $actual);
+        self::assertStringContainsString('<th scope="col">Storage Engine</th>', $actual);
+        self::assertStringContainsString('<th scope="col">Description</th>', $actual);
 
-        $this->assertStringContainsString('<td>Federated MySQL storage engine</td>', $actual);
-        $this->assertStringContainsString('FEDERATED', $actual);
-        $this->assertStringContainsString('index.php?route=/server/engines/FEDERATED', $actual);
+        self::assertStringContainsString('<td>Federated MySQL storage engine</td>', $actual);
+        self::assertStringContainsString('FEDERATED', $actual);
+        self::assertStringContainsString('index.php?route=/server/engines/FEDERATED', $actual);
 
-        $this->assertStringContainsString('<td>dummy comment</td>', $actual);
-        $this->assertStringContainsString('dummy', $actual);
-        $this->assertStringContainsString('index.php?route=/server/engines/dummy', $actual);
+        self::assertStringContainsString('<td>dummy comment</td>', $actual);
+        self::assertStringContainsString('dummy', $actual);
+        self::assertStringContainsString('index.php?route=/server/engines/dummy', $actual);
     }
 }

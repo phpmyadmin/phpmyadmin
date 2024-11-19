@@ -26,7 +26,7 @@ class ColumnsDefinitionTest extends AbstractTestCase
     {
         $result = ColumnsDefinition::decorateColumnMetaDefault($columnMeta);
 
-        $this->assertEquals($expected, $result);
+        self::assertEquals($expected, $result);
     }
 
     /**

@@ -563,7 +563,7 @@ class InsertEdit
              * @todo clarify the meaning of the "textfield" class and explain
              *       why character columns have the "char" class instead
              */
-            $theClass = 'char charField';
+            $theClass = 'charField';
             $textAreaRows = $GLOBALS['cfg']['CharTextareaRows'];
             $textareaCols = $GLOBALS['cfg']['CharTextareaCols'];
             $extractedColumnspec = Util::extractColumnSpec($column['Type']);
@@ -2327,7 +2327,7 @@ class InsertEdit
                         $column,
                         $columnNameAppendix,
                         $specialChars,
-                        min(max($column['len'], 4), $GLOBALS['cfg']['LimitChars']),
+                        min(max($column['len'] * 2, 4), $GLOBALS['cfg']['LimitChars']),
                         $onChangeClause,
                         $tabindex,
                         $tabindexForValue,

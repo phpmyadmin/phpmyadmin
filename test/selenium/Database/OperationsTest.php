@@ -43,12 +43,10 @@ class OperationsTest extends TestBase
         $this->byName('comment')->sendKeys('comment_foobar');
         $this->byCssSelector("form#formDatabaseComment input[type='submit']")->click();
 
-        $this->assertNotNull(
-            $this->waitForElement(
-                'xpath',
-                "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]"
-            )
-        );
+        self::assertNotNull($this->waitForElement(
+            'xpath',
+            "//span[@class='breadcrumb-comment' and contains(., 'comment_foobar')]"
+        ));
     }
 
     /**
@@ -79,16 +77,16 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
             function () use ($new_db_name): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
             }
         );
 
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\'',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             }
         );
 
@@ -124,8 +122,8 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'SHOW DATABASES LIKE \'' . $new_db_name . '\'',
             function () use ($new_db_name): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals($new_db_name, $this->getCellByTableClass('table_results', 1, 1));
             }
         );
 

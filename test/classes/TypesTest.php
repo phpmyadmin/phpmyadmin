@@ -29,8 +29,8 @@ class TypesTest extends AbstractTestCase
      */
     public function testUnary(): void
     {
-        $this->assertTrue($this->object->isUnaryOperator('IS NULL'));
-        $this->assertFalse($this->object->isUnaryOperator('='));
+        self::assertTrue($this->object->isUnaryOperator('IS NULL'));
+        self::assertFalse($this->object->isUnaryOperator('='));
     }
 
     /**
@@ -38,15 +38,12 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnaryOperators(): void
     {
-        $this->assertEquals(
-            [
-                'IS NULL',
-                'IS NOT NULL',
-                "= ''",
-                "!= ''",
-            ],
-            $this->object->getUnaryOperators()
-        );
+        self::assertSame([
+            'IS NULL',
+            'IS NOT NULL',
+            "= ''",
+            "!= ''",
+        ], $this->object->getUnaryOperators());
     }
 
     /**
@@ -54,13 +51,10 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNullOperators(): void
     {
-        $this->assertEquals(
-            [
-                'IS NULL',
-                'IS NOT NULL',
-            ],
-            $this->object->getNullOperators()
-        );
+        self::assertSame([
+            'IS NULL',
+            'IS NOT NULL',
+        ], $this->object->getNullOperators());
     }
 
     /**
@@ -68,13 +62,10 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetEnumOperators(): void
     {
-        $this->assertEquals(
-            [
-                '=',
-                '!=',
-            ],
-            $this->object->getEnumOperators()
-        );
+        self::assertSame([
+            '=',
+            '!=',
+        ], $this->object->getEnumOperators());
     }
 
     /**
@@ -82,26 +73,23 @@ class TypesTest extends AbstractTestCase
      */
     public function testgetTextOperators(): void
     {
-        $this->assertEquals(
-            [
-                'LIKE',
-                'LIKE %...%',
-                'NOT LIKE',
-                'NOT LIKE %...%',
-                '=',
-                '!=',
-                'REGEXP',
-                'REGEXP ^...$',
-                'NOT REGEXP',
-                "= ''",
-                "!= ''",
-                'IN (...)',
-                'NOT IN (...)',
-                'BETWEEN',
-                'NOT BETWEEN',
-            ],
-            $this->object->getTextOperators()
-        );
+        self::assertSame([
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'NOT LIKE %...%',
+            '=',
+            '!=',
+            'REGEXP',
+            'REGEXP ^...$',
+            'NOT REGEXP',
+            "= ''",
+            "!= ''",
+            'IN (...)',
+            'NOT IN (...)',
+            'BETWEEN',
+            'NOT BETWEEN',
+        ], $this->object->getTextOperators());
     }
 
     /**
@@ -109,25 +97,22 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetNumberOperators(): void
     {
-        $this->assertEquals(
-            [
-                '=',
-                '>',
-                '>=',
-                '<',
-                '<=',
-                '!=',
-                'LIKE',
-                'LIKE %...%',
-                'NOT LIKE',
-                'NOT LIKE %...%',
-                'IN (...)',
-                'NOT IN (...)',
-                'BETWEEN',
-                'NOT BETWEEN',
-            ],
-            $this->object->getNumberOperators()
-        );
+        self::assertSame([
+            '=',
+            '>',
+            '>=',
+            '<',
+            '<=',
+            '!=',
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'NOT LIKE %...%',
+            'IN (...)',
+            'NOT IN (...)',
+            'BETWEEN',
+            'NOT BETWEEN',
+        ], $this->object->getNumberOperators());
     }
 
     /**
@@ -135,19 +120,16 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUUIDOperators(): void
     {
-        $this->assertEquals(
-            [
-                '=',
-                '!=',
-                'LIKE',
-                'LIKE %...%',
-                'NOT LIKE',
-                'NOT LIKE %...%',
-                'IN (...)',
-                'NOT IN (...)',
-            ],
-            $this->object->getUUIDOperators()
-        );
+        self::assertSame([
+            '=',
+            '!=',
+            'LIKE',
+            'LIKE %...%',
+            'NOT LIKE',
+            'NOT LIKE %...%',
+            'IN (...)',
+            'NOT IN (...)',
+        ], $this->object->getUUIDOperators());
     }
 
     /**
@@ -161,10 +143,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetTypeOperators(string $type, bool $null, $output): void
     {
-        $this->assertEquals(
-            $output,
-            $this->object->getTypeOperators($type, $null)
-        );
+        self::assertSame($output, $this->object->getTypeOperators($type, $null));
     }
 
     /**
@@ -263,10 +242,7 @@ class TypesTest extends AbstractTestCase
         string $selectedOperator,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator)
-        );
+        self::assertSame($output, $this->object->getTypeOperatorsHtml($type, $null, $selectedOperator));
     }
 
     /**
@@ -295,10 +271,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetTypeDescription(string $type): void
     {
-        $this->assertNotEquals(
-            '',
-            $this->object->getTypeDescription($type)
-        );
+        self::assertNotEquals('', $this->object->getTypeDescription($type));
     }
 
     /**
@@ -306,10 +279,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetUnknownTypeDescription(): void
     {
-        $this->assertEquals(
-            '',
-            $this->object->getTypeDescription('UNKNOWN')
-        );
+        self::assertSame('', $this->object->getTypeDescription('UNKNOWN'));
     }
 
     /**
@@ -373,10 +343,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetFunctionsClass(string $class, array $output): void
     {
-        $this->assertEquals(
-            $output,
-            $this->object->getFunctionsClass($class)
-        );
+        self::assertSame($output, $this->object->getFunctionsClass($class));
     }
 
     /**
@@ -536,45 +503,42 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetFunctions(): void
     {
-        $this->assertEquals(
-            [
-                'AES_DECRYPT',
-                'AES_ENCRYPT',
-                'BIN',
-                'CHAR',
-                'COMPRESS',
-                'CURRENT_USER',
-                'DATABASE',
-                'DAYNAME',
-                'DES_DECRYPT',
-                'DES_ENCRYPT',
-                'ENCRYPT',
-                'HEX',
-                'INET6_NTOA',
-                'INET_NTOA',
-                'LOAD_FILE',
-                'LOWER',
-                'LTRIM',
-                'MD5',
-                'MONTHNAME',
-                'OLD_PASSWORD',
-                'PASSWORD',
-                'QUOTE',
-                'REVERSE',
-                'RTRIM',
-                'SHA1',
-                'SOUNDEX',
-                'SPACE',
-                'TRIM',
-                'UNCOMPRESS',
-                'UNHEX',
-                'UPPER',
-                'USER',
-                'UUID',
-                'VERSION',
-            ],
-            $this->object->getFunctions('enum')
-        );
+        self::assertSame([
+            'AES_DECRYPT',
+            'AES_ENCRYPT',
+            'BIN',
+            'CHAR',
+            'COMPRESS',
+            'CURRENT_USER',
+            'DATABASE',
+            'DAYNAME',
+            'DES_DECRYPT',
+            'DES_ENCRYPT',
+            'ENCRYPT',
+            'HEX',
+            'INET6_NTOA',
+            'INET_NTOA',
+            'LOAD_FILE',
+            'LOWER',
+            'LTRIM',
+            'MD5',
+            'MONTHNAME',
+            'OLD_PASSWORD',
+            'PASSWORD',
+            'QUOTE',
+            'REVERSE',
+            'RTRIM',
+            'SHA1',
+            'SOUNDEX',
+            'SPACE',
+            'TRIM',
+            'UNCOMPRESS',
+            'UNHEX',
+            'UPPER',
+            'USER',
+            'UUID',
+            'VERSION',
+        ], $this->object->getFunctions('enum'));
     }
 
     /**
@@ -582,128 +546,125 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAllFunctions(): void
     {
-        $this->assertEquals(
-            [
-                'ABS',
-                'ACOS',
-                'AES_DECRYPT',
-                'AES_ENCRYPT',
-                'ASCII',
-                'ASIN',
-                'ATAN',
-                'BIN',
-                'BIT_COUNT',
-                'BIT_LENGTH',
-                'CEILING',
-                'CHAR',
-                'CHAR_LENGTH',
-                'COMPRESS',
-                'CONNECTION_ID',
-                'COS',
-                'COT',
-                'CRC32',
-                'CURRENT_DATE',
-                'CURRENT_TIME',
-                'CURRENT_USER',
-                'DATABASE',
-                'DATE',
-                'DAYNAME',
-                'DAYOFMONTH',
-                'DAYOFWEEK',
-                'DAYOFYEAR',
-                'DEGREES',
-                'DES_DECRYPT',
-                'DES_ENCRYPT',
-                'ENCRYPT',
-                'EXP',
-                'FLOOR',
-                'FROM_DAYS',
-                'FROM_UNIXTIME',
-                'HEX',
-                'HOUR',
-                'INET6_ATON',
-                'INET6_NTOA',
-                'INET_ATON',
-                'INET_NTOA',
-                'LAST_DAY',
-                'LENGTH',
-                'LN',
-                'LOAD_FILE',
-                'LOG',
-                'LOG10',
-                'LOG2',
-                'LOWER',
-                'LTRIM',
-                'MD5',
-                'MICROSECOND',
-                'MINUTE',
-                'MONTH',
-                'MONTHNAME',
-                'NOW',
-                'OCT',
-                'OLD_PASSWORD',
-                'ORD',
-                'PASSWORD',
-                'PI',
-                'QUARTER',
-                'QUOTE',
-                'RADIANS',
-                'RAND',
-                'REVERSE',
-                'ROUND',
-                'RTRIM',
-                'SECOND',
-                'SEC_TO_TIME',
-                'SHA1',
-                'SIGN',
-                'SIN',
-                'SOUNDEX',
-                'SPACE',
-                'SQRT',
-                'ST_GeomCollFromText',
-                'ST_GeomCollFromWKB',
-                'ST_GeomFromText',
-                'ST_GeomFromWKB',
-                'ST_LineFromText',
-                'ST_LineFromWKB',
-                'ST_MLineFromText',
-                'ST_MLineFromWKB',
-                'ST_MPointFromText',
-                'ST_MPointFromWKB',
-                'ST_MPolyFromText',
-                'ST_MPolyFromWKB',
-                'ST_PointFromText',
-                'ST_PointFromWKB',
-                'ST_PolyFromText',
-                'ST_PolyFromWKB',
-                'SYSDATE',
-                'TAN',
-                'TIME',
-                'TIMESTAMP',
-                'TIME_TO_SEC',
-                'TO_DAYS',
-                'TO_SECONDS',
-                'TRIM',
-                'UNCOMPRESS',
-                'UNCOMPRESSED_LENGTH',
-                'UNHEX',
-                'UNIX_TIMESTAMP',
-                'UPPER',
-                'USER',
-                'UTC_DATE',
-                'UTC_TIME',
-                'UTC_TIMESTAMP',
-                'UUID',
-                'UUID_SHORT',
-                'VERSION',
-                'WEEK',
-                'WEEKDAY',
-                'WEEKOFYEAR',
-                'YEAR',
-                'YEARWEEK',
-            ],
-            $this->object->getAllFunctions()
-        );
+        self::assertSame([
+            'ABS',
+            'ACOS',
+            'AES_DECRYPT',
+            'AES_ENCRYPT',
+            'ASCII',
+            'ASIN',
+            'ATAN',
+            'BIN',
+            'BIT_COUNT',
+            'BIT_LENGTH',
+            'CEILING',
+            'CHAR',
+            'CHAR_LENGTH',
+            'COMPRESS',
+            'CONNECTION_ID',
+            'COS',
+            'COT',
+            'CRC32',
+            'CURRENT_DATE',
+            'CURRENT_TIME',
+            'CURRENT_USER',
+            'DATABASE',
+            'DATE',
+            'DAYNAME',
+            'DAYOFMONTH',
+            'DAYOFWEEK',
+            'DAYOFYEAR',
+            'DEGREES',
+            'DES_DECRYPT',
+            'DES_ENCRYPT',
+            'ENCRYPT',
+            'EXP',
+            'FLOOR',
+            'FROM_DAYS',
+            'FROM_UNIXTIME',
+            'HEX',
+            'HOUR',
+            'INET6_ATON',
+            'INET6_NTOA',
+            'INET_ATON',
+            'INET_NTOA',
+            'LAST_DAY',
+            'LENGTH',
+            'LN',
+            'LOAD_FILE',
+            'LOG',
+            'LOG10',
+            'LOG2',
+            'LOWER',
+            'LTRIM',
+            'MD5',
+            'MICROSECOND',
+            'MINUTE',
+            'MONTH',
+            'MONTHNAME',
+            'NOW',
+            'OCT',
+            'OLD_PASSWORD',
+            'ORD',
+            'PASSWORD',
+            'PI',
+            'QUARTER',
+            'QUOTE',
+            'RADIANS',
+            'RAND',
+            'REVERSE',
+            'ROUND',
+            'RTRIM',
+            'SECOND',
+            'SEC_TO_TIME',
+            'SHA1',
+            'SIGN',
+            'SIN',
+            'SOUNDEX',
+            'SPACE',
+            'SQRT',
+            'ST_GeomCollFromText',
+            'ST_GeomCollFromWKB',
+            'ST_GeomFromText',
+            'ST_GeomFromWKB',
+            'ST_LineFromText',
+            'ST_LineFromWKB',
+            'ST_MLineFromText',
+            'ST_MLineFromWKB',
+            'ST_MPointFromText',
+            'ST_MPointFromWKB',
+            'ST_MPolyFromText',
+            'ST_MPolyFromWKB',
+            'ST_PointFromText',
+            'ST_PointFromWKB',
+            'ST_PolyFromText',
+            'ST_PolyFromWKB',
+            'SYSDATE',
+            'TAN',
+            'TIME',
+            'TIMESTAMP',
+            'TIME_TO_SEC',
+            'TO_DAYS',
+            'TO_SECONDS',
+            'TRIM',
+            'UNCOMPRESS',
+            'UNCOMPRESSED_LENGTH',
+            'UNHEX',
+            'UNIX_TIMESTAMP',
+            'UPPER',
+            'USER',
+            'UTC_DATE',
+            'UTC_TIME',
+            'UTC_TIMESTAMP',
+            'UUID',
+            'UUID_SHORT',
+            'VERSION',
+            'WEEK',
+            'WEEKDAY',
+            'WEEKOFYEAR',
+            'YEAR',
+            'YEARWEEK',
+        ], $this->object->getAllFunctions());
     }
 
     /**
@@ -711,16 +672,13 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetAttributes(): void
     {
-        $this->assertEquals(
-            [
-                '',
-                'BINARY',
-                'UNSIGNED',
-                'UNSIGNED ZEROFILL',
-                'on update CURRENT_TIMESTAMP',
-            ],
-            $this->object->getAttributes()
-        );
+        self::assertSame([
+            '',
+            'BINARY',
+            'UNSIGNED',
+            'UNSIGNED ZEROFILL',
+            'on update CURRENT_TIMESTAMP',
+        ], $this->object->getAttributes());
     }
 
     /**
@@ -728,69 +686,66 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetColumns(): void
     {
-        $this->assertEquals(
-            [
-                0 => 'INT',
-                1 => 'VARCHAR',
-                2 => 'TEXT',
-                3 => 'DATE',
-                'Numeric' => [
-                    'TINYINT',
-                    'SMALLINT',
-                    'MEDIUMINT',
-                    'INT',
-                    'BIGINT',
-                    '-',
-                    'DECIMAL',
-                    'FLOAT',
-                    'DOUBLE',
-                    'REAL',
-                    '-',
-                    'BIT',
-                    'BOOLEAN',
-                    'SERIAL',
-                ],
-                'Date and time' => [
-                    'DATE',
-                    'DATETIME',
-                    'TIMESTAMP',
-                    'TIME',
-                    'YEAR',
-                ],
-                'String' => [
-                    'CHAR',
-                    'VARCHAR',
-                    '-',
-                    'TINYTEXT',
-                    'TEXT',
-                    'MEDIUMTEXT',
-                    'LONGTEXT',
-                    '-',
-                    'BINARY',
-                    'VARBINARY',
-                    '-',
-                    'TINYBLOB',
-                    'BLOB',
-                    'MEDIUMBLOB',
-                    'LONGBLOB',
-                    '-',
-                    'ENUM',
-                    'SET',
-                ],
-                'Spatial' => [
-                    'GEOMETRY',
-                    'POINT',
-                    'LINESTRING',
-                    'POLYGON',
-                    'MULTIPOINT',
-                    'MULTILINESTRING',
-                    'MULTIPOLYGON',
-                    'GEOMETRYCOLLECTION',
-                ],
-                'JSON' => ['JSON'],
+        self::assertSame([
+            0 => 'INT',
+            1 => 'VARCHAR',
+            2 => 'TEXT',
+            3 => 'DATE',
+            'Numeric' => [
+                'TINYINT',
+                'SMALLINT',
+                'MEDIUMINT',
+                'INT',
+                'BIGINT',
+                '-',
+                'DECIMAL',
+                'FLOAT',
+                'DOUBLE',
+                'REAL',
+                '-',
+                'BIT',
+                'BOOLEAN',
+                'SERIAL',
             ],
-            $this->object->getColumns()
-        );
+            'Date and time' => [
+                'DATE',
+                'DATETIME',
+                'TIMESTAMP',
+                'TIME',
+                'YEAR',
+            ],
+            'String' => [
+                'CHAR',
+                'VARCHAR',
+                '-',
+                'TINYTEXT',
+                'TEXT',
+                'MEDIUMTEXT',
+                'LONGTEXT',
+                '-',
+                'BINARY',
+                'VARBINARY',
+                '-',
+                'TINYBLOB',
+                'BLOB',
+                'MEDIUMBLOB',
+                'LONGBLOB',
+                '-',
+                'ENUM',
+                'SET',
+            ],
+            'Spatial' => [
+                'GEOMETRY',
+                'POINT',
+                'LINESTRING',
+                'POLYGON',
+                'MULTIPOINT',
+                'MULTILINESTRING',
+                'MULTIPOLYGON',
+                'GEOMETRYCOLLECTION',
+            ],
+            'JSON' => ['JSON'],
+        ], $this->object->getColumns());
     }
 
     /**
@@ -801,10 +756,7 @@ class TypesTest extends AbstractTestCase
      */
     public function testGetTypeClass(string $type, string $output): void
     {
-        $this->assertEquals(
-            $output,
-            $this->object->getTypeClass($type)
-        );
+        self::assertSame($output, $this->object->getTypeClass($type));
     }
 
     /**

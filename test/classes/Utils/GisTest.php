@@ -54,12 +54,12 @@ class GisTest extends AbstractTestCase
 
         if (! $SRIDOption) {
             // Also test default signature
-            $this->assertSame($expectedResult, Gis::convertToWellKnownText(
+            self::assertSame($expectedResult, Gis::convertToWellKnownText(
                 (string) hex2bin('000000000101000000000000000000F03F000000000000F03F')
             ));
         }
 
-        $this->assertSame($expectedResult, Gis::convertToWellKnownText(
+        self::assertSame($expectedResult, Gis::convertToWellKnownText(
             (string) hex2bin('000000000101000000000000000000F03F000000000000F03F'),
             $SRIDOption
         ));
@@ -133,21 +133,21 @@ class GisTest extends AbstractTestCase
 
     public function testCreateDataOldMysql(): void
     {
-        $this->assertEquals('abc', Gis::createData('abc', 50500));
-        $this->assertEquals('GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50500));
+        self::assertSame('abc', Gis::createData('abc', 50500));
+        self::assertSame('GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50500));
     }
 
     public function testCreateDataNewMysql(): void
     {
-        $this->assertEquals('abc', Gis::createData('abc', 50600));
-        $this->assertEquals('ST_GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50600));
+        self::assertSame('abc', Gis::createData('abc', 50600));
+        self::assertSame('ST_GeomFromText(\'POINT()\',10)', Gis::createData('\'POINT()\',10', 50600));
     }
 
     public function testGetFunctions(): void
     {
         $funcs = Gis::getFunctions();
-        $this->assertArrayHasKey('Dimension', $funcs);
-        $this->assertArrayHasKey('GeometryType', $funcs);
-        $this->assertArrayHasKey('MBRDisjoint', $funcs);
+        self::assertArrayHasKey('Dimension', $funcs);
+        self::assertArrayHasKey('GeometryType', $funcs);
+        self::assertArrayHasKey('MBRDisjoint', $funcs);
     }
 }

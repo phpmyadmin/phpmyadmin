@@ -80,8 +80,8 @@ class TrackingTest extends AbstractTestCase
 
         $ret = $this->tracking->filter($data, $filter_ts_from, $filter_ts_to, $filter_users);
 
-        $this->assertEquals('username1', $ret[0]['username']);
-        $this->assertEquals('statement1', $ret[0]['statement']);
+        self::assertSame('username1', $ret[0]['username']);
+        self::assertSame('statement1', $ret[0]['statement']);
     }
 
     /**
@@ -103,38 +103,32 @@ class TrackingTest extends AbstractTestCase
             ],
         ];
         $untracked_tables = $this->tracking->extractTableNames($table_list, 'db', true);
-        $this->assertContains('hello_world', $untracked_tables);
-        $this->assertContains('hello_lovely_world', $untracked_tables);
-        $this->assertContains('hello_lovely_world2', $untracked_tables);
+        self::assertContains('hello_world', $untracked_tables);
+        self::assertContains('hello_lovely_world', $untracked_tables);
+        self::assertContains('hello_lovely_world2', $untracked_tables);
     }
 
     public function testGetHtmlForMain(): void
     {
         $html = $this->tracking->getHtmlForMainPage('PMA_db', 'PMA_table', [], 'ltr');
 
-        $this->assertStringContainsString('PMA_db.PMA_table', $html);
-        $this->assertStringContainsString('<td>date_created</td>', $html);
-        $this->assertStringContainsString(__('Delete version'), $html);
-        $this->assertStringContainsString('<div class="card mt-3">', $html);
-        $this->assertStringContainsString('<div class="card-header">', $html);
-        $this->assertStringContainsString('<div class="card-body">', $html);
-        $this->assertStringContainsString('<div class="card-footer">', $html);
-        $this->assertStringContainsString(Url::getHiddenInputs($GLOBALS['db']), $html);
-        $this->assertStringContainsString(
-            sprintf(
-                __('Create version %1$s of %2$s'),
-                2,
-                htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
-            ),
-            $html
-        );
-        $this->assertStringContainsString(
-            '<input type="checkbox" name="delete" value="true"'
-                . ' checked="checked">' . "\n" . '            DELETE<br>',
-            $html
-        );
-        $this->assertStringContainsString(__('Create version'), $html);
-        $this->assertStringContainsString('Deactivate now', $html);
+        self::assertStringContainsString('PMA_db.PMA_table', $html);
+        self::assertStringContainsString('<td>date_created</td>', $html);
+        self::assertStringContainsString(__('Delete version'), $html);
+        self::assertStringContainsString('<div class="card mt-3">', $html);
+        self::assertStringContainsString('<div class="card-header">', $html);
+        self::assertStringContainsString('<div class="card-body">', $html);
+        self::assertStringContainsString('<div class="card-footer">', $html);
+        self::assertStringContainsString(Url::getHiddenInputs($GLOBALS['db']), $html);
+        self::assertStringContainsString(sprintf(
+            __('Create version %1$s of %2$s'),
+            2,
+            htmlspecialchars($GLOBALS['db'] . '.' . $GLOBALS['table'])
+        ), $html);
+        self::assertStringContainsString('<input type="checkbox" name="delete" value="true"'
+            . ' checked="checked">' . "\n" . '            DELETE<br>', $html);
+        self::assertStringContainsString(__('Create version'), $html);
+        self::assertStringContainsString('Deactivate now', $html);
     }
 
     /**
@@ -143,10 +137,10 @@ class TrackingTest extends AbstractTestCase
     public function testGetTableLastVersionNumber(): void
     {
         $sql_result = $this->tracking->getSqlResultForSelectableTables('PMA_db');
-        $this->assertNotFalse($sql_result);
+        self::assertNotFalse($sql_result);
 
         $last_version = $this->tracking->getTableLastVersionNumber($sql_result);
-        $this->assertSame(10, $last_version);
+        self::assertSame(10, $last_version);
     }
 
     /**
@@ -156,7 +150,7 @@ class TrackingTest extends AbstractTestCase
     {
         $ret = $this->tracking->getSqlResultForSelectableTables('PMA_db');
 
-        $this->assertNotFalse($ret);
+        self::assertNotFalse($ret);
     }
 
     /**
@@ -187,69 +181,27 @@ class TrackingTest extends AbstractTestCase
 
         $html = $this->tracking->getHtmlForColumns($columns);
 
-        $this->assertStringContainsString(
-            __('Column'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Type'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Collation'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Default'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Comment'),
-            $html
-        );
+        self::assertStringContainsString(__('Column'), $html);
+        self::assertStringContainsString(__('Type'), $html);
+        self::assertStringContainsString(__('Collation'), $html);
+        self::assertStringContainsString(__('Default'), $html);
+        self::assertStringContainsString(__('Comment'), $html);
 
         //column1
         $item1 = $columns[0];
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Field']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Type']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Collation']),
-            $html
-        );
-        $this->assertStringContainsString('<em>NULL</em>', $html);
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Comment']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($item1['Field']), $html);
+        self::assertStringContainsString(htmlspecialchars($item1['Type']), $html);
+        self::assertStringContainsString(htmlspecialchars($item1['Collation']), $html);
+        self::assertStringContainsString('<em>NULL</em>', $html);
+        self::assertStringContainsString(htmlspecialchars($item1['Comment']), $html);
 
         //column2
         $item1 = $columns[1];
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Field']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Type']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Collation']),
-            $html
-        );
-        $this->assertStringContainsString(
-            _pgettext('None for default', 'None'),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($item1['Comment']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($item1['Field']), $html);
+        self::assertStringContainsString(htmlspecialchars($item1['Type']), $html);
+        self::assertStringContainsString(htmlspecialchars($item1['Collation']), $html);
+        self::assertStringContainsString(_pgettext('None for default', 'None'), $html);
+        self::assertStringContainsString(htmlspecialchars($item1['Comment']), $html);
     }
 
     /**
@@ -259,7 +211,7 @@ class TrackingTest extends AbstractTestCase
     {
         $ret = $this->tracking->getListOfVersionsOfTable('PMA_db', 'PMA_table');
 
-        $this->assertNotFalse($ret);
+        self::assertNotFalse($ret);
     }
 
     /**
@@ -296,56 +248,32 @@ class TrackingTest extends AbstractTestCase
             $filter_users
         );
 
-        $this->assertStringContainsString(
-            __('Tracking report'),
-            $html
-        );
+        self::assertStringContainsString(__('Tracking report'), $html);
 
-        $this->assertStringContainsString(
-            __('Tracking statements'),
-            $html
-        );
+        self::assertStringContainsString(__('Tracking statements'), $html);
 
-        $this->assertStringContainsString($data['tracking'], $html);
+        self::assertStringContainsString($data['tracking'], $html);
 
         $version = Url::getHiddenInputs($url_params + [
             'report' => 'true',
             'version' => $_POST['version'],
         ]);
 
-        $this->assertStringContainsString($version, $html);
+        self::assertStringContainsString($version, $html);
 
-        $this->assertStringContainsString($version, $html);
+        self::assertStringContainsString($version, $html);
 
-        $this->assertStringContainsString(
-            __('Structure only'),
-            $html
-        );
+        self::assertStringContainsString(__('Structure only'), $html);
 
-        $this->assertStringContainsString(
-            __('Data only'),
-            $html
-        );
+        self::assertStringContainsString(__('Data only'), $html);
 
-        $this->assertStringContainsString(
-            __('Structure and data'),
-            $html
-        );
+        self::assertStringContainsString(__('Structure and data'), $html);
 
-        $this->assertStringContainsString(
-            htmlspecialchars($_POST['date_from']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($_POST['date_from']), $html);
 
-        $this->assertStringContainsString(
-            htmlspecialchars($_POST['date_to']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($_POST['date_to']), $html);
 
-        $this->assertStringContainsString(
-            htmlspecialchars($_POST['users']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($_POST['users']), $html);
     }
 
     /**
@@ -382,24 +310,15 @@ class TrackingTest extends AbstractTestCase
             $drop_image_or_text
         );
 
-        $this->assertStringContainsString(
-            __('Date'),
-            $html
-        );
+        self::assertStringContainsString(__('Date'), $html);
 
-        $this->assertStringContainsString(
-            __('Username'),
-            $html
-        );
+        self::assertStringContainsString(__('Username'), $html);
 
-        $this->assertStringContainsString(
-            __('Data manipulation statement'),
-            $html
-        );
+        self::assertStringContainsString(__('Data manipulation statement'), $html);
 
-        $this->assertStringContainsString($data['dmlog'][0]['date'], $html);
+        self::assertStringContainsString($data['dmlog'][0]['date'], $html);
 
-        $this->assertStringContainsString($data['dmlog'][0]['username'], $html);
+        self::assertStringContainsString($data['dmlog'][0]['username'], $html);
     }
 
     /**
@@ -435,33 +354,18 @@ class TrackingTest extends AbstractTestCase
             $drop_image_or_text
         );
 
-        $this->assertStringContainsString(
-            __('Date'),
-            $html
-        );
+        self::assertStringContainsString(__('Date'), $html);
 
-        $this->assertStringContainsString(
-            __('Username'),
-            $html
-        );
+        self::assertStringContainsString(__('Username'), $html);
 
-        $this->assertStringContainsString(
-            __('Data definition statement'),
-            $html
-        );
+        self::assertStringContainsString(__('Data definition statement'), $html);
 
-        $this->assertStringContainsString(
-            __('Action'),
-            $html
-        );
+        self::assertStringContainsString(__('Action'), $html);
 
         //PMA_getHtmlForDataDefinitionStatement
-        $this->assertStringContainsString(
-            htmlspecialchars($data['ddlog'][0]['username']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($data['ddlog'][0]['username']), $html);
 
-        $this->assertEquals(2, $count);
+        self::assertSame(2, $count);
     }
 
     /**
@@ -485,55 +389,19 @@ class TrackingTest extends AbstractTestCase
 
         $html = $this->tracking->getHtmlForIndexes($indexs);
 
-        $this->assertStringContainsString(
-            __('Indexes'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Keyname'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Type'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Unique'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Packed'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Column'),
-            $html
-        );
-        $this->assertStringContainsString(
-            __('Cardinality'),
-            $html
-        );
+        self::assertStringContainsString(__('Indexes'), $html);
+        self::assertStringContainsString(__('Keyname'), $html);
+        self::assertStringContainsString(__('Type'), $html);
+        self::assertStringContainsString(__('Unique'), $html);
+        self::assertStringContainsString(__('Packed'), $html);
+        self::assertStringContainsString(__('Column'), $html);
+        self::assertStringContainsString(__('Cardinality'), $html);
         // items
-        $this->assertStringContainsString(
-            htmlspecialchars($indexs[0]['Key_name']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($indexs[0]['Index_type']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($indexs[0]['Column_name']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($indexs[0]['Cardinality']),
-            $html
-        );
-        $this->assertStringContainsString(
-            htmlspecialchars($indexs[0]['Collation']),
-            $html
-        );
+        self::assertStringContainsString(htmlspecialchars($indexs[0]['Key_name']), $html);
+        self::assertStringContainsString(htmlspecialchars($indexs[0]['Index_type']), $html);
+        self::assertStringContainsString(htmlspecialchars($indexs[0]['Column_name']), $html);
+        self::assertStringContainsString(htmlspecialchars($indexs[0]['Cardinality']), $html);
+        self::assertStringContainsString(htmlspecialchars($indexs[0]['Collation']), $html);
     }
 
     /**
@@ -553,7 +421,7 @@ class TrackingTest extends AbstractTestCase
         $_POST['truncate'] = true;
 
         $tracking_set = $this->tracking->getTrackingSet();
-        $this->assertEquals('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $tracking_set);
+        self::assertSame('RENAME TABLE,CREATE TABLE,DROP TABLE,DROP INDEX,INSERT,DELETE,TRUNCATE', $tracking_set);
 
         //other set to true
         $_POST['alter_table'] = true;
@@ -568,7 +436,7 @@ class TrackingTest extends AbstractTestCase
         $_POST['truncate'] = false;
 
         $tracking_set = $this->tracking->getTrackingSet();
-        $this->assertEquals('ALTER TABLE,CREATE INDEX,UPDATE', $tracking_set);
+        self::assertSame('ALTER TABLE,CREATE INDEX,UPDATE', $tracking_set);
     }
 
     /**
@@ -599,7 +467,7 @@ class TrackingTest extends AbstractTestCase
         $filter_ts_from = 0;
 
         $entries = $this->tracking->getEntries($data, $filter_ts_from, $filter_ts_to, $filter_users);
-        $this->assertEquals('username3', $entries[0]['username']);
-        $this->assertEquals('statement1', $entries[0]['statement']);
+        self::assertSame('username3', $entries[0]['username']);
+        self::assertSame('statement1', $entries[0]['statement']);
     }
 }

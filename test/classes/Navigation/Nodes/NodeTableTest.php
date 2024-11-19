@@ -36,17 +36,14 @@ class NodeTableTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeTable');
-        $this->assertIsArray($parent->links);
-        $this->assertEquals(
-            [
-                'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
-                'icon' => ['route' => '/table/search', 'params' => ['db' => null, 'table' => null]],
-                'second_icon' => ['route' => '/table/change', 'params' => ['db' => null, 'table' => null]],
-                'title' => 'Browse',
-            ],
-            $parent->links
-        );
-        $this->assertStringContainsString('table', $parent->classes);
+        self::assertIsArray($parent->links);
+        self::assertSame([
+            'text' => ['route' => '/sql', 'params' => ['pos' => 0, 'db' => null, 'table' => null]],
+            'icon' => ['route' => '/table/search', 'params' => ['db' => null, 'table' => null]],
+            'second_icon' => ['route' => '/table/change', 'params' => ['db' => null, 'table' => null]],
+            'title' => 'Browse',
+        ], $parent->links);
+        self::assertStringContainsString('table', $parent->classes);
     }
 
     /**
@@ -61,8 +58,8 @@ class NodeTableTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['NavigationTreeDefaultTabTable'] = $target;
         $node = NodeFactory::getInstance('NodeTable');
-        $this->assertEquals($imageName, $node->icon['image']);
-        $this->assertEquals($imageTitle, $node->icon['title']);
+        self::assertSame($imageName, $node->icon['image']);
+        self::assertSame($imageTitle, $node->icon['title']);
     }
 
     /**

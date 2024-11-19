@@ -53,13 +53,9 @@ class TrackerTest extends AbstractTestCase
      */
     public function testEnabled(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY)
-        );
+        self::assertFalse(Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY));
         Tracker::enable();
-        $this->assertTrue(
-            Cache::get(Tracker::TRACKER_ENABLED_CACHE_KEY)
-        );
+        self::assertTrue(Cache::get(Tracker::TRACKER_ENABLED_CACHE_KEY));
     }
 
     /**
@@ -67,22 +63,16 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsActive(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY)
-        );
+        self::assertFalse(Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY));
 
-        $this->assertFalse(
-            Tracker::isActive()
-        );
+        self::assertFalse(Tracker::isActive());
 
         Tracker::enable();
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
-        $this->assertFalse(
-            Tracker::isActive()
-        );
+        self::assertFalse(Tracker::isActive());
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -91,9 +81,7 @@ class TrackerTest extends AbstractTestCase
             'tracking' => 'tracking',
         ])->toArray();
 
-        $this->assertTrue(
-            Tracker::isActive()
-        );
+        self::assertTrue(Tracker::isActive());
     }
 
     /**
@@ -106,10 +94,7 @@ class TrackerTest extends AbstractTestCase
      */
     public function testGetTableName(string $string, string $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            $this->callFunction(null, Tracker::class, 'getTableName', [$string])
-        );
+        self::assertSame($expected, $this->callFunction(null, Tracker::class, 'getTableName', [$string]));
     }
 
     /**
@@ -140,22 +125,16 @@ class TrackerTest extends AbstractTestCase
      */
     public function testIsTracked(): void
     {
-        $this->assertFalse(
-            Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY)
-        );
+        self::assertFalse(Cache::has(Tracker::TRACKER_ENABLED_CACHE_KEY));
 
-        $this->assertFalse(
-            Tracker::isTracked('', '')
-        );
+        self::assertFalse(Tracker::isTracked('', ''));
 
         Tracker::enable();
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
-        $this->assertFalse(
-            Tracker::isTracked('', '')
-        );
+        self::assertFalse(Tracker::isTracked('', ''));
 
         $_SESSION['relation'] = [];
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([
@@ -164,13 +143,9 @@ class TrackerTest extends AbstractTestCase
             'tracking' => 'tracking',
         ])->toArray();
 
-        $this->assertTrue(
-            Tracker::isTracked('pma_test_db', 'pma_test_table')
-        );
+        self::assertTrue(Tracker::isTracked('pma_test_db', 'pma_test_table'));
 
-        $this->assertFalse(
-            Tracker::isTracked('pma_test_db', 'pma_test_table2')
-        );
+        self::assertFalse(Tracker::isTracked('pma_test_db', 'pma_test_table2'));
     }
 
     /**
@@ -181,10 +156,7 @@ class TrackerTest extends AbstractTestCase
         $date = Util::date('Y-m-d H:i:s');
         $GLOBALS['cfg']['Server']['user'] = 'pma_test_user';
 
-        $this->assertEquals(
-            '# log ' . $date . " pma_test_user\n",
-            Tracker::getLogComment()
-        );
+        self::assertSame('# log ' . $date . " pma_test_user\n", Tracker::getLogComment());
     }
 
     /**
@@ -255,7 +227,7 @@ class TrackerTest extends AbstractTestCase
             ->will($this->returnValue([]));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
+        self::assertTrue(Tracker::createVersion('pma_test', 'pma_tbl', '1', '11', true));
     }
 
     /**
@@ -282,7 +254,7 @@ class TrackerTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Tracker::deleteTracking('testdb', 'testtable'));
+        self::assertTrue(Tracker::deleteTracking('testdb', 'testtable'));
     }
 
     /**
@@ -315,7 +287,7 @@ class TrackerTest extends AbstractTestCase
             ->will($this->returnArgument(0));
 
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
+        self::assertTrue(Tracker::createDatabaseVersion('pma_test', '1', 'SHOW DATABASES'));
     }
 
     /**
@@ -375,9 +347,7 @@ class TrackerTest extends AbstractTestCase
      */
     public function testChangeTrackingData(): void
     {
-        $this->assertFalse(
-            Tracker::changeTrackingData('', '', '', '', '')
-        );
+        self::assertFalse(Tracker::changeTrackingData('', '', '', '', ''));
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -433,25 +403,21 @@ class TrackerTest extends AbstractTestCase
 
         $GLOBALS['dbi'] = $dbi;
 
-        $this->assertTrue(
-            Tracker::changeTrackingData(
-                'pma_db',
-                'pma_table',
-                '1.0',
-                'DDL',
-                '# new_data_processed'
-            )
-        );
+        self::assertTrue(Tracker::changeTrackingData(
+            'pma_db',
+            'pma_table',
+            '1.0',
+            'DDL',
+            '# new_data_processed'
+        ));
 
-        $this->assertTrue(
-            Tracker::changeTrackingData(
-                'pma_db',
-                'pma_table',
-                '1.0',
-                'DML',
-                $new_data
-            )
-        );
+        self::assertTrue(Tracker::changeTrackingData(
+            'pma_db',
+            'pma_table',
+            '1.0',
+            'DML',
+            $new_data
+        ));
     }
 
     /**
@@ -518,7 +484,7 @@ class TrackerTest extends AbstractTestCase
         $GLOBALS['dbi'] = $dbi;
         $result = Tracker::getTrackedData("pma'db", "pma'table", '1.0');
 
-        $this->assertEquals($expectedArray, $result);
+        self::assertEquals($expectedArray, $result);
     }
 
     /**
@@ -634,21 +600,21 @@ class TrackerTest extends AbstractTestCase
     ): void {
         $result = Tracker::parseQuery($query);
 
-        $this->assertEquals($type, $result['type']);
+        self::assertSame($type, $result['type']);
 
-        $this->assertEquals($identifier, $result['identifier']);
+        self::assertSame($identifier, $result['identifier']);
 
-        $this->assertEquals($tablename, $result['tablename']);
+        self::assertSame($tablename, $result['tablename']);
 
         if ($db) {
-            $this->assertEquals($db, $GLOBALS['db']);
+            self::assertSame($db, $GLOBALS['db']);
         }
 
         if (! $tablename_after_rename) {
             return;
         }
 
-        $this->assertEquals($result['tablename_after_rename'], $tablename_after_rename);
+        self::assertSame($result['tablename_after_rename'], $tablename_after_rename);
     }
 
     /**
