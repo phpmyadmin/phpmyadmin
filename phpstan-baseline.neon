@@ -544,24 +544,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$server of class PhpMyAdmin\\Config\\Settings\\Server constructor expects array\<int\|string, mixed\>, array given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#1 \$settings of class PhpMyAdmin\\Config\\Settings constructor expects array\<int\|string, mixed\>, array given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#1 \$settings of class PhpMyAdmin\\Config\\Settings constructor expects array\<int\|string, mixed\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Parameter \#1 \$string of function rtrim expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -1218,42 +1200,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Config\\Settings\:\:setVersionCheck\(\) should return bool but returns mixed\.$#'
 			identifier: return.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Parameter \#1 \$export of class PhpMyAdmin\\Config\\Settings\\Export constructor expects array\<int\|string, mixed\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Parameter \#1 \$import of class PhpMyAdmin\\Config\\Settings\\Import constructor expects array\<int\|string, mixed\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Parameter \#1 \$schema of class PhpMyAdmin\\Config\\Settings\\Schema constructor expects array\<int\|string, mixed\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Parameter \#1 \$server of class PhpMyAdmin\\Config\\Settings\\Server constructor expects array\<int\|string, mixed\>, array given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Parameter \#1 \$server of class PhpMyAdmin\\Config\\Settings\\Server constructor expects array\<int\|string, mixed\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/Settings.php
-
-		-
-			message: '#^Parameter \#1 \$transformations of class PhpMyAdmin\\Config\\Settings\\Transformations constructor expects array\<int\|string, mixed\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Config/Settings.php
 
@@ -12643,9 +12589,15 @@ parameters:
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
+			message: '#^Binary operation "\." between non\-empty\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 3
+			path: src/Plugins/Export/ExportCsv.php
+
+		-
 			message: '#^Binary operation "\." between string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 5
+			count: 2
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
@@ -13227,7 +13179,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 8
+			count: 7
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -13606,12 +13558,6 @@ parameters:
 			message: '#^Parameter \#5 \$compat of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:generateComment\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Parameter \#5 \$flag of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:replaceWithAliases\(\) expects bool\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -14851,9 +14797,15 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: '#^Binary operation "\+" between int\|string\|false and 12 results in an error\.$#'
+			message: '#^Binary operation "\+" between 0\|string\|false and 12 results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 4
+			count: 2
+			path: src/Plugins/Schema/Dia/RelationStatsDia.php
+
+		-
+			message: '#^Binary operation "\+" between int\<min, \-1\>\|int\<1, max\>\|string and 12 results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
 			path: src/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
@@ -14863,7 +14815,7 @@ parameters:
 			path: src/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and int\|string\|false results in an error\.$#'
+			message: '#^Binary operation "\+" between mixed and int\<min, \-1\>\|int\<1, max\>\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
 			path: src/Plugins/Schema/Dia/RelationStatsDia.php
@@ -20770,12 +20722,6 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: '#^Parameter \#1 \$server of class PhpMyAdmin\\Config\\Settings\\Server constructor expects array\<int\|string, mixed\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: tests/unit/ConfigTest.php
-
-		-
 			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -22198,12 +22144,6 @@ parameters:
 			path: tests/unit/Gis/GisPolygonTest.php
 
 		-
-			message: '#^Parameter \#1 \$gitLocation of method PhpMyAdmin\\Git\:\:isGitRevision\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: tests/unit/GitTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -23522,12 +23462,6 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Triggers/TriggersTest.php
-
-		-
-			message: '#^Parameter \#1 \$nodes of class Twig\\Node\\Node constructor expects array\<int\|string, Twig\\Node\\Node\>, array\<Twig\\Node\\Node\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: tests/unit/Twig/Node/Expression/TransExpressionTest.php
 
 		-
 			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$simple2fa is assigned outside of its declaring class\.$#'
