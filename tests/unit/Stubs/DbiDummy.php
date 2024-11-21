@@ -1786,15 +1786,6 @@ class DbiDummy implements DbiExtension
                 'result' => [['user<br>group', 'server_sql', 'Y']],
             ],
             [
-                'query' => 'DESCRIBE `test_table`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
-                'result' => [
-                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
-                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
-                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
-                ],
-            ],
-            [
                 'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4',
                 'columns' => ['name'],
                 'result' => [['101']],
