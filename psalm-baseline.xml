@@ -8704,14 +8704,6 @@
     </UnusedProperty>
   </file>
   <file src="src/Plugins/Schema/Dia/RelationStatsDia.php">
-    <InvalidOperand>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-    </InvalidOperand>
     <MixedOperand>
       <code><![CDATA[$this->destConnPointsRight]]></code>
       <code><![CDATA[$this->srcConnPointsRight]]></code>
@@ -8721,17 +8713,7 @@
       <code><![CDATA[$pos]]></code>
       <code><![CDATA[$pos]]></code>
       <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$pos]]></code>
     </PossiblyFalseOperand>
-  </file>
-  <file src="src/Plugins/Schema/Dia/TableStatsDia.php">
-    <MixedAssignment>
-      <code><![CDATA[$field]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$field]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Plugins/Schema/Eps/Eps.php">
     <PossiblyUnusedMethod>
@@ -8784,14 +8766,6 @@
     </MixedOperand>
   </file>
   <file src="src/Plugins/Schema/Eps/TableStatsEps.php">
-    <MixedArgument>
-      <code><![CDATA[$field]]></code>
-      <code><![CDATA[$field]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$field]]></code>
-      <code><![CDATA[$field]]></code>
-    </MixedAssignment>
     <PossiblyUnusedProperty>
       <code><![CDATA[$height]]></code>
     </PossiblyUnusedProperty>
@@ -9008,7 +8982,6 @@
   </file>
   <file src="src/Plugins/Schema/Pdf/TableStatsPdf.php">
     <MixedArgument>
-      <code><![CDATA[$field]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName][$field]]]></code>
       <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName]['-']]]></code>
     </MixedArgument>
@@ -9028,23 +9001,8 @@
       <code><![CDATA[$this->diagram->customLinks['doc'][$this->tableName][$field]]]></code>
       <code><![CDATA[$this->diagram->customLinks['doc'][$this->tableName]['-']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$this->diagram->customLinks['RT'][$this->tableName][$field]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$this->tableName][$field]]]></code>
-      <code><![CDATA[$this->diagram->customLinks['doc'][$this->tableName][$field]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$field]]></code>
-      <code><![CDATA[$field]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$field]]></code>
-    </MixedOperand>
   </file>
   <file src="src/Plugins/Schema/RelationStats.php">
-    <InvalidOperand>
-      <code><![CDATA[$pos]]></code>
-    </InvalidOperand>
     <MixedArgument>
       <code><![CDATA[$srcLeft - $destLeft]]></code>
       <code><![CDATA[$srcLeft - $destRight]]></code>
@@ -9142,16 +9100,6 @@
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->tables[$table]->width = &$this->tablewidth]]></code>
     </UnsupportedPropertyReferenceUsage>
-  </file>
-  <file src="src/Plugins/Schema/Svg/TableStatsSvg.php">
-    <MixedArgument>
-      <code><![CDATA[$field]]></code>
-      <code><![CDATA[$field]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$field]]></code>
-      <code><![CDATA[$field]]></code>
-    </MixedAssignment>
   </file>
   <file src="src/Plugins/Schema/TableStats.php">
     <DeprecatedMethod>

@@ -14797,30 +14797,6 @@ parameters:
 			path: src/Plugins/Schema/Dia/DiaRelationSchema.php
 
 		-
-			message: '#^Binary operation "\+" between 0\|string\|false and 12 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: '#^Binary operation "\+" between int\<min, \-1\>\|int\<1, max\>\|string and 12 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and 1 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
-			message: '#^Binary operation "\+" between mixed and int\<min, \-1\>\|int\<1, max\>\|string results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Schema/Dia/RelationStatsDia.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
@@ -14845,10 +14821,10 @@ parameters:
 			path: src/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: '#^Binary operation "\." between ''\<dia\:composite type…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Schema/Dia/TableStatsDia.php
+			message: '#^Only numeric types are allowed in \+, int\|false given on the left side\.$#'
+			identifier: plus.leftNonNumeric
+			count: 2
+			path: src/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
@@ -14921,18 +14897,6 @@ parameters:
 			identifier: method.notFound
 			count: 7
 			path: src/Plugins/Schema/Eps/RelationStatsEps.php
-
-		-
-			message: '#^Parameter \#1 \$text of method PhpMyAdmin\\Font\:\:getStringWidth\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
-
-		-
-			message: '#^Parameter \#1 \$text of method PhpMyAdmin\\Plugins\\Schema\\Eps\\Eps\:\:showXY\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Eps/TableStatsEps.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
@@ -15244,12 +15208,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: '#^Binary operation "\." between '' '' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 1
@@ -15262,15 +15220,9 @@ parameters:
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 9
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
@@ -15290,24 +15242,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: '#^Parameter \#1 \$s of method TCPDF\:\:GetStringWidth\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: '#^Binary operation "\*" between mixed and int results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Schema/RelationStats.php
-
-		-
-			message: '#^Binary operation "\+" between int\|string\|false and 1\.5 results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Schema/RelationStats.php
 
 		-
 			message: '#^Binary operation "\+" between mixed and int results in an error\.$#'
@@ -15331,6 +15265,12 @@ parameters:
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 3
+			path: src/Plugins/Schema/RelationStats.php
+
+		-
+			message: '#^Only numeric types are allowed in \+, int\<0, max\>\|false given on the left side\.$#'
+			identifier: plus.leftNonNumeric
+			count: 1
 			path: src/Plugins/Schema/RelationStats.php
 
 		-
@@ -15436,18 +15376,6 @@ parameters:
 			path: src/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
-			message: '#^Parameter \#1 \$text of method PhpMyAdmin\\Font\:\:getStringWidth\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
-			message: '#^Parameter \#6 \$text of method PhpMyAdmin\\Plugins\\Schema\\Svg\\Svg\:\:printElement\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -15466,18 +15394,6 @@ parameters:
 			message: '#^Cannot cast mixed to float\.$#'
 			identifier: cast.double
 			count: 2
-			path: src/Plugins/Schema/TableStats.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Schema/TableStats.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Plugins/Schema/TableStats.php
 
 		-
