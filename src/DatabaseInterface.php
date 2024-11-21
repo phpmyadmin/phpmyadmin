@@ -992,7 +992,7 @@ class DatabaseInterface implements DbalInterface
      * @param string $database name of database
      * @param string $table    name of table to retrieve columns from
      *
-     * @return string[]
+     * @return list<string>
      */
     public function getColumnNames(
         string $database,

@@ -4700,6 +4700,9 @@
       <code><![CDATA[$row['Max_data_length']]]></code>
       <code><![CDATA[$row['Rows']]]></code>
     </InvalidOperand>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$this->fetchResult($sql, null, 'Field', $connectionType)]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
       <code><![CDATA[$b]]></code>
@@ -4749,7 +4752,6 @@
       <code><![CDATA[reset($columns)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->fetchResult($sql, null, 'Field', $connectionType)]]></code>
       <code><![CDATA[$this->fetchResult($sql, null, null, $connectionType)]]></code>
       <code><![CDATA[array<int, array{
      *   Table: string,
@@ -4769,8 +4771,10 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
-      <code><![CDATA[string[]]]></code>
     </MixedReturnTypeCoercion>
+    <MoreSpecificReturnType>
+      <code><![CDATA[list<string>]]></code>
+    </MoreSpecificReturnType>
     <NullableReturnStatement>
       <code><![CDATA[$user]]></code>
     </NullableReturnStatement>
