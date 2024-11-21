@@ -64,10 +64,6 @@ final class TransExpression extends AbstractExpression
     {
         $parameters = [];
 
-        /**
-         * @var int|string $name
-         * @var Node $argument
-         */
         foreach ($this->getNode('arguments') as $name => $argument) {
             if (! in_array($name, [0, 1, 2, 'message', 'singular', 'plural', 'count', 'context', 'notes'], true)) {
                 throw $this->unknownArgumentSyntaxError($name);
