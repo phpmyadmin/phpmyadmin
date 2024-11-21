@@ -12,6 +12,7 @@ phpMyAdmin - ChangeLog
 - issue #17009 Implement the security header `Permissions-Policy`
 - issue #17951 Allow rollbacking SET queries
 - issue #18529 Add copy to clipboard for export as text
+- issue #19398 Use `application/json` instead of `text/plain` for JSON export
 
 5.2.2 (not yet released)
 - issue #17851 Fix total count of rows in not accurate

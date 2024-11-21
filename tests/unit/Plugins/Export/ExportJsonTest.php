@@ -78,7 +78,7 @@ class ExportJsonTest extends AbstractTestCase
         );
 
         self::assertSame(
-            'text/plain',
+            'application/json',
             $properties->getMimeType(),
         );
 
