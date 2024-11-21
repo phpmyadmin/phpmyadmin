@@ -14,9 +14,9 @@ use PhpMyAdmin\Index;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 
-use function array_flip;
 use function array_keys;
-use function array_merge;
+use function array_unique;
+use function array_values;
 use function is_array;
 use function rawurldecode;
 use function sprintf;
@@ -31,12 +31,12 @@ use function sprintf;
  */
 abstract class TableStats
 {
-    public mixed $displayfield;
+    public string $displayfield;
 
-    /** @var mixed[] */
+    /** @var list<string> */
     public array $fields = [];
 
-    /** @var mixed[] */
+    /** @var list<string|null> */
     public array $primary = [];
 
     public int|float $x = 0;
@@ -89,10 +89,9 @@ abstract class TableStats
      */
     protected function validateTableAndLoadFields(): void
     {
-        $sql = 'DESCRIBE ' . Util::backquote($this->tableName);
         $dbi = DatabaseInterface::getInstance();
-        $result = $dbi->tryQuery($sql);
-        if (! $result || $result->numRows() == 0) {
+        $columnNames = $dbi->getColumnNames($this->db, $this->tableName);
+        if ($columnNames === []) {
             $this->showMissingTableError();
             ResponseRenderer::getInstance()->callExit();
         }
@@ -101,15 +100,14 @@ abstract class TableStats
             $indexes = Index::getFromTable($dbi, $this->tableName, $this->db);
             $allColumns = [];
             foreach ($indexes as $index) {
-                $allColumns = array_merge(
-                    $allColumns,
-                    array_flip(array_keys($index->getColumns())),
-                );
+                foreach ($index->getColumns() as $indexColumn) {
+                    $allColumns[] = $indexColumn->getName();
+                }
             }
 
-            $this->fields = array_keys($allColumns);
+            $this->fields = array_values(array_unique($allColumns));
         } else {
-            $this->fields = $result->fetchAllColumn();
+            $this->fields = $columnNames;
         }
     }
 
