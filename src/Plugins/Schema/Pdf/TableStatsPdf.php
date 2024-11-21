@@ -165,11 +165,11 @@ class TableStatsPdf extends TableStats
 
         foreach ($this->fields as $field) {
             if ($setColor) {
-                if (in_array($field, $this->primary)) {
+                if (in_array($field, $this->primary, true)) {
                     $this->diagram->setFillColor(215, 121, 123);
                 }
 
-                if ($field == $this->displayfield) {
+                if ($field === $this->displayfield) {
                     $this->diagram->setFillColor(142, 159, 224);
                 }
             }

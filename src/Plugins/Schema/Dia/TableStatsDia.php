@@ -189,11 +189,11 @@ class TableStatsDia extends TableStats
             );
             unset($pm);
             $pm = 'false';
-            if (in_array($field, $this->primary)) {
+            if (in_array($field, $this->primary, true)) {
                 $pm = 'true';
             }
 
-            if ($field == $this->displayfield) {
+            if ($field === $this->displayfield) {
                 $pm = 'false';
             }
 

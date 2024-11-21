@@ -14827,18 +14827,6 @@ parameters:
 			path: src/Plugins/Schema/Dia/RelationStatsDia.php
 
 		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Schema/Dia/TableStatsDia.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -15208,12 +15196,6 @@ parameters:
 			path: src/Plugins/Schema/Pdf/RelationStatsPdf.php
 
 		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
 			message: '#^Cannot access offset ''\-'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
@@ -15229,12 +15211,6 @@ parameters:
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 2
-			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
 			path: src/Plugins/Schema/Pdf/TableStatsPdf.php
 
 		-
@@ -15362,18 +15338,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Schema/Svg/SvgRelationSchema.php
-
-		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/Plugins/Schema/Svg/TableStatsSvg.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Schema/Svg/TableStatsSvg.php
 
 		-
 			message: '''
