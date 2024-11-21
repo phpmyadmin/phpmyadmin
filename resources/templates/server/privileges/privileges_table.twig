@@ -122,7 +122,7 @@
     <div class="item">
       <div class="item">
         <input type="checkbox" name="Delete_priv" id="checkbox_Delete_priv" value="Y" title="
-          {{- t('Allows deleting data.') }}"{{ row['Delete_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows deleting data.') }}"{{ (row['Delete_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Delete_priv">
           <code>
             <dfn title="{{ t('Allows deleting data.') }}">
@@ -134,7 +134,7 @@
 
       <div class="item">
         <input type="checkbox" name="Create_priv" id="checkbox_Create_priv" value="Y" title="
-          {{- t('Allows creating new tables.') }}"{{ row['Create_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows creating new tables.') }}"{{ (row['Create_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Create_priv">
           <code>
             <dfn title="{{ t('Allows creating new tables.') }}">
@@ -146,7 +146,7 @@
 
       <div class="item">
         <input type="checkbox" name="Drop_priv" id="checkbox_Drop_priv" value="Y" title="
-          {{- t('Allows dropping tables.') }}"{{ row['Drop_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows dropping tables.') }}"{{ (row['Drop_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Drop_priv">
           <code>
             <dfn title="{{ t('Allows dropping tables.') }}">
@@ -159,7 +159,7 @@
       <div class="item">
         <input type="checkbox" name="Grant_priv" id="checkbox_Grant_priv" value="Y" title="
           {{- t('Allows user to give to other users or remove from other users the privileges that user possess yourself.') }}"
-          {{- row['Grant_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- (row['Grant_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Grant_priv">
           <code>
             <dfn title="{{ t('Allows user to give to other users or remove from other users the privileges that user possess yourself.') }}">
@@ -171,7 +171,7 @@
 
       <div class="item">
         <input type="checkbox" name="Index_priv" id="checkbox_Index_priv" value="Y" title="
-          {{- t('Allows creating and dropping indexes.') }}"{{ row['Index_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows creating and dropping indexes.') }}"{{ (row['Index_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Index_priv">
           <code>
             <dfn title="{{ t('Allows creating and dropping indexes.') }}">
@@ -183,7 +183,7 @@
 
       <div class="item">
         <input type="checkbox" name="Alter_priv" id="checkbox_Alter_priv" value="Y" title="
-          {{- t('Allows altering the structure of existing tables.') }}"{{ row['Alter_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows altering the structure of existing tables.') }}"{{ (row['Alter_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Alter_priv">
           <code>
             <dfn title="{{ t('Allows altering the structure of existing tables.') }}">
@@ -219,7 +219,7 @@
 
       <div class="item">
         <input type="checkbox" name="Trigger_priv" id="checkbox_Trigger_priv" value="Y" title="
-          {{- t('Allows creating and dropping triggers.') }}"{{ row['Trigger_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows creating and dropping triggers.') }}"{{ (row['Trigger_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Trigger_priv">
           <code>
             <dfn title="{{ t('Allows creating and dropping triggers.') }}">
@@ -284,7 +284,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Select_priv" id="checkbox_Select_priv" value="Y" title="
-        {{- t('Allows reading data.') }}"{{ row['Select_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows reading data.') }}"{{ (row['Select_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Select_priv">
         <code>
           <dfn title="{{ t('Allows reading data.') }}">
@@ -297,7 +297,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Insert_priv" id="checkbox_Insert_priv" value="Y" title="
-        {{- t('Allows inserting and replacing data.') }}"{{ row['Insert_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows inserting and replacing data.') }}"{{ (row['Insert_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Insert_priv">
         <code>
           <dfn title="{{ t('Allows inserting and replacing data.') }}">
@@ -310,7 +310,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Update_priv" id="checkbox_Update_priv" value="Y" title="
-        {{- t('Allows changing data.') }}"{{ row['Update_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows changing data.') }}"{{ (row['Update_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Update_priv">
         <code>
           <dfn title="{{ t('Allows changing data.') }}">
@@ -323,7 +323,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Delete_priv" id="checkbox_Delete_priv" value="Y" title="
-        {{- t('Allows deleting data.') }}"{{ row['Delete_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows deleting data.') }}"{{ (row['Delete_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Delete_priv">
         <code>
           <dfn title="{{ t('Allows deleting data.') }}">
@@ -337,7 +337,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="File_priv" id="checkbox_File_priv" value="Y" title="
-          {{- t('Allows importing data from and exporting data into files.') }}"{{ row['File_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows importing data from and exporting data into files.') }}"{{ (row['File_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_File_priv">
           <code>
             <dfn title="{{ t('Allows importing data from and exporting data into files.') }}">
@@ -365,7 +365,7 @@
           {{- t('Allows creating new databases and tables.') -}}
         {% else %}
           {{- t('Allows creating new tables.') -}}
-        {% endif %}"{{ row['Create_priv'] ?? null == 'Y' ? ' checked' }}>
+        {% endif %}"{{ (row['Create_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Create_priv">
         <code>
           <dfn title="
@@ -383,7 +383,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Alter_priv" id="checkbox_Alter_priv" value="Y" title="
-        {{- t('Allows altering the structure of existing tables.') }}"{{ row['Alter_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows altering the structure of existing tables.') }}"{{ (row['Alter_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Alter_priv">
         <code>
           <dfn title="{{ t('Allows altering the structure of existing tables.') }}">
@@ -396,7 +396,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Index_priv" id="checkbox_Index_priv" value="Y" title="
-        {{- t('Allows creating and dropping indexes.') }}"{{ row['Index_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows creating and dropping indexes.') }}"{{ (row['Index_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Index_priv">
         <code>
           <dfn title="{{ t('Allows creating and dropping indexes.') }}">
@@ -413,7 +413,7 @@
           {{- t('Allows dropping databases and tables.') -}}
         {% else %}
           {{- t('Allows dropping tables.') -}}
-        {% endif %}"{{ row['Drop_priv'] ?? null == 'Y' ? ' checked' }}>
+        {% endif %}"{{ (row['Drop_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Drop_priv">
         <code>
           <dfn title="
@@ -431,7 +431,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Create_tmp_table_priv" id="checkbox_Create_tmp_table_priv" value="Y" title="
-        {{- t('Allows creating temporary tables.') }}"{{ row['Create_tmp_table_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows creating temporary tables.') }}"{{ (row['Create_tmp_table_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Create_tmp_table_priv">
         <code>
           <dfn title="{{ t('Allows creating temporary tables.') }}">
@@ -444,7 +444,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Show_view_priv" id="checkbox_Show_view_priv" value="Y" title="
-        {{- t('Allows performing SHOW CREATE VIEW queries.') }}"{{ row['Show_view_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows performing SHOW CREATE VIEW queries.') }}"{{ (row['Show_view_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Show_view_priv">
         <code>
           <dfn title="{{ t('Allows performing SHOW CREATE VIEW queries.') }}">
@@ -457,7 +457,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Create_routine_priv" id="checkbox_Create_routine_priv" value="Y" title="
-        {{- t('Allows creating stored routines.') }}"{{ row['Create_routine_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows creating stored routines.') }}"{{ (row['Create_routine_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Create_routine_priv">
         <code>
           <dfn title="{{ t('Allows creating stored routines.') }}">
@@ -470,7 +470,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Alter_routine_priv" id="checkbox_Alter_routine_priv" value="Y" title="
-        {{- t('Allows altering and dropping stored routines.') }}"{{ row['Alter_routine_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows altering and dropping stored routines.') }}"{{ (row['Alter_routine_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Alter_routine_priv">
         <code>
           <dfn title="{{ t('Allows altering and dropping stored routines.') }}">
@@ -483,7 +483,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Execute_priv" id="checkbox_Execute_priv" value="Y" title="
-        {{- t('Allows executing stored routines.') }}"{{ row['Execute_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows executing stored routines.') }}"{{ (row['Execute_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Execute_priv">
         <code>
           <dfn title="{{ t('Allows executing stored routines.') }}">
@@ -567,7 +567,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Grant_priv" id="checkbox_Grant_priv" value="Y" title="
-          {{- t('Allows adding users and privileges without reloading the privilege tables.') }}"{{ row['Grant_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows adding users and privileges without reloading the privilege tables.') }}"{{ (row['Grant_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Grant_priv">
           <code>
             <dfn title="{{ t('Allows adding users and privileges without reloading the privilege tables.') }}">
@@ -581,7 +581,7 @@
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Super_priv" id="checkbox_Super_priv" value="Y" title="
           {{- t('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.') }}"
-          {{- row['Super_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- (row['Super_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Super_priv">
           <code>
             <dfn title="{{ t('Allows connecting, even if maximum number of connections is reached; required for most administrative operations like setting global variables or killing threads of other users.') }}">
@@ -594,7 +594,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Process_priv" id="checkbox_Process_priv" value="Y" title="
-          {{- t('Allows viewing processes of all users.') }}"{{ row['Process_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows viewing processes of all users.') }}"{{ (row['Process_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Process_priv">
           <code>
             <dfn title="{{ t('Allows viewing processes of all users.') }}">
@@ -607,7 +607,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Reload_priv" id="checkbox_Reload_priv" value="Y" title="
-          {{- t("Allows reloading server settings and flushing the server's caches.") }}"{{ row['Reload_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t("Allows reloading server settings and flushing the server's caches.") }}"{{ (row['Reload_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Reload_priv">
           <code>
             <dfn title="{{ t("Allows reloading server settings and flushing the server's caches.") }}">
@@ -620,7 +620,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Shutdown_priv" id="checkbox_Shutdown_priv" value="Y" title="
-          {{- t('Allows shutting down the server.') }}"{{ row['Shutdown_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows shutting down the server.') }}"{{ (row['Shutdown_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Shutdown_priv">
           <code>
             <dfn title="{{ t('Allows shutting down the server.') }}">
@@ -633,7 +633,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Show_db_priv" id="checkbox_Show_db_priv" value="Y" title="
-          {{- t('Gives access to the complete list of databases.') }}"{{ row['Show_db_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Gives access to the complete list of databases.') }}"{{ (row['Show_db_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Show_db_priv">
           <code>
             <dfn title="{{ t('Gives access to the complete list of databases.') }}">
@@ -647,7 +647,7 @@
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Grant_priv" id="checkbox_Grant_priv" value="Y" title="
           {{- t('Allows user to give to other users or remove from other users the privileges that user possess yourself.') }}"
-          {{- row['Grant_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- (row['Grant_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Grant_priv">
           <code>
             <dfn title="{{ t('Allows user to give to other users or remove from other users the privileges that user possess yourself.') }}">
@@ -661,7 +661,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="Lock_tables_priv" id="checkbox_Lock_tables_priv" value="Y" title="
-        {{- t('Allows locking tables for the current thread.') }}"{{ row['Lock_tables_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Allows locking tables for the current thread.') }}"{{ (row['Lock_tables_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_Lock_tables_priv">
         <code>
           <dfn title="{{ t('Allows locking tables for the current thread.') }}">
@@ -674,7 +674,7 @@
     <div class="item">
       {% set grant_count = grant_count + 1 %}
       <input type="checkbox" class="checkall" name="References_priv" id="checkbox_References_priv" value="Y" title="
-        {{- t('Has no effect in this MySQL version.') }}"{{ row['References_priv'] ?? null == 'Y' ? ' checked' }}>
+        {{- t('Has no effect in this MySQL version.') }}"{{ (row['References_priv'] ?? null) == 'Y' ? ' checked' }}>
       <label for="checkbox_References_priv">
         <code>
           <dfn title="{{ supports_references_privilege ? t('Allows creating foreign key relations.') : (is_mariadb ? t('Not used on MariaDB.') : t('Not used for this MySQL version.')) }}">
@@ -688,7 +688,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Repl_client_priv" id="checkbox_Repl_client_priv" value="Y" title="
-          {{- t('Allows the user to ask where the replicas / primaries are.') }}"{{ row['Repl_client_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows the user to ask where the replicas / primaries are.') }}"{{ (row['Repl_client_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Repl_client_priv">
           <code>
             <dfn title="{{ t('Allows the user to ask where the replicas / primaries are.') }}">
@@ -701,7 +701,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Repl_slave_priv" id="checkbox_Repl_slave_priv" value="Y" title="
-          {{- t('Needed for the replication replicas.') }}"{{ row['Repl_slave_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Needed for the replication replicas.') }}"{{ (row['Repl_slave_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Repl_slave_priv">
           <code>
             <dfn title="{{ t('Needed for the replication replicas.') }}">
@@ -714,7 +714,7 @@
       <div class="item">
         {% set grant_count = grant_count + 1 %}
         <input type="checkbox" class="checkall" name="Create_user_priv" id="checkbox_Create_user_priv" value="Y" title="
-          {{- t('Allows creating, dropping and renaming user accounts.') }}"{{ row['Create_user_priv'] ?? null == 'Y' ? ' checked' }}>
+          {{- t('Allows creating, dropping and renaming user accounts.') }}"{{ (row['Create_user_priv'] ?? null) == 'Y' ? ' checked' }}>
         <label for="checkbox_Create_user_priv">
           <code>
             <dfn title="{{ t('Allows creating, dropping and renaming user accounts.') }}">
@@ -800,7 +800,7 @@
         <div class="item">
           <input type="radio" name="ssl_type" id="ssl_type_NONE" title="
             {{- t('Does not require SSL-encrypted connections.') }}" value="NONE"
-            {{- row.ssl_type ?? null == 'NONE' or row.ssl_type ?? null == '' ? ' checked' }}>
+            {{- (row.ssl_type ?? null) == 'NONE' or (row.ssl_type ?? null) == '' ? ' checked' }}>
           <label for="ssl_type_NONE">
             <code>REQUIRE NONE</code>
           </label>
@@ -809,7 +809,7 @@
         <div class="item">
           <input type="radio" name="ssl_type" id="ssl_type_ANY" title="
             {{- t('Requires SSL-encrypted connections.') }}" value="ANY"
-            {{- row.ssl_type ?? null == 'ANY' ? ' checked' }}>
+            {{- (row.ssl_type ?? null) == 'ANY' ? ' checked' }}>
           <label for="ssl_type_ANY">
             <code>REQUIRE SSL</code>
           </label>
@@ -818,7 +818,7 @@
         <div class="item">
           <input type="radio" name="ssl_type" id="ssl_type_X509" title="
             {{- t('Requires a valid X509 certificate.') }}" value="X509"
-            {{- row.ssl_type ?? null == 'X509' ? ' checked' }}>
+            {{- (row.ssl_type ?? null) == 'X509' ? ' checked' }}>
           <label for="ssl_type_X509">
             <code>REQUIRE X509</code>
           </label>
@@ -826,7 +826,7 @@
 
         <div class="item">
           <input type="radio" name="ssl_type" id="ssl_type_SPECIFIED" value="SPECIFIED"
-            {{- row.ssl_type ?? null == 'SPECIFIED' ? ' checked' }}>
+            {{- (row.ssl_type ?? null) == 'SPECIFIED' ? ' checked' }}>
           <label for="ssl_type_SPECIFIED">
             <code>SPECIFIED</code>
           </label>
@@ -839,7 +839,7 @@
             </label>
             <input type="text" name="ssl_cipher" id="text_ssl_cipher" value="{{ row.ssl_cipher ?? null }}" size="80" title="
               {{- t('Requires that a specific cipher method be used for a connection.') }}"
-              {{- row.ssl_type ?? null != 'SPECIFIED' ? ' disabled' }}>
+              {{- (row.ssl_type ?? null) != 'SPECIFIED' ? ' disabled' }}>
           </div>
 
           <div class="item">
@@ -848,7 +848,7 @@
             </label>
             <input type="text" name="x509_issuer" id="text_x509_issuer" value="{{ row.x509_issuer ?? null }}" size="80" title="
               {{- t('Requires that a valid X509 certificate issued by this CA be presented.') }}"
-              {{- row.ssl_type ?? null != 'SPECIFIED' ? ' disabled' }}>
+              {{- (row.ssl_type ?? null) != 'SPECIFIED' ? ' disabled' }}>
           </div>
 
           <div class="item">
@@ -857,7 +857,7 @@
             </label>
             <input type="text" name="x509_subject" id="text_x509_subject" value="{{ row.x509_subject ?? null }}" size="80" title="
               {{- t('Requires that a valid X509 certificate with this subject be presented.') }}"
-              {{- row.ssl_type ?? null != 'SPECIFIED' ? ' disabled' }}>
+              {{- (row.ssl_type ?? null) != 'SPECIFIED' ? ' disabled' }}>
           </div>
         </div>
       </div>
