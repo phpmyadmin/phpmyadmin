@@ -16,6 +16,7 @@ use PhpMyAdmin\Url;
 use Throwable;
 
 use function __;
+use function array_filter;
 use function array_splice;
 use function count;
 use function defined;
@@ -44,7 +45,7 @@ use const E_WARNING;
  */
 class ErrorHandler
 {
-    public static self|null $instance = null;
+    private static self|null $instance = null;
 
     /**
      * holds errors to be displayed or reported later ...
@@ -343,7 +344,7 @@ class ErrorHandler
     /**
      * Renders user errors not displayed
      */
-    public function getDispUserErrors(): string
+    private function getDispUserErrors(): string
     {
         $retval = '';
         foreach ($this->getErrors() as $error) {
@@ -377,9 +378,7 @@ class ErrorHandler
             $retval .= $this->getDispUserErrors();
         }
 
-        // if preference is not 'never' and
-        // there are 'actual' errors to be reported
-        if ($config->settings['SendErrorReports'] !== 'never' && $this->countErrors() !== $this->countUserErrors()) {
+        if ($config->settings['SendErrorReports'] !== 'never' && $this->countActualErrors() !== 0) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
@@ -422,7 +421,7 @@ class ErrorHandler
     /**
      * look in session for saved errors
      */
-    protected function checkSavedErrors(): void
+    private function checkSavedErrors(): void
     {
         if (! isset($_SESSION['errors'])) {
             return;
@@ -454,55 +453,14 @@ class ErrorHandler
         return count($this->getErrors($check));
     }
 
-    /**
-     * return count of user errors
-     *
-     * @return int number of user errors occurred
-     */
     public function countUserErrors(): int
     {
-        $count = 0;
-        if ($this->countErrors() !== 0) {
-            foreach ($this->getErrors() as $error) {
-                if (! $error->isUserError()) {
-                    continue;
-                }
-
-                $count++;
-            }
-        }
-
-        return $count;
+        return count(array_filter($this->getErrors(), static fn (Error $error): bool => $error->isUserError()));
     }
 
-    /**
-     * whether use errors occurred or not
-     */
-    public function hasUserErrors(): bool
+    private function countActualErrors(): int
     {
-        return (bool) $this->countUserErrors();
-    }
-
-    /**
-     * whether errors occurred or not
-     */
-    public function hasErrors(): bool
-    {
-        return (bool) $this->countErrors();
-    }
-
-    /**
-     * number of errors to be displayed
-     *
-     * @return int number of errors to be displayed
-     */
-    public function countDisplayErrors(): int
-    {
-        if (Config::getInstance()->settings['SendErrorReports'] !== 'never') {
-            return $this->countErrors();
-        }
-
-        return $this->countUserErrors();
+        return count(array_filter($this->getErrors(), static fn (Error $error): bool => ! $error->isUserError()));
     }
 
     /**
@@ -510,7 +468,11 @@ class ErrorHandler
      */
     public function hasDisplayErrors(): bool
     {
-        return (bool) $this->countDisplayErrors();
+        if (Config::getInstance()->settings['SendErrorReports'] !== 'never') {
+            return $this->getErrors() !== [];
+        }
+
+        return $this->countUserErrors() !== 0;
     }
 
     /**
@@ -534,7 +496,7 @@ class ErrorHandler
     public function hasErrorsForPrompt(): bool
     {
         return Config::getInstance()->settings['SendErrorReports'] !== 'never'
-            && $this->countErrors() !== $this->countUserErrors();
+            && $this->countActualErrors() !== 0;
     }
 
     /**
@@ -544,9 +506,7 @@ class ErrorHandler
      */
     public function reportErrors(): void
     {
-        // if there're no actual errors,
-        if (! $this->hasErrors() || $this->countErrors() === $this->countUserErrors()) {
-            // then simply return.
+        if ($this->getErrors() === [] || $this->countActualErrors() === 0) {
             return;
         }
 

@@ -67,7 +67,6 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testUniqueness(): void
     {
-        ErrorHandler::$instance = null;
         $instanceOne = ErrorHandler::getInstance();
         $instanceTwo = ErrorHandler::getInstance();
         self::assertSame($instanceOne, $instanceTwo);
@@ -245,44 +244,6 @@ class ErrorHandlerTest extends AbstractTestCase
         self::assertSame(
             1,
             $this->object->countUserErrors(),
-        );
-    }
-
-    /**
-     * Test for hasUserErrors
-     */
-    public function testHasUserErrors(): void
-    {
-        self::assertFalse($this->object->hasUserErrors());
-    }
-
-    /**
-     * Test for hasErrors
-     */
-    public function testHasErrors(): void
-    {
-        self::assertFalse($this->object->hasErrors());
-    }
-
-    /**
-     * Test for countDisplayErrors
-     */
-    public function testCountDisplayErrorsForDisplayTrue(): void
-    {
-        self::assertSame(
-            0,
-            $this->object->countDisplayErrors(),
-        );
-    }
-
-    /**
-     * Test for countDisplayErrors
-     */
-    public function testCountDisplayErrorsForDisplayFalse(): void
-    {
-        self::assertSame(
-            0,
-            $this->object->countDisplayErrors(),
         );
     }
 
