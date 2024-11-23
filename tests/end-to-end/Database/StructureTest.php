@@ -59,7 +59,7 @@ class StructureTest extends TestBase
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
                 // [ ] | Edit | Copy | Delete | 1 | 5
-                self::assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
     }

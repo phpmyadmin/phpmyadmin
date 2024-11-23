@@ -41,7 +41,7 @@ class TablePropertyTest extends AbstractTestCase
 
         self::assertSame('int', $this->object->type);
 
-        self::assertEquals('YES', $this->object->nullable);
+        self::assertSame('YES', $this->object->nullable);
 
         self::assertSame('PRI', $this->object->key);
 

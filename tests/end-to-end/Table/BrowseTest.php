@@ -49,17 +49,17 @@ class BrowseTest extends TestBase
         $this->byPartialLinkText('name')->click();
         $this->waitAjax();
 
-        self::assertEquals(
+        self::assertSame(
             '1',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '3',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -68,17 +68,17 @@ class BrowseTest extends TestBase
         $this->byPartialLinkText('name')->click();
         $this->waitAjax();
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '1',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '3',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -88,17 +88,17 @@ class BrowseTest extends TestBase
         $this->waitAjax();
 
         $this->getCellByTableClass('table_results', 1, 5);
-        self::assertEquals(
+        self::assertSame(
             '3',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '1',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -107,17 +107,17 @@ class BrowseTest extends TestBase
         $this->byPartialLinkText('datetimefield')->click();
         $this->waitAjax();
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '1',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '3',
             $this->getCellByTableClass('table_results', 3, 5),
         );
@@ -137,17 +137,17 @@ class BrowseTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('id', 'insertForm');
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->byId('field_1_3')->getAttribute('value'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'foo',
             $this->byId('field_2_3')->getAttribute('value'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2010-01-20 02:00:02',
             $this->byId('field_3_3')->getAttribute('value'),
         );
@@ -166,12 +166,12 @@ class BrowseTest extends TestBase
         $success = $this->waitForElement('className', 'alert-success');
         self::assertStringContainsString('1 row affected', $success->getText());
 
-        self::assertEquals(
+        self::assertSame(
             'foobar',
             $this->getCellByTableClass('table_results', 2, 6),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2009-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 2, 7),
         );
@@ -187,7 +187,7 @@ class BrowseTest extends TestBase
         $this->moveto($element);
         $this->doubleclick();
 
-        self::assertEquals(
+        self::assertSame(
             $this->waitForElement(
                 'xpath',
                 "//div[not(contains(@style,'display: none;'))]//textarea[contains(@class, 'edit_box')]",
@@ -204,7 +204,7 @@ class BrowseTest extends TestBase
         $success = $this->waitForElement('cssSelector', 'span.ajax_notification .alert-success');
         self::assertStringContainsString('1 row affected', $success->getText());
 
-        self::assertEquals(
+        self::assertSame(
             'abcde',
             $this->getCellByTableClass('table_results', 1, 6),
         );
@@ -220,12 +220,12 @@ class BrowseTest extends TestBase
         $this->click();
         $this->waitForElement('id', 'insertForm');
 
-        self::assertEquals(
+        self::assertSame(
             'Abcd',
             $this->byId('field_2_3')->getAttribute('value'),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2012-01-20 02:00:02',
             $this->byId('field_3_3')->getAttribute('value'),
         );
@@ -242,12 +242,12 @@ class BrowseTest extends TestBase
         $success = $this->waitForElement('className', 'alert-success');
         self::assertStringContainsString('1 row inserted', $success->getText());
 
-        self::assertEquals(
+        self::assertSame(
             'ABCDEFG',
             $this->getCellByTableClass('table_results', 4, 6),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2012-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 4, 7),
         );
@@ -278,12 +278,12 @@ class BrowseTest extends TestBase
         $success = $this->waitForElement('className', 'alert-success');
         self::assertStringContainsString('Showing rows', $success->getText());
 
-        self::assertEquals(
+        self::assertSame(
             '1',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '3',
             $this->getCellByTableClass('table_results', 2, 5),
         );

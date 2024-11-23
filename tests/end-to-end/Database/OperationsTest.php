@@ -69,7 +69,7 @@ class OperationsTest extends TestBase
             'SHOW DATABASES LIKE \'' . $newDbName . '\'',
             function () use ($newDbName): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals($newDbName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame($newDbName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 
@@ -111,7 +111,7 @@ class OperationsTest extends TestBase
             'SHOW DATABASES LIKE \'' . $newDbName . '\'',
             function () use ($newDbName): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals($newDbName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame($newDbName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 

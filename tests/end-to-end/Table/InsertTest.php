@@ -107,47 +107,47 @@ class InsertTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('cssSelector', 'table.table_results');
 
-        self::assertEquals(
+        self::assertSame(
             '1',
             $this->getCellByTableClass('table_results', 1, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'abcd',
             $this->getCellByTableClass('table_results', 1, 6),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2011-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 1, 7),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->getCellByTableClass('table_results', 2, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'foo',
             $this->getCellByTableClass('table_results', 2, 6),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2012-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 2, 7),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '4',
             $this->getCellByTableClass('table_results', 3, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Abcd',
             $this->getCellByTableClass('table_results', 3, 6),
         );
 
-        self::assertEquals(
+        self::assertSame(
             '2013-01-02 00:00:00',
             $this->getCellByTableClass('table_results', 3, 7),
         );

@@ -411,7 +411,7 @@ class TransformationPluginsTest extends AbstractTestCase
     public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
     {
         $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $reflectionMethod->invokeArgs($object, $args),
         );
@@ -660,7 +660,7 @@ class TransformationPluginsTest extends AbstractTestCase
         string $error = '',
     ): void {
         $actual = $object->applyTransformation(...$applyArgs);
-        self::assertEquals($transformed, $actual);
+        self::assertSame($transformed, $actual);
 
         if (! ($object instanceof IOTransformationsPlugin)) {
             return;

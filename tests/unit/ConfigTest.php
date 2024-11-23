@@ -178,7 +178,7 @@ PHP;
             return;
         }
 
-        self::assertEquals(
+        self::assertSame(
             $version,
             $this->object->get('PMA_USR_BROWSER_VER'),
         );

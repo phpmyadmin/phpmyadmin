@@ -80,10 +80,10 @@ class FormatConverterTest extends AbstractTestCase
      * @param string $input    Input to convert
      */
     #[DataProvider('providerIpToLong')]
-    public function testIpToLong(string $expected, string $input): void
+    public function testIpToLong(string|int $expected, string $input): void
     {
         $result = FormatConverter::ipToLong($input);
-        self::assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
     /**
@@ -93,7 +93,7 @@ class FormatConverterTest extends AbstractTestCase
      */
     public static function providerIpToLong(): array
     {
-        return [['168496141', '10.11.12.13'], ['my ip', 'my ip']];
+        return [[168496141, '10.11.12.13'], ['my ip', 'my ip']];
     }
 
     /**
