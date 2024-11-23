@@ -14110,12 +14110,6 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 6
-			path: src/Plugins/Export/Helpers/TableProperty.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 2

@@ -50,7 +50,7 @@ class TableProperty
      */
     public string $ext;
 
-    /** @param mixed[] $row table row */
+    /** @param list<string|null> $row table row */
     public function __construct(array $row)
     {
         $this->name = trim((string) $row[0]);
