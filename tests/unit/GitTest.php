@@ -368,7 +368,7 @@ class GitTest extends AbstractTestCase
         self::assertFalse($this->object->isGitRevision($gitFolder));
 
         // Assert that the value is replaced by cached one
-        self::assertSame($gitFolder, null);
+        self::assertNull($gitFolder);
     }
 
     /**

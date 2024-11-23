@@ -12,7 +12,6 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use ReflectionProperty;
 
 use function ini_get;
-use function is_string;
 use function parse_str;
 use function str_repeat;
 use function urldecode;
@@ -202,7 +201,7 @@ class UrlTest extends AbstractTestCase
         parse_str($query, $queryParams);
         self::assertCount(2, $queryParams);
         self::assertSame('0', $queryParams['pos']);
-        self::assertTrue(is_string($queryParams['eq']));
+        self::assertIsString($queryParams['eq']);
         self::assertNotSame('', $queryParams['eq']);
         self::assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
 

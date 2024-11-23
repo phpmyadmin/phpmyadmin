@@ -13,8 +13,6 @@ use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
 
-use function in_array;
-
 #[CoversClass(MainController::class)]
 class MainControllerTest extends AbstractTestCase
 {
@@ -46,12 +44,14 @@ class MainControllerTest extends AbstractTestCase
         $controller(self::createStub(ServerRequest::class));
 
         $files = $response->getHeader()->getScripts()->getFiles();
-        self::assertTrue(
-            in_array(['name' => 'normalization.js', 'fire' => 1], $files, true),
+        self::assertContains(
+            ['name' => 'normalization.js', 'fire' => 1],
+            $files,
             'normalization.js script was not included in the response.',
         );
-        self::assertTrue(
-            in_array(['name' => 'vendor/jquery/jquery.uitablefilter.js', 'fire' => 0], $files, true),
+        self::assertContains(
+            ['name' => 'vendor/jquery/jquery.uitablefilter.js', 'fire' => 0],
+            $files,
             'vendor/jquery/jquery.uitablefilter.js script was not included in the response.',
         );
 
