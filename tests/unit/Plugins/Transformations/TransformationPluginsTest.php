@@ -240,7 +240,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [new Image_JPEG_Link(), 'getInfo', 'Displays a link to download this image.'],
             [new Image_JPEG_Link(), 'getMIMEType', 'Image'],
             [new Image_JPEG_Link(), 'getMIMESubtype', 'JPEG'],
-            [new Image_JPEG_Link(), 'applyTransformationNoWrap', null],
+            [new Image_JPEG_Link(), 'applyTransformationNoWrap', false],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             [new Image_PNG_Inline(), 'getName', 'Inline'],
             [
@@ -411,10 +411,6 @@ class TransformationPluginsTest extends AbstractTestCase
     #[DataProvider('multiDataProvider')]
     public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
     {
-        if (! method_exists($object, $method)) {
-            return;
-        }
-
         $reflectionMethod = new ReflectionMethod($object, $method);
         self::assertEquals(
             $expected,
