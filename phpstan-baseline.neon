@@ -22210,6 +22210,12 @@ parameters:
 			path: tests/unit/IpAllowDenyTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{\} and array\{\000PhpMyAdmin\\ListDatabase\000dbi\: PhpMyAdmin\\DatabaseInterface, \000PhpMyAdmin\\ListDatabase\000config\: PhpMyAdmin\\Config, \000PhpMyAdmin\\ListDatabase\000userPrivilegesFactory\: PhpMyAdmin\\UserPrivilegesFactory\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/ListDatabaseTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#

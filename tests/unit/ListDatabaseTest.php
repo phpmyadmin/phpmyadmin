@@ -65,6 +65,6 @@ class ListDatabaseTest extends AbstractTestCase
         $config->selectedServer['hide_db'] = 'single\\_db';
         $object = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
 
-        self::assertEquals([], (array) $object);
+        self::assertSame([], (array) $object);
     }
 }
