@@ -13465,9 +13465,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/ListDatabaseTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[providerForTestGetList]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/MessageTest.php">
     <PossiblyUnusedMethod>
