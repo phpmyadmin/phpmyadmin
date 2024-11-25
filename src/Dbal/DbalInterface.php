@@ -453,13 +453,6 @@ interface DbalInterface
     public function getHostInfo(ConnectionType $connectionType = ConnectionType::User): string|bool;
 
     /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int|bool version of the MySQL protocol used
-     */
-    public function getProtoInfo(ConnectionType $connectionType = ConnectionType::User): int|bool;
-
-    /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version

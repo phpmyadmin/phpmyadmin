@@ -1734,20 +1734,6 @@ class DatabaseInterface implements DbalInterface
     }
 
     /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int|bool version of the MySQL protocol used
-     */
-    public function getProtoInfo(ConnectionType $connectionType = ConnectionType::User): int|bool
-    {
-        if (! isset($this->connections[$connectionType->value])) {
-            return false;
-        }
-
-        return $this->extension->getProtoInfo($this->connections[$connectionType->value]);
-    }
-
-    /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version
