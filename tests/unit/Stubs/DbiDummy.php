@@ -237,16 +237,6 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int version of the MySQL protocol used
-     */
-    public function getProtoInfo(Connection $connection): int
-    {
-        return -1;
-    }
-
-    /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version

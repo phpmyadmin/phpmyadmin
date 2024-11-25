@@ -167,7 +167,6 @@ final class HomeController implements InvocableController
                 'type' => Util::getServerType(),
                 'connection' => Generator::getServerSSL(),
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
-                'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),
                 'charset' => $serverCharset->getDescription() . ' (' . $serverCharset->getName() . ')',
             ];

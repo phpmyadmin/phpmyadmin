@@ -230,20 +230,6 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int version of the MySQL protocol used
-     */
-    public function getProtoInfo(Connection $connection): int
-    {
-        /** @var mysqli $mysqli */
-        $mysqli = $connection->connection;
-
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $mysqli->protocol_version;
-    }
-
-    /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version
