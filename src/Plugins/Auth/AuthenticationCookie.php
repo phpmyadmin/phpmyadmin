@@ -248,22 +248,28 @@ class AuthenticationCookie extends AuthenticationPlugin
                 if (function_exists('curl_init') && function_exists('curl_exec')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $config->settings['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\CurlPost(),
+                        new ReCaptcha\RequestMethod\CurlPost(null, $captchaSiteVerifyURL),
                     );
                 } elseif (ini_get('allow_url_fopen')) {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $config->settings['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\Post(),
+                        new ReCaptcha\RequestMethod\Post($captchaSiteVerifyURL),
                     );
                 } else {
                     $reCaptcha = new ReCaptcha\ReCaptcha(
                         $config->settings['CaptchaLoginPrivateKey'],
-                        new ReCaptcha\RequestMethod\SocketPost(),
+                        new ReCaptcha\RequestMethod\SocketPost(null, $captchaSiteVerifyURL),
                     );
                 }
 
+                // verify the hostname matches where the captcha was solved if required.
+                $captchaExpectedHostname = $config->settings['CaptchaExpectedHostname'] ?? '';
+                if (! empty($captchaExpectedHostname)) {
+                    $reCaptcha = $reCaptcha->setExpectedHostname($captchaExpectedHostname);
+                }
+
                 // verify captcha status.
-                $resp = $reCaptcha->setExpectedHostname($captchaSiteVerifyURL)->verify(
+                $resp = $reCaptcha->verify(
                     $_POST[$config->settings['CaptchaResponseParam']],
                     Core::getIp(),
                 );
