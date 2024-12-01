@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2024-09-26 08:15+0000\n"
 "Last-Translator: Sebastian Kålås Møller <sebastianmollerkalas@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -397,8 +397,8 @@ msgstr "Laster…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -881,7 +881,7 @@ msgid "Reset"
 msgstr "Tilbakestill"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3384,7 +3384,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "Automatisk send rapport neste gang"
 
@@ -3818,78 +3818,74 @@ msgid "Server version:"
 msgstr "Tjener-versjon:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Protokoll-versjon:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Bruker:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Tjener-tegnsett:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Vevtjener"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Databaseklient-versjon:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "PHP tillegg:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "PHP-versjon:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "Vis PHP-informasjon"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Versjonsinformasjon:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Offisiell hjemmeside"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Bidra"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Brukerstøtte"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Endringsliste"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Lisens"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Advarsel"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin hjemmeside"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3899,7 +3895,7 @@ msgstr "phpMyAdmin hjemmeside"
 msgid "Loading…"
 msgstr "Laster…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Få flere temaer!"
 
@@ -7286,7 +7282,7 @@ msgstr "Dra for å omplassere"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -13364,7 +13360,7 @@ msgstr ""
 "Du ble logget ut fra én tjener. For å logge helt ut av phpMyAdmin må du "
 "logge ut av alle tjenere."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13373,14 +13369,14 @@ msgstr ""
 "Lagring av phpMyAdmin-oppsett er ikke konfigurert riktig i innstillingene, "
 "og noen tilleggsfunksjoner er deaktivert. %sFinn ut hvorfor%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Alternativt kan du gå til 'Operasjoner'-fanen for en database og sette det "
 "opp der."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -13392,7 +13388,7 @@ msgstr ""
 "enn cookie gyldighet konfigurert i phpMyAdmin. På grunn av dette så kan "
 "innlogging utløpe raskere enn det som er satt i phpMyAdmin."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -13401,7 +13397,7 @@ msgstr ""
 "phpMyAdmin. Innloggingen din vil dermed utløpe raskere enn det som er satt i "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -13411,14 +13407,14 @@ msgstr ""
 "(controlpass), og er åpen for enhver til å ta seg inn; du bør virkelig ordne "
 "dette sikkerhetsproblemet ved å endre passordet for kontrollbrukeren \"pma\"."
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13426,7 +13422,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13438,7 +13434,7 @@ msgstr ""
 "phpMyAdmin har blitt konfigurert. Ellers kan uautoriserte personer få tak i "
 "konfigurasjonen din og endre serveren."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13447,7 +13443,7 @@ msgstr ""
 "Tjeneren kjører med Suhosin. Sjekk %sdokumentasjonen%s for potensielle "
 "problemer."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -13456,7 +13452,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) er ikke tilgjengelig. phpMyAdmin kan ikke hurtiglagre "
 "maler, og vil være tregt som følge av dette."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13466,7 +13462,7 @@ msgstr ""
 "mangetegns tegnsett. Uten mbstring-tillegget kan ikke phpMyAdmin splitte "
 "strenger korrekt, dette kan medføre uønskede resultater."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14971,7 +14967,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Ta en titt nederst i dette vinduet."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Ignorer alle"
 
@@ -17408,11 +17404,11 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "For mange feilmeldinger, noen vises ikke."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Rapporter"
 
@@ -20398,6 +20394,9 @@ msgstr "Feil i ZIP arkivet:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Ingen filer funnet inne i ZIP arkivet!"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Protokoll-versjon:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Ufullstendige parametre"

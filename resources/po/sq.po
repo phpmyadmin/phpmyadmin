@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -384,8 +384,8 @@ msgstr "Ngarkon…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -820,7 +820,7 @@ msgid "Reset"
 msgstr "Rivendos"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3178,7 +3178,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Ju mund t'i shqyrtoni të dhënat në raportin e gabimit:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "Dërgo automatikisht raportin herën tjetër"
 
@@ -3583,78 +3583,74 @@ msgid "Server version:"
 msgstr "Versioni i serverit:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Versioni i protokollit:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Përdoruesi:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Seti i karaktereve të serverit:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Ueb server"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Versioni klient i databazës:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "Zgjerimi PHP:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "Versioni PHP:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "Shfaq informacionin PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Informacion mbi versionin:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Webfaqja zyrtare"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Kontributi"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Merr mbështetje"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Lista e ndryshimeve"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Liçensa"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Paralajmërim"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin uebfaqja"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3664,7 +3660,7 @@ msgstr "phpMyAdmin uebfaqja"
 msgid "Loading…"
 msgstr "Ngarkon…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Merr më shumë modele!"
 
@@ -6906,7 +6902,7 @@ msgstr "Tërhiq për të ri-renditur"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Injoro"
 
@@ -12778,7 +12774,7 @@ msgstr ""
 "Ju dolet nga një server, për te dalë plotësisht nga phpMyAdmin, duhet të "
 "dilni nga të gjithë serverat."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12787,14 +12783,14 @@ msgstr ""
 "Ruajtja e konfigurimit phpMyAdmin nuk është konfiguruar plotësisht, disa "
 "tipare të zgjeruara janë pasivizuar. %sGjej arsyen pse%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ose në mënyrë alternative, shko në tabelorin 'Veprime', të ndonjë databaze "
 "dhe vendosi atje."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12807,7 +12803,7 @@ msgstr ""
 "shkak të kësaj, hyrja juaj mund të përfundojë më shpejt se është konfiguruar "
 "në phpMyAdmin."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12816,21 +12812,21 @@ msgstr ""
 "gatimit të konfiguruar në phpMyAdmin, sepse prej kësaj, hyrja juaj do të "
 "skadojë më shpejt sesa është konfiguruar në phpMyAdmin."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12838,7 +12834,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12851,7 +12847,7 @@ msgstr ""
 "tuaj mund të rrezikohet nga njerëz të paautorizuar që mund të shkarkojnë "
 "konfigurimin tuaj."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12860,7 +12856,7 @@ msgstr ""
 "Serveri po punon me Suhosin. Ju lutem, refero %sdokumentacionin%s për "
 "çështje të mundshme."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12869,7 +12865,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) nuk është i arritshëm. phpMyAdmin nuk është në gjendje "
 "të cache templates dhe do të jetë i ngadalshëm për shkak të kësaj."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12880,7 +12876,7 @@ msgstr ""
 "është në gjendje të ndajë vargjet si duhet dhe kjo mund të rezultojë në "
 "rezultate të papritura."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14406,7 +14402,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Ju lutem shiko në fund të kësaj dritareje."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Injoro të gjitha"
 
@@ -16837,11 +16833,11 @@ msgstr ""
 "Dokumentacioni dhe informacioni i mëtejshëm rreth PBXT mund të gjendet në "
 "%sUebfaqen PrimeBase XT%s."
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Shumë mesazhe gabimi, disa nuk shfaqen."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Raporto"
 
@@ -19737,6 +19733,9 @@ msgstr "Gabim në arkivin ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Nuk gjenden file brenda arkivit ZIP!"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Versioni i protokollit:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Parametra jo të plota"

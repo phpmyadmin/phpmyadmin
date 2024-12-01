@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -384,8 +384,8 @@ msgstr "Φόρτωση…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -819,7 +819,7 @@ msgid "Reset"
 msgstr "Επαναφορά"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3159,7 +3159,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Μπορείτε να εξετάστε τα δεδομένα στην αναφορά σφάλματος:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "Αυτόματη αποστολή αναφοράς την επόμενη φορά"
 
@@ -3564,78 +3564,74 @@ msgid "Server version:"
 msgstr "Έκδοση διακομιστή:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Έκδοση πρωτοκόλλου:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Χρήστης:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Κωδικοποιήση διακομιστή:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Διακομιστής ιστού"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Έκδοση πελάτη βάσης δεδομένων:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "Επέκταση PHP:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "Έκδοση PHP:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "Εμφάνιση πληροφοριών της PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Πληροφορίες έκδοσης:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Επίσημη σελίδα του phpMyAdmin"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Συνεισφορά"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Υποστήριξη"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Λίστα αλλαγών"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Άδεια"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Προειδοποίηση"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "Ιστοσελίδα phpMyAdmin"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3645,7 +3641,7 @@ msgstr "Ιστοσελίδα phpMyAdmin"
 msgid "Loading…"
 msgstr "Φόρτωση…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Λήψη περισσότερων θεμάτων!"
 
@@ -6938,7 +6934,7 @@ msgstr "Σύρτε για ανακατανομή"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Παράληψη"
 
@@ -12852,7 +12848,7 @@ msgstr ""
 "Έχετε αποσυνδεθεί από έναν διακομιστή, για να αποσυνθεθείτε πλήρως από το "
 "phpMyAdmin, πρέπει να αποσυνδεθείτε από όλους του διακομιστές."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12861,14 +12857,14 @@ msgstr ""
 "Η αποθήκευση ρυθμίσεων του phpMyAdmin δεν έχει ρυθμιστεί πλήρως. Μερικά "
 "εκτεταμένα χαρακτηριστικά έχουν απενεργοποιηθεί. %sΜάθετε γιατί%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ή εναλλακτικά μεταβείτε στην καρτέλα «Λειτουργίες» οποιασδήποτε βάσης "
 "δεδομένων για να το ορίσετε εκεί."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12880,7 +12876,7 @@ msgstr ""
 "μικρότερη από την ρυθμισμένη εγκυρότητα cookie στο phpMyAdmin. Εξαιτίας "
 "αυτού, η σύνδεσή σας ίσως λήξει νωρίτερα από ό,τι ρυθμίστηκε στο phpMyAdmin."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12889,21 +12885,21 @@ msgstr ""
 "που ορίστηκε στο phpMyAdmin, για αυτό, η σύνδεσή σας θα λήξει συντομότερα "
 "από τη ρύθμιση του phpMyAdmin."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12911,7 +12907,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12924,7 +12920,7 @@ msgstr ""
 "του διακομιστή σας μπορεί να προσβηθεί από μη αδειοδοτημένους χρήστες που "
 "μπορούν να λάβουν τη ρύθμισή σας."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12933,7 +12929,7 @@ msgstr ""
 "Ο διακομιστής εκτελείται με Suhosin. Αναφερθείτε στην %sτεκμηρίωση%s για "
 "πιθανά ζητήματα."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12942,7 +12938,7 @@ msgstr ""
 "Το $cfg['TempDir'] (%s) δεν είναι προσβάσιμο. Το phpMyAdmin δεν μπορεί να "
 "βάλει στη λανθάνουσα μνήμη πρότυπα και θα είναι αργό εξαιτίας αυτού."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12953,7 +12949,7 @@ msgstr ""
 "μπορεί να χωρίσει συμβολοσειρές σωστά και ίσως προκύψουν μη αναμενόμενα "
 "αποτελέσματα."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14472,7 +14468,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Δείτε στο κάτω μέρος αυτού του παραθύρου."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Παράληψη Όλων"
 
@@ -16922,11 +16918,11 @@ msgstr ""
 "Τεκμηρίωση και περισσότερες πληροφορίες για το PBXT μπορούν να βρεθούν στην "
 "%sΙστοσελίδα του PrimeBase XT%s."
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Πολλά μηνύματα σφάλματος, ορισμένα δεν εμφανίζονται."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Αναφορά"
 
@@ -19843,6 +19839,9 @@ msgstr "Σφάλμα στο συμπιεσμένο αρχείο ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Δεν βρέθηκαν αρχεία στο συμπιεσμένο αρχείο ZIP!"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Έκδοση πρωτοκόλλου:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Ελλιπείς παράμετροι"

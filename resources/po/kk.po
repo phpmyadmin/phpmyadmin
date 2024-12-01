@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -388,8 +388,8 @@ msgstr "Júktelýde…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -823,7 +823,7 @@ msgid "Reset"
 msgstr "Ysyrý"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3149,7 +3149,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Qate týraly esepte derekterdi teksere alasyz:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "Esepti kelesi kezde avtomatty jiberedi"
 
@@ -3549,78 +3549,74 @@ msgid "Server version:"
 msgstr "Server nusqasy:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Protokol nusqasy:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Paıdalanushy:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Serverdiń tańbalar jıyny:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Ýeb-server"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Derekqor klıentiniń nusqasy:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "PHP-keńeıtimi:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "PHP nusqasy:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "PHP aqparatyn kórsetý"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Nusqa aqparaty:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Resmı basqy bet"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Jarna qosý"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Qoldaý alý"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Ózgerister tizimi"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Lısenzıa"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Eskertý"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin basqy beti"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3630,7 +3626,7 @@ msgstr "phpMyAdmin basqy beti"
 msgid "Loading…"
 msgstr "Júktelýde…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Kóbirek taqyryptar alý!"
 
@@ -6861,7 +6857,7 @@ msgstr "Retin ózgertý úshin súıreý"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Elemeý"
 
@@ -12638,7 +12634,7 @@ msgstr ""
 "Tek bir serverden shyqtyńyz, phpMyAdmin baǵdarlamasynan tolyqtaı shyǵý úshin "
 "barlyq serverlerden shyǵý qajet."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12647,14 +12643,14 @@ msgstr ""
 "phpMyAdmin konfıgýrasıasyn saqtaýyshy tolyǵymen teńshelmegen, keıbir "
 "keńeıtilgen múmkindikter ajyratylǵan. %sNelikten ekenin tabyńyz%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nemese ony sonda ornatý úshin, sonymen qatar, kezkelgen derekqordyń "
 "«Áreketter» qoıyndysyna ótińiz."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12666,7 +12662,7 @@ msgstr ""
 "ishinde teńshelgen cookie-faıldyń jaramdylyǵynan góri tómen, sondyqtan "
 "seansyńyz phpMyAdmin ishindegi teńshelgenine qaraǵanda erte aıaqtalýy múmkin."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12675,7 +12671,7 @@ msgstr ""
 "jaramdylyǵynan góri tómen, sondyqtan seansyńyz phpMyAdmin ishindegi "
 "teńshelgenine qaraǵanda erte aıaqtalady."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12686,14 +12682,14 @@ msgstr ""
 "bul qaýipsizdik álsizdigin «pma» basqarýshy paıdalanýsahy parólin ózgertý "
 "arqyly túzetýge bolady."
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12701,7 +12697,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12713,7 +12709,7 @@ msgstr ""
 "Áıtpese, konfıgýrasıańyzdy júktep alǵan ókilettiligisiz adamdar arqyly "
 "serverińizdiń qaýipsizdigi buzylýy múmkin."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12722,7 +12718,7 @@ msgstr ""
 "Server «Suhosin» arqyly jumys isteıdi. Yqtımal máseleler úshin "
 "%squjattamany%s qarańyz."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12731,7 +12727,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) qoljetimdi emes. phpMyAdmin úlgilerdi keshke jibere "
 "almaıdy jáne sondyqtan baıaý bolady."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12742,7 +12738,7 @@ msgstr ""
 "joldardy durys bólip shyǵarmaıdy jáne ol kútpegen nátıjelerge yshyrastyrýy "
 "múmkin."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14249,7 +14245,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Osy terezeniń tómengi jaǵyn qarańyz."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Barlyǵyn elemeý"
 
@@ -16630,11 +16626,11 @@ msgstr ""
 "Qujattamany jáne PBXT týraly kóbirek aqparatty %sPrimeBase XT basqy "
 "betinde%s tabýǵa bolady."
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Tym kóp qate týraly habarlar, keıbireýleri beınelenbeıdi."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Esep"
 
@@ -19535,6 +19531,9 @@ msgstr "ZIP-muraǵatyndaǵy qate:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP-muraǵat isinde faıldar tabylmady!"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Protokol nusqasy:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Tolyq emes parametrler"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2024-10-13 10:46+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -370,8 +370,8 @@ msgstr "Yükleme"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -803,7 +803,7 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3081,7 +3081,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Hata raporundaki verileri inceleyebilirsiniz:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "Raporu gelecek sefer otomatik olarak gönder"
 
@@ -3462,76 +3462,72 @@ msgid "Server version:"
 msgstr "Sunucu sürümü:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Protokol sürümü:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Kullanıcı:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Sunucu karakter grubu:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Web sunucusu"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Veritabanı istemcisi sürümü:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "PHP uzantısı:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "PHP sürümü:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "PHP bilgisini göster"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Sürüm bilgisi:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Resmî phpMyAdmin Anasayfası"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Katkıda bulun"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Destek al"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Değişikliklerin listesi"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Lisans"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Uyarı"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr "Duyuru"
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin Temaları"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3541,7 +3537,7 @@ msgstr "phpMyAdmin Temaları"
 msgid "Loading…"
 msgstr "Yükleniyor…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Daha fazla tema al!"
 
@@ -6534,7 +6530,7 @@ msgstr "Yen.düzenleme için sürükleyin"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Yoksay"
 
@@ -12169,7 +12165,7 @@ msgstr ""
 "Bir sunucudan oturumu kapattınız, phpMyAdmin'den tamamen oturumu kapatmak "
 "için tüm sunuculardan oturumu kapatmanız gerekir."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12178,14 +12174,14 @@ msgstr ""
 "phpMyAdmin yapılandırma depolaması tamamiyle yapılandırılmadı, bazı "
 "genişletilmiş özellikler devre dışı bırakıldı. %sNedenini bulun%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ya da orada ayarlamak için herhangi bir veritabanının 'İşlemler' sekmesine "
 "dönüşümlü olarak gidin."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12198,7 +12194,7 @@ msgstr ""
 "bundan dolayı phpMyAdmin içinde yapılandırılmadıkça oturum açmanızın süresi "
 "dolabilir."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12207,7 +12203,7 @@ msgstr ""
 "tanımlama bilgisi depolamasından düşük, bundan dolayı oturum açmanızın "
 "süresi phpMyAdmin içinde yapılandırılmadıkça dolacaktır."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12218,7 +12214,7 @@ msgstr ""
 "kullanıcısı (controluser) 'pma' parolasını değiştirerek bu güvenlik "
 "zayıflığını düzeltmelisiniz."
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12228,7 +12224,7 @@ msgstr ""
 "anahtara ihtiyaç duyar. Sizin için otomatik olarak geçici bir anahtar "
 "oluşturuldu. Lütfen [doc@cfg_blowfish_secret]belgelerine[/doc] bakın."
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12239,7 +12235,7 @@ msgstr ""
 "uzun. Sadece %d bayt uzunluğunda olmalıdır. Lütfen "
 "[doc@cfg_blowfish_secret]belgelerine[/doc] bakın."
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12251,7 +12247,7 @@ msgstr ""
 "bunu kaldırmanız son derece önerilir. Yoksa yapılandırmanızı indiren "
 "yetkisiz insanlar tarafından sunucunuzun güvenliği riske atılabilir."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12259,7 +12255,7 @@ msgid ""
 msgstr ""
 "Sunucu Suhosin ile çalışıyor. Lütfen olası sorunlar için %sbelgelere%s bakın."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12268,7 +12264,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) erişilebilir değil. phpMyAdmin şablonları "
 "önbellekleyemez ve bu nedenle yavaş olacaktır."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12278,7 +12274,7 @@ msgstr ""
 "görünüyor. Mbstring uzantısı olmadan phpMyAdmin karakter dizgilerini doğru "
 "olarak bölemez ve bu beklenmeyen sonuçlar doğurabilir."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13772,7 +13768,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Lütfen bu pencerenin altına bakın."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Tümünü Yoksay"
 
@@ -16023,11 +16019,11 @@ msgstr ""
 "%sPrimeBase XT Ana Sayfasında%s PBXT hakkında belgeler ve daha fazla bilgi "
 "bulunabilir."
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Çok fazla hata mesajı, bazıları görüntülenmedi."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Raporla"
 
@@ -18848,6 +18844,9 @@ msgstr "ZIP arşivinde hata:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "ZIP arşivi içinde bulunan dosya yok!"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Protokol sürümü:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Tamamlanmamış parametreler"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -370,8 +370,8 @@ msgstr "Chargement en cours"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -804,7 +804,7 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3088,7 +3088,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Examiner les données dans le rapport d'erreur :"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "La prochaine fois, envoyer automatiquement le rapport"
 
@@ -3469,76 +3469,72 @@ msgid "Server version:"
 msgstr "Version du serveur :"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Version du protocole :"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Utilisateur :"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Jeu de caractères du serveur :"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Serveur Web"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Version du client de base de données :"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "Extension PHP :"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "Version de PHP :"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "Afficher les informations relatives à PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Version :"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Site officiel"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Contribuer"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Obtenir de l'aide"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Liste des changements"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Licence"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Avertissement"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr "Information"
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 msgid "phpMyAdmin Themes"
 msgstr "Thèmes pour phpMyAdmin"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3548,7 +3544,7 @@ msgstr "Thèmes pour phpMyAdmin"
 msgid "Loading…"
 msgstr "Chargement en cours…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Obtenir d'autres thèmes !"
 
@@ -6575,7 +6571,7 @@ msgstr "Faire glisser pour réordonner"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -12298,7 +12294,7 @@ msgstr ""
 "Vous avez été déconnecté d'un seul serveur ; pour se déconnecter "
 "complètement de phpMyAdmin, il faut se déconnecter de tous les serveurs."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12308,14 +12304,14 @@ msgstr ""
 "certaines fonctionnalités ont été désactivées. %sVoir l'analyse du "
 "problème%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ou encore aller sur l'onglet « Opérations » de n'importe quelle base de "
 "données pour le définir à cet endroit."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12328,7 +12324,7 @@ msgstr ""
 "session de travail pourrait donc expirer plus tôt que la valeur configurée "
 "dans phpMyAdmin."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12337,7 +12333,7 @@ msgstr ""
 "LoginCookieValidity ; la session de travail expirera donc plus tôt que la "
 "valeur configurée dans phpMyAdmin."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12348,7 +12344,7 @@ msgstr ""
 "vraiment corriger cette faiblesse de sécurité en changeant le mot de passe "
 "pour controluser 'pma'."
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12358,7 +12354,7 @@ msgstr ""
 "des cookies. Une clé temporaire a été générée automatiquement pour vous. "
 "Veuillez vous référer à la [doc@cfg_blowfish_secret]documentation[/doc]."
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12369,7 +12365,7 @@ msgstr ""
 "longue que nécessaire. Elle ne devrait avoir qu'une longueur de %d octets. "
 "Veuillez consulter la [doc@cfg_blowfish_secret]documentation[/doc]."
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12382,7 +12378,7 @@ msgstr ""
 "la sécurité de ce serveur pourrait être compromise par le téléchargement de "
 "la configuration par des personnes non autorisées."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12391,7 +12387,7 @@ msgstr ""
 "Ce serveur utilise Suhosin. Merci de se référer à la %sdocumentation%s pour "
 "connaître les problèmes possibles."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12400,7 +12396,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) n'est pas accessible. phpMyAdmin est incapable de "
 "mettre en cache les modèles et de ce fait sera lent."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12411,7 +12407,7 @@ msgstr ""
 "incapable de gérer correctement les caractères et des problèmes inattendus "
 "pourraient survenir."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13923,7 +13919,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Merci de regarder au bas de cette fenêtre."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Ignorer tout"
 
@@ -16208,12 +16204,12 @@ msgstr ""
 "La documentation de PBXT et des informations additionnelles sont disponibles "
 "sur %sle site de PrimeBase XT%s."
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 "Les messages d'erreur sont trop nombreux, certains ne sont pas affichés."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Rapporter"
 
@@ -19080,6 +19076,9 @@ msgstr "Erreur rencontrée dans l'archive Zip :"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Aucun fichier présent dans l'archive Zip !"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Version du protocole :"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Paramètres incomplets"

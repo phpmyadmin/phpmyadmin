@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -391,8 +391,8 @@ msgstr "ஏற்றப்படுகிறது…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -848,7 +848,7 @@ msgid "Reset"
 msgstr "மீட்டமைக்கவும்"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3245,7 +3245,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "அடுத்தமுறை தன்னிச்சையாகவே அறிவிக்கையை அனுப்புக"
 
@@ -3673,78 +3673,74 @@ msgid "Server version:"
 msgstr "வழங்கி பதிப்பு:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "நெறிமுறை பதிப்பு:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "பயனாளர்:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "வழங்கி குறிமுறை:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "இணைய வழங்கி"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "தரவுத்தள பயனாளர் நிரல் பதிப்பு:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "PHP நீட்சி:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "PHP பதிப்பு:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "PHP தகவலைக் காட்டுக"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "பதிப்பு தகவல்கள்:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "அலுவல்முறை முகப்புப்பக்கம்"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "பங்களிப்பு"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "ஆதரவு வேண்டுக"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "மாற்றங்கள் பட்டியல்"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "உரிமம்"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "எச்சரிக்கை"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin அகப்பக்கம்"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3754,7 +3750,7 @@ msgstr "phpMyAdmin அகப்பக்கம்"
 msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr ""
 
@@ -6837,7 +6833,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "புறக்கணி"
 
@@ -12141,7 +12137,7 @@ msgstr ""
 "நீங்கள் ஒரு சர்வரிலிருந்து வெளியேற்றப்பட்டிர்கள். முழுவதும் வெளியேற அனைத்து "
 "சர்வேரிலிருந்தும் வெளியேற வேண்டும்."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12150,14 +12146,14 @@ msgstr ""
 "phpMyAdminனின் கட்டமைப்பு சேமிப்பகம் இன்னும் முழுமையாய் கட்டமைக்கப்படவில்லை.சில "
 "நீட்டிக்கப்பட்ட வசதிகள் முடக்கப்படுள்ளன. %sஏனென்று அறிக%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;அல்லது மாற்றாக எதேனும் தரவுத்தளத்தின் "
 "'செயல்பாடுகள்' தத்தலுக்கு சென்று அங்கு அமைத்தத்தல்."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12170,7 +12166,7 @@ msgstr ""
 "உள்ளது, இதனால் உங்கள் புகுபதிகை(login) phpMyAdmin கட்டமைக்கப்பட்டதை விட விரைவில் "
 "காலாவதியாகிவிடும்."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12179,21 +12175,21 @@ msgstr ""
 "பதிவுத்துணுக்கு ஏற்புடைமைகாலத்தை விட குறைவாக உள்ளதால் உங்கள் புகுபதிவு phpMyAdmin ல் "
 "கட்டமைக்கப்பட்டதை விட விரைவில் காலாவதியாகும்."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12201,7 +12197,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12213,7 +12209,7 @@ msgstr ""
 "பரிந்துரைக்கிறது. இல்லையெனில் உங்கள் சர்வர் பாதுகாப்பு கட்டமைப்பு கோவையை அங்கீகரிக்கப்படாத "
 "பயனர் பதிவிறக்குவதால் பாதிப்பு ஏற்படும்."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12222,14 +12218,14 @@ msgstr ""
 "வழங்கி SUSHOSIN உடன் இயங்குகிறது. நிகழக்கூடிய பிழைமுறைகளுக்கு தயவுசெய்து "
 "%sஆவணச்சான்றை%s காண்க."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12239,7 +12235,7 @@ msgstr ""
 "பயன்படுத்துகின்றீர்கள். mbstring PHP நீட்சி இல்லாமல் PHPMyAdminஆல் சரங்களை சரியாக "
 "பிரிக்கவியலாது அதனால் எதிர்பாரா முடிவுகள் கிடைக்கலாம்."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13779,7 +13775,7 @@ msgid "Please look at the bottom of this window."
 msgstr "இச்சாளரத்தின் கீழ்பக்கம் பார்க்கவும்."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "அனைத்தையும் புறக்கணி"
 
@@ -16019,11 +16015,11 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "பல்வேறு பிழை செய்திகள், சிலவற்றை காட்டவில்லை."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "அறிவிக்கை"
 
@@ -18674,6 +18670,9 @@ msgstr ""
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid "Protocol version:"
+#~ msgstr "நெறிமுறை பதிப்பு:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "முழுமையடையா மதிப்புருபுகள்"

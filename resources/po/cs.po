@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2024-03-29 10:58+0000\n"
 "Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -380,8 +380,8 @@ msgstr "Načítání"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -813,7 +813,7 @@ msgid "Reset"
 msgstr "Původní"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3095,7 +3095,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Prohlédněte si informace v hlášení:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 msgid "Automatically send report next time"
 msgstr "Příště odeslat hlášení automaticky"
 
@@ -3477,76 +3477,72 @@ msgid "Server version:"
 msgstr "Verze serveru:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "Verze protokolu:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Uživatel:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "Znaková sada:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "Webový server"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "Verze databázového klienta:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "Rozšíření PHP:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "Verze PHP:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "Zobrazit informace o PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "Informace o verzi:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "Oficiální stránka phpMyAdmina"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "Přispějte"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "Získejte podporu"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "Seznam změn"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Licence"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Varování"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr "Poznámka"
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 msgid "phpMyAdmin Themes"
 msgstr "Témata vzhledu phpMyAdmina"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3556,7 +3552,7 @@ msgstr "Témata vzhledu phpMyAdmina"
 msgid "Loading…"
 msgstr "Nahrávám…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Získejte další témata vzhledu!"
 
@@ -6538,7 +6534,7 @@ msgstr "Uspořádejte přetažením"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "Ignorovat"
 
@@ -12124,7 +12120,7 @@ msgstr ""
 "Odhlásil jste se z jednoho serveru. Pro úplné odhlášení z phpMyAdminu se "
 "musíte odhlásit ze všech serverů."
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12133,14 +12129,14 @@ msgstr ""
 "Úložiště nastavení phpMyAdmina není plně dostupné, některé z rozšířených "
 "funkcí phpMyAdmina nelze používat. %sZjistěte proč%s. "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Nebo alternativně jděte do oddílu 'Operace' u jakékoli databáze, kde je "
 "možné rovněž toto nastavit."
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12152,7 +12148,7 @@ msgstr ""
 "a]) je menší než platnost cookie nastavená v phpMyAdminovi. Z tohoto důvodu "
 "bude vaše přihlášení neplatné dříve, než jak je nastaveno v phpMyAdminovi."
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12161,7 +12157,7 @@ msgstr ""
 "phpMyAdminovi. Z tohoto důvodu vaše přihlášení vyprší dříve než je nastavené "
 "v phpMyAdminovi."
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12171,7 +12167,7 @@ msgstr ""
 "snadno napadnutelný; tuto slabinu zabezpečení byste měli skutečně napravit "
 "změnou hesla pro správce 'pma'."
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12181,7 +12177,7 @@ msgstr ""
 "Byl pro Vás automaticky vygenerován dočasný klíč. Prosím, upravte si ho v "
 "[doc@cfg_blowfish_secret]dokumentaci[/doc]."
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12192,7 +12188,7 @@ msgstr ""
 "potřeba. Měl by být dlouhý pouze %d bytů. Prosím, opravte si ho v "
 "[doc@cfg_blowfish_secret]dokumentaci[/doc]."
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12204,7 +12200,7 @@ msgstr ""
 "phpMyAdmin nastaven. Pokud tak neučiníte, může být váš server ohrožen cizími "
 "lidmi přistupujícími k vašemu nastavení."
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12213,7 +12209,7 @@ msgstr ""
 "Server používá Suhosin. Prosím podívejte se do %sdokumentace%s pro popis "
 "problémů, které tím mohou být způsobeny."
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12222,7 +12218,7 @@ msgstr ""
 "Adresář $cfg['TempDir'] (%s) není dostupný. phpMyAdmin nemůže kešovat "
 "šablony a bude kvůli tomu pomalý."
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12232,7 +12228,7 @@ msgstr ""
 "vícebajtovou znakovou sadu. Bez rozšíření mbstring neumí phpMyAdmin správně "
 "rozdělovat řetězce a proto to může mít nečekané následky."
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13713,7 +13709,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Prosím podívejte se na spodní část okna."
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "Ignorovat vše"
 
@@ -15944,11 +15940,11 @@ msgstr ""
 "Dokumentace a další informace o PBXT můžete nalézt na %sstránkách PrimeBase "
 "XT%s."
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "Příliš mnoho chyb, některé nebudou zobrazeny."
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 msgid "Report"
 msgstr "Nahlásit"
 
@@ -18775,6 +18771,9 @@ msgstr "Chyba v ZIP archívu:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "V ZIP archívu nebyly nalezeny žádné soubory!"
+
+#~ msgid "Protocol version:"
+#~ msgstr "Verze protokolu:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "Chybí parametry"

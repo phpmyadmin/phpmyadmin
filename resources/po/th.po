@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-11-24 00:26+0000\n"
+"POT-Creation-Date: 2024-12-01 00:29+0000\n"
 "PO-Revision-Date: 2022-11-07 12:02+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -394,8 +394,8 @@ msgstr "กำลังโหลด…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:317
-#: resources/templates/home/index.twig:325
+#: resources/templates/home/index.twig:313
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -877,7 +877,7 @@ msgid "Reset"
 msgstr "รีเซ็ต"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:265
+#: resources/templates/home/index.twig:261
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -3412,7 +3412,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:403
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
@@ -3847,78 +3847,74 @@ msgid "Server version:"
 msgstr "เวอร์ชันของเซิร์ฟเวอร์:"
 
 #: resources/templates/home/index.twig:198
-msgid "Protocol version:"
-msgstr "เวอร์ชันของโพรโทคอล:"
-
-#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "ผู้ใช้:"
 
-#: resources/templates/home/index.twig:206
+#: resources/templates/home/index.twig:202
 msgid "Server charset:"
 msgstr "ชุดอักขระของเซิร์ฟเวอร์:"
 
-#: resources/templates/home/index.twig:218
+#: resources/templates/home/index.twig:214
 msgid "Web server"
 msgstr "เว็บเซิร์ฟเวอร์"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:224
 msgid "Database client version:"
 msgstr "เวอร์ชันของไคลเอนต์ฐานข้อมูล:"
 
-#: resources/templates/home/index.twig:232
+#: resources/templates/home/index.twig:228
 msgid "PHP extension:"
 msgstr "ส่วนขยาย PHP:"
 
-#: resources/templates/home/index.twig:239
+#: resources/templates/home/index.twig:235
 msgid "PHP version:"
 msgstr "เวอร์ชันของ PHP:"
 
-#: resources/templates/home/index.twig:246
+#: resources/templates/home/index.twig:242
 msgid "Show PHP information"
 msgstr "แสดงข้อมูลของ PHP"
 
-#: resources/templates/home/index.twig:260
+#: resources/templates/home/index.twig:256
 msgid "Version information:"
 msgstr "ข้อมูลเวอร์ชัน:"
 
-#: resources/templates/home/index.twig:270
+#: resources/templates/home/index.twig:266
 msgid "Official Homepage"
 msgstr "โฮมเพจอย่างเป็นทางการ"
 
-#: resources/templates/home/index.twig:275
+#: resources/templates/home/index.twig:271
 msgid "Contribute"
 msgstr "สนับสนุน"
 
-#: resources/templates/home/index.twig:280
+#: resources/templates/home/index.twig:276
 msgid "Get support"
 msgstr "รับการสนับสนุน"
 
-#: resources/templates/home/index.twig:285
+#: resources/templates/home/index.twig:281
 msgid "List of changes"
 msgstr "รายการของการเปลี่ยนแปลง"
 
-#: resources/templates/home/index.twig:290
+#: resources/templates/home/index.twig:286
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "ลิขสิทธิ์"
 
-#: resources/templates/home/index.twig:301
+#: resources/templates/home/index.twig:297
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "คำเตือน"
 
-#: resources/templates/home/index.twig:303
+#: resources/templates/home/index.twig:299
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:316
+#: resources/templates/home/index.twig:312
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "หน้าเว็บ phpMyAdmin"
 
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3928,7 +3924,7 @@ msgstr "หน้าเว็บ phpMyAdmin"
 msgid "Loading…"
 msgstr "กำลังโหลด…"
 
-#: resources/templates/home/index.twig:327
+#: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "รับชุดรูปแบบเพิ่มเติม!"
 
@@ -7207,7 +7203,7 @@ msgstr "ลากเพื่อเปลี่ยนลำดับ"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:409 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
 msgid "Ignore"
 msgstr "ข้าม"
 
@@ -12918,7 +12914,7 @@ msgstr ""
 "คุณได้ออกจากระบบจากเครื่องแม่ข่ายหนึ่งแล้ว หากต้องการออกจากระบบ phpMyAdmin โดยสมบูรณ์ "
 "คุณต้องออกจากระบบจากเครื่องแม่ข่ายทั้งหมด"
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:196
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12927,12 +12923,12 @@ msgstr ""
 "พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ "
 "คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้งานแล้ว %sเรียนรู้เพิ่มเติม%s "
 
-#: src/Controllers/HomeController.php:203
+#: src/Controllers/HomeController.php:202
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "หรือเข้าไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใดๆ เพื่อตั้งค่า"
 
-#: src/Controllers/HomeController.php:268
+#: src/Controllers/HomeController.php:267
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12944,7 +12940,7 @@ msgstr ""
 "ของคุณต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
 "สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
 
-#: src/Controllers/HomeController.php:288
+#: src/Controllers/HomeController.php:287
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12952,21 +12948,21 @@ msgstr ""
 "การจัดเก็บคุกกี้เข้าสู่ระบบต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
 "สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
 
-#: src/Controllers/HomeController.php:307
+#: src/Controllers/HomeController.php:306
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:326
+#: src/Controllers/HomeController.php:325
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:336
+#: src/Controllers/HomeController.php:335
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12974,7 +12970,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:354
+#: src/Controllers/HomeController.php:353
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12985,7 +12981,7 @@ msgstr ""
 "ของคุณ เราขอแนะนำเป็นอย่างยิ่งว่าให้ลบออกหากได้กำหนดค่า phpMyAdmin เรียบร้อยแล้ว "
 "มิเช่นนั้นความปลอดภัยของเครื่องแม่ข่ายของคุณอาจถูกบุกรุกโดยบุคคลที่ไม่ได้รับอนุญาตที่เข้ามาดาวน์โหลดไฟล์กำหนดค่าของคุณ"
 
-#: src/Controllers/HomeController.php:375
+#: src/Controllers/HomeController.php:374
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12994,7 +12990,7 @@ msgstr ""
 "เครื่องแม่ข่ายกำลังทำงานโดยใช้ Suhosin "
 "โปรดศึกษา%sเอกสารกำกับโปรแกรม%sเพื่อดูปัญหาที่อาจเกิดขึ้นได้"
 
-#: src/Controllers/HomeController.php:389
+#: src/Controllers/HomeController.php:388
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -13003,7 +12999,7 @@ msgstr ""
 "ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin "
 "จึงไม่สามารถทำการแคชแม่แบบได้และจะทำงานช้าลง"
 
-#: src/Controllers/HomeController.php:446
+#: src/Controllers/HomeController.php:445
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13012,7 +13008,7 @@ msgstr ""
 "ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณต้องใช้ชุดอักขระโดยไม่มีส่วนขยาย mbstring "
 "ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจทำให้ผลลัพธ์ที่ไม่คาดคิดได้"
 
-#: src/Controllers/HomeController.php:464
+#: src/Controllers/HomeController.php:463
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -14462,7 +14458,7 @@ msgid "Please look at the bottom of this window."
 msgstr "กรุณาดูที่ด้านล่างของหน้าต่าง"
 
 #: src/Controllers/JavaScriptMessagesController.php:649
-#: src/Error/ErrorHandler.php:414
+#: src/Error/ErrorHandler.php:413
 msgid "Ignore All"
 msgstr "ไม่สนใจทั้งหมด"
 
@@ -16701,11 +16697,11 @@ msgid ""
 "%sPrimeBase XT Home Page%s."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:104
+#: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
 msgstr "มีข้อความผิดพลาดจำนวนมาก บางส่วนจึงซ่อนไว้ไม่แสดง"
 
-#: src/Error/ErrorHandler.php:398
+#: src/Error/ErrorHandler.php:397
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
@@ -19525,6 +19521,9 @@ msgstr ""
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid "Protocol version:"
+#~ msgstr "เวอร์ชันของโพรโทคอล:"
 
 #~ msgid "Incomplete params"
 #~ msgstr "พารามิเตอร์ไม่สมบูรณ์"
