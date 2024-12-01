@@ -5,7 +5,7 @@ import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
-import { escapeHtml } from './modules/functions/escape.ts';
+import { escapeBacktick, escapeHtml } from './modules/functions/escape.ts';
 import refreshMainContent from './modules/functions/refreshMainContent.ts';
 import isStorageSupported from './modules/functions/isStorageSupported.ts';
 
@@ -320,7 +320,7 @@ const insertQuery = function (queryType) {
     // @ts-ignore
     var myListBox = document.sqlform.dummy;
     // @ts-ignore
-    table = document.sqlform.table.value;
+    table = escapeBacktick(document.sqlform.table.value);
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;

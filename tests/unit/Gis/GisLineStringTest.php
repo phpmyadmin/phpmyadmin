@@ -251,7 +251,7 @@ class GisLineStringTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
-                . 'name="svg" id="svg1234567890" class="linestring vector" fill="none" '
+                . 'data-label="svg" id="svg1234567890" class="linestring vector" fill="none" '
                 . 'stroke="#b02ee0" stroke-width="2"/>',
             ],
         ];

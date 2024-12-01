@@ -63,15 +63,15 @@ jobs:
   test-php:
     name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.php-version == '8.4' }}
+    continue-on-error: ${{ matrix.php-version == '8.5' }}
     strategy:
       matrix:
-        php-version: ['8.2', '8.3']
+        php-version: ['8.2', '8.3', '8.4']
         os: [ubuntu-latest]
         composer-dependency: [locked, highest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
-          - php-version: '8.4'
+          - php-version: '8.5'
             os: ubuntu-latest
             composer-dependency: locked
             composer-options: '--ignore-platform-req=php+'

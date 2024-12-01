@@ -387,7 +387,7 @@ class InsertEdit
              * @todo clarify the meaning of the "textfield" class and explain
              *       why character columns have the "char" class instead
              */
-            $theClass = 'char charField';
+            $theClass = 'charField';
             $textAreaRows = $this->config->settings['CharTextareaRows'];
             $textareaCols = $this->config->settings['CharTextareaCols'];
             $extractedColumnspec = Util::extractColumnSpec($column->type);

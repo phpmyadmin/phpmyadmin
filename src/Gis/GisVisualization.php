@@ -19,6 +19,7 @@ use TCPDF;
 
 use function assert;
 use function count;
+use function htmlspecialchars;
 use function is_string;
 use function max;
 use function mb_strlen;
@@ -508,7 +509,7 @@ class GisVisualization
                 $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
                 if ($format === 'svg') {
-                    $svg .= $gisObj->prepareRowAsSvg($wkt, $label, $color, $scaleData);
+                    $svg .= $gisObj->prepareRowAsSvg($wkt, htmlspecialchars($label), $color, $scaleData);
                 } elseif ($format === 'png') {
                     assert($renderer instanceof ImageWrapper);
                     $gisObj->prepareRowAsPng($wkt, $label, $color, $scaleData, $renderer);

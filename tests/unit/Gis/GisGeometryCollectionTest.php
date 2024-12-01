@@ -380,7 +380,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
-                . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg1234567890'
+                . ' 228 L 46, 224 L 36, 248 Z " data-label="svg" id="svg1234567890'
                 . '" class="polygon vector" stroke="black" stroke-width="0.5"'
                 . ' fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"/>',
             ],

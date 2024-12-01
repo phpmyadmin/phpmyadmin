@@ -5282,6 +5282,7 @@
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$level['context']]]></code>
+      <code><![CDATA[$level['context']]]></code>
       <code><![CDATA[$level['url']]]></code>
       <code><![CDATA[$level['url']]]></code>
     </MixedArrayAccess>

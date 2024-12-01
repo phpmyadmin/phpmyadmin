@@ -163,7 +163,7 @@ class GisPolygon extends GisGeometry
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $polygonOptions = [
-            'name' => $label,
+            'data-label' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'polygon vector',
             'stroke' => 'black',
