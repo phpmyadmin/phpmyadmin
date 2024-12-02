@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Utils;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\Utils\HttpMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -61,14 +62,14 @@ class HttpRequestTest extends AbstractTestCase
      * Test for http request using Curl
      *
      * @param string           $url              url
-     * @param string           $method           method
+     * @param HttpMethod       $method           method
      * @param bool             $returnOnlyStatus return only status
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
     #[Group('network')]
     #[RequiresPhpExtension('curl')]
-    public function testCurl(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
+    public function testCurl(string $url, HttpMethod $method, bool $returnOnlyStatus, bool|string|null $expected): void
     {
         $result = $this->callFunction(
             $this->httpRequest,
@@ -83,7 +84,7 @@ class HttpRequestTest extends AbstractTestCase
      * Test for http request using Curl with CURLOPT_CAPATH
      *
      * @param string           $url              url
-     * @param string           $method           method
+     * @param HttpMethod       $method           method
      * @param bool             $returnOnlyStatus return only status
      * @param bool|string|null $expected         expected result
      */
@@ -92,7 +93,7 @@ class HttpRequestTest extends AbstractTestCase
     #[RequiresPhpExtension('curl')]
     public function testCurlCAPath(
         string $url,
-        string $method,
+        HttpMethod $method,
         bool $returnOnlyStatus,
         bool|string|null $expected,
     ): void {
@@ -112,7 +113,7 @@ class HttpRequestTest extends AbstractTestCase
      * Test for http request using Curl with CURLOPT_CAINFO
      *
      * @param string           $url              url
-     * @param string           $method           method
+     * @param HttpMethod       $method           method
      * @param bool             $returnOnlyStatus return only status
      * @param bool|string|null $expected         expected result
      */
@@ -121,7 +122,7 @@ class HttpRequestTest extends AbstractTestCase
     #[RequiresPhpExtension('curl')]
     public function testCurlCAInfo(
         string $url,
-        string $method,
+        HttpMethod $method,
         bool $returnOnlyStatus,
         bool|string|null $expected,
     ): void {
@@ -141,14 +142,18 @@ class HttpRequestTest extends AbstractTestCase
      * Test for http request using fopen
      *
      * @param string           $url              url
-     * @param string           $method           method
+     * @param HttpMethod       $method           method
      * @param bool             $returnOnlyStatus return only status
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
     #[Group('network')]
-    public function testFopen(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
-    {
+    public function testFopen(
+        string $url,
+        HttpMethod $method,
+        bool $returnOnlyStatus,
+        bool|string|null $expected,
+    ): void {
         if (! ini_get('allow_url_fopen')) {
             self::markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
@@ -166,15 +171,19 @@ class HttpRequestTest extends AbstractTestCase
      * Test for http request using generic interface
      *
      * @param string           $url              url
-     * @param string           $method           method
+     * @param HttpMethod       $method           method
      * @param bool             $returnOnlyStatus return only status
      * @param bool|string|null $expected         expected result
      */
     #[DataProvider('httpRequests')]
     #[Group('network')]
     #[RequiresPhpExtension('curl')]
-    public function testCreate(string $url, string $method, bool $returnOnlyStatus, bool|string|null $expected): void
-    {
+    public function testCreate(
+        string $url,
+        HttpMethod $method,
+        bool $returnOnlyStatus,
+        bool|string|null $expected,
+    ): void {
         if (! ini_get('allow_url_fopen')) {
             self::markTestSkipped('Configuration directive allow_url_fopen is not enabled.');
         }
@@ -206,16 +215,16 @@ class HttpRequestTest extends AbstractTestCase
     /**
      * Data provider for HTTP tests
      *
-     * @return mixed[][]
+     * @return list<array{string, HttpMethod, bool, bool|string|null}>
      */
     public static function httpRequests(): array
     {
         return [
-            ['https://www.phpmyadmin.net/test/data', 'GET', true, true],
-            ['https://www.phpmyadmin.net/test/data', 'POST', true, null],
-            ['https://nonexisting.phpmyadmin.net/test/data', 'GET', true, null],
-            ['https://www.phpmyadmin.net/test/data', 'GET', false, 'TEST DATA'],
-            ['https://www.phpmyadmin.net/test/nothing', 'GET', true, false],
+            ['https://www.phpmyadmin.net/test/data', HttpMethod::Get, true, true],
+            ['https://www.phpmyadmin.net/test/data', HttpMethod::Post, true, null],
+            ['https://nonexisting.phpmyadmin.net/test/data', HttpMethod::Get, true, null],
+            ['https://www.phpmyadmin.net/test/data', HttpMethod::Get, false, 'TEST DATA'],
+            ['https://www.phpmyadmin.net/test/nothing', HttpMethod::Get, true, false],
         ];
     }
 }

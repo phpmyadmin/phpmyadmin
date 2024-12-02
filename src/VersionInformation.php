@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Utils\HttpMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 
 use function count;
@@ -52,7 +53,7 @@ class VersionInformation
             $save = true;
             $file = 'https://www.phpmyadmin.net/home_page/version.json';
             $httpRequest = new HttpRequest();
-            $response = $httpRequest->create($file, 'GET');
+            $response = $httpRequest->create($file, HttpMethod::Get);
         }
 
         $response = $response ?: '{}';

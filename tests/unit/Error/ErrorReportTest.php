@@ -12,6 +12,7 @@ use PhpMyAdmin\Error\ErrorReport;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
+use PhpMyAdmin\Utils\HttpMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -124,7 +125,7 @@ class ErrorReportTest extends AbstractTestCase
             ->method('create')
             ->with(
                 $submissionUrl,
-                'POST',
+                HttpMethod::Post,
                 false,
                 json_encode($report),
                 'Content-Type: application/json',
