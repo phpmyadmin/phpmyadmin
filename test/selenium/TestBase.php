@@ -18,6 +18,7 @@ use Facebook\WebDriver\WebDriverElement;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverSelect;
 use InvalidArgumentException;
+use PHPUnit\Framework\SkippedTest;
 use PHPUnit\Framework\TestCase;
 use Throwable;
 
@@ -664,7 +665,7 @@ abstract class TestBase extends TestCase
             $this->waitAjax();
             $this->waitForElement('className', 'result_query');
             // If present then
-            $didSucceed = $this->isElementPresent('xpath', '//*[@class="result_query"]//*[contains(., "success")]');
+            $didSucceed = $this->isElementPresent('cssSelector', '.result_query .alert-success');
             if ($onResults !== null) {
                 $onResults->call($this);
             }
@@ -1197,6 +1198,10 @@ JS;
      */
     public function onNotSuccessfulTest(Throwable $t): void
     {
+        if ($t instanceof SkippedTest) {
+            parent::onNotSuccessfulTest($t);
+        }
+
         $this->markTestAs('failed', $t->getMessage());
         $this->takeScrenshot('test_failed');
         // End testing session
