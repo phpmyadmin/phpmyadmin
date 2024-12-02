@@ -11,6 +11,7 @@ parameters:
     stubFiles:
         - test/stubs/uploadprogress.stub
     excludePaths:
+        - config.inc.php (?)
         - examples/openid.php
         - node_modules/*
         - libraries/cache/*
@@ -21,3 +22,8 @@ parameters:
     dynamicConstantNames:
         - ROOT_PATH
         - VERSION_SUFFIX
+    checkBenevolentUnionTypes: true
+    checkUninitializedProperties: true
+    checkDynamicProperties: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkImplicitMixed: true
