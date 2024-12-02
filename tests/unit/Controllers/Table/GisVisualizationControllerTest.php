@@ -94,7 +94,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
             ],
             'visualization' => '<?xml version="1.0" encoding="UTF-8" standalone="no"?>' . "\n"
                 . '<svg version="1.1" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"'
-                . ' width="600" height="450"><g><circle cx="300" cy="225" r="3" name=""'
+                . ' width="600" height="450"><g><circle cx="300" cy="225" r="3" data-label=""'
                 . ' id="1234567890" class="point vector" fill="white" stroke="#b02ee0" stroke-width="2"/></g></svg>',
             'open_layers_data' => [
                 [
