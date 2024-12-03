@@ -1,219 +1,74 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Cannot access offset 'AllowNoPassword' on mixed\\.$#"
+			message: "#^Access to constant FORMAT_HTTP on an unknown class OpenID_Message\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'SaveDir' on mixed\\.$#"
+			message: "#^Cannot call method get\\(\\) on mixed\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 4
-			path: config.sample.inc.php
-
-		-
-			message: "#^Cannot access offset 'UploadDir' on mixed\\.$#"
+			message: "#^Cannot call method getAuthorizeURL\\(\\) on mixed\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
+			message: "#^Cannot call method prepare\\(\\) on mixed\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'blowfish_secret' on mixed\\.$#"
+			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'compress' on mixed\\.$#"
+			message: "#^Instantiated class OpenID_Message not found\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
+			message: "#^Instantiated class OpenID_RelyingParty not found\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 1 on mixed\\.$#"
-			count: 4
-			path: config.sample.inc.php
+			message: "#^Only booleans are allowed in a negated boolean, int\\<0, max\\> given\\.$#"
+			count: 3
+			path: examples/openid.php
 
 		-
-			message: "#^Implicit array creation is not allowed \\- variable \\$cfg might not exist\\.$#"
+			message: "#^Parameter \\#1 \\$e of function Die_error expects Exception, Throwable given\\.$#"
+			count: 3
+			path: examples/openid.php
+
+		-
+			message: "#^Parameter \\#1 \\$path of function dirname expects string, mixed given\\.$#"
 			count: 1
-			path: config.sample.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'Servers' on mixed\\.$#"
-			count: 30
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'auth_type' on mixed\\.$#"
+			message: "#^Parameter \\#2 \\$str of function explode expects string, mixed given\\.$#"
 			count: 1
-			path: examples/config.manyhosts.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'bookmarktable' on mixed\\.$#"
+			message: "#^Variable \\$authRequest might not be defined\\.$#"
 			count: 1
-			path: examples/config.manyhosts.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'central_columns' on mixed\\.$#"
+			message: "#^Variable \\$message might not be defined\\.$#"
 			count: 1
-			path: examples/config.manyhosts.inc.php
+			path: examples/openid.php
 
 		-
-			message: "#^Cannot access offset 'column_info' on mixed\\.$#"
+			message: "#^Variable \\$o might not be defined\\.$#"
 			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'compress' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'controlpass' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'controluser' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'designer_settings' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'export_templates' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'history' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'host' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'navigationhiding' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'only_db' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'password' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'pdf_pages' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'port' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'recent' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'relation' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'savedsearches' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'socket' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'table_coords' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'table_info' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'table_uiprefs' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'tracking' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'user' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'userconfig' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'usergroups' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'users' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset 'verbose' on mixed\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Cannot access offset int\\<1, max\\> on mixed\\.$#"
-			count: 30
-			path: examples/config.manyhosts.inc.php
-
-		-
-			message: "#^Implicit array creation is not allowed \\- variable \\$cfg might not exist\\.$#"
-			count: 1
-			path: examples/config.manyhosts.inc.php
+			path: examples/openid.php
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"

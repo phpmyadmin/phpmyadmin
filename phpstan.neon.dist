@@ -12,7 +12,8 @@ parameters:
         - test/stubs/uploadprogress.stub
     excludePaths:
         - config.inc.php (?)
-        - examples/openid.php
+        - config.sample.inc.php
+        - examples/config.manyhosts.inc.php
         - node_modules/*
         - libraries/cache/*
         - test/doctum-config.php
