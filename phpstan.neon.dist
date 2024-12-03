@@ -4,18 +4,19 @@ parameters:
     level: max
     paths:
         - app
+        - examples
         - public
         - src
         - tests
     scanFiles:
         - app/constants.php
-        - examples/signon-script.php
     bootstrapFiles:
         - tests/phpstan-constants.php
     stubFiles:
         - tests/stubs/uploadprogress.stub
     excludePaths:
         - app/cache/*
+        - examples/config.manyhosts.inc.php
         - tests/doctum-config.php
     dynamicConstantNames:
         - ROOT_PATH

@@ -79,6 +79,126 @@ parameters:
 			path: app/services_loader.php
 
 		-
+			message: '#^Access to constant FORMAT_HTTP on an unknown class OpenID_Message\.$#'
+			identifier: class.notFound
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Binary operation "\." between ''\://'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Binary operation "\." between ''\<p class\="error"\>'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Binary operation "\." between ''Location\: '' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Cannot call method get\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Cannot call method getAuthorizeURL\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Cannot call method prepare\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
+			identifier: empty.notAllowed
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Instantiated class OpenID_Message not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Instantiated class OpenID_RelyingParty not found\.$#'
+			identifier: class.notFound
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Only booleans are allowed in a negated boolean, int\<0, max\> given\.$#'
+			identifier: booleanNot.exprNotBoolean
+			count: 3
+			path: examples/openid.php
+
+		-
+			message: '#^Parameter \#1 \$e of function Die_error expects Exception, Throwable given\.$#'
+			identifier: argument.type
+			count: 3
+			path: examples/openid.php
+
+		-
+			message: '#^Parameter \#1 \$path of function dirname expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Path in include_once\(\) "OpenID/RelyingParty\.php" is not a file or it does not exist\.$#'
+			identifier: includeOnce.fileNotFound
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Variable \$authRequest might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Variable \$message might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Variable \$o might not be defined\.$#'
+			identifier: variable.undefined
+			count: 1
+			path: examples/openid.php
+
+		-
+			message: '#^Parameter \#1 \(mixed\) of echo cannot be converted to string\.$#'
+			identifier: echo.nonString
+			count: 1
+			path: examples/signon.php
+
+		-
 			message: '#^Binary operation "\." between ''\<p\>File \<samp\>'' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
