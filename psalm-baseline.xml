@@ -4863,9 +4863,6 @@
   </file>
   <file src="src/Display/Results.php">
     <InvalidArgument>
-      <code><![CDATA[$expressions]]></code>
-      <code><![CDATA[$expressions]]></code>
-      <code><![CDATA[$expressions]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$sortExpressionNoDirection]]></code>
@@ -10988,9 +10985,6 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$row[$i]]]></code>
     </MixedArrayTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$restrictToTable]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Url.php">
     <DeprecatedMethod>
