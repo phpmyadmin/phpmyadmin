@@ -546,7 +546,7 @@ class FormDisplay
         $result = true;
         $values = [];
         $toSave = [];
-        $isSetupScript = Config::getInstance()->get('is_setup');
+        $isSetupScript = Config::getInstance()->isSetup();
         if ($isSetupScript) {
             $this->loadUserprefsInfo();
         }
@@ -746,7 +746,7 @@ class FormDisplay
         $this->userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
         $config = Config::getInstance();
-        $userPrefsDisallow = $config->get('is_setup')
+        $userPrefsDisallow = $config->isSetup()
             ? $this->configFile->get('UserprefsDisallow', [])
             : $config->settings['UserprefsDisallow'];
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
@@ -808,7 +808,7 @@ class FormDisplay
         }
 
         $config = Config::getInstance();
-        if ($config->get('is_setup')) {
+        if ($config->isSetup()) {
             return;
         }
 

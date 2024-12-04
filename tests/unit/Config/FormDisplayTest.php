@@ -384,7 +384,7 @@ class FormDisplayTest extends AbstractTestCase
         self::assertTrue($opts['comment_warning']);
 
         $config = Config::getInstance();
-        $config->set('is_setup', false);
+        $config->setSetup(false);
 
         $config->settings['MaxDbList'] = 10;
         $config->settings['MaxTableList'] = 10;

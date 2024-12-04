@@ -215,7 +215,7 @@ class Url
             Current::$server > 0
             && Current::$server !== $config->settings['ServerDefault']
             && ! isset($params['server'])
-            && ! $config->get('is_setup')
+            && ! $config->isSetup()
         ) {
             $params['server'] = Current::$server;
         }
