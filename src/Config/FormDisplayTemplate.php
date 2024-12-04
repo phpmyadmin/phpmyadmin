@@ -61,7 +61,7 @@ class FormDisplayTemplate
         bool $valueIsDefault = true,
         array|null $opts = null,
     ): string {
-        $isSetupScript = $this->config->get('is_setup');
+        $isSetupScript = $this->config->isSetup();
         $optionIsDisabled = ! $isSetupScript && isset($opts['userprefs_allow']) && ! $opts['userprefs_allow'];
         $trClass = $this->group > 0 ? 'group-field group-field-' . $this->group : '';
         if (isset($opts['setvalue']) && $opts['setvalue'] === ':group') {
@@ -104,7 +104,7 @@ class FormDisplayTemplate
             return '';
         }
 
-        $colspan = $this->config->get('is_setup') ? 3 : 2;
+        $colspan = $this->config->isSetup() ? 3 : 2;
 
         return $this->template->render('config/form_display/group_header', [
             'group' => $this->group,

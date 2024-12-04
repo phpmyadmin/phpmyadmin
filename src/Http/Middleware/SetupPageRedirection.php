@@ -54,7 +54,7 @@ final class SetupPageRedirection implements MiddlewareInterface
 
         // Save current language in a cookie, since it was not set in Common::run().
         $this->config->setCookie('pma_lang', $GLOBALS['lang']);
-        $this->config->set('is_setup', true);
+        $this->config->setSetup(true);
 
         // allows for redirection even after sending some data
         ob_start();

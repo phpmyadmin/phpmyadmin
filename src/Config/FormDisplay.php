@@ -17,7 +17,6 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -104,8 +103,9 @@ class FormDisplay
 
     public function __construct(private ConfigFile $configFile)
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate(Config::getInstance());
-        $this->isSetupScript = Sanitize::isSetup();
+        $config = Config::getInstance();
+        $this->formDisplayTemplate = new FormDisplayTemplate($config);
+        $this->isSetupScript = $config->isSetup();
         // initialize validators
         Validator::getValidators($this->configFile);
     }
@@ -546,7 +546,7 @@ class FormDisplay
         $result = true;
         $values = [];
         $toSave = [];
-        $isSetupScript = Config::getInstance()->get('is_setup');
+        $isSetupScript = Config::getInstance()->isSetup();
         if ($isSetupScript) {
             $this->loadUserprefsInfo();
         }
@@ -746,7 +746,7 @@ class FormDisplay
         $this->userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
         $config = Config::getInstance();
-        $userPrefsDisallow = $config->get('is_setup')
+        $userPrefsDisallow = $config->isSetup()
             ? $this->configFile->get('UserprefsDisallow', [])
             : $config->settings['UserprefsDisallow'];
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
@@ -808,7 +808,7 @@ class FormDisplay
         }
 
         $config = Config::getInstance();
-        if ($config->get('is_setup')) {
+        if ($config->isSetup()) {
             return;
         }
 

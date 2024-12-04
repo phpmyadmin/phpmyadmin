@@ -107,6 +107,8 @@ class Config
     /** @psalm-var ServerSettingsType */
     public array $selectedServer;
 
+    private bool $isSetup = false;
+
     public function __construct()
     {
         $this->config = new Settings([]);
@@ -127,6 +129,16 @@ class Config
         return self::$instance;
     }
 
+    public function setSetup(bool $isSetup): void
+    {
+        $this->isSetup = $isSetup;
+    }
+
+    public function isSetup(): bool
+    {
+        return $this->isSetup;
+    }
+
     /**
      * @param string|null $source source to read config from
      *
@@ -134,8 +146,6 @@ class Config
      */
     public function loadAndCheck(string|null $source = null): void
     {
-        $this->settings['is_setup'] = false;
-
         // functions need to refresh in case of config file changed goes in PhpMyAdmin\Config::load()
         $this->load($source);
 

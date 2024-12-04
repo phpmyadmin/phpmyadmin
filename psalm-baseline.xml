@@ -184,7 +184,6 @@
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
-      <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$collationConnection]]></code>
@@ -422,7 +421,6 @@
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$opts['errors']]]></code>
       <code><![CDATA[$proxies['-' . $i]]]></code>
@@ -476,22 +474,14 @@
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $workPath]]></code>
-      <code><![CDATA[$config->get('is_setup')]]></code>
-      <code><![CDATA[$config->get('is_setup')]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/FormDisplayTemplate.php">
     <MixedAssignment>
-      <code><![CDATA[$isSetupScript]]></code>
       <code><![CDATA[$vName]]></code>
       <code><![CDATA[$validator]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $isSetupScript]]></code>
-      <code><![CDATA[$this->config->get('is_setup')]]></code>
       <code><![CDATA[empty($opts['errors'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -647,7 +637,6 @@
       <code><![CDATA[$vid]]></code>
     </ReferenceReusedFromConfusingScope>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$config->get('is_setup')]]></code>
       <code><![CDATA[empty($errorList)]]></code>
       <code><![CDATA[empty($values['Servers/1/controlpass'])]]></code>
       <code><![CDATA[empty($values['Servers/1/controluser'])]]></code>
@@ -4030,7 +4019,6 @@
       <code><![CDATA[$array]]></code>
     </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
       <code><![CDATA[empty($_SERVER['REMOTE_ADDR'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnsupportedReferenceUsage>
@@ -9589,16 +9577,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedInferredReturnType>
-      <code><![CDATA[bool]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
-    </MixedReturnStatement>
-    <NullableReturnStatement>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
-    </NullableReturnStatement>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($found[3])]]></code>
       <code><![CDATA[empty($found[3])]]></code>
@@ -11009,7 +10987,6 @@
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $config->get('is_setup')]]></code>
       <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
       <code><![CDATA[empty($GLOBALS['lang'])]]></code>
       <code><![CDATA[empty($GLOBALS['lang'])]]></code>

@@ -414,7 +414,7 @@ class Core
         parse_str($arr['query'] ?? '', $vars);
         $query = http_build_query(['url' => $vars['url']]);
 
-        if (Config::getInstance()->get('is_setup')) {
+        if (Config::getInstance()->isSetup()) {
             return '../index.php?route=/url&' . $query;
         }
 
