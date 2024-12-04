@@ -17,7 +17,6 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -104,8 +103,9 @@ class FormDisplay
 
     public function __construct(private ConfigFile $configFile)
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate(Config::getInstance());
-        $this->isSetupScript = Sanitize::isSetup();
+        $config = Config::getInstance();
+        $this->formDisplayTemplate = new FormDisplayTemplate($config);
+        $this->isSetupScript = $config->isSetup();
         // initialize validators
         Validator::getValidators($this->configFile);
     }

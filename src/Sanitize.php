@@ -86,7 +86,7 @@ class Sanitize
     /**
      * Check if we are currently on a setup folder page
      */
-    public static function isSetup(): bool
+    private static function isSetup(): bool
     {
         return Config::getInstance()->isSetup();
     }
