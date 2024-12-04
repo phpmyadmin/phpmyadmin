@@ -107,7 +107,7 @@ class TriggersTest extends TestBase
             'SHOW TRIGGERS FROM `' . $this->databaseName . '`;',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('test_trigger', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 
@@ -118,7 +118,7 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 3
-                self::assertEquals('3', $this->getCellByTableClass('table_results', 1, 6));
+                self::assertSame('3', $this->getCellByTableClass('table_results', 1, 6));
             },
         );
     }
@@ -154,7 +154,7 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 12
-                self::assertEquals('12', $this->getCellByTableClass('table_results', 1, 6));
+                self::assertSame('12', $this->getCellByTableClass('table_results', 1, 6));
             },
         );
     }
@@ -184,7 +184,7 @@ class TriggersTest extends TestBase
             function (): void {
                 $this->scrollToElement($this->waitForElement('className', 'table_results'), 0, 20);
                 // [ ] | Edit | Copy | Delete | 1 | 2
-                self::assertEquals('2', $this->getCellByTableClass('table_results', 1, 6));
+                self::assertSame('2', $this->getCellByTableClass('table_results', 1, 6));
             },
         );
 

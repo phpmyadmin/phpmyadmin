@@ -14230,12 +14230,6 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 6
-			path: src/Plugins/Export/Helpers/TableProperty.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 2
@@ -22340,6 +22334,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/IpAllowDenyTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{\} and array\{\000PhpMyAdmin\\ListDatabase\000dbi\: PhpMyAdmin\\DatabaseInterface, \000PhpMyAdmin\\ListDatabase\000config\: PhpMyAdmin\\Config, \000PhpMyAdmin\\ListDatabase\000userPrivilegesFactory\: PhpMyAdmin\\UserPrivilegesFactory\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/ListDatabaseTest.php
 
 		-
 			message: '''

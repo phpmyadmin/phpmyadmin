@@ -137,9 +137,9 @@ class EventsTest extends TestBase
             . 'SHOW EVENTS WHERE Db=\'' . $this->databaseName . '\' AND Name=\'test_event\';',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
-                self::assertEquals('test_event', $this->getCellByTableClass('table_results', 1, 2));
-                self::assertEquals('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
+                self::assertSame($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('test_event', $this->getCellByTableClass('table_results', 1, 2));
+                self::assertSame('RECURRING', $this->getCellByTableClass('table_results', 1, 5));
             },
         );
 

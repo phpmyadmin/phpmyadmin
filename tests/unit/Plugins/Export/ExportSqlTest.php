@@ -963,7 +963,7 @@ SQL;
 
         $sqlViews = (new ReflectionProperty(ExportSql::class, 'sqlViews'))->getValue($this->object);
 
-        self::assertEquals('', $result);
+        self::assertSame('', $result);
         self::assertIsString($sqlViews);
         self::assertStringContainsString('-- Structure for view test_table', $sqlViews);
         self::assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $sqlViews);

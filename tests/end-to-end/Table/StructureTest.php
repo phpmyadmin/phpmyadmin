@@ -57,12 +57,12 @@ class StructureTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('id', 'tablestructure');
 
-        self::assertEquals(
+        self::assertSame(
             'val3',
             $this->byCssSelector('label[for=checkbox_row_4]')->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'int(11)',
             $this->getCellByTableId('tablestructure', 4, 4),
         );
@@ -78,7 +78,7 @@ class StructureTest extends TestBase
 
         $this->waitUntilElementIsPresent('className', 'append_fields_form', 30);
 
-        self::assertEquals('val', $this->byId('field_0_1')->getAttribute('value'));
+        self::assertSame('val', $this->byId('field_0_1')->getAttribute('value'));
         $this->byId('field_0_1')->clear();
         $this->byId('field_0_1')->sendKeys('val3');
         $this->byCssSelector("input[name='do_save_data']")->click();
@@ -88,7 +88,7 @@ class StructureTest extends TestBase
 
         $this->waitForElement('id', 'tablestructure');
 
-        self::assertEquals(
+        self::assertSame(
             'val3',
             $this->waitForElement('cssSelector', 'label[for=checkbox_row_2]')->getText(),
         );

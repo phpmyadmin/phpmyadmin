@@ -217,7 +217,7 @@ class TwoFactorTest extends AbstractTestCase
         $request = $serverRequestFactory->createServerRequest('POST', 'https://example.com/');
 
         /* Test rendering */
-        self::assertNotEquals('', $object->render($request));
+        self::assertNotSame('', $object->render($request));
         self::assertSame('', $object->setup($request));
     }
 
@@ -316,8 +316,8 @@ class TwoFactorTest extends AbstractTestCase
         unset($_POST['2fa_code']);
 
         /* Test rendering */
-        self::assertNotEquals('', $object->render($request));
-        self::assertNotEquals('', $object->setup($request));
+        self::assertNotSame('', $object->render($request));
+        self::assertNotSame('', $object->setup($request));
     }
 
     public function testKey(): void
@@ -357,8 +357,8 @@ class TwoFactorTest extends AbstractTestCase
         self::assertFalse($object->check($request, true));
 
         /* Test rendering */
-        self::assertNotEquals('', $object->render($request));
-        self::assertNotEquals('', $object->setup($request));
+        self::assertNotSame('', $object->render($request));
+        self::assertNotSame('', $object->setup($request));
     }
 
     /**

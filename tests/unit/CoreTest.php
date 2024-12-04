@@ -111,9 +111,8 @@ class CoreTest extends AbstractTestCase
             $arr['sarr'][0][1][2],
         );
 
-        self::assertSame(
+        self::assertNull(
             Core::arrayRead('sarr/not_exiting/1', $arr),
-            null,
         );
 
         self::assertSame(

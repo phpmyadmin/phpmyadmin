@@ -17,8 +17,6 @@ use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function in_array;
-
 #[CoversClass(FirstStepController::class)]
 class FirstStepControllerTest extends AbstractTestCase
 {
@@ -46,12 +44,14 @@ class FirstStepControllerTest extends AbstractTestCase
         $controller($request);
 
         $files = $response->getHeader()->getScripts()->getFiles();
-        self::assertTrue(
-            in_array(['name' => 'normalization.js', 'fire' => 1], $files, true),
+        self::assertContains(
+            ['name' => 'normalization.js', 'fire' => 1],
+            $files,
             'normalization.js script was not included in the response.',
         );
-        self::assertTrue(
-            in_array(['name' => 'vendor/jquery/jquery.uitablefilter.js', 'fire' => 0], $files, true),
+        self::assertContains(
+            ['name' => 'vendor/jquery/jquery.uitablefilter.js', 'fire' => 0],
+            $files,
             'vendor/jquery/jquery.uitablefilter.js script was not included in the response.',
         );
 

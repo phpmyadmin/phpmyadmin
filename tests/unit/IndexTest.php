@@ -78,8 +78,7 @@ class IndexTest extends AbstractTestCase
             'PMA_Packed',
             $index->getPacked(),
         );
-        self::assertEquals(
-            'PMA_Non_unique',
+        self::assertTrue(
             $index->getNonUnique(),
         );
         self::assertStringContainsString(
@@ -152,16 +151,16 @@ class IndexTest extends AbstractTestCase
             'column1',
             $indexColumn->getName(),
         );
-        self::assertEquals(
-            '1',
+        self::assertSame(
+            1,
             $indexColumn->getSeqInIndex(),
         );
         self::assertSame(
             'Collation1',
             $indexColumn->getCollation(),
         );
-        self::assertEquals(
-            '1',
+        self::assertSame(
+            1,
             $indexColumn->getCardinality(),
         );
     }

@@ -9,7 +9,6 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function preg_match;
 use function str_replace;
 
 use const DIRECTORY_SEPARATOR;
@@ -124,9 +123,9 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        self::assertSame(
-            1,
-            preg_match('/^([a-z0-9]*)$/', $this->object->getHash()),
+        self::assertMatchesRegularExpression(
+            '/^([a-z0-9]*)$/',
+            $this->object->getHash(),
         );
     }
 

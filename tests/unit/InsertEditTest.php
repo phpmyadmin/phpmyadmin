@@ -1528,7 +1528,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
 
-        self::assertEquals(2, $result);
+        self::assertSame('2', $result);
     }
 
     /**

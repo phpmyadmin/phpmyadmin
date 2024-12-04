@@ -265,7 +265,7 @@ class TypesTest extends AbstractTestCase
     #[DataProvider('providerForTestGetTypeDescription')]
     public function testGetTypeDescription(string $type): void
     {
-        self::assertNotEquals(
+        self::assertNotSame(
             '',
             $this->object->getTypeDescription($type),
         );

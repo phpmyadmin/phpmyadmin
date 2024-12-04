@@ -228,7 +228,7 @@ class Config
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', (int) $logVersion[1] + 4);
+            $this->set('PMA_USR_BROWSER_VER', (string) ((int) $logVersion[1] + 4));
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
         } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
