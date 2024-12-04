@@ -9,10 +9,10 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Error\ErrorReport;
+use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
-use PhpMyAdmin\Utils\HttpMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -125,7 +125,7 @@ class ErrorReportTest extends AbstractTestCase
             ->method('create')
             ->with(
                 $submissionUrl,
-                HttpMethod::Post,
+                RequestMethod::Post,
                 false,
                 json_encode($report),
                 'Content-Type: application/json',

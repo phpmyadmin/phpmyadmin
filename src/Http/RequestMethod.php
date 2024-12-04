@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Utils;
+namespace PhpMyAdmin\Http;
 
-enum HttpMethod: string
+enum RequestMethod: string
 {
     case Get = 'GET';
     case Post = 'POST';
