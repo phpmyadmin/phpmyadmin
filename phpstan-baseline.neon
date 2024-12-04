@@ -19558,12 +19558,6 @@ parameters:
 			path: src/Utils/HttpRequest.php
 
 		-
-			message: '#^Parameter \#3 \$value of function curl_setopt expects non\-empty\-string\|null, string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Utils/HttpRequest.php
-
-		-
 			message: '#^Variable \$http_response_header in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.variable
 			count: 1

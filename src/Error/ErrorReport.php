@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Error;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\HttpRequest;
@@ -208,7 +209,7 @@ class ErrorReport
     {
         return $this->httpRequest->create(
             $this->submissionUrl,
-            'POST',
+            RequestMethod::Post,
             false,
             json_encode($report),
             'Content-Type: application/json',
