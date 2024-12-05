@@ -1506,7 +1506,6 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$dbSelect]]></code>
-      <code><![CDATA[$rememberTemplate]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
@@ -1627,7 +1626,6 @@
       <code><![CDATA[$GLOBALS['xml_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['yaml_structure_or_data']]]></code>
       <code><![CDATA[$dbSelect]]></code>
-      <code><![CDATA[$rememberTemplate]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
@@ -5290,7 +5288,6 @@
       <code><![CDATA[(string) ini_get('memory_limit')]]></code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

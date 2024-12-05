@@ -19,7 +19,6 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -318,47 +317,20 @@ class Export
         return [$filename, $mediaType];
     }
 
-    /**
-     * Return the filename and MIME type for export file
-     *
-     * @param string       $exportType       type of export
-     * @param string       $rememberTemplate whether to remember template
-     * @param ExportPlugin $exportPlugin     the export plugin
-     * @param string       $compression      compression asked
-     * @param string       $filenameTemplate the filename template
-     *
-     * @return string[] the filename template and mime type
-     */
-    public function getFilenameAndMimetype(
+    public function rememberFilename(
+        Config $config,
         string $exportType,
-        string $rememberTemplate,
-        ExportPlugin $exportPlugin,
-        string $compression,
         string $filenameTemplate,
-    ): array {
-        $config = Config::getInstance();
+    ): void {
         if ($exportType === 'server') {
-            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $config->setUserValue('pma_server_filename_template', 'Export/file_template_server', $filenameTemplate);
-            }
+            $config->setUserValue('pma_server_filename_template', 'Export/file_template_server', $filenameTemplate);
         } elseif ($exportType === 'database') {
-            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $config->setUserValue('pma_db_filename_template', 'Export/file_template_database', $filenameTemplate);
-            }
+            $config->setUserValue('pma_db_filename_template', 'Export/file_template_database', $filenameTemplate);
         } elseif ($exportType === 'raw') {
-            if ($rememberTemplate !== '' && $rememberTemplate !== '0') {
-                $config->setUserValue('pma_raw_filename_template', 'Export/file_template_raw', $filenameTemplate);
-            }
-        } elseif ($rememberTemplate !== '' && $rememberTemplate !== '0') {
+            $config->setUserValue('pma_raw_filename_template', 'Export/file_template_raw', $filenameTemplate);
+        } else {
             $config->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
         }
-
-        $filename = Util::expandUserString($filenameTemplate);
-        // remove dots in filename (coming from either the template or already
-        // part of the filename) to avoid a remote code execution vulnerability
-        $filename = Sanitize::sanitizeFilename($filename, true);
-
-        return $this->getFinalFilenameAndMimetypeForFilename($exportPlugin, $compression, $filename);
     }
 
     /**
