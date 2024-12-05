@@ -1470,16 +1470,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Export/ExportController.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -1516,7 +1506,6 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$dbSelect]]></code>
-      <code><![CDATA[$rememberTemplate]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
@@ -1637,14 +1626,9 @@
       <code><![CDATA[$GLOBALS['xml_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['yaml_structure_or_data']]]></code>
       <code><![CDATA[$dbSelect]]></code>
-      <code><![CDATA[$rememberTemplate]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[exportFooter]]></code>
-      <code><![CDATA[exportHeader]]></code>
-    </MixedMethodCall>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
@@ -5304,7 +5288,6 @@
       <code><![CDATA[(string) ini_get('memory_limit')]]></code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

@@ -60,7 +60,7 @@ class ExportTest extends AbstractTestCase
         self::assertSame($expected, $actual);
     }
 
-    public function testGetFinalFilenameAndMimetypeForFilename(): void
+    public function testGetFinalFilename(): void
     {
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
@@ -70,16 +70,28 @@ class ExportTest extends AbstractTestCase
             new Export($dbi),
             new Transformations(),
         );
-        $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'zip', 'myfilename');
-        self::assertSame(['myfilename.php.zip', 'application/zip'], $finalFileName);
-        $finalFileName = $export->getFinalFilenameAndMimetypeForFilename($exportPlugin, 'gzip', 'myfilename');
-        self::assertSame(['myfilename.php.gz', 'application/x-gzip'], $finalFileName);
-        $finalFileName = $export->getFinalFilenameAndMimetypeForFilename(
-            $exportPlugin,
-            'gzip',
-            'export.db1.table1.file',
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'zip', 'myfilename');
+        self::assertSame('myfilename.php.zip', $finalFileName);
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'myfilename');
+        self::assertSame('myfilename.php.gz', $finalFileName);
+        $finalFileName = $export->getFinalFilename($exportPlugin, 'gzip', 'export.db1.table1.file');
+        self::assertSame('export.db1.table1.file.php.gz', $finalFileName);
+    }
+
+    public function testGetMimeType(): void
+    {
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $export = new Export($dbi);
+        $exportPlugin = new ExportPhparray(
+            new Relation($dbi),
+            new Export($dbi),
+            new Transformations(),
         );
-        self::assertSame(['export.db1.table1.file.php.gz', 'application/x-gzip'], $finalFileName);
+        $mimeType = $export->getMimeType($exportPlugin, 'zip');
+        self::assertSame('application/zip', $mimeType);
+        $mimeType = $export->getMimeType($exportPlugin, 'gzip');
+        self::assertSame('application/x-gzip', $mimeType);
     }
 
     public function testExportDatabase(): void

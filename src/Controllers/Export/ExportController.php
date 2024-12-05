@@ -21,6 +21,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\Export\ExportXml;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -80,7 +81,7 @@ final class ExportController implements InvocableController
         /** @var array|null $aliasesParam */
         $aliasesParam = $request->getParsedBodyParam('aliases');
         $structureOrDataForced = (bool) $request->getParsedBodyParamAsStringOrNull('structure_or_data_forced');
-        $rememberTemplate = $request->getParsedBodyParam('remember_template');
+        $rememberTemplate = $request->getParsedBodyParamAsString('remember_template', '');
         $dbSelect = $request->getParsedBodyParam('db_select');
         $tableStructure = $request->getParsedBodyParam('table_structure');
         $lockTables = $request->hasBodyParam('lock_tables');
@@ -103,7 +104,7 @@ final class ExportController implements InvocableController
         ]);
 
         // Check export type
-        if ($exportPlugin === null) {
+        if (! $exportPlugin instanceof ExportPlugin) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
 
@@ -235,26 +236,24 @@ final class ExportController implements InvocableController
         // Generate filename and mime type if needed
         $mimeType = '';
         if ($GLOBALS['asfile']) {
-            if (empty($rememberTemplate)) {
-                $rememberTemplate = '';
+            $filenameTemplate = $request->getParsedBodyParamAsString('filename_template');
+
+            if ((bool) $rememberTemplate) {
+                $this->export->rememberFilename($config, $GLOBALS['export_type'], $filenameTemplate);
             }
 
-            [$filename, $mimeType] = $this->export->getFilenameAndMimetype(
-                $GLOBALS['export_type'],
-                $rememberTemplate,
+            $filename = $this->export->getFinalFilename(
                 $exportPlugin,
                 $GLOBALS['compression'],
-                $request->getParsedBodyParamAsString('filename_template'),
+                Sanitize::sanitizeFilename(Util::expandUserString($filenameTemplate), true),
             );
+
+            $mimeType = $this->export->getMimeType($exportPlugin, $GLOBALS['compression']);
         }
 
         // For raw query export, filename will be export.extension
         if ($GLOBALS['export_type'] === 'raw') {
-            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
-                $exportPlugin,
-                $GLOBALS['compression'],
-                'export',
-            );
+            $filename = $this->export->getFinalFilename($exportPlugin, $GLOBALS['compression'], 'export');
         }
 
         // Open file on server if needed
