@@ -278,20 +278,11 @@ class Export
         return (int) $memoryLimit;
     }
 
-    /**
-     * Returns the filename and MIME type for a compression and an export plugin
-     *
-     * @param ExportPlugin $exportPlugin the export plugin
-     * @param string       $compression  compression asked
-     * @param string       $filename     the filename
-     *
-     * @return string[]    the filename and mime type
-     */
-    public function getFinalFilenameAndMimetypeForFilename(
+    public function getFinalFilename(
         ExportPlugin $exportPlugin,
         string $compression,
         string $filename,
-    ): array {
+    ): string {
         // Grab basic dump extension and mime type
         // Check if the user already added extension;
         // get the substring where the extension would be if it was included
@@ -302,19 +293,23 @@ class Export
             $filename .= $requiredExtension;
         }
 
-        $mediaType = $exportPlugin->getProperties()->getMimeType();
-
-        // If dump is going to be compressed, set correct mime_type and add
-        // compression to extension
+        // If dump is going to be compressed, add compression to extension
         if ($compression === 'gzip') {
             $filename .= '.gz';
-            $mediaType = 'application/x-gzip';
         } elseif ($compression === 'zip') {
             $filename .= '.zip';
-            $mediaType = 'application/zip';
         }
 
-        return [$filename, $mediaType];
+        return $filename;
+    }
+
+    public function getMimeType(ExportPlugin $exportPlugin, string $compression): string
+    {
+        return match ($compression) {
+            'gzip' => 'application/x-gzip',
+            'zip' => 'application/zip',
+            default => $exportPlugin->getProperties()->getMimeType(),
+        };
     }
 
     public function rememberFilename(

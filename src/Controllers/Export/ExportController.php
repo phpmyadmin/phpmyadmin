@@ -242,20 +242,18 @@ final class ExportController implements InvocableController
                 $this->export->rememberFilename($config, $GLOBALS['export_type'], $filenameTemplate);
             }
 
-            [$filename, $mimeType] = $this->export->getFinalFilenameAndMimetypeForFilename(
+            $filename = $this->export->getFinalFilename(
                 $exportPlugin,
                 $GLOBALS['compression'],
                 Sanitize::sanitizeFilename(Util::expandUserString($filenameTemplate), true),
             );
+
+            $mimeType = $this->export->getMimeType($exportPlugin, $GLOBALS['compression']);
         }
 
         // For raw query export, filename will be export.extension
         if ($GLOBALS['export_type'] === 'raw') {
-            [$filename] = $this->export->getFinalFilenameAndMimetypeForFilename(
-                $exportPlugin,
-                $GLOBALS['compression'],
-                'export',
-            );
+            $filename = $this->export->getFinalFilename($exportPlugin, $GLOBALS['compression'], 'export');
         }
 
         // Open file on server if needed

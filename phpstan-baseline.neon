@@ -2962,9 +2962,15 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#2 \$compression of method PhpMyAdmin\\Export\\Export\:\:getFinalFilenameAndMimetypeForFilename\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$compression of method PhpMyAdmin\\Export\\Export\:\:getFinalFilename\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
+			path: src/Controllers/Export/ExportController.php
+
+		-
+			message: '#^Parameter \#2 \$compression of method PhpMyAdmin\\Export\\Export\:\:getMimeType\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
 			path: src/Controllers/Export/ExportController.php
 
 		-
