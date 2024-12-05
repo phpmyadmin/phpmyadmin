@@ -2845,18 +2845,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Call to an undefined method object\:\:exportFooter\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Call to an undefined method object\:\:exportHeader\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -2932,12 +2920,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#1 \$exportPlugin of method PhpMyAdmin\\Export\\Export\:\:getFinalFilenameAndMimetypeForFilename\(\) expects PhpMyAdmin\\Plugins\\ExportPlugin, object given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#1 \$exportType of method PhpMyAdmin\\Export\\Export\:\:getFilenameAndMimetype\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2998,12 +2980,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#2 \$exportPlugin of static method PhpMyAdmin\\Export\\Export\:\:exportRaw\(\) expects PhpMyAdmin\\Plugins\\ExportPlugin, object given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#2 \$rememberTemplate of method PhpMyAdmin\\Export\\Export\:\:getFilenameAndMimetype\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3011,18 +2987,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$errorUrl of static method PhpMyAdmin\\Export\\Export\:\:exportRaw\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#3 \$exportPlugin of method PhpMyAdmin\\Export\\Export\:\:exportServer\(\) expects PhpMyAdmin\\Plugins\\ExportPlugin, object given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#3 \$exportPlugin of method PhpMyAdmin\\Export\\Export\:\:getFilenameAndMimetype\(\) expects PhpMyAdmin\\Plugins\\ExportPlugin, object given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -3046,12 +3010,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#4 \$exportPlugin of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects PhpMyAdmin\\Plugins\\ExportPlugin, object given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#4 \$tableStructure of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 2
@@ -3071,12 +3029,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#5 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#6 \$exportPlugin of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects PhpMyAdmin\\Plugins\\ExportPlugin, object given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php

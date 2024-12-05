@@ -21,6 +21,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\Export\ExportXml;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -103,7 +104,7 @@ final class ExportController implements InvocableController
         ]);
 
         // Check export type
-        if ($exportPlugin === null) {
+        if (! $exportPlugin instanceof ExportPlugin) {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad type!'))->getDisplay());
 

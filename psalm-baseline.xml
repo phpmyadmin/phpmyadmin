@@ -1470,16 +1470,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Export/ExportController.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -1641,10 +1631,6 @@
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[exportFooter]]></code>
-      <code><![CDATA[exportHeader]]></code>
-    </MixedMethodCall>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
