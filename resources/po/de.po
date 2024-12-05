@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-12-01 00:29+0000\n"
-"PO-Revision-Date: 2024-11-13 04:00+0000\n"
+"PO-Revision-Date: 2024-12-06 03:00+0000\n"
 "Last-Translator: Eric Marcel Black Stiller <marcelstiller2005@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -1707,7 +1707,7 @@ msgstr "Seite auswählen"
 
 #: resources/templates/database/designer/schema_export.twig:6
 msgid "Select export relational type:"
-msgstr ""
+msgstr "Wählen Sie Export-Relationstypen:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
