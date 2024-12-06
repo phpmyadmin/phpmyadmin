@@ -952,7 +952,7 @@ class Descriptions
             'CaptchaLoginPublicKey_name' => __('Public key for reCAPTCHA'),
             'CaptchaLoginPrivateKey_name' => __('Private key for reCAPTCHA'),
             'CaptchaSiteVerifyURL_name' => __('URL for reCAPTCHA siteverify'),
-            'CaptchaExpectedHostname_name' => __('Domain for reCAPTCHA to ensure captcha came from phpMyAdmin'),
+            'CaptchaExpectedHostname_name' => __('Domain for reCAPTCHA to ensure the captcha request came from phpMyAdmin'),
             'SendErrorReports_name' => __('Send error reports'),
             'ConsoleEnterExecutes_name' => __('Enter executes queries in console'),
             'ZeroConf_name' => __('Enable Zero Configuration mode'),
