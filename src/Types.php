@@ -766,30 +766,27 @@ class Types
      * @param string $type   integer type
      * @param bool   $signed whether signed
      *
-     * @return string[] min and max values
+     * @return array{string, string} min and max values
      */
     public function getIntegerRange(string $type, bool $signed = true): array
     {
-        $minMaxData = [
-            'unsigned' => [
-                'tinyint' => ['0', '255'],
-                'smallint' => ['0', '65535'],
-                'mediumint' => ['0', '16777215'],
-                'int' => ['0', '4294967295'],
-                'bigint' => ['0', '18446744073709551615'],
-            ],
-            'signed' => [
+        return match ($signed) {
+            true => match ($type) {
                 'tinyint' => ['-128', '127'],
                 'smallint' => ['-32768', '32767'],
                 'mediumint' => ['-8388608', '8388607'],
                 'int' => ['-2147483648', '2147483647'],
                 'bigint' => ['-9223372036854775808', '9223372036854775807'],
-            ],
-        ];
-        $relevantArray = $signed
-            ? $minMaxData['signed']
-            : $minMaxData['unsigned'];
-
-        return $relevantArray[$type] ?? ['', ''];
+                default => ['', ''],
+            },
+            false => match ($type) {
+                'tinyint' => ['0', '255'],
+                'smallint' => ['0', '65535'],
+                'mediumint' => ['0', '16777215'],
+                'int' => ['0', '4294967295'],
+                'bigint' => ['0', '18446744073709551615'],
+                default => ['', ''],
+            },
+        };
     }
 }
