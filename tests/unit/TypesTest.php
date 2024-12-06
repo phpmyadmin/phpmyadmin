@@ -498,53 +498,6 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
-     * Test for getFunctions
-     */
-    public function testGetFunctions(): void
-    {
-        self::assertSame(
-            [
-                'AES_DECRYPT',
-                'AES_ENCRYPT',
-                'BIN',
-                'CHAR',
-                'COMPRESS',
-                'CURRENT_USER',
-                'DATABASE',
-                'DAYNAME',
-                'DES_DECRYPT',
-                'DES_ENCRYPT',
-                'ENCRYPT',
-                'HEX',
-                'INET6_NTOA',
-                'INET_NTOA',
-                'LOAD_FILE',
-                'LOWER',
-                'LTRIM',
-                'MD5',
-                'MONTHNAME',
-                'OLD_PASSWORD',
-                'PASSWORD',
-                'QUOTE',
-                'REVERSE',
-                'RTRIM',
-                'SHA1',
-                'SHA2',
-                'SOUNDEX',
-                'SPACE',
-                'TRIM',
-                'UNCOMPRESS',
-                'UNHEX',
-                'UPPER',
-                'USER',
-                'UUID',
-                'VERSION',
-            ],
-            $this->object->getFunctions('enum'),
-        );
-    }
-
-    /**
      * Test for getAllFunctions
      */
     public function testGetAllFunctions(): void

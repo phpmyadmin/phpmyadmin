@@ -574,18 +574,6 @@ class Types
     }
 
     /**
-     * Returns array of functions available for a type.
-     *
-     * @param string $type The data type to get function list.
-     *
-     * @return string[]
-     */
-    public function getFunctions(string $type): array
-    {
-        return $this->getFunctionsClass($this->getTypeClass($type));
-    }
-
-    /**
      * Returns array of all functions available.
      *
      * @return string[]
