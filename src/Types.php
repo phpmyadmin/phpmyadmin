@@ -16,10 +16,10 @@ use function array_merge;
 use function array_values;
 use function htmlspecialchars;
 use function in_array;
-use function mb_strtoupper;
 use function sort;
 use function sprintf;
 use function strncasecmp;
+use function strtoupper;
 
 /**
  * Class holding type definitions for MySQL and MariaDB.
@@ -192,7 +192,7 @@ class Types
      */
     public function getTypeDescription(string $type): string
     {
-        return match (mb_strtoupper($type)) {
+        return match (strtoupper($type)) {
             'TINYINT' => __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255'),
             'SMALLINT' => __('A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to 65,535'),
             'MEDIUMINT' => __(
@@ -336,7 +336,7 @@ class Types
      */
     public function getTypeClass(string $type): string
     {
-        return match (mb_strtoupper($type)) {
+        return match (strtoupper($type)) {
             'TINYINT',
             'SMALLINT',
             'MEDIUMINT',
