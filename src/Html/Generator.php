@@ -258,7 +258,10 @@ class Generator
         // Can we get field class based values?
         $currentClass = $dbi->types->getTypeClass($trueType);
         $config = Config::getInstance();
-        if ($currentClass !== TypeClass::Unknown && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass->value])) {
+        if (
+            $currentClass !== TypeClass::Unknown
+            && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass->value])
+        ) {
             $defaultFunction = $config->settings['DefaultFunctions']['FUNC_' . $currentClass->value];
             // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
             // It needs to match the function listed in the select html element.

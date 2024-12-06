@@ -62,7 +62,16 @@ class Types
         'BETWEEN',
         'NOT BETWEEN',
     ];
-    private const UUID_OPERATORS = ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'];
+    private const UUID_OPERATORS = [
+        '=',
+        '!=',
+        'LIKE',
+        'LIKE %...%',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        'IN (...)',
+        'NOT IN (...)',
+    ];
 
     public function __construct(private DatabaseInterface $dbi)
     {
