@@ -26,18 +26,46 @@ use function strtoupper;
  */
 class Types
 {
+    private const UNARY_OPERATORS = ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
+    private const NULL_OPERATORS = ['IS NULL', 'IS NOT NULL'];
+    private const ENUM_OPERATORS = ['=', '!='];
+    private const TEXT_OPERATORS = [
+        'LIKE',
+        'LIKE %...%',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        '=',
+        '!=',
+        'REGEXP',
+        'REGEXP ^...$',
+        'NOT REGEXP',
+        "= ''",
+        "!= ''",
+        'IN (...)',
+        'NOT IN (...)',
+        'BETWEEN',
+        'NOT BETWEEN',
+    ];
+    private const NUMBER_OPERATORS = [
+        '=',
+        '>',
+        '>=',
+        '<',
+        '<=',
+        '!=',
+        'LIKE',
+        'LIKE %...%',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        'IN (...)',
+        'NOT IN (...)',
+        'BETWEEN',
+        'NOT BETWEEN',
+    ];
+    private const UUID_OPERATORS = ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'];
+
     public function __construct(private DatabaseInterface $dbi)
     {
-    }
-
-    /**
-     * Returns list of unary operators.
-     *
-     * @return string[]
-     */
-    public function getUnaryOperators(): array
-    {
-        return ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
     }
 
     /**
@@ -47,88 +75,7 @@ class Types
      */
     public function isUnaryOperator(string $op): bool
     {
-        return in_array($op, $this->getUnaryOperators(), true);
-    }
-
-    /**
-     * Returns list of operators checking for NULL.
-     *
-     * @return string[]
-     */
-    public function getNullOperators(): array
-    {
-        return ['IS NULL', 'IS NOT NULL'];
-    }
-
-    /**
-     * ENUM search operators
-     *
-     * @return string[]
-     */
-    public function getEnumOperators(): array
-    {
-        return ['=', '!='];
-    }
-
-    /**
-     * TEXT search operators
-     *
-     * @return string[]
-     */
-    public function getTextOperators(): array
-    {
-        return [
-            'LIKE',
-            'LIKE %...%',
-            'NOT LIKE',
-            'NOT LIKE %...%',
-            '=',
-            '!=',
-            'REGEXP',
-            'REGEXP ^...$',
-            'NOT REGEXP',
-            "= ''",
-            "!= ''",
-            'IN (...)',
-            'NOT IN (...)',
-            'BETWEEN',
-            'NOT BETWEEN',
-        ];
-    }
-
-    /**
-     * Number search operators
-     *
-     * @return string[]
-     */
-    public function getNumberOperators(): array
-    {
-        return [
-            '=',
-            '>',
-            '>=',
-            '<',
-            '<=',
-            '!=',
-            'LIKE',
-            'LIKE %...%',
-            'NOT LIKE',
-            'NOT LIKE %...%',
-            'IN (...)',
-            'NOT IN (...)',
-            'BETWEEN',
-            'NOT BETWEEN',
-        ];
-    }
-
-    /**
-     * UUID search operators
-     *
-     * @return string[]
-     */
-    public function getUUIDOperators(): array
-    {
-        return ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'];
+        return in_array($op, self::UNARY_OPERATORS, true);
     }
 
     /**
@@ -145,17 +92,17 @@ class Types
         $class = $this->getTypeClass($type);
 
         if (strncasecmp($type, 'enum', 4) == 0) {
-            $ret = array_merge($ret, $this->getEnumOperators());
+            $ret = array_merge($ret, self::ENUM_OPERATORS);
         } elseif ($class === TypeClass::Char) {
-            $ret = array_merge($ret, $this->getTextOperators());
+            $ret = array_merge($ret, self::TEXT_OPERATORS);
         } elseif ($class === TypeClass::Uuid) {
-            $ret = array_merge($ret, $this->getUUIDOperators());
+            $ret = array_merge($ret, self::UUID_OPERATORS);
         } else {
-            $ret = array_merge($ret, $this->getNumberOperators());
+            $ret = array_merge($ret, self::NUMBER_OPERATORS);
         }
 
         if ($null) {
-            return array_merge($ret, $this->getNullOperators());
+            return array_merge($ret, self::NULL_OPERATORS);
         }
 
         return $ret;
