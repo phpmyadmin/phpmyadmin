@@ -2178,7 +2178,7 @@ Cookie authentication options
 
     reCaptcha will be then used in :ref:`cookie`.
 
-    .. versionadded:: 5.2.0
+    .. versionadded:: 5.2.2
 
 Navigation panel setup
 ----------------------
