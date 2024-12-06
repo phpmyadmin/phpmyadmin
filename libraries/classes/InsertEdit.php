@@ -2312,7 +2312,10 @@ class InsertEdit
                 }
 
                 if ($isUpload && $column['is_blob']) {
-                    [$maxUploadSize] = $this->getMaxUploadSize($column['pma_type'], $biggestMaxFileSize);
+                    [$maxUploadSize] = $this->getMaxUploadSize(
+                        Util::extractColumnSpec($column['pma_type'])['type'],
+                        $biggestMaxFileSize
+                    );
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
