@@ -8011,7 +8011,7 @@
     <InvalidReturnType occurrences="1">
       <code>string</code>
     </InvalidReturnType>
-    <MixedArgument occurrences="84">
+    <MixedArgument occurrences="85">
       <code>$_POST['fields']['multi_edit']</code>
       <code>$_POST['fields']['multi_edit'][$rownumber][$key]</code>
       <code>$backupField</code>
@@ -8095,6 +8095,7 @@
       <code>$whereClause</code>
       <code>$whereClause</code>
       <code>$whereClause</code>
+      <code>Util::extractColumnSpec($column['pma_type'])['type']</code>
       <code>min(max($column['len'] * 2, 4), $GLOBALS['cfg']['LimitChars'])</code>
     </MixedArgument>
     <MixedArgumentTypeCoercion occurrences="7">
