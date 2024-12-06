@@ -88,24 +88,17 @@ class Types
      */
     public function getTypeOperators(string $type, bool $null): array
     {
-        $ret = [];
-        $class = $this->getTypeClass($type);
-
-        if (strncasecmp($type, 'enum', 4) == 0) {
-            $ret = array_merge($ret, self::ENUM_OPERATORS);
-        } elseif ($class === TypeClass::Char) {
-            $ret = array_merge($ret, self::TEXT_OPERATORS);
-        } elseif ($class === TypeClass::Uuid) {
-            $ret = array_merge($ret, self::UUID_OPERATORS);
+        if (strncasecmp($type, 'enum', 4) === 0) {
+            $operators = self::ENUM_OPERATORS;
         } else {
-            $ret = array_merge($ret, self::NUMBER_OPERATORS);
+            $operators = match ($this->getTypeClass($type)) {
+                TypeClass::Char => self::TEXT_OPERATORS,
+                TypeClass::Uuid => self::UUID_OPERATORS,
+                default => self::NUMBER_OPERATORS,
+            };
         }
 
-        if ($null) {
-            return array_merge($ret, self::NULL_OPERATORS);
-        }
-
-        return $ret;
+        return $null ? array_merge($operators, self::NULL_OPERATORS) : $operators;
     }
 
     /**
