@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -336,11 +337,11 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
-     * @param string   $class  The class to get function list.
-     * @param string[] $output Expected function list
+     * @param TypeClass $class  The class to get function list.
+     * @param string[]  $output Expected function list
      */
     #[DataProvider('providerFortTestGetFunctionsClass')]
-    public function testGetFunctionsClass(string $class, array $output): void
+    public function testGetFunctionsClass(TypeClass $class, array $output): void
     {
         self::assertSame(
             $output,
@@ -348,12 +349,12 @@ class TypesTest extends AbstractTestCase
         );
     }
 
-    /** @return array<array{string, string[]}> */
+    /** @return array<array{TypeClass, string[]}> */
     public static function providerFortTestGetFunctionsClass(): array
     {
         return [
             [
-                'CHAR',
+                TypeClass::Char,
                 [
                     'AES_DECRYPT',
                     'AES_ENCRYPT',
@@ -393,7 +394,7 @@ class TypesTest extends AbstractTestCase
                 ],
             ],
             [
-                'DATE',
+                TypeClass::Date,
                 [
                     'CURRENT_DATE',
                     'CURRENT_TIME',
@@ -413,7 +414,7 @@ class TypesTest extends AbstractTestCase
                 ],
             ],
             [
-                'SPATIAL',
+                TypeClass::Spatial,
                 [
                     'ST_GeomFromText',
                     'ST_GeomFromWKB',
@@ -436,7 +437,7 @@ class TypesTest extends AbstractTestCase
                 ],
             ],
             [
-                'NUMBER',
+                TypeClass::Number,
                 [
                     'ABS',
                     'ACOS',
@@ -492,7 +493,7 @@ class TypesTest extends AbstractTestCase
                     'YEARWEEK',
                 ],
             ],
-            ['UNKNOWN', []],
+            [TypeClass::Unknown, []],
         ];
     }
 
@@ -749,11 +750,11 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
-     * @param string $type   Type to check
-     * @param string $output Expected result
+     * @param string    $type   Type to check
+     * @param TypeClass $output Expected result
      */
     #[DataProvider('providerFortTestGetTypeClass')]
-    public function testGetTypeClass(string $type, string $output): void
+    public function testGetTypeClass(string $type, TypeClass $output): void
     {
         self::assertSame(
             $output,
@@ -764,18 +765,18 @@ class TypesTest extends AbstractTestCase
     /**
      * Data provider for type testing
      *
-     * @return array<array{string, string}>
+     * @return array<array{string, TypeClass}>
      */
     public static function providerFortTestGetTypeClass(): array
     {
         return [
-            ['SERIAL', 'NUMBER'],
-            ['YEAR', 'DATE'],
-            ['GEOMETRYCOLLECTION', 'SPATIAL'],
-            ['SET', 'CHAR'],
-            ['JSON', 'JSON'],
-            ['UUID', 'UUID'],
-            ['UNKNOWN', ''],
+            ['SERIAL', TypeClass::Number],
+            ['YEAR', TypeClass::Date],
+            ['GEOMETRYCOLLECTION', TypeClass::Spatial],
+            ['SET', TypeClass::Char],
+            ['JSON', TypeClass::Json],
+            ['UUID', TypeClass::Uuid],
+            ['UNKNOWN', TypeClass::Unknown],
         ];
     }
 }

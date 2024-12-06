@@ -146,9 +146,9 @@ class Types
 
         if (strncasecmp($type, 'enum', 4) == 0) {
             $ret = array_merge($ret, $this->getEnumOperators());
-        } elseif ($class === 'CHAR') {
+        } elseif ($class === TypeClass::Char) {
             $ret = array_merge($ret, $this->getTextOperators());
-        } elseif ($class === 'UUID') {
+        } elseif ($class === TypeClass::Uuid) {
             $ret = array_merge($ret, $this->getUUIDOperators());
         } else {
             $ret = array_merge($ret, $this->getNumberOperators());
@@ -334,7 +334,7 @@ class Types
      *
      * @param string $type The data type to get a class.
      */
-    public function getTypeClass(string $type): string
+    public function getTypeClass(string $type): TypeClass
     {
         return match (strtoupper($type)) {
             'TINYINT',
@@ -349,13 +349,13 @@ class Types
             'BIT',
             'BOOLEAN',
             'SERIAL'
-                => 'NUMBER',
+                => TypeClass::Number,
             'DATE',
             'DATETIME',
             'TIMESTAMP',
             'TIME',
             'YEAR'
-                => 'DATE',
+                => TypeClass::Date,
             'CHAR',
             'VARCHAR',
             'TINYTEXT',
@@ -371,7 +371,7 @@ class Types
             'ENUM',
             'SET',
             'INET6'
-                => 'CHAR',
+                => TypeClass::Char,
             'GEOMETRY',
             'POINT',
             'LINESTRING',
@@ -380,27 +380,25 @@ class Types
             'MULTILINESTRING',
             'MULTIPOLYGON',
             'GEOMETRYCOLLECTION'
-                => 'SPATIAL',
-            'JSON' => 'JSON',
-            'UUID' => 'UUID',
-            default => '',
+                => TypeClass::Spatial,
+            'JSON' => TypeClass::Json,
+            'UUID' => TypeClass::Uuid,
+            default => TypeClass::Unknown,
         };
     }
 
     /**
      * Returns array of functions available for a class.
      *
-     * @param string $class The class to get function list.
-     *
      * @return string[]
      */
-    public function getFunctionsClass(string $class): array
+    public function getFunctionsClass(TypeClass $class): array
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
 
         switch ($class) {
-            case 'CHAR':
+            case TypeClass::Char:
                 $ret = [
                     'AES_DECRYPT',
                     'AES_ENCRYPT',
@@ -445,7 +443,7 @@ class Types
 
                 return array_values($ret);
 
-            case 'DATE':
+            case TypeClass::Date:
                 return [
                     'CURRENT_DATE',
                     'CURRENT_TIME',
@@ -464,7 +462,7 @@ class Types
                     'YEAR',
                 ];
 
-            case 'NUMBER':
+            case TypeClass::Number:
                 $ret = [
                     'ABS',
                     'ACOS',
@@ -526,7 +524,7 @@ class Types
 
                 return array_values($ret);
 
-            case 'SPATIAL':
+            case TypeClass::Spatial:
                 if ($serverVersion >= 50600) {
                     return [
                         'ST_GeomFromText',
@@ -584,9 +582,7 @@ class Types
      */
     public function getFunctions(string $type): array
     {
-        $class = $this->getTypeClass($type);
-
-        return $this->getFunctionsClass($class);
+        return $this->getFunctionsClass($this->getTypeClass($type));
     }
 
     /**
@@ -597,10 +593,10 @@ class Types
     public function getAllFunctions(): array
     {
         $ret = array_merge(
-            $this->getFunctionsClass('CHAR'),
-            $this->getFunctionsClass('NUMBER'),
-            $this->getFunctionsClass('DATE'),
-            $this->getFunctionsClass('SPATIAL'),
+            $this->getFunctionsClass(TypeClass::Char),
+            $this->getFunctionsClass(TypeClass::Number),
+            $this->getFunctionsClass(TypeClass::Date),
+            $this->getFunctionsClass(TypeClass::Spatial),
         );
         sort($ret);
 
