@@ -8,119 +8,93 @@ use function preg_match;
 use function preg_replace;
 use function trim;
 
-class QueryValidator
+final class QueryValidationResult
 {
-    /**
-     * Validates and processes a SQL query before execution
-     *
-     * @param string                              $query   The SQL query to validate
-     * @param string|null                         $table   Selected table name
-     * @param array<string, string|int|bool|null> $context Additional context like database name
-     *
-     * @return array{isValid: bool, query: string, error: string|null}
-     */
+    public function __construct(
+        public readonly bool $isValid,
+        public readonly string $query,
+        public readonly ?string $error,
+    ) {}
+
+    public static function valid(string $query): self
+    {
+        return new self(true, $query, null);
+    }
+
+    public static function invalid(string $query, string $error): self
+    {
+        return new self(false, $query, $error);
+    }
+}
+
+final class QueryValidator
+{
     public function validateQuery(
         string $query,
-        string|null $table,
+        ?string $table,
         array $context = [],
-    ): array {
-        // Check if query contains metadata requests without table context
-        if ($this->hasMetadataRequests($query) && $table === null) {
-            return [
-                'isValid' => false,
-                'query' => $query,
-                'error' => 'Table must be selected for metadata queries',
-            ];
+    ): QueryValidationResult {
+        if ($this->hasInvalidMetadataRequest($query, $table)) {
+            return QueryValidationResult::invalid(
+                $query,
+                'Table must be selected for metadata queries'
+            );
         }
 
-        // Process and clean the query
-        $processedQuery = $this->processQuery($query, $table, $context);
+        $cleanQuery = $this->removeMetadataQueriesWithoutTable($query, $table);
+        $cleanQuery = $this->normalizeQueryTermination($cleanQuery);
 
-        // Check for SQL injection attempts in metadata queries
-        if ($table !== null && $this->hasMetadataRequests($query) && $this->containsSuspiciousPatterns($query)) {
-            return [
-                'isValid' => false,
-                'query' => $query,
-                'error' => 'Invalid query',
-            ];
+        if ($this->hasMetadataRequestWithSqlInjection($query, $table)) {
+            return QueryValidationResult::invalid($query, 'Invalid query - potential SQL injection detected');
         }
 
-        return [
-            'isValid' => true,
-            'query' => $processedQuery,
-            'error' => null,
-        ];
+        return QueryValidationResult::valid($cleanQuery);
     }
 
-    /**
-     * Checks if query contains metadata requests
-     */
-    private function hasMetadataRequests(string $query): bool
+    private function hasInvalidMetadataRequest(string $query, ?string $table): bool
     {
-        $metadataPatterns = [
-            '/SHOW\s+COLUMNS\s+FROM/i',
-            '/SHOW\s+INDEXES\s+FROM/i',
-            '/SHOW\s+INDEX\s+FROM/i',
-            '/SHOW\s+KEYS\s+FROM/i',
-        ];
-
-        foreach ($metadataPatterns as $pattern) {
-            $result = preg_match($pattern, $query);
-            if ($result === 1) {
-                return true;
-            }
-        }
-
-        return false;
+        return $this->containsMetadataRequest($query) && $table === null;
     }
 
-    /**
-     * Process and clean the query
-     *
-     * @param string                              $query   The SQL query to process
-     * @param string|null                         $table   Selected table name
-     * @param array<string, string|int|bool|null> $context Additional context like database name
-     */
-    private function processQuery(
-        string $query,
-        string|null $table,
-        array $context,
-    ): string {
-        // Remove any malformed metadata queries when no table is selected
-        if ($table === null) {
-            $cleanedQuery = preg_replace('/SHOW\s+(COLUMNS|INDEXES|INDEX|KEYS)\s+FROM\s+[^;]+;?/i', '', $query);
-            if ($cleanedQuery === null) {
-                return $query; // Return original if replacement fails
-            }
-
-            $query = $cleanedQuery;
-        }
-
-        // Clean up multiple semicolons and whitespace
-        $finalQuery = preg_replace('/;+\s*$/', ';', $query);
-
-        return trim($finalQuery ?? $query);
-    }
-
-    /**
-     * Check for suspicious patterns that might indicate SQL injection attempts
-     */
-    private function containsSuspiciousPatterns(string $query): bool
+    private function containsMetadataRequest(string $query): bool
     {
-        $suspiciousPatterns = [
-            '/;\s*DROP\s+/i',
-            '/;\s*DELETE\s+/i',
-            '/;\s*UPDATE\s+/i',
-            '/--\s*$/i',
-        ];
+        return preg_match(
+            '/SHOW\s+(COLUMNS|INDEXES?|KEYS)\s+FROM/i',
+            $query
+        ) === 1;
+    }
 
-        foreach ($suspiciousPatterns as $pattern) {
-            $result = preg_match($pattern, $query);
-            if ($result === 1) {
-                return true;
-            }
+    private function removeMetadataQueriesWithoutTable(string $query, ?string $table): string
+    {
+        if ($table !== null) {
+            return $query;
         }
 
-        return false;
+        $cleanedQuery = preg_replace(
+            '/SHOW\s+(COLUMNS|INDEXES?|KEYS)\s+FROM\s+[^;]+;?/i',
+            '',
+            $query
+        );
+
+        return $cleanedQuery ?? $query;
+    }
+
+    private function normalizeQueryTermination(string $query): string
+    {
+        $normalized = preg_replace('/;+\s*$/', ';', $query);
+        return trim($normalized ?? $query);
+    }
+
+    private function hasMetadataRequestWithSqlInjection(string $query, ?string $table): bool
+    {
+        if ($table === null || !$this->containsMetadataRequest($query)) {
+            return false;
+        }
+
+        // Combining patterns into a single regex for better performance
+        return preg_match(
+            '/(?:;\s*(?:DROP|DELETE|UPDATE)\s+|--\s*$)/i',
+            $query
+        ) === 1;
     }
 }
