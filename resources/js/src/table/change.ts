@@ -432,7 +432,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         // call validate before adding rules
         $($thisInput[0].form).validate();
         // validate for date time
-        if (theType === 'datetime' || theType === 'time' || theType === 'date' || theType === 'timestamp') {
+        if (theType.startsWith('time') || theType.startsWith('date')) {
             $thisInput.rules('add', {
                 validationFunctionForDateTime: {
                     param: theType,
