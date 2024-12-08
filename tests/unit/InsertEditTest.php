@@ -690,24 +690,24 @@ class InsertEditTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->set('max_upload_size', 257);
-        $pmaType = 'tinyblob';
+        $type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType],
+            [$type],
         );
 
         self::assertSame("(Max: 256B)\n", $result);
 
         // case 2
         $config->set('max_upload_size', 250);
-        $pmaType = 'tinyblob';
+        $type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType],
+            [$type],
         );
 
         self::assertSame("(Max: 250B)\n", $result);
