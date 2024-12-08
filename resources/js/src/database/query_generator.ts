@@ -29,8 +29,8 @@ function getFormatsText () {
         'NOT LIKE %...%': ' NOT LIKE \'%%%s%%\'',
         'IN (...)': ' IN (%s)',
         'NOT IN (...)': ' NOT IN (%s)',
-        'BETWEEN': ' BETWEEN \'%s\'',
-        'NOT BETWEEN': ' NOT BETWEEN \'%s\'',
+        'BETWEEN': ' BETWEEN \'%s\' AND \'%s\'',
+        'NOT BETWEEN': ' NOT BETWEEN \'%s\' AND \'%s\'',
         'REGEXP': ' REGEXP \'%s\'',
         'REGEXP ^...$': ' REGEXP \'^%s$\'',
         'NOT REGEXP': ' NOT REGEXP \'%s\''
@@ -45,12 +45,20 @@ function opsWithMultipleArgs (): string[] {
     return ['IN (...)', 'NOT IN (...)'];
 }
 
+function opsWithTwoArgs (): string[] {
+    return ['BETWEEN', 'NOT BETWEEN'];
+}
+
 function isOpWithoutArg (op) {
     return opsWithoutArg().includes(op);
 }
 
 function acceptsMultipleValues (op: string): boolean {
     return opsWithMultipleArgs().includes(op);
+}
+
+function acceptsTwoValues (op: string): boolean {
+    return opsWithTwoArgs().includes(op);
 }
 
 function joinWrappingElementsWith (array: string[], char: string, separator: string = ','): string {
@@ -94,6 +102,11 @@ function generateCondition (criteriaDiv, table) {
             criteriaText = joinWrappingElementsWith(critertiaTextArray, '\'');
 
             query += window.sprintf(formatsText[criteriaOp], criteriaText);
+        } else if (acceptsTwoValues(criteriaOp)) {
+            const formatsText = getFormatsText();
+            const valuesInputs = criteriaDiv.find('input.val');
+
+            query += window.sprintf(formatsText[criteriaOp], valuesInputs[0].value, valuesInputs[1].value);
         } else {
             const formatsText = getFormatsText();
 
