@@ -183,6 +183,10 @@ class Sql
      */
     private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta): bool
     {
+        if ($table === '') {
+            return false;
+        }
+
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
         foreach ($fieldsMeta as $oneMeta) {
