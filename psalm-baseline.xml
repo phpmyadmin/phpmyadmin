@@ -14238,7 +14238,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[providerFortTestGetAllFunctions]]></code>
       <code><![CDATA[providerFortTestGetColumns]]></code>
-      <code><![CDATA[providerFortTestGetFunctions]]></code>
       <code><![CDATA[providerFortTestGetFunctionsClass]]></code>
     </PossiblyUnusedMethod>
   </file>

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -41,11 +42,11 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     }
 
     /**
-     * @param string $database  Database
-     * @param int    $dbVersion Database Version
-     * @param string $class     The class to get function list.
-     * @param array  $includes  Expected elements should contain in result
-     * @param array  $excludes  Expected elements should not contain in result
+     * @param string    $database  Database
+     * @param int       $dbVersion Database Version
+     * @param TypeClass $class     The class to get function list.
+     * @param array     $includes  Expected elements should contain in result
+     * @param array     $excludes  Expected elements should not contain in result
      * @phpstan-param array<string> $includes
      * @phpstan-param array<string> $excludes
      */
@@ -53,7 +54,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     public function testGetFunctionsClass(
         string $database,
         int $dbVersion,
-        string $class,
+        TypeClass $class,
         array $includes,
         array $excludes,
     ): void {
@@ -77,7 +78,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
     /**
      * Data provider for testing function lists
      *
-     * @psalm-return array<string, array{string, int, string, array<string>, array<string>}>
+     * @psalm-return array<string, array{string, int, TypeClass, array<string>, array<string>}>
      */
     public static function providerFortTestGetFunctionsClass(): array
     {
@@ -85,7 +86,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mysql 5.1.0 - CHAR - not support INET6 Converter' => [
                 'mysql',
                 50100,
-                'CHAR',
+                TypeClass::Char,
                 // should contains
                 [],
                 // should not exist
@@ -94,7 +95,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mysql 8.0.30 - CHAR - support INET6 Converter' => [
                 'mysql',
                 80030,
-                'CHAR',
+                TypeClass::Char,
                 // should contains
                 [ 'INET6_NTOA' ],
                 // should not exist
@@ -103,7 +104,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mariadb 5.1.0 - CHAR - not support INET6 Converter' => [
                 'mariadb',
                 50100,
-                'CHAR',
+                TypeClass::Char,
                 // should contains
                 [],
                 // should not exist
@@ -112,7 +113,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mariadb 10.0.12 - CHAR - support INET6 Converter' => [
                 'mariadb',
                 100012,
-                'CHAR',
+                TypeClass::Char,
                 // should contains
                 [ 'INET6_NTOA' ],
                 // should not exist
@@ -121,7 +122,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mariadb 10.9.3 - CHAR - support INET6 Converter and UUID' => [
                 'mariadb',
                 100903,
-                'CHAR',
+                TypeClass::Char,
                 // should contains
                 [ 'INET6_NTOA', 'UUID' ],
                 // should not exist
@@ -130,7 +131,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mysql 5.1.0 - NUMBER - not support INET6 Converter' => [
                 'mysql',
                 50100,
-                'NUMBER',
+                TypeClass::Number,
                 // should contains
                 [],
                 // should not exist
@@ -139,7 +140,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mysql 8.0.30 - NUMBER - support INET6 Converter' => [
                 'mysql',
                 80030,
-                'NUMBER',
+                TypeClass::Number,
                 // should contains
                 [ 'INET6_ATON' ],
                 // should not exist
@@ -148,7 +149,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mariadb 5.1.0 - NUMBER - not support INET6 Converter' => [
                 'mariadb',
                 50100,
-                'NUMBER',
+                TypeClass::Number,
                 // should contains
                 [],
                 // should not exist
@@ -157,7 +158,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mariadb 10.0.12 - NUMBER - support INET6 Converter' => [
                 'mariadb',
                 100012,
-                'NUMBER',
+                TypeClass::Number,
                 // should contains
                 [ 'INET6_ATON' ],
                 // should not exist
@@ -166,7 +167,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mariadb 10.9.3 - NUMBER - support INET6 Converter and UUID' => [
                 'mariadb',
                 100903,
-                'NUMBER',
+                TypeClass::Number,
                 // should contains
                 [ 'INET6_ATON', 'UUID_SHORT' ],
                 // should not exist
@@ -175,7 +176,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mysql 5.1.0 - SPATIAL - not support ST_Geometry' => [
                 'mysql',
                 50100,
-                'SPATIAL',
+                TypeClass::Spatial,
                 // should contains
                 [
                     'GeomFromText',
@@ -218,7 +219,7 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
             'mysql 8.0.30 - SPATIAL - support ST_Geometry' => [
                 'mysql',
                 80030,
-                'SPATIAL',
+                TypeClass::Spatial,
                 // should contains
                 [
                     'ST_GeomFromText',
@@ -257,79 +258,6 @@ class TypesByDatabaseVersionTest extends AbstractTestCase
                     'PolyFromWKB',
                     'MPolyFromWKB',
                 ],
-            ],
-        ];
-    }
-
-    /**
-     * Test for getFunctions
-     *
-     * @param string $database  Database
-     * @param int    $dbVersion Database Version
-     * @param array  $includes  Expected elements should contain in result
-     * @param array  $excludes  Expected elements should not contain in result
-     * @phpstan-param array<string> $includes
-     * @phpstan-param array<string> $excludes
-     */
-    #[DataProvider('providerFortTestGetFunctions')]
-    public function testGetFunctions(string $database, int $dbVersion, array $includes, array $excludes): void
-    {
-        $this->createObject($database, $dbVersion);
-
-        $result = $this->object->getFunctions('enum');
-
-        foreach ($includes as $value) {
-            self::assertContains($value, $result);
-        }
-
-        if ($excludes === []) {
-            return;
-        }
-
-        foreach ($excludes as $value) {
-            self::assertNotContains($value, $result);
-        }
-    }
-
-    /**
-     * Data provider for testing get functions
-     *
-     * @psalm-return array<string, array{string, int, array<string>, array<string>}>
-     */
-    public static function providerFortTestGetFunctions(): array
-    {
-        return [
-            'mysql 5.1.0 - not support INET6 Converter' => [
-                'mysql',
-                50100,
-                // should contains
-                [],
-                // should not exist
-                [ 'INET6_NTOA' ],
-            ],
-            'mysql 8.0.30 - support INET6 Converter' => [
-                'mysql',
-                80030,
-                // should contains
-                [ 'INET6_NTOA' ],
-                // should not exist
-                [],
-            ],
-            'mariadb 5.1.0 - not support INET6 Converter' => [
-                'mariadb',
-                50100,
-                // should contains
-                [],
-                // should not exist
-                [ 'INET6_NTOA' ],
-            ],
-            'mariadb 10.9.3 - support INET6 Converter' => [
-                'mariadb',
-                100903,
-                // should contains
-                [ 'INET6_NTOA' ],
-                // should not exist
-                [],
             ],
         ];
     }
