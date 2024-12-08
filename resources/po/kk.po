@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-01 00:29+0000\n"
+"POT-Creation-Date: 2024-12-08 00:27+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1191,7 +1191,7 @@ msgstr "Alynǵan ýaqyt:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1234
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
 #: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "Jańalaý"
@@ -2753,7 +2753,7 @@ msgstr "Derekter sózdigi"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:291
+#: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "Derekqorda kesteler tabylmady."
 
@@ -3092,7 +3092,7 @@ msgstr "Saýal nátijesindegi áreketter"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1253
+#: src/Export/Export.php:1220
 msgid "Copy to clipboard"
 msgstr "Aralyq saqtaǵyshqa kóshirý"
 
@@ -3644,7 +3644,7 @@ msgstr "Mynany alyńyz"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:851
+#: src/Export/Export.php:1243 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Artqa"
@@ -11980,20 +11980,20 @@ msgstr ""
 "Parametrlerdi saqtaý múmkin emes, jiberilgen konfıgýrasıa pishininde qateler "
 "bar!"
 
-#: src/Config.php:609
+#: src/Config.php:619
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Qoldanysta bar konfıgýrasıa faıly (%s) oqylmaıdy."
 
-#: src/Config.php:645
+#: src/Config.php:655
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "Konfıgýrasıa faıly úshin qate ruqsattar, árkim arqyly jazylmaýy qajet!"
 
-#: src/Config.php:659
+#: src/Config.php:669
 msgid "Failed to read configuration file!"
 msgstr "Konfıgýrasıa faıly oqylmady!"
 
-#: src/Config.php:661
+#: src/Config.php:671
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -12613,11 +12613,11 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Betti jańartýdy qalaýyńyz múmkin."
 
-#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
 msgid "Bad type!"
 msgstr "Nashar túr!"
 
-#: src/Controllers/Export/ExportController.php:183
+#: src/Controllers/Export/ExportController.php:184
 msgid "Bad parameters!"
 msgstr "Nashar parametrler!"
 
@@ -16665,13 +16665,13 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:440
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:407
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s faılyn saqtaý úshin dıskide oryn jetkiliksiz."
 
-#: src/Export/Export.php:393
+#: src/Export/Export.php:360
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16679,18 +16679,18 @@ msgstr ""
 "%s faıly áldeqashan serverde bar, faıl atyn ózgertińiz nemese qaıta jazyshy "
 "opsıany tekserińiz."
 
-#: src/Export/Export.php:400 src/Export/Export.php:410
+#: src/Export/Export.php:367 src/Export/Export.php:377
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Ýeb-serverde %s faılyn saqtaý ruqsaty joq."
 
-#: src/Export/Export.php:447
+#: src/Export/Export.php:414
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Damp %s faılyna saqtaldy."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:882
+#: src/Export/Export.php:849
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -16833,7 +16833,7 @@ msgstr "Taldaý kezinde %d qate tabyldy."
 msgid "You should upgrade to %s %s or later."
 msgstr "%s%s nusqasyna nemese odan keıingige jańartýyńyz qajet."
 
-#: src/Http/Middleware/PhpExtensionsChecking.php:81
+#: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Kóbirek aqparat úshin %sbizdiń qujattamyzdy%s qarańyz."

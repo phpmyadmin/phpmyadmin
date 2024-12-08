@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-01 00:29+0000\n"
+"POT-Creation-Date: 2024-12-08 00:27+0000\n"
 "PO-Revision-Date: 2024-10-14 12:18+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1179,7 +1179,7 @@ msgstr "Tempo utilizzato:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1234
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
 #: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "Aggiorna"
@@ -2708,7 +2708,7 @@ msgstr "Dizionario dei dati"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:291
+#: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "Non ci sono tabelle nel database."
 
@@ -3041,7 +3041,7 @@ msgstr "Operazioni sui risultati della query"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1253
+#: src/Export/Export.php:1220
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
@@ -3573,7 +3573,7 @@ msgstr "Prendilo"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:851
+#: src/Export/Export.php:1243 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Indietro"
@@ -11656,22 +11656,22 @@ msgstr ""
 "Impossibile salvare le impostazioni, il modulo di configurazione inviato "
 "contiene errori!"
 
-#: src/Config.php:609
+#: src/Config.php:619
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "File di configurazione esistente (%s) non è leggibile."
 
-#: src/Config.php:645
+#: src/Config.php:655
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permessi incorretti sul file di configurazione, non deve essere scrivibile "
 "da tutti!"
 
-#: src/Config.php:659
+#: src/Config.php:669
 msgid "Failed to read configuration file!"
 msgstr "Lettura del file di configurazione fallita!"
 
-#: src/Config.php:661
+#: src/Config.php:671
 msgid "This usually means there is a syntax error in it."
 msgstr "Questo di solito significa che vi è un errore di sintassi in esso."
 
@@ -12294,11 +12294,11 @@ msgstr "In caso di problemi inviare il rapporto manualmente."
 msgid "You may want to refresh the page."
 msgstr "Si consiglia di aggiornare la pagina."
 
-#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
 msgid "Bad type!"
 msgstr "Tipo errato!"
 
-#: src/Controllers/Export/ExportController.php:183
+#: src/Controllers/Export/ExportController.php:184
 msgid "Bad parameters!"
 msgstr "Parametri errati!"
 
@@ -16301,13 +16301,13 @@ msgstr ""
 "volta riconnesso dovresti poter riprendere il lavoro da dove l'avevi "
 "lasciato."
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:440
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:407
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Spazio insufficiente per salvare il file %s."
 
-#: src/Export/Export.php:393
+#: src/Export/Export.php:360
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16315,18 +16315,18 @@ msgstr ""
 "Il file %s esiste già sul server, prego, cambia il nome del file o seleziona "
 "l'opzione di sovrascriittura."
 
-#: src/Export/Export.php:400 src/Export/Export.php:410
+#: src/Export/Export.php:367 src/Export/Export.php:377
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Il server web non possiede i privilegi per salvare il file %s."
 
-#: src/Export/Export.php:447
+#: src/Export/Export.php:414
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Il dump è stato salvato nel file %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:882
+#: src/Export/Export.php:849
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "L'export di una query in modalità raw non è supportato per questo metodo di "
@@ -16466,7 +16466,7 @@ msgstr "Sono stati trovati %d errori durante l'analisi."
 msgid "You should upgrade to %s %s or later."
 msgstr "Si dovrebbe aggiornare %s alla versione %s o successiva."
 
-#: src/Http/Middleware/PhpExtensionsChecking.php:81
+#: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Vedi %sour documentation%s per maggiori dettagli."

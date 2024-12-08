@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-01 00:29+0000\n"
+"POT-Creation-Date: 2024-12-08 00:27+0000\n"
 "PO-Revision-Date: 2024-08-29 02:09+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -1167,7 +1167,7 @@ msgstr "所要時間:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1234
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
 #: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "更新"
@@ -2685,7 +2685,7 @@ msgstr "データ辞書"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:291
+#: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "このデータベースにはテーブルがありません。"
 
@@ -3014,7 +3014,7 @@ msgstr "クエリ結果操作"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1253
+#: src/Export/Export.php:1220
 msgid "Copy to clipboard"
 msgstr "クリップボードにコピー"
 
@@ -3541,7 +3541,7 @@ msgstr "これにする"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:851
+#: src/Export/Export.php:1243 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "戻る"
@@ -11436,22 +11436,22 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 "設定を保存することはできません。送信された設定にエラーが含まれています!"
 
-#: src/Config.php:609
+#: src/Config.php:619
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "設定ファイル (%s) は存在しますが、読み込むことができません。"
 
-#: src/Config.php:645
+#: src/Config.php:655
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "設定ファイルのパーミッションが正しくありません。誰でも書き込み可能になってい"
 "ます！"
 
-#: src/Config.php:659
+#: src/Config.php:669
 msgid "Failed to read configuration file!"
 msgstr "設定ファイルの読み込みに失敗しました！"
 
-#: src/Config.php:661
+#: src/Config.php:671
 msgid "This usually means there is a syntax error in it."
 msgstr "通常、これは構文エラーがあることを意味します。"
 
@@ -12047,11 +12047,11 @@ msgstr "問題が発生する場合は、バグ報告を手動で送信してく
 msgid "You may want to refresh the page."
 msgstr "このページを再ロードすることがほしいみたい。"
 
-#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
 msgid "Bad type!"
 msgstr "エクスポート形式が正しくありません！"
 
-#: src/Controllers/Export/ExportController.php:183
+#: src/Controllers/Export/ExportController.php:184
 msgid "Bad parameters!"
 msgstr "パラメータが正しくありません！"
 
@@ -15889,13 +15889,13 @@ msgstr ""
 "%s 秒間、未操作のために自動的にログアウトされました。再度ログインすると、中断"
 "した所から作業を再開できるようになります。"
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:440
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:407
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "空き容量不足でファイル %s を保存できません。"
 
-#: src/Export/Export.php:393
+#: src/Export/Export.php:360
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -15903,18 +15903,18 @@ msgstr ""
 "サーバ上に既存のファイル %s があります。ファイル名を変更するか、上書きオプ"
 "ションを有効にしてください。"
 
-#: src/Export/Export.php:400 src/Export/Export.php:410
+#: src/Export/Export.php:367 src/Export/Export.php:377
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "このウェブサーバにはファイル %s を保存する権限がありません。"
 
-#: src/Export/Export.php:447
+#: src/Export/Export.php:414
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ダンプをファイル %s に保存しました。"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:882
+#: src/Export/Export.php:849
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "このエクスポート方法では、生のクエリのエクスポートには対応していません。"
@@ -16056,7 +16056,7 @@ msgstr "解析中に %d 個のエラーが見つかりました。"
 msgid "You should upgrade to %s %s or later."
 msgstr "%s を %s 以降にアップグレードしてください。"
 
-#: src/Http/Middleware/PhpExtensionsChecking.php:81
+#: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "詳しくは%sドキュメント%sを参照してください。"
