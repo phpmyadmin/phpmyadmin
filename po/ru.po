@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-11-08 14:00+0000\n"
+"PO-Revision-Date: 2024-12-10 12:01+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4347,7 +4347,7 @@ msgstr "Изменить"
 #: libraries/classes/Config/Descriptions.php:947
 #: libraries/classes/Html/Generator.php:594
 msgid "Explain SQL"
-msgstr "Анализ SQL запроса"
+msgstr "Анализ запроса SQL"
 
 #: libraries/classes/Config/Descriptions.php:948
 #: libraries/classes/Export.php:594 libraries/classes/Html/Generator.php:662
