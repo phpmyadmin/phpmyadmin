@@ -210,20 +210,12 @@ class Node
      * @param bool $containers Whether to include nodes of type CONTAINER
      * @param bool $groups     Whether to include nodes which have $group == true
      *
-     * @return Node[] An array of parent Nodes
+     * @return list<Node> An array of parent Nodes
      */
     public function parents(bool $self = false, bool $containers = false, bool $groups = false): array
     {
         $parents = [];
-        if ($self && ($this->type !== NodeType::Container || $containers) && (! $this->isGroup || $groups)) {
-            $parents[] = $this;
-        }
-
-        $parent = $this->parent;
-        if ($parent === null) {
-            /** @infection-ignore-all */
-            return $parents;
-        }
+        $parent = $self ? $this : $this->parent;
 
         while ($parent !== null) {
             if (($parent->type !== NodeType::Container || $containers) && (! $parent->isGroup || $groups)) {
