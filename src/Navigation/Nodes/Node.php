@@ -235,12 +235,7 @@ class Node
      */
     public function realParent(): Node|false
     {
-        $retval = $this->parents();
-        if (count($retval) <= 0) {
-            return false;
-        }
-
-        return $retval[0];
+        return $this->parents()[0] ?? false;
     }
 
     /**
