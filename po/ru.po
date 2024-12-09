@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-12-06 14:00+0000\n"
+"PO-Revision-Date: 2024-12-10 12:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ru/>\n"
@@ -7274,7 +7274,7 @@ msgstr "Сортировать по индексу"
 #: libraries/classes/Display/Results.php:1729
 #: templates/display/results/options_block.twig:14
 msgid "Partial texts"
-msgstr "Сокращенные тексты"
+msgstr "Сокращённые тексты"
 
 #: libraries/classes/Display/Results.php:1733
 #: templates/display/results/options_block.twig:14
