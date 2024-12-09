@@ -214,7 +214,7 @@ class PbxtTest extends AbstractTestCase
             . '</p>' . "\n",
         );
 
-        self::assertEquals(
+        self::assertSame(
             $this->object->getPage('NonExistMethod'),
             '',
         );

@@ -103,7 +103,7 @@ final class LanguageManagerTest extends AbstractTestCase
 
         /* Ensure we have name for every language */
         foreach ($langs as $lang) {
-            self::assertNotEquals(
+            self::assertNotSame(
                 $lang->getCode(),
                 strtolower($lang->getEnglishName()),
                 'Maybe this language does not exist in LanguageManager class'

@@ -70,7 +70,7 @@ class Validator
 
         self::$validators = $cf->getDbEntry('_validators', []);
         $config = Config::getInstance();
-        if ($config->get('is_setup')) {
+        if ($config->isSetup()) {
             return self::$validators;
         }
 

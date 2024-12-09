@@ -16,6 +16,7 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Version;
 
@@ -500,7 +501,7 @@ class Relation
          */
         $columns = $this->dbi->getColumnsFull($db, $table);
         foreach ($columns as $column) {
-            if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === 'CHAR') {
+            if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === TypeClass::Char) {
                 return $column['COLUMN_NAME'];
             }
         }

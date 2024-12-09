@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-01 00:29+0000\n"
+"POT-Creation-Date: 2024-12-08 00:27+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -1287,7 +1287,7 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1234
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
 #: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "ताज़ा करना"
@@ -3052,7 +3052,7 @@ msgstr "डेटा शब्दकोश"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:291
+#: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
@@ -3407,7 +3407,7 @@ msgstr ""
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1253
+#: src/Export/Export.php:1220
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -4003,7 +4003,7 @@ msgstr "इसे ले लो"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:851
+#: src/Export/Export.php:1243 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "वापस"
@@ -12795,22 +12795,22 @@ msgstr "सामग्री दिखाने"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "सेटिंग्स को बचा नहीं सकते, प्रस्तुत फार्म में त्रुटि है"
 
-#: src/Config.php:609
+#: src/Config.php:619
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "वर्तमान विन्यास दस्तावेज %s अपठनीय है|"
 
-#: src/Config.php:645
+#: src/Config.php:655
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 
-#: src/Config.php:659
+#: src/Config.php:669
 #, fuzzy
 #| msgid "Could not save configuration"
 msgid "Failed to read configuration file!"
 msgstr "विन्यास सहेज नहीं सकते"
 
-#: src/Config.php:661
+#: src/Config.php:671
 msgid "This usually means there is a syntax error in it."
 msgstr ""
 
@@ -13407,11 +13407,11 @@ msgstr "अगर आपको कोई और परेशानी हो त
 msgid "You may want to refresh the page."
 msgstr "आप इस पेज को रिफ़्रेश करना चाहेंगे।"
 
-#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
 msgid "Bad type!"
 msgstr "खोटा प्रकार!"
 
-#: src/Controllers/Export/ExportController.php:183
+#: src/Controllers/Export/ExportController.php:184
 msgid "Bad parameters!"
 msgstr "गलत पैरामीटर्स!"
 
@@ -17501,31 +17501,31 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:440
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:407
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s फाइल को सेव करने के लिए अपर्याप्त जगह पायी गयी है."
 
-#: src/Export/Export.php:393
+#: src/Export/Export.php:360
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 "%s फाइल पहले से ही सर्वर पर मौजूद है, फ़ाइल नाम परिवर्तन अधिलेखित या विकल्प की जाँच करें."
 
-#: src/Export/Export.php:400 src/Export/Export.php:410
+#: src/Export/Export.php:367 src/Export/Export.php:377
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "वेब सर्वर के पास फ़ाइल %s को सेव करने की अनुमति नहीं है."
 
-#: src/Export/Export.php:447
+#: src/Export/Export.php:414
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "डंप को %s फाइल में सेव किया गया है."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:882
+#: src/Export/Export.php:849
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -17677,7 +17677,7 @@ msgstr ""
 msgid "You should upgrade to %s %s or later."
 msgstr "आपको %s %s या अधिक में नवीनीकृत करना चाहिए।"
 
-#: src/Http/Middleware/PhpExtensionsChecking.php:81
+#: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""

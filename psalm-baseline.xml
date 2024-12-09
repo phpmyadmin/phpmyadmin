@@ -184,7 +184,6 @@
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
-      <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
       <code><![CDATA[$collationConnection]]></code>
@@ -422,7 +421,6 @@
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$errorList]]></code>
       <code><![CDATA[$ip]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$opts['errors']]]></code>
       <code><![CDATA[$proxies['-' . $i]]]></code>
@@ -476,22 +474,14 @@
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $workPath]]></code>
-      <code><![CDATA[$config->get('is_setup')]]></code>
-      <code><![CDATA[$config->get('is_setup')]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
-      <code><![CDATA[$isSetupScript]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Config/FormDisplayTemplate.php">
     <MixedAssignment>
-      <code><![CDATA[$isSetupScript]]></code>
       <code><![CDATA[$vName]]></code>
       <code><![CDATA[$validator]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $isSetupScript]]></code>
-      <code><![CDATA[$this->config->get('is_setup')]]></code>
       <code><![CDATA[empty($opts['errors'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -647,7 +637,6 @@
       <code><![CDATA[$vid]]></code>
     </ReferenceReusedFromConfusingScope>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$config->get('is_setup')]]></code>
       <code><![CDATA[empty($errorList)]]></code>
       <code><![CDATA[empty($values['Servers/1/controlpass'])]]></code>
       <code><![CDATA[empty($values['Servers/1/controluser'])]]></code>
@@ -1481,16 +1470,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Export/ExportController.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-      <code><![CDATA[$exportPlugin]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -1527,7 +1506,6 @@
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$dbSelect]]></code>
-      <code><![CDATA[$rememberTemplate]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
@@ -1648,14 +1626,9 @@
       <code><![CDATA[$GLOBALS['xml_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['yaml_structure_or_data']]]></code>
       <code><![CDATA[$dbSelect]]></code>
-      <code><![CDATA[$rememberTemplate]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[exportFooter]]></code>
-      <code><![CDATA[exportHeader]]></code>
-    </MixedMethodCall>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
@@ -4030,7 +4003,6 @@
       <code><![CDATA[$array]]></code>
     </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
       <code><![CDATA[empty($_SERVER['REMOTE_ADDR'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnsupportedReferenceUsage>
@@ -4863,9 +4835,6 @@
   </file>
   <file src="src/Display/Results.php">
     <InvalidArgument>
-      <code><![CDATA[$expressions]]></code>
-      <code><![CDATA[$expressions]]></code>
-      <code><![CDATA[$expressions]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$sortExpressionNoDirection]]></code>
@@ -5319,7 +5288,6 @@
       <code><![CDATA[(string) ini_get('memory_limit')]]></code>
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -9592,16 +9560,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedInferredReturnType>
-      <code><![CDATA[bool]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
-    </MixedReturnStatement>
-    <NullableReturnStatement>
-      <code><![CDATA[Config::getInstance()->get('is_setup')]]></code>
-    </NullableReturnStatement>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($found[3])]]></code>
       <code><![CDATA[empty($found[3])]]></code>
@@ -10988,9 +10946,6 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$row[$i]]]></code>
     </MixedArrayTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$restrictToTable]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Url.php">
     <DeprecatedMethod>
@@ -11015,7 +10970,6 @@
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $config->get('is_setup')]]></code>
       <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
       <code><![CDATA[empty($GLOBALS['lang'])]]></code>
       <code><![CDATA[empty($GLOBALS['lang'])]]></code>
@@ -13465,9 +13419,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/ListDatabaseTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[providerForTestGetList]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/MessageTest.php">
     <PossiblyUnusedMethod>
@@ -14284,7 +14238,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[providerFortTestGetAllFunctions]]></code>
       <code><![CDATA[providerFortTestGetColumns]]></code>
-      <code><![CDATA[providerFortTestGetFunctions]]></code>
       <code><![CDATA[providerFortTestGetFunctionsClass]]></code>
     </PossiblyUnusedMethod>
   </file>

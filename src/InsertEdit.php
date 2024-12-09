@@ -366,7 +366,7 @@ class InsertEdit
      * @param string           $onChangeClause      onchange clause for fields
      * @param string           $specialCharsEncoded replaced char if the string starts
      *                                                with a \r\n pair (0x0d0a) add an extra \n
-     * @param string           $dataType            the html5 data-* attribute type
+     * @param TypeClass        $dataType            the html5 data-* attribute type
      *
      * @return string                       an html snippet
      */
@@ -376,7 +376,7 @@ class InsertEdit
         string $columnNameAppendix,
         string $onChangeClause,
         string $specialCharsEncoded,
-        string $dataType,
+        TypeClass $dataType,
     ): string {
         $theClass = '';
         $textAreaRows = $this->config->settings['TextareaRows'];
@@ -407,7 +407,7 @@ class InsertEdit
             . ' id="field_' . $this->fieldIndex . '_3"'
             . ($onChangeClause !== '' ? ' onchange="' . htmlspecialchars($onChangeClause, ENT_COMPAT) . '"' : '')
             . ' tabindex="' . $this->fieldIndex . '"'
-            . ' data-type="' . $dataType . '">'
+            . ' data-type="' . $dataType->value . '">'
             . $specialCharsEncoded
             . '</textarea>';
     }
@@ -578,7 +578,7 @@ class InsertEdit
                 $specialChars,
                 $fieldsize,
                 $onChangeClause,
-                $dataType,
+                $dataType->value,
             );
         }
 
@@ -1705,7 +1705,7 @@ class InsertEdit
 
         $columnValue = '';
         $foreignDropdown = '';
-        $dataType = '';
+        $dataType = TypeClass::Unknown;
         $textAreaRows = $this->config->settings['TextareaRows'];
         $textareaCols = $this->config->settings['TextareaCols'];
         $maxlength = '';
@@ -1823,7 +1823,7 @@ class InsertEdit
             'data' => $data,
             'gis_data_types' => Gis::getDataTypes(),
             'foreign_dropdown' => $foreignDropdown,
-            'data_type' => $dataType,
+            'data_type' => $dataType->value,
             'textarea_cols' => $textareaCols,
             'textarea_rows' => $textAreaRows,
             'max_length' => $maxlength,

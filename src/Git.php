@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use DateTimeImmutable;
 use DateTimeZone;
 use DirectoryIterator;
+use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
 
@@ -410,7 +411,7 @@ class Git
         }
 
         $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
-        $isFound = $httpRequest->create($link, 'GET');
+        $isFound = $httpRequest->create($link, RequestMethod::Get);
         if ($isFound === false) {
             $isRemoteCommit = false;
             $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
@@ -586,7 +587,7 @@ class Git
             } else {
                 $httpRequest = new HttpRequest();
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
-                $isFound = $httpRequest->create($link, 'GET', true);
+                $isFound = $httpRequest->create($link, RequestMethod::Get, true);
                 if (is_bool($isFound)) {
                     $isRemoteBranch = $isFound;
                     $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = $isFound;

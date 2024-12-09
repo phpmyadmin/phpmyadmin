@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-01 00:29+0000\n"
-"PO-Revision-Date: 2024-11-08 14:01+0000\n"
+"POT-Creation-Date: 2024-12-08 00:27+0000\n"
+"PO-Revision-Date: 2024-12-06 03:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.9-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1170,7 +1170,7 @@ msgstr "Занято времени:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1234
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
 #: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "Обновить"
@@ -1285,7 +1285,7 @@ msgstr "Центральный список столбцов для текуще
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
 msgid "Filter rows:"
-msgstr "Фильтровать строки:"
+msgstr "Фильтр строк:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:143
@@ -2696,7 +2696,7 @@ msgstr "Словарь данных"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:84
 #: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:291
+#: src/Controllers/Export/ExportController.php:290
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
 
@@ -2955,7 +2955,7 @@ msgstr "Восстановить порядок столбцов"
 #: resources/templates/export.twig:145
 #: resources/templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
-msgstr "Количество строк:"
+msgstr "Число строк:"
 
 #: resources/templates/display/results/table.twig:125
 msgid "All"
@@ -2963,7 +2963,7 @@ msgstr "Все"
 
 #: resources/templates/display/results/table.twig:151
 msgid "Sort by key:"
-msgstr "Сортировать по ключу:"
+msgstr "Сортировка по ключу:"
 
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
@@ -3028,7 +3028,7 @@ msgstr "Использование результатов запроса"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1253
+#: src/Export/Export.php:1220
 msgid "Copy to clipboard"
 msgstr "В буфер обмена"
 
@@ -3558,7 +3558,7 @@ msgstr "Применить"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1276 src/Html/Generator.php:851
+#: src/Export/Export.php:1243 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Назад"
@@ -11549,22 +11549,22 @@ msgstr ""
 "Невозможно сохранить настройки, отправленная форма конфигурации содержит "
 "ошибки!"
 
-#: src/Config.php:609
+#: src/Config.php:619
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Невозможно прочесть существующий конфигурационный файл (%s)."
 
-#: src/Config.php:645
+#: src/Config.php:655
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "На конфигурационный файл выставлены неверные права разрешающие запись для "
 "всех!"
 
-#: src/Config.php:659
+#: src/Config.php:669
 msgid "Failed to read configuration file!"
 msgstr "Ошибка при чтении конфигурационного файла!"
 
-#: src/Config.php:661
+#: src/Config.php:671
 msgid "This usually means there is a syntax error in it."
 msgstr "Обычно это означает, что в нём допущена синтаксическая ошибка."
 
@@ -12171,11 +12171,11 @@ msgstr "Если у вас возникают проблемы, отправьт
 msgid "You may want to refresh the page."
 msgstr "Возможно вы хотите перезагрузить страницу."
 
-#: src/Controllers/Export/ExportController.php:108 src/Export/Export.php:1214
+#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
 msgid "Bad type!"
 msgstr "Неучтённый тип!"
 
-#: src/Controllers/Export/ExportController.php:183
+#: src/Controllers/Export/ExportController.php:184
 msgid "Bad parameters!"
 msgstr "Ошибочные параметры!"
 
@@ -16101,13 +16101,13 @@ msgstr ""
 "Когда вы снова войдёте в систему, вы сможете продолжить работу с того места, "
 "на котором остановились."
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:440
+#: src/Export/Export.php:163 src/Export/Export.php:199
+#: src/Export/Export.php:407
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Для сохранения файла %s недостаточно дискового пространства."
 
-#: src/Export/Export.php:393
+#: src/Export/Export.php:360
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16115,18 +16115,18 @@ msgstr ""
 "Файл %s уже существует на сервере, измените имя или включите параметр "
 "перезаписи."
 
-#: src/Export/Export.php:400 src/Export/Export.php:410
+#: src/Export/Export.php:367 src/Export/Export.php:377
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Не достаточно прав для сохранения файла %s на веб-сервере."
 
-#: src/Export/Export.php:447
+#: src/Export/Export.php:414
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Дамп был сохранен в файл %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:882
+#: src/Export/Export.php:849
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Экспорт raw запроса не поддерживается для этого метода экспорта."
 
@@ -16267,7 +16267,7 @@ msgstr "Найдено %d ошибок при анализе."
 msgid "You should upgrade to %s %s or later."
 msgstr "Необходимо обновить %s до версии %s или выше."
 
-#: src/Http/Middleware/PhpExtensionsChecking.php:81
+#: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "Смотрите %sour documentation%s для дополнительной информации."

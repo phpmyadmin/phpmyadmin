@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Components\Expression;
 
 use function bin2hex;
@@ -23,18 +24,18 @@ class UniqueCondition
     /**
      * Function to generate unique condition for specified row.
      *
-     * @param FieldMetadata[] $fieldsMeta      meta information about fields
-     * @param array           $row             current row
-     * @param bool            $forceUnique     generate condition only on pk or unique
-     * @param string|bool     $restrictToTable restrict the unique condition to this table or false if none
-     * @param Expression[]    $expressions     An array of Expression instances.
+     * @param FieldMetadata[]               $fieldsMeta      meta information about fields
+     * @param array                         $row             current row
+     * @param bool                          $forceUnique     generate condition only on pk or unique
+     * @param string                        $restrictToTable restrict the unique condition to this table
+     * @param (Expression|CaseExpression)[] $expressions     An array of Expression instances.
      * @psalm-param array<int, mixed> $row
      */
     public function __construct(
         array $fieldsMeta,
         array $row,
         bool $forceUnique = false,
-        string|bool $restrictToTable = false,
+        string $restrictToTable = '',
         array $expressions = [],
     ) {
         $fieldsCount = count($fieldsMeta);
@@ -54,6 +55,7 @@ class UniqueCondition
                 foreach ($expressions as $expression) {
                     if (
                         $expression->alias === null || $expression->alias === ''
+                        || $expression instanceof CaseExpression
                         || $expression->column === null || $expression->column === ''
                     ) {
                         continue;
@@ -84,7 +86,7 @@ class UniqueCondition
 
             // If this field is not from the table which the unique clause needs
             // to be restricted to.
-            if ($restrictToTable && $restrictToTable != $meta->table) {
+            if ($restrictToTable !== '' && $restrictToTable != $meta->table) {
                 continue;
             }
 

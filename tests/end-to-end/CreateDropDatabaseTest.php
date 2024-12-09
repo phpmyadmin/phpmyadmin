@@ -45,7 +45,7 @@ class CreateDropDatabaseTest extends TestBase
             'SHOW DATABASES LIKE \'' . $this->databaseName . '\';',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 

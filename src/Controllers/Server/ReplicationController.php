@@ -75,7 +75,7 @@ final class ReplicationController implements InvocableController
                 $request->getParsedBodyParamAsString('username', ''),
                 $request->getParsedBodyParamAsString('pma_pw', ''),
                 $request->getParsedBodyParamAsString('hostname', ''),
-                (int) $request->getParsedBodyParamAsString('text_port'),
+                (int) $request->getParsedBodyParamAsStringOrNull('text_port'),
             );
         }
 

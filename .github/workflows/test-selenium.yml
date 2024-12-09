@@ -84,11 +84,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Refresh apt cache
-        run: sudo apt-get update
-
       - name: Install gettext
-        run: sudo apt-get install -y gettext
+        run: sudo apt-get update && sudo apt-get install -y gettext
 
       - name: Generate mo files
         run: ./bin/generate-mo --quiet
@@ -156,4 +153,4 @@ jobs:
         with:
           name: selenium-screenshots
           path: ${{ github.workspace }}/build/selenium/**/*
-          retention-days: 1
+          retention-days: 3

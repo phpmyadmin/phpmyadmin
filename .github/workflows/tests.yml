@@ -21,8 +21,8 @@ jobs:
       matrix:
         include:
           - { php-version: '82', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '82', experimental: false, arch: 'arm64/v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 'arm/v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
           - { php-version: '82', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
           - { php-version: '82', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
           - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
@@ -55,10 +55,10 @@ jobs:
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.19 uname -a
+        run: docker run --rm --platform linux/${{ matrix.arch }} alpine:3.19 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.19 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm --platform linux/${{ matrix.arch }} alpine:3.19 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}

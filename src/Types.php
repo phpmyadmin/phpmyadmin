@@ -16,28 +16,65 @@ use function array_merge;
 use function array_values;
 use function htmlspecialchars;
 use function in_array;
-use function mb_strtoupper;
 use function sort;
 use function sprintf;
 use function strncasecmp;
+use function strtoupper;
 
 /**
  * Class holding type definitions for MySQL and MariaDB.
  */
 class Types
 {
+    private const UNARY_OPERATORS = ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
+    private const NULL_OPERATORS = ['IS NULL', 'IS NOT NULL'];
+    private const ENUM_OPERATORS = ['=', '!='];
+    private const TEXT_OPERATORS = [
+        'LIKE',
+        'LIKE %...%',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        '=',
+        '!=',
+        'REGEXP',
+        'REGEXP ^...$',
+        'NOT REGEXP',
+        "= ''",
+        "!= ''",
+        'IN (...)',
+        'NOT IN (...)',
+        'BETWEEN',
+        'NOT BETWEEN',
+    ];
+    private const NUMBER_OPERATORS = [
+        '=',
+        '>',
+        '>=',
+        '<',
+        '<=',
+        '!=',
+        'LIKE',
+        'LIKE %...%',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        'IN (...)',
+        'NOT IN (...)',
+        'BETWEEN',
+        'NOT BETWEEN',
+    ];
+    private const UUID_OPERATORS = [
+        '=',
+        '!=',
+        'LIKE',
+        'LIKE %...%',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        'IN (...)',
+        'NOT IN (...)',
+    ];
+
     public function __construct(private DatabaseInterface $dbi)
     {
-    }
-
-    /**
-     * Returns list of unary operators.
-     *
-     * @return string[]
-     */
-    public function getUnaryOperators(): array
-    {
-        return ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
     }
 
     /**
@@ -47,88 +84,7 @@ class Types
      */
     public function isUnaryOperator(string $op): bool
     {
-        return in_array($op, $this->getUnaryOperators(), true);
-    }
-
-    /**
-     * Returns list of operators checking for NULL.
-     *
-     * @return string[]
-     */
-    public function getNullOperators(): array
-    {
-        return ['IS NULL', 'IS NOT NULL'];
-    }
-
-    /**
-     * ENUM search operators
-     *
-     * @return string[]
-     */
-    public function getEnumOperators(): array
-    {
-        return ['=', '!='];
-    }
-
-    /**
-     * TEXT search operators
-     *
-     * @return string[]
-     */
-    public function getTextOperators(): array
-    {
-        return [
-            'LIKE',
-            'LIKE %...%',
-            'NOT LIKE',
-            'NOT LIKE %...%',
-            '=',
-            '!=',
-            'REGEXP',
-            'REGEXP ^...$',
-            'NOT REGEXP',
-            "= ''",
-            "!= ''",
-            'IN (...)',
-            'NOT IN (...)',
-            'BETWEEN',
-            'NOT BETWEEN',
-        ];
-    }
-
-    /**
-     * Number search operators
-     *
-     * @return string[]
-     */
-    public function getNumberOperators(): array
-    {
-        return [
-            '=',
-            '>',
-            '>=',
-            '<',
-            '<=',
-            '!=',
-            'LIKE',
-            'LIKE %...%',
-            'NOT LIKE',
-            'NOT LIKE %...%',
-            'IN (...)',
-            'NOT IN (...)',
-            'BETWEEN',
-            'NOT BETWEEN',
-        ];
-    }
-
-    /**
-     * UUID search operators
-     *
-     * @return string[]
-     */
-    public function getUUIDOperators(): array
-    {
-        return ['=', '!=', 'LIKE', 'LIKE %...%', 'NOT LIKE', 'NOT LIKE %...%', 'IN (...)', 'NOT IN (...)'];
+        return in_array($op, self::UNARY_OPERATORS, true);
     }
 
     /**
@@ -141,24 +97,17 @@ class Types
      */
     public function getTypeOperators(string $type, bool $null): array
     {
-        $ret = [];
-        $class = $this->getTypeClass($type);
-
-        if (strncasecmp($type, 'enum', 4) == 0) {
-            $ret = array_merge($ret, $this->getEnumOperators());
-        } elseif ($class === 'CHAR') {
-            $ret = array_merge($ret, $this->getTextOperators());
-        } elseif ($class === 'UUID') {
-            $ret = array_merge($ret, $this->getUUIDOperators());
+        if (strncasecmp($type, 'enum', 4) === 0) {
+            $operators = self::ENUM_OPERATORS;
         } else {
-            $ret = array_merge($ret, $this->getNumberOperators());
+            $operators = match ($this->getTypeClass($type)) {
+                TypeClass::Char => self::TEXT_OPERATORS,
+                TypeClass::Uuid => self::UUID_OPERATORS,
+                default => self::NUMBER_OPERATORS,
+            };
         }
 
-        if ($null) {
-            return array_merge($ret, $this->getNullOperators());
-        }
-
-        return $ret;
+        return $null ? array_merge($operators, self::NULL_OPERATORS) : $operators;
     }
 
     /**
@@ -192,7 +141,7 @@ class Types
      */
     public function getTypeDescription(string $type): string
     {
-        return match (mb_strtoupper($type)) {
+        return match (strtoupper($type)) {
             'TINYINT' => __('A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255'),
             'SMALLINT' => __('A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to 65,535'),
             'MEDIUMINT' => __(
@@ -334,9 +283,9 @@ class Types
      *
      * @param string $type The data type to get a class.
      */
-    public function getTypeClass(string $type): string
+    public function getTypeClass(string $type): TypeClass
     {
-        return match (mb_strtoupper($type)) {
+        return match (strtoupper($type)) {
             'TINYINT',
             'SMALLINT',
             'MEDIUMINT',
@@ -349,13 +298,13 @@ class Types
             'BIT',
             'BOOLEAN',
             'SERIAL'
-                => 'NUMBER',
+                => TypeClass::Number,
             'DATE',
             'DATETIME',
             'TIMESTAMP',
             'TIME',
             'YEAR'
-                => 'DATE',
+                => TypeClass::Date,
             'CHAR',
             'VARCHAR',
             'TINYTEXT',
@@ -371,7 +320,7 @@ class Types
             'ENUM',
             'SET',
             'INET6'
-                => 'CHAR',
+                => TypeClass::Char,
             'GEOMETRY',
             'POINT',
             'LINESTRING',
@@ -380,27 +329,25 @@ class Types
             'MULTILINESTRING',
             'MULTIPOLYGON',
             'GEOMETRYCOLLECTION'
-                => 'SPATIAL',
-            'JSON' => 'JSON',
-            'UUID' => 'UUID',
-            default => '',
+                => TypeClass::Spatial,
+            'JSON' => TypeClass::Json,
+            'UUID' => TypeClass::Uuid,
+            default => TypeClass::Unknown,
         };
     }
 
     /**
      * Returns array of functions available for a class.
      *
-     * @param string $class The class to get function list.
-     *
      * @return string[]
      */
-    public function getFunctionsClass(string $class): array
+    public function getFunctionsClass(TypeClass $class): array
     {
         $isMariaDB = $this->dbi->isMariaDB();
         $serverVersion = $this->dbi->getVersion();
 
         switch ($class) {
-            case 'CHAR':
+            case TypeClass::Char:
                 $ret = [
                     'AES_DECRYPT',
                     'AES_ENCRYPT',
@@ -445,7 +392,7 @@ class Types
 
                 return array_values($ret);
 
-            case 'DATE':
+            case TypeClass::Date:
                 return [
                     'CURRENT_DATE',
                     'CURRENT_TIME',
@@ -464,7 +411,7 @@ class Types
                     'YEAR',
                 ];
 
-            case 'NUMBER':
+            case TypeClass::Number:
                 $ret = [
                     'ABS',
                     'ACOS',
@@ -526,7 +473,7 @@ class Types
 
                 return array_values($ret);
 
-            case 'SPATIAL':
+            case TypeClass::Spatial:
                 if ($serverVersion >= 50600) {
                     return [
                         'ST_GeomFromText',
@@ -576,20 +523,6 @@ class Types
     }
 
     /**
-     * Returns array of functions available for a type.
-     *
-     * @param string $type The data type to get function list.
-     *
-     * @return string[]
-     */
-    public function getFunctions(string $type): array
-    {
-        $class = $this->getTypeClass($type);
-
-        return $this->getFunctionsClass($class);
-    }
-
-    /**
      * Returns array of all functions available.
      *
      * @return string[]
@@ -597,10 +530,10 @@ class Types
     public function getAllFunctions(): array
     {
         $ret = array_merge(
-            $this->getFunctionsClass('CHAR'),
-            $this->getFunctionsClass('NUMBER'),
-            $this->getFunctionsClass('DATE'),
-            $this->getFunctionsClass('SPATIAL'),
+            $this->getFunctionsClass(TypeClass::Char),
+            $this->getFunctionsClass(TypeClass::Number),
+            $this->getFunctionsClass(TypeClass::Date),
+            $this->getFunctionsClass(TypeClass::Spatial),
         );
         sort($ret);
 
@@ -766,30 +699,27 @@ class Types
      * @param string $type   integer type
      * @param bool   $signed whether signed
      *
-     * @return string[] min and max values
+     * @return array{string, string} min and max values
      */
     public function getIntegerRange(string $type, bool $signed = true): array
     {
-        $minMaxData = [
-            'unsigned' => [
-                'tinyint' => ['0', '255'],
-                'smallint' => ['0', '65535'],
-                'mediumint' => ['0', '16777215'],
-                'int' => ['0', '4294967295'],
-                'bigint' => ['0', '18446744073709551615'],
-            ],
-            'signed' => [
+        return match ($signed) {
+            true => match ($type) {
                 'tinyint' => ['-128', '127'],
                 'smallint' => ['-32768', '32767'],
                 'mediumint' => ['-8388608', '8388607'],
                 'int' => ['-2147483648', '2147483647'],
                 'bigint' => ['-9223372036854775808', '9223372036854775807'],
-            ],
-        ];
-        $relevantArray = $signed
-            ? $minMaxData['signed']
-            : $minMaxData['unsigned'];
-
-        return $relevantArray[$type] ?? ['', ''];
+                default => ['', ''],
+            },
+            false => match ($type) {
+                'tinyint' => ['0', '255'],
+                'smallint' => ['0', '65535'],
+                'mediumint' => ['0', '16777215'],
+                'int' => ['0', '4294967295'],
+                'bigint' => ['0', '18446744073709551615'],
+                default => ['', ''],
+            },
+        };
     }
 }

@@ -21,6 +21,7 @@ use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -257,12 +258,15 @@ class Generator
         // Can we get field class based values?
         $currentClass = $dbi->types->getTypeClass($trueType);
         $config = Config::getInstance();
-        if ($currentClass !== '' && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass])) {
-            $defaultFunction = $config->settings['DefaultFunctions']['FUNC_' . $currentClass];
+        if (
+            $currentClass !== TypeClass::Unknown
+            && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass->value])
+        ) {
+            $defaultFunction = $config->settings['DefaultFunctions']['FUNC_' . $currentClass->value];
             // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
             // It needs to match the function listed in the select html element.
             if (
-                $currentClass === 'SPATIAL' &&
+                $currentClass === TypeClass::Spatial &&
                 $dbi->getVersion() >= 50600 &&
                 stripos($defaultFunction, 'ST_') !== 0
             ) {

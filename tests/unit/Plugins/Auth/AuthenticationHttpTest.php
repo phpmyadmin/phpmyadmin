@@ -125,7 +125,7 @@ class AuthenticationHttpTest extends AbstractTestCase
      * @param string      $passIndex      index to test username against
      * @param string|bool $expectedReturn expected return value from test
      * @param string      $expectedUser   expected username to be set
-     * @param string|bool $expectedPass   expected password to be set
+     * @param string      $expectedPass   expected password to be set
      * @param string|bool $oldUsr         value for $_REQUEST['old_usr']
      */
     #[DataProvider('readCredentialsProvider')]
@@ -136,7 +136,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         string $passIndex,
         string|bool $expectedReturn,
         string $expectedUser,
-        string|bool $expectedPass,
+        string $expectedPass,
         string|bool $oldUsr = '',
     ): void {
         $_SERVER[$userIndex] = $user;
@@ -151,7 +151,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         self::assertSame($expectedUser, $this->object->user);
 
-        self::assertEquals($expectedPass, $this->object->password);
+        self::assertSame($expectedPass, $this->object->password);
 
         unset($_SERVER[$userIndex]);
         unset($_SERVER[$passIndex]);
@@ -175,7 +175,7 @@ class AuthenticationHttpTest extends AbstractTestCase
                 'Basic Zm9vYmFy',
                 'pswd',
             ],
-            ['Basic ' . base64_encode('foobar:'), 'pswd', 'AUTH_USER', 'AUTH_PASSWORD', true, 'foobar', false],
+            ['Basic ' . base64_encode('foobar:'), 'pswd', 'AUTH_USER', 'AUTH_PASSWORD', true, 'foobar', ''],
             [
                 'Basic ' . base64_encode(':foobar'),
                 'pswd',

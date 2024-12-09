@@ -21,6 +21,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -605,7 +606,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getTextarea',
-            [$column, 'a', 'b', '', 'foobar', 'CHAR'],
+            [$column, 'a', 'b', '', 'foobar', TypeClass::Char],
         );
 
         $result = $this->parseString($result);
@@ -1528,7 +1529,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
 
-        self::assertEquals(2, $result);
+        self::assertSame('2', $result);
     }
 
     /**

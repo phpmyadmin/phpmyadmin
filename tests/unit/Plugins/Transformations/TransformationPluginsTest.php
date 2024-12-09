@@ -51,7 +51,6 @@ use ReflectionMethod;
 
 use function date_default_timezone_set;
 use function function_exists;
-use function method_exists;
 
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TINY;
@@ -240,7 +239,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [new Image_JPEG_Link(), 'getInfo', 'Displays a link to download this image.'],
             [new Image_JPEG_Link(), 'getMIMEType', 'Image'],
             [new Image_JPEG_Link(), 'getMIMESubtype', 'JPEG'],
-            [new Image_JPEG_Link(), 'applyTransformationNoWrap', null],
+            [new Image_JPEG_Link(), 'applyTransformationNoWrap', false],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             [new Image_PNG_Inline(), 'getName', 'Inline'],
             [
@@ -411,12 +410,8 @@ class TransformationPluginsTest extends AbstractTestCase
     #[DataProvider('multiDataProvider')]
     public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
     {
-        if (! method_exists($object, $method)) {
-            return;
-        }
-
         $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $reflectionMethod->invokeArgs($object, $args),
         );
@@ -602,7 +597,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [new Text_Plain_Longtoipv4(), ['168496141'], '10.11.12.13'],
             [new Text_Plain_Longtoipv4(), ['my ip'], 'my ip'],
             [new Text_Plain_Longtoipv4(), ['<my ip>'], '&lt;my ip&gt;'],
-            [new Text_Plain_Iptolong(), ['10.11.12.13'], 168496141],
+            [new Text_Plain_Iptolong(), ['10.11.12.13'], '168496141'],
             [new Text_Plain_Iptolong(), ['10.11.12.913'], '10.11.12.913'],
             [new Text_Plain_Iptolong(), ['my ip'], 'my ip'],
             [new Text_Plain_Iptolong(), ['<my ip>'], '<my ip>'],
@@ -651,7 +646,7 @@ class TransformationPluginsTest extends AbstractTestCase
      *
      * @param TransformationsPlugin $object      instance of the plugin
      * @param array                 $applyArgs   arguments for applyTransformation
-     * @param string|int            $transformed the expected output of applyTransformation
+     * @param string                $transformed the expected output of applyTransformation
      * @param bool                  $success     the expected output of isSuccess
      * @param string                $error       the expected output of getError
      * @psalm-param array{string, array, FieldMetadata|null} $applyArgs
@@ -660,25 +655,21 @@ class TransformationPluginsTest extends AbstractTestCase
     public function testTransformation(
         TransformationsPlugin $object,
         array $applyArgs,
-        string|int $transformed,
+        string $transformed,
         bool $success = true,
         string $error = '',
     ): void {
         $actual = $object->applyTransformation(...$applyArgs);
-        self::assertEquals($transformed, $actual);
+        self::assertSame($transformed, $actual);
 
-        // For output transformation plugins, this method may not exist
-        if (method_exists($object, 'isSuccess')) {
-            self::assertSame(
-                $success,
-                $object->isSuccess(),
-            );
-        }
-
-        // For output transformation plugins, this method may not exist
-        if (! method_exists($object, 'getError')) {
+        if (! ($object instanceof IOTransformationsPlugin)) {
             return;
         }
+
+        self::assertSame(
+            $success,
+            $object->isSuccess(),
+        );
 
         self::assertSame(
             $error,

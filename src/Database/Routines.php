@@ -14,6 +14,7 @@ use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\TokensList;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
@@ -691,7 +692,7 @@ class Routines
             }
 
             if (! empty($itemParamOpsText[$i])) {
-                if ($this->dbi->types->getTypeClass($itemParamType[$i]) === 'CHAR') {
+                if ($this->dbi->types->getTypeClass($itemParamType[$i]) === TypeClass::Char) {
                     if (! in_array($itemParamType[$i], ['VARBINARY', 'BINARY'], true)) {
                         $params .= ' CHARSET '
                             . mb_strtolower($itemParamOpsText[$i]);
@@ -700,7 +701,7 @@ class Routines
             }
 
             if (! empty($itemParamOpsNum[$i])) {
-                if ($this->dbi->types->getTypeClass($itemParamType[$i]) === 'NUMBER') {
+                if ($this->dbi->types->getTypeClass($itemParamType[$i]) === TypeClass::Number) {
                     $params .= ' '
                         . mb_strtoupper($itemParamOpsNum[$i]);
                 }
@@ -757,14 +758,14 @@ class Routines
         }
 
         if (! empty($_POST['item_returnopts_text'])) {
-            if ($this->dbi->types->getTypeClass($itemReturnType) === 'CHAR') {
+            if ($this->dbi->types->getTypeClass($itemReturnType) === TypeClass::Char) {
                 $query .= ' CHARSET '
                     . mb_strtolower($_POST['item_returnopts_text']);
             }
         }
 
         if (! empty($_POST['item_returnopts_num'])) {
-            if ($this->dbi->types->getTypeClass($itemReturnType) === 'NUMBER') {
+            if ($this->dbi->types->getTypeClass($itemReturnType) === TypeClass::Number) {
                 $query .= ' '
                     . mb_strtoupper($_POST['item_returnopts_num']);
             }

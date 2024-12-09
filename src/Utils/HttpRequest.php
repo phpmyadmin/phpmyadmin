@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Utils;
 
 use Composer\CaBundle\CaBundle;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Http\RequestMethod;
 
 use function base64_encode;
 use function curl_exec;
@@ -127,15 +128,15 @@ class HttpRequest
     /**
      * Creates HTTP request using curl
      *
-     * @param string $url              Url to send the request
-     * @param string $method           HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param bool   $returnOnlyStatus If set to true, the method would only return response status
-     * @param mixed  $content          Content to be sent with HTTP request
-     * @param string $header           Header to be set for the HTTP request
+     * @param string        $url              Url to send the request
+     * @param RequestMethod $method           HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool          $returnOnlyStatus If set to true, the method would only return response status
+     * @param mixed         $content          Content to be sent with HTTP request
+     * @param string        $header           Header to be set for the HTTP request
      */
     private function curl(
         string $url,
-        string $method,
+        RequestMethod $method,
         bool $returnOnlyStatus = false,
         mixed $content = null,
         string $header = '',
@@ -159,15 +160,15 @@ class HttpRequest
 
         $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_USERAGENT, 'phpMyAdmin');
 
-        if ($method !== 'GET') {
-            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method);
+        if ($method !== RequestMethod::Get) {
+            $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_CUSTOMREQUEST, $method->value);
         }
 
         if ($header !== '') {
             $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_HTTPHEADER, [$header]);
         }
 
-        if ($method === 'POST') {
+        if ($method === RequestMethod::Post) {
             $curlStatus &= (int) curl_setopt($curlHandle, CURLOPT_POSTFIELDS, $content);
         }
 
@@ -204,22 +205,22 @@ class HttpRequest
     /**
      * Creates HTTP request using file_get_contents
      *
-     * @param string $url              Url to send the request
-     * @param string $method           HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param bool   $returnOnlyStatus If set to true, the method would only return response status
-     * @param mixed  $content          Content to be sent with HTTP request
-     * @param string $header           Header to be set for the HTTP request
+     * @param string        $url              Url to send the request
+     * @param RequestMethod $method           HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool          $returnOnlyStatus If set to true, the method would only return response status
+     * @param mixed         $content          Content to be sent with HTTP request
+     * @param string        $header           Header to be set for the HTTP request
      */
     private function fopen(
         string $url,
-        string $method,
+        RequestMethod $method,
         bool $returnOnlyStatus = false,
         mixed $content = null,
         string $header = '',
     ): string|bool|null {
         $context = [
             'http' => [
-                'method' => $method,
+                'method' => $method->value,
                 'request_fulluri' => true,
                 'timeout' => 10,
                 'user_agent' => 'phpMyAdmin',
@@ -231,7 +232,7 @@ class HttpRequest
             $context['http']['header'] .= "\n" . $header;
         }
 
-        if ($method === 'POST') {
+        if ($method === RequestMethod::Post) {
             $context['http']['content'] = $content;
         }
 
@@ -262,15 +263,15 @@ class HttpRequest
     /**
      * Creates HTTP request
      *
-     * @param string $url              Url to send the request
-     * @param string $method           HTTP request method (GET, POST, PUT, DELETE, etc)
-     * @param bool   $returnOnlyStatus If set to true, the method would only return response status
-     * @param mixed  $content          Content to be sent with HTTP request
-     * @param string $header           Header to be set for the HTTP request
+     * @param string        $url              Url to send the request
+     * @param RequestMethod $method           HTTP request method (GET, POST, PUT, DELETE, etc)
+     * @param bool          $returnOnlyStatus If set to true, the method would only return response status
+     * @param mixed         $content          Content to be sent with HTTP request
+     * @param string        $header           Header to be set for the HTTP request
      */
     public function create(
         string $url,
-        string $method,
+        RequestMethod $method,
         bool $returnOnlyStatus = false,
         mixed $content = null,
         string $header = '',

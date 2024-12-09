@@ -165,7 +165,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        self::assertEquals($defaultPg, $result);
+        self::assertSame((int) $defaultPg, $result);
     }
 
     /**
@@ -228,7 +228,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        self::assertEquals($defaultPg, $result);
+        self::assertSame((int) $defaultPg, $result);
     }
 
     /**
@@ -251,7 +251,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common(DatabaseInterface::getInstance(), new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        self::assertEquals($firstPg, $result);
+        self::assertSame((int) $firstPg, $result);
     }
 
     private function loadTestDataForRelationDeleteAddTests(string $createTableString): void

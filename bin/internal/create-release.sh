@@ -247,7 +247,9 @@ cleanup_composer_vendors() {
         vendor/spomky-labs/cbor-php/SECURITY.md \
         vendor/spomky-labs/pki-framework/SECURITY.md \
         vendor/web-auth/cose-lib/SECURITY.md \
-        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json
+        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
+        vendor/twig/twig/phpstan-baseline.neon \
+        vendor/twig/twig/phpstan.neon.dist
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \

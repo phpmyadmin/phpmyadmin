@@ -916,11 +916,11 @@ class UtilTest extends AbstractTestCase
     }
 
     #[DataProvider('providerForTestBackquote')]
-    public function testBackquote(string|null $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
+    public function testBackquote(string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
         self::assertSame($expectedNoneOutput, Util::backquote($entry));
-        self::assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
-        self::assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
+        self::assertSame($entry, Util::backquoteCompat($entry, 'NONE', false));
+        self::assertSame($entry, Util::backquoteCompat($entry, 'MSSQL', false));
         self::assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
         self::assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
@@ -935,7 +935,6 @@ class UtilTest extends AbstractTestCase
             ['te"st', '`te"st`', '"te\"st"'],
             ['', '', ''],
             ['*', '*', '*'],
-            [null, '', ''],
         ];
     }
 
