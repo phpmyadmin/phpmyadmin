@@ -235,7 +235,17 @@ class Node
      */
     public function realParent(): Node|false
     {
-        return $this->parents()[0] ?? false;
+        $parent = $this->parent;
+
+        while ($parent !== null) {
+            if ($parent->type !== NodeType::Container && ! $parent->isGroup) {
+                return $parent;
+            }
+
+            $parent = $parent->parent;
+        }
+
+        return false;
     }
 
     /**
