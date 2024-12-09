@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-12-08 00:27+0000\n"
-"PO-Revision-Date: 2024-12-06 03:00+0000\n"
+"PO-Revision-Date: 2024-12-10 12:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -2973,7 +2973,7 @@ msgstr "Расширенные параметры"
 #: resources/templates/display/results/table.twig:212
 #: src/Display/Results.php:1116
 msgid "Partial texts"
-msgstr "Сокращенные тексты"
+msgstr "Сокращённые тексты"
 
 #: resources/templates/display/results/table.twig:216
 #: src/Display/Results.php:1120
@@ -2994,7 +2994,7 @@ msgstr "Показать бинарные данные"
 
 #: resources/templates/display/results/table.twig:243
 msgid "Show BLOB contents"
-msgstr "Показать BLOB содержимое"
+msgstr "Показать содержимое BLOB"
 
 #: resources/templates/display/results/table.twig:255
 msgid "Hide browser transformation"
