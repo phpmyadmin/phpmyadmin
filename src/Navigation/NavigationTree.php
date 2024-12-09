@@ -58,7 +58,6 @@ use function htmlspecialchars;
 use function in_array;
 use function is_array;
 use function is_bool;
-use function is_object;
 use function is_string;
 use function mb_strlen;
 use function mb_strpos;
@@ -918,9 +917,9 @@ class NavigationTree
         if ($hasSearchClause && ! is_bool($node)) {
             $results = 0;
             if ($this->searchClause2 !== '') {
-                if (is_object($node->realParent())) {
-                    $results = $node->realParent()
-                        ->getPresence($userPrivileges, $node->realName, $this->searchClause2);
+                $parent = $node->realParent();
+                if ($parent instanceof Node) {
+                    $results = $parent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
                 }
             } else {
                 $results = $this->tree->getPresence($userPrivileges, 'databases', $this->searchClause);

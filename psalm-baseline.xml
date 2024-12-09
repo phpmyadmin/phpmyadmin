@@ -6475,9 +6475,6 @@
     <PossiblyFalseOperand>
       <code><![CDATA[strrpos($class, '\\')]]></code>
     </PossiblyFalseOperand>
-    <PossiblyFalseReference>
-      <code><![CDATA[getPresence]]></code>
-    </PossiblyFalseReference>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['aPath']]]></code>
       <code><![CDATA[$_POST['n' . $count . '_aPath']]]></code>
