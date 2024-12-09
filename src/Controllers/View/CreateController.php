@@ -55,8 +55,8 @@ final class CreateController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $GLOBALS['message'] ??= null;

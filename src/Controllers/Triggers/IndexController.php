@@ -54,14 +54,14 @@ final class IndexController implements InvocableController
 
         if (! $request->isAjax()) {
             $config = Config::getInstance();
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
             /**
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->response->checkParameters(['db', 'table'])) {
-                    return $this->response->response();
-                }
-
                 UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
                 $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
@@ -84,10 +84,6 @@ final class IndexController implements InvocableController
                 }
             } else {
                 Current::$table = '';
-
-                if (! $this->response->checkParameters(['db'])) {
-                    return $this->response->response();
-                }
 
                 $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
                     $config->settings['DefaultTabDatabase'],

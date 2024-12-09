@@ -49,8 +49,8 @@ final class ImportController implements InvocableController
 
         $this->response->addScriptFiles(['import.js']);
 
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();

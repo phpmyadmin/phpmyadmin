@@ -59,8 +59,17 @@ final class ReplaceController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
-        if (! $this->response->checkParameters(['db', 'table', 'goto'])) {
-            return $this->response->response();
+
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        if (UrlParams::$goto === '') {
+            return $this->response->missingParameterError('goto');
         }
 
         $GLOBALS['errorUrl'] ??= null;

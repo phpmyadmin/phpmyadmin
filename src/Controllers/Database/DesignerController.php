@@ -160,8 +160,8 @@ final class DesignerController implements InvocableController
             return $this->response->response();
         }
 
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

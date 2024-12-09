@@ -225,8 +225,8 @@ final class DatabaseController implements InvocableController
             $this->relation->setDbComment(Current::$database, $request->getParsedBodyParamAsString('comment'));
         }
 
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();

@@ -56,8 +56,12 @@ final class AddFieldController implements InvocableController
 
         $this->response->addScriptFiles(['table/structure.js']);
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -186,8 +190,8 @@ final class AddFieldController implements InvocableController
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
-            return $this->response->response();
+        if (Current::$server === 0) {
+            return $this->response->missingParameterError('server');
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/add-field', $numFields);

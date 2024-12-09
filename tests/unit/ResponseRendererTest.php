@@ -64,50 +64,21 @@ final class ResponseRendererTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
     }
 
-    public function testCheckParametersWithMissingParameters(): void
+    public function testMissingParameterError(): void
     {
-        $_REQUEST = [];
-        $GLOBALS['param1'] = 'param1';
-        $GLOBALS['param2'] = null;
-
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         $responseRenderer = ResponseRenderer::getInstance();
         $responseRenderer->setAjax(false);
 
-        $message = 'Missing parameter: param2';
+        $message = 'Missing parameter: param_name';
         $message .= MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true);
         $message .= '[br]';
         $expected = Message::error($message)->getDisplay();
 
-        self::assertFalse($responseRenderer->checkParameters(['param1', 'param2']));
-        $response = $responseRenderer->response();
+        $response = $responseRenderer->missingParameterError('param_name');
 
         self::assertStringContainsString($expected, (string) $response->getBody());
         self::assertSame(StatusCodeInterface::STATUS_BAD_REQUEST, $response->getStatusCode());
-
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
-    }
-
-    public function testCheckParametersWithAllParameters(): void
-    {
-        $_REQUEST = [];
-        $GLOBALS['param1'] = 'param1';
-        $GLOBALS['param2'] = 'param2';
-
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
-        $responseRenderer = ResponseRenderer::getInstance();
-        $responseRenderer->setAjax(false);
-
-        $message = 'Missing parameter: param2';
-        $message .= MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true);
-        $message .= '[br]';
-        $expected = Message::error($message)->getDisplay();
-
-        self::assertTrue($responseRenderer->checkParameters(['param1', 'param2']));
-        $response = $responseRenderer->response();
-
-        self::assertStringNotContainsString($expected, (string) $response->getBody());
-        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
     }

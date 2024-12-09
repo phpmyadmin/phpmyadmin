@@ -36,6 +36,7 @@ use function function_exists;
 use function in_array;
 use function ini_set;
 use function is_array;
+use function is_string;
 use function register_shutdown_function;
 use function time;
 
@@ -93,13 +94,17 @@ final class ExportController implements InvocableController
         // sanitize this parameter which will be used below in a file inclusion
         $GLOBALS['what'] = Core::securePath($whatParam);
 
-        if (! $this->response->checkParameters(['what', 'export_type'])) {
-            return $this->response->response();
+        if ($GLOBALS['what'] === '') {
+            return $this->response->missingParameterError('what');
+        }
+
+        if (! is_string($GLOBALS['export_type']) || $GLOBALS['export_type'] === '') {
+            return $this->response->missingParameterError('export_type');
         }
 
         // export class instance, not array of properties, as before
         $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [
-            'export_type' => (string) $GLOBALS['export_type'],
+            'export_type' => $GLOBALS['export_type'],
             'single_table' => isset($GLOBALS['single_table']),
         ]);
 

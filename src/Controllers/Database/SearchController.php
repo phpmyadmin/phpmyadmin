@@ -39,8 +39,8 @@ final class SearchController implements InvocableController
 
         $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();

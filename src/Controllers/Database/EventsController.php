@@ -45,8 +45,8 @@ final class EventsController implements InvocableController
         $this->response->addScriptFiles(['database/events.js', 'sql.js']);
 
         if (! $request->isAjax()) {
-            if (! $this->response->checkParameters(['db'])) {
-                return $this->response->response();
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
             }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

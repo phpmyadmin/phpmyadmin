@@ -34,8 +34,16 @@ final class ChangeController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
-            return $this->response->response();
+        if (Current::$server === 0) {
+            return $this->response->missingParameterError('server');
+        }
+
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
         }
 
         if ($request->getParam('change_column') !== null) {
