@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-12-06 14:00+0000\n"
+"PO-Revision-Date: 2024-12-10 12:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ru/>\n"
@@ -4299,7 +4299,7 @@ msgstr "Изменить"
 #: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Html/Generator.php:658
 msgid "Explain SQL"
-msgstr "Анализ SQL запроса"
+msgstr "Анализ запроса SQL"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Export.php:606 libraries/classes/Html/Generator.php:743
@@ -15421,7 +15421,7 @@ msgstr "Показать бинарные данные"
 
 #: templates/display/results/table.twig:142
 msgid "Show BLOB contents"
-msgstr "Показать BLOB содержимое"
+msgstr "Показать содержимое BLOB"
 
 #: templates/display/results/table.twig:152
 msgid "Hide browser transformation"
