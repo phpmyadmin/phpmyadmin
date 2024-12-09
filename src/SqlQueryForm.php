@@ -67,7 +67,7 @@ class SqlQueryForm
 
         // query to show
         if ($query === true) {
-            $query = $GLOBALS['sql_query'];
+            $query = Current::$sqlQuery;
             if (empty($query) && (isset($_GET['show_query']) || isset($_POST['show_query']))) {
                 $query = $_GET['sql_query'] ?? $_POST['sql_query'] ?? '';
             }

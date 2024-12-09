@@ -129,7 +129,7 @@ final class ViewController implements InvocableController
 
             $this->response->addHTML(Generator::getMessage(
                 $message,
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
                 $type,
             ));
         }

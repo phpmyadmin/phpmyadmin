@@ -250,11 +250,11 @@ final class TableController implements InvocableController
             );
 
             if ($tableAlters !== []) {
-                $GLOBALS['sql_query'] = 'ALTER TABLE '
+                Current::$sqlQuery = 'ALTER TABLE '
                     . Util::backquote(Current::$table);
-                $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
-                $GLOBALS['sql_query'] .= ';';
-                $this->dbi->query($GLOBALS['sql_query']);
+                Current::$sqlQuery .= "\r\n" . implode("\r\n", $tableAlters);
+                Current::$sqlQuery .= ';';
+                $this->dbi->query(Current::$sqlQuery);
                 $result = true;
                 $rereadInfo = true;
                 $warningMessages = $this->operations->getWarningMessagesArray($newTableStorageEngine);
@@ -291,12 +291,12 @@ final class TableController implements InvocableController
         if ($request->hasBodyParam('submitorderby') && is_string($orderField) && $orderField !== '') {
             /** @var mixed $orderOrder */
             $orderOrder = $request->getParsedBodyParam('order_order');
-            $GLOBALS['sql_query'] = QueryGenerator::getQueryForReorderingTable(
+            Current::$sqlQuery = QueryGenerator::getQueryForReorderingTable(
                 Current::$table,
                 urldecode($orderField),
                 is_string($orderOrder) ? $orderOrder : '',
             );
-            $this->dbi->query($GLOBALS['sql_query']);
+            $this->dbi->query(Current::$sqlQuery);
             $result = true;
         }
 
@@ -311,12 +311,12 @@ final class TableController implements InvocableController
         ) {
             /** @var mixed $partitionNames */
             $partitionNames = $request->getParsedBodyParam('partition_name');
-            $GLOBALS['sql_query'] = QueryGenerator::getQueryForPartitioningTable(
+            Current::$sqlQuery = QueryGenerator::getQueryForPartitioningTable(
                 Current::$table,
                 $partitionOperation,
                 is_array($partitionNames) ? $partitionNames : [],
             );
-            $this->dbi->query($GLOBALS['sql_query']);
+            $this->dbi->query(Current::$sqlQuery);
             $result = true;
         }
 
@@ -343,7 +343,7 @@ final class TableController implements InvocableController
 
         if (isset($result) && empty($GLOBALS['message_to_show'])) {
             if ($newMessage === '') {
-                if (empty($GLOBALS['sql_query'])) {
+                if (Current::$sqlQuery === '') {
                     $newMessage = Message::success(__('No change'));
                 } else {
                     $newMessage = $result
@@ -354,10 +354,10 @@ final class TableController implements InvocableController
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus($newMessage->isSuccess());
                     $this->response->addJSON('message', $newMessage);
-                    if (! empty($GLOBALS['sql_query'])) {
+                    if (Current::$sqlQuery !== '') {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', $GLOBALS['sql_query']),
+                            Generator::getMessage('', Current::$sqlQuery),
                         );
                     }
 
@@ -376,10 +376,10 @@ final class TableController implements InvocableController
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $newMessage);
-                    if (! empty($GLOBALS['sql_query'])) {
+                    if (Current::$sqlQuery !== '') {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', $GLOBALS['sql_query']),
+                            Generator::getMessage('', Current::$sqlQuery),
                         );
                     }
 
@@ -387,13 +387,13 @@ final class TableController implements InvocableController
                 }
             }
 
-            if (empty($GLOBALS['sql_query'])) {
+            if (Current::$sqlQuery === '') {
                 $this->response->addHTML(
                     $newMessage->getDisplay(),
                 );
             } else {
                 $this->response->addHTML(
-                    Generator::getMessage($newMessage, $GLOBALS['sql_query']),
+                    Generator::getMessage($newMessage, Current::$sqlQuery),
                 );
             }
 

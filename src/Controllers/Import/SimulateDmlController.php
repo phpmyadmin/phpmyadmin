@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Import;
 
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\SimulateDml;
@@ -44,7 +45,7 @@ final class SimulateDmlController implements InvocableController
     {
         $sqlDelimiter = $request->getParsedBodyParamAsString('sql_delimiter', '');
 
-        $parser = $this->createParser($GLOBALS['sql_query'], $sqlDelimiter);
+        $parser = $this->createParser(Current::$sqlQuery, $sqlDelimiter);
         $this->process($parser);
 
         if ($this->error !== '') {

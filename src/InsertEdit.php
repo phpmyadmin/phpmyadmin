@@ -909,10 +909,10 @@ class InsertEdit
      */
     public function executeSqlQuery(array $query): array
     {
-        $GLOBALS['sql_query'] = implode('; ', $query) . ';';
+        Current::$sqlQuery = implode('; ', $query) . ';';
         // to ensure that the query is displayed in case of
         // "insert as new row" and then "insert another new row"
-        $GLOBALS['display_query'] = $GLOBALS['sql_query'];
+        $GLOBALS['display_query'] = Current::$sqlQuery;
 
         $totalAffectedRows = 0;
         $lastMessages = [];

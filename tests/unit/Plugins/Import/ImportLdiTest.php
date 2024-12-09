@@ -32,7 +32,7 @@ class ImportLdiTest extends AbstractTestCase
 
         ImportSettings::$charsetConversion = false;
         ImportSettings::$maxSqlLength = 0;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         ImportSettings::$executedQueries = 0;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$runQuery = false;
@@ -127,7 +127,7 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'LOAD DATA INFILE \'tests/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -188,17 +188,17 @@ class ImportLdiTest extends AbstractTestCase
         //replace
         self::assertStringContainsString(
             'LOAD DATA LOCAL INFILE \'tests/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         //FIELDS TERMINATED
-        self::assertStringContainsString("FIELDS TERMINATED BY ','", $GLOBALS['sql_query']);
+        self::assertStringContainsString("FIELDS TERMINATED BY ','", Current::$sqlQuery);
 
         //LINES TERMINATED
-        self::assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $GLOBALS['sql_query']);
+        self::assertStringContainsString("LINES TERMINATED BY 'newline_mark'", Current::$sqlQuery);
 
         //IGNORE
-        self::assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
+        self::assertStringContainsString('IGNORE 1 LINES', Current::$sqlQuery);
 
         self::assertTrue(ImportSettings::$finished);
     }

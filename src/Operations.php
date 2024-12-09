@@ -60,7 +60,7 @@ class Operations
             }
 
             // collect for later display
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($query);
         }
@@ -73,7 +73,7 @@ class Operations
             }
 
             // collect for later display
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($query);
         }
@@ -92,7 +92,7 @@ class Operations
         }
 
         $localQuery .= ';';
-        $GLOBALS['sql_query'] .= $localQuery;
+        Current::$sqlQuery .= $localQuery;
 
         // save the original db name because Tracker.php which
         // may be called under $this->dbi->query() changes \PhpMyAdmin\Current::$database
@@ -142,7 +142,7 @@ class Operations
                     . Util::backquote($table);
                 $this->dbi->query($dropQuery);
 
-                $GLOBALS['sql_query'] .= "\n" . $dropQuery . ';';
+                Current::$sqlQuery .= "\n" . $dropQuery . ';';
             }
 
             $views[] = $table;
@@ -150,7 +150,7 @@ class Operations
             $sqlViewStandin = $exportSqlPlugin->getTableDefStandIn($db, $table);
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($sqlViewStandin);
-            $GLOBALS['sql_query'] .= "\n" . $sqlViewStandin;
+            Current::$sqlQuery .= "\n" . $sqlViewStandin;
         }
 
         return $views;
@@ -220,7 +220,7 @@ class Operations
                 foreach ($triggers as $trigger) {
                     $createSqlQuery = $trigger->getCreateSql('');
                     $this->dbi->query($createSqlQuery);
-                    $GLOBALS['sql_query'] .= "\n" . $createSqlQuery . ';';
+                    Current::$sqlQuery .= "\n" . $createSqlQuery . ';';
                 }
             }
 
@@ -257,7 +257,7 @@ class Operations
             $this->dbi->selectDb($db);
             $query = Events::getDefinition($this->dbi, $db, $eventName);
             // collect for later display
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($query);
         }
@@ -445,7 +445,7 @@ class Operations
         foreach ($sqlConstraints as $query) {
             $this->dbi->query($query);
             // and prepare to display them
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
         }
     }
 

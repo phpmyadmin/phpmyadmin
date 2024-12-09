@@ -101,9 +101,9 @@ final class CreateController implements InvocableController
         $ajaxdialog = $request->hasBodyParam('ajax_dialog');
 
         if (($createview || $alterview) && $view !== null) {
-            $GLOBALS['sql_query'] = $this->getSqlQuery($createview, $view);
+            Current::$sqlQuery = $this->getSqlQuery($createview, $view);
 
-            if (! $this->dbi->tryQuery($GLOBALS['sql_query'])) {
+            if (! $this->dbi->tryQuery(Current::$sqlQuery)) {
                 if (! $ajaxdialog) {
                     $GLOBALS['message'] = Message::rawError($this->dbi->getError());
 
@@ -113,7 +113,7 @@ final class CreateController implements InvocableController
                 $this->response->addJSON(
                     'message',
                     Message::error(
-                        '<i>' . htmlspecialchars($GLOBALS['sql_query']) . '</i><br><br>'
+                        '<i>' . htmlspecialchars(Current::$sqlQuery) . '</i><br><br>'
                         . $this->dbi->getError(),
                     ),
                 );
@@ -125,7 +125,7 @@ final class CreateController implements InvocableController
             return $this->setSuccessResponse($view, $ajaxdialog, $request);
         }
 
-        $GLOBALS['sql_query'] = $request->getParsedBodyParam('sql_query', '');
+        Current::$sqlQuery = $request->getParsedBodyParamAsString('sql_query', '');
 
         // prefill values if not already filled from former submission
         $viewData = [
@@ -136,7 +136,7 @@ final class CreateController implements InvocableController
             'sql_security' => '',
             'name' => '',
             'column_names' => '',
-            'as' => $GLOBALS['sql_query'],
+            'as' => Current::$sqlQuery,
             'with' => '',
         ];
 
@@ -238,7 +238,7 @@ final class CreateController implements InvocableController
             'message',
             Generator::getMessage(
                 Message::success(),
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
             ),
         );
         $this->response->setRequestStatus(true);

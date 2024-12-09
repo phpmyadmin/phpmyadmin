@@ -49,10 +49,6 @@ final class ExportController implements InvocableController
         $GLOBALS['select_item'] = $GLOBALS['tmp_select'] ?? '';
         $databases = $this->export->getDatabasesForSelectOptions($GLOBALS['select_item']);
 
-        if (! isset($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] = '';
-        }
-
         if (! isset($GLOBALS['num_tables'])) {
             $GLOBALS['num_tables'] = 0;
         }
@@ -77,7 +73,7 @@ final class ExportController implements InvocableController
             'server',
             Current::$database,
             Current::$table,
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],
             $exportList,

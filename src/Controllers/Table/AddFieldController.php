@@ -86,18 +86,18 @@ final class AddFieldController implements InvocableController
 
             $createAddField = new CreateAddField($this->dbi);
 
-            $GLOBALS['sql_query'] = $createAddField->getColumnCreationQuery(Current::$table);
+            Current::$sqlQuery = $createAddField->getColumnCreationQuery(Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
-                Core::previewSQL($GLOBALS['sql_query']);
+                Core::previewSQL(Current::$sqlQuery);
 
                 return $this->response->response();
             }
 
             $result = $createAddField->tryColumnCreationQuery(
                 DatabaseName::from(Current::$database),
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
                 $GLOBALS['errorUrl'],
             );
 
@@ -136,7 +136,7 @@ final class AddFieldController implements InvocableController
             $GLOBALS['message']->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
-                Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query'], MessageType::Success),
+                Generator::getMessage($GLOBALS['message'], Current::$sqlQuery, MessageType::Success),
             );
 
             // Give an URL to call and use to appends the structure after the success message

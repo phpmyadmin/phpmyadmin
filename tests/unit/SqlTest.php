@@ -598,7 +598,7 @@ class SqlTest extends AbstractTestCase
         $_SESSION['sql_from_query_box'] = true;
         Current::$database = 'sakila';
         Current::$table = 'country';
-        $GLOBALS['sql_query'] = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
+        Current::$sqlQuery = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['user'] = 'user';

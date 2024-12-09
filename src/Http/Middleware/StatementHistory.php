@@ -37,14 +37,14 @@ final class StatementHistory implements MiddlewareInterface
 
         if (
             ! $request->has('no_history')
-            && $GLOBALS['sql_query'] !== ''
+            && Current::$sqlQuery !== ''
             && $this->dbi->isConnected()
         ) {
             $this->relation->setHistory(
                 Current::$database,
                 Current::$table,
                 $this->config->selectedServer['user'],
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
             );
         }
 

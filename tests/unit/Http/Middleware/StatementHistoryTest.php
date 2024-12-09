@@ -23,7 +23,7 @@ final class StatementHistoryTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['sql_query'] = 'SELECT 1;';
+        Current::$sqlQuery = 'SELECT 1;';
 
         $config = new Config();
         $config->selectedServer['user'] = 'test_user';
@@ -52,7 +52,7 @@ final class StatementHistoryTest extends AbstractTestCase
     #[TestWith([null, 'SELECT 1;', false])]
     public function testSkipHistory(string|null $noHistoryParam, string $sqlQuery, bool $isConnected): void
     {
-        $GLOBALS['sql_query'] = $sqlQuery;
+        Current::$sqlQuery = $sqlQuery;
 
         $dbi = self::createStub(DatabaseInterface::class);
         $dbi->method('isConnected')->willReturn($isConnected);

@@ -843,10 +843,10 @@ class Table implements Stringable
         }
 
         // tested also for a view, in MySQL 5.0.92, 5.1.55 and 5.5.13
-        $GLOBALS['sql_query'] = 'RENAME TABLE ' . $this->getFullName(true) . ' TO '
+        Current::$sqlQuery = 'RENAME TABLE ' . $this->getFullName(true) . ' TO '
             . $newTable->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
-        if ($this->dbi->tryQuery($GLOBALS['sql_query']) === false) {
+        if ($this->dbi->tryQuery(Current::$sqlQuery) === false) {
             $this->errors[] = $this->dbi->getError();
 
             // Restore triggers in the old database

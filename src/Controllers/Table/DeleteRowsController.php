@@ -54,7 +54,7 @@ final class DeleteRowsController implements InvocableController
 
         if ($multBtn === __('Yes')) {
             $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
-            $GLOBALS['sql_query'] = '';
+            Current::$sqlQuery = '';
 
             $this->dbi->selectDb(Current::$database);
 
@@ -64,7 +64,7 @@ final class DeleteRowsController implements InvocableController
                     Util::backquote(Current::$table),
                     $row,
                 );
-                $GLOBALS['sql_query'] .= $query . "\n";
+                Current::$sqlQuery .= $query . "\n";
                 $this->dbi->query($query);
             }
 
@@ -75,11 +75,11 @@ final class DeleteRowsController implements InvocableController
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
             $GLOBALS['disp_message'] = __('Your SQL query has been executed successfully.');
-            $GLOBALS['disp_query'] = $GLOBALS['sql_query'];
+            $GLOBALS['disp_query'] = Current::$sqlQuery;
         }
 
         if ($request->hasBodyParam('original_sql_query')) {
-            $GLOBALS['sql_query'] = $request->getParsedBodyParamAsString('original_sql_query', '');
+            Current::$sqlQuery = $request->getParsedBodyParamAsString('original_sql_query', '');
         }
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
@@ -93,7 +93,7 @@ final class DeleteRowsController implements InvocableController
             UrlParams::$goto,
             $GLOBALS['disp_query'] ?? null,
             $GLOBALS['disp_message'] ?? null,
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             null,
         ));
 

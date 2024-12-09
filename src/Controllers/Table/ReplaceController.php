@@ -303,9 +303,9 @@ final class ReplaceController implements InvocableController
         }
 
         $returnToSqlQuery = '';
-        if (! empty($GLOBALS['sql_query'])) {
-            UrlParams::$params['sql_query'] = $GLOBALS['sql_query'];
-            $returnToSqlQuery = $GLOBALS['sql_query'];
+        if (Current::$sqlQuery !== '') {
+            UrlParams::$params['sql_query'] = Current::$sqlQuery;
+            $returnToSqlQuery = Current::$sqlQuery;
         }
 
         /**
@@ -362,10 +362,10 @@ final class ReplaceController implements InvocableController
         }
 
         if (! empty($returnToSqlQuery)) {
-            $GLOBALS['disp_query'] = $GLOBALS['sql_query'];
+            $GLOBALS['disp_query'] = Current::$sqlQuery;
             $GLOBALS['disp_message'] = $GLOBALS['message'];
             unset($GLOBALS['message']);
-            $GLOBALS['sql_query'] = $returnToSqlQuery;
+            Current::$sqlQuery = $returnToSqlQuery;
         }
 
         $this->response->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);

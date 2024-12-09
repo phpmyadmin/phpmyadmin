@@ -353,6 +353,6 @@ final class FindReplaceController implements InvocableController
         }
 
         $this->dbi->query($sqlQuery);
-        $GLOBALS['sql_query'] = $sqlQuery;
+        Current::$sqlQuery = $sqlQuery;
     }
 }

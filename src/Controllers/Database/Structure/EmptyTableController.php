@@ -54,7 +54,7 @@ final class EmptyTableController implements InvocableController
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         $this->dbi->selectDb(Current::$database);
 
@@ -66,7 +66,7 @@ final class EmptyTableController implements InvocableController
             $aQuery = 'TRUNCATE ';
             $aQuery .= Util::backquote($selectedValue);
 
-            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
         }
 

@@ -23,6 +23,7 @@ use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
+use function is_string;
 use function mb_strpos;
 use function str_contains;
 use function urlencode;
@@ -98,17 +99,20 @@ class SqlController implements InvocableController
 
         /** @var array<string>|null $bkmFields */
         $bkmFields = $request->getParsedBodyParam('bkm_fields');
-        $sqlQuery = $request->getParsedBodyParam('sql_query');
+        $sqlQuery = $request->getParsedBodyParamAsStringOrNull('sql_query');
 
         // Coming from a bookmark dialog
         if ($bkmFields !== null && $bkmFields['bkm_sql_query'] != null) {
-            $GLOBALS['sql_query'] = $bkmFields['bkm_sql_query'];
+            Current::$sqlQuery = $bkmFields['bkm_sql_query'];
         } elseif ($sqlQuery !== null) {
-            $GLOBALS['sql_query'] = $sqlQuery;
+            Current::$sqlQuery = $sqlQuery;
         } elseif ($request->hasQueryParam('sql_query') && $request->hasQueryParam('sql_signature')) {
             $sqlQuery = $request->getQueryParam('sql_query');
-            if (Core::checkSqlQuerySignature($sqlQuery, $request->getQueryParam('sql_signature'))) {
-                $GLOBALS['sql_query'] = $sqlQuery;
+            if (
+                is_string($sqlQuery)
+                && Core::checkSqlQuerySignature($sqlQuery, $request->getQueryParam('sql_signature'))
+            ) {
+                Current::$sqlQuery = $sqlQuery;
             }
         }
 
@@ -119,12 +123,12 @@ class SqlController implements InvocableController
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && Current::$table !== '' && Current::$database !== '') {
-            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
+        if (Current::$sqlQuery === '' && Current::$table !== '' && Current::$database !== '') {
+            Current::$sqlQuery = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
 
             // set $goto to what will be displayed if query returns 0 rows
             UrlParams::$goto = '';
-        } elseif (! $this->response->checkParameters(['sql_query'])) {
+        } elseif (! $this->response->checkParameters(['sql_query'], true)) {
             return $this->response->response();
         }
 
@@ -132,7 +136,7 @@ class SqlController implements InvocableController
          * Parse and analyze the query
          */
         [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             Current::$database,
         );
 
@@ -181,7 +185,7 @@ class SqlController implements InvocableController
             UrlParams::$goto = Url::getFromRoute('/sql', [
                 'db' => Current::$database,
                 'table' => Current::$table,
-                'sql_query' => $GLOBALS['sql_query'],
+                'sql_query' => Current::$sqlQuery,
             ]);
         }
 
@@ -196,7 +200,7 @@ class SqlController implements InvocableController
             UrlParams::$goto,
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
             $GLOBALS['disp_message'] ?? null,
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             $GLOBALS['complete_query'] ?? null,
         ));
 

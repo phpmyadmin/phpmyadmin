@@ -24,7 +24,7 @@ class UniqueControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['message'] = null;
-        $GLOBALS['sql_query'] = null;
+        Current::$sqlQuery = '';
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
@@ -43,7 +43,7 @@ class UniqueControllerTest extends AbstractTestCase
 
         self::assertEquals(Message::success(), $GLOBALS['message']);
         /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', $GLOBALS['sql_query']);
+        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', Current::$sqlQuery);
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -53,7 +53,7 @@ class UniqueControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['message'] = null;
-        $GLOBALS['sql_query'] = null;
+        Current::$sqlQuery = '';
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
@@ -72,7 +72,7 @@ class UniqueControllerTest extends AbstractTestCase
 
         self::assertEquals(Message::success(), $GLOBALS['message']);
         /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field1`, `test_field2`);', $GLOBALS['sql_query']);
+        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field1`, `test_field2`);', Current::$sqlQuery);
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -82,7 +82,7 @@ class UniqueControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['message'] = null;
-        $GLOBALS['sql_query'] = null;
+        Current::$sqlQuery = '';
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
@@ -101,7 +101,7 @@ class UniqueControllerTest extends AbstractTestCase
         /** @psalm-suppress RedundantCondition */
         self::assertNull($GLOBALS['message']);
         /** @psalm-suppress RedundantCondition */
-        self::assertNull($GLOBALS['sql_query']);
+        self::assertEmpty(Current::$sqlQuery);
     }
 
     public function testAddUniqueKeyWithError(): void
@@ -109,7 +109,7 @@ class UniqueControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         $GLOBALS['message'] = null;
-        $GLOBALS['sql_query'] = null;
+        Current::$sqlQuery = '';
 
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addSelectDb('test_db');
@@ -132,7 +132,7 @@ class UniqueControllerTest extends AbstractTestCase
             $GLOBALS['message'],
         );
         /** @psalm-suppress TypeDoesNotContainType */
-        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', $GLOBALS['sql_query']);
+        self::assertSame('ALTER TABLE `test_table` ADD UNIQUE(`test_field`);', Current::$sqlQuery);
         $dbiDummy->assertAllSelectsConsumed();
         $dbiDummy->assertAllQueriesConsumed();
         $dbiDummy->assertAllErrorCodesConsumed();

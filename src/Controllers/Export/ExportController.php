@@ -178,7 +178,7 @@ final class ExportController implements InvocableController
                 'table' => Current::$table,
             ]);
         } elseif ($GLOBALS['export_type'] === 'raw') {
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export', ['sql_query' => $GLOBALS['sql_query']]);
+            $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export', ['sql_query' => Current::$sqlQuery]);
         } else {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
@@ -189,7 +189,7 @@ final class ExportController implements InvocableController
         // Merge SQL Query aliases with Export aliases from
         // export page, Export page aliases are given more
         // preference over SQL Query aliases.
-        $parser = new Parser($GLOBALS['sql_query']);
+        $parser = new Parser(Current::$sqlQuery);
         $aliases = [];
         if (! empty($parser->statements[0]) && $parser->statements[0] instanceof SelectStatement) {
             $aliases = $parser->statements[0]->getAliases(Current::$database);
@@ -426,7 +426,7 @@ final class ExportController implements InvocableController
                     $exportPlugin,
                     $GLOBALS['errorUrl'],
                     Current::$database,
-                    $GLOBALS['sql_query'],
+                    Current::$sqlQuery,
                 );
             } else {
                 // We export just one table
@@ -452,7 +452,7 @@ final class ExportController implements InvocableController
                             $allrows,
                             $limitTo,
                             $limitFrom,
-                            $GLOBALS['sql_query'],
+                            Current::$sqlQuery,
                             $aliases,
                         );
                     } finally {
@@ -473,7 +473,7 @@ final class ExportController implements InvocableController
                         $allrows,
                         $limitTo,
                         $limitFrom,
-                        $GLOBALS['sql_query'],
+                        Current::$sqlQuery,
                         $aliases,
                     );
                 }

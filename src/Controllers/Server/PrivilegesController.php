@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -147,7 +148,7 @@ final class PrivilegesController implements InvocableController
          */
         $queries = [];
         $queriesForDisplay = null;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         $addUserError = false;
         if ($request->hasBodyParam('adduser_submit') || $request->hasBodyParam('change_copy')) {
             $hostname = $serverPrivileges->getHostname(
@@ -158,7 +159,7 @@ final class PrivilegesController implements InvocableController
                 $retMessage,
                 $queries,
                 $queriesForDisplay,
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
                 $addUserError,
             ] = $serverPrivileges->addUser(
                 is_string($databaseName) ? $databaseName : '',
@@ -208,9 +209,9 @@ final class PrivilegesController implements InvocableController
                     );
                 }
 
-                $GLOBALS['sql_query'] = implode("\n", $statements);
+                Current::$sqlQuery = implode("\n", $statements);
             } else {
-                [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
+                [Current::$sqlQuery, $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
                     $GLOBALS['username'] ?? '',
                     $GLOBALS['hostname'] ?? '',
                     $tablename ?? $routinename ?? '',
@@ -238,7 +239,7 @@ final class PrivilegesController implements InvocableController
          * Revokes Privileges
          */
         if ($request->hasBodyParam('revokeall')) {
-            [$GLOBALS['message'], $GLOBALS['sql_query']] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
+            [$GLOBALS['message'], Current::$sqlQuery] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 is_string($databaseName) ? $databaseName : '',
                 $tablename ?? $routinename ?? '',
                 $GLOBALS['username'] ?? '',
@@ -268,7 +269,7 @@ final class PrivilegesController implements InvocableController
         ) {
             $queries = $serverPrivileges->getDataForDeleteUsers($queries);
             if (! $request->hasBodyParam('change_copy')) {
-                [$GLOBALS['sql_query'], $GLOBALS['message']] = $serverPrivileges->deleteUser($queries);
+                [Current::$sqlQuery, $GLOBALS['message']] = $serverPrivileges->deleteUser($queries);
             }
         }
 
@@ -278,7 +279,7 @@ final class PrivilegesController implements InvocableController
         if ($request->hasBodyParam('change_copy')) {
             $queries = $serverPrivileges->getDataForQueries($queries, $queriesForDisplay);
             $GLOBALS['message'] = Message::success();
-            $GLOBALS['sql_query'] = implode("\n", $queries);
+            Current::$sqlQuery = implode("\n", $queries);
         }
 
         /**
@@ -305,7 +306,7 @@ final class PrivilegesController implements InvocableController
         ) {
             $extraData = $serverPrivileges->getExtraDataForAjaxBehavior(
                 $password ?? '',
-                $GLOBALS['sql_query'] ?? '',
+                Current::$sqlQuery,
                 $GLOBALS['hostname'] ?? '',
                 $GLOBALS['username'] ?? '',
                 ! is_array($databaseName) ? $databaseName : null,

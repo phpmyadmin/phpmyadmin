@@ -410,8 +410,8 @@ class Generator
         if ($sqlQuery === null) {
             if (! empty($GLOBALS['display_query'])) {
                 $sqlQuery = (string) $GLOBALS['display_query'];
-            } elseif (! empty($GLOBALS['sql_query'])) {
-                $sqlQuery = (string) $GLOBALS['sql_query'];
+            } elseif (Current::$sqlQuery !== '') {
+                $sqlQuery = Current::$sqlQuery;
             } else {
                 $sqlQuery = '';
             }
@@ -706,8 +706,8 @@ class Generator
         }
 
         // Finding the query that failed, if not specified.
-        if ($sqlQuery === '' && ! empty($GLOBALS['sql_query'])) {
-            $sqlQuery = $GLOBALS['sql_query'];
+        if ($sqlQuery === '' && Current::$sqlQuery !== '') {
+            $sqlQuery = Current::$sqlQuery;
         }
 
         $sqlQuery = trim($sqlQuery);

@@ -34,7 +34,7 @@ class ImportCsvTest extends AbstractTestCase
         $GLOBALS['error'] = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         $GLOBALS['message'] = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
@@ -113,11 +113,11 @@ class ImportCsvTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
         self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -153,11 +153,11 @@ class ImportCsvTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
         self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -197,12 +197,12 @@ class ImportCsvTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -248,7 +248,7 @@ class ImportCsvTest extends AbstractTestCase
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5));'
             . 'INSERT INTO `CSV_DB 1`.`db_test`'
             . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (\'123\', \'456\');',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -296,7 +296,7 @@ class ImportCsvTest extends AbstractTestCase
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`Row 1` int(3), `Row 2` int(3));'
             . 'INSERT INTO `CSV_DB 1`.`db_test`'
             . ' (`Row 1`, `Row 2`) VALUES (123, 456);',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
