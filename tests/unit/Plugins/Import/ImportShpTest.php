@@ -40,7 +40,7 @@ class ImportShpTest extends AbstractTestCase
         Current::$database = '';
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
@@ -139,7 +139,7 @@ class ImportShpTest extends AbstractTestCase
             . '13.7372661 51.0540944,'
             . '13.7370842 51.0541711,'
             . $endsWith,
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
     }
 
@@ -156,7 +156,7 @@ class ImportShpTest extends AbstractTestCase
 
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `SHP_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         // dbase extension will generate different sql statement
@@ -164,26 +164,23 @@ class ImportShpTest extends AbstractTestCase
             self::assertStringContainsString(
                 'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` '
                 . '(`SPATIAL` geometry, `ID` int(2), `AUTHORITY` varchar(25), `NAME` varchar(42));',
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
             );
 
             self::assertStringContainsString(
                 'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`, `ID`, `AUTHORITY`, `NAME`) VALUES',
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
             );
         } else {
             self::assertStringContainsString(
                 'CREATE TABLE IF NOT EXISTS `SHP_DB`.`TBL_NAME` (`SPATIAL` geometry)',
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
             );
 
-            self::assertStringContainsString(
-                'INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES',
-                $GLOBALS['sql_query'],
-            );
+            self::assertStringContainsString('INSERT INTO `SHP_DB`.`TBL_NAME` (`SPATIAL`) VALUES', Current::$sqlQuery);
         }
 
-        self::assertStringContainsString("GeomFromText('POINT(1294523.1759236", $GLOBALS['sql_query']);
+        self::assertStringContainsString("GeomFromText('POINT(1294523.1759236", Current::$sqlQuery);
 
         //assert that all databases and tables are imported
         $this->assertMessages(ImportSettings::$importNotice);

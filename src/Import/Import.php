@@ -137,7 +137,7 @@ class Import
         }
 
         if (! ImportSettings::$sqlQueryDisabled) {
-            $GLOBALS['sql_query'] .= ImportSettings::$message . "\n";
+            Current::$sqlQuery .= ImportSettings::$message . "\n";
         }
 
         // If a 'USE <db>' SQL-clause was found and the query
@@ -192,7 +192,7 @@ class Import
             mb_strlen($this->importRunBuffer),
         );
         if (! ImportSettings::$sqlQueryDisabled) {
-            $GLOBALS['sql_query'] .= $this->importRunBuffer;
+            Current::$sqlQuery .= $this->importRunBuffer;
         }
 
         ImportSettings::$executedQueries++;
@@ -201,14 +201,14 @@ class Import
             ImportSettings::$goSql = true;
 
             if (! ImportSettings::$sqlQueryDisabled) {
-                $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
-                $GLOBALS['display_query'] = $GLOBALS['sql_query'];
+                $GLOBALS['complete_query'] = Current::$sqlQuery;
+                $GLOBALS['display_query'] = Current::$sqlQuery;
             } else {
                 $GLOBALS['complete_query'] = '';
                 $GLOBALS['display_query'] = '';
             }
 
-            $GLOBALS['sql_query'] = $this->importRunBuffer;
+            Current::$sqlQuery = $this->importRunBuffer;
             $sqlData[] = $this->importRunBuffer;
         } elseif (ImportSettings::$runQuery) {
             /* Handle rollback from go_sql */
@@ -233,13 +233,13 @@ class Import
         // check length of query unless we decided to pass it to /sql
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
-        if (! ImportSettings::$goSql && ImportSettings::$runQuery && ! empty($GLOBALS['sql_query'])) {
+        if (! ImportSettings::$goSql && ImportSettings::$runQuery && Current::$sqlQuery !== '') {
             if (
-                mb_strlen($GLOBALS['sql_query']) > 50000
+                mb_strlen(Current::$sqlQuery) > 50000
                 || ImportSettings::$executedQueries > 50
                 || ImportSettings::$maxSqlLength > 1000
             ) {
-                $GLOBALS['sql_query'] = '';
+                Current::$sqlQuery = '';
                 ImportSettings::$sqlQueryDisabled = true;
             }
         }

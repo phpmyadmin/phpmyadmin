@@ -35,7 +35,7 @@ final class ReplacePrefixController implements InvocableController
         $fromPrefix = $request->getParsedBodyParamAsString('from_prefix', '');
         $toPrefix = $request->getParsedBodyParamAsString('to_prefix', '');
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         $this->dbi->selectDb(Current::$database);
 
@@ -51,13 +51,13 @@ final class ReplacePrefixController implements InvocableController
             $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue)
                 . ' RENAME ' . Util::backquote($newTableName);
 
-            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
         }
 
         $GLOBALS['message'] = Message::success();
 
-        $this->flashMessenger->addMessage('success', $GLOBALS['message']->getMessage(), $GLOBALS['sql_query']);
+        $this->flashMessenger->addMessage('success', $GLOBALS['message']->getMessage(), Current::$sqlQuery);
 
         return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
             ->withHeader('Location', Url::getFromRoute('/database/structure', ['db' => Current::$database]));

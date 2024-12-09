@@ -97,17 +97,17 @@ final class CreateController implements InvocableController
                 Current::$table = mb_strtolower(Current::$table);
             }
 
-            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery(Current::$database, Current::$table);
+            Current::$sqlQuery = $createAddField->getTableCreationQuery(Current::$database, Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
-                Core::previewSQL($GLOBALS['sql_query']);
+                Core::previewSQL(Current::$sqlQuery);
 
                 return $this->response->response();
             }
 
             // Executes the query
-            $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+            $result = $this->dbi->tryQuery(Current::$sqlQuery);
 
             if ($result !== false) {
                 // Update comment table for mime types [MIME]

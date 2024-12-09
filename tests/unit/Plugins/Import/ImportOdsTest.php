@@ -44,7 +44,7 @@ class ImportOdsTest extends AbstractTestCase
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         ImportSettings::$goSql = false;
         ImportSettings::$finished = false;
         ImportSettings::$readLimit = 100000000;
@@ -121,12 +121,12 @@ class ImportOdsTest extends AbstractTestCase
 
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ODS_DB` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
-        self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`', $GLOBALS['sql_query']);
+        self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `ODS_DB`.`pma_bookmark`', Current::$sqlQuery);
         self::assertStringContainsString(
             'INSERT INTO `ODS_DB`.`pma_bookmark` (`A`, `B`, `C`, `D`) VALUES (1, \'dbbase\', NULL, \'ddd\');',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         //assert that all databases and tables are imported
@@ -240,7 +240,7 @@ class ImportOdsTest extends AbstractTestCase
              . ' (\'12\')'
              . ($odsEmptyRowsMode !== null ? '' : ',' . "\n" . ' (NULL)')
              . ($odsEmptyRowsMode !== null ? ';' : ',' . "\n" . ' (NULL);'),
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         //assert that all databases and tables are imported

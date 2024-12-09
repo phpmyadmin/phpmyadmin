@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\ListDatabase;
@@ -1368,9 +1369,9 @@ class TableTest extends AbstractTestCase
         $sqlQuery = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
-        self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringContainsString($sqlQuery, Current::$sqlQuery);
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
-        self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringContainsString($sqlQuery, Current::$sqlQuery);
 
         $return = $object->moveCopy(
             $sourceDb,
@@ -1387,9 +1388,9 @@ class TableTest extends AbstractTestCase
         $sqlQuery = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
-        self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringContainsString($sqlQuery, Current::$sqlQuery);
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
-        self::assertStringNotContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringNotContainsString($sqlQuery, Current::$sqlQuery);
 
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
@@ -1435,16 +1436,16 @@ class TableTest extends AbstractTestCase
                 'utf8mb4_unicode_ci',
             ]);
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         $return = $object->moveCopy('aa', 'ad', 'bb', 'ad', MoveScope::Move, MoveMode::WholeDatabase, true);
         self::assertTrue($return);
-        self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
+        self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', Current::$sqlQuery);
         self::assertStringContainsString(
             'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
             ' SQL SECURITY DEFINER VIEW `bb`.`ad`  AS SELECT `bb`.`ac` AS `ac` FROM `bb` ;',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
-        self::assertStringContainsString('DROP VIEW `aa`.`ad`;', $GLOBALS['sql_query']);
+        self::assertStringContainsString('DROP VIEW `aa`.`ad`;', Current::$sqlQuery);
     }
 
     /**

@@ -104,22 +104,22 @@ final class PrimaryController implements InvocableController
         }
 
         if ($deletionConfirmed === __('Yes') || ! $hasPrimary) {
-            $GLOBALS['sql_query'] = 'ALTER TABLE ' . Util::backquote(Current::$table);
+            Current::$sqlQuery = 'ALTER TABLE ' . Util::backquote(Current::$table);
             if ($hasPrimary) {
-                $GLOBALS['sql_query'] .= ' DROP PRIMARY KEY,';
+                Current::$sqlQuery .= ' DROP PRIMARY KEY,';
             }
 
-            $GLOBALS['sql_query'] .= ' ADD PRIMARY KEY(';
+            Current::$sqlQuery .= ' ADD PRIMARY KEY(';
 
             $i = 1;
             $selectedCount = count($selected);
             foreach ($selected as $field) {
-                $GLOBALS['sql_query'] .= Util::backquote($field);
-                $GLOBALS['sql_query'] .= $i++ === $selectedCount ? ');' : ', ';
+                Current::$sqlQuery .= Util::backquote($field);
+                Current::$sqlQuery .= $i++ === $selectedCount ? ');' : ', ';
             }
 
             $this->dbi->selectDb(Current::$database);
-            $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+            $result = $this->dbi->tryQuery(Current::$sqlQuery);
 
             if (! $result) {
                 $GLOBALS['message'] = Message::error($this->dbi->getError());

@@ -21,7 +21,7 @@ class DeleteConfirmControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['sql_query'] = 'SELECT * FROM `test_db`.`test_table`';
+        Current::$sqlQuery = 'SELECT * FROM `test_db`.`test_table`';
         $_POST = [
             'db' => 'test_db',
             'table' => 'test_table',

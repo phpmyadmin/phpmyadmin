@@ -76,7 +76,7 @@ abstract class AbstractTestCase extends TestCase
         Current::$server = 1;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         // Config before DBI
         $this->setGlobalConfig();

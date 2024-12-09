@@ -928,7 +928,7 @@ class Sql
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, $numRows);
         }
 
-        $queryMessage = Generator::getMessage($message, $GLOBALS['sql_query'], MessageType::Success);
+        $queryMessage = Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
 
         if (isset($GLOBALS['show_as_php'])) {
             return $queryMessage;
@@ -1566,7 +1566,7 @@ class Sql
 
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);
 
-            return Generator::getMessage($message, $GLOBALS['sql_query'], MessageType::Success);
+            return Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
         }
 
         // Handle disable/enable foreign key checks

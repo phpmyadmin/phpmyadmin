@@ -26,7 +26,7 @@ final class AddPrefixTableController implements InvocableController
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         $this->dbi->selectDb(Current::$database);
 
@@ -34,7 +34,7 @@ final class AddPrefixTableController implements InvocableController
             $newTableName = $request->getParsedBodyParamAsString('add_prefix', '') . $selectedValue;
             $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue) . ' RENAME ' . Util::backquote($newTableName);
 
-            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
         }
 

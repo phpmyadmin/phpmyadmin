@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Table;
 
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Message;
@@ -82,7 +83,7 @@ class TableMover
                 $mode,
             );
         } else {
-            $GLOBALS['sql_query'] = '';
+            Current::$sqlQuery = '';
         }
 
         $table = new Table($targetTable, $targetDb, $this->dbi);
@@ -335,7 +336,7 @@ class TableMover
         }
 
         $this->dbi->query($sqlStructure);
-        $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
+        Current::$sqlQuery .= "\n" . $sqlStructure;
     }
 
     private function executeDropIfExists(string $targetTable, string $targetDb, Expression $destination): void
@@ -353,7 +354,7 @@ class TableMover
         $dropQuery = $statement->build() . ';';
 
         $this->dbi->query($dropQuery);
-        $GLOBALS['sql_query'] .= "\n" . $dropQuery;
+        Current::$sqlQuery .= "\n" . $dropQuery;
     }
 
     private function createIndexes(string $sql, Expression $destination): void
@@ -387,7 +388,7 @@ class TableMover
             $sqlIndexes .= $sqlIndex;
         }
 
-        $GLOBALS['sql_query'] .= "\n" . $sqlIndexes;
+        Current::$sqlQuery .= "\n" . $sqlIndexes;
     }
 
     private function executeAlterAutoIncrement(string $sql, Expression $destination): void
@@ -408,7 +409,7 @@ class TableMover
         $query = $statement->build() . ';';
 
         $this->dbi->query($query);
-        $GLOBALS['sql_query'] .= "\n" . $query;
+        Current::$sqlQuery .= "\n" . $query;
     }
 
     private function dropOldStructure(string $sourceDb, string $sourceTable): void
@@ -423,14 +424,14 @@ class TableMover
         $sqlDropQuery .= Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
         $this->dbi->query($sqlDropQuery);
 
-        $GLOBALS['sql_query'] .= "\n\n" . $sqlDropQuery . ';';
+        Current::$sqlQuery .= "\n\n" . $sqlDropQuery . ';';
     }
 
     private function copyData(string $sourceDb, string $sourceTable, string $targetDb, string $targetTable): void
     {
         $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
         $this->dbi->query($sqlSetMode);
-        $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
+        Current::$sqlQuery .= "\n\n" . $sqlSetMode . ';';
 
         $oldTable = new Table($sourceTable, $sourceDb, $this->dbi);
         $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
@@ -444,7 +445,7 @@ class TableMover
             . ' FROM ' . Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
 
         $this->dbi->query($sqlInsertData);
-        $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
+        Current::$sqlQuery .= "\n\n" . $sqlInsertData . ';';
     }
 
     private function handleStructureCreation(
@@ -522,7 +523,7 @@ class TableMover
                 $destination,
             );
 
-            $GLOBALS['sql_query'] .= "\n" . $this->sqlConstraintsQuery;
+            Current::$sqlQuery .= "\n" . $this->sqlConstraintsQuery;
 
             // We can only execute it if both tables have been created.
             // When performing the whole database move,

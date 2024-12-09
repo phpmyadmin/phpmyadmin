@@ -86,7 +86,7 @@ final class DeleteConfirmController implements InvocableController
             'db' => Current::$database,
             'table' => Current::$table,
             'selected' => $selected,
-            'sql_query' => $GLOBALS['sql_query'],
+            'sql_query' => Current::$sqlQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
 

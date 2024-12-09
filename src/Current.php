@@ -10,4 +10,5 @@ final class Current
     public static int $server = 0;
     public static string $database = '';
     public static string $table = '';
+    public static string $sqlQuery = '';
 }

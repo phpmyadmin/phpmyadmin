@@ -297,8 +297,8 @@ class ResponseRenderer
             // (this is for the bottom console)
             $query = '';
             $maxChars = $this->config->settings['MaxCharactersInDisplayedSQL'];
-            if (isset($GLOBALS['sql_query']) && mb_strlen($GLOBALS['sql_query']) < $maxChars) {
-                $query = $GLOBALS['sql_query'];
+            if (mb_strlen(Current::$sqlQuery) < $maxChars) {
+                $query = Current::$sqlQuery;
             }
 
             $this->addJSON(

@@ -60,7 +60,7 @@ final class ChartController implements InvocableController
         }
 
         // Throw error if no sql query is set
-        if (! isset($GLOBALS['sql_query']) || $GLOBALS['sql_query'] == '') {
+        if (Current::$sqlQuery === '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
@@ -155,7 +155,7 @@ final class ChartController implements InvocableController
             }
         }
 
-        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+        $result = $this->dbi->tryQuery(Current::$sqlQuery);
         $fieldsMeta = $row = [];
         if ($result !== false) {
             $fieldsMeta = $this->dbi->getFieldsMeta($result);
@@ -189,7 +189,7 @@ final class ChartController implements InvocableController
         $urlParams['db'] = Current::$database;
         $urlParams['reload'] = 1;
 
-        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($GLOBALS['sql_query']);
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData(Current::$sqlQuery);
 
         /**
          * Displays the page
@@ -236,7 +236,7 @@ final class ChartController implements InvocableController
             }
         }
 
-        $parser = new Parser($GLOBALS['sql_query']);
+        $parser = new Parser(Current::$sqlQuery);
         /** @var SelectStatement $statement */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {

@@ -1257,9 +1257,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/Structure/EmptyFormController.php">
     <PossiblyUnusedMethod>
@@ -1502,9 +1499,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$dbSelect]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -1646,9 +1640,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
     </PossiblyInvalidArgument>
@@ -1668,9 +1659,6 @@
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
     </PossiblyInvalidCast>
@@ -1848,7 +1836,6 @@
       <code><![CDATA[$request->getParsedBodyParamAsString('import_type', '')]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedProperty>
@@ -2079,9 +2066,6 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['message_to_show'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
       <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
@@ -2781,10 +2765,7 @@
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -2796,12 +2777,13 @@
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code><![CDATA[$bkmAllUsers]]></code>
       <code><![CDATA[$sqlQuery]]></code>
-      <code><![CDATA[$sqlQuery]]></code>
     </MixedAssignment>
+    <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
+    </PossiblyNullArgument>
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">
     <InvalidArrayOffset>
@@ -2908,6 +2890,9 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$sqlQuery]]></code>
+    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
@@ -3071,7 +3056,6 @@
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($GLOBALS['where_clause'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -3447,7 +3431,6 @@
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['query'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($mimeMap[$columnName]['input_transformation'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -3934,7 +3917,6 @@
       <code><![CDATA[$view['name']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
       <code><![CDATA[$db]]></code>
       <code><![CDATA[$table]]></code>
     </MixedAssignment>
@@ -6031,7 +6013,6 @@
     </PossiblyUndefinedArrayOffset>
     <RedundantCast>
       <code><![CDATA[(string) $GLOBALS['display_query']]]></code>
-      <code><![CDATA[(string) $GLOBALS['sql_query']]]></code>
     </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
@@ -6044,8 +6025,6 @@
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
       <code><![CDATA[empty($server['socket'])]]></code>
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -6076,7 +6055,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_query']]]></code>
+      <code><![CDATA[Current::$sqlQuery]]></code>
     </MixedArgument>
   </file>
   <file src="src/Http/Middleware/TokenRequestParamChecking.php">
@@ -6187,7 +6166,6 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[ImportSettings::$runQuery]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_query'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Index.php">

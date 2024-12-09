@@ -126,10 +126,6 @@ final class ExportController implements InvocableController
             ];
         }
 
-        if (! isset($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] = '';
-        }
-
         if (! isset($GLOBALS['unlim_num_rows'])) {
             $GLOBALS['unlim_num_rows'] = 0;
         }
@@ -157,7 +153,7 @@ final class ExportController implements InvocableController
             $exportType,
             Current::$database,
             Current::$table,
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],
             $exportList,

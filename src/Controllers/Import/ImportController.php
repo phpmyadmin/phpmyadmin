@@ -89,7 +89,7 @@ final class ImportController implements InvocableController
         $GLOBALS['import_text'] = '';
         // Are we just executing plain query or sql file?
         // (eg. non import, but query box/window run)
-        if (! empty($GLOBALS['sql_query'])) {
+        if (Current::$sqlQuery !== '') {
             // apply values for parameters
             /** @var array<string, string>|null $parameters */
             $parameters = $request->getParsedBodyParam('parameters');
@@ -101,22 +101,22 @@ final class ImportController implements InvocableController
 
                     $quoted = preg_quote($parameter, '/');
                     // making sure that :param does not apply values to :param1
-                    $GLOBALS['sql_query'] = preg_replace(
+                    Current::$sqlQuery = preg_replace(
                         '/' . $quoted . '([^a-zA-Z0-9_])/',
                         $replacementValue . '${1}',
-                        $GLOBALS['sql_query'],
-                    );
-                    // for parameters the appear at the end of the string
-                    $GLOBALS['sql_query'] = preg_replace(
+                        Current::$sqlQuery,
+                    ) ?? '';
+                    // for parameters that appear at the end of the string
+                    Current::$sqlQuery = preg_replace(
                         '/' . $quoted . '$/',
                         $replacementValue,
-                        $GLOBALS['sql_query'],
-                    );
+                        Current::$sqlQuery,
+                    ) ?? '';
                 }
             }
 
             // run SQL query
-            $GLOBALS['import_text'] = $GLOBALS['sql_query'];
+            $GLOBALS['import_text'] = Current::$sqlQuery;
             ImportSettings::$importType = 'query';
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
@@ -127,13 +127,13 @@ final class ImportController implements InvocableController
             }
 
             // refresh navigation and main panels
-            if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['sql_query']) === 1) {
+            if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
                 $GLOBALS['reload'] = true;
                 $GLOBALS['ajax_reload']['reload'] = true;
             }
 
             // refresh navigation panel only
-            if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['sql_query']) === 1) {
+            if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
                 $GLOBALS['ajax_reload']['reload'] = true;
             }
 
@@ -142,7 +142,7 @@ final class ImportController implements InvocableController
             if (
                 preg_match(
                     '/^RENAME\s+TABLE\s+(.*?)\s+TO\s+(.*?)($|;|\s)/i',
-                    $GLOBALS['sql_query'],
+                    Current::$sqlQuery,
                     $renameTableNames,
                 ) === 1
             ) {
@@ -150,7 +150,7 @@ final class ImportController implements InvocableController
                 $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($renameTableNames[2]);
             }
 
-            $GLOBALS['sql_query'] = '';
+            Current::$sqlQuery = '';
         } elseif ($request->hasBodyParam('id_bookmark')) {
             // run bookmark
             ImportSettings::$importType = 'query';
@@ -247,7 +247,7 @@ final class ImportController implements InvocableController
         ImportSettings::$finished = false;
         ImportSettings::$offset = 0;
         ImportSettings::$maxSqlLength = 0;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         ImportSettings::$sqlQueryDisabled = false;
         ImportSettings::$goSql = false;
         ImportSettings::$executedQueries = 0;
@@ -590,10 +590,10 @@ final class ImportController implements InvocableController
         // in case of a query typed in the query window
         // (but if the query is too large, in case of an imported file, the parser
         //  can choke on it so avoid parsing)
-        $sqlLength = mb_strlen($GLOBALS['sql_query']);
+        $sqlLength = mb_strlen(Current::$sqlQuery);
         if ($sqlLength <= $config->settings['MaxCharactersInDisplayedSQL']) {
             [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
                 Current::$database,
             );
 
@@ -611,15 +611,15 @@ final class ImportController implements InvocableController
 
         if (ImportSettings::$goSql) {
             if ($queriesToBeExecuted === []) {
-                $queriesToBeExecuted = [$GLOBALS['sql_query']];
+                $queriesToBeExecuted = [Current::$sqlQuery];
             }
 
             $htmlOutput = '';
 
-            foreach ($queriesToBeExecuted as $GLOBALS['sql_query']) {
+            foreach ($queriesToBeExecuted as Current::$sqlQuery) {
                 // parse sql query
                 [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
-                    $GLOBALS['sql_query'],
+                    Current::$sqlQuery,
                     Current::$database,
                 );
 
@@ -657,7 +657,7 @@ final class ImportController implements InvocableController
                     UrlParams::$goto, // goto
                     null, // disp_query
                     null, // disp_message
-                    $GLOBALS['sql_query'], // sql_query
+                    Current::$sqlQuery,
                     null, // complete_query
                 );
             }
@@ -710,7 +710,7 @@ final class ImportController implements InvocableController
             $this->response->addJSON('message', Message::success(ImportSettings::$message));
             $this->response->addJSON(
                 'sql_query',
-                Generator::getMessage(ImportSettings::$message, $GLOBALS['sql_query'], MessageType::Success),
+                Generator::getMessage(ImportSettings::$message, Current::$sqlQuery, MessageType::Success),
             );
         } elseif ($GLOBALS['result'] === false) {
             $this->response->setRequestStatus(false);

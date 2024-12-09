@@ -42,7 +42,7 @@ final class DropTableController implements InvocableController
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         $sqlQueryViews = '';
 
         foreach ($selected as $selectedValue) {
@@ -51,17 +51,17 @@ final class DropTableController implements InvocableController
             if ($this->dbi->getTable(Current::$database, $selectedValue)->isView()) {
                 $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($selectedValue);
             } else {
-                $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
+                Current::$sqlQuery .= (Current::$sqlQuery === '' ? 'DROP TABLE ' : ', ')
                     . Util::backquote($selectedValue);
             }
 
             $GLOBALS['reload'] = 1;
         }
 
-        if (! empty($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] .= ';';
+        if (Current::$sqlQuery !== '') {
+            Current::$sqlQuery .= ';';
         } elseif ($sqlQueryViews !== '') {
-            $GLOBALS['sql_query'] = $sqlQueryViews . ';';
+            Current::$sqlQuery = $sqlQueryViews . ';';
             $sqlQueryViews = '';
         }
 
@@ -79,14 +79,14 @@ final class DropTableController implements InvocableController
         $GLOBALS['message'] = Message::success();
 
         $this->dbi->selectDb(Current::$database);
-        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+        $result = $this->dbi->tryQuery(Current::$sqlQuery);
 
         if (! $result) {
             $GLOBALS['message'] = Message::error($this->dbi->getError());
         }
 
         if ($result && $sqlQueryViews !== '') {
-            $GLOBALS['sql_query'] .= ' ' . $sqlQueryViews . ';';
+            Current::$sqlQuery .= ' ' . $sqlQueryViews . ';';
             $result = $this->dbi->tryQuery($sqlQueryViews);
             unset($sqlQueryViews);
         }

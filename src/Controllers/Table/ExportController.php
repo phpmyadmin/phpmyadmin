@@ -64,8 +64,8 @@ class ExportController implements InvocableController
         // When we have some query, we need to remove LIMIT from that and possibly
         // generate WHERE clause (if we are asked to export specific rows)
 
-        if (! empty($GLOBALS['sql_query'])) {
-            $parser = new Parser($GLOBALS['sql_query']);
+        if (Current::$sqlQuery !== '') {
+            $parser = new Parser(Current::$sqlQuery);
 
             if (! empty($parser->statements[0]) && $parser->statements[0] instanceof SelectStatement) {
                 // Checking if the WHERE clause has to be replaced.
@@ -78,12 +78,8 @@ class ExportController implements InvocableController
                 $replaces[] = ['LIMIT', ''];
 
                 // Replacing the clauses.
-                $GLOBALS['sql_query'] = Query::replaceClauses($parser->statements[0], $parser->list, $replaces);
+                Current::$sqlQuery = Query::replaceClauses($parser->statements[0], $parser->list, $replaces);
             }
-        }
-
-        if (! isset($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] = '';
         }
 
         if (! isset($GLOBALS['num_tables'])) {
@@ -116,7 +112,7 @@ class ExportController implements InvocableController
             $exportType,
             Current::$database,
             Current::$table,
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             $GLOBALS['num_tables'],
             $GLOBALS['unlim_num_rows'],
             $exportList,

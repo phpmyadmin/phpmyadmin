@@ -57,7 +57,7 @@ final class DatabaseController implements InvocableController
 
         $this->response->addScriptFiles(['database/operations.js']);
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         /**
          * Rename/move or copy database
@@ -159,7 +159,7 @@ final class DatabaseController implements InvocableController
 
                         // if someday the RENAME DATABASE reappears, do not DROP
                         $localQuery = 'DROP DATABASE ' . Util::backquote(Current::$database) . ';';
-                        $GLOBALS['sql_query'] .= "\n" . $localQuery;
+                        Current::$sqlQuery .= "\n" . $localQuery;
                         $this->dbi->query($localQuery);
 
                         $GLOBALS['message'] = Message::success(
@@ -207,7 +207,7 @@ final class DatabaseController implements InvocableController
                 $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage('', $GLOBALS['sql_query']),
+                    Generator::getMessage('', Current::$sqlQuery),
                 );
                 $this->response->addJSON('db', Current::$database);
 
@@ -251,7 +251,7 @@ final class DatabaseController implements InvocableController
 
         $oldMessage = '';
         if (isset($GLOBALS['message'])) {
-            $oldMessage = Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query']);
+            $oldMessage = Generator::getMessage($GLOBALS['message'], Current::$sqlQuery);
             unset($GLOBALS['message']);
         }
 
