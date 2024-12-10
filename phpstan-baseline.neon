@@ -10774,12 +10774,6 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
-			message: '#^Call to an undefined method PhpMyAdmin\\Navigation\\Nodes\\Node\:\:setHiddenCount\(\)\.$#'
-			identifier: method.notFound
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
 			message: '#^Cannot access offset ''image'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
