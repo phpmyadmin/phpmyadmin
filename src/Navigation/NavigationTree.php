@@ -81,8 +81,8 @@ class NavigationTree
 {
     private const SPECIAL_NODE_NAMES = ['tables', 'views', 'functions', 'procedures', 'events'];
 
-    /** @var Node Reference to the root node of the tree */
-    private Node $tree;
+    /** @var NodeDatabaseContainer Reference to the root node of the tree */
+    private NodeDatabaseContainer $tree;
     /**
      * @var mixed[] The actual paths to all expanded nodes in the tree
      *            This does not include nodes created after the grouping
