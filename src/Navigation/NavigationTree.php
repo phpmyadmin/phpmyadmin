@@ -917,7 +917,7 @@ class NavigationTree
         if ($hasSearchClause && ! is_bool($node)) {
             $results = 0;
             if ($this->searchClause2 !== '') {
-                $parent = $node->realParent();
+                $parent = $node->getRealParent();
                 if ($parent instanceof Node) {
                     $results = $parent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
                 }
@@ -1268,7 +1268,7 @@ class NavigationTree
 
             $nodeIsSpecial = in_array($node->realName, self::SPECIAL_NODE_NAMES, true);
 
-            $realParent = $node->realParent();
+            $realParent = $node->getRealParent();
             if (
                 $nodeIsContainer && $nodeIsSpecial
                 && $realParent instanceof Node
@@ -1359,7 +1359,7 @@ class NavigationTree
             }
 
             /** @var Node $realParent */
-            $realParent = $node->realParent();
+            $realParent = $node->getRealParent();
             $num = $realParent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
             $retval .= Generator::getListNavigator(
                 $num,

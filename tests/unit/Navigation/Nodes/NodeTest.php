@@ -165,9 +165,9 @@ final class NodeTest extends AbstractTestCase
         $grandchild = new Node($config, 'grandchild');
         $parent->addChild($child);
         $child->addChild($grandchild);
-        self::assertFalse($parent->realParent());
-        self::assertSame($parent, $child->realParent());
-        self::assertSame($child, $grandchild->realParent());
+        self::assertFalse($parent->getRealParent());
+        self::assertSame($parent, $child->getRealParent());
+        self::assertSame($child, $grandchild->getRealParent());
     }
 
     public function testNodeHasChildren(): void
