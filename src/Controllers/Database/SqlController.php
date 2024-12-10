@@ -45,8 +45,8 @@ class SqlController implements InvocableController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

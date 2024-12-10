@@ -440,55 +440,19 @@ class ResponseRenderer
         $this->getHeader()->getScripts()->addFiles($files);
     }
 
-    /**
-     * Function added to avoid path disclosures.
-     * Called by each script that needs parameters.
-     *
-     * @param bool $request Check parameters in request
-     * @psalm-param non-empty-list<non-empty-string> $params The names of the parameters needed by the calling script
-     */
-    public function checkParameters(array $params, bool $request = false): bool
+    /** @param non-empty-string $param */
+    public function missingParameterError(string $param): Response
     {
-        $foundError = false;
-        $errorMessage = '';
-        $array = $request ? $_REQUEST : $GLOBALS;
+        $errorMessage =
+            __('Missing parameter:') . ' '
+            . $param
+            . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
+            . '[br]';
+        $this->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
+        $this->setRequestStatus(false);
+        $this->addHTML(Message::error($errorMessage)->getDisplay());
 
-        foreach ($params as $param) {
-            if (isset($array[$param]) && $array[$param] !== '') {
-                continue;
-            }
-
-            if (! $request && $param === 'server' && Current::$server > 0) {
-                continue;
-            }
-
-            if (! $request && $param === 'db' && Current::$database !== '') {
-                continue;
-            }
-
-            if (! $request && $param === 'table' && Current::$table !== '') {
-                continue;
-            }
-
-            if (! $request && $param === 'goto' && UrlParams::$goto !== '') {
-                continue;
-            }
-
-            $errorMessage .=
-                __('Missing parameter:') . ' '
-                . $param
-                . MySQLDocumentation::showDocumentation('faq', 'faqmissingparameters', true)
-                . '[br]';
-            $foundError = true;
-        }
-
-        if ($foundError) {
-            $this->setStatusCode(StatusCodeInterface::STATUS_BAD_REQUEST);
-            $this->setRequestStatus(false);
-            $this->addHTML(Message::error($errorMessage)->getDisplay());
-        }
-
-        return ! $foundError;
+        return $this->response();
     }
 
     /** @param array<string, mixed> $templateData */

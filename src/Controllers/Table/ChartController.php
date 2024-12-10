@@ -47,13 +47,6 @@ final class ChartController implements InvocableController
         $GLOBALS['errorUrl'] ??= null;
 
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            if (
-                Current::$table !== '' && Current::$database !== ''
-                && ! $this->response->checkParameters(['db', 'table'])
-            ) {
-                return $this->response->response();
-            }
-
             $this->ajax($request);
 
             return $this->response->response();
@@ -82,8 +75,8 @@ final class ChartController implements InvocableController
          * Runs common work
          */
         if (Current::$table !== '') {
-            if (! $this->response->checkParameters(['db', 'table'])) {
-                return $this->response->response();
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
             }
 
             $urlParams = ['db' => Current::$database, 'table' => Current::$table];
@@ -124,10 +117,6 @@ final class ChartController implements InvocableController
         } elseif (Current::$database !== '') {
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
-
-            if (! $this->response->checkParameters(['db'])) {
-                return $this->response->response();
-            }
 
             $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');

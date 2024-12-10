@@ -128,8 +128,8 @@ class SqlController implements InvocableController
 
             // set $goto to what will be displayed if query returns 0 rows
             UrlParams::$goto = '';
-        } elseif (! $this->response->checkParameters(['sql_query'], true)) {
-            return $this->response->response();
+        } elseif (Current::$sqlQuery === '') {
+            return $this->response->missingParameterError('sql_query');
         }
 
         /**

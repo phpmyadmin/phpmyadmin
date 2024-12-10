@@ -46,8 +46,12 @@ class SqlController implements InvocableController
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
         }
 
         $urlParams = ['db' => Current::$database, 'table' => Current::$table];

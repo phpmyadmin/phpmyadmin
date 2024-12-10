@@ -833,6 +833,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/DataDictionaryController.php">
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$relation]]></code>
     </MixedAssignment>
@@ -857,7 +860,11 @@
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
       <code><![CDATA[$request->getQueryParam('db')]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$position['dbName']]]></code>
       <code><![CDATA[$position['dbName']]]></code>
@@ -893,6 +900,15 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -954,7 +970,11 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -980,6 +1000,9 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
@@ -1036,7 +1059,18 @@
     <MixedArgument>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$routine['item_param_dir'][$routine['item_num_params'] - 1]]]></code>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
@@ -1163,6 +1197,12 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
@@ -1185,6 +1225,12 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
@@ -1317,6 +1363,13 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
@@ -1376,6 +1429,9 @@
       <code><![CDATA[$replicaInfo['Wild_Ignore_Table']]]></code>
       <code><![CDATA[$truename]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$currentTable['TABLE_NAME']]]></code>
       <code><![CDATA[$currentTable['TABLE_TYPE']]]></code>
@@ -1429,7 +1485,11 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('selected')]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
@@ -1490,8 +1550,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1674,10 +1732,6 @@
                     $filename,
                 )]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['output_charset_conversion']]]></code>
@@ -1692,6 +1746,8 @@
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['compression'] === 'gzip']]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/Export/TablesController.php">
@@ -2001,9 +2057,20 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+    </PossiblyInvalidArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2794,7 +2861,11 @@
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
+      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$urlParams]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
@@ -2891,9 +2962,11 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$sqlQuery]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
@@ -2920,11 +2993,15 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/CreateController.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Current::$database]]></code>
+    </ImplicitToStringCast>
     <MixedArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
@@ -2934,6 +3011,10 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$mimetype]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
@@ -2960,9 +3041,15 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3042,9 +3129,12 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
@@ -3052,6 +3142,11 @@
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
@@ -3090,6 +3185,9 @@
       <code><![CDATA[$row[1]]]></code>
       <code><![CDATA[$this->columnTypes[$i]]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[0]]]></code>
@@ -3110,9 +3208,24 @@
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+  </file>
+  <file src="src/Controllers/Table/GetFieldController.php">
+    <ImplicitToStringCast>
+      <code><![CDATA[Current::$database]]></code>
+    </ImplicitToStringCast>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$table]]></code>
+    </MixedArgument>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[Current::$database]]></code>
+    </PossiblyInvalidArgument>
   </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
     <DeprecatedMethod>
@@ -3120,6 +3233,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -3142,6 +3258,9 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
@@ -3153,6 +3272,11 @@
     <MixedMethodCall>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArrayOffset>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
       <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
@@ -3168,9 +3292,15 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3187,10 +3317,16 @@
       <code><![CDATA[$_POST['index']['columns']['names']]]></code>
       <code><![CDATA[$fields]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$fields]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['columns']]]></code>
       <code><![CDATA[$oldIndex]]></code>
@@ -3370,6 +3506,9 @@
       <code><![CDATA[$multiEditSalt[$key] ?? null]]></code>
       <code><![CDATA[$relationField]]></code>
       <code><![CDATA[$relationFieldValue]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$extraData['relations']]]></code>
@@ -3420,6 +3559,10 @@
     <MixedOperand>
       <code><![CDATA[$relationFieldValue]]></code>
     </MixedOperand>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+    </PossiblyInvalidArgument>
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </PossiblyInvalidArrayAssignment>
@@ -3444,9 +3587,15 @@
     <MixedArgument>
       <code><![CDATA[$foreignData->foreignField]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$isUnsigned]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['column']]]></code>
       <code><![CDATA[$selectedOperator]]></code>
@@ -3473,7 +3622,12 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$request->getQueryParam('sql_query', true)]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$urlParams]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
@@ -3548,9 +3702,15 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -3686,6 +3846,12 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$table]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$urlParams]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$attributes[$rownum]]]></code>
@@ -3728,10 +3894,23 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$version]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
+      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$entries]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
+    <MixedArrayOffset>
+      <code><![CDATA[$trackedTables[Current::$table]]]></code>
+      <code><![CDATA[$trackedTables[Current::$table]]]></code>
+    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$reportExportType]]></code>
@@ -3740,6 +3919,14 @@
       <code><![CDATA[$toggleActivation]]></code>
       <code><![CDATA[$version]]></code>
     </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[Current::$table]]></code>
+    </MixedOperand>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
   </file>
   <file src="src/Controllers/Table/ZoomSearchController.php">
     <DeprecatedMethod>
@@ -3756,11 +3943,19 @@
     <MixedArgument>
       <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$properties['type']]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$isUnsigned]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyFalseArgument>
       <code><![CDATA[$key]]></code>
     </PossiblyFalseArgument>
@@ -3836,6 +4031,18 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
     </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+      <code><![CDATA[Current::$database]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errors']]]></code>
@@ -3916,14 +4123,22 @@
       <code><![CDATA[$view['name']]]></code>
       <code><![CDATA[$view['name']]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[['db' => Current::$database]]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$db]]></code>
       <code><![CDATA[$table]]></code>
+      <code><![CDATA[UrlParams::$params['db']]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$view['as']]]></code>
       <code><![CDATA[$view['column_names']]]></code>
     </MixedOperand>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[UrlParams::$params]]></code>
+      <code><![CDATA[UrlParams::$params]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>

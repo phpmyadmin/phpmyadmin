@@ -44,23 +44,13 @@ final class CreateController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $cfg = $this->config->settings;
-
-        /* Check if database name is empty */
-        if (Current::$database === '') {
-            Generator::mysqlDie(
-                __('The database name is empty!'),
-                '',
-                false,
-                'index.php',
-            );
-        }
 
         /**
          * Selects the database to work with
@@ -145,8 +135,8 @@ final class CreateController implements InvocableController
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->response->checkParameters(['server', 'db'])) {
-            return $this->response->response();
+        if (Current::$server === 0) {
+            return $this->response->missingParameterError('server');
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);

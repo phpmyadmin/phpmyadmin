@@ -30,8 +30,8 @@ final class DataDictionaryController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db'], true)) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $relationParameters = $this->relation->getRelationParameters();

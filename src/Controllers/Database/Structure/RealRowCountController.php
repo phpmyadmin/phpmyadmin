@@ -40,8 +40,8 @@ final class RealRowCountController implements InvocableController
             'table' => $_REQUEST['table'] ?? null,
         ];
 
-        if (! $this->response->checkParameters(['db'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $GLOBALS['errorUrl'] = Util::getScriptNameForOption(

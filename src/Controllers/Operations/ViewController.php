@@ -45,8 +45,12 @@ final class ViewController implements InvocableController
         $GLOBALS['errorUrl'] ??= null;
         $this->response->addScriptFiles(['table/operations.js']);
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return $this->response->response();
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
         }
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
