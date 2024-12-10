@@ -10764,24 +10764,12 @@ parameters:
 		-
 			message: '#^Access to an undefined property PhpMyAdmin\\Navigation\\Nodes\\Node\:\:\$secondIcon\.$#'
 			identifier: property.notFound
-			count: 2
+			count: 1
 			path: src/Navigation/NavigationTree.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Cannot access offset ''image'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Navigation/NavigationTree.php
-
-		-
-			message: '#^Cannot access offset ''title'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Navigation/NavigationTree.php
 
