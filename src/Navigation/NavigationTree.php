@@ -1145,6 +1145,7 @@ class NavigationTree
 
         return $this->template->render('navigation/tree/node', [
             'node' => $node,
+            'displayName' => $node instanceof NodeColumn ? $node->displayName : $node->realName,
             'class' => $class,
             'show_node' => $showNode,
             'has_siblings' => $node->hasSiblings(),
