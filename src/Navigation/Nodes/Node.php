@@ -59,10 +59,10 @@ class Node
      */
     public array $children = [];
     /**
-     * @var mixed A string used to group nodes, or an array of strings
+     * @var string[] A string used to group nodes, or an array of strings
      *            Only relevant if the node is of type CONTAINER
      */
-    public mixed $separator = '';
+    public array $separators = [];
     /**
      * @var int How many time to recursively apply the grouping function
      *          Only relevant if the node is of type CONTAINER
@@ -106,9 +106,6 @@ class Node
      *          the branch at the third level of the tree
      */
     public int $pos3 = 0;
-
-    /** @var string $displayName  display name for the navigation tree */
-    public string|null $displayName = null;
 
     public string|null $urlParamName = null;
 
@@ -171,17 +168,13 @@ class Node
      */
     public function getChild(string $name, bool $realName = false): Node|null
     {
-        if ($realName) {
-            foreach ($this->children as $child) {
+        foreach ($this->children as $child) {
+            if ($realName) {
                 if ($child->realName === $name) {
                     return $child;
                 }
-            }
-        } else {
-            foreach ($this->children as $child) {
-                if ($child->name === $name && ! $child->isNew) {
-                    return $child;
-                }
+            } elseif ($child->name === $name && ! $child->isNew) {
+                return $child;
             }
         }
 
@@ -210,20 +203,12 @@ class Node
      * @param bool $containers Whether to include nodes of type CONTAINER
      * @param bool $groups     Whether to include nodes which have $group == true
      *
-     * @return Node[] An array of parent Nodes
+     * @return list<Node> An array of parent Nodes
      */
     public function parents(bool $self = false, bool $containers = false, bool $groups = false): array
     {
         $parents = [];
-        if ($self && ($this->type !== NodeType::Container || $containers) && (! $this->isGroup || $groups)) {
-            $parents[] = $this;
-        }
-
-        $parent = $this->parent;
-        if ($parent === null) {
-            /** @infection-ignore-all */
-            return $parents;
-        }
+        $parent = $self ? $this : $this->parent;
 
         while ($parent !== null) {
             if (($parent->type !== NodeType::Container || $containers) && (! $parent->isGroup || $groups)) {
@@ -241,14 +226,19 @@ class Node
      * node, it will return the table and database nodes. The names of the returned
      * nodes can be used in SQL queries, etc...
      */
-    public function realParent(): Node|false
+    public function getRealParent(): Node|false
     {
-        $retval = $this->parents();
-        if (count($retval) <= 0) {
-            return false;
+        $parent = $this->parent;
+
+        while ($parent !== null) {
+            if ($parent->type !== NodeType::Container && ! $parent->isGroup) {
+                return $parent;
+            }
+
+            $parent = $parent->parent;
         }
 
-        return $retval[0];
+        return false;
     }
 
     /**
@@ -298,25 +288,6 @@ class Node
         }
 
         return false;
-    }
-
-    /**
-     * Returns the number of child nodes that a node has associated with it
-     *
-     * @return int The number of children nodes
-     */
-    public function numChildren(): int
-    {
-        $retval = 0;
-        foreach ($this->children as $child) {
-            if ($child->type === NodeType::Object) {
-                $retval++;
-            } else {
-                $retval += $child->numChildren();
-            }
-        }
-
-        return $retval;
     }
 
     /**

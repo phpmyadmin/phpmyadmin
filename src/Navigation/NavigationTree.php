@@ -56,10 +56,7 @@ use function explode;
 use function floor;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function is_bool;
-use function is_object;
-use function is_string;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -84,8 +81,8 @@ class NavigationTree
 {
     private const SPECIAL_NODE_NAMES = ['tables', 'views', 'functions', 'procedures', 'events'];
 
-    /** @var Node Reference to the root node of the tree */
-    private Node $tree;
+    /** @var NodeDatabaseContainer Reference to the root node of the tree */
+    private NodeDatabaseContainer $tree;
     /**
      * @var mixed[] The actual paths to all expanded nodes in the tree
      *            This does not include nodes created after the grouping
@@ -211,15 +208,6 @@ class NavigationTree
 
         // Initialize the tree by creating a root node
         $this->tree = new NodeDatabaseContainer($this->config, 'root');
-        if (
-            ! $this->config->settings['NavigationTreeEnableGrouping']
-            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
-        ) {
-            return;
-        }
-
-        $this->tree->separator = $this->config->settings['NavigationTreeDbSeparator'];
-        $this->tree->separatorDepth = 10000;
     }
 
     /**
@@ -676,18 +664,11 @@ class NavigationTree
             return;
         }
 
-        $separators = [];
-        if (is_array($node->separator)) {
-            $separators = $node->separator;
-        } elseif (is_string($node->separator) && $node->separator !== '') {
-            $separators[] = $node->separator;
-        }
-
         $prefixes = [];
         if ($node->separatorDepth > 0) {
             foreach ($node->children as $child) {
                 $prefixPos = false;
-                foreach ($separators as $separator) {
+                foreach ($node->separators as $separator) {
                     $sepPos = mb_strpos($child->name, $separator);
                     if (
                         $sepPos === false
@@ -771,7 +752,7 @@ class NavigationTree
             }
 
             $newChildren = [];
-            foreach ($separators as $separator) {
+            foreach ($node->separators as $separator) {
                 $separatorLength = strlen($separator);
                 // FIXME: this could be more efficient
                 foreach ($node->children as $child) {
@@ -785,7 +766,11 @@ class NavigationTree
                     }
 
                     $newChild = new $child($this->config, mb_substr($child->name, $keySeparatorLength));
-                    if ($child instanceof NodeDatabase && $child->getHiddenCount() > 0) {
+                    if (
+                        $child instanceof NodeDatabase
+                        && $newChild instanceof NodeDatabase
+                        && $child->getHiddenCount() > 0
+                    ) {
                         $newChild->setHiddenCount($child->getHiddenCount());
                     }
 
@@ -810,8 +795,8 @@ class NavigationTree
             // and the new group contains all of the current node's children, combine them
             $class = $node::class;
             if (count($newChildren) === $numChildren && substr($class, strrpos($class, '\\') + 1) === 'Node') {
-                $node->name .= $separators[0] . htmlspecialchars((string) $key);
-                $node->realName .= $separators[0] . htmlspecialchars((string) $key);
+                $node->name .= $node->separators[0] . htmlspecialchars((string) $key);
+                $node->realName .= $node->separators[0] . htmlspecialchars((string) $key);
                 $node->separatorDepth--;
                 foreach ($newChildren as $newChild) {
                     $node->removeChild($newChild['replaces_name']);
@@ -819,7 +804,7 @@ class NavigationTree
                 }
             } else {
                 $groups[$key] = new Node($this->config, (string) $key, NodeType::Container, true);
-                $groups[$key]->separator = $node->separator;
+                $groups[$key]->separators = $node->separators;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
                 $groups[$key]->icon = ['image' => 'b_group', 'title' => __('Groups')];
                 $groups[$key]->pos2 = $node->pos2;
@@ -918,9 +903,9 @@ class NavigationTree
         if ($hasSearchClause && ! is_bool($node)) {
             $results = 0;
             if ($this->searchClause2 !== '') {
-                if (is_object($node->realParent())) {
-                    $results = $node->realParent()
-                        ->getPresence($userPrivileges, $node->realName, $this->searchClause2);
+                $parent = $node->getRealParent();
+                if ($parent instanceof Node) {
+                    $results = $parent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
                 }
             } else {
                 $results = $this->tree->getPresence($userPrivileges, 'databases', $this->searchClause);
@@ -1095,7 +1080,7 @@ class NavigationTree
                     'title' => $node->icon['title'],
                 ];
 
-                if (isset($node->links['second_icon'], $node->secondIcon)) {
+                if ($node instanceof NodeTable && isset($node->links['second_icon'], $node->secondIcon)) {
                     $iconLinks[] = [
                         'route' => $node->links['second_icon']['route'],
                         'params' => array_merge(
@@ -1146,6 +1131,7 @@ class NavigationTree
 
         return $this->template->render('navigation/tree/node', [
             'node' => $node,
+            'displayName' => $node instanceof NodeColumn ? $node->displayName : $node->realName,
             'class' => $class,
             'show_node' => $showNode,
             'has_siblings' => $node->hasSiblings(),
@@ -1269,7 +1255,7 @@ class NavigationTree
 
             $nodeIsSpecial = in_array($node->realName, self::SPECIAL_NODE_NAMES, true);
 
-            $realParent = $node->realParent();
+            $realParent = $node->getRealParent();
             if (
                 $nodeIsContainer && $nodeIsSpecial
                 && $realParent instanceof Node
@@ -1360,7 +1346,7 @@ class NavigationTree
             }
 
             /** @var Node $realParent */
-            $realParent = $node->realParent();
+            $realParent = $node->getRealParent();
             $num = $realParent->getPresence($userPrivileges, $node->realName, $this->searchClause2);
             $retval .= Generator::getListNavigator(
                 $num,

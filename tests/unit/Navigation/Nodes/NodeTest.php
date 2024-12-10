@@ -165,9 +165,9 @@ final class NodeTest extends AbstractTestCase
         $grandchild = new Node($config, 'grandchild');
         $parent->addChild($child);
         $child->addChild($grandchild);
-        self::assertFalse($parent->realParent());
-        self::assertSame($parent, $child->realParent());
-        self::assertSame($child, $grandchild->realParent());
+        self::assertFalse($parent->getRealParent());
+        self::assertSame($parent, $child->getRealParent());
+        self::assertSame($child, $grandchild->getRealParent());
     }
 
     public function testNodeHasChildren(): void
@@ -249,29 +249,6 @@ final class NodeTest extends AbstractTestCase
         self::assertFalse($grandchild->hasSiblings());
         // Should return true for node that are three levels deeps
         self::assertTrue($greatGrandchild->hasSiblings());
-    }
-
-    public function testNumChildren(): void
-    {
-        $config = new Config();
-        $parent = new Node($config, 'parent');
-        self::assertSame(0, $parent->numChildren());
-        $child = new Node($config, 'child one');
-        $parent->addChild($child);
-        self::assertSame(1, $parent->numChildren());
-        // add a direct grandchild, this one doesn't count as it's not enclosed in a CONTAINER
-        $child->addChild(new Node($config, 'child two'));
-        self::assertSame(1, $parent->numChildren());
-        // add a container, this one doesn't count wither
-        $container = new Node($config, 'container', NodeType::Container);
-        $parent->addChild($container);
-        self::assertSame(1, $parent->numChildren());
-        // add a grandchild to container, this one counts
-        $container->addChild(new Node($config, 'child three'));
-        self::assertSame(2, $parent->numChildren());
-        // add another grandchild to container, this one counts
-        $container->addChild(new Node($config, 'child four'));
-        self::assertSame(3, $parent->numChildren());
     }
 
     public function testGetPaths(): void

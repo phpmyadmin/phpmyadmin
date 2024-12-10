@@ -79,7 +79,7 @@ class NodeTable extends NodeDatabaseChild
     public function getPresence(UserPrivileges $userPrivileges, string $type = '', string $searchClause = ''): int
     {
         $retval = 0;
-        $db = $this->realParent()->realName;
+        $db = $this->getRealParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
         switch ($type) {
@@ -148,7 +148,7 @@ class NodeTable extends NodeDatabaseChild
     ): array {
         $maxItems = $this->config->settings['MaxNavigationItems'];
         $retval = [];
-        $db = $this->realParent()->realName;
+        $db = $this->getRealParent()->realName;
         $table = $this->realName;
         $dbi = DatabaseInterface::getInstance();
         switch ($type) {
