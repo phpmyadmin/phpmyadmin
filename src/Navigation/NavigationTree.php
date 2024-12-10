@@ -766,7 +766,11 @@ class NavigationTree
                     }
 
                     $newChild = new $child($this->config, mb_substr($child->name, $keySeparatorLength));
-                    if ($child instanceof NodeDatabase && $child->getHiddenCount() > 0) {
+                    if (
+                        $child instanceof NodeDatabase
+                        && $newChild instanceof NodeDatabase
+                        && $child->getHiddenCount() > 0
+                    ) {
                         $newChild->setHiddenCount($child->getHiddenCount());
                     }
 

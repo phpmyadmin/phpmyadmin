@@ -6510,9 +6510,6 @@
     <TypeDoesNotContainType>
       <code><![CDATA[$value > 500]]></code>
     </TypeDoesNotContainType>
-    <UndefinedMethod>
-      <code><![CDATA[setHiddenCount]]></code>
-    </UndefinedMethod>
   </file>
   <file src="src/Navigation/Nodes/Node.php">
     <DeprecatedMethod>
