@@ -233,7 +233,7 @@ class Node
      * node, it will return the table and database nodes. The names of the returned
      * nodes can be used in SQL queries, etc...
      */
-    public function realParent(): Node|false
+    public function getRealParent(): Node|false
     {
         $parent = $this->parent;
 

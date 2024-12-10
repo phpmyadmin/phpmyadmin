@@ -6602,7 +6602,7 @@
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseChild.php">
     <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$this->realParent()->realName]]></code>
+      <code><![CDATA[$this->getRealParent()->realName]]></code>
     </PossiblyInvalidPropertyFetch>
   </file>
   <file src="src/Navigation/Nodes/NodeDatabaseContainer.php">
@@ -6616,8 +6616,8 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyInvalidPropertyFetch>
-      <code><![CDATA[$this->realParent()->realName]]></code>
-      <code><![CDATA[$this->realParent()->realName]]></code>
+      <code><![CDATA[$this->getRealParent()->realName]]></code>
+      <code><![CDATA[$this->getRealParent()->realName]]></code>
     </PossiblyInvalidPropertyFetch>
     <PossiblyNullArgument>
       <code><![CDATA[$arr['Type']]]></code>
