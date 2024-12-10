@@ -1080,7 +1080,7 @@ class NavigationTree
                     'title' => $node->icon['title'],
                 ];
 
-                if (isset($node->links['second_icon'], $node->secondIcon)) {
+                if ($node instanceof NodeTable && isset($node->links['second_icon'], $node->secondIcon)) {
                     $iconLinks[] = [
                         'route' => $node->links['second_icon']['route'],
                         'params' => array_merge(

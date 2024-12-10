@@ -6451,10 +6451,6 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$node->secondIcon['image']]]></code>
-      <code><![CDATA[$node->secondIcon['title']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$db]]></code>
       <code><![CDATA[$item]]></code>
@@ -6611,9 +6607,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$arr['Type']]]></code>
     </PossiblyNullArgument>
-    <PossiblyUnusedProperty>
-      <code><![CDATA[$secondIcon]]></code>
-    </PossiblyUnusedProperty>
   </file>
   <file src="src/Navigation/Nodes/ObjectFetcher.php">
     <MixedReturnTypeCoercion>
