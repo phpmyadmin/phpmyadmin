@@ -27,7 +27,7 @@ class NodeDatabaseContainer extends Node
         $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
-        if (! $userPrivileges->isCreateDatabase || $this->config->settings['ShowCreateDb'] === false) {
+        if (! $userPrivileges->isCreateDatabase || $config->settings['ShowCreateDb'] === false) {
             return;
         }
 
@@ -39,5 +39,19 @@ class NodeDatabaseContainer extends Node
             'icon' => ['route' => '/server/databases', 'params' => []],
         ];
         $this->addChild($new);
+
+        if (
+            ! $config->settings['NavigationTreeEnableGrouping']
+            || ! $config->settings['ShowDatabasesNavigationAsTree']
+        ) {
+            return;
+        }
+
+        $separator = $config->settings['NavigationTreeDbSeparator'];
+        if ($separator !== '') {
+            $this->separators = [$separator];
+        }
+
+        $this->separatorDepth = 10000;
     }
 }

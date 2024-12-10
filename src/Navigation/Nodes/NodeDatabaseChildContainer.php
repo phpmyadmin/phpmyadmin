@@ -10,6 +10,8 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Navigation\NodeType;
 
+use function is_string;
+
 /**
  * Represents container node that carries children of a database
  */
@@ -24,8 +26,21 @@ abstract class NodeDatabaseChildContainer extends NodeDatabaseChild
             return;
         }
 
-        $this->separator = $this->config->settings['NavigationTreeTableSeparator'];
+        $this->setSeparators();
+
         $this->separatorDepth = $this->config->settings['NavigationTreeTableLevel'];
+    }
+
+    private function setSeparators(): void
+    {
+        $separators = $this->config->settings['NavigationTreeTableSeparator'];
+        if (is_string($separators)) {
+            if ($separators !== '') {
+                $this->separators = [$separators];
+            }
+        } elseif ($separators !== false) {
+            $this->separators = $separators;
+        }
     }
 
     /**

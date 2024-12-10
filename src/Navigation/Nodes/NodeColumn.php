@@ -18,6 +18,8 @@ use function substr;
  */
 class NodeColumn extends Node
 {
+    public string $displayName;
+
     /** @param mixed[] $item array to identify the column node */
     public function __construct(Config $config, array $item)
     {
