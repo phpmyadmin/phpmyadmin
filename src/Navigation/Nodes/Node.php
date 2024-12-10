@@ -171,17 +171,13 @@ class Node
      */
     public function getChild(string $name, bool $realName = false): Node|null
     {
-        if ($realName) {
-            foreach ($this->children as $child) {
+        foreach ($this->children as $child) {
+            if ($realName) {
                 if ($child->realName === $name) {
                     return $child;
                 }
-            }
-        } else {
-            foreach ($this->children as $child) {
-                if ($child->name === $name && ! $child->isNew) {
-                    return $child;
-                }
+            } elseif ($child->name === $name && ! $child->isNew) {
+                return $child;
             }
         }
 
