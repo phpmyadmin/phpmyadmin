@@ -19,7 +19,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -108,9 +107,7 @@ final class ExportController implements InvocableController
             return $this->response->response();
         }
 
-        if ($request->hasBodyParam('sql_backquotes') && $exportPlugin instanceof ExportSql) {
-            $exportPlugin->useSqlBackquotes(true);
-        }
+        $exportPlugin->setExportOptions($request);
 
         $config = Config::getInstance();
         /**

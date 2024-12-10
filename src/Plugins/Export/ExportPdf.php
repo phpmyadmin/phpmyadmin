@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -290,5 +291,9 @@ class ExportPdf extends ExportPlugin
     public static function isAvailable(): bool
     {
         return class_exists(TCPDF::class);
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
     }
 }

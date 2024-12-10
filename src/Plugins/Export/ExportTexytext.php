@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -548,5 +549,9 @@ class ExportTexytext extends ExportPlugin
         $definition .= '|' . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : ''));
 
         return $definition;
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
     }
 }

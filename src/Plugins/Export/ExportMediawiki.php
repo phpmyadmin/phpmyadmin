@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -354,5 +355,9 @@ class ExportMediawiki extends ExportPlugin
     {
         // The CRLF expected by the mediawiki format is "\n"
         return "\n";
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
     }
 }

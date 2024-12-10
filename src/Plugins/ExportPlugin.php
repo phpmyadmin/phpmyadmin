@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
@@ -335,4 +336,6 @@ abstract class ExportPlugin implements Plugin
     {
         return true;
     }
+
+    abstract public function setExportOptions(ServerRequest $request): void;
 }

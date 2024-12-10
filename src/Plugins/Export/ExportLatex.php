@@ -11,6 +11,7 @@ use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -618,5 +619,9 @@ class ExportLatex extends ExportPlugin
     public static function texEscape(string $string): string
     {
         return addcslashes($string, '$%{}&#_^');
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
     }
 }

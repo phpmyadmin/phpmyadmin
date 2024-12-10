@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -342,5 +343,9 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '</hibernate-mapping>';
 
         return implode("\n", $lines);
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
     }
 }

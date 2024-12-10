@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -80,5 +81,9 @@ class ExportExcel extends ExportCsv
         $exportPluginProperties->setOptions($exportSpecificOptions);
 
         return $exportPluginProperties;
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
     }
 }
