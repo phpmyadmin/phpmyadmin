@@ -298,25 +298,6 @@ class Node
     }
 
     /**
-     * Returns the number of child nodes that a node has associated with it
-     *
-     * @return int The number of children nodes
-     */
-    public function numChildren(): int
-    {
-        $retval = 0;
-        foreach ($this->children as $child) {
-            if ($child->type === NodeType::Object) {
-                $retval++;
-            } else {
-                $retval += $child->numChildren();
-            }
-        }
-
-        return $retval;
-    }
-
-    /**
      * Returns the actual path and the virtual paths for a node
      * both as clean arrays and base64 encoded strings
      *
