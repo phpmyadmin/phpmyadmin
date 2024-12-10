@@ -208,19 +208,6 @@ class NavigationTree
 
         // Initialize the tree by creating a root node
         $this->tree = new NodeDatabaseContainer($this->config, 'root');
-        if (
-            ! $this->config->settings['NavigationTreeEnableGrouping']
-            || ! $this->config->settings['ShowDatabasesNavigationAsTree']
-        ) {
-            return;
-        }
-
-        $separator = $this->config->settings['NavigationTreeDbSeparator'];
-        if ($separator !== '') {
-            $this->tree->separators = [$separator];
-        }
-
-        $this->tree->separatorDepth = 10000;
     }
 
     /**
