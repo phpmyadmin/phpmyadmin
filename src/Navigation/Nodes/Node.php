@@ -107,9 +107,6 @@ class Node
      */
     public int $pos3 = 0;
 
-    /** @var string $displayName  display name for the navigation tree */
-    public string|null $displayName = null;
-
     public string|null $urlParamName = null;
 
     /**
