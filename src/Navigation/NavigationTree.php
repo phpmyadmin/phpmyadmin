@@ -56,9 +56,7 @@ use function explode;
 use function floor;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function is_bool;
-use function is_string;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -217,7 +215,11 @@ class NavigationTree
             return;
         }
 
-        $this->tree->separator = $this->config->settings['NavigationTreeDbSeparator'];
+        $separator = $this->config->settings['NavigationTreeDbSeparator'];
+        if ($separator !== '') {
+            $this->tree->separators = [$separator];
+        }
+
         $this->tree->separatorDepth = 10000;
     }
 
@@ -675,18 +677,11 @@ class NavigationTree
             return;
         }
 
-        $separators = [];
-        if (is_array($node->separator)) {
-            $separators = $node->separator;
-        } elseif (is_string($node->separator) && $node->separator !== '') {
-            $separators[] = $node->separator;
-        }
-
         $prefixes = [];
         if ($node->separatorDepth > 0) {
             foreach ($node->children as $child) {
                 $prefixPos = false;
-                foreach ($separators as $separator) {
+                foreach ($node->separators as $separator) {
                     $sepPos = mb_strpos($child->name, $separator);
                     if (
                         $sepPos === false
@@ -770,7 +765,7 @@ class NavigationTree
             }
 
             $newChildren = [];
-            foreach ($separators as $separator) {
+            foreach ($node->separators as $separator) {
                 $separatorLength = strlen($separator);
                 // FIXME: this could be more efficient
                 foreach ($node->children as $child) {
@@ -809,8 +804,8 @@ class NavigationTree
             // and the new group contains all of the current node's children, combine them
             $class = $node::class;
             if (count($newChildren) === $numChildren && substr($class, strrpos($class, '\\') + 1) === 'Node') {
-                $node->name .= $separators[0] . htmlspecialchars((string) $key);
-                $node->realName .= $separators[0] . htmlspecialchars((string) $key);
+                $node->name .= $node->separators[0] . htmlspecialchars((string) $key);
+                $node->realName .= $node->separators[0] . htmlspecialchars((string) $key);
                 $node->separatorDepth--;
                 foreach ($newChildren as $newChild) {
                     $node->removeChild($newChild['replaces_name']);
@@ -818,7 +813,7 @@ class NavigationTree
                 }
             } else {
                 $groups[$key] = new Node($this->config, (string) $key, NodeType::Container, true);
-                $groups[$key]->separator = $node->separator;
+                $groups[$key]->separators = $node->separators;
                 $groups[$key]->separatorDepth = $node->separatorDepth - 1;
                 $groups[$key]->icon = ['image' => 'b_group', 'title' => __('Groups')];
                 $groups[$key]->pos2 = $node->pos2;

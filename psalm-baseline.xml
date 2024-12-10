@@ -6446,8 +6446,6 @@
       <code><![CDATA[$path[0]]]></code>
       <code><![CDATA[$path[0]]]></code>
       <code><![CDATA[$path[0]]]></code>
-      <code><![CDATA[$separator]]></code>
-      <code><![CDATA[$separator]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -6464,14 +6462,8 @@
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
       <code><![CDATA[$path]]></code>
-      <code><![CDATA[$separator]]></code>
-      <code><![CDATA[$separator]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$separators[0]]]></code>
-      <code><![CDATA[$separators[0]]]></code>
-    </MixedOperand>
     <PossiblyFalseOperand>
       <code><![CDATA[strrpos($class, '\\')]]></code>
     </PossiblyFalseOperand>
