@@ -102,7 +102,6 @@
             sql_ignore: bool,
             sql_insert_syntax: 'complete'|'extended'|'both'|'none',
             sql_max_query_size: 0|positive-int,
-            sql_structure_or_data: 'structure'|'data'|'structure_and_data',
             sql_type: 'INSERT'|'UPDATE'|'REPLACE',
             tbl_storage_engine: string,
             token_mismatch: bool,

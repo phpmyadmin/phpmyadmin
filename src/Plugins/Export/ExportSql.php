@@ -15,6 +15,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -810,9 +811,10 @@ class ExportSql extends ExportPlugin
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        $exportStructure = ! isset($GLOBALS['sql_structure_or_data'])
-            || in_array($GLOBALS['sql_structure_or_data'], ['structure', 'structure_and_data'], true);
-        if ($exportStructure && isset($GLOBALS['sql_drop_database'])) {
+        if (
+            in_array($this->structureOrData, ['structure', 'structure_and_data'], true)
+            && isset($GLOBALS['sql_drop_database'])
+        ) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
@@ -2715,5 +2717,11 @@ class ExportSql extends ExportPlugin
             ['manual_MySQL_Database_Administration', 'Server_SQL_mode'],
         );
         $generalOptions->addProperty($leaf);
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
+        $this->structureOrData = $request->getParsedBodyParamAsString('sql_structure_or_data', '');
+        $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
     }
 }

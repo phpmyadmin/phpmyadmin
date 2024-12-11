@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Table\Table;
@@ -603,8 +604,8 @@ class Export
         }
 
         if (
-            ($GLOBALS['sql_structure_or_data'] === 'structure'
-            || $GLOBALS['sql_structure_or_data'] === 'structure_and_data')
+            $exportPlugin instanceof ExportSql
+            && ($whatStrucOrData === 'structure' || $whatStrucOrData === 'structure_and_data')
             && isset($GLOBALS['sql_procedure_function'])
         ) {
             $exportPlugin->exportRoutines($db->getName(), $aliases);
@@ -802,8 +803,8 @@ class Export
         }
 
         if (
-            ($GLOBALS['sql_structure_or_data'] !== 'structure'
-            && $GLOBALS['sql_structure_or_data'] !== 'structure_and_data')
+            ! ($exportPlugin instanceof ExportSql)
+            || ($whatStrucOrData !== 'structure' && $whatStrucOrData !== 'structure_and_data')
             || ! isset($GLOBALS['sql_procedure_function'])
         ) {
             return;

@@ -11,6 +11,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -505,5 +506,10 @@ class ExportXml extends ExportPlugin
     {
         // Can't do server export.
         return Current::$database !== '';
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
+        $this->structureOrData = $request->getParsedBodyParamAsString('xml_structure_or_data', '');
     }
 }

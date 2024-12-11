@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
@@ -27,6 +28,8 @@ abstract class ExportPlugin implements Plugin
      * Object containing the specific export plugin type properties.
      */
     protected ExportPluginProperties $properties;
+
+    protected string $structureOrData = '';
 
     final public function __construct(
         public Relation $relation,
@@ -337,5 +340,17 @@ abstract class ExportPlugin implements Plugin
     public static function isAvailable(): bool
     {
         return true;
+    }
+
+    abstract public function setExportOptions(ServerRequest $request): void;
+
+    public function getStructureOrData(): string
+    {
+        return $this->structureOrData;
+    }
+
+    public function setStructureOrData(string $structureOrData): void
+    {
+        $this->structureOrData = $structureOrData;
     }
 }

@@ -101,7 +101,6 @@ class ExportTest extends AbstractTestCase
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
-        $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
@@ -171,7 +170,6 @@ SQL;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';
-        $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
 

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -243,5 +244,10 @@ class ExportPhparray extends ExportPlugin
         }
 
         return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
+    }
+
+    public function setExportOptions(ServerRequest $request): void
+    {
+        $this->structureOrData = $request->getParsedBodyParamAsString('phparray_structure_or_data', '');
     }
 }
