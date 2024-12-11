@@ -2805,7 +2805,7 @@ parameters:
 		-
 			message: '#^Binary operation "\." between mixed and ''_structure_or_data'' results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 3
+			count: 1
 			path: src/Controllers/Export/ExportController.php
 
 		-

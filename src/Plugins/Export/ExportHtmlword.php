@@ -604,5 +604,6 @@ class ExportHtmlword extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('htmlword_structure_or_data', '');
     }
 }

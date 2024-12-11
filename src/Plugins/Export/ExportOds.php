@@ -322,5 +322,6 @@ class ExportOds extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('ods_structure_or_data', '');
     }
 }

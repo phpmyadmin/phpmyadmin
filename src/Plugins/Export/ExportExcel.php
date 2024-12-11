@@ -85,5 +85,6 @@ class ExportExcel extends ExportCsv
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('excel_structure_or_data', '');
     }
 }

@@ -212,5 +212,6 @@ class ExportYaml extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('yaml_structure_or_data', '');
     }
 }

@@ -29,6 +29,8 @@ abstract class ExportPlugin implements Plugin
      */
     protected ExportPluginProperties $properties;
 
+    protected string $structureOrData = '';
+
     final public function __construct(
         public Relation $relation,
         protected Export $export,
@@ -341,4 +343,14 @@ abstract class ExportPlugin implements Plugin
     }
 
     abstract public function setExportOptions(ServerRequest $request): void;
+
+    public function getStructureOrData(): string
+    {
+        return $this->structureOrData;
+    }
+
+    public function setStructureOrData(string $structureOrData): void
+    {
+        $this->structureOrData = $structureOrData;
+    }
 }

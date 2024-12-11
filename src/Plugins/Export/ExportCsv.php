@@ -323,5 +323,6 @@ class ExportCsv extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('csv_structure_or_data', '');
     }
 }

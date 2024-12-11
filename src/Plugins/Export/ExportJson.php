@@ -327,5 +327,6 @@ class ExportJson extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('json_structure_or_data', '');
     }
 }

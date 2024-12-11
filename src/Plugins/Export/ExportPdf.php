@@ -301,5 +301,6 @@ class ExportPdf extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('pdf_structure_or_data', '');
     }
 }

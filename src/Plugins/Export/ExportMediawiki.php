@@ -365,5 +365,6 @@ class ExportMediawiki extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('mediawiki_structure_or_data', '');
     }
 }

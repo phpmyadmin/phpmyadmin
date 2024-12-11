@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -481,7 +482,10 @@ class ExportSqlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_structure_or_data' => 'structure_and_data', 'sql_backquotes' => 'true']);
+
+        $this->object->setExportOptions($request);
 
         ob_start();
         self::assertTrue(
@@ -570,7 +574,6 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportEvents(): void
     {
-        $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -613,7 +616,6 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportDBFooter(): void
     {
         $this->object->sqlConstraints = 'SqlConstraints';
-        $GLOBALS['sql_structure_or_data'] = 'structure';
         $GLOBALS['sql_procedure_function'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

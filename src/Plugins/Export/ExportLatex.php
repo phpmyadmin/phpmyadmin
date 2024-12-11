@@ -630,5 +630,6 @@ class ExportLatex extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('latex_structure_or_data', '');
     }
 }

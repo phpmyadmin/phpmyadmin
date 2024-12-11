@@ -811,9 +811,10 @@ class ExportSql extends ExportPlugin
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        $exportStructure = ! isset($GLOBALS['sql_structure_or_data'])
-            || in_array($GLOBALS['sql_structure_or_data'], ['structure', 'structure_and_data'], true);
-        if ($exportStructure && isset($GLOBALS['sql_drop_database'])) {
+        if (
+            in_array($this->structureOrData, ['structure', 'structure_and_data'], true)
+            && isset($GLOBALS['sql_drop_database'])
+        ) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
@@ -2720,6 +2721,7 @@ class ExportSql extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('sql_structure_or_data', '');
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
     }
 }

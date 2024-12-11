@@ -559,5 +559,6 @@ class ExportTexytext extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('texytext_structure_or_data', '');
     }
 }

@@ -350,5 +350,6 @@ class ExportCodegen extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('codegen_structure_or_data', '');
     }
 }

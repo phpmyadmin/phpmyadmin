@@ -724,5 +724,6 @@ class ExportOdt extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('odt_structure_or_data', '');
     }
 }

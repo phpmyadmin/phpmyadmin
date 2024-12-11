@@ -510,5 +510,6 @@ class ExportXml extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('xml_structure_or_data', '');
     }
 }

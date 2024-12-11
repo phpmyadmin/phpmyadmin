@@ -248,5 +248,6 @@ class ExportPhparray extends ExportPlugin
 
     public function setExportOptions(ServerRequest $request): void
     {
+        $this->structureOrData = $request->getParsedBodyParamAsString('phparray_structure_or_data', '');
     }
 }
