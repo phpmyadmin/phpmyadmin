@@ -321,7 +321,13 @@ class ExportJson extends ExportPlugin
         return $this->doExportForQuery($dbi, $sqlQuery, $buffer, null, $db, null);
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('json_structure_or_data'),
+            $exportConfig['json_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

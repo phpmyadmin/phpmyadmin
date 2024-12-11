@@ -1448,11 +1448,6 @@
       <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['charset']]]></code>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['file_handle']]]></code>
-      <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$dbSelect]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -1467,7 +1462,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['codegen_format']]]></code>
-      <code><![CDATA[$GLOBALS['codegen_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
       <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
@@ -1475,18 +1469,14 @@
       <code><![CDATA[$GLOBALS['csv_null']]]></code>
       <code><![CDATA[$GLOBALS['csv_removeCRLF']]]></code>
       <code><![CDATA[$GLOBALS['csv_separator']]]></code>
-      <code><![CDATA[$GLOBALS['csv_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
       <code><![CDATA[$GLOBALS['excel_columns']]]></code>
       <code><![CDATA[$GLOBALS['excel_edition']]]></code>
       <code><![CDATA[$GLOBALS['excel_null']]]></code>
       <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
-      <code><![CDATA[$GLOBALS['excel_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['htmlword_columns']]]></code>
       <code><![CDATA[$GLOBALS['htmlword_null']]]></code>
-      <code><![CDATA[$GLOBALS['htmlword_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
-      <code><![CDATA[$GLOBALS['json_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['json_unicode']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
@@ -1501,22 +1491,16 @@
       <code><![CDATA[$GLOBALS['latex_structure_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_structure_continued_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_structure_label']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['ods_columns']]]></code>
       <code><![CDATA[$GLOBALS['ods_null']]]></code>
-      <code><![CDATA[$GLOBALS['ods_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['odt_columns']]]></code>
       <code><![CDATA[$GLOBALS['odt_comments']]]></code>
       <code><![CDATA[$GLOBALS['odt_mime']]]></code>
       <code><![CDATA[$GLOBALS['odt_null']]]></code>
       <code><![CDATA[$GLOBALS['odt_relation']]]></code>
-      <code><![CDATA[$GLOBALS['odt_structure_or_data']]]></code>
-      <code><![CDATA[$GLOBALS['pdf_structure_or_data']]]></code>
-      <code><![CDATA[$GLOBALS['phparray_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1544,7 +1528,6 @@
       <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
       <code><![CDATA[$GLOBALS['sql_relation']]]></code>
       <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
-      <code><![CDATA[$GLOBALS['sql_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['sql_truncate']]]></code>
       <code><![CDATA[$GLOBALS['sql_type']]]></code>
       <code><![CDATA[$GLOBALS['sql_use_transaction']]]></code>
@@ -1557,7 +1540,6 @@
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['texytext_columns']]]></code>
       <code><![CDATA[$GLOBALS['texytext_null']]]></code>
-      <code><![CDATA[$GLOBALS['texytext_structure_or_data']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
@@ -1568,26 +1550,16 @@
       <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_triggers']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_views']]]></code>
-      <code><![CDATA[$GLOBALS['xml_structure_or_data']]]></code>
-      <code><![CDATA[$GLOBALS['yaml_structure_or_data']]]></code>
       <code><![CDATA[$dbSelect]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['charset']]]></code>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
-      <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$GLOBALS['charset']]]></code>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
     </PossiblyInvalidCast>
@@ -1603,20 +1575,22 @@
                     $filename,
                 )]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['charset']]]></code>
+    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['output_charset_conversion']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
-      <code><![CDATA[empty($GLOBALS['asfile'])]]></code>
       <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
       <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[$GLOBALS['compression'] === 'gzip']]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
+      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
       <code><![CDATA[$GLOBALS['save_on_server']]]></code>
       <code><![CDATA[$GLOBALS['save_on_server']]]></code>
     </TypeDoesNotContainType>
@@ -5119,11 +5093,15 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
+      <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
+      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
+      <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
       <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
       <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
+      <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
       <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>

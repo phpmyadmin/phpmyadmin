@@ -551,7 +551,13 @@ class ExportTexytext extends ExportPlugin
         return $definition;
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('texytext_structure_or_data'),
+            $exportConfig['texytext_structure_or_data'] ?? null,
+            'structure_and_data',
+        );
     }
 }

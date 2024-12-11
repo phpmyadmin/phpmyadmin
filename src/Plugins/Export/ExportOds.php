@@ -316,7 +316,13 @@ class ExportOds extends ExportPlugin
         return $this->exportData($db ?? '', '', $sqlQuery);
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('ods_structure_or_data'),
+            $exportConfig['ods_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

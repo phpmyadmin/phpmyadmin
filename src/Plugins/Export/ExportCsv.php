@@ -317,7 +317,13 @@ class ExportCsv extends ExportPlugin
         return $this->exportData($db ?? '', '', $sqlQuery);
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('csv_structure_or_data'),
+            $exportConfig['csv_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

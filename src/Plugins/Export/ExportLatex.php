@@ -621,7 +621,13 @@ class ExportLatex extends ExportPlugin
         return addcslashes($string, '$%{}&#_^');
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('latex_structure_or_data'),
+            $exportConfig['latex_structure_or_data'] ?? null,
+            'structure_and_data',
+        );
     }
 }

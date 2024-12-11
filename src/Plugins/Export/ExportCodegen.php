@@ -345,7 +345,13 @@ class ExportCodegen extends ExportPlugin
         return implode("\n", $lines);
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('codegen_structure_or_data'),
+            $exportConfig['codegen_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

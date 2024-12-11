@@ -809,9 +809,10 @@ class ExportSql extends ExportPlugin
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        $exportStructure = ! isset($GLOBALS['sql_structure_or_data'])
-            || in_array($GLOBALS['sql_structure_or_data'], ['structure', 'structure_and_data'], true);
-        if ($exportStructure && isset($GLOBALS['sql_drop_database'])) {
+        if (
+            in_array($this->structureOrData, ['structure', 'structure_and_data'], true)
+            && isset($GLOBALS['sql_drop_database'])
+        ) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
@@ -2708,8 +2709,14 @@ class ExportSql extends ExportPlugin
         $generalOptions->addProperty($leaf);
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('sql_structure_or_data'),
+            $exportConfig['sql_structure_or_data'] ?? null,
+            'structure_and_data',
+        );
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
     }
 }

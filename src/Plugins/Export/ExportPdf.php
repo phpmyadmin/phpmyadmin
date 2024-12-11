@@ -293,7 +293,13 @@ class ExportPdf extends ExportPlugin
         return class_exists(TCPDF::class);
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('pdf_structure_or_data'),
+            $exportConfig['pdf_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

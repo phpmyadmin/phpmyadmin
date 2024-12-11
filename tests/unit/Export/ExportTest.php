@@ -102,7 +102,6 @@ class ExportTest extends AbstractTestCase
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
-        $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
@@ -138,7 +137,6 @@ class ExportTest extends AbstractTestCase
         $export->exportDatabase(
             DatabaseName::from('test_db'),
             ['test_table'],
-            'structure_and_data',
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
@@ -170,7 +168,6 @@ SQL;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';
-        $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
         ExportPlugin::$exportType = ExportType::Server;
@@ -219,7 +216,6 @@ SQL;
 
         $export->exportServer(
             ['test_db'],
-            'structure_and_data',
             new ExportSql(new Relation($dbi), $export, new Transformations()),
             false,
             true,

@@ -14,6 +14,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
 
+use function in_array;
 use function stripos;
 
 /**
@@ -31,6 +32,9 @@ abstract class ExportPlugin implements Plugin
 
     public static ExportType $exportType = ExportType::Raw;
     public static bool $singleTable = false;
+
+    /** @var 'structure'|'data'|'structure_and_data' */
+    protected string $structureOrData = 'data';
 
     final public function __construct(
         public Relation $relation,
@@ -337,5 +341,30 @@ abstract class ExportPlugin implements Plugin
         return true;
     }
 
-    abstract public function setExportOptions(ServerRequest $request): void;
+    /** @param array<mixed> $exportConfig */
+    abstract public function setExportOptions(ServerRequest $request, array $exportConfig): void;
+
+    /** @return 'structure'|'data'|'structure_and_data' */
+    public function getStructureOrData(): string
+    {
+        return $this->structureOrData;
+    }
+
+    /**
+     * @param 'structure'|'data'|'structure_and_data' $defaultValue
+     *
+     * @return 'structure'|'data'|'structure_and_data'
+     */
+    protected function setStructureOrData(mixed $valueFromRequest, mixed $valueFromConfig, string $defaultValue): string
+    {
+        if (in_array($valueFromRequest, ['structure', 'data', 'structure_and_data'], true)) {
+            return $valueFromRequest;
+        }
+
+        if (in_array($valueFromConfig, ['structure', 'data', 'structure_and_data'], true)) {
+            return $valueFromConfig;
+        }
+
+        return $defaultValue;
+    }
 }

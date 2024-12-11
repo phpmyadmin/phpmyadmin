@@ -2758,12 +2758,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_structure_or_data'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 3
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -2821,12 +2815,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^PHPDoc tag @var with type mixed is not subtype of type bool\|int\<0, max\>\|string\|null\.$#'
-			identifier: varTag.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#1 \$dbSelect of method PhpMyAdmin\\Export\\Export\:\:exportServer\(\) expects array\<mixed\>\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2869,13 +2857,13 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#4 \$tableStructure of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
+			message: '#^Parameter \#3 \$tableStructure of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#5 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
+			message: '#^Parameter \#4 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php

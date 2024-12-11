@@ -505,7 +505,13 @@ class ExportXml extends ExportPlugin
         return Current::$database !== '';
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('xml_structure_or_data'),
+            $exportConfig['xml_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

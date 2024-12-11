@@ -83,7 +83,13 @@ class ExportExcel extends ExportCsv
         return $exportPluginProperties;
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('excel_structure_or_data'),
+            $exportConfig['excel_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }

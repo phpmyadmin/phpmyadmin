@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -493,19 +494,17 @@ class Export
     /**
      * Export at the server level
      *
-     * @param string|mixed[] $dbSelect        the selected databases to export
-     * @param string         $whatStrucOrData structure or data or both
-     * @param ExportPlugin   $exportPlugin    the selected export plugin
-     * @param bool           $doRelation      whether to export relation info
-     * @param bool           $doComments      whether to add comments
-     * @param bool           $doMime          whether to add MIME info
-     * @param bool           $doDates         whether to add dates
-     * @param mixed[]        $aliases         alias information for db/table/column
-     * @param string         $separateFiles   whether it is a separate-files export
+     * @param string|mixed[] $dbSelect      the selected databases to export
+     * @param ExportPlugin   $exportPlugin  the selected export plugin
+     * @param  bool           $doRelation    whether to export relation info
+     * @param bool           $doComments    whether to add comments
+     * @param bool           $doMime        whether to add MIME info
+     * @param bool           $doDates       whether to add dates
+     * @param mixed[]        $aliases       alias information for db/table/column
+     * @param string         $separateFiles whether it is a separate-files export
      */
     public function exportServer(
         string|array $dbSelect,
-        string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         bool $doRelation,
         bool $doComments,
@@ -529,7 +528,6 @@ class Export
             $this->exportDatabase(
                 DatabaseName::from($currentDb),
                 $tables,
-                $whatStrucOrData,
                 $tables,
                 $tables,
                 $exportPlugin,
@@ -551,23 +549,21 @@ class Export
     /**
      * Export at the database level
      *
-     * @param DatabaseName $db              the database to export
-     * @param string[]     $tables          the tables to export
-     * @param string       $whatStrucOrData structure or data or both
-     * @param string[]     $tableStructure  whether to export structure for each table
-     * @param string[]     $tableData       whether to export data for each table
-     * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param bool         $doRelation      whether to export relation info
-     * @param bool         $doComments      whether to add comments
-     * @param bool         $doMime          whether to add MIME info
-     * @param bool         $doDates         whether to add dates
-     * @param mixed[]      $aliases         Alias information for db/table/column
-     * @param string       $separateFiles   whether it is a separate-files export
+     * @param DatabaseName $db             the database to export
+     * @param string[]     $tables         the tables to export
+     * @param string[]     $tableStructure whether to export structure for each table
+     * @param string[]     $tableData      whether to export data for each table
+     * @param ExportPlugin $exportPlugin   the selected export plugin
+     * @param  bool         $doRelation     whether to export relation info
+     * @param bool         $doComments     whether to add comments
+     * @param bool         $doMime         whether to add MIME info
+     * @param bool         $doDates        whether to add dates
+     * @param mixed[]      $aliases        Alias information for db/table/column
+     * @param string       $separateFiles  whether it is a separate-files export
      */
     public function exportDatabase(
         DatabaseName $db,
         array $tables,
-        string $whatStrucOrData,
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
@@ -593,9 +589,11 @@ class Export
             $this->saveObjectInBuffer('database', true);
         }
 
+        $structureOrData = $exportPlugin->getStructureOrData();
+
         if (
-            ($GLOBALS['sql_structure_or_data'] === 'structure'
-            || $GLOBALS['sql_structure_or_data'] === 'structure_and_data')
+            $exportPlugin instanceof ExportSql
+            && ($structureOrData === 'structure' || $structureOrData === 'structure_and_data')
             && isset($GLOBALS['sql_procedure_function'])
         ) {
             $exportPlugin->exportRoutines($db->getName(), $aliases);
@@ -624,8 +622,8 @@ class Export
             }
 
             if (
-                ($whatStrucOrData === 'structure'
-                || $whatStrucOrData === 'structure_and_data')
+                ($structureOrData === 'structure'
+                || $structureOrData === 'structure_and_data')
                 && in_array($table, $tableStructure, true)
             ) {
                 // for a view, export a stand-in definition of the table
@@ -685,7 +683,7 @@ class Export
 
             // if this is a view or a merge table, don't export data
             if (
-                ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data')
+                ($structureOrData === 'data' || $structureOrData === 'structure_and_data')
                 && in_array($table, $tableData, true)
                 && ! $isView
             ) {
@@ -709,8 +707,8 @@ class Export
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
             if (
-                ! isset($GLOBALS['sql_create_trigger']) || ($whatStrucOrData !== 'structure'
-                && $whatStrucOrData !== 'structure_and_data')
+                ! isset($GLOBALS['sql_create_trigger'])
+                || ($structureOrData !== 'structure' && $structureOrData !== 'structure_and_data')
                 || ! in_array($table, $tableStructure, true)
             ) {
                 continue;
@@ -741,7 +739,7 @@ class Export
         if (isset($GLOBALS['sql_create_view'])) {
             foreach ($views as $view) {
                 // no data export for a view
-                if ($whatStrucOrData !== 'structure' && $whatStrucOrData !== 'structure_and_data') {
+                if ($structureOrData !== 'structure' && $structureOrData !== 'structure_and_data') {
                     continue;
                 }
 
@@ -789,8 +787,8 @@ class Export
         }
 
         if (
-            ($GLOBALS['sql_structure_or_data'] !== 'structure'
-            && $GLOBALS['sql_structure_or_data'] !== 'structure_and_data')
+            ! ($exportPlugin instanceof ExportSql)
+            || ($structureOrData !== 'structure' && $structureOrData !== 'structure_and_data')
             || ! isset($GLOBALS['sql_procedure_function'])
         ) {
             return;
@@ -808,22 +806,15 @@ class Export
     /**
      * Export a raw query
      *
-     * @param string       $whatStrucOrData whether to export structure for each table or raw
-     * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string|null  $db              the database where the query is executed
-     * @param string       $sqlQuery        the query to be executed
+     * @param ExportPlugin $exportPlugin the selected export plugin
+     * @param  string|null  $db           the database where the query is executed
+     * @param string       $sqlQuery     the query to be executed
      */
     public static function exportRaw(
-        string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         string|null $db,
         string $sqlQuery,
     ): void {
-        // In case the we need to dump just the raw query
-        if ($whatStrucOrData !== 'raw') {
-            return;
-        }
-
         if ($exportPlugin->exportRawQuery($db, $sqlQuery)) {
             return;
         }
@@ -838,24 +829,22 @@ class Export
     /**
      * Export at the table level
      *
-     * @param string       $db              the database to export
-     * @param string       $table           the table to export
-     * @param string       $whatStrucOrData structure or data or both
-     * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param bool         $doRelation      whether to export relation info
-     * @param bool         $doComments      whether to add comments
-     * @param bool         $doMime          whether to add MIME info
-     * @param bool         $doDates         whether to add dates
-     * @param string|null  $allrows         whether "dump all rows" was ticked
-     * @param string       $limitTo         upper limit
-     * @param string       $limitFrom       starting limit
-     * @param string       $sqlQuery        query for which exporting is requested
-     * @param mixed[]      $aliases         Alias information for db/table/column
+     * @param string       $db           the database to export
+     * @param string       $table        the table to export
+     * @param ExportPlugin $exportPlugin the selected export plugin
+     * @param  bool         $doRelation   whether to export relation info
+     * @param bool         $doComments   whether to add comments
+     * @param bool         $doMime       whether to add MIME info
+     * @param bool         $doDates      whether to add dates
+     * @param string|null  $allrows      whether "dump all rows" was ticked
+     * @param string       $limitTo      upper limit
+     * @param string       $limitFrom    starting limit
+     * @param string       $sqlQuery     query for which exporting is requested
+     * @param mixed[]      $aliases      Alias information for db/table/column
      */
     public function exportTable(
         string $db,
         string $table,
-        string $whatStrucOrData,
         ExportPlugin $exportPlugin,
         bool $doRelation,
         bool $doComments,
@@ -881,9 +870,11 @@ class Export
             $addQuery = '';
         }
 
+        $structureOrData = $exportPlugin->getStructureOrData();
+
         $tableObject = new Table($table, $db, $this->dbi);
         $isView = $tableObject->isView();
-        if ($whatStrucOrData === 'structure' || $whatStrucOrData === 'structure_and_data') {
+        if ($structureOrData === 'structure' || $structureOrData === 'structure_and_data') {
             if ($isView) {
                 if (isset($GLOBALS['sql_create_view'])) {
                     if (
@@ -922,7 +913,7 @@ class Export
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-        if ($whatStrucOrData === 'data' || $whatStrucOrData === 'structure_and_data') {
+        if ($structureOrData === 'data' || $structureOrData === 'structure_and_data') {
             if ($sqlQuery !== '') {
                 // only preg_replace if needed
                 if ($addQuery !== '') {
@@ -950,8 +941,8 @@ class Export
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
         if (
-            isset($GLOBALS['sql_create_trigger']) && ($whatStrucOrData === 'structure'
-            || $whatStrucOrData === 'structure_and_data')
+            isset($GLOBALS['sql_create_trigger'])
+            && ($structureOrData === 'structure' || $structureOrData === 'structure_and_data')
         ) {
             if (
                 ! $exportPlugin->exportStructure(

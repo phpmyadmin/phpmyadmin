@@ -357,7 +357,13 @@ class ExportMediawiki extends ExportPlugin
         return "\n";
     }
 
-    public function setExportOptions(ServerRequest $request): void
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
     {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('mediawiki_structure_or_data'),
+            $exportConfig['mediawiki_structure_or_data'] ?? null,
+            'data',
+        );
     }
 }
