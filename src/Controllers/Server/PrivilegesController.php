@@ -46,7 +46,6 @@ final class PrivilegesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['username'] ??= null;
         $GLOBALS['hostname'] ??= null;

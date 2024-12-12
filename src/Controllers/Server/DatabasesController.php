@@ -67,8 +67,6 @@ final class DatabasesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->hasStatistics = ! empty($request->getParam('statistics'));
@@ -83,7 +81,6 @@ final class DatabasesController implements InvocableController
         $this->sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
 
         $this->response->addScriptFiles(['server/databases.js']);
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

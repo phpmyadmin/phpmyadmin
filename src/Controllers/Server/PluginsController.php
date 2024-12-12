@@ -10,7 +10,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
-use PhpMyAdmin\Url;
 
 use function array_keys;
 use function ksort;
@@ -31,8 +30,6 @@ final class PluginsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }

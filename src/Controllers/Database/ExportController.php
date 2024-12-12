@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -19,7 +18,6 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
@@ -41,7 +39,6 @@ final class ExportController implements InvocableController
     {
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
@@ -52,12 +49,6 @@ final class ExportController implements InvocableController
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
-
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

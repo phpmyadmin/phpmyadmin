@@ -57,7 +57,6 @@ final class TableController implements InvocableController
     {
         $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -80,8 +79,6 @@ final class TableController implements InvocableController
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

@@ -43,7 +43,6 @@ final class ImportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['SESSION_KEY'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $this->pageSettings->init('Import');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
@@ -61,8 +60,6 @@ final class ImportController implements InvocableController
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

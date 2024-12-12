@@ -21,7 +21,6 @@ use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -41,7 +40,6 @@ final class ImportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['SESSION_KEY'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $this->pageSettings->init('Import');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
@@ -54,8 +52,6 @@ final class ImportController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

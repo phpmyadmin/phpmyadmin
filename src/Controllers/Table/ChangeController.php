@@ -52,7 +52,6 @@ class ChangeController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['current_result'] ??= null;

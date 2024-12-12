@@ -13,7 +13,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 final class ChartingDataController extends AbstractController implements InvocableController
 {
@@ -30,7 +29,6 @@ final class ChartingDataController extends AbstractController implements Invocab
     public function __invoke(ServerRequest $request): Response
     {
         $requiredData = $request->getParsedBodyParamAsString('requiredData', '');
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

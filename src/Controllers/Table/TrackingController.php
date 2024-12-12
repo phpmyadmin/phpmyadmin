@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use DateTimeImmutable;
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
@@ -23,7 +22,6 @@ use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 use Throwable;
 use Webmozart\Assert\Assert;
 
@@ -49,8 +47,6 @@ final class TrackingController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'table/tracking.js']);
 
         if (Current::$database === '') {
@@ -62,11 +58,6 @@ final class TrackingController implements InvocableController
         }
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

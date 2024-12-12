@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer;
@@ -17,7 +16,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
@@ -39,7 +37,6 @@ final class DesignerController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $db = $request->getParsedBodyParamAsStringOrNull('db');
         $table = $request->getParsedBodyParamAsStringOrNull('table');
@@ -163,12 +160,6 @@ final class DesignerController implements InvocableController
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
-
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

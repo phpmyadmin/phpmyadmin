@@ -10,7 +10,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Url;
 
 use function is_array;
 use function is_string;
@@ -30,8 +29,6 @@ final class ShowEngineController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $this->setEngineAndPageProperties($request->getAttribute('routeVars'));
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

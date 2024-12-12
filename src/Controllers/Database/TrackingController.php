@@ -19,7 +19,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function htmlspecialchars;
@@ -40,8 +39,6 @@ final class TrackingController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
         if (Current::$database === '') {
@@ -49,8 +46,6 @@ final class TrackingController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

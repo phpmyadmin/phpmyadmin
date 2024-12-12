@@ -13,7 +13,6 @@ use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -36,8 +35,6 @@ final class StatusController extends AbstractController implements InvocableCont
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }

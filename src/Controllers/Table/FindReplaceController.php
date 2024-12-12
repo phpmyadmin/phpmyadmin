@@ -18,7 +18,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
@@ -55,7 +54,6 @@ final class FindReplaceController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
@@ -65,11 +63,6 @@ final class FindReplaceController implements InvocableController
         }
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

@@ -49,7 +49,6 @@ final class AddFieldController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
 
         $numberOfFields = $request->getParsedBodyParamAsStringOrNull('num_fields');

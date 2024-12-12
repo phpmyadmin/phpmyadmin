@@ -35,8 +35,6 @@ final class SearchController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
         if (Current::$database === '') {

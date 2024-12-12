@@ -32,7 +32,6 @@ use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 use stdClass;
@@ -63,8 +62,6 @@ class StructureController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->dbi->selectDb(Current::$database);
 
         $this->pageSettings->init('TableStructure');
@@ -84,12 +81,6 @@ class StructureController implements InvocableController
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
-        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
