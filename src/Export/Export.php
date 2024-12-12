@@ -854,7 +854,6 @@ class Export
      * @param string       $table           the table to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
@@ -871,7 +870,6 @@ class Export
         string $table,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $errorUrl,
         string $exportType,
         bool $doRelation,
         bool $doComments,

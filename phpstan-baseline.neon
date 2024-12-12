@@ -2956,19 +2956,13 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#5 \$errorUrl of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#5 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php
 
 		-
 			message: '#^Parameter \#5 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#6 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php
