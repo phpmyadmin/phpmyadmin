@@ -8122,9 +8122,6 @@
       <code><![CDATA[$values[count($values) - 1]]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
     </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedAssignment>
     <PossiblyNullOperand>
       <code><![CDATA[$ch]]></code>
     </PossiblyNullOperand>
