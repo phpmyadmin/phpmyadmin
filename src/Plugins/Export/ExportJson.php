@@ -303,11 +303,10 @@ class ExportJson extends ExportPlugin
     /**
      * Outputs result raw query in JSON format
      *
-     * @param string      $errorUrl the url to go back in case of error
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
         $buffer = $this->encode(['type' => 'raw', 'data' => '@@DATA@@']);
         if ($buffer === false) {

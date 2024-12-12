@@ -423,13 +423,7 @@ final class ExportController implements InvocableController
                     );
                 }
             } elseif ($GLOBALS['export_type'] === 'raw') {
-                Export::exportRaw(
-                    $whatStrucOrData,
-                    $exportPlugin,
-                    $GLOBALS['errorUrl'],
-                    Current::$database,
-                    Current::$sqlQuery,
-                );
+                Export::exportRaw($whatStrucOrData, $exportPlugin, Current::$database, Current::$sqlQuery);
             } else {
                 // We export just one table
 
