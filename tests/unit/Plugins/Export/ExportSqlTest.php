@@ -1095,7 +1095,7 @@ SQL;
         $this->object->useSqlBackquotes(true);
 
         ob_start();
-        $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
+        $this->object->exportData('db', 'table', 'SELECT a FROM b WHERE 1');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1191,7 +1191,7 @@ SQL;
         $this->object->useSqlBackquotes(true);
 
         ob_start();
-        $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
+        $this->object->exportData('db', 'table', 'SELECT a FROM b WHERE 1');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1234,7 +1234,7 @@ SQL;
 
         ob_start();
         self::assertTrue(
-            $this->object->exportData('db', 'tbl', 'err.com', 'SELECT'),
+            $this->object->exportData('db', 'tbl', 'SELECT'),
         );
         $result = ob_get_clean();
 
@@ -1279,7 +1279,7 @@ SQL;
 
         ob_start();
         self::assertTrue(
-            $this->object->exportData('db', 'table', 'err.com', 'SELECT'),
+            $this->object->exportData('db', 'table', 'SELECT'),
         );
         $result = ob_get_clean();
 

@@ -5525,6 +5525,10 @@
     <PossiblyNullArrayAccess>
       <code><![CDATA[$error['message']]]></code>
     </PossiblyNullArrayAccess>
+    <PossiblyUnusedParam>
+      <code><![CDATA[$errorUrl]]></code>
+      <code><![CDATA[$errorUrl]]></code>
+    </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! ini_get('zlib.output_compression')]]></code>
       <code><![CDATA[empty($_POST['onserver_overwrite'])]]></code>

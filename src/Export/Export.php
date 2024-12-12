@@ -707,7 +707,7 @@ class Export
                     . ' FROM ' . Util::backquote($db->getName())
                     . '.' . Util::backquote($table);
 
-                if (! $exportPlugin->exportData($db->getName(), $table, $errorUrl, $localQuery, $aliases)) {
+                if (! $exportPlugin->exportData($db->getName(), $table, $localQuery, $aliases)) {
                     break;
                 }
             }
@@ -963,7 +963,7 @@ class Export
                     . '.' . Util::backquote($table) . $addQuery;
             }
 
-            if (! $exportPlugin->exportData($db, $table, $errorUrl, $localQuery, $aliases)) {
+            if (! $exportPlugin->exportData($db, $table, $localQuery, $aliases)) {
                 return;
             }
         }
