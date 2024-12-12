@@ -35,8 +35,6 @@ final class VariablesController extends AbstractController implements InvocableC
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $filterAlert = $request->getParsedBodyParam('filterAlert');
         $filterText = $request->getParsedBodyParam('filterText');
         $filterCategory = $request->getParsedBodyParam('filterCategory');

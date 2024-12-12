@@ -2531,56 +2531,26 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/ChartingDataController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/GeneralLogController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/LogVarsController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/QueryAnalyzerController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/Monitor/SlowLogController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2677,9 +2647,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/VariablesController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$flush]]></code>
     </MixedArgument>
@@ -2688,7 +2655,6 @@
       <code><![CDATA[$name]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$dontFormat]]></code>
       <code><![CDATA[$filterAlert]]></code>
       <code><![CDATA[$filterCategory]]></code>
