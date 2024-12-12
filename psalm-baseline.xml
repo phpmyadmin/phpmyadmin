@@ -1548,8 +1548,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1689,8 +1687,6 @@
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1705,8 +1701,6 @@
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>

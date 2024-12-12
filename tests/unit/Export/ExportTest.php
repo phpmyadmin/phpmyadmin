@@ -140,7 +140,6 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            'index.php?route=/database/export&db=test_db',
             'database',
             false,
             true,

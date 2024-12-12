@@ -2974,13 +2974,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#7 \$errorUrl of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#8 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#7 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php

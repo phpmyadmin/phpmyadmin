@@ -536,7 +536,6 @@ class Export
                 $tables,
                 $tables,
                 $exportPlugin,
-                $errorUrl,
                 $exportType,
                 $doRelation,
                 $doComments,
@@ -562,7 +561,6 @@ class Export
      * @param string[]     $tableStructure  whether to export structure for each table
      * @param string[]     $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
@@ -578,7 +576,6 @@ class Export
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        string $errorUrl,
         string $exportType,
         bool $doRelation,
         bool $doComments,
