@@ -1545,7 +1545,6 @@
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1682,7 +1681,6 @@
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -1697,7 +1695,6 @@
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['export_type']]]></code>
@@ -5513,9 +5510,6 @@
     <PossiblyNullArrayAccess>
       <code><![CDATA[$error['message']]]></code>
     </PossiblyNullArrayAccess>
-    <PossiblyUnusedParam>
-      <code><![CDATA[$errorUrl]]></code>
-    </PossiblyUnusedParam>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! ini_get('zlib.output_compression')]]></code>
       <code><![CDATA[empty($_POST['onserver_overwrite'])]]></code>

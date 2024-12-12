@@ -362,7 +362,6 @@ final class ExportController implements InvocableController
                     $dbSelect,
                     $whatStrucOrData,
                     $exportPlugin,
-                    $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
                     $doRelation,
                     $doComments,

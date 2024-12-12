@@ -2944,12 +2944,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#4 \$errorUrl of method PhpMyAdmin\\Export\\Export\:\:exportServer\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#4 \$tableStructure of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 2

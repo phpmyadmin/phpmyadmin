@@ -220,7 +220,6 @@ SQL;
             ['test_db'],
             'structure_and_data',
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            'index.php?route=/server/export',
             'server',
             false,
             true,
