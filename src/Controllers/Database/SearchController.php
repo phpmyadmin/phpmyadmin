@@ -42,8 +42,8 @@ final class SearchController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
+        $errorUrl = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+        $errorUrl .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -73,7 +73,7 @@ final class SearchController implements InvocableController
 
             $this->response->render('error/simple', [
                 'error_message' => $errorMessage,
-                'back_url' => $GLOBALS['errorUrl'],
+                'back_url' => $errorUrl,
             ]);
 
             return $this->response->response();

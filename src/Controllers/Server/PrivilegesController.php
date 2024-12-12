@@ -75,7 +75,7 @@ final class PrivilegesController implements InvocableController
             ]);
         }
 
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
+        $errorUrl = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -252,7 +252,7 @@ final class PrivilegesController implements InvocableController
          */
         if ($request->hasBodyParam('change_pw')) {
             $GLOBALS['message'] = $serverPrivileges->updatePassword(
-                $GLOBALS['errorUrl'],
+                $errorUrl,
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
             );

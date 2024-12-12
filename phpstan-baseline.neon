@@ -3727,12 +3727,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Parameter \#1 \$errorUrl of method PhpMyAdmin\\Server\\Privileges\:\:updatePassword\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4210,12 +4204,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#4 \$backUrl of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Parameter \#5 \$sqlQueryForBookmark of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4361,12 +4349,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$currentResult of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects PhpMyAdmin\\Dbal\\ResultInterface, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#4 \$errorUrl of method PhpMyAdmin\\InsertEdit\:\:getContinueInsertionForm\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ChangeController.php

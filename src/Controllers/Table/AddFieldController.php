@@ -23,7 +23,6 @@ use PhpMyAdmin\Table\ColumnsDefinition;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
-use PhpMyAdmin\Util;
 
 use function __;
 use function is_array;
@@ -70,7 +69,7 @@ final class AddFieldController implements InvocableController
         /**
          * Defines the url to return to in case of error in a sql statement
          */
-        $GLOBALS['errorUrl'] = Url::getFromRoute(
+        $errorUrl = Url::getFromRoute(
             '/table/sql',
             ['db' => Current::$database, 'table' => Current::$table],
         );
@@ -101,11 +100,11 @@ final class AddFieldController implements InvocableController
             $result = $createAddField->tryColumnCreationQuery(
                 DatabaseName::from(Current::$database),
                 Current::$sqlQuery,
-                $GLOBALS['errorUrl'],
+                $errorUrl,
             );
 
             if (! $result) {
-                $errorMessageHtml = Generator::mysqlDie('', '', false, $GLOBALS['errorUrl'], false);
+                $errorMessageHtml = Generator::mysqlDie('', '', false, $errorUrl, false);
                 $this->response->addHTML($errorMessageHtml ?? '');
                 $this->response->setRequestStatus(false);
 
@@ -154,10 +153,6 @@ final class AddFieldController implements InvocableController
 
             return $this->response->response();
         }
-
-        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($cfg['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
