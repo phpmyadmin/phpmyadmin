@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-12-08 00:27+0000\n"
-"PO-Revision-Date: 2024-04-02 05:12+0000\n"
+"PO-Revision-Date: 2024-12-14 12:01+0000\n"
 "Last-Translator: ButterflyOfFire <boffire@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Kabyle <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "kab/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.9-rc\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -1508,10 +1508,9 @@ msgid "See table structure"
 msgstr ""
 
 #: resources/templates/database/designer/database_tables.twig:93
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Fren akk"
+msgstr "Fren \"%s\""
 
 #: resources/templates/database/designer/database_tables.twig:111
 #, php-format
@@ -4602,9 +4601,9 @@ msgid "Replica replication"
 msgstr "Asefrurex LDAP n imedlis n tensa"
 
 #: resources/templates/server/databases/index.twig:181
-#, fuzzy, php-format
+#, php-format
 msgid "Jump to database '%s'"
-msgstr "Taffa n isefka"
+msgstr "Ddu ɣer uzadur n yisefka '%s'"
 
 #: resources/templates/server/databases/index.twig:238
 #, php-format
@@ -5777,11 +5776,11 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "Taffa n isefka"
-msgstr[1] "Taffa n isefka"
+msgstr[0] "%d n tasint"
+msgstr[1] "%d n tasinin"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
@@ -15199,9 +15198,9 @@ msgid "%1$s total, %2$s in query"
 msgstr ""
 
 #: src/Display/Results.php:3444
-#, fuzzy, php-format
+#, php-format
 msgid "%s total"
-msgstr "Asemday"
+msgstr "Aɣrud %s"
 
 #: src/Display/Results.php:3457 src/Sql.php:869
 #, php-format
