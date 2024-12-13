@@ -794,9 +794,12 @@ SQL;
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_relation' => 'On', 'sql_dates' => 'On']);
 
-        $result = $this->object->getTableDef('db', 'table', true, true, false);
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('db', 'table', true, false);
 
         $dbiDummy->assertAllQueriesConsumed();
         self::assertStringContainsString('-- Creation: Jan 01, 2000 at 10:00 AM', $result);
@@ -844,7 +847,7 @@ SQL;
 
         $this->object->useSqlBackquotes(false);
 
-        $result = $this->object->getTableDef('db', 'table', true, true, false);
+        $result = $this->object->getTableDef('db', 'table', true, false);
 
         $dbiDummy->assertAllQueriesConsumed();
         $dbiDummy->assertAllErrorCodesConsumed();

@@ -483,7 +483,6 @@ class ExportHtmlword extends ExportPlugin
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
@@ -491,7 +490,6 @@ class ExportHtmlword extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $dates = false,
         array $aliases = [],
     ): bool {
         $dbAlias = $db;

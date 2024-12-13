@@ -2734,12 +2734,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_dates'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Binary operation "\." between mixed and ''_include_comments'' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1

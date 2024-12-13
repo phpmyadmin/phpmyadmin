@@ -609,7 +609,6 @@ class ExportOdt extends ExportPlugin
      *                             this is deprecated but the parameter is
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
@@ -617,7 +616,6 @@ class ExportOdt extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $dates = false,
         array $aliases = [],
     ): bool {
         $dbAlias = $db;

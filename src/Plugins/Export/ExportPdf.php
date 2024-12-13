@@ -221,7 +221,6 @@ class ExportPdf extends ExportPlugin
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    aliases for db/table/columns
      */
     public function exportStructure(
@@ -229,7 +228,6 @@ class ExportPdf extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $dates = false,
         array $aliases = [],
     ): bool {
         $dbAlias = $db;

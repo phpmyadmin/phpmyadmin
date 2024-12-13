@@ -307,9 +307,6 @@ final class ExportController implements InvocableController
             $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
                 || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
 
-            // Include dates in export?
-            $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
-
             /**
              * Builds the dump
              */
@@ -318,7 +315,7 @@ final class ExportController implements InvocableController
                     $dbSelect = '';
                 }
 
-                $this->export->exportServer($dbSelect, $exportPlugin, $doComments, $doDates, $aliases, $separateFiles);
+                $this->export->exportServer($dbSelect, $exportPlugin, $doComments, $aliases, $separateFiles);
             } elseif ($exportType === ExportType::Database) {
                 if (! is_array($tableStructure)) {
                     $tableStructure = [];
@@ -343,7 +340,6 @@ final class ExportController implements InvocableController
                             $GLOBALS['table_data'],
                             $exportPlugin,
                             $doComments,
-                            $doDates,
                             $aliases,
                             $separateFiles,
                         );
@@ -358,7 +354,6 @@ final class ExportController implements InvocableController
                         $GLOBALS['table_data'],
                         $exportPlugin,
                         $doComments,
-                        $doDates,
                         $aliases,
                         $separateFiles,
                     );
@@ -380,7 +375,6 @@ final class ExportController implements InvocableController
                             Current::$table,
                             $exportPlugin,
                             $doComments,
-                            $doDates,
                             $allrows,
                             $limitTo,
                             $limitFrom,
@@ -396,7 +390,6 @@ final class ExportController implements InvocableController
                         Current::$table,
                         $exportPlugin,
                         $doComments,
-                        $doDates,
                         $allrows,
                         $limitTo,
                         $limitFrom,
@@ -617,10 +610,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['sql_header_comment'])) {
             $GLOBALS['sql_header_comment'] = $postParams['sql_header_comment'];
-        }
-
-        if (isset($postParams['sql_dates'])) {
-            $GLOBALS['sql_dates'] = $postParams['sql_dates'];
         }
 
         if (isset($postParams['sql_use_transaction'])) {

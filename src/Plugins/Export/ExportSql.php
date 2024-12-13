@@ -87,6 +87,8 @@ class ExportSql extends ExportPlugin
 
     private bool $doMime = false;
 
+    private bool $doDates = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -1329,8 +1331,6 @@ class ExportSql extends ExportPlugin
      *
      * @param string  $db                      the database name
      * @param string  $table                   the table name
-     * @param bool    $showDates               whether to include creation/
-     *                                          update/check dates
      * @param bool    $addSemicolon            whether to add semicolon and
      *                                          end-of-line at the end
      * @param bool    $view                    whether we're handling a view
@@ -1343,7 +1343,6 @@ class ExportSql extends ExportPlugin
     public function getTableDef(
         string $db,
         string $table,
-        bool $showDates = false,
         bool $addSemicolon = true,
         bool $view = false,
         bool $updateIndexesIncrements = true,
@@ -1359,7 +1358,7 @@ class ExportSql extends ExportPlugin
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        $schemaCreate = $this->getTableStatus($db, $table, $showDates);
+        $schemaCreate = $this->getTableStatus($db, $table);
 
         $dbi = DatabaseInterface::getInstance();
         if (! empty($GLOBALS['sql_drop_table']) && $dbi->getTable($db, $table)->isView()) {
@@ -1877,7 +1876,6 @@ class ExportSql extends ExportPlugin
      *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
@@ -1885,7 +1883,6 @@ class ExportSql extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $dates = false,
         array $aliases = [],
     ): bool {
         $dbAlias = $db;
@@ -1905,7 +1902,7 @@ class ExportSql extends ExportPlugin
                     __('Table structure for table') . ' ' . $formattedTableName,
                 );
                 $dump .= $this->exportComment();
-                $dump .= $this->getTableDef($db, $table, $dates, true, false, true, $aliases);
+                $dump .= $this->getTableDef($db, $table, true, false, true, $aliases);
                 $dump .= $this->getTableComments($db, $table, $aliases);
                 break;
             case 'triggers':
@@ -1970,7 +1967,7 @@ class ExportSql extends ExportPlugin
                             . Util::backquote($tableAlias) . ';' . "\n";
                     }
 
-                    $dump .= $this->getTableDef($db, $table, $dates, true, true, true, $aliases);
+                    $dump .= $this->getTableDef($db, $table, true, true, true, $aliases);
                 } else {
                     $dump .= $this->exportComment(
                         sprintf(
@@ -2640,7 +2637,7 @@ class ExportSql extends ExportPlugin
         return $sqlStatement;
     }
 
-    private function getTableStatus(string $db, string $table, bool $showDates): string
+    private function getTableStatus(string $db, string $table): string
     {
         $newCrlf = "\n";
         $schemaCreate = '';
@@ -2653,7 +2650,7 @@ class ExportSql extends ExportPlugin
         if ($result !== false && $result->numRows() > 0) {
             $tmpres = $result->fetchAssoc();
 
-            if ($showDates && ! empty($tmpres['Create_time'])) {
+            if ($this->doDates && ! empty($tmpres['Create_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Creation:') . ' '
                     . Util::localisedDate(new DateTimeImmutable($tmpres['Create_time'])),
@@ -2661,7 +2658,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($showDates && ! empty($tmpres['Update_time'])) {
+            if ($this->doDates && ! empty($tmpres['Update_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last update:') . ' '
                     . Util::localisedDate(new DateTimeImmutable($tmpres['Update_time'])),
@@ -2669,7 +2666,7 @@ class ExportSql extends ExportPlugin
                 $newCrlf = $this->exportComment() . "\n";
             }
 
-            if ($showDates && ! empty($tmpres['Check_time'])) {
+            if ($this->doDates && ! empty($tmpres['Check_time'])) {
                 $schemaCreate .= $this->exportComment(
                     __('Last check:') . ' '
                     . Util::localisedDate(new DateTimeImmutable($tmpres['Check_time'])),
@@ -2714,5 +2711,6 @@ class ExportSql extends ExportPlugin
         $this->doRelation = (bool) ($request->getParsedBodyParam('sql_relation')
             ?? $exportConfig['sql_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('sql_mime') ?? $exportConfig['sql_mime'] ?? false);
+        $this->doDates = (bool) ($request->getParsedBodyParam('sql_dates') ?? $exportConfig['sql_dates'] ?? false);
     }
 }

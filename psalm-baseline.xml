@@ -1506,7 +1506,6 @@
       <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
       <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_dates']]]></code>
       <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
       <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
       <code><![CDATA[$GLOBALS['sql_drop_database']]]></code>
