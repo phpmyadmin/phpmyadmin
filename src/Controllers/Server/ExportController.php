@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 
 use function __;
 use function array_merge;
@@ -32,7 +31,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
         $GLOBALS['tmp_select'] ??= null;
         $GLOBALS['select_item'] ??= null;
 

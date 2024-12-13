@@ -174,7 +174,7 @@ class ExportCodegenTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
 
         ob_start();
-        $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -199,7 +199,7 @@ class ExportCodegenTest extends AbstractTestCase
 
         $GLOBALS['codegen_format'] = 4;
 
-        $this->object->exportData('test_db', 'test_table', 'localhost', 'SELECT * FROM `test_db`.`test_table`;');
+        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
 
         $this->expectOutputString('4 is not supported.');
     }

@@ -383,7 +383,6 @@ class ExportCsvTest extends AbstractTestCase
         self::assertFalse($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         ob_get_clean();
@@ -403,7 +402,6 @@ class ExportCsvTest extends AbstractTestCase
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -421,7 +419,6 @@ class ExportCsvTest extends AbstractTestCase
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -442,7 +439,6 @@ class ExportCsvTest extends AbstractTestCase
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -462,7 +458,6 @@ class ExportCsvTest extends AbstractTestCase
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -481,7 +476,6 @@ class ExportCsvTest extends AbstractTestCase
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();

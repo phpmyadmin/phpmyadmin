@@ -43,7 +43,6 @@ class SqlController implements InvocableController
     {
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['import_text'] ??= null;
         $GLOBALS['disp_query'] ??= null;
@@ -82,19 +81,17 @@ class SqlController implements InvocableController
             }
         }
 
-        if (! isset($GLOBALS['errorUrl'])) {
-            $GLOBALS['errorUrl'] = UrlParams::$back !== '' ? UrlParams::$back : UrlParams::$goto;
-            $GLOBALS['errorUrl'] .= Url::getCommon(
-                ['db' => Current::$database],
-                ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&',
-            );
-            if (
-                (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
-                    || ! str_contains($GLOBALS['errorUrl'], '?route=/database/'))
-                && Current::$table !== ''
-            ) {
-                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode(Current::$table);
-            }
+        $errorUrl = UrlParams::$back !== '' ? UrlParams::$back : UrlParams::$goto;
+        $errorUrl .= Url::getCommon(
+            ['db' => Current::$database],
+            ! str_contains($errorUrl, '?') ? '?' : '&',
+        );
+        if (
+            (mb_strpos(' ' . $errorUrl, 'db_') !== 1
+                || ! str_contains($errorUrl, '?route=/database/'))
+            && Current::$table !== ''
+        ) {
+            $errorUrl .= '&amp;table=' . urlencode(Current::$table);
         }
 
         /** @var array<string>|null $bkmFields */
@@ -162,7 +159,7 @@ class SqlController implements InvocableController
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
-                $GLOBALS['errorUrl'],
+                $errorUrl,
             );
         }
 

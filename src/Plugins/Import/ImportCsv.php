@@ -193,7 +193,6 @@ class ImportCsv extends AbstractImportCsv
     {
         $GLOBALS['error'] ??= null;
         $GLOBALS['message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
         $this->terminated = strtr($this->terminated, $replacements);

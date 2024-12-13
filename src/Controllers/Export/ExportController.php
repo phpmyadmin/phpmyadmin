@@ -26,7 +26,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
@@ -52,7 +51,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['export_type'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['compression'] ??= null;
         $GLOBALS['asfile'] ??= null;
@@ -141,7 +139,6 @@ final class ExportController implements InvocableController
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['save_filename'] = '';
         $GLOBALS['file_handle'] = '';
-        $GLOBALS['errorUrl'] = '';
         $filename = '';
         $separateFiles = '';
 
@@ -169,22 +166,24 @@ final class ExportController implements InvocableController
 
         $tableNames = [];
         // Generate error url and check for needed variables
-        if ($GLOBALS['export_type'] === 'server') {
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export');
-        } elseif ($GLOBALS['export_type'] === 'database' && Current::$database !== '') {
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/database/export', ['db' => Current::$database]);
+        if ($GLOBALS['export_type'] === 'database') {
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
             // Check if we have something to export
             $tableNames = $GLOBALS['table_select'] ?? [];
             Assert::isArray($tableNames);
             Assert::allString($tableNames);
-        } elseif ($GLOBALS['export_type'] === 'table' && Current::$database !== '' && Current::$table !== '') {
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/table/export', [
-                'db' => Current::$database,
-                'table' => Current::$table,
-            ]);
-        } elseif ($GLOBALS['export_type'] === 'raw') {
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/server/export', ['sql_query' => Current::$sqlQuery]);
-        } else {
+        } elseif ($GLOBALS['export_type'] === 'table') {
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
+            if (Current::$table === '') {
+                return $this->response->missingParameterError('table');
+            }
+        } elseif ($GLOBALS['export_type'] !== 'raw' && $GLOBALS['export_type'] !== 'server') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
 
@@ -362,7 +361,6 @@ final class ExportController implements InvocableController
                     $dbSelect,
                     $whatStrucOrData,
                     $exportPlugin,
-                    $GLOBALS['errorUrl'],
                     $GLOBALS['export_type'],
                     $doRelation,
                     $doComments,
@@ -395,7 +393,6 @@ final class ExportController implements InvocableController
                             $tableStructure,
                             $GLOBALS['table_data'],
                             $exportPlugin,
-                            $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $doRelation,
                             $doComments,
@@ -415,7 +412,6 @@ final class ExportController implements InvocableController
                         $tableStructure,
                         $GLOBALS['table_data'],
                         $exportPlugin,
-                        $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $doRelation,
                         $doComments,
@@ -426,13 +422,7 @@ final class ExportController implements InvocableController
                     );
                 }
             } elseif ($GLOBALS['export_type'] === 'raw') {
-                Export::exportRaw(
-                    $whatStrucOrData,
-                    $exportPlugin,
-                    $GLOBALS['errorUrl'],
-                    Current::$database,
-                    Current::$sqlQuery,
-                );
+                Export::exportRaw($whatStrucOrData, $exportPlugin, Current::$database, Current::$sqlQuery);
             } else {
                 // We export just one table
 
@@ -448,7 +438,6 @@ final class ExportController implements InvocableController
                             Current::$table,
                             $whatStrucOrData,
                             $exportPlugin,
-                            $GLOBALS['errorUrl'],
                             $GLOBALS['export_type'],
                             $doRelation,
                             $doComments,
@@ -469,7 +458,6 @@ final class ExportController implements InvocableController
                         Current::$table,
                         $whatStrucOrData,
                         $exportPlugin,
-                        $GLOBALS['errorUrl'],
                         $GLOBALS['export_type'],
                         $doRelation,
                         $doComments,

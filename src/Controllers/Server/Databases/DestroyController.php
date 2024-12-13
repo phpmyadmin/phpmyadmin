@@ -13,7 +13,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -36,7 +35,6 @@ final class DestroyController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['selected'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -66,7 +64,6 @@ final class DestroyController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
         $GLOBALS['selected'] = $selectedDbs;
         $numberOfDatabases = count($selectedDbs);
 

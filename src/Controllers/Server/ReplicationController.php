@@ -14,7 +14,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 
 use function is_array;
@@ -33,13 +32,9 @@ final class ReplicationController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $hasReplicaClearScreen = (bool) $request->getParsedBodyParamAsStringOrNull('replica_clear_screen');
         $replicaConfigure = $request->getParsedBodyParam('replica_configure');
         $primaryConfigure = $request->getParsedBodyParam('primary_configure');
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

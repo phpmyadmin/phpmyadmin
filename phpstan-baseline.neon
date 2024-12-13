@@ -2026,15 +2026,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/DesignerController.php
-
-		-
 			message: '#^Cannot access offset ''dbName'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -2125,15 +2116,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
 			identifier: method.nonObject
 			count: 1
@@ -2186,15 +2168,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/ExportController.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
@@ -2407,15 +2380,6 @@ parameters:
 			path: src/Controllers/Database/SearchController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/SqlController.php
-
-		-
 			message: '#^Parameter \#1 \$database of method PhpMyAdmin\\Database\\CentralColumns\:\:deleteColumnsFromList\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2543,15 +2507,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/Structure/RealRowCountController.php
 
 		-
 			message: '#^Cannot cast mixed to string\.$#'
@@ -2932,19 +2887,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#3 \$errorUrl of static method PhpMyAdmin\\Export\\Export\:\:exportRaw\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#3 \$saveFilename of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#4 \$errorUrl of method PhpMyAdmin\\Export\\Export\:\:exportServer\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -2956,7 +2899,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#5 \$errorUrl of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#5 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php
@@ -2968,19 +2911,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#6 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#7 \$errorUrl of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#8 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#7 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php
@@ -3364,15 +3295,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: src/Controllers/Operations/Database/CollationController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
@@ -3461,15 +3383,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Operations/ViewController.php
 
 		-
 			message: '''
@@ -3810,12 +3723,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) has parameter \$selectedUsers with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$errorUrl of method PhpMyAdmin\\Server\\Privileges\:\:updatePassword\(\) expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
@@ -4297,12 +4204,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#4 \$backUrl of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Parameter \#5 \$sqlQueryForBookmark of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4453,12 +4354,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#4 \$errorUrl of method PhpMyAdmin\\InsertEdit\:\:getContinueInsertionForm\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#7 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4488,7 +4383,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ChartController.php
 
 		-
@@ -4556,15 +4451,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/CreateController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/DeleteConfirmController.php
 
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
@@ -4648,15 +4534,6 @@ parameters:
 			path: src/Controllers/Table/DropColumnController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
@@ -4686,7 +4563,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Controllers/Table/FindReplaceController.php
 
 		-
@@ -4737,7 +4614,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 2
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
@@ -4798,15 +4675,6 @@ parameters:
 			path: src/Controllers/Table/ImportController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/IndexRenameController.php
-
-		-
 			message: '#^Binary operation "\+\=" between int and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
@@ -4818,7 +4686,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Controllers/Table/IndexesController.php
 
 		-
@@ -5259,7 +5127,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 4
+			count: 3
 			path: src/Controllers/Table/SearchController.php
 
 		-
@@ -5327,15 +5195,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/SqlController.php
 
 		-
 			message: '#^Parameter \#3 \$query of method PhpMyAdmin\\SqlQueryForm\:\:getHtml\(\) expects bool\|string, mixed given\.$#'
@@ -5432,15 +5291,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/Structure/PrimaryController.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
@@ -5742,7 +5592,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 2
 			path: src/Controllers/Table/StructureController.php
 
 		-
@@ -5774,15 +5624,6 @@ parameters:
 			identifier: argument.type
 			count: 4
 			path: src/Controllers/Table/StructureController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/TrackingController.php
 
 		-
 			message: '#^Parameter \#2 \$entries of method PhpMyAdmin\\Tracking\\Tracking\:\:getDownloadInfoForExport\(\) expects array\<int, array\<string, int\|string\>\>, array\<mixed\> given\.$#'
@@ -5971,15 +5812,6 @@ parameters:
 			path: src/Controllers/Transformation/WrapperController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
 			identifier: method.nonObject
 			count: 1
@@ -6063,15 +5895,6 @@ parameters:
 		-
 			message: '#^Binary operation "\." between "\\r\\n AS " and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/View/CreateController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Controllers/View/CreateController.php
 

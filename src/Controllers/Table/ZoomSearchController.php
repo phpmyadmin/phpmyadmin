@@ -20,7 +20,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UniqueCondition;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
@@ -82,7 +81,6 @@ final class ZoomSearchController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
@@ -93,8 +91,6 @@ final class ZoomSearchController implements InvocableController
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
@@ -16,7 +15,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
@@ -37,7 +35,6 @@ final class PrimaryController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         /** @var string[]|null $selected */
         $selected = $request->getParsedBodyParam('selected_fld', $request->getParsedBodyParam('selected'));
@@ -64,11 +61,6 @@ final class PrimaryController implements InvocableController
             }
 
             UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
-            $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

@@ -72,7 +72,6 @@ final class ReplaceController implements InvocableController
             return $this->response->missingParameterError('goto');
         }
 
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['disp_message'] ??= null;
@@ -98,9 +97,6 @@ final class ReplaceController implements InvocableController
 
         //get $goto_include for different cases
         $gotoInclude = $this->insertEdit->getGotoInclude(false);
-
-        // Defines the url to return in case of failure of the query
-        $GLOBALS['errorUrl'] = $this->insertEdit->getErrorUrl(UrlParams::$params);
 
         /**
          * Prepares the update/insert of a row

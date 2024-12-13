@@ -52,7 +52,6 @@ class ChangeController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['current_result'] ??= null;
@@ -141,7 +140,7 @@ class ChangeController implements InvocableController
             UrlParams::$params['table'] = Current::$table;
         }
 
-        $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(
+        $errorUrl = UrlParams::$goto . Url::getCommon(
             UrlParams::$params,
             ! str_contains(UrlParams::$goto, '?') ? '?' : '&',
         );
@@ -181,7 +180,7 @@ class ChangeController implements InvocableController
             Current::$table,
             $whereClauses,
             $whereClauseArray,
-            $GLOBALS['errorUrl'],
+            $errorUrl,
         );
 
         /**
@@ -283,7 +282,7 @@ class ChangeController implements InvocableController
                 Current::$table,
                 Current::$database,
                 $whereClauseArray,
-                $GLOBALS['errorUrl'],
+                $errorUrl,
             );
         }
 

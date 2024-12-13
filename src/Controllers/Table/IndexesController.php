@@ -21,9 +21,7 @@ use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function count;
@@ -48,8 +46,6 @@ final class IndexesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         if (! isset($_POST['create_edit_table'])) {
             if (Current::$database === '') {
                 return $this->response->missingParameterError('db');
@@ -60,11 +56,6 @@ final class IndexesController implements InvocableController
             }
 
             UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
-            $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

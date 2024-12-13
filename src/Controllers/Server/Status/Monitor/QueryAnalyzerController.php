@@ -13,7 +13,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 final class QueryAnalyzerController extends AbstractController implements InvocableController
 {
@@ -29,10 +28,6 @@ final class QueryAnalyzerController extends AbstractController implements Invoca
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }

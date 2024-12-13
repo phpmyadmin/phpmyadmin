@@ -44,8 +44,6 @@ final class ChartController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
             $this->ajax($request);
 
@@ -80,8 +78,6 @@ final class ChartController implements InvocableController
             }
 
             $urlParams = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-            $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -118,9 +114,6 @@ final class ChartController implements InvocableController
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
             $urlParams['back'] = Url::getFromRoute('/sql');
 
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
-
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                 if ($request->isAjax()) {
@@ -137,7 +130,6 @@ final class ChartController implements InvocableController
         } else {
             $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
             $urlParams['back'] = Url::getFromRoute('/sql');
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
             if ($this->dbi->isSuperUser()) {
                 $this->dbi->selectDb('mysql');
@@ -199,14 +191,8 @@ final class ChartController implements InvocableController
      */
     public function ajax(ServerRequest $request): void
     {
-        $GLOBALS['errorUrl'] ??= null;
         if (Current::$table !== '' && Current::$database !== '') {
             UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
-            $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

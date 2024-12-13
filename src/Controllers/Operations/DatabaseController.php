@@ -50,7 +50,6 @@ final class DatabaseController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['single_table'] ??= null;
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -230,8 +229,6 @@ final class DatabaseController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

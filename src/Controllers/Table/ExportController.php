@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -19,7 +18,6 @@ use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function array_merge;
@@ -37,7 +35,6 @@ class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
 
@@ -56,11 +53,6 @@ class ExportController implements InvocableController
         }
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(UrlParams::$params, '&');
 
         UrlParams::$params['goto'] = Url::getFromRoute('/table/export');
         UrlParams::$params['back'] = Url::getFromRoute('/table/export');

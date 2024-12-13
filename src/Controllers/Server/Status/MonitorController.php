@@ -12,7 +12,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function is_numeric;
 use function microtime;
@@ -30,8 +29,6 @@ final class MonitorController extends AbstractController implements InvocableCon
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }

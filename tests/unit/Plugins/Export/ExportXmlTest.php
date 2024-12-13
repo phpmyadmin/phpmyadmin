@@ -380,7 +380,6 @@ class ExportXmlTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'localhost',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );

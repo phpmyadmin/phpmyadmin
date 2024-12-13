@@ -67,7 +67,6 @@ final class HomeController implements InvocableController
 
         $GLOBALS['message'] ??= null;
         $GLOBALS['show_query'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
 
         if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
             return $this->response->response();
@@ -81,7 +80,6 @@ final class HomeController implements InvocableController
         Current::$database = $request->getParsedBodyParamAsString('db', '');
         Current::$table = '';
         $GLOBALS['show_query'] = '1';
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if (Current::$server > 0 && $this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

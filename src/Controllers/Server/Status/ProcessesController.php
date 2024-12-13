@@ -12,7 +12,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 final class ProcessesController extends AbstractController implements InvocableController
 {
@@ -28,8 +27,6 @@ final class ProcessesController extends AbstractController implements InvocableC
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         $showExecuting = $request->hasBodyParam('showExecuting');
         $full = $request->getParsedBodyParam('full') === '1';
         $orderByField = $request->getParsedBodyParamAsString('order_by_field', '');

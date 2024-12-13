@@ -173,7 +173,6 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'phpmyadmin.net/err',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );
@@ -195,7 +194,6 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 '0`932table',
-                'phpmyadmin.net/err',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );

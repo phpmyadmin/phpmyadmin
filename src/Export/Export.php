@@ -495,7 +495,6 @@ class Export
      * @param string|mixed[] $dbSelect        the selected databases to export
      * @param string         $whatStrucOrData structure or data or both
      * @param ExportPlugin   $exportPlugin    the selected export plugin
-     * @param string         $errorUrl        the URL in case of error
      * @param string         $exportType      the export type
      * @param bool           $doRelation      whether to export relation info
      * @param bool           $doComments      whether to add comments
@@ -508,7 +507,6 @@ class Export
         string|array $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $errorUrl,
         string $exportType,
         bool $doRelation,
         bool $doComments,
@@ -536,7 +534,6 @@ class Export
                 $tables,
                 $tables,
                 $exportPlugin,
-                $errorUrl,
                 $exportType,
                 $doRelation,
                 $doComments,
@@ -562,7 +559,6 @@ class Export
      * @param string[]     $tableStructure  whether to export structure for each table
      * @param string[]     $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
@@ -578,7 +574,6 @@ class Export
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        string $errorUrl,
         string $exportType,
         bool $doRelation,
         bool $doComments,
@@ -707,7 +702,7 @@ class Export
                     . ' FROM ' . Util::backquote($db->getName())
                     . '.' . Util::backquote($table);
 
-                if (! $exportPlugin->exportData($db->getName(), $table, $errorUrl, $localQuery, $aliases)) {
+                if (! $exportPlugin->exportData($db->getName(), $table, $localQuery, $aliases)) {
                     break;
                 }
             }
@@ -823,14 +818,12 @@ class Export
      *
      * @param string       $whatStrucOrData whether to export structure for each table or raw
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $errorUrl        the URL in case of error
      * @param string|null  $db              the database where the query is executed
      * @param string       $sqlQuery        the query to be executed
      */
     public static function exportRaw(
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $errorUrl,
         string|null $db,
         string $sqlQuery,
     ): void {
@@ -839,7 +832,7 @@ class Export
             return;
         }
 
-        if ($exportPlugin->exportRawQuery($errorUrl, $db, $sqlQuery)) {
+        if ($exportPlugin->exportRawQuery($db, $sqlQuery)) {
             return;
         }
 
@@ -857,7 +850,6 @@ class Export
      * @param string       $table           the table to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $errorUrl        the URL in case of error
      * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
@@ -874,7 +866,6 @@ class Export
         string $table,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $errorUrl,
         string $exportType,
         bool $doRelation,
         bool $doComments,
@@ -963,7 +954,7 @@ class Export
                     . '.' . Util::backquote($table) . $addQuery;
             }
 
-            if (! $exportPlugin->exportData($db, $table, $errorUrl, $localQuery, $aliases)) {
+            if (! $exportPlugin->exportData($db, $table, $localQuery, $aliases)) {
                 return;
             }
         }

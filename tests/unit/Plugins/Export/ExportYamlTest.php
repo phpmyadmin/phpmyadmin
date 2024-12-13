@@ -163,7 +163,6 @@ class ExportYamlTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'localhost',
                 'SELECT * FROM `test_db`.`test_table_yaml`;',
             ),
         );

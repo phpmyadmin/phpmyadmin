@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function array_key_exists;
@@ -38,8 +37,6 @@ final class BinlogController implements InvocableController
     {
         $log = $request->getParsedBodyParamAsString('log');
         $position = (int) $request->getParsedBodyParamAsString('pos', '');
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');

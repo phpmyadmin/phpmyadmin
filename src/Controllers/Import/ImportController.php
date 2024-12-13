@@ -65,7 +65,6 @@ final class ImportController implements InvocableController
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['import_text'] ??= null;
         $GLOBALS['message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
 

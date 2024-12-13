@@ -46,8 +46,6 @@ class TableMover
         MoveMode $mode,
         bool $addDropIfExists,
     ): bool {
-        $GLOBALS['errorUrl'] ??= null;
-
         // Try moving the tables directly, using native `RENAME` statement.
         if ($what === MoveScope::Move) {
             $tbl = new Table($sourceTable, $sourceDb, $this->dbi);
