@@ -58,7 +58,8 @@ class Plugins
      */
     public static function getPlugin(string $type, string $format, array|string|null $param = null): object|null
     {
-        $GLOBALS['plugin_param'] = $param;
+        ExportPlugin::$exportType = $param['export_type'] ?? '';
+        ExportPlugin::$singleTable = $param['single_table'] ?? false;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
         $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
         $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s%s', $pluginType, $pluginType, $pluginFormat);
@@ -89,7 +90,8 @@ class Plugins
      */
     public static function getExport(string $type, bool $singleTable): array
     {
-        $GLOBALS['plugin_param'] = ['export_type' => $type, 'single_table' => $singleTable];
+        ExportPlugin::$exportType = $type;
+        ExportPlugin::$singleTable = $singleTable;
 
         return self::getPlugins('Export');
     }

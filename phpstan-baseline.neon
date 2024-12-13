@@ -12373,18 +12373,6 @@ parameters:
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
-			message: '#^Cannot access offset ''export_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -12423,12 +12411,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Plugins/Export/ExportLatex.php
 
@@ -12652,18 +12634,6 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Cannot access offset ''export_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 5
@@ -12690,12 +12660,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
@@ -12874,18 +12838,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Cannot access offset ''export_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Cannot access offset ''tables'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 11
@@ -12991,12 +12943,6 @@ parameters:
 			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 6
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -22177,18 +22123,6 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportLatexTest.php
 
 		-
-			message: '#^Cannot access offset ''export_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: tests/unit/Plugins/Export/ExportLatexTest.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: tests/unit/Plugins/Export/ExportLatexTest.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: string, port\: 80, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
 			identifier: assign.propertyType
 			count: 1
@@ -22204,18 +22138,6 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportOdtTest.php
 
 		-
-			message: '#^Cannot access offset ''export_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: tests/unit/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: tests/unit/Plugins/Export/ExportOdtTest.php
-
-		-
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 11
@@ -22228,18 +22150,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 9
-			path: tests/unit/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: '#^Cannot access offset ''export_type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: tests/unit/Plugins/Export/ExportSqlTest.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-
@@ -22264,24 +22174,12 @@ parameters:
 			path: tests/unit/Plugins/Export/ExportTexytextTest.php
 
 		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: tests/unit/Plugins/Export/ExportTexytextTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: tests/unit/Plugins/Export/ExportXmlTest.php
-
-		-
-			message: '#^Cannot access offset ''single_table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: tests/unit/Plugins/Export/ExportXmlTest.php
 
 		-

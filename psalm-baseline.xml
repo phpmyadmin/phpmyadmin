@@ -7330,10 +7330,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$record[$columns[$i]]]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullOperand>
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
@@ -7454,10 +7450,6 @@
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$viewAlias]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string]]></code>
     </PossiblyUnusedReturnValue>
@@ -7606,11 +7598,6 @@
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
     </PossiblyNullArrayOffset>

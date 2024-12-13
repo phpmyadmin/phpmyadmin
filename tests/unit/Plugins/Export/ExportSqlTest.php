@@ -13,6 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -67,9 +68,8 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$singleTable = false;
 
         $this->object = new ExportSql(
             new Relation($dbi),
@@ -93,8 +93,8 @@ class ExportSqlTest extends AbstractTestCase
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$singleTable = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -116,8 +116,8 @@ class ExportSqlTest extends AbstractTestCase
             ->willReturn(['v1', 'v2']);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['plugin_param']['export_type'] = 'server';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = 'server';
+        ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',

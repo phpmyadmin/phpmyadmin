@@ -96,7 +96,6 @@ class ExportTest extends AbstractTestCase
 
     public function testExportDatabase(): void
     {
-        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $GLOBALS['sql_create_view'] = 'something';
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -163,7 +162,6 @@ SQL;
 
     public function testExportServer(): void
     {
-        $GLOBALS['plugin_param'] = ['export_type' => 'server', 'single_table' => false];
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;

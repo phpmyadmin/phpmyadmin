@@ -94,11 +94,9 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $GLOBALS['plugin_param'] ??= null;
-
         $hideSql = false;
         $hideStructure = false;
-        if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
+        if (ExportPlugin::$exportType === 'table' && ! ExportPlugin::$singleTable) {
             $hideStructure = true;
             $hideSql = true;
         }
@@ -243,7 +241,7 @@ class ExportSql extends ExportPlugin
             $subgroup->setSubgroupHeader($leaf);
 
             // server export options
-            if ($GLOBALS['plugin_param']['export_type'] === 'server') {
+            if (ExportPlugin::$exportType === 'server') {
                 $leaf = new BoolPropertyItem(
                     'drop_database',
                     sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
@@ -251,7 +249,7 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
             }
 
-            if ($GLOBALS['plugin_param']['export_type'] === 'database') {
+            if (ExportPlugin::$exportType === 'database') {
                 $createClause = '<code>CREATE DATABASE / USE</code>';
                 $leaf = new BoolPropertyItem(
                     'create_database',
@@ -260,7 +258,7 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
             }
 
-            if ($GLOBALS['plugin_param']['export_type'] === 'table') {
+            if (ExportPlugin::$exportType === 'table') {
                 $dropClause = $dbi->getTable(Current::$database, Current::$table)->isView()
                     ? '<code>DROP VIEW</code>'
                     : '<code>DROP TABLE</code>';

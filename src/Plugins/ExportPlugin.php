@@ -28,6 +28,9 @@ abstract class ExportPlugin implements Plugin
      */
     protected ExportPluginProperties $properties;
 
+    public static string $exportType = '';
+    public static bool $singleTable = false;
+
     final public function __construct(
         public Relation $relation,
         protected Export $export,

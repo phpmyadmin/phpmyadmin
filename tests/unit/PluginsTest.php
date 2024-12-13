@@ -10,6 +10,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -27,7 +28,8 @@ class PluginsTest extends AbstractTestCase
     public function testGetExport(): void
     {
         $plugins = Plugins::getExport('database', false);
-        self::assertSame(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
+        self::assertSame('database', ExportPlugin::$exportType);
+        self::assertFalse(ExportPlugin::$singleTable);
         self::assertCount(14, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
@@ -98,7 +100,6 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetChoice(): void
     {
-        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $dbi = DatabaseInterface::getInstance();
         $exportList = [
             new Plugins\Export\ExportJson(
