@@ -158,7 +158,6 @@ class Tracker
         string $trackingSet = '',
         bool $isView = false,
     ): bool {
-        $GLOBALS['export_type'] ??= null;
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
 
@@ -167,7 +166,7 @@ class Tracker
             $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', (string) $GLOBALS['export_type']);
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql');
         if (! $exportSqlPlugin instanceof ExportSql) {
             return false;
         }
