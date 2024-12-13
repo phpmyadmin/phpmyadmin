@@ -136,6 +136,7 @@ phpMyAdmin - ChangeLog
 - issue #19316 Fix input size for hexadecimal values
 - issue #19321 Suppress deprecation message of E_STRICT constant
 - issue        Fix PHP 8.4 `str_getcsv` `$escape` parameter deprecation
+- issue #19426 Fix PHP warnings when the column is a `COMPRESSED BLOB`
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
