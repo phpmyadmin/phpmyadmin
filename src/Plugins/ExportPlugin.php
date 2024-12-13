@@ -141,7 +141,6 @@ abstract class ExportPlugin implements Plugin
      *                            but the parameter is left here because /export
      *                            calls exportStructure() also for other export
      *                            types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
@@ -150,7 +149,6 @@ abstract class ExportPlugin implements Plugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {

@@ -36,6 +36,8 @@ class ExportOdt extends ExportPlugin
 {
     private bool $doRelation = false;
 
+    private bool $doMime = false;
+
     protected function init(): void
     {
         $GLOBALS['odt_buffer'] = '';
@@ -395,17 +397,10 @@ class ExportOdt extends ExportPlugin
      *                             this is deprecated but the parameter is
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
-     * @param bool    $doMime     whether to include mime comments
-     *                             the end
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function getTableDef(
-        string $db,
-        string $table,
-        bool $doComments,
-        bool $doMime,
-        array $aliases = [],
-    ): bool {
+    public function getTableDef(string $db, string $table, bool $doComments, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -436,7 +431,7 @@ class ExportOdt extends ExportPlugin
             $columnsCnt++;
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $columnsCnt++;
         }
 
@@ -469,7 +464,7 @@ class ExportOdt extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Media type') . '</text:p>'
                 . '</table:table-cell>';
@@ -522,7 +517,7 @@ class ExportOdt extends ExportPlugin
                 }
             }
 
-            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
                 if (isset($mimeMap[$fieldName])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
@@ -614,7 +609,6 @@ class ExportOdt extends ExportPlugin
      *                             this is deprecated but the parameter is
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
@@ -623,7 +617,6 @@ class ExportOdt extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -637,7 +630,7 @@ class ExportOdt extends ExportPlugin
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($tableAlias)
                 . '</text:h>';
-                $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
+                $this->getTableDef($db, $table, $doComments, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -657,7 +650,7 @@ class ExportOdt extends ExportPlugin
                 . __('Structure for view') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</text:h>';
-                $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
+                $this->getTableDef($db, $table, $doComments, $aliases);
                 break;
             case 'stand_in':
                 $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
@@ -723,5 +716,6 @@ class ExportOdt extends ExportPlugin
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
             ?? $exportConfig['odt_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('odt_mime') ?? $exportConfig['odt_mime'] ?? false);
     }
 }

@@ -34,6 +34,8 @@ class ExportTexytext extends ExportPlugin
 {
     private bool $doRelation = false;
 
+    private bool $doMime = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -312,19 +314,12 @@ class ExportTexytext extends ExportPlugin
      *                             left here because /export calls
      *                             $this->exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     *                             at the end
      * @param mixed[] $aliases    Aliases of db/table/columns
      *
      * @return string resulting schema
      */
-    public function getTableDef(
-        string $db,
-        string $table,
-        bool $doComments,
-        bool $doMime,
-        array $aliases = [],
-    ): string {
+    public function getTableDef(string $db, string $table, bool $doComments, array $aliases = []): string
+    {
         $relationParameters = $this->relation->getRelationParameters();
 
         $textOutput = '';
@@ -371,7 +366,7 @@ class ExportTexytext extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $textOutput .= '|' . __('Media type');
             $mimeMap = $this->transformations->getMime($db, $table, true);
         }
@@ -405,7 +400,7 @@ class ExportTexytext extends ExportPlugin
                         : '');
             }
 
-            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
                 $textOutput .= '|'
                     . (isset($mimeMap[$fieldName])
                         ? htmlspecialchars(
@@ -459,7 +454,6 @@ class ExportTexytext extends ExportPlugin
      *                             left here because /export calls
      *                             $this->exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
@@ -468,7 +462,6 @@ class ExportTexytext extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -481,7 +474,7 @@ class ExportTexytext extends ExportPlugin
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
                 . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -493,7 +486,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '== ' . __('Stand-in structure for view')
@@ -559,5 +552,7 @@ class ExportTexytext extends ExportPlugin
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('texytext_relation')
             ?? $exportConfig['texytext_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('texytext_mime')
+            ?? $exportConfig['texytext_mime'] ?? false);
     }
 }

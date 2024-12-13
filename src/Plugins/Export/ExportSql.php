@@ -85,6 +85,8 @@ class ExportSql extends ExportPlugin
 
     private bool $doRelation = false;
 
+    private bool $doMime = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -1724,12 +1726,11 @@ class ExportSql extends ExportPlugin
      *
      * @param string  $db      database name
      * @param string  $table   table name
-     * @param bool    $doMime  whether to include mime comments
      * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting comments
      */
-    private function getTableComments(string $db, string $table, bool $doMime = false, array $aliases = []): string
+    private function getTableComments(string $db, string $table, array $aliases = []): string
     {
         $dbAlias = $db;
         $tableAlias = $table;
@@ -1740,7 +1741,7 @@ class ExportSql extends ExportPlugin
         $schemaCreate = '';
 
         $mimeMap = null;
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $mimeMap = $this->transformations->getMime($db, $table, true);
         }
 
@@ -1876,7 +1877,6 @@ class ExportSql extends ExportPlugin
      *                            because /export calls exportStructure()
      *                            also for other export types which use this
      *                            parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
@@ -1885,7 +1885,6 @@ class ExportSql extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -1907,7 +1906,7 @@ class ExportSql extends ExportPlugin
                 );
                 $dump .= $this->exportComment();
                 $dump .= $this->getTableDef($db, $table, $dates, true, false, true, $aliases);
-                $dump .= $this->getTableComments($db, $table, $doMime, $aliases);
+                $dump .= $this->getTableComments($db, $table, $aliases);
                 break;
             case 'triggers':
                 $dump = '';
@@ -2714,5 +2713,6 @@ class ExportSql extends ExportPlugin
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
         $this->doRelation = (bool) ($request->getParsedBodyParam('sql_relation')
             ?? $exportConfig['sql_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('sql_mime') ?? $exportConfig['sql_mime'] ?? false);
     }
 }

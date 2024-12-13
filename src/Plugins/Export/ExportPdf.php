@@ -35,6 +35,8 @@ class ExportPdf extends ExportPlugin
 
     private bool $doRelation = false;
 
+    private bool $doMime = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -219,7 +221,6 @@ class ExportPdf extends ExportPlugin
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    aliases for db/table/columns
      */
@@ -228,7 +229,6 @@ class ExportPdf extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -260,7 +260,7 @@ class ExportPdf extends ExportPlugin
         $pdf->setPurpose($purpose);
 
         match ($exportMode) {
-            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $this->doRelation, true, $doMime),
+            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $this->doRelation, true, $this->doMime),
             'triggers' => $pdf->getTriggers($db, $table),
             default => true,
         };
@@ -303,5 +303,6 @@ class ExportPdf extends ExportPlugin
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
             ?? $exportConfig['pdf_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('pdf_mime') ?? $exportConfig['pdf_mime'] ?? false);
     }
 }

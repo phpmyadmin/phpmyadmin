@@ -1485,7 +1485,6 @@
       <code><![CDATA[$GLOBALS['latex_data_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_data_continued_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_data_label']]]></code>
-      <code><![CDATA[$GLOBALS['latex_mime']]]></code>
       <code><![CDATA[$GLOBALS['latex_null']]]></code>
       <code><![CDATA[$GLOBALS['latex_structure_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_structure_continued_caption']]]></code>
@@ -1497,7 +1496,6 @@
       <code><![CDATA[$GLOBALS['ods_null']]]></code>
       <code><![CDATA[$GLOBALS['odt_columns']]]></code>
       <code><![CDATA[$GLOBALS['odt_comments']]]></code>
-      <code><![CDATA[$GLOBALS['odt_mime']]]></code>
       <code><![CDATA[$GLOBALS['odt_null']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1521,7 +1519,6 @@
       <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
       <code><![CDATA[$GLOBALS['sql_max_query_size']]]></code>
       <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['sql_mime']]]></code>
       <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
       <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
       <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>

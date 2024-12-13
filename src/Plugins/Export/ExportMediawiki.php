@@ -148,7 +148,6 @@ class ExportMediawiki extends ExportPlugin
      *                             because /export calls exportStructure()
      *                             also for other export types which use this
      *                             parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      *
@@ -159,7 +158,6 @@ class ExportMediawiki extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {

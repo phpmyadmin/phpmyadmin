@@ -606,20 +606,12 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['latex_relation' => 'On']);
+            ->withParsedBody(['latex_relation' => 'On', 'latex_mime' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'test',
-                true,
-                true,
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'test', true));
         $result = ob_get_clean();
 
         //echo $result; die;
@@ -697,15 +689,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'test',
-                true,
-                true,
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'test', true));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -753,13 +737,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'test'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -769,13 +747,7 @@ class ExportLatexTest extends AbstractTestCase
         self::assertStringContainsString('caption{latexcontinued}', $result);
 
         // case 4
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'triggers',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'triggers'));
     }
 
     public function testTexEscape(): void

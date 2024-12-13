@@ -631,11 +631,11 @@ class ExportOdtTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['odt_relation' => 'On']);
+            ->withParsedBody(['odt_relation' => 'On', 'odt_mime' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
-        self::assertTrue($this->object->getTableDef('database', '', true, true));
+        self::assertTrue($this->object->getTableDef('database', '', true));
 
         self::assertStringContainsString(
             '<table:table table:name="_structure"><table:table-column table:number-columns-repeated="6"/>',
@@ -706,7 +706,7 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue($this->object->getTableDef('database', '', true, true));
+        self::assertTrue($this->object->getTableDef('database', '', true));
 
         self::assertStringContainsString('<text:p>ftable (ffield)</text:p>', $GLOBALS['odt_buffer']);
     }
@@ -744,13 +744,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         // case 1
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_table',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -783,13 +777,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 2
         $GLOBALS['odt_buffer'] = '';
 
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'triggers',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
 
         self::assertSame(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -812,13 +800,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['odt_buffer'] = '';
 
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -851,13 +833,7 @@ class ExportOdtTest extends AbstractTestCase
         // case 4
         $this->dummyDbi->addSelectDb('test_db');
         $GLOBALS['odt_buffer'] = '';
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'stand_in',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(

@@ -497,7 +497,6 @@ class Export
      * @param string|mixed[] $dbSelect      the selected databases to export
      * @param ExportPlugin   $exportPlugin  the selected export plugin
      * @param bool           $doComments    whether to add comments
-     * @param bool           $doMime        whether to add MIME info
      * @param bool           $doDates       whether to add dates
      * @param mixed[]        $aliases       alias information for db/table/column
      * @param string         $separateFiles whether it is a separate-files export
@@ -506,7 +505,6 @@ class Export
         string|array $dbSelect,
         ExportPlugin $exportPlugin,
         bool $doComments,
-        bool $doMime,
         bool $doDates,
         array $aliases,
         string $separateFiles,
@@ -530,7 +528,6 @@ class Export
                 $tables,
                 $exportPlugin,
                 $doComments,
-                $doMime,
                 $doDates,
                 $aliases,
                 $separateFiles === 'database' ? $separateFiles : '',
@@ -552,7 +549,6 @@ class Export
      * @param string[]     $tableData      whether to export data for each table
      * @param ExportPlugin $exportPlugin   the selected export plugin
      * @param bool         $doComments     whether to add comments
-     * @param bool         $doMime         whether to add MIME info
      * @param bool         $doDates        whether to add dates
      * @param mixed[]      $aliases        Alias information for db/table/column
      * @param string       $separateFiles  whether it is a separate-files export
@@ -564,7 +560,6 @@ class Export
         array $tableData,
         ExportPlugin $exportPlugin,
         bool $doComments,
-        bool $doMime,
         bool $doDates,
         array $aliases,
         string $separateFiles,
@@ -632,7 +627,6 @@ class Export
                             $table,
                             'stand_in',
                             $doComments,
-                            $doMime,
                             $doDates,
                             $aliases,
                         )
@@ -664,7 +658,6 @@ class Export
                             $table,
                             'create_table',
                             $doComments,
-                            $doMime,
                             $doDates,
                             $aliases,
                         )
@@ -713,7 +706,6 @@ class Export
                     $table,
                     'triggers',
                     $doComments,
-                    $doMime,
                     $doDates,
                     $aliases,
                 )
@@ -741,7 +733,6 @@ class Export
                         $view,
                         'create_view',
                         $doComments,
-                        $doMime,
                         $doDates,
                         $aliases,
                     )
@@ -824,7 +815,6 @@ class Export
      * @param string       $table        the table to export
      * @param ExportPlugin $exportPlugin the selected export plugin
      * @param bool         $doComments   whether to add comments
-     * @param bool         $doMime       whether to add MIME info
      * @param bool         $doDates      whether to add dates
      * @param string|null  $allrows      whether "dump all rows" was ticked
      * @param string       $limitTo      upper limit
@@ -837,7 +827,6 @@ class Export
         string $table,
         ExportPlugin $exportPlugin,
         bool $doComments,
-        bool $doMime,
         bool $doDates,
         string|null $allrows,
         string $limitTo,
@@ -867,30 +856,14 @@ class Export
             if ($isView) {
                 if (isset($GLOBALS['sql_create_view'])) {
                     if (
-                        ! $exportPlugin->exportStructure(
-                            $db,
-                            $table,
-                            'create_view',
-                            $doComments,
-                            $doMime,
-                            $doDates,
-                            $aliases,
-                        )
+                        ! $exportPlugin->exportStructure($db, $table, 'create_view', $doComments, $doDates, $aliases)
                     ) {
                         return;
                     }
                 }
             } elseif (isset($GLOBALS['sql_create_table'])) {
                 if (
-                    ! $exportPlugin->exportStructure(
-                        $db,
-                        $table,
-                        'create_table',
-                        $doComments,
-                        $doMime,
-                        $doDates,
-                        $aliases,
-                    )
+                    ! $exportPlugin->exportStructure($db, $table, 'create_table', $doComments, $doDates, $aliases)
                 ) {
                     return;
                 }
@@ -932,7 +905,7 @@ class Export
             && ($structureOrData === 'structure' || $structureOrData === 'structure_and_data')
         ) {
             if (
-                ! $exportPlugin->exportStructure($db, $table, 'triggers', $doComments, $doMime, $doDates, $aliases)
+                ! $exportPlugin->exportStructure($db, $table, 'triggers', $doComments, $doDates, $aliases)
             ) {
                 return;
             }

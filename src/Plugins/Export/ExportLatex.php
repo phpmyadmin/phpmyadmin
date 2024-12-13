@@ -40,6 +40,8 @@ class ExportLatex extends ExportPlugin
 {
     private bool $doRelation = false;
 
+    private bool $doMime = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -423,7 +425,6 @@ class ExportLatex extends ExportPlugin
      *                             left here because /export calls
      *                             exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
@@ -432,7 +433,6 @@ class ExportLatex extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -488,7 +488,7 @@ class ExportLatex extends ExportPlugin
             $alignment .= 'l|';
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $alignment .= 'l|';
         }
 
@@ -508,7 +508,7 @@ class ExportLatex extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
             $mimeMap = $this->transformations->getMime($db, $table, true);
         }
@@ -578,7 +578,7 @@ class ExportLatex extends ExportPlugin
                 }
             }
 
-            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
                 $localBuffer .= "\000";
                 if (isset($mimeMap[$fieldName])) {
                     $localBuffer .= str_replace('_', '/', $mimeMap[$fieldName]['mimetype']);
@@ -631,5 +631,6 @@ class ExportLatex extends ExportPlugin
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
             ?? $exportConfig['latex_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('latex_mime') ?? $exportConfig['latex_mime'] ?? false);
     }
 }

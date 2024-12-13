@@ -34,6 +34,8 @@ class ExportHtmlword extends ExportPlugin
 {
     private bool $doRelation = false;
 
+    private bool $doMime = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -310,19 +312,12 @@ class ExportHtmlword extends ExportPlugin
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     *                             at the end
      * @param mixed[] $aliases    Aliases of db/table/columns
      *
      * @return string resulting schema
      */
-    public function getTableDef(
-        string $db,
-        string $table,
-        bool $doComments,
-        bool $doMime,
-        array $aliases = [],
-    ): string {
+    public function getTableDef(string $db, string $table, bool $doComments, array $aliases = []): string
+    {
         $relationParameters = $this->relation->getRelationParameters();
 
         $schemaInsert = '';
@@ -369,7 +364,7 @@ class ExportHtmlword extends ExportPlugin
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $schemaInsert .= '<td class="print"><strong>'
                 . __('Media type')
                 . '</strong></td>';
@@ -420,7 +415,7 @@ class ExportHtmlword extends ExportPlugin
                         : '') . '</td>';
             }
 
-            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
                 $schemaInsert .= '<td class="print">'
                     . (isset($mimeMap[$fieldName]) ?
                         htmlspecialchars(
@@ -488,7 +483,6 @@ class ExportHtmlword extends ExportPlugin
      *                             left here because /export calls
      *                             PMA_exportStructure() also for other
      *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
      * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
@@ -497,7 +491,6 @@ class ExportHtmlword extends ExportPlugin
         string $table,
         string $exportMode,
         bool $doComments = false,
-        bool $doMime = false,
         bool $dates = false,
         array $aliases = [],
     ): bool {
@@ -513,7 +506,7 @@ class ExportHtmlword extends ExportPlugin
                 . __('Table structure for table') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -529,7 +522,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= '<h2>'
                 . __('Structure for view') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '<h2>'
@@ -605,5 +598,7 @@ class ExportHtmlword extends ExportPlugin
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('htmlword_relation')
             ?? $exportConfig['htmlword_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('htmlword_mime')
+            ?? $exportConfig['htmlword_mime'] ?? false);
     }
 }

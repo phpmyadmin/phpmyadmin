@@ -306,7 +306,6 @@ final class ExportController implements InvocableController
 
             $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
                 || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
-            $doMime = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
 
             // Include dates in export?
             $doDates = isset($GLOBALS[$GLOBALS['what'] . '_dates']);
@@ -319,15 +318,7 @@ final class ExportController implements InvocableController
                     $dbSelect = '';
                 }
 
-                $this->export->exportServer(
-                    $dbSelect,
-                    $exportPlugin,
-                    $doComments,
-                    $doMime,
-                    $doDates,
-                    $aliases,
-                    $separateFiles,
-                );
+                $this->export->exportServer($dbSelect, $exportPlugin, $doComments, $doDates, $aliases, $separateFiles);
             } elseif ($exportType === ExportType::Database) {
                 if (! is_array($tableStructure)) {
                     $tableStructure = [];
@@ -352,7 +343,6 @@ final class ExportController implements InvocableController
                             $GLOBALS['table_data'],
                             $exportPlugin,
                             $doComments,
-                            $doMime,
                             $doDates,
                             $aliases,
                             $separateFiles,
@@ -368,7 +358,6 @@ final class ExportController implements InvocableController
                         $GLOBALS['table_data'],
                         $exportPlugin,
                         $doComments,
-                        $doMime,
                         $doDates,
                         $aliases,
                         $separateFiles,
@@ -391,7 +380,6 @@ final class ExportController implements InvocableController
                             Current::$table,
                             $exportPlugin,
                             $doComments,
-                            $doMime,
                             $doDates,
                             $allrows,
                             $limitTo,
@@ -408,7 +396,6 @@ final class ExportController implements InvocableController
                         Current::$table,
                         $exportPlugin,
                         $doComments,
-                        $doMime,
                         $doDates,
                         $allrows,
                         $limitTo,
@@ -544,10 +531,6 @@ final class ExportController implements InvocableController
             $GLOBALS['odt_comments'] = $postParams['odt_comments'];
         }
 
-        if (isset($postParams['odt_mime'])) {
-            $GLOBALS['odt_mime'] = $postParams['odt_mime'];
-        }
-
         if (isset($postParams['odt_columns'])) {
             $GLOBALS['odt_columns'] = $postParams['odt_columns'];
         }
@@ -638,10 +621,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['sql_dates'])) {
             $GLOBALS['sql_dates'] = $postParams['sql_dates'];
-        }
-
-        if (isset($postParams['sql_mime'])) {
-            $GLOBALS['sql_mime'] = $postParams['sql_mime'];
         }
 
         if (isset($postParams['sql_use_transaction'])) {
@@ -790,10 +769,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['latex_comments'])) {
             $GLOBALS['latex_comments'] = $postParams['latex_comments'];
-        }
-
-        if (isset($postParams['latex_mime'])) {
-            $GLOBALS['latex_mime'] = $postParams['latex_mime'];
         }
 
         if (isset($postParams['latex_columns'])) {

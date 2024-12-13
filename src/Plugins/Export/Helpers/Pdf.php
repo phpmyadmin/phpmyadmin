@@ -443,7 +443,6 @@ class Pdf extends PdfLib
      *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $doMime     whether to include mime comments
      */
     public function getTableDef(
         string $db,

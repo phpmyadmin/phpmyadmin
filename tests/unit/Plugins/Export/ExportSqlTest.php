@@ -879,12 +879,12 @@ SQL;
         $this->object->relation = new Relation($dbi);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_relation' => 'On']);
+            ->withParsedBody(['sql_relation' => 'On', 'sql_mime' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
-        $result = $method->invoke($this->object, 'db', '', true);
+        $result = $method->invoke($this->object, 'db', '');
 
         self::assertStringContainsString(
             '-- MEDIA TYPES FOR TABLE :' . "\n"
@@ -910,13 +910,7 @@ SQL;
 
         // case 1
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_table',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -932,13 +926,7 @@ SQL;
         $this->object->useSqlBackquotes(false);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'triggers',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -958,13 +946,7 @@ SQL;
         ExportPlugin::$exportType = ExportType::Raw;
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $result = ob_get_clean();
 
         $sqlViews = (new ReflectionProperty(ExportSql::class, 'sqlViews'))->getValue($this->object);
@@ -980,13 +962,7 @@ SQL;
         unset($GLOBALS['sql_if_not_exists']);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -996,13 +972,7 @@ SQL;
 
         // case 5
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'stand_in',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
