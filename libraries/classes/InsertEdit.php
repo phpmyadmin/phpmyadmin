@@ -373,7 +373,7 @@ class InsertEdit
     ) {
         $column['Field_md5'] = md5($column['Field']);
         // True_Type contains only the type (stops at first bracket)
-        $column['True_Type'] = preg_replace('@\(.*@s', '', $column['Type']);
+        $column['True_Type'] = preg_replace('@(\(.*)|(\s/.*)@s', '', $column['Type']);
         $column['len'] = preg_match('@float|double@', $column['Type']) ? 100 : -1;
         $column['Field_title'] = $this->getColumnTitle($column, $commentsMap);
         $column['is_binary'] = $this->isColumn(
@@ -2312,7 +2312,7 @@ class InsertEdit
                 }
 
                 if ($isUpload && $column['is_blob']) {
-                    [$maxUploadSize] = $this->getMaxUploadSize($column['pma_type'], $biggestMaxFileSize);
+                    [$maxUploadSize] = $this->getMaxUploadSize($column['True_Type'], $biggestMaxFileSize);
                 }
 
                 if (! empty($GLOBALS['cfg']['UploadDir'])) {
