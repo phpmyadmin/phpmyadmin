@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-04-19 15:55+0000\n"
-"Last-Translator: Niilo Poutanen <Niilo.poutanen@gmail.com>\n"
+"PO-Revision-Date: 2024-12-14 09:00+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "fi/>\n"
 "Language: fi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.9-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -26,13 +26,12 @@ msgstr ""
 "Käyttöaika alle yhden päivän. Suorituskyvyn säätö ei välttämättä ole tarkka."
 
 #: libraries/advisory_rules_generic.php:14
-#, fuzzy
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
-"Tarkempien keskiarvojen saamiseksi on suositeltavaa antaa palvelimen olla "
-"päällä yli vuorokauden ennen tämän analysaattorin käyttämistä."
+"Tarkempien keskiarvojen saamiseksi on suositeltavaa antaa palvelimen käydä "
+"yli vuorokauden ennen tämän analysaattorin käynnistämistä"
 
 #: libraries/advisory_rules_generic.php:17
 #, fuzzy, php-format
@@ -58,10 +57,9 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
-#| msgid "Current connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Nykyinen yhteys"
+msgstr "Nykyinen kysymysten määrä: %s"
 
 #: libraries/advisory_rules_generic.php:37
 #, fuzzy
@@ -149,10 +147,8 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:88
-#, fuzzy
-#| msgid "long_query_time is set to %d second(s)."
 msgid "log_slow_queries is set to 'OFF'"
-msgstr "long_query_time on asetettu %d sekuntiin."
+msgstr "log_slow_queries on asetettu pois päältä"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
