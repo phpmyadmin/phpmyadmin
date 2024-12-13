@@ -136,7 +136,6 @@ abstract class ExportPlugin implements Plugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column comments
      *                            as comments in the structure; this is deprecated
      *                            but the parameter is left here because /export
@@ -150,7 +149,6 @@ abstract class ExportPlugin implements Plugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,

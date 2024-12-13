@@ -83,6 +83,8 @@ class ExportSql extends ExportPlugin
 
     public string $sqlConstraintsQuery = '';
 
+    private bool $doRelation = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -1720,21 +1722,15 @@ class ExportSql extends ExportPlugin
     /**
      * Returns $table's comments, relations etc.
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doMime     whether to include mime comments
-     * @param mixed[] $aliases    Aliases of db/table/columns
+     * @param string  $db      database name
+     * @param string  $table   table name
+     * @param bool    $doMime  whether to include mime comments
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting comments
      */
-    private function getTableComments(
-        string $db,
-        string $table,
-        bool $doRelation = false,
-        bool $doMime = false,
-        array $aliases = [],
-    ): string {
+    private function getTableComments(string $db, string $table, bool $doMime = false, array $aliases = []): string
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -1774,7 +1770,7 @@ class ExportSql extends ExportPlugin
         }
 
         // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeignersInternal($db, $table)
             : [];
 
@@ -1874,7 +1870,6 @@ class ExportSql extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
      *                            deprecated but the parameter is left here
@@ -1889,7 +1884,6 @@ class ExportSql extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,
@@ -1913,7 +1907,7 @@ class ExportSql extends ExportPlugin
                 );
                 $dump .= $this->exportComment();
                 $dump .= $this->getTableDef($db, $table, $dates, true, false, true, $aliases);
-                $dump .= $this->getTableComments($db, $table, $doRelation, $doMime, $aliases);
+                $dump .= $this->getTableComments($db, $table, $doMime, $aliases);
                 break;
             case 'triggers':
                 $dump = '';
@@ -2718,5 +2712,7 @@ class ExportSql extends ExportPlugin
             'structure_and_data',
         );
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
+        $this->doRelation = (bool) ($request->getParsedBodyParam('sql_relation')
+            ?? $exportConfig['sql_relation'] ?? false);
     }
 }

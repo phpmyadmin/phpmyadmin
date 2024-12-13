@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -604,13 +605,17 @@ class ExportLatexTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['latex_relation' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         ob_start();
         self::assertTrue(
             $this->object->exportStructure(
                 'database',
                 '',
                 'test',
-                true,
                 true,
                 true,
             ),
@@ -697,7 +702,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                true,
                 true,
                 true,
             ),

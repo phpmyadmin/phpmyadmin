@@ -304,8 +304,6 @@ final class ExportController implements InvocableController
                 throw new ExportException('Failure during header export.');
             }
 
-            // Will we need relation & co. setup?
-            $doRelation = isset($GLOBALS[$GLOBALS['what'] . '_relation']);
             $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
                 || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
             $doMime = isset($GLOBALS[$GLOBALS['what'] . '_mime']);
@@ -324,7 +322,6 @@ final class ExportController implements InvocableController
                 $this->export->exportServer(
                     $dbSelect,
                     $exportPlugin,
-                    $doRelation,
                     $doComments,
                     $doMime,
                     $doDates,
@@ -354,7 +351,6 @@ final class ExportController implements InvocableController
                             $tableStructure,
                             $GLOBALS['table_data'],
                             $exportPlugin,
-                            $doRelation,
                             $doComments,
                             $doMime,
                             $doDates,
@@ -371,7 +367,6 @@ final class ExportController implements InvocableController
                         $tableStructure,
                         $GLOBALS['table_data'],
                         $exportPlugin,
-                        $doRelation,
                         $doComments,
                         $doMime,
                         $doDates,
@@ -395,7 +390,6 @@ final class ExportController implements InvocableController
                             Current::$database,
                             Current::$table,
                             $exportPlugin,
-                            $doRelation,
                             $doComments,
                             $doMime,
                             $doDates,
@@ -413,7 +407,6 @@ final class ExportController implements InvocableController
                         Current::$database,
                         Current::$table,
                         $exportPlugin,
-                        $doRelation,
                         $doComments,
                         $doMime,
                         $doDates,
@@ -547,10 +540,6 @@ final class ExportController implements InvocableController
             $GLOBALS['mediawiki_caption'] = $postParams['mediawiki_caption'];
         }
 
-        if (isset($postParams['odt_relation'])) {
-            $GLOBALS['odt_relation'] = $postParams['odt_relation'];
-        }
-
         if (isset($postParams['odt_comments'])) {
             $GLOBALS['odt_comments'] = $postParams['odt_comments'];
         }
@@ -649,10 +638,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['sql_dates'])) {
             $GLOBALS['sql_dates'] = $postParams['sql_dates'];
-        }
-
-        if (isset($postParams['sql_relation'])) {
-            $GLOBALS['sql_relation'] = $postParams['sql_relation'];
         }
 
         if (isset($postParams['sql_mime'])) {
@@ -801,10 +786,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['latex_structure_label'])) {
             $GLOBALS['latex_structure_label'] = $postParams['latex_structure_label'];
-        }
-
-        if (isset($postParams['latex_relation'])) {
-            $GLOBALS['latex_relation'] = $postParams['latex_relation'];
         }
 
         if (isset($postParams['latex_comments'])) {

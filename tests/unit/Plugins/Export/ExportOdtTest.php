@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
@@ -629,15 +630,12 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue(
-            $this->object->getTableDef(
-                'database',
-                '',
-                true,
-                true,
-                true,
-            ),
-        );
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_relation' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
+        self::assertTrue($this->object->getTableDef('database', '', true, true));
 
         self::assertStringContainsString(
             '<table:table table:name="_structure"><table:table-column table:number-columns-repeated="6"/>',
@@ -708,15 +706,7 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue(
-            $this->object->getTableDef(
-                'database',
-                '',
-                true,
-                true,
-                true,
-            ),
-        );
+        self::assertTrue($this->object->getTableDef('database', '', true, true));
 
         self::assertStringContainsString('<text:p>ftable (ffield)</text:p>', $GLOBALS['odt_buffer']);
     }

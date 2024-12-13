@@ -437,7 +437,6 @@ class Pdf extends PdfLib
      *
      * @param string $db         the database name
      * @param string $table      the table name
-     * @param bool   $doRelation whether to include relation comments
      * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is

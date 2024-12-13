@@ -496,7 +496,6 @@ class Export
      *
      * @param string|mixed[] $dbSelect      the selected databases to export
      * @param ExportPlugin   $exportPlugin  the selected export plugin
-     * @param  bool           $doRelation    whether to export relation info
      * @param bool           $doComments    whether to add comments
      * @param bool           $doMime        whether to add MIME info
      * @param bool           $doDates       whether to add dates
@@ -506,7 +505,6 @@ class Export
     public function exportServer(
         string|array $dbSelect,
         ExportPlugin $exportPlugin,
-        bool $doRelation,
         bool $doComments,
         bool $doMime,
         bool $doDates,
@@ -531,7 +529,6 @@ class Export
                 $tables,
                 $tables,
                 $exportPlugin,
-                $doRelation,
                 $doComments,
                 $doMime,
                 $doDates,
@@ -554,7 +551,6 @@ class Export
      * @param string[]     $tableStructure whether to export structure for each table
      * @param string[]     $tableData      whether to export data for each table
      * @param ExportPlugin $exportPlugin   the selected export plugin
-     * @param  bool         $doRelation     whether to export relation info
      * @param bool         $doComments     whether to add comments
      * @param bool         $doMime         whether to add MIME info
      * @param bool         $doDates        whether to add dates
@@ -567,7 +563,6 @@ class Export
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        bool $doRelation,
         bool $doComments,
         bool $doMime,
         bool $doDates,
@@ -636,7 +631,6 @@ class Export
                             $db->getName(),
                             $table,
                             'stand_in',
-                            $doRelation,
                             $doComments,
                             $doMime,
                             $doDates,
@@ -669,7 +663,6 @@ class Export
                             $db->getName(),
                             $table,
                             'create_table',
-                            $doRelation,
                             $doComments,
                             $doMime,
                             $doDates,
@@ -719,7 +712,6 @@ class Export
                     $db->getName(),
                     $table,
                     'triggers',
-                    $doRelation,
                     $doComments,
                     $doMime,
                     $doDates,
@@ -748,7 +740,6 @@ class Export
                         $db->getName(),
                         $view,
                         'create_view',
-                        $doRelation,
                         $doComments,
                         $doMime,
                         $doDates,
@@ -832,7 +823,6 @@ class Export
      * @param string       $db           the database to export
      * @param string       $table        the table to export
      * @param ExportPlugin $exportPlugin the selected export plugin
-     * @param  bool         $doRelation   whether to export relation info
      * @param bool         $doComments   whether to add comments
      * @param bool         $doMime       whether to add MIME info
      * @param bool         $doDates      whether to add dates
@@ -846,7 +836,6 @@ class Export
         string $db,
         string $table,
         ExportPlugin $exportPlugin,
-        bool $doRelation,
         bool $doComments,
         bool $doMime,
         bool $doDates,
@@ -882,7 +871,6 @@ class Export
                             $db,
                             $table,
                             'create_view',
-                            $doRelation,
                             $doComments,
                             $doMime,
                             $doDates,
@@ -898,7 +886,6 @@ class Export
                         $db,
                         $table,
                         'create_table',
-                        $doRelation,
                         $doComments,
                         $doMime,
                         $doDates,
@@ -945,16 +932,7 @@ class Export
             && ($structureOrData === 'structure' || $structureOrData === 'structure_and_data')
         ) {
             if (
-                ! $exportPlugin->exportStructure(
-                    $db,
-                    $table,
-                    'triggers',
-                    $doRelation,
-                    $doComments,
-                    $doMime,
-                    $doDates,
-                    $aliases,
-                )
+                ! $exportPlugin->exportStructure($db, $table, 'triggers', $doComments, $doMime, $doDates, $aliases)
             ) {
                 return;
             }

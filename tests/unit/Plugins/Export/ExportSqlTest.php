@@ -878,8 +878,13 @@ SQL;
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_relation' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
-        $result = $method->invoke($this->object, 'db', '', true, true);
+        $result = $method->invoke($this->object, 'db', '', true);
 
         self::assertStringContainsString(
             '-- MEDIA TYPES FOR TABLE :' . "\n"

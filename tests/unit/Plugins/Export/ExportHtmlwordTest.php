@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
@@ -435,7 +436,12 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', true, true, true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['htmlword_relation' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('database', '', true, true);
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .
@@ -501,7 +507,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', true, true, true);
+        $result = $this->object->getTableDef('database', '', true, true);
 
         self::assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
@@ -537,7 +543,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', false, false, false);
+        $result = $this->object->getTableDef('database', '', false, false);
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .

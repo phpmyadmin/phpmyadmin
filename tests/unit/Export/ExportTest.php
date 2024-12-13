@@ -140,7 +140,6 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            false,
             true,
             false,
             false,
@@ -217,7 +216,6 @@ SQL;
         $export->exportServer(
             ['test_db'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            false,
             true,
             false,
             false,

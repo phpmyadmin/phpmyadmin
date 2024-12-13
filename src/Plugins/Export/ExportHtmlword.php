@@ -32,6 +32,8 @@ use function str_replace;
  */
 class ExportHtmlword extends ExportPlugin
 {
+    private bool $doRelation = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -302,7 +304,6 @@ class ExportHtmlword extends ExportPlugin
      *
      * @param string  $db         the database name
      * @param string  $table      the table name
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -318,7 +319,6 @@ class ExportHtmlword extends ExportPlugin
     public function getTableDef(
         string $db,
         string $table,
-        bool $doRelation,
         bool $doComments,
         bool $doMime,
         array $aliases = [],
@@ -334,7 +334,7 @@ class ExportHtmlword extends ExportPlugin
         $dbi->selectDb($db);
 
         // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null
             ? $this->relation->getForeigners($db, $table)
             : [];
 
@@ -356,7 +356,7 @@ class ExportHtmlword extends ExportPlugin
         $schemaInsert .= '<td class="print"><strong>'
             . __('Default')
             . '</strong></td>';
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $schemaInsert .= '<td class="print"><strong>'
                 . __('Links to')
                 . '</strong></td>';
@@ -400,7 +400,7 @@ class ExportHtmlword extends ExportPlugin
 
             $schemaInsert .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;
-            if ($doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== []) {
                 $schemaInsert .= '<td class="print">'
                     . htmlspecialchars(
                         $this->getRelationString(
@@ -482,7 +482,6 @@ class ExportHtmlword extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -497,7 +496,6 @@ class ExportHtmlword extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,
@@ -515,7 +513,7 @@ class ExportHtmlword extends ExportPlugin
                 . __('Table structure for table') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -531,7 +529,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= '<h2>'
                 . __('Structure for view') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '<h2>'
@@ -605,5 +603,7 @@ class ExportHtmlword extends ExportPlugin
             $exportConfig['htmlword_structure_or_data'] ?? null,
             'structure_and_data',
         );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('htmlword_relation')
+            ?? $exportConfig['htmlword_relation'] ?? false);
     }
 }

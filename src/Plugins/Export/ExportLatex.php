@@ -38,6 +38,8 @@ use const PHP_VERSION;
  */
 class ExportLatex extends ExportPlugin
 {
+    private bool $doRelation = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -415,7 +417,6 @@ class ExportLatex extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -430,7 +431,6 @@ class ExportLatex extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,
@@ -467,7 +467,7 @@ class ExportLatex extends ExportPlugin
         $dbi->selectDb($db);
 
         // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
             : [];
         /**
@@ -480,7 +480,7 @@ class ExportLatex extends ExportPlugin
         }
 
         $alignment = '|l|c|c|c|';
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $alignment .= 'l|';
         }
 
@@ -499,7 +499,7 @@ class ExportLatex extends ExportPlugin
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
 
@@ -566,7 +566,7 @@ class ExportLatex extends ExportPlugin
                 . ($row->isNull ? __('Yes') : __('No'))
                 . "\000" . ($row->default ?? ($row->isNull ? 'NULL' : ''));
 
-            if ($doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== []) {
                 $localBuffer .= "\000";
                 $localBuffer .= $this->getRelationString($foreigners, $fieldName, $db, $aliases);
             }
@@ -629,5 +629,7 @@ class ExportLatex extends ExportPlugin
             $exportConfig['latex_structure_or_data'] ?? null,
             'structure_and_data',
         );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
+            ?? $exportConfig['latex_relation'] ?? false);
     }
 }

@@ -32,6 +32,8 @@ use function str_replace;
  */
 class ExportTexytext extends ExportPlugin
 {
+    private bool $doRelation = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -304,7 +306,6 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string  $db         the database name
      * @param string  $table      the table name
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -320,7 +321,6 @@ class ExportTexytext extends ExportPlugin
     public function getTableDef(
         string $db,
         string $table,
-        bool $doRelation,
         bool $doComments,
         bool $doMime,
         array $aliases = [],
@@ -349,7 +349,7 @@ class ExportTexytext extends ExportPlugin
         $dbi->selectDb($db);
 
         // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
             : [];
 
@@ -362,7 +362,7 @@ class ExportTexytext extends ExportPlugin
         $textOutput .= '|' . __('Type');
         $textOutput .= '|' . __('Null');
         $textOutput .= '|' . __('Default');
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $textOutput .= '|' . __('Links to');
         }
 
@@ -387,7 +387,7 @@ class ExportTexytext extends ExportPlugin
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;
-            if ($doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== []) {
                 $textOutput .= '|' . htmlspecialchars(
                     $this->getRelationString(
                         $foreigners,
@@ -453,7 +453,6 @@ class ExportTexytext extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -468,7 +467,6 @@ class ExportTexytext extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,
@@ -483,7 +481,7 @@ class ExportTexytext extends ExportPlugin
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
                 . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -495,7 +493,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '== ' . __('Stand-in structure for view')
@@ -559,5 +557,7 @@ class ExportTexytext extends ExportPlugin
             $exportConfig['texytext_structure_or_data'] ?? null,
             'structure_and_data',
         );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('texytext_relation')
+            ?? $exportConfig['texytext_relation'] ?? false);
     }
 }

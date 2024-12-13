@@ -33,6 +33,8 @@ class ExportPdf extends ExportPlugin
      */
     private string $pdfReportTitle = '';
 
+    private bool $doRelation = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -211,7 +213,6 @@ class ExportPdf extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -226,7 +227,6 @@ class ExportPdf extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,
@@ -260,7 +260,7 @@ class ExportPdf extends ExportPlugin
         $pdf->setPurpose($purpose);
 
         match ($exportMode) {
-            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $doRelation, true, $doMime),
+            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $this->doRelation, true, $doMime),
             'triggers' => $pdf->getTriggers($db, $table),
             default => true,
         };
@@ -301,5 +301,7 @@ class ExportPdf extends ExportPlugin
             $exportConfig['pdf_structure_or_data'] ?? null,
             'data',
         );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
+            ?? $exportConfig['pdf_relation'] ?? false);
     }
 }

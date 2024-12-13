@@ -13,6 +13,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
@@ -300,6 +301,11 @@ class ExportTexytextTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['texytext_relation' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         $this->object->expects(self::exactly(1))
             ->method('formatOneColumnDefinition')
             ->with($column, ['cname'])
@@ -315,7 +321,7 @@ class ExportTexytextTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('db', 'table', true, true, true);
+        $result = $this->object->getTableDef('db', 'table', true, true);
 
         self::assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }

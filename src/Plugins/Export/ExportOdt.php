@@ -34,6 +34,8 @@ use function str_replace;
  */
 class ExportOdt extends ExportPlugin
 {
+    private bool $doRelation = false;
+
     protected function init(): void
     {
         $GLOBALS['odt_buffer'] = '';
@@ -388,7 +390,6 @@ class ExportOdt extends ExportPlugin
      *
      * @param string  $db         the database name
      * @param string  $table      the table name
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -401,7 +402,6 @@ class ExportOdt extends ExportPlugin
     public function getTableDef(
         string $db,
         string $table,
-        bool $doRelation,
         bool $doComments,
         bool $doMime,
         array $aliases = [],
@@ -419,7 +419,7 @@ class ExportOdt extends ExportPlugin
         $dbi->selectDb($db);
 
         // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
             : [];
         /**
@@ -428,7 +428,7 @@ class ExportOdt extends ExportPlugin
         $GLOBALS['odt_buffer'] .= '<table:table table:name="'
             . htmlspecialchars($tableAlias) . '_structure">';
         $columnsCnt = 4;
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $columnsCnt++;
         }
 
@@ -456,7 +456,7 @@ class ExportOdt extends ExportPlugin
             . '<table:table-cell office:value-type="string">'
             . '<text:p>' . __('Default') . '</text:p>'
             . '</table:table-cell>';
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Links to') . '</text:p>'
                 . '</table:table-cell>';
@@ -486,7 +486,7 @@ class ExportOdt extends ExportPlugin
             }
 
             $GLOBALS['odt_buffer'] .= $this->formatOneColumnDefinition($column, $colAs);
-            if ($doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== []) {
                 $foreigner = $this->relation->searchColumnInForeigners($foreigners, $fieldName);
                 if ($foreigner) {
                     $rtable = $foreigner['foreign_table'];
@@ -609,7 +609,6 @@ class ExportOdt extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                             comments as comments in the structure;
      *                             this is deprecated but the parameter is
@@ -623,7 +622,6 @@ class ExportOdt extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
         bool $dates = false,
@@ -639,7 +637,7 @@ class ExportOdt extends ExportPlugin
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($tableAlias)
                 . '</text:h>';
-                $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -659,7 +657,7 @@ class ExportOdt extends ExportPlugin
                 . __('Structure for view') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</text:h>';
-                $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $this->getTableDef($db, $table, $doComments, $doMime, $aliases);
                 break;
             case 'stand_in':
                 $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
@@ -723,5 +721,7 @@ class ExportOdt extends ExportPlugin
             $exportConfig['odt_structure_or_data'] ?? null,
             'structure_and_data',
         );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
+            ?? $exportConfig['odt_relation'] ?? false);
     }
 }
