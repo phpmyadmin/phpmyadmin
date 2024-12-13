@@ -166,15 +166,24 @@ final class ExportController implements InvocableController
 
         $tableNames = [];
         // Generate error url and check for needed variables
-        if ($GLOBALS['export_type'] === 'server') {
-        } elseif ($GLOBALS['export_type'] === 'database' && Current::$database !== '') {
+        if ($GLOBALS['export_type'] === 'database') {
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
             // Check if we have something to export
             $tableNames = $GLOBALS['table_select'] ?? [];
             Assert::isArray($tableNames);
             Assert::allString($tableNames);
-        } elseif ($GLOBALS['export_type'] === 'table' && Current::$database !== '' && Current::$table !== '') {
-        } elseif ($GLOBALS['export_type'] === 'raw') {
-        } else {
+        } elseif ($GLOBALS['export_type'] === 'table') {
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
+            if (Current::$table === '') {
+                return $this->response->missingParameterError('table');
+            }
+        } elseif ($GLOBALS['export_type'] !== 'raw' && $GLOBALS['export_type'] !== 'server') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
 
