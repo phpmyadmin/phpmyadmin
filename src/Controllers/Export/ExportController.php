@@ -101,10 +101,12 @@ final class ExportController implements InvocableController
         }
 
         // export class instance, not array of properties, as before
-        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [
-            'export_type' => $GLOBALS['export_type'],
-            'single_table' => isset($GLOBALS['single_table']),
-        ]);
+        $exportPlugin = Plugins::getPlugin(
+            'export',
+            $GLOBALS['what'],
+            $GLOBALS['export_type'],
+            isset($GLOBALS['single_table']),
+        );
 
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {

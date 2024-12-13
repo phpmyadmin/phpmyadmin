@@ -100,10 +100,7 @@ final class DatabaseController implements InvocableController
                     $tableNames = $this->dbi->getTables(Current::$database);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-                        'export_type' => 'database',
-                        'single_table' => isset($GLOBALS['single_table']),
-                    ]);
+                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', 'database', isset($GLOBALS['single_table']));
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(

@@ -462,10 +462,7 @@ class TableMover
          *
          * @var ExportSql $exportSqlPlugin
          */
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-            'export_type' => 'table',
-            'single_table' => false,
-        ]);
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', 'table');
         // It is better that all identifiers are quoted
         $exportSqlPlugin->useSqlBackquotes(true);
 

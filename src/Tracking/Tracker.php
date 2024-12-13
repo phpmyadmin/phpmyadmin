@@ -167,10 +167,7 @@ class Tracker
             $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-            'export_type' => (string) $GLOBALS['export_type'],
-            'single_table' => false,
-        ]);
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', (string) $GLOBALS['export_type']);
         if (! $exportSqlPlugin instanceof ExportSql) {
             return false;
         }

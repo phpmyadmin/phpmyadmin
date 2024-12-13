@@ -49,17 +49,19 @@ class Plugins
     /**
      * Instantiates the specified plugin type for a certain format
      *
-     * @param string            $type   the type of the plugin (import, export, etc)
-     * @param string            $format the format of the plugin (sql, xml, et )
-     * @param array|string|null $param  parameter to plugin by which they can decide whether they can work
-     * @psalm-param array{export_type: string, single_table: bool}|string|null $param
+     * @param string $type   the type of the plugin (import, export, etc)
+     * @param string $format the format of the plugin (sql, xml, et )
      *
      * @return object|null new plugin instance
      */
-    public static function getPlugin(string $type, string $format, array|string|null $param = null): object|null
-    {
-        ExportPlugin::$exportType = $param['export_type'] ?? '';
-        ExportPlugin::$singleTable = $param['single_table'] ?? false;
+    public static function getPlugin(
+        string $type,
+        string $format,
+        string $exportType = '',
+        bool $singleTable = false,
+    ): object|null {
+        ExportPlugin::$exportType = $exportType;
+        ExportPlugin::$singleTable = $singleTable;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
         $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
         $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s%s', $pluginType, $pluginType, $pluginFormat);
