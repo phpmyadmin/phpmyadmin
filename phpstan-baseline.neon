@@ -2833,24 +2833,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#1 \$exportType of method PhpMyAdmin\\Export\\Export\:\:getHtmlForDisplayedExportFooter\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#1 \$exportType of method PhpMyAdmin\\Export\\Export\:\:getHtmlForDisplayedExportHeader\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#1 \$exportType of method PhpMyAdmin\\Export\\Export\:\:getPageLocationAndSaveMessage\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#1 \$fileHandle of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects resource, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2881,12 +2863,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#2 \$exportType of method PhpMyAdmin\\Export\\Export\:\:rememberFilename\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#3 \$saveFilename of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2899,19 +2875,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#5 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportTable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#5 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#7 \$exportType of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Export/ExportController.php
@@ -17976,12 +17940,6 @@ parameters:
 		-
 			message: '#^Cannot access property \$tokens on PhpMyAdmin\\SqlParser\\TokensList\|null\.$#'
 			identifier: property.nonObject
-			count: 1
-			path: src/Tracking/Tracker.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
 			count: 1
 			path: src/Tracking/Tracker.php
 
