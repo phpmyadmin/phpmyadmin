@@ -9,12 +9,13 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
 
-use function in_array;
+use function is_string;
 use function stripos;
 
 /**
@@ -33,8 +34,7 @@ abstract class ExportPlugin implements Plugin
     public static ExportType $exportType = ExportType::Raw;
     public static bool $singleTable = false;
 
-    /** @var 'structure'|'data'|'structure_and_data' */
-    protected string $structureOrData = 'data';
+    protected StructureOrData $structureOrData = StructureOrData::Data;
 
     final public function __construct(
         public Relation $relation,
@@ -328,27 +328,18 @@ abstract class ExportPlugin implements Plugin
     /** @param array<mixed> $exportConfig */
     abstract public function setExportOptions(ServerRequest $request, array $exportConfig): void;
 
-    /** @return 'structure'|'data'|'structure_and_data' */
-    public function getStructureOrData(): string
+    public function getStructureOrData(): StructureOrData
     {
         return $this->structureOrData;
     }
 
-    /**
-     * @param 'structure'|'data'|'structure_and_data' $defaultValue
-     *
-     * @return 'structure'|'data'|'structure_and_data'
-     */
-    protected function setStructureOrData(mixed $valueFromRequest, mixed $valueFromConfig, string $defaultValue): string
-    {
-        if (in_array($valueFromRequest, ['structure', 'data', 'structure_and_data'], true)) {
-            return $valueFromRequest;
-        }
-
-        if (in_array($valueFromConfig, ['structure', 'data', 'structure_and_data'], true)) {
-            return $valueFromConfig;
-        }
-
-        return $defaultValue;
+    protected function setStructureOrData(
+        mixed $valueFromRequest,
+        mixed $valueFromConfig,
+        StructureOrData $defaultValue,
+    ): StructureOrData {
+        return StructureOrData::tryFrom(is_string($valueFromRequest) ? $valueFromRequest : '')
+            ?? StructureOrData::tryFrom(is_string($valueFromConfig) ? $valueFromConfig : '')
+            ?? $defaultValue;
     }
 }

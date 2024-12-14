@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -531,7 +532,7 @@ class ExportTexytext extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('texytext_structure_or_data'),
             $exportConfig['texytext_structure_or_data'] ?? null,
-            'structure_and_data',
+            StructureOrData::StructureAndData,
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('texytext_relation')
             ?? $exportConfig['texytext_relation'] ?? false);

@@ -11,6 +11,7 @@ use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -616,7 +617,7 @@ class ExportLatex extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('latex_structure_or_data'),
             $exportConfig['latex_structure_or_data'] ?? null,
-            'structure_and_data',
+            StructureOrData::StructureAndData,
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
             ?? $exportConfig['latex_relation'] ?? false);

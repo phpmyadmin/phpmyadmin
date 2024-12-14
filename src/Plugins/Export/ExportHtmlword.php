@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -577,7 +578,7 @@ class ExportHtmlword extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('htmlword_structure_or_data'),
             $exportConfig['htmlword_structure_or_data'] ?? null,
-            'structure_and_data',
+            StructureOrData::StructureAndData,
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('htmlword_relation')
             ?? $exportConfig['htmlword_relation'] ?? false);

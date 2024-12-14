@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -327,7 +328,7 @@ class ExportJson extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('json_structure_or_data'),
             $exportConfig['json_structure_or_data'] ?? null,
-            'data',
+            StructureOrData::Data,
         );
     }
 }

@@ -15,6 +15,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -817,10 +818,7 @@ class ExportSql extends ExportPlugin
 
         $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
 
-        if (
-            in_array($this->structureOrData, ['structure', 'structure_and_data'], true)
-            && isset($GLOBALS['sql_drop_database'])
-        ) {
+        if ($this->structureOrData !== StructureOrData::Data && isset($GLOBALS['sql_drop_database'])) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
@@ -2696,7 +2694,7 @@ class ExportSql extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('sql_structure_or_data'),
             $exportConfig['sql_structure_or_data'] ?? null,
-            'structure_and_data',
+            StructureOrData::StructureAndData,
         );
         $this->useSqlBackquotes = $request->hasBodyParam('sql_backquotes');
         $this->doRelation = (bool) ($request->getParsedBodyParam('sql_relation')

@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -351,7 +352,7 @@ class ExportCodegen extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('codegen_structure_or_data'),
             $exportConfig['codegen_structure_or_data'] ?? null,
-            'data',
+            StructureOrData::Data,
         );
     }
 }

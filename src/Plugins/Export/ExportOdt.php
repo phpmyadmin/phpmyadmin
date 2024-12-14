@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Export;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -697,7 +698,7 @@ class ExportOdt extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('odt_structure_or_data'),
             $exportConfig['odt_structure_or_data'] ?? null,
-            'structure_and_data',
+            StructureOrData::StructureAndData,
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
             ?? $exportConfig['odt_relation'] ?? false);

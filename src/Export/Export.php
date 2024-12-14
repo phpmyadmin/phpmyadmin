@@ -573,7 +573,7 @@ class Export
 
         if (
             $exportPlugin instanceof ExportSql
-            && ($structureOrData === 'structure' || $structureOrData === 'structure_and_data')
+            && $structureOrData !== StructureOrData::Data
             && isset($GLOBALS['sql_procedure_function'])
         ) {
             $exportPlugin->exportRoutines($db->getName(), $aliases);
@@ -601,11 +601,7 @@ class Export
                 $views[] = $table;
             }
 
-            if (
-                ($structureOrData === 'structure'
-                || $structureOrData === 'structure_and_data')
-                && in_array($table, $tableStructure, true)
-            ) {
+            if ($structureOrData !== StructureOrData::Data && in_array($table, $tableStructure, true)) {
                 // for a view, export a stand-in definition of the table
                 // to resolve view dependencies (only when it's a single-file export)
                 if ($isView) {
@@ -642,11 +638,7 @@ class Export
             }
 
             // if this is a view or a merge table, don't export data
-            if (
-                ($structureOrData === 'data' || $structureOrData === 'structure_and_data')
-                && in_array($table, $tableData, true)
-                && ! $isView
-            ) {
+            if ($structureOrData !== StructureOrData::Structure && in_array($table, $tableData, true) && ! $isView) {
                 $tableObj = new Table($table, $db->getName(), $this->dbi);
                 $nonGeneratedCols = $tableObj->getNonGeneratedColumns();
 
@@ -668,7 +660,7 @@ class Export
             // triggers can modify already imported tables)
             if (
                 ! isset($GLOBALS['sql_create_trigger'])
-                || ($structureOrData !== 'structure' && $structureOrData !== 'structure_and_data')
+                || $structureOrData === StructureOrData::Data
                 || ! in_array($table, $tableStructure, true)
             ) {
                 continue;
@@ -688,7 +680,7 @@ class Export
         if (isset($GLOBALS['sql_create_view'])) {
             foreach ($views as $view) {
                 // no data export for a view
-                if ($structureOrData !== 'structure' && $structureOrData !== 'structure_and_data') {
+                if ($structureOrData === StructureOrData::Data) {
                     continue;
                 }
 
@@ -726,7 +718,7 @@ class Export
 
         if (
             ! ($exportPlugin instanceof ExportSql)
-            || ($structureOrData !== 'structure' && $structureOrData !== 'structure_and_data')
+            || $structureOrData === StructureOrData::Data
             || ! isset($GLOBALS['sql_procedure_function'])
         ) {
             return;
@@ -804,7 +796,7 @@ class Export
 
         $tableObject = new Table($table, $db, $this->dbi);
         $isView = $tableObject->isView();
-        if ($structureOrData === 'structure' || $structureOrData === 'structure_and_data') {
+        if ($structureOrData !== StructureOrData::Data) {
             if ($isView) {
                 if (isset($GLOBALS['sql_create_view'])) {
                     if (! $exportPlugin->exportStructure($db, $table, 'create_view', $aliases)) {
@@ -821,7 +813,7 @@ class Export
         // If this is an export of a single view, we have to export data;
         // for example, a PDF report
         // if it is a merge table, no data is exported
-        if ($structureOrData === 'data' || $structureOrData === 'structure_and_data') {
+        if ($structureOrData !== StructureOrData::Structure) {
             if ($sqlQuery !== '') {
                 // only preg_replace if needed
                 if ($addQuery !== '') {
@@ -848,10 +840,7 @@ class Export
 
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if (
-            isset($GLOBALS['sql_create_trigger'])
-            && ($structureOrData === 'structure' || $structureOrData === 'structure_and_data')
-        ) {
+        if (isset($GLOBALS['sql_create_trigger']) && $structureOrData !== StructureOrData::Data) {
             if (! $exportPlugin->exportStructure($db, $table, 'triggers', $aliases)) {
                 return;
             }

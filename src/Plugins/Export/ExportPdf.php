@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -286,7 +287,7 @@ class ExportPdf extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('pdf_structure_or_data'),
             $exportConfig['pdf_structure_or_data'] ?? null,
-            'data',
+            StructureOrData::Data,
         );
         $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
             ?? $exportConfig['pdf_relation'] ?? false);

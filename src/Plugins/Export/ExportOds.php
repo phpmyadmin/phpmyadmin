@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\OpenDocument;
@@ -322,7 +323,7 @@ class ExportOds extends ExportPlugin
         $this->structureOrData = $this->setStructureOrData(
             $request->getParsedBodyParam('ods_structure_or_data'),
             $exportConfig['ods_structure_or_data'] ?? null,
-            'data',
+            StructureOrData::Data,
         );
     }
 }

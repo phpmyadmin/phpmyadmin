@@ -804,7 +804,12 @@ SQL;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_relation' => 'On', 'sql_dates' => 'On', 'sql_include_comments' => 'On']);
+            ->withParsedBody([
+                'sql_relation' => 'On',
+                'sql_backquotes' => 'true',
+                'sql_dates' => 'On',
+                'sql_include_comments' => 'On',
+            ]);
 
         $this->object->setExportOptions($request, []);
 
