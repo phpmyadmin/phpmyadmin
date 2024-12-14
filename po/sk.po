@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2023-10-24 11:01+0000\n"
-"Last-Translator: Pavol Linet <linet.pavol@gmail.com>\n"
+"PO-Revision-Date: 2024-12-15 09:02+0000\n"
+"Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/4-9/sk/"
 ">\n"
 "Language: sk\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1.1-dev\n"
+"X-Generator: Weblate 5.9-rc\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -1101,10 +1101,8 @@ msgid "Y values"
 msgstr "Hodnoty Y"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter the same value again"
 msgid "Please enter the SQL query first."
-msgstr "Prosím zadajte tú istú hodnotu ešte raz"
+msgstr "Prosím zadajte najprv SQL dotaz."
 
 #: js/messages.php:145
 msgid "The host name is empty!"
@@ -2054,8 +2052,8 @@ msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
-"Poznámka:  a, b -> d,f znamená, že kombinované hodnoty v stĺpcoch a a b "
-"spolu môžu určovať hodnoty stĺpcov d a f."
+"Poznámka: a, b -> d,f znamená, že kombinované hodnoty v stĺpcoch a a b spolu "
+"môžu určovať hodnoty stĺpcov d a f."
 
 #: js/messages.php:460
 msgid "No partial dependencies selected!"
@@ -2286,10 +2284,8 @@ msgstr ""
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
-msgstr "Neboli nájdené žiadne tabuľky v tejto databáze."
+msgstr "Pridať tabuľky z iných databáz"
 
 #: js/messages.php:566
 msgid "Page name"
@@ -5347,17 +5343,12 @@ msgid "Control user password"
 msgstr "Heslo kontrolného užívateľa"
 
 #: libraries/classes/Config/Descriptions.php:1017
-#, fuzzy
-#| msgid ""
-#| "A special MySQL user configured with limited permissions, more "
-#| "information available on [a@https://wiki.phpmyadmin.net/pma/"
-#| "controluser]wiki[/a]."
 msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
-"Špeciálny MySQL užívateľ s obmedzenými právami, viac informácii je "
-"dostupných na [a@https://wiki.phpmyadmin.net/pma/controluser]wiki[/a]."
+"Špeciálny MySQL používateľ s obmedzenými právami, viac informácii je "
+"dostupných v [doc@linked-tables]dokumentácii[/doc]."
 
 #: libraries/classes/Config/Descriptions.php:1021
 msgid "Control user"
@@ -5522,20 +5513,14 @@ msgid "PDF schema: pages table"
 msgstr "PDF schéma: tabuľka stránok"
 
 #: libraries/classes/Config/Descriptions.php:1107
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]."
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Databáza použitá pre ralácie, záložky a PDF možností. Pre kompletný popis "
-"viď [a@https://wiki.phpmyadmin.net/pma/pmadb]pmadb[/a]. Ak ponecháte "
-"prázdne, bude táto možnosť vypnutá. Doporučená hodnota: [kbd]phpmyadmin[/"
-"kbd]."
+"Databáza použitá na ralácie, záložky a PDF možnosti. Pre kompletný popis viď "
+"[doc@linked-tables]pmadb[/doc]. Ak ponecháte prázdne, bude táto možnosť "
+"vypnutá. Doporučená hodnota: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
@@ -5576,31 +5561,21 @@ msgid "Favorites table"
 msgstr "Tabuľka obľúbených"
 
 #: libraries/classes/Config/Descriptions.php:1133
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no [a@https://wiki.phpmyadmin.net/pma/relation]relation-"
-#| "links[/a] support, suggested: [kbd]pma__relation[/kbd]."
 msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
-"Nechajte prázdne pre vypnutie podpory [a@https://wiki.phpmyadmin.net/pma/"
-"relation]relation-links[/a]. Odporúčaná hodnota: [kbd]pma__relation[/kbd]."
+"Nechajte prázdne pre vypnutie podpory [doc@relations@]relation-links[/doc]. "
+"Odporúčaná hodnota: [kbd]pma__relation[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1138
 msgid "Relation table"
 msgstr "Relačná tabuľka"
 
 #: libraries/classes/Config/Descriptions.php:1141
-#, fuzzy
-#| msgid ""
-#| "See [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]authentication "
-#| "types[/a] for an example."
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
-msgstr ""
-"Priklad, viď [a@https://wiki.phpmyadmin.net/pma/auth_types#signon]typy "
-"overovania[/a]."
+msgstr "Priklad, viď [doc@authentication-modes]typy autentifikácie[/doc] ."
 
 #: libraries/classes/Config/Descriptions.php:1145
 msgid "Signon session name"
@@ -6282,10 +6257,8 @@ msgid "Order"
 msgstr "Poradie"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order by:"
 msgid "Order by"
-msgstr "Zoradiť podľa:"
+msgstr "Zoradiť podľa"
 
 #: libraries/classes/Config/FormDisplay.php:99
 #: libraries/classes/Config/Validator.php:528
@@ -6527,27 +6500,21 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:506
-#, fuzzy, php-format
-#| msgid ""
-#| "%sBzip2 compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sBzip2 kompresia a dekompresia %s vyžaduje funkcie (%s), ktoré nie sú k "
-"dispozícii v tomto systéme."
+"%1$sBzip2 kompresia a dekompresia %2$s vyžaduje funkcie (%3$s), ktoré nie sú "
+"k dispozícii v tomto systéme."
 
 #: libraries/classes/Config/ServerConfigChecks.php:538
-#, fuzzy, php-format
-#| msgid ""
-#| "%sGZip compression and decompression%s requires functions (%s) which are "
-#| "unavailable on this system."
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
-"%sGZip kompresia a dekompresia%s vyžaduje funkicie  (%s), ktoré nie sú "
+"%1$sGZip kompresia a dekompresia%2$s vyžaduje funkicie (%3$s), ktoré nie sú "
 "dostupné na tomto systéme."
 
 #: libraries/classes/Config/Validator.php:214
@@ -6562,8 +6529,8 @@ msgstr "Neplatný typ overenia!"
 #: libraries/classes/Config/Validator.php:260
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
-"Pri použití prihlasovacej metódy  [kbd]config[/kbd] nebolo vyplnené "
-"užívateľské meno!"
+"Pri použití autentifikačnej metódy [kbd]config[/kbd] nebolo vyplnené "
+"používateľské meno!"
 
 #: libraries/classes/Config/Validator.php:268
 msgid ""
@@ -6842,10 +6809,9 @@ msgid "The columns have been moved successfully."
 msgstr "Stĺpce boli úspešne presunuté."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
-msgstr "Nepodarilo sa zístiť skutočný počet riadkov."
+msgstr "Nepodarilo sa zistiť popis stĺpca %s!"
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:771
 #: libraries/classes/Controllers/Table/TableStructureController.php:1067
@@ -7199,10 +7165,8 @@ msgid "Details…"
 msgstr "Podrobnosti…"
 
 #: libraries/classes/DatabaseInterface.php:2507
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
-msgstr "Chýbajúci parameter:"
+msgstr "Chýbajúce parametre pripojenia!"
 
 #: libraries/classes/DatabaseInterface.php:2532
 msgid "Connection for controluser as defined in your configuration failed."
@@ -8136,14 +8100,11 @@ msgid "Edit next row"
 msgstr "Upraviť nasledujúci riadok"
 
 #: libraries/classes/InsertEdit.php:1885
-#, fuzzy
-#| msgid ""
-#| "Use TAB key to move from value to value, or CTRL+arrows to move anywhere"
 msgid ""
 "Use TAB key to move from value to value, or CTRL+arrows to move anywhere."
 msgstr ""
 "Pre pohyb medzi hodnotami použite klávesu TAB alebo pre pohyb všetkými "
-"smermi klávesy CTRL+šípky"
+"smermi klávesy CTRL+šípky."
 
 #: libraries/classes/InsertEdit.php:1923
 #: libraries/classes/ReplicationGui.php:552
@@ -9017,7 +8978,7 @@ msgstr "Odstrániť dáta alebo tabuľku"
 
 #: libraries/classes/Operations.php:1540
 msgid "Empty the table (TRUNCATE)"
-msgstr "Vyprázdniť tabuľku  (TRUNCATE)"
+msgstr "Vyprázdniť tabuľku (TRUNCATE)"
 
 #: libraries/classes/Operations.php:1548
 msgid "Delete the table (DROP)"
@@ -9642,10 +9603,9 @@ msgid "Last check:"
 msgstr "Posledná kontrola:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1493
-#, fuzzy, php-format
-#| msgid "Table structure for table"
+#, php-format
 msgid "Error reading structure for table %s:"
-msgstr "Štruktúra tabuľky pre tabuľku"
+msgstr "Chyba načítania štruktúry tabuľky %s:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1547
 msgid "It appears your database uses views;"
@@ -9699,10 +9659,9 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Error reading data:"
+#, php-format
 msgid "Error reading data for table %s:"
-msgstr "Chyba pri čítaní dát:"
+msgstr "Chyba pri čítaní dát z tabuľky %s:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:100
 msgid "Object creation options (all are recommended)"
@@ -10187,16 +10146,13 @@ msgid "For testing purposes only!"
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:70
-#, fuzzy, php-format
-#| msgid "Hardware authentication failed!"
+#, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr "Hardwarové prihlasovanie zlyhalo!"
+msgstr "Dvojfaktorová autentifikácia zlyhala: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:74
-#, fuzzy
-#| msgid "Hardware authentication failed!"
 msgid "Two-factor authentication failed."
-msgstr "Hardwarové prihlasovanie zlyhalo!"
+msgstr "Dvojfaktorová autentifikácia zlyhala."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:127
 msgid "No Two-Factor"
@@ -10512,16 +10468,13 @@ msgid "Change or reconfigure master server"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:293
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as slave in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Tento server nie je nakonfigurovaný ako slave v replikačnom procese. Chceli "
-"by ste ho <a href=\"%s\">nakonfigurovať</a>?"
+"by ste ho %snakonfigurovať%s?"
 
 #: libraries/classes/ReplicationGui.php:316
 msgid "Error management:"
@@ -10541,16 +10494,13 @@ msgid "Skip next %s errors."
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:355
-#, fuzzy, php-format
-#| msgid ""
-#| "This server is not configured as master in a replication process. Would "
-#| "you like to <a href=\"%s\">configure</a> it?"
+#, php-format
 msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
 "Tento server nie je nakonfigurovaný ako master v replikačnom procese. Chceli "
-"by ste ho <a href=\"%s\">nakonfigurovať</a>?"
+"by ste ho %snakonfigurovať%s?"
 
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
@@ -11077,10 +11027,8 @@ msgid "routine"
 msgstr "rutina"
 
 #: libraries/classes/Rte/Words.php:37
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a routine"
 msgid "You do not have the necessary privileges to create a routine."
-msgstr "Nemáte potrebné oprávnenia na vytvorenie rutiny"
+msgstr "Nemáte potrebné oprávnenia na vytvorenie rutiny."
 
 #: libraries/classes/Rte/Words.php:40
 #, php-format
@@ -11097,10 +11045,9 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No routine with name %1$s found in database %2$s"
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "V databáze %2$s nebola nájdená žiadneatrutina s menom %1$s"
+msgstr "V databáze %2$s nebola nájdená žiadna rutina s názvom %1$s."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -11120,20 +11067,17 @@ msgid "trigger"
 msgstr "spúšťač"
 
 #: libraries/classes/Rte/Words.php:59
-#, fuzzy
-#| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the necessary privileges to create a trigger."
-msgstr "Nemáte potrebné oprávnenia na vytvorenie triggera"
+msgstr "Nemáte potrebné oprávnenia na vytvorenie triggera."
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No trigger with name %1$s found in database %2$s"
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "V databáze %2$s nebol nájdený žiadny trigger s menom %1$s"
+msgstr "V databáze %2$s nebol nájdený žiadny trigger s názvom %1$s."
 
 #: libraries/classes/Rte/Words.php:62
 msgid "There are no triggers to display."
-msgstr "Neboli nájdené žiadne spúšťače."
+msgstr "Neboli nájdené žiadne triggery."
 
 #: libraries/classes/Rte/Words.php:68
 msgid "Add event"
