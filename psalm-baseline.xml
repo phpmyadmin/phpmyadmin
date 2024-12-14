@@ -1481,7 +1481,6 @@
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['latex_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-      <code><![CDATA[$GLOBALS['latex_comments']]]></code>
       <code><![CDATA[$GLOBALS['latex_data_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_data_continued_caption']]]></code>
       <code><![CDATA[$GLOBALS['latex_data_label']]]></code>
@@ -1495,7 +1494,6 @@
       <code><![CDATA[$GLOBALS['ods_columns']]]></code>
       <code><![CDATA[$GLOBALS['ods_null']]]></code>
       <code><![CDATA[$GLOBALS['odt_columns']]]></code>
-      <code><![CDATA[$GLOBALS['odt_comments']]]></code>
       <code><![CDATA[$GLOBALS['odt_null']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1514,7 +1512,6 @@
       <code><![CDATA[$GLOBALS['sql_hex_for_binary']]]></code>
       <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
       <code><![CDATA[$GLOBALS['sql_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
       <code><![CDATA[$GLOBALS['sql_max_query_size']]]></code>
       <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
@@ -7480,8 +7477,6 @@
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
       <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
       <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_include_comments']]]></code>
       <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
       <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>

@@ -304,9 +304,6 @@ final class ExportController implements InvocableController
                 throw new ExportException('Failure during header export.');
             }
 
-            $doComments = isset($GLOBALS[$GLOBALS['what'] . '_include_comments'])
-                || isset($GLOBALS[$GLOBALS['what'] . '_comments']);
-
             /**
              * Builds the dump
              */
@@ -315,7 +312,7 @@ final class ExportController implements InvocableController
                     $dbSelect = '';
                 }
 
-                $this->export->exportServer($dbSelect, $exportPlugin, $doComments, $aliases, $separateFiles);
+                $this->export->exportServer($dbSelect, $exportPlugin, $aliases, $separateFiles);
             } elseif ($exportType === ExportType::Database) {
                 if (! is_array($tableStructure)) {
                     $tableStructure = [];
@@ -339,7 +336,6 @@ final class ExportController implements InvocableController
                             $tableStructure,
                             $GLOBALS['table_data'],
                             $exportPlugin,
-                            $doComments,
                             $aliases,
                             $separateFiles,
                         );
@@ -353,7 +349,6 @@ final class ExportController implements InvocableController
                         $tableStructure,
                         $GLOBALS['table_data'],
                         $exportPlugin,
-                        $doComments,
                         $aliases,
                         $separateFiles,
                     );
@@ -374,7 +369,6 @@ final class ExportController implements InvocableController
                             Current::$database,
                             Current::$table,
                             $exportPlugin,
-                            $doComments,
                             $allrows,
                             $limitTo,
                             $limitFrom,
@@ -389,7 +383,6 @@ final class ExportController implements InvocableController
                         Current::$database,
                         Current::$table,
                         $exportPlugin,
-                        $doComments,
                         $allrows,
                         $limitTo,
                         $limitFrom,
@@ -520,10 +513,6 @@ final class ExportController implements InvocableController
             $GLOBALS['mediawiki_caption'] = $postParams['mediawiki_caption'];
         }
 
-        if (isset($postParams['odt_comments'])) {
-            $GLOBALS['odt_comments'] = $postParams['odt_comments'];
-        }
-
         if (isset($postParams['odt_columns'])) {
             $GLOBALS['odt_columns'] = $postParams['odt_columns'];
         }
@@ -602,10 +591,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['texytext_null'])) {
             $GLOBALS['texytext_null'] = $postParams['texytext_null'];
-        }
-
-        if (isset($postParams['sql_include_comments'])) {
-            $GLOBALS['sql_include_comments'] = $postParams['sql_include_comments'];
         }
 
         if (isset($postParams['sql_header_comment'])) {
@@ -754,10 +739,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['latex_structure_label'])) {
             $GLOBALS['latex_structure_label'] = $postParams['latex_structure_label'];
-        }
-
-        if (isset($postParams['latex_comments'])) {
-            $GLOBALS['latex_comments'] = $postParams['latex_comments'];
         }
 
         if (isset($postParams['latex_columns'])) {

@@ -437,11 +437,11 @@ class ExportHtmlwordTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On']);
+            ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On', 'htmlword_comments' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
-        $result = $this->object->getTableDef('database', '', true);
+        $result = $this->object->getTableDef('database', '');
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .
@@ -507,7 +507,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', true);
+        $result = $this->object->getTableDef('database', '');
 
         self::assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
@@ -543,7 +543,12 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', false);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('database', '');
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .

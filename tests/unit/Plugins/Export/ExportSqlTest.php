@@ -316,9 +316,12 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportComment(): void
     {
-        $method = new ReflectionMethod(ExportSql::class, 'exportComment');
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
 
-        $GLOBALS['sql_include_comments'] = true;
+        $this->object->setExportOptions($request, []);
+
+        $method = new ReflectionMethod(ExportSql::class, 'exportComment');
 
         self::assertSame(
             '--' . "\n",
@@ -330,14 +333,13 @@ class ExportSqlTest extends AbstractTestCase
             $method->invoke($this->object, 'Comment'),
         );
 
-        $GLOBALS['sql_include_comments'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, []);
 
         self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
-
-        unset($GLOBALS['sql_include_comments']);
 
         self::assertSame(
             '',
@@ -347,9 +349,12 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testPossibleCRLF(): void
     {
-        $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
 
-        $GLOBALS['sql_include_comments'] = true;
+        $this->object->setExportOptions($request, []);
+
+        $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
 
         self::assertSame(
             "\n",
@@ -361,14 +366,13 @@ class ExportSqlTest extends AbstractTestCase
             $method->invoke($this->object, 'Comment'),
         );
 
-        $GLOBALS['sql_include_comments'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, []);
 
         self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
-
-        unset($GLOBALS['sql_include_comments']);
 
         self::assertSame(
             '',
@@ -417,7 +421,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = 'utf-8';
         $GLOBALS['sql_header_comment'] = "h1C\nh2C";
         $GLOBALS['sql_use_transaction'] = true;
-        $GLOBALS['sql_include_comments'] = true;
         $GLOBALS['charset'] = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -438,6 +441,11 @@ class ExportSqlTest extends AbstractTestCase
             ->with('SET time_zone = "+00:00"');
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -543,9 +551,11 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportDBHeader(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_include_comments'] = true;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_backquotes' => 'true', 'sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -744,7 +754,6 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['sql_include_comments'] = true;
         $this->object->sqlConstraints = null;
 
         if (isset($GLOBALS['no_constraints_comments'])) {
@@ -795,7 +804,7 @@ SQL;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_relation' => 'On', 'sql_dates' => 'On']);
+            ->withParsedBody(['sql_relation' => 'On', 'sql_dates' => 'On', 'sql_include_comments' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
@@ -824,7 +833,6 @@ SQL;
         $GLOBALS['sql_auto_increment'] = true;
         $GLOBALS['sql_drop_table'] = true;
         $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['sql_include_comments'] = true;
 
         $this->object->sqlConstraints = null;
 
@@ -845,7 +853,10 @@ SQL;
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->object->useSqlBackquotes(false);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         $result = $this->object->getTableDef('db', 'table', true, false);
 
@@ -865,7 +876,6 @@ SQL;
             'column_info' => 'col',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        $GLOBALS['sql_include_comments'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -882,7 +892,7 @@ SQL;
         $this->object->relation = new Relation($dbi);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['sql_relation' => 'On', 'sql_mime' => 'On']);
+            ->withParsedBody(['sql_relation' => 'On', 'sql_mime' => 'On', 'sql_include_comments' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
@@ -907,9 +917,11 @@ SQL;
     public function testExportStructure(): void
     {
         $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_include_comments'] = true;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_backquotes' => 'true', 'sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         // case 1
         ob_start();
@@ -1203,11 +1215,13 @@ SQL;
         DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = false;
-        $GLOBALS['sql_include_comments'] = true;
         $oldVal = $GLOBALS['sql_compatibility'] ?? '';
         $GLOBALS['sql_compatibility'] = 'NONE';
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_backquotes' => 'true', 'sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -1252,7 +1266,11 @@ SQL;
         DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;
         $GLOBALS['sql_views_as_tables'] = true;
-        $GLOBALS['sql_include_comments'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(

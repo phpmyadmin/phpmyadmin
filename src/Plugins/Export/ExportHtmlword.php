@@ -36,6 +36,8 @@ class ExportHtmlword extends ExportPlugin
 
     private bool $doMime = false;
 
+    private bool $doComments = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -304,19 +306,13 @@ class ExportHtmlword extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string  $db         the database name
-     * @param string  $table      the table name
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             PMA_exportStructure() also for other
-     *                             export types which use this parameter
-     * @param mixed[] $aliases    Aliases of db/table/columns
+     * @param string  $db      the database name
+     * @param string  $table   the table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting schema
      */
-    public function getTableDef(string $db, string $table, bool $doComments, array $aliases = []): string
+    public function getTableDef(string $db, string $table, array $aliases = []): string
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -357,7 +353,7 @@ class ExportHtmlword extends ExportPlugin
                 . '</strong></td>';
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $schemaInsert .= '<td class="print"><strong>'
                 . __('Comments')
                 . '</strong></td>';
@@ -408,7 +404,7 @@ class ExportHtmlword extends ExportPlugin
                     . '</td>';
             }
 
-            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+            if ($this->doComments && $relationParameters->columnCommentsFeature !== null) {
                 $schemaInsert .= '<td class="print">'
                     . (isset($comments[$fieldName])
                         ? htmlspecialchars($comments[$fieldName])
@@ -477,21 +473,10 @@ class ExportHtmlword extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             PMA_exportStructure() also for other
-     *                             export types which use this parameter
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        bool $doComments = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -504,7 +489,7 @@ class ExportHtmlword extends ExportPlugin
                 . __('Table structure for table') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
+                $dump .= $this->getTableDef($db, $table, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -520,7 +505,7 @@ class ExportHtmlword extends ExportPlugin
                 $dump .= '<h2>'
                 . __('Structure for view') . ' ' . htmlspecialchars($tableAlias)
                 . '</h2>';
-                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
+                $dump .= $this->getTableDef($db, $table, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '<h2>'
@@ -598,5 +583,7 @@ class ExportHtmlword extends ExportPlugin
             ?? $exportConfig['htmlword_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('htmlword_mime')
             ?? $exportConfig['htmlword_mime'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('htmlword_comments')
+            ?? $exportConfig['htmlword_comments'] ?? false);
     }
 }

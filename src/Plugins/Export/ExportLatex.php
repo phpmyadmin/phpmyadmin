@@ -42,6 +42,8 @@ class ExportLatex extends ExportPlugin
 
     private bool $doMime = false;
 
+    private bool $doComments = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -419,21 +421,10 @@ class ExportLatex extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             exportStructure() also for other
-     *                             export types which use this parameter
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        bool $doComments = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -482,7 +473,7 @@ class ExportLatex extends ExportPlugin
             $alignment .= 'l|';
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $alignment .= 'l|';
         }
 
@@ -501,7 +492,7 @@ class ExportLatex extends ExportPlugin
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Comments') . '}}';
             $comments = $this->relation->getComments($db, $table);
         }
@@ -569,7 +560,7 @@ class ExportLatex extends ExportPlugin
                 $localBuffer .= $this->getRelationString($foreigners, $fieldName, $db, $aliases);
             }
 
-            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+            if ($this->doComments && $relationParameters->columnCommentsFeature !== null) {
                 $localBuffer .= "\000";
                 if (isset($comments[$fieldName])) {
                     $localBuffer .= $comments[$fieldName];
@@ -630,5 +621,7 @@ class ExportLatex extends ExportPlugin
         $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
             ?? $exportConfig['latex_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('latex_mime') ?? $exportConfig['latex_mime'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('latex_comments')
+            ?? $exportConfig['latex_comments'] ?? false);
     }
 }

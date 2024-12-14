@@ -302,7 +302,7 @@ class ExportTexytextTest extends AbstractTestCase
         $this->object->relation = new Relation($dbi);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
-            ->withParsedBody(['texytext_relation' => 'On', 'texytext_mime' => 'On']);
+            ->withParsedBody(['texytext_relation' => 'On', 'texytext_mime' => 'On', 'texytext_comments' => 'On']);
 
         $this->object->setExportOptions($request, []);
 
@@ -321,7 +321,7 @@ class ExportTexytextTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('db', 'table', true);
+        $result = $this->object->getTableDef('db', 'table');
 
         self::assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }

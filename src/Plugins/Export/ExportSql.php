@@ -89,6 +89,8 @@ class ExportSql extends ExportPlugin
 
     private bool $doDates = false;
 
+    private bool $doComments = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -626,7 +628,7 @@ class ExportSql extends ExportPlugin
      */
     private function exportComment(string $text = ''): string
     {
-        if (isset($GLOBALS['sql_include_comments']) && $GLOBALS['sql_include_comments']) {
+        if ($this->doComments) {
             // see https://dev.mysql.com/doc/refman/5.0/en/ansi-diff-comments.html
             if ($text === '') {
                 return '--' . "\n";
@@ -655,7 +657,7 @@ class ExportSql extends ExportPlugin
      */
     private function possibleCRLF(): string
     {
-        if (isset($GLOBALS['sql_include_comments']) && $GLOBALS['sql_include_comments']) {
+        if ($this->doComments) {
             return "\n";
         }
 
@@ -1870,21 +1872,10 @@ class ExportSql extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                            comments as comments in the structure; this is
-     *                            deprecated but the parameter is left here
-     *                            because /export calls exportStructure()
-     *                            also for other export types which use this
-     *                            parameter
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        bool $doComments = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -2712,5 +2703,7 @@ class ExportSql extends ExportPlugin
             ?? $exportConfig['sql_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('sql_mime') ?? $exportConfig['sql_mime'] ?? false);
         $this->doDates = (bool) ($request->getParsedBodyParam('sql_dates') ?? $exportConfig['sql_dates'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('sql_include_comments')
+            ?? $exportConfig['sql_include_comments'] ?? false);
     }
 }

@@ -36,6 +36,8 @@ class ExportTexytext extends ExportPlugin
 
     private bool $doMime = false;
 
+    private bool $doComments = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -306,19 +308,13 @@ class ExportTexytext extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string  $db         the database name
-     * @param string  $table      the table name
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             $this->exportStructure() also for other
-     *                             export types which use this parameter
-     * @param mixed[] $aliases    Aliases of db/table/columns
+     * @param string  $db      the database name
+     * @param string  $table   the table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting schema
      */
-    public function getTableDef(string $db, string $table, bool $doComments, array $aliases = []): string
+    public function getTableDef(string $db, string $table, array $aliases = []): string
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -361,7 +357,7 @@ class ExportTexytext extends ExportPlugin
             $textOutput .= '|' . __('Links to');
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $textOutput .= '|' . __('Comments');
             $comments = $this->relation->getComments($db, $table);
         }
@@ -393,7 +389,7 @@ class ExportTexytext extends ExportPlugin
                 );
             }
 
-            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+            if ($this->doComments && $relationParameters->columnCommentsFeature !== null) {
                 $textOutput .= '|'
                     . (isset($comments[$fieldName])
                         ? htmlspecialchars($comments[$fieldName])
@@ -448,21 +444,10 @@ class ExportTexytext extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             $this->exportStructure() also for other
-     *                             export types which use this parameter
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        bool $doComments = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -472,7 +457,7 @@ class ExportTexytext extends ExportPlugin
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
                 . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
+                $dump .= $this->getTableDef($db, $table, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -484,7 +469,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doComments, $aliases);
+                $dump .= $this->getTableDef($db, $table, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '== ' . __('Stand-in structure for view')
@@ -552,5 +537,7 @@ class ExportTexytext extends ExportPlugin
             ?? $exportConfig['texytext_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('texytext_mime')
             ?? $exportConfig['texytext_mime'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('texytext_comments')
+            ?? $exportConfig['texytext_comments'] ?? false);
     }
 }

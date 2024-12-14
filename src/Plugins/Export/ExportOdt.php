@@ -38,6 +38,8 @@ class ExportOdt extends ExportPlugin
 
     private bool $doMime = false;
 
+    private bool $doComments = false;
+
     protected function init(): void
     {
         $GLOBALS['odt_buffer'] = '';
@@ -390,16 +392,11 @@ class ExportOdt extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string  $db         the database name
-     * @param string  $table      the table name
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             PMA_exportStructure() also for other
-     * @param mixed[] $aliases    Aliases of db/table/columns
+     * @param string  $db      the database name
+     * @param string  $table   the table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      */
-    public function getTableDef(string $db, string $table, bool $doComments, array $aliases = []): bool
+    public function getTableDef(string $db, string $table, array $aliases = []): bool
     {
         $dbAlias = $db;
         $tableAlias = $table;
@@ -427,7 +424,7 @@ class ExportOdt extends ExportPlugin
             $columnsCnt++;
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $columnsCnt++;
         }
 
@@ -457,7 +454,7 @@ class ExportOdt extends ExportPlugin
                 . '</table:table-cell>';
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                 . '<text:p>' . __('Comments') . '</text:p>'
                 . '</table:table-cell>';
@@ -503,7 +500,7 @@ class ExportOdt extends ExportPlugin
                 }
             }
 
-            if ($doComments) {
+            if ($this->doComments) {
                 if (isset($comments[$fieldName])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
@@ -604,20 +601,10 @@ class ExportOdt extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             PMA_exportStructure() also for other
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        bool $doComments = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -628,7 +615,7 @@ class ExportOdt extends ExportPlugin
                 . __('Table structure for table') . ' ' .
                 htmlspecialchars($tableAlias)
                 . '</text:h>';
-                $this->getTableDef($db, $table, $doComments, $aliases);
+                $this->getTableDef($db, $table, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -648,7 +635,7 @@ class ExportOdt extends ExportPlugin
                 . __('Structure for view') . ' '
                 . htmlspecialchars($tableAlias)
                 . '</text:h>';
-                $this->getTableDef($db, $table, $doComments, $aliases);
+                $this->getTableDef($db, $table, $aliases);
                 break;
             case 'stand_in':
                 $GLOBALS['odt_buffer'] .= '<text:h text:outline-level="2" text:style-name="Heading_2"'
@@ -715,5 +702,7 @@ class ExportOdt extends ExportPlugin
         $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
             ?? $exportConfig['odt_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('odt_mime') ?? $exportConfig['odt_mime'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('odt_comments')
+            ?? $exportConfig['odt_comments'] ?? false);
     }
 }
