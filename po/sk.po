@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-05-15 13:34+0000\n"
-"Last-Translator: Peter Stofko <stofi@stofi.sk>\n"
+"PO-Revision-Date: 2024-12-14 09:00+0000\n"
+"Last-Translator: Michal Dobsovic <michal@dobsovic.eu>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/5-2/sk/"
 ">\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.9-rc\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -460,6 +460,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"Toto naznačuje, že veľa dotazov robí plné skeny tabuliek. Pridajte indexy "
+"tam, kde to má zmysel."
 
 #: libraries/advisory_rules_generic.php:295
 #, php-format
@@ -471,7 +473,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:301
 msgid "Different tmp_table_size and max_heap_table_size"
-msgstr ""
+msgstr "Rôzne tmp_table_size a max_heap_table_size"
 
 #: libraries/advisory_rules_generic.php:304
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
@@ -484,6 +486,9 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"Ak ste úmyselne zmenili jednu z oboch: Server použije nižšiu hodnotu z oboch "
+"na určenie maximálnej veľkosti tabuliek v pamäti. Ak teda chcete zvýšiť "
+"limit tabuľky v pamäti, budete musieť zvýšiť aj druhú hodnotu."
 
 #: libraries/advisory_rules_generic.php:310
 #, php-format
