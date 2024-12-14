@@ -13,6 +13,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -51,7 +52,7 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Current::$table = 'table';
@@ -75,7 +76,7 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testSetProperties(): void
     {
-        ExportPlugin::$exportType = '';
+        ExportPlugin::$exportType = ExportType::Raw;
         ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
@@ -419,7 +420,7 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // case 2
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
         $method->invoke($this->object, null);
@@ -472,7 +473,7 @@ class ExportLatexTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB', ExportType::Database),
         );
     }
 
@@ -609,7 +610,7 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                'test',
+                ExportType::Raw,
                 true,
                 true,
                 true,
@@ -697,7 +698,7 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                'test',
+                ExportType::Raw,
                 true,
                 true,
                 true,
@@ -755,7 +756,7 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -772,7 +773,7 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'triggers',
-                'test',
+                ExportType::Raw,
             ),
         );
     }

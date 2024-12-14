@@ -11,6 +11,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -46,7 +47,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
@@ -365,7 +366,7 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB', ExportType::Database),
         );
     }
 

@@ -17,6 +17,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -61,7 +62,7 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = '';
         Current::$table = '';
@@ -205,7 +206,7 @@ class ExportTexytextTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB', ExportType::Database),
         );
     }
 
@@ -349,7 +350,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -374,7 +375,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -396,7 +397,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -421,7 +422,7 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();

@@ -12,6 +12,7 @@ use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -56,7 +57,7 @@ class OptionsTest extends AbstractTestCase
         $config->settings['ZipDump'] = false;
         $config->settings['GZipDump'] = false;
 
-        $exportType = 'server';
+        $exportType = ExportType::Server;
         $db = 'PMA';
         $table = 'PMA_test';
         $numTablesStr = '10';
@@ -87,7 +88,7 @@ class OptionsTest extends AbstractTestCase
         $actual = $this->export->getOptions($exportType, $db, $table, '', $numTablesStr, $unlimNumRowsStr, $exportList);
 
         $expected = [
-            'export_type' => $exportType,
+            'export_type' => $exportType->value,
             'db' => $db,
             'table' => $table,
             'templates' => ['is_enabled' => '', 'templates' => [], 'selected' => null],
@@ -95,7 +96,7 @@ class OptionsTest extends AbstractTestCase
             'hidden_inputs' => [
                 'db' => $db,
                 'table' => $table,
-                'export_type' => $exportType,
+                'export_type' => $exportType->value,
                 'export_method' => $config->settings['Export']['method'],
                 'template_id' => '',
             ],

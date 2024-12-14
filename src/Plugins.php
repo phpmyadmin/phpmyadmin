@@ -9,6 +9,7 @@ use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -57,7 +58,7 @@ class Plugins
     public static function getPlugin(
         string $type,
         string $format,
-        string $exportType = '',
+        ExportType $exportType = ExportType::Raw,
         bool $singleTable = false,
     ): object|null {
         ExportPlugin::$exportType = $exportType;
@@ -84,13 +85,10 @@ class Plugins
     }
 
     /**
-     * @param string $type server|database|table|raw
-     * @psalm-param 'server'|'database'|'table'|'raw' $type
-     *
      * @return ExportPlugin[]
      * @psalm-return list<ExportPlugin>
      */
-    public static function getExport(string $type, bool $singleTable): array
+    public static function getExport(ExportType $type, bool $singleTable): array
     {
         ExportPlugin::$exportType = $type;
         ExportPlugin::$singleTable = $singleTable;

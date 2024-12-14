@@ -14,6 +14,7 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -284,7 +285,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB', ExportType::Database),
         );
     }
 
@@ -583,7 +584,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -609,7 +610,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -631,7 +632,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -657,7 +658,7 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();

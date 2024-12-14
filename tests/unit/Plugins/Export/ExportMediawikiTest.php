@@ -10,6 +10,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportMediawiki;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -214,7 +215,7 @@ class ExportMediawikiTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB', ExportType::Database),
         );
     }
 
@@ -247,7 +248,7 @@ class ExportMediawikiTest extends AbstractTestCase
                 'db',
                 'table',
                 'create_table',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();

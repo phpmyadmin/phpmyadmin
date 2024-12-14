@@ -11,6 +11,7 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -27,8 +28,8 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetExport(): void
     {
-        $plugins = Plugins::getExport('database', false);
-        self::assertSame('database', ExportPlugin::$exportType);
+        $plugins = Plugins::getExport(ExportType::Database, false);
+        self::assertSame(ExportType::Database, ExportPlugin::$exportType);
         self::assertFalse(ExportPlugin::$singleTable);
         self::assertCount(14, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);

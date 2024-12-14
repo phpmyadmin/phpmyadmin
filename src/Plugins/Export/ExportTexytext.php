@@ -11,6 +11,7 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -136,11 +137,11 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string     $db         Database name
+     * @param ExportType $exportType 'server', 'database', 'table'
+     * @param string     $dbAlias    Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, ExportType $exportType, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -450,26 +451,26 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             $this->exportStructure() also for other
-     *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     * @param bool    $dates      whether to include creation/update/check dates
-     * @param mixed[] $aliases    Aliases of db/table/columns
+     * @param string     $db         database name
+     * @param string     $table      table name
+     * @param string     $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param ExportType $exportType 'server', 'database', 'table'
+     * @param bool       $doRelation whether to include relation comments
+     * @param bool       $doComments whether to include the pmadb-style column
+     *                                comments as comments in the structure;
+     *                                this is deprecated but the parameter is
+     *                                left here because /export calls
+     *                                $this->exportStructure() also for other
+     *                                export types which use this parameter
+     * @param bool       $doMime     whether to include mime comments
+     * @param bool       $dates      whether to include creation/update/check dates
+     * @param mixed[]    $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
         string $table,
         string $exportMode,
-        string $exportType,
+        ExportType $exportType,
         bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,

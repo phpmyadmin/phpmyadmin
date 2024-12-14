@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -68,7 +69,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
         $this->object = new ExportSql(
@@ -93,7 +94,7 @@ class ExportSqlTest extends AbstractTestCase
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
@@ -116,7 +117,7 @@ class ExportSqlTest extends AbstractTestCase
             ->willReturn(['v1', 'v2']);
 
         DatabaseInterface::$instance = $dbi;
-        ExportPlugin::$exportType = 'server';
+        ExportPlugin::$exportType = ExportType::Server;
         ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
@@ -485,7 +486,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', 'database'),
+            $this->object->exportDBCreate('db', ExportType::Database),
         );
         $result = ob_get_clean();
 
@@ -519,7 +520,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', 'database'),
+            $this->object->exportDBCreate('db', ExportType::Database),
         );
         $result = ob_get_clean();
 
@@ -907,7 +908,7 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -930,7 +931,7 @@ SQL;
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -956,7 +957,7 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -979,7 +980,7 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -996,7 +997,7 @@ SQL;
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
+                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();

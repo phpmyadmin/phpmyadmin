@@ -21,6 +21,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
@@ -100,7 +101,7 @@ final class DatabaseController implements InvocableController
                     $tableNames = $this->dbi->getTables(Current::$database);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', 'database', isset($GLOBALS['single_table']));
+                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Database, isset($GLOBALS['single_table']));
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(

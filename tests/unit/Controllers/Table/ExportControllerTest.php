@@ -15,6 +15,7 @@ use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -58,7 +59,7 @@ class ExportControllerTest extends AbstractTestCase
         );
         $pageSettings->init('Export');
         $template = new Template();
-        $exportList = Plugins::getExport('table', true);
+        $exportList = Plugins::getExport(ExportType::Table, true);
 
         $expected = $template->render('table/export/index', [
             'export_type' => 'table',

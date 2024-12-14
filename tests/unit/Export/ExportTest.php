@@ -14,6 +14,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -139,7 +140,7 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            'database',
+            ExportType::Database,
             false,
             true,
             false,
@@ -218,7 +219,7 @@ SQL;
             ['test_db'],
             'structure_and_data',
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            'server',
+            ExportType::Server,
             false,
             true,
             false,
@@ -248,7 +249,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('server', Message::error('Error message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::error('Error message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
@@ -263,7 +264,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('server', Message::success('Success message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::success('Success message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
@@ -279,7 +280,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('database', Message::error('Error message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::error('Error message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
@@ -295,7 +296,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('database', Message::success('Success message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::success('Success message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
@@ -312,7 +313,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('table', Message::error('Error message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::error('Error message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,
@@ -332,7 +333,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('table', Message::success('Success message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::success('Success message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,

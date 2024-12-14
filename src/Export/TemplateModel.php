@@ -8,6 +8,7 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Util;
 
 use function sprintf;
@@ -26,7 +27,7 @@ final class TemplateModel
             Util::backquote($db),
             Util::backquote($table),
             $this->dbi->quoteString($template->getUsername(), ConnectionType::ControlUser),
-            $this->dbi->quoteString($template->getExportType(), ConnectionType::ControlUser),
+            $this->dbi->quoteString($template->getExportType()->value, ConnectionType::ControlUser),
             $this->dbi->quoteString($template->getName(), ConnectionType::ControlUser),
             $this->dbi->quoteString($template->getData(), ConnectionType::ControlUser),
         );
@@ -102,14 +103,14 @@ final class TemplateModel
     }
 
     /** @return Template[]|string */
-    public function getAll(DatabaseName $db, TableName $table, string $user, string $exportType): array|string
+    public function getAll(DatabaseName $db, TableName $table, string $user, ExportType $exportType): array|string
     {
         $query = sprintf(
             'SELECT * FROM %s.%s WHERE `username` = %s AND `export_type` = %s ORDER BY `template_name`;',
             Util::backquote($db),
             Util::backquote($table),
             $this->dbi->quoteString($user, ConnectionType::ControlUser),
-            $this->dbi->quoteString($exportType, ConnectionType::ControlUser),
+            $this->dbi->quoteString($exportType->value, ConnectionType::ControlUser),
         );
         $result = $this->dbi->tryQueryAsControlUser($query);
         if ($result === false) {

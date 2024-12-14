@@ -15,6 +15,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -70,7 +71,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportOdt(
@@ -93,7 +94,7 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testSetProperties(): void
     {
-        ExportPlugin::$exportType = '';
+        ExportPlugin::$exportType = ExportType::Raw;
         ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
@@ -294,7 +295,7 @@ class ExportOdtTest extends AbstractTestCase
         );
 
         // case 2
-        ExportPlugin::$exportType = 'table';
+        ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
         $method->invoke($this->object, null);
@@ -350,7 +351,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB', ExportType::Database),
         );
     }
 
@@ -758,7 +759,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -798,7 +799,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
+                ExportType::Raw,
             ),
         );
 
@@ -828,7 +829,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -868,7 +869,7 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
+                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();

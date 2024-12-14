@@ -22,6 +22,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -94,10 +95,7 @@ final class ExportController implements InvocableController
             return $this->response->missingParameterError('what');
         }
 
-        $exportType = $request->getParsedBodyParamAsString('export_type');
-        if ($exportType === '') {
-            return $this->response->missingParameterError('export_type');
-        }
+        $exportType = ExportType::from($request->getParsedBodyParamAsString('export_type'));
 
         // export class instance, not array of properties, as before
         $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], $exportType, isset($GLOBALS['single_table']));
@@ -162,7 +160,7 @@ final class ExportController implements InvocableController
 
         $tableNames = [];
         // Generate error url and check for needed variables
-        if ($exportType === 'database') {
+        if ($exportType === ExportType::Database) {
             if (Current::$database === '') {
                 return $this->response->missingParameterError('db');
             }
@@ -171,7 +169,7 @@ final class ExportController implements InvocableController
             $tableNames = $GLOBALS['table_select'] ?? [];
             Assert::isArray($tableNames);
             Assert::allString($tableNames);
-        } elseif ($exportType === 'table') {
+        } elseif ($exportType === ExportType::Table) {
             if (Current::$database === '') {
                 return $this->response->missingParameterError('db');
             }
@@ -179,11 +177,6 @@ final class ExportController implements InvocableController
             if (Current::$table === '') {
                 return $this->response->missingParameterError('table');
             }
-        } elseif ($exportType !== 'raw' && $exportType !== 'server') {
-            $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
-
-            return $this->response->response();
         }
 
         // Merge SQL Query aliases with Export aliases from
@@ -252,7 +245,7 @@ final class ExportController implements InvocableController
         }
 
         // For raw query export, filename will be export.extension
-        if ($exportType === 'raw') {
+        if ($exportType === ExportType::Raw) {
             $filename = $this->export->getFinalFilename($exportPlugin, $GLOBALS['compression'], 'export');
         }
 
@@ -283,7 +276,7 @@ final class ExportController implements InvocableController
             Core::downloadHeader($filename, $mimeType);
         } else {
             // HTML
-            if ($exportType === 'database') {
+            if ($exportType === ExportType::Database) {
                 $GLOBALS['num_tables'] = count($tableNames);
                 if ($GLOBALS['num_tables'] === 0) {
                     $GLOBALS['message'] = Message::error(
@@ -337,14 +330,14 @@ final class ExportController implements InvocableController
                 $GLOBALS[$GLOBALS['what'] . '_structure_or_data'] = $whatStrucOrData;
             }
 
-            if ($exportType === 'raw') {
+            if ($exportType === ExportType::Raw) {
                 $whatStrucOrData = 'raw';
             }
 
             /**
              * Builds the dump
              */
-            if ($exportType === 'server') {
+            if ($exportType === ExportType::Server) {
                 if ($dbSelect === null) {
                     $dbSelect = '';
                 }
@@ -361,7 +354,7 @@ final class ExportController implements InvocableController
                     $aliases,
                     $separateFiles,
                 );
-            } elseif ($exportType === 'database') {
+            } elseif ($exportType === ExportType::Database) {
                 if (! is_array($tableStructure)) {
                     $tableStructure = [];
                 }
@@ -413,7 +406,7 @@ final class ExportController implements InvocableController
                         $separateFiles,
                     );
                 }
-            } elseif ($exportType === 'raw') {
+            } elseif ($exportType === ExportType::Raw) {
                 Export::exportRaw($whatStrucOrData, $exportPlugin, Current::$database, Current::$sqlQuery);
             } else {
                 // We export just one table

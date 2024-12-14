@@ -8407,13 +8407,13 @@ parameters:
 			path: src/Export/Template.php
 
 		-
-			message: '#^Parameter \#2 \$username of class PhpMyAdmin\\Export\\Template constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Plugins\\ExportType\:\:from\(\) expects int\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Export/Template.php
 
 		-
-			message: '#^Parameter \#3 \$exportType of class PhpMyAdmin\\Export\\Template constructor expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$username of class PhpMyAdmin\\Export\\Template constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Export/Template.php
