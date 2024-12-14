@@ -206,7 +206,7 @@ class ExportTexytextTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', ExportType::Database),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -350,7 +350,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -375,7 +374,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -397,7 +395,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -422,7 +419,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();

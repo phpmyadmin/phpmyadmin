@@ -797,11 +797,10 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string     $db         Database name
-     * @param ExportType $exportType 'server', 'database', 'table'
-     * @param string     $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, ExportType $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -827,7 +826,7 @@ class ExportSql extends ExportPlugin
             }
         }
 
-        if ($exportType === ExportType::Database && ! isset($GLOBALS['sql_create_database'])) {
+        if (ExportPlugin::$exportType === ExportType::Database && ! isset($GLOBALS['sql_create_database'])) {
             return true;
         }
 
@@ -1870,26 +1869,24 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs table's structure
      *
-     * @param string     $db         database name
-     * @param string     $table      table name
-     * @param string     $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param ExportType $exportType 'server', 'database', 'table'
-     * @param bool       $doRelation whether to include relation comments
-     * @param bool       $doComments whether to include the pmadb-style column
-     *                               comments as comments in the structure; this is
-     *                               deprecated but the parameter is left here
-     *                               because /export calls exportStructure()
-     *                               also for other export types which use this
-     *                               parameter
-     * @param bool       $doMime     whether to include mime comments
-     * @param bool       $dates      whether to include creation/update/check dates
-     * @param mixed[]    $aliases    Aliases of db/table/columns
+     * @param string  $db         database name
+     * @param string  $table      table name
+     * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
+     * @param bool    $doRelation whether to include relation comments
+     * @param bool    $doComments whether to include the pmadb-style column
+     *                            comments as comments in the structure; this is
+     *                            deprecated but the parameter is left here
+     *                            because /export calls exportStructure()
+     *                            also for other export types which use this
+     *                            parameter
+     * @param bool    $doMime     whether to include mime comments
+     * @param bool    $dates      whether to include creation/update/check dates
+     * @param mixed[] $aliases    Aliases of db/table/columns
      */
     public function exportStructure(
         string $db,
         string $table,
         string $exportMode,
-        ExportType $exportType,
         bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
@@ -1973,7 +1970,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($exportType !== ExportType::Table) {
+                    if (ExportPlugin::$exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                             . Util::backquote($tableAlias) . ';' . "\n";
                     }
@@ -1988,7 +1985,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($exportType !== ExportType::Table) {
+                    if (ExportPlugin::$exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                         . Util::backquote($tableAlias) . ';' . "\n";
                     }

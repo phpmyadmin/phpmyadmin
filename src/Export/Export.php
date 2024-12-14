@@ -496,7 +496,6 @@ class Export
      * @param string|mixed[] $dbSelect        the selected databases to export
      * @param string         $whatStrucOrData structure or data or both
      * @param ExportPlugin   $exportPlugin    the selected export plugin
-     * @param ExportType     $exportType      the export type
      * @param bool           $doRelation      whether to export relation info
      * @param bool           $doComments      whether to add comments
      * @param bool           $doMime          whether to add MIME info
@@ -508,7 +507,6 @@ class Export
         string|array $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        ExportType $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
@@ -535,7 +533,6 @@ class Export
                 $tables,
                 $tables,
                 $exportPlugin,
-                $exportType,
                 $doRelation,
                 $doComments,
                 $doMime,
@@ -560,7 +557,6 @@ class Export
      * @param string[]     $tableStructure  whether to export structure for each table
      * @param string[]     $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param ExportType   $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
      * @param bool         $doMime          whether to add MIME info
@@ -575,7 +571,6 @@ class Export
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        ExportType $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
@@ -590,7 +585,7 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportDBCreate($db->getName(), $exportType, $dbAlias)) {
+        if (! $exportPlugin->exportDBCreate($db->getName(), $dbAlias)) {
             return;
         }
 
@@ -643,7 +638,6 @@ class Export
                             $db->getName(),
                             $table,
                             'stand_in',
-                            $exportType,
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -677,7 +671,6 @@ class Export
                             $db->getName(),
                             $table,
                             'create_table',
-                            $exportType,
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -728,7 +721,6 @@ class Export
                     $db->getName(),
                     $table,
                     'triggers',
-                    $exportType,
                     $doRelation,
                     $doComments,
                     $doMime,
@@ -758,7 +750,6 @@ class Export
                         $db->getName(),
                         $view,
                         'create_view',
-                        $exportType,
                         $doRelation,
                         $doComments,
                         $doMime,
@@ -851,7 +842,6 @@ class Export
      * @param string       $table           the table to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param ExportType   $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
      * @param bool         $doMime          whether to add MIME info
@@ -867,7 +857,6 @@ class Export
         string $table,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        ExportType $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
@@ -902,7 +891,6 @@ class Export
                             $db,
                             $table,
                             'create_view',
-                            $exportType,
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -919,7 +907,6 @@ class Export
                         $db,
                         $table,
                         'create_table',
-                        $exportType,
                         $doRelation,
                         $doComments,
                         $doMime,
@@ -971,7 +958,6 @@ class Export
                     $db,
                     $table,
                     'triggers',
-                    $exportType,
                     $doRelation,
                     $doComments,
                     $doMime,

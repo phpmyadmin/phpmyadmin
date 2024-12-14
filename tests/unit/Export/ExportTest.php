@@ -14,6 +14,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
@@ -133,6 +134,7 @@ class ExportTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
 
+        ExportPlugin::$exportType = ExportType::Database;
         $export->exportDatabase(
             DatabaseName::from('test_db'),
             ['test_table'],
@@ -140,7 +142,6 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            ExportType::Database,
             false,
             true,
             false,
@@ -172,6 +173,7 @@ SQL;
         $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
+        ExportPlugin::$exportType = ExportType::Server;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
@@ -219,7 +221,6 @@ SQL;
             ['test_db'],
             'structure_and_data',
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            ExportType::Server,
             false,
             true,
             false,

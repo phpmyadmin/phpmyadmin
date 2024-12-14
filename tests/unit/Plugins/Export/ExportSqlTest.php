@@ -486,7 +486,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', ExportType::Database),
+            $this->object->exportDBCreate('db'),
         );
         $result = ob_get_clean();
 
@@ -520,7 +520,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', ExportType::Database),
+            $this->object->exportDBCreate('db'),
         );
         $result = ob_get_clean();
 
@@ -908,7 +908,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_table',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -931,7 +930,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'triggers',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -950,6 +948,7 @@ SQL;
         $GLOBALS['sql_views_as_tables'] = false;
 
         $this->object->useSqlBackquotes(false);
+        ExportPlugin::$exportType = ExportType::Raw;
 
         ob_start();
         self::assertTrue(
@@ -957,7 +956,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_view',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -980,7 +978,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_view',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -997,7 +994,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'stand_in',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();

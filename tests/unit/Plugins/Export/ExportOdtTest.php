@@ -351,7 +351,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', ExportType::Database),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -759,7 +759,6 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -799,7 +798,6 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                ExportType::Raw,
             ),
         );
 
@@ -829,7 +827,6 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -869,7 +866,6 @@ class ExportOdtTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                ExportType::Raw,
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();

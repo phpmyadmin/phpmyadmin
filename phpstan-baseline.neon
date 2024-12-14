@@ -8311,6 +8311,12 @@ parameters:
 			path: src/Export/Export.php
 
 		-
+			message: '#^Parameter \#2 \$dbAlias of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:exportDBCreate\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Export/Export.php
+
+		-
 			message: '#^Parameter \#2 \$dbAlias of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:exportDBHeader\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -8324,12 +8330,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$enc of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: '#^Parameter \#3 \$dbAlias of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:exportDBCreate\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Export/Export.php

@@ -366,7 +366,7 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', ExportType::Database),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 

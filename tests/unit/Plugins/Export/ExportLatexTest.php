@@ -473,7 +473,7 @@ class ExportLatexTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', ExportType::Database),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -610,7 +610,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                ExportType::Raw,
                 true,
                 true,
                 true,
@@ -698,7 +697,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                ExportType::Raw,
                 true,
                 true,
                 true,
@@ -756,7 +754,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                ExportType::Raw,
             ),
         );
         $result = ob_get_clean();
@@ -773,7 +770,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'triggers',
-                ExportType::Raw,
             ),
         );
     }
