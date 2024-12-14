@@ -1424,20 +1424,20 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'INSERT INTO `db`.`table` (`username`, `export_type`, `template_name`, `template_data`)'
-                    . ' VALUES (\'user\', \'type\', \'name\', \'data\');',
+                    . ' VALUES (\'user\', \'raw\', \'name\', \'data\');',
                 'result' => true,
             ],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `username` = \'user\''
-                    . ' AND `export_type` = \'type\' ORDER BY `template_name`;',
+                    . ' AND `export_type` = \'raw\' ORDER BY `template_name`;',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
-                'result' => [['1', 'user1', 'type1', 'name1', 'data1'], ['2', 'user2', 'type2', 'name2', 'data2']],
+                'result' => [['1', 'user1', 'raw', 'name1', 'data1'], ['2', 'user2', 'raw', 'name2', 'data2']],
             ],
             ['query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';', 'result' => true],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
-                'result' => [['1', 'user1', 'type1', 'name1', 'data1']],
+                'result' => [['1', 'user1', 'raw', 'name1', 'data1']],
             ],
             [
                 'query' => 'UPDATE `db`.`table` SET `template_data` = \'data\''

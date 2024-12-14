@@ -12,6 +12,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
@@ -88,7 +89,7 @@ class ExportController implements InvocableController
 
         $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
 
-        $exportList = Plugins::getExport('table', isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport(ExportType::Table, isset($GLOBALS['single_table']));
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
@@ -98,10 +99,10 @@ class ExportController implements InvocableController
             return $this->response->response();
         }
 
-        $exportType = 'table';
+        $exportType = ExportType::Table;
         $isReturnBackFromRawExport = $request->getParsedBodyParam('export_type') === 'raw';
         if ($request->hasBodyParam('raw_query') || $isReturnBackFromRawExport) {
-            $exportType = 'raw';
+            $exportType = ExportType::Raw;
         }
 
         $options = $this->export->getOptions(
@@ -115,7 +116,7 @@ class ExportController implements InvocableController
         );
 
         $this->response->render('table/export/index', array_merge($options, [
-            'export_type' => $exportType,
+            'export_type' => $exportType->value,
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
         ]));

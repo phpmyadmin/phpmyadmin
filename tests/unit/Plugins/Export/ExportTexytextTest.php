@@ -16,6 +16,8 @@ use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -60,9 +62,8 @@ class ExportTexytextTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
         Current::$database = '';
         Current::$table = '';
         $GLOBALS['lang'] = 'en';
@@ -205,7 +206,7 @@ class ExportTexytextTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -349,7 +350,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -374,7 +374,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -396,7 +395,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -421,7 +419,6 @@ class ExportTexytextTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();

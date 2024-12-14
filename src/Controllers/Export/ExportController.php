@@ -22,6 +22,7 @@ use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\SqlParser\Parser;
@@ -35,7 +36,6 @@ use function function_exists;
 use function in_array;
 use function ini_set;
 use function is_array;
-use function is_string;
 use function register_shutdown_function;
 use function time;
 
@@ -50,7 +50,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['export_type'] ??= null;
         $GLOBALS['message'] ??= null;
         $GLOBALS['compression'] ??= null;
         $GLOBALS['asfile'] ??= null;
@@ -96,15 +95,10 @@ final class ExportController implements InvocableController
             return $this->response->missingParameterError('what');
         }
 
-        if (! is_string($GLOBALS['export_type']) || $GLOBALS['export_type'] === '') {
-            return $this->response->missingParameterError('export_type');
-        }
+        $exportType = ExportType::from($request->getParsedBodyParamAsString('export_type'));
 
         // export class instance, not array of properties, as before
-        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], [
-            'export_type' => $GLOBALS['export_type'],
-            'single_table' => isset($GLOBALS['single_table']),
-        ]);
+        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], $exportType, isset($GLOBALS['single_table']));
 
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {
@@ -166,7 +160,7 @@ final class ExportController implements InvocableController
 
         $tableNames = [];
         // Generate error url and check for needed variables
-        if ($GLOBALS['export_type'] === 'database') {
+        if ($exportType === ExportType::Database) {
             if (Current::$database === '') {
                 return $this->response->missingParameterError('db');
             }
@@ -175,7 +169,7 @@ final class ExportController implements InvocableController
             $tableNames = $GLOBALS['table_select'] ?? [];
             Assert::isArray($tableNames);
             Assert::allString($tableNames);
-        } elseif ($GLOBALS['export_type'] === 'table') {
+        } elseif ($exportType === ExportType::Table) {
             if (Current::$database === '') {
                 return $this->response->missingParameterError('db');
             }
@@ -183,11 +177,6 @@ final class ExportController implements InvocableController
             if (Current::$table === '') {
                 return $this->response->missingParameterError('table');
             }
-        } elseif ($GLOBALS['export_type'] !== 'raw' && $GLOBALS['export_type'] !== 'server') {
-            $this->response->setRequestStatus(false);
-            $this->response->addHTML(Message::error(__('Bad parameters!'))->getDisplay());
-
-            return $this->response->response();
         }
 
         // Merge SQL Query aliases with Export aliases from
@@ -243,7 +232,7 @@ final class ExportController implements InvocableController
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template');
 
             if ((bool) $rememberTemplate) {
-                $this->export->rememberFilename($config, $GLOBALS['export_type'], $filenameTemplate);
+                $this->export->rememberFilename($config, $exportType, $filenameTemplate);
             }
 
             $filename = $this->export->getFinalFilename(
@@ -256,7 +245,7 @@ final class ExportController implements InvocableController
         }
 
         // For raw query export, filename will be export.extension
-        if ($GLOBALS['export_type'] === 'raw') {
+        if ($exportType === ExportType::Raw) {
             $filename = $this->export->getFinalFilename($exportPlugin, $GLOBALS['compression'], 'export');
         }
 
@@ -269,7 +258,7 @@ final class ExportController implements InvocableController
 
             // problem opening export file on server?
             if ($message !== null) {
-                $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
+                $location = $this->export->getPageLocationAndSaveMessage($exportType, $message);
                 $this->response->redirect($location);
 
                 return $this->response->response();
@@ -287,7 +276,7 @@ final class ExportController implements InvocableController
             Core::downloadHeader($filename, $mimeType);
         } else {
             // HTML
-            if ($GLOBALS['export_type'] === 'database') {
+            if ($exportType === ExportType::Database) {
                 $GLOBALS['num_tables'] = count($tableNames);
                 if ($GLOBALS['num_tables'] === 0) {
                     $GLOBALS['message'] = Message::error(
@@ -300,11 +289,7 @@ final class ExportController implements InvocableController
                 }
             }
 
-            echo $this->export->getHtmlForDisplayedExportHeader(
-                $GLOBALS['export_type'],
-                Current::$database,
-                Current::$table,
-            );
+            echo $this->export->getHtmlForDisplayedExportHeader($exportType, Current::$database, Current::$table);
         }
 
         try {
@@ -345,14 +330,14 @@ final class ExportController implements InvocableController
                 $GLOBALS[$GLOBALS['what'] . '_structure_or_data'] = $whatStrucOrData;
             }
 
-            if ($GLOBALS['export_type'] === 'raw') {
+            if ($exportType === ExportType::Raw) {
                 $whatStrucOrData = 'raw';
             }
 
             /**
              * Builds the dump
              */
-            if ($GLOBALS['export_type'] === 'server') {
+            if ($exportType === ExportType::Server) {
                 if ($dbSelect === null) {
                     $dbSelect = '';
                 }
@@ -361,7 +346,6 @@ final class ExportController implements InvocableController
                     $dbSelect,
                     $whatStrucOrData,
                     $exportPlugin,
-                    $GLOBALS['export_type'],
                     $doRelation,
                     $doComments,
                     $doMime,
@@ -369,7 +353,7 @@ final class ExportController implements InvocableController
                     $aliases,
                     $separateFiles,
                 );
-            } elseif ($GLOBALS['export_type'] === 'database') {
+            } elseif ($exportType === ExportType::Database) {
                 if (! is_array($tableStructure)) {
                     $tableStructure = [];
                 }
@@ -393,7 +377,6 @@ final class ExportController implements InvocableController
                             $tableStructure,
                             $GLOBALS['table_data'],
                             $exportPlugin,
-                            $GLOBALS['export_type'],
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -412,7 +395,6 @@ final class ExportController implements InvocableController
                         $tableStructure,
                         $GLOBALS['table_data'],
                         $exportPlugin,
-                        $GLOBALS['export_type'],
                         $doRelation,
                         $doComments,
                         $doMime,
@@ -421,7 +403,7 @@ final class ExportController implements InvocableController
                         $separateFiles,
                     );
                 }
-            } elseif ($GLOBALS['export_type'] === 'raw') {
+            } elseif ($exportType === ExportType::Raw) {
                 Export::exportRaw($whatStrucOrData, $exportPlugin, Current::$database, Current::$sqlQuery);
             } else {
                 // We export just one table
@@ -438,7 +420,6 @@ final class ExportController implements InvocableController
                             Current::$table,
                             $whatStrucOrData,
                             $exportPlugin,
-                            $GLOBALS['export_type'],
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -458,7 +439,6 @@ final class ExportController implements InvocableController
                         Current::$table,
                         $whatStrucOrData,
                         $exportPlugin,
-                        $GLOBALS['export_type'],
                         $doRelation,
                         $doComments,
                         $doMime,
@@ -480,7 +460,7 @@ final class ExportController implements InvocableController
         }
 
         if ($GLOBALS['save_on_server'] && $GLOBALS['message'] instanceof Message) {
-            $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $GLOBALS['message']);
+            $location = $this->export->getPageLocationAndSaveMessage($exportType, $GLOBALS['message']);
             $this->response->redirect($location);
 
             return $this->response->response();
@@ -490,11 +470,7 @@ final class ExportController implements InvocableController
          * Send the dump as a file...
          */
         if (empty($GLOBALS['asfile'])) {
-            echo $this->export->getHtmlForDisplayedExportFooter(
-                $GLOBALS['export_type'],
-                Current::$database,
-                Current::$table,
-            );
+            echo $this->export->getHtmlForDisplayedExportFooter($exportType, Current::$database, Current::$table);
 
             return $this->response->response();
         }
@@ -532,7 +508,7 @@ final class ExportController implements InvocableController
                 $this->export->dumpBuffer,
                 $GLOBALS['save_filename'],
             );
-            $location = $this->export->getPageLocationAndSaveMessage($GLOBALS['export_type'], $message);
+            $location = $this->export->getPageLocationAndSaveMessage($exportType, $message);
             $this->response->redirect($location);
 
             return $this->response->response();
@@ -551,10 +527,6 @@ final class ExportController implements InvocableController
     {
         if (isset($postParams['single_table'])) {
             $GLOBALS['single_table'] = $postParams['single_table'];
-        }
-
-        if (isset($postParams['export_type'])) {
-            $GLOBALS['export_type'] = $postParams['export_type'];
         }
 
         if (isset($postParams['table_select'])) {

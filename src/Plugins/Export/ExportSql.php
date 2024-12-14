@@ -16,6 +16,7 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -94,11 +95,9 @@ class ExportSql extends ExportPlugin
 
     protected function setProperties(): ExportPluginProperties
     {
-        $GLOBALS['plugin_param'] ??= null;
-
         $hideSql = false;
         $hideStructure = false;
-        if ($GLOBALS['plugin_param']['export_type'] === 'table' && ! $GLOBALS['plugin_param']['single_table']) {
+        if (ExportPlugin::$exportType === ExportType::Table && ! ExportPlugin::$singleTable) {
             $hideStructure = true;
             $hideSql = true;
         }
@@ -243,7 +242,7 @@ class ExportSql extends ExportPlugin
             $subgroup->setSubgroupHeader($leaf);
 
             // server export options
-            if ($GLOBALS['plugin_param']['export_type'] === 'server') {
+            if (ExportPlugin::$exportType === ExportType::Server) {
                 $leaf = new BoolPropertyItem(
                     'drop_database',
                     sprintf(__('Add %s statement'), '<code>DROP DATABASE IF EXISTS</code>'),
@@ -251,7 +250,7 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
             }
 
-            if ($GLOBALS['plugin_param']['export_type'] === 'database') {
+            if (ExportPlugin::$exportType === ExportType::Database) {
                 $createClause = '<code>CREATE DATABASE / USE</code>';
                 $leaf = new BoolPropertyItem(
                     'create_database',
@@ -260,7 +259,7 @@ class ExportSql extends ExportPlugin
                 $subgroup->addProperty($leaf);
             }
 
-            if ($GLOBALS['plugin_param']['export_type'] === 'table') {
+            if (ExportPlugin::$exportType === ExportType::Table) {
                 $dropClause = $dbi->getTable(Current::$database, Current::$table)->isView()
                     ? '<code>DROP VIEW</code>'
                     : '<code>DROP TABLE</code>';
@@ -798,11 +797,10 @@ class ExportSql extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         if ($dbAlias === '') {
             $dbAlias = $db;
@@ -828,7 +826,7 @@ class ExportSql extends ExportPlugin
             }
         }
 
-        if ($exportType === 'database' && ! isset($GLOBALS['sql_create_database'])) {
+        if (ExportPlugin::$exportType === ExportType::Database && ! isset($GLOBALS['sql_create_database'])) {
             return true;
         }
 
@@ -1874,7 +1872,6 @@ class ExportSql extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $exportType 'server', 'database', 'table'
      * @param bool    $doRelation whether to include relation comments
      * @param bool    $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure; this is
@@ -1890,7 +1887,6 @@ class ExportSql extends ExportPlugin
         string $db,
         string $table,
         string $exportMode,
-        string $exportType,
         bool $doRelation = false,
         bool $doComments = false,
         bool $doMime = false,
@@ -1974,7 +1970,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($exportType !== 'table') {
+                    if (ExportPlugin::$exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                             . Util::backquote($tableAlias) . ';' . "\n";
                     }
@@ -1989,7 +1985,7 @@ class ExportSql extends ExportPlugin
                     )
                     . $this->exportComment();
                     // delete the stand-in table previously created (if any)
-                    if ($exportType !== 'table') {
+                    if (ExportPlugin::$exportType !== ExportType::Table) {
                         $dump .= 'DROP TABLE IF EXISTS '
                         . Util::backquote($tableAlias) . ';' . "\n";
                     }

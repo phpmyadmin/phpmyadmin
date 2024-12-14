@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Export;
 
+use PhpMyAdmin\Plugins\ExportType;
+
 /** @psalm-immutable */
 final class Template
 {
     private function __construct(
         private int $id,
         private string $username,
-        private string $exportType,
+        private ExportType $exportType,
         private string $name,
         private string $data,
     ) {
@@ -22,7 +24,7 @@ final class Template
         return new self(
             $state['id'] ?? 0,
             $state['username'],
-            $state['exportType'] ?? '',
+            ExportType::from($state['exportType'] ?? ''),
             $state['name'] ?? '',
             $state['data'],
         );
@@ -38,7 +40,7 @@ final class Template
         return $this->username;
     }
 
-    public function getExportType(): string
+    public function getExportType(): ExportType
     {
         return $this->exportType;
     }

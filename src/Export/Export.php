@@ -18,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
@@ -223,14 +224,14 @@ class Export
     /**
      * Returns HTML containing the footer for a displayed export
      *
-     * @param string $exportType the export type
-     * @param string $db         the database name
-     * @param string $table      the table name
+     * @param ExportType $exportType the export type
+     * @param string     $db         the database name
+     * @param string     $table      the table name
      *
      * @return string the HTML output
      */
     public function getHtmlForDisplayedExportFooter(
-        string $exportType,
+        ExportType $exportType,
         string $db,
         string $table,
     ): string {
@@ -314,14 +315,14 @@ class Export
 
     public function rememberFilename(
         Config $config,
-        string $exportType,
+        ExportType $exportType,
         string $filenameTemplate,
     ): void {
-        if ($exportType === 'server') {
+        if ($exportType === ExportType::Server) {
             $config->setUserValue('pma_server_filename_template', 'Export/file_template_server', $filenameTemplate);
-        } elseif ($exportType === 'database') {
+        } elseif ($exportType === ExportType::Database) {
             $config->setUserValue('pma_db_filename_template', 'Export/file_template_database', $filenameTemplate);
-        } elseif ($exportType === 'raw') {
+        } elseif ($exportType === ExportType::Raw) {
             $config->setUserValue('pma_raw_filename_template', 'Export/file_template_raw', $filenameTemplate);
         } else {
             $config->setUserValue('pma_table_filename_template', 'Export/file_template_table', $filenameTemplate);
@@ -463,14 +464,14 @@ class Export
     /**
      * Returns HTML containing the header for a displayed export
      *
-     * @param string $exportType the export type
-     * @param string $db         the database name
-     * @param string $table      the table name
+     * @param ExportType $exportType the export type
+     * @param string     $db         the database name
+     * @param string     $table      the table name
      *
      * @return string the generated HTML and back button
      */
     public function getHtmlForDisplayedExportHeader(
-        string $exportType,
+        ExportType $exportType,
         string $db,
         string $table,
     ): string {
@@ -495,7 +496,6 @@ class Export
      * @param string|mixed[] $dbSelect        the selected databases to export
      * @param string         $whatStrucOrData structure or data or both
      * @param ExportPlugin   $exportPlugin    the selected export plugin
-     * @param string         $exportType      the export type
      * @param bool           $doRelation      whether to export relation info
      * @param bool           $doComments      whether to add comments
      * @param bool           $doMime          whether to add MIME info
@@ -507,7 +507,6 @@ class Export
         string|array $dbSelect,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
@@ -534,7 +533,6 @@ class Export
                 $tables,
                 $tables,
                 $exportPlugin,
-                $exportType,
                 $doRelation,
                 $doComments,
                 $doMime,
@@ -559,7 +557,6 @@ class Export
      * @param string[]     $tableStructure  whether to export structure for each table
      * @param string[]     $tableData       whether to export data for each table
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
      * @param bool         $doMime          whether to add MIME info
@@ -574,7 +571,6 @@ class Export
         array $tableStructure,
         array $tableData,
         ExportPlugin $exportPlugin,
-        string $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
@@ -589,7 +585,7 @@ class Export
             return;
         }
 
-        if (! $exportPlugin->exportDBCreate($db->getName(), $exportType, $dbAlias)) {
+        if (! $exportPlugin->exportDBCreate($db->getName(), $dbAlias)) {
             return;
         }
 
@@ -642,7 +638,6 @@ class Export
                             $db->getName(),
                             $table,
                             'stand_in',
-                            $exportType,
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -676,7 +671,6 @@ class Export
                             $db->getName(),
                             $table,
                             'create_table',
-                            $exportType,
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -727,7 +721,6 @@ class Export
                     $db->getName(),
                     $table,
                     'triggers',
-                    $exportType,
                     $doRelation,
                     $doComments,
                     $doMime,
@@ -757,7 +750,6 @@ class Export
                         $db->getName(),
                         $view,
                         'create_view',
-                        $exportType,
                         $doRelation,
                         $doComments,
                         $doMime,
@@ -850,7 +842,6 @@ class Export
      * @param string       $table           the table to export
      * @param string       $whatStrucOrData structure or data or both
      * @param ExportPlugin $exportPlugin    the selected export plugin
-     * @param string       $exportType      the export type
      * @param bool         $doRelation      whether to export relation info
      * @param bool         $doComments      whether to add comments
      * @param bool         $doMime          whether to add MIME info
@@ -866,7 +857,6 @@ class Export
         string $table,
         string $whatStrucOrData,
         ExportPlugin $exportPlugin,
-        string $exportType,
         bool $doRelation,
         bool $doComments,
         bool $doMime,
@@ -901,7 +891,6 @@ class Export
                             $db,
                             $table,
                             'create_view',
-                            $exportType,
                             $doRelation,
                             $doComments,
                             $doMime,
@@ -918,7 +907,6 @@ class Export
                         $db,
                         $table,
                         'create_table',
-                        $exportType,
                         $doRelation,
                         $doComments,
                         $doMime,
@@ -970,7 +958,6 @@ class Export
                     $db,
                     $table,
                     'triggers',
-                    $exportType,
                     $doRelation,
                     $doComments,
                     $doMime,
@@ -1001,15 +988,15 @@ class Export
      *
      * @psalm-return non-empty-string
      */
-    public function getPageLocationAndSaveMessage(string $exportType, Message $message): string
+    public function getPageLocationAndSaveMessage(ExportType $exportType, Message $message): string
     {
         (new FlashMessenger())->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
 
-        if ($exportType === 'server') {
+        if ($exportType === ExportType::Server) {
             return 'index.php?route=/server/export' . Url::getCommonRaw([], '&');
         }
 
-        if ($exportType === 'database') {
+        if ($exportType === ExportType::Database) {
             $params = ['db' => Current::$database];
 
             return 'index.php?route=/database/export' . Url::getCommonRaw($params, '&');
@@ -1148,24 +1135,22 @@ class Export
      * get all the export options and verify
      * call and include the appropriate Schema Class depending on $export_type
      *
-     * @param non-empty-string $exportType
-     *
      * @return array{fileName: non-empty-string, mediaType: non-empty-string, fileData: string}
      *
      * @throws ExportException
      */
-    public function getExportSchemaInfo(DatabaseName $db, string $exportType): array
+    public function getExportSchemaInfo(DatabaseName $db, string $format): array
     {
         /**
          * default is PDF, otherwise validate it's only letters a-z
          */
-        if (preg_match('/^[a-zA-Z]+$/', $exportType) !== 1) {
-            $exportType = 'pdf';
+        if (preg_match('/^[a-zA-Z]+$/', $format) !== 1) {
+            $format = 'pdf';
         }
 
         // get the specific plugin
         /** @var SchemaPlugin|null $exportPlugin */
-        $exportPlugin = Plugins::getPlugin('schema', $exportType);
+        $exportPlugin = Plugins::getPlugin('schema', $format);
 
         // Check schema export type
         if ($exportPlugin === null) {
@@ -1183,7 +1168,7 @@ class Export
         return $this->dbi->getTables($database);
     }
 
-    private function getHTMLForRefreshButton(string $exportType): string
+    private function getHTMLForRefreshButton(ExportType $exportType): string
     {
         $postParams = $this->getPostParams($exportType);
 
@@ -1211,12 +1196,12 @@ class Export
                 . __('Copy to clipboard') . '</a> ]</p>';
     }
 
-    private function getHTMLForBackButton(string $exportType, string $db, string $table): string
+    private function getHTMLForBackButton(ExportType $exportType, string $db, string $table): string
     {
         $backButton = '<p>[ <a href="';
         $backButton .= match ($exportType) {
-            'server' => Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false),
-            'database' => Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
+            ExportType::Server => Url::getFromRoute('/server/export') . '" data-post="' . Url::getCommon([], '', false),
+            ExportType::Database => Url::getFromRoute('/database/export') . '" data-post="' . Url::getCommon(
                 ['db' => $db],
                 '',
                     false,
@@ -1237,12 +1222,12 @@ class Export
     }
 
     /** @return mixed[] */
-    private function getPostParams(string $exportType): array
+    private function getPostParams(ExportType $exportType): array
     {
         $postParams = $_POST;
 
         // Convert the multiple select elements from an array to a string
-        if ($exportType === 'database') {
+        if ($exportType === ExportType::Database) {
             $structOrDataForced = empty($postParams['structure_or_data_forced']);
             if ($structOrDataForced && ! isset($postParams['table_structure'])) {
                 $postParams['table_structure'] = [];

@@ -42,7 +42,6 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['tracking_default_statements'] = '';
         $config->selectedServer['tracking_version_auto_create'] = '';
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['export_type'] = null;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',

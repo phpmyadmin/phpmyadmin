@@ -9,6 +9,7 @@ use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Plugins\Plugin;
 use PhpMyAdmin\Plugins\SchemaPlugin;
@@ -49,16 +50,19 @@ class Plugins
     /**
      * Instantiates the specified plugin type for a certain format
      *
-     * @param string            $type   the type of the plugin (import, export, etc)
-     * @param string            $format the format of the plugin (sql, xml, et )
-     * @param array|string|null $param  parameter to plugin by which they can decide whether they can work
-     * @psalm-param array{export_type: string, single_table: bool}|string|null $param
+     * @param string $type   the type of the plugin (import, export, etc)
+     * @param string $format the format of the plugin (sql, xml, et )
      *
      * @return object|null new plugin instance
      */
-    public static function getPlugin(string $type, string $format, array|string|null $param = null): object|null
-    {
-        $GLOBALS['plugin_param'] = $param;
+    public static function getPlugin(
+        string $type,
+        string $format,
+        ExportType $exportType = ExportType::Raw,
+        bool $singleTable = false,
+    ): object|null {
+        ExportPlugin::$exportType = $exportType;
+        ExportPlugin::$singleTable = $singleTable;
         $pluginType = mb_strtoupper($type[0]) . mb_strtolower(mb_substr($type, 1));
         $pluginFormat = mb_strtoupper($format[0]) . mb_strtolower(mb_substr($format, 1));
         $class = sprintf('PhpMyAdmin\\Plugins\\%s\\%s%s', $pluginType, $pluginType, $pluginFormat);
@@ -81,15 +85,13 @@ class Plugins
     }
 
     /**
-     * @param string $type server|database|table|raw
-     * @psalm-param 'server'|'database'|'table'|'raw' $type
-     *
      * @return ExportPlugin[]
      * @psalm-return list<ExportPlugin>
      */
-    public static function getExport(string $type, bool $singleTable): array
+    public static function getExport(ExportType $type, bool $singleTable): array
     {
-        $GLOBALS['plugin_param'] = ['export_type' => $type, 'single_table' => $singleTable];
+        ExportPlugin::$exportType = $type;
+        ExportPlugin::$singleTable = $singleTable;
 
         return self::getPlugins('Export');
     }

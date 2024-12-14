@@ -50,7 +50,7 @@ class CreateControllerTest extends AbstractTestCase
         $template = new Template();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([
-                'exportType' => 'type',
+                'exportType' => 'raw',
                 'templateName' => 'name',
                 'templateData' => 'data',
                 'template_id' => null,
@@ -67,14 +67,14 @@ class CreateControllerTest extends AbstractTestCase
             ExportTemplate::fromArray([
                 'id' => 1,
                 'username' => 'user1',
-                'exportType' => 'type1',
+                'exportType' => 'raw',
                 'name' => 'name1',
                 'data' => 'data1',
             ]),
             ExportTemplate::fromArray([
                 'id' => 2,
                 'username' => 'user2',
-                'exportType' => 'type2',
+                'exportType' => 'raw',
                 'name' => 'name2',
                 'data' => 'data2',
             ]),

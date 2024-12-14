@@ -11,6 +11,7 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\SqlParser\Components\Expression;
 use PhpMyAdmin\SqlParser\Components\OptionsArray;
 use PhpMyAdmin\SqlParser\Context;
@@ -462,10 +463,7 @@ class TableMover
          *
          * @var ExportSql $exportSqlPlugin
          */
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-            'export_type' => 'table',
-            'single_table' => false,
-        ]);
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Table);
         // It is better that all identifiers are quoted
         $exportSqlPlugin->useSqlBackquotes(true);
 

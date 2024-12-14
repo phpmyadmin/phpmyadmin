@@ -162,12 +162,11 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      * Outputs CREATE DATABASE statement
      *
      * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = '')
+    public function exportDBCreate($db, $dbAlias = '')
     {
         // implementation
         return true;

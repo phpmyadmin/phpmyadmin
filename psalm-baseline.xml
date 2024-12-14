@@ -1440,7 +1440,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
@@ -1452,11 +1451,6 @@
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$dbSelect]]></code>
@@ -1488,8 +1482,6 @@
       <code><![CDATA[$GLOBALS['excel_null']]]></code>
       <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
       <code><![CDATA[$GLOBALS['excel_structure_or_data']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['htmlword_columns']]]></code>
       <code><![CDATA[$GLOBALS['htmlword_null']]]></code>
       <code><![CDATA[$GLOBALS['htmlword_structure_or_data']]]></code>
@@ -1586,11 +1578,6 @@
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['file_handle']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
@@ -1600,11 +1587,6 @@
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
@@ -7330,10 +7312,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$record[$columns[$i]]]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullOperand>
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
@@ -7454,10 +7432,6 @@
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$viewAlias]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string]]></code>
     </PossiblyUnusedReturnValue>
@@ -7606,11 +7580,6 @@
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['export_type']]]></code>
-      <code><![CDATA[$GLOBALS['plugin_param']['single_table']]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullArrayOffset>
       <code><![CDATA[$aliases[$oldDatabase]['tables']]]></code>
     </PossiblyNullArrayOffset>
@@ -10534,9 +10503,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$result['identifier']]]></code>
       <code><![CDATA[$result['tablename']]]></code>
@@ -10549,9 +10515,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[self::$trackingCache[$dbName][$tableName]]]></code>
     </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['export_type']]]></code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[bool]]></code>
     </MixedInferredReturnType>

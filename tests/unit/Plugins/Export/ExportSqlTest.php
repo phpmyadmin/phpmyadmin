@@ -13,6 +13,8 @@ use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -67,9 +69,8 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $this->object = new ExportSql(
             new Relation($dbi),
@@ -93,8 +94,8 @@ class ExportSqlTest extends AbstractTestCase
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -116,8 +117,8 @@ class ExportSqlTest extends AbstractTestCase
             ->willReturn(['v1', 'v2']);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['plugin_param']['export_type'] = 'server';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Server;
+        ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
@@ -485,7 +486,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', 'database'),
+            $this->object->exportDBCreate('db'),
         );
         $result = ob_get_clean();
 
@@ -519,7 +520,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', 'database'),
+            $this->object->exportDBCreate('db'),
         );
         $result = ob_get_clean();
 
@@ -907,7 +908,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -930,7 +930,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -949,6 +948,7 @@ SQL;
         $GLOBALS['sql_views_as_tables'] = false;
 
         $this->object->useSqlBackquotes(false);
+        ExportPlugin::$exportType = ExportType::Raw;
 
         ob_start();
         self::assertTrue(
@@ -956,7 +956,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -979,7 +978,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -996,7 +994,6 @@ SQL;
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
             ),
         );
         $result = ob_get_clean();

@@ -13,6 +13,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
 
 use function __;
@@ -57,7 +58,7 @@ final class ExportController implements InvocableController
 
         $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
 
-        $exportList = Plugins::getExport('server', isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport(ExportType::Server, isset($GLOBALS['single_table']));
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
@@ -68,7 +69,7 @@ final class ExportController implements InvocableController
         }
 
         $options = $this->export->getOptions(
-            'server',
+            ExportType::Server,
             Current::$database,
             Current::$table,
             Current::$sqlQuery,

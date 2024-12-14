@@ -14,6 +14,8 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -96,7 +98,6 @@ class ExportTest extends AbstractTestCase
 
     public function testExportDatabase(): void
     {
-        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $GLOBALS['sql_create_view'] = 'something';
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -133,6 +134,7 @@ class ExportTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $export = new Export($dbi);
 
+        ExportPlugin::$exportType = ExportType::Database;
         $export->exportDatabase(
             DatabaseName::from('test_db'),
             ['test_table'],
@@ -140,7 +142,6 @@ class ExportTest extends AbstractTestCase
             ['test_table'],
             ['test_table'],
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            'database',
             false,
             true,
             false,
@@ -163,7 +164,6 @@ SQL;
 
     public function testExportServer(): void
     {
-        $GLOBALS['plugin_param'] = ['export_type' => 'server', 'single_table' => false];
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
@@ -173,6 +173,7 @@ SQL;
         $GLOBALS['sql_structure_or_data'] = 'structure_and_data';
         $GLOBALS['sql_insert_syntax'] = 'both';
         $GLOBALS['sql_max_query_size'] = '50000';
+        ExportPlugin::$exportType = ExportType::Server;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
@@ -220,7 +221,6 @@ SQL;
             ['test_db'],
             'structure_and_data',
             new ExportSql(new Relation($dbi), $export, new Transformations()),
-            'server',
             false,
             true,
             false,
@@ -250,7 +250,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('server', Message::error('Error message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::error('Error message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
@@ -265,7 +265,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('server', Message::success('Success message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Server, Message::success('Success message!'));
         self::assertSame('index.php?route=/server/export&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
@@ -281,7 +281,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('database', Message::error('Error message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::error('Error message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'danger', 'message' => 'Error message!', 'statement' => '']],
@@ -297,7 +297,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('database', Message::success('Success message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Database, Message::success('Success message!'));
         self::assertSame('index.php?route=/database/export&db=test_db&server=2&lang=en', $location);
         self::assertSame(
             [['context' => 'success', 'message' => 'Success message!', 'statement' => '']],
@@ -314,7 +314,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('table', Message::error('Error message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::error('Error message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,
@@ -334,7 +334,7 @@ SQL;
         $_SESSION = [];
         $dbi = $this->createDatabaseInterface();
         $export = new Export($dbi);
-        $location = $export->getPageLocationAndSaveMessage('table', Message::success('Success message!'));
+        $location = $export->getPageLocationAndSaveMessage(ExportType::Table, Message::success('Success message!'));
         self::assertSame(
             'index.php?route=/table/export&db=test_db&table=test_table&single_table=true&server=2&lang=en',
             $location,

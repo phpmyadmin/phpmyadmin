@@ -284,7 +284,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -583,7 +583,6 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_table',
-                'test',
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -609,7 +608,6 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'triggers',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -631,7 +629,6 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'create_view',
-                'test',
             ),
         );
         $this->dummyDbi->assertAllSelectsConsumed();
@@ -657,7 +654,6 @@ class ExportHtmlwordTest extends AbstractTestCase
                 'test_db',
                 'test_table',
                 'stand_in',
-                'test',
             ),
         );
         $result = ob_get_clean();

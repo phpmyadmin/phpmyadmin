@@ -12,6 +12,8 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -50,9 +52,8 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Current::$table = 'table';
         $this->object = new ExportLatex(
@@ -75,8 +76,8 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testSetProperties(): void
     {
-        $GLOBALS['plugin_param']['export_type'] = '';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Raw;
+        ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
@@ -419,8 +420,8 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // case 2
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $method->invoke($this->object, null);
 
@@ -472,7 +473,7 @@ class ExportLatexTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -609,7 +610,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                'test',
                 true,
                 true,
                 true,
@@ -697,7 +697,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                'test',
                 true,
                 true,
                 true,
@@ -755,7 +754,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'test',
-                'test',
             ),
         );
         $result = ob_get_clean();
@@ -772,7 +770,6 @@ class ExportLatexTest extends AbstractTestCase
                 'database',
                 '',
                 'triggers',
-                'test',
             ),
         );
     }

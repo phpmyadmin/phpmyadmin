@@ -214,7 +214,7 @@ class ExportMediawikiTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -247,7 +247,6 @@ class ExportMediawikiTest extends AbstractTestCase
                 'db',
                 'table',
                 'create_table',
-                'test',
             ),
         );
         $result = ob_get_clean();
