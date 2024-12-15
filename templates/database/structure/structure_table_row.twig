@@ -77,7 +77,7 @@
         {% endif %}
         <td class="text-center d-print-none">
             <a class="ajax drop_table_anchor
-                {{- table_is_view or current_table['ENGINE'] == null ? ' view' }}" href="{{ url('/sql') }}" data-post="
+                {{- table_is_view ? ' view' }}" href="{{ url('/sql') }}" data-post="
                 {{- get_common(table_url_params|merge({
                   'reload': 1,
                   'purge': 1,
