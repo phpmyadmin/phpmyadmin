@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-08 00:27+0000\n"
+"POT-Creation-Date: 2024-12-15 00:27+0000\n"
 "PO-Revision-Date: 2024-10-22 23:15+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -131,7 +131,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:221
+#: src/Controllers/Table/StructureController.php:216
 msgid "Primary"
 msgstr "Primarni"
 
@@ -153,7 +153,7 @@ msgstr "Edinstven"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:225
+#: src/Controllers/Table/StructureController.php:220
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "Indeks"
@@ -200,7 +200,7 @@ msgstr "po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2067
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2057
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Brez"
@@ -444,13 +444,13 @@ msgstr "Je tuji ključ."
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
-#: src/Navigation/Nodes/NodeColumn.php:28
-#: src/Plugins/Export/ExportHtmlword.php:259
-#: src/Plugins/Export/ExportHtmlword.php:350
-#: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:361
-#: src/Plugins/Export/ExportOdt.php:452
-#: src/Plugins/Export/ExportTexytext.php:285
-#: src/Plugins/Export/ExportTexytext.php:364
+#: src/Navigation/Nodes/NodeColumn.php:30
+#: src/Plugins/Export/ExportHtmlword.php:256
+#: src/Plugins/Export/ExportHtmlword.php:347
+#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:356
+#: src/Plugins/Export/ExportOdt.php:447
+#: src/Plugins/Export/ExportTexytext.php:281
+#: src/Plugins/Export/ExportTexytext.php:360
 #: src/Plugins/Export/Helpers/Pdf.php:488
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
@@ -551,7 +551,7 @@ msgstr "Skupina vozlišča"
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:723
 #: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
-#: src/Navigation/Nodes/NodeColumn.php:38
+#: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1040 src/Util.php:1465
 #: src/Util.php:1482
@@ -569,9 +569,9 @@ msgstr "Struktura"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:567
-#: src/Plugins/Export/ExportTexytext.php:436
+#: src/Plugins/Export/ExportHtmlword.php:450
+#: src/Plugins/Export/ExportOdt.php:562
+#: src/Plugins/Export/ExportTexytext.php:432
 #: src/Plugins/Export/Helpers/Pdf.php:330
 msgid "Name"
 msgstr "Ime"
@@ -597,12 +597,12 @@ msgstr "Ime"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
-#: src/Plugins/Export/ExportHtmlword.php:262
-#: src/Plugins/Export/ExportHtmlword.php:353
-#: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
-#: src/Plugins/Export/ExportOdt.php:455
-#: src/Plugins/Export/ExportTexytext.php:286
-#: src/Plugins/Export/ExportTexytext.php:365
+#: src/Plugins/Export/ExportHtmlword.php:259
+#: src/Plugins/Export/ExportHtmlword.php:350
+#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:359
+#: src/Plugins/Export/ExportOdt.php:450
+#: src/Plugins/Export/ExportTexytext.php:282
+#: src/Plugins/Export/ExportTexytext.php:361
 #: src/Plugins/Export/Helpers/Pdf.php:490
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
@@ -636,12 +636,12 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:268
-#: src/Plugins/Export/ExportHtmlword.php:359
-#: src/Plugins/Export/ExportLatex.php:507 src/Plugins/Export/ExportOdt.php:370
-#: src/Plugins/Export/ExportOdt.php:461
-#: src/Plugins/Export/ExportTexytext.php:288
-#: src/Plugins/Export/ExportTexytext.php:367
+#: src/Plugins/Export/ExportHtmlword.php:265
+#: src/Plugins/Export/ExportHtmlword.php:356
+#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:365
+#: src/Plugins/Export/ExportOdt.php:456
+#: src/Plugins/Export/ExportTexytext.php:284
+#: src/Plugins/Export/ExportTexytext.php:363
 #: src/Plugins/Export/Helpers/Pdf.php:494
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
@@ -700,12 +700,12 @@ msgstr "Atributi"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:265
-#: src/Plugins/Export/ExportHtmlword.php:356
-#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:367
-#: src/Plugins/Export/ExportOdt.php:458
-#: src/Plugins/Export/ExportTexytext.php:287
-#: src/Plugins/Export/ExportTexytext.php:366
+#: src/Plugins/Export/ExportHtmlword.php:262
+#: src/Plugins/Export/ExportHtmlword.php:353
+#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:362
+#: src/Plugins/Export/ExportOdt.php:453
+#: src/Plugins/Export/ExportTexytext.php:283
+#: src/Plugins/Export/ExportTexytext.php:362
 #: src/Plugins/Export/Helpers/Pdf.php:492
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
@@ -727,9 +727,9 @@ msgstr "Prilagodi privilegije"
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:369
-#: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:471
-#: src/Plugins/Export/ExportTexytext.php:373
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:366
+#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:466
+#: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:511
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
@@ -747,9 +747,9 @@ msgstr "Premakni stolpec"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:376
-#: src/Plugins/Export/ExportOdt.php:478
-#: src/Plugins/Export/ExportTexytext.php:378
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:373
+#: src/Plugins/Export/ExportOdt.php:473
+#: src/Plugins/Export/ExportTexytext.php:374
 #: src/Plugins/Export/Helpers/Pdf.php:519
 msgid "Media type"
 msgstr "Vrsta predstavnosti"
@@ -808,7 +808,7 @@ msgstr "Ponastavi"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "Dokumentacija"
@@ -874,11 +874,11 @@ msgstr "Onemogočeno"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:106
+#: src/Controllers/Table/Structure/PrimaryController.php:102
 #: src/IndexColumn.php:148 src/Index.php:469
-#: src/Plugins/Export/ExportHtmlword.php:595
-#: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
-#: src/Plugins/Export/ExportTexytext.php:553
+#: src/Plugins/Export/ExportHtmlword.php:590
+#: src/Plugins/Export/ExportLatex.php:565 src/Plugins/Export/ExportOdt.php:707
+#: src/Plugins/Export/ExportTexytext.php:547
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "Yes"
 msgstr "Da"
@@ -912,9 +912,9 @@ msgstr "Da"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
-#: src/Plugins/Export/ExportHtmlword.php:595
-#: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
-#: src/Plugins/Export/ExportTexytext.php:553
+#: src/Plugins/Export/ExportHtmlword.php:590
+#: src/Plugins/Export/ExportLatex.php:565 src/Plugins/Export/ExportOdt.php:707
+#: src/Plugins/Export/ExportTexytext.php:547
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "No"
 msgstr "Ne"
@@ -979,8 +979,8 @@ msgstr "Ponovna poizvedba"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:785
+#: src/Display/Results.php:2477 src/Html/Generator.php:521
+#: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "Uredi"
 
@@ -1018,7 +1018,7 @@ msgstr "Izbriši"
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
-#: src/Plugins/Export/ExportOdt.php:182
+#: src/Plugins/Export/ExportOdt.php:181
 #: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1569
 #: src/Server/Privileges.php:1571 src/Server/Status/Processes.php:93
 msgid "Database"
@@ -1051,11 +1051,11 @@ msgstr "Zgodovina"
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
-#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:69
+#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:68
 #: src/Plugins/Export/ExportMediawiki.php:43
-#: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
+#: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:59
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:122
+#: src/Plugins/Export/ExportSql.php:121
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:61
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
@@ -1090,7 +1090,7 @@ msgstr "Razloži"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:604
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:608
 msgid "Profiling"
 msgstr "Profiliranje"
 
@@ -1171,8 +1171,8 @@ msgstr "Porabljen čas:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
-#: src/Html/Generator.php:573
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1177
+#: src/Html/Generator.php:577
 msgid "Refresh"
 msgstr "Osveži"
 
@@ -1388,9 +1388,9 @@ msgid "Print"
 msgstr "Natisni"
 
 #: resources/templates/database/data_dictionary/index.twig:27
-#: src/Plugins/Export/ExportHtmlword.php:363
-#: src/Plugins/Export/ExportLatex.php:509 src/Plugins/Export/ExportOdt.php:465
-#: src/Plugins/Export/ExportTexytext.php:369
+#: src/Plugins/Export/ExportHtmlword.php:360
+#: src/Plugins/Export/ExportLatex.php:502 src/Plugins/Export/ExportOdt.php:460
+#: src/Plugins/Export/ExportTexytext.php:365
 #: src/Plugins/Export/Helpers/Pdf.php:503
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
@@ -1401,7 +1401,7 @@ msgstr "Povezave z"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:450
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:264
+#: src/Controllers/Server/DatabasesController.php:261
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1764,9 +1764,9 @@ msgstr "Konec"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:576
-#: src/Plugins/Export/ExportTexytext.php:439
+#: src/Plugins/Export/ExportHtmlword.php:453
+#: src/Plugins/Export/ExportOdt.php:571
+#: src/Plugins/Export/ExportTexytext.php:435
 #: src/Plugins/Export/Helpers/Pdf.php:336
 msgid "Definition"
 msgstr "Opredelitev"
@@ -1795,7 +1795,7 @@ msgstr "Opredeljevalec"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:966 src/Plugins/Export/ExportXml.php:85
+#: src/Plugins/Export/ExportSql.php:964 src/Plugins/Export/ExportXml.php:85
 #: src/Util.php:1474
 msgid "Events"
 msgstr "Dogodki"
@@ -1942,7 +1942,7 @@ msgstr "Tabele:"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:261
+#: src/Controllers/Server/DatabasesController.php:258
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:100 src/Server/Status/Data.php:133
@@ -1956,7 +1956,7 @@ msgstr "Tabele"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:263
+#: src/Controllers/Server/DatabasesController.php:260
 msgid "Data"
 msgstr "Podatki"
 
@@ -1992,7 +1992,7 @@ msgstr "izberite stolpec"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:722
-#: src/Controllers/Table/ChangeController.php:219
+#: src/Controllers/Table/ChangeController.php:218
 msgid "Show"
 msgstr "Pokaži"
 
@@ -2073,7 +2073,7 @@ msgid "Update query"
 msgstr "Posodobi poizvedbo"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#: src/Html/Generator.php:542
+#: src/Html/Generator.php:546
 msgid "Submit query"
 msgstr "Izvedi poizvedbo"
 
@@ -2653,8 +2653,8 @@ msgstr ""
 "prepričani, da želite nadaljevati?"
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:242
-#: src/Plugins/Export/ExportSql.php:897 src/Plugins/Export/ExportXml.php:358
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
+#: src/Plugins/Export/ExportSql.php:895 src/Plugins/Export/ExportXml.php:358
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Zbirka podatkov:"
@@ -2700,9 +2700,9 @@ msgstr "Slovar podatkov"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:84
-#: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:290
+#: src/Controllers/Database/ExportController.php:76
+#: src/Controllers/Database/TrackingController.php:125
+#: src/Controllers/Export/ExportController.php:283
 msgid "No tables found in database."
 msgstr "V zbirki podatkov ni mogoče najti tabel."
 
@@ -2726,7 +2726,7 @@ msgstr "Pokaži poizvedbe create"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:423 src/Server/Privileges.php:1575
 #: src/Server/Privileges.php:1577
 msgid "Table"
 msgstr "Tabela"
@@ -2741,9 +2741,9 @@ msgstr "Pogledi"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:331
-#: src/Controllers/Table/StructureController.php:154
+#: src/Controllers/Operations/TableController.php:123
+#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Pogled"
@@ -2783,7 +2783,7 @@ msgstr "v uporabi"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:262 src/Import/Import.php:126
+#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:126
 msgid "Rows"
 msgstr "Vrstic"
 
@@ -2802,7 +2802,7 @@ msgstr "Velikost"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:32
-#: src/Controllers/Server/DatabasesController.php:266
+#: src/Controllers/Server/DatabasesController.php:263
 msgid "Overhead"
 msgstr "Presežek"
 
@@ -3020,7 +3020,7 @@ msgstr "Dobro poznana dvojiška datoteka"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:496
-#: src/Display/Results.php:2481 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:79
 msgid "Copy"
 msgstr "Kopiraj"
 
@@ -3031,7 +3031,7 @@ msgstr "Dejanja rezultatov poizvedbe"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1220
+#: src/Export/Export.php:1196
 msgid "Copy to clipboard"
 msgstr "Kopiraj v odložišče"
 
@@ -3057,11 +3057,11 @@ msgstr "Pretvori v kano"
 
 #: resources/templates/error/generic.twig:37
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:119
+#: src/Controllers/Operations/ViewController.php:115
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:740 src/Import/Import.php:115 src/InsertEdit.php:487
 #: src/Message.php:138
 msgid "Error"
 msgstr "Napaka"
@@ -3142,7 +3142,7 @@ msgstr "Posodobi"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:760
+#: src/Html/Generator.php:764
 msgid "SQL query:"
 msgstr "Poizvedba SQL:"
 
@@ -3462,7 +3462,7 @@ msgid "Server connection:"
 msgstr "Povezava strežnika:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:727
+#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:726
 #: src/Plugins/Export/ExportXml.php:205
 msgid "Server version:"
 msgstr "Različica strežnika:"
@@ -3560,7 +3560,7 @@ msgstr "Uporabi"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1243 src/Html/Generator.php:851
+#: src/Export/Export.php:1219 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Nazaj"
@@ -4153,9 +4153,9 @@ msgstr "Omogočili ste dvostopenjsko overovitev."
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:37
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
-#: src/Controllers/Operations/TableController.php:347
+#: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:294 src/Core.php:499
 msgid "No change"
 msgstr "Brez sprememb"
 
@@ -5274,7 +5274,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:716
+#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:715
 #: src/Plugins/Export/ExportXml.php:196
 msgid "Host:"
 msgstr "Gostitelj:"
@@ -6172,9 +6172,9 @@ msgstr "Stanje"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Plugins/Export/ExportHtmlword.php:454
-#: src/Plugins/Export/ExportOdt.php:570
-#: src/Plugins/Export/ExportTexytext.php:437
+#: src/Plugins/Export/ExportHtmlword.php:451
+#: src/Plugins/Export/ExportOdt.php:565
+#: src/Plugins/Export/ExportTexytext.php:433
 #: src/Plugins/Export/Helpers/Pdf.php:332 src/Server/Status/Processes.php:95
 msgid "Time"
 msgstr "Čas"
@@ -6205,9 +6205,9 @@ msgid "Pie chart with profiling results."
 msgstr "Tortni diagram z rezultati profiliranja."
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:116
+#: src/Controllers/Operations/ViewController.php:112
 #: src/Controllers/Table/DeleteRowsController.php:77
-#: src/Controllers/Table/FindReplaceController.php:120
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
 #: src/Controllers/Table/Maintenance/ChecksumController.php:73
@@ -6221,7 +6221,7 @@ msgstr "Tortni diagram z rezultati profiliranja."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1029 src/Display/Results.php:3139
+#: src/Database/Routines.php:1030 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Poizvedbo SQL smo uspešno izvedli."
@@ -6691,7 +6691,7 @@ msgstr "Počisti tabelo (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:410
+#: src/Controllers/Database/StructureController.php:406
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Izpraznili smo tabelo %s."
@@ -6706,13 +6706,13 @@ msgstr "Izprazni tabelo (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:362
+#: src/Controllers/Database/StructureController.php:358
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Zavrgli smo pogled %s."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:363
+#: src/Controllers/Database/StructureController.php:359
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabelo %s smo zavrgli."
@@ -6749,7 +6749,7 @@ msgid "Delete the view (DROP)"
 msgstr "Izbriši pogled (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:248
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:242
 msgid "Table structure"
 msgstr "Zgradba tabele"
 
@@ -7049,9 +7049,9 @@ msgid "Effective"
 msgstr "Učinkovito"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
-#: src/Controllers/Server/DatabasesController.php:265
-#: src/Controllers/Server/Status/StatusController.php:142
-#: src/Controllers/Server/Status/StatusController.php:192
+#: src/Controllers/Server/DatabasesController.php:262
+#: src/Controllers/Server/Status/StatusController.php:139
+#: src/Controllers/Server/Status/StatusController.php:189
 msgid "Total"
 msgstr "Skupaj"
 
@@ -7184,15 +7184,15 @@ msgstr "Čas"
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
 #: src/Navigation/Nodes/NodeEvent.php:24
-#: src/Plugins/Export/ExportHtmlword.php:455
-#: src/Plugins/Export/ExportOdt.php:573
-#: src/Plugins/Export/ExportTexytext.php:438
+#: src/Plugins/Export/ExportHtmlword.php:452
+#: src/Plugins/Export/ExportOdt.php:568
+#: src/Plugins/Export/ExportTexytext.php:434
 #: src/Plugins/Export/Helpers/Pdf.php:334
 msgid "Event"
 msgstr "Dogodek"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:259
+#: src/Controllers/Triggers/IndexController.php:243
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Izvoz sprožilca %s"
@@ -7200,10 +7200,10 @@ msgstr "Izvoz sprožilca %s"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:290 src/Menu.php:383
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:528
-#: src/Plugins/Export/ExportOdt.php:655 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1932
-#: src/Plugins/Export/ExportTexytext.php:496
+#: src/Plugins/Export/ExportHtmlword.php:523
+#: src/Plugins/Export/ExportOdt.php:648 src/Plugins/Export/ExportPdf.php:245
+#: src/Plugins/Export/ExportSql.php:1924
+#: src/Plugins/Export/ExportTexytext.php:490
 #: src/Plugins/Export/ExportXml.php:105 src/Util.php:1475 src/Util.php:1491
 msgid "Triggers"
 msgstr "Sprožilci"
@@ -8935,10 +8935,10 @@ msgstr "Onemogoči"
 #: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
 #: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:95
+#: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:221
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:220
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure"
 msgstr "struktura"
@@ -8946,10 +8946,10 @@ msgstr "struktura"
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
 #: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:95
+#: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:221
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:220
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "podatki"
@@ -8957,10 +8957,10 @@ msgstr "podatki"
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
 #: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:95
+#: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:221
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:220
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "struktura in podatki"
@@ -9160,7 +9160,7 @@ msgstr ""
 "neomejeno)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:321
+#: src/Plugins/Export/ExportSql.php:320
 msgid "Exclude definition of current user"
 msgstr "Izključi opredelitev trenutnega uporabnika"
 
@@ -10422,18 +10422,18 @@ msgstr "Stiskanje"
 #: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:85
 #: src/Plugins/Export/ExportExcel.php:59
 #: src/Plugins/Export/ExportHtmlword.php:82 src/Plugins/Export/ExportOds.php:68
-#: src/Plugins/Export/ExportOdt.php:124
+#: src/Plugins/Export/ExportOdt.php:123
 #: src/Plugins/Export/ExportTexytext.php:76
 msgid "Put columns names in the first row"
 msgstr "Postavi imena stolpcev v prvo vrstico"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
 msgid "Columns enclosed with"
 msgstr "Stolpci so obdani z"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
 msgid "Columns escaped with"
 msgstr "Stolpci so izognjeni z"
 
@@ -10449,12 +10449,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Odstrani znake CRLF znotraj stolpcev"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
 msgid "Columns terminated with"
 msgstr "Stolpci so zaključeni z"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:670
 msgid "Lines terminated with"
 msgstr "Vrstice so zaključene z"
 
@@ -10477,16 +10477,16 @@ msgstr "Predloga imena tabele"
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
 #: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:57
-#: src/Plugins/Export/ExportLatex.php:90
+#: src/Plugins/Export/ExportLatex.php:89
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
-#: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:217
+#: src/Plugins/Export/ExportOdt.php:69 src/Plugins/Export/ExportPdf.php:81
+#: src/Plugins/Export/ExportSql.php:216
 #: src/Plugins/Export/ExportTexytext.php:56
 msgid "Dump table"
 msgstr "Odloži tabelo"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:81
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:80
 msgid "Include table caption"
 msgstr "Vključi ime tabele"
 
@@ -10543,11 +10543,11 @@ msgstr "Datumi za ustvarjeno/posodobljeno/preverjeno"
 msgid "Use delayed inserts"
 msgstr "Uporabi zakasnjeno vstavljanje"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:186
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:185
 msgid "Disable foreign key checks"
 msgstr "Onemogoči preverjanja tujih ključev"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:196
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:195
 msgid "Export views as tables"
 msgstr "Izvozi poglede kot tabele"
 
@@ -10567,7 +10567,7 @@ msgstr ""
 "Dodaj IF NOT EXISTS (manj učinkovito, saj bodo indeksi ustvarjeni med "
 "ustvarjanjem tabele)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:327
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:326
 #, php-format
 msgid "%s view"
 msgstr "%s pogled"
@@ -10580,7 +10580,7 @@ msgstr "Uporabi možnost prezri vstavke"
 msgid "Syntax to use when inserting data"
 msgstr "Skladnja ob vstavljanju podatkov"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:454
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:453
 msgid "Maximal length of created query"
 msgstr "Največja dolžina ustvarjene poizvedbe"
 
@@ -10588,7 +10588,7 @@ msgstr "Največja dolžina ustvarjene poizvedbe"
 msgid "Export type"
 msgstr "Vrsta izvoza"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:176
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:175
 msgid "Enclose export in a transaction"
 msgstr "Vključi izvoz v transakcijo"
 
@@ -10856,7 +10856,7 @@ msgstr "Širina navigacijske plošče"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Navigation/NavigationTree.php:1310
+#: src/Navigation/NavigationTree.php:1296
 msgid "Link with main panel"
 msgstr "Poveži z glavno ploščo"
 
@@ -11286,11 +11286,11 @@ msgstr "Pokaži statistiko"
 msgid "Skip locked tables"
 msgstr "Preskoči zaklenjene tabele"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:496
 msgid "Explain SQL"
 msgstr "Razloži stavek SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:553
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:557
 msgid "Create PHP code"
 msgstr "Ustvari kodo PHP"
 
@@ -11654,11 +11654,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Strežnik %d"
 
-#: src/ConfigStorage/Relation.php:1246
+#: src/ConfigStorage/Relation.php:1247
 msgid "no description"
 msgstr "brez opisa"
 
-#: src/ConfigStorage/Relation.php:1452
+#: src/ConfigStorage/Relation.php:1453
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -11802,109 +11802,109 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "Prikazujem vrstice %1$s–%2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:106
+#: src/Controllers/Database/DesignerController.php:103
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr "Stran z imenom »%s« že obstaja; prosimo, preimenujte jo."
 
-#: src/Controllers/Database/DesignerController.php:177
-#: src/Controllers/Database/DesignerController.php:182
-#: src/Controllers/Database/EventsController.php:60
-#: src/Controllers/Database/ExportController.php:66
-#: src/Controllers/Database/ExportController.php:71
-#: src/Controllers/Database/ImportController.php:64
-#: src/Controllers/Database/ImportController.php:69
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:109
-#: src/Controllers/Database/SearchController.php:54
-#: src/Controllers/Database/SearchController.php:59
-#: src/Controllers/Database/SqlController.php:62
-#: src/Controllers/Database/SqlController.php:67
-#: src/Controllers/Database/StructureController.php:142
-#: src/Controllers/Database/StructureController.php:147
-#: src/Controllers/Database/Structure/FavoriteTableController.php:83
-#: src/Controllers/Database/Structure/RealRowCountController.php:60
+#: src/Controllers/Database/DesignerController.php:168
+#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/EventsController.php:51
+#: src/Controllers/Database/ExportController.php:58
+#: src/Controllers/Database/ExportController.php:63
+#: src/Controllers/Database/ImportController.php:60
+#: src/Controllers/Database/ImportController.php:65
+#: src/Controllers/Database/RoutinesController.php:76
+#: src/Controllers/Database/RoutinesController.php:95
+#: src/Controllers/Database/SearchController.php:52
+#: src/Controllers/Database/SearchController.php:57
+#: src/Controllers/Database/SqlController.php:52
+#: src/Controllers/Database/SqlController.php:57
+#: src/Controllers/Database/StructureController.php:138
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/Structure/FavoriteTableController.php:77
+#: src/Controllers/Database/Structure/RealRowCountController.php:50
+#: src/Controllers/Database/TrackingController.php:54
 #: src/Controllers/Database/TrackingController.php:59
-#: src/Controllers/Database/TrackingController.php:64
 #: src/Controllers/JavaScriptMessagesController.php:360
-#: src/Controllers/Operations/Database/CollationController.php:62
+#: src/Controllers/Operations/Database/CollationController.php:52
 #: src/Controllers/Operations/DatabaseController.php:240
 #: src/Controllers/Operations/DatabaseController.php:245
-#: src/Controllers/Operations/TableController.php:86
-#: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:63
-#: src/Controllers/Operations/ViewController.php:68
-#: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:163
-#: src/Controllers/Table/AddFieldController.php:168
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
-#: src/Controllers/Table/ChartController.php:97
-#: src/Controllers/Table/ChartController.php:102
-#: src/Controllers/Table/ChartController.php:139
-#: src/Controllers/Table/ChartController.php:144
-#: src/Controllers/Table/ChartController.php:225
-#: src/Controllers/Table/DeleteConfirmController.php:61
-#: src/Controllers/Table/DeleteConfirmController.php:66
+#: src/Controllers/Operations/TableController.php:87
+#: src/Controllers/Operations/TableController.php:92
+#: src/Controllers/Operations/ViewController.php:59
+#: src/Controllers/Operations/ViewController.php:64
+#: src/Controllers/Server/Databases/DestroyController.php:59
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
+#: src/Controllers/Table/ChangeController.php:67
+#: src/Controllers/Table/ChangeController.php:72
+#: src/Controllers/Table/ChartController.php:86
+#: src/Controllers/Table/ChartController.php:91
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:126
+#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/DeleteConfirmController.php:55
+#: src/Controllers/Table/DeleteConfirmController.php:60
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:74
-#: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:66
-#: src/Controllers/Table/GisVisualizationController.php:71
-#: src/Controllers/Table/ImportController.php:67
-#: src/Controllers/Table/ImportController.php:72
+#: src/Controllers/Table/FindReplaceController.php:71
+#: src/Controllers/Table/FindReplaceController.php:76
+#: src/Controllers/Table/GisVisualizationController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/ImportController.php:68
+#: src/Controllers/Table/ImportController.php:73
+#: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexesController.php:69
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:59
-#: src/Controllers/Table/IndexRenameController.php:64
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
-#: src/Controllers/Table/SqlController.php:64
-#: src/Controllers/Table/SqlController.php:69
+#: src/Controllers/Table/IndexRenameController.php:53
+#: src/Controllers/Table/IndexRenameController.php:58
+#: src/Controllers/Table/SearchController.php:172
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SqlController.php:57
+#: src/Controllers/Table/SqlController.php:62
+#: src/Controllers/Table/StructureController.php:89
 #: src/Controllers/Table/StructureController.php:94
-#: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:73
-#: src/Controllers/Table/Structure/PrimaryController.php:78
+#: src/Controllers/Table/Structure/PrimaryController.php:69
+#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/TrackingController.php:66
 #: src/Controllers/Table/TrackingController.php:71
-#: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:99
 #: src/Controllers/Table/ZoomSearchController.php:104
-#: src/Controllers/Triggers/IndexController.php:73
-#: src/Controllers/Triggers/IndexController.php:102
-#: src/Controllers/View/CreateController.php:74
-#: src/Controllers/View/CreateController.php:79
+#: src/Controllers/Triggers/IndexController.php:67
+#: src/Controllers/Triggers/IndexController.php:86
+#: src/Controllers/View/CreateController.php:67
+#: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "Ni izbranih zbirk podatkov."
 
-#: src/Controllers/Database/EventsController.php:141
+#: src/Controllers/Database/EventsController.php:132
 msgid "Add event"
 msgstr "Dodaj dogodek"
 
-#: src/Controllers/Database/EventsController.php:145
+#: src/Controllers/Database/EventsController.php:136
 msgid "Edit event"
 msgstr "Uredi dogodek"
 
-#: src/Controllers/Database/EventsController.php:194
-#: src/Controllers/Database/RoutinesController.php:293
-#: src/Controllers/Database/RoutinesController.php:323
-#: src/Controllers/Database/RoutinesController.php:391
-#: src/Controllers/Triggers/IndexController.php:233
+#: src/Controllers/Database/EventsController.php:185
+#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:309
+#: src/Controllers/Database/RoutinesController.php:377
+#: src/Controllers/Triggers/IndexController.php:217
 msgid "Error in processing request:"
 msgstr "Napaka v obdelovanju zahteve:"
 
-#: src/Controllers/Database/EventsController.php:196
+#: src/Controllers/Database/EventsController.php:187
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Dogodka imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s."
 
-#: src/Controllers/Database/EventsController.php:222
+#: src/Controllers/Database/EventsController.php:213
 #, php-format
 msgid "Export of event %s"
 msgstr "Izvoz dogodka %s"
 
-#: src/Controllers/Database/EventsController.php:240
+#: src/Controllers/Database/EventsController.php:231
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
@@ -11912,16 +11912,16 @@ msgstr ""
 "Napaka v obdelavi zahteve: Dogodka imenovanega %1$s ni mogoče najti v zbirki "
 "podatkov %2$s."
 
-#: src/Controllers/Database/ExportController.php:150
-#: src/Controllers/Server/ExportController.php:70
-#: src/Controllers/Table/ExportController.php:103
+#: src/Controllers/Database/ExportController.php:138
+#: src/Controllers/Server/ExportController.php:65
+#: src/Controllers/Table/ExportController.php:96
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za izvoz, prosimo, preverite vašo namestitev!"
 
-#: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Server/ImportController.php:61
-#: src/Controllers/Table/ImportController.php:101
+#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Server/ImportController.php:58
+#: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "Ne morem naložiti vtičnikov za uvoz, prosimo, preverite vašo namestitev!"
@@ -11939,7 +11939,7 @@ msgstr "Brez privilegijev"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nimate pravic za upravljanje z uporabniki!"
 
-#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/RoutinesController.php:84
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:38
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -11951,57 +11951,57 @@ msgstr "Nimate pravic za upravljanje z uporabniki!"
 #: src/Controllers/Database/Structure/ShowCreateController.php:34
 #: src/Controllers/Export/TablesController.php:27
 #: src/Controllers/JavaScriptMessagesController.php:361
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:77
-#: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:177
-#: src/Controllers/Table/AddFieldController.php:182
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:111
-#: src/Controllers/Table/ChartController.php:116
-#: src/Controllers/Table/ChartController.php:233
-#: src/Controllers/Table/DeleteConfirmController.php:75
-#: src/Controllers/Table/DeleteConfirmController.php:80
+#: src/Controllers/Operations/TableController.php:101
+#: src/Controllers/Operations/TableController.php:106
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
+#: src/Controllers/Table/ChangeController.php:81
+#: src/Controllers/Table/ChangeController.php:86
+#: src/Controllers/Table/ChartController.php:100
+#: src/Controllers/Table/ChartController.php:105
+#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:88
-#: src/Controllers/Table/FindReplaceController.php:93
-#: src/Controllers/Table/ImportController.php:81
-#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/FindReplaceController.php:85
+#: src/Controllers/Table/FindReplaceController.php:90
+#: src/Controllers/Table/ImportController.php:82
+#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Table/IndexesController.php:78
 #: src/Controllers/Table/IndexesController.php:83
-#: src/Controllers/Table/IndexesController.php:88
-#: src/Controllers/Table/IndexRenameController.php:73
-#: src/Controllers/Table/IndexRenameController.php:78
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:44
 #: src/Controllers/Table/Maintenance/CheckController.php:44
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/SqlController.php:83
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:103
 #: src/Controllers/Table/StructureController.php:108
-#: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:87
-#: src/Controllers/Table/Structure/PrimaryController.php:92
+#: src/Controllers/Table/Structure/PrimaryController.php:83
+#: src/Controllers/Table/Structure/PrimaryController.php:88
 #: src/Controllers/Table/ZoomSearchController.php:113
 #: src/Controllers/Table/ZoomSearchController.php:118
-#: src/Controllers/Triggers/IndexController.php:81
+#: src/Controllers/Triggers/IndexController.php:75
 msgid "No table selected."
 msgstr "Izbrana ni nobena tabela."
 
-#: src/Controllers/Database/RoutinesController.php:193
+#: src/Controllers/Database/RoutinesController.php:179
 msgid "Add routine"
 msgstr "Dodaj rutino"
 
-#: src/Controllers/Database/RoutinesController.php:197
+#: src/Controllers/Database/RoutinesController.php:183
 msgid "Edit routine"
 msgstr "Uredi rutino"
 
-#: src/Controllers/Database/RoutinesController.php:296
+#: src/Controllers/Database/RoutinesController.php:282
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12010,23 +12010,23 @@ msgstr ""
 "V zbirki podatkov %2$s nismo našli nobene rutine z imenom %1$s. Morda nimate "
 "zahtevanih privilegijev za urejanje rutine."
 
-#: src/Controllers/Database/RoutinesController.php:325
-#: src/Controllers/Database/RoutinesController.php:393
+#: src/Controllers/Database/RoutinesController.php:311
+#: src/Controllers/Database/RoutinesController.php:379
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Rutine imenovane %1$s ni mogoče najti v zbirki podatkov %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Database/RoutinesController.php:384
+#: src/Controllers/Database/RoutinesController.php:360
+#: src/Controllers/Database/RoutinesController.php:370
 msgid "Execute routine"
 msgstr "Izvedi rutino"
 
-#: src/Controllers/Database/RoutinesController.php:436
+#: src/Controllers/Database/RoutinesController.php:422
 #, php-format
 msgid "Export of routine %s"
 msgstr "Izvoz rutine %s"
 
-#: src/Controllers/Database/RoutinesController.php:455
+#: src/Controllers/Database/RoutinesController.php:441
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12036,7 +12036,7 @@ msgstr ""
 "Napaka v obdelavi zahteve: V zbirki podatkov %2$s nismo našli nobene rutine "
 "z imenom %1$s. Morda nimate zahtevanih privilegijev za ogled/izvoz rutine."
 
-#: src/Controllers/Database/SearchController.php:66
+#: src/Controllers/Database/SearchController.php:64
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -12050,7 +12050,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Uspešno!"
 
-#: src/Controllers/Database/StructureController.php:576
+#: src/Controllers/Database/StructureController.php:572
 #: src/Display/Results.php:3416
 #, php-format
 msgid ""
@@ -12058,31 +12058,31 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
-#: src/Controllers/Database/StructureController.php:740
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "neznano"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:119
+#: src/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr "Seznam Priljubljenih je poln!"
 
-#: src/Controllers/Database/TrackingController.php:77
-#: src/Controllers/Database/TrackingController.php:103
+#: src/Controllers/Database/TrackingController.php:72
+#: src/Controllers/Database/TrackingController.php:98
 msgid "Tracking data deleted successfully."
 msgstr "Podatke sledenja smo uspešno izbrisali."
 
-#: src/Controllers/Database/TrackingController.php:88
+#: src/Controllers/Database/TrackingController.php:83
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
 "Različica %1$s je ustvarjena za izbrane tabele, sledenje zanje je aktivirano."
 
-#: src/Controllers/Database/TrackingController.php:120
+#: src/Controllers/Database/TrackingController.php:115
 msgid "No tables selected."
 msgstr "Ni izbranih tabel."
 
-#: src/Controllers/Database/TrackingController.php:155
+#: src/Controllers/Database/TrackingController.php:150
 msgid "Database Log"
 msgstr "Dnevnik zbirke podatkov"
 
@@ -12115,20 +12115,16 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Morda boste želeli osvežiti stran."
 
-#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
+#: src/Controllers/Export/ExportController.php:106 src/Export/Export.php:1157
 msgid "Bad type!"
 msgstr "Slaba vrsta!"
-
-#: src/Controllers/Export/ExportController.php:184
-msgid "Bad parameters!"
-msgstr "Slabi parametri!"
 
 #: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "Vrednost za stolpec \"%s\""
 
-#: src/Controllers/HomeController.php:99
+#: src/Controllers/HomeController.php:97
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12136,7 +12132,7 @@ msgstr ""
 "Odjavili ste se z enega strežnika; da se popolnoma odjavite iz phpMyAdmina, "
 "se morate odjaviti z vseh strežnikov."
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:194
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12145,14 +12141,14 @@ msgstr ""
 "Hramba konfiguracije phpMyAdmin ni konfigurirana v celoti, zato smo nekatere "
 "razširjene zmožnosti onemogočili. %sUgotovite, zakaj%s. "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ali pa pojdite na zavihek »Dejanja« katere koli zbirke podatkov, da to "
 "nastavite tam."
 
-#: src/Controllers/HomeController.php:267
+#: src/Controllers/HomeController.php:265
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12164,7 +12160,7 @@ msgstr ""
 "veljavnosti piškotkov, določene v phpMyAdminu. Zaradi tega se bo vaša "
 "prijava morda iztekla prej, kot je določeno v phpMyAdminu."
 
-#: src/Controllers/HomeController.php:287
+#: src/Controllers/HomeController.php:285
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12173,7 +12169,7 @@ msgstr ""
 "določene v phpMyAdminu. Zaradi tega se bo vaša prijava iztekla prej, kot je "
 "določeno v phpMyAdminu."
 
-#: src/Controllers/HomeController.php:306
+#: src/Controllers/HomeController.php:304
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12183,7 +12179,7 @@ msgstr ""
 "(controlpass), zato je odprt za vdore. Močno priporočamo, da odpravite to "
 "varnostno pomanjkljivost s spremembo gesla za controluserja 'pma'."
 
-#: src/Controllers/HomeController.php:325
+#: src/Controllers/HomeController.php:323
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12193,7 +12189,7 @@ msgstr ""
 "vas smo samodejno ustvarili začasni ključ. Prosimo, oglejte si "
 "[doc@cfg_blowfish_secret]dokumentacijo[/doc]."
 
-#: src/Controllers/HomeController.php:335
+#: src/Controllers/HomeController.php:333
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12204,7 +12200,7 @@ msgstr ""
 "zahtevano. Dolg mora biti največ %d bajtov. Prosimo, oglejte si "
 "[doc@cfg_blowfish_secret]dokumentacijo[/doc]."
 
-#: src/Controllers/HomeController.php:353
+#: src/Controllers/HomeController.php:351
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12217,7 +12213,7 @@ msgstr ""
 "strežnika morda ogrožena, saj bodo nepooblaščene osebe lahko prenesle vašo "
 "konfiguracijo."
 
-#: src/Controllers/HomeController.php:374
+#: src/Controllers/HomeController.php:372
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12226,7 +12222,7 @@ msgstr ""
 "Strežnik, ki teče z Suhosin. Prosimo, nanašajte se na %sdokumentacijo%s za "
 "morebitna vprašanja."
 
-#: src/Controllers/HomeController.php:388
+#: src/Controllers/HomeController.php:386
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12235,7 +12231,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) ni dostopen. phpMyAdmin ne more predpomniti predlog in "
 "bo zaradi tega počasen."
 
-#: src/Controllers/HomeController.php:445
+#: src/Controllers/HomeController.php:443
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12245,7 +12241,7 @@ msgstr ""
 "nabor znakov. Brez razširitve mbstring phpMyAdmin ni sposoben pravilno "
 "razcepiti nizov, kar lahko vodi v nepričakovane rezultate."
 
-#: src/Controllers/HomeController.php:463
+#: src/Controllers/HomeController.php:461
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12254,7 +12250,7 @@ msgstr ""
 "smo nekatere zmožnosti, kot je poročanje o napakah in preverjanje različice, "
 "onemogočili."
 
-#: src/Controllers/Import/ImportController.php:167
+#: src/Controllers/Import/ImportController.php:166
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12263,21 +12259,21 @@ msgstr ""
 "Najverjetneje ste poskušali naložiti preveliko datoteko. Prosimo, da si v "
 "%sdokumentaciji%s ogledate načine, kako obiti omejitev."
 
-#: src/Controllers/Import/ImportController.php:193
+#: src/Controllers/Import/ImportController.php:192
 msgid "Incorrect format parameter"
 msgstr "Neveljaven parameter oblike"
 
-#: src/Controllers/Import/ImportController.php:307
-#: src/Controllers/Import/ImportController.php:520
+#: src/Controllers/Import/ImportController.php:306
+#: src/Controllers/Import/ImportController.php:519
 msgid "Showing bookmark"
 msgstr "Prikazovanje zaznamka"
 
-#: src/Controllers/Import/ImportController.php:327
-#: src/Controllers/Import/ImportController.php:516
+#: src/Controllers/Import/ImportController.php:326
+#: src/Controllers/Import/ImportController.php:515
 msgid "The bookmark has been deleted."
 msgstr "Zaznamek je odstranjen."
 
-#: src/Controllers/Import/ImportController.php:439
+#: src/Controllers/Import/ImportController.php:438
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12287,7 +12283,7 @@ msgstr ""
 "je velikost datoteke presegala največjo velikost, dovoljeno v konfiguraciji "
 "PHP. Glej [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:528
+#: src/Controllers/Import/ImportController.php:527
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -12296,7 +12292,7 @@ msgstr[1] "Uvažanje je uspešno zaključeno, izvedli smo %d poizvedbi."
 msgstr[2] "Uvažanje je uspešno zaključeno, izvedli smo %d poizvedbe."
 msgstr[3] "Uvažanje je uspešno zaključeno, izvedli smo %d poizvedb."
 
-#: src/Controllers/Import/ImportController.php:565
+#: src/Controllers/Import/ImportController.php:564
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12305,7 +12301,7 @@ msgstr ""
 "Časovna omejitev skripta je potekla; če želite končati uvoz, prosimo, "
 "%sponovno pošljite isto datoteko%s in uvoz se bo nadaljeval."
 
-#: src/Controllers/Import/ImportController.php:575
+#: src/Controllers/Import/ImportController.php:574
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12314,16 +12310,16 @@ msgstr ""
 "navadi pomeni, da phpMyAdmin ne bo mogel dokončati tega uvoza, razen če "
 "povečate vaše časovne omejitve PHP."
 
-#: src/Controllers/Import/ImportController.php:638
-#: src/Controllers/Sql/SqlController.php:158
+#: src/Controllers/Import/ImportController.php:637
+#: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 
-#: src/Controllers/Import/ImportController.php:691 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:690 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[Zgodil se je ROLLBACK.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:83
+#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Simulirate lahko samo poizvedbe UPDATE in DELETE na eni tabeli."
 
@@ -13635,7 +13631,7 @@ msgid "cancel"
 msgstr "prekliči"
 
 #: src/Controllers/JavaScriptMessagesController.php:596
-#: src/Controllers/Server/Status/StatusController.php:186
+#: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "Prekinjeno"
 
@@ -13668,7 +13664,7 @@ msgid "Hide panel"
 msgstr "Skrij ploščo"
 
 #: src/Controllers/JavaScriptMessagesController.php:616
-#: src/Navigation/NavigationTree.php:1313
+#: src/Navigation/NavigationTree.php:1299
 msgid "Unlink from main panel"
 msgstr "Ne poveži z glavno ploščo"
 
@@ -14305,13 +14301,13 @@ msgid "No such column"
 msgstr "Ni takšnega stolpca"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:224 src/Types.php:696
+#: src/Normalization.php:224 src/Types.php:629
 msgctxt "string types"
 msgid "String"
 msgstr "Niz"
 
-#: src/Controllers/Operations/Database/CollationController.php:44
-#: src/Controllers/Operations/TableController.php:277
+#: src/Controllers/Operations/Database/CollationController.php:40
+#: src/Controllers/Operations/TableController.php:278
 msgid "No collation provided."
 msgstr "Pravilo za razvrščanje znakov ni podano."
 
@@ -14321,12 +14317,12 @@ msgstr ""
 "Zbirke podatkov ne moremo kopirati na isto ime. Spremenite ime in poskusite "
 "znova."
 
-#: src/Controllers/Operations/DatabaseController.php:166
+#: src/Controllers/Operations/DatabaseController.php:168
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Zbirko podatkov %1$s smo preimenovali v %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:180
+#: src/Controllers/Operations/DatabaseController.php:182
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Zbirko podatkov %1$s smo skopirali v %2$s."
@@ -14359,7 +14355,7 @@ msgstr "Nastavili smo dvostopenjsko overovitev."
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:478
+#: src/ResponseRenderer.php:447
 msgid "Missing parameter:"
 msgstr "Manjkajoč parameter:"
 
@@ -14368,7 +14364,7 @@ msgstr "Manjkajoč parameter:"
 msgid "Database %1$s has been created."
 msgstr "Zbirka podatkov %1$s je ustvarjena."
 
-#: src/Controllers/Server/Databases/DestroyController.php:86
+#: src/Controllers/Server/Databases/DestroyController.php:83
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -14406,27 +14402,27 @@ msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr "phpMyAdmin ni uspel prekiniti niti %s. Verjetno je že prekinjena."
 
-#: src/Controllers/Server/Status/QueriesController.php:92
+#: src/Controllers/Server/Status/QueriesController.php:89
 msgid "Other statements"
 msgstr "Drugi stavki"
 
-#: src/Controllers/Server/Status/StatusController.php:132
+#: src/Controllers/Server/Status/StatusController.php:129
 msgid "Received"
 msgstr "Prejeto"
 
-#: src/Controllers/Server/Status/StatusController.php:137
+#: src/Controllers/Server/Status/StatusController.php:134
 msgid "Sent"
 msgstr "Poslano"
 
-#: src/Controllers/Server/Status/StatusController.php:174
+#: src/Controllers/Server/Status/StatusController.php:171
 msgid "Max. concurrent connections"
 msgstr "Največ sočasnih povezav"
 
-#: src/Controllers/Server/Status/StatusController.php:180
+#: src/Controllers/Server/Status/StatusController.php:177
 msgid "Failed attempts"
 msgstr "Neuspeli poizkusi"
 
-#: src/Controllers/Server/Status/VariablesController.php:222
+#: src/Controllers/Server/Status/VariablesController.php:218
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -14434,11 +14430,11 @@ msgstr ""
 "Število prekinjenih povezav zaradi izgube odjemalca, ki ni primerno prekinil "
 "povezave."
 
-#: src/Controllers/Server/Status/VariablesController.php:225
+#: src/Controllers/Server/Status/VariablesController.php:221
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "Število spodletelih poskusov povezave s strežnikom MySQL."
 
-#: src/Controllers/Server/Status/VariablesController.php:227
+#: src/Controllers/Server/Status/VariablesController.php:223
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -14448,18 +14444,18 @@ msgstr ""
 "dnevnika, vendar je ta presegel vrednost binlog_cache_size, zato so bile za "
 "shranitev izjav iz transakcije uporabljene začasne datoteke."
 
-#: src/Controllers/Server/Status/VariablesController.php:231
+#: src/Controllers/Server/Status/VariablesController.php:227
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr ""
 "Število transakcij, ki so uporabile začasni predpomnilnik dvojiškega "
 "dnevnika."
 
-#: src/Controllers/Server/Status/VariablesController.php:232
+#: src/Controllers/Server/Status/VariablesController.php:228
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "Število poskusov povezave (uspešnih ali ne) na strežnik MySQL."
 
-#: src/Controllers/Server/Status/VariablesController.php:234
+#: src/Controllers/Server/Status/VariablesController.php:230
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -14471,11 +14467,11 @@ msgstr ""
 "povečati vrednost tmp_table_size, zaradi česar bodo začasne tabele temeljile "
 "na pomnilniku namesto na disku."
 
-#: src/Controllers/Server/Status/VariablesController.php:240
+#: src/Controllers/Server/Status/VariablesController.php:236
 msgid "How many temporary files mysqld has created."
 msgstr "Koliko začasnih datotek je ustvaril mysqld."
 
-#: src/Controllers/Server/Status/VariablesController.php:242
+#: src/Controllers/Server/Status/VariablesController.php:238
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
@@ -14483,7 +14479,7 @@ msgstr ""
 "Število začasnih tabel v-pomnilniku, ki jih je strežnik samodejno ustvaril "
 "med izvajanjem stavkov."
 
-#: src/Controllers/Server/Status/VariablesController.php:246
+#: src/Controllers/Server/Status/VariablesController.php:242
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -14491,7 +14487,7 @@ msgstr ""
 "Število vrstic zapisanih z INSERT DELAYED, pri katerih je prišlo do neke "
 "napake (najverjetneje podvojen ključ)."
 
-#: src/Controllers/Server/Status/VariablesController.php:250
+#: src/Controllers/Server/Status/VariablesController.php:246
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -14499,23 +14495,23 @@ msgstr ""
 "Število upravljalnih niti INSERT DELAYED v uporabi. Vsaka različna tabela, "
 "na kateri se uporabi INSERT DELAYED, dobi svojo lastno nit."
 
-#: src/Controllers/Server/Status/VariablesController.php:254
+#: src/Controllers/Server/Status/VariablesController.php:250
 msgid "The number of INSERT DELAYED rows written."
 msgstr "Število zapisanih vrstic INSERT DELAYED."
 
-#: src/Controllers/Server/Status/VariablesController.php:255
+#: src/Controllers/Server/Status/VariablesController.php:251
 msgid "The number of executed FLUSH statements."
 msgstr "Število izvedenih izjav FLUSH."
 
-#: src/Controllers/Server/Status/VariablesController.php:256
+#: src/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of internal COMMIT statements."
 msgstr "Število notranjih izjav COMMIT."
 
-#: src/Controllers/Server/Status/VariablesController.php:257
+#: src/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of times a row was deleted from a table."
 msgstr "Število izbrisov vrstice iz tabele."
 
-#: src/Controllers/Server/Status/VariablesController.php:259
+#: src/Controllers/Server/Status/VariablesController.php:255
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -14525,7 +14521,7 @@ msgstr ""
 "navedenim imenom. Temu se reče odkritje. Handler_discover kaže kolikokrat so "
 "bile tabele odkrite."
 
-#: src/Controllers/Server/Status/VariablesController.php:265
+#: src/Controllers/Server/Status/VariablesController.php:261
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -14535,7 +14531,7 @@ msgstr ""
 "da strežnik izvaja mnogo pregledov indeksa; na primer: SELECT col1 FROM foo, "
 "pri čemer se predpostavlja, da je col1 indeksiran."
 
-#: src/Controllers/Server/Status/VariablesController.php:271
+#: src/Controllers/Server/Status/VariablesController.php:267
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -14544,7 +14540,7 @@ msgstr ""
 "visoka, je to dober znak, da so vaše poizvedbe in tabele primerno "
 "indeksirane."
 
-#: src/Controllers/Server/Status/VariablesController.php:276
+#: src/Controllers/Server/Status/VariablesController.php:272
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -14554,7 +14550,7 @@ msgstr ""
 "povečano, če poizvedujete po indeksnem stolpcu z omejitvijo obsega ali če "
 "pregledujete indeks."
 
-#: src/Controllers/Server/Status/VariablesController.php:281
+#: src/Controllers/Server/Status/VariablesController.php:277
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -14562,7 +14558,7 @@ msgstr ""
 "Število poizvedb za branje prejšnje vrstice v zaporedju ključa. Postopek "
 "branja se uporablja predvsem za optimizacijo ORDER BY … DESC."
 
-#: src/Controllers/Server/Status/VariablesController.php:285
+#: src/Controllers/Server/Status/VariablesController.php:281
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -14574,7 +14570,7 @@ msgstr ""
 "Najverjetneje imate veliko poizvedb, ki od MySQL zahtevajo pregled celotnih "
 "tabel, ali stike, ki ne uporabljajo ključev pravilno."
 
-#: src/Controllers/Server/Status/VariablesController.php:292
+#: src/Controllers/Server/Status/VariablesController.php:288
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -14586,36 +14582,36 @@ msgstr ""
 "tabele niso primerno indeksirane ali da vaše poizvedbe ne izkoristijo "
 "prednosti indeksov, ki jih imate."
 
-#: src/Controllers/Server/Status/VariablesController.php:298
+#: src/Controllers/Server/Status/VariablesController.php:294
 msgid "The number of internal ROLLBACK statements."
 msgstr "Število notranjih izjav ROLLBACK."
 
-#: src/Controllers/Server/Status/VariablesController.php:299
+#: src/Controllers/Server/Status/VariablesController.php:295
 msgid "The number of requests to update a row in a table."
 msgstr "Število zahtev za posodobitev vrstice v tabeli."
 
-#: src/Controllers/Server/Status/VariablesController.php:300
+#: src/Controllers/Server/Status/VariablesController.php:296
 msgid "The number of requests to insert a row in a table."
 msgstr "Število zahtev za vstavitev vrstice v tabelo."
 
-#: src/Controllers/Server/Status/VariablesController.php:301
+#: src/Controllers/Server/Status/VariablesController.php:297
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "Število strani, ki vsebujejo podatke (umazane ali čiste)."
 
-#: src/Controllers/Server/Status/VariablesController.php:302
+#: src/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of pages currently dirty."
 msgstr "Število trenutno umazanih strani."
 
-#: src/Controllers/Server/Status/VariablesController.php:304
+#: src/Controllers/Server/Status/VariablesController.php:300
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr ""
 "Število strani zaloge medpomnilnika, za katere je bila zaprošena izplaknitev."
 
-#: src/Controllers/Server/Status/VariablesController.php:306
+#: src/Controllers/Server/Status/VariablesController.php:302
 msgid "The number of free pages."
 msgstr "Število prostih strani."
 
-#: src/Controllers/Server/Status/VariablesController.php:308
+#: src/Controllers/Server/Status/VariablesController.php:304
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -14625,7 +14621,7 @@ msgstr ""
 "trenutno v postopku branja ali pisanja ali pa zaradi nekega drugega razloga "
 "ne morejo biti izplaknjene ali odstranjene."
 
-#: src/Controllers/Server/Status/VariablesController.php:313
+#: src/Controllers/Server/Status/VariablesController.php:309
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -14637,11 +14633,11 @@ msgstr ""
 "lahko izračuna tudi kot Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
-#: src/Controllers/Server/Status/VariablesController.php:319
+#: src/Controllers/Server/Status/VariablesController.php:315
 msgid "Total size of buffer pool, in pages."
 msgstr "Skupna velikost zaloge medpomnilnika, v straneh."
 
-#: src/Controllers/Server/Status/VariablesController.php:321
+#: src/Controllers/Server/Status/VariablesController.php:317
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -14649,7 +14645,7 @@ msgstr ""
 "Število začetih \"naključnih\" vnaprejšnjih branj InnoDB. To se zgodi, ko "
 "poizvedba zahteva pregled večjega dela tabele, vendar v naključnem redu."
 
-#: src/Controllers/Server/Status/VariablesController.php:326
+#: src/Controllers/Server/Status/VariablesController.php:322
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -14657,11 +14653,11 @@ msgstr ""
 "Število začetih zaporednih vnaprejšnjih branj InnoDB. To se zgodi, ko InnoDB "
 "izvaja zaporedno pregledovanje celotne tabele."
 
-#: src/Controllers/Server/Status/VariablesController.php:329
+#: src/Controllers/Server/Status/VariablesController.php:325
 msgid "The number of logical read requests InnoDB has done."
 msgstr "Število logičnih bralnih zahtev, ki jih je izvedel InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:331
+#: src/Controllers/Server/Status/VariablesController.php:327
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
@@ -14669,7 +14665,7 @@ msgstr ""
 "Število logičnih bralnih zahtev, katerih InnoDB ni mogel izpolniti iz zaloge "
 "medpomnilnika in je moral izvesti enostransko branje."
 
-#: src/Controllers/Server/Status/VariablesController.php:335
+#: src/Controllers/Server/Status/VariablesController.php:331
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -14683,52 +14679,52 @@ msgstr ""
 "čakanj. Če je bila velikost zaloge medpomnilnika primerno nastavljena, bi "
 "morala biti vrednost majhna."
 
-#: src/Controllers/Server/Status/VariablesController.php:342
+#: src/Controllers/Server/Status/VariablesController.php:338
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "Število zapisov storjenih v zalogi medpomnilnika InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:343
+#: src/Controllers/Server/Status/VariablesController.php:339
 msgid "The number of fsync() operations so far."
 msgstr "Število dozdajšnjih posegov fsync()."
 
-#: src/Controllers/Server/Status/VariablesController.php:344
+#: src/Controllers/Server/Status/VariablesController.php:340
 msgid "The current number of pending fsync() operations."
 msgstr "Trenutno število čakajočih posegov fsync()."
 
-#: src/Controllers/Server/Status/VariablesController.php:345
+#: src/Controllers/Server/Status/VariablesController.php:341
 msgid "The current number of pending reads."
 msgstr "Trenutno število čakajočih branj."
 
-#: src/Controllers/Server/Status/VariablesController.php:346
+#: src/Controllers/Server/Status/VariablesController.php:342
 msgid "The current number of pending writes."
 msgstr "Trenutno število čakajočih pisanj."
 
-#: src/Controllers/Server/Status/VariablesController.php:347
+#: src/Controllers/Server/Status/VariablesController.php:343
 msgid "The amount of data read so far, in bytes."
 msgstr "Količina do zdaj prebranih podatkov, v bajtih."
 
-#: src/Controllers/Server/Status/VariablesController.php:348
+#: src/Controllers/Server/Status/VariablesController.php:344
 msgid "The total number of data reads."
 msgstr "Skupno število branj podatkov."
 
-#: src/Controllers/Server/Status/VariablesController.php:349
+#: src/Controllers/Server/Status/VariablesController.php:345
 msgid "The total number of data writes."
 msgstr "Skupno število zapisovanj podatkov."
 
-#: src/Controllers/Server/Status/VariablesController.php:350
+#: src/Controllers/Server/Status/VariablesController.php:346
 msgid "The amount of data written so far, in bytes."
 msgstr "Količina do zdaj zapisanih podatkov, v bajtih."
 
-#: src/Controllers/Server/Status/VariablesController.php:352
+#: src/Controllers/Server/Status/VariablesController.php:348
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr ""
 "Število strani, ki so bile zapisane za posege dvojnega pisanja (doublewrite)."
 
-#: src/Controllers/Server/Status/VariablesController.php:354
+#: src/Controllers/Server/Status/VariablesController.php:350
 msgid "The number of doublewrite operations that have been performed."
 msgstr "Število posegov dvojnega pisanja (doublewrite), ki so bili izvedeni."
 
-#: src/Controllers/Server/Status/VariablesController.php:356
+#: src/Controllers/Server/Status/VariablesController.php:352
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -14736,35 +14732,35 @@ msgstr ""
 "Število čakanj, ki smo jih imeli, ker je bil medpomnilnik dnevnika premajhen "
 "in je bilo potrebno počakati, da se pred nadaljevanjem izplakne."
 
-#: src/Controllers/Server/Status/VariablesController.php:359
+#: src/Controllers/Server/Status/VariablesController.php:355
 msgid "The number of log write requests."
 msgstr "Število zahtev pisanja v dnevnik."
 
-#: src/Controllers/Server/Status/VariablesController.php:360
+#: src/Controllers/Server/Status/VariablesController.php:356
 msgid "The number of physical writes to the log file."
 msgstr "Število fizičnih pisanj v dnevniško datoteko."
 
-#: src/Controllers/Server/Status/VariablesController.php:361
+#: src/Controllers/Server/Status/VariablesController.php:357
 msgid "The number of fsync() writes done to the log file."
 msgstr "Število pisanj fsync() storjenih v dnevniško datoteko."
 
-#: src/Controllers/Server/Status/VariablesController.php:362
+#: src/Controllers/Server/Status/VariablesController.php:358
 msgid "The number of pending log file fsyncs."
 msgstr "Število čakajoče dnevniške datoteke fsyncs."
 
-#: src/Controllers/Server/Status/VariablesController.php:363
+#: src/Controllers/Server/Status/VariablesController.php:359
 msgid "Pending log file writes."
 msgstr "Čakajoča pisanja v dnevniško datoteko."
 
-#: src/Controllers/Server/Status/VariablesController.php:364
+#: src/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of bytes written to the log file."
 msgstr "Število bajtov zapisanih v dnevniško datoteko."
 
-#: src/Controllers/Server/Status/VariablesController.php:365
+#: src/Controllers/Server/Status/VariablesController.php:361
 msgid "The number of pages created."
 msgstr "Število ustvarjenih strani."
 
-#: src/Controllers/Server/Status/VariablesController.php:367
+#: src/Controllers/Server/Status/VariablesController.php:363
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -14772,51 +14768,51 @@ msgstr ""
 "Vgrajena velikost strani InnoDB (privzeto 16 KB). Veliko vrednosti je štetih "
 "v straneh; velikost strani omogoča preprosto pretvorbo v bajte."
 
-#: src/Controllers/Server/Status/VariablesController.php:371
+#: src/Controllers/Server/Status/VariablesController.php:367
 msgid "The number of pages read."
 msgstr "Število prebranih strani."
 
-#: src/Controllers/Server/Status/VariablesController.php:372
+#: src/Controllers/Server/Status/VariablesController.php:368
 msgid "The number of pages written."
 msgstr "Število zapisanih strani."
 
-#: src/Controllers/Server/Status/VariablesController.php:373
+#: src/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of row locks currently being waited for."
 msgstr "Število zaklepov vrstic, na katere se trenutno čaka."
 
-#: src/Controllers/Server/Status/VariablesController.php:374
+#: src/Controllers/Server/Status/VariablesController.php:370
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "Povprečni čas zagotovitve zaklepa vrstice, v milisekundah."
 
-#: src/Controllers/Server/Status/VariablesController.php:375
+#: src/Controllers/Server/Status/VariablesController.php:371
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "Skupni čas zagotavljanja zaklepov vrstic, v milisekundah."
 
-#: src/Controllers/Server/Status/VariablesController.php:376
+#: src/Controllers/Server/Status/VariablesController.php:372
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "Najdaljši čas zagotavljanja zaklepa vrstice, v milisekundah."
 
-#: src/Controllers/Server/Status/VariablesController.php:377
+#: src/Controllers/Server/Status/VariablesController.php:373
 msgid "The number of times a row lock had to be waited for."
 msgstr "Število čakanj na zaklepe vrstic."
 
-#: src/Controllers/Server/Status/VariablesController.php:378
+#: src/Controllers/Server/Status/VariablesController.php:374
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "Število vrstic izbrisanih iz tabel InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:379
+#: src/Controllers/Server/Status/VariablesController.php:375
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "Število vrstic vstavljenih v tabele InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:380
+#: src/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of rows read from InnoDB tables."
 msgstr "Število vrstic prebranih iz tabel InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:381
+#: src/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of rows updated in InnoDB tables."
 msgstr "Število vrstic posodobljenih v tabelah InnoDB."
 
-#: src/Controllers/Server/Status/VariablesController.php:383
+#: src/Controllers/Server/Status/VariablesController.php:379
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -14825,7 +14821,7 @@ msgstr ""
 "vendar niso bili izplaknjeni na disk. Včasih je bilo znano kot "
 "Not_flushed_key_blocks."
 
-#: src/Controllers/Server/Status/VariablesController.php:388
+#: src/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -14833,7 +14829,7 @@ msgstr ""
 "Število neuporabljenih blokov v predpomnilniku ključev. To vrednost lahko "
 "uporabite, da ugotovite, koliko predpomnilnika ključev je v uporabi."
 
-#: src/Controllers/Server/Status/VariablesController.php:392
+#: src/Controllers/Server/Status/VariablesController.php:388
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -14843,15 +14839,15 @@ msgstr ""
 "dosežena vrednost, ki kaže največje število blokov, ki so bili kadar koli "
 "naenkrat v uporabi."
 
-#: src/Controllers/Server/Status/VariablesController.php:396
+#: src/Controllers/Server/Status/VariablesController.php:392
 msgid "Percentage of used key cache (calculated value)"
 msgstr "Odstotek uporabljenega predpomnilnika ključev (izračunana vrednost)"
 
-#: src/Controllers/Server/Status/VariablesController.php:397
+#: src/Controllers/Server/Status/VariablesController.php:393
 msgid "The number of requests to read a key block from the cache."
 msgstr "Število zahtev za branje bloka ključev iz predpomnilnika."
 
-#: src/Controllers/Server/Status/VariablesController.php:399
+#: src/Controllers/Server/Status/VariablesController.php:395
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -14861,7 +14857,7 @@ msgstr ""
 "je vaša vrednost key_buffer_size najverjetneje premajhna. Razmerje "
 "pogrešitev predpomnilnika se lahko izračuna kot Key_reads/Key_read_requests."
 
-#: src/Controllers/Server/Status/VariablesController.php:405
+#: src/Controllers/Server/Status/VariablesController.php:401
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
@@ -14869,22 +14865,22 @@ msgstr ""
 "Napačno izračunan predpomnilnik ključev kot delež fizičnih branj v "
 "primerjavi z zahtevami za branje (izračunana vrednost)"
 
-#: src/Controllers/Server/Status/VariablesController.php:407
+#: src/Controllers/Server/Status/VariablesController.php:403
 msgid "The number of requests to write a key block to the cache."
 msgstr "Število zahtev za pisanje bloka ključev v predpomnilnik."
 
-#: src/Controllers/Server/Status/VariablesController.php:408
+#: src/Controllers/Server/Status/VariablesController.php:404
 msgid "The number of physical writes of a key block to disk."
 msgstr "Število fizičnih pisanj bloka ključev na disk."
 
-#: src/Controllers/Server/Status/VariablesController.php:409
+#: src/Controllers/Server/Status/VariablesController.php:405
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
 "Odstotek fizičnih zapisov v primerjavi z zahtevami za zapis (izračunana "
 "vrednost)"
 
-#: src/Controllers/Server/Status/VariablesController.php:411
+#: src/Controllers/Server/Status/VariablesController.php:407
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -14895,17 +14891,17 @@ msgstr ""
 "enake poizvedbe. Privzeta vrednost 0 pomeni, da še ni bila prevedena nobena "
 "poizvedba."
 
-#: src/Controllers/Server/Status/VariablesController.php:417
+#: src/Controllers/Server/Status/VariablesController.php:413
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr "Največje število sočasno uporabljenih povezav od zagona strežnika."
 
-#: src/Controllers/Server/Status/VariablesController.php:419
+#: src/Controllers/Server/Status/VariablesController.php:415
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "Število vrstic, ki čakajo na zapis v vrsti INSERT DELAYED."
 
-#: src/Controllers/Server/Status/VariablesController.php:421
+#: src/Controllers/Server/Status/VariablesController.php:417
 msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
@@ -14913,19 +14909,19 @@ msgstr ""
 "Število odprtih tabel. Če je vrednost velika, je vaša vrednost "
 "table_open_cache najverjetneje premajhna."
 
-#: src/Controllers/Server/Status/VariablesController.php:424
+#: src/Controllers/Server/Status/VariablesController.php:420
 msgid "The number of files that are open."
 msgstr "Število odprtih datotek."
 
-#: src/Controllers/Server/Status/VariablesController.php:425
+#: src/Controllers/Server/Status/VariablesController.php:421
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "Število odprtih tokov (uporabljenih v glavnem za beleženje)."
 
-#: src/Controllers/Server/Status/VariablesController.php:426
+#: src/Controllers/Server/Status/VariablesController.php:422
 msgid "The number of tables that are open."
 msgstr "Število odprtih tabel."
 
-#: src/Controllers/Server/Status/VariablesController.php:428
+#: src/Controllers/Server/Status/VariablesController.php:424
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -14935,19 +14931,19 @@ msgstr ""
 "število lahko kaže na težave z razdrobljenostjo, kar lahko odpravite z "
 "izvedbo stavka FLUSH QUERY CACHE."
 
-#: src/Controllers/Server/Status/VariablesController.php:432
+#: src/Controllers/Server/Status/VariablesController.php:428
 msgid "The amount of free memory for query cache."
 msgstr "Količina prostega spomina za predpomnilnik poizvedb."
 
-#: src/Controllers/Server/Status/VariablesController.php:433
+#: src/Controllers/Server/Status/VariablesController.php:429
 msgid "The number of cache hits."
 msgstr "Število zadetkov predpomnilnika."
 
-#: src/Controllers/Server/Status/VariablesController.php:434
+#: src/Controllers/Server/Status/VariablesController.php:430
 msgid "The number of queries added to the cache."
 msgstr "Število poizvedb dodanih v predpomnilnik."
 
-#: src/Controllers/Server/Status/VariablesController.php:436
+#: src/Controllers/Server/Status/VariablesController.php:432
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -14960,7 +14956,7 @@ msgstr ""
 "uporablja strategijo nedavno najmanj uporabljanih (LRU), da odloči, katere "
 "poizvedbe naj odstrani iz predpomnilnika."
 
-#: src/Controllers/Server/Status/VariablesController.php:443
+#: src/Controllers/Server/Status/VariablesController.php:439
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -14968,19 +14964,19 @@ msgstr ""
 "Število nepredpomnjenih poizvedb (ne predpomnljive ali ne predpomnjene "
 "zaradi nastavitve query_cache_type)."
 
-#: src/Controllers/Server/Status/VariablesController.php:445
+#: src/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of queries registered in the cache."
 msgstr "Število zabeleženih poizvedb v predpomnilniku."
 
-#: src/Controllers/Server/Status/VariablesController.php:446
+#: src/Controllers/Server/Status/VariablesController.php:442
 msgid "The total number of blocks in the query cache."
 msgstr "Skupno število blokov v predpomnilniku poizvedb."
 
-#: src/Controllers/Server/Status/VariablesController.php:447
+#: src/Controllers/Server/Status/VariablesController.php:443
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr "Stanje podvajanja odpovedne varnosti (ni še vključeno)."
 
-#: src/Controllers/Server/Status/VariablesController.php:449
+#: src/Controllers/Server/Status/VariablesController.php:445
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -14988,11 +14984,11 @@ msgstr ""
 "Število stikov, ki ne uporabljajo indeksov. Če vrednost ni 0, skrbno "
 "preverite indekse vaših tabel."
 
-#: src/Controllers/Server/Status/VariablesController.php:452
+#: src/Controllers/Server/Status/VariablesController.php:448
 msgid "The number of joins that used a range search on a reference table."
 msgstr "Število stikov, ki so uporabili iskanje območja na referenčni tabeli."
 
-#: src/Controllers/Server/Status/VariablesController.php:454
+#: src/Controllers/Server/Status/VariablesController.php:450
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -15000,7 +14996,7 @@ msgstr ""
 "Število stikov brez ključev, ki preverjajo uporabo ključev po vsaki vrstici. "
 "(Če to ni 0, previdno preverite indekse vaših tabel.)"
 
-#: src/Controllers/Server/Status/VariablesController.php:459
+#: src/Controllers/Server/Status/VariablesController.php:455
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -15008,17 +15004,17 @@ msgstr ""
 "Število stikov, ki so uporabili območja na prvi tabeli. (Po navadi ni "
 "kritično, četudi je veliko.)"
 
-#: src/Controllers/Server/Status/VariablesController.php:462
+#: src/Controllers/Server/Status/VariablesController.php:458
 msgid "The number of joins that did a full scan of the first table."
 msgstr "Število stikov, ki so izvedli celotni pregled na prvi tabeli."
 
-#: src/Controllers/Server/Status/VariablesController.php:463
+#: src/Controllers/Server/Status/VariablesController.php:459
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
 "Število začasnih tabel, ki so trenutno odprte s strani niti SQL podrejencev."
 
-#: src/Controllers/Server/Status/VariablesController.php:465
+#: src/Controllers/Server/Status/VariablesController.php:461
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
@@ -15026,11 +15022,11 @@ msgstr ""
 "Skupno (od zagona) število ponovnih poskusov transakcij podvojevalne niti "
 "SQL podrejenca."
 
-#: src/Controllers/Server/Status/VariablesController.php:467
+#: src/Controllers/Server/Status/VariablesController.php:463
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr "To je ON, če je strežnik podrejenec, povezan z glavnim strežnikom."
 
-#: src/Controllers/Server/Status/VariablesController.php:469
+#: src/Controllers/Server/Status/VariablesController.php:465
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
@@ -15038,12 +15034,12 @@ msgstr ""
 "Število niti, ki so za svoje ustvarjanje porabile več kot slow_launch_time "
 "sekund."
 
-#: src/Controllers/Server/Status/VariablesController.php:471
+#: src/Controllers/Server/Status/VariablesController.php:467
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "Število poizvedb, ki so porabile več kot long_query_time sekund."
 
-#: src/Controllers/Server/Status/VariablesController.php:473
+#: src/Controllers/Server/Status/VariablesController.php:469
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
@@ -15053,23 +15049,23 @@ msgstr ""
 "Če je vrednost velika, razmislite o povečanju sistemske spremenljivke "
 "sort_buffer_size."
 
-#: src/Controllers/Server/Status/VariablesController.php:477
+#: src/Controllers/Server/Status/VariablesController.php:473
 msgid "The number of sorts that were done with ranges."
 msgstr "Število razvrščanj, ki so bila storjena z razponi."
 
-#: src/Controllers/Server/Status/VariablesController.php:478
+#: src/Controllers/Server/Status/VariablesController.php:474
 msgid "The number of sorted rows."
 msgstr "Število razvrščenih vrstic."
 
-#: src/Controllers/Server/Status/VariablesController.php:479
+#: src/Controllers/Server/Status/VariablesController.php:475
 msgid "The number of sorts that were done by scanning the table."
 msgstr "Število razvrščanj, ki so bila storjena s pregledovanjem tabele."
 
-#: src/Controllers/Server/Status/VariablesController.php:480
+#: src/Controllers/Server/Status/VariablesController.php:476
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "Kolikokrat je bil zaklep tabele pridobljen takoj."
 
-#: src/Controllers/Server/Status/VariablesController.php:482
+#: src/Controllers/Server/Status/VariablesController.php:478
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -15081,7 +15077,7 @@ msgstr ""
 "optimizirajte vaše poizvedbe, nato pa ali razdelite vašo tabelo oz. tabele "
 "ali uporabite podvojevanje."
 
-#: src/Controllers/Server/Status/VariablesController.php:488
+#: src/Controllers/Server/Status/VariablesController.php:484
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -15091,11 +15087,11 @@ msgstr ""
 "izračuna kot Threads_created/Connections. Če je vrednost obarvana rdeče, "
 "povečajte svoj thread_cache_size."
 
-#: src/Controllers/Server/Status/VariablesController.php:492
+#: src/Controllers/Server/Status/VariablesController.php:488
 msgid "The number of currently open connections."
 msgstr "Število trenutno odprtih povezav."
 
-#: src/Controllers/Server/Status/VariablesController.php:494
+#: src/Controllers/Server/Status/VariablesController.php:490
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -15106,11 +15102,11 @@ msgstr ""
 "velik, boste morda želeli povečati vrednost thread_cache_size. (Po navadi to "
 "ne izboljša zmogljivosti v veliki meri, če imate dobro izvedbo niti.)"
 
-#: src/Controllers/Server/Status/VariablesController.php:500
+#: src/Controllers/Server/Status/VariablesController.php:496
 msgid "Thread cache hit rate (calculated value)"
 msgstr "Delež zadetkov predpomnilnika niti (izračunana vrednost)"
 
-#: src/Controllers/Server/Status/VariablesController.php:501
+#: src/Controllers/Server/Status/VariablesController.php:497
 msgid "The number of threads that are not sleeping."
 msgstr "Število niti, ki ne spijo."
 
@@ -15165,18 +15161,18 @@ msgstr "Napačni podatki"
 msgid "Wrong data or no validation for %s"
 msgstr "Napačni podatki ali pa ni preverjanja za %s"
 
-#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1054
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvarili smo zaznamek %s."
 
-#: src/Controllers/Sql/SqlController.php:236
+#: src/Controllers/Sql/SqlController.php:237
 msgid "Bookmark not created!"
 msgstr "Zaznamka nismo ustvarili!"
 
-#: src/Controllers/Table/AddFieldController.php:134
-#: src/Controllers/Table/IndexesController.php:142
-#: src/Controllers/Table/IndexRenameController.php:131
+#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexRenameController.php:125
 #: src/Controllers/Table/Structure/PartitioningController.php:265
 #: src/Controllers/Table/Structure/SaveController.php:214
 #, php-format
@@ -15184,36 +15180,32 @@ msgid "Table %1$s has been altered successfully."
 msgstr "Tabelo %1$s smo uspešno spremenili."
 
 #: src/Controllers/Table/ChangeRowsController.php:35
-#: src/Controllers/Table/DeleteConfirmController.php:41
+#: src/Controllers/Table/DeleteConfirmController.php:36
 #: src/Controllers/Table/ExportRowsController.php:32
 msgid "No row selected."
 msgstr "Ni izbranih vrstic."
 
-#: src/Controllers/Table/ChartController.php:66
-#: src/Controllers/Table/GisVisualizationController.php:83
+#: src/Controllers/Table/ChartController.php:57
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr "Za pridobivanje podatkov ni bil določen noben SQL."
 
-#: src/Controllers/Table/ChartController.php:183
+#: src/Controllers/Table/ChartController.php:164
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 "V tabeli ni številskih stolpcev, ki bi jih bilo mogoče narisati na graf."
 
-#: src/Controllers/Table/ChartController.php:260
+#: src/Controllers/Table/ChartController.php:235
 msgid "No data to display"
 msgstr "Ni podatkov za prikaz"
 
-#: src/Controllers/Table/CreateController.php:58
-msgid "The database name is empty!"
-msgstr "Ime zbirke podatkov je prazno!"
-
-#: src/Controllers/Table/CreateController.php:70
-#: src/Controllers/Table/GetFieldController.php:47
+#: src/Controllers/Table/CreateController.php:60
+#: src/Controllers/Table/GetFieldController.php:51
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "Zbirka podatkov '%s' ne obstaja."
 
-#: src/Controllers/Table/CreateController.php:80
+#: src/Controllers/Table/CreateController.php:70
 #, php-format
 msgid "Table %s already exists!"
 msgstr "Tabela %s že obstaja!"
@@ -15224,8 +15216,8 @@ msgstr "Tabela %s že obstaja!"
 #: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:37
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:37
-#: src/Controllers/Table/Structure/ChangeController.php:51
-#: src/Controllers/Table/Structure/PrimaryController.php:47
+#: src/Controllers/Table/Structure/ChangeController.php:59
+#: src/Controllers/Table/Structure/PrimaryController.php:44
 msgid "No column selected."
 msgstr "Ni izbranih stolpcev."
 
@@ -15238,23 +15230,23 @@ msgstr[1] "Uspešno smo zavrgli %1$d stolpca."
 msgstr[2] "Uspešno smo zavrgli %1$d stolpce."
 msgstr[3] "Uspešno smo zavrgli %1$d stolpcev."
 
-#: src/Controllers/Table/GetFieldController.php:55
+#: src/Controllers/Table/GetFieldController.php:59
 msgid "Invalid table name"
 msgstr "Neveljavno ime tabele"
 
 #. l10n: In case a SQL query did not pass a security check
-#: src/Controllers/Table/GetFieldController.php:66
+#: src/Controllers/Table/GetFieldController.php:70
 #: src/Controllers/Transformation/WrapperController.php:75
 msgid "There is an issue with your request."
 msgstr "Prišlo je do težave z vašo zahtevo."
 
-#: src/Controllers/Table/GetFieldController.php:81
-#: src/Database/Routines.php:1046 src/Import/Import.php:131
+#: src/Controllers/Table/GetFieldController.php:85
+#: src/Database/Routines.php:1047 src/Import/Import.php:131
 #: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
-#: src/Controllers/Table/GisVisualizationController.php:105
+#: src/Controllers/Table/GisVisualizationController.php:99
 msgid "No spatial column found for this SQL query."
 msgstr "V poizvedbi SQL nismo našli prostorskega stolpca."
 
@@ -15288,7 +15280,7 @@ msgstr "Prikazni stolpec smo uspešno posodobili."
 msgid "Internal relationships were successfully updated."
 msgstr "Notranja razmerja smo uspešno posodobili."
 
-#: src/Controllers/Table/ReplaceController.php:184
+#: src/Controllers/Table/ReplaceController.php:189
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Vrstica: %1$s, Stolpec: %2$s, Napaka: %3$s"
@@ -15322,37 +15314,37 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "Tabelo %1$s smo uspešno spremenili. Privilegije smo prilagodili."
 
-#: src/Controllers/Table/TrackingController.php:95
+#: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "Sledenje %s je aktivirano."
 
-#: src/Controllers/Table/TrackingController.php:148
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr "Stavki SQL so izvedeni."
 
-#: src/Controllers/Table/TrackingController.php:202
+#: src/Controllers/Table/TrackingController.php:197
 msgid "Tracking versions deleted successfully."
 msgstr "Uspešno smo izbrisali različice sledenja."
 
-#: src/Controllers/Table/TrackingController.php:207
+#: src/Controllers/Table/TrackingController.php:202
 msgid "No versions selected."
 msgstr "Ni izbranih različic."
 
-#: src/Controllers/Triggers/IndexController.php:189
+#: src/Controllers/Triggers/IndexController.php:173
 msgid "Add trigger"
 msgstr "Dodaj sprožilec"
 
-#: src/Controllers/Triggers/IndexController.php:193
+#: src/Controllers/Triggers/IndexController.php:177
 msgid "Edit trigger"
 msgstr "Uredi sprožilec"
 
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:219
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Sprožilca imenovanega %1$s ni mogoče najti v zbirki podatkov %2$s."
 
-#: src/Controllers/Triggers/IndexController.php:276
+#: src/Controllers/Triggers/IndexController.php:260
 #, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
@@ -15365,7 +15357,7 @@ msgstr ""
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nimate dovolj pravic, da bi bili sedaj tukaj!"
 
-#: src/Controllers/View/CreateController.php:92
+#: src/Controllers/View/CreateController.php:85
 msgid "View name can not be empty!"
 msgstr "Ime pogleda ne more biti prazno!"
 
@@ -15457,9 +15449,9 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr "Ne morem naložiti vtičnikov sheme, prosimo, preverite vašo namestitev!"
 
 #: src/Database/Events.php:89 src/Database/Events.php:98
-#: src/Database/Events.php:132 src/Database/Routines.php:100
-#: src/Database/Routines.php:126 src/Database/Routines.php:204
-#: src/Database/Routines.php:1006 src/Triggers/Triggers.php:82
+#: src/Database/Events.php:132 src/Database/Routines.php:101
+#: src/Database/Routines.php:127 src/Database/Routines.php:205
+#: src/Database/Routines.php:1007 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15467,9 +15459,9 @@ msgstr "Naslednja poizvedba je spodletela: \"%s\""
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:115 src/Database/Events.php:136
-#: src/Database/Routines.php:104 src/Database/Routines.php:130
-#: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:801
+#: src/Database/Routines.php:105 src/Database/Routines.php:131
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:1011 src/Html/Generator.php:805
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -15479,7 +15471,7 @@ msgstr "MySQL je vrnil: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Oprostite, zavrženega dogodka nam ni uspelo obnoviti."
 
-#: src/Database/Events.php:113 src/Database/Routines.php:220
+#: src/Database/Events.php:113 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:107
 msgid "The backed up query was:"
 msgstr "Varnostno kopirana poizvedba je bila:"
@@ -15494,12 +15486,12 @@ msgstr "Dogodek %1$s je bil spremenjen."
 msgid "Event %1$s has been created."
 msgstr "Dogodek %1$s je ustvarjen."
 
-#: src/Database/Events.php:153 src/Database/Routines.php:146
+#: src/Database/Events.php:153 src/Database/Routines.php:147
 #: src/Triggers/Triggers.php:147
 msgid "One or more errors have occurred while processing your request:"
 msgstr "Med obdelovanjem vaše zahteve je prišlo do ene ali več napak:"
 
-#: src/Database/Events.php:268 src/Database/Routines.php:808
+#: src/Database/Events.php:268 src/Database/Routines.php:809
 #: src/Triggers/Triggers.php:191
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Opredeljevalec mora biti oblike \"uporabniškoime@imegostitelja\"!"
@@ -15546,40 +15538,40 @@ msgstr ""
 "Povezava za controluserja, kot je določena v vaši konfiguraciji, je "
 "spodletela."
 
-#: src/Database/Routines.php:81 src/Database/Routines.php:816
+#: src/Database/Routines.php:82 src/Database/Routines.php:817
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Neveljavna vrsta rutine: \"%s\""
 
-#: src/Database/Routines.php:133
+#: src/Database/Routines.php:134
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutino %1$s smo ustvarili."
 
-#: src/Database/Routines.php:219
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Oprostite, zavržene rutine nam ni uspelo obnoviti."
 
-#: src/Database/Routines.php:268
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutino %1$s smo spremenili. Privilegije smo prilagodili."
 
-#: src/Database/Routines.php:273
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutino %1$s smo spremenili."
 
-#: src/Database/Routines.php:649
+#: src/Database/Routines.php:650
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Navesti morate ime in vrsto vsakega parametra rutine."
 
-#: src/Database/Routines.php:667
+#: src/Database/Routines.php:668
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Neveljavna smer \"%s\" podana za parameter."
 
-#: src/Database/Routines.php:687 src/Database/Routines.php:754
+#: src/Database/Routines.php:688 src/Database/Routines.php:755
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15587,24 +15579,24 @@ msgstr ""
 "Navesti morate dolžine/vrednosti za parametre rutine vrste ENUM, SET, "
 "VARCHAR in VARBINARY."
 
-#: src/Database/Routines.php:736
+#: src/Database/Routines.php:737
 msgid "You must provide a valid return type for the routine."
 msgstr "Navesti morate veljavno vrsto vrnjene vrednosti dogodka."
 
-#: src/Database/Routines.php:824
+#: src/Database/Routines.php:825
 msgid "You must provide a routine name!"
 msgstr "Navesti morate ime rutine!"
 
-#: src/Database/Routines.php:888
+#: src/Database/Routines.php:889
 msgid "You must provide a routine definition."
 msgstr "Navesti morate opredelitev rutine."
 
-#: src/Database/Routines.php:1022
+#: src/Database/Routines.php:1023
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Rezultati izvedbe rutine %s"
 
-#: src/Database/Routines.php:1037
+#: src/Database/Routines.php:1038
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
@@ -16027,13 +16019,13 @@ msgstr ""
 "Samodejno smo vas odjavili zaradi nedejavnosti v zadnjih %s sekundah. Ko se "
 "ponovno prijavite, boste lahko nadaljevali z delom tam, kjer ste ostali."
 
-#: src/Export/Export.php:163 src/Export/Export.php:199
-#: src/Export/Export.php:407
+#: src/Export/Export.php:164 src/Export/Export.php:200
+#: src/Export/Export.php:408
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Ni dovolj prostora za shranjevanje datoteke %s."
 
-#: src/Export/Export.php:360
+#: src/Export/Export.php:361
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16041,18 +16033,18 @@ msgstr ""
 "Datoteka %s že obstaja na strežniku, spremenite ime novi ali prepišite "
 "obstoječo datoteko."
 
-#: src/Export/Export.php:367 src/Export/Export.php:377
+#: src/Export/Export.php:368 src/Export/Export.php:378
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Spletni strežnik nima dovoljenja za shranjevanje datoteke %s."
 
-#: src/Export/Export.php:414
+#: src/Export/Export.php:415
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump je shranjen v datoteko %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:849
+#: src/Export/Export.php:834
 msgid "Exporting a raw query is not supported for this export method."
 msgstr "Izvoz surove poizvedbe ni podprt pri tej metodi izvoza."
 
@@ -16134,53 +16126,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "Seje nismo našli."
 
-#: src/Html/Generator.php:146
+#: src/Html/Generator.php:147
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Preskoči na zbirko podatkov \"%s\"."
 
-#: src/Html/Generator.php:212
+#: src/Html/Generator.php:213
 msgid "SSL is not being used"
 msgstr "SSL ni v uporabi"
 
-#: src/Html/Generator.php:219
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr "SSL je v uporabi z onemogočenim preverjanjem"
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr "SSL je v uporabi brez overitelja potrdil"
 
-#: src/Html/Generator.php:224
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr "SSL je v uporabi"
 
-#: src/Html/Generator.php:325
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr "Funkcija PHP password_hash() s privzetimi možnostmi."
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr "Funkcija PHP password_hash()"
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:505
 msgid "Skip Explain SQL"
 msgstr "Preskoči razlago stavka SQL"
 
-#: src/Html/Generator.php:533
+#: src/Html/Generator.php:537
 msgid "Without PHP code"
 msgstr "Brez kode PHP"
 
-#: src/Html/Generator.php:618
+#: src/Html/Generator.php:622
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Uredi v vrstici"
 
-#: src/Html/Generator.php:743
+#: src/Html/Generator.php:747
 msgid "Static analysis:"
 msgstr "Statična analiza:"
 
-#: src/Html/Generator.php:746
+#: src/Html/Generator.php:750
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Med analizo smo našli %d napak."
@@ -16427,7 +16419,7 @@ msgstr "Procedure:"
 msgid "Views:"
 msgstr "Pogledi:"
 
-#: src/Navigation/NavigationTree.php:764
+#: src/Navigation/NavigationTree.php:745
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
@@ -16436,11 +16428,11 @@ msgstr ""
 "zmogljivost. Razmislite o onemogočitvi združevanja vnosov na navigacijski "
 "plošči."
 
-#: src/Navigation/NavigationTree.php:824
+#: src/Navigation/NavigationTree.php:809
 msgid "Groups"
 msgstr "Skupine"
 
-#: src/Navigation/NavigationTree.php:931
+#: src/Navigation/NavigationTree.php:916
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -16449,7 +16441,7 @@ msgstr[1] "najdena %s rezultata"
 msgstr[2] "najdeni %s rezultati"
 msgstr[3] "najdenih %s rezultatov"
 
-#: src/Navigation/NavigationTree.php:1305
+#: src/Navigation/NavigationTree.php:1291
 msgid "Collapse all"
 msgstr "Skrči vse"
 
@@ -16458,7 +16450,7 @@ msgctxt "Create new column"
 msgid "New"
 msgstr "Nov"
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:34
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:46
 msgctxt "Create new database"
 msgid "New"
 msgstr "Novo"
@@ -16474,7 +16466,7 @@ msgstr "Nov"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportXml.php:90
 msgid "Functions"
 msgstr "Funkcije"
 
@@ -16488,13 +16480,13 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "Nov"
 
-#: src/Navigation/Nodes/Node.php:612
+#: src/Navigation/Nodes/Node.php:583
 msgid "Expand/Collapse"
 msgstr "Razširi/Skrči"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:587 src/Plugins/Export/ExportXml.php:95
+#: src/Plugins/Export/ExportSql.php:586 src/Plugins/Export/ExportXml.php:95
 msgid "Procedures"
 msgstr "Procedure"
 
@@ -16932,8 +16924,8 @@ msgstr "Vrstice so zaključene z:"
 
 #: src/Plugins/Export/ExportCsv.php:75 src/Plugins/Export/ExportExcel.php:49
 #: src/Plugins/Export/ExportHtmlword.php:77
-#: src/Plugins/Export/ExportLatex.php:185 src/Plugins/Export/ExportOds.php:63
-#: src/Plugins/Export/ExportOdt.php:129
+#: src/Plugins/Export/ExportLatex.php:184 src/Plugins/Export/ExportOds.php:63
+#: src/Plugins/Export/ExportOdt.php:128
 #: src/Plugins/Export/ExportTexytext.php:81
 msgid "Replace NULL with:"
 msgstr "Zamenjaj NULL z:"
@@ -16949,33 +16941,33 @@ msgid "Excel edition:"
 msgstr "Različica Excel:"
 
 #: src/Plugins/Export/ExportHtmlword.php:71
-#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:118
+#: src/Plugins/Export/ExportLatex.php:155 src/Plugins/Export/ExportOdt.php:117
 #: src/Plugins/Export/ExportTexytext.php:70
 #: src/Plugins/Export/ExportXml.php:118
 msgid "Data dump options"
 msgstr "Možnosti odlaganja podatkov"
 
-#: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2187
-#: src/Plugins/Export/ExportTexytext.php:173
+#: src/Plugins/Export/ExportHtmlword.php:186
+#: src/Plugins/Export/ExportOdt.php:236 src/Plugins/Export/ExportSql.php:2177
+#: src/Plugins/Export/ExportTexytext.php:170
 msgid "Dumping data for table"
 msgstr "Odloži podatke za tabelo"
 
-#: src/Plugins/Export/ExportHtmlword.php:519
-#: src/Plugins/Export/ExportOdt.php:645 src/Plugins/Export/ExportSql.php:1918
-#: src/Plugins/Export/ExportTexytext.php:489
+#: src/Plugins/Export/ExportHtmlword.php:514
+#: src/Plugins/Export/ExportOdt.php:638 src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportTexytext.php:483
 msgid "Table structure for table"
 msgstr "Struktura tabele"
 
-#: src/Plugins/Export/ExportHtmlword.php:536
-#: src/Plugins/Export/ExportOdt.php:665 src/Plugins/Export/ExportSql.php:1975
-#: src/Plugins/Export/ExportTexytext.php:502
+#: src/Plugins/Export/ExportHtmlword.php:531
+#: src/Plugins/Export/ExportOdt.php:658 src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportTexytext.php:496
 msgid "Structure for view"
 msgstr "Struktura pogleda"
 
-#: src/Plugins/Export/ExportHtmlword.php:542
-#: src/Plugins/Export/ExportOdt.php:673 src/Plugins/Export/ExportSql.php:2014
-#: src/Plugins/Export/ExportTexytext.php:506
+#: src/Plugins/Export/ExportHtmlword.php:537
+#: src/Plugins/Export/ExportOdt.php:666 src/Plugins/Export/ExportSql.php:2006
+#: src/Plugins/Export/ExportTexytext.php:500
 msgid "Stand-in structure for view"
 msgstr "Nadomestna struktura pogleda"
 
@@ -16987,71 +16979,71 @@ msgstr "Izpiši lepo oblikovan JSON (Uporabi človeku berljivo oblikovanje)"
 msgid "Output unicode characters unescaped"
 msgstr "Izhodni znaki unikod brez ubežnega znaka"
 
-#: src/Plugins/Export/ExportLatex.php:51
+#: src/Plugins/Export/ExportLatex.php:52
 msgid "Content of table @TABLE@"
 msgstr "Vsebina tabele @TABLE@"
 
-#: src/Plugins/Export/ExportLatex.php:52
+#: src/Plugins/Export/ExportLatex.php:53
 msgid "(continued)"
 msgstr "(nadaljevanje)"
 
-#: src/Plugins/Export/ExportLatex.php:53
+#: src/Plugins/Export/ExportLatex.php:54
 msgid "Structure of table @TABLE@"
 msgstr "Struktura tabele @TABLE@"
 
-#: src/Plugins/Export/ExportLatex.php:105 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:233
+#: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:84
+#: src/Plugins/Export/ExportSql.php:232
 msgid "Object creation options"
 msgstr "Možnosti ustvarjanja objektov"
 
-#: src/Plugins/Export/ExportLatex.php:111
-#: src/Plugins/Export/ExportLatex.php:167
+#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportLatex.php:166
 msgid "Table caption:"
 msgstr "Napis tabele:"
 
-#: src/Plugins/Export/ExportLatex.php:117
-#: src/Plugins/Export/ExportLatex.php:173
+#: src/Plugins/Export/ExportLatex.php:116
+#: src/Plugins/Export/ExportLatex.php:172
 msgid "Table caption (continued):"
 msgstr "Napis tabele (nadaljevanje):"
 
-#: src/Plugins/Export/ExportLatex.php:123
-#: src/Plugins/Export/ExportLatex.php:179
+#: src/Plugins/Export/ExportLatex.php:122
+#: src/Plugins/Export/ExportLatex.php:178
 msgid "Label key:"
 msgstr "Označi ključ:"
 
-#: src/Plugins/Export/ExportLatex.php:131 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:158
+#: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:92
+#: src/Plugins/Export/ExportSql.php:157
 msgid "Display foreign key relationships"
 msgstr "Prikaži razmerja tujih ključev"
 
-#: src/Plugins/Export/ExportLatex.php:138 src/Plugins/Export/ExportOdt.php:100
+#: src/Plugins/Export/ExportLatex.php:137 src/Plugins/Export/ExportOdt.php:99
 msgid "Display comments"
 msgstr "Prikaži pripombe"
 
-#: src/Plugins/Export/ExportLatex.php:144 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:166
+#: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:105
+#: src/Plugins/Export/ExportSql.php:165
 msgid "Display media types"
 msgstr "Prikaži vrste predstavnosti"
 
-#: src/Plugins/Export/ExportLatex.php:162
+#: src/Plugins/Export/ExportLatex.php:161
 msgid "Put columns names in the first row:"
 msgstr "Postavi imena stolpcev v prvo vrstico:"
 
-#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:723
+#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:722
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Generation Time:"
 msgstr "Čas nastanka:"
 
-#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:729
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:728
 #: src/Plugins/Export/ExportXml.php:206
 msgid "PHP Version:"
 msgstr "Različica PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2067
+#: src/Plugins/Export/ExportLatex.php:301 src/Plugins/Export/ExportSql.php:2057
 msgid "Data:"
 msgstr "Podatki:"
 
-#: src/Plugins/Export/ExportLatex.php:482
+#: src/Plugins/Export/ExportLatex.php:475
 msgid "Structure:"
 msgstr "Struktura:"
 
@@ -17063,8 +17055,8 @@ msgstr "Izvozi imena tabel"
 msgid "Export table headers"
 msgstr "Izvozi glave tabel"
 
-#: src/Plugins/Export/ExportOdt.php:241
-#: src/Plugins/Export/ExportTexytext.php:174
+#: src/Plugins/Export/ExportOdt.php:237
+#: src/Plugins/Export/ExportTexytext.php:171
 msgid "Dumping data for query result"
 msgstr "Odloži podatke za rezultat poizvedbe"
 
@@ -17072,23 +17064,23 @@ msgstr "Odloži podatke za rezultat poizvedbe"
 msgid "Report title:"
 msgstr "Naslov poročila:"
 
-#: src/Plugins/Export/ExportPdf.php:181
+#: src/Plugins/Export/ExportPdf.php:178
 msgid "Dumping data"
 msgstr "Odloži podatke"
 
-#: src/Plugins/Export/ExportPdf.php:199
+#: src/Plugins/Export/ExportPdf.php:195
 msgid "Query result data"
 msgstr "Podatki rezultata poizvedbe"
 
-#: src/Plugins/Export/ExportPdf.php:254
+#: src/Plugins/Export/ExportPdf.php:248
 msgid "View structure"
 msgstr "Struktura pogleda"
 
-#: src/Plugins/Export/ExportPdf.php:257
+#: src/Plugins/Export/ExportPdf.php:251
 msgid "Stand in"
 msgstr "Nadomestek"
 
-#: src/Plugins/Export/ExportSql.php:137
+#: src/Plugins/Export/ExportSql.php:136
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17096,11 +17088,11 @@ msgstr ""
 "Pokaži pripombe <i>(vsebuje informacije, kot je časovni žig izvoza, "
 "različica PHP in različica strežnika)</i>"
 
-#: src/Plugins/Export/ExportSql.php:144
+#: src/Plugins/Export/ExportSql.php:143
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Dodatna prilagojena pripomba v glavi (\\n prelomi vrstice):"
 
-#: src/Plugins/Export/ExportSql.php:150
+#: src/Plugins/Export/ExportSql.php:149
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17108,37 +17100,37 @@ msgstr ""
 "Vključi časovni žig ustvarjanja, zadnje posodobitve in zadnjega preverjanja "
 "zbirk podatkov"
 
-#: src/Plugins/Export/ExportSql.php:203
+#: src/Plugins/Export/ExportSql.php:202
 msgid "Export metadata"
 msgstr "Izvozi metapodatke"
 
-#: src/Plugins/Export/ExportSql.php:241
+#: src/Plugins/Export/ExportSql.php:240
 msgid "Add statements:"
 msgstr "Dodaj izjave:"
 
-#: src/Plugins/Export/ExportSql.php:249 src/Plugins/Export/ExportSql.php:258
-#: src/Plugins/Export/ExportSql.php:275 src/Plugins/Export/ExportSql.php:284
-#: src/Plugins/Export/ExportSql.php:308 src/Plugins/Export/ExportSql.php:336
-#: src/Plugins/Export/ExportSql.php:345
+#: src/Plugins/Export/ExportSql.php:248 src/Plugins/Export/ExportSql.php:257
+#: src/Plugins/Export/ExportSql.php:274 src/Plugins/Export/ExportSql.php:283
+#: src/Plugins/Export/ExportSql.php:307 src/Plugins/Export/ExportSql.php:335
+#: src/Plugins/Export/ExportSql.php:344
 #, php-format
 msgid "Add %s statement"
 msgstr "Dodaj izjavo %s"
 
-#: src/Plugins/Export/ExportSql.php:291
+#: src/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr "(manj učinkovito, saj bodo indeksi ustvarjeni med ustvarjanjem tabele)"
 
-#: src/Plugins/Export/ExportSql.php:298
+#: src/Plugins/Export/ExportSql.php:297
 #, php-format
 msgid "%s value"
 msgstr "Vrednost %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:315
+#: src/Plugins/Export/ExportSql.php:314
 msgid "Use simple view export"
 msgstr "Uporabi poenostavljen izvoz pogleda"
 
-#: src/Plugins/Export/ExportSql.php:354
+#: src/Plugins/Export/ExportSql.php:353
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17146,35 +17138,35 @@ msgstr ""
 "Obdaj imena tabel in stolpcev z narekovaji <i>(Zaščiti imena stolpcev in "
 "tabel, tvorjenih s posebnimi znaki ali ključnimi besedami)</i>"
 
-#: src/Plugins/Export/ExportSql.php:369
+#: src/Plugins/Export/ExportSql.php:368
 msgid "Data creation options"
 msgstr "Možnosti ustvarjanja podatkov"
 
-#: src/Plugins/Export/ExportSql.php:374 src/Plugins/Export/ExportSql.php:2145
+#: src/Plugins/Export/ExportSql.php:373 src/Plugins/Export/ExportSql.php:2135
 msgid "Truncate table before insert"
 msgstr "Izprazni tabelo pred vstavljanjem"
 
-#: src/Plugins/Export/ExportSql.php:381
+#: src/Plugins/Export/ExportSql.php:380
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Namesto izjav <code>INSERT</code> uporabi:"
 
-#: src/Plugins/Export/ExportSql.php:387
+#: src/Plugins/Export/ExportSql.php:386
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Izjave <code>INSERT DELAYED</code>"
 
-#: src/Plugins/Export/ExportSql.php:396 src/Plugins/Export/ExportSql.php:423
+#: src/Plugins/Export/ExportSql.php:395 src/Plugins/Export/ExportSql.php:422
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Izjave <code>INSERT IGNORE</code>"
 
-#: src/Plugins/Export/ExportSql.php:407
+#: src/Plugins/Export/ExportSql.php:406
 msgid "Function to use when dumping data:"
 msgstr "Funkcija, ki se naj uporabi pri odlaganju podatkov:"
 
-#: src/Plugins/Export/ExportSql.php:418
+#: src/Plugins/Export/ExportSql.php:417
 msgid "Syntax to use when inserting data:"
 msgstr "Skladnja za vstavljanje podatkov:"
 
-#: src/Plugins/Export/ExportSql.php:428
+#: src/Plugins/Export/ExportSql.php:427
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17184,7 +17176,7 @@ msgstr ""
 "&nbsp; Primer: <code>INSERT INTO ime_tabele (stolp_A,stolp_B,stolp_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:433
+#: src/Plugins/Export/ExportSql.php:432
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17194,7 +17186,7 @@ msgstr ""
 "&nbsp; Primer: <code>INSERT INTO ime_tabele VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:438
+#: src/Plugins/Export/ExportSql.php:437
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17202,7 +17194,7 @@ msgstr ""
 "oboje zgoraj<br> &nbsp; &nbsp; &nbsp; Primer: <code>INSERT INTO ime_tabele "
 "(sto_A,sto_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:443
+#: src/Plugins/Export/ExportSql.php:442
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17210,7 +17202,7 @@ msgstr ""
 "nič od zgoraj<br> &nbsp; &nbsp; &nbsp; Primer: <code>INSERT INTO ime_tabele "
 "VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:462
+#: src/Plugins/Export/ExportSql.php:461
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -17218,7 +17210,7 @@ msgstr ""
 "Odloži dvojiške stolpce v šestnajstiškem zapisu <i>(na primer: \"abc\" "
 "postane 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:471
+#: src/Plugins/Export/ExportSql.php:470
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -17226,104 +17218,104 @@ msgstr ""
 "Odloži stolpce TIMESTAMP v UTC <i>(omogoči stolpcem TIMESTAMP odlaganje in "
 "ponovno nalaganje med strežniki v različnih časovnih pasovih)</i>"
 
-#: src/Plugins/Export/ExportSql.php:547
+#: src/Plugins/Export/ExportSql.php:546
 msgid "It appears your database uses routines;"
 msgstr "Kot kaže, vaša zbirka podatkov uporablja rutine;"
 
-#: src/Plugins/Export/ExportSql.php:550 src/Plugins/Export/ExportSql.php:1491
-#: src/Plugins/Export/ExportSql.php:1963
+#: src/Plugins/Export/ExportSql.php:549 src/Plugins/Export/ExportSql.php:1486
+#: src/Plugins/Export/ExportSql.php:1955
 msgid "alias export may not work reliably in all cases."
 msgstr "izvoz z vzdevkom v vseh primerih morda ne bo deloval zanesljivo."
 
-#: src/Plugins/Export/ExportSql.php:1022
+#: src/Plugins/Export/ExportSql.php:1020
 msgid "Metadata"
 msgstr "Metapodatki"
 
-#: src/Plugins/Export/ExportSql.php:1083
+#: src/Plugins/Export/ExportSql.php:1081
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metapodatki tabele %s"
 
-#: src/Plugins/Export/ExportSql.php:1090
+#: src/Plugins/Export/ExportSql.php:1088
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metapodatki zbirke podatkov %s"
 
-#: src/Plugins/Export/ExportSql.php:1403
+#: src/Plugins/Export/ExportSql.php:1398
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Napaka pri branju strukture tabele %s:"
 
-#: src/Plugins/Export/ExportSql.php:1488
+#: src/Plugins/Export/ExportSql.php:1483
 msgid "It appears your database uses views;"
 msgstr "Kot kaže, vaša zbirka podatkov uporablja poglede;"
 
-#: src/Plugins/Export/ExportSql.php:1634
+#: src/Plugins/Export/ExportSql.php:1629
 msgid "Constraints for dumped tables"
 msgstr "Omejitve tabel za povzetek stanja"
 
-#: src/Plugins/Export/ExportSql.php:1635
+#: src/Plugins/Export/ExportSql.php:1630
 msgid "Constraints for table"
 msgstr "Omejitve za tabelo"
 
-#: src/Plugins/Export/ExportSql.php:1662
+#: src/Plugins/Export/ExportSql.php:1657
 msgid "Indexes for dumped tables"
 msgstr "Indeksi zavrženih tabel"
 
-#: src/Plugins/Export/ExportSql.php:1663
+#: src/Plugins/Export/ExportSql.php:1658
 msgid "Indexes for table"
 msgstr "Indeksi tabele"
 
-#: src/Plugins/Export/ExportSql.php:1693
+#: src/Plugins/Export/ExportSql.php:1688
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT zavrženih tabel"
 
-#: src/Plugins/Export/ExportSql.php:1694
+#: src/Plugins/Export/ExportSql.php:1689
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT tabele"
 
-#: src/Plugins/Export/ExportSql.php:1758
+#: src/Plugins/Export/ExportSql.php:1753
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "VRSTE PREDSTAVNOSTI ZA TABELO"
 
-#: src/Plugins/Export/ExportSql.php:1788
+#: src/Plugins/Export/ExportSql.php:1783
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RAZMERJA ZA TABELO"
 
-#: src/Plugins/Export/ExportSql.php:1960
+#: src/Plugins/Export/ExportSql.php:1952
 msgid "It appears your table uses triggers;"
 msgstr "Kot kaže, vaša tabela uporablja sprožilce;"
 
-#: src/Plugins/Export/ExportSql.php:1990
+#: src/Plugins/Export/ExportSql.php:1982
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura pogleda %s, izvoženega kot tabela"
 
-#: src/Plugins/Export/ExportSql.php:2017
+#: src/Plugins/Export/ExportSql.php:2009
 msgid "(See below for the actual view)"
 msgstr "(Oglejte si spodaj za resnični pogled)"
 
-#: src/Plugins/Export/ExportSql.php:2078
+#: src/Plugins/Export/ExportSql.php:2068
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Napaka pri branju podatkov tabele %s:"
 
-#: src/Plugins/Export/ExportSql.php:2673
+#: src/Plugins/Export/ExportSql.php:2663
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "Ustvarjeno:"
 
-#: src/Plugins/Export/ExportSql.php:2681
+#: src/Plugins/Export/ExportSql.php:2671
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "Zadnjič posodobljeno:"
 
-#: src/Plugins/Export/ExportSql.php:2689
+#: src/Plugins/Export/ExportSql.php:2679
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "Zadnjič pregledano:"
 
-#: src/Plugins/Export/ExportSql.php:2710
+#: src/Plugins/Export/ExportSql.php:2700
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -17383,23 +17375,23 @@ msgstr ""
 msgid "Column names:"
 msgstr "Imena stolpcev:"
 
-#: src/Plugins/Import/ImportCsv.php:290 src/Plugins/Import/ImportCsv.php:614
+#: src/Plugins/Import/ImportCsv.php:289 src/Plugins/Import/ImportCsv.php:613
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Neveljavna oblika vnosa CSV v vrstici %d."
 
-#: src/Plugins/Import/ImportCsv.php:497
+#: src/Plugins/Import/ImportCsv.php:496
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Neveljavno število stolpcev v vnosu CSV v vrstici %d."
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
+#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Neveljavni parameter za uvoz CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:767
+#: src/Plugins/Import/ImportCsv.php:766
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17477,7 +17469,7 @@ msgstr "Ne uporabi <code>AUTO_INCREMENT</code> za ničelne vrednosti"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:596
+#: src/Plugins.php:598
 msgid "This format has no options"
 msgstr "Oblika nima nobenih možnosti"
 
@@ -18461,14 +18453,14 @@ msgstr "Navesti morate veljavno ime tabele!"
 msgid "You must provide a trigger definition."
 msgstr "Navesti morate opredelitev sprožilca."
 
-#: src/Types.php:196
+#: src/Types.php:145
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1-bitno celo število; predznačen razpon je -128 do 127, nepredznačen razpon "
 "pa 0 do 255"
 
-#: src/Types.php:197
+#: src/Types.php:146
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18476,7 +18468,7 @@ msgstr ""
 "2-bitno celo število; predznačen razpon je -32.768 do 32.767, nepredznačen "
 "razpon pa 0 do 65.535"
 
-#: src/Types.php:199
+#: src/Types.php:148
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18484,7 +18476,7 @@ msgstr ""
 "3-bitno celo število; predznačen razpon je -8.388.608 do 8.388.607, "
 "nepredznačen razpon pa 0 do 16.777.215"
 
-#: src/Types.php:202
+#: src/Types.php:151
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18492,7 +18484,7 @@ msgstr ""
 "4-bitno celo število; predznačeni razpon je od -2.147.483.648 do "
 "2.147.483.647, nepredznačeni razpon pa od 0 do 4.294.967.295"
 
-#: src/Types.php:207
+#: src/Types.php:156
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18501,7 +18493,7 @@ msgstr ""
 "9.223.372.036.854.775.807, nepredznačen razpon pa 0 do "
 "18.446.744.073.709.551.615"
 
-#: src/Types.php:212
+#: src/Types.php:161
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18509,7 +18501,7 @@ msgstr ""
 "Število s fiksno vejico (M, D) – največje število števk (M) je 65 (privzeto "
 "10), največje število decimalnih mest (D) je 30 (privzeto 0)"
 
-#: src/Types.php:217
+#: src/Types.php:166
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18518,7 +18510,7 @@ msgstr ""
 "-3,402823466E+38 do -1,175494351E-38, 0 in od 1,175494351E-38 do "
 "3,402823466E+38"
 
-#: src/Types.php:222
+#: src/Types.php:171
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18528,7 +18520,7 @@ msgstr ""
 "-1,7976931348623157E+308 do -2,2250738585072014E-308, 0 in od "
 "2,2250738585072014E-308 do 1,7976931348623157E+308"
 
-#: src/Types.php:226
+#: src/Types.php:175
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -18536,7 +18528,7 @@ msgstr ""
 "Sopomenka za DOUBLE (izjema: v načinu SQL REAL_AS_FLOAT je sopomenka za "
 "FLOAT)"
 
-#: src/Types.php:227
+#: src/Types.php:176
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -18544,7 +18536,7 @@ msgstr ""
 "Bitna vrsta polja (M), ki shrani M bitov na vrednost (privzeto je 1, največ "
 "je 64)"
 
-#: src/Types.php:229
+#: src/Types.php:178
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18552,21 +18544,21 @@ msgstr ""
 "Sopomenka za TINYINT(1); ničelna vrednost se obravnava kot ni res, neničelne "
 "vrednosti se obravnavajo kot res"
 
-#: src/Types.php:231
+#: src/Types.php:180
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Vzdevek za BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:233
+#: src/Types.php:182
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Datum; podprt je razpon od %1$s do %2$s"
 
-#: src/Types.php:238
+#: src/Types.php:187
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Kombinacija datuma in časa; podprt je razpon od %1$s do %2$s"
 
-#: src/Types.php:243
+#: src/Types.php:192
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -18574,12 +18566,12 @@ msgstr ""
 "Časovni žig; razpon je od 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
 "UTC, shranjeno kot število sekund od dobe (1970-01-01 00:00:00 UTC)"
 
-#: src/Types.php:248
+#: src/Types.php:197
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Čas; razpon je od %1$s do %2$s"
 
-#: src/Types.php:253
+#: src/Types.php:202
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18587,7 +18579,7 @@ msgstr ""
 "Leto v obliki s štirimi (4, privzeto) ali dvema (2) števkama; dovoljene so "
 "vrednosti od 70 (1970) do 69 (2069) ali od 1901 do 2155 in 0000"
 
-#: src/Types.php:258
+#: src/Types.php:207
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18595,7 +18587,7 @@ msgstr ""
 "Niz stalne dolžine (0–255, privzeto 1), ki je ob shranjevanju vedno z desne "
 "zapolnjen s presledki do določene dolžine"
 
-#: src/Types.php:263
+#: src/Types.php:212
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18604,7 +18596,7 @@ msgstr ""
 "Niz spremenljive dolžine (%s); učinkujoča največja dolžina je odvisna od "
 "največje dolžine stolpca"
 
-#: src/Types.php:268
+#: src/Types.php:217
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18612,7 +18604,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 255 (2^8 - 1) znakov, shranjen z enobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:273
+#: src/Types.php:222
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18620,7 +18612,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 65.535 (2^16 - 1) znakov, shranjen z dvobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:278
+#: src/Types.php:227
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18628,7 +18620,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 16.777.215 (2^24 - 1) znakov, shranjen s tribajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:283
+#: src/Types.php:232
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18637,7 +18629,7 @@ msgstr ""
 "Stolpec TEXT, dolg največ 4.294.967.295 ali 4 GiB (2^32 - 1) znakov, "
 "shranjen s štiribajtno predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:288
+#: src/Types.php:237
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18645,7 +18637,7 @@ msgstr ""
 "Podobno vrsti CHAR, vendar shranjuje dvojiške nize bajtov namesto "
 "nedvojiških nizov znakov"
 
-#: src/Types.php:291
+#: src/Types.php:240
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18653,7 +18645,7 @@ msgstr ""
 "Podobno vrsti VARCHAR, vendar shranjuje dvojiške nize bajtov namesto "
 "nedvojiških nizov znakov"
 
-#: src/Types.php:295
+#: src/Types.php:244
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18661,7 +18653,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 255 (2^8 - 1) znakov, shranjen z enobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:299
+#: src/Types.php:248
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18669,7 +18661,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 16.777.215 (2^24 - 1) znakov, shranjen s tribajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:304
+#: src/Types.php:253
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18677,7 +18669,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 65.535 (2^16 - 1) znakov, shranjen z dvobajtno "
 "predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:308
+#: src/Types.php:257
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18685,7 +18677,7 @@ msgstr ""
 "Stolpec BLOB, dolg največ 4.294.967.295 ali 4 GiB (2^32 - 1) znakov, "
 "shranjen s štiribajtno predpono, ki nakazuje dolžino vrednosti v bajtih"
 
-#: src/Types.php:312
+#: src/Types.php:261
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18693,43 +18685,43 @@ msgstr ""
 "Naštevanje, izbrano s seznama do 65.535 vrednosti ali posebne vrednosti "
 "napake ''"
 
-#: src/Types.php:313
+#: src/Types.php:262
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Ena vrednost, izbrana iz množice z največ 64 člani"
 
-#: src/Types.php:314
+#: src/Types.php:263
 msgid "A type that can store a geometry of any type"
 msgstr "Vrsta, ki lahko shrani katero koli geometrijsko vrsto"
 
-#: src/Types.php:315
+#: src/Types.php:264
 msgid "A point in 2-dimensional space"
 msgstr "Točka v dvodimenzionalnem prostoru"
 
-#: src/Types.php:316
+#: src/Types.php:265
 msgid "A curve with linear interpolation between points"
 msgstr "Krivulja z linearno interpolacijo med točkami"
 
-#: src/Types.php:317
+#: src/Types.php:266
 msgid "A polygon"
 msgstr "Večkotnik"
 
-#: src/Types.php:318
+#: src/Types.php:267
 msgid "A collection of points"
 msgstr "Zbirka točk"
 
-#: src/Types.php:319
+#: src/Types.php:268
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Zbirka krivulj z linearno interpolacijo med točkami"
 
-#: src/Types.php:320
+#: src/Types.php:269
 msgid "A collection of polygons"
 msgstr "Zbirka večkotnikov"
 
-#: src/Types.php:321
+#: src/Types.php:270
 msgid "A collection of geometry objects of any type"
 msgstr "Zbirka geometrijskih objektov katere koli vrste"
 
-#: src/Types.php:322
+#: src/Types.php:271
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18737,7 +18729,7 @@ msgstr ""
 "Shrani in omogoča učinkovit dostop do podatkov v dokumentih JSON (JavaScript "
 "Object Notation)"
 
-#: src/Types.php:323
+#: src/Types.php:272
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18745,23 +18737,23 @@ msgstr ""
 "Namenjeno shranjevanju naslovov IPv6, kakor tudi naslovov IPv4, "
 "predpostavljajoč običajno preslikavo naslovov IPv4 v naslove IPv6"
 
-#: src/Types.php:326
+#: src/Types.php:275
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
 "128-bitni UUID (vsesplošno edinstven označevalnik, Universally Unique "
 "Identifier)"
 
-#: src/Types.php:650
+#: src/Types.php:583
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerično"
 
-#: src/Types.php:668
+#: src/Types.php:601
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum in čas"
 
-#: src/Types.php:698
+#: src/Types.php:631
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Prostorsko"
@@ -18814,6 +18806,12 @@ msgstr "Napaka v arhivu ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "V arhivu ZIP ni bilo najdenih datotek!"
+
+#~ msgid "Bad parameters!"
+#~ msgstr "Slabi parametri!"
+
+#~ msgid "The database name is empty!"
+#~ msgstr "Ime zbirke podatkov je prazno!"
 
 #~ msgid "Protocol version:"
 #~ msgstr "Različica protokola:"

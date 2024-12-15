@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-08 00:27+0000\n"
+"POT-Creation-Date: 2024-12-15 00:27+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -142,7 +142,7 @@ msgstr "এই মূহুর্তে এখানে থাকার জন�
 #: resources/templates/table/structure/display_structure.twig:143
 #: resources/templates/table/structure/display_structure.twig:284
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:25
-#: src/Controllers/Table/StructureController.php:221
+#: src/Controllers/Table/StructureController.php:216
 msgid "Primary"
 msgstr "প্রাথমিক"
 
@@ -164,7 +164,7 @@ msgstr "অনন্য"
 #: resources/templates/table/structure/display_structure.twig:290
 #: resources/templates/table/structure/display_table_stats.twig:24
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:27
-#: src/Controllers/Table/StructureController.php:225
+#: src/Controllers/Table/StructureController.php:220
 #: src/Navigation/Nodes/NodeIndex.php:24
 msgid "Index"
 msgstr "ইনডেক্স"
@@ -213,7 +213,7 @@ msgstr "%s এর পরে"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2067
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2057
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "কিছু না"
@@ -472,13 +472,13 @@ msgstr "ফরেন কী নির্বাচন করুন"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:9
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
-#: src/Navigation/Nodes/NodeColumn.php:28
-#: src/Plugins/Export/ExportHtmlword.php:259
-#: src/Plugins/Export/ExportHtmlword.php:350
-#: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:361
-#: src/Plugins/Export/ExportOdt.php:452
-#: src/Plugins/Export/ExportTexytext.php:285
-#: src/Plugins/Export/ExportTexytext.php:364
+#: src/Navigation/Nodes/NodeColumn.php:30
+#: src/Plugins/Export/ExportHtmlword.php:256
+#: src/Plugins/Export/ExportHtmlword.php:347
+#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:356
+#: src/Plugins/Export/ExportOdt.php:447
+#: src/Plugins/Export/ExportTexytext.php:281
+#: src/Plugins/Export/ExportTexytext.php:360
 #: src/Plugins/Export/Helpers/Pdf.php:488
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
@@ -611,7 +611,7 @@ msgstr "ব্যাবহারকারীর দল"
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:723
 #: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
-#: src/Navigation/Nodes/NodeColumn.php:38
+#: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1040 src/Util.php:1465
 #: src/Util.php:1482
@@ -629,9 +629,9 @@ msgstr "গঠন"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:567
-#: src/Plugins/Export/ExportTexytext.php:436
+#: src/Plugins/Export/ExportHtmlword.php:450
+#: src/Plugins/Export/ExportOdt.php:562
+#: src/Plugins/Export/ExportTexytext.php:432
 #: src/Plugins/Export/Helpers/Pdf.php:330
 msgid "Name"
 msgstr "নাম"
@@ -657,12 +657,12 @@ msgstr "নাম"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
-#: src/Plugins/Export/ExportHtmlword.php:262
-#: src/Plugins/Export/ExportHtmlword.php:353
-#: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:364
-#: src/Plugins/Export/ExportOdt.php:455
-#: src/Plugins/Export/ExportTexytext.php:286
-#: src/Plugins/Export/ExportTexytext.php:365
+#: src/Plugins/Export/ExportHtmlword.php:259
+#: src/Plugins/Export/ExportHtmlword.php:350
+#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:359
+#: src/Plugins/Export/ExportOdt.php:450
+#: src/Plugins/Export/ExportTexytext.php:282
+#: src/Plugins/Export/ExportTexytext.php:361
 #: src/Plugins/Export/Helpers/Pdf.php:490
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
@@ -695,12 +695,12 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:268
-#: src/Plugins/Export/ExportHtmlword.php:359
-#: src/Plugins/Export/ExportLatex.php:507 src/Plugins/Export/ExportOdt.php:370
-#: src/Plugins/Export/ExportOdt.php:461
-#: src/Plugins/Export/ExportTexytext.php:288
-#: src/Plugins/Export/ExportTexytext.php:367
+#: src/Plugins/Export/ExportHtmlword.php:265
+#: src/Plugins/Export/ExportHtmlword.php:356
+#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:365
+#: src/Plugins/Export/ExportOdt.php:456
+#: src/Plugins/Export/ExportTexytext.php:284
+#: src/Plugins/Export/ExportTexytext.php:363
 #: src/Plugins/Export/Helpers/Pdf.php:494
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
@@ -757,12 +757,12 @@ msgstr "গুনাবলী"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:265
-#: src/Plugins/Export/ExportHtmlword.php:356
-#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:367
-#: src/Plugins/Export/ExportOdt.php:458
-#: src/Plugins/Export/ExportTexytext.php:287
-#: src/Plugins/Export/ExportTexytext.php:366
+#: src/Plugins/Export/ExportHtmlword.php:262
+#: src/Plugins/Export/ExportHtmlword.php:353
+#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:362
+#: src/Plugins/Export/ExportOdt.php:453
+#: src/Plugins/Export/ExportTexytext.php:283
+#: src/Plugins/Export/ExportTexytext.php:362
 #: src/Plugins/Export/Helpers/Pdf.php:492
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
@@ -786,9 +786,9 @@ msgstr "অধিকারসমূহ সম্পাদনা"
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:369
-#: src/Plugins/Export/ExportLatex.php:513 src/Plugins/Export/ExportOdt.php:471
-#: src/Plugins/Export/ExportTexytext.php:373
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:366
+#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:466
+#: src/Plugins/Export/ExportTexytext.php:369
 #: src/Plugins/Export/Helpers/Pdf.php:511
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
@@ -806,9 +806,9 @@ msgstr "স্বম্ভ সরাও"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:376
-#: src/Plugins/Export/ExportOdt.php:478
-#: src/Plugins/Export/ExportTexytext.php:378
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:373
+#: src/Plugins/Export/ExportOdt.php:473
+#: src/Plugins/Export/ExportTexytext.php:374
 #: src/Plugins/Export/Helpers/Pdf.php:519
 #, fuzzy
 #| msgid "MIME type"
@@ -882,7 +882,7 @@ msgstr "পূর্বাবস্থায়"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:189
 msgid "Documentation"
 msgstr "সহায়িকা"
@@ -947,11 +947,11 @@ msgstr "অকার্যকর"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:106
+#: src/Controllers/Table/Structure/PrimaryController.php:102
 #: src/IndexColumn.php:148 src/Index.php:469
-#: src/Plugins/Export/ExportHtmlword.php:595
-#: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
-#: src/Plugins/Export/ExportTexytext.php:553
+#: src/Plugins/Export/ExportHtmlword.php:590
+#: src/Plugins/Export/ExportLatex.php:565 src/Plugins/Export/ExportOdt.php:707
+#: src/Plugins/Export/ExportTexytext.php:547
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "Yes"
 msgstr "হ্যাঁ"
@@ -985,9 +985,9 @@ msgstr "হ্যাঁ"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
-#: src/Plugins/Export/ExportHtmlword.php:595
-#: src/Plugins/Export/ExportLatex.php:572 src/Plugins/Export/ExportOdt.php:714
-#: src/Plugins/Export/ExportTexytext.php:553
+#: src/Plugins/Export/ExportHtmlword.php:590
+#: src/Plugins/Export/ExportLatex.php:565 src/Plugins/Export/ExportOdt.php:707
+#: src/Plugins/Export/ExportTexytext.php:547
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "No"
 msgstr "না"
@@ -1054,8 +1054,8 @@ msgstr "সহ-অনুসন্ধান"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2477 src/Html/Generator.php:517
-#: src/Html/Generator.php:785
+#: src/Display/Results.php:2477 src/Html/Generator.php:521
+#: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "সম্পাদনা"
 
@@ -1093,7 +1093,7 @@ msgstr "মুছ"
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
-#: src/Plugins/Export/ExportOdt.php:182
+#: src/Plugins/Export/ExportOdt.php:181
 #: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1569
 #: src/Server/Privileges.php:1571 src/Server/Status/Processes.php:93
 msgid "Database"
@@ -1130,11 +1130,11 @@ msgstr "এসকিউএল ইতিহাস"
 #: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
 #: src/Plugins/Export/ExportExcel.php:37
 #: src/Plugins/Export/ExportHtmlword.php:47
-#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:69
+#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:68
 #: src/Plugins/Export/ExportMediawiki.php:43
-#: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:60
+#: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:59
 #: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:122
+#: src/Plugins/Export/ExportSql.php:121
 #: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:61
 #: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
@@ -1177,7 +1177,7 @@ msgstr "SQL এর ব্যাখা"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:604
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:608
 msgid "Profiling"
 msgstr "প্রোফাইলিং"
 
@@ -1286,8 +1286,8 @@ msgstr ""
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1201
-#: src/Html/Generator.php:573
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1177
+#: src/Html/Generator.php:577
 msgid "Refresh"
 msgstr "রিফ্রেশ"
 
@@ -1537,9 +1537,9 @@ msgid "Print"
 msgstr "প্রিন্ট"
 
 #: resources/templates/database/data_dictionary/index.twig:27
-#: src/Plugins/Export/ExportHtmlword.php:363
-#: src/Plugins/Export/ExportLatex.php:509 src/Plugins/Export/ExportOdt.php:465
-#: src/Plugins/Export/ExportTexytext.php:369
+#: src/Plugins/Export/ExportHtmlword.php:360
+#: src/Plugins/Export/ExportLatex.php:502 src/Plugins/Export/ExportOdt.php:460
+#: src/Plugins/Export/ExportTexytext.php:365
 #: src/Plugins/Export/Helpers/Pdf.php:503
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
@@ -1550,7 +1550,7 @@ msgstr "এর সংযোগ"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:450
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:264
+#: src/Controllers/Server/DatabasesController.php:261
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1958,9 +1958,9 @@ msgstr "শেষ"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:456
-#: src/Plugins/Export/ExportOdt.php:576
-#: src/Plugins/Export/ExportTexytext.php:439
+#: src/Plugins/Export/ExportHtmlword.php:453
+#: src/Plugins/Export/ExportOdt.php:571
+#: src/Plugins/Export/ExportTexytext.php:435
 #: src/Plugins/Export/Helpers/Pdf.php:336
 msgid "Definition"
 msgstr "সংজ্ঞা"
@@ -1989,7 +1989,7 @@ msgstr "সংজ্ঞা দানকারী"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:966 src/Plugins/Export/ExportXml.php:85
+#: src/Plugins/Export/ExportSql.php:964 src/Plugins/Export/ExportXml.php:85
 #: src/Util.php:1474
 msgid "Events"
 msgstr "ইভেন্টসমূহ"
@@ -2142,7 +2142,7 @@ msgstr "টেবলসমুহ:"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:261
+#: src/Controllers/Server/DatabasesController.php:258
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:100 src/Server/Status/Data.php:133
@@ -2156,7 +2156,7 @@ msgstr "টেবল"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:263
+#: src/Controllers/Server/DatabasesController.php:260
 msgid "Data"
 msgstr "তথ্য"
 
@@ -2200,7 +2200,7 @@ msgstr "দুইটি স্তম্ভ নির্বাচন করুন
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:722
-#: src/Controllers/Table/ChangeController.php:219
+#: src/Controllers/Table/ChangeController.php:218
 msgid "Show"
 msgstr "দেখাও"
 
@@ -2299,7 +2299,7 @@ msgid "Update query"
 msgstr "অনুসন্ধান আপডেট"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#: src/Html/Generator.php:542
+#: src/Html/Generator.php:546
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -2913,8 +2913,8 @@ msgid ""
 msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:242
-#: src/Plugins/Export/ExportSql.php:897 src/Plugins/Export/ExportXml.php:358
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
+#: src/Plugins/Export/ExportSql.php:895 src/Plugins/Export/ExportXml.php:358
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "ডাটাবেইজ:"
@@ -2970,9 +2970,9 @@ msgstr "তথ্য অভিধান"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:84
-#: src/Controllers/Database/TrackingController.php:130
-#: src/Controllers/Export/ExportController.php:290
+#: src/Controllers/Database/ExportController.php:76
+#: src/Controllers/Database/TrackingController.php:125
+#: src/Controllers/Export/ExportController.php:283
 msgid "No tables found in database."
 msgstr "ডাটাবেইজে কোন টেবিল নাই।"
 
@@ -2998,7 +2998,7 @@ msgstr "SQL অনুসন্ধান দেখাও"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:426 src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:423 src/Server/Privileges.php:1575
 #: src/Server/Privileges.php:1577
 msgid "Table"
 msgstr "টেবল"
@@ -3013,9 +3013,9 @@ msgstr "ভিউসমূহ"
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:122
-#: src/Controllers/Operations/TableController.php:331
-#: src/Controllers/Table/StructureController.php:154
+#: src/Controllers/Operations/TableController.php:123
+#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "দেখা"
@@ -3055,7 +3055,7 @@ msgstr "ব্যবহৃত"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:262 src/Import/Import.php:126
+#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:126
 msgid "Rows"
 msgstr "সারির #"
 
@@ -3074,7 +3074,7 @@ msgstr "আকার"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:32
-#: src/Controllers/Server/DatabasesController.php:266
+#: src/Controllers/Server/DatabasesController.php:263
 msgid "Overhead"
 msgstr "অতিরিক্ত"
 
@@ -3305,7 +3305,7 @@ msgstr "ভালভাবে জানা বাইনারী"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:496
-#: src/Display/Results.php:2481 src/Html/Generator.php:78
+#: src/Display/Results.php:2481 src/Html/Generator.php:79
 msgid "Copy"
 msgstr "প্রতিলিপি"
 
@@ -3316,7 +3316,7 @@ msgstr "অনুসন্ধান ফল"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1220
+#: src/Export/Export.php:1196
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3342,11 +3342,11 @@ msgstr "কানায় রুপান্তর কর"
 
 #: resources/templates/error/generic.twig:37
 #: resources/templates/table/structure/display_structure.twig:361
-#: src/Controllers/Operations/ViewController.php:119
+#: src/Controllers/Operations/ViewController.php:115
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:736 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:740 src/Import/Import.php:115 src/InsertEdit.php:487
 #: src/Message.php:138
 msgid "Error"
 msgstr "ভুল"
@@ -3440,7 +3440,7 @@ msgstr "আধুনিকায়ন হয়েছে"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:760
+#: src/Html/Generator.php:764
 msgid "SQL query:"
 msgstr "SQL অনুসন্ধান:"
 
@@ -3806,7 +3806,7 @@ msgid "Server connection:"
 msgstr "নিরাপত্তাহীন সংযোগ"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:727
+#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:726
 #: src/Plugins/Export/ExportXml.php:205
 msgid "Server version:"
 msgstr "সার্ভার সংস্করন:"
@@ -3911,7 +3911,7 @@ msgstr "ইহা নাও"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1243 src/Html/Generator.php:851
+#: src/Export/Export.php:1219 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "পিছনে"
@@ -4563,9 +4563,9 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:37
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
-#: src/Controllers/Operations/TableController.php:347
+#: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:289 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:294 src/Core.php:499
 msgid "No change"
 msgstr "পরিবর্তন নয়"
 
@@ -5808,7 +5808,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:207 src/Plugins/Export/ExportSql.php:716
+#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:715
 #: src/Plugins/Export/ExportXml.php:196
 msgid "Host:"
 msgstr "হোষ্ট:"
@@ -6782,9 +6782,9 @@ msgstr "অবস্থা"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Plugins/Export/ExportHtmlword.php:454
-#: src/Plugins/Export/ExportOdt.php:570
-#: src/Plugins/Export/ExportTexytext.php:437
+#: src/Plugins/Export/ExportHtmlword.php:451
+#: src/Plugins/Export/ExportOdt.php:565
+#: src/Plugins/Export/ExportTexytext.php:433
 #: src/Plugins/Export/Helpers/Pdf.php:332 src/Server/Status/Processes.php:95
 msgid "Time"
 msgstr "সময়"
@@ -6817,9 +6817,9 @@ msgid "Pie chart with profiling results."
 msgstr "প্রোফাইলিং এর ফলাফল"
 
 #: resources/templates/sql/query.twig:7
-#: src/Controllers/Operations/ViewController.php:116
+#: src/Controllers/Operations/ViewController.php:112
 #: src/Controllers/Table/DeleteRowsController.php:77
-#: src/Controllers/Table/FindReplaceController.php:120
+#: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
 #: src/Controllers/Table/Maintenance/ChecksumController.php:73
@@ -6833,7 +6833,7 @@ msgstr "প্রোফাইলিং এর ফলাফল"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1029 src/Display/Results.php:3139
+#: src/Database/Routines.php:1030 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
@@ -7353,7 +7353,7 @@ msgstr "টেবিলটি ফ্লাশ কর (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:410
+#: src/Controllers/Database/StructureController.php:406
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "টেবিল %s খালি করা হয়েছে।"
@@ -7370,13 +7370,13 @@ msgstr "টেবিলটি খালি কর (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:362
+#: src/Controllers/Database/StructureController.php:358
 #, php-format
 msgid "View %s has been dropped."
 msgstr "ভিউ %s মুছা হয়েছে।"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:363
+#: src/Controllers/Database/StructureController.php:359
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "টেবল %s মুছা হয়েছে।"
@@ -7415,7 +7415,7 @@ msgid "Delete the view (DROP)"
 msgstr "ভিউটি মুছ (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:248
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:242
 msgid "Table structure"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
@@ -7771,9 +7771,9 @@ msgid "Effective"
 msgstr "কার্যকর"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
-#: src/Controllers/Server/DatabasesController.php:265
-#: src/Controllers/Server/Status/StatusController.php:142
-#: src/Controllers/Server/Status/StatusController.php:192
+#: src/Controllers/Server/DatabasesController.php:262
+#: src/Controllers/Server/Status/StatusController.php:139
+#: src/Controllers/Server/Status/StatusController.php:189
 msgid "Total"
 msgstr "মোট"
 
@@ -7918,15 +7918,15 @@ msgstr "সময়"
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
 #: src/Navigation/Nodes/NodeEvent.php:24
-#: src/Plugins/Export/ExportHtmlword.php:455
-#: src/Plugins/Export/ExportOdt.php:573
-#: src/Plugins/Export/ExportTexytext.php:438
+#: src/Plugins/Export/ExportHtmlword.php:452
+#: src/Plugins/Export/ExportOdt.php:568
+#: src/Plugins/Export/ExportTexytext.php:434
 #: src/Plugins/Export/Helpers/Pdf.php:334
 msgid "Event"
 msgstr "ইভেন্ট"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:259
+#: src/Controllers/Triggers/IndexController.php:243
 #, php-format
 msgid "Export of trigger %s"
 msgstr "ট্রিগার %s রফতানী"
@@ -7934,10 +7934,10 @@ msgstr "ট্রিগার %s রফতানী"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:290 src/Menu.php:383
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:528
-#: src/Plugins/Export/ExportOdt.php:655 src/Plugins/Export/ExportPdf.php:251
-#: src/Plugins/Export/ExportSql.php:1932
-#: src/Plugins/Export/ExportTexytext.php:496
+#: src/Plugins/Export/ExportHtmlword.php:523
+#: src/Plugins/Export/ExportOdt.php:648 src/Plugins/Export/ExportPdf.php:245
+#: src/Plugins/Export/ExportSql.php:1924
+#: src/Plugins/Export/ExportTexytext.php:490
 #: src/Plugins/Export/ExportXml.php:105 src/Util.php:1475 src/Util.php:1491
 msgid "Triggers"
 msgstr "ট্রিগারসমূহ"
@@ -9664,10 +9664,10 @@ msgstr "অকার্যকর"
 #: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
 #: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:95
+#: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:221
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:220
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure"
 msgstr "কাঠামো"
@@ -9675,10 +9675,10 @@ msgstr "কাঠামো"
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
 #: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:95
+#: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:221
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:220
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "data"
 msgstr "তথ্য"
@@ -9686,10 +9686,10 @@ msgstr "তথ্য"
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
 #: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:95
+#: src/Plugins/Export/ExportLatex.php:94
 #: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:75 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:221
+#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
+#: src/Plugins/Export/ExportSql.php:220
 #: src/Plugins/Export/ExportTexytext.php:61
 msgid "structure and data"
 msgstr "কাঠামো এবং তথ্য"
@@ -9882,7 +9882,7 @@ msgid ""
 msgstr "একটি স্ক্রীপট চলার সময় (সেকেন্ডে)নির্ধারন করুন ([kbd]০[/kbd] সীমাহীন)।"
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:321
+#: src/Plugins/Export/ExportSql.php:320
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -11213,18 +11213,18 @@ msgstr "সংকোচন"
 #: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:85
 #: src/Plugins/Export/ExportExcel.php:59
 #: src/Plugins/Export/ExportHtmlword.php:82 src/Plugins/Export/ExportOds.php:68
-#: src/Plugins/Export/ExportOdt.php:124
+#: src/Plugins/Export/ExportOdt.php:123
 #: src/Plugins/Export/ExportTexytext.php:76
 msgid "Put columns names in the first row"
 msgstr "স্তম্ভের নাম প্রথম রোতে দাও"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
 msgid "Columns enclosed with"
 msgstr "স্তম্ভ ঘেরার জন্য"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
 msgid "Columns escaped with"
 msgstr "স্তম্ভ এস্কেপডের উপকরণ"
 
@@ -11240,12 +11240,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "স্তম্ভের CRLF বর্ণ মুছ"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
 msgid "Columns terminated with"
 msgstr "স্তম্ভ শেষ হবে"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:671
+#: src/Plugins/Import/ImportCsv.php:670
 msgid "Lines terminated with"
 msgstr "লাইন শেষ হবে"
 
@@ -11268,16 +11268,16 @@ msgstr "টেবলের নামের নকশা"
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
 #: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:57
-#: src/Plugins/Export/ExportLatex.php:90
+#: src/Plugins/Export/ExportLatex.php:89
 #: src/Plugins/Export/ExportMediawiki.php:53
 #: src/Plugins/Export/ExportMediawiki.php:59
-#: src/Plugins/Export/ExportOdt.php:70 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:217
+#: src/Plugins/Export/ExportOdt.php:69 src/Plugins/Export/ExportPdf.php:81
+#: src/Plugins/Export/ExportSql.php:216
 #: src/Plugins/Export/ExportTexytext.php:56
 msgid "Dump table"
 msgstr "টেবল স্তুপ কর"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:81
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:80
 msgid "Include table caption"
 msgstr "টেবিলের শিরোনামসহ"
 
@@ -11340,11 +11340,11 @@ msgstr "তৈরী/আপডেট/পরীক্ষার তারিখ"
 msgid "Use delayed inserts"
 msgstr "delayed inserts ব্যবহার কর"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:186
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:185
 msgid "Disable foreign key checks"
 msgstr "foreign key পরীক্ষা অকার্যকর কর"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:196
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:195
 msgid "Export views as tables"
 msgstr "ভিউ টেবিলের মত রফতানী করা হচ্ছে"
 
@@ -11366,7 +11366,7 @@ msgid ""
 "creation)"
 msgstr ""
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:327
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:326
 #, php-format
 msgid "%s view"
 msgstr "%s ভিউ"
@@ -11379,7 +11379,7 @@ msgstr "ignore inserts ব্যাবহার কর"
 msgid "Syntax to use when inserting data"
 msgstr "তথ্য প্রবেশ করানোর সময় ব্যবহৃত বাক্য"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:454
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:453
 msgid "Maximal length of created query"
 msgstr "প্রস্তুতকৃত অনুসন্ধানের সর্বোচ্চ দৈর্ঘ"
 
@@ -11387,7 +11387,7 @@ msgstr "প্রস্তুতকৃত অনুসন্ধানের স�
 msgid "Export type"
 msgstr "রফাতানীর ধরন"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:176
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:175
 msgid "Enclose export in a transaction"
 msgstr "লেনদেন এ রফতানী সংযুক্ত কর"
 
@@ -11665,7 +11665,7 @@ msgstr "চলাচলের ফ্রেম"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Navigation/NavigationTree.php:1310
+#: src/Navigation/NavigationTree.php:1296
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
@@ -12135,11 +12135,11 @@ msgstr "পরিসংখ্যান দেখাও"
 msgid "Skip locked tables"
 msgstr "লকড টেবল এড়িয়ে যাও"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:496
 msgid "Explain SQL"
 msgstr "SQL এর ব্যাখা"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:553
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:557
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -12546,11 +12546,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "সার্ভার %d"
 
-#: src/ConfigStorage/Relation.php:1246
+#: src/ConfigStorage/Relation.php:1247
 msgid "no description"
 msgstr "বণর্না নাই"
 
-#: src/ConfigStorage/Relation.php:1452
+#: src/ConfigStorage/Relation.php:1453
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12713,125 +12713,125 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "রো দেখাচ্ছে %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:106
+#: src/Controllers/Database/DesignerController.php:103
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:177
-#: src/Controllers/Database/DesignerController.php:182
-#: src/Controllers/Database/EventsController.php:60
-#: src/Controllers/Database/ExportController.php:66
-#: src/Controllers/Database/ExportController.php:71
-#: src/Controllers/Database/ImportController.php:64
-#: src/Controllers/Database/ImportController.php:69
-#: src/Controllers/Database/RoutinesController.php:80
-#: src/Controllers/Database/RoutinesController.php:109
-#: src/Controllers/Database/SearchController.php:54
-#: src/Controllers/Database/SearchController.php:59
-#: src/Controllers/Database/SqlController.php:62
-#: src/Controllers/Database/SqlController.php:67
-#: src/Controllers/Database/StructureController.php:142
-#: src/Controllers/Database/StructureController.php:147
-#: src/Controllers/Database/Structure/FavoriteTableController.php:83
-#: src/Controllers/Database/Structure/RealRowCountController.php:60
+#: src/Controllers/Database/DesignerController.php:168
+#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/EventsController.php:51
+#: src/Controllers/Database/ExportController.php:58
+#: src/Controllers/Database/ExportController.php:63
+#: src/Controllers/Database/ImportController.php:60
+#: src/Controllers/Database/ImportController.php:65
+#: src/Controllers/Database/RoutinesController.php:76
+#: src/Controllers/Database/RoutinesController.php:95
+#: src/Controllers/Database/SearchController.php:52
+#: src/Controllers/Database/SearchController.php:57
+#: src/Controllers/Database/SqlController.php:52
+#: src/Controllers/Database/SqlController.php:57
+#: src/Controllers/Database/StructureController.php:138
+#: src/Controllers/Database/StructureController.php:143
+#: src/Controllers/Database/Structure/FavoriteTableController.php:77
+#: src/Controllers/Database/Structure/RealRowCountController.php:50
+#: src/Controllers/Database/TrackingController.php:54
 #: src/Controllers/Database/TrackingController.php:59
-#: src/Controllers/Database/TrackingController.php:64
 #: src/Controllers/JavaScriptMessagesController.php:360
-#: src/Controllers/Operations/Database/CollationController.php:62
+#: src/Controllers/Operations/Database/CollationController.php:52
 #: src/Controllers/Operations/DatabaseController.php:240
 #: src/Controllers/Operations/DatabaseController.php:245
-#: src/Controllers/Operations/TableController.php:86
-#: src/Controllers/Operations/TableController.php:91
-#: src/Controllers/Operations/ViewController.php:63
-#: src/Controllers/Operations/ViewController.php:68
-#: src/Controllers/Server/Databases/DestroyController.php:61
-#: src/Controllers/Table/AddFieldController.php:163
-#: src/Controllers/Table/AddFieldController.php:168
-#: src/Controllers/Table/ChangeController.php:68
-#: src/Controllers/Table/ChangeController.php:73
-#: src/Controllers/Table/ChartController.php:97
-#: src/Controllers/Table/ChartController.php:102
-#: src/Controllers/Table/ChartController.php:139
-#: src/Controllers/Table/ChartController.php:144
-#: src/Controllers/Table/ChartController.php:225
-#: src/Controllers/Table/DeleteConfirmController.php:61
-#: src/Controllers/Table/DeleteConfirmController.php:66
+#: src/Controllers/Operations/TableController.php:87
+#: src/Controllers/Operations/TableController.php:92
+#: src/Controllers/Operations/ViewController.php:59
+#: src/Controllers/Operations/ViewController.php:64
+#: src/Controllers/Server/Databases/DestroyController.php:59
+#: src/Controllers/Table/AddFieldController.php:161
+#: src/Controllers/Table/AddFieldController.php:166
+#: src/Controllers/Table/ChangeController.php:67
+#: src/Controllers/Table/ChangeController.php:72
+#: src/Controllers/Table/ChartController.php:86
+#: src/Controllers/Table/ChartController.php:91
+#: src/Controllers/Table/ChartController.php:121
+#: src/Controllers/Table/ChartController.php:126
+#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/DeleteConfirmController.php:55
+#: src/Controllers/Table/DeleteConfirmController.php:60
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:74
-#: src/Controllers/Table/FindReplaceController.php:79
-#: src/Controllers/Table/GisVisualizationController.php:66
-#: src/Controllers/Table/GisVisualizationController.php:71
-#: src/Controllers/Table/ImportController.php:67
-#: src/Controllers/Table/ImportController.php:72
+#: src/Controllers/Table/FindReplaceController.php:71
+#: src/Controllers/Table/FindReplaceController.php:76
+#: src/Controllers/Table/GisVisualizationController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:65
+#: src/Controllers/Table/ImportController.php:68
+#: src/Controllers/Table/ImportController.php:73
+#: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexesController.php:69
-#: src/Controllers/Table/IndexesController.php:74
-#: src/Controllers/Table/IndexRenameController.php:59
-#: src/Controllers/Table/IndexRenameController.php:64
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
-#: src/Controllers/Table/SqlController.php:64
-#: src/Controllers/Table/SqlController.php:69
+#: src/Controllers/Table/IndexRenameController.php:53
+#: src/Controllers/Table/IndexRenameController.php:58
+#: src/Controllers/Table/SearchController.php:172
+#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SqlController.php:57
+#: src/Controllers/Table/SqlController.php:62
+#: src/Controllers/Table/StructureController.php:89
 #: src/Controllers/Table/StructureController.php:94
-#: src/Controllers/Table/StructureController.php:99
-#: src/Controllers/Table/Structure/PrimaryController.php:73
-#: src/Controllers/Table/Structure/PrimaryController.php:78
+#: src/Controllers/Table/Structure/PrimaryController.php:69
+#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/TrackingController.php:66
 #: src/Controllers/Table/TrackingController.php:71
-#: src/Controllers/Table/TrackingController.php:76
 #: src/Controllers/Table/ZoomSearchController.php:99
 #: src/Controllers/Table/ZoomSearchController.php:104
-#: src/Controllers/Triggers/IndexController.php:73
-#: src/Controllers/Triggers/IndexController.php:102
-#: src/Controllers/View/CreateController.php:74
-#: src/Controllers/View/CreateController.php:79
+#: src/Controllers/Triggers/IndexController.php:67
+#: src/Controllers/Triggers/IndexController.php:86
+#: src/Controllers/View/CreateController.php:67
+#: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "ডাটাবেইজ নিবার্চন করা হয়নি।"
 
-#: src/Controllers/Database/EventsController.php:141
+#: src/Controllers/Database/EventsController.php:132
 msgid "Add event"
 msgstr "ইভেন্ট যোগ কর"
 
-#: src/Controllers/Database/EventsController.php:145
+#: src/Controllers/Database/EventsController.php:136
 msgid "Edit event"
 msgstr "ইভেন্ট সম্পাদনা"
 
-#: src/Controllers/Database/EventsController.php:194
-#: src/Controllers/Database/RoutinesController.php:293
-#: src/Controllers/Database/RoutinesController.php:323
-#: src/Controllers/Database/RoutinesController.php:391
-#: src/Controllers/Triggers/IndexController.php:233
+#: src/Controllers/Database/EventsController.php:185
+#: src/Controllers/Database/RoutinesController.php:279
+#: src/Controllers/Database/RoutinesController.php:309
+#: src/Controllers/Database/RoutinesController.php:377
+#: src/Controllers/Triggers/IndexController.php:217
 msgid "Error in processing request:"
 msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
 
-#: src/Controllers/Database/EventsController.php:196
+#: src/Controllers/Database/EventsController.php:187
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid "No event with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
-#: src/Controllers/Database/EventsController.php:222
+#: src/Controllers/Database/EventsController.php:213
 #, php-format
 msgid "Export of event %s"
 msgstr "ইভেন্ট %s যোগ কর"
 
-#: src/Controllers/Database/EventsController.php:240
+#: src/Controllers/Database/EventsController.php:231
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s"
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামের কোন ইভেন্ট পাওয়া যায়নি"
 
-#: src/Controllers/Database/ExportController.php:150
-#: src/Controllers/Server/ExportController.php:70
-#: src/Controllers/Table/ExportController.php:103
+#: src/Controllers/Database/ExportController.php:138
+#: src/Controllers/Server/ExportController.php:65
+#: src/Controllers/Table/ExportController.php:96
 msgid "Could not load export plugins, please check your installation!"
 msgstr "রফতানী সহায়কটি লোড করা যাচ্ছে না, ইনস্টলেশন পরীক্ষা করুন!"
 
-#: src/Controllers/Database/ImportController.php:81
-#: src/Controllers/Server/ImportController.php:61
-#: src/Controllers/Table/ImportController.php:101
+#: src/Controllers/Database/ImportController.php:77
+#: src/Controllers/Server/ImportController.php:58
+#: src/Controllers/Table/ImportController.php:102
 msgid "Could not load import plugins, please check your installation!"
 msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন!"
@@ -12851,7 +12851,7 @@ msgstr "কোন অধিকার নাই"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "একটি ট্রিগার তৈরীর জন্য প্রয়োজনীয় অধিকার নাই"
 
-#: src/Controllers/Database/RoutinesController.php:88
+#: src/Controllers/Database/RoutinesController.php:84
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:38
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -12863,83 +12863,83 @@ msgstr "একটি ট্রিগার তৈরীর জন্য প্�
 #: src/Controllers/Database/Structure/ShowCreateController.php:34
 #: src/Controllers/Export/TablesController.php:27
 #: src/Controllers/JavaScriptMessagesController.php:361
-#: src/Controllers/Operations/TableController.php:100
-#: src/Controllers/Operations/TableController.php:105
-#: src/Controllers/Operations/ViewController.php:77
-#: src/Controllers/Operations/ViewController.php:82
-#: src/Controllers/Table/AddFieldController.php:177
-#: src/Controllers/Table/AddFieldController.php:182
-#: src/Controllers/Table/ChangeController.php:82
-#: src/Controllers/Table/ChangeController.php:87
-#: src/Controllers/Table/ChartController.php:111
-#: src/Controllers/Table/ChartController.php:116
-#: src/Controllers/Table/ChartController.php:233
-#: src/Controllers/Table/DeleteConfirmController.php:75
-#: src/Controllers/Table/DeleteConfirmController.php:80
+#: src/Controllers/Operations/TableController.php:101
+#: src/Controllers/Operations/TableController.php:106
+#: src/Controllers/Operations/ViewController.php:73
+#: src/Controllers/Operations/ViewController.php:78
+#: src/Controllers/Table/AddFieldController.php:175
+#: src/Controllers/Table/AddFieldController.php:180
+#: src/Controllers/Table/ChangeController.php:81
+#: src/Controllers/Table/ChangeController.php:86
+#: src/Controllers/Table/ChartController.php:100
+#: src/Controllers/Table/ChartController.php:105
+#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/DeleteConfirmController.php:69
+#: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:88
-#: src/Controllers/Table/FindReplaceController.php:93
-#: src/Controllers/Table/ImportController.php:81
-#: src/Controllers/Table/ImportController.php:86
+#: src/Controllers/Table/FindReplaceController.php:85
+#: src/Controllers/Table/FindReplaceController.php:90
+#: src/Controllers/Table/ImportController.php:82
+#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Table/IndexesController.php:78
 #: src/Controllers/Table/IndexesController.php:83
-#: src/Controllers/Table/IndexesController.php:88
-#: src/Controllers/Table/IndexRenameController.php:73
-#: src/Controllers/Table/IndexRenameController.php:78
+#: src/Controllers/Table/IndexRenameController.php:67
+#: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:44
 #: src/Controllers/Table/Maintenance/CheckController.php:44
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
-#: src/Controllers/Table/SqlController.php:78
-#: src/Controllers/Table/SqlController.php:83
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SqlController.php:71
+#: src/Controllers/Table/SqlController.php:76
+#: src/Controllers/Table/StructureController.php:103
 #: src/Controllers/Table/StructureController.php:108
-#: src/Controllers/Table/StructureController.php:113
-#: src/Controllers/Table/Structure/PrimaryController.php:87
-#: src/Controllers/Table/Structure/PrimaryController.php:92
+#: src/Controllers/Table/Structure/PrimaryController.php:83
+#: src/Controllers/Table/Structure/PrimaryController.php:88
 #: src/Controllers/Table/ZoomSearchController.php:113
 #: src/Controllers/Table/ZoomSearchController.php:118
-#: src/Controllers/Triggers/IndexController.php:81
+#: src/Controllers/Triggers/IndexController.php:75
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "কোনো তালিকা নিবার্চন করা হয়নি।"
 
-#: src/Controllers/Database/RoutinesController.php:193
+#: src/Controllers/Database/RoutinesController.php:179
 msgid "Add routine"
 msgstr "রুটিন যোগকর"
 
-#: src/Controllers/Database/RoutinesController.php:197
+#: src/Controllers/Database/RoutinesController.php:183
 msgid "Edit routine"
 msgstr "রুটিন সম্পাদনা"
 
-#: src/Controllers/Database/RoutinesController.php:296
+#: src/Controllers/Database/RoutinesController.php:282
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:325
-#: src/Controllers/Database/RoutinesController.php:393
+#: src/Controllers/Database/RoutinesController.php:311
+#: src/Controllers/Database/RoutinesController.php:379
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s তে %1$s নামের কোন রুটিন পাওয়া যায়নি"
 
-#: src/Controllers/Database/RoutinesController.php:374
-#: src/Controllers/Database/RoutinesController.php:384
+#: src/Controllers/Database/RoutinesController.php:360
+#: src/Controllers/Database/RoutinesController.php:370
 msgid "Execute routine"
 msgstr "রুটিন নির্বাহ কর"
 
-#: src/Controllers/Database/RoutinesController.php:436
+#: src/Controllers/Database/RoutinesController.php:422
 #, php-format
 msgid "Export of routine %s"
 msgstr "রুটিন %s এর রফতানী"
 
-#: src/Controllers/Database/RoutinesController.php:455
+#: src/Controllers/Database/RoutinesController.php:441
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -12947,7 +12947,7 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:66
+#: src/Controllers/Database/SearchController.php:64
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -12961,7 +12961,7 @@ msgstr ""
 msgid "Success!"
 msgstr "সফল।"
 
-#: src/Controllers/Database/StructureController.php:576
+#: src/Controllers/Database/StructureController.php:572
 #: src/Display/Results.php:3416
 #, php-format
 msgid ""
@@ -12970,20 +12970,20 @@ msgid ""
 msgstr ""
 "এই ভিউটির অন্তত পক্ষে এক সারি তথ্য রয়েছে। অনুগ্রহ করে %sdocumentation%s দেখুন।"
 
-#: src/Controllers/Database/StructureController.php:740
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "অজানা"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:119
+#: src/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:77
-#: src/Controllers/Database/TrackingController.php:103
+#: src/Controllers/Database/TrackingController.php:72
+#: src/Controllers/Database/TrackingController.php:98
 msgid "Tracking data deleted successfully."
 msgstr "অনুসরণ তথ্যের বিবরণী সফলভাবে মুছা হয়েছে।"
 
-#: src/Controllers/Database/TrackingController.php:88
+#: src/Controllers/Database/TrackingController.php:83
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -12991,11 +12991,11 @@ msgstr ""
 "উক্ত তালিকাগুলির জন্য %1$s সংস্করন তৈরী করা হয়েছে, তালিকাগুলির জন্য অনুসরণ কার্য "
 "চলছে।"
 
-#: src/Controllers/Database/TrackingController.php:120
+#: src/Controllers/Database/TrackingController.php:115
 msgid "No tables selected."
 msgstr "কোনো তালিকা নিবার্চন করা হয়নি।"
 
-#: src/Controllers/Database/TrackingController.php:155
+#: src/Controllers/Database/TrackingController.php:150
 msgid "Database Log"
 msgstr "ডেটাবেস লগ"
 
@@ -13027,20 +13027,16 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "আপনি পাতাটি রিফ্রেশ করে নিতে পারেন."
 
-#: src/Controllers/Export/ExportController.php:109 src/Export/Export.php:1181
+#: src/Controllers/Export/ExportController.php:106 src/Export/Export.php:1157
 msgid "Bad type!"
 msgstr "ধরন মিলে নাই!"
-
-#: src/Controllers/Export/ExportController.php:184
-msgid "Bad parameters!"
-msgstr "প্যারামিটারগুলো খারপ!"
 
 #: src/Controllers/GisDataEditorController.php:116
 #, php-format
 msgid "Value for the column \"%s\""
 msgstr "স্বম্ভ \"%s\" এর জন্য তথ্য"
 
-#: src/Controllers/HomeController.php:99
+#: src/Controllers/HomeController.php:97
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -13048,7 +13044,7 @@ msgstr ""
 "আপনি একটি সার্ভার থেকে লগ আউট হয়, তারপর আপনি Phpmyadmin থেকে জটিলতা খুঁজে পেতে "
 "পারেন, আপনি সব সার্ভার থেকে জানতে হবে।"
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:194
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13057,12 +13053,12 @@ msgstr ""
 "কনফিগারেশন মজুদ ব্যবস্থা (phpMyAdmin)সর্ম্পূণভাবে সম্পন্ন হয়নি, কিছু উন্নত বিষয় "
 "অকার্যকর রয়েছে। কেন জানতে ক্লীক করুন %shere%s। "
 
-#: src/Controllers/HomeController.php:202
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: src/Controllers/HomeController.php:267
+#: src/Controllers/HomeController.php:265
 #, fuzzy
 #| msgid ""
 #| "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
@@ -13080,7 +13076,7 @@ msgstr ""
 "phpMyAdmin এর কুকির থেকে কম স্থায়ী, এ জন্য আপনার লগইনের কার্যকাল দ্রুত শেষ হয়ে "
 "যাবে।"
 
-#: src/Controllers/HomeController.php:287
+#: src/Controllers/HomeController.php:285
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -13088,21 +13084,21 @@ msgstr ""
 "লগইন কুকি phpMyAdmin কুকির চাইতে কম সময় কার্যকর থাকবে এই জন্য আপনার লগইন সময় "
 "তাড়াতাড়ি শেষ হয়ে যাবে।"
 
-#: src/Controllers/HomeController.php:306
+#: src/Controllers/HomeController.php:304
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:325
+#: src/Controllers/HomeController.php:323
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:335
+#: src/Controllers/HomeController.php:333
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13110,7 +13106,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:353
+#: src/Controllers/HomeController.php:351
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13120,21 +13116,21 @@ msgstr ""
 "সেটআপে ব্যবহৃত ডিরেক্টরী [code]config[/code] এখনো রয়েছে। এটা অবশ্যই মুছে ফেলা "
 "প্রয়োজন।"
 
-#: src/Controllers/HomeController.php:374
+#: src/Controllers/HomeController.php:372
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr "সার্ভারটি Suhosin সহ কাজ করছে। প্রয়োজনে সহায়িকা %sdocumentation%s দেখুন।"
 
-#: src/Controllers/HomeController.php:388
+#: src/Controllers/HomeController.php:386
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:445
+#: src/Controllers/HomeController.php:443
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13144,13 +13140,13 @@ msgstr ""
 "করছেন। mbstring সংযোজক ছাড়া phpMyAdmin শব্দকে সঠিকভাবে খন্ড করতে পারবে না যা "
 "অপ্রত্যাশিত ফল দিতে পারে।"
 
-#: src/Controllers/HomeController.php:463
+#: src/Controllers/HomeController.php:461
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
 msgstr ""
 
-#: src/Controllers/Import/ImportController.php:167
+#: src/Controllers/Import/ImportController.php:166
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13159,23 +13155,23 @@ msgstr ""
 "সম্ভবত আপনি একটি বিশাল ফাইল আপলোড করতে চাচ্ছেন। অনুগ্র্রহ করে %sdocumentation%s "
 "দেখে এই সমস্যা সমাধানের চেষ্টা করুন।"
 
-#: src/Controllers/Import/ImportController.php:193
+#: src/Controllers/Import/ImportController.php:192
 #, fuzzy
 #| msgid "Remove last parameter"
 msgid "Incorrect format parameter"
 msgstr "শেষ প্যারামিটারটি মুছ"
 
-#: src/Controllers/Import/ImportController.php:307
-#: src/Controllers/Import/ImportController.php:520
+#: src/Controllers/Import/ImportController.php:306
+#: src/Controllers/Import/ImportController.php:519
 msgid "Showing bookmark"
 msgstr "বুকর্মাক দেখাচ্ছে"
 
-#: src/Controllers/Import/ImportController.php:327
-#: src/Controllers/Import/ImportController.php:516
+#: src/Controllers/Import/ImportController.php:326
+#: src/Controllers/Import/ImportController.php:515
 msgid "The bookmark has been deleted."
 msgstr "বুকর্মাকটি মুছা হয়েছে।"
 
-#: src/Controllers/Import/ImportController.php:439
+#: src/Controllers/Import/ImportController.php:438
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13184,14 +13180,14 @@ msgstr ""
 "আমদানির জন্য কোন তথ্য পাওয়া যায়নি। হয় কোন ফাইলের নাম দেওয়া হয়নি বা অনেক বড় "
 "আকারের ফাইল যা পিএইছপি সমর্থন করছে না। [doc@faq1-16]FAQ 1.16[/doc] দেখুন।"
 
-#: src/Controllers/Import/ImportController.php:528
+#: src/Controllers/Import/ImportController.php:527
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d অনুসন্ধান ব্যবহৃত হয়েছে।"
 msgstr[1] "আমদানি প্রক্রীয়াটি সফলভাবে সম্পন্ন হয়েছে, %d গুলো অনুসন্ধান ব্যবহৃত হয়েছে।"
 
-#: src/Controllers/Import/ImportController.php:565
+#: src/Controllers/Import/ImportController.php:564
 #, fuzzy, php-format
 #| msgid ""
 #| "Script timeout passed, if you want to finish import, please resubmit same "
@@ -13201,7 +13197,7 @@ msgid ""
 "same file%s and import will resume."
 msgstr "নির্ধারিত কার্যকাল শেষ হয়ে গেছে, আমদানি শেষ করার জন্য কাজটি আবার শুরু করুন।"
 
-#: src/Controllers/Import/ImportController.php:575
+#: src/Controllers/Import/ImportController.php:574
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13209,16 +13205,16 @@ msgstr ""
 "আমদানি প্রচেষ্টায় কোন তথ্য আমদানি করা যায়নি, পিএইচপির নির্ধারিত সময় না বাড়ালে এই "
 "আমদানিটি শেষ করা যাবে না।"
 
-#: src/Controllers/Import/ImportController.php:638
-#: src/Controllers/Sql/SqlController.php:158
+#: src/Controllers/Import/ImportController.php:637
+#: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" অকার্যকর করা আছে।"
 
-#: src/Controllers/Import/ImportController.php:691 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:690 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Controllers/Import/SimulateDmlController.php:83
+#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -14628,7 +14624,7 @@ msgid "cancel"
 msgstr "বাতিল"
 
 #: src/Controllers/JavaScriptMessagesController.php:596
-#: src/Controllers/Server/Status/StatusController.php:186
+#: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "বাতিলকৃত"
 
@@ -14673,7 +14669,7 @@ msgid "Hide panel"
 msgstr "ইনডেক্স প্যানেল"
 
 #: src/Controllers/JavaScriptMessagesController.php:616
-#: src/Navigation/NavigationTree.php:1313
+#: src/Navigation/NavigationTree.php:1299
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
@@ -15461,13 +15457,13 @@ msgid "No such column"
 msgstr "স্বম্ভ সরাও"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:224 src/Types.php:696
+#: src/Normalization.php:224 src/Types.php:629
 msgctxt "string types"
 msgid "String"
 msgstr "স্ট্রিং"
 
-#: src/Controllers/Operations/Database/CollationController.php:44
-#: src/Controllers/Operations/TableController.php:277
+#: src/Controllers/Operations/Database/CollationController.php:40
+#: src/Controllers/Operations/TableController.php:278
 msgid "No collation provided."
 msgstr ""
 
@@ -15475,12 +15471,12 @@ msgstr ""
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:166
+#: src/Controllers/Operations/DatabaseController.php:168
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "ডেটাবেস %1$s এর নতুন নামকরণ হয়েছে %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:180
+#: src/Controllers/Operations/DatabaseController.php:182
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "ডেটাবেস %1$s টি ডেটাবেস %2$s এ অনুলিপি হয়েছে."
@@ -15520,7 +15516,7 @@ msgstr "কনফিগারেশনে অকার্যকর প্রম�
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:478
+#: src/ResponseRenderer.php:447
 msgid "Missing parameter:"
 msgstr "parameter নাই:"
 
@@ -15529,7 +15525,7 @@ msgstr "parameter নাই:"
 msgid "Database %1$s has been created."
 msgstr "ডাটাবেইজ %1$s তৈরী করা হয়েছে।"
 
-#: src/Controllers/Server/Databases/DestroyController.php:86
+#: src/Controllers/Server/Databases/DestroyController.php:83
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15566,31 +15562,31 @@ msgid ""
 msgstr ""
 "phpMyAdmin %s প্রক্রিয়াটি ধ্বংস করতে পারে নাই। সম্ভবত ইহা পূর্বেই বন্ধ করা হয়েছে।"
 
-#: src/Controllers/Server/Status/QueriesController.php:92
+#: src/Controllers/Server/Status/QueriesController.php:89
 #, fuzzy
 #| msgid "Add statements:"
 msgid "Other statements"
 msgstr "স্টেটমেন্টসমূহ যোগকর:"
 
-#: src/Controllers/Server/Status/StatusController.php:132
+#: src/Controllers/Server/Status/StatusController.php:129
 msgid "Received"
 msgstr "গৃহীত"
 
-#: src/Controllers/Server/Status/StatusController.php:137
+#: src/Controllers/Server/Status/StatusController.php:134
 msgid "Sent"
 msgstr "প্রেরিত"
 
-#: src/Controllers/Server/Status/StatusController.php:174
+#: src/Controllers/Server/Status/StatusController.php:171
 #, fuzzy
 #| msgid "max. concurrent connections"
 msgid "Max. concurrent connections"
 msgstr "একত্রে সবোর্চ্চ সংযোগসমূহ"
 
-#: src/Controllers/Server/Status/StatusController.php:180
+#: src/Controllers/Server/Status/StatusController.php:177
 msgid "Failed attempts"
 msgstr "ব্যর্থ প্রচেষ্টা সমূহ"
 
-#: src/Controllers/Server/Status/VariablesController.php:222
+#: src/Controllers/Server/Status/VariablesController.php:218
 msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
@@ -15598,11 +15594,11 @@ msgstr ""
 "যে সমস্ত সংযোগকারীর সংযোগ সঠিকভাবে বিচ্ছিন্ন না করায় সংযোগ বাতিল করা হয়েছে তার "
 "সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:225
+#: src/Controllers/Server/Status/VariablesController.php:221
 msgid "The number of failed attempts to connect to the MySQL server."
 msgstr "মাইএসকিউএল সার্ভারের সংগে সংযোগ স্থাপনে ব্যর্থ্য প্রচেষ্টাসমূহের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:227
+#: src/Controllers/Server/Status/VariablesController.php:223
 msgid ""
 "The number of transactions that used the temporary binary log cache but that "
 "exceeded the value of binlog_cache_size and used a temporary file to store "
@@ -15611,16 +15607,16 @@ msgstr ""
 "সাময়িক বাইনারী লগ ব্যবহার করেছে এমন লেনদেন সংখ্যা কিন্ত যা binlog_cache_size "
 "অতিক্রম করেছে এবং লেনদেনের তথ্য রাখার জন্য সাময়িক ফাইল ব্যবহার করেছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:231
+#: src/Controllers/Server/Status/VariablesController.php:227
 msgid "The number of transactions that used the temporary binary log cache."
 msgstr "লেনদেনে সাময়িক বাইনারি লগ ক্যাশ ব্যবহার করেছে তার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:232
+#: src/Controllers/Server/Status/VariablesController.php:228
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr "মাইএসকিউএল সার্ভারের সংগে সমস্ত সংযোগ প্রচেষ্টার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:234
+#: src/Controllers/Server/Status/VariablesController.php:230
 msgid ""
 "The number of temporary tables on disk created automatically by the server "
 "while executing statements. If Created_tmp_disk_tables is big, you may want "
@@ -15631,17 +15627,17 @@ msgstr ""
 "যদি Created_tmp_disk_tables বেশী হয়, তাহলে আপনি tmp_table_size এর মানটি "
 "বাড়ান যা ডিস্কের পরীবর্তে মেমোরিতে বেশী টেবিল তৈরী করবে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:240
+#: src/Controllers/Server/Status/VariablesController.php:236
 msgid "How many temporary files mysqld has created."
 msgstr "mysqld কতগুলো সাময়িক ফাইল তৈরী করেছ।"
 
-#: src/Controllers/Server/Status/VariablesController.php:242
+#: src/Controllers/Server/Status/VariablesController.php:238
 msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr "কাজ করার সময় সার্ভার দ্বারা মেমোরীতে প্রস্তুতকৃত সাময়িক টেবিলের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:246
+#: src/Controllers/Server/Status/VariablesController.php:242
 msgid ""
 "The number of rows written with INSERT DELAYED for which some error occurred "
 "(probably duplicate key)."
@@ -15649,7 +15645,7 @@ msgstr ""
 "INSERT DELAYED এর মাধ্যমে লেখা রো গুলোর জন্য কিছু ভুল হয়ে থাকতে পারে (probably "
 "duplicate key)।"
 
-#: src/Controllers/Server/Status/VariablesController.php:250
+#: src/Controllers/Server/Status/VariablesController.php:246
 msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
@@ -15657,23 +15653,23 @@ msgstr ""
 "INSERT DELAYED থ্রেডসমূহের তত্ত্বাবধানকারী ব্যবহৃত হচ্ছে। প্রতিটি INSERT DELAYED "
 "ব্যবহারকারী তার নিজস্ব থ্রেড ব্যবহার করছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:254
+#: src/Controllers/Server/Status/VariablesController.php:250
 msgid "The number of INSERT DELAYED rows written."
 msgstr "INSERT DELAYED রো'র সংখ্যা লেখা হয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:255
+#: src/Controllers/Server/Status/VariablesController.php:251
 msgid "The number of executed FLUSH statements."
 msgstr "ব্যবহৃত FLUSH এর সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:256
+#: src/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of internal COMMIT statements."
 msgstr "আভ্যন্তরীন COMMIT এর সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:257
+#: src/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of times a row was deleted from a table."
 msgstr "একটি রো একটি টেবিল থেকে কতবার মুছা হয়েছে তার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:259
+#: src/Controllers/Server/Status/VariablesController.php:255
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
@@ -15683,7 +15679,7 @@ msgstr ""
 "করতে পারে। একে ডিসকভারী বলে। Handler_discover টেবিলটি কতবার ডিসকভার করা "
 "হয়েছে তা দেখায়।"
 
-#: src/Controllers/Server/Status/VariablesController.php:265
+#: src/Controllers/Server/Status/VariablesController.php:261
 msgid ""
 "The number of times the first entry was read from an index. If this is high, "
 "it suggests that the server is doing a lot of full index scans; for example, "
@@ -15693,7 +15689,7 @@ msgstr ""
 "সার্ভার প্রচুর সম্পুর্ন ইনডেক্স স্ক্যান করছে; যেমন SELECT col1 FROM foo, ধারনা করা "
 "যায় col1 ইনডেক্স করা আছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:271
+#: src/Controllers/Server/Status/VariablesController.php:267
 msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
@@ -15701,7 +15697,7 @@ msgstr ""
 "একটি key উপর ভিত্তি করে কত বার রো পড়ার চেষ্টা করা হয়েছে তার সংখ্যা। এটা যদি "
 "অনেক বেশী হয়, তাহলে তা টেবিল এবং অনুসন্ধানের ভালো ইনডেক্স হওয়ার ভাল লক্ষন।"
 
-#: src/Controllers/Server/Status/VariablesController.php:276
+#: src/Controllers/Server/Status/VariablesController.php:272
 msgid ""
 "The number of requests to read the next row in key order. This is "
 "incremented if you are querying an index column with a range constraint or "
@@ -15710,7 +15706,7 @@ msgstr ""
 "পরবর্তী রো key order অনুযায়ী পড়ার চেষ্টার সংখ্যা। ইহা বাড়বে যদি আপনি ইনডেক্সড "
 "কলাম নির্দিষ্ট সীমার ভিতর অনুসন্ধান করেন বা ইনডেক্স স্ক্যান করেন।"
 
-#: src/Controllers/Server/Status/VariablesController.php:281
+#: src/Controllers/Server/Status/VariablesController.php:277
 msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
@@ -15718,7 +15714,7 @@ msgstr ""
 "পূর্ববর্তী রো key order অনুযায়ী পড়ার চেষ্টার সংখ্যা। পড়ার এই পদ্ধতীটি প্রধানত ORDER "
 "BY … DESC optimize করতে ব্যবহৃত হয়।"
 
-#: src/Controllers/Server/Status/VariablesController.php:285
+#: src/Controllers/Server/Status/VariablesController.php:281
 msgid ""
 "The number of requests to read a row based on a fixed position. This is high "
 "if you are doing a lot of queries that require sorting of the result. You "
@@ -15730,7 +15726,7 @@ msgstr ""
 "টেবিলটি স্কেন করে বা আপনি এমন ভাবে অন্য টেবিলে সংযোগ করেছেন যা keys সঠিক ভাবে "
 "ব্যবহার করছে না।"
 
-#: src/Controllers/Server/Status/VariablesController.php:292
+#: src/Controllers/Server/Status/VariablesController.php:288
 msgid ""
 "The number of requests to read the next row in the data file. This is high "
 "if you are doing a lot of table scans. Generally this suggests that your "
@@ -15741,35 +15737,35 @@ msgstr ""
 "বেশী। মনে হয় আপনার টেবিলটি সঠিকভাবে ইনডেক্স করা হয়নি বা অনুসন্ধানগুলো ইনডেক্সের "
 "সুবিধা নেয়ার মত করে লেখা হয়নি।"
 
-#: src/Controllers/Server/Status/VariablesController.php:298
+#: src/Controllers/Server/Status/VariablesController.php:294
 msgid "The number of internal ROLLBACK statements."
 msgstr "internal ROLLBACK এর সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:299
+#: src/Controllers/Server/Status/VariablesController.php:295
 msgid "The number of requests to update a row in a table."
 msgstr "একটি টেবিলে একটি রো আপডেট এর সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:300
+#: src/Controllers/Server/Status/VariablesController.php:296
 msgid "The number of requests to insert a row in a table."
 msgstr "একটি টেবিলে একটি রো প্রবেশ করানোর চেষ্টা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:301
+#: src/Controllers/Server/Status/VariablesController.php:297
 msgid "The number of pages containing data (dirty or clean)."
 msgstr "তথ্য (পরিচ্ছন্ন বা অপরিচ্ছন্ন) আছে এমন পাতার সংখ্য।"
 
-#: src/Controllers/Server/Status/VariablesController.php:302
+#: src/Controllers/Server/Status/VariablesController.php:298
 msgid "The number of pages currently dirty."
 msgstr "অপরিচ্ছন্ন পাতার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:304
+#: src/Controllers/Server/Status/VariablesController.php:300
 msgid "The number of buffer pool pages that have been requested to be flushed."
 msgstr "মুছার চেষ্টা হয়েছে এমন buffer pool পাতার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:306
+#: src/Controllers/Server/Status/VariablesController.php:302
 msgid "The number of free pages."
 msgstr "খালি পাতার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:308
+#: src/Controllers/Server/Status/VariablesController.php:304
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
@@ -15778,7 +15774,7 @@ msgstr ""
 "InnoDB buffer pool এ থাকা পাতার সংখ্যা। এই পাতাগুলোতে কাজ করা হচ্ছে বা এখনো "
 "ডিস্কে রাখা হয়নি বা কোন কারনে মুছা হয়নি।"
 
-#: src/Controllers/Server/Status/VariablesController.php:313
+#: src/Controllers/Server/Status/VariablesController.php:309
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
@@ -15790,11 +15786,11 @@ msgstr ""
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data এর মাধ্যমেও "
 "পাওয়া যাবে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:319
+#: src/Controllers/Server/Status/VariablesController.php:315
 msgid "Total size of buffer pool, in pages."
 msgstr "বাফার পুলের মোট আকার, পাতায়।"
 
-#: src/Controllers/Server/Status/VariablesController.php:321
+#: src/Controllers/Server/Status/VariablesController.php:317
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
@@ -15802,7 +15798,7 @@ msgstr ""
 "InnoDB'র \"random\" পড়ার চেষ্টা করেছে তার সংখ্যা। যখন কোন অনুসন্ধান টেবলের একটি "
 "বড় অংশ random ভাবে স্ক্যন করে তখন ঘটে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:326
+#: src/Controllers/Server/Status/VariablesController.php:322
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
@@ -15810,18 +15806,18 @@ msgstr ""
 "InnoDB'র ধারাবাহিকভাবে পড়ার চেষ্টা করেছে তার সংখ্যা। InnoDB যখন কোন টেবিলে "
 "ধারাবাহিকভাবে স্ক্যান করে তখন ঘটে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:329
+#: src/Controllers/Server/Status/VariablesController.php:325
 msgid "The number of logical read requests InnoDB has done."
 msgstr "InnoDB'র যৌক্তিক পড়ার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:331
+#: src/Controllers/Server/Status/VariablesController.php:327
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
 "যা InnoDB buffer pool থেকে পড়তে পারেনি এবং একটি পাতা পড়তে হয়েছে তার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:335
+#: src/Controllers/Server/Status/VariablesController.php:331
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -15834,51 +15830,51 @@ msgstr ""
 "অপেক্ষা করতে হয়। এই গণকটি এই অপেক্ষার সংখ্যাটি গুনে রাখে। যদি বাফার পুল আকার "
 "সঠিকভাবে সেট করা হয়, এর মান কম হবে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:342
+#: src/Controllers/Server/Status/VariablesController.php:338
 msgid "The number writes done to the InnoDB buffer pool."
 msgstr "InnoDB বাফার পুলে লেখার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:343
+#: src/Controllers/Server/Status/VariablesController.php:339
 msgid "The number of fsync() operations so far."
 msgstr "fsync() কাজের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:344
+#: src/Controllers/Server/Status/VariablesController.php:340
 msgid "The current number of pending fsync() operations."
 msgstr "আটকে থাকা fsync() কাজের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:345
+#: src/Controllers/Server/Status/VariablesController.php:341
 msgid "The current number of pending reads."
 msgstr "আটকে থাকা পড়ার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:346
+#: src/Controllers/Server/Status/VariablesController.php:342
 msgid "The current number of pending writes."
 msgstr "আটকে থাকা লেখার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:347
+#: src/Controllers/Server/Status/VariablesController.php:343
 msgid "The amount of data read so far, in bytes."
 msgstr "পাঠকৃত তথ্যের পরিমান, বাইটে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:348
+#: src/Controllers/Server/Status/VariablesController.php:344
 msgid "The total number of data reads."
 msgstr "পাঠকৃত তথ্যের মোট সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:349
+#: src/Controllers/Server/Status/VariablesController.php:345
 msgid "The total number of data writes."
 msgstr "লিখিত তথ্যের মোট সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:350
+#: src/Controllers/Server/Status/VariablesController.php:346
 msgid "The amount of data written so far, in bytes."
 msgstr "লিথিত তথ্যের পরিমান, বাইটে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:352
+#: src/Controllers/Server/Status/VariablesController.php:348
 msgid "The number of pages that have been written for doublewrite operations."
 msgstr "পাতার সংখ্যা যা ডাবলরাইটের জন্য লেখা হয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:354
+#: src/Controllers/Server/Status/VariablesController.php:350
 msgid "The number of doublewrite operations that have been performed."
 msgstr "সম্পন্ন করা হয়েছে এমন ডাবলরাইট কাজের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:356
+#: src/Controllers/Server/Status/VariablesController.php:352
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
@@ -15886,35 +15882,35 @@ msgstr ""
 "লগ বাফার খুব ছোট থাকায় কৃত অপেক্ষার সংখ্যা এবং ইহা মুছার পূর্ব পর্যন্ত আমাদের অপেক্ষা "
 "করতে হয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:359
+#: src/Controllers/Server/Status/VariablesController.php:355
 msgid "The number of log write requests."
 msgstr "লগ লেখার জন্য প্রচেষ্টার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:360
+#: src/Controllers/Server/Status/VariablesController.php:356
 msgid "The number of physical writes to the log file."
 msgstr "লগে লেখার সংথ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:361
+#: src/Controllers/Server/Status/VariablesController.php:357
 msgid "The number of fsync() writes done to the log file."
 msgstr "লগে fsync() লেখার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:362
+#: src/Controllers/Server/Status/VariablesController.php:358
 msgid "The number of pending log file fsyncs."
 msgstr "লগে fsync লেখা আটকে আছে তার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:363
+#: src/Controllers/Server/Status/VariablesController.php:359
 msgid "Pending log file writes."
 msgstr "লগে লেখা বাকি আছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:364
+#: src/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of bytes written to the log file."
 msgstr "লগে লেখা বাইটের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:365
+#: src/Controllers/Server/Status/VariablesController.php:361
 msgid "The number of pages created."
 msgstr "প্রস্তুতকৃত পাতার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:367
+#: src/Controllers/Server/Status/VariablesController.php:363
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
@@ -15922,51 +15918,51 @@ msgstr ""
 "InnoDB কম্পাইল করার সময় স্বাভাবিক পাতার আকৃতিতে (16KB) থাকে। অনেক কিছুই পাতা "
 "হিসাবে গনা হয়; পাতার আকৃতি সহজেই বাইটে পরিবর্তন করা যায়।"
 
-#: src/Controllers/Server/Status/VariablesController.php:371
+#: src/Controllers/Server/Status/VariablesController.php:367
 msgid "The number of pages read."
 msgstr "পড়া পাতার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:372
+#: src/Controllers/Server/Status/VariablesController.php:368
 msgid "The number of pages written."
 msgstr "লিখিত পাতার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:373
+#: src/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of row locks currently being waited for."
 msgstr "অপেক্ষারত রো লকের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:374
+#: src/Controllers/Server/Status/VariablesController.php:370
 msgid "The average time to acquire a row lock, in milliseconds."
 msgstr "একটি রো তে তালা দেওয়ার গড় সময়, মিলিসেকেন্ডে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:375
+#: src/Controllers/Server/Status/VariablesController.php:371
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr "রো তালা দেওয়ার জন্য ব্যবহৃত মোট সময়, মিলিসেকেন্ডে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:376
+#: src/Controllers/Server/Status/VariablesController.php:372
 msgid "The maximum time to acquire a row lock, in milliseconds."
 msgstr "একটি রো তে তালা দেওয়ার সর্বোচ্চ সময়, মিলিসেকেন্ডে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:377
+#: src/Controllers/Server/Status/VariablesController.php:373
 msgid "The number of times a row lock had to be waited for."
 msgstr "একটি রো লক কতবার অপেক্ষা করতে হয়েছে তার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:378
+#: src/Controllers/Server/Status/VariablesController.php:374
 msgid "The number of rows deleted from InnoDB tables."
 msgstr "InnoDB টেবিল থেকে মুছা রো'র সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:379
+#: src/Controllers/Server/Status/VariablesController.php:375
 msgid "The number of rows inserted in InnoDB tables."
 msgstr "InnoDB টেবিলে প্রবেশকৃত রো'র সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:380
+#: src/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of rows read from InnoDB tables."
 msgstr "InnoDB টেবিল থেকে পড়া রো'র সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:381
+#: src/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of rows updated in InnoDB tables."
 msgstr "InnoDB টেবিলে আপডেটকৃত রো'র সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:383
+#: src/Controllers/Server/Status/VariablesController.php:379
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
@@ -15974,7 +15970,7 @@ msgstr ""
 "কী ব্লকের সংখ্যা যা কী ক্যাশ পরিবর্তন করেছে কিন্ত এখনো ডিস্কে রাখা হয়নি। সাধারনত "
 "একে Not_flushed_key_blocks বলা হয়।"
 
-#: src/Controllers/Server/Status/VariablesController.php:388
+#: src/Controllers/Server/Status/VariablesController.php:384
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
@@ -15982,7 +15978,7 @@ msgstr ""
 "কী ক্যাশে অব্যবহৃত ব্লকের সংখ্যা। কি পরিমান কী ক্যাশ ব্যবহৃত হচ্চে তা আপনি এর মাধ্যমে "
 "জানতে পারবেন।"
 
-#: src/Controllers/Server/Status/VariablesController.php:392
+#: src/Controllers/Server/Status/VariablesController.php:388
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
@@ -15991,15 +15987,15 @@ msgstr ""
 "কী ক্যাশে ব্যবহৃত ব্লকের সংখ্যা। এটি high-water mark যার দ্বারা একবারে ব্যবহৃত "
 "সর্বোচ্চ সংখ্যার পরিমান দেখায়।"
 
-#: src/Controllers/Server/Status/VariablesController.php:396
+#: src/Controllers/Server/Status/VariablesController.php:392
 msgid "Percentage of used key cache (calculated value)"
 msgstr "কী ক্যাশ ব্যবহারের শতকরা হার (হিসাব করা)"
 
-#: src/Controllers/Server/Status/VariablesController.php:397
+#: src/Controllers/Server/Status/VariablesController.php:393
 msgid "The number of requests to read a key block from the cache."
 msgstr "ক্যাশ থেকে কী ব্লক পড়ার চেষ্টার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:399
+#: src/Controllers/Server/Status/VariablesController.php:395
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
@@ -16009,26 +16005,26 @@ msgstr ""
 "এর মানটি সম্বভত অনেক ছোট। ক্যাশের মিসের হারটি পাওয়া যাবে Key_reads/"
 "Key_read_requests মাধ্যমে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:405
+#: src/Controllers/Server/Status/VariablesController.php:401
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr "কী ক্যাশ পড়ার চেষ্টা এবং আসলে পড়ার হার ভুল হিসাব করিয়াছে (হিসাবকৃত মান)"
 
-#: src/Controllers/Server/Status/VariablesController.php:407
+#: src/Controllers/Server/Status/VariablesController.php:403
 msgid "The number of requests to write a key block to the cache."
 msgstr "ক্যাশে কী ব্লক লেখার চেষ্টার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:408
+#: src/Controllers/Server/Status/VariablesController.php:404
 msgid "The number of physical writes of a key block to disk."
 msgstr "ডিস্কে কী ব্লক লেখার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:409
+#: src/Controllers/Server/Status/VariablesController.php:405
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr "লেখার চেষ্টার তুলনায় সত্যকারের লেখার হার (হিসাবকৃত মান)"
 
-#: src/Controllers/Server/Status/VariablesController.php:411
+#: src/Controllers/Server/Status/VariablesController.php:407
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
@@ -16038,17 +16034,17 @@ msgstr ""
 "বিভিন্ন ধরনের অনুসন্ধান পরিকল্পনার খরচ তুলনা উপকারি। এর মান ০ থাকা মানে কোন "
 "অনুসন্ধান এখনো অনুবাদ করা হয়নি।"
 
-#: src/Controllers/Server/Status/VariablesController.php:417
+#: src/Controllers/Server/Status/VariablesController.php:413
 msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr "সার্ভার আরম্ভ করার পর থেকে একই সময়ে স্থাপিত সংযোগের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:419
+#: src/Controllers/Server/Status/VariablesController.php:415
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
 msgstr "অপেক্ষারত রো'র সংখ্যা যা INSERT DELAYED সারিতে আছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:421
+#: src/Controllers/Server/Status/VariablesController.php:417
 #, fuzzy
 #| msgid ""
 #| "The number of tables that have been opened. If opened tables is big, your "
@@ -16059,19 +16055,19 @@ msgid ""
 msgstr ""
 "খোলা টেবিলের সংখ্যা। যদি সংখ্যাটি বড় হয়, তবে আপনার টেবিল ক্যাশের মান খুবই ছোট।"
 
-#: src/Controllers/Server/Status/VariablesController.php:424
+#: src/Controllers/Server/Status/VariablesController.php:420
 msgid "The number of files that are open."
 msgstr "খোলা ফাইলের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:425
+#: src/Controllers/Server/Status/VariablesController.php:421
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr "খোলা স্ট্রীম এর সংখ্যা (প্রধানত লগিং এর জন্য)।"
 
-#: src/Controllers/Server/Status/VariablesController.php:426
+#: src/Controllers/Server/Status/VariablesController.php:422
 msgid "The number of tables that are open."
 msgstr "খোলা টেবিলের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:428
+#: src/Controllers/Server/Status/VariablesController.php:424
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
@@ -16080,19 +16076,19 @@ msgstr ""
 "অনুসন্ধান ক্যাশে উন্মুক্ত মেমরীর সংখ্যা। বড় সংখ্যা ফ্র্যাগমেন্টেশনের জন্য ঈঙ্গিত দেয়, যা "
 "FLUSH QUERY CACHE এর মাধ্যমে সমাধান করা যেতে পারে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:432
+#: src/Controllers/Server/Status/VariablesController.php:428
 msgid "The amount of free memory for query cache."
 msgstr "অনুসন্ধান ক্যাশের উন্মুক্ত মেমরীর পরিমান।"
 
-#: src/Controllers/Server/Status/VariablesController.php:433
+#: src/Controllers/Server/Status/VariablesController.php:429
 msgid "The number of cache hits."
 msgstr "ক্যাশ কাজের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:434
+#: src/Controllers/Server/Status/VariablesController.php:430
 msgid "The number of queries added to the cache."
 msgstr "ক্যাশে সঞ্চিত অনুসন্ধানের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:436
+#: src/Controllers/Server/Status/VariablesController.php:432
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
@@ -16103,7 +16099,7 @@ msgstr ""
 "আপনার ক্যাশের আকার ঠিক করতে সাহায্য করবে। কোন অনুসন্ধানটি মুছতে হবে তা নির্ধারন "
 "করার জন্য অনুসন্ধান ক্যাশ least recently used (LRU) কৌশল অনুসরন করে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:443
+#: src/Controllers/Server/Status/VariablesController.php:439
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
@@ -16111,19 +16107,19 @@ msgstr ""
 "ক্যাশ করা হয়নি এমন অনুসন্ধানের সংখ্যা (ক্যাশ যোগ্য নয় বা query_cache_type setting "
 "এর জন্য)।"
 
-#: src/Controllers/Server/Status/VariablesController.php:445
+#: src/Controllers/Server/Status/VariablesController.php:441
 msgid "The number of queries registered in the cache."
 msgstr "ক্যাশে রাখা হয়েছে এমন অনুসন্ধানের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:446
+#: src/Controllers/Server/Status/VariablesController.php:442
 msgid "The total number of blocks in the query cache."
 msgstr "অনুসন্ধান ক্যাশে থাকা ব্লকের মোট সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:447
+#: src/Controllers/Server/Status/VariablesController.php:443
 msgid "The status of failsafe replication (not yet implemented)."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:449
+#: src/Controllers/Server/Status/VariablesController.php:445
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
@@ -16131,11 +16127,11 @@ msgstr ""
 "ইনডেক্স ব্যবহার করছে না এমন সংযোগের সংখ্যা। এই মানটি যদি ০ হয় তবে আপনার টেবিলের "
 "ইনডেক্সগুলো সর্তকভাবে পরীক্ষা করুন।"
 
-#: src/Controllers/Server/Status/VariablesController.php:452
+#: src/Controllers/Server/Status/VariablesController.php:448
 msgid "The number of joins that used a range search on a reference table."
 msgstr "সংযোগের সংখ্যা যে গুলো reference table এ range search ব্যবহার করছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:454
+#: src/Controllers/Server/Status/VariablesController.php:450
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
@@ -16143,7 +16139,7 @@ msgstr ""
 "কী বিহীন সংযোগের সংখ্যা যেগুলো প্রতিটি রো'র পর কী চায়। (এই মানটি যদি ০ না হয় "
 "তবে আপনার টেবিলের ইনডেক্সগুলো সর্তকভাবে পরীক্ষা করুন।)"
 
-#: src/Controllers/Server/Status/VariablesController.php:459
+#: src/Controllers/Server/Status/VariablesController.php:455
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
@@ -16151,11 +16147,11 @@ msgstr ""
 "সংযোগের সংখ্যা যা প্রথম টেবলে ranges ব্যবহার করেছে। (টেবল যদি অনেক বড়ও হয় তবুও "
 "তা বিপদজনক নয়।)"
 
-#: src/Controllers/Server/Status/VariablesController.php:462
+#: src/Controllers/Server/Status/VariablesController.php:458
 msgid "The number of joins that did a full scan of the first table."
 msgstr "সংযোগের সংখ্যা যেগুলো প্রথম টেবলে পুর্ণ স্ক্যান করে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:463
+#: src/Controllers/Server/Status/VariablesController.php:459
 #, fuzzy
 #| msgid ""
 #| "The number of temporary tables currently open by the slave SQL thread."
@@ -16163,7 +16159,7 @@ msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr "সহায়ক এসকিউএল থ্রেডের দ্বারা বর্তমানে খোলা সাময়িক টেবিলের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:465
+#: src/Controllers/Server/Status/VariablesController.php:461
 #, fuzzy
 #| msgid ""
 #| "Total (since startup) number of times the replication slave SQL thread "
@@ -16173,48 +16169,48 @@ msgid ""
 "retried transactions."
 msgstr "সহায়ক এসকিউএল থ্রেড (আরম্ভ থেকে) কতবার লেনদেন চেষ্টা করেছে তার মোট সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:467
+#: src/Controllers/Server/Status/VariablesController.php:463
 #, fuzzy
 #| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr "ইহা ON হয় যদি এই সহায়ক সার্ভারটি মাষ্টারের সাথে সংযুক্ত থাকে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:469
+#: src/Controllers/Server/Status/VariablesController.php:465
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
 "থ্রেডের সংখ্যা যেগুলো তৈরী হতে slow_launch_time সেকেন্ড থেকে বেশী সময় নিয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:471
+#: src/Controllers/Server/Status/VariablesController.php:467
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
 msgstr "অনুন্ধানের সংখ্যা যেগুলো long_query_time সেকেন্ডের থেকে বেশী সময় নিয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:473
+#: src/Controllers/Server/Status/VariablesController.php:469
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
 
-#: src/Controllers/Server/Status/VariablesController.php:477
+#: src/Controllers/Server/Status/VariablesController.php:473
 msgid "The number of sorts that were done with ranges."
 msgstr "গুছানোর সংখ্যা যেগুলো সীমার মধে হয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:478
+#: src/Controllers/Server/Status/VariablesController.php:474
 msgid "The number of sorted rows."
 msgstr "গুছানো রো'র সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:479
+#: src/Controllers/Server/Status/VariablesController.php:475
 msgid "The number of sorts that were done by scanning the table."
 msgstr "সর্টের সংখ্যা যেগুলো করতে টেবিল স্ক্যান করা হয়েছে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:480
+#: src/Controllers/Server/Status/VariablesController.php:476
 msgid "The number of times that a table lock was acquired immediately."
 msgstr "কতবার টেবিলকে সংগে সংগে তালা দেয়াগেছে তার সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:482
+#: src/Controllers/Server/Status/VariablesController.php:478
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
@@ -16225,7 +16221,7 @@ msgstr ""
 "বেশী হয় তবে সমস্যা আছে, প্রথমে আপনাকে অনুসন্ধান অপটিমাইজ করতে হবে এবং তারপড় টেবল "
 "খন্ড করতে হবে বা প্রতিলিপি ব্যবহার করতে হবে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:488
+#: src/Controllers/Server/Status/VariablesController.php:484
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
@@ -16234,11 +16230,11 @@ msgstr ""
 "খ্রেড ক্যাশে থ্রেডের সংখ্যা। এই সংখ্যাটি Threads_created/Connections এভাবে গণনা "
 "করা যাবে। এই সংখ্যাটি ছোট হলে আপনাকে thread_cache_size বাড়াতে হবে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:492
+#: src/Controllers/Server/Status/VariablesController.php:488
 msgid "The number of currently open connections."
 msgstr "বর্তমানে ব্যবহৃত সংযোগের সংখ্যা।"
 
-#: src/Controllers/Server/Status/VariablesController.php:494
+#: src/Controllers/Server/Status/VariablesController.php:490
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
@@ -16248,11 +16244,11 @@ msgstr ""
 "সংযোগ ব্যবস্থাপনার জন্য তৈরীকৃত থ্রেডের সংখ্যা Threads_created যদি বেশী হয় তবে "
 "thread_cache_size বাড়াতে হবে।"
 
-#: src/Controllers/Server/Status/VariablesController.php:500
+#: src/Controllers/Server/Status/VariablesController.php:496
 msgid "Thread cache hit rate (calculated value)"
 msgstr "থ্রেড ক্যাম হিটের হার"
 
-#: src/Controllers/Server/Status/VariablesController.php:501
+#: src/Controllers/Server/Status/VariablesController.php:497
 msgid "The number of threads that are not sleeping."
 msgstr "থ্রেডের সংখ্যা যা ঘুমন্ত নয়।"
 
@@ -16309,18 +16305,18 @@ msgstr "ভুল তথ্য"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1054
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "বুকমার্ক %s তৈরী করা হয়েছে।"
 
-#: src/Controllers/Sql/SqlController.php:236
+#: src/Controllers/Sql/SqlController.php:237
 msgid "Bookmark not created!"
 msgstr "বুকমার্ক তৈরি করা হয়নি!"
 
-#: src/Controllers/Table/AddFieldController.php:134
-#: src/Controllers/Table/IndexesController.php:142
-#: src/Controllers/Table/IndexRenameController.php:131
+#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexRenameController.php:125
 #: src/Controllers/Table/Structure/PartitioningController.php:265
 #: src/Controllers/Table/Structure/SaveController.php:214
 #, php-format
@@ -16328,37 +16324,33 @@ msgid "Table %1$s has been altered successfully."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
 #: src/Controllers/Table/ChangeRowsController.php:35
-#: src/Controllers/Table/DeleteConfirmController.php:41
+#: src/Controllers/Table/DeleteConfirmController.php:36
 #: src/Controllers/Table/ExportRowsController.php:32
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No row selected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
-#: src/Controllers/Table/ChartController.php:66
-#: src/Controllers/Table/GisVisualizationController.php:83
+#: src/Controllers/Table/ChartController.php:57
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr "তথ্য আনার জন্য কোন SQL অনুসন্ধান নির্ধারন করা হয় নাই।"
 
-#: src/Controllers/Table/ChartController.php:183
+#: src/Controllers/Table/ChartController.php:164
 msgid "No numeric columns present in the table to plot."
 msgstr "প্লটের জন্য টেবলে কোন গাণিতক স্তম্ভ পাওয়া যায়নি।"
 
-#: src/Controllers/Table/ChartController.php:260
+#: src/Controllers/Table/ChartController.php:235
 msgid "No data to display"
 msgstr "প্রর্দশনের কোন তথ্য নাই"
 
-#: src/Controllers/Table/CreateController.php:58
-msgid "The database name is empty!"
-msgstr "ডাটাবেইজের নাম দেওয়া হয় নাই!"
-
-#: src/Controllers/Table/CreateController.php:70
-#: src/Controllers/Table/GetFieldController.php:47
+#: src/Controllers/Table/CreateController.php:60
+#: src/Controllers/Table/GetFieldController.php:51
 #, php-format
 msgid "'%s' database does not exist."
 msgstr "'%s' ডাটাবেইজটি নাই।"
 
-#: src/Controllers/Table/CreateController.php:80
+#: src/Controllers/Table/CreateController.php:70
 #, php-format
 msgid "Table %s already exists!"
 msgstr "টেবিল %s পুর্ব থেকেই আছে!"
@@ -16369,8 +16361,8 @@ msgstr "টেবিল %s পুর্ব থেকেই আছে!"
 #: src/Controllers/Table/Structure/BrowseController.php:31
 #: src/Controllers/Table/Structure/CentralColumnsAddController.php:37
 #: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:37
-#: src/Controllers/Table/Structure/ChangeController.php:51
-#: src/Controllers/Table/Structure/PrimaryController.php:47
+#: src/Controllers/Table/Structure/ChangeController.php:59
+#: src/Controllers/Table/Structure/PrimaryController.php:44
 msgid "No column selected."
 msgstr "কোন স্তম্ভ নির্বাচন করা হয় নাই।"
 
@@ -16383,25 +16375,25 @@ msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d টি ডাটাবেইজ সফলভাবে মুছা হয়েছে।"
 msgstr[1] "%1$d টি ডাটাবেইজ সফলভাবে মুছা হয়েছে।"
 
-#: src/Controllers/Table/GetFieldController.php:55
+#: src/Controllers/Table/GetFieldController.php:59
 msgid "Invalid table name"
 msgstr "টেবিলের নামটি অকার্যকর"
 
 #. l10n: In case a SQL query did not pass a security check
-#: src/Controllers/Table/GetFieldController.php:66
+#: src/Controllers/Table/GetFieldController.php:70
 #: src/Controllers/Transformation/WrapperController.php:75
 #, fuzzy
 #| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
 msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
-#: src/Controllers/Table/GetFieldController.php:81
-#: src/Database/Routines.php:1046 src/Import/Import.php:131
+#: src/Controllers/Table/GetFieldController.php:85
+#: src/Database/Routines.php:1047 src/Import/Import.php:131
 #: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
 
-#: src/Controllers/Table/GisVisualizationController.php:105
+#: src/Controllers/Table/GisVisualizationController.php:99
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -16445,7 +16437,7 @@ msgstr "প্রক্রিয়া %s সফলভাবে ধ্বংস ক
 msgid "Internal relationships were successfully updated."
 msgstr "আভ্যন্তরীন সম্পর্ক যোগ করা হয়েছে"
 
-#: src/Controllers/Table/ReplaceController.php:184
+#: src/Controllers/Table/ReplaceController.php:189
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -16481,42 +16473,42 @@ msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr "%1$s টেবিলটি সফলভাবে পরিবর্তন করা হয়েছে।"
 
-#: src/Controllers/Table/TrackingController.php:95
+#: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
 msgstr "%s ট্রেকিং কার্যকর করা হয়েছে।"
 
-#: src/Controllers/Table/TrackingController.php:148
+#: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
 msgstr "এসকিউএল নির্বাহ করা হয়েছে।"
 
-#: src/Controllers/Table/TrackingController.php:202
+#: src/Controllers/Table/TrackingController.php:197
 #, fuzzy
 #| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "নির্বাচিত ব্যবহরকারীগনকে সফলভাবে মুছা হয়েছে।"
 
-#: src/Controllers/Table/TrackingController.php:207
+#: src/Controllers/Table/TrackingController.php:202
 #, fuzzy
 #| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "কোন রো নির্বাচন করা হয় নাই"
 
-#: src/Controllers/Triggers/IndexController.php:189
+#: src/Controllers/Triggers/IndexController.php:173
 msgid "Add trigger"
 msgstr "ট্রিগার যোগ কর"
 
-#: src/Controllers/Triggers/IndexController.php:193
+#: src/Controllers/Triggers/IndexController.php:177
 msgid "Edit trigger"
 msgstr "ট্রিগার সম্পাদনা"
 
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:219
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s এ %1$s নামে কোন ট্রিগার পাওয়া যায়নি"
 
-#: src/Controllers/Triggers/IndexController.php:276
+#: src/Controllers/Triggers/IndexController.php:260
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s"
 msgid ""
@@ -16528,7 +16520,7 @@ msgstr "ডাটাবেইজ %2$s এ %1$s নামে কোন ট্র�
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "এই মূহুর্তে এখানে থাকার জন্য আপনার পর্যাপ্ত অধিকার নাই!"
 
-#: src/Controllers/View/CreateController.php:92
+#: src/Controllers/View/CreateController.php:85
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -16640,9 +16632,9 @@ msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
 #: src/Database/Events.php:89 src/Database/Events.php:98
-#: src/Database/Events.php:132 src/Database/Routines.php:100
-#: src/Database/Routines.php:126 src/Database/Routines.php:204
-#: src/Database/Routines.php:1006 src/Triggers/Triggers.php:82
+#: src/Database/Events.php:132 src/Database/Routines.php:101
+#: src/Database/Routines.php:127 src/Database/Routines.php:205
+#: src/Database/Routines.php:1007 src/Triggers/Triggers.php:82
 #: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -16650,9 +16642,9 @@ msgstr "নিন্মোক্ত অনুসন্ধানটি ব্য�
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:115 src/Database/Events.php:136
-#: src/Database/Routines.php:104 src/Database/Routines.php:130
-#: src/Database/Routines.php:208 src/Database/Routines.php:222
-#: src/Database/Routines.php:1010 src/Html/Generator.php:801
+#: src/Database/Routines.php:105 src/Database/Routines.php:131
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:1011 src/Html/Generator.php:805
 #: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
 #: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
 msgid "MySQL said: "
@@ -16662,7 +16654,7 @@ msgstr "MySQL বলেছে: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "দুঃখিত, আমরা মুছে ফেলা ইভেন্ট ফিরিয়ে আনতে পারিনি।"
 
-#: src/Database/Events.php:113 src/Database/Routines.php:220
+#: src/Database/Events.php:113 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:107
 msgid "The backed up query was:"
 msgstr "ব্যাকআপকৃত অনুসন্ধানটি ছিল:"
@@ -16677,12 +16669,12 @@ msgstr "ইভেন্ট %1$s পরিবর্তন হয়েছে।"
 msgid "Event %1$s has been created."
 msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
 
-#: src/Database/Events.php:153 src/Database/Routines.php:146
+#: src/Database/Events.php:153 src/Database/Routines.php:147
 #: src/Triggers/Triggers.php:147
 msgid "One or more errors have occurred while processing your request:"
 msgstr "আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:"
 
-#: src/Database/Events.php:268 src/Database/Routines.php:808
+#: src/Database/Events.php:268 src/Database/Routines.php:809
 #: src/Triggers/Triggers.php:191
 #, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
@@ -16729,41 +16721,41 @@ msgstr "কনফিগারেশন ফাইল পড়া যায়নি"
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "নিয়ন্ত্রক ব্যবহারকারীর জন্য নির্ধারিত কনফিগারেশন সংযোগে ব্যার্থ হয়েছে।"
 
-#: src/Database/Routines.php:81 src/Database/Routines.php:816
+#: src/Database/Routines.php:82 src/Database/Routines.php:817
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "অকার্যকর রুটিন ধরন:\"%s\""
 
-#: src/Database/Routines.php:133
+#: src/Database/Routines.php:134
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "রুটিন %1$s তৈরী করা হয়েছে।"
 
-#: src/Database/Routines.php:219
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "দুখিত, মুছে ফেলা রুটিনটি ফেরত আনা যায়নি।"
 
-#: src/Database/Routines.php:268
+#: src/Database/Routines.php:269
 #, fuzzy, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "রুটিন %1$s পরিবর্তীত হয়েছে।"
 
-#: src/Database/Routines.php:273
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "রুটিন %1$s পরিবর্তীত হয়েছে।"
 
-#: src/Database/Routines.php:649
+#: src/Database/Routines.php:650
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "প্রতিটি রুটিন প্যারামিটারের জন্য অবশ্যই একটি নাম এবং ধরন দিতে হবে।"
 
-#: src/Database/Routines.php:667
+#: src/Database/Routines.php:668
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "প্যারামিটারের জন্য অকার্যকর নির্দেশনা \"%s\"।"
 
-#: src/Database/Routines.php:687 src/Database/Routines.php:754
+#: src/Database/Routines.php:688 src/Database/Routines.php:755
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16771,26 +16763,26 @@ msgstr ""
 "ENUM, SET,VARCHAR and VARBINARY এর রুটিনের প্যারামিটরে দৈর্ঘ্য/মান অবশ্যই দিতে "
 "হবে।"
 
-#: src/Database/Routines.php:736
+#: src/Database/Routines.php:737
 msgid "You must provide a valid return type for the routine."
 msgstr "আপনাকে অবশ্যই রুটিনের কার্যকর ফেরত ধরণ দিতে হবে।"
 
-#: src/Database/Routines.php:824
+#: src/Database/Routines.php:825
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
 msgstr "আপনাকে অবশ্যই একটি রুটিনের নাম দিতে হবে"
 
-#: src/Database/Routines.php:888
+#: src/Database/Routines.php:889
 msgid "You must provide a routine definition."
 msgstr "আপনাকে অবশ্যই রুটিনের একটি সংজ্ঞা দিতে হবে।"
 
-#: src/Database/Routines.php:1022
+#: src/Database/Routines.php:1023
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "রুটিন %s এর সম্পাদনের ফলাফল"
 
-#: src/Database/Routines.php:1037
+#: src/Database/Routines.php:1038
 #, fuzzy, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"
@@ -17206,13 +17198,13 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/Export.php:163 src/Export/Export.php:199
-#: src/Export/Export.php:407
+#: src/Export/Export.php:164 src/Export/Export.php:200
+#: src/Export/Export.php:408
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "%s ফাইলটি সংরক্ষন করার মত জায়গা নাই।"
 
-#: src/Export/Export.php:360
+#: src/Export/Export.php:361
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -17220,18 +17212,18 @@ msgstr ""
 "%s ফাইলটি পূর্ব থেকে আছে, ফাইল এর নাম পরিবর্তন করুন বা উপরে লেখার এর স্থানটি "
 "নির্বাচন করুন।"
 
-#: src/Export/Export.php:367 src/Export/Export.php:377
+#: src/Export/Export.php:368 src/Export/Export.php:378
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "ওয়েব সার্ভারের %s ফাইলটি সংরক্ষন করার অনুমিত নাই।"
 
-#: src/Export/Export.php:414
+#: src/Export/Export.php:415
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "স্তুপকৃত তথ্য %s ফাইলে সংরক্ষন করা হয়েছে।"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:849
+#: src/Export/Export.php:834
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -17318,60 +17310,60 @@ msgstr ""
 msgid "Session not found."
 msgstr "SOAP সংযোজক পাওয়া যাচ্ছে না"
 
-#: src/Html/Generator.php:146
+#: src/Html/Generator.php:147
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "ডাটাবেইজ \"%s\" যাও।"
 
-#: src/Html/Generator.php:212
+#: src/Html/Generator.php:213
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:219
+#: src/Html/Generator.php:220
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:222
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:224
+#: src/Html/Generator.php:225
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:325
+#: src/Html/Generator.php:329
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:326
+#: src/Html/Generator.php:330
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:505
 msgid "Skip Explain SQL"
 msgstr "SQL এর ব্যাখা এড়িয়ে যাও"
 
-#: src/Html/Generator.php:533
+#: src/Html/Generator.php:537
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "পিএইছপি কোড ছাড়া"
 
-#: src/Html/Generator.php:618
+#: src/Html/Generator.php:622
 #, fuzzy
 #| msgid "Edit index"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "ইনডেক্স সম্পাদনা"
 
-#: src/Html/Generator.php:743
+#: src/Html/Generator.php:747
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "স্থিত তথ্য"
 
-#: src/Html/Generator.php:746
+#: src/Html/Generator.php:750
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -17625,19 +17617,19 @@ msgstr "প্রোসিডিউরস:"
 msgid "Views:"
 msgstr "ভিউসমূহ:"
 
-#: src/Navigation/NavigationTree.php:764
+#: src/Navigation/NavigationTree.php:745
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: src/Navigation/NavigationTree.php:824
+#: src/Navigation/NavigationTree.php:809
 #, fuzzy
 #| msgid "Group name:"
 msgid "Groups"
 msgstr "দলের নাম:"
 
-#: src/Navigation/NavigationTree.php:931
+#: src/Navigation/NavigationTree.php:916
 #, fuzzy, php-format
 #| msgid "%s other result found"
 #| msgid_plural "%s other results found"
@@ -17646,7 +17638,7 @@ msgid_plural "%s results found"
 msgstr[0] "%s টি অন্যান্য ফলাফল পাওয়াগেছে"
 msgstr[1] "%s গুলো অন্যান্য ফলাফল পাওয়াগেছে"
 
-#: src/Navigation/NavigationTree.php:1305
+#: src/Navigation/NavigationTree.php:1291
 msgid "Collapse all"
 msgstr ""
 
@@ -17655,7 +17647,7 @@ msgctxt "Create new column"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/NodeDatabaseContainer.php:34
+#: src/Navigation/Nodes/NodeDatabaseContainer.php:46
 msgctxt "Create new database"
 msgid "New"
 msgstr "নতুন"
@@ -17671,7 +17663,7 @@ msgstr "নতুন ইভেন্ট"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:598 src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportXml.php:90
 msgid "Functions"
 msgstr "ফাংশনসমূহ"
 
@@ -17685,13 +17677,13 @@ msgctxt "Create new index"
 msgid "New"
 msgstr "নতুন"
 
-#: src/Navigation/Nodes/Node.php:612
+#: src/Navigation/Nodes/Node.php:583
 msgid "Expand/Collapse"
 msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:587 src/Plugins/Export/ExportXml.php:95
+#: src/Plugins/Export/ExportSql.php:586 src/Plugins/Export/ExportXml.php:95
 msgid "Procedures"
 msgstr "প্রোসিডিউরস"
 
@@ -18114,8 +18106,8 @@ msgstr "লাইন শেষ হয়েছে :"
 
 #: src/Plugins/Export/ExportCsv.php:75 src/Plugins/Export/ExportExcel.php:49
 #: src/Plugins/Export/ExportHtmlword.php:77
-#: src/Plugins/Export/ExportLatex.php:185 src/Plugins/Export/ExportOds.php:63
-#: src/Plugins/Export/ExportOdt.php:129
+#: src/Plugins/Export/ExportLatex.php:184 src/Plugins/Export/ExportOds.php:63
+#: src/Plugins/Export/ExportOdt.php:128
 #: src/Plugins/Export/ExportTexytext.php:81
 msgid "Replace NULL with:"
 msgstr "NULL প্রতিস্থাপনের জন্য :"
@@ -18129,33 +18121,33 @@ msgid "Excel edition:"
 msgstr "Excel সংস্করন:"
 
 #: src/Plugins/Export/ExportHtmlword.php:71
-#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:118
+#: src/Plugins/Export/ExportLatex.php:155 src/Plugins/Export/ExportOdt.php:117
 #: src/Plugins/Export/ExportTexytext.php:70
 #: src/Plugins/Export/ExportXml.php:118
 msgid "Data dump options"
 msgstr "তথ্য স্তুপের অপশন"
 
-#: src/Plugins/Export/ExportHtmlword.php:189
-#: src/Plugins/Export/ExportOdt.php:240 src/Plugins/Export/ExportSql.php:2187
-#: src/Plugins/Export/ExportTexytext.php:173
+#: src/Plugins/Export/ExportHtmlword.php:186
+#: src/Plugins/Export/ExportOdt.php:236 src/Plugins/Export/ExportSql.php:2177
+#: src/Plugins/Export/ExportTexytext.php:170
 msgid "Dumping data for table"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: src/Plugins/Export/ExportHtmlword.php:519
-#: src/Plugins/Export/ExportOdt.php:645 src/Plugins/Export/ExportSql.php:1918
-#: src/Plugins/Export/ExportTexytext.php:489
+#: src/Plugins/Export/ExportHtmlword.php:514
+#: src/Plugins/Export/ExportOdt.php:638 src/Plugins/Export/ExportSql.php:1910
+#: src/Plugins/Export/ExportTexytext.php:483
 msgid "Table structure for table"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
-#: src/Plugins/Export/ExportHtmlword.php:536
-#: src/Plugins/Export/ExportOdt.php:665 src/Plugins/Export/ExportSql.php:1975
-#: src/Plugins/Export/ExportTexytext.php:502
+#: src/Plugins/Export/ExportHtmlword.php:531
+#: src/Plugins/Export/ExportOdt.php:658 src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportTexytext.php:496
 msgid "Structure for view"
 msgstr "ভিউ এর গঠন"
 
-#: src/Plugins/Export/ExportHtmlword.php:542
-#: src/Plugins/Export/ExportOdt.php:673 src/Plugins/Export/ExportSql.php:2014
-#: src/Plugins/Export/ExportTexytext.php:506
+#: src/Plugins/Export/ExportHtmlword.php:537
+#: src/Plugins/Export/ExportOdt.php:666 src/Plugins/Export/ExportSql.php:2006
+#: src/Plugins/Export/ExportTexytext.php:500
 msgid "Stand-in structure for view"
 msgstr "দর্শনের বর্তমান গঠন"
 
@@ -18167,73 +18159,73 @@ msgstr ""
 msgid "Output unicode characters unescaped"
 msgstr ""
 
-#: src/Plugins/Export/ExportLatex.php:51
+#: src/Plugins/Export/ExportLatex.php:52
 msgid "Content of table @TABLE@"
 msgstr "@TABLE@ টেবলের তথ্য"
 
-#: src/Plugins/Export/ExportLatex.php:52
+#: src/Plugins/Export/ExportLatex.php:53
 msgid "(continued)"
 msgstr "(চলমান)"
 
-#: src/Plugins/Export/ExportLatex.php:53
+#: src/Plugins/Export/ExportLatex.php:54
 msgid "Structure of table @TABLE@"
 msgstr "@TABLE@ টেবলের গঠন"
 
-#: src/Plugins/Export/ExportLatex.php:105 src/Plugins/Export/ExportOdt.php:85
-#: src/Plugins/Export/ExportSql.php:233
+#: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:84
+#: src/Plugins/Export/ExportSql.php:232
 msgid "Object creation options"
 msgstr "অবজেক্ট তৈরীর অপশন"
 
-#: src/Plugins/Export/ExportLatex.php:111
-#: src/Plugins/Export/ExportLatex.php:167
+#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportLatex.php:166
 msgid "Table caption:"
 msgstr "টেবলের শিরোনাম:"
 
-#: src/Plugins/Export/ExportLatex.php:117
-#: src/Plugins/Export/ExportLatex.php:173
+#: src/Plugins/Export/ExportLatex.php:116
+#: src/Plugins/Export/ExportLatex.php:172
 msgid "Table caption (continued):"
 msgstr "টেবলের শিরোনাম (চলমান):"
 
-#: src/Plugins/Export/ExportLatex.php:123
-#: src/Plugins/Export/ExportLatex.php:179
+#: src/Plugins/Export/ExportLatex.php:122
+#: src/Plugins/Export/ExportLatex.php:178
 msgid "Label key:"
 msgstr "লেবেল কি:"
 
-#: src/Plugins/Export/ExportLatex.php:131 src/Plugins/Export/ExportOdt.php:93
-#: src/Plugins/Export/ExportSql.php:158
+#: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:92
+#: src/Plugins/Export/ExportSql.php:157
 msgid "Display foreign key relationships"
 msgstr "ফরেন কী সর্ম্পক দেখাও"
 
-#: src/Plugins/Export/ExportLatex.php:138 src/Plugins/Export/ExportOdt.php:100
+#: src/Plugins/Export/ExportLatex.php:137 src/Plugins/Export/ExportOdt.php:99
 msgid "Display comments"
 msgstr "মন্তব্য দেখাও"
 
-#: src/Plugins/Export/ExportLatex.php:144 src/Plugins/Export/ExportOdt.php:106
-#: src/Plugins/Export/ExportSql.php:166
+#: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:105
+#: src/Plugins/Export/ExportSql.php:165
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "MIME ধরন দেখাও"
 
-#: src/Plugins/Export/ExportLatex.php:162
+#: src/Plugins/Export/ExportLatex.php:161
 msgid "Put columns names in the first row:"
 msgstr "প্রথম সারিতে স্তম্ভের নাম রাখ:"
 
-#: src/Plugins/Export/ExportLatex.php:213 src/Plugins/Export/ExportSql.php:723
+#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:722
 #: src/Plugins/Export/ExportXml.php:203
 msgid "Generation Time:"
 msgstr "তৈরী করতে ব্যবহৃত সময়:"
 
-#: src/Plugins/Export/ExportLatex.php:216 src/Plugins/Export/ExportSql.php:729
+#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:728
 #: src/Plugins/Export/ExportXml.php:206
 msgid "PHP Version:"
 msgstr "পিএইছপির সংস্করন:"
 
-#: src/Plugins/Export/ExportLatex.php:305 src/Plugins/Export/ExportSql.php:2067
+#: src/Plugins/Export/ExportLatex.php:301 src/Plugins/Export/ExportSql.php:2057
 msgid "Data:"
 msgstr "ডাটা:"
 
-#: src/Plugins/Export/ExportLatex.php:482
+#: src/Plugins/Export/ExportLatex.php:475
 msgid "Structure:"
 msgstr "গঠন:"
 
@@ -18245,8 +18237,8 @@ msgstr "%s মত রফতানী কর"
 msgid "Export table headers"
 msgstr "সমান্তরাল (rotated headers)"
 
-#: src/Plugins/Export/ExportOdt.php:241
-#: src/Plugins/Export/ExportTexytext.php:174
+#: src/Plugins/Export/ExportOdt.php:237
+#: src/Plugins/Export/ExportTexytext.php:171
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
@@ -18256,31 +18248,31 @@ msgstr "টেবলের জন্য তথ্য স্তুপ করছ�
 msgid "Report title:"
 msgstr "প্রতিবেদনের শিরোনাম:"
 
-#: src/Plugins/Export/ExportPdf.php:181
+#: src/Plugins/Export/ExportPdf.php:178
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data"
 msgstr "টেবলের জন্য তথ্য স্তুপ করছি"
 
-#: src/Plugins/Export/ExportPdf.php:199
+#: src/Plugins/Export/ExportPdf.php:195
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "অনুসন্ধান ফলাফল"
 
-#: src/Plugins/Export/ExportPdf.php:254
+#: src/Plugins/Export/ExportPdf.php:248
 #, fuzzy
 #| msgid "structure"
 msgid "View structure"
 msgstr "কাঠামো"
 
-#: src/Plugins/Export/ExportPdf.php:257
+#: src/Plugins/Export/ExportPdf.php:251
 #, fuzzy
 #| msgid "and then"
 msgid "Stand in"
 msgstr "এবং তারপর"
 
-#: src/Plugins/Export/ExportSql.php:137
+#: src/Plugins/Export/ExportSql.php:136
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -18288,86 +18280,86 @@ msgstr ""
 "মন্তব্য দেখাও <i>(রফতানী সময়কাল, PHP সংস্করন, এবং সার্ভার সংস্করন এর মত তথ্য সংযুক্ত "
 "করে)</i>"
 
-#: src/Plugins/Export/ExportSql.php:144
+#: src/Plugins/Export/ExportSql.php:143
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "শিরোনামের অতিরিক্ত মন্তব্য (\\n লাইন ভাঙ্গবে):"
 
-#: src/Plugins/Export/ExportSql.php:150
+#: src/Plugins/Export/ExportSql.php:149
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 "ডাটাবেইজের তৈরীর সময়কাল, সর্বশেষ আপডেট এবং সর্বশেষ পরী্ক্ষার সময়কাল সংযুক্ত কর"
 
-#: src/Plugins/Export/ExportSql.php:203
+#: src/Plugins/Export/ExportSql.php:202
 #, fuzzy
 #| msgid "Export method"
 msgid "Export metadata"
 msgstr "রফতানী পদ্ধতী"
 
-#: src/Plugins/Export/ExportSql.php:241
+#: src/Plugins/Export/ExportSql.php:240
 msgid "Add statements:"
 msgstr "স্টেটমেন্টসমূহ যোগকর:"
 
-#: src/Plugins/Export/ExportSql.php:249 src/Plugins/Export/ExportSql.php:258
-#: src/Plugins/Export/ExportSql.php:275 src/Plugins/Export/ExportSql.php:284
-#: src/Plugins/Export/ExportSql.php:308 src/Plugins/Export/ExportSql.php:336
-#: src/Plugins/Export/ExportSql.php:345
+#: src/Plugins/Export/ExportSql.php:248 src/Plugins/Export/ExportSql.php:257
+#: src/Plugins/Export/ExportSql.php:274 src/Plugins/Export/ExportSql.php:283
+#: src/Plugins/Export/ExportSql.php:307 src/Plugins/Export/ExportSql.php:335
+#: src/Plugins/Export/ExportSql.php:344
 #, php-format
 msgid "Add %s statement"
 msgstr "%s স্টেটমেন্ট যোগ কর"
 
-#: src/Plugins/Export/ExportSql.php:291
+#: src/Plugins/Export/ExportSql.php:290
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:298
+#: src/Plugins/Export/ExportSql.php:297
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "সেশনের মান"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:315
+#: src/Plugins/Export/ExportSql.php:314
 msgid "Use simple view export"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:354
+#: src/Plugins/Export/ExportSql.php:353
 #, fuzzy
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr "টেবল এবং স্তম্ভের নাম backquote দ্বারা বন্ধ কর"
 
-#: src/Plugins/Export/ExportSql.php:369
+#: src/Plugins/Export/ExportSql.php:368
 msgid "Data creation options"
 msgstr "তথ্য তৈরীর অপশন"
 
-#: src/Plugins/Export/ExportSql.php:374 src/Plugins/Export/ExportSql.php:2145
+#: src/Plugins/Export/ExportSql.php:373 src/Plugins/Export/ExportSql.php:2135
 msgid "Truncate table before insert"
 msgstr "ইনার্সটের পুর্বে টেবল খালি কর"
 
-#: src/Plugins/Export/ExportSql.php:381
+#: src/Plugins/Export/ExportSql.php:380
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "<code>INSERT</code> এর পরিবর্তে ব্যবহার কর:"
 
-#: src/Plugins/Export/ExportSql.php:387
+#: src/Plugins/Export/ExportSql.php:386
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>INSERT DELAYED</code> স্টেটমেন্ট"
 
-#: src/Plugins/Export/ExportSql.php:396 src/Plugins/Export/ExportSql.php:423
+#: src/Plugins/Export/ExportSql.php:395 src/Plugins/Export/ExportSql.php:422
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>INSERT IGNORE</code> স্টেটমেন্ট"
 
-#: src/Plugins/Export/ExportSql.php:407
+#: src/Plugins/Export/ExportSql.php:406
 msgid "Function to use when dumping data:"
 msgstr "তথ্য স্তুপকরনের জন্য ব্যবহৃত ফাংশন:"
 
-#: src/Plugins/Export/ExportSql.php:418
+#: src/Plugins/Export/ExportSql.php:417
 msgid "Syntax to use when inserting data:"
 msgstr "তথ্য প্রবেশ করানোর সময় ব্যবহার করার বাক্য :"
 
-#: src/Plugins/Export/ExportSql.php:428
+#: src/Plugins/Export/ExportSql.php:427
 #, fuzzy
 #| msgid ""
 #| "include column names in every <code>INSERT</code> statement <br /> &nbsp; "
@@ -18382,7 +18374,7 @@ msgstr ""
 "&nbsp; উদাহরণ: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:433
+#: src/Plugins/Export/ExportSql.php:432
 #, fuzzy
 #| msgid ""
 #| "insert multiple rows in every <code>INSERT</code> statement<br /> &nbsp; "
@@ -18396,7 +18388,7 @@ msgstr ""
 "প্রতিটি <code>INSERT</code> একাধিক রো প্রবেশ করাবে <br /> &nbsp;&nbsp; &nbsp; "
 "উদাহরণ: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6),(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:438
+#: src/Plugins/Export/ExportSql.php:437
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -18404,7 +18396,7 @@ msgstr ""
 "উপরের উভয়টি <br> &nbsp; &nbsp; &nbsp; উদাহরণ: <code>INSERT INTO tbl_name "
 "(col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:443
+#: src/Plugins/Export/ExportSql.php:442
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -18412,14 +18404,14 @@ msgstr ""
 "উপরের কোনটি নয় <br> &nbsp; &nbsp; &nbsp; উদাহরণ: <code>INSERT INTO tbl_name "
 "VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:462
+#: src/Plugins/Export/ExportSql.php:461
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 "বাইনারী স্তম্ভ hexadecimal করে স্তুপ কর <i>(উদাহরণ, \"abc\" দেখাবে 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:471
+#: src/Plugins/Export/ExportSql.php:470
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -18427,114 +18419,114 @@ msgstr ""
 "সময় (TIMESTAMP) স্তম্ভ UTC হিসাবে স্তুপ কর <i>(বিভিন্ন সময় এলাকার সার্ভারে সময় "
 "(TIMESTAMP) স্তম্ভ ব্যবহার করতে সমর্থ করবে )</i>"
 
-#: src/Plugins/Export/ExportSql.php:547
+#: src/Plugins/Export/ExportSql.php:546
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:550 src/Plugins/Export/ExportSql.php:1491
-#: src/Plugins/Export/ExportSql.php:1963
+#: src/Plugins/Export/ExportSql.php:549 src/Plugins/Export/ExportSql.php:1486
+#: src/Plugins/Export/ExportSql.php:1955
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1022
+#: src/Plugins/Export/ExportSql.php:1020
 #, fuzzy
 #| msgid "Missing data for %s"
 msgid "Metadata"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Plugins/Export/ExportSql.php:1083
+#: src/Plugins/Export/ExportSql.php:1081
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for table %s"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Plugins/Export/ExportSql.php:1090
+#: src/Plugins/Export/ExportSql.php:1088
 #, fuzzy, php-format
 #| msgid "Missing data for %s"
 msgid "Metadata for database %s"
 msgstr "%s এর তথ্য নাই"
 
-#: src/Plugins/Export/ExportSql.php:1403
+#: src/Plugins/Export/ExportSql.php:1398
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "টেবলের জন্য টেবলের গঠন"
 
-#: src/Plugins/Export/ExportSql.php:1488
+#: src/Plugins/Export/ExportSql.php:1483
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1634
+#: src/Plugins/Export/ExportSql.php:1629
 msgid "Constraints for dumped tables"
 msgstr "স্তুপকৃত টেবলের সীমবদ্ধতা"
 
-#: src/Plugins/Export/ExportSql.php:1635
+#: src/Plugins/Export/ExportSql.php:1630
 msgid "Constraints for table"
 msgstr "টেবলের সীমবদ্ধতা"
 
-#: src/Plugins/Export/ExportSql.php:1662
+#: src/Plugins/Export/ExportSql.php:1657
 msgid "Indexes for dumped tables"
 msgstr "স্তুপকৃত টেবলের ইনডেক্স"
 
-#: src/Plugins/Export/ExportSql.php:1663
+#: src/Plugins/Export/ExportSql.php:1658
 msgid "Indexes for table"
 msgstr "টেবিলের ইনডেক্সসমুহ"
 
-#: src/Plugins/Export/ExportSql.php:1693
+#: src/Plugins/Export/ExportSql.php:1688
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "স্তুপকৃত টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
-#: src/Plugins/Export/ExportSql.php:1694
+#: src/Plugins/Export/ExportSql.php:1689
 msgid "AUTO_INCREMENT for table"
 msgstr "টেবলের জন্য স্বয়ক্রীয় বর্দ্ধিত মান (AUTO_INCREMENT)"
 
-#: src/Plugins/Export/ExportSql.php:1758
+#: src/Plugins/Export/ExportSql.php:1753
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "টেবিলের মাইমের ধরন"
 
-#: src/Plugins/Export/ExportSql.php:1788
+#: src/Plugins/Export/ExportSql.php:1783
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "টেবিলের সর্ম্পক"
 
-#: src/Plugins/Export/ExportSql.php:1960
+#: src/Plugins/Export/ExportSql.php:1952
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1990
+#: src/Plugins/Export/ExportSql.php:1982
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "ভিউ এর গঠন %s টেবলে রফতানী করা হয়েছে"
 
-#: src/Plugins/Export/ExportSql.php:2017
+#: src/Plugins/Export/ExportSql.php:2009
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2078
+#: src/Plugins/Export/ExportSql.php:2068
 #, fuzzy, php-format
 #| msgid "Error reading data:"
 msgid "Error reading data for table %s:"
 msgstr "তথ্য পড়ার ভুল:"
 
-#: src/Plugins/Export/ExportSql.php:2673
+#: src/Plugins/Export/ExportSql.php:2663
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "প্রস্তুত:"
 
-#: src/Plugins/Export/ExportSql.php:2681
+#: src/Plugins/Export/ExportSql.php:2671
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "সর্বশেষ আপডেট:"
 
-#: src/Plugins/Export/ExportSql.php:2689
+#: src/Plugins/Export/ExportSql.php:2679
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "সর্বশেষ যাচাই:"
 
-#: src/Plugins/Export/ExportSql.php:2710
+#: src/Plugins/Export/ExportSql.php:2700
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr "ডাটাবেইজ সিস্টেম বা পুরাতন MySQL সার্ভার আউটপুটের উপযুক্ততা বাড়ানোর জন্য:"
@@ -18589,23 +18581,23 @@ msgstr ""
 msgid "Column names:"
 msgstr "স্তম্ভের নাম:"
 
-#: src/Plugins/Import/ImportCsv.php:290 src/Plugins/Import/ImportCsv.php:614
+#: src/Plugins/Import/ImportCsv.php:289 src/Plugins/Import/ImportCsv.php:613
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV ফাইলের গঠন অযোগ্য %d লাইনে।"
 
-#: src/Plugins/Import/ImportCsv.php:497
+#: src/Plugins/Import/ImportCsv.php:496
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "অযোগ্য স্তম্ভ্ সংখ্যা CSV ফাইলের %d লাইনে।"
 
-#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
-#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
+#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
+#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV আমদানীর প্যারামিটার ঠিক নাই:%s"
 
-#: src/Plugins/Import/ImportCsv.php:767
+#: src/Plugins/Import/ImportCsv.php:766
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18685,7 +18677,7 @@ msgstr "শুন্য মানের জন্য <code>AUTO_INCREMENT</code>
 msgid "XML"
 msgstr "এক্সএমএল"
 
-#: src/Plugins.php:596
+#: src/Plugins.php:598
 msgid "This format has no options"
 msgstr "এই গঠনের কোন অপশন নাই"
 
@@ -19722,12 +19714,12 @@ msgstr "অবশ্যই একটি বৈধ টেবল নাম দি�
 msgid "You must provide a trigger definition."
 msgstr "অবশ্যই ট্রিগারের একটি সংজ্ঞা দিতে হবে।"
 
-#: src/Types.php:196
+#: src/Types.php:145
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr "একটি ১ বাইট ইন্টিজার, চিহ্নিত সীমা -১২৮ থেকে ১২৭, অচিহ্নত হলে ০ থেকে ২৫৫"
 
-#: src/Types.php:197
+#: src/Types.php:146
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -19735,7 +19727,7 @@ msgstr ""
 "একটি ২ বাইট পুর্ণ সংখ্য, চিহ্নিতের সীমা -৩২,৭৬৮ - ৩২,৭৬৭, অচিহ্নিতের সীমা ০ থেকে "
 "৬৫,৫৩৫"
 
-#: src/Types.php:199
+#: src/Types.php:148
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -19743,7 +19735,7 @@ msgstr ""
 "একটি ৩ বাইট পুর্ণ সংখ্য, চিহ্নিতের সীমা -৮,৩৮৮,৬০৮ - ৮,৩৮৮,৬০৭ অচিহ্নিতের সীমা ০ "
 "থেকে ১৬,৭৭৭,২১৫"
 
-#: src/Types.php:202
+#: src/Types.php:151
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -19751,7 +19743,7 @@ msgstr ""
 "একটি ৪ বাইট পুর্ণ সংখ্যা চিহ্নিতের সীমা -২,১৪৭,৪৮৩,৬৪৮ থেকে ২,১৪৭,৪৮৩,৬৪৭, "
 "অচিহ্নিতের সীমা ০ থেকে ৪,২৯৪.৯৬৭.২৯৫"
 
-#: src/Types.php:207
+#: src/Types.php:156
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -19759,7 +19751,7 @@ msgstr ""
 "একটি ৮ বাইট পুর্ণ সংখ্য, চিহ্নিতের সীমা -৯,২২,৩৭২,০৩৬,৮৫৪,৭৭৫,৮০৮ - "
 "৯,২২৩,৩৭২,০৩৬,৮৫৪,৭৭৫,৮০৭ অচিহ্নিতের সীমা ০ থেকে ১৮,৪৪৬,৭৪৪,০৭৩,৭০৯,৫৫১,৬১৫"
 
-#: src/Types.php:212
+#: src/Types.php:161
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -19767,7 +19759,7 @@ msgstr ""
 "একটি নির্দিষ্ট-পয়েন্ট নাম্বার ((M, D) -(M) সর্বোচ্চ ৬৫টি সংখ্যা (স্বভাবিক ১০), "
 "দশমিকের সংখ্যা সর্বোচ্চ (D) ৩০ (স্বভাবিক ০)"
 
-#: src/Types.php:217
+#: src/Types.php:166
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -19775,7 +19767,7 @@ msgstr ""
 "একটি ছোট দশমিক-পয়েন্টের অনুমোদিত মান হল -৩.৪০২৮২৬৪৬৬E+৩৮ থেকে "
 "-১.১৭৫৪৯৪৩৫১E-৩৮, ০ এবং ১.১৭৫৪৯৪৩৫১E-৩৮ থেকে ৩.৪০২৮২৬৪৬৬E+৩৮"
 
-#: src/Types.php:222
+#: src/Types.php:171
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -19785,42 +19777,42 @@ msgstr ""
 "২.২২৫০৭৩৮৫৮৫০৭২০১৪E-৩০৮, ০, এবং ২.২২৫০৭৩৮৫৮৫০৭২০১৪E-৩০৮ থেকে "
 "১.৭৯৭৬৯৩১৩৪৮৬২৩১৫৭E+৩০৮"
 
-#: src/Types.php:226
+#: src/Types.php:175
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
 "DOUBLE এর সমার্থক নাম (ব্যাতিক্রম:REAL_AS_FLOAT SQL পদ্ধতিতে এর সমার্থত হল FLOAT)"
 
-#: src/Types.php:227
+#: src/Types.php:176
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
 "একটি বিট ক্ষেত্র (M), প্রতিটি মানের জন্য বিট মজুদ করে (স্বাভাবিক হল ১, সর্বোচ্চ ৬৪)"
 
-#: src/Types.php:229
+#: src/Types.php:178
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
 "একটি সমার্থক হল TINYINT(1) এর, ০ মান মিথ্যা এবং মান ০ নাহলে সত্য বলে ধরা হয়"
 
-#: src/Types.php:231
+#: src/Types.php:180
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "একটি উপনাম BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE এর"
 
-#: src/Types.php:233
+#: src/Types.php:182
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "একটি তারিখ, অনুমোদিত সীমা হল %1$s - %2$s"
 
-#: src/Types.php:238
+#: src/Types.php:187
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "একটি তারিখ এবং সময়ের মিশ্রণ,অনুমোদিত সীমা হল %1$s - %2$s"
 
-#: src/Types.php:243
+#: src/Types.php:192
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -19828,12 +19820,12 @@ msgstr ""
 "একটি timestamp, সীমা হল ১৯৭০-০১-১০ ০০:০০:০১ UTC - ২০৩৮-০১-০৯ ০৩:১৪:০৭ UTC, "
 "সেকেন্ডের নাম্বার হিসাবে মজুদ করা হয় ঐতিহাসিক(১৯৭০-০১-১০ ০০:০০:০১)থেকে"
 
-#: src/Types.php:248
+#: src/Types.php:197
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "সময়, সীমা %1$s - %2$s"
 
-#: src/Types.php:253
+#: src/Types.php:202
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -19841,21 +19833,21 @@ msgstr ""
 "চার সংখ্যায় বৎসর (৪, স্বাভাবিক) বা দুই সংখ্যা (২) গঠনে, গ্রহনযোগ্য মান হল ৭০ "
 "(১৯৭০) - ৬৯ (২০৬৯) বা ১৯০১ থেকে ২১৫৫ এবং ০০০০"
 
-#: src/Types.php:258
+#: src/Types.php:207
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
 "নির্দিষ্ট দৈর্ঘ্য (০-২৫৫, স্বাভাবিক ১) লেখাটি যখন মজুদ করা হবে সবসময় ডান দিকে থাকবে"
 
-#: src/Types.php:263
+#: src/Types.php:212
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr "একটি চলক দৈর্ঘ্য (%s)লেখা, কার্যকর সর্বোচ্চ সংখ্যা হল সর্বোচ্চ দৈঘ্যের আকার"
 
-#: src/Types.php:268
+#: src/Types.php:217
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -19863,7 +19855,7 @@ msgstr ""
 "একটি TEXT স্তম্ভ সর্বোচ্চ ২৫৫(২^৮ - ১) সংখ্যক অক্ষরের, সন্মুখে একটি বাইট সহ মজুদ করা "
 "হয় যা এর দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:273
+#: src/Types.php:222
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -19871,7 +19863,7 @@ msgstr ""
 "একটি TEXT স্তম্ভ সর্বোচ্চ ৬৫,৫৩৫*(২^১৬ - ১) সংখ্যক অক্ষরের, সন্মুখে দুইটি বাইট সহ মজুদ "
 "করা হয় যা এর দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:278
+#: src/Types.php:227
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -19879,7 +19871,7 @@ msgstr ""
 "একটি TEXT স্তম্ভ সর্বোচ্চ ১৬,৭৭৭,২১৫(২^২৪ - ১) সংখ্যক অক্ষর, সন্মুখে তিনটি বাইট সহ "
 "মজুদ করা হয় যা এর দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:283
+#: src/Types.php:232
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -19888,19 +19880,19 @@ msgstr ""
 "একটি TEXT স্তম্ভ সর্বোচ্চ ৪,২৯৪,৯৬৭,২৯৫ বা ৪জিবা(২^৩২ - ১) সংখ্যক অক্ষরের, সন্মুখে "
 "চারটি বাইট সহ মজুদ করা হয় যা এর দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:288
+#: src/Types.php:237
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "CHAR ধরনের মত, কিন্তু বাইনারী লেখা মজুদ করে অ-বাইনারী নয়"
 
-#: src/Types.php:291
+#: src/Types.php:240
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "VARCHAR ধরনের মত, কিন্তু বাইনারী লেখা মজুদ করে অ-বাইনারী নয়"
 
-#: src/Types.php:295
+#: src/Types.php:244
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -19908,7 +19900,7 @@ msgstr ""
 "BLOB স্তম্ভ সর্বোচ্চ ২৫৫(২^৮ - ১)বাইট হয়, সন্মুখে একটি বাইট সহ মজুদ করা হয় যা এর "
 "দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:299
+#: src/Types.php:248
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -19916,7 +19908,7 @@ msgstr ""
 "BLOB স্তম্ভ সর্বোচ্চ ১৬,৭৭৭,২১৫(২^২৪ - ১)বাইট হয়, সন্মুখে তিনটি বাইট সহ মজুদ করা হয় "
 "যা এর দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:304
+#: src/Types.php:253
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -19924,7 +19916,7 @@ msgstr ""
 "BLOB স্তম্ভ সর্বোচ্চ ৬৫,৫৩৫(২^১৬ - ১)বাইট হয়, সন্মুখে দুইটি বাইট সহ মজুদ করা হয় যা "
 "এর দৈর্ঘ্যের পরিমান এই বাইটে রাখে"
 
-#: src/Types.php:308
+#: src/Types.php:257
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -19932,77 +19924,77 @@ msgstr ""
 "BLOB স্তম্ভ সর্বোচ্চ ৪,২৯৪,৯৬৭,২৯৫,বা ৪জিবি(২^৩২ - ১)বাইট হয়, সন্মুখে চারটি বাইট "
 "সহ মজুদ করা হয় যা এর দৈর্ঘ্যের পরিমান রাখে"
 
-#: src/Types.php:312
+#: src/Types.php:261
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr "একটি গনক, ৬৫,৫৩৫ টি মান থেকে পছন্দ করা হয় বা বিশেষ '' ভুল মান থেকে"
 
-#: src/Types.php:313
+#: src/Types.php:262
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "৬৪টি সদস্যের মান থেকে একটি পছন্দ করা হয়"
 
-#: src/Types.php:314
+#: src/Types.php:263
 msgid "A type that can store a geometry of any type"
 msgstr "একটি ধরন যা যে কোন জ্যামিতিক ধরন মজুদ করতে পারে"
 
-#: src/Types.php:315
+#: src/Types.php:264
 msgid "A point in 2-dimensional space"
 msgstr "২ দশমিক স্থানের একটি জায়গা"
 
-#: src/Types.php:316
+#: src/Types.php:265
 msgid "A curve with linear interpolation between points"
 msgstr "একটি বাঁক পয়েন্টের মধ্য রৈখিক সংযোগকারী"
 
-#: src/Types.php:317
+#: src/Types.php:266
 msgid "A polygon"
 msgstr "একটি পলিগন"
 
-#: src/Types.php:318
+#: src/Types.php:267
 msgid "A collection of points"
 msgstr "পয়েন্টের সম্ভার"
 
-#: src/Types.php:319
+#: src/Types.php:268
 msgid "A collection of curves with linear interpolation between points"
 msgstr "বিভিন্ন পয়েন্টের রৈখিক বাকেঁর সম্ভার"
 
-#: src/Types.php:320
+#: src/Types.php:269
 msgid "A collection of polygons"
 msgstr "বহুভুজের সম্ভার"
 
-#: src/Types.php:321
+#: src/Types.php:270
 msgid "A collection of geometry objects of any type"
 msgstr "জ্যামিতিক অবজেক্টের সম্ভার"
 
-#: src/Types.php:322
+#: src/Types.php:271
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
 
-#: src/Types.php:323
+#: src/Types.php:272
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:326
+#: src/Types.php:275
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "একটি অনন্য সর্বত্র পরিচয়জ্ঞাপক মজুদ করে (UUID)"
 
-#: src/Types.php:650
+#: src/Types.php:583
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "গানিতিক"
 
-#: src/Types.php:668
+#: src/Types.php:601
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "সময় এবং তারিখ"
 
-#: src/Types.php:698
+#: src/Types.php:631
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "স্পাটিয়াল"
@@ -20058,6 +20050,12 @@ msgstr "জিপ আর্কাইভের ভুল:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "জিপ আর্কাইভের ভিতর কোন ফাইল পাওয়া যায়নি!"
+
+#~ msgid "Bad parameters!"
+#~ msgstr "প্যারামিটারগুলো খারপ!"
+
+#~ msgid "The database name is empty!"
+#~ msgstr "ডাটাবেইজের নাম দেওয়া হয় নাই!"
 
 #~ msgid "Protocol version:"
 #~ msgstr "সংযোগ বিধি সংস্করন:"
