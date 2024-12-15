@@ -2128,12 +2128,6 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: '#^Only booleans are allowed in \|\|, int\<0, max\> given on the left side\.$#'
-			identifier: booleanOr.leftNotBoolean
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -2147,12 +2141,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/EventsController.php
@@ -6622,18 +6610,6 @@ parameters:
 			path: src/Database/Designer/Common.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Binary operation "\." between ''\<li\>'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Database/Events.php
-
-		-
 			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
@@ -6646,12 +6622,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: src/Database/Events.php
-
-		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 7
 			path: src/Database/Events.php
 
 		-

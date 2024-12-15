@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_column;
 use function array_multisort;
+use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -38,6 +39,9 @@ class Events
 
     /** @var array<int, string> */
     public readonly array $interval;
+
+    /** @var list<string> */
+    private array $errors = [];
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -75,7 +79,7 @@ class Events
         $itemQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if ($GLOBALS['errors'] === []) {
+        if ($this->errors === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
@@ -85,7 +89,7 @@ class Events
                     . ";\n";
                 $result = $this->dbi->tryQuery($dropItem);
                 if (! $result) {
-                    $GLOBALS['errors'][] = sprintf(
+                    $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($dropItem),
                     )
@@ -94,7 +98,7 @@ class Events
                 } else {
                     $result = $this->dbi->tryQuery($itemQuery);
                     if (! $result) {
-                        $GLOBALS['errors'][] = sprintf(
+                        $this->errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($itemQuery),
                         )
@@ -109,7 +113,7 @@ class Events
                             // and now even the backup query does not execute!
                             // This should not happen, but we better handle
                             // this just in case.
-                            $GLOBALS['errors'][] = __('Sorry, we failed to restore the dropped event.') . '<br>'
+                            $this->errors[] = __('Sorry, we failed to restore the dropped event.') . '<br>'
                                 . __('The backed up query was:')
                                 . '"' . htmlspecialchars($createItem) . '"<br>'
                                 . __('MySQL said: ') . $this->dbi->getError();
@@ -128,7 +132,7 @@ class Events
                 // 'Add a new item' mode
                 $result = $this->dbi->tryQuery($itemQuery);
                 if (! $result) {
-                    $GLOBALS['errors'][] = sprintf(
+                    $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($itemQuery),
                     )
@@ -146,7 +150,7 @@ class Events
             }
         }
 
-        if ($GLOBALS['errors'] !== []) {
+        if ($this->errors !== []) {
             $GLOBALS['message'] = Message::error(
                 '<b>'
                 . __(
@@ -155,7 +159,7 @@ class Events
                 . '</b>',
             );
             $GLOBALS['message']->addHtml('<ul>');
-            foreach ($GLOBALS['errors'] as $string) {
+            foreach ($this->errors as $string) {
                 $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
             }
 
@@ -256,8 +260,6 @@ class Events
      */
     public function getQueryFromRequest(): string
     {
-        $GLOBALS['errors'] ??= null;
-
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
             if (str_contains($_POST['item_definer'], '@')) {
@@ -265,7 +267,7 @@ class Events
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
-                $GLOBALS['errors'][] = __('The definer must be in the "username@hostname" format!');
+                $this->errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
 
@@ -273,7 +275,7 @@ class Events
         if (! empty($_POST['item_name'])) {
             $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
-            $GLOBALS['errors'][] = __('You must provide an event name!');
+            $this->errors[] = __('You must provide an event name!');
         }
 
         $query .= 'ON SCHEDULE ';
@@ -287,7 +289,7 @@ class Events
                     $query .= 'EVERY ' . (int) $_POST['item_interval_value'] . ' ';
                     $query .= $_POST['item_interval_field'] . ' ';
                 } else {
-                    $GLOBALS['errors'][] = __('You must provide a valid interval value for the event.');
+                    $this->errors[] = __('You must provide a valid interval value for the event.');
                 }
 
                 if (! empty($_POST['item_starts'])) {
@@ -300,10 +302,10 @@ class Events
             } elseif (! empty($_POST['item_execute_at'])) {
                 $query .= 'AT ' . $this->dbi->quoteString($_POST['item_execute_at']) . ' ';
             } else {
-                $GLOBALS['errors'][] = __('You must provide a valid execution time for the event.');
+                $this->errors[] = __('You must provide a valid execution time for the event.');
             }
         } else {
-            $GLOBALS['errors'][] = __('You must provide a valid type for the event.');
+            $this->errors[] = __('You must provide a valid type for the event.');
         }
 
         $query .= 'ON COMPLETION ';
@@ -329,7 +331,7 @@ class Events
         if (! empty($_POST['item_definition'])) {
             $query .= $_POST['item_definition'];
         } else {
-            $GLOBALS['errors'][] = __('You must provide an event definition.');
+            $this->errors[] = __('You must provide an event definition.');
         }
 
         return $query;
@@ -387,5 +389,10 @@ class Events
         );
 
         return is_string($result) ? $result : null;
+    }
+
+    public function getErrorCount(): int
+    {
+        return count($this->errors);
     }
 }
