@@ -9313,7 +9313,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['focus_querywindow']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
