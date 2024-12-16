@@ -11893,12 +11893,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Plugins\\AuthenticationPlugin\:\:\$user \(string\) does not accept mixed\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Plugins/Auth/AuthenticationHttp.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#

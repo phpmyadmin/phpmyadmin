@@ -1675,7 +1675,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
-      <code><![CDATA[$GLOBALS['show_query']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
@@ -1690,9 +1689,6 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['show_query']]]></code>
-    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->config->get('TempDir')]]></code>
     </PossiblyNullArgument>
@@ -7017,14 +7013,9 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['PHP_AUTH_PW']]]></code>
-      <code><![CDATA[$GLOBALS['PHP_AUTH_USER']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$this->user]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$this->password]]></code>
-      <code><![CDATA[$this->user]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$oldUser]]></code>

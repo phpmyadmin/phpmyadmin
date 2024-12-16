@@ -102,11 +102,6 @@ class AuthenticationHttp extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        // Grabs the $PHP_AUTH_USER variable
-        if (isset($GLOBALS['PHP_AUTH_USER'])) {
-            $this->user = $GLOBALS['PHP_AUTH_USER'];
-        }
-
         if ($this->user === '') {
             if (Core::getEnv('PHP_AUTH_USER') !== '') {
                 $this->user = Core::getEnv('PHP_AUTH_USER');
