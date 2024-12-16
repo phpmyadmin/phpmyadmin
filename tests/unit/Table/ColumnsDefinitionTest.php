@@ -78,7 +78,6 @@ SQL;
         Current::$database = 'sakila';
         Current::$table = 'actor';
         $userPrivileges = new UserPrivileges(column: true, isReload: true);
-        $GLOBALS['mime_map'] = null;
 
         $actual = $columnsDefinition->displayForm(
             $userPrivileges,

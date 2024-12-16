@@ -10029,11 +10029,7 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['mime_map']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
       <code><![CDATA[$columnMeta['Field']]]></code>
@@ -10045,20 +10041,15 @@
       <code><![CDATA[Util::getValueByKey($_POST, ['field_key', $columnNumber], '')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
       <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-    </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
+      <code><![CDATA[$mimeMap[$columnMeta['Field']]]]></code>
+      <code><![CDATA[$mimeMap[$columnMeta['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['mime_map']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
