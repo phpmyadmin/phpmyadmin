@@ -257,8 +257,7 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
+        $GLOBALS['ods_null'] = '&';
 
         self::assertTrue(
             $this->object->exportData(
@@ -331,9 +330,8 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        $GLOBALS['foo_columns'] = true;
+        $GLOBALS['ods_null'] = '&';
+        $GLOBALS['ods_columns'] = true;
 
         self::assertTrue(
             $this->object->exportData(
@@ -382,8 +380,7 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
+        $GLOBALS['ods_null'] = '&';
         $GLOBALS['ods_buffer'] = '';
 
         self::assertTrue(

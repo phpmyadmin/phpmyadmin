@@ -393,9 +393,8 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([null, 'a<b', 'a>b', 'a&b'], []);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        unset($GLOBALS['foo_columns']);
+        $GLOBALS['odt_null'] = '&';
+        unset($GLOBALS['odt_columns']);
 
         self::assertTrue(
             $this->object->exportData(
@@ -461,9 +460,8 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        $GLOBALS['foo_columns'] = true;
+        $GLOBALS['odt_null'] = '&';
+        $GLOBALS['odt_columns'] = true;
 
         self::assertTrue(
             $this->object->exportData(
@@ -514,8 +512,7 @@ class ExportOdtTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
+        $GLOBALS['odt_null'] = '&';
         $GLOBALS['odt_buffer'] = '';
 
         self::assertTrue(

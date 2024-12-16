@@ -234,76 +234,6 @@ class ExportCsvTest extends AbstractTestCase
     {
         // case 1
 
-        $GLOBALS['what'] = 'excel';
-        $GLOBALS['excel_edition'] = 'win';
-        $GLOBALS['excel_columns'] = true;
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
-
-        self::assertSame(';', $GLOBALS['csv_separator']);
-
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
-
-        self::assertSame('"', $GLOBALS['csv_escaped']);
-
-        self::assertTrue($GLOBALS['csv_columns']);
-
-        // case 2
-
-        $GLOBALS['excel_edition'] = 'mac_excel2003';
-        unset($GLOBALS['excel_columns']);
-        $GLOBALS['csv_columns'] = false;
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
-
-        self::assertSame(';', $GLOBALS['csv_separator']);
-
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
-
-        self::assertSame('"', $GLOBALS['csv_escaped']);
-
-        self::assertFalse($GLOBALS['csv_columns']);
-
-        // case 3
-
-        $GLOBALS['excel_edition'] = 'mac_excel2008';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
-
-        self::assertSame(',', $GLOBALS['csv_separator']);
-
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
-
-        self::assertSame('"', $GLOBALS['csv_escaped']);
-
-        self::assertFalse($GLOBALS['csv_columns']);
-
-        // case 4
-
-        $GLOBALS['excel_edition'] = 'testBlank';
-        $GLOBALS['csv_separator'] = '#';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame('#', $GLOBALS['csv_separator']);
-
-        // case 5
-
-        $GLOBALS['what'] = 'notExcel';
         $GLOBALS['csv_terminated'] = '';
         $GLOBALS['csv_separator'] = 'a\\t';
 
@@ -314,7 +244,7 @@ class ExportCsvTest extends AbstractTestCase
         self::assertSame($GLOBALS['csv_terminated'], "\n");
 
         self::assertSame($GLOBALS['csv_separator'], "a\011");
-        // case 6
+        // case 2
 
         $GLOBALS['csv_terminated'] = 'AUTO';
 
@@ -324,7 +254,7 @@ class ExportCsvTest extends AbstractTestCase
 
         self::assertSame($GLOBALS['csv_terminated'], "\n");
 
-        // case 7
+        // case 3
 
         $GLOBALS['csv_terminated'] = 'a\\rb\\nc\\t';
         $GLOBALS['csv_separator'] = 'a\\t';
@@ -388,8 +318,7 @@ class ExportCsvTest extends AbstractTestCase
         ob_get_clean();
 
         // case 2
-        $GLOBALS['what'] = 'UT';
-        $GLOBALS['UT_null'] = 'customNull';
+        $GLOBALS['csv_null'] = 'customNull';
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
@@ -431,8 +360,7 @@ class ExportCsvTest extends AbstractTestCase
 
         // case 4
         $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['what'] = 'excel';
-        $GLOBALS['excel_removeCRLF'] = true;
+        $GLOBALS['csv_removeCRLF'] = true;
         $GLOBALS['csv_escaped'] = '"';
 
         ob_start();
@@ -451,7 +379,7 @@ class ExportCsvTest extends AbstractTestCase
 
         // case 5
         $GLOBALS['csv_enclosed'] = '"';
-        unset($GLOBALS['excel_removeCRLF']);
+        unset($GLOBALS['csv_removeCRLF']);
         $GLOBALS['csv_escaped'] = ';';
 
         ob_start();

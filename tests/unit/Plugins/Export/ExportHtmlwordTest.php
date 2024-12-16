@@ -293,8 +293,6 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         // case 1
         $GLOBALS['htmlword_columns'] = true;
-        $GLOBALS['what'] = 'UT';
-        $GLOBALS['UT_null'] = 'customNull';
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;

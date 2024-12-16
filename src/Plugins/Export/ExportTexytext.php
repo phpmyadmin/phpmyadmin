@@ -166,8 +166,6 @@ class ExportTexytext extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -189,7 +187,7 @@ class ExportTexytext extends ExportPlugin
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
+        if (isset($GLOBALS['texytext_columns'])) {
             $textOutput = "|------\n";
             foreach ($result->getFieldNames() as $colAs) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
@@ -210,7 +208,7 @@ class ExportTexytext extends ExportPlugin
             $textOutput = '';
             foreach ($row as $field) {
                 if ($field === null) {
-                    $value = $GLOBALS[$GLOBALS['what'] . '_null'];
+                    $value = $GLOBALS['texytext_null'];
                 } elseif ($field !== '') {
                     $value = $field;
                 } else {

@@ -103,14 +103,13 @@ class ExportCsv extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['what'] ??= null;
         $GLOBALS['csv_terminated'] ??= null;
         $GLOBALS['csv_separator'] ??= null;
         $GLOBALS['csv_enclosed'] ??= null;
         $GLOBALS['csv_escaped'] ??= null;
 
         // Here we just prepare some values for export
-        if ($GLOBALS['what'] === 'excel') {
+        if ($this->getName() === 'excel') {
             $GLOBALS['csv_terminated'] = "\015\012";
             switch ($GLOBALS['excel_edition']) {
                 case 'win': // as tested on Windows with Excel 2002 and Excel 2007
@@ -198,7 +197,6 @@ class ExportCsv extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
         $GLOBALS['csv_terminated'] ??= null;
         $GLOBALS['csv_separator'] ??= '';
         $GLOBALS['csv_enclosed'] ??= null;
@@ -246,16 +244,17 @@ class ExportCsv extends ExportPlugin
             $insertValues = [];
             foreach ($row as $field) {
                 if ($field === null) {
-                    $insertValues[] = $GLOBALS[$GLOBALS['what'] . '_null'];
+                    $insertValues[] = $this->getName() === 'excel' ? $GLOBALS['excel_null'] : $GLOBALS['csv_null'];
                 } elseif ($field !== '') {
                     // always enclose fields
-                    if ($GLOBALS['what'] === 'excel') {
+                    if ($this->getName() === 'excel') {
                         $field = preg_replace("/\015(\012)?/", "\012", $field);
                     }
 
                     // remove CRLF characters within field
                     if (
-                        isset($GLOBALS[$GLOBALS['what'] . '_removeCRLF']) && $GLOBALS[$GLOBALS['what'] . '_removeCRLF']
+                        isset($GLOBALS['excel_removeCRLF']) && $GLOBALS['excel_removeCRLF']
+                        || isset($GLOBALS['csv_removeCRLF']) && $GLOBALS['csv_removeCRLF']
                     ) {
                         $field = str_replace(
                             ["\r", "\n"],

@@ -227,8 +227,6 @@ class ExportOdt extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -250,7 +248,7 @@ class ExportOdt extends ExportPlugin
             . ' table:number-columns-repeated="' . $fieldsCnt . '"/>';
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
+        if (isset($GLOBALS['odt_columns'])) {
             $GLOBALS['odt_buffer'] .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
                 $colAs = $field->name;
@@ -281,7 +279,7 @@ class ExportOdt extends ExportPlugin
                 if (! isset($row[$j])) {
                     $GLOBALS['odt_buffer'] .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($GLOBALS[$GLOBALS['what'] . '_null'])
+                        . htmlspecialchars($GLOBALS['odt_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {

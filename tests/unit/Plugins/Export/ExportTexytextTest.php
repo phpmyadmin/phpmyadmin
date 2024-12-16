@@ -213,9 +213,8 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_columns'] = '&';
-        $GLOBALS['foo_null'] = '>';
+        $GLOBALS['texytext_columns'] = '&';
+        $GLOBALS['texytext_null'] = '>';
 
         ob_start();
         self::assertTrue(

@@ -182,8 +182,6 @@ class ExportHtmlword extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -231,7 +229,7 @@ class ExportHtmlword extends ExportPlugin
         while ($row = $result->fetchRow()) {
             $schemaInsert = '<tr class="print-category">';
             foreach ($row as $field) {
-                $value = $field ?? $GLOBALS[$GLOBALS['what'] . '_null'];
+                $value = $field ?? $GLOBALS['htmlword_null'];
 
                 $schemaInsert .= '<td class="print">'
                     . htmlspecialchars((string) $value)

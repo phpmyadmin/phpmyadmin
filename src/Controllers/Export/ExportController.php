@@ -57,7 +57,6 @@ final class ExportController implements InvocableController
         $GLOBALS['file_handle'] ??= null;
         $GLOBALS['output_charset_conversion'] ??= null;
         $GLOBALS['output_kanji_conversion'] ??= null;
-        $GLOBALS['what'] ??= null;
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['table_select'] ??= null;
@@ -68,7 +67,6 @@ final class ExportController implements InvocableController
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
 
-        $whatParam = $request->getParsedBodyParamAsString('what', '');
         $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
         $outputFormat = $request->getParsedBodyParamAsStringOrNull('output_format');
         $compressionParam = $request->getParsedBodyParamAsString('compression', '');
@@ -88,16 +86,15 @@ final class ExportController implements InvocableController
         $this->setGlobalsFromRequest($postParams);
 
         // sanitize this parameter which will be used below in a file inclusion
-        $GLOBALS['what'] = Core::securePath($whatParam);
-
-        if ($GLOBALS['what'] === '') {
+        $what = Core::securePath($request->getParsedBodyParamAsString('what', ''));
+        if ($what === '') {
             return $this->response->missingParameterError('what');
         }
 
         $exportType = ExportType::from($request->getParsedBodyParamAsString('export_type'));
 
         // export class instance, not array of properties, as before
-        $exportPlugin = Plugins::getPlugin('export', $GLOBALS['what'], $exportType, isset($GLOBALS['single_table']));
+        $exportPlugin = Plugins::getPlugin('export', $what, $exportType, isset($GLOBALS['single_table']));
 
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {
