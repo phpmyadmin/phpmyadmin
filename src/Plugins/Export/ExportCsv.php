@@ -9,6 +9,8 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -314,5 +316,15 @@ class ExportCsv extends ExportPlugin
         }
 
         return $this->exportData($db ?? '', '', $sqlQuery);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('csv_structure_or_data'),
+            $exportConfig['csv_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
     }
 }

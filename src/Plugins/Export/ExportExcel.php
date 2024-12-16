@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -80,5 +82,15 @@ class ExportExcel extends ExportCsv
         $exportPluginProperties->setOptions($exportSpecificOptions);
 
         return $exportPluginProperties;
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('excel_structure_or_data'),
+            $exportConfig['excel_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
     }
 }

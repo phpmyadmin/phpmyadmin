@@ -8,6 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -342,5 +344,15 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '</hibernate-mapping>';
 
         return implode("\n", $lines);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('codegen_structure_or_data'),
+            $exportConfig['codegen_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
     }
 }

@@ -9,7 +9,9 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -318,5 +320,15 @@ class ExportJson extends ExportPlugin
         }
 
         return $this->doExportForQuery($dbi, $sqlQuery, $buffer, null, $db, null);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('json_structure_or_data'),
+            $exportConfig['json_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
     }
 }

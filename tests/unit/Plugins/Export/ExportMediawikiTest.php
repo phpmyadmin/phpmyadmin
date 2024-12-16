@@ -242,13 +242,7 @@ class ExportMediawikiTest extends AbstractTestCase
         $GLOBALS['mediawiki_headers'] = true;
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'db',
-                'table',
-                'create_table',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('db', 'table', 'create_table'));
         $result = ob_get_clean();
 
         self::assertSame(

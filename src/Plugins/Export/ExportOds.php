@@ -9,7 +9,9 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -313,5 +315,15 @@ class ExportOds extends ExportPlugin
         }
 
         return $this->exportData($db ?? '', '', $sqlQuery);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('ods_structure_or_data'),
+            $exportConfig['ods_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
     }
 }

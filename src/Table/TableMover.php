@@ -477,7 +477,7 @@ class TableMover
         /**
          * The old structure of the table.
          */
-        $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
+        $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, $isView);
 
         // -----------------------------------------------------------------
         // Phase 0: Preparing structures used.

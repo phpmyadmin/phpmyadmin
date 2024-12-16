@@ -11,6 +11,8 @@ use DateTimeImmutable;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -37,6 +39,12 @@ use const PHP_VERSION;
  */
 class ExportLatex extends ExportPlugin
 {
+    private bool $doRelation = false;
+
+    private bool $doMime = false;
+
+    private bool $doComments = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -414,27 +422,10 @@ class ExportLatex extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             exportStructure() also for other
-     *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        bool $doRelation = false,
-        bool $doComments = false,
-        bool $doMime = false,
-        bool $dates = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -466,7 +457,7 @@ class ExportLatex extends ExportPlugin
         $dbi->selectDb($db);
 
         // Check if we can use Relations
-        $foreigners = $doRelation && $relationParameters->relationFeature !== null ?
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
             $this->relation->getForeigners($db, $table)
             : [];
         /**
@@ -479,15 +470,15 @@ class ExportLatex extends ExportPlugin
         }
 
         $alignment = '|l|c|c|c|';
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $alignment .= 'l|';
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $alignment .= 'l|';
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $alignment .= 'l|';
         }
 
@@ -498,16 +489,16 @@ class ExportLatex extends ExportPlugin
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Type')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Null')
             . '}} & \\multicolumn{1}{|c|}{\\textbf{' . __('Default') . '}}';
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Links to') . '}}';
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{' . __('Comments') . '}}';
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $header .= ' & \\multicolumn{1}{|c|}{\\textbf{MIME}}';
             $mimeMap = $this->transformations->getMime($db, $table, true);
         }
@@ -565,19 +556,19 @@ class ExportLatex extends ExportPlugin
                 . ($row->isNull ? __('Yes') : __('No'))
                 . "\000" . ($row->default ?? ($row->isNull ? 'NULL' : ''));
 
-            if ($doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== []) {
                 $localBuffer .= "\000";
                 $localBuffer .= $this->getRelationString($foreigners, $fieldName, $db, $aliases);
             }
 
-            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+            if ($this->doComments && $relationParameters->columnCommentsFeature !== null) {
                 $localBuffer .= "\000";
                 if (isset($comments[$fieldName])) {
                     $localBuffer .= $comments[$fieldName];
                 }
             }
 
-            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
                 $localBuffer .= "\000";
                 if (isset($mimeMap[$fieldName])) {
                     $localBuffer .= str_replace('_', '/', $mimeMap[$fieldName]['mimetype']);
@@ -618,5 +609,20 @@ class ExportLatex extends ExportPlugin
     public static function texEscape(string $string): string
     {
         return addcslashes($string, '$%{}&#_^');
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('latex_structure_or_data'),
+            $exportConfig['latex_structure_or_data'] ?? null,
+            StructureOrData::StructureAndData,
+        );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
+            ?? $exportConfig['latex_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('latex_mime') ?? $exportConfig['latex_mime'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('latex_comments')
+            ?? $exportConfig['latex_comments'] ?? false);
     }
 }
