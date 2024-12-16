@@ -3722,15 +3722,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$message->getDisplay()]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-    </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[getDisplay]]></code>
     </MixedMethodCall>

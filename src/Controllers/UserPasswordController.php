@@ -32,7 +32,6 @@ final class UserPasswordController implements InvocableController
     {
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['username'] ??= null;
-        $GLOBALS['change_password_message'] ??= null;
 
         $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
@@ -64,25 +63,17 @@ final class UserPasswordController implements InvocableController
             $pmaPw2 = $request->getParsedBodyParamAsString('pma_pw2');
 
             $password = $noPass === '1' ? '' : $pmaPw;
-            $GLOBALS['change_password_message'] = $this->userPassword->setChangePasswordMsg(
-                $pmaPw,
-                $pmaPw2,
-                $noPass === '1',
-            );
-            $message = $GLOBALS['change_password_message']['msg'];
+            $changePasswordMessage = $this->userPassword->setChangePasswordMsg($pmaPw, $pmaPw2, $noPass === '1');
+            $message = $changePasswordMessage['msg'];
 
-            if (! $GLOBALS['change_password_message']['error']) {
+            if (! $changePasswordMessage['error']) {
                 $sqlQuery = $this->userPassword->changePassword(
                     $password,
                     $request->getParsedBodyParamAsStringOrNull('authentication_plugin'),
                 );
 
                 if ($request->isAjax()) {
-                    $sqlQuery = Generator::getMessage(
-                        $GLOBALS['change_password_message']['msg'],
-                        $sqlQuery,
-                        MessageType::Success,
-                    );
+                    $sqlQuery = Generator::getMessage($changePasswordMessage['msg'], $sqlQuery, MessageType::Success);
                     $this->response->addJSON('message', $sqlQuery);
 
                     return $this->response->response();
@@ -96,7 +87,7 @@ final class UserPasswordController implements InvocableController
             }
 
             if ($request->isAjax()) {
-                $this->response->addJSON('message', $GLOBALS['change_password_message']['msg']);
+                $this->response->addJSON('message', $changePasswordMessage['msg']);
                 $this->response->setRequestStatus(false);
 
                 return $this->response->response();
