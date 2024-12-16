@@ -1011,9 +1011,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
@@ -1055,7 +1052,6 @@
       <code><![CDATA[$routine['item_param_type'][$routine['item_num_params'] - 1]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_num_params']]]></code>
       <code><![CDATA[$routine['item_original_name']]]></code>
@@ -1111,10 +1107,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantCondition>
-      <code><![CDATA[! $GLOBALS['errors']]]></code>
-      <code><![CDATA[$routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors']]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_GET['execute_dialog'])]]></code>
       <code><![CDATA[empty($_GET['export_item'])]]></code>
@@ -1140,9 +1132,6 @@
       <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
       <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$GLOBALS['errors'] !== []]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/Database/SearchController.php">
     <DeprecatedMethod>
@@ -4206,14 +4195,9 @@
       <code><![CDATA[$itemParamName]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
       <code><![CDATA[$itemParamOpsNum[$i]]]></code>
       <code><![CDATA[$itemParamOpsText[$i]]]></code>
@@ -4271,18 +4255,6 @@
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
@@ -4299,15 +4271,11 @@
       <code><![CDATA[$routine['item_param_type'][$i]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$options[]]]></code>
       <code><![CDATA[$retval['item_param_opts_num'][$idx][]]]></code>
-      <code><![CDATA[$string]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
@@ -4316,7 +4284,6 @@
       <code><![CDATA[$itemParamLength[$i]]]></code>
       <code><![CDATA[$itemParamType[$i]]]></code>
       <code><![CDATA[$itemParamType[$i]]]></code>
-      <code><![CDATA[$string]]></code>
     </MixedOperand>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$this->dbi->fetchResult($privilegesBackupQuery, 0)]]></code>
@@ -4373,7 +4340,6 @@
       <code><![CDATA[$itemDefinition]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['message']]]></code>
       <code><![CDATA[$createRoutine]]></code>
       <code><![CDATA[$param->type->parameters]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
@@ -4381,7 +4347,6 @@
       <code><![CDATA[$stmt->return->parameters]]></code>
     </PossiblyNullArgument>
     <PossiblyNullIterator>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$param->type->options->options]]></code>
       <code><![CDATA[$stmt->return->options->options]]></code>
     </PossiblyNullIterator>
@@ -4402,7 +4367,6 @@
       <code><![CDATA[get]]></code>
     </PossiblyNullReference>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$routine['item_param_name']]]></code>
     </PossiblyUndefinedArrayOffset>

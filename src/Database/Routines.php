@@ -58,6 +58,9 @@ class Routines
     /** @var array<int, string> */
     public readonly array $numericOptions;
 
+    /** @var array<string> */
+    private array $errors = [];
+
     public function __construct(private DatabaseInterface $dbi)
     {
         $this->directions = ['IN', 'OUT', 'INOUT'];
@@ -74,11 +77,11 @@ class Routines
         $routineQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if ($GLOBALS['errors'] === []) {
+        if ($this->errors === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 if (! in_array($_POST['item_original_type'], ['PROCEDURE', 'FUNCTION'], true)) {
-                    $GLOBALS['errors'][] = sprintf(
+                    $this->errors[] = sprintf(
                         __('Invalid routine type: "%s"'),
                         htmlspecialchars($_POST['item_original_type']),
                     );
@@ -97,7 +100,7 @@ class Routines
                         . ";\n";
                     $result = $this->dbi->tryQuery($dropRoutine);
                     if (! $result) {
-                        $GLOBALS['errors'][] = sprintf(
+                        $this->errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($dropRoutine),
                         )
@@ -110,10 +113,10 @@ class Routines
                             $createRoutine,
                             $privilegesBackup,
                         );
-                        if (empty($newErrors)) {
+                        if ($newErrors === []) {
                             $sqlQuery = $dropRoutine . $routineQuery;
                         } else {
-                            $GLOBALS['errors'] = array_merge($GLOBALS['errors'], $newErrors);
+                            $this->errors = array_merge($this->errors, $newErrors);
                         }
 
                         unset($newErrors);
@@ -123,7 +126,7 @@ class Routines
                 // 'Add a new routine' mode
                 $result = $this->dbi->tryQuery($routineQuery);
                 if (! $result) {
-                    $GLOBALS['errors'][] = sprintf(
+                    $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($routineQuery),
                     )
@@ -141,14 +144,14 @@ class Routines
             }
         }
 
-        if ($GLOBALS['errors'] !== []) {
+        if ($this->errors !== []) {
             $GLOBALS['message'] = Message::error(
                 __(
                     'One or more errors have occurred while processing your request:',
                 ),
             );
             $GLOBALS['message']->addHtml('<ul>');
-            foreach ($GLOBALS['errors'] as $string) {
+            foreach ($this->errors as $string) {
                 $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
             }
 
@@ -640,14 +643,12 @@ class Routines
         string $itemType,
         bool &$warnedAboutLength,
     ): string {
-        $GLOBALS['errors'] ??= null;
-
         $params = '';
         $warnedAboutDir = false;
 
         for ($i = 0, $nb = count($itemParamName); $i < $nb; $i++) {
             if (empty($itemParamName[$i]) || empty($itemParamType[$i])) {
-                $GLOBALS['errors'][] = __('You must provide a name and a type for each routine parameter.');
+                $this->errors[] = __('You must provide a name and a type for each routine parameter.');
                 break;
             }
 
@@ -664,7 +665,7 @@ class Routines
                     . ' ' . $itemParamType[$i];
             } elseif (! $warnedAboutDir) {
                 $warnedAboutDir = true;
-                $GLOBALS['errors'][] = sprintf(
+                $this->errors[] = sprintf(
                     __('Invalid direction "%s" given for parameter.'),
                     htmlspecialchars($itemParamDir[$i]),
                 );
@@ -684,7 +685,7 @@ class Routines
             ) {
                 if (! $warnedAboutLength) {
                     $warnedAboutLength = true;
-                    $GLOBALS['errors'][] = __(
+                    $this->errors[] = __(
                         'You must provide length/values for routine parameters'
                         . ' of type ENUM, SET, VARCHAR and VARBINARY.',
                     );
@@ -727,14 +728,12 @@ class Routines
         string $query,
         bool $warnedAboutLength,
     ): string {
-        $GLOBALS['errors'] ??= null;
-
         $itemReturnType = $_POST['item_returntype'] ?? null;
 
         if ($itemReturnType !== '' && in_array($itemReturnType, Util::getSupportedDatatypes(), true)) {
             $query .= 'RETURNS ' . $itemReturnType;
         } else {
-            $GLOBALS['errors'][] = __('You must provide a valid return type for the routine.');
+            $this->errors[] = __('You must provide a valid return type for the routine.');
         }
 
         if (
@@ -751,7 +750,7 @@ class Routines
             && preg_match('@^(ENUM|SET|VARCHAR|VARBINARY)$@i', $itemReturnType) === 1
         ) {
             if (! $warnedAboutLength) {
-                $GLOBALS['errors'][] = __(
+                $this->errors[] = __(
                     'You must provide length/values for routine parameters of type ENUM, SET, VARCHAR and VARBINARY.',
                 );
             }
@@ -781,8 +780,6 @@ class Routines
      */
     public function getQueryFromRequest(): string
     {
-        $GLOBALS['errors'] ??= null;
-
         $itemType = $_POST['item_type'] ?? '';
         $itemDefiner = $_POST['item_definer'] ?? '';
         $itemName = $_POST['item_name'] ?? '';
@@ -806,14 +803,14 @@ class Routines
 
                 $query .= '@' . Util::backquoteCompat($arr[1], 'NONE', $doBackquote) . ' ';
             } else {
-                $GLOBALS['errors'][] = __('The definer must be in the "username@hostname" format!');
+                $this->errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
 
         if ($itemType === 'FUNCTION' || $itemType === 'PROCEDURE') {
             $query .= $itemType . ' ';
         } else {
-            $GLOBALS['errors'][] = sprintf(
+            $this->errors[] = sprintf(
                 __('Invalid routine type: "%s"'),
                 htmlspecialchars($itemType),
             );
@@ -822,7 +819,7 @@ class Routines
         if (! empty($itemName)) {
             $query .= Util::backquote($itemName);
         } else {
-            $GLOBALS['errors'][] = __('You must provide a routine name!');
+            $this->errors[] = __('You must provide a routine name!');
         }
 
         $warnedAboutLength = false;
@@ -886,7 +883,7 @@ class Routines
         if (! empty($itemDefinition)) {
             $query .= $itemDefinition;
         } else {
-            $GLOBALS['errors'][] = __('You must provide a routine definition.');
+            $this->errors[] = __('You must provide a routine definition.');
         }
 
         return $query;
@@ -1353,5 +1350,10 @@ class Routines
         }
 
         return $names;
+    }
+
+    public function getErrorCount(): int
+    {
+        return count($this->errors);
     }
 }

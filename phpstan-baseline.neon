@@ -2293,12 +2293,6 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 4
@@ -6717,19 +6711,13 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 3
+			count: 2
 			path: src/Database/Routines.php
 
 		-
 			message: '#^Binary operation "\." between ''\('' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Binary operation "\." between ''\<li\>'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -6751,12 +6739,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 3
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 9
 			path: src/Database/Routines.php
 
 		-
@@ -6816,7 +6798,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 22
+			count: 21
 			path: src/Database/Routines.php
 
 		-
@@ -6919,12 +6901,6 @@ parameters:
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 4
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Database/Routines.php
 
 		-
