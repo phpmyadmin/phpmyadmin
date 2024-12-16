@@ -2198,21 +2198,15 @@
   <file src="src/Controllers/Server/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['tmp_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['tmp_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>

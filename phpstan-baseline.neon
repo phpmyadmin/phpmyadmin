@@ -3622,12 +3622,6 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: '#^Parameter \#1 \$tmpSelect of method PhpMyAdmin\\Export\\Options\:\:getDatabasesForSelectOptions\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
 			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

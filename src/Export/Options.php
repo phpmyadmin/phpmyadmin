@@ -21,7 +21,6 @@ use function function_exists;
 use function in_array;
 use function is_array;
 use function is_string;
-use function str_contains;
 use function urldecode;
 
 final class Options
@@ -46,11 +45,9 @@ final class Options
     /**
      * Prints Html For Export Selection Options
      *
-     * @param string $tmpSelect Tmp selected method of export
-     *
      * @return array<int, array{name: string, is_selected: bool}>
      */
-    public function getDatabasesForSelectOptions(string $tmpSelect = ''): array
+    public function getDatabasesForSelectOptions(): array
     {
         /** @var array|string|null $dbSelect */
         $dbSelect = $_POST['db_select'] ?? null;
@@ -71,10 +68,6 @@ final class Options
             $isSelected = false;
             if (is_array($dbSelect)) {
                 if (in_array($currentDb, $dbSelect)) {
-                    $isSelected = true;
-                }
-            } elseif ($tmpSelect !== '') {
-                if (str_contains(' ' . $tmpSelect, '|' . $currentDb . '|')) {
                     $isSelected = true;
                 }
             } else {
