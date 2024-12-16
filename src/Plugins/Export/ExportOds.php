@@ -32,9 +32,11 @@ use function strtotime;
  */
 class ExportOds extends ExportPlugin
 {
+    public string $buffer = '';
+
     protected function init(): void
     {
-        $GLOBALS['ods_buffer'] = '';
+        $this->buffer = '';
     }
 
     /** @psalm-return non-empty-lowercase-string */
@@ -86,7 +88,7 @@ class ExportOds extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
+        $this->buffer .= '<?xml version="1.0" encoding="utf-8"?>'
             . '<office:document-content '
             . OpenDocument::NS . ' office:version="1.0">'
             . '<office:automatic-styles>'
@@ -140,12 +142,12 @@ class ExportOds extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $GLOBALS['ods_buffer'] .= '</office:spreadsheet></office:body></office:document-content>';
+        $this->buffer .= '</office:spreadsheet></office:body></office:document-content>';
 
         return $this->export->outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
-                $GLOBALS['ods_buffer'],
+                $this->buffer,
             ),
         );
     }
@@ -205,30 +207,30 @@ class ExportOds extends ExportPlugin
         $fieldsCnt = $result->numFields();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 
-        $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
+        $this->buffer .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
 
         // If required, get fields name at the first line
         if (isset($GLOBALS['ods_columns'])) {
-            $GLOBALS['ods_buffer'] .= '<table:table-row>';
+            $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
                 $colAs = $field->name;
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                     $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
-                $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                $this->buffer .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars($colAs)
                     . '</text:p>'
                     . '</table:table-cell>';
             }
 
-            $GLOBALS['ods_buffer'] .= '</table:table-row>';
+            $this->buffer .= '</table:table-row>';
         }
 
         // Format the data
         while ($row = $result->fetchRow()) {
-            $GLOBALS['ods_buffer'] .= '<table:table-row>';
+            $this->buffer .= '<table:table-row>';
             /** @infection-ignore-all */
             for ($j = 0; $j < $fieldsCnt; $j++) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
@@ -237,18 +239,18 @@ class ExportOds extends ExportPlugin
                 }
 
                 if (! isset($row[$j])) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($GLOBALS['ods_null'])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {
                     // ignore BLOB
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_DATE)) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date"'
+                    $this->buffer .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
                         . date('Y-m-d', strtotime($row[$j]))
                         . '" table:style-name="DateCell">'
@@ -257,7 +259,7 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_TIME)) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="time"'
+                    $this->buffer .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
                         . date('\P\TH\Hi\Ms\S', strtotime($row[$j]))
                         . '" table:style-name="TimeCell">'
@@ -266,7 +268,7 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_DATETIME)) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date"'
+                    $this->buffer .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
                         . date('Y-m-d\TH:i:s', strtotime($row[$j]))
                         . '" table:style-name="DateTimeCell">'
@@ -277,14 +279,14 @@ class ExportOds extends ExportPlugin
                 } elseif (
                     $fieldsMeta[$j]->isNumeric
                 ) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="float"'
+                    $this->buffer .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
@@ -292,10 +294,10 @@ class ExportOds extends ExportPlugin
                 }
             }
 
-            $GLOBALS['ods_buffer'] .= '</table:table-row>';
+            $this->buffer .= '</table:table-row>';
         }
 
-        $GLOBALS['ods_buffer'] .= '</table:table>';
+        $this->buffer .= '</table:table>';
 
         return true;
     }

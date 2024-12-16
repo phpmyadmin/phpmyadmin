@@ -78,8 +78,6 @@
             maxsize: string,
             memory_limit: int,
             message: PhpMyAdmin\Message,
-            ods_buffer: string,
-            odt_buffer: string,
             offset: int,
             old_tz: string,
             onfly_compression: bool,

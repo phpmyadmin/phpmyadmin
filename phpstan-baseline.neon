@@ -12262,24 +12262,6 @@ parameters:
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
-			message: '#^Binary operation "\.\=" between mixed and ''\</office…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\<\?xml version\="1\.0"…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and non\-falsy\-string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -12346,30 +12328,6 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\</office\:text\>\<…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\<\?xml version\="1\.0"…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\<text\:h text…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and non\-falsy\-string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 8
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -21847,12 +21805,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: tests/unit/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 11
 			path: tests/unit/Plugins/Export/ExportOdtTest.php
 
 		-
