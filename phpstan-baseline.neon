@@ -5770,12 +5770,6 @@ parameters:
 			path: src/Controllers/Triggers/IndexController.php
 
 		-
-			message: '#^Only booleans are allowed in \|\|, int\<0, max\> given on the left side\.$#'
-			identifier: booleanOr.leftNotBoolean
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -5789,12 +5783,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$trigger of method PhpMyAdmin\\Controllers\\Triggers\\IndexController\:\:getDataFromTrigger\(\) expects PhpMyAdmin\\Triggers\\Trigger, PhpMyAdmin\\Triggers\\Trigger\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Triggers/IndexController.php
@@ -18100,18 +18088,6 @@ parameters:
 			path: src/Transformations.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Binary operation "\." between ''\<li\>'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
@@ -18124,12 +18100,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
-			message: '#^Cannot access an offset on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 7
 			path: src/Triggers/Triggers.php
 
 		-

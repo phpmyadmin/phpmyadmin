@@ -3647,9 +3647,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Triggers/IndexController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -3659,9 +3656,6 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -3698,10 +3692,6 @@
       <code><![CDATA[empty($_REQUEST['edit_item'])]]></code>
       <code><![CDATA[empty($_REQUEST['item_name'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[count($GLOBALS['errors'])]]></code>
-      <code><![CDATA[count($GLOBALS['errors'])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/UserPasswordController.php">
     <DeprecatedMethod>
@@ -10565,29 +10555,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </InvalidArrayOffset>
-    <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-      <code><![CDATA[$GLOBALS['errors'][]]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-      <code><![CDATA[$string]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$string]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['item_definer']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -10601,15 +10568,9 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_definition']]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullIterator>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </PossiblyNullIterator>
     <PossiblyNullReference>
       <code><![CDATA[getCreateSql]]></code>
     </PossiblyNullReference>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['errors']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
       <code><![CDATA[empty($_POST['item_definer'])]]></code>

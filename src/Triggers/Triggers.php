@@ -16,6 +16,7 @@ use Webmozart\Assert\Assert;
 use function __;
 use function array_column;
 use function array_multisort;
+use function count;
 use function explode;
 use function htmlspecialchars;
 use function in_array;
@@ -33,6 +34,9 @@ class Triggers
     private array $time = ['BEFORE', 'AFTER'];
 
     private const EVENTS = ['INSERT', 'UPDATE', 'DELETE'];
+
+    /** @var list<string> */
+    private array $errors = [];
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -69,7 +73,7 @@ class Triggers
         $itemQuery = $this->getQueryFromRequest();
 
         // set by getQueryFromRequest()
-        if ($GLOBALS['errors'] === []) {
+        if ($this->errors === []) {
             // Execute the created query
             if (! empty($_POST['editor_process_edit'])) {
                 // Backup the old trigger, in case something goes wrong
@@ -78,7 +82,7 @@ class Triggers
                 $dropItem = $trigger->getDropSql();
                 $result = $this->dbi->tryQuery($dropItem);
                 if (! $result) {
-                    $GLOBALS['errors'][] = sprintf(
+                    $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($dropItem),
                     )
@@ -87,7 +91,7 @@ class Triggers
                 } else {
                     $result = $this->dbi->tryQuery($itemQuery);
                     if (! $result) {
-                        $GLOBALS['errors'][] = sprintf(
+                        $this->errors[] = sprintf(
                             __('The following query has failed: "%s"'),
                             htmlspecialchars($itemQuery),
                         )
@@ -103,7 +107,7 @@ class Triggers
                             // and now even the backup query does not execute!
                             // This should not happen, but we better handle
                             // this just in case.
-                            $GLOBALS['errors'][] = __('Sorry, we failed to restore the dropped trigger.') . '<br>'
+                            $this->errors[] = __('Sorry, we failed to restore the dropped trigger.') . '<br>'
                                 . __('The backed up query was:')
                                 . '"' . htmlspecialchars($createItem) . '"<br>'
                                 . __('MySQL said: ') . $this->dbi->getError();
@@ -122,7 +126,7 @@ class Triggers
                 // 'Add a new item' mode
                 $result = $this->dbi->tryQuery($itemQuery);
                 if (! $result) {
-                    $GLOBALS['errors'][] = sprintf(
+                    $this->errors[] = sprintf(
                         __('The following query has failed: "%s"'),
                         htmlspecialchars($itemQuery),
                     )
@@ -140,7 +144,7 @@ class Triggers
             }
         }
 
-        if ($GLOBALS['errors'] !== []) {
+        if ($this->errors !== []) {
             $GLOBALS['message'] = Message::error(
                 '<b>'
                 . __(
@@ -149,7 +153,7 @@ class Triggers
                 . '</b>',
             );
             $GLOBALS['message']->addHtml('<ul>');
-            foreach ($GLOBALS['errors'] as $string) {
+            foreach ($this->errors as $string) {
                 $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
             }
 
@@ -179,8 +183,6 @@ class Triggers
      */
     public function getQueryFromRequest(): string
     {
-        $GLOBALS['errors'] ??= null;
-
         $query = 'CREATE ';
         if (! empty($_POST['item_definer'])) {
             if (str_contains($_POST['item_definer'], '@')) {
@@ -188,7 +190,7 @@ class Triggers
                 $query .= 'DEFINER=' . Util::backquote($arr[0]);
                 $query .= '@' . Util::backquote($arr[1]) . ' ';
             } else {
-                $GLOBALS['errors'][] = __('The definer must be in the "username@hostname" format!');
+                $this->errors[] = __('The definer must be in the "username@hostname" format!');
             }
         }
 
@@ -196,19 +198,19 @@ class Triggers
         if (! empty($_POST['item_name'])) {
             $query .= Util::backquote($_POST['item_name']) . ' ';
         } else {
-            $GLOBALS['errors'][] = __('You must provide a trigger name!');
+            $this->errors[] = __('You must provide a trigger name!');
         }
 
         if (! empty($_POST['item_timing']) && in_array($_POST['item_timing'], $this->time, true)) {
             $query .= $_POST['item_timing'] . ' ';
         } else {
-            $GLOBALS['errors'][] = __('You must provide a valid timing for the trigger!');
+            $this->errors[] = __('You must provide a valid timing for the trigger!');
         }
 
         if (! empty($_POST['item_event']) && in_array($_POST['item_event'], self::EVENTS, true)) {
             $query .= $_POST['item_event'] . ' ';
         } else {
-            $GLOBALS['errors'][] = __('You must provide a valid event for the trigger!');
+            $this->errors[] = __('You must provide a valid event for the trigger!');
         }
 
         $query .= 'ON ';
@@ -218,14 +220,14 @@ class Triggers
         ) {
             $query .= Util::backquote($_POST['item_table']);
         } else {
-            $GLOBALS['errors'][] = __('You must provide a valid table name!');
+            $this->errors[] = __('You must provide a valid table name!');
         }
 
         $query .= ' FOR EACH ROW ';
         if (! empty($_POST['item_definition'])) {
             $query .= $_POST['item_definition'];
         } else {
-            $GLOBALS['errors'][] = __('You must provide a trigger definition.');
+            $this->errors[] = __('You must provide a trigger definition.');
         }
 
         return $query;
@@ -273,5 +275,10 @@ class Triggers
         Assert::isList($tables);
 
         return $tables;
+    }
+
+    public function getErrorCount(): int
+    {
+        return count($this->errors);
     }
 }

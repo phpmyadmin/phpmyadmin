@@ -22,7 +22,6 @@ use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -45,8 +44,6 @@ final class IndexController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errors'] ??= null;
-
         $this->response->addScriptFiles(['triggers.js', 'sql.js']);
 
         if (! $request->isAjax()) {
@@ -93,11 +90,6 @@ final class IndexController implements InvocableController
             $this->dbi->selectDb(Current::$database);
         }
 
-        /**
-         * Keep a list of errors that occurred while
-         * processing an 'Add' or 'Edit' operation.
-         */
-        $GLOBALS['errors'] = [];
         $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
@@ -160,7 +152,7 @@ final class IndexController implements InvocableController
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            count($GLOBALS['errors'])
+            $this->triggers->getErrorCount() > 0
             || empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
             && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])) // FIXME: must be simpler than that
