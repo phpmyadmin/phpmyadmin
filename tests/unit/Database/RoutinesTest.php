@@ -36,7 +36,6 @@ class RoutinesTest extends AbstractTestCase
         $config->settings['ActionLinksMode'] = 'icons';
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['errors'] = [];
 
         $this->routines = new Routines(DatabaseInterface::getInstance());
     }
@@ -237,8 +236,6 @@ class RoutinesTest extends AbstractTestCase
     {
         Config::getInstance()->settings['ShowFunctionFields'] = false;
 
-        $GLOBALS['errors'] = [];
-
         $oldDbi = DatabaseInterface::getInstance();
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -257,7 +254,7 @@ class RoutinesTest extends AbstractTestCase
         unset($_POST);
         $_POST = $request;
         self::assertSame($query, $routines->getQueryFromRequest());
-        self::assertCount($numErr, $GLOBALS['errors']);
+        self::assertSame($numErr, $routines->getErrorCount());
 
         // reset
         DatabaseInterface::$instance = $oldDbi;

@@ -18,7 +18,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function htmlspecialchars;
 use function mb_strtoupper;
 use function sprintf;
@@ -37,8 +36,6 @@ final class EventsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errors'] ??= null;
-
         $this->response->addScriptFiles(['database/events.js', 'sql.js']);
 
         if (! $request->isAjax()) {
@@ -56,11 +53,6 @@ final class EventsController implements InvocableController
             $this->dbi->selectDb(Current::$database);
         }
 
-        /**
-         * Keep a list of errors that occurred while
-         * processing an 'Add' or 'Edit' operation.
-         */
-        $GLOBALS['errors'] = [];
         $GLOBALS['message'] ??= null;
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
@@ -109,7 +101,7 @@ final class EventsController implements InvocableController
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            count($GLOBALS['errors'])
+            $this->events->getErrorCount() > 0
             || empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
             && (
