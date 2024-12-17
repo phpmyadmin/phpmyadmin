@@ -1462,8 +1462,6 @@
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-      <code><![CDATA[$GLOBALS['ods_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ods_null']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -7104,12 +7102,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['ods_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ods_null']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['ods_null']]]></code>
       <code><![CDATA[$colAs]]></code>
     </MixedArgument>
     <MixedAssignment>

@@ -25,6 +25,7 @@ use function __;
 use function bin2hex;
 use function date;
 use function htmlspecialchars;
+use function is_string;
 use function strtotime;
 
 /**
@@ -33,6 +34,8 @@ use function strtotime;
 class ExportOds extends ExportPlugin
 {
     public string $buffer = '';
+    private bool $columns = false;
+    private string $null = '';
 
     protected function init(): void
     {
@@ -210,7 +213,7 @@ class ExportOds extends ExportPlugin
         $this->buffer .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['ods_columns'])) {
+        if ($this->columns) {
             $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
                 $colAs = $field->name;
@@ -241,7 +244,7 @@ class ExportOds extends ExportPlugin
                 if (! isset($row[$j])) {
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($GLOBALS['ods_null'])
+                        . htmlspecialchars($this->null)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {
@@ -325,5 +328,24 @@ class ExportOds extends ExportPlugin
             $exportConfig['ods_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        $this->columns = (bool) ($request->getParsedBodyParam('ods_columns')
+            ?? $exportConfig['ods_columns'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('ods_null'),
+            $exportConfig['ods_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }

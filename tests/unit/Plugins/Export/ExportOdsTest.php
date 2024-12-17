@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportOds;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -258,7 +259,11 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['ods_null'] = '&';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['ods_null' => '&']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
@@ -331,8 +336,11 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['ods_null'] = '&';
-        $GLOBALS['ods_columns'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['ods_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
@@ -381,7 +389,6 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['ods_null'] = '&';
         $this->object->buffer = '';
 
         self::assertTrue(

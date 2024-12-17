@@ -530,14 +530,6 @@ final class ExportController implements InvocableController
             $GLOBALS['excel_edition'] = $postParams['excel_edition'];
         }
 
-        if (isset($postParams['ods_null'])) {
-            $GLOBALS['ods_null'] = $postParams['ods_null'];
-        }
-
-        if (isset($postParams['ods_columns'])) {
-            $GLOBALS['ods_columns'] = $postParams['ods_columns'];
-        }
-
         if (isset($postParams['json_pretty_print'])) {
             $GLOBALS['json_pretty_print'] = $postParams['json_pretty_print'];
         }
