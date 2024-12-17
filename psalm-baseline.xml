@@ -1459,15 +1459,6 @@
       <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
       <code><![CDATA[$GLOBALS['json_unicode']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-      <code><![CDATA[$GLOBALS['latex_data_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_data_continued_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_data_label']]]></code>
-      <code><![CDATA[$GLOBALS['latex_null']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_continued_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_label']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
       <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
@@ -7049,11 +7040,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$columnsAlias[$i]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
@@ -13191,9 +13177,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-    </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>

@@ -12115,20 +12115,8 @@ parameters:
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '' & '' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Binary operation "\.\=" between string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
 			count: 1
 			path: src/Plugins/Export/ExportLatex.php
 
@@ -12202,12 +12190,6 @@ parameters:
 			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\Plugins\\Export\\ExportLatex\:\:texEscape\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\Util\:\:expandUserString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 6
 			path: src/Plugins/Export/ExportLatex.php
 
 		-

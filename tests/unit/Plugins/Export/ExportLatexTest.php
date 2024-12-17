@@ -480,15 +480,21 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['latex_caption'] = true;
-        $GLOBALS['latex_data_caption'] = 'latex data caption';
-        $GLOBALS['latex_data_continued_caption'] = 'continued caption';
-        $GLOBALS['latex_columns'] = true;
-        $GLOBALS['latex_data_label'] = 'datalabel';
-        $GLOBALS['latex_null'] = 'null';
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['verbose'] = 'verb';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'latex_caption' => 'On',
+                'latex_columns' => 'On',
+                'latex_data_caption' => 'latex data caption',
+                'latex_data_continued_caption' => 'continued caption',
+                'latex_data_label' => 'datalabel',
+                'latex_null' => 'null',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
@@ -518,7 +524,16 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // case 2
-        unset($GLOBALS['latex_columns']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'latex_caption' => 'On',
+                'latex_data_caption' => 'latex data caption',
+                'latex_data_continued_caption' => 'continued caption',
+                'latex_data_label' => 'datalabel',
+                'latex_null' => 'null',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
@@ -591,9 +606,6 @@ class ExportLatexTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
-        if (isset($GLOBALS['latex_caption'])) {
-            unset($GLOBALS['latex_caption']);
-        }
 
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
@@ -721,13 +733,19 @@ class ExportLatexTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['latex_caption'] = true;
-        $GLOBALS['latex_structure_caption'] = 'latexstructure';
-        $GLOBALS['latex_structure_label'] = 'latexlabel';
-        $GLOBALS['latex_structure_continued_caption'] = 'latexcontinued';
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['verbose'] = 'verb';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'latex_caption' => 'On',
+                'latex_structure_caption' => 'latexstructure',
+                'latex_structure_continued_caption' => 'latexcontinued',
+                'latex_structure_label' => 'latexlabel',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'database',

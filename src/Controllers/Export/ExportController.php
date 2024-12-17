@@ -718,45 +718,9 @@ final class ExportController implements InvocableController
             $GLOBALS['csv_removeCRLF'] = $postParams['csv_removeCRLF'];
         }
 
+        // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
         if (isset($postParams['csv_columns'])) {
             $GLOBALS['csv_columns'] = $postParams['csv_columns'];
-        }
-
-        if (isset($postParams['latex_caption'])) {
-            $GLOBALS['latex_caption'] = $postParams['latex_caption'];
-        }
-
-        if (isset($postParams['latex_structure_caption'])) {
-            $GLOBALS['latex_structure_caption'] = $postParams['latex_structure_caption'];
-        }
-
-        if (isset($postParams['latex_structure_continued_caption'])) {
-            $GLOBALS['latex_structure_continued_caption'] = $postParams['latex_structure_continued_caption'];
-        }
-
-        if (isset($postParams['latex_structure_label'])) {
-            $GLOBALS['latex_structure_label'] = $postParams['latex_structure_label'];
-        }
-
-        if (isset($postParams['latex_columns'])) {
-            $GLOBALS['latex_columns'] = $postParams['latex_columns'];
-        }
-
-        if (isset($postParams['latex_data_caption'])) {
-            $GLOBALS['latex_data_caption'] = $postParams['latex_data_caption'];
-        }
-
-        if (isset($postParams['latex_data_continued_caption'])) {
-            $GLOBALS['latex_data_continued_caption'] = $postParams['latex_data_continued_caption'];
-        }
-
-        if (isset($postParams['latex_data_label'])) {
-            $GLOBALS['latex_data_label'] = $postParams['latex_data_label'];
-        }
-
-        // phpcs:ignore SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed
-        if (isset($postParams['latex_null'])) {
-            $GLOBALS['latex_null'] = $postParams['latex_null'];
         }
     }
 }

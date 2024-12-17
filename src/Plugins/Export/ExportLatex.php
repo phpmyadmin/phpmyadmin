@@ -27,6 +27,7 @@ use PhpMyAdmin\Version;
 use function __;
 use function addcslashes;
 use function in_array;
+use function is_string;
 use function mb_strpos;
 use function mb_substr;
 use function str_repeat;
@@ -39,11 +40,18 @@ use const PHP_VERSION;
  */
 class ExportLatex extends ExportPlugin
 {
-    private bool $doRelation = false;
-
-    private bool $doMime = false;
-
+    private bool $caption = false;
+    private bool $columns = false;
+    private string $dataCaption = '';
+    private string $dataContinuedCaption = '';
+    private string $dataLabel = '';
     private bool $doComments = false;
+    private bool $doMime = false;
+    private bool $doRelation = false;
+    private string $null = '';
+    private string $structureCaption = '';
+    private string $structureContinuedCaption = '';
+    private string $structureLabel = '';
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -314,16 +322,16 @@ class ExportLatex extends ExportPlugin
         $buffer .= '} ' . "\n";
 
         $buffer .= ' \\hline \\endhead \\hline \\endfoot \\hline ' . "\n";
-        if (isset($GLOBALS['latex_caption'])) {
+        if ($this->caption) {
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
-                    $GLOBALS['latex_data_caption'],
+                    $this->dataCaption,
                     [static::class, 'texEscape'],
                     ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\label{'
                 . Util::expandUserString(
-                    $GLOBALS['latex_data_label'],
+                    $this->dataLabel,
                     null,
                     ['table' => $tableAlias, 'database' => $dbAlias],
                 )
@@ -335,7 +343,7 @@ class ExportLatex extends ExportPlugin
         }
 
         // show column names
-        if (isset($GLOBALS['latex_columns'])) {
+        if ($this->columns) {
             $buffer = '\\hline ';
             for ($i = 0; $i < $columnsCnt; $i++) {
                 $buffer .= '\\multicolumn{1}{|c|}{\\textbf{'
@@ -347,12 +355,12 @@ class ExportLatex extends ExportPlugin
                 return false;
             }
 
-            if (isset($GLOBALS['latex_caption'])) {
+            if ($this->caption) {
                 if (
                     ! $this->export->outputHandler(
                         '\\caption{'
                         . Util::expandUserString(
-                            $GLOBALS['latex_data_continued_caption'],
+                            $this->dataContinuedCaption,
                             [static::class, 'texEscape'],
                             ['table' => $tableAlias, 'database' => $dbAlias],
                         )
@@ -379,7 +387,7 @@ class ExportLatex extends ExportPlugin
                 if ($record[$columns[$i]] !== null) {
                     $columnValue = self::texEscape($record[$columns[$i]]);
                 } else {
-                    $columnValue = $GLOBALS['latex_null'];
+                    $columnValue = $this->null;
                 }
 
                 // last column ... no need for & character
@@ -504,16 +512,16 @@ class ExportLatex extends ExportPlugin
         }
 
         // Table caption for first page and label
-        if (isset($GLOBALS['latex_caption'])) {
+        if ($this->caption) {
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
-                    $GLOBALS['latex_structure_caption'],
+                    $this->structureCaption,
                     [static::class, 'texEscape'],
                     ['table' => $tableAlias, 'database' => $dbAlias],
                 )
                 . '} \\label{'
                 . Util::expandUserString(
-                    $GLOBALS['latex_structure_label'],
+                    $this->structureLabel,
                     null,
                     ['table' => $tableAlias, 'database' => $dbAlias],
                 )
@@ -523,10 +531,10 @@ class ExportLatex extends ExportPlugin
         $buffer .= $header . ' \\\\ \\hline \\hline' . "\n"
             . '\\endfirsthead' . "\n";
         // Table caption on next pages
-        if (isset($GLOBALS['latex_caption'])) {
+        if ($this->caption) {
             $buffer .= ' \\caption{'
                 . Util::expandUserString(
-                    $GLOBALS['latex_structure_continued_caption'],
+                    $this->structureContinuedCaption,
                     [static::class, 'texEscape'],
                     ['table' => $tableAlias, 'database' => $dbAlias],
                 )
@@ -619,10 +627,55 @@ class ExportLatex extends ExportPlugin
             $exportConfig['latex_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
+        $this->caption = (bool) ($request->getParsedBodyParam('latex_caption')
+            ?? $exportConfig['latex_caption'] ?? false);
+        $this->columns = (bool) ($request->getParsedBodyParam('latex_columns')
+            ?? $exportConfig['latex_columns'] ?? false);
         $this->doRelation = (bool) ($request->getParsedBodyParam('latex_relation')
             ?? $exportConfig['latex_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('latex_mime') ?? $exportConfig['latex_mime'] ?? false);
         $this->doComments = (bool) ($request->getParsedBodyParam('latex_comments')
             ?? $exportConfig['latex_comments'] ?? false);
+        $this->dataCaption = $this->setStringValue(
+            $request->getParsedBodyParam('latex_data_caption'),
+            $exportConfig['latex_data_caption'] ?? null,
+        );
+        $this->dataContinuedCaption = $this->setStringValue(
+            $request->getParsedBodyParam('latex_data_continued_caption'),
+            $exportConfig['latex_data_continued_caption'] ?? null,
+        );
+        $this->dataLabel = $this->setStringValue(
+            $request->getParsedBodyParam('latex_data_label'),
+            $exportConfig['latex_data_label'] ?? null,
+        );
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('latex_null'),
+            $exportConfig['latex_null'] ?? null,
+        );
+        $this->structureCaption = $this->setStringValue(
+            $request->getParsedBodyParam('latex_structure_caption'),
+            $exportConfig['latex_structure_caption'] ?? null,
+        );
+        $this->structureContinuedCaption = $this->setStringValue(
+            $request->getParsedBodyParam('latex_structure_continued_caption'),
+            $exportConfig['latex_structure_continued_caption'] ?? null,
+        );
+        $this->structureLabel = $this->setStringValue(
+            $request->getParsedBodyParam('latex_structure_label'),
+            $exportConfig['latex_structure_label'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }
