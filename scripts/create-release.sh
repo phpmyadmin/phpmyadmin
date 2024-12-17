@@ -63,21 +63,32 @@ while [ $# -gt 0 ] ; do
                 branch="ci"
             fi
             ;;
+        --no-sign)
+            do_sign=0
+            ;;
+        --kits)
+            KITS="$2"
+            # Skip one position, the value
+            shift
+            ;;
         --compressions)
             COMPRESSIONS="$2"
+            # Skip one position, the value
             shift
             ;;
         --help)
             echo "Usages:"
-            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--revision-info] [--compressions]"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--daily] [--revision-info] [--compressions] [--kits] [--no-sign]"
             echo ""
             echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
             echo "If --ci is specified, the testsuite is executed and no actual release is created"
+            echo "If --no-sign is specified, the ouput files will not be signed"
             echo "If --daily is specified, the ouput files will have snapshot information"
             echo "If --revision-info is specified, the output files will contain git revision info"
             echo "If --compressions is specified, it changes the compressions available. Space separated values. Valid values: $COMPRESSIONS"
+            echo "If --kits is specified, it changes the kits to be built. Space separated values. Valid values: $KITS"
             echo ""
             echo "Examples:"
             echo "  create-release.sh 5.2.2-dev QA_5_2"
