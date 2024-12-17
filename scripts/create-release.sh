@@ -644,6 +644,8 @@ security_checkup
 
 cd ..
 
+SIGN_FILES=""
+
 # Prepare all kits
 for kit in $KITS ; do
     echo "* Building kit: $kit"
@@ -700,15 +702,18 @@ for kit in $KITS ; do
                 if [ $comp = txz ] ; then
                     echo "* Creating $name.tar.xz"
                     xz -9k $name.tar
+                    SIGN_FILES="$SIGN_FILES $name.tar.xz"
                 fi
                 if [ $comp = tgz ] ; then
                     echo "* Creating $name.tar.gz"
                     gzip -9c $name.tar > $name.tar.gz
+                    SIGN_FILES="$SIGN_FILES $name.tar.gz"
                 fi
                 ;;
             zip-7z)
                 echo "* Creating $name.zip"
                 7za a -bd -tzip $name.zip $name > /dev/null
+                SIGN_FILES="$SIGN_FILES $name.zip"
                 ;;
             *)
                 echo "WARNING: ignoring compression '$comp', not known!"
@@ -728,8 +733,13 @@ rm -r $workdir_name
 git worktree prune
 
 # Signing of files with default GPG key
-echo "* Signing files"
-for file in $kit_prefix-*.gz $kit_prefix-*.zip $kit_prefix-*.xz ; do
+if [ $do_sign -eq 1 ] ; then
+    echo "* Signing and making .sha{1,256} files"
+else
+    echo "* Making .sha{1,256} files"
+fi
+
+for file in $SIGN_FILES; do
     if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor $file
     fi
@@ -754,7 +764,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.xz
+ls -la $SIGN_FILES
 
 cd ..
 
