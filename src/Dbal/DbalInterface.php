@@ -21,32 +21,24 @@ interface DbalInterface
     public const FETCH_ASSOC = 'ASSOC';
 
     /**
-     * runs a query
-     *
-     * @param string $query             SQL query to execute
-     * @param int    $options           optional query options
-     * @param bool   $cacheAffectedRows whether to cache affected rows
+     * Executes a query and returns the result
      */
     public function query(
         string $query,
         ConnectionType $connectionType = ConnectionType::User,
-        int $options = 0,
+        bool $unbuffered = false,
         bool $cacheAffectedRows = true,
     ): ResultInterface;
 
     /**
-     * runs a query and returns the result
-     *
-     * @param string $query             query to run
-     * @param int    $options           query options
-     * @param bool   $cacheAffectedRows whether to cache affected row
+     * Executes a query and returns the result or false on error
      */
     public function tryQuery(
         string $query,
         ConnectionType $connectionType = ConnectionType::User,
-        int $options = 0,
+        bool $unbuffered = false,
         bool $cacheAffectedRows = true,
-    ): mixed;
+    ): ResultInterface|false;
 
     /**
      * Send multiple SQL queries to the database server and execute the first one

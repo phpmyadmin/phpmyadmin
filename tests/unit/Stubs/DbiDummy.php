@@ -168,11 +168,8 @@ class DbiDummy implements DbiExtension
 
     /**
      * runs a query and returns the result
-     *
-     * @param string $query   query to run
-     * @param int    $options query options
      */
-    public function realQuery(string $query, Connection $connection, int $options): DummyResult|false
+    public function realQuery(string $query, Connection $connection, bool $unbuffered = false): DummyResult|false
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $found = $this->findFifoQuery($query) ?? $this->findDummyQuery($query);

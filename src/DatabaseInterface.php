@@ -82,14 +82,9 @@ class DatabaseInterface implements DbalInterface
     public static self|null $instance = null;
 
     /**
-     * Force STORE_RESULT method, ignored by classic MySQL.
-     */
-    public const QUERY_BUFFERED = 0;
-
-    /**
      * Do not read all rows immediately.
      */
-    public const QUERY_UNBUFFERED = 2;
+    public const QUERY_UNBUFFERED = true;
 
     /**
      * Get session variable.
@@ -165,20 +160,13 @@ class DatabaseInterface implements DbalInterface
         return self::$instance;
     }
 
-    /**
-     * runs a query
-     *
-     * @param string $query             SQL query to execute
-     * @param int    $options           optional query options
-     * @param bool   $cacheAffectedRows whether to cache affected rows
-     */
     public function query(
         string $query,
         ConnectionType $connectionType = ConnectionType::User,
-        int $options = self::QUERY_BUFFERED,
+        bool $unbuffered = false,
         bool $cacheAffectedRows = true,
     ): ResultInterface {
-        $result = $this->tryQuery($query, $connectionType, $options, $cacheAffectedRows);
+        $result = $this->tryQuery($query, $connectionType, $unbuffered, $cacheAffectedRows);
 
         if (! $result) {
             Generator::mysqlDie($this->getError($connectionType), $query);
@@ -192,19 +180,10 @@ class DatabaseInterface implements DbalInterface
         return $this->cache;
     }
 
-    /**
-     * runs a query and returns the result
-     *
-     * @param string $query             query to run
-     * @param int    $options           if DatabaseInterface::QUERY_UNBUFFERED
-     *                                  is provided, it will instruct the extension
-     *                                  to use unbuffered mode
-     * @param bool   $cacheAffectedRows whether to cache affected row
-     */
     public function tryQuery(
         string $query,
         ConnectionType $connectionType = ConnectionType::User,
-        int $options = self::QUERY_BUFFERED,
+        bool $unbuffered = false,
         bool $cacheAffectedRows = true,
     ): ResultInterface|false {
         if (! isset($this->connections[$connectionType->value])) {
@@ -213,7 +192,7 @@ class DatabaseInterface implements DbalInterface
 
         $time = microtime(true);
 
-        $result = $this->extension->realQuery($query, $this->connections[$connectionType->value], $options);
+        $result = $this->extension->realQuery($query, $this->connections[$connectionType->value], $unbuffered);
 
         if ($connectionType === ConnectionType::User) {
             $this->lastQueryExecutionTime = microtime(true) - $time;

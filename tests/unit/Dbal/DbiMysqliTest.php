@@ -77,7 +77,7 @@ class DbiMysqliTest extends AbstractTestCase
             ->with(self::equalTo($query))
             ->willReturn($mysqliResult);
 
-        self::assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, new Connection($mysqli), 0));
+        self::assertInstanceOf(MysqliResult::class, $this->object->realQuery($query, new Connection($mysqli)));
     }
 
     /**
