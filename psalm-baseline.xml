@@ -2336,58 +2336,20 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/QueriesController.php">
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$key]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$chart[__('Other statements')]]]></code>
-      <code><![CDATA[$hourFactor]]></code>
-      <code><![CDATA[$otherSum]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$hourFactor]]></code>
+    <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
-    </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[str_replace(['Com_', '_'], ['', ' '], $key)]]></code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[str_replace(['Com_', '_'], ['', ' '], $key)]]></code>
-    </PossiblyInvalidCast>
+    </PossiblyInvalidOperand>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/StatusController.php">
-    <MixedArgument>
-      <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
-      <code><![CDATA[$this->data->status['Aborted_clients'] * $hourFactor]]></code>
-      <code><![CDATA[$this->data->status['Aborted_clients'] * 100 / $this->data->status['Connections']]]></code>
-      <code><![CDATA[$this->data->status['Aborted_connects']]]></code>
-      <code><![CDATA[$this->data->status['Aborted_connects'] * $hourFactor]]></code>
-      <code><![CDATA[$this->data->status['Aborted_connects'] * 100 / $this->data->status['Connections']]]></code>
-      <code><![CDATA[$this->data->status['Bytes_received']]]></code>
-      <code><![CDATA[$this->data->status['Bytes_received'] * $hourFactor]]></code>
-      <code><![CDATA[$this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']]]></code>
-      <code><![CDATA[$this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']]]></code>
-      <code><![CDATA[$this->data->status['Bytes_sent']]]></code>
-      <code><![CDATA[$this->data->status['Bytes_sent'] * $hourFactor]]></code>
-      <code><![CDATA[$this->data->status['Connections']]]></code>
-      <code><![CDATA[$this->data->status['Connections'] * $hourFactor]]></code>
-      <code><![CDATA[$this->data->status['Max_used_connections']]]></code>
-      <code><![CDATA[($this->data->status['Bytes_received'] + $this->data->status['Bytes_sent']) * $hourFactor]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$hourFactor]]></code>
-      <code><![CDATA[$hourFactor]]></code>
-    </MixedAssignment>
-    <MixedOperand>
+    <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
       <code><![CDATA[$this->data->status['Aborted_clients']]]></code>
       <code><![CDATA[$this->data->status['Aborted_connects']]]></code>
@@ -2397,11 +2359,15 @@
       <code><![CDATA[$this->data->status['Bytes_received']]]></code>
       <code><![CDATA[$this->data->status['Bytes_received']]]></code>
       <code><![CDATA[$this->data->status['Bytes_sent']]]></code>
+      <code><![CDATA[$this->data->status['Bytes_sent']]]></code>
+      <code><![CDATA[$this->data->status['Bytes_sent']]]></code>
+      <code><![CDATA[$this->data->status['Bytes_sent']]]></code>
+      <code><![CDATA[$this->data->status['Connections']]]></code>
+      <code><![CDATA[$this->data->status['Connections']]]></code>
       <code><![CDATA[$this->data->status['Connections']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
-      <code><![CDATA[$this->data->status['Uptime']]]></code>
-    </MixedOperand>
+    </PossiblyInvalidOperand>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2422,13 +2388,12 @@
       <code><![CDATA[$linkName]]></code>
       <code><![CDATA[$linkUrl]]></code>
       <code><![CDATA[$sectionLinks]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
+    <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Key_read_requests']]]></code>
       <code><![CDATA[$this->data->status['Key_write_requests']]]></code>
       <code><![CDATA[$this->data->status['Qcache_total_blocks']]]></code>
-    </MixedOperand>
+    </PossiblyInvalidOperand>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -9503,16 +9468,6 @@
       <code><![CDATA[$serverVariables['key_buffer_size']]]></code>
       <code><![CDATA[$serverVariables['key_buffer_size']]]></code>
     </InvalidOperand>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$name]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$usedQueries[$name]]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
-    <MixedPropertyTypeCoercion>
-      <code><![CDATA[$serverStatus]]></code>
-    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['primary_connection'] ?? null]]></code>
     </PossiblyInvalidArgument>
@@ -11972,18 +11927,10 @@
     <InaccessibleProperty>
       <code><![CDATA[$this->data->usedQueries]]></code>
     </InaccessibleProperty>
-    <MixedArgument>
-      <code><![CDATA[$totalQueries * $hourFactor]]></code>
-      <code><![CDATA[$totalQueries * 60 / $this->data->status['Uptime']]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$hourFactor]]></code>
-    </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$hourFactor]]></code>
+    <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
-    </MixedOperand>
+    </PossiblyInvalidOperand>
   </file>
   <file src="tests/unit/Controllers/Server/Status/StatusControllerTest.php">
     <DeprecatedMethod>

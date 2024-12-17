@@ -3787,93 +3787,81 @@ parameters:
 			path: src/Controllers/Server/Status/Processes/KillController.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and \(float\|int\) results in an error\.$#'
+			message: '#^Binary operation "\*" between float\|int and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/QueriesController.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and 100 results in an error\.$#'
+			message: '#^Binary operation "\*" between float\|int\|string and 100 results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/QueriesController.php
 
 		-
-			message: '#^Binary operation "\+\=" between float\|int and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between float\|int\|string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Controllers/Server/Status/QueriesController.php
+
+		-
+			message: '#^Binary operation "\+\=" between mixed and float\|int\|string results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/QueriesController.php
 
 		-
-			message: '#^Binary operation "/" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "/" between 3600 and float\|int\|string results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Controllers/Server/Status/QueriesController.php
+
+		-
+			message: '#^Binary operation "/" between float\|int and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
 			path: src/Controllers/Server/Status/QueriesController.php
 
 		-
-			message: '#^Binary operation "/" between 3600 and mixed results in an error\.$#'
+			message: '#^Binary operation "/" between mixed and float\|int results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/QueriesController.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Controllers/Server/Status/QueriesController.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/Status/QueriesController.php
-
-		-
-			message: '#^Binary operation "\*" between \(array\|float\|int\) and \(float\|int\) results in an error\.$#'
+			message: '#^Binary operation "\*" between float\|int\|string and 100 results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
+			count: 2
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and \(float\|int\) results in an error\.$#'
+			message: '#^Binary operation "\*" between float\|int\|string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 5
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and 100 results in an error\.$#'
+			message: '#^Binary operation "\*" between mixed and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 2
+			count: 1
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Binary operation "\+" between mixed and mixed results in an error\.$#'
+			message: '#^Binary operation "\+" between float\|int\|string and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 3
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Binary operation "\." between ''SELECT UNIX…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Server/Status/StatusController.php
-
-		-
-			message: '#^Binary operation "/" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "/" between 3600 and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Binary operation "/" between 3600 and mixed results in an error\.$#'
+			message: '#^Binary operation "/" between mixed and float\|int\<1, max\>\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
-			path: src/Controllers/Server/Status/StatusController.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
@@ -3883,27 +3871,15 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Only numeric types are allowed in \*, \(array\|float\|int\) given on the left side\.$#'
-			identifier: mul.leftNonNumeric
-			count: 1
-			path: src/Controllers/Server/Status/StatusController.php
-
-		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatByteDown\(\) expects float\|int\|string\|null, \(array\|float\|int\) given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Server/Status/StatusController.php
-
-		-
 			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatByteDown\(\) expects float\|int\|string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 4
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
 			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
 			identifier: argument.type
-			count: 4
+			count: 5
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
@@ -3913,13 +3889,13 @@ parameters:
 			path: src/Controllers/Server/Status/VariablesController.php
 
 		-
-			message: '#^Binary operation "\*" between 0\.01 and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between 0\.01 and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/VariablesController.php
 
 		-
-			message: '#^Binary operation "\*" between 0\.9 and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between 0\.9 and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/VariablesController.php
@@ -3931,7 +3907,7 @@ parameters:
 			path: src/Controllers/Server/Status/VariablesController.php
 
 		-
-			message: '#^Binary operation "/" between mixed and 5 results in an error\.$#'
+			message: '#^Binary operation "/" between float\|int\|string and 5 results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/VariablesController.php
@@ -16279,6 +16255,12 @@ parameters:
 			path: src/Server/Status/Data.php
 
 		-
+			message: '#^Method PhpMyAdmin\\Server\\Status\\Data\:\:calculateValues\(\) should return array\<string, float\|int\|string\> but returns array\<string, mixed\>\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Server/Status/Data.php
+
+		-
 			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
 			identifier: if.condNotBoolean
 			count: 2
@@ -16287,18 +16269,6 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$connection of method PhpMyAdmin\\Replication\\ReplicationInfo\:\:load\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Status/Data.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Server\\Status\\Data\:\:\$status \(array\<string, mixed\>\) does not accept array\<mixed\>\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: src/Server/Status/Data.php
 
@@ -20503,13 +20473,19 @@ parameters:
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
 
 		-
-			message: '#^Binary operation "/" between \(float\|int\) and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between float\|int and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
 
 		-
-			message: '#^Binary operation "/" between 3600 and mixed results in an error\.$#'
+			message: '#^Binary operation "/" between 3600 and float\|int\|string results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
+
+		-
+			message: '#^Binary operation "/" between float\|int and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
@@ -20529,6 +20505,12 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
 

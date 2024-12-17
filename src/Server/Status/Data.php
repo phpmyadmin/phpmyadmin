@@ -69,7 +69,7 @@ final class Data
         'Opened_files' => 'files',
     ];
 
-    /** @var array<string, mixed> */
+    /** @var array<string, string|int|float> */
     public readonly array $status;
 
     /** @var array<string, string> */
@@ -79,7 +79,7 @@ final class Data
     public readonly array $variables;
 
     /**
-     * @var mixed[]
+     * @var array<string, string|int|float>
      * @readonly
      */
     public array $usedQueries;
@@ -203,7 +203,7 @@ final class Data
      * @param array<string, string> $serverStatus    contains results of SHOW GLOBAL STATUS
      * @param array<string, string> $serverVariables contains results of SHOW GLOBAL VARIABLES
      *
-     * @return mixed[]
+     * @return array<string, string|int|float>
      */
     private function calculateValues(array $serverStatus, array $serverVariables): array
     {
@@ -263,9 +263,9 @@ final class Data
     /**
      * Sort variables into arrays
      *
-     * @param mixed[] $serverStatus contains results of SHOW GLOBAL STATUS
+     * @param array<string, string|int|float> $serverStatus contains results of SHOW GLOBAL STATUS
      *
-     * @return array{string[], true[], mixed[]}
+     * @return array{string[], true[], array<string, string|int|float>}
      */
     private function sortVariables(array $serverStatus): array
     {
