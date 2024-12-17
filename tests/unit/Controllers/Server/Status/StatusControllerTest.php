@@ -44,19 +44,28 @@ class StatusControllerTest extends AbstractTestCase
 
     public function testIndex(): void
     {
-        $data = new Data(DatabaseInterface::getInstance(), Config::getInstance());
-
         $bytesReceived = 100;
         $bytesSent = 200;
         $maxUsedConnections = 500;
         $abortedConnections = 200;
         $connections = 1000;
-        $data->status['Uptime'] = 36000;
-        $data->status['Bytes_received'] = $bytesReceived;
-        $data->status['Bytes_sent'] = $bytesSent;
-        $data->status['Max_used_connections'] = $maxUsedConnections;
-        $data->status['Aborted_connects'] = $abortedConnections;
-        $data->status['Connections'] = $connections;
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dummyDbi->addResult('SHOW GLOBAL STATUS', [
+            ['Uptime' , '36000'],
+            ['Bytes_received' , $bytesReceived],
+            ['Bytes_sent' , $bytesSent],
+            ['Max_used_connections' ,$maxUsedConnections],
+            ['Aborted_connects' , $abortedConnections],
+            ['Connections' , $connections],
+            ['Aborted_clients', '0'],
+            ['Com_delete_multi', '0'],
+            ['Com_create_function', '0'],
+            ['Com_empty_query', '0'],
+        ], ['Variable_name', 'Value']);
+
+        $data = new Data($dbi, Config::getInstance());
 
         $response = new ResponseRenderer();
         $template = new Template();

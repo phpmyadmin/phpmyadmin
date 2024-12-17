@@ -69,28 +69,22 @@ final class Data
         'Opened_files' => 'files',
     ];
 
-    /**
-     * @var mixed[]
-     * @readonly
-     * */
-    public array $status;
+    /** @var array<string, string|int|float> */
+    public readonly array $status;
 
     /** @var array<string, string> */
     public readonly array $sections;
 
-    /** @var mixed[] */
+    /** @var array<string, string> */
     public readonly array $variables;
 
-    /**
-     * @var mixed[]
-     * @readonly
-     */
-    public array $usedQueries;
+    /** @var array<string, string|int|float> */
+    public readonly array $usedQueries;
 
     /** @var string[] */
     public readonly array $allocationMap;
 
-    /** @var mixed[] */
+    /** @var array<string, array<string, string|array{url: string, params: string}>> */
     public readonly array $links;
 
     public readonly bool $dbIsLocal;
@@ -98,8 +92,7 @@ final class Data
     /** @var true[] */
     public readonly array $sectionUsed;
 
-    /** @readonly */
-    public bool $dataLoaded;
+    public readonly bool $dataLoaded;
 
     private readonly ReplicationInfo $replicationInfo;
 
@@ -141,7 +134,7 @@ final class Data
     /**
      * Gets the links for constructor
      *
-     * @return mixed[]
+     * @return array<string, array<string, string|array{url: string, params: string}>>
      */
     private function getLinks(): array
     {
@@ -203,10 +196,10 @@ final class Data
     /**
      * Calculate some values
      *
-     * @param mixed[] $serverStatus    contains results of SHOW GLOBAL STATUS
-     * @param mixed[] $serverVariables contains results of SHOW GLOBAL VARIABLES
+     * @param array<string, string> $serverStatus    contains results of SHOW GLOBAL STATUS
+     * @param array<string, string> $serverVariables contains results of SHOW GLOBAL VARIABLES
      *
-     * @return mixed[]
+     * @return array<string, string|int|float>
      */
     private function calculateValues(array $serverStatus, array $serverVariables): array
     {
@@ -266,9 +259,9 @@ final class Data
     /**
      * Sort variables into arrays
      *
-     * @param mixed[] $serverStatus contains results of SHOW GLOBAL STATUS
+     * @param array<string, string|int|float> $serverStatus contains results of SHOW GLOBAL STATUS
      *
-     * @return array{string[], true[], mixed[]}
+     * @return array{string[], true[], array<string, string|int|float>}
      */
     private function sortVariables(array $serverStatus): array
     {
@@ -314,18 +307,18 @@ final class Data
             $this->dataLoaded = false;
         } else {
             $this->dataLoaded = true;
+            /** @var array<string, string> $serverStatus */
             $serverStatus = $serverStatusResult->fetchAllKeyPair();
             unset($serverStatusResult);
         }
 
         // for some calculations we require also some server settings
+        /** @var array<string, string> $serverVariables */
         $serverVariables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
         $serverStatus = self::cleanDeprecated($serverStatus);
 
         $serverStatus = $this->calculateValues($serverStatus, $serverVariables);
-
-        $links = $this->getLinks();
 
         [
             $allocationMap,
@@ -337,8 +330,7 @@ final class Data
         // which is excluded from $server_status['Questions'])
         unset($usedQueries['Com_admin_commands']);
 
-        $serverHostToLower = mb_strtolower($config->selectedServer['host']);
-        $this->dbIsLocal = $serverHostToLower === 'localhost'
+        $this->dbIsLocal = mb_strtolower($config->selectedServer['host']) === 'localhost'
             || $config->selectedServer['host'] === '127.0.0.1'
             || $config->selectedServer['host'] === '::1';
 
@@ -347,16 +339,16 @@ final class Data
         $this->variables = $serverVariables;
         $this->usedQueries = $usedQueries;
         $this->allocationMap = $allocationMap;
-        $this->links = $links;
+        $this->links = $this->getLinks();
         $this->sectionUsed = $sectionUsed;
     }
 
     /**
      * cleanup of some deprecated values
      *
-     * @param (string|null)[] $serverStatus status array to process
+     * @param array<string, string> $serverStatus status array to process
      *
-     * @return (string|null)[]
+     * @return array<string, string>
      */
     public static function cleanDeprecated(array $serverStatus): array
     {
