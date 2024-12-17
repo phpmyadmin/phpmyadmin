@@ -514,14 +514,6 @@ final class ExportController implements InvocableController
             $GLOBALS['excel_edition'] = $postParams['excel_edition'];
         }
 
-        if (isset($postParams['json_pretty_print'])) {
-            $GLOBALS['json_pretty_print'] = $postParams['json_pretty_print'];
-        }
-
-        if (isset($postParams['json_unicode'])) {
-            $GLOBALS['json_unicode'] = $postParams['json_unicode'];
-        }
-
         if (isset($postParams['xml_export_events'])) {
             $GLOBALS['xml_export_events'] = $postParams['xml_export_events'];
         }

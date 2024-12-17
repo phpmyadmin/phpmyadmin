@@ -1454,8 +1454,6 @@
       <code><![CDATA[$GLOBALS['excel_edition']]]></code>
       <code><![CDATA[$GLOBALS['excel_null']]]></code>
       <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
-      <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
-      <code><![CDATA[$GLOBALS['json_unicode']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
@@ -7006,10 +7004,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
-      <code><![CDATA[$GLOBALS['json_unicode']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$aliases]]></code>
     </MixedArgumentTypeCoercion>

@@ -12091,12 +12091,6 @@ parameters:
 			path: src/Plugins/Export/ExportJson.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 2
-			path: src/Plugins/Export/ExportJson.php
-
-		-
 			message: '#^Parameter \#4 \$aliases of method PhpMyAdmin\\Plugins\\Export\\ExportJson\:\:doExportForQuery\(\) expects array\<string, array\{tables\: array\<string, array\{columns\: array\<string, string\>\}\>\}\>\|null, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1

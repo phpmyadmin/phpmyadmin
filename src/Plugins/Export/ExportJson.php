@@ -34,6 +34,8 @@ use const JSON_UNESCAPED_UNICODE;
 class ExportJson extends ExportPlugin
 {
     private bool $first = true;
+    private bool $prettyPrint = false;
+    private bool $unicode = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -49,11 +51,11 @@ class ExportJson extends ExportPlugin
     public function encode(mixed $data): string|false
     {
         $options = 0;
-        if (isset($GLOBALS['json_pretty_print']) && $GLOBALS['json_pretty_print']) {
+        if ($this->prettyPrint) {
             $options |= JSON_PRETTY_PRINT;
         }
 
-        if (isset($GLOBALS['json_unicode']) && $GLOBALS['json_unicode']) {
+        if ($this->unicode) {
             $options |= JSON_UNESCAPED_UNICODE;
         }
 
@@ -330,5 +332,9 @@ class ExportJson extends ExportPlugin
             $exportConfig['json_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        $this->prettyPrint = (bool) ($request->getParsedBodyParam('json_pretty_print')
+            ?? $exportConfig['json_pretty_print'] ?? false);
+        $this->unicode = (bool) ($request->getParsedBodyParam('json_unicode')
+            ?? $exportConfig['json_unicode'] ?? false);
     }
 }
