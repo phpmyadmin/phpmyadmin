@@ -107,13 +107,13 @@ while [ $# -gt 0 ] ; do
     shift
 done
 
-if [ -z "$branch" ]; then
-    echo "Branch must be specified!"
+if [ -z "$version" -a $do_ci -eq 0 ]; then
+    echo "Version must be specified!"
     exit 1
 fi
 
-if [ -z "$version" -a $do_ci -eq 0 ]; then
-    echo "Version must be specified!"
+if [ -z "$branch" ]; then
+    echo "Branch must be specified!"
     exit 1
 fi
 
