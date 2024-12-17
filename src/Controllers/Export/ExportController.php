@@ -502,14 +502,6 @@ final class ExportController implements InvocableController
             $GLOBALS['htmlword_columns'] = $postParams['htmlword_columns'];
         }
 
-        if (isset($postParams['mediawiki_headers'])) {
-            $GLOBALS['mediawiki_headers'] = $postParams['mediawiki_headers'];
-        }
-
-        if (isset($postParams['mediawiki_caption'])) {
-            $GLOBALS['mediawiki_caption'] = $postParams['mediawiki_caption'];
-        }
-
         if (isset($postParams['codegen_format'])) {
             $GLOBALS['codegen_format'] = $postParams['codegen_format'];
         }

@@ -1460,8 +1460,6 @@
       <code><![CDATA[$GLOBALS['json_unicode']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -7077,12 +7075,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-    </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$column]]></code>

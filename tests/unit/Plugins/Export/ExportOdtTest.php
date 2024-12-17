@@ -516,8 +516,6 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
         $this->object->buffer = '';
 
         self::assertTrue(
