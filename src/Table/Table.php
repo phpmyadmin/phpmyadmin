@@ -69,10 +69,10 @@ class Table implements Stringable
     /** @var mixed[] UI preferences */
     public array $uiprefs = [];
 
-    /** @var mixed[] errors occurred */
+    /** @var string[] errors occurred */
     public array $errors = [];
 
-    /** @var mixed[] messages */
+    /** @var string[] messages */
     public array $messages = [];
 
     private Relation $relation;

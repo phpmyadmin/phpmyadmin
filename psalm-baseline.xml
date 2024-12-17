@@ -9977,15 +9977,11 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[string]]></code>
-      <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$index[0]]]></code>
     </MixedOperand>
     <MixedReturnStatement>
-      <code><![CDATA[end($this->errors)]]></code>
-      <code><![CDATA[end($this->messages)]]></code>
       <code><![CDATA[json_decode($value, true)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
