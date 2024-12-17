@@ -1437,10 +1437,10 @@ class Table implements Stringable
     /**
      * Function to handle foreign key updates
      *
-     * @param mixed[]      $destinationForeignDb     destination foreign database
-     * @param mixed[]      $multiEditColumnsName     multi edit column names
-     * @param mixed[]      $destinationForeignTable  destination foreign table
-     * @param mixed[]      $destinationForeignColumn destination foreign column
+     * @param string[]     $destinationForeignDb     destination foreign database
+     * @param string[][]   $multiEditColumnsName     multi edit column names
+     * @param string[]     $destinationForeignTable  destination foreign table
+     * @param string[][]   $destinationForeignColumn destination foreign column
      * @param string[]     $optionsArray             options array
      * @param string       $table                    current table
      * @param ForeignKey[] $existrelForeign          db, table, column
@@ -1616,10 +1616,10 @@ class Table implements Stringable
      * Returns the SQL query for foreign key constraint creation
      *
      * @param string      $table        table name
-     * @param mixed[]     $field        field names
+     * @param string[]    $field        field names
      * @param string      $foreignDb    foreign database name
      * @param string      $foreignTable foreign table name
-     * @param mixed[]     $foreignField foreign field names
+     * @param string[]    $foreignField foreign field names
      * @param string|null $name         name of the constraint
      * @param string|null $onDelete     on delete action
      * @param string|null $onUpdate     on update action

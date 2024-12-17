@@ -4660,7 +4660,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#1 \$destinationForeignDb of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$destinationForeignDb of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4696,7 +4696,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#2 \$multiEditColumnsName of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#2 \$multiEditColumnsName of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<array\<string\>\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4714,7 +4714,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#3 \$destinationForeignTable of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#3 \$destinationForeignTable of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4738,7 +4738,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#4 \$destinationForeignColumn of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#4 \$destinationForeignColumn of method PhpMyAdmin\\Table\\Table\:\:updateForeignKeys\(\) expects array\<array\<string\>\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -17134,12 +17134,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: '#^Binary operation "\." between string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -17233,12 +17227,6 @@ parameters:
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
 			path: src/Table/Table.php
 
 		-
@@ -17346,7 +17334,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 5
+			count: 3
 			path: src/Table/Table.php
 
 		-
@@ -17374,18 +17362,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#2 \$field of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Table/Table.php
-
-		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -17398,31 +17374,13 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Parameter \#3 \$foreignDb of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: '#^Parameter \#3 \$foreignDb of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php
 
 		-
-			message: '#^Parameter \#4 \$foreignTable of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: '#^Parameter \#4 \$foreignTable of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#5 \$foreignField of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php
