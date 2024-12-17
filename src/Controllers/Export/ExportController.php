@@ -510,14 +510,6 @@ final class ExportController implements InvocableController
             $GLOBALS['mediawiki_caption'] = $postParams['mediawiki_caption'];
         }
 
-        if (isset($postParams['odt_columns'])) {
-            $GLOBALS['odt_columns'] = $postParams['odt_columns'];
-        }
-
-        if (isset($postParams['odt_null'])) {
-            $GLOBALS['odt_null'] = $postParams['odt_null'];
-        }
-
         if (isset($postParams['codegen_format'])) {
             $GLOBALS['codegen_format'] = $postParams['codegen_format'];
         }

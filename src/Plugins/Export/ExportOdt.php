@@ -28,6 +28,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function bin2hex;
 use function htmlspecialchars;
+use function is_string;
 use function str_replace;
 
 /**
@@ -36,9 +37,11 @@ use function str_replace;
 class ExportOdt extends ExportPlugin
 {
     public string $buffer = '';
-    private bool $doRelation = false;
-    private bool $doMime = false;
+    private bool $columns = false;
     private bool $doComments = false;
+    private bool $doMime = false;
+    private bool $doRelation = false;
+    private string $null = '';
 
     protected function init(): void
     {
@@ -247,7 +250,7 @@ class ExportOdt extends ExportPlugin
             . ' table:number-columns-repeated="' . $fieldsCnt . '"/>';
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['odt_columns'])) {
+        if ($this->columns) {
             $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
                 $colAs = $field->name;
@@ -278,7 +281,7 @@ class ExportOdt extends ExportPlugin
                 if (! isset($row[$j])) {
                     $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($GLOBALS['odt_null'])
+                        . htmlspecialchars($this->null)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {
@@ -697,10 +700,29 @@ class ExportOdt extends ExportPlugin
             $exportConfig['odt_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
+        $this->columns = (bool) ($request->getParsedBodyParam('odt_columns')
+            ?? $exportConfig['odt_columns'] ?? false);
         $this->doRelation = (bool) ($request->getParsedBodyParam('odt_relation')
             ?? $exportConfig['odt_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('odt_mime') ?? $exportConfig['odt_mime'] ?? false);
         $this->doComments = (bool) ($request->getParsedBodyParam('odt_comments')
             ?? $exportConfig['odt_comments'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('odt_null'),
+            $exportConfig['odt_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }

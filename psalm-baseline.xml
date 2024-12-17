@@ -1464,8 +1464,6 @@
       <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
       <code><![CDATA[$GLOBALS['ods_columns']]]></code>
       <code><![CDATA[$GLOBALS['ods_null']]]></code>
-      <code><![CDATA[$GLOBALS['odt_columns']]]></code>
-      <code><![CDATA[$GLOBALS['odt_null']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -7130,12 +7128,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['odt_columns']]]></code>
-      <code><![CDATA[$GLOBALS['odt_null']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['odt_null']]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -13178,9 +13171,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['odt_columns']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$result]]></code>
     </MixedArgument>

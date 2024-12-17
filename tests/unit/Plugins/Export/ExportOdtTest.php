@@ -393,8 +393,11 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([null, 'a<b', 'a>b', 'a&b'], []);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['odt_null'] = '&';
-        unset($GLOBALS['odt_columns']);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_null' => '&']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
@@ -460,8 +463,11 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['odt_null'] = '&';
-        $GLOBALS['odt_columns'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
@@ -512,7 +518,6 @@ class ExportOdtTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['mediawiki_caption'] = true;
         $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['odt_null'] = '&';
         $this->object->buffer = '';
 
         self::assertTrue(
