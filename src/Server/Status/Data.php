@@ -75,7 +75,7 @@ final class Data
     /** @var array<string, string> */
     public readonly array $sections;
 
-    /** @var mixed[] */
+    /** @var array<string, string> */
     public readonly array $variables;
 
     /**
@@ -200,8 +200,8 @@ final class Data
     /**
      * Calculate some values
      *
-     * @param mixed[] $serverStatus    contains results of SHOW GLOBAL STATUS
-     * @param mixed[] $serverVariables contains results of SHOW GLOBAL VARIABLES
+     * @param array<string, string> $serverStatus    contains results of SHOW GLOBAL STATUS
+     * @param array<string, string> $serverVariables contains results of SHOW GLOBAL VARIABLES
      *
      * @return mixed[]
      */
@@ -311,11 +311,13 @@ final class Data
             $this->dataLoaded = false;
         } else {
             $this->dataLoaded = true;
+            /** @var array<string, string> $serverStatus */
             $serverStatus = $serverStatusResult->fetchAllKeyPair();
             unset($serverStatusResult);
         }
 
         // for some calculations we require also some server settings
+        /** @var array<string, string> $serverVariables */
         $serverVariables = $this->dbi->fetchResult('SHOW GLOBAL VARIABLES', 0, 1);
 
         $serverStatus = self::cleanDeprecated($serverStatus);
@@ -351,9 +353,9 @@ final class Data
     /**
      * cleanup of some deprecated values
      *
-     * @param (string|null)[] $serverStatus status array to process
+     * @param array<string, string> $serverStatus status array to process
      *
-     * @return (string|null)[]
+     * @return array<string, string>
      */
     public static function cleanDeprecated(array $serverStatus): array
     {

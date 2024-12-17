@@ -3925,7 +3925,7 @@ parameters:
 			path: src/Controllers/Server/Status/VariablesController.php
 
 		-
-			message: '#^Binary operation "\*" between 0\.95 and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between 0\.95 and string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Controllers/Server/Status/VariablesController.php
@@ -16225,13 +16225,19 @@ parameters:
 			path: src/Server/Status/Data.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and 1024 results in an error\.$#'
+			message: '#^Binary operation "\*" between mixed and 100 results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Server/Status/Data.php
 
 		-
-			message: '#^Binary operation "\*" between mixed and mixed results in an error\.$#'
+			message: '#^Binary operation "\*" between string and 1024 results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Server/Status/Data.php
+
+		-
+			message: '#^Binary operation "\*" between string and string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Server/Status/Data.php
@@ -16239,13 +16245,19 @@ parameters:
 		-
 			message: '#^Binary operation "/" between \(float\|int\) and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 4
+			count: 2
 			path: src/Server/Status/Data.php
 
 		-
 			message: '#^Binary operation "/" between mixed and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
+			path: src/Server/Status/Data.php
+
+		-
+			message: '#^Binary operation "/" between mixed and string results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
 			path: src/Server/Status/Data.php
 
 		-

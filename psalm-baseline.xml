@@ -2407,6 +2407,9 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Status/VariablesController.php">
+    <InvalidOperand>
+      <code><![CDATA[$this->data->variables['thread_cache_size']]]></code>
+    </InvalidOperand>
     <MixedArgument>
       <code><![CDATA[$flush]]></code>
     </MixedArgument>
@@ -2425,7 +2428,6 @@
       <code><![CDATA[$this->data->status['Key_read_requests']]]></code>
       <code><![CDATA[$this->data->status['Key_write_requests']]]></code>
       <code><![CDATA[$this->data->status['Qcache_total_blocks']]]></code>
-      <code><![CDATA[$this->data->variables['thread_cache_size']]]></code>
     </MixedOperand>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
@@ -9495,43 +9497,33 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Server/Status/Data.php">
+    <InvalidOperand>
+      <code><![CDATA[$serverStatus['Key_blocks_unused']]]></code>
+      <code><![CDATA[$serverStatus['Key_blocks_used']]]></code>
+      <code><![CDATA[$serverVariables['key_buffer_size']]]></code>
+      <code><![CDATA[$serverVariables['key_buffer_size']]]></code>
+    </InvalidOperand>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$name]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$keyReadRequests]]></code>
-      <code><![CDATA[$keyReads]]></code>
-      <code><![CDATA[$keyWriteRequests]]></code>
-      <code><![CDATA[$keyWrites]]></code>
-      <code><![CDATA[$serverStatus['Key_buffer_fraction_%']]]></code>
-      <code><![CDATA[$serverStatus['Key_buffer_fraction_%']]]></code>
-      <code><![CDATA[$serverStatus['Key_read_ratio_%']]]></code>
-      <code><![CDATA[$serverStatus['Key_write_ratio_%']]]></code>
-      <code><![CDATA[$serverStatus['Threads_cache_hitrate_%']]]></code>
       <code><![CDATA[$usedQueries[$name]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$keyReads]]></code>
-      <code><![CDATA[$keyWrites]]></code>
-      <code><![CDATA[$serverStatus['Key_blocks_unused']]]></code>
-      <code><![CDATA[$serverStatus['Key_blocks_unused']
-                * $serverVariables['key_cache_block_size']
-                / $serverVariables['key_buffer_size']
-                * 100]]></code>
-      <code><![CDATA[$serverStatus['Key_blocks_used']]]></code>
-      <code><![CDATA[$serverStatus['Threads_created']]]></code>
-      <code><![CDATA[$serverStatus['Threads_created']
-                / $serverStatus['Connections'] * 100]]></code>
-      <code><![CDATA[100 * $keyReads]]></code>
-      <code><![CDATA[100 * $keyWrites]]></code>
-    </MixedOperand>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$serverStatus]]></code>
     </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['primary_connection'] ?? null]]></code>
     </PossiblyInvalidArgument>
+    <PossiblyInvalidOperand>
+      <code><![CDATA[$keyReadRequests]]></code>
+      <code><![CDATA[$keyReads]]></code>
+      <code><![CDATA[$keyWriteRequests]]></code>
+      <code><![CDATA[$keyWrites]]></code>
+      <code><![CDATA[$serverStatus['Connections']]]></code>
+      <code><![CDATA[$serverStatus['Threads_created']]]></code>
+    </PossiblyInvalidOperand>
     <UnusedProperty>
       <code><![CDATA[$dbi]]></code>
     </UnusedProperty>
