@@ -92,8 +92,7 @@ final class Data
     /** @var true[] */
     public readonly array $sectionUsed;
 
-    /** @readonly */
-    public bool $dataLoaded;
+    public readonly bool $dataLoaded;
 
     private readonly ReplicationInfo $replicationInfo;
 

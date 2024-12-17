@@ -44,12 +44,15 @@ class AdvisorControllerTest extends AbstractTestCase
 
     public function testIndexWithoutData(): void
     {
-        $this->data->dataLoaded = false;
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dummyDbi->addResult('SHOW GLOBAL STATUS', false);
+        $data = new Data($dbi, Config::getInstance());
 
         $controller = new AdvisorController(
             $this->response,
             $this->template,
-            $this->data,
+            $data,
             new Advisor(DatabaseInterface::getInstance(), new ExpressionLanguage()),
         );
 
@@ -90,8 +93,6 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $advisor = self::createMock(Advisor::class);
         $advisor->method('run')->willReturn($advisorData);
-
-        $this->data->dataLoaded = true;
 
         $controller = new AdvisorController($this->response, $this->template, $this->data, $advisor);
 

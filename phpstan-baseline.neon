@@ -20266,18 +20266,12 @@ parameters:
 			path: tests/unit/Controllers/Server/ShowEngineControllerTest.php
 
 		-
-			message: '#^@readonly property PhpMyAdmin\\Server\\Status\\Data\:\:\$dataLoaded is assigned outside of its declaring class\.$#'
-			identifier: property.readOnlyByPhpDocAssignOutOfClass
-			count: 2
-			path: tests/unit/Controllers/Server/Status/AdvisorControllerTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: tests/unit/Controllers/Server/Status/AdvisorControllerTest.php
 
 		-

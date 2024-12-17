@@ -11850,13 +11850,10 @@
   <file src="tests/unit/Controllers/Server/Status/AdvisorControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InaccessibleProperty>
-      <code><![CDATA[$this->data->dataLoaded]]></code>
-      <code><![CDATA[$this->data->dataLoaded]]></code>
-    </InaccessibleProperty>
   </file>
   <file src="tests/unit/Controllers/Server/Status/Monitor/GeneralLogControllerTest.php">
     <DeprecatedMethod>
