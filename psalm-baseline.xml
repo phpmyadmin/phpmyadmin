@@ -1499,8 +1499,6 @@
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['texytext_columns']]]></code>
-      <code><![CDATA[$GLOBALS['texytext_null']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
@@ -7390,10 +7388,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['texytext_columns']]]></code>
-      <code><![CDATA[$GLOBALS['texytext_null']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7401,7 +7395,6 @@
       <code><![CDATA[$comments[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$type]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$comments[$fieldName]]]></code>
@@ -7413,7 +7406,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$type]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>

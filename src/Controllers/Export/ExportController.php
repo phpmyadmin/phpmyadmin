@@ -582,14 +582,6 @@ final class ExportController implements InvocableController
             $GLOBALS['xml_export_contents'] = $postParams['xml_export_contents'];
         }
 
-        if (isset($postParams['texytext_columns'])) {
-            $GLOBALS['texytext_columns'] = $postParams['texytext_columns'];
-        }
-
-        if (isset($postParams['texytext_null'])) {
-            $GLOBALS['texytext_null'] = $postParams['texytext_null'];
-        }
-
         if (isset($postParams['sql_header_comment'])) {
             $GLOBALS['sql_header_comment'] = $postParams['sql_header_comment'];
         }

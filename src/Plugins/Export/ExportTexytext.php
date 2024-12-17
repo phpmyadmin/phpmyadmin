@@ -26,6 +26,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function str_replace;
 
 /**
@@ -33,11 +34,11 @@ use function str_replace;
  */
 class ExportTexytext extends ExportPlugin
 {
-    private bool $doRelation = false;
-
-    private bool $doMime = false;
-
+    private bool $columns = false;
     private bool $doComments = false;
+    private bool $doMime = false;
+    private bool $doRelation = false;
+    private string $null = '';
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -187,7 +188,7 @@ class ExportTexytext extends ExportPlugin
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['texytext_columns'])) {
+        if ($this->columns) {
             $textOutput = "|------\n";
             foreach ($result->getFieldNames() as $colAs) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
@@ -208,7 +209,7 @@ class ExportTexytext extends ExportPlugin
             $textOutput = '';
             foreach ($row as $field) {
                 if ($field === null) {
-                    $value = $GLOBALS['texytext_null'];
+                    $value = $this->null;
                 } elseif ($field !== '') {
                     $value = $field;
                 } else {
@@ -532,11 +533,30 @@ class ExportTexytext extends ExportPlugin
             $exportConfig['texytext_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
+        $this->columns = (bool) ($request->getParsedBodyParam('texytext_columns')
+            ?? $exportConfig['texytext_columns'] ?? false);
         $this->doRelation = (bool) ($request->getParsedBodyParam('texytext_relation')
             ?? $exportConfig['texytext_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('texytext_mime')
             ?? $exportConfig['texytext_mime'] ?? false);
         $this->doComments = (bool) ($request->getParsedBodyParam('texytext_comments')
             ?? $exportConfig['texytext_comments'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('texytext_null'),
+            $exportConfig['texytext_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }
