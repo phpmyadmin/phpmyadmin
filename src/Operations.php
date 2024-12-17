@@ -210,7 +210,6 @@ class Operations
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 )
             ) {
-                $GLOBALS['_error'] = true;
                 break;
             }
 
@@ -284,7 +283,6 @@ class Operations
                 true,
             );
             if (! $copyingSucceeded) {
-                $GLOBALS['_error'] = true;
                 break;
             }
         }

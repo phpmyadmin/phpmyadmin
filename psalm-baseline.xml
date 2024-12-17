@@ -1620,7 +1620,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
-      <code><![CDATA[$GLOBALS['show_query']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
@@ -1635,9 +1634,6 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['show_query']]]></code>
-    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->config->get('TempDir')]]></code>
     </PossiblyNullArgument>
@@ -1944,12 +1940,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1958,12 +1948,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1972,12 +1956,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1986,12 +1964,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2053,12 +2025,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2067,12 +2033,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['hash']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2183,21 +2143,15 @@
   <file src="src/Controllers/Server/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['tmp_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
-      <code><![CDATA[$GLOBALS['select_item']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['tmp_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
@@ -3661,15 +3615,9 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$message->getDisplay()]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['change_password_message']]]></code>
-    </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[getDisplay]]></code>
     </MixedMethodCall>
@@ -6902,14 +6850,9 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['PHP_AUTH_PW']]]></code>
-      <code><![CDATA[$GLOBALS['PHP_AUTH_USER']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$this->user]]></code>
-    </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$this->password]]></code>
-      <code><![CDATA[$this->user]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$oldUser]]></code>
@@ -9205,7 +9148,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['focus_querywindow']]]></code>
       <code><![CDATA[$GLOBALS['reload']]]></code>
     </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
@@ -9970,11 +9912,7 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['mime_map']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']] ?? []]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
       <code><![CDATA[$columnMeta['Field']]]></code>
@@ -9986,20 +9924,15 @@
       <code><![CDATA[Util::getValueByKey($_POST, ['field_key', $columnNumber], '')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
       <code><![CDATA[$columnMeta['column_status']['isEditable']]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-    </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
-      <code><![CDATA[$GLOBALS['mime_map'][$columnMeta['Field']]]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>
+      <code><![CDATA[$mimeMap[$columnMeta['Field']]]]></code>
+      <code><![CDATA[$mimeMap[$columnMeta['Field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['mime_map']]]></code>
       <code><![CDATA[$columnMeta['Default']]]></code>
       <code><![CDATA[$columnMeta['Expression']]]></code>
       <code><![CDATA[$commentsMap[$columnMeta['Field']]]]></code>

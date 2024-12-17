@@ -32,8 +32,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['tmp_select'] ??= null;
-        $GLOBALS['select_item'] ??= null;
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -45,8 +43,7 @@ final class ExportController implements InvocableController
 
         $this->response->addScriptFiles(['export.js']);
 
-        $GLOBALS['select_item'] = $GLOBALS['tmp_select'] ?? '';
-        $databases = $this->export->getDatabasesForSelectOptions($GLOBALS['select_item']);
+        $databases = $this->export->getDatabasesForSelectOptions();
 
         if (! isset($GLOBALS['num_tables'])) {
             $GLOBALS['num_tables'] = 0;

@@ -305,9 +305,6 @@ class ResponseRenderer
                 'reloadQuerywindow',
                 ['db' => Current::$database, 'table' => Current::$table, 'sql_query' => $query],
             );
-            if (! empty($GLOBALS['focus_querywindow'])) {
-                $this->addJSON('_focusQuerywindow', $query);
-            }
 
             if (! empty($GLOBALS['reload'])) {
                 $this->addJSON('reloadNavigation', 1);

@@ -70,8 +70,6 @@ final class ColumnsDefinition
         array|null $selected = null,
         array|null $fieldsMeta = null,
     ): array {
-        $GLOBALS['mime_map'] ??= null;
-
         $regenerate = false;
         $lengthValuesInputSize = 8;
         $contentCells = [];
@@ -115,9 +113,10 @@ final class ColumnsDefinition
         }
 
         $availableMime = [];
+        $mimeMap = [];
         $config = Config::getInstance();
         if ($relationParameters->browserTransformationFeature !== null && $config->settings['BrowseMIME']) {
-            $GLOBALS['mime_map'] = $this->transformations->getMime(Current::$database, Current::$table);
+            $mimeMap = $this->transformations->getMime(Current::$database, Current::$table);
             $availableMime = $this->transformations->getAvailableMimeTypes();
         }
 
@@ -163,8 +162,8 @@ final class ColumnsDefinition
                 $submitAttribute = Util::getValueByKey($_POST, ['field_attribute', $columnNumber], false);
                 $commentsMap[$columnMeta['Field']] = Util::getValueByKey($_POST, ['field_comments', $columnNumber]);
 
-                $GLOBALS['mime_map'][$columnMeta['Field']] = array_merge(
-                    $GLOBALS['mime_map'][$columnMeta['Field']] ?? [],
+                $mimeMap[$columnMeta['Field']] = array_merge(
+                    $mimeMap[$columnMeta['Field']] ?? [],
                     [
                         'mimetype' => Util::getValueByKey($_POST, ['field_mimetype', $columnNumber]),
                         'transformation' => Util::getValueByKey(
@@ -300,7 +299,7 @@ final class ColumnsDefinition
                 'is_backup' => $isBackup,
                 'move_columns' => $moveColumns,
                 'available_mime' => $availableMime,
-                'mime_map' => $GLOBALS['mime_map'] ?? [],
+                'mime_map' => $mimeMap ?? [],
             ];
         }
 

@@ -476,7 +476,6 @@ interface DbalInterface
 
     /**
      * returns last inserted auto_increment id for given $link
-     * or $GLOBALS['userlink']
      */
     public function insertId(ConnectionType $connectionType = ConnectionType::User): int;
 

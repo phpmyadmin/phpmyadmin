@@ -36,7 +36,6 @@ final class NavigationController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['hash'] ??= null;
 
         $configFile = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($configFile);
@@ -62,8 +61,8 @@ final class NavigationController implements InvocableController
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
-                $GLOBALS['hash'] = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/navigation', null, $GLOBALS['hash']);
+                $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
+                $this->userPreferences->redirect('index.php?route=/preferences/navigation', null, $hash);
 
                 return $this->response->response();
             }

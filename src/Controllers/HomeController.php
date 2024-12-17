@@ -66,7 +66,6 @@ final class HomeController implements InvocableController
         }
 
         $GLOBALS['message'] ??= null;
-        $GLOBALS['show_query'] ??= null;
 
         if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
             return $this->response->response();
@@ -79,7 +78,6 @@ final class HomeController implements InvocableController
         // The DB is defined here and sent to the JS front-end to refresh the DB tree
         Current::$database = $request->getParsedBodyParamAsString('db', '');
         Current::$table = '';
-        $GLOBALS['show_query'] = '1';
 
         if (Current::$server > 0 && $this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
