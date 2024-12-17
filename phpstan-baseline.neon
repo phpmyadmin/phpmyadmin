@@ -20461,12 +20461,6 @@ parameters:
 			path: tests/unit/Controllers/Server/Status/ProcessesControllerTest.php
 
 		-
-			message: '#^@readonly property PhpMyAdmin\\Server\\Status\\Data\:\:\$usedQueries is assigned outside of its declaring class\.$#'
-			identifier: property.readOnlyByPhpDocAssignOutOfClass
-			count: 1
-			path: tests/unit/Controllers/Server/Status/QueriesControllerTest.php
-
-		-
 			message: '#^Binary operation "\*" between float\|int and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1

@@ -11921,9 +11921,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InaccessibleProperty>
-      <code><![CDATA[$this->data->usedQueries]]></code>
-    </InaccessibleProperty>
     <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Uptime']]]></code>
       <code><![CDATA[$this->data->status['Uptime']]]></code>

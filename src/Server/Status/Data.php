@@ -78,11 +78,8 @@ final class Data
     /** @var array<string, string> */
     public readonly array $variables;
 
-    /**
-     * @var array<string, string|int|float>
-     * @readonly
-     */
-    public array $usedQueries;
+    /** @var array<string, string|int|float> */
+    public readonly array $usedQueries;
 
     /** @var string[] */
     public readonly array $allocationMap;

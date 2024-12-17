@@ -55,17 +55,27 @@ class QueriesControllerTest extends AbstractTestCase
             ['Com_delete_multi', '0'],
             ['Com_create_function', '0'],
             ['Com_empty_query', '0'],
+            ['Com_change_db' , '15'],
+            ['Com_select' , '12'],
+            ['Com_set_option' , '54'],
+            ['Com_show_databases' , '16'],
+            ['Com_show_status' , '14'],
+            ['Com_show_tables' , '13'],
         ], ['Variable_name', 'Value']);
 
         $this->data = new Data($dbi, $config);
-        $this->data->usedQueries = [
+    }
+
+    public function testUsedQueries(): void
+    {
+        self::assertSame([
             'Com_change_db' => '15',
             'Com_select' => '12',
             'Com_set_option' => '54',
             'Com_show_databases' => '16',
             'Com_show_status' => '14',
             'Com_show_tables' => '13',
-        ];
+        ], $this->data->usedQueries);
     }
 
     public function testIndex(): void
