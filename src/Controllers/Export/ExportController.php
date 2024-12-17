@@ -494,14 +494,6 @@ final class ExportController implements InvocableController
             $GLOBALS['xkana'] = $postParams['xkana'];
         }
 
-        if (isset($postParams['htmlword_null'])) {
-            $GLOBALS['htmlword_null'] = $postParams['htmlword_null'];
-        }
-
-        if (isset($postParams['htmlword_columns'])) {
-            $GLOBALS['htmlword_columns'] = $postParams['htmlword_columns'];
-        }
-
         if (isset($postParams['codegen_format'])) {
             $GLOBALS['codegen_format'] = $postParams['codegen_format'];
         }
