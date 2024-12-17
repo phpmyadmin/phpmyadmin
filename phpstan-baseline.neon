@@ -3883,12 +3883,6 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/Controllers/Server/Status/VariablesController.php
-
-		-
 			message: '#^Binary operation "\*" between 0\.01 and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1

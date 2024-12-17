@@ -2385,9 +2385,6 @@
       <code><![CDATA[$filterCategory]]></code>
       <code><![CDATA[$filterText]]></code>
       <code><![CDATA[$flush]]></code>
-      <code><![CDATA[$linkName]]></code>
-      <code><![CDATA[$linkUrl]]></code>
-      <code><![CDATA[$sectionLinks]]></code>
     </MixedAssignment>
     <PossiblyInvalidOperand>
       <code><![CDATA[$this->data->status['Key_read_requests']]]></code>

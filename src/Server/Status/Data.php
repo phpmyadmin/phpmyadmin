@@ -87,7 +87,7 @@ final class Data
     /** @var string[] */
     public readonly array $allocationMap;
 
-    /** @var mixed[] */
+    /** @var array<string, array<string, string|array{url: string, params: string}>> */
     public readonly array $links;
 
     public readonly bool $dbIsLocal;
@@ -138,7 +138,7 @@ final class Data
     /**
      * Gets the links for constructor
      *
-     * @return mixed[]
+     * @return array<string, array<string, string|array{url: string, params: string}>>
      */
     private function getLinks(): array
     {
@@ -324,8 +324,6 @@ final class Data
 
         $serverStatus = $this->calculateValues($serverStatus, $serverVariables);
 
-        $links = $this->getLinks();
-
         [
             $allocationMap,
             $sectionUsed,
@@ -346,7 +344,7 @@ final class Data
         $this->variables = $serverVariables;
         $this->usedQueries = $usedQueries;
         $this->allocationMap = $allocationMap;
-        $this->links = $links;
+        $this->links = $this->getLinks();
         $this->sectionUsed = $sectionUsed;
     }
 
