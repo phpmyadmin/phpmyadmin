@@ -288,7 +288,7 @@ class DatabaseInterface implements DbalInterface
         // is called for tracking purposes but we want to display the correct number
         // of rows affected by the original query, not by the query generated for
         // tracking.
-        return $this->query($sql, ConnectionType::ControlUser, self::QUERY_BUFFERED, false);
+        return $this->query($sql, ConnectionType::ControlUser, cacheAffectedRows: false);
     }
 
     /**
@@ -305,7 +305,7 @@ class DatabaseInterface implements DbalInterface
         // is called for tracking purposes but we want to display the correct number
         // of rows affected by the original query, not by the query generated for
         // tracking.
-        return $this->tryQuery($sql, ConnectionType::ControlUser, self::QUERY_BUFFERED, false);
+        return $this->tryQuery($sql, ConnectionType::ControlUser, cacheAffectedRows: false);
     }
 
     /**
@@ -1195,7 +1195,7 @@ class DatabaseInterface implements DbalInterface
         int|string $field = 0,
         ConnectionType $connectionType = ConnectionType::User,
     ): string|false|null {
-        $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
         if ($result === false) {
             return false;
         }
@@ -1224,7 +1224,7 @@ class DatabaseInterface implements DbalInterface
         string $type = DbalInterface::FETCH_ASSOC,
         ConnectionType $connectionType = ConnectionType::User,
     ): array|null {
-        $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
         if ($result === false) {
             return null;
         }
@@ -1315,7 +1315,7 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $resultRows = [];
 
-        $result = $this->tryQuery($query, $connectionType, self::QUERY_BUFFERED, false);
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
 
         // return empty array if result is empty or false
         if ($result === false) {
@@ -1397,7 +1397,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getWarnings(ConnectionType $connectionType = ConnectionType::User): array
     {
-        $result = $this->tryQuery('SHOW WARNINGS', $connectionType, 0, false);
+        $result = $this->tryQuery('SHOW WARNINGS', $connectionType, cacheAffectedRows: false);
         if ($result === false) {
             return [];
         }
