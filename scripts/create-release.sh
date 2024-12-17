@@ -59,18 +59,23 @@ while [ $# -gt 0 ] ; do
                 branch="ci"
             fi
             ;;
+        --compressions)
+            COMPRESSIONS="$2"
+            shift
+            ;;
         --help)
             echo "Usages:"
-            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci]"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--compressions]"
             echo ""
             echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
             echo "If --ci is specified, the testsuite is executed and no actual release is created"
+            echo "If --compressions is specified, it changes the compressions available. Space separated values. Valid values: $COMPRESSIONS"
             echo ""
             echo "Examples:"
-            echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-            echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
+            echo "  create-release.sh 5.2.2-dev QA_5_2"
+            echo "  create-release.sh 5.2.2 QA_5_2 --tag --stable"
             exit 65
             ;;
         *)
@@ -89,6 +94,7 @@ while [ $# -gt 0 ] ; do
                 fi
             else
                 echo "Unknown parameter: $1!"
+                echo "Use --help to check the syntax."
                 exit 1
             fi
     esac
