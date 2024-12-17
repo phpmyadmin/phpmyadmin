@@ -17134,12 +17134,6 @@ parameters:
 			path: src/Table/Search.php
 
 		-
-			message: '#^Binary operation "\." between string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: '#^Binary operation "\.\=" between string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
@@ -17334,7 +17328,13 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 2
+			path: src/Table/Table.php
+
+		-
+			message: '#^Parameter \#1 \$indexed of method PhpMyAdmin\\Table\\Table\:\:formatColumns\(\) expects array\<string\>, array\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 2
 			path: src/Table/Table.php
 
 		-

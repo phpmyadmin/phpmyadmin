@@ -939,9 +939,9 @@ class Table implements Stringable
      *
      * e.g. index(col1, col2) would return col1, col2
      *
-     * @param mixed[] $indexed    column data
-     * @param bool    $backquoted whether to quote name with backticks ``
-     * @param bool    $fullName   whether to include full name of the table as a prefix
+     * @param string[] $indexed    column data
+     * @param bool     $backquoted whether to quote name with backticks ``
+     * @param bool     $fullName   whether to include full name of the table as a prefix
      *
      * @return string[]
      */

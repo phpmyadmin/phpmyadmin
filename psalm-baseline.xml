@@ -9925,7 +9925,6 @@
     </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
-      <code><![CDATA[$column]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$fields[$column]['expr']]]></code>
@@ -9937,6 +9936,10 @@
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
       <code><![CDATA[$value]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$indexed]]></code>
+      <code><![CDATA[$indexed]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
       <code><![CDATA[$column['Extra']]]></code>
@@ -9966,7 +9969,6 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$column]]></code>
-      <code><![CDATA[$column]]></code>
       <code><![CDATA[$columns[$row['Field']]]]></code>
       <code><![CDATA[$index]]></code>
       <code><![CDATA[$ret[]]]></code>
@@ -9979,7 +9981,6 @@
       <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$backquoted ? Util::backquote($column) : $column]]></code>
       <code><![CDATA[$index[0]]]></code>
     </MixedOperand>
     <MixedReturnStatement>
