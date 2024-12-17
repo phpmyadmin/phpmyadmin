@@ -2410,10 +2410,6 @@
     <MixedArgument>
       <code><![CDATA[$flush]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$name]]></code>
-      <code><![CDATA[$name]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$dontFormat]]></code>
       <code><![CDATA[$filterAlert]]></code>
@@ -9530,6 +9526,9 @@
       <code><![CDATA[100 * $keyReads]]></code>
       <code><![CDATA[100 * $keyWrites]]></code>
     </MixedOperand>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$serverStatus]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['primary_connection'] ?? null]]></code>
     </PossiblyInvalidArgument>
@@ -11979,7 +11978,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InaccessibleProperty>
-      <code><![CDATA[$this->data->status]]></code>
       <code><![CDATA[$this->data->usedQueries]]></code>
     </InaccessibleProperty>
     <MixedArgument>
@@ -12001,16 +11999,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
-      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InaccessibleProperty>
-      <code><![CDATA[$data->status]]></code>
-      <code><![CDATA[$data->status]]></code>
-      <code><![CDATA[$data->status]]></code>
-      <code><![CDATA[$data->status]]></code>
-      <code><![CDATA[$data->status]]></code>
-      <code><![CDATA[$data->status]]></code>
-    </InaccessibleProperty>
   </file>
   <file src="tests/unit/Controllers/Server/Status/VariablesControllerTest.php">
     <DeprecatedMethod>

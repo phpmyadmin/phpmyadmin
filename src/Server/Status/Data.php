@@ -69,11 +69,8 @@ final class Data
         'Opened_files' => 'files',
     ];
 
-    /**
-     * @var mixed[]
-     * @readonly
-     * */
-    public array $status;
+    /** @var array<string, mixed> */
+    public readonly array $status;
 
     /** @var array<string, string> */
     public readonly array $sections;

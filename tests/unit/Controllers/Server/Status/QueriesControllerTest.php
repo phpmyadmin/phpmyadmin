@@ -46,8 +46,18 @@ class QueriesControllerTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['host'] = 'localhost';
 
-        $this->data = new Data($this->dbi, $config);
-        $this->data->status['Uptime'] = 36000;
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $dummyDbi->addResult('SHOW GLOBAL STATUS', [
+            ['Uptime' , '36000'],
+            ['Aborted_connects' , '0'],
+            ['Aborted_clients', '0'],
+            ['Com_delete_multi', '0'],
+            ['Com_create_function', '0'],
+            ['Com_empty_query', '0'],
+        ], ['Variable_name', 'Value']);
+
+        $this->data = new Data($dbi, $config);
         $this->data->usedQueries = [
             'Com_change_db' => '15',
             'Com_select' => '12',
