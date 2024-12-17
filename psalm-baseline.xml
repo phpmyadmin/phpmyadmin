@@ -2982,16 +2982,17 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArgument>
+      <code><![CDATA[$_POST['destination_column']]]></code>
+      <code><![CDATA[$_POST['destination_db']]]></code>
       <code><![CDATA[$_POST['destination_foreign_column']]]></code>
       <code><![CDATA[$_POST['destination_foreign_db']]]></code>
       <code><![CDATA[$_POST['destination_foreign_table']]]></code>
+      <code><![CDATA[$_POST['destination_table']]]></code>
+      <code><![CDATA[$multiEditColumnsName]]></code>
       <code><![CDATA[$multiEditColumnsName]]></code>
       <code><![CDATA[usort($tables, strnatcasecmp(...))]]></code>
     </InvalidArgument>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$_POST['destination_column']]]></code>
-      <code><![CDATA[$_POST['destination_db']]]></code>
-      <code><![CDATA[$_POST['destination_table']]]></code>
       <code><![CDATA[$_POST['display_field']]]></code>
       <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$_POST['foreignDb']]]></code>
@@ -2999,7 +3000,6 @@
       <code><![CDATA[$_POST['foreignDb']]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$multiEditColumnsName]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['display_field']]]></code>
@@ -9929,17 +9929,8 @@
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$fields[$column]['expr']]]></code>
-      <code><![CDATA[$foreignDb]]></code>
-      <code><![CDATA[$foreignDb]]></code>
-      <code><![CDATA[$foreignField]]></code>
-      <code><![CDATA[$foreignField]]></code>
-      <code><![CDATA[$foreignTable]]></code>
-      <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$index]]></code>
       <code><![CDATA[$index[0]]]></code>
-      <code><![CDATA[$masterField]]></code>
-      <code><![CDATA[$masterField]]></code>
-      <code><![CDATA[$masterField]]></code>
       <code><![CDATA[$options['expr']]]></code>
       <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
@@ -9970,8 +9961,6 @@
     <MixedArrayOffset>
       <code><![CDATA[$columns[$row['Field']]]]></code>
       <code><![CDATA[$columns[$row['Field']]]]></code>
-      <code><![CDATA[$existrel[$masterField]]]></code>
-      <code><![CDATA[$existrel[$masterField]]]></code>
       <code><![CDATA[$optionsArray[$_POST['on_delete'][$masterFieldMd5]]]]></code>
       <code><![CDATA[$optionsArray[$_POST['on_update'][$masterFieldMd5]]]]></code>
     </MixedArrayOffset>
@@ -9979,11 +9968,7 @@
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$columns[$row['Field']]]]></code>
-      <code><![CDATA[$foreignDb]]></code>
-      <code><![CDATA[$foreignField]]></code>
-      <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$index]]></code>
-      <code><![CDATA[$masterField]]></code>
       <code><![CDATA[$ret[]]]></code>
       <code><![CDATA[$row]]></code>
       <code><![CDATA[$value]]></code>
@@ -10033,9 +10018,11 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onDelete)]]></code>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onUpdate)]]></code>
+      <code><![CDATA[empty($foreignField)]]></code>
       <code><![CDATA[empty($foreignField[$key])]]></code>
       <code><![CDATA[empty($foreignField[$key])]]></code>
       <code><![CDATA[empty($foreignField[$key])]]></code>
+      <code><![CDATA[empty($foreignTable)]]></code>
     </RiskyTruthyFalsyComparison>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>

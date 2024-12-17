@@ -1355,11 +1355,11 @@ class Table implements Stringable
     /**
      * Function to get update query for updating internal relations
      *
-     * @param mixed[]      $multiEditColumnsName multi edit column names
-     * @param mixed[]      $destinationDb        destination tables
-     * @param mixed[]      $destinationTable     destination tables
-     * @param mixed[]      $destinationColumn    destination columns
-     * @param mixed[]|null $existrel             db, table, column
+     * @param string[]        $multiEditColumnsName multi edit column names
+     * @param string[]        $destinationDb        destination tables
+     * @param (string|null)[] $destinationTable     destination tables
+     * @param (string|null)[] $destinationColumn    destination columns
+     * @param mixed[]|null    $existrel             db, table, column
      */
     public function updateInternalRelations(
         array $multiEditColumnsName,

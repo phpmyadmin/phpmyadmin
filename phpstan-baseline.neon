@@ -4678,7 +4678,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#1 \$multiEditColumnsName of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$multiEditColumnsName of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4690,7 +4690,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#2 \$destinationDb of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#2 \$destinationDb of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4720,7 +4720,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#3 \$destinationTable of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#3 \$destinationTable of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<string\|null\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -4732,7 +4732,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#4 \$destinationColumn of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#4 \$destinationColumn of method PhpMyAdmin\\Table\\Table\:\:updateInternalRelations\(\) expects array\<string\|null\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -17335,12 +17335,6 @@ parameters:
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 3
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 9
 			path: src/Table/Table.php
 
 		-
