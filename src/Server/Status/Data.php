@@ -330,8 +330,7 @@ final class Data
         // which is excluded from $server_status['Questions'])
         unset($usedQueries['Com_admin_commands']);
 
-        $serverHostToLower = mb_strtolower($config->selectedServer['host']);
-        $this->dbIsLocal = $serverHostToLower === 'localhost'
+        $this->dbIsLocal = mb_strtolower($config->selectedServer['host']) === 'localhost'
             || $config->selectedServer['host'] === '127.0.0.1'
             || $config->selectedServer['host'] === '::1';
 
