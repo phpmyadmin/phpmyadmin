@@ -33,6 +33,7 @@ do_ci=0
 do_sign=1
 do_pull=0
 do_daily=0
+do_revision=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -44,6 +45,9 @@ while [ $# -gt 0 ] ; do
             ;;
         --test)
             do_test=1
+            ;;
+        --revision-info)
+            do_revision=1
             ;;
         --daily)
             do_sign=0
@@ -65,12 +69,14 @@ while [ $# -gt 0 ] ; do
             ;;
         --help)
             echo "Usages:"
-            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--compressions]"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--revision-info] [--compressions]"
             echo ""
             echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
             echo "If --ci is specified, the testsuite is executed and no actual release is created"
+            echo "If --daily is specified, the ouput files will have snapshot information"
+            echo "If --revision-info is specified, the output files will contain git revision info"
             echo "If --compressions is specified, it changes the compressions available. Space separated values. Valid values: $COMPRESSIONS"
             echo ""
             echo "Examples:"
@@ -520,6 +526,9 @@ if [ -f ./scripts/console ]; then
     composer update --no-interaction
     # Warm up the routing cache for 5.1+ releases
     ./scripts/console cache:warmup --routing
+    if [ $do_revision -eq 1 ] ; then
+        ./scripts/console write-revision-info
+    fi
 fi
 
 PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json)
