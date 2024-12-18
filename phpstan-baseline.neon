@@ -6958,12 +6958,6 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: '#^Method PhpMyAdmin\\DatabaseInterface\:\:affectedRows\(\) should return int\|numeric\-string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
 			message: '#^Method PhpMyAdmin\\DatabaseInterface\:\:getColumnNames\(\) should return list\<string\> but returns array\<mixed\>\.$#'
 			identifier: return.type
 			count: 1

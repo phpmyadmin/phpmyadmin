@@ -137,6 +137,9 @@ class DatabaseInterface implements DbalInterface
     private ListDatabase|null $databaseList = null;
     private readonly Config $config;
 
+    /** @var int|numeric-string */
+    private static int|string $cachedAffectedRows = -1;
+
     /** @param DbiExtension $extension Object to be used for database queries */
     public function __construct(private DbiExtension $extension)
     {
@@ -199,7 +202,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         if ($cacheAffectedRows) {
-            $GLOBALS['cached_affected_rows'] = $this->affectedRows($connectionType, false);
+            self::$cachedAffectedRows = $this->affectedRows($connectionType, false);
         }
 
         if ($this->config->config->debug->sql) {
@@ -1785,7 +1788,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         if ($getFromCache) {
-            return $GLOBALS['cached_affected_rows'];
+            return self::$cachedAffectedRows;
         }
 
         return $this->extension->affectedRows($this->connections[$connectionType->value]);
