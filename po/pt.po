@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-12-18 18:35+0000\n"
-"Last-Translator: \"Antonio F. Silva\" <amfsilva@gmail.com>\n"
+"PO-Revision-Date: 2024-12-19 00:14+0000\n"
+"Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/pt/>\n"
 "Language: pt\n"
@@ -8963,7 +8963,7 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 "Não é possível usar o fuso horário de \"%1$s\" para o servidor %2$d. Por "
-"favor, verifique sua configuração em [em]$cfg['Servers'][%3$d]"
+"favor, verifique a sua configuração em [em]$cfg['Servers'][%3$d]"
 "['SessionTimeZone'][/em]. O phpMyAdmin está neste momento a usar o fuso "
 "horário predefinido do servidor da base de dados."
 
@@ -10814,10 +10814,8 @@ msgid "The table name is empty!"
 msgstr "O nome da tabela está vazio!"
 
 #: libraries/classes/Partitioning/Maintenance.php:141
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Esta é uma variável somente leitura e não pode ser editada"
+msgstr "Esta é uma variável apenas de leitura e não pode ser truncada."
 
 #: libraries/classes/Pdf.php:136
 msgid "Error while creating PDF:"
