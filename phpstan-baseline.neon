@@ -11860,12 +11860,6 @@ parameters:
 			path: src/Plugins/Export/ExportCodegen.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Plugins/Export/ExportCodegen.php
-
-		-
 			message: '#^Parameter \#1 \$str of static method PhpMyAdmin\\Plugins\\Export\\ExportCodegen\:\:cgMakeIdentifier\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 6

@@ -1441,7 +1441,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['charset']]]></code>
-      <code><![CDATA[$GLOBALS['codegen_format']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
       <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
@@ -6884,9 +6883,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <NoValue>
-      <code><![CDATA[$format]]></code>
-    </NoValue>
     <PossiblyNullArgument>
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[0]]]></code>
@@ -6896,12 +6892,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['codegen_format']]]></code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[$format === self::HANDLER_NHIBERNATE_XML]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/Plugins/Export/ExportCsv.php">
     <DeprecatedMethod>

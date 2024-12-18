@@ -44,7 +44,6 @@
             cached_affected_rows: int|numeric-string,
             charset: string,
             charset_connection: string,
-            codegen_format: 0|1,
             collation_connection: string,
             complete_query: string,
             compression: 'none'|'zip'|'gzip',
