@@ -1084,12 +1084,6 @@ parameters:
 			path: src/Config/FormDisplay.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/FormDisplay.php
-
-		-
 			message: '#^Parameter \#2 \$array of function implode expects array\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -1190,12 +1184,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Config/Forms/BaseForm.php
-
-		-
-			message: '#^Parameter \#1 \$array of function array_diff expects an array of values castable to string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config/Forms/Setup/FeaturesForm.php
 
 		-
 			message: '#^Parameter \#1 \$array of function array_diff expects array, mixed given\.$#'
@@ -7135,7 +7123,7 @@ parameters:
 			path: src/Dbal/MysqliResult.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Dbal\\MysqliResult\:\:fetchAllKeyPair\(\) should return array\<string\|null\> but returns array\<int\|string, mixed\>\.$#'
+			message: '#^Method PhpMyAdmin\\Dbal\\MysqliResult\:\:fetchAllKeyPair\(\) should return array\<string\|null\> but returns array\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Dbal/MysqliResult.php
@@ -10840,12 +10828,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Parameter \#1 \$array of function array_unique expects an array of values castable to string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: '#^Parameter \#1 \$array of function array_unique expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -10883,12 +10865,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Normalization.php
-
-		-
-			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Normalization.php
@@ -16417,12 +16393,6 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Server/Status/Monitor.php
-
-		-
 			message: '#^Parameter \#2 \$array of function implode expects array\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -17525,12 +17495,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$array of function array_map expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#2 \$array of function implode expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php
@@ -19447,12 +19411,6 @@ parameters:
 			message: '#^Parameter \#1 \$array of function sort expects TArray of array\<T\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/Command/TwigLintCommandTest.php
-
-		-
-			message: '#^Parameter \#1 \$array of function sort expects an array of values castable to string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: tests/unit/Command/TwigLintCommandTest.php
 
 		-
