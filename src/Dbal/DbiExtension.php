@@ -32,12 +32,9 @@ interface DbiExtension
     /**
      * runs a query and returns the result
      *
-     * @param string $query   query to execute
-     * @param int    $options query options
-     *
      * @return ResultInterface|false result
      */
-    public function realQuery(string $query, Connection $connection, int $options): ResultInterface|false;
+    public function realQuery(string $query, Connection $connection, bool $unbuffered = false): ResultInterface|false;
 
     /**
      * Run the multi query and output the results

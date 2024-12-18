@@ -11,7 +11,6 @@ use mysqli;
 use mysqli_sql_exception;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Utilities;
 
@@ -154,21 +153,13 @@ class DbiMysqli implements DbiExtension
 
     /**
      * runs a query and returns the result
-     *
-     * @param string $query   query to execute
-     * @param int    $options query options
      */
-    public function realQuery(string $query, Connection $connection, int $options): MysqliResult|false
+    public function realQuery(string $query, Connection $connection, bool $unbuffered = false): MysqliResult|false
     {
-        $method = MYSQLI_STORE_RESULT;
-        if ($options === ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
-            $method = MYSQLI_USE_RESULT;
-        }
-
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
 
-        $result = $mysqli->query($query, $method);
+        $result = $mysqli->query($query, $unbuffered ? MYSQLI_USE_RESULT : MYSQLI_STORE_RESULT);
         if ($result === false) {
             return false;
         }

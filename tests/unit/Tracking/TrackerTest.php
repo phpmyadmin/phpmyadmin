@@ -184,9 +184,9 @@ class TrackerTest extends AbstractTestCase
         $useStatement = 'USE `pma_test`';
         $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
         $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
-            [$showTableStatusQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            [$useStatement, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            [$showCreateTableQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$showTableStatusQuery, ConnectionType::User, false, true, $resultStub],
+            [$useStatement, ConnectionType::User, false, true, $resultStub],
+            [$showCreateTableQuery, ConnectionType::User, false, true, $resultStub],
         ]);
 
         $dbi->expects(self::any())->method('query')
