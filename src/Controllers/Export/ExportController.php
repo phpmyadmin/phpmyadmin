@@ -510,34 +510,6 @@ final class ExportController implements InvocableController
             $GLOBALS['excel_edition'] = $postParams['excel_edition'];
         }
 
-        if (isset($postParams['xml_export_events'])) {
-            $GLOBALS['xml_export_events'] = $postParams['xml_export_events'];
-        }
-
-        if (isset($postParams['xml_export_functions'])) {
-            $GLOBALS['xml_export_functions'] = $postParams['xml_export_functions'];
-        }
-
-        if (isset($postParams['xml_export_procedures'])) {
-            $GLOBALS['xml_export_procedures'] = $postParams['xml_export_procedures'];
-        }
-
-        if (isset($postParams['xml_export_tables'])) {
-            $GLOBALS['xml_export_tables'] = $postParams['xml_export_tables'];
-        }
-
-        if (isset($postParams['xml_export_triggers'])) {
-            $GLOBALS['xml_export_triggers'] = $postParams['xml_export_triggers'];
-        }
-
-        if (isset($postParams['xml_export_views'])) {
-            $GLOBALS['xml_export_views'] = $postParams['xml_export_views'];
-        }
-
-        if (isset($postParams['xml_export_contents'])) {
-            $GLOBALS['xml_export_contents'] = $postParams['xml_export_contents'];
-        }
-
         if (isset($postParams['sql_header_comment'])) {
             $GLOBALS['sql_header_comment'] = $postParams['sql_header_comment'];
         }

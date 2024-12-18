@@ -96,9 +96,7 @@
             tbl_storage_engine: string,
             token_mismatch: bool,
             token_provided: bool,
-            username: string,
-            xml_export_triggers: bool,
-            xml_export_views: bool
+            username: string
         }"/>
     </globals>
 </psalm>

@@ -1490,13 +1490,6 @@
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_events']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_functions']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_procedures']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_triggers']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_views']]]></code>
       <code><![CDATA[$dbSelect]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
@@ -7383,19 +7376,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_events']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_functions']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_functions']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_procedures']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_procedures']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$dbCharset]]></code>

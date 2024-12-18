@@ -12853,18 +12853,6 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 6
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1
