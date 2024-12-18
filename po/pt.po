@@ -4,16 +4,16 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2024-05-02 18:18+0000\n"
-"Last-Translator: Salvador Domingues <salvadordomingues@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/"
-"phpmyadmin/5-2/pt/>\n"
+"PO-Revision-Date: 2024-12-18 18:35+0000\n"
+"Last-Translator: \"Antonio F. Silva\" <amfsilva@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
+"5-2/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.3-dev\n"
+"X-Generator: Weblate 5.9.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -15583,19 +15583,21 @@ msgstr "Personalizado - exibe todas as opções possíveis"
 #, fuzzy
 #| msgid "File to import:"
 msgid "File format to export"
-msgstr "Ficheiro a importar:"
+msgstr "Formato de ficheiro de exportação:"
 
 #: templates/export.twig:137
 msgid "Rows:"
 msgstr "Linhas:"
 
 #: templates/export.twig:141
+#, fuzzy
 msgid "Dump all rows"
-msgstr "Eliminar todas as linhas"
+msgstr "Exportar todas as linhas"
 
 #: templates/export.twig:145
+#, fuzzy
 msgid "Dump some row(s)"
-msgstr "Eliminar alguma(s) linha(s)"
+msgstr "Exportar alguma(s) linha(s)"
 
 #: templates/export.twig:160
 msgid "Row to begin at:"
