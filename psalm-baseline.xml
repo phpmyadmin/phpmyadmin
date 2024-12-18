@@ -1426,7 +1426,6 @@
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$dbSelect]]></code>
@@ -1455,27 +1454,8 @@
       <code><![CDATA[$GLOBALS['excel_edition']]]></code>
       <code><![CDATA[$GLOBALS['excel_null']]]></code>
       <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
-      <code><![CDATA[$GLOBALS['htmlword_columns']]]></code>
-      <code><![CDATA[$GLOBALS['htmlword_null']]]></code>
-      <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
-      <code><![CDATA[$GLOBALS['json_unicode']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-      <code><![CDATA[$GLOBALS['latex_data_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_data_continued_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_data_label']]]></code>
-      <code><![CDATA[$GLOBALS['latex_null']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_continued_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_structure_label']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-      <code><![CDATA[$GLOBALS['ods_columns']]]></code>
-      <code><![CDATA[$GLOBALS['ods_null']]]></code>
-      <code><![CDATA[$GLOBALS['odt_columns']]]></code>
-      <code><![CDATA[$GLOBALS['odt_null']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
@@ -1509,10 +1489,7 @@
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['texytext_columns']]]></code>
-      <code><![CDATA[$GLOBALS['texytext_null']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
       <code><![CDATA[$GLOBALS['xml_export_events']]]></code>
@@ -6931,32 +6908,25 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$insertValues]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['csv_null']]]></code>
+      <code><![CDATA[$GLOBALS['csv_removeCRLF']]]></code>
       <code><![CDATA[$GLOBALS['excel_columns']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
+      <code><![CDATA[$GLOBALS['excel_null']]]></code>
+      <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$insertFields]]></code>
+      <code><![CDATA[$insertValues]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$insertFields[]]]></code>
       <code><![CDATA[$insertValues[]]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </MixedOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
       <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
@@ -6983,7 +6953,6 @@
       <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
     </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_removeCRLF']]]></code>
       <code><![CDATA[empty($GLOBALS['csv_terminated'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -6994,10 +6963,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['htmlword_columns']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7012,21 +6977,13 @@
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$value]]></code>
-    </PossiblyInvalidCast>
     <PossiblyNullArgument>
       <code><![CDATA[$tableAlias]]></code>
       <code><![CDATA[$tableAlias]]></code>
@@ -7047,10 +7004,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['json_pretty_print']]]></code>
-      <code><![CDATA[$GLOBALS['json_unicode']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$aliases]]></code>
     </MixedArgumentTypeCoercion>
@@ -7066,11 +7019,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-      <code><![CDATA[$GLOBALS['latex_columns']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$columnsAlias[$i]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
@@ -7114,12 +7062,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_caption']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-      <code><![CDATA[$GLOBALS['mediawiki_headers']]]></code>
-    </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$column]]></code>
@@ -7139,24 +7081,12 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
       <code><![CDATA[$colAs]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$colAs]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </MixedOperand>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$row[$j]]]></code>
       <code><![CDATA[$tableAlias]]></code>
@@ -7170,11 +7100,7 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7191,7 +7117,6 @@
       <code><![CDATA[$aliases[$db]['tables'][$rtable]['columns'][$rfield]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7201,13 +7126,10 @@
       <code><![CDATA[$rtable]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$rfield]]></code>
       <code><![CDATA[$rtable]]></code>
     </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS[$GLOBALS['what'] . '_null']]]></code>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
@@ -7431,9 +7353,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7441,7 +7360,6 @@
       <code><![CDATA[$comments[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
       <code><![CDATA[$type]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$comments[$fieldName]]]></code>
@@ -7449,19 +7367,12 @@
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['what']]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$type]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-      <code><![CDATA[$GLOBALS['what']]]></code>
-    </MixedOperand>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$value]]></code>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullOperand>
@@ -13186,13 +13097,14 @@
       <code><![CDATA[providerForTestValidPlugins]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/unit/Plugins/Export/ExportCsvTest.php">
+  <file src="tests/unit/Plugins/Export/ExportExcelTest.php">
     <DocblockTypeContradiction>
       <code><![CDATA[assertSame]]></code>
     </DocblockTypeContradiction>
     <RedundantCondition>
       <code><![CDATA[assertFalse]]></code>
       <code><![CDATA[assertSame]]></code>
+      <code><![CDATA[assertTrue]]></code>
     </RedundantCondition>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertFalse]]></code>
@@ -13222,38 +13134,21 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['latex_caption']]]></code>
-    </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
   </file>
-  <file src="tests/unit/Plugins/Export/ExportOdsTest.php">
-    <TypeDoesNotContainType>
-      <code><![CDATA[assertSame]]></code>
-    </TypeDoesNotContainType>
-  </file>
   <file src="tests/unit/Plugins/Export/ExportOdtTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['foo_columns']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$result]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$result]]></code>
     </MixedAssignment>
-    <TypeDoesNotContainType>
-      <code><![CDATA[assertSame]]></code>
-      <code><![CDATA[assertSame]]></code>
-      <code><![CDATA[assertSame]]></code>
-      <code><![CDATA[assertSame]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/Plugins/Export/ExportSqlTest.php">
     <DeprecatedMethod>

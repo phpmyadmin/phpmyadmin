@@ -30,6 +30,9 @@ use function str_repeat;
  */
 class ExportMediawiki extends ExportPlugin
 {
+    private bool $caption = false;
+    private bool $headers = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -169,12 +172,12 @@ class ExportMediawiki extends ExportPlugin
                 . $this->exportCRLF();
 
             // Add the table name
-            if (isset($GLOBALS['mediawiki_caption'])) {
+            if ($this->caption) {
                 $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
             }
 
             // Add the table headers
-            if (isset($GLOBALS['mediawiki_headers'])) {
+            if ($this->headers) {
                 $output .= '|- style="background:#ffdead;"' . $this->exportCRLF();
                 $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
@@ -251,13 +254,13 @@ class ExportMediawiki extends ExportPlugin
             . $this->exportCRLF();
 
         // Add the table name
-        if (isset($GLOBALS['mediawiki_caption'])) {
+        if ($this->caption) {
             $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
         }
 
         $dbi = DatabaseInterface::getInstance();
         // Add the table headers
-        if (isset($GLOBALS['mediawiki_headers'])) {
+        if ($this->headers) {
             // Get column names
             $columnNames = $dbi->getColumnNames($db, $table);
 
@@ -349,5 +352,9 @@ class ExportMediawiki extends ExportPlugin
             $exportConfig['mediawiki_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        $this->caption = (bool) ($request->getParsedBodyParam('mediawiki_caption')
+            ?? $exportConfig['mediawiki_caption'] ?? false);
+        $this->headers = (bool) ($request->getParsedBodyParam('mediawiki_headers')
+            ?? $exportConfig['mediawiki_headers'] ?? false);
     }
 }

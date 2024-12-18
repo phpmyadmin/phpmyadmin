@@ -11878,18 +11878,6 @@ parameters:
 			path: src/Plugins/Export/ExportCodegen.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_null'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''_removeCRLF'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
 			message: '#^Binary operation "\." between mixed and \(list\<string\>\|string\) results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -11967,7 +11955,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
-			count: 2
+			count: 3
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
@@ -12007,12 +11995,6 @@ parameters:
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_null'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -12037,12 +12019,6 @@ parameters:
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 6
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -12091,12 +12067,6 @@ parameters:
 			path: src/Plugins/Export/ExportJson.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 2
-			path: src/Plugins/Export/ExportJson.php
-
-		-
 			message: '#^Parameter \#4 \$aliases of method PhpMyAdmin\\Plugins\\Export\\ExportJson\:\:doExportForQuery\(\) expects array\<string, array\{tables\: array\<string, array\{columns\: array\<string, string\>\}\>\}\>\|null, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12109,20 +12079,8 @@ parameters:
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '' & '' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Binary operation "\.\=" between string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
 			count: 1
 			path: src/Plugins/Export/ExportLatex.php
 
@@ -12199,12 +12157,6 @@ parameters:
 			path: src/Plugins/Export/ExportLatex.php
 
 		-
-			message: '#^Parameter \#1 \$string of static method PhpMyAdmin\\Util\:\:expandUserString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 6
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
 			message: '#^Binary operation "\." between '' \! '' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -12256,36 +12208,6 @@ parameters:
 			path: src/Plugins/Export/ExportMediawiki.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_columns'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''_null'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\</office…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\<\?xml version\="1\.0"…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and non\-falsy\-string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOds.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -12327,7 +12249,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOds.php
 
 		-
@@ -12349,45 +12271,9 @@ parameters:
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_columns'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''_null'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\</office\:text\>\<…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\<\?xml version\="1\.0"…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and ''\<text\:h text…'' results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportOdt.php
-
-		-
-			message: '#^Binary operation "\.\=" between mixed and non\-falsy\-string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 8
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -12456,7 +12342,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 2
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -12844,18 +12730,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Binary operation "\." between mixed and ''_columns'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Binary operation "\." between mixed and ''_null'' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportTexytext.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -12897,7 +12771,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 2
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -21859,12 +21733,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 1
-			path: tests/unit/Plugins/Export/ExportOdtTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 11
 			path: tests/unit/Plugins/Export/ExportOdtTest.php
 
 		-

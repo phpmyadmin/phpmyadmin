@@ -26,6 +26,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function str_replace;
 
 /**
@@ -33,11 +34,11 @@ use function str_replace;
  */
 class ExportHtmlword extends ExportPlugin
 {
-    private bool $doRelation = false;
-
-    private bool $doMime = false;
-
+    private bool $columns = false;
     private bool $doComments = false;
+    private bool $doMime = false;
+    private bool $doRelation = false;
+    private string $null = '';
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -182,8 +183,6 @@ class ExportHtmlword extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -209,7 +208,7 @@ class ExportHtmlword extends ExportPlugin
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['htmlword_columns'])) {
+        if ($this->columns) {
             $schemaInsert = '<tr class="print-category">';
             foreach ($result->getFieldNames() as $colAs) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
@@ -231,10 +230,8 @@ class ExportHtmlword extends ExportPlugin
         while ($row = $result->fetchRow()) {
             $schemaInsert = '<tr class="print-category">';
             foreach ($row as $field) {
-                $value = $field ?? $GLOBALS[$GLOBALS['what'] . '_null'];
-
                 $schemaInsert .= '<td class="print">'
-                    . htmlspecialchars((string) $value)
+                    . htmlspecialchars($field ?? $this->null)
                     . '</td>';
             }
 
@@ -580,11 +577,30 @@ class ExportHtmlword extends ExportPlugin
             $exportConfig['htmlword_structure_or_data'] ?? null,
             StructureOrData::StructureAndData,
         );
+        $this->columns = (bool) ($request->getParsedBodyParam('htmlword_columns')
+            ?? $exportConfig['htmlword_columns'] ?? false);
         $this->doRelation = (bool) ($request->getParsedBodyParam('htmlword_relation')
             ?? $exportConfig['htmlword_relation'] ?? false);
         $this->doMime = (bool) ($request->getParsedBodyParam('htmlword_mime')
             ?? $exportConfig['htmlword_mime'] ?? false);
         $this->doComments = (bool) ($request->getParsedBodyParam('htmlword_comments')
             ?? $exportConfig['htmlword_comments'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('htmlword_null'),
+            $exportConfig['htmlword_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }

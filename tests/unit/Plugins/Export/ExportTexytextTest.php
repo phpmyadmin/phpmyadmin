@@ -213,9 +213,10 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_columns'] = '&';
-        $GLOBALS['foo_null'] = '>';
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['texytext_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
