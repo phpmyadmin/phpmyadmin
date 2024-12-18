@@ -46,7 +46,7 @@ final readonly class InsertEditColumn
         }
 
         $this->md5 = md5($this->field);
-        $this->trueType = preg_replace('@\(.*@s', '', $this->type);
+        $this->trueType = preg_replace('@(\(.*)|(\s/.*)@s', '', $this->type);
         // length is unknown for geometry fields,
         // make enough space to edit very simple WKTs
         if ($columnLength === -1) {
