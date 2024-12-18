@@ -69,10 +69,10 @@ class Table implements Stringable
     /** @var mixed[] UI preferences */
     public array $uiprefs = [];
 
-    /** @var mixed[] errors occurred */
+    /** @var string[] errors occurred */
     public array $errors = [];
 
-    /** @var mixed[] messages */
+    /** @var string[] messages */
     public array $messages = [];
 
     private Relation $relation;
@@ -939,9 +939,9 @@ class Table implements Stringable
      *
      * e.g. index(col1, col2) would return col1, col2
      *
-     * @param mixed[] $indexed    column data
-     * @param bool    $backquoted whether to quote name with backticks ``
-     * @param bool    $fullName   whether to include full name of the table as a prefix
+     * @param string[] $indexed    column data
+     * @param bool     $backquoted whether to quote name with backticks ``
+     * @param bool     $fullName   whether to include full name of the table as a prefix
      *
      * @return string[]
      */
@@ -1355,11 +1355,11 @@ class Table implements Stringable
     /**
      * Function to get update query for updating internal relations
      *
-     * @param mixed[]      $multiEditColumnsName multi edit column names
-     * @param mixed[]      $destinationDb        destination tables
-     * @param mixed[]      $destinationTable     destination tables
-     * @param mixed[]      $destinationColumn    destination columns
-     * @param mixed[]|null $existrel             db, table, column
+     * @param string[]        $multiEditColumnsName multi edit column names
+     * @param string[]        $destinationDb        destination tables
+     * @param (string|null)[] $destinationTable     destination tables
+     * @param (string|null)[] $destinationColumn    destination columns
+     * @param mixed[]|null    $existrel             db, table, column
      */
     public function updateInternalRelations(
         array $multiEditColumnsName,
@@ -1437,10 +1437,10 @@ class Table implements Stringable
     /**
      * Function to handle foreign key updates
      *
-     * @param mixed[]      $destinationForeignDb     destination foreign database
-     * @param mixed[]      $multiEditColumnsName     multi edit column names
-     * @param mixed[]      $destinationForeignTable  destination foreign table
-     * @param mixed[]      $destinationForeignColumn destination foreign column
+     * @param string[]     $destinationForeignDb     destination foreign database
+     * @param string[][]   $multiEditColumnsName     multi edit column names
+     * @param string[]     $destinationForeignTable  destination foreign table
+     * @param string[][]   $destinationForeignColumn destination foreign column
      * @param string[]     $optionsArray             options array
      * @param string       $table                    current table
      * @param ForeignKey[] $existrelForeign          db, table, column
@@ -1616,10 +1616,10 @@ class Table implements Stringable
      * Returns the SQL query for foreign key constraint creation
      *
      * @param string      $table        table name
-     * @param mixed[]     $field        field names
+     * @param string[]    $field        field names
      * @param string      $foreignDb    foreign database name
      * @param string      $foreignTable foreign table name
-     * @param mixed[]     $foreignField foreign field names
+     * @param string[]    $foreignField foreign field names
      * @param string|null $name         name of the constraint
      * @param string|null $onDelete     on delete action
      * @param string|null $onUpdate     on update action
