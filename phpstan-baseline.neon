@@ -8536,12 +8536,6 @@ parameters:
 			path: src/Footer.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Footer\:\:getGitRevisionInfo\(\) should return array\<string, string\> but returns array\<mixed\>\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Footer.php
-
-		-
 			message: '#^Only booleans are allowed in &&, array\<mixed, mixed\>\|object given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
@@ -9172,7 +9166,7 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: '#^Parameter \#1 \$commit of method PhpMyAdmin\\Git\:\:extractDataFormTextBody\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$commit of static method PhpMyAdmin\\Git\:\:extractDataFormTextBody\(\) expects array\<string\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Git.php
@@ -9214,7 +9208,7 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$string of function explode expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Git.php
@@ -20999,6 +20993,78 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/Gis/GisPolygonTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''author'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''branch'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: string\|false, message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''committer'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''hash'' and array\{hash\: string, branch\: string\|false, message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''is_remote_branch'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''is_remote_commit'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''message'' and array\{hash\: ''97b9895908f281b62c9…'', branch\: ''QA_5_2'', message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\) with array\{hash\: string, branch\: string\|false, message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsArray\(\) with array\{name\: string, email\: string, date\: string\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 2
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsBool\(\) with bool will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 2
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with string will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 7
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with array\{hash\: string, branch\: string\|false, message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/GitTest.php
 
 		-
 			message: '''

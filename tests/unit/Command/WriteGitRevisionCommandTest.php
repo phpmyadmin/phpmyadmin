@@ -10,6 +10,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use Symfony\Component\Console\Command\Command;
 
 use function class_exists;
+use function implode;
 use function sprintf;
 
 #[CoversClass(WriteGitRevisionCommand::class)]
@@ -25,17 +26,47 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
             ->onlyMethods(['gitCli'])
             ->getMock();
 
-        $command->expects(self::exactly(3))->method('gitCli')->willReturnMap([
-            ['describe --always', 'RELEASE_5_1_0-638-g1c018e2a6c'],
-            ['log -1 --format="%H"', '1c018e2a6c6d518c4a2dde059e49f33af67c4636'],
-            ['symbolic-ref -q HEAD', 'refs/heads/cli-rev-info'],
+        $commitBody = implode("\n", [
+            'tree 6857f00bb50360825c7df2c40ad21006c30beca7',
+            'parent 1634264816449dc42d17872174f3e8d73d4e36b2',
+            'author John Doe <john.doe@example.org> 1734427284',
+            'committer Hosted Weblate <hosted@weblate.org> 1734516032',
+            '',
+            'Translated using Weblate (Finnish)',
+            '',
+            'Currently translated at 61.4% (2105 of 3428 strings)',
+            '',
+            '[ci skip]',
+            '',
+            'Translation: phpMyAdmin/5.2',
+            'Translate-URL: https://hosted.weblate.org/projects/phpmyadmin/5-2/fi/',
+            'Signed-off-by: John Doe <john.doe@example.org>',
+            '',
         ]);
+
+        $command->expects(self::exactly(4))
+            ->method('gitCli')
+            ->willReturnMap(
+                [
+                    ['describe --always', 'RELEASE_5_1_0-638-g1c018e2a6c'],
+                    ['log -1 --format="%H"', '1c018e2a6c6d518c4a2dde059e49f33af67c4636'],
+                    ['symbolic-ref -q HEAD', 'refs/heads/cli-rev-info'],
+                    [
+                        'show -s --pretty=\'tree %T%nparent %P%nauthor %an <%ae> %at'
+                            . '%ncommitter %cn <%ce> %ct%n%n%B\'',
+                        $commitBody,
+                    ],
+                ],
+            );
 
         $output = $this->callFunction(
             $command,
             WriteGitRevisionCommand::class,
             'getRevisionInfo',
-            ['https://github.com/phpmyadmin/phpmyadmin/commit/%s', 'https://github.com/phpmyadmin/phpmyadmin/tree/%s'],
+            [
+                'https://github.com/phpmyadmin/phpmyadmin/commit/%s',
+                'https://github.com/phpmyadmin/phpmyadmin/tree/%s',
+            ],
         );
         $template = <<<'PHP'
 <?php
@@ -49,21 +80,42 @@ declare(strict_types=1);
  */
 return [
     'revision' => '%s',
+    'revisionHash' => '%s',
     'revisionUrl' => '%s',
     'branch' => '%s',
     'branchUrl' => '%s',
+    'message' => '%s',
+    'author' => [
+        'name' => '%s',
+        'email' => '%s',
+        'date' => '%s',
+    ],
+    'committer' => [
+        'name' => '%s',
+        'email' => '%s',
+        'date' => '%s',
+    ],
 ];
 
 PHP;
-        self::assertSame(
-            sprintf(
-                $template,
-                'RELEASE_5_1_0-638-g1c018e2a6c',
-                'https://github.com/phpmyadmin/phpmyadmin/commit/1c018e2a6c6d518c4a2dde059e49f33af67c4636',
-                'cli-rev-info',
-                'https://github.com/phpmyadmin/phpmyadmin/tree/cli-rev-info',
-            ),
-            $output,
-        );
+        self::assertSame(sprintf(
+            $template,
+            'RELEASE_5_1_0-638-g1c018e2a6c',
+            '1c018e2a6c6d518c4a2dde059e49f33af67c4636',
+            'https://github.com/phpmyadmin/phpmyadmin/commit/1c018e2a6c6d518c4a2dde059e49f33af67c4636',
+            'cli-rev-info',
+            'https://github.com/phpmyadmin/phpmyadmin/tree/cli-rev-info',
+            'Translated using Weblate (Finnish) '
+                . ' Currently translated at 61.4% (2105 of 3428 strings) '
+                . ' [ci skip]  Translation: phpMyAdmin/5.2 '
+                . 'Translate-URL: https://hosted.weblate.org/projects/phpmyadmin/5-2/fi/'
+                . ' Signed-off-by: John Doe <john.doe@example.org>', // Commit message
+            'John Doe', // Author name
+            'john.doe@example.org', // Author email
+            '2024-12-17 09:21:24 +0000', // Author date
+            'Hosted Weblate', // Committer name
+            'hosted@weblate.org', // Committer email
+            '2024-12-18 10:00:32 +0000', // Committer date
+        ), $output);
     }
 }

@@ -5156,13 +5156,8 @@
       <code><![CDATA[$params]]></code>
     </InvalidArgument>
     <MixedAssignment>
-      <code><![CDATA[$info]]></code>
       <code><![CDATA[$subObject]]></code>
     </MixedAssignment>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]]]></code>
-      <code><![CDATA[is_array($info) ? $info : []]]></code>
-    </MixedReturnTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$object]]></code>
       <code><![CDATA[empty($_REQUEST['no_debug'])]]></code>
@@ -5474,16 +5469,11 @@
     <MixedArgument>
       <code><![CDATA[$commit]]></code>
       <code><![CDATA[$commitJson->message]]></code>
-      <code><![CDATA[$dataline]]></code>
       <code><![CDATA[$offset + ($position * 20)]]></code>
       <code><![CDATA[$offset + ($position * 4)]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$commit]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$commit]]></code>
-      <code><![CDATA[$dataline]]></code>
       <code><![CDATA[$end]]></code>
       <code><![CDATA[$gitLocation]]></code>
       <code><![CDATA[$offset]]></code>
@@ -5516,6 +5506,27 @@
       <code><![CDATA[$packOffsets[1]]]></code>
       <code><![CDATA[json_decode((string) $isFound)]]></code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion>
+      <code><![CDATA[$info]]></code>
+      <code><![CDATA[array{
+     *        revision: string,
+     *        revisionHash: string,
+     *        revisionUrl: string,
+     *        branch: string,
+     *        branchUrl: string,
+     *        message: string,
+     *        author: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        },
+     *        committer: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        }
+     * }|null]]></code>
+    </MixedReturnTypeCoercion>
     <PossiblyNullArgument>
       <code><![CDATA[$commit[1]]]></code>
       <code><![CDATA[$gitFolder]]></code>
@@ -12483,6 +12494,22 @@
       <code><![CDATA[$dataSet]]></code>
       <code><![CDATA[$queryString]]></code>
     </MixedAssignment>
+  </file>
+  <file src="tests/unit/GitTest.php">
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[assertIsArray]]></code>
+      <code><![CDATA[assertIsArray]]></code>
+      <code><![CDATA[assertIsArray]]></code>
+      <code><![CDATA[assertIsBool]]></code>
+      <code><![CDATA[assertIsBool]]></code>
+      <code><![CDATA[assertIsString]]></code>
+      <code><![CDATA[assertIsString]]></code>
+      <code><![CDATA[assertIsString]]></code>
+      <code><![CDATA[assertIsString]]></code>
+      <code><![CDATA[assertIsString]]></code>
+      <code><![CDATA[assertIsString]]></code>
+      <code><![CDATA[assertIsString]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="tests/unit/HeaderTest.php">
     <DeprecatedMethod>
