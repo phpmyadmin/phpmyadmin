@@ -207,14 +207,14 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $partitionMethod = $dbi->fetchResultSimple(
+            $partitionMethod = $dbi->fetchValue(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table)
                 . ' LIMIT 1',
             );
-            if ($partitionMethod !== []) {
-                return $partitionMethod[0];
+            if ($partitionMethod !== false) {
+                return $partitionMethod;
             }
         }
 

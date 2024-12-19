@@ -11119,12 +11119,6 @@ parameters:
 			path: src/Partitioning/Partition.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Partitioning\\Partition\:\:getPartitionMethod\(\) should return string\|null but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Partitioning/Partition.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, string\|false\|null given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
