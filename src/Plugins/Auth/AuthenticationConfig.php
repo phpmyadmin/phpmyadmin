@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Auth;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Html\Generator;

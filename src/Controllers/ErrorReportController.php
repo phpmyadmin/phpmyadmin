@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Error\ErrorReport;
 use PhpMyAdmin\Http\Response;

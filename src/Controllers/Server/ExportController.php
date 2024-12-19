@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;

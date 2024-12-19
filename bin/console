@@ -4,11 +4,11 @@
 use PhpMyAdmin\Command\CacheWarmupCommand;
 use PhpMyAdmin\Command\FixPoTwigCommand;
 use PhpMyAdmin\Command\SetVersionCommand;
-use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Command\TwigLintCommand;
+use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use Symfony\Component\Console\Application;
 

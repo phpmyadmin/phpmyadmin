@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Triggers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Triggers\IndexController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;

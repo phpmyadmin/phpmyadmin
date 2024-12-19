@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;

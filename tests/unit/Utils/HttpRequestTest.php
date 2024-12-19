@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Utils;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Utils\HttpRequest;

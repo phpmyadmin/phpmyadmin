@@ -4169,7 +4169,7 @@
       <code><![CDATA[empty($_POST['criteriaTables'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/DatabaseInterface.php">
+  <file src="src/Dbal/DatabaseInterface.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

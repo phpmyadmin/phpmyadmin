@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\SqlParser\Components\CaseExpression;
 use PhpMyAdmin\SqlParser\Components\Expression;
 

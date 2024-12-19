@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\Status;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Url;
 

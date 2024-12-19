@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Advisory;
 
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Tracking;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tracking\TrackedTable;

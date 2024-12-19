@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Routing\Routing;

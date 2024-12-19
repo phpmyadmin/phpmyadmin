@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use ArrayIterator;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization;
 
 use PhpMyAdmin\Controllers\Normalization\MainController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
