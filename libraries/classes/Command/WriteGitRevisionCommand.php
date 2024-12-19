@@ -117,7 +117,7 @@ PHP;
         }
 
         $commitDetails = $this->gitCli(
-            'show -s --pretty=\'tree %T%nparent %P%nauthor %an <%ae> %at%ncommitter %cn <%ce> %ct%n%n%B\''
+            'show -s --pretty="tree %T%nparent %P%nauthor %an <%ae> %at%ncommitter %cn <%ce> %ct%n%n%B"'
         );
         if ($commitDetails === null) {
             return null;

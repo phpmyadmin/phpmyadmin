@@ -39,7 +39,7 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
                 ['describe --always'],
                 ['log -1 --format="%H"'],
                 ['symbolic-ref -q HEAD'],
-                ['show -s --pretty=\'tree %T%nparent %P%nauthor %an <%ae> %at%ncommitter %cn <%ce> %ct%n%n%B\'']
+                ['show -s --pretty="tree %T%nparent %P%nauthor %an <%ae> %at%ncommitter %cn <%ce> %ct%n%n%B"']
             )
             ->willReturnOnConsecutiveCalls(
                 'RELEASE_5_1_0-638-g1c018e2a6c',
