@@ -484,6 +484,48 @@ PHP;
     }
 
     /**
+     * Test for getGitRevisionInfo with a revision-info.php file
+     *
+     * @group git-revision
+     */
+    public function testGetGitRevisionInfo(): void
+    {
+        self::assertNull($this->object->getGitRevisionInfo());
+
+        file_put_contents(
+            $this->testDir . 'revision-info.php',
+            $this->getRevisionInfoTestData()
+        );
+
+        self::assertSame([
+            'revision' => 'RELEASE_5_2_1-1086-g97b9895908',
+            'revisionHash' => '97b9895908f281b62c985857798281a0b3e5d1e6',
+            'revisionUrl' =>
+                'https://github.com/phpmyadmin/phpmyadmin/commit/97b9895908f281b62c985857798281a0b3e5d1e6',
+            'branch' => 'QA_5_2',
+            'branchUrl' => 'https://github.com/phpmyadmin/phpmyadmin/tree/QA_5_2',
+            'message' => 'Currently translated at 61.4% (2105 of 3428 strings) '
+                . ' [ci skip]  Translation: phpMyAdmin/5.2'
+                . ' Translate-URL: https://hosted.weblate.org/projects/phpmyadmin/5-2/fi/'
+                . ' Signed-off-by: John Doe <john.doe@example.org>',
+            'author' => [
+                'name' => 'John Doe',
+                'email' => 'john.doe@example.org',
+                'date' => '2024-12-17 09:21:24 +0000',
+            ],
+            'committer' => [
+                'name' => 'Hosted Weblate',
+                'email' => 'hosted@weblate.org',
+                'date' => '2024-12-18 10:00:32 +0000',
+            ],
+
+        ], $this->object->getGitRevisionInfo());
+
+        // Delete the dataset
+        unlink($this->testDir . 'revision-info.php');
+    }
+
+    /**
      * Test for checkGitRevision
      */
     public function testCheckGitRevisionSkipped(): void
