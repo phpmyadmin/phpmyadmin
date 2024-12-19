@@ -31,6 +31,7 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
@@ -767,10 +768,10 @@ class CentralColumns
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable)
             . ' WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
             . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
-        if (isset($result[0])) {
-            return (int) $result[0];
+        if (is_string($result)) {
+            return (int) $result;
         }
 
         return -1;

@@ -6184,12 +6184,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 2
