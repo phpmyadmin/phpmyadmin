@@ -609,7 +609,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return mixed[]
+     * @return list<string|null>
      */
     private function getDataFromInfoSchema(int $pos, string $searchClause): array
     {
@@ -650,7 +650,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return mixed[]
+     * @return list<string|null>
      */
     private function getDataFromShowDatabases(int $pos, string $searchClause): array
     {
@@ -732,7 +732,7 @@ class Node
      * @param int    $pos          The offset of the list within the results.
      * @param string $searchClause A string used to filter the results of the query.
      *
-     * @return mixed[]
+     * @return list<string|null>
      */
     private function getDataFromShowDatabasesLike(UserPrivileges $userPrivileges, int $pos, string $searchClause): array
     {

@@ -2867,34 +2867,21 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Partition/AnalyzeController.php">
-    <MixedArgument>
-      <code><![CDATA[$query]]></code>
-    </MixedArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/CheckController.php">
-    <MixedArgument>
-      <code><![CDATA[$query]]></code>
-    </MixedArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/DropController.php">
-    <MixedArgument>
-      <code><![CDATA[$query]]></code>
-      <code><![CDATA[$query]]></code>
-    </MixedArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/OptimizeController.php">
-    <MixedArgument>
-      <code><![CDATA[$query]]></code>
-    </MixedArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2905,9 +2892,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/Partition/RepairController.php">
-    <MixedArgument>
-      <code><![CDATA[$query]]></code>
-    </MixedArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3778,9 +3762,6 @@
       <code><![CDATA[$params['field_type'][$i]]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
       <code><![CDATA[$params['orig_col_name'][$i]]]></code>
-      <code><![CDATA[$row['col_extra']]]></code>
-      <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
-      <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code><![CDATA[$type]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -3794,40 +3775,25 @@
       <code><![CDATA[$params['field_name'][$i]]]></code>
       <code><![CDATA[$params['field_type'][$i]]]></code>
       <code><![CDATA[$params['orig_col_name'][$i]]]></code>
-      <code><![CDATA[$row['col_extra']]]></code>
-      <code><![CDATA[$row['col_type']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$columnDefault[$i]]]></code>
       <code><![CDATA[$columnDefault[$i]]]></code>
-      <code><![CDATA[$row['col_attribute']]]></code>
-      <code><![CDATA[$row['col_attribute']]]></code>
-      <code><![CDATA[$row['col_attribute']]]></code>
-      <code><![CDATA[$row['col_attribute']]]></code>
-      <code><![CDATA[$row['col_attribute']]]></code>
-      <code><![CDATA[$row['col_extra']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$columnDefault]]></code>
       <code><![CDATA[$columnDefault[$i]]]></code>
       <code><![CDATA[$columnExtra[$i]]]></code>
-      <code><![CDATA[$defaultValues[$rowNum]]]></code>
       <code><![CDATA[$length]]></code>
-      <code><![CDATA[$row]]></code>
-      <code><![CDATA[$row]]></code>
-      <code><![CDATA[$rowsMeta[$rowNum]['DefaultValue']]]></code>
       <code><![CDATA[$type]]></code>
     </MixedAssignment>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$hasList]]></code>
-      <code><![CDATA[(string|null)[][]]]></code>
-    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tnPageNow]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$column['col_name']]]></code>
       <code><![CDATA[$field]]></code>
+      <code><![CDATA[$row['col_extra']]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
       <code><![CDATA[$column['col_attribute']]]></code>
@@ -9770,7 +9736,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidReturnStatement>
-      <code><![CDATA[$ret]]></code>
       <code><![CDATA[$tableAutoIncrement ?? '']]></code>
       <code><![CDATA[$this->getStatusInfo('TABLE_COLLATION') ?? '']]></code>
       <code><![CDATA[$this->getStatusInfo('TABLE_COMMENT') ?? '']]></code>
@@ -9779,7 +9744,6 @@
       <code><![CDATA[string]]></code>
       <code><![CDATA[string]]></code>
       <code><![CDATA[string]]></code>
-      <code><![CDATA[string[]]]></code>
     </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>

@@ -1033,6 +1033,7 @@ class Table implements Stringable
         $columnsMetaQueryResult = $this->dbi->fetchResultSimple($columnsMetaQuery);
 
         foreach ($columnsMetaQueryResult as $column) {
+            /** @var string $value */
             $value = $column['Field'];
             if ($backquoted) {
                 $value = Util::backquote($value);

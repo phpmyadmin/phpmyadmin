@@ -42,7 +42,7 @@ class Triggers
     {
     }
 
-    /** @return mixed[][] */
+    /** @return list<array<string|null>> */
     private static function fetchTriggerInfo(DatabaseInterface $dbi, string $db, string $table): array
     {
         if (! Config::getInstance()->selectedServer['DisableIS']) {
@@ -57,10 +57,7 @@ class Triggers
             }
         }
 
-        /** @var mixed[][] $triggers */
-        $triggers = $dbi->fetchResultSimple($query);
-
-        return $triggers;
+        return $dbi->fetchResultSimple($query);
     }
 
     /**

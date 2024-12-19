@@ -659,7 +659,7 @@ class Privileges
     /**
      * Get username and hostname length
      *
-     * @return mixed[] username length and hostname length
+     * @return array{int|string|null, int|string|null} username length and hostname length
      */
     public function getUsernameAndHostnameLength(): array
     {

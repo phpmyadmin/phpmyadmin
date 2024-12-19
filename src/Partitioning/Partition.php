@@ -178,7 +178,7 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return mixed[]   of partition names
+     * @return list<string|null>   of partition names
      */
     public static function getPartitionNames(string $db, string $table): array
     {
