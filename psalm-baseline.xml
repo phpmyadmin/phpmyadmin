@@ -4316,12 +4316,6 @@
       <code><![CDATA[$resultTarget =& $resultTarget[]]]></code>
     </UnsupportedReferenceUsage>
   </file>
-  <file src="src/Dbal/DbalInterface.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
-  </file>
   <file src="src/Dbal/DbiMysqli.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>

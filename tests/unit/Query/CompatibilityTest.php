@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Query;
 
 use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Query\Compatibility;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -64,11 +63,11 @@ class CompatibilityTest extends TestCase
     #[DataProvider('showBinLogStatusProvider')]
     public function testGetShowBinLogStatusStmt(string $serverName, int $version, string $expected): void
     {
-        $dbal = self::createStub(DbalInterface::class);
-        $dbal->method('isMySql')->willReturn($serverName === 'MySQL');
-        $dbal->method('isMariaDB')->willReturn($serverName === 'MariaDB');
-        $dbal->method('getVersion')->willReturn($version);
-        self::assertSame($expected, Compatibility::getShowBinLogStatusStmt($dbal));
+        $dbi = self::createStub(DatabaseInterface::class);
+        $dbi->method('isMySql')->willReturn($serverName === 'MySQL');
+        $dbi->method('isMariaDB')->willReturn($serverName === 'MariaDB');
+        $dbi->method('getVersion')->willReturn($version);
+        self::assertSame($expected, Compatibility::getShowBinLogStatusStmt($dbi));
     }
 
     /** @return iterable<int, array{string, int, string}> */

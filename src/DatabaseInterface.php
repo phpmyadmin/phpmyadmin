@@ -8,7 +8,6 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\ConnectionException;
 use PhpMyAdmin\Dbal\ConnectionType;
-use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\DbiMysqli;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -77,7 +76,7 @@ use const SORT_DESC;
 /**
  * Main interface for database interactions
  */
-class DatabaseInterface implements DbalInterface
+class DatabaseInterface
 {
     public static self|null $instance = null;
 
@@ -95,6 +94,9 @@ class DatabaseInterface implements DbalInterface
      * Get global variable.
      */
     public const GETVAR_GLOBAL = 2;
+
+    public const FETCH_NUM = 'NUM';
+    public const FETCH_ASSOC = 'ASSOC';
 
     /**
      * Opened database connections.
@@ -1215,7 +1217,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function fetchSingleRow(
         string $query,
-        string $type = DbalInterface::FETCH_ASSOC,
+        string $type = self::FETCH_ASSOC,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
