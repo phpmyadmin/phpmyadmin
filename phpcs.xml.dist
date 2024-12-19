@@ -8,6 +8,8 @@
     <arg name="extensions" value="php"/>
 
     <file>.</file>
+    <!-- Make sniff report relative -->
+    <arg name="basepath" value="."/>
 
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>
@@ -15,6 +17,7 @@
     <exclude-pattern>*/libraries/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/test/doctum-config.php</exclude-pattern>
+    <exclude-pattern>*/revision-info.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>
