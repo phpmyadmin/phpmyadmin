@@ -58,7 +58,7 @@ class Triggers
         }
 
         /** @var mixed[][] $triggers */
-        $triggers = $dbi->fetchResult($query);
+        $triggers = $dbi->fetchResultSimple($query);
 
         return $triggers;
     }
@@ -270,7 +270,7 @@ class Triggers
             . " AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
             $this->dbi->quoteString($db),
         );
-        $tables = $this->dbi->fetchResult($query);
+        $tables = $this->dbi->fetchResultSimple($query);
         Assert::allStringNotEmpty($tables);
         Assert::isList($tables);
 

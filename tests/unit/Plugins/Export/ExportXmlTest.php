@@ -18,7 +18,6 @@ use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -180,40 +179,55 @@ class ExportXmlTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         Current::$database = 'd<"b';
 
-        $result = [
-            0 => ['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8'],
-            'table' => [null, '"tbl"'],
-        ];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $functions = [['d<"b', 'fn', 'FUNCTION']];
+        $procedures = [['d<"b', 'pr', 'PROCEDURE']];
 
-        $triggers = [
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $dbiDummy->addResult(
+            'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
+            . " FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = 'd<\\\"b' LIMIT 1",
+            [['utf-8', 'utf8_general_ci']],
+            ['DEFAULT_CHARACTER_SET_NAME', 'DEFAULT_COLLATION_NAME'],
+        );
+        $dbiDummy->addResult('SHOW FUNCTION STATUS;', $functions, ['Db', 'Name', 'Type']);
+        $dbiDummy->addResult('SHOW PROCEDURE STATUS;', $procedures, ['Db', 'Name', 'Type']);
+        $dbiDummy->addResult('SHOW CREATE TABLE `d<"b`.`table`', [['table', '"tbl"']]);
+        $dbiDummy->addResult(
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'d<\"b\' AND TABLE_NAME = \'table\'',
+            [],
+        );
+        $dbiDummy->addResult(
+            'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE,'
+            . ' ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM'
+            . ' information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= \'d<\"b\' AND'
+            . ' EVENT_OBJECT_TABLE COLLATE utf8_bin = \'table\';',
             [
-                'TRIGGER_SCHEMA' => 'd<"b',
-                'TRIGGER_NAME' => 'trname',
-                'EVENT_MANIPULATION' => 'INSERT',
-                'EVENT_OBJECT_TABLE' => 'table',
-                'ACTION_TIMING' => 'AFTER',
-                'ACTION_STATEMENT' => 'BEGIN END',
-                'EVENT_OBJECT_SCHEMA' => 'd<"b',
-                'DEFINER' => 'test_user@localhost',
+                [
+                    'd<"b',
+                    'trname',
+                    'INSERT',
+                    'table',
+                    'AFTER',
+                    'BEGIN END',
+                    'd<"b',
+                    'test_user@localhost',
+                ],
             ],
-        ];
-        $functions = [['Db' => 'd<"b', 'Name' => 'fn', 'Type' => 'FUNCTION']];
-        $procedures = [['Db' => 'd<"b', 'Name' => 'pr', 'Type' => 'PROCEDURE']];
-
-        $dbi->expects(self::exactly(5))
-            ->method('fetchResult')
-            ->willReturn($result, $result, $triggers, $functions, $procedures);
-
-        $dbi->expects(self::exactly(3))
-            ->method('fetchValue')
-            ->willReturn(false, 'fndef', 'prdef');
-
-        $dbi->expects(self::once())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'd<"b', $dbi));
+            [
+                'TRIGGER_SCHEMA',
+                'TRIGGER_NAME',
+                'EVENT_MANIPULATION',
+                'EVENT_OBJECT_TABLE',
+                'ACTION_TIMING',
+                'ACTION_STATEMENT',
+                'EVENT_OBJECT_SCHEMA',
+                'DEFINER',
+            ],
+        );
+        $dbiDummy->addResult('SHOW CREATE FUNCTION `d<"b`.`fn`', [['fn', 'fndef']], ['name', 'Create Function']);
+        $dbiDummy->addResult('SHOW CREATE PROCEDURE `d<"b`.`pr`', [['pr', 'prdef']], ['name', 'Create Procedure']);
 
         DatabaseInterface::$instance = $dbi;
 
@@ -271,26 +285,22 @@ class ExportXmlTest extends AbstractTestCase
 
         $GLOBALS['output_charset_conversion'] = 0;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $result1 = [['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8']];
-        $result2 = ['t1' => [null, '"tbl"']];
-
-        $result3 = ['t2' => [null, '"tbl"']];
-
-        $dbi->expects(self::exactly(3))
-            ->method('fetchResult')
-            ->willReturn($result1, $result2, $result3);
-
-        $dbi->expects(self::exactly(2))
-            ->method('fetchValue')
-            ->willReturn('table', false);
-
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'd<"b', $dbi));
+        $dbiDummy->addResult(
+            'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
+            . " FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = 'd<\\\"b' LIMIT 1",
+            [['utf-8', 'utf8_general_ci']],
+            ['DEFAULT_CHARACTER_SET_NAME', 'DEFAULT_COLLATION_NAME'],
+        );
+        $dbiDummy->addResult('SHOW CREATE TABLE `d<"b`.`t1`', [['t1', '"tbl"']]);
+        $dbiDummy->addResult(
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'d<\"b\' AND TABLE_NAME = \'t1\'',
+            [],
+        );
+        $dbiDummy->addResult('SHOW CREATE TABLE `d<"b`.`t2`', [['t2', '"tbl"']]);
+        $dbiDummy->addResult(
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'d<\"b\' AND TABLE_NAME = \'t2\'',
+            [],
+        );
 
         DatabaseInterface::$instance = $dbi;
 

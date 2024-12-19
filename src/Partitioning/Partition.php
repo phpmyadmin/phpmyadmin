@@ -143,7 +143,7 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $result = $dbi->fetchResult(
+            $result = $dbi->fetchResultSimple(
                 'SELECT * FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
@@ -186,7 +186,7 @@ class Partition extends SubPartition
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
 
-            return $dbi->fetchResult(
+            return $dbi->fetchResultSimple(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
@@ -208,7 +208,7 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $partitionMethod = $dbi->fetchResult(
+            $partitionMethod = $dbi->fetchResultSimple(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table)
@@ -237,7 +237,7 @@ class Partition extends SubPartition
                 self::$havePartitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
-                $plugins = $dbi->fetchResult('SHOW PLUGINS');
+                $plugins = $dbi->fetchResultSimple('SHOW PLUGINS');
                 foreach ($plugins as $value) {
                     if ($value['Name'] === 'partition') {
                         self::$havePartitioning = true;

@@ -85,38 +85,15 @@ class TableTest extends AbstractTestCase
 
         $getUniqueColumnsSql = 'SHOW INDEXES FROM `PMA`.`PMA_BookMark`';
 
-        $fetchResult = [
+        $fetchResultSimple = [
             [
                 $sqlAnalyzeStructureTrue,
-                null,
                 null,
                 ConnectionType::User,
                 [['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE']],
             ],
             [
-                $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
-                ['Key_name', null],
-                'Column_name',
-                ConnectionType::User,
-                [['index1'], ['index3'], ['index5']],
-            ],
-            [
-                $getUniqueColumnsSql,
-                'Column_name',
-                'Column_name',
-                ConnectionType::User,
-                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
-            ],
-            [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
-                'Field',
-                'Field',
-                ConnectionType::User,
-                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
-            ],
-            [
-                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
-                null,
                 null,
                 ConnectionType::User,
                 [
@@ -140,7 +117,6 @@ class TableTest extends AbstractTestCase
             ],
             [
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_BookMark\';',
-                null,
                 null,
                 ConnectionType::User,
                 [
@@ -172,7 +148,6 @@ class TableTest extends AbstractTestCase
             ],
             [
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_.BookMark\';',
-                null,
                 null,
                 ConnectionType::User,
                 [
@@ -208,7 +183,6 @@ class TableTest extends AbstractTestCase
                     . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'PMA' "
                     . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'PMA_BookMark';",
                 null,
-                null,
                 ConnectionType::User,
                 [
                     [],
@@ -220,7 +194,6 @@ class TableTest extends AbstractTestCase
                     . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'aa' "
                     . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'ad';",
                 null,
-                null,
                 ConnectionType::User,
                 [
                     [],
@@ -229,9 +202,32 @@ class TableTest extends AbstractTestCase
             [
                 'SHOW COLUMNS FROM `aa`.`ad`',
                 null,
-                null,
                 ConnectionType::User,
                 [],
+            ],
+        ];
+
+        $fetchResult = [
+            [
+                $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
+                ['Key_name', null],
+                'Column_name',
+                ConnectionType::User,
+                [['index1'], ['index3'], ['index5']],
+            ],
+            [
+                $getUniqueColumnsSql,
+                'Column_name',
+                'Column_name',
+                ConnectionType::User,
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
+            ],
+            [
+                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
+                'Field',
+                'Field',
+                ConnectionType::User,
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
             ],
         ];
 
@@ -267,6 +263,9 @@ class TableTest extends AbstractTestCase
 
         $dbi->expects(self::any())->method('fetchResult')
             ->willReturnMap($fetchResult);
+
+            $dbi->expects(self::any())->method('fetchResultSimple')
+                ->willReturnMap($fetchResultSimple);
 
         $dbi->expects(self::any())->method('fetchValue')
             ->willReturnMap($fetchValue);

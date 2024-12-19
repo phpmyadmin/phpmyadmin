@@ -352,15 +352,15 @@ interface DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string                  $query query to execute
-     * @param string|int|mixed[]|null $key   field-name or offset used as key for array or array of those
-     * @param string|int|null         $value value-name or offset used as value for array
+     * @param string             $query query to execute
+     * @param string|int|mixed[] $key   field-name or offset used as key for array or array of those
+     * @param string|int|null    $value value-name or offset used as value for array
      *
      * @return mixed[] resultrows or values indexed by $key
      */
     public function fetchResult(
         string $query,
-        string|int|array|null $key = null,
+        string|int|array $key,
         string|int|null $value = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array;

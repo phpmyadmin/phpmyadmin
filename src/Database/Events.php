@@ -367,7 +367,7 @@ class Events
         }
 
         $result = [];
-        $events = $this->dbi->fetchResult($query);
+        $events = $this->dbi->fetchResultSimple($query);
 
         /** @var string[] $event */
         foreach ($events as $event) {

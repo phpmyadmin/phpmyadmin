@@ -1030,7 +1030,7 @@ class Table implements Stringable
         $columnsMetaQuery = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = [];
 
-        $columnsMetaQueryResult = $this->dbi->fetchResult($columnsMetaQuery);
+        $columnsMetaQueryResult = $this->dbi->fetchResultSimple($columnsMetaQuery);
 
         foreach ($columnsMetaQueryResult as $column) {
             $value = $column['Field'];

@@ -109,7 +109,7 @@ final class ReplicationInfo
 
     private function setPrimaryStatus(): void
     {
-        $this->primaryStatus = $this->dbi->fetchResult(Compatibility::getShowBinLogStatusStmt($this->dbi));
+        $this->primaryStatus = $this->dbi->fetchResultSimple(Compatibility::getShowBinLogStatusStmt($this->dbi));
     }
 
     /** @return mixed[] */
@@ -124,9 +124,9 @@ final class ReplicationInfo
             $this->dbi->isMySql() && $this->dbi->getVersion() >= 80022
             || $this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100501
         ) {
-            $this->replicaStatus = $this->dbi->fetchResult('SHOW REPLICA STATUS');
+            $this->replicaStatus = $this->dbi->fetchResultSimple('SHOW REPLICA STATUS');
         } else {
-            $this->replicaStatus = $this->dbi->fetchResult('SHOW SLAVE STATUS');
+            $this->replicaStatus = $this->dbi->fetchResultSimple('SHOW SLAVE STATUS');
         }
     }
 
@@ -140,9 +140,9 @@ final class ReplicationInfo
     {
         $this->multiPrimaryStatus = [];
         if ($this->dbi->isMariaDB() && $this->dbi->getVersion() >= 100501) {
-            $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL REPLICAS STATUS');
+            $this->multiPrimaryStatus = $this->dbi->fetchResultSimple('SHOW ALL REPLICAS STATUS');
         } elseif ($this->dbi->isMariaDB()) {
-            $this->multiPrimaryStatus = $this->dbi->fetchResult('SHOW ALL SLAVES STATUS');
+            $this->multiPrimaryStatus = $this->dbi->fetchResultSimple('SHOW ALL SLAVES STATUS');
         }
     }
 

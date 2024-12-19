@@ -1256,7 +1256,7 @@ class Routines
                 in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
                 $name === '' ? null : $dbi->quoteString($name),
             );
-            $routines = $dbi->fetchResult($query);
+            $routines = $dbi->fetchResultSimple($query);
         } else {
             $routines = [];
 
@@ -1266,7 +1266,7 @@ class Routines
                     $query .= ' AND `Name` = ' . $dbi->quoteString($name);
                 }
 
-                $routines = $dbi->fetchResult($query);
+                $routines = $dbi->fetchResultSimple($query);
             }
 
             if ($which === 'PROCEDURE' || $which == null) {
@@ -1275,7 +1275,7 @@ class Routines
                     $query .= ' AND `Name` = ' . $dbi->quoteString($name);
                 }
 
-                $routines = array_merge($routines, $dbi->fetchResult($query));
+                $routines = array_merge($routines, $dbi->fetchResultSimple($query));
             }
         }
 
@@ -1319,7 +1319,7 @@ class Routines
     public static function getFunctionNames(DatabaseInterface $dbi, string $db): array
     {
         /** @psalm-var list<array{Db: string, Name: string, Type: string}> $functions */
-        $functions = $dbi->fetchResult('SHOW FUNCTION STATUS;');
+        $functions = $dbi->fetchResultSimple('SHOW FUNCTION STATUS;');
         $names = [];
         foreach ($functions as $function) {
             if ($function['Db'] !== $db || $function['Type'] !== 'FUNCTION' || $function['Name'] === '') {
@@ -1339,7 +1339,7 @@ class Routines
     public static function getProcedureNames(DatabaseInterface $dbi, string $db): array
     {
         /** @psalm-var list<array{Db: string, Name: string, Type: string}> $procedures */
-        $procedures = $dbi->fetchResult('SHOW PROCEDURE STATUS;');
+        $procedures = $dbi->fetchResultSimple('SHOW PROCEDURE STATUS;');
         $names = [];
         foreach ($procedures as $procedure) {
             if ($procedure['Db'] !== $db || $procedure['Type'] !== 'PROCEDURE' || $procedure['Name'] === '') {

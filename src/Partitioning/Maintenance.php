@@ -29,7 +29,7 @@ final class Maintenance
         );
 
         $this->dbi->selectDb($db);
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {
@@ -49,7 +49,7 @@ final class Maintenance
         );
 
         $this->dbi->selectDb($db);
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {
@@ -84,7 +84,7 @@ final class Maintenance
         );
 
         $this->dbi->selectDb($db);
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {
@@ -122,7 +122,7 @@ final class Maintenance
         );
 
         $this->dbi->selectDb($db);
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {

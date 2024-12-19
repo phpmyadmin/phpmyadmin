@@ -304,9 +304,8 @@ class DatabaseInterface implements DbalInterface
         }
 
         /** @var array<int, string> $tables */
-        $tables = $this->fetchResult(
+        $tables = $this->fetchResultSimple(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
-            null,
             0,
             $connectionType,
         );
@@ -984,7 +983,7 @@ class DatabaseInterface implements DbalInterface
         $sql = QueryGenerator::getColumnsSql($database, $table);
 
         // We only need the 'Field' column which contains the table's column names
-        return $this->fetchResult($sql, null, 'Field', $connectionType);
+        return $this->fetchResultSimple($sql, 'Field', $connectionType);
     }
 
     /**
@@ -1020,7 +1019,7 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sql = QueryGenerator::getTableIndexesSql($database, $table);
 
-        return $this->fetchResult($sql, null, null, $connectionType);
+        return $this->fetchResultSimple($sql, null, $connectionType);
     }
 
     /**
@@ -1281,17 +1280,17 @@ class DatabaseInterface implements DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string                  $query query to execute
-     * @param string|int|mixed[]|null $key   field-name or offset
+     * @param string             $query query to execute
+     * @param string|int|mixed[] $key   field-name or offset
      *                                     used as key for array
      *                                     or array of those
-     * @param string|int|null         $value value-name or offset used as value for array
+     * @param string|int|null    $value value-name or offset used as value for array
      *
      * @return mixed[] resultrows or values indexed by $key
      */
     public function fetchResult(
         string $query,
-        string|int|array|null $key = null,
+        string|int|array $key,
         string|int|null $value = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
@@ -1302,15 +1301,6 @@ class DatabaseInterface implements DbalInterface
         // return empty array if result is empty or false
         if ($result === false) {
             return [];
-        }
-
-        if ($key === null) {
-            // no nested array if only one field is in result
-            if ($value === 0 || $result->numFields() === 1) {
-                return $result->fetchAllColumn();
-            }
-
-            return $value === null ? $result->fetchAllAssoc() : array_column($result->fetchAllAssoc(), $value);
         }
 
         if (is_array($key)) {
@@ -1347,6 +1337,25 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $resultRows;
+    }
+
+    /** @return array<mixed> */
+    public function fetchResultSimple(
+        string $query,
+        string|int|null $value = null,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): array {
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
+
+        if ($result === false) {
+            return [];
+        }
+
+        if ($value === 0 || $result->numFields() === 1) {
+            return $result->fetchAllColumn();
+        }
+
+        return $value === null ? $result->fetchAllAssoc() : array_column($result->fetchAllAssoc(), $value);
     }
 
     /**
@@ -1565,7 +1574,7 @@ class DatabaseInterface implements DbalInterface
     private function getCurrentUserGrants(): array
     {
         /** @var string[] $grants */
-        $grants = $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();');
+        $grants = $this->fetchResultSimple('SHOW GRANTS FOR CURRENT_USER();');
 
         return $grants;
     }

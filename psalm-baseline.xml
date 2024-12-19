@@ -3825,7 +3825,7 @@
     </MixedAssignment>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$hasList]]></code>
-      <code><![CDATA[$this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser)]]></code>
+      <code><![CDATA[$this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser)]]></code>
       <code><![CDATA[(string|null)[][]]]></code>
       <code><![CDATA[string[]]]></code>
     </MixedReturnTypeCoercion>
@@ -4230,7 +4230,7 @@
       <code><![CDATA[$row['Rows']]]></code>
     </InvalidOperand>
     <LessSpecificReturnStatement>
-      <code><![CDATA[$this->fetchResult($sql, null, 'Field', $connectionType)]]></code>
+      <code><![CDATA[$this->fetchResultSimple($sql, 'Field', $connectionType)]]></code>
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$a]]></code>
@@ -4281,7 +4281,7 @@
       <code><![CDATA[reset($columns)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->fetchResult($sql, null, null, $connectionType)]]></code>
+      <code><![CDATA[$this->fetchResultSimple($sql, null, $connectionType)]]></code>
       <code><![CDATA[array<int, array{
      *   Table: string,
      *   Non_unique: '0'|'1',
@@ -6189,9 +6189,9 @@
   </file>
   <file src="src/Navigation/Nodes/ObjectFetcher.php">
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
-      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
-      <code><![CDATA[$this->dbi->fetchResult($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResultSimple($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResultSimple($query)]]></code>
+      <code><![CDATA[$this->dbi->fetchResultSimple($query)]]></code>
       <code><![CDATA[array{name:string, type:string}[]]]></code>
       <code><![CDATA[string[]]]></code>
       <code><![CDATA[string[]]]></code>

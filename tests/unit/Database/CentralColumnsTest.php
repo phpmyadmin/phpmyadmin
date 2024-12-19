@@ -175,7 +175,7 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetColumnsList(): void
     {
         $this->dbi->expects(self::exactly(2))
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->willReturnOnConsecutiveCalls(
                 self::COLUMN_DATA,
                 array_slice(self::COLUMN_DATA, 1, 2),
@@ -197,10 +197,9 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetCount(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT count(db_name) FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
-                null,
                 null,
                 ConnectionType::ControlUser,
             )
@@ -305,11 +304,10 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetHtmlForEditingPage(): void
     {
         $this->dbi->expects(self::any())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
-                null,
                 null,
                 ConnectionType::ControlUser,
             )
@@ -336,10 +334,9 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetListRaw(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
-                null,
                 null,
                 ConnectionType::ControlUser,
             )
@@ -359,12 +356,11 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetListRawWithTable(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name "
                 . "NOT IN ('id','col1','col2');",
-                null,
                 null,
                 ConnectionType::ControlUser,
             )
@@ -386,8 +382,8 @@ class CentralColumnsTest extends AbstractTestCase
         $expectedQuery = 'SELECT * FROM `phpmyadmin`.`pma_central_columns`'
             . ' WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');';
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
-            ->with($expectedQuery, null, null, ConnectionType::ControlUser)
+            ->method('fetchResultSimple')
+            ->with($expectedQuery, null, ConnectionType::ControlUser)
             ->willReturn(array_slice(self::COLUMN_DATA, 1, 1));
         self::assertSame(
             array_slice(self::MODIFIED_COLUMN_DATA, 1, 1),

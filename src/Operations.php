@@ -247,7 +247,7 @@ class Operations
     public function runEventDefinitionsForDb(string $db, DatabaseName $newDatabaseName): void
     {
         /** @var string[] $eventNames */
-        $eventNames = $this->dbi->fetchResult(
+        $eventNames = $this->dbi->fetchResultSimple(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= '
             . $this->dbi->quoteString($db) . ';',
         );

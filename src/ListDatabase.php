@@ -100,7 +100,7 @@ class ListDatabase extends ArrayObject
         }
 
         if ($command !== '') {
-            $databaseList = $this->dbi->fetchResult($command);
+            $databaseList = $this->dbi->fetchResultSimple($command);
         }
 
         if ($this->config->settings['NaturalOrder']) {

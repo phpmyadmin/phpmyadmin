@@ -94,7 +94,7 @@ class NormalizationTest extends AbstractTestCase
             ->method('tryQuery')
             ->willReturn(self::createStub(DummyResult::class));
         $dbi->expects(self::any())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->willReturn([0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());

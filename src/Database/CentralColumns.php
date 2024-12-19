@@ -122,7 +122,7 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $hasList = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
         $this->handleColumnExtra($hasList);
 
         return $hasList;
@@ -147,7 +147,7 @@ class CentralColumns
         $query = 'SELECT count(db_name) FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' '
             . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
-        $res = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $res = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
         if (isset($res[0])) {
             return (int) $res[0];
         }
@@ -180,7 +180,7 @@ class CentralColumns
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
 
-        return $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        return $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
     }
 
     /**
@@ -207,7 +207,7 @@ class CentralColumns
         $query = 'SELECT * FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
-        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $hasList = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
         $this->handleColumnExtra($hasList);
 
         return $hasList;
@@ -692,7 +692,7 @@ class CentralColumns
             $query .= ';';
         }
 
-        $columnsList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $columnsList = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
         $this->handleColumnExtra($columnsList);
 
         return $columnsList;
@@ -771,7 +771,7 @@ class CentralColumns
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable)
             . ' WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
             . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
 
         if (isset($result[0])) {
             return (int) $result[0];

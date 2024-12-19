@@ -222,7 +222,7 @@ class ExportXml extends ExportPlugin
             . '>' . "\n";
 
         if ($exportStruct) {
-            $result = $dbi->fetchResult(
+            $result = $dbi->fetchResultSimple(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
                 . ' = ' . $dbi->quoteString(Current::$database) . ' LIMIT 1',
@@ -320,7 +320,7 @@ class ExportXml extends ExportPlugin
 
             if ($this->exportEvents) {
                 // Export events
-                $events = $dbi->fetchResult(
+                $events = $dbi->fetchResultSimple(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS '
                     . 'WHERE EVENT_SCHEMA=' . $dbi->quoteString(Current::$database),
                 );
