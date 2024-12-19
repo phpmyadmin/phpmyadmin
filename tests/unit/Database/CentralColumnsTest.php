@@ -200,7 +200,6 @@ class CentralColumnsTest extends AbstractTestCase
             ->method('fetchResultSimple')
             ->with(
                 'SELECT count(db_name) FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn([3]);
@@ -308,7 +307,6 @@ class CentralColumnsTest extends AbstractTestCase
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn(self::COLUMN_DATA);
@@ -337,7 +335,6 @@ class CentralColumnsTest extends AbstractTestCase
             ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn(self::COLUMN_DATA);
@@ -361,7 +358,6 @@ class CentralColumnsTest extends AbstractTestCase
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name "
                 . "NOT IN ('id','col1','col2');",
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn(self::COLUMN_DATA);
@@ -383,7 +379,7 @@ class CentralColumnsTest extends AbstractTestCase
             . ' WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');';
         $this->dbi->expects(self::once())
             ->method('fetchResultSimple')
-            ->with($expectedQuery, null, ConnectionType::ControlUser)
+            ->with($expectedQuery, ConnectionType::ControlUser)
             ->willReturn(array_slice(self::COLUMN_DATA, 1, 1));
         self::assertSame(
             array_slice(self::MODIFIED_COLUMN_DATA, 1, 1),

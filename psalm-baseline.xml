@@ -3825,7 +3825,7 @@
     </MixedAssignment>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$hasList]]></code>
-      <code><![CDATA[$this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser)]]></code>
+      <code><![CDATA[$this->dbi->fetchResultSimple($query, ConnectionType::ControlUser)]]></code>
       <code><![CDATA[(string|null)[][]]]></code>
       <code><![CDATA[string[]]]></code>
     </MixedReturnTypeCoercion>
@@ -4278,7 +4278,7 @@
       <code><![CDATA[reset($columns)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
-      <code><![CDATA[$this->fetchResultSimple($sql, null, $connectionType)]]></code>
+      <code><![CDATA[$this->fetchResultSimple($sql, $connectionType)]]></code>
       <code><![CDATA[array<int, array{
      *   Table: string,
      *   Non_unique: '0'|'1',

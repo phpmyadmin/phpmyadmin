@@ -693,7 +693,7 @@ class Relation
               WHERE `username` = ' . $this->dbi->quoteString($username) . '
            ORDER BY `id` DESC';
 
-        return $this->dbi->fetchResultSimple($histQuery, null, ConnectionType::ControlUser);
+        return $this->dbi->fetchResultSimple($histQuery, ConnectionType::ControlUser);
     }
 
     /**

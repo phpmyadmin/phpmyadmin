@@ -1032,7 +1032,7 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sql = QueryGenerator::getTableIndexesSql($database, $table);
 
-        return $this->fetchResultSimple($sql, null, $connectionType);
+        return $this->fetchResultSimple($sql, $connectionType);
     }
 
     /**
@@ -1355,7 +1355,6 @@ class DatabaseInterface implements DbalInterface
     /** @return array<mixed> */
     public function fetchResultSimple(
         string $query,
-        string|int|null $value = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
@@ -1364,11 +1363,11 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
-        if ($value === 0 || $result->numFields() === 1) {
+        if ($result->numFields() === 1) {
             return $result->fetchAllColumn();
         }
 
-        return $value === null ? $result->fetchAllAssoc() : array_column($result->fetchAllAssoc(), $value);
+        return $result->fetchAllAssoc();
     }
 
     /**

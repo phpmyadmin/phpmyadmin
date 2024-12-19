@@ -95,7 +95,7 @@ final class BookmarkRepository
 
         $query .= ' ORDER BY label ASC';
 
-        $result = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
         $bookmarks = [];
         foreach ($result as $row) {

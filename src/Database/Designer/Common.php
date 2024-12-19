@@ -330,7 +330,7 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE `page_descr` = ' . $this->dbi->quoteString($pg, ConnectionType::ControlUser);
-        $pageNos = $this->dbi->fetchResultSimple($query, null, ConnectionType::ControlUser);
+        $pageNos = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
         return $pageNos !== [];
     }

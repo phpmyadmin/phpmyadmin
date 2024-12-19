@@ -177,7 +177,6 @@ class Replication
     {
         $data = $this->dbi->fetchResultSimple(
             Compatibility::getShowBinLogStatusStmt($this->dbi),
-            null,
             $connectionType,
         );
         $output = [];
