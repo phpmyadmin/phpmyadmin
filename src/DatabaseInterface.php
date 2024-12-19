@@ -989,8 +989,14 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sql = QueryGenerator::getColumnsSql($database, $table);
 
+        $result = $this->tryQuery($sql, $connectionType, cacheAffectedRows: false);
+
+        if ($result === false) {
+            return [];
+        }
+
         // We only need the 'Field' column which contains the table's column names
-        return $this->fetchResultSimple($sql, 'Field', $connectionType);
+        return array_column($result->fetchAllAssoc(), 'Field');
     }
 
     /**
