@@ -134,7 +134,7 @@ final class BookmarkRepository
         $query .= ' LIMIT 1';
 
         $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-        if ($result !== null) {
+        if ($result !== []) {
             return $this->createFromRow($result);
         }
 
@@ -162,7 +162,7 @@ final class BookmarkRepository
             . ' LIMIT 1';
 
         $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-        if ($result !== null) {
+        if ($result !== []) {
             return $this->createFromRow($result);
         }
 

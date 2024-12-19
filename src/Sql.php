@@ -315,7 +315,7 @@ class Sql
             $whereClause,
         ));
 
-        if ($row === null) {
+        if ($row === []) {
             return '';
         }
 

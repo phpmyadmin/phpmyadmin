@@ -1756,7 +1756,7 @@ class Table implements Stringable
             ),
         );
 
-        if (! is_array($result)) {
+        if ($result === []) {
             return null;
         }
 

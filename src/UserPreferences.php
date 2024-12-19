@@ -93,7 +93,7 @@ class UserPreferences
             . ' WHERE `username` = '
             . $this->dbi->quoteString((string) $relationParameters->user);
         $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-        if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
+        if ($row === [] || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
         }
 
@@ -189,7 +189,7 @@ class UserPreferences
                 );
         }
 
-        return (bool) $this->dbi->fetchSingleRow($query, 'ASSOC', ConnectionType::ControlUser);
+        return $this->dbi->fetchSingleRow($query, 'ASSOC', ConnectionType::ControlUser) !== [];
     }
 
     /**

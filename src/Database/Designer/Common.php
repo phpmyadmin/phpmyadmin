@@ -669,7 +669,7 @@ class Common
                 ConnectionType::ControlUser,
             );
 
-            if ($origData !== null && $origData !== []) {
+            if ($origData !== []) {
                 $origData = json_decode($origData['settings_data'], true);
                 $origData[$index] = $value;
                 $origData = json_encode($origData);

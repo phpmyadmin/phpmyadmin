@@ -304,9 +304,9 @@ final class SearchController implements InvocableController
      *
      * @param string $column Column name
      *
-     * @return mixed[]|null
+     * @return array<string|null>
      */
-    private function getColumnMinMax(string $column): array|null
+    private function getColumnMinMax(string $column): array
     {
         $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '

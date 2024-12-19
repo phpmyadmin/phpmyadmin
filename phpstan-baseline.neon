@@ -3907,18 +3907,6 @@ parameters:
 			path: src/Controllers/Server/UserGroupsFormController.php
 
 		-
-			message: '#^Offset 1 might not exist on array\<string\|null\>\|null\.$#'
-			identifier: offsetAccess.notFound
-			count: 2
-			path: src/Controllers/Server/Variables/GetVariableController.php
-
-		-
-			message: '#^Offset 1 might not exist on array\<string\|null\>\|null\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Controllers/Server/Variables/SetVariableController.php
-
-		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, int\|string given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7068,12 +7056,6 @@ parameters:
 		-
 			message: '#^Property PhpMyAdmin\\DatabaseInterface\:\:\$versionString \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: src/DatabaseInterface.php
-
-		-
-			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
-			identifier: ternary.shortNotAllowed
 			count: 1
 			path: src/DatabaseInterface.php
 
@@ -15613,18 +15595,6 @@ parameters:
 			message: '#^Method PhpMyAdmin\\Server\\Privileges\:\:getDbname\(\) should return array\<string\>\|string\|null but returns array\<mixed\>\|string\|null\.$#'
 			identifier: return.type
 			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Offset ''@@old_passwords'' might not exist on array\<string\|null\>\|null\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Offset ''Type'' might not exist on array\<string\|null\>\|null\.$#'
-			identifier: offsetAccess.notFound
-			count: 4
 			path: src/Server/Privileges.php
 
 		-

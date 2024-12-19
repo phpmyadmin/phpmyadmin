@@ -1095,7 +1095,7 @@ class DatabaseInterface implements DbalInterface
     {
         $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
-        if (is_array($version)) {
+        if ($version !== []) {
             $this->setVersion($version);
         }
 
@@ -1211,19 +1211,19 @@ class DatabaseInterface implements DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric associative or both
      * @psalm-param DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
      *
-     * @return array<string|null>|null
+     * @return array<string|null>
      */
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
         ConnectionType $connectionType = ConnectionType::User,
-    ): array|null {
+    ): array {
         $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
         if ($result === false) {
-            return null;
+            return [];
         }
 
-        return $this->fetchByMode($result, $type) ?: null;
+        return $this->fetchByMode($result, $type);
     }
 
     /**

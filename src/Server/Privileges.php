@@ -473,7 +473,7 @@ class Privileges
             $row = $this->dbi->fetchSingleRow($sqlQuery);
         }
 
-        if ($row === null || $row === []) {
+        if ($row === []) {
             if ($table === '*' && $this->dbi->isSuperUser()) {
                 $row = [];
                 $sqlQuery = 'SHOW COLUMNS FROM `mysql`.' . ($db === '*' ? '`user`' : '`db`') . ';';
@@ -2057,7 +2057,7 @@ class Privileges
         if (isset($_POST['change_copy'])) {
             $userHostCondition = $this->getUserHostCondition($oldUsername, $oldHostname);
             $row = $this->dbi->fetchSingleRow('SELECT * FROM `mysql`.`user` ' . $userHostCondition . ';');
-            if ($row === null || $row === []) {
+            if ($row === []) {
                 $response = ResponseRenderer::getInstance();
                 $response->addHTML(
                     Message::notice(__('No user found.'))->getDisplay(),

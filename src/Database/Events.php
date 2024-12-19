@@ -223,7 +223,7 @@ class Events
                  . ' AND EVENT_NAME=' . $this->dbi->quoteString($name);
         $query = 'SELECT ' . $columns . ' FROM `INFORMATION_SCHEMA`.`EVENTS` WHERE ' . $where . ';';
         $item = $this->dbi->fetchSingleRow($query);
-        if ($item === null || $item === []) {
+        if ($item === []) {
             return null;
         }
 

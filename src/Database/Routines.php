@@ -432,7 +432,7 @@ class Routines
 
         $routine = $this->dbi->fetchSingleRow($query);
 
-        if ($routine === null || $routine === []) {
+        if ($routine === []) {
             return null;
         }
 

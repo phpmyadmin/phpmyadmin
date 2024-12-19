@@ -1006,7 +1006,6 @@ class Normalization
      */
     private function findDistinctValuesCount(array $columns, string $table): array
     {
-        $result = [];
         $query = 'SELECT ';
         foreach ($columns as $column) {
             if ($column === '') {
@@ -1020,7 +1019,12 @@ class Normalization
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
-        $res = $this->dbi->fetchSingleRow($query) ?? [];
+        $res = $this->dbi->fetchSingleRow($query);
+        if ($res === []) {
+            return [];
+        }
+
+        $result = [];
         foreach ($columns as $column) {
             if ($column === '') {
                 continue;

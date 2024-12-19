@@ -302,13 +302,13 @@ interface DbalInterface
      * @param string $type  NUM|ASSOC returned array should either numeric associative or both
      * @psalm-param self::FETCH_NUM|self::FETCH_ASSOC $type
      *
-     * @return array<string|null>|null
+     * @return array<string|null>
      */
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
         ConnectionType $connectionType = ConnectionType::User,
-    ): array|null;
+    ): array;
 
     /**
      * returns all rows in the resultset in one array
