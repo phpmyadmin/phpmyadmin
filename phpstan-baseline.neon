@@ -312,13 +312,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$row of method PhpMyAdmin\\Bookmarks\\BookmarkRepository\:\:createFromRow\(\) expects array\<string\>, array\<string\|null\> given\.$#'
 			identifier: argument.type
-			count: 2
-			path: src/Bookmarks/BookmarkRepository.php
-
-		-
-			message: '#^Parameter \#1 \$row of method PhpMyAdmin\\Bookmarks\\BookmarkRepository\:\:createFromRow\(\) expects array\<string\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
+			count: 3
 			path: src/Bookmarks/BookmarkRepository.php
 
 		-
@@ -6982,7 +6976,7 @@ parameters:
 			path: src/DatabaseInterface.php
 
 		-
-			message: '#^Method PhpMyAdmin\\DatabaseInterface\:\:getTableIndexes\(\) should return array\<int, array\{Table\: string, Non_unique\: ''0''\|''1'', Key_name\: string, Seq_in_index\: string, Column_name\: string\|null, Collation\: ''A''\|''D''\|null, Cardinality\: string, Sub_part\: string\|null, \.\.\.\}\> but returns array\<mixed\>\.$#'
+			message: '#^Method PhpMyAdmin\\DatabaseInterface\:\:getTableIndexes\(\) should return array\<int, array\{Table\: string, Non_unique\: ''0''\|''1'', Key_name\: string, Seq_in_index\: string, Column_name\: string\|null, Collation\: ''A''\|''D''\|null, Cardinality\: string, Sub_part\: string\|null, \.\.\.\}\> but returns list\<array\<string\|null\>\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/DatabaseInterface.php
@@ -10693,7 +10687,7 @@ parameters:
 			path: src/Navigation/Nodes/ObjectFetcher.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Navigation\\Nodes\\ObjectFetcher\:\:getTablesAndViews\(\) should return array\<array\{name\: string, type\: string\}\> but returns array\<mixed\>\.$#'
+			message: '#^Method PhpMyAdmin\\Navigation\\Nodes\\ObjectFetcher\:\:getTablesAndViews\(\) should return array\<array\{name\: string, type\: string\}\> but returns list\<array\<string\|null\>\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Navigation/Nodes/ObjectFetcher.php
@@ -11056,36 +11050,12 @@ parameters:
 			path: src/Operations.php
 
 		-
-			message: '#^Cannot access offset ''Table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: src/Partitioning/Maintenance.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\DatabaseInterface\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
 			count: 4
-			path: src/Partitioning/Partition.php
-
-		-
-			message: '#^Cannot access offset ''Name'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Partitioning/Partition.php
-
-		-
-			message: '#^Cannot access offset ''PARTITION_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Partitioning/Partition.php
-
-		-
-			message: '#^Cannot access offset ''SUBPARTITION_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: src/Partitioning/Partition.php
 
 		-
@@ -11103,18 +11073,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, string\|false\|null given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/Partitioning/Partition.php
-
-		-
-			message: '#^Parameter \#1 \$row of class PhpMyAdmin\\Partitioning\\Partition constructor expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Partitioning/Partition.php
-
-		-
-			message: '#^Parameter \#1 \$row of class PhpMyAdmin\\Partitioning\\SubPartition constructor expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Partitioning/Partition.php
 
@@ -12745,18 +12703,6 @@ parameters:
 			path: src/Plugins/Export/ExportXml.php
 
 		-
-			message: '#^Cannot access offset ''DEFAULT_CHARACTER_SET_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Cannot access offset ''DEFAULT_COLLATION_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
 			message: '#^Cannot access offset ''columns'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -12807,13 +12753,13 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 4
 			path: src/Plugins/Export/ExportXml.php
 
 		-
@@ -15130,25 +15076,13 @@ parameters:
 			path: src/Replication/Replication.php
 
 		-
-			message: '#^Cannot access offset ''File'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Replication/Replication.php
-
-		-
-			message: '#^Cannot access offset ''Position'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Replication/Replication.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 1
 			path: src/Replication/Replication.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Replication\\Replication\:\:replicaBinLogPrimary\(\) should return array\{File\?\: string, Position\?\: string\} but returns array\{\}\|array\{File\: mixed, Position\: mixed\}\.$#'
+			message: '#^Method PhpMyAdmin\\Replication\\Replication\:\:replicaBinLogPrimary\(\) should return array\{File\?\: string, Position\?\: string\} but returns array\{\}\|array\{File\: string\|null, Position\: string\|null\}\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Replication/Replication.php
@@ -15553,18 +15487,6 @@ parameters:
 			message: '#^Call to function array_filter\(\) requires parameter \#2 to be passed to avoid loose comparison semantics\.$#'
 			identifier: arrayFilter.strict
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Cannot access offset ''CHARACTER_MAXIMUM_LENGTH'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Cannot access offset ''COLUMN_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -17086,15 +17008,9 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Cannot access offset ''Extra'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Table/Table.php
-
-		-
 			message: '#^Cannot access offset ''Field'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
+			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -17194,7 +17110,7 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Table\\Table\:\:getNonGeneratedColumns\(\) should return array\<string\> but returns list\<mixed\>\.$#'
+			message: '#^Method PhpMyAdmin\\Table\\Table\:\:getNonGeneratedColumns\(\) should return array\<string\> but returns list\<string\|null\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Table/Table.php
@@ -17230,7 +17146,7 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$haystack of function str_contains expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Table/Table.php
@@ -17238,7 +17154,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Table/Table.php
 
 		-
@@ -17728,6 +17644,12 @@ parameters:
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 4
+			path: src/Triggers/Triggers.php
+
+		-
+			message: '#^PHPDoc tag @var with type array\<array\<mixed\>\> is not subtype of type list\<array\<string\|null\>\>\.$#'
+			identifier: varTag.type
+			count: 1
 			path: src/Triggers/Triggers.php
 
 		-

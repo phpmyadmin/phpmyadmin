@@ -1352,7 +1352,7 @@ class DatabaseInterface implements DbalInterface
         return $resultRows;
     }
 
-    /** @return array<mixed> */
+    /** @return list<array<string|null>> */
     public function fetchResultSimple(
         string $query,
         ConnectionType $connectionType = ConnectionType::User,
@@ -1361,10 +1361,6 @@ class DatabaseInterface implements DbalInterface
 
         if ($result === false) {
             return [];
-        }
-
-        if ($result->numFields() === 1) {
-            return $result->fetchAllColumn();
         }
 
         return $result->fetchAllAssoc();
