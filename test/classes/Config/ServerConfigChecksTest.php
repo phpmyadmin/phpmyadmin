@@ -137,6 +137,10 @@ class ServerConfigChecksTest extends AbstractTestCase
         self::assertArrayNotHasKey('error', $messages);
     }
 
+    /**
+     * @requires extension zip
+     * @requires extension bz2
+     */
     public function testBlowfishWithInvalidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];
@@ -168,6 +172,10 @@ class ServerConfigChecksTest extends AbstractTestCase
         self::assertArrayNotHasKey('error', $messages);
     }
 
+    /**
+     * @requires extension zip
+     * @requires extension bz2
+     */
     public function testBlowfishWithValidSecret(): void
     {
         $_SESSION[$this->sessionID] = [];
