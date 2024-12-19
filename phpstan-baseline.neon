@@ -12436,12 +12436,6 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: '#^Binary operation "\." between ''SET SQL_MODE\="'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Binary operation "\." between ''SET time_zone \= "'' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -12570,7 +12564,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 41
+			count: 34
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -12640,18 +12634,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#2 \$compat of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:exportUseStatement\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Parameter \#2 \$compatibility of static method PhpMyAdmin\\Util\:\:backquoteCompat\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 13
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Parameter \#2 \$haystack of function in_array expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12667,12 +12649,6 @@ parameters:
 			message: '#^Parameter \#2 \$sqlQuery of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:replaceWithAliases\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -12695,12 +12671,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$tableAlias of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:generateComment\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Parameter \#5 \$compat of method PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:generateComment\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
 			path: src/Plugins/Export/ExportSql.php

@@ -48,6 +48,7 @@ use function explode;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_string;
 use function mb_strlen;
 use function mb_strpos;
 use function mb_substr;
@@ -74,23 +75,32 @@ class ExportSql extends ExportPlugin
      */
     private bool $sentCharset = false;
 
-    private bool $useSqlBackquotes = false;
-
-    private string $sqlViews = '';
-
-    public string|null $sqlAutoIncrements = null;
-    public string|null $sqlIndexes = null;
-    public string|null $sqlConstraints = null;
-
-    public string $sqlConstraintsQuery = '';
-
-    private bool $doRelation = false;
-
-    private bool $doMime = false;
-
-    private bool $doDates = false;
-
     private bool $doComments = false;
+    private bool $doDates = false;
+    private bool $doMime = false;
+    private bool $doRelation = false;
+    private string $headerComment = '';
+    public string|null $sqlAutoIncrements = null;
+    public string|null $sqlConstraints = null;
+    public string $sqlConstraintsQuery = '';
+    public string|null $sqlIndexes = null;
+    private string $sqlViews = '';
+    private bool $useSqlBackquotes = false;
+    private bool $useTransaction = false;
+    private bool $disableForeignKey = false;
+
+    /** @var 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
+    private string $compatibility = 'NONE';
+
+    private bool $createDatabase = false;
+    private bool $dropTable = false;
+    private bool $procedureFunction = false;
+    private bool $createTable = false;
+
+    /** @var 'INSERT'|'UPDATE'|'REPLACE' */
+    private string $type = 'INSERT';
+
+    private bool $createView = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -521,7 +531,7 @@ class ExportSql extends ExportPlugin
         $procQuery = '';
 
         foreach ($routines as $routine) {
-            if (! empty($GLOBALS['sql_drop_table'])) {
+            if ($this->dropTable) {
                 $procQuery .= 'DROP ' . $type . ' IF EXISTS '
                     . Util::backquote($routine)
                     . $delimiter . "\n";
@@ -672,11 +682,11 @@ class ExportSql extends ExportPlugin
     {
         $foot = '';
 
-        if (isset($GLOBALS['sql_disable_fk'])) {
+        if ($this->disableForeignKey) {
             $foot .= 'SET FOREIGN_KEY_CHECKS=1;' . "\n";
         }
 
-        if (isset($GLOBALS['sql_use_transaction'])) {
+        if ($this->useTransaction) {
             $foot .= 'COMMIT;' . "\n";
         }
 
@@ -707,15 +717,8 @@ class ExportSql extends ExportPlugin
     public function exportHeader(): bool
     {
         $dbi = DatabaseInterface::getInstance();
-        if (isset($GLOBALS['sql_compatibility'])) {
-            $tmpCompat = $GLOBALS['sql_compatibility'];
-            if ($tmpCompat === 'NONE') {
-                $tmpCompat = '';
-            }
 
-            $dbi->tryQuery('SET SQL_MODE="' . $tmpCompat . '"');
-            unset($tmpCompat);
-        }
+        $dbi->tryQuery('SET SQL_MODE="' . ($this->compatibility !== 'NONE' ? $this->compatibility : '') . '"');
 
         $head = $this->exportComment('phpMyAdmin SQL Dump')
             . $this->exportComment('version ' . Version::VERSION)
@@ -738,10 +741,10 @@ class ExportSql extends ExportPlugin
         . $this->exportComment(__('PHP Version:') . ' ' . PHP_VERSION)
         . $this->possibleCRLF();
 
-        if (! empty($GLOBALS['sql_header_comment'])) {
+        if ($this->headerComment !== '') {
             // '\n' is not a newline (like "\n" would be), it's the characters
             // backslash and n, as explained on the export interface
-            $lines = explode('\n', $GLOBALS['sql_header_comment']);
+            $lines = explode('\n', $this->headerComment);
             $head .= $this->exportComment();
             foreach ($lines as $oneLine) {
                 $head .= $this->exportComment($oneLine);
@@ -750,17 +753,17 @@ class ExportSql extends ExportPlugin
             $head .= $this->exportComment();
         }
 
-        if (isset($GLOBALS['sql_disable_fk'])) {
+        if ($this->disableForeignKey) {
             $head .= 'SET FOREIGN_KEY_CHECKS=0;' . "\n";
         }
 
         // We want exported AUTO_INCREMENT columns to have still same value,
         // do this only for recent MySQL exports
-        if (! isset($GLOBALS['sql_compatibility']) || $GLOBALS['sql_compatibility'] === 'NONE') {
+        if ($this->compatibility === 'NONE') {
             $head .= 'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";' . "\n";
         }
 
-        if (isset($GLOBALS['sql_use_transaction'])) {
+        if ($this->useTransaction) {
             $head .= 'START TRANSACTION;' . "\n";
         }
 
@@ -816,15 +819,13 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
-
         if ($this->structureOrData !== StructureOrData::Data && isset($GLOBALS['sql_drop_database'])) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
                     . Util::backquoteCompat(
                         $dbAlias,
-                        $compat,
+                        $this->compatibility,
                         $this->useSqlBackquotes,
                     )
                     . ';' . "\n",
@@ -834,12 +835,12 @@ class ExportSql extends ExportPlugin
             }
         }
 
-        if (ExportPlugin::$exportType === ExportType::Database && ! isset($GLOBALS['sql_create_database'])) {
+        if (ExportPlugin::$exportType === ExportType::Database && ! $this->createDatabase) {
             return true;
         }
 
         $createQuery = 'CREATE DATABASE IF NOT EXISTS '
-            . Util::backquoteCompat($dbAlias, $compat, $this->useSqlBackquotes);
+            . Util::backquoteCompat($dbAlias, $this->compatibility, $this->useSqlBackquotes);
         $collation = DatabaseInterface::getInstance()->getDbCollation($db);
         if (str_contains($collation, '_')) {
             $createQuery .= ' DEFAULT CHARACTER SET '
@@ -858,7 +859,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        return $this->exportUseStatement($dbAlias, $compat);
+        return $this->exportUseStatement($dbAlias, $this->compatibility);
     }
 
     /**
@@ -896,14 +897,12 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
-
         $head = $this->exportComment()
             . $this->exportComment(
                 __('Database:') . ' '
                 . Util::backquoteCompat(
                     $dbAlias,
-                    $compat,
+                    $this->compatibility,
                     $this->useSqlBackquotes,
                 ),
             )
@@ -973,7 +972,7 @@ class ExportSql extends ExportPlugin
                 . $this->exportComment();
 
             foreach ($eventNames as $eventName) {
-                if (! empty($GLOBALS['sql_drop_table'])) {
+                if ($this->dropTable) {
                     $text .= 'DROP EVENT IF EXISTS '
                         . Util::backquote($eventName)
                         . $delimiter . "\n";
@@ -1031,7 +1030,7 @@ class ExportSql extends ExportPlugin
             return false;
         }
 
-        if (! $this->exportUseStatement((string) $relationParameters->db, $GLOBALS['sql_compatibility'])) {
+        if (! $this->exportUseStatement((string) $relationParameters->db, $this->compatibility)) {
             return false;
         }
 
@@ -1225,7 +1224,7 @@ class ExportSql extends ExportPlugin
         $viewAlias = $view;
         $this->initAlias($aliases, $dbAlias, $viewAlias);
         $createQuery = '';
-        if (! empty($GLOBALS['sql_drop_table'])) {
+        if ($this->dropTable) {
             $createQuery .= 'DROP VIEW IF EXISTS '
                 . Util::backquote($viewAlias)
                 . ';' . "\n";
@@ -1317,9 +1316,7 @@ class ExportSql extends ExportPlugin
 
         $createQuery .= "\n" . ');' . "\n";
 
-        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
-
-        if ($compat === 'MSSQL') {
+        if ($this->compatibility === 'MSSQL') {
             return $this->makeCreateTableMSSQLCompatible($createQuery);
         }
 
@@ -1348,7 +1345,6 @@ class ExportSql extends ExportPlugin
         bool $updateIndexesIncrements = true,
         array $aliases = [],
     ): string {
-        $GLOBALS['sql_drop_table'] ??= null;
         $GLOBALS['sql_indexes_query'] ??= null;
         $GLOBALS['sql_drop_foreign_keys'] ??= null;
 
@@ -1356,19 +1352,17 @@ class ExportSql extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
-        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
-
         $schemaCreate = $this->getTableStatus($db, $table);
 
         $dbi = DatabaseInterface::getInstance();
-        if (! empty($GLOBALS['sql_drop_table']) && $dbi->getTable($db, $table)->isView()) {
+        if ($this->dropTable && $dbi->getTable($db, $table)->isView()) {
             $schemaCreate .= 'DROP VIEW IF EXISTS '
                 . Util::backquoteCompat($tableAlias, 'NONE', $this->useSqlBackquotes) . ';'
                 . "\n";
         }
 
         // no need to generate a DROP VIEW here, it was done earlier
-        if (! empty($GLOBALS['sql_drop_table']) && ! $dbi->getTable($db, $table)->isView()) {
+        if ($this->dropTable && ! $dbi->getTable($db, $table)->isView()) {
             $schemaCreate .= 'DROP TABLE IF EXISTS '
                 . Util::backquoteCompat($tableAlias, 'NONE', $this->useSqlBackquotes) . ';'
                 . "\n";
@@ -1499,7 +1493,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Making the query MSSQL compatible.
-            if ($compat === 'MSSQL') {
+            if ($this->compatibility === 'MSSQL') {
                 $createQuery = $this->makeCreateTableMSSQLCompatible($createQuery);
             }
 
@@ -1513,7 +1507,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Using appropriate quotes.
-                if ($compat === 'MSSQL') {
+                if ($this->compatibility === 'MSSQL') {
                     Context::setMode(Context::getMode() | Context::SQL_MODE_ANSI_QUOTES);
                 }
             }
@@ -1616,7 +1610,11 @@ class ExportSql extends ExportPlugin
                 /**
                  * The header of the `ALTER` statement (`ALTER TABLE tbl`).
                  */
-                $alterHeader = 'ALTER TABLE ' . Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes);
+                $alterHeader = 'ALTER TABLE ' . Util::backquoteCompat(
+                    $tableAlias,
+                    $this->compatibility,
+                    $this->useSqlBackquotes,
+                );
 
                 /**
                  * The footer of the `ALTER` statement (usually ';')
@@ -1634,7 +1632,7 @@ class ExportSql extends ExportPlugin
                         __('Constraints for dumped tables'),
                         __('Constraints for table'),
                         $tableAlias,
-                        $compat,
+                        $this->compatibility,
                     ) . $this->sqlConstraintsQuery;
                 }
 
@@ -1662,7 +1660,7 @@ class ExportSql extends ExportPlugin
                         __('Indexes for dumped tables'),
                         __('Indexes for table'),
                         $tableAlias,
-                        $compat,
+                        $this->compatibility,
                     ) . $GLOBALS['sql_indexes_query'];
                 }
 
@@ -1693,7 +1691,7 @@ class ExportSql extends ExportPlugin
                         __('AUTO_INCREMENT for dumped tables'),
                         __('AUTO_INCREMENT for table'),
                         $tableAlias,
-                        $compat,
+                        $this->compatibility,
                     ) . $sqlAutoIncrementsQuery;
                 }
 
@@ -1877,9 +1875,7 @@ class ExportSql extends ExportPlugin
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
-        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
-
-        $formattedTableName = Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes);
+        $formattedTableName = Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes);
         $dump = $this->possibleCRLF()
             . $this->exportComment(str_repeat('-', 56))
             . $this->possibleCRLF()
@@ -1908,7 +1904,7 @@ class ExportSql extends ExportPlugin
                     $usedAlias = false;
                     $triggerQuery = '';
                     foreach ($triggers as $trigger) {
-                        if (! empty($GLOBALS['sql_drop_table'])) {
+                        if ($this->dropTable) {
                             $triggerQuery .= $trigger->getDropSql() . ';' . "\n";
                         }
 
@@ -2025,9 +2021,7 @@ class ExportSql extends ExportPlugin
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
 
-        $compat = $GLOBALS['sql_compatibility'] ?? 'NONE';
-
-        $formattedTableName = Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes);
+        $formattedTableName = Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes);
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
@@ -2074,10 +2068,10 @@ class ExportSql extends ExportPlugin
                 $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
             }
 
-            $fieldSet[$j] = Util::backquoteCompat($colAs, $compat, $this->useSqlBackquotes);
+            $fieldSet[$j] = Util::backquoteCompat($colAs, $this->compatibility, $this->useSqlBackquotes);
         }
 
-        if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'UPDATE') {
+        if ($this->type === 'UPDATE') {
             // update
             $schemaInsert = 'UPDATE ';
             if (isset($GLOBALS['sql_ignore'])) {
@@ -2085,10 +2079,10 @@ class ExportSql extends ExportPlugin
             }
 
             // avoid EOL blank
-            $schemaInsert .= Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes) . ' SET';
+            $schemaInsert .= Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes) . ' SET';
         } else {
             // insert or replace
-            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'REPLACE') {
+            if ($this->type === 'REPLACE') {
                 $sqlCommand = 'REPLACE';
             } else {
                 $sqlCommand = 'INSERT';
@@ -2102,14 +2096,14 @@ class ExportSql extends ExportPlugin
             }
 
             // insert ignore?
-            if (isset($GLOBALS['sql_type'], $GLOBALS['sql_ignore']) && $GLOBALS['sql_type'] === 'INSERT') {
+            if (isset($GLOBALS['sql_ignore']) && $this->type === 'INSERT') {
                 $insertDelayed .= ' IGNORE';
             }
 
             //truncate table before insert
             if (isset($GLOBALS['sql_truncate']) && $GLOBALS['sql_truncate'] && $sqlCommand === 'INSERT') {
                 $truncate = 'TRUNCATE TABLE '
-                    . Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes) . ';';
+                    . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes) . ';';
                 $truncatehead = $this->possibleCRLF()
                     . $this->exportComment()
                     . $this->exportComment(
@@ -2126,11 +2120,11 @@ class ExportSql extends ExportPlugin
             if ($GLOBALS['sql_insert_syntax'] === 'complete' || $GLOBALS['sql_insert_syntax'] === 'both') {
                 $fields = implode(', ', $fieldSet);
                 $schemaInsert = $sqlCommand . $insertDelayed . ' INTO '
-                    . Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes)
+                    . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
                     . ' (' . $fields . ') VALUES'; // avoid EOL blank
             } else {
                 $schemaInsert = $sqlCommand . $insertDelayed . ' INTO '
-                    . Util::backquoteCompat($tableAlias, $compat, $this->useSqlBackquotes)
+                    . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
                     . ' VALUES';
             }
         }
@@ -2141,8 +2135,7 @@ class ExportSql extends ExportPlugin
         if (
             ($GLOBALS['sql_insert_syntax'] === 'extended'
             || $GLOBALS['sql_insert_syntax'] === 'both')
-            && (! isset($GLOBALS['sql_type'])
-            || $GLOBALS['sql_type'] !== 'UPDATE')
+            && $this->type !== 'UPDATE'
         ) {
             $separator = ',';
             $schemaInsert .= "\n";
@@ -2166,17 +2159,13 @@ class ExportSql extends ExportPlugin
             }
 
             // We need to SET IDENTITY_INSERT ON for MSSQL
-            if (
-                $currentRow === 0
-                && isset($GLOBALS['sql_compatibility'])
-                && $GLOBALS['sql_compatibility'] === 'MSSQL'
-            ) {
+            if ($currentRow === 0 && $this->compatibility === 'MSSQL') {
                 if (
                     ! $this->export->outputHandler(
                         'SET IDENTITY_INSERT '
                         . Util::backquoteCompat(
                             $tableAlias,
-                            $compat,
+                            $this->compatibility,
                             $this->useSqlBackquotes,
                         )
                         . ' ON ;' . "\n",
@@ -2229,7 +2218,7 @@ class ExportSql extends ExportPlugin
             }
 
             // should we make update?
-            if (isset($GLOBALS['sql_type']) && $GLOBALS['sql_type'] === 'UPDATE') {
+            if ($this->type === 'UPDATE') {
                 $insertLine = $schemaInsert;
                 /** @infection-ignore-all */
                 for ($i = 0; $i < $fieldsCnt; $i++) {
@@ -2284,16 +2273,12 @@ class ExportSql extends ExportPlugin
         }
 
         // We need to SET IDENTITY_INSERT OFF for MSSQL
-        if (
-            isset($GLOBALS['sql_compatibility'])
-            && $GLOBALS['sql_compatibility'] === 'MSSQL'
-            && $currentRow > 0
-        ) {
+        if ($this->compatibility === 'MSSQL' && $currentRow > 0) {
             $outputSucceeded = $this->export->outputHandler(
                 "\n" . 'SET IDENTITY_INSERT '
                 . Util::backquoteCompat(
                     $tableAlias,
-                    $compat,
+                    $this->compatibility,
                     $this->useSqlBackquotes,
                 )
                 . ' OFF;' . "\n",
@@ -2703,5 +2688,79 @@ class ExportSql extends ExportPlugin
         $this->doDates = (bool) ($request->getParsedBodyParam('sql_dates') ?? $exportConfig['sql_dates'] ?? false);
         $this->doComments = (bool) ($request->getParsedBodyParam('sql_include_comments')
             ?? $exportConfig['sql_include_comments'] ?? false);
+        $this->headerComment = $this->setStringValue(
+            $request->getParsedBodyParam('sql_header_comment'),
+            $exportConfig['sql_header_comment'] ?? null,
+        );
+        $this->useTransaction = (bool) ($request->getParsedBodyParam('sql_use_transaction')
+            ?? $exportConfig['sql_use_transaction'] ?? false);
+        $this->disableForeignKey = (bool) ($request->getParsedBodyParam('sql_disable_fk')
+            ?? $exportConfig['sql_disable_fk'] ?? false);
+        $this->compatibility = $this->setCompatibility($this->setStringValue(
+            $request->getParsedBodyParam('sql_compatibility'),
+            $exportConfig['sql_compatibility'] ?? null,
+        ));
+        $this->createDatabase = (bool) ($request->getParsedBodyParam('sql_create_database')
+            ?? $exportConfig['sql_create_database'] ?? false);
+        $this->dropTable = (bool) ($request->getParsedBodyParam('sql_drop_table')
+            ?? $exportConfig['sql_drop_table'] ?? false);
+        $this->procedureFunction = (bool) ($request->getParsedBodyParam('sql_procedure_function')
+            ?? $exportConfig['sql_procedure_function'] ?? false);
+        $this->createTable = (bool) ($request->getParsedBodyParam('sql_create_table')
+            ?? $exportConfig['sql_create_table'] ?? false);
+        $this->type = $this->setType($this->setStringValue(
+            $request->getParsedBodyParam('sql_type'),
+            $exportConfig['sql_type'] ?? null,
+        ));
+        $this->createView = (bool) ($request->getParsedBodyParam('sql_create_view')
+            ?? $exportConfig['sql_create_view'] ?? false);
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
+    }
+
+    /** @return 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL' */
+    private function setCompatibility(string $mode): string
+    {
+        if (in_array($mode, ['ANSI', 'DB2', 'MAXDB', 'MYSQL323', 'MYSQL40', 'MSSQL', 'ORACLE', 'TRADITIONAL'], true)) {
+            return $mode;
+        }
+
+        return 'NONE';
+    }
+
+    public function hasCreateProcedureFunction(): bool
+    {
+        return $this->procedureFunction;
+    }
+
+    public function hasCreateTable(): bool
+    {
+        return $this->createTable;
+    }
+
+    /** @return 'INSERT'|'UPDATE'|'REPLACE' */
+    private function setType(string $type): string
+    {
+        if (in_array($type, ['UPDATE', 'REPLACE'], true)) {
+            return $type;
+        }
+
+        return 'INSERT';
+    }
+
+    public function hasCreateView(): bool
+    {
+        return $this->createView;
     }
 }

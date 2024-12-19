@@ -510,42 +510,6 @@ final class ExportController implements InvocableController
             $GLOBALS['excel_edition'] = $postParams['excel_edition'];
         }
 
-        if (isset($postParams['sql_header_comment'])) {
-            $GLOBALS['sql_header_comment'] = $postParams['sql_header_comment'];
-        }
-
-        if (isset($postParams['sql_use_transaction'])) {
-            $GLOBALS['sql_use_transaction'] = $postParams['sql_use_transaction'];
-        }
-
-        if (isset($postParams['sql_disable_fk'])) {
-            $GLOBALS['sql_disable_fk'] = $postParams['sql_disable_fk'];
-        }
-
-        if (isset($postParams['sql_compatibility'])) {
-            $GLOBALS['sql_compatibility'] = $postParams['sql_compatibility'];
-        }
-
-        if (isset($postParams['sql_create_database'])) {
-            $GLOBALS['sql_create_database'] = $postParams['sql_create_database'];
-        }
-
-        if (isset($postParams['sql_drop_table'])) {
-            $GLOBALS['sql_drop_table'] = $postParams['sql_drop_table'];
-        }
-
-        if (isset($postParams['sql_procedure_function'])) {
-            $GLOBALS['sql_procedure_function'] = $postParams['sql_procedure_function'];
-        }
-
-        if (isset($postParams['sql_create_table'])) {
-            $GLOBALS['sql_create_table'] = $postParams['sql_create_table'];
-        }
-
-        if (isset($postParams['sql_create_view'])) {
-            $GLOBALS['sql_create_view'] = $postParams['sql_create_view'];
-        }
-
         if (isset($postParams['sql_create_trigger'])) {
             $GLOBALS['sql_create_trigger'] = $postParams['sql_create_trigger'];
         }
@@ -580,10 +544,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['sql_ignore'])) {
             $GLOBALS['sql_ignore'] = $postParams['sql_ignore'];
-        }
-
-        if (isset($postParams['sql_type'])) {
-            $GLOBALS['sql_type'] = $postParams['sql_type'];
         }
 
         if (isset($postParams['sql_insert_syntax'])) {

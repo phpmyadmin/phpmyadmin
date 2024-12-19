@@ -98,7 +98,6 @@ class ExportTest extends AbstractTestCase
 
     public function testExportDatabase(): void
     {
-        $GLOBALS['sql_create_view'] = 'something';
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
