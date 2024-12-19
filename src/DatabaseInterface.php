@@ -303,12 +303,19 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
-        /** @var array<int, string> $tables */
-        $tables = $this->fetchResultSimple(
+        $result = $this->tryQuery(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
-            0,
             $connectionType,
+            cacheAffectedRows: false,
         );
+
+        if ($result === false) {
+            return [];
+        }
+
+        /** @var list<string> $tables */
+        $tables = $result->fetchAllColumn();
+
         if ($this->config->settings['NaturalOrder']) {
             usort($tables, strnatcasecmp(...));
         }
