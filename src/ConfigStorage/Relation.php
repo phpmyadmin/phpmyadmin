@@ -662,9 +662,9 @@ class Relation
      *
      * @param string $username the username
      *
-     * @return mixed[]|bool list of history items
+     * @return mixed[]|false list of history items
      */
-    public function getHistory(string $username): array|bool
+    public function getHistory(string $username): array|false
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
         if ($sqlHistoryFeature === null) {
