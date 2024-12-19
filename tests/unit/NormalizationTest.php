@@ -96,6 +96,9 @@ class NormalizationTest extends AbstractTestCase
         $dbi->expects(self::any())
             ->method('fetchResultSimple')
             ->willReturn([0]);
+        $dbi->expects(self::any())
+            ->method('fetchSingleRow')
+            ->willReturn(['`id`_cnt' => 0, '`col1`_cnt' => 0, '`col2`_cnt' => 0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }

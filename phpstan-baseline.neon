@@ -10738,18 +10738,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Cannot access offset non\-falsy\-string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Normalization.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: '#^Casting to int something that''s already int\<1, max\>\.$#'
 			identifier: cast.useless
 			count: 1

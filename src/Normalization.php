@@ -1016,20 +1016,19 @@ class Normalization
             }
 
             //each column is already backquoted
-            $query .= 'COUNT(DISTINCT ' . $column . ') as \''
-                . $column . '_cnt\', ';
+            $query .= 'COUNT(DISTINCT ' . $column . ') as \'' . $column . '_cnt\', ';
         }
 
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
-        $res = $this->dbi->fetchResultSimple($query);
+        $res = $this->dbi->fetchSingleRow($query) ?? [];
         foreach ($columns as $column) {
             if ($column === '') {
                 continue;
             }
 
-            $result[$column] = (int) ($res[0][$column . '_cnt'] ?? null);
+            $result[$column] = (int) $res[$column . '_cnt'];
         }
 
         return $result;
