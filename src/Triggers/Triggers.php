@@ -270,9 +270,8 @@ class Triggers
             . " AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
             $this->dbi->quoteString($db),
         );
-        $tables = $this->dbi->fetchResultSimple($query);
+        $tables = $this->dbi->fetchSingleColumn($query);
         Assert::allStringNotEmpty($tables);
-        Assert::isList($tables);
 
         return $tables;
     }

@@ -177,7 +177,7 @@ class CentralColumns
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
 
-        return $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
+        return $this->dbi->fetchSingleColumn($query, ConnectionType::ControlUser);
     }
 
     /**

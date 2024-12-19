@@ -1370,6 +1370,20 @@ class DatabaseInterface implements DbalInterface
         return $result->fetchAllAssoc();
     }
 
+    /** @return list<string|null> */
+    public function fetchSingleColumn(
+        string $query,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): array {
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
+
+        if ($result === false) {
+            return [];
+        }
+
+        return $result->fetchAllColumn();
+    }
+
     /**
      * Get supported SQL compatibility modes
      *
@@ -1586,7 +1600,7 @@ class DatabaseInterface implements DbalInterface
     private function getCurrentUserGrants(): array
     {
         /** @var string[] $grants */
-        $grants = $this->fetchResultSimple('SHOW GRANTS FOR CURRENT_USER();');
+        $grants = $this->fetchSingleColumn('SHOW GRANTS FOR CURRENT_USER();');
 
         return $grants;
     }

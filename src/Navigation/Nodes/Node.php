@@ -626,7 +626,7 @@ class Node
                 $maxItems,
             );
 
-            return $dbi->fetchResultSimple($query);
+            return $dbi->fetchSingleColumn($query);
         }
 
         $dbSeparator = $this->config->settings['NavigationTreeDbSeparator'];
@@ -643,7 +643,7 @@ class Node
             $maxItems,
         );
 
-        return $dbi->fetchResultSimple($query);
+        return $dbi->fetchSingleColumn($query);
     }
 
     /**
@@ -725,7 +725,7 @@ class Node
             implode('OR', $subClauses),
         );
 
-        return $dbi->fetchResultSimple($query);
+        return $dbi->fetchSingleColumn($query);
     }
 
     /**

@@ -229,7 +229,7 @@ class NodeTable extends NodeDatabaseChild
                     . Util::getCollateForIS() . '=' . $dbi->quoteString($table) . ' ';
                     $query .= 'ORDER BY `TRIGGER_NAME` ASC ';
                     $query .= 'LIMIT ' . $pos . ', ' . $maxItems;
-                    $retval = $dbi->fetchResultSimple($query);
+                    $retval = $dbi->fetchSingleColumn($query);
                     break;
                 }
 

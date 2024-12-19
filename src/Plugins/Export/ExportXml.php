@@ -320,7 +320,7 @@ class ExportXml extends ExportPlugin
 
             if ($this->exportEvents) {
                 // Export events
-                $events = $dbi->fetchResultSimple(
+                $events = $dbi->fetchSingleColumn(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS '
                     . 'WHERE EVENT_SCHEMA=' . $dbi->quoteString(Current::$database),
                 );

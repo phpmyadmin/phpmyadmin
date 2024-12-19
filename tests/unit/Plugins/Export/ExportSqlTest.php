@@ -592,7 +592,7 @@ class ExportSqlTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects(self::once())
-            ->method('fetchResultSimple')
+            ->method('fetchSingleColumn')
             ->with('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'db\'')
             ->willReturn(['f1', 'f2']);
 

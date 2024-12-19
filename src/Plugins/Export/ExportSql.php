@@ -980,7 +980,7 @@ class ExportSql extends ExportPlugin
         $delimiter = '$$';
 
         $dbi = DatabaseInterface::getInstance();
-        $eventNames = $dbi->fetchResultSimple(
+        $eventNames = $dbi->fetchSingleColumn(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE'
             . ' EVENT_SCHEMA= ' . $dbi->quoteString($db),
         );

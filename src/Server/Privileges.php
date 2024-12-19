@@ -734,7 +734,7 @@ class Privileges
      */
     public function getGrants(string $user, string $host): string
     {
-        $grants = $this->dbi->fetchResultSimple(
+        $grants = $this->dbi->fetchSingleColumn(
             'SHOW GRANTS FOR '
             . $this->dbi->quoteString($user) . '@'
             . $this->dbi->quoteString($host),
@@ -1456,7 +1456,7 @@ class Privileges
         }
 
         // we also want privileges for this user not in table `db` but in other table
-        $tables = $this->dbi->fetchResultSimple('SHOW TABLES FROM `mysql`;');
+        $tables = $this->dbi->fetchSingleColumn('SHOW TABLES FROM `mysql`;');
 
         $dbRightsSqls = [];
         foreach ($tablesToSearchForUsers as $tableSearchIn) {
@@ -1848,7 +1848,7 @@ class Privileges
     public function getDbRightsForUserOverview(string|null $initial): array
     {
         // we also want users not in table `user` but in other table
-        $mysqlTables = $this->dbi->fetchResultSimple('SHOW TABLES FROM `mysql`');
+        $mysqlTables = $this->dbi->fetchSingleColumn('SHOW TABLES FROM `mysql`');
         $userTables = ['user', 'db', 'tables_priv', 'columns_priv', 'procs_priv'];
         $whereUser = $this->rangeOfUsers($initial);
         $sqls = [];

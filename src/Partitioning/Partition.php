@@ -150,7 +150,6 @@ class Partition extends SubPartition
             );
             if ($result !== []) {
                 $partitionMap = [];
-                /** @var array $row */
                 foreach ($result as $row) {
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];
@@ -186,7 +185,7 @@ class Partition extends SubPartition
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
 
-            return $dbi->fetchResultSimple(
+            return $dbi->fetchSingleColumn(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
