@@ -10,6 +10,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+use function addcslashes;
 use function explode;
 use function file_put_contents;
 use function is_string;
@@ -122,7 +123,7 @@ PHP;
             return null;
         }
 
-        $branchName = trim(str_replace('refs/heads/', '', $branchName));
+        $branchName = addcslashes(trim(str_replace('refs/heads/', '', $branchName)), "'");
 
         [$author, $committer, $message] = Git::extractDataFormTextBody(explode("\n", $commitDetails));
 
@@ -131,15 +132,15 @@ PHP;
             trim($revisionText),
             trim($commitHash),
             sprintf($commitUrlFormat, trim($commitHash)),
-            trim($branchName),
+            $branchName,
             sprintf($branchUrlFormat, $branchName),
-            trim($message), // Commit message
-            trim($author['name']), // Author name
-            trim($author['email']), // Author email
-            trim($author['date']), // Author date
-            trim($committer['name']), // Committer name
-            trim($committer['email']), // Committer email
-            trim($committer['date']) // Committer date
+            addcslashes(trim($message), "'"), // Commit message
+            addcslashes($author['name'], "'"), // Author name
+            addcslashes($author['email'], "'"), // Author email
+            $author['date'], // Author date
+            addcslashes($committer['name'], "'"), // Committer name
+            addcslashes($committer['email'], "'"), // Committer email
+            $committer['date'] // Committer date
         );
     }
 
