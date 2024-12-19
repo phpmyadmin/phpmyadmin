@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2022-05-09 17:08+0000\n"
-"Last-Translator: ytteroy24b4bcffd91b44b4 <mail262626@inbox.lv>\n"
+"PO-Revision-Date: 2024-12-20 07:00+0000\n"
+"Last-Translator: Andris Jeršovs <jorsh@jorsh.lv>\n"
 "Language-Team: Latvian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "lv/>\n"
 "Language: lv\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : 2;\n"
-"X-Generator: Weblate 4.12.1\n"
+"X-Generator: Weblate 5.9.2-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -235,31 +235,34 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "'source' atrasts iekš version_comment"
 
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
 msgstr ""
+"MySQL lietotāja instrukcija ir akurāta tikai oficiālajiem MySQL bināriem "
+"failiem."
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"Percona dokumentācija atrodas <a href="
+"\"https://www.percona.com/software/documentation/\">https://www.percona.com/"
+"software/documentation/</a>"
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "'percona' atrasts iekš version_comment"
 
 #: libraries/advisory_rules_generic.php:168
-#, fuzzy
-#| msgid "MySQL charset"
 msgid "MySQL Architecture"
-msgstr "MySQL kodējums"
+msgstr "MySQL arhitektūra"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL nav kompilēts kā 64-bit programma."
 
 #: libraries/advisory_rules_generic.php:174
 msgid ""
@@ -267,20 +270,22 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"Jūsu operatīvās atmiņas apjoms ir virs 3 GiB (pieņemot, ka Serveris atrodas "
+"uz localhost), tādēļ MySQL, iespējams, nevar piekļūt visam operatīvās "
+"atmiņas apjomam. Jūs varētu apsvērt iespēju instalēt 64-bit MySQL versiju."
 
 #: libraries/advisory_rules_generic.php:178
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "Pieejamā atmiņa šajā hostā: %s"
 
 #: libraries/advisory_rules_generic.php:184
 msgid "Query caching method"
 msgstr "Vaicājuma kešatmiņas metode"
 
 #: libraries/advisory_rules_generic.php:188
-#, fuzzy
 msgid "Suboptimal caching method."
-msgstr "Vaicājuma tips"
+msgstr "Neoptimāla kešatmiņas metode."
 
 #: libraries/advisory_rules_generic.php:190
 msgid ""
@@ -289,6 +294,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
+"Jūs izmantojat MySQL pieprasījumu kešatmiņu ar visai liela trafika datubāzi. "
+"Varētu būt nepieciešams izmantot <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> "
+"MySQL pieprasījumu kešatmiņas vietā, īpaši, ja jums ir vairākas kopijas."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -296,19 +305,17 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"Pieprasījumu kešatmiņa ir iespējota un serveris saņem %d pieprasījumus "
+"sekundē. Šis noteikums nostrādā, ja būs vairāk kā 100 pieprasījumi sekundē."
 
 #: libraries/advisory_rules_generic.php:204
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Percentage of sorts that cause temporary tables"
-msgstr "Ļauj veidot pagaidu tabulas."
+msgstr "Šķirošana procentuāli, kas veido īslaicīgas tabulas"
 
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Too many sorts are causing temporary tables."
-msgstr "Ļauj veidot pagaidu tabulas."
+msgstr "Pārāk daudz šķirošanas veido īslaicīgas tabulas."
 
 #: libraries/advisory_rules_generic.php:210
 #: libraries/advisory_rules_generic.php:223
@@ -316,6 +323,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
+"Apsveriet palielināt {sort_buffer_size} un/vai {read_rnd_buffer_size}, "
+"atkarībā no sistēmas atmiņas ierobežojumiem."
 
 #: libraries/advisory_rules_generic.php:213
 #, php-format
@@ -323,28 +332,26 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s%% no visām šķirošanām veido īslaicīgas tabulas. Šim skaitlim jābūt zem "
+"10%%."
 
 #: libraries/advisory_rules_generic.php:218
-#, fuzzy
-#| msgid "Allows creating temporary tables."
 msgid "Rate of sorts that cause temporary tables"
-msgstr "Ļauj veidot pagaidu tabulas."
+msgstr "Šķirošanas daudzums, kas veido īslaicīgas tabulas"
 
 #: libraries/advisory_rules_generic.php:226
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
+msgstr "Īslaicīgas tabulas vidēji: %s, šim lielumam jābūt zem 1 stundā."
 
 #: libraries/advisory_rules_generic.php:231
-#, fuzzy
-#| msgid "Start"
 msgid "Sort rows"
-msgstr "S"
+msgstr "Šķirot rindas"
 
 #: libraries/advisory_rules_generic.php:234
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "Liels skaits rindu tiek šķirotas."
 
 #: libraries/advisory_rules_generic.php:236
 msgid ""
