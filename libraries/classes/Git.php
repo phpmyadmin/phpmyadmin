@@ -548,6 +548,44 @@ class Git
     }
 
     /**
+     * @return array<string, string|array<string, string>>|null
+     * @psalm-return array{
+     *        revision: string,
+     *        revisionHash: string,
+     *        revisionUrl: string,
+     *        branch: string,
+     *        branchUrl: string,
+     *        message: string,
+     *        author: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        },
+     *        committer: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        }
+     * }|null
+     */
+    public function getGitRevisionInfo(): ?array
+    {
+        if (@file_exists($this->baseDir . 'revision-info.php')) {
+            /** @var array{ revision: string, revisionHash: string, revisionUrl: string, branch: string, branchUrl: string, message: string, author: array{ name: string, email: string, date: string }, committer: array{ name: string, email: string, date: string }}|null $info */
+            /** @psalm-suppress MissingFile,UnresolvableInclude */
+            $info = include $this->baseDir . 'revision-info.php';
+
+            if (! is_array($info)) {
+                return null;
+            }
+
+            return $info;
+        }
+
+        return null;
+    }
+
+    /**
      * detects Git revision, if running inside repo
      */
     public function checkGitRevision(): ?array
@@ -562,10 +600,9 @@ class Git
 
         // Special name to indicate the use of the config file
         if ($gitFolder === 'revision-info.php') {
-            /** @psalm-suppress MissingFile,UnresolvableInclude */
-            $info = include $this->baseDir . 'revision-info.php';
+            $info = $this->getGitRevisionInfo();
 
-            if (! is_array($info)) {
+            if ($info === null) {
                 return null;
             }
 

@@ -17951,11 +17951,6 @@ parameters:
 			path: libraries/classes/Footer.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:getGitRevisionInfo\\(\\) should return array\\<string, string\\> but returns array\\.$#"
-			count: 1
-			path: libraries/classes/Footer.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Footer\\:\\:removeRecursion\\(\\) has parameter \\$stack with no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Footer.php
@@ -19468,21 +19463,6 @@ parameters:
 		-
 			message: "#^Call to function in_array\\(\\) requires parameter \\#3 to be set\\.$#"
 			count: 1
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Cannot access offset 'date' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Cannot access offset 'email' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Git.php
-
-		-
-			message: "#^Cannot access offset 'name' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Git.php
 
 		-

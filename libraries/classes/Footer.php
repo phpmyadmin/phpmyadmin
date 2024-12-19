@@ -11,7 +11,6 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use Traversable;
 
 use function basename;
-use function file_exists;
 use function in_array;
 use function is_array;
 use function is_object;
@@ -69,22 +68,6 @@ class Footer
         $this->scripts = new Scripts();
         $this->isMinimal = false;
         $this->relation = new Relation($dbi);
-    }
-
-    /**
-     * @return array<string, string>
-     * @psalm-return array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]
-     */
-    private function getGitRevisionInfo(): array
-    {
-        $info = [];
-
-        if (@file_exists(ROOT_PATH . 'revision-info.php')) {
-            /** @psalm-suppress MissingFile,UnresolvableInclude */
-            $info = include ROOT_PATH . 'revision-info.php';
-        }
-
-        return is_array($info) ? $info : [];
     }
 
     /**
@@ -288,7 +271,8 @@ class Footer
                 $scripts = $this->scripts->getDisplay();
 
                 if ($GLOBALS['cfg']['DBG']['demo']) {
-                    $gitRevisionInfo = $this->getGitRevisionInfo();
+                    $git = new Git(true, ROOT_PATH);
+                    $gitRevisionInfo = $git->getGitRevisionInfo();
                 }
 
                 $footer = Config::renderFooter();

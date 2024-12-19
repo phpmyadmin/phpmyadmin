@@ -6763,12 +6763,6 @@
     <InvalidArgument occurrences="1">
       <code>$params</code>
     </InvalidArgument>
-    <InvalidReturnStatement occurrences="1">
-      <code>is_array($info) ? $info : []</code>
-    </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]</code>
-    </InvalidReturnType>
     <MixedArgument occurrences="2">
       <code>$db</code>
       <code>$table</code>
@@ -6783,8 +6777,7 @@
       <code>(string) $GLOBALS['table']</code>
       <code>(string) $_REQUEST['no_history']</code>
     </RedundantCast>
-    <RedundantCondition occurrences="5">
-      <code>is_array($info)</code>
+    <RedundantCondition occurrences="4">
       <code>is_scalar($GLOBALS['db'])</code>
       <code>is_scalar($GLOBALS['table'])</code>
       <code>isset($GLOBALS['db']) &amp;&amp; is_scalar($GLOBALS['db'])</code>
@@ -6793,9 +6786,6 @@
     <TypeDoesNotContainNull occurrences="2">
       <code>! isset($dbi)</code>
     </TypeDoesNotContainNull>
-    <TypeDoesNotContainType occurrences="1">
-      <code>[]</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Gis/GisGeometry.php">
     <MixedArgument occurrences="7">
@@ -7575,14 +7565,6 @@
       <code>$offset + ($position * 20)</code>
       <code>$offset + ($position * 4)</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="6">
-      <code>$info['author']['date']</code>
-      <code>$info['author']['email']</code>
-      <code>$info['author']['name']</code>
-      <code>$info['committer']['date']</code>
-      <code>$info['committer']['email']</code>
-      <code>$info['committer']['name']</code>
-    </MixedArrayAccess>
     <MixedAssignment occurrences="9">
       <code>$commit</code>
       <code>$end</code>
@@ -7621,6 +7603,9 @@
       <code>$packOffsets[1]</code>
       <code>json_decode((string) $is_found)</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$info</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArrayOffset occurrences="1">
       <code>$_SESSION['PMA_VERSION_COMMITDATA_' . $hash]</code>
     </PossiblyInvalidArrayOffset>
