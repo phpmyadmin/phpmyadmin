@@ -147,12 +147,8 @@ class CentralColumns
         $query = 'SELECT count(db_name) FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' '
             . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
-        $res = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
-        if (isset($res[0])) {
-            return (int) $res[0];
-        }
 
-        return 0;
+        return (int) $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
     }
 
     /**

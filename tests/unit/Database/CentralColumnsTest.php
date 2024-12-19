@@ -197,12 +197,13 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetCount(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResultSimple')
+            ->method('fetchValue')
             ->with(
                 'SELECT count(db_name) FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
+                0,
                 ConnectionType::ControlUser,
             )
-            ->willReturn([3]);
+            ->willReturn('3');
 
         self::assertSame(
             3,
