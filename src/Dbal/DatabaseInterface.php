@@ -1072,13 +1072,13 @@ class DatabaseInterface
         string $var,
         string $value,
         ConnectionType $connectionType = ConnectionType::User,
-    ): bool {
+    ): void {
         $currentValue = $this->getVariable($var, self::GETVAR_SESSION, $connectionType);
         if ($currentValue == $value) {
-            return true;
+            return;
         }
 
-        return (bool) $this->query('SET ' . $var . ' = ' . $value . ';', $connectionType);
+        $this->query('SET ' . $var . ' = ' . $value . ';', $connectionType);
     }
 
     public function getDefaultCharset(): string

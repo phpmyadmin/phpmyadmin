@@ -4296,7 +4296,6 @@
     </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
-      <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$roleHost]]></code>
