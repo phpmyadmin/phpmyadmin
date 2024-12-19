@@ -10888,12 +10888,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Parameter \#6 \$totalRows of method PhpMyAdmin\\Normalization\:\:checkPartialDependency\(\) expects int, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Normalization.php
-
-		-
 			message: '#^Variable property access on object\.$#'
 			identifier: property.dynamicName
 			count: 4

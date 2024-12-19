@@ -6247,7 +6247,6 @@
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$tablesName->$key]]></code>
       <code><![CDATA[$tablesName->$key]]></code>
-      <code><![CDATA[$totalRows]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$dependents]]></code>
@@ -6283,7 +6282,6 @@
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$tablesList]]></code>
-      <code><![CDATA[$totalRows]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$element]]></code>

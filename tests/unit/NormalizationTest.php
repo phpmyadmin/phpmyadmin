@@ -94,9 +94,6 @@ class NormalizationTest extends AbstractTestCase
             ->method('tryQuery')
             ->willReturn(self::createStub(DummyResult::class));
         $dbi->expects(self::any())
-            ->method('fetchResultSimple')
-            ->willReturn([0]);
-        $dbi->expects(self::any())
             ->method('fetchSingleRow')
             ->willReturn(['`id`_cnt' => 0, '`col1`_cnt' => 0, '`col2`_cnt' => 0]);
 

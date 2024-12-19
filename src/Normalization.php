@@ -899,11 +899,10 @@ class Normalization
             $columns[] = Util::backquote($column);
         }
 
-        $totalRowsRes = $this->dbi->fetchResultSimple(
+        $totalRows = (int) $this->dbi->fetchValue(
             'SELECT COUNT(*) FROM (SELECT * FROM '
             . Util::backquote($table) . ' LIMIT 500) as dt;',
         );
-        $totalRows = $totalRowsRes[0];
         $primary = Index::getPrimary($this->dbi, $table, $db);
         $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
