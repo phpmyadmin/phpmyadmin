@@ -1441,7 +1441,6 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['charset']]]></code>
-      <code><![CDATA[$GLOBALS['codegen_format']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['csv_columns']]]></code>
       <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
@@ -1459,45 +1458,12 @@
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_compatibility']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_database']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
-      <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_database']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_hex_for_binary']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
-      <code><![CDATA[$GLOBALS['sql_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
-      <code><![CDATA[$GLOBALS['sql_max_query_size']]]></code>
-      <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
-      <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
-      <code><![CDATA[$GLOBALS['sql_truncate']]]></code>
-      <code><![CDATA[$GLOBALS['sql_type']]]></code>
-      <code><![CDATA[$GLOBALS['sql_use_transaction']]]></code>
-      <code><![CDATA[$GLOBALS['sql_utc_time']]]></code>
-      <code><![CDATA[$GLOBALS['sql_view_current_user']]]></code>
-      <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_events']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_functions']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_procedures']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_triggers']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_views']]]></code>
       <code><![CDATA[$dbSelect]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableStructure]]></code>
@@ -4884,17 +4850,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
-      <code><![CDATA[$GLOBALS['sql_procedure_function']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
     </InvalidArrayOffset>
@@ -6895,9 +6850,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <NoValue>
-      <code><![CDATA[$format]]></code>
-    </NoValue>
     <PossiblyNullArgument>
       <code><![CDATA[$row[0]]]></code>
       <code><![CDATA[$row[0]]]></code>
@@ -6907,12 +6859,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
-    <RedundantCast>
-      <code><![CDATA[(int) $GLOBALS['codegen_format']]]></code>
-    </RedundantCast>
-    <RedundantCondition>
-      <code><![CDATA[$format === self::HANDLER_NHIBERNATE_XML]]></code>
-    </RedundantCondition>
   </file>
   <file src="src/Plugins/Export/ExportCsv.php">
     <DeprecatedMethod>
@@ -7217,34 +7163,16 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['exporting_metadata']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_database']]]></code>
-      <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
-      <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
-      <code><![CDATA[$GLOBALS['sql_disable_fk']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_database']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
-      <code><![CDATA[$GLOBALS['sql_truncate']]]></code>
-      <code><![CDATA[$GLOBALS['sql_use_transaction']]]></code>
-      <code><![CDATA[$GLOBALS['sql_use_transaction']]]></code>
-      <code><![CDATA[$GLOBALS['sql_utc_time']]]></code>
-      <code><![CDATA[$GLOBALS['sql_utc_time']]]></code>
-      <code><![CDATA[$GLOBALS['sql_view_current_user']]]></code>
-      <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
-      <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
     </InvalidArrayOffset>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[(int) $fromConfig]]></code>
+      <code><![CDATA[(int) $fromRequest]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_header_comment']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
@@ -7267,8 +7195,6 @@
       <code><![CDATA[$row[$j]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7292,6 +7218,9 @@
       <code><![CDATA[$field->key->columns]]></code>
       <code><![CDATA[$field->references->columns]]></code>
     </MixedPropertyTypeCoercion>
+    <MoreSpecificReturnType>
+      <code><![CDATA[int<0, max>]]></code>
+    </MoreSpecificReturnType>
     <PossiblyNullArgument>
       <code><![CDATA[$createQuery]]></code>
       <code><![CDATA[$definition]]></code>
@@ -7330,14 +7259,9 @@
     </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
+      <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['exporting_metadata'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_auto_increment'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_drop_table'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_drop_table'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_drop_table'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_views_as_tables'])]]></code>
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
       <code><![CDATA[empty($delimiter)]]></code>
@@ -7349,9 +7273,6 @@
       <code><![CDATA[empty($tmpres['Create_time'])]]></code>
       <code><![CDATA[empty($tmpres['Update_time'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$GLOBALS['sql_type'] !== 'UPDATE']]></code>
-    </TypeDoesNotContainType>
     <UnnecessaryVarAnnotation>
       <code><![CDATA[CreateDefinition]]></code>
     </UnnecessaryVarAnnotation>
@@ -7404,19 +7325,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_contents']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_events']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_functions']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_functions']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_procedures']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_procedures']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
-      <code><![CDATA[$GLOBALS['xml_export_tables']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$dbCharset]]></code>
@@ -13468,9 +13376,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['sql_drop_table']]]></code>
-    </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$isDefineProperty]]></code>
       <code><![CDATA[$sql]]></code>

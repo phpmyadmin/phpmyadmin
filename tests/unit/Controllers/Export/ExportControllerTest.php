@@ -51,6 +51,7 @@ final class ExportControllerTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $config = Config::getInstance();
         $config->selectServer('1');
+        $config->settings['Export']['sql_procedure_function'] = false;
 
         $dbiDummy->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -211,6 +212,7 @@ final class ExportControllerTest extends AbstractTestCase
         $GLOBALS['lang'] = 'en';
         $config = Config::getInstance();
         $config->selectServer('1');
+        $config->settings['Export']['sql_procedure_function'] = false;
 
         $dbiDummy->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',

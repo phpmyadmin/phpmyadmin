@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportXml;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Plugins\ExportType;
@@ -171,18 +172,12 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['xml_export_functions'] = 1;
-        $GLOBALS['xml_export_contents'] = 1;
         $GLOBALS['output_charset_conversion'] = 1;
         $GLOBALS['charset'] = 'iso-8859-1';
         $config = Config::getInstance();
         $config->selectedServer['port'] = 80;
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['xml_export_tables'] = 1;
-        $GLOBALS['xml_export_triggers'] = 1;
-        $GLOBALS['xml_export_procedures'] = 1;
-        $GLOBALS['xml_export_functions'] = 1;
         Current::$database = 'd<"b';
 
         $result = [
@@ -221,6 +216,17 @@ class ExportXmlTest extends AbstractTestCase
             ->willReturn(new Table('table', 'd<"b', $dbi));
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'xml_export_contents' => 'On',
+                'xml_export_functions' => 'On',
+                'xml_export_procedures' => 'On',
+                'xml_export_tables' => 'On',
+                'xml_export_triggers' => 'On',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         $this->object->setTables([]);
         Current::$table = 'table';
@@ -263,11 +269,6 @@ class ExportXmlTest extends AbstractTestCase
 
         // case 2 with isView as true and false
 
-        unset($GLOBALS['xml_export_contents']);
-        unset($GLOBALS['xml_export_views']);
-        unset($GLOBALS['xml_export_tables']);
-        unset($GLOBALS['xml_export_functions']);
-        unset($GLOBALS['xml_export_procedures']);
         $GLOBALS['output_charset_conversion'] = 0;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -292,6 +293,11 @@ class ExportXmlTest extends AbstractTestCase
             ->willReturn(new Table('table', 'd<"b', $dbi));
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_triggers' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         $this->object->setTables(['t1', 't2']);
 
@@ -323,7 +329,10 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['xml_export_contents'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_contents' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -335,7 +344,10 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
 
-        $GLOBALS['xml_export_contents'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([]);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportDBHeader('&db'),
@@ -344,7 +356,10 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportDBFooter(): void
     {
-        $GLOBALS['xml_export_contents'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_contents' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -356,7 +371,10 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertStringContainsString('&lt;/database&gt;', $result);
 
-        $GLOBALS['xml_export_contents'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([]);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportDBFooter('&db'),
@@ -372,9 +390,13 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['xml_export_contents'] = true;
         $GLOBALS['asfile'] = true;
         $GLOBALS['output_charset_conversion'] = false;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_contents' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(

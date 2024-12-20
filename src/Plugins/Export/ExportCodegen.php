@@ -21,6 +21,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function implode;
+use function is_numeric;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
@@ -38,6 +39,9 @@ class ExportCodegen extends ExportPlugin
 
     private const HANDLER_NHIBERNATE_CS = 0;
     private const HANDLER_NHIBERNATE_XML = 1;
+
+    /** @var self::HANDLER_NHIBERNATE_* */
+    private int $format = self::HANDLER_NHIBERNATE_CS;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -140,17 +144,11 @@ class ExportCodegen extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $format = (int) $GLOBALS['codegen_format'];
-
-        if ($format === self::HANDLER_NHIBERNATE_CS) {
-            return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $aliases));
-        }
-
-        if ($format === self::HANDLER_NHIBERNATE_XML) {
+        if ($this->format === self::HANDLER_NHIBERNATE_XML) {
             return $this->export->outputHandler($this->handleNHibernateXMLBody($db, $table, $aliases));
         }
 
-        return $this->export->outputHandler(sprintf('%s is not supported.', $format));
+        return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $aliases));
     }
 
     /**
@@ -354,5 +352,22 @@ class ExportCodegen extends ExportPlugin
             $exportConfig['codegen_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        $this->format = $this->setFormat(
+            $request->getParsedBodyParam('codegen_format'),
+            $exportConfig['codegen_format'] ?? null,
+        );
+    }
+
+    /** @return self::HANDLER_NHIBERNATE_* */
+    private function setFormat(mixed $fromRequest, mixed $fromConfig): int
+    {
+        $value = self::HANDLER_NHIBERNATE_CS;
+        if (is_numeric($fromRequest)) {
+            $value = (int) $fromRequest;
+        } elseif (is_numeric($fromConfig)) {
+            $value = (int) $fromConfig;
+        }
+
+        return $value === self::HANDLER_NHIBERNATE_XML ? self::HANDLER_NHIBERNATE_XML : self::HANDLER_NHIBERNATE_CS;
     }
 }

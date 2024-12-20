@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportCodegen;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -166,12 +167,16 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['codegen_format'] = 1;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['codegen_format' => '1']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
@@ -196,12 +201,6 @@ class ExportCodegenTest extends AbstractTestCase
             . '</hibernate-mapping>',
             $result,
         );
-
-        $GLOBALS['codegen_format'] = 4;
-
-        $this->object->exportData('test_db', 'test_table', 'SELECT * FROM `test_db`.`test_table`;');
-
-        $this->expectOutputString('4 is not supported.');
     }
 
     public function testCgMakeIdentifier(): void

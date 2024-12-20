@@ -49,9 +49,6 @@ class TableTest extends AbstractTestCase
         $config->settings['MaxExactCount'] = 100;
         $config->settings['MaxExactCountViews'] = 100;
         $config->selectedServer['pmadb'] = 'pmadb';
-        $GLOBALS['sql_auto_increment'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['sql_drop_table'] = true;
         $config->selectedServer['table_uiprefs'] = 'pma__table_uiprefs';
 
         $sqlIsViewTrue = 'SELECT 1'
@@ -1341,8 +1338,6 @@ class TableTest extends AbstractTestCase
         $sourceDb = 'PMA';
         $targetTable = 'PMA_BookMark_new';
         $targetDb = 'PMA_new';
-
-        unset($GLOBALS['sql_drop_table']);
 
         $getTableMap = [
             [$targetDb, $targetTable, new Table($targetTable, $targetDb, $this->mockedDbi)],
