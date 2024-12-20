@@ -102,8 +102,6 @@ class ExportTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = false;
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['sql_insert_syntax'] = 'both';
-        $GLOBALS['sql_max_query_size'] = '50000';
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $dbiDummy = $this->createDbiDummy();
@@ -163,8 +161,6 @@ SQL;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';
-        $GLOBALS['sql_insert_syntax'] = 'both';
-        $GLOBALS['sql_max_query_size'] = '50000';
         ExportPlugin::$exportType = ExportType::Server;
 
         // phpcs:disable Generic.Files.LineLength.TooLong

@@ -659,7 +659,7 @@ class Export
             // now export the triggers (needs to be done after the data because
             // triggers can modify already imported tables)
             if (
-                ! isset($GLOBALS['sql_create_trigger'])
+                ! ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTrigger())
                 || $structureOrData === StructureOrData::Data
                 || ! in_array($table, $tableStructure, true)
             ) {
@@ -701,7 +701,7 @@ class Export
         }
 
         // export metadata related to this db
-        if (isset($GLOBALS['sql_metadata'])) {
+        if ($exportPlugin instanceof ExportSql && $exportPlugin->hasMetadata()) {
             // Types of metadata to export.
             // In the future these can be allowed to be selected by the user
             $metadataTypes = $this->getMetadataTypes();
@@ -840,7 +840,10 @@ class Export
 
         // now export the triggers (needs to be done after the data because
         // triggers can modify already imported tables)
-        if (isset($GLOBALS['sql_create_trigger']) && $structureOrData !== StructureOrData::Data) {
+        if (
+            $exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTrigger()
+            && $structureOrData !== StructureOrData::Data
+        ) {
             if (! $exportPlugin->exportStructure($db, $table, 'triggers', $aliases)) {
                 return;
             }
@@ -850,7 +853,7 @@ class Export
             return;
         }
 
-        if (! isset($GLOBALS['sql_metadata'])) {
+        if (! ($exportPlugin instanceof ExportSql && $exportPlugin->hasMetadata())) {
             return;
         }
 

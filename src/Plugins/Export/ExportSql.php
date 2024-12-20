@@ -48,6 +48,7 @@ use function explode;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_numeric;
 use function is_string;
 use function mb_strlen;
 use function mb_strpos;
@@ -101,6 +102,27 @@ class ExportSql extends ExportPlugin
     private string $type = 'INSERT';
 
     private bool $createView = false;
+    private bool $createTrigger = false;
+    private bool $viewCurrentUser = false;
+    private bool $simpleViewExport = false;
+    private bool $ifNotExists = false;
+    private bool $orReplaceView = false;
+    private bool $autoIncrement = false;
+    private bool $truncate = false;
+    private bool $delayed = false;
+    private bool $ignore = false;
+
+    /** @var 'complete'|'extended'|'both'|'none' */
+    private string $insertSyntax = 'both';
+
+    /** @var int<0, max> */
+    private int $maxQuerySize = 50000;
+
+    private bool $hexForBinary = false;
+    private bool $utcTime = false;
+    private bool $dropDatabase = false;
+    private bool $viewsAsTables = false;
+    private bool $metadata = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -703,7 +725,7 @@ class ExportSql extends ExportPlugin
         }
 
         /* Restore timezone */
-        if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
+        if ($this->utcTime) {
             DatabaseInterface::getInstance()->query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
         }
 
@@ -768,7 +790,7 @@ class ExportSql extends ExportPlugin
         }
 
         /* Change timezone if we should export timestamps in UTC */
-        if (isset($GLOBALS['sql_utc_time']) && $GLOBALS['sql_utc_time']) {
+        if ($this->utcTime) {
             $head .= 'SET time_zone = "+00:00";' . "\n";
             $GLOBALS['old_tz'] = $dbi
                 ->fetchValue('SELECT @@session.time_zone');
@@ -819,7 +841,7 @@ class ExportSql extends ExportPlugin
             $dbAlias = $db;
         }
 
-        if ($this->structureOrData !== StructureOrData::Data && isset($GLOBALS['sql_drop_database'])) {
+        if ($this->structureOrData !== StructureOrData::Data && $this->dropDatabase) {
             if (
                 ! $this->export->outputHandler(
                     'DROP DATABASE IF EXISTS '
@@ -1232,7 +1254,7 @@ class ExportSql extends ExportPlugin
 
         $createQuery .= 'CREATE TABLE ';
 
-        if (isset($GLOBALS['sql_if_not_exists']) && $GLOBALS['sql_if_not_exists']) {
+        if ($this->ifNotExists) {
             $createQuery .= 'IF NOT EXISTS ';
         }
 
@@ -1269,7 +1291,7 @@ class ExportSql extends ExportPlugin
         $viewAlias = $view;
         $this->initAlias($aliases, $dbAlias, $viewAlias);
         $createQuery = 'CREATE TABLE';
-        if (isset($GLOBALS['sql_if_not_exists'])) {
+        if ($this->ifNotExists) {
             $createQuery .= ' IF NOT EXISTS ';
         }
 
@@ -1345,9 +1367,6 @@ class ExportSql extends ExportPlugin
         bool $updateIndexesIncrements = true,
         array $aliases = [],
     ): string {
-        $GLOBALS['sql_indexes_query'] ??= null;
-        $GLOBALS['sql_drop_foreign_keys'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -1452,12 +1471,12 @@ class ExportSql extends ExportPlugin
                 // exclude definition of current user
                 if (
                     Config::getInstance()->settings['Export']['remove_definer_from_definitions']
-                    || isset($GLOBALS['sql_view_current_user'])
+                    || $this->viewCurrentUser
                 ) {
                     $statement->options->remove('DEFINER');
                 }
 
-                if (isset($GLOBALS['sql_simple_view_export'])) {
+                if ($this->simpleViewExport) {
                     $statement->options->remove('SQL SECURITY');
                     $statement->options->remove('INVOKER');
                     $statement->options->remove('ALGORITHM');
@@ -1467,7 +1486,7 @@ class ExportSql extends ExportPlugin
                 $createQuery = $statement->build();
 
                 // whether to replace existing view or not
-                if (isset($GLOBALS['sql_or_replace_view'])) {
+                if ($this->orReplaceView) {
                     $createQuery = preg_replace('/^CREATE/', 'CREATE OR REPLACE', $createQuery);
                 }
             }
@@ -1488,7 +1507,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Adding IF NOT EXISTS, if required.
-            if (isset($GLOBALS['sql_if_not_exists'])) {
+            if ($this->ifNotExists) {
                 $createQuery = (string) preg_replace('/^CREATE TABLE/', 'CREATE TABLE IF NOT EXISTS', $createQuery);
             }
 
@@ -1552,11 +1571,6 @@ class ExportSql extends ExportPlugin
                 $indexesFulltext = [];
 
                 /**
-                 * Fragments containing definition of each foreign key that will be dropped.
-                 */
-                $dropped = [];
-
-                /**
                  * Fragment containing definition of the `AUTO_INCREMENT`.
                  */
                 $autoIncrement = [];
@@ -1578,7 +1592,7 @@ class ExportSql extends ExportPlugin
                         if ($field->key->type === 'FULLTEXT KEY') {
                             $indexesFulltext[] = $field->build();
                             unset($statement->fields[$key]);
-                        } elseif (empty($GLOBALS['sql_if_not_exists'])) {
+                        } elseif (! $this->ifNotExists) {
                             $indexes[] = str_replace(
                                 'COMMENT=\'',
                                 'COMMENT \'',
@@ -1590,7 +1604,6 @@ class ExportSql extends ExportPlugin
 
                     // Creating the parts that drop foreign keys.
                     if ($field->key !== null && $field->key->type === 'FOREIGN KEY' && $field->name !== null) {
-                        $dropped[] = 'FOREIGN KEY ' . Context::escape($field->name);
                         unset($statement->fields[$key]);
                     }
 
@@ -1599,7 +1612,7 @@ class ExportSql extends ExportPlugin
                         continue;
                     }
 
-                    if (! $field->options->has('AUTO_INCREMENT') || ! empty($GLOBALS['sql_if_not_exists'])) {
+                    if (! $field->options->has('AUTO_INCREMENT') || $this->ifNotExists) {
                         continue;
                     }
 
@@ -1637,10 +1650,9 @@ class ExportSql extends ExportPlugin
                 }
 
                 // Generating indexes-related query.
-                $GLOBALS['sql_indexes_query'] = '';
-
+                $indexesQuery = '';
                 if ($indexes !== []) {
-                    $GLOBALS['sql_indexes_query'] .= $alterHeader . "\n" . '  ADD '
+                    $indexesQuery .= $alterHeader . "\n" . '  ADD '
                         . implode(',' . "\n" . '  ADD ', $indexes)
                         . $alterFooter;
                 }
@@ -1649,7 +1661,7 @@ class ExportSql extends ExportPlugin
                     // InnoDB supports one FULLTEXT index creation at a time.
                     // So FULLTEXT indexes are created one-by-one after other
                     // indexes where created.
-                    $GLOBALS['sql_indexes_query'] .= $alterHeader
+                    $indexesQuery .= $alterHeader
                         . ' ADD ' . implode($alterFooter . $alterHeader . ' ADD ', $indexesFulltext)
                         . $alterFooter;
                 }
@@ -1661,14 +1673,7 @@ class ExportSql extends ExportPlugin
                         __('Indexes for table'),
                         $tableAlias,
                         $this->compatibility,
-                    ) . $GLOBALS['sql_indexes_query'];
-                }
-
-                // Generating drop foreign keys-related query.
-                if ($dropped !== []) {
-                    $GLOBALS['sql_drop_foreign_keys'] = $alterHeader . "\n" . '  DROP '
-                        . implode(',' . "\n" . '  DROP ', $dropped)
-                        . $alterFooter;
+                    ) . $indexesQuery;
                 }
 
                 // Generating auto-increment-related query.
@@ -1676,7 +1681,7 @@ class ExportSql extends ExportPlugin
                     $sqlAutoIncrementsQuery = $alterHeader . "\n" . '  MODIFY '
                         . implode(',' . "\n" . '  MODIFY ', $autoIncrement);
                     if (
-                        isset($GLOBALS['sql_auto_increment'])
+                        $this->autoIncrement
                         && $statement->entityOptions->has('AUTO_INCREMENT')
                         && (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data']))
                     ) {
@@ -1699,8 +1704,7 @@ class ExportSql extends ExportPlugin
                 // too.
                 if (
                     $statement->entityOptions !== null
-                    && (empty($GLOBALS['sql_if_not_exists'])
-                    || empty($GLOBALS['sql_auto_increment']))
+                    && (! $this->ifNotExists || ! $this->autoIncrement)
                 ) {
                     $statement->entityOptions->remove('AUTO_INCREMENT');
                 }
@@ -1939,7 +1943,7 @@ class ExportSql extends ExportPlugin
 
                 break;
             case 'create_view':
-                if (empty($GLOBALS['sql_views_as_tables'])) {
+                if (! $this->viewsAsTables) {
                     $dump .= $this->exportComment(
                         __('Structure for view')
                         . ' '
@@ -1970,7 +1974,7 @@ class ExportSql extends ExportPlugin
                     $dump .= $this->getTableDefForView($db, $table, $aliases);
                 }
 
-                if (empty($GLOBALS['sql_views_as_tables'])) {
+                if (! $this->viewsAsTables) {
                     // Save views, to be inserted after indexes
                     // in case the view uses USE INDEX syntax
                     $this->sqlViews .= $dump;
@@ -2025,7 +2029,7 @@ class ExportSql extends ExportPlugin
 
         // Do not export data for a VIEW, unless asked to export the view as a table
         // (For a VIEW, this is called only when exporting a single VIEW)
-        if ($dbi->getTable($db, $table)->isView() && empty($GLOBALS['sql_views_as_tables'])) {
+        if ($dbi->getTable($db, $table)->isView() && ! $this->viewsAsTables) {
             $head = $this->possibleCRLF()
                 . $this->exportComment()
                 . $this->exportComment('VIEW ' . $formattedTableName)
@@ -2074,7 +2078,7 @@ class ExportSql extends ExportPlugin
         if ($this->type === 'UPDATE') {
             // update
             $schemaInsert = 'UPDATE ';
-            if (isset($GLOBALS['sql_ignore'])) {
+            if ($this->ignore) {
                 $schemaInsert .= 'IGNORE ';
             }
 
@@ -2089,19 +2093,19 @@ class ExportSql extends ExportPlugin
             }
 
             // delayed inserts?
-            if (isset($GLOBALS['sql_delayed'])) {
+            if ($this->delayed) {
                 $insertDelayed = ' DELAYED';
             } else {
                 $insertDelayed = '';
             }
 
             // insert ignore?
-            if (isset($GLOBALS['sql_ignore']) && $this->type === 'INSERT') {
+            if ($this->ignore && $this->type === 'INSERT') {
                 $insertDelayed .= ' IGNORE';
             }
 
             //truncate table before insert
-            if (isset($GLOBALS['sql_truncate']) && $GLOBALS['sql_truncate'] && $sqlCommand === 'INSERT') {
+            if ($this->truncate && $sqlCommand === 'INSERT') {
                 $truncate = 'TRUNCATE TABLE '
                     . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes) . ';';
                 $truncatehead = $this->possibleCRLF()
@@ -2117,7 +2121,7 @@ class ExportSql extends ExportPlugin
             }
 
             // scheme for inserting fields
-            if ($GLOBALS['sql_insert_syntax'] === 'complete' || $GLOBALS['sql_insert_syntax'] === 'both') {
+            if ($this->insertSyntax === 'complete' || $this->insertSyntax === 'both') {
                 $fields = implode(', ', $fieldSet);
                 $schemaInsert = $sqlCommand . $insertDelayed . ' INTO '
                     . Util::backquoteCompat($tableAlias, $this->compatibility, $this->useSqlBackquotes)
@@ -2132,11 +2136,7 @@ class ExportSql extends ExportPlugin
         //\x08\\x09, not required
         $currentRow = 0;
         $querySize = 0;
-        if (
-            ($GLOBALS['sql_insert_syntax'] === 'extended'
-            || $GLOBALS['sql_insert_syntax'] === 'both')
-            && $this->type !== 'UPDATE'
-        ) {
+        if (($this->insertSyntax === 'extended' || $this->insertSyntax === 'both') && $this->type !== 'UPDATE') {
             $separator = ',';
             $schemaInsert .= "\n";
         } else {
@@ -2186,7 +2186,7 @@ class ExportSql extends ExportPlugin
                 ) {
                     // a number
                     $values[] = $row[$j];
-                } elseif ($metaInfo->isBinary && isset($GLOBALS['sql_hex_for_binary'])) {
+                } elseif ($metaInfo->isBinary && $this->hexForBinary) {
                     // a true BLOB
                     // - mysqldump only generates hex data when the --hex-blob
                     //   option is used, for fields having the binary attribute
@@ -2235,7 +2235,7 @@ class ExportSql extends ExportPlugin
                 }
 
                 $insertLine .= ' WHERE ' . (new UniqueCondition($fieldsMeta, $row))->getWhereClause();
-            } elseif ($GLOBALS['sql_insert_syntax'] === 'extended' || $GLOBALS['sql_insert_syntax'] === 'both') {
+            } elseif ($this->insertSyntax === 'extended' || $this->insertSyntax === 'both') {
                 // Extended inserts case
                 if ($currentRow === 1) {
                     $insertLine = $schemaInsert . '('
@@ -2243,8 +2243,7 @@ class ExportSql extends ExportPlugin
                 } else {
                     $insertLine = '(' . implode(', ', $values) . ')';
                     $insertLineSize = mb_strlen($insertLine);
-                    $sqlMaxSize = $GLOBALS['sql_max_query_size'];
-                    if ($sqlMaxSize > 0 && $querySize + $insertLineSize > $sqlMaxSize) {
+                    if ($this->maxQuerySize > 0 && $querySize + $insertLineSize > $this->maxQuerySize) {
                         if (! $this->export->outputHandler(';' . "\n")) {
                             return false;
                         }
@@ -2714,6 +2713,42 @@ class ExportSql extends ExportPlugin
         ));
         $this->createView = (bool) ($request->getParsedBodyParam('sql_create_view')
             ?? $exportConfig['sql_create_view'] ?? false);
+        $this->createTrigger = (bool) ($request->getParsedBodyParam('sql_create_trigger')
+            ?? $exportConfig['sql_create_trigger'] ?? false);
+        $this->viewCurrentUser = (bool) ($request->getParsedBodyParam('sql_view_current_user')
+            ?? $exportConfig['sql_view_current_user'] ?? false);
+        $this->simpleViewExport = (bool) ($request->getParsedBodyParam('sql_simple_view_export')
+            ?? $exportConfig['sql_simple_view_export'] ?? false);
+        $this->ifNotExists = (bool) ($request->getParsedBodyParam('sql_if_not_exists')
+            ?? $exportConfig['sql_if_not_exists'] ?? false);
+        $this->orReplaceView = (bool) ($request->getParsedBodyParam('sql_or_replace_view')
+            ?? $exportConfig['sql_or_replace_view'] ?? false);
+        $this->autoIncrement = (bool) ($request->getParsedBodyParam('sql_auto_increment')
+            ?? $exportConfig['sql_auto_increment'] ?? false);
+        $this->truncate = (bool) ($request->getParsedBodyParam('sql_truncate')
+            ?? $exportConfig['sql_truncate'] ?? false);
+        $this->delayed = (bool) ($request->getParsedBodyParam('sql_delayed')
+            ?? $exportConfig['sql_delayed'] ?? false);
+        $this->ignore = (bool) ($request->getParsedBodyParam('sql_ignore')
+            ?? $exportConfig['sql_ignore'] ?? false);
+        $this->insertSyntax = $this->setInsertSyntax($this->setStringValue(
+            $request->getParsedBodyParam('sql_insert_syntax'),
+            $exportConfig['sql_insert_syntax'] ?? null,
+        ));
+        $this->maxQuerySize = $this->setMaxQuerySize(
+            $request->getParsedBodyParam('sql_max_query_size'),
+            $exportConfig['sql_max_query_size'] ?? null,
+        );
+        $this->hexForBinary = (bool) ($request->getParsedBodyParam('sql_hex_for_binary')
+            ?? $exportConfig['sql_hex_for_binary'] ?? false);
+        $this->utcTime = (bool) ($request->getParsedBodyParam('sql_utc_time')
+            ?? $exportConfig['sql_utc_time'] ?? false);
+        $this->dropDatabase = (bool) ($request->getParsedBodyParam('sql_drop_database')
+            ?? $exportConfig['sql_drop_database'] ?? false);
+        $this->viewsAsTables = (bool) ($request->getParsedBodyParam('sql_views_as_tables')
+            ?? $exportConfig['sql_views_as_tables'] ?? false);
+        $this->metadata = (bool) ($request->getParsedBodyParam('sql_metadata')
+            ?? $exportConfig['sql_metadata'] ?? false);
     }
 
     private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
@@ -2762,5 +2797,44 @@ class ExportSql extends ExportPlugin
     public function hasCreateView(): bool
     {
         return $this->createView;
+    }
+
+    public function hasCreateTrigger(): bool
+    {
+        return $this->createTrigger;
+    }
+
+    public function setAutoIncrement(bool $autoIncrement): void
+    {
+        $this->autoIncrement = $autoIncrement;
+    }
+
+    /** @return 'complete'|'extended'|'both'|'none' */
+    private function setInsertSyntax(string $syntax): string
+    {
+        if (in_array($syntax, ['complete', 'extended', 'none'], true)) {
+            return $syntax;
+        }
+
+        return 'both';
+    }
+
+    /** @return int<0, max> */
+    private function setMaxQuerySize(mixed $fromRequest, mixed $fromConfig): int
+    {
+        if (is_numeric($fromRequest) && $fromRequest >= 0) {
+            return (int) $fromRequest;
+        }
+
+        if (is_numeric($fromConfig) && $fromConfig >= 0) {
+            return (int) $fromConfig;
+        }
+
+        return 50000;
+    }
+
+    public function hasMetadata(): bool
+    {
+        return $this->metadata;
     }
 }

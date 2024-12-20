@@ -1458,22 +1458,6 @@
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
-      <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_database']]]></code>
-      <code><![CDATA[$GLOBALS['sql_hex_for_binary']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
-      <code><![CDATA[$GLOBALS['sql_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
-      <code><![CDATA[$GLOBALS['sql_max_query_size']]]></code>
-      <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
-      <code><![CDATA[$GLOBALS['sql_truncate']]]></code>
-      <code><![CDATA[$GLOBALS['sql_utc_time']]]></code>
-      <code><![CDATA[$GLOBALS['sql_view_current_user']]]></code>
-      <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
@@ -4866,10 +4850,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
-      <code><![CDATA[$GLOBALS['sql_create_trigger']]]></code>
-      <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['sql_metadata']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
     </InvalidArrayOffset>
@@ -7172,31 +7152,15 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['exporting_metadata']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['sql_delayed']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_database']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_foreign_keys']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
-      <code><![CDATA[$GLOBALS['sql_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['sql_ignore']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
-      <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
-      <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
-      <code><![CDATA[$GLOBALS['sql_max_query_size']]]></code>
-      <code><![CDATA[$GLOBALS['sql_or_replace_view']]]></code>
-      <code><![CDATA[$GLOBALS['sql_simple_view_export']]]></code>
-      <code><![CDATA[$GLOBALS['sql_truncate']]]></code>
-      <code><![CDATA[$GLOBALS['sql_utc_time']]]></code>
-      <code><![CDATA[$GLOBALS['sql_utc_time']]]></code>
-      <code><![CDATA[$GLOBALS['sql_view_current_user']]]></code>
-      <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
-      <code><![CDATA[$GLOBALS['sql_views_as_tables']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
     </InvalidArrayOffset>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[(int) $fromConfig]]></code>
+      <code><![CDATA[(int) $fromRequest]]></code>
+    </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$colAlias]]></code>
@@ -7220,8 +7184,6 @@
       <code><![CDATA[$row[$j]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['sql_drop_foreign_keys']]]></code>
-      <code><![CDATA[$GLOBALS['sql_indexes_query']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7234,7 +7196,6 @@
       <code><![CDATA[$newTable]]></code>
       <code><![CDATA[$relFieldAlias]]></code>
       <code><![CDATA[$relFieldAlias]]></code>
-      <code><![CDATA[$sqlMaxSize]]></code>
       <code><![CDATA[$statement->name->database]]></code>
       <code><![CDATA[$statement->name->table]]></code>
       <code><![CDATA[$statement->table->table]]></code>
@@ -7246,6 +7207,9 @@
       <code><![CDATA[$field->key->columns]]></code>
       <code><![CDATA[$field->references->columns]]></code>
     </MixedPropertyTypeCoercion>
+    <MoreSpecificReturnType>
+      <code><![CDATA[int<0, max>]]></code>
+    </MoreSpecificReturnType>
     <PossiblyNullArgument>
       <code><![CDATA[$createQuery]]></code>
       <code><![CDATA[$definition]]></code>
@@ -7282,20 +7246,11 @@
       <code><![CDATA[remove]]></code>
       <code><![CDATA[remove]]></code>
     </PossiblyNullReference>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$GLOBALS['sql_insert_syntax']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['exporting_metadata'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_auto_increment'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_if_not_exists'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_if_not_exists'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_if_not_exists'])]]></code>
-      <code><![CDATA[empty($GLOBALS['sql_views_as_tables'])]]></code>
       <code><![CDATA[empty($column->collation)]]></code>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
       <code><![CDATA[empty($delimiter)]]></code>
@@ -13118,15 +13073,11 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
       <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_foreign_keys']]]></code>
-      <code><![CDATA[$GLOBALS['sql_if_not_exists']]]></code>
     </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['sql_drop_foreign_keys']]]></code>
-      <code><![CDATA[$GLOBALS['sql_drop_foreign_keys']]]></code>
       <code><![CDATA[$result]]></code>
     </MixedArgument>
     <MixedAssignment>

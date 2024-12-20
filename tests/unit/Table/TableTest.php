@@ -49,8 +49,6 @@ class TableTest extends AbstractTestCase
         $config->settings['MaxExactCount'] = 100;
         $config->settings['MaxExactCountViews'] = 100;
         $config->selectedServer['pmadb'] = 'pmadb';
-        $GLOBALS['sql_auto_increment'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
         $config->selectedServer['table_uiprefs'] = 'pma__table_uiprefs';
 
         $sqlIsViewTrue = 'SELECT 1'
