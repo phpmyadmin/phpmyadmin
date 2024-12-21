@@ -44,7 +44,6 @@
             cached_affected_rows: int|numeric-string,
             charset: string,
             charset_connection: string,
-            codegen_format: 0|1,
             collation_connection: string,
             complete_query: string,
             compression: 'none'|'zip'|'gzip',
@@ -85,21 +84,10 @@
             save_on_server: bool,
             SESSION_KEY: string,
             showtable: array&lt;string, string|null&gt;,
-            sql_compatibility: 'NONE'|'ANSI'|'DB2'|'MAXDB'|'MYSQL323'|'MYSQL40'|'MSSQL'|'ORACLE'|'TRADITIONAL',
-            sql_constraints: string,
-            sql_constraints_query: string,
-            sql_drop_foreign_keys: string,
-            sql_if_not_exists: bool,
-            sql_ignore: bool,
-            sql_insert_syntax: 'complete'|'extended'|'both'|'none',
-            sql_max_query_size: 0|positive-int,
-            sql_type: 'INSERT'|'UPDATE'|'REPLACE',
             tbl_storage_engine: string,
             token_mismatch: bool,
             token_provided: bool,
-            username: string,
-            xml_export_triggers: bool,
-            xml_export_views: bool
+            username: string
         }"/>
     </globals>
 </psalm>
