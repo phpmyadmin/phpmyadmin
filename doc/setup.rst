@@ -329,6 +329,56 @@ You can configure several phpMyAdmin features using environment variables:
 
     If set, this option will change the default Apache port from `80` in case you want it to run on a different port like an unprivileged port. Set to any port value (such as `APACHE_PORT=8090`).
 
+.. envvar:: PMA_SSL_DIR
+
+    Define the path used for SSL files generated from environment variables, default value is `/etc/phpmyadmin/ssl`.
+
+.. envvar:: PMA_SSL
+
+    When set to 1, defines SSL usage for the MySQL connection.
+
+.. envvar:: PMA_SSLS
+
+    Comma-separated list of `0` and `1` defining SSL usage for the corresponding MySQL connections.
+
+.. envvar:: PMA_SSL_VERIFY
+
+    When set to 1, enables SSL certificate verification for the MySQL connection.
+
+.. envvar:: PMA_SSL_VERIFIES
+
+    Comma-separated list of `0` and `1` to enable or disable SSL certificate verification for multiple MySQL connections.
+
+.. envvar:: PMA_SSL_CA_BASE64
+
+    In the context of mutual TLS security, allows setting your CA file as a base64 string inside the default `config.inc.php`.
+
+.. envvar:: PMA_SSL_CAS_BASE64
+
+    In the context of mutual TLS security, allows setting multiple CA files as a comma-separated list of base64 strings inside the default `config.inc.php`.
+
+.. envvar:: PMA_SSL_CERT_BASE64
+
+    In the context of mutual TLS security, allows setting your CERT file as a base64 string inside the default `config.inc.php`.
+
+.. envvar:: PMA_SSL_CERTS_BASE64
+
+    In the context of mutual TLS security, allows setting multiple CERT files as a comma-separated list of base64 strings inside the default `config.inc.php`.
+
+.. envvar:: PMA_SSL_KEY_BASE64
+
+    In the context of mutual TLS security, allows setting your KEY file as a base64 string inside the default `config.inc.php`.
+
+.. envvar:: PMA_SSL_KEYS_BASE64
+
+    In the context of mutual TLS security, allows setting multiple KEY files as a comma-separated list of base64 strings inside the default `config.inc.php`.
+
+.. envvar:: TZ
+
+    If defined, this option will change the default PHP `date.timezone` from `UTC`.
+
+    .. seealso:: :config:option:`$cfg['Timezone']`
+
 By default, :ref:`cookie` is used, but if :envvar:`PMA_USER` and
 :envvar:`PMA_PASSWORD` are set, it is switched to :ref:`auth_config`.
 
