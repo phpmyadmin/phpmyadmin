@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-15 00:27+0000\n"
+"POT-Creation-Date: 2024-12-22 00:25+0000\n"
 "PO-Revision-Date: 2022-02-15 16:20+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Albanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -209,7 +209,7 @@ msgstr "pas %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2057
+#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2036
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Asnjë"
@@ -458,13 +458,13 @@ msgstr "Është një çelës i huaj."
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:30
-#: src/Plugins/Export/ExportHtmlword.php:256
-#: src/Plugins/Export/ExportHtmlword.php:347
-#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:356
-#: src/Plugins/Export/ExportOdt.php:447
-#: src/Plugins/Export/ExportTexytext.php:281
-#: src/Plugins/Export/ExportTexytext.php:360
-#: src/Plugins/Export/Helpers/Pdf.php:488
+#: src/Plugins/Export/ExportHtmlword.php:261
+#: src/Plugins/Export/ExportHtmlword.php:337
+#: src/Plugins/Export/ExportLatex.php:496 src/Plugins/Export/ExportOdt.php:364
+#: src/Plugins/Export/ExportOdt.php:441
+#: src/Plugins/Export/ExportTexytext.php:288
+#: src/Plugins/Export/ExportTexytext.php:352
+#: src/Plugins/Export/Helpers/Pdf.php:486
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:601
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:623
 msgid "Column"
@@ -582,9 +582,9 @@ msgstr "Struktura"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:450
-#: src/Plugins/Export/ExportOdt.php:562
-#: src/Plugins/Export/ExportTexytext.php:432
+#: src/Plugins/Export/ExportHtmlword.php:440
+#: src/Plugins/Export/ExportOdt.php:556
+#: src/Plugins/Export/ExportTexytext.php:424
 #: src/Plugins/Export/Helpers/Pdf.php:330
 msgid "Name"
 msgstr "Emri"
@@ -610,13 +610,13 @@ msgstr "Emri"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
-#: src/Plugins/Export/ExportHtmlword.php:259
-#: src/Plugins/Export/ExportHtmlword.php:350
-#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:359
-#: src/Plugins/Export/ExportOdt.php:450
-#: src/Plugins/Export/ExportTexytext.php:282
-#: src/Plugins/Export/ExportTexytext.php:361
-#: src/Plugins/Export/Helpers/Pdf.php:490
+#: src/Plugins/Export/ExportHtmlword.php:264
+#: src/Plugins/Export/ExportHtmlword.php:340
+#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:367
+#: src/Plugins/Export/ExportOdt.php:444
+#: src/Plugins/Export/ExportTexytext.php:289
+#: src/Plugins/Export/ExportTexytext.php:353
+#: src/Plugins/Export/Helpers/Pdf.php:488
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Type"
@@ -650,13 +650,13 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:265
-#: src/Plugins/Export/ExportHtmlword.php:356
-#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:365
-#: src/Plugins/Export/ExportOdt.php:456
-#: src/Plugins/Export/ExportTexytext.php:284
-#: src/Plugins/Export/ExportTexytext.php:363
-#: src/Plugins/Export/Helpers/Pdf.php:494
+#: src/Plugins/Export/ExportHtmlword.php:270
+#: src/Plugins/Export/ExportHtmlword.php:346
+#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:373
+#: src/Plugins/Export/ExportOdt.php:450
+#: src/Plugins/Export/ExportTexytext.php:291
+#: src/Plugins/Export/ExportTexytext.php:355
+#: src/Plugins/Export/Helpers/Pdf.php:492
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:605
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:627
 msgid "Default"
@@ -714,13 +714,13 @@ msgstr "Atributet"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:262
-#: src/Plugins/Export/ExportHtmlword.php:353
-#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:362
-#: src/Plugins/Export/ExportOdt.php:453
-#: src/Plugins/Export/ExportTexytext.php:283
-#: src/Plugins/Export/ExportTexytext.php:362
-#: src/Plugins/Export/Helpers/Pdf.php:492
+#: src/Plugins/Export/ExportHtmlword.php:267
+#: src/Plugins/Export/ExportHtmlword.php:343
+#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:370
+#: src/Plugins/Export/ExportOdt.php:447
+#: src/Plugins/Export/ExportTexytext.php:290
+#: src/Plugins/Export/ExportTexytext.php:354
+#: src/Plugins/Export/Helpers/Pdf.php:490
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:604
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:626
 msgid "Null"
@@ -741,10 +741,10 @@ msgstr "Përshtat privilegjet"
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:366
-#: src/Plugins/Export/ExportLatex.php:506 src/Plugins/Export/ExportOdt.php:466
-#: src/Plugins/Export/ExportTexytext.php:369
-#: src/Plugins/Export/Helpers/Pdf.php:511
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:356
+#: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:460
+#: src/Plugins/Export/ExportTexytext.php:361
+#: src/Plugins/Export/Helpers/Pdf.php:509
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:630
 msgid "Comments"
@@ -761,10 +761,10 @@ msgstr "Lëviz kolonën"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:373
-#: src/Plugins/Export/ExportOdt.php:473
-#: src/Plugins/Export/ExportTexytext.php:374
-#: src/Plugins/Export/Helpers/Pdf.php:519
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:363
+#: src/Plugins/Export/ExportOdt.php:467
+#: src/Plugins/Export/ExportTexytext.php:366
+#: src/Plugins/Export/Helpers/Pdf.php:517
 #, fuzzy
 #| msgid "MIME type"
 msgid "Media type"
@@ -892,9 +892,9 @@ msgstr "Pasivizuar"
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:102
 #: src/IndexColumn.php:148 src/Index.php:469
-#: src/Plugins/Export/ExportHtmlword.php:590
-#: src/Plugins/Export/ExportLatex.php:565 src/Plugins/Export/ExportOdt.php:707
-#: src/Plugins/Export/ExportTexytext.php:547
+#: src/Plugins/Export/ExportHtmlword.php:563
+#: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
+#: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "Yes"
 msgstr "Po"
@@ -928,9 +928,9 @@ msgstr "Po"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
 #: src/Index.php:443 src/Index.php:469
-#: src/Plugins/Export/ExportHtmlword.php:590
-#: src/Plugins/Export/ExportLatex.php:565 src/Plugins/Export/ExportOdt.php:707
-#: src/Plugins/Export/ExportTexytext.php:547
+#: src/Plugins/Export/ExportHtmlword.php:563
+#: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
+#: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "No"
 msgstr "Jo"
@@ -1033,9 +1033,9 @@ msgstr "Fshij"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:138
-#: src/Plugins/Export/ExportOdt.php:181
-#: src/Plugins/Export/ExportTexytext.php:122 src/Server/Privileges.php:1569
+#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:147
+#: src/Plugins/Export/ExportOdt.php:191
+#: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1569
 #: src/Server/Privileges.php:1571 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Databaza"
@@ -1064,16 +1064,16 @@ msgstr "Historia"
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:97
 #: src/Import/Import.php:1166 src/Import/Import.php:1224
-#: src/Plugins/Export/ExportCodegen.php:52 src/Plugins/Export/ExportCsv.php:43
-#: src/Plugins/Export/ExportExcel.php:37
-#: src/Plugins/Export/ExportHtmlword.php:47
-#: src/Plugins/Export/ExportJson.php:67 src/Plugins/Export/ExportLatex.php:68
-#: src/Plugins/Export/ExportMediawiki.php:43
-#: src/Plugins/Export/ExportOds.php:51 src/Plugins/Export/ExportOdt.php:59
-#: src/Plugins/Export/ExportPdf.php:60 src/Plugins/Export/ExportPhparray.php:43
-#: src/Plugins/Export/ExportSql.php:121
-#: src/Plugins/Export/ExportTexytext.php:46 src/Plugins/Export/ExportXml.php:61
-#: src/Plugins/Export/ExportYaml.php:42 src/Plugins/Import/ImportCsv.php:86
+#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:45
+#: src/Plugins/Export/ExportExcel.php:39
+#: src/Plugins/Export/ExportHtmlword.php:56
+#: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:84
+#: src/Plugins/Export/ExportMediawiki.php:48
+#: src/Plugins/Export/ExportOds.php:58 src/Plugins/Export/ExportOdt.php:69
+#: src/Plugins/Export/ExportPdf.php:66 src/Plugins/Export/ExportPhparray.php:45
+#: src/Plugins/Export/ExportSql.php:163
+#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:71
+#: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:86
 #: src/Plugins/Import/ImportLdi.php:61
 #: src/Plugins/Import/ImportMediawiki.php:61
 #: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:74
@@ -1187,7 +1187,7 @@ msgstr "Koha që ka marrë:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1177
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1057
 #: src/Html/Generator.php:577
 msgid "Refresh"
 msgstr "Rifresko"
@@ -1423,10 +1423,10 @@ msgid "Print"
 msgstr "Printo"
 
 #: resources/templates/database/data_dictionary/index.twig:27
-#: src/Plugins/Export/ExportHtmlword.php:360
-#: src/Plugins/Export/ExportLatex.php:502 src/Plugins/Export/ExportOdt.php:460
-#: src/Plugins/Export/ExportTexytext.php:365
-#: src/Plugins/Export/Helpers/Pdf.php:503
+#: src/Plugins/Export/ExportHtmlword.php:350
+#: src/Plugins/Export/ExportLatex.php:501 src/Plugins/Export/ExportOdt.php:454
+#: src/Plugins/Export/ExportTexytext.php:357
+#: src/Plugins/Export/Helpers/Pdf.php:501
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:629
 msgid "Links to"
@@ -1804,9 +1804,9 @@ msgstr "Fund"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:453
-#: src/Plugins/Export/ExportOdt.php:571
-#: src/Plugins/Export/ExportTexytext.php:435
+#: src/Plugins/Export/ExportHtmlword.php:443
+#: src/Plugins/Export/ExportOdt.php:565
+#: src/Plugins/Export/ExportTexytext.php:427
 #: src/Plugins/Export/Helpers/Pdf.php:336
 msgid "Definition"
 msgstr "Përkufizimi"
@@ -1835,7 +1835,7 @@ msgstr "Përcaktuesi"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:376
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:964 src/Plugins/Export/ExportXml.php:85
+#: src/Plugins/Export/ExportSql.php:993 src/Plugins/Export/ExportXml.php:95
 #: src/Util.php:1474
 msgid "Events"
 msgstr "Ngjarjet"
@@ -1926,7 +1926,7 @@ msgstr "Eksporti"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:534
+#: resources/templates/triggers/row.twig:58 src/Operations.php:532
 msgid "Drop"
 msgstr "Fshij"
 
@@ -1989,7 +1989,7 @@ msgstr "Tabelat:"
 #: src/Controllers/Server/DatabasesController.php:258
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
-#: src/Plugins/Export/ExportXml.php:100 src/Server/Status/Data.php:133
+#: src/Plugins/Export/ExportXml.php:110 src/Server/Status/Data.php:126
 msgid "Tables"
 msgstr "Tabela"
 
@@ -2600,7 +2600,7 @@ msgstr[1] "%s tabela"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:496
-#: src/Server/Status/Data.php:131 src/Util.php:1458
+#: src/Server/Status/Data.php:124 src/Util.php:1458
 msgid "Replication"
 msgstr "Replikimi"
 
@@ -2733,8 +2733,8 @@ msgstr ""
 "sigurtë, qe doni te vazhdoni?"
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:241
-#: src/Plugins/Export/ExportSql.php:895 src/Plugins/Export/ExportXml.php:358
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:257
+#: src/Plugins/Export/ExportSql.php:924 src/Plugins/Export/ExportXml.php:367
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Databaza:"
@@ -2782,7 +2782,7 @@ msgstr "Fjalori i të dhënave"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:76
 #: src/Controllers/Database/TrackingController.php:125
-#: src/Controllers/Export/ExportController.php:283
+#: src/Controllers/Export/ExportController.php:277
 msgid "No tables found in database."
 msgstr "Nuk gjenden tabela në databazë."
 
@@ -2806,7 +2806,7 @@ msgstr "Shfaqën krijo pyetsorët"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:423 src/Server/Privileges.php:1575
+#: src/Plugins/Export/ExportXml.php:432 src/Server/Privileges.php:1575
 #: src/Server/Privileges.php:1577
 msgid "Table"
 msgstr "Tabela"
@@ -2814,7 +2814,7 @@ msgstr "Tabela"
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:22
 #: src/Navigation/Nodes/NodeViewContainer.php:24
-#: src/Plugins/Export/ExportXml.php:110
+#: src/Plugins/Export/ExportXml.php:120
 msgid "Views"
 msgstr "Shfaqje"
 
@@ -3121,7 +3121,7 @@ msgstr "Veprimet e rezultatit të pyetsorit"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1196
+#: src/Export/Export.php:1076
 msgid "Copy to clipboard"
 msgstr "Kopjo në clipboard"
 
@@ -3255,7 +3255,7 @@ msgstr "Shpejt - shfaq vetëm opsionet minimale"
 msgid "Custom - display all possible options"
 msgstr "Përshtat - shfaq të gjitha opsionet e mundshme"
 
-#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:66
+#: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
 msgstr "Formati:"
 
@@ -3520,7 +3520,7 @@ msgstr "Rregullimet e përgjithshme"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:91
+#: src/Controllers/UserPasswordController.php:82
 msgid "Change password"
 msgstr "Ndrysho fjalëkalimin"
 
@@ -3577,8 +3577,8 @@ msgid "Server connection:"
 msgstr "Lidhja e serverit:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:214 src/Plugins/Export/ExportSql.php:726
-#: src/Plugins/Export/ExportXml.php:205
+#: src/Plugins/Export/ExportLatex.php:230 src/Plugins/Export/ExportSql.php:761
+#: src/Plugins/Export/ExportXml.php:214
 msgid "Server version:"
 msgstr "Versioni i serverit:"
 
@@ -3680,7 +3680,7 @@ msgstr "merre atë"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1219 src/Html/Generator.php:855
+#: src/Export/Export.php:1099 src/Html/Generator.php:855
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Prapa"
@@ -4565,7 +4565,7 @@ msgstr ""
 "Ri-hyj në phpMyAdmin, për të ngarkuar filin e aktualizuar të konfigurimit."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:489
-#: src/Server/Status/Data.php:126 src/Util.php:1457
+#: src/Server/Status/Data.php:119 src/Util.php:1457
 msgid "Binary log"
 msgstr "Regjistër (log) binar"
 
@@ -4574,7 +4574,7 @@ msgid "Select binary log to view"
 msgstr "Zgjedh regjistrin (log) binar për të shfaqur"
 
 #: resources/templates/server/binlog/index.twig:25
-#: src/Server/Status/Data.php:135
+#: src/Server/Status/Data.php:128
 msgid "Files"
 msgstr "File"
 
@@ -4722,7 +4722,7 @@ msgstr "Përshkrimi"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:579
-#: src/Menu.php:502 src/Server/Status/Data.php:193 src/Util.php:1459
+#: src/Menu.php:502 src/Server/Status/Data.php:186 src/Util.php:1459
 msgid "Variables"
 msgstr "Variablat"
 
@@ -5531,8 +5531,8 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:206 src/Plugins/Export/ExportSql.php:715
-#: src/Plugins/Export/ExportXml.php:196
+#: src/Plugins/Export/ExportLatex.php:222 src/Plugins/Export/ExportSql.php:750
+#: src/Plugins/Export/ExportXml.php:205
 msgid "Host:"
 msgstr "Pritësi (host):"
 
@@ -5656,7 +5656,7 @@ msgid "This server is configured as primary in a replication process."
 msgstr "Ky server është konfiguruar si master në një proces të replikimit."
 
 #: resources/templates/server/replication/primary_replication.twig:9
-#: src/Server/Status/Data.php:170
+#: src/Server/Status/Data.php:163
 #, fuzzy
 #| msgid "Show master status"
 msgid "Show primary status"
@@ -6536,9 +6536,9 @@ msgstr "Gjendja"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Plugins/Export/ExportHtmlword.php:451
-#: src/Plugins/Export/ExportOdt.php:565
-#: src/Plugins/Export/ExportTexytext.php:433
+#: src/Plugins/Export/ExportHtmlword.php:441
+#: src/Plugins/Export/ExportOdt.php:559
+#: src/Plugins/Export/ExportTexytext.php:425
 #: src/Plugins/Export/Helpers/Pdf.php:332 src/Server/Status/Processes.php:95
 msgid "Time"
 msgstr "Koha"
@@ -6587,12 +6587,12 @@ msgstr "Rezultatet e profilimit"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1030 src/Display/Results.php:3139
+#: src/Database/Routines.php:1027 src/Display/Results.php:3139
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Pyetsori juaj SQL është ekzekutuar me sukses."
 
-#: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:120
+#: resources/templates/sql/query.twig:20 src/Server/Status/Data.php:113
 #: src/Server/Status/Processes.php:103
 msgid "SQL query"
 msgstr "SQL pyetsor"
@@ -7140,7 +7140,7 @@ msgid "Delete the view (DROP)"
 msgstr "Fshij pamjen (DROP)"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:5
-#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:242
+#: src/Config/Descriptions.php:760 src/Plugins/Export/ExportPdf.php:231
 msgid "Table structure"
 msgstr "Struktura e tabelës"
 
@@ -7323,32 +7323,32 @@ msgid "Index length"
 msgstr "Gjatësia e indeksit"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:517
+#: src/Operations.php:515
 msgid "Analyze"
 msgstr "Analizë"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:518
+#: src/Operations.php:516
 msgid "Check"
 msgstr "Kontrollo"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:519
+#: src/Operations.php:517
 msgid "Optimize"
 msgstr "Optimizo"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:520
+#: src/Operations.php:518
 msgid "Rebuild"
 msgstr "Rindërto"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:521
+#: src/Operations.php:519
 msgid "Repair"
 msgstr "Riparo"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:522
+#: src/Operations.php:520
 msgid "Truncate"
 msgstr "Cungo"
 
@@ -7604,15 +7604,15 @@ msgstr "Koha"
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
 #: src/Navigation/Nodes/NodeEvent.php:24
-#: src/Plugins/Export/ExportHtmlword.php:452
-#: src/Plugins/Export/ExportOdt.php:568
-#: src/Plugins/Export/ExportTexytext.php:434
+#: src/Plugins/Export/ExportHtmlword.php:442
+#: src/Plugins/Export/ExportOdt.php:562
+#: src/Plugins/Export/ExportTexytext.php:426
 #: src/Plugins/Export/Helpers/Pdf.php:334
 msgid "Event"
 msgstr "Ngjarje"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:243
+#: src/Controllers/Triggers/IndexController.php:235
 #, php-format
 msgid "Export of trigger %s"
 msgstr "Eksporti i shkrehësit %s"
@@ -7620,11 +7620,11 @@ msgstr "Eksporti i shkrehësit %s"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:290 src/Menu.php:383
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:523
-#: src/Plugins/Export/ExportOdt.php:648 src/Plugins/Export/ExportPdf.php:245
-#: src/Plugins/Export/ExportSql.php:1924
-#: src/Plugins/Export/ExportTexytext.php:490
-#: src/Plugins/Export/ExportXml.php:105 src/Util.php:1475 src/Util.php:1491
+#: src/Plugins/Export/ExportHtmlword.php:496
+#: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
+#: src/Plugins/Export/ExportSql.php:1905
+#: src/Plugins/Export/ExportTexytext.php:465
+#: src/Plugins/Export/ExportXml.php:115 src/Util.php:1475 src/Util.php:1491
 msgid "Triggers"
 msgstr "Shkrehësit"
 
@@ -9461,34 +9461,34 @@ msgstr "Pasivizo"
 
 #: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
-#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
-#: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:220
-#: src/Plugins/Export/ExportTexytext.php:61
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:71
+#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportMediawiki.php:68
+#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
+#: src/Plugins/Export/ExportSql.php:262
+#: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure"
 msgstr "strukturën"
 
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
-#: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:220
-#: src/Plugins/Export/ExportTexytext.php:61
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:71
+#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportMediawiki.php:68
+#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
+#: src/Plugins/Export/ExportSql.php:262
+#: src/Plugins/Export/ExportTexytext.php:70
 msgid "data"
 msgstr "të dhënat"
 
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:62
-#: src/Plugins/Export/ExportLatex.php:94
-#: src/Plugins/Export/ExportMediawiki.php:63
-#: src/Plugins/Export/ExportOdt.php:74 src/Plugins/Export/ExportPdf.php:85
-#: src/Plugins/Export/ExportSql.php:220
-#: src/Plugins/Export/ExportTexytext.php:61
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:71
+#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportMediawiki.php:68
+#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
+#: src/Plugins/Export/ExportSql.php:262
+#: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure and data"
 msgstr "strukturën dhe të dhënat"
 
@@ -9700,7 +9700,7 @@ msgstr ""
 "kbd] për asnjë kufizim)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:320
+#: src/Plugins/Export/ExportSql.php:362
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -11000,11 +11000,11 @@ msgstr "Kompresim"
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:85
-#: src/Plugins/Export/ExportExcel.php:59
-#: src/Plugins/Export/ExportHtmlword.php:82 src/Plugins/Export/ExportOds.php:68
-#: src/Plugins/Export/ExportOdt.php:123
-#: src/Plugins/Export/ExportTexytext.php:76
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:87
+#: src/Plugins/Export/ExportExcel.php:61
+#: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:75
+#: src/Plugins/Export/ExportOdt.php:133
+#: src/Plugins/Export/ExportTexytext.php:85
 msgid "Put columns names in the first row"
 msgstr "Vendos emrat e kolonave në radhë të parë"
 
@@ -11057,17 +11057,17 @@ msgstr "Modeli i emrit të tabelës"
 
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:57
-#: src/Plugins/Export/ExportLatex.php:89
-#: src/Plugins/Export/ExportMediawiki.php:53
-#: src/Plugins/Export/ExportMediawiki.php:59
-#: src/Plugins/Export/ExportOdt.php:69 src/Plugins/Export/ExportPdf.php:81
-#: src/Plugins/Export/ExportSql.php:216
-#: src/Plugins/Export/ExportTexytext.php:56
+#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:66
+#: src/Plugins/Export/ExportLatex.php:105
+#: src/Plugins/Export/ExportMediawiki.php:58
+#: src/Plugins/Export/ExportMediawiki.php:64
+#: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:87
+#: src/Plugins/Export/ExportSql.php:258
+#: src/Plugins/Export/ExportTexytext.php:65
 msgid "Dump table"
 msgstr "Zbraz tabelën"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:80
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:96
 msgid "Include table caption"
 msgstr "Përfshij kokat e tabelës"
 
@@ -11129,11 +11129,11 @@ msgstr "Krijimi/Aktualizimi/Kontrollo datat"
 msgid "Use delayed inserts"
 msgstr "Përdor futje të vonuara"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:185
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:227
 msgid "Disable foreign key checks"
 msgstr "Pasivizo kontrollet e çelësave të huaj"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:195
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:237
 msgid "Export views as tables"
 msgstr "Eksporto pamjet si tabela"
 
@@ -11153,7 +11153,7 @@ msgstr ""
 "Shto NËSE NUK EKZISTON (më pak efiçiente, pasi indekset do të gjenerohen "
 "gjatë krijimit të tabelës)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:326
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:368
 #, fuzzy, php-format
 #| msgid "%s value"
 msgid "%s view"
@@ -11167,7 +11167,7 @@ msgstr "Përdor futje injoruese"
 msgid "Syntax to use when inserting data"
 msgstr "Sintaksa që përdoret kur fut të dhënat"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:453
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:495
 msgid "Maximal length of created query"
 msgstr "Gjatësia maksimale e pyetsorit të krijuar"
 
@@ -11175,7 +11175,7 @@ msgstr "Gjatësia maksimale e pyetsorit të krijuar"
 msgid "Export type"
 msgstr "Tipi i eksportit"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:175
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:217
 msgid "Enclose export in a transaction"
 msgstr "Përfshij eksportin në një transaksion"
 
@@ -12439,13 +12439,13 @@ msgstr ""
 
 #: src/Controllers/Database/DesignerController.php:168
 #: src/Controllers/Database/DesignerController.php:173
-#: src/Controllers/Database/EventsController.php:51
+#: src/Controllers/Database/EventsController.php:48
 #: src/Controllers/Database/ExportController.php:58
 #: src/Controllers/Database/ExportController.php:63
 #: src/Controllers/Database/ImportController.php:60
 #: src/Controllers/Database/ImportController.php:65
-#: src/Controllers/Database/RoutinesController.php:76
-#: src/Controllers/Database/RoutinesController.php:95
+#: src/Controllers/Database/RoutinesController.php:74
+#: src/Controllers/Database/RoutinesController.php:93
 #: src/Controllers/Database/SearchController.php:52
 #: src/Controllers/Database/SearchController.php:57
 #: src/Controllers/Database/SqlController.php:52
@@ -12500,40 +12500,40 @@ msgstr ""
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/ZoomSearchController.php:99
 #: src/Controllers/Table/ZoomSearchController.php:104
-#: src/Controllers/Triggers/IndexController.php:67
-#: src/Controllers/Triggers/IndexController.php:86
+#: src/Controllers/Triggers/IndexController.php:64
+#: src/Controllers/Triggers/IndexController.php:83
 #: src/Controllers/View/CreateController.php:67
 #: src/Controllers/View/CreateController.php:72
 msgid "No databases selected."
 msgstr "Nuk janë zgjedhur databaza."
 
-#: src/Controllers/Database/EventsController.php:132
+#: src/Controllers/Database/EventsController.php:124
 msgid "Add event"
 msgstr "Shto ngjarje"
 
-#: src/Controllers/Database/EventsController.php:136
+#: src/Controllers/Database/EventsController.php:128
 msgid "Edit event"
 msgstr "Redakto ngjarjen"
 
-#: src/Controllers/Database/EventsController.php:185
-#: src/Controllers/Database/RoutinesController.php:279
-#: src/Controllers/Database/RoutinesController.php:309
-#: src/Controllers/Database/RoutinesController.php:377
-#: src/Controllers/Triggers/IndexController.php:217
+#: src/Controllers/Database/EventsController.php:177
+#: src/Controllers/Database/RoutinesController.php:272
+#: src/Controllers/Database/RoutinesController.php:302
+#: src/Controllers/Database/RoutinesController.php:370
+#: src/Controllers/Triggers/IndexController.php:209
 msgid "Error in processing request:"
 msgstr "Gabim në proçesimin e kërkesës:"
 
-#: src/Controllers/Database/EventsController.php:187
+#: src/Controllers/Database/EventsController.php:179
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s."
 
-#: src/Controllers/Database/EventsController.php:213
+#: src/Controllers/Database/EventsController.php:205
 #, php-format
 msgid "Export of event %s"
 msgstr "Eksporti i ngjarjes %s"
 
-#: src/Controllers/Database/EventsController.php:231
+#: src/Controllers/Database/EventsController.php:223
 #, fuzzy, php-format
 #| msgid "No event with name %1$s found in database %2$s."
 msgid ""
@@ -12541,7 +12541,7 @@ msgid ""
 msgstr "Nuk ka ngjarje me emrin %1$s që gjendet në databazë %2$s."
 
 #: src/Controllers/Database/ExportController.php:138
-#: src/Controllers/Server/ExportController.php:65
+#: src/Controllers/Server/ExportController.php:62
 #: src/Controllers/Table/ExportController.php:96
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
@@ -12570,7 +12570,7 @@ msgstr "Nuk ka privilegje"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Ju nuk keni privilegje të manipuloni me përdoruesit!"
 
-#: src/Controllers/Database/RoutinesController.php:84
+#: src/Controllers/Database/RoutinesController.php:82
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:38
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
@@ -12620,21 +12620,21 @@ msgstr "Ju nuk keni privilegje të manipuloni me përdoruesit!"
 #: src/Controllers/Table/Structure/PrimaryController.php:88
 #: src/Controllers/Table/ZoomSearchController.php:113
 #: src/Controllers/Table/ZoomSearchController.php:118
-#: src/Controllers/Triggers/IndexController.php:75
+#: src/Controllers/Triggers/IndexController.php:72
 #, fuzzy
 #| msgid "No tables selected."
 msgid "No table selected."
 msgstr "Nuk është zgjedhur tabelë."
 
-#: src/Controllers/Database/RoutinesController.php:179
+#: src/Controllers/Database/RoutinesController.php:172
 msgid "Add routine"
 msgstr "Shto rutinë"
 
-#: src/Controllers/Database/RoutinesController.php:183
+#: src/Controllers/Database/RoutinesController.php:176
 msgid "Edit routine"
 msgstr "Redakto rutinën"
 
-#: src/Controllers/Database/RoutinesController.php:282
+#: src/Controllers/Database/RoutinesController.php:275
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12643,23 +12643,23 @@ msgstr ""
 "Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s. Mund t`ju "
 "mungojne privilegjet e nevojshme për të redaktuar këtë rutinë."
 
-#: src/Controllers/Database/RoutinesController.php:311
-#: src/Controllers/Database/RoutinesController.php:379
+#: src/Controllers/Database/RoutinesController.php:304
+#: src/Controllers/Database/RoutinesController.php:372
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Asnjë rutinë me emrin %1$s nuk gjendet në bazën e të dhënave %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:360
-#: src/Controllers/Database/RoutinesController.php:370
+#: src/Controllers/Database/RoutinesController.php:353
+#: src/Controllers/Database/RoutinesController.php:363
 msgid "Execute routine"
 msgstr "Ekzekuto rutinën"
 
-#: src/Controllers/Database/RoutinesController.php:422
+#: src/Controllers/Database/RoutinesController.php:415
 #, php-format
 msgid "Export of routine %s"
 msgstr "Eksporti i rutinës %s"
 
-#: src/Controllers/Database/RoutinesController.php:441
+#: src/Controllers/Database/RoutinesController.php:434
 #, fuzzy, php-format
 #| msgid ""
 #| "No routine with name %1$s found in database %2$s. You might be lacking "
@@ -12753,7 +12753,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Duhet të rifreskoni faqen."
 
-#: src/Controllers/Export/ExportController.php:106 src/Export/Export.php:1157
+#: src/Controllers/Export/ExportController.php:102 src/Export/Export.php:1037
 msgid "Bad type!"
 msgstr "Tip i keq!"
 
@@ -12762,7 +12762,7 @@ msgstr "Tip i keq!"
 msgid "Value for the column \"%s\""
 msgstr "Vlera për kolonën \"%s\""
 
-#: src/Controllers/HomeController.php:97
+#: src/Controllers/HomeController.php:95
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
@@ -12770,7 +12770,7 @@ msgstr ""
 "Ju dolet nga një server, për te dalë plotësisht nga phpMyAdmin, duhet të "
 "dilni nga të gjithë serverat."
 
-#: src/Controllers/HomeController.php:194
+#: src/Controllers/HomeController.php:192
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12779,14 +12779,14 @@ msgstr ""
 "Ruajtja e konfigurimit phpMyAdmin nuk është konfiguruar plotësisht, disa "
 "tipare të zgjeruara janë pasivizuar. %sGjej arsyen pse%s. "
 
-#: src/Controllers/HomeController.php:200
+#: src/Controllers/HomeController.php:198
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Ose në mënyrë alternative, shko në tabelorin 'Veprime', të ndonjë databaze "
 "dhe vendosi atje."
 
-#: src/Controllers/HomeController.php:265
+#: src/Controllers/HomeController.php:263
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12799,7 +12799,7 @@ msgstr ""
 "shkak të kësaj, hyrja juaj mund të përfundojë më shpejt se është konfiguruar "
 "në phpMyAdmin."
 
-#: src/Controllers/HomeController.php:285
+#: src/Controllers/HomeController.php:283
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12808,21 +12808,21 @@ msgstr ""
 "gatimit të konfiguruar në phpMyAdmin, sepse prej kësaj, hyrja juaj do të "
 "skadojë më shpejt sesa është konfiguruar në phpMyAdmin."
 
-#: src/Controllers/HomeController.php:304
+#: src/Controllers/HomeController.php:302
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:323
+#: src/Controllers/HomeController.php:321
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:333
+#: src/Controllers/HomeController.php:331
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12830,7 +12830,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:351
+#: src/Controllers/HomeController.php:349
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12843,7 +12843,7 @@ msgstr ""
 "tuaj mund të rrezikohet nga njerëz të paautorizuar që mund të shkarkojnë "
 "konfigurimin tuaj."
 
-#: src/Controllers/HomeController.php:372
+#: src/Controllers/HomeController.php:370
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12852,7 +12852,7 @@ msgstr ""
 "Serveri po punon me Suhosin. Ju lutem, refero %sdokumentacionin%s për "
 "çështje të mundshme."
 
-#: src/Controllers/HomeController.php:386
+#: src/Controllers/HomeController.php:384
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12861,7 +12861,7 @@ msgstr ""
 "$cfg['TempDir'] (%s) nuk është i arritshëm. phpMyAdmin nuk është në gjendje "
 "të cache templates dhe do të jetë i ngadalshëm për shkak të kësaj."
 
-#: src/Controllers/HomeController.php:443
+#: src/Controllers/HomeController.php:441
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12872,7 +12872,7 @@ msgstr ""
 "është në gjendje të ndajë vargjet si duhet dhe kjo mund të rezultojë në "
 "rezultate të papritura."
 
-#: src/Controllers/HomeController.php:461
+#: src/Controllers/HomeController.php:459
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12946,7 +12946,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - deklaratat janë pasivizuar."
 
-#: src/Controllers/Import/ImportController.php:690 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:690 src/Sql.php:881
 msgid "[ROLLBACK occurred.]"
 msgstr "[RIKTHIMI u shfaq.]"
 
@@ -13230,7 +13230,7 @@ msgstr "Shablloni është fshirë."
 
 #. l10n: Other, small valued, queries
 #: src/Controllers/JavaScriptMessagesController.php:165
-#: src/Server/Status/Data.php:137
+#: src/Server/Status/Data.php:130
 msgid "Other"
 msgstr "Tjetër"
 
@@ -15137,7 +15137,7 @@ msgstr "Metodë e pavlefshme autentifikimi e vendosur në konfigurim:"
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:447
+#: src/ResponseRenderer.php:444
 msgid "Missing parameter:"
 msgstr "Parametri që mungon:"
 
@@ -15979,7 +15979,7 @@ msgstr "Të dhëna gabim"
 msgid "Wrong data or no validation for %s"
 msgstr "Të dhëna të gabuara ose pa validim për %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1054
+#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Faqerojtësi %s është krijuar."
@@ -16060,8 +16060,8 @@ msgid "There is an issue with your request."
 msgstr "Ka shumë bashkime pa indekse."
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1047 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/Database/Routines.php:1044 src/Import/Import.php:131
+#: src/InsertEdit.php:199 src/Sql.php:867
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ktheu një set rezultati të zbrazët (psh. zero radhë)."
 
@@ -16156,20 +16156,20 @@ msgstr "Versionet e gjurmuara u fshinë me sukses."
 msgid "No versions selected."
 msgstr "Nuk janë zgjedhur versione."
 
-#: src/Controllers/Triggers/IndexController.php:173
+#: src/Controllers/Triggers/IndexController.php:165
 msgid "Add trigger"
 msgstr "Shto shkrehës"
 
-#: src/Controllers/Triggers/IndexController.php:177
+#: src/Controllers/Triggers/IndexController.php:169
 msgid "Edit trigger"
 msgstr "Redakto shkrehësin"
 
-#: src/Controllers/Triggers/IndexController.php:219
+#: src/Controllers/Triggers/IndexController.php:211
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Nuk ka shkrehës me emrin %1$s të gjetur në databazën %2$s."
 
-#: src/Controllers/Triggers/IndexController.php:260
+#: src/Controllers/Triggers/IndexController.php:252
 #, fuzzy, php-format
 #| msgid "No trigger with name %1$s found in database %2$s."
 msgid ""
@@ -16177,7 +16177,7 @@ msgid ""
 "%2$s."
 msgstr "Nuk ka shkrehës me emrin %1$s të gjetur në databazën %2$s."
 
-#: src/Controllers/UserPasswordController.php:50
+#: src/Controllers/UserPasswordController.php:49
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nuk keni privilegje të mjaftueshme të jeni këtu tani!"
 
@@ -16278,76 +16278,76 @@ msgid "Could not load schema plugins, please check your installation!"
 msgstr ""
 "Nuk mund te ngarkohen shtojcat e skemës, ju lutem kontrollo instalimin tuaj!"
 
-#: src/Database/Events.php:89 src/Database/Events.php:98
-#: src/Database/Events.php:132 src/Database/Routines.php:101
-#: src/Database/Routines.php:127 src/Database/Routines.php:205
-#: src/Database/Routines.php:1007 src/Triggers/Triggers.php:82
-#: src/Triggers/Triggers.php:91 src/Triggers/Triggers.php:126
+#: src/Database/Events.php:93 src/Database/Events.php:102
+#: src/Database/Events.php:136 src/Database/Routines.php:104
+#: src/Database/Routines.php:130 src/Database/Routines.php:208
+#: src/Database/Routines.php:1004 src/Triggers/Triggers.php:86
+#: src/Triggers/Triggers.php:95 src/Triggers/Triggers.php:130
 #, php-format
 msgid "The following query has failed: \"%s\""
 msgstr "Pyetsori që vijon, ka dështuar: \"%s\""
 
-#: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:115 src/Database/Events.php:136
-#: src/Database/Routines.php:105 src/Database/Routines.php:131
-#: src/Database/Routines.php:209 src/Database/Routines.php:223
-#: src/Database/Routines.php:1011 src/Html/Generator.php:805
-#: src/Triggers/Triggers.php:86 src/Triggers/Triggers.php:95
-#: src/Triggers/Triggers.php:109 src/Triggers/Triggers.php:130
+#: src/Database/Events.php:97 src/Database/Events.php:106
+#: src/Database/Events.php:119 src/Database/Events.php:140
+#: src/Database/Routines.php:108 src/Database/Routines.php:134
+#: src/Database/Routines.php:212 src/Database/Routines.php:226
+#: src/Database/Routines.php:1008 src/Html/Generator.php:805
+#: src/Triggers/Triggers.php:90 src/Triggers/Triggers.php:99
+#: src/Triggers/Triggers.php:113 src/Triggers/Triggers.php:134
 msgid "MySQL said: "
 msgstr "MySQL tha: "
 
-#: src/Database/Events.php:112
+#: src/Database/Events.php:116
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "Na vjen keq, dështuam në rikthimin e ngjarjes së fshirë."
 
-#: src/Database/Events.php:113 src/Database/Routines.php:221
-#: src/Triggers/Triggers.php:107
+#: src/Database/Events.php:117 src/Database/Routines.php:224
+#: src/Triggers/Triggers.php:111
 msgid "The backed up query was:"
 msgstr "Pyetsori i ruajtur ishte:"
 
-#: src/Database/Events.php:119
+#: src/Database/Events.php:123
 #, php-format
 msgid "Event %1$s has been modified."
 msgstr "Ngjarja %1$s është modifikuar."
 
-#: src/Database/Events.php:139
+#: src/Database/Events.php:143
 #, php-format
 msgid "Event %1$s has been created."
 msgstr "Ngjarja %1$s është krijuar."
 
-#: src/Database/Events.php:153 src/Database/Routines.php:147
-#: src/Triggers/Triggers.php:147
+#: src/Database/Events.php:157 src/Database/Routines.php:150
+#: src/Triggers/Triggers.php:151
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Një ose më shumë gabime kanë ndodhur gjatë proçesimit të kërkesës suaj:"
 
-#: src/Database/Events.php:268 src/Database/Routines.php:809
-#: src/Triggers/Triggers.php:191
+#: src/Database/Events.php:270 src/Database/Routines.php:806
+#: src/Triggers/Triggers.php:193
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Përcaktuesi duhet të jetë në formatin \"username@hostname\"!"
 
-#: src/Database/Events.php:276
+#: src/Database/Events.php:278
 msgid "You must provide an event name!"
 msgstr "Duhet të siguroni një emër për ngjarjen!"
 
-#: src/Database/Events.php:290
+#: src/Database/Events.php:292
 msgid "You must provide a valid interval value for the event."
 msgstr "Duhet të siguroni një vlerë të vlefshme intervali për ngjarjen."
 
-#: src/Database/Events.php:303
+#: src/Database/Events.php:305
 msgid "You must provide a valid execution time for the event."
 msgstr "Duhet të siguroni një kohë të vlefshme të ekzekutimit për ngjarjen."
 
-#: src/Database/Events.php:306
+#: src/Database/Events.php:308
 msgid "You must provide a valid type for the event."
 msgstr "Duhet të siguroni një tip të vlefshëm për ngjarjen."
 
-#: src/Database/Events.php:332
+#: src/Database/Events.php:334
 msgid "You must provide an event definition."
 msgstr "Duhet të siguroni një përcaktim për ngjarjen."
 
-#: src/DatabaseInterface.php:1126
+#: src/DatabaseInterface.php:1105
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -16364,50 +16364,50 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin përdor aktualisht zonën kohore të "
 "parazgjedhur të serverit të databazës."
 
-#: src/DatabaseInterface.php:1168
+#: src/DatabaseInterface.php:1147
 msgid "Failed to set configured collation connection!"
 msgstr "Dështoi në vendosjen e lidhjes së konfigurimit të krahasuar!"
 
-#: src/DatabaseInterface.php:1682
+#: src/DatabaseInterface.php:1661
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Lidhja për përdoruesin e kontrollit, siç përcaktohet në konfigurimin tuaj "
 "dështoi."
 
-#: src/Database/Routines.php:82 src/Database/Routines.php:817
+#: src/Database/Routines.php:85 src/Database/Routines.php:814
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Tip rutine i pavlefshëm: \"%s\""
 
-#: src/Database/Routines.php:134
+#: src/Database/Routines.php:137
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "Rutina %1$s është krijuar."
 
-#: src/Database/Routines.php:220
+#: src/Database/Routines.php:223
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "Na vjen keq, dështuam në rikthimin e rutinës së fshirë."
 
-#: src/Database/Routines.php:269
+#: src/Database/Routines.php:272
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "Rutina %1$s është modifikuar. Privilegjet janë përshtatur."
 
-#: src/Database/Routines.php:274
+#: src/Database/Routines.php:277
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "Rutina %1$s është modifikuar."
 
-#: src/Database/Routines.php:650
+#: src/Database/Routines.php:651
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "Duhet të siguroni një emër dhe një tip për çdo parametër rutinë."
 
-#: src/Database/Routines.php:668
+#: src/Database/Routines.php:669
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Drejtim i pavlefshëm \"%s\" i dhënë për parametrin."
 
-#: src/Database/Routines.php:688 src/Database/Routines.php:755
+#: src/Database/Routines.php:689 src/Database/Routines.php:754
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16415,31 +16415,31 @@ msgstr ""
 "Duhet të siguroni gjatësinë/vlerat për parametrat rutinë të tipit ENUM, SET, "
 "VARCHAR dhe VARBINARY."
 
-#: src/Database/Routines.php:737
+#: src/Database/Routines.php:736
 msgid "You must provide a valid return type for the routine."
 msgstr "Duhet të siguroni një tip të vlefshëm të kthimit për rutinën."
 
-#: src/Database/Routines.php:825
+#: src/Database/Routines.php:822
 msgid "You must provide a routine name!"
 msgstr "Duhet të siguroni një emër rutinë!"
 
-#: src/Database/Routines.php:889
+#: src/Database/Routines.php:886
 msgid "You must provide a routine definition."
 msgstr "Duhet të siguroni një përkufizim rutinë."
 
-#: src/Database/Routines.php:1023
+#: src/Database/Routines.php:1020
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Rezultatet e ekzekutimit të rutinës %s"
 
-#: src/Database/Routines.php:1038
+#: src/Database/Routines.php:1035
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d radhë e ndikuar nga deklarata e fundit brenda procedurës."
 msgstr[1] "%d radhë të ndikuara nga deklarata e fundit brenda procedurës."
 
-#: src/Dbal/DbiMysqli.php:121
+#: src/Dbal/DbiMysqli.php:120
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
@@ -16467,7 +16467,7 @@ msgstr "%1$d gjithsejt, %2$d në pyetsor"
 msgid "%s total"
 msgstr "%d gjithsejt"
 
-#: src/Display/Results.php:3457 src/Sql.php:869
+#: src/Display/Results.php:3457 src/Sql.php:873
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pyetsori mori %01.4f sekonda."
@@ -16522,7 +16522,7 @@ msgstr ""
 msgid "Buffer Pool"
 msgstr "Pellgu zbutës"
 
-#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:194
+#: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
 msgstr "Statusi InnoDB"
 
@@ -16862,13 +16862,13 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/Export.php:164 src/Export/Export.php:200
-#: src/Export/Export.php:408
+#: src/Export/Export.php:165 src/Export/Export.php:201
+#: src/Export/Export.php:409
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Hapësirë e pamjaftueshme për të ruajtur filin %s."
 
-#: src/Export/Export.php:361
+#: src/Export/Export.php:362
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16876,18 +16876,18 @@ msgstr ""
 "Fili %s ekziston ndërkohë në server, ndrysho emrin e filit ose kontrollo "
 "opsionin e mbishkrimit."
 
-#: src/Export/Export.php:368 src/Export/Export.php:378
+#: src/Export/Export.php:369 src/Export/Export.php:379
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Ueb serveri nuk ka lejimet e duhura për të ruajtur filin %s."
 
-#: src/Export/Export.php:415
+#: src/Export/Export.php:416
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Zbrazja është ruajtur tek fili %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:834
+#: src/Export/Export.php:755
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -17184,11 +17184,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "drejtoria e ngarkimit në ueb server:"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:924 src/Sql.php:864
 msgid "Showing SQL query"
 msgstr "Shfaqën pyetsorin SQL"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:948 src/Sql.php:844
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID e radhës së futur: %1$d"
@@ -17321,7 +17321,7 @@ msgstr "E re"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportXml.php:90
+#: src/Plugins/Export/ExportSql.php:639 src/Plugins/Export/ExportXml.php:100
 msgid "Functions"
 msgstr "Funksionet"
 
@@ -17341,7 +17341,7 @@ msgstr "Zgjero/Ngushto"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:586 src/Plugins/Export/ExportXml.php:95
+#: src/Plugins/Export/ExportSql.php:628 src/Plugins/Export/ExportXml.php:105
 msgid "Procedures"
 msgstr "Proçedurat"
 
@@ -17650,39 +17650,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Nuk gjenden varësi të pjesëshme!"
 
-#: src/Operations.php:536
+#: src/Operations.php:534
 msgid "Coalesce"
 msgstr "Bashko"
 
-#: src/Operations.php:890
+#: src/Operations.php:888
 msgid "Can't move table to same one!"
 msgstr "Nuk mund t'i lëvizë tabelat tek vetvetja!"
 
-#: src/Operations.php:892
+#: src/Operations.php:890
 msgid "Can't copy table to same one!"
 msgstr "Nuk mund ta kopjojë tabelën tek vetvetja!"
 
-#: src/Operations.php:928
+#: src/Operations.php:926
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabela %s ka lëvizur tek %s. Privilegjet janë përshtatur."
 
-#: src/Operations.php:934
+#: src/Operations.php:932
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabela %s është kopjuar tek %s. Privilegjet janë përshtatur."
 
-#: src/Operations.php:940
+#: src/Operations.php:938
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabela %s ka lëvizur tek %s."
 
-#: src/Operations.php:944
+#: src/Operations.php:942
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabela %s është kopjuar tek %s."
 
-#: src/Operations.php:967
+#: src/Operations.php:965
 msgid "The table name is empty!"
 msgstr "Emri i tabelës është i zbrazët!"
 
@@ -17772,190 +17772,190 @@ msgstr "Metodë e pavlefshme autentifikimi e vendosur në konfigurim:"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
-#: src/Plugins/Export/ExportCsv.php:55
+#: src/Plugins/Export/ExportCsv.php:57
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Kolonat e ndara me:"
 
-#: src/Plugins/Export/ExportCsv.php:60
+#: src/Plugins/Export/ExportCsv.php:62
 #: src/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Kolonat e mbyllura me:"
 
-#: src/Plugins/Export/ExportCsv.php:65
+#: src/Plugins/Export/ExportCsv.php:67
 #: src/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Kolonat ikin nga:"
 
-#: src/Plugins/Export/ExportCsv.php:70
+#: src/Plugins/Export/ExportCsv.php:72
 #: src/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Rreshta që përfundojnë me:"
 
-#: src/Plugins/Export/ExportCsv.php:75 src/Plugins/Export/ExportExcel.php:49
-#: src/Plugins/Export/ExportHtmlword.php:77
-#: src/Plugins/Export/ExportLatex.php:184 src/Plugins/Export/ExportOds.php:63
-#: src/Plugins/Export/ExportOdt.php:128
-#: src/Plugins/Export/ExportTexytext.php:81
+#: src/Plugins/Export/ExportCsv.php:77 src/Plugins/Export/ExportExcel.php:51
+#: src/Plugins/Export/ExportHtmlword.php:86
+#: src/Plugins/Export/ExportLatex.php:200 src/Plugins/Export/ExportOds.php:70
+#: src/Plugins/Export/ExportOdt.php:138
+#: src/Plugins/Export/ExportTexytext.php:90
 msgid "Replace NULL with:"
 msgstr "Zëvendëso NULL me:"
 
-#: src/Plugins/Export/ExportCsv.php:80 src/Plugins/Export/ExportExcel.php:54
+#: src/Plugins/Export/ExportCsv.php:82 src/Plugins/Export/ExportExcel.php:56
 msgid "Remove carriage return/line feed characters within columns"
 msgstr ""
 "Largo transportin e karaktereve të furnizimit kthim/linjë brenda kolonave"
 
-#: src/Plugins/Export/ExportExcel.php:64
+#: src/Plugins/Export/ExportExcel.php:66
 msgid "Excel edition:"
 msgstr "Edicioni excel:"
 
-#: src/Plugins/Export/ExportHtmlword.php:71
-#: src/Plugins/Export/ExportLatex.php:155 src/Plugins/Export/ExportOdt.php:117
-#: src/Plugins/Export/ExportTexytext.php:70
-#: src/Plugins/Export/ExportXml.php:118
+#: src/Plugins/Export/ExportHtmlword.php:80
+#: src/Plugins/Export/ExportLatex.php:171 src/Plugins/Export/ExportOdt.php:127
+#: src/Plugins/Export/ExportTexytext.php:79
+#: src/Plugins/Export/ExportXml.php:128
 msgid "Data dump options"
 msgstr "Opsionet e heqjes (dump) së të dhënave"
 
-#: src/Plugins/Export/ExportHtmlword.php:186
-#: src/Plugins/Export/ExportOdt.php:236 src/Plugins/Export/ExportSql.php:2177
-#: src/Plugins/Export/ExportTexytext.php:170
+#: src/Plugins/Export/ExportHtmlword.php:193
+#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2151
+#: src/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Zbraz të dhënat për tabelën"
 
-#: src/Plugins/Export/ExportHtmlword.php:514
-#: src/Plugins/Export/ExportOdt.php:638 src/Plugins/Export/ExportSql.php:1910
-#: src/Plugins/Export/ExportTexytext.php:483
+#: src/Plugins/Export/ExportHtmlword.php:487
+#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1891
+#: src/Plugins/Export/ExportTexytext.php:458
 msgid "Table structure for table"
 msgstr "Struktura e tabelës për tabelën"
 
-#: src/Plugins/Export/ExportHtmlword.php:531
-#: src/Plugins/Export/ExportOdt.php:658 src/Plugins/Export/ExportSql.php:1967
-#: src/Plugins/Export/ExportTexytext.php:496
+#: src/Plugins/Export/ExportHtmlword.php:504
+#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1948
+#: src/Plugins/Export/ExportTexytext.php:471
 msgid "Structure for view"
 msgstr "Struktura për pamjen"
 
-#: src/Plugins/Export/ExportHtmlword.php:537
-#: src/Plugins/Export/ExportOdt.php:666 src/Plugins/Export/ExportSql.php:2006
-#: src/Plugins/Export/ExportTexytext.php:500
+#: src/Plugins/Export/ExportHtmlword.php:510
+#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1987
+#: src/Plugins/Export/ExportTexytext.php:475
 msgid "Stand-in structure for view"
 msgstr "Struktura zëvendësuese për pamjen"
 
-#: src/Plugins/Export/ExportJson.php:82
+#: src/Plugins/Export/ExportJson.php:86
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr "Produkti printuar-bukur JSON (Përdor formatim human-lexueshëm)"
 
-#: src/Plugins/Export/ExportJson.php:88
+#: src/Plugins/Export/ExportJson.php:92
 msgid "Output unicode characters unescaped"
 msgstr "Karakteret e Unicode të prodhimit janë të hapura"
 
-#: src/Plugins/Export/ExportLatex.php:52
+#: src/Plugins/Export/ExportLatex.php:68
 msgid "Content of table @TABLE@"
 msgstr "Përmbajtja e tabelës @TABLE@"
 
-#: src/Plugins/Export/ExportLatex.php:53
+#: src/Plugins/Export/ExportLatex.php:69
 msgid "(continued)"
 msgstr "(vazhduar)"
 
-#: src/Plugins/Export/ExportLatex.php:54
+#: src/Plugins/Export/ExportLatex.php:70
 msgid "Structure of table @TABLE@"
 msgstr "Struktura e tabelës @TABLE@"
 
-#: src/Plugins/Export/ExportLatex.php:104 src/Plugins/Export/ExportOdt.php:84
-#: src/Plugins/Export/ExportSql.php:232
+#: src/Plugins/Export/ExportLatex.php:120 src/Plugins/Export/ExportOdt.php:94
+#: src/Plugins/Export/ExportSql.php:274
 msgid "Object creation options"
 msgstr "Opsionet e krijimit të objektit"
 
-#: src/Plugins/Export/ExportLatex.php:110
-#: src/Plugins/Export/ExportLatex.php:166
+#: src/Plugins/Export/ExportLatex.php:126
+#: src/Plugins/Export/ExportLatex.php:182
 msgid "Table caption:"
 msgstr "Emri i tabelës:"
 
-#: src/Plugins/Export/ExportLatex.php:116
-#: src/Plugins/Export/ExportLatex.php:172
+#: src/Plugins/Export/ExportLatex.php:132
+#: src/Plugins/Export/ExportLatex.php:188
 msgid "Table caption (continued):"
 msgstr "Emri i tabelës (vazhdon):"
 
-#: src/Plugins/Export/ExportLatex.php:122
-#: src/Plugins/Export/ExportLatex.php:178
+#: src/Plugins/Export/ExportLatex.php:138
+#: src/Plugins/Export/ExportLatex.php:194
 msgid "Label key:"
 msgstr "Etiketa e çelësit:"
 
-#: src/Plugins/Export/ExportLatex.php:130 src/Plugins/Export/ExportOdt.php:92
-#: src/Plugins/Export/ExportSql.php:157
+#: src/Plugins/Export/ExportLatex.php:146 src/Plugins/Export/ExportOdt.php:102
+#: src/Plugins/Export/ExportSql.php:199
 msgid "Display foreign key relationships"
 msgstr "Shfaq marrëdhëniet me çelësin e huaj"
 
-#: src/Plugins/Export/ExportLatex.php:137 src/Plugins/Export/ExportOdt.php:99
+#: src/Plugins/Export/ExportLatex.php:153 src/Plugins/Export/ExportOdt.php:109
 msgid "Display comments"
 msgstr "Shfaq komentet"
 
-#: src/Plugins/Export/ExportLatex.php:143 src/Plugins/Export/ExportOdt.php:105
-#: src/Plugins/Export/ExportSql.php:165
+#: src/Plugins/Export/ExportLatex.php:159 src/Plugins/Export/ExportOdt.php:115
+#: src/Plugins/Export/ExportSql.php:207
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "Shfaq tipet MIME"
 
-#: src/Plugins/Export/ExportLatex.php:161
+#: src/Plugins/Export/ExportLatex.php:177
 msgid "Put columns names in the first row:"
 msgstr "Vendos emrat e kolonave në radhë të parë:"
 
-#: src/Plugins/Export/ExportLatex.php:212 src/Plugins/Export/ExportSql.php:722
-#: src/Plugins/Export/ExportXml.php:203
+#: src/Plugins/Export/ExportLatex.php:228 src/Plugins/Export/ExportSql.php:757
+#: src/Plugins/Export/ExportXml.php:212
 msgid "Generation Time:"
 msgstr "Koha e gjenerimit:"
 
-#: src/Plugins/Export/ExportLatex.php:215 src/Plugins/Export/ExportSql.php:728
-#: src/Plugins/Export/ExportXml.php:206
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:763
+#: src/Plugins/Export/ExportXml.php:215
 msgid "PHP Version:"
 msgstr "PHP Versioni:"
 
-#: src/Plugins/Export/ExportLatex.php:301 src/Plugins/Export/ExportSql.php:2057
+#: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2036
 msgid "Data:"
 msgstr "Të dhëna:"
 
-#: src/Plugins/Export/ExportLatex.php:475
+#: src/Plugins/Export/ExportLatex.php:474
 msgid "Structure:"
 msgstr "Struktura:"
 
-#: src/Plugins/Export/ExportMediawiki.php:71
+#: src/Plugins/Export/ExportMediawiki.php:76
 msgid "Export table names"
 msgstr "Eksporti i emrave të tabelës"
 
-#: src/Plugins/Export/ExportMediawiki.php:78
+#: src/Plugins/Export/ExportMediawiki.php:83
 msgid "Export table headers"
 msgstr "Eksporti i kokave të tabelës"
 
-#: src/Plugins/Export/ExportOdt.php:237
-#: src/Plugins/Export/ExportTexytext.php:171
+#: src/Plugins/Export/ExportOdt.php:245
+#: src/Plugins/Export/ExportTexytext.php:178
 #, fuzzy
 #| msgid "Dumping data for table"
 msgid "Dumping data for query result"
 msgstr "Zbraz të dhënat për tabelën"
 
-#: src/Plugins/Export/ExportPdf.php:72
+#: src/Plugins/Export/ExportPdf.php:78
 msgid "Report title:"
 msgstr "Titulli i raportit:"
 
-#: src/Plugins/Export/ExportPdf.php:178
+#: src/Plugins/Export/ExportPdf.php:184
 msgid "Dumping data"
 msgstr "Zbraz të dhënat"
 
-#: src/Plugins/Export/ExportPdf.php:195
+#: src/Plugins/Export/ExportPdf.php:201
 #, fuzzy
 #| msgid "Query results"
 msgid "Query result data"
 msgstr "Rezultati SQL"
 
-#: src/Plugins/Export/ExportPdf.php:248
+#: src/Plugins/Export/ExportPdf.php:237
 msgid "View structure"
 msgstr "Shfaq strukturën"
 
-#: src/Plugins/Export/ExportPdf.php:251
+#: src/Plugins/Export/ExportPdf.php:240
 msgid "Stand in"
 msgstr "Qëndro në"
 
-#: src/Plugins/Export/ExportSql.php:136
+#: src/Plugins/Export/ExportSql.php:178
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17963,11 +17963,11 @@ msgstr ""
 "Shfaq komentet <i>(përfshin info si psh. eksporti i vulës kohore, versioni "
 "PHP, dhe versioni i serverit)</i>"
 
-#: src/Plugins/Export/ExportSql.php:143
+#: src/Plugins/Export/ExportSql.php:185
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Koment shtesë i kokës së përshtatur (\\nndan linjat):"
 
-#: src/Plugins/Export/ExportSql.php:149
+#: src/Plugins/Export/ExportSql.php:191
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17975,38 +17975,38 @@ msgstr ""
 "Përfshij një vulë kohore se kur databazat janë kriijuar, aktualizuar dhe "
 "kontrolluar së fundi"
 
-#: src/Plugins/Export/ExportSql.php:202
+#: src/Plugins/Export/ExportSql.php:244
 msgid "Export metadata"
 msgstr "Eksporto metadata"
 
-#: src/Plugins/Export/ExportSql.php:240
+#: src/Plugins/Export/ExportSql.php:282
 msgid "Add statements:"
 msgstr "Shto deklarata:"
 
-#: src/Plugins/Export/ExportSql.php:248 src/Plugins/Export/ExportSql.php:257
-#: src/Plugins/Export/ExportSql.php:274 src/Plugins/Export/ExportSql.php:283
-#: src/Plugins/Export/ExportSql.php:307 src/Plugins/Export/ExportSql.php:335
-#: src/Plugins/Export/ExportSql.php:344
+#: src/Plugins/Export/ExportSql.php:290 src/Plugins/Export/ExportSql.php:299
+#: src/Plugins/Export/ExportSql.php:316 src/Plugins/Export/ExportSql.php:325
+#: src/Plugins/Export/ExportSql.php:349 src/Plugins/Export/ExportSql.php:377
+#: src/Plugins/Export/ExportSql.php:386
 #, php-format
 msgid "Add %s statement"
 msgstr "Shto %s deklaratë"
 
-#: src/Plugins/Export/ExportSql.php:290
+#: src/Plugins/Export/ExportSql.php:332
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(më pak efiçiente, pasi indekset do të gjenerohen gjatë krijimirt të tabelës)"
 
-#: src/Plugins/Export/ExportSql.php:297
+#: src/Plugins/Export/ExportSql.php:339
 #, php-format
 msgid "%s value"
 msgstr "Vlera %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:314
+#: src/Plugins/Export/ExportSql.php:356
 msgid "Use simple view export"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:353
+#: src/Plugins/Export/ExportSql.php:395
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -18015,35 +18015,35 @@ msgstr ""
 "emrat e kolonave dhe tabelave të formuara me karaktere të veçanta ose fjalë "
 "kyçe)</i>"
 
-#: src/Plugins/Export/ExportSql.php:368
+#: src/Plugins/Export/ExportSql.php:410
 msgid "Data creation options"
 msgstr "Opsionet e krijimit të të dhënave"
 
-#: src/Plugins/Export/ExportSql.php:373 src/Plugins/Export/ExportSql.php:2135
+#: src/Plugins/Export/ExportSql.php:415 src/Plugins/Export/ExportSql.php:2114
 msgid "Truncate table before insert"
 msgstr "Cungo tabelën para futjes"
 
-#: src/Plugins/Export/ExportSql.php:380
+#: src/Plugins/Export/ExportSql.php:422
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Në vend të deklaratës <code>INSERT</code>, përdor:"
 
-#: src/Plugins/Export/ExportSql.php:386
+#: src/Plugins/Export/ExportSql.php:428
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "<code>FUT TË VONUAR</code> deklaratat"
 
-#: src/Plugins/Export/ExportSql.php:395 src/Plugins/Export/ExportSql.php:422
+#: src/Plugins/Export/ExportSql.php:437 src/Plugins/Export/ExportSql.php:464
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "<code>FUT INJORO</code> deklaratat"
 
-#: src/Plugins/Export/ExportSql.php:406
+#: src/Plugins/Export/ExportSql.php:448
 msgid "Function to use when dumping data:"
 msgstr "Funksioni për përdorim kur zbraz të dhënat:"
 
-#: src/Plugins/Export/ExportSql.php:417
+#: src/Plugins/Export/ExportSql.php:459
 msgid "Syntax to use when inserting data:"
 msgstr "Sintaksa që përdoret kur fut të dhënat:"
 
-#: src/Plugins/Export/ExportSql.php:427
+#: src/Plugins/Export/ExportSql.php:469
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -18053,7 +18053,7 @@ msgstr ""
 "&nbsp; &nbsp; Shembull: <code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:432
+#: src/Plugins/Export/ExportSql.php:474
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -18063,7 +18063,7 @@ msgstr ""
 "&nbsp; &nbsp; Shembull: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:437
+#: src/Plugins/Export/ExportSql.php:479
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -18071,7 +18071,7 @@ msgstr ""
 "të dyja më sipër<br> &nbsp; &nbsp; &nbsp; Shembull: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:442
+#: src/Plugins/Export/ExportSql.php:484
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -18079,7 +18079,7 @@ msgstr ""
 "asnjë nga ato më sipër<br> &nbsp; &nbsp; &nbsp; Shembull: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:461
+#: src/Plugins/Export/ExportSql.php:503
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -18087,7 +18087,7 @@ msgstr ""
 "Zbraz kolonat binare në shënimet hekzadecimale <i>(për shembull, \"abc\" "
 "bëhet 0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:470
+#: src/Plugins/Export/ExportSql.php:512
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -18095,61 +18095,61 @@ msgstr ""
 "Zbraz kolonat TIMESTAMP në UTC <i>(aftëson kolonat TIMESTAMP që të zbrazen "
 "dhe ri-ngarkohen ndërmjet serverave në zona kohore të ndryshme)</i>"
 
-#: src/Plugins/Export/ExportSql.php:546
+#: src/Plugins/Export/ExportSql.php:588
 msgid "It appears your database uses routines;"
 msgstr "Duket se databaza juaj përdor rutinat;"
 
-#: src/Plugins/Export/ExportSql.php:549 src/Plugins/Export/ExportSql.php:1486
-#: src/Plugins/Export/ExportSql.php:1955
+#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportSql.php:1504
+#: src/Plugins/Export/ExportSql.php:1936
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "eksporti i pseudonimit nuk mund të punojnë në mënyrë të besueshme në të "
 "gjitha rastet."
 
-#: src/Plugins/Export/ExportSql.php:1020
+#: src/Plugins/Export/ExportSql.php:1049
 msgid "Metadata"
 msgstr "Metadata"
 
-#: src/Plugins/Export/ExportSql.php:1081
+#: src/Plugins/Export/ExportSql.php:1110
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadata për tabelën %s"
 
-#: src/Plugins/Export/ExportSql.php:1088
+#: src/Plugins/Export/ExportSql.php:1117
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadata për databazën %s"
 
-#: src/Plugins/Export/ExportSql.php:1398
+#: src/Plugins/Export/ExportSql.php:1416
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Gabim në leximin e strukturës për tabelën %s:"
 
-#: src/Plugins/Export/ExportSql.php:1483
+#: src/Plugins/Export/ExportSql.php:1501
 msgid "It appears your database uses views;"
 msgstr "Duket se databaza juaj përdor pamjet;"
 
-#: src/Plugins/Export/ExportSql.php:1629
+#: src/Plugins/Export/ExportSql.php:1645
 msgid "Constraints for dumped tables"
 msgstr "Detyrimet për tabelat e hedhura"
 
-#: src/Plugins/Export/ExportSql.php:1630
+#: src/Plugins/Export/ExportSql.php:1646
 msgid "Constraints for table"
 msgstr "Detyrimet për tabelën"
 
-#: src/Plugins/Export/ExportSql.php:1657
+#: src/Plugins/Export/ExportSql.php:1672
 msgid "Indexes for dumped tables"
 msgstr "Indekset për tabelat e hedhura"
 
-#: src/Plugins/Export/ExportSql.php:1658
+#: src/Plugins/Export/ExportSql.php:1673
 msgid "Indexes for table"
 msgstr "Indekset për tabelë"
 
-#: src/Plugins/Export/ExportSql.php:1688
+#: src/Plugins/Export/ExportSql.php:1696
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT për tabelat e hedhura"
 
-#: src/Plugins/Export/ExportSql.php:1689
+#: src/Plugins/Export/ExportSql.php:1697
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT për tabelë"
 
@@ -18163,51 +18163,51 @@ msgstr "TIPET MIME PËR TABELËN"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACIONET PËR TABELËN"
 
-#: src/Plugins/Export/ExportSql.php:1952
+#: src/Plugins/Export/ExportSql.php:1933
 msgid "It appears your table uses triggers;"
 msgstr "Duket se tabela juaj përdor shkrehës;"
 
-#: src/Plugins/Export/ExportSql.php:1982
+#: src/Plugins/Export/ExportSql.php:1963
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura për pamjen %s eksportuar si një tabelë"
 
-#: src/Plugins/Export/ExportSql.php:2009
+#: src/Plugins/Export/ExportSql.php:1990
 msgid "(See below for the actual view)"
 msgstr "(Shiko më poshtë pamjen aktuale)"
 
-#: src/Plugins/Export/ExportSql.php:2068
+#: src/Plugins/Export/ExportSql.php:2047
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Gabim gjatë leximit të të dhënave për tabelën %s:"
 
-#: src/Plugins/Export/ExportSql.php:2663
+#: src/Plugins/Export/ExportSql.php:2628
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "Krijimi:"
 
-#: src/Plugins/Export/ExportSql.php:2671
+#: src/Plugins/Export/ExportSql.php:2636
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "Aktualizimi i fundit:"
 
-#: src/Plugins/Export/ExportSql.php:2679
+#: src/Plugins/Export/ExportSql.php:2644
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "Kontrolli i fundit:"
 
-#: src/Plugins/Export/ExportSql.php:2700
+#: src/Plugins/Export/ExportSql.php:2665
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "Sistemi i databazës ose serveri i vjetër MySQL për të maksimizuar "
 "pajtueshmërinë e rezultatit me:"
 
-#: src/Plugins/Export/ExportXml.php:79
+#: src/Plugins/Export/ExportXml.php:89
 msgid "Object creation options (all are recommended)"
 msgstr "Opsionet e krijimit të objektit (të gjitha rekomandohen)"
 
-#: src/Plugins/Export/ExportXml.php:123
+#: src/Plugins/Export/ExportXml.php:133
 msgid "Export contents"
 msgstr "Përmbajtja e eksportit"
 
@@ -18994,63 +18994,63 @@ msgstr ""
 "ndërlidhen nëse pjesa e pritësit (host) të llogarisë së tyre lejon një "
 "lidhje nga çdo pritës (%)."
 
-#: src/Server/Status/Data.php:123
+#: src/Server/Status/Data.php:116
 msgid "Handler"
 msgstr "Trajtues"
 
-#: src/Server/Status/Data.php:124
+#: src/Server/Status/Data.php:117
 msgid "Query cache"
 msgstr "Cache e pyetsorit"
 
-#: src/Server/Status/Data.php:125
+#: src/Server/Status/Data.php:118
 msgid "Threads"
 msgstr "Rrjedha"
 
-#: src/Server/Status/Data.php:127
+#: src/Server/Status/Data.php:120
 msgid "Temporary data"
 msgstr "Të dhëna të përkohëshme"
 
-#: src/Server/Status/Data.php:128
+#: src/Server/Status/Data.php:121
 msgid "Delayed inserts"
 msgstr "Futje të vonuara"
 
-#: src/Server/Status/Data.php:129
+#: src/Server/Status/Data.php:122
 msgid "Key cache"
 msgstr "Cache të çelësit"
 
-#: src/Server/Status/Data.php:130
+#: src/Server/Status/Data.php:123
 msgid "Joins"
 msgstr "Bashkime"
 
-#: src/Server/Status/Data.php:132
+#: src/Server/Status/Data.php:125
 msgid "Sorting"
 msgstr "Klasifikim"
 
-#: src/Server/Status/Data.php:134
+#: src/Server/Status/Data.php:127
 msgid "Transaction coordinator"
 msgstr "Koordinator transaksioni"
 
-#: src/Server/Status/Data.php:156
+#: src/Server/Status/Data.php:149
 msgid "Flush (close) all tables"
 msgstr "Zbraz (mbyll) të gjitha tabelat"
 
-#: src/Server/Status/Data.php:160
+#: src/Server/Status/Data.php:153
 msgid "Show open tables"
 msgstr "Shfaq tabelat e hapura"
 
-#: src/Server/Status/Data.php:166
+#: src/Server/Status/Data.php:159
 #, fuzzy
 #| msgid "Show slave hosts"
 msgid "Show replica hosts"
 msgstr "Shfaq pritësit (hosts) skllavë"
 
-#: src/Server/Status/Data.php:174
+#: src/Server/Status/Data.php:167
 #, fuzzy
 #| msgid "Show slave status"
 msgid "Show replica status"
 msgstr "Shfaq statusin skllav"
 
-#: src/Server/Status/Data.php:179
+#: src/Server/Status/Data.php:172
 msgid "Flush query cache"
 msgstr "Zbraz cachen e pyetsorit"
 
@@ -19087,16 +19087,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nuk ka version stabil të ri të vlefshëm"
 
-#: src/Sql.php:436
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Përdorimi i faqerojtësit \"%s\" si shfletues pyetsori standard."
 
-#: src/Sql.php:857
+#: src/Sql.php:861
 msgid "Showing as PHP code"
 msgstr "Shfaqën si kod PHP"
 
-#: src/Sql.php:1223
+#: src/Sql.php:1227
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19105,7 +19105,7 @@ msgstr ""
 "Zgjedhja aktuale nuk përmban një kolonë unike. Tiparet redaktimi i rrjetës, "
 "kutisë së kontrollit, Redakto, Kopjo dhe Fshij nuk janë në vlefshme. %s"
 
-#: src/Sql.php:1237
+#: src/Sql.php:1241
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19336,37 +19336,37 @@ msgstr "Versioni %1$s nga %2$s u fshi."
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versioni %1$s u krijua, gjurmimi për %2$s është aktiv."
 
-#: src/Triggers/Triggers.php:106
+#: src/Triggers/Triggers.php:110
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr "Na vjen keq, dështuam në rikthimin e shkrehësit të fshirë."
 
-#: src/Triggers/Triggers.php:113
+#: src/Triggers/Triggers.php:117
 #, php-format
 msgid "Trigger %1$s has been modified."
 msgstr "Shkrehësi %1$s është modifikuar."
 
-#: src/Triggers/Triggers.php:133
+#: src/Triggers/Triggers.php:137
 #, php-format
 msgid "Trigger %1$s has been created."
 msgstr "Shkrehësi %1$s është krijuar."
 
-#: src/Triggers/Triggers.php:199
+#: src/Triggers/Triggers.php:201
 msgid "You must provide a trigger name!"
 msgstr "Duhet të siguroni një emër shkrehësi!"
 
-#: src/Triggers/Triggers.php:205
+#: src/Triggers/Triggers.php:207
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Duhet të siguroni një kohë të vlefshme për shkrehësin!"
 
-#: src/Triggers/Triggers.php:211
+#: src/Triggers/Triggers.php:213
 msgid "You must provide a valid event for the trigger!"
 msgstr "Duhet të siguroni një ngjarje të vlefshme për shkrehësin!"
 
-#: src/Triggers/Triggers.php:221
+#: src/Triggers/Triggers.php:223
 msgid "You must provide a valid table name!"
 msgstr "Duhet të siguroni një emër tabele të vlefshëm!"
 
-#: src/Triggers/Triggers.php:228
+#: src/Triggers/Triggers.php:230
 msgid "You must provide a trigger definition."
 msgstr "Duhet të siguroni një përkufizim të shkrehësit."
 
