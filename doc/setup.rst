@@ -335,7 +335,7 @@ You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_SSL
 
-    When set to 1, defines SSL usage for the MySQL connection.
+    When set to `1`, defines SSL usage for the MySQL connection.
 
 .. envvar:: PMA_SSLS
 
