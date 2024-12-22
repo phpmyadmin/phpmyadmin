@@ -137,6 +137,9 @@ class DatabaseInterface implements DbalInterface
     private ListDatabase|null $databaseList = null;
     private readonly Config $config;
 
+    /** @var int|numeric-string */
+    private static int|string $cachedAffectedRows = -1;
+
     /** @param DbiExtension $extension Object to be used for database queries */
     public function __construct(private DbiExtension $extension)
     {
@@ -199,7 +202,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         if ($cacheAffectedRows) {
-            $GLOBALS['cached_affected_rows'] = $this->affectedRows($connectionType, false);
+            self::$cachedAffectedRows = $this->affectedRows($connectionType, false);
         }
 
         if ($this->config->config->debug->sql) {
@@ -300,13 +303,19 @@ class DatabaseInterface implements DbalInterface
             return [];
         }
 
-        /** @var array<int, string> $tables */
-        $tables = $this->fetchResult(
+        $result = $this->tryQuery(
             'SHOW TABLES FROM ' . Util::backquote($database) . ';',
-            null,
-            0,
             $connectionType,
+            cacheAffectedRows: false,
         );
+
+        if ($result === false) {
+            return [];
+        }
+
+        /** @var list<string> $tables */
+        $tables = $result->fetchAllColumn();
+
         if ($this->config->settings['NaturalOrder']) {
             usort($tables, strnatcasecmp(...));
         }
@@ -980,8 +989,14 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sql = QueryGenerator::getColumnsSql($database, $table);
 
+        $result = $this->tryQuery($sql, $connectionType, cacheAffectedRows: false);
+
+        if ($result === false) {
+            return [];
+        }
+
         // We only need the 'Field' column which contains the table's column names
-        return $this->fetchResult($sql, null, 'Field', $connectionType);
+        return array_column($result->fetchAllAssoc(), 'Field');
     }
 
     /**
@@ -1017,7 +1032,7 @@ class DatabaseInterface implements DbalInterface
     ): array {
         $sql = QueryGenerator::getTableIndexesSql($database, $table);
 
-        return $this->fetchResult($sql, null, null, $connectionType);
+        return $this->fetchResultSimple($sql, $connectionType);
     }
 
     /**
@@ -1080,7 +1095,7 @@ class DatabaseInterface implements DbalInterface
     {
         $version = $this->fetchSingleRow('SELECT @@version, @@version_comment');
 
-        if (is_array($version)) {
+        if ($version !== []) {
             $this->setVersion($version);
         }
 
@@ -1196,19 +1211,19 @@ class DatabaseInterface implements DbalInterface
      * @param string $type  NUM|ASSOC|BOTH returned array should either numeric associative or both
      * @psalm-param DatabaseInterface::FETCH_NUM|DatabaseInterface::FETCH_ASSOC $type
      *
-     * @return array<string|null>|null
+     * @return array<string|null>
      */
     public function fetchSingleRow(
         string $query,
         string $type = DbalInterface::FETCH_ASSOC,
         ConnectionType $connectionType = ConnectionType::User,
-    ): array|null {
+    ): array {
         $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
         if ($result === false) {
-            return null;
+            return [];
         }
 
-        return $this->fetchByMode($result, $type) ?: null;
+        return $this->fetchByMode($result, $type);
     }
 
     /**
@@ -1278,17 +1293,17 @@ class DatabaseInterface implements DbalInterface
      * // $users['admin']['John Doe'] = '123'
      * </code>
      *
-     * @param string                  $query query to execute
-     * @param string|int|mixed[]|null $key   field-name or offset
+     * @param string             $query query to execute
+     * @param string|int|mixed[] $key   field-name or offset
      *                                     used as key for array
      *                                     or array of those
-     * @param string|int|null         $value value-name or offset used as value for array
+     * @param string|int|null    $value value-name or offset used as value for array
      *
      * @return mixed[] resultrows or values indexed by $key
      */
     public function fetchResult(
         string $query,
-        string|int|array|null $key = null,
+        string|int|array $key,
         string|int|null $value = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
@@ -1299,15 +1314,6 @@ class DatabaseInterface implements DbalInterface
         // return empty array if result is empty or false
         if ($result === false) {
             return [];
-        }
-
-        if ($key === null) {
-            // no nested array if only one field is in result
-            if ($value === 0 || $result->numFields() === 1) {
-                return $result->fetchAllColumn();
-            }
-
-            return $value === null ? $result->fetchAllAssoc() : array_column($result->fetchAllAssoc(), $value);
         }
 
         if (is_array($key)) {
@@ -1344,6 +1350,34 @@ class DatabaseInterface implements DbalInterface
         }
 
         return $resultRows;
+    }
+
+    /** @return list<array<string|null>> */
+    public function fetchResultSimple(
+        string $query,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): array {
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
+
+        if ($result === false) {
+            return [];
+        }
+
+        return $result->fetchAllAssoc();
+    }
+
+    /** @return list<string|null> */
+    public function fetchSingleColumn(
+        string $query,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): array {
+        $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);
+
+        if ($result === false) {
+            return [];
+        }
+
+        return $result->fetchAllColumn();
     }
 
     /**
@@ -1562,7 +1596,7 @@ class DatabaseInterface implements DbalInterface
     private function getCurrentUserGrants(): array
     {
         /** @var string[] $grants */
-        $grants = $this->fetchResult('SHOW GRANTS FOR CURRENT_USER();');
+        $grants = $this->fetchSingleColumn('SHOW GRANTS FOR CURRENT_USER();');
 
         return $grants;
     }
@@ -1785,7 +1819,7 @@ class DatabaseInterface implements DbalInterface
         }
 
         if ($getFromCache) {
-            return $GLOBALS['cached_affected_rows'];
+            return self::$cachedAffectedRows;
         }
 
         return $this->extension->affectedRows($this->connections[$connectionType->value]);

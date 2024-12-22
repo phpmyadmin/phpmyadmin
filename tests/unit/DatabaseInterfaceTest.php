@@ -185,7 +185,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects(self::once())
             ->method('fetchSingleRow')
-            ->willReturn(null);
+            ->willReturn([]);
 
         $mock->expects(self::never())->method('setVersion');
 

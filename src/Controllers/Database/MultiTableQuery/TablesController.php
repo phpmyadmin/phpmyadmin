@@ -29,7 +29,7 @@ final class TablesController implements InvocableController
 
         $tablesListForQuery = array_map($this->dbi->quoteString(...), $tables);
 
-        $constrains = $this->dbi->fetchResult(
+        $constrains = $this->dbi->fetchResultSimple(
             QueryGenerator::getInformationSchemaForeignKeyConstraintsRequest(
                 $this->dbi->quoteString($db),
                 implode(',', $tablesListForQuery),

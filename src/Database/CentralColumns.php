@@ -31,6 +31,7 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
@@ -100,7 +101,7 @@ class CentralColumns
      * @param int    $from starting offset of first result
      * @param int    $num  maximum number of results to return
      *
-     * @return mixed[] list of $num columns present in central columns list
+     * @return list<array<string|null>> list of $num columns present in central columns list
      * starting at offset $from for the given database
      */
     public function getColumnsList(string $db, int $from = 0, int $num = 25): array
@@ -122,10 +123,9 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        $this->handleColumnExtra($hasList);
+        $hasList = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
-        return $hasList;
+        return $this->handleColumnExtra($hasList);
     }
 
     /**
@@ -147,12 +147,8 @@ class CentralColumns
         $query = 'SELECT count(db_name) FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' '
             . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
-        $res = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        if (isset($res[0])) {
-            return (int) $res[0];
-        }
 
-        return 0;
+        return (int) $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
     }
 
     /**
@@ -180,7 +176,7 @@ class CentralColumns
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
 
-        return $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        return $this->dbi->fetchSingleColumn($query, ConnectionType::ControlUser);
     }
 
     /**
@@ -207,10 +203,9 @@ class CentralColumns
         $query = 'SELECT * FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
-        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        $this->handleColumnExtra($hasList);
+        $hasList = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
-        return $hasList;
+        return $this->handleColumnExtra($hasList);
     }
 
     /**
@@ -667,7 +662,7 @@ class CentralColumns
      * @param string $db    selected database
      * @param string $table current table name
      *
-     * @return mixed[] encoded list of columns present in central list for the given database
+     * @return list<array<string|null>> encoded list of columns present in central list for the given database
      */
     public function getListRaw(string $db, string $table): array
     {
@@ -692,19 +687,20 @@ class CentralColumns
             $query .= ';';
         }
 
-        $columnsList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        $this->handleColumnExtra($columnsList);
+        $columnsList = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
-        return $columnsList;
+        return $this->handleColumnExtra($columnsList);
     }
 
     /**
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
-     * @param mixed[] $columnsList columns list
+     * @param list<array<string|null>> $columnsList columns list
+     *
+     * @return list<array<string|null>>
      */
-    private function handleColumnExtra(array &$columnsList): void
+    private function handleColumnExtra(array $columnsList): array
     {
         foreach ($columnsList as &$row) {
             $vals = explode(',', $row['col_extra']);
@@ -723,6 +719,8 @@ class CentralColumns
 
             $row['col_extra'] = in_array('auto_increment', $vals, true) ? 'auto_increment' : '';
         }
+
+        return $columnsList;
     }
 
     /**
@@ -771,10 +769,10 @@ class CentralColumns
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable)
             . ' WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
             . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
-        if (isset($result[0])) {
-            return (int) $result[0];
+        if (is_string($result)) {
+            return (int) $result;
         }
 
         return -1;

@@ -95,7 +95,7 @@ final class BookmarkRepository
 
         $query .= ' ORDER BY label ASC';
 
-        $result = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
         $bookmarks = [];
         foreach ($result as $row) {
@@ -134,7 +134,7 @@ final class BookmarkRepository
         $query .= ' LIMIT 1';
 
         $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-        if ($result !== null) {
+        if ($result !== []) {
             return $this->createFromRow($result);
         }
 
@@ -162,7 +162,7 @@ final class BookmarkRepository
             . ' LIMIT 1';
 
         $result = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-        if ($result !== null) {
+        if ($result !== []) {
             return $this->createFromRow($result);
         }
 

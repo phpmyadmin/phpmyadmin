@@ -1030,9 +1030,10 @@ class Table implements Stringable
         $columnsMetaQuery = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = [];
 
-        $columnsMetaQueryResult = $this->dbi->fetchResult($columnsMetaQuery);
+        $columnsMetaQueryResult = $this->dbi->fetchResultSimple($columnsMetaQuery);
 
         foreach ($columnsMetaQueryResult as $column) {
+            /** @var string $value */
             $value = $column['Field'];
             if ($backquoted) {
                 $value = Util::backquote($value);
@@ -1756,7 +1757,7 @@ class Table implements Stringable
             ),
         );
 
-        if (! is_array($result)) {
+        if ($result === []) {
             return null;
         }
 

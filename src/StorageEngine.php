@@ -157,8 +157,8 @@ class StorageEngine
         $dbi->selectDb($dbName);// Needed for mroonga_command calls
 
         if (! Cache::has($cacheKey)) {
-            $result = $dbi->fetchSingleRow('SELECT mroonga_command(\'object_list\');', DatabaseInterface::FETCH_NUM);
-            $objectList = (array) json_decode($result[0] ?? '', true);
+            $result = $dbi->fetchValue('SELECT mroonga_command(\'object_list\');', 0);
+            $objectList = (array) json_decode((string) $result, true);
             foreach ($objectList as $mroongaName => $mroongaData) {
                 /**
                  * We only need the objects of table or column types, more info:
@@ -187,11 +187,8 @@ class StorageEngine
                 continue;
             }
 
-            $result = $dbi->fetchSingleRow(
-                'SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');',
-                DatabaseInterface::FETCH_NUM,
-            );
-            $decodedData = json_decode($result[0] ?? '', true);
+            $result = $dbi->fetchValue('SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');', 0);
+            $decodedData = json_decode((string) $result, true);
             if ($decodedData === null) {
                 // Invalid for some strange reason, maybe query failed
                 continue;

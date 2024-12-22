@@ -42,7 +42,7 @@ class Triggers
     {
     }
 
-    /** @return mixed[][] */
+    /** @return list<array<string|null>> */
     private static function fetchTriggerInfo(DatabaseInterface $dbi, string $db, string $table): array
     {
         if (! Config::getInstance()->selectedServer['DisableIS']) {
@@ -57,10 +57,7 @@ class Triggers
             }
         }
 
-        /** @var mixed[][] $triggers */
-        $triggers = $dbi->fetchResult($query);
-
-        return $triggers;
+        return $dbi->fetchResultSimple($query);
     }
 
     /**
@@ -270,9 +267,8 @@ class Triggers
             . " AND `TABLE_TYPE` IN ('BASE TABLE', 'SYSTEM VERSIONED')",
             $this->dbi->quoteString($db),
         );
-        $tables = $this->dbi->fetchResult($query);
+        $tables = $this->dbi->fetchSingleColumn($query);
         Assert::allStringNotEmpty($tables);
-        Assert::isList($tables);
 
         return $tables;
     }

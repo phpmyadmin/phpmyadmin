@@ -478,7 +478,7 @@ class Relation
                     . ' AND `table_name` = ' . $this->dbi->quoteString($table);
 
             $row = $this->dbi->fetchSingleRow($dispQuery, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-            if (isset($row['display_field'])) {
+            if ($row['display_field'] !== null) {
                 return $row['display_field'];
             }
         }
@@ -662,9 +662,9 @@ class Relation
      *
      * @param string $username the username
      *
-     * @return mixed[]|bool list of history items
+     * @return mixed[]|false list of history items
      */
-    public function getHistory(string $username): array|bool
+    public function getHistory(string $username): array|false
     {
         $sqlHistoryFeature = $this->getRelationParameters()->sqlHistoryFeature;
         if ($sqlHistoryFeature === null) {
@@ -693,7 +693,7 @@ class Relation
               WHERE `username` = ' . $this->dbi->quoteString($username) . '
            ORDER BY `id` DESC';
 
-        return $this->dbi->fetchResult($histQuery, null, null, ConnectionType::ControlUser);
+        return $this->dbi->fetchResultSimple($histQuery, ConnectionType::ControlUser);
     }
 
     /**

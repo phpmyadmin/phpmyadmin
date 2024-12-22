@@ -222,13 +222,13 @@ class ExportXml extends ExportPlugin
             . '>' . "\n";
 
         if ($exportStruct) {
-            $result = $dbi->fetchResult(
+            $result = $dbi->fetchSingleRow(
                 'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
                 . ' FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`'
                 . ' = ' . $dbi->quoteString(Current::$database) . ' LIMIT 1',
             );
-            $dbCollation = $result[0]['DEFAULT_COLLATION_NAME'];
-            $dbCharset = $result[0]['DEFAULT_CHARACTER_SET_NAME'];
+            $dbCollation = $result['DEFAULT_COLLATION_NAME'];
+            $dbCharset = $result['DEFAULT_CHARACTER_SET_NAME'];
 
             $head .= '    <!--' . "\n";
             $head .= '    - Structure schemas' . "\n";
@@ -320,14 +320,12 @@ class ExportXml extends ExportPlugin
 
             if ($this->exportEvents) {
                 // Export events
-                $events = $dbi->fetchResult(
+                $events = $dbi->fetchSingleColumn(
                     'SELECT EVENT_NAME FROM information_schema.EVENTS '
                     . 'WHERE EVENT_SCHEMA=' . $dbi->quoteString(Current::$database),
                 );
                 $head .= $this->exportDefinitions(Current::$database, 'event', $events);
             }
-
-            unset($result);
 
             $head .= '        </pma:database>' . "\n";
             $head .= '    </pma:structure_schemas>' . "\n";

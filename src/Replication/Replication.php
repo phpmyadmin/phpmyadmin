@@ -175,10 +175,8 @@ class Replication
      */
     public function replicaBinLogPrimary(ConnectionType $connectionType): array
     {
-        $data = $this->dbi->fetchResult(
+        $data = $this->dbi->fetchResultSimple(
             Compatibility::getShowBinLogStatusStmt($this->dbi),
-            null,
-            null,
             $connectionType,
         );
         $output = [];

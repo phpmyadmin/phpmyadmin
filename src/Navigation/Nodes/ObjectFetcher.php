@@ -121,7 +121,7 @@ class ObjectFetcher
 
             $query .= ' ORDER BY `EVENT_NAME` ASC';
 
-            return $this->dbi->fetchResult($query);
+            return $this->dbi->fetchSingleColumn($query);
         }
 
         $query = 'SHOW EVENTS FROM ' . Util::backquote($realName);
@@ -181,7 +181,7 @@ class ObjectFetcher
 
             $query .= ' ORDER BY `TABLE_NAME` ASC';
 
-            return $this->dbi->fetchResult($query);
+            return $this->dbi->fetchResultSimple($query);
         }
 
         $query = 'SHOW FULL TABLES FROM ';
@@ -225,7 +225,7 @@ class ObjectFetcher
 
             $query .= ' ORDER BY `ROUTINE_NAME` ASC';
 
-            return $this->dbi->fetchResult($query);
+            return $this->dbi->fetchSingleColumn($query);
         }
 
         $query = 'SHOW ' . $routineType . ' STATUS WHERE `Db`=' . $this->dbi->quoteString($realName);

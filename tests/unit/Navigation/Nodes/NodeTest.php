@@ -357,7 +357,7 @@ final class NodeTest extends AbstractTestCase
         $node = new Node($config, 'node');
 
         $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::once())->method('fetchResult')->with($expectedSql);
+        $dbi->expects(self::once())->method('fetchSingleColumn')->with($expectedSql);
         $dbi->expects(self::any())->method('quoteString')
             ->willReturnCallback(static fn (string $string): string => "'" . $string . "'");
         DatabaseInterface::$instance = $dbi;
@@ -389,7 +389,7 @@ final class NodeTest extends AbstractTestCase
         $node = new Node($config, 'node');
 
         $dbi = self::createMock(DatabaseInterface::class);
-        $dbi->expects(self::once())->method('fetchResult')->with($expectedSql);
+        $dbi->expects(self::once())->method('fetchSingleColumn')->with($expectedSql);
 
         DatabaseInterface::$instance = $dbi;
         $node->getData(new UserPrivileges(), $relationParameters, '', 10);
@@ -426,7 +426,7 @@ final class NodeTest extends AbstractTestCase
             ->willReturn(['0' => 'db'], ['0' => 'aa_db'], []);
 
         $dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchSingleColumn')
             ->with(
                 "SHOW DATABASES WHERE TRUE AND `Database` LIKE '%db%' AND ("
                 . " LOCATE('db_', CONCAT(`Database`, '_')) = 1"

@@ -899,11 +899,10 @@ class Normalization
             $columns[] = Util::backquote($column);
         }
 
-        $totalRowsRes = $this->dbi->fetchResult(
+        $totalRows = (int) $this->dbi->fetchValue(
             'SELECT COUNT(*) FROM (SELECT * FROM '
             . Util::backquote($table) . ' LIMIT 500) as dt;',
         );
-        $totalRows = $totalRowsRes[0];
         $primary = Index::getPrimary($this->dbi, $table, $db);
         $primarycols = $primary === null ? [] : $primary->getColumns();
         $pk = [];
@@ -988,8 +987,7 @@ class Normalization
             . 'COUNT(DISTINCT ' . $partialKey . ',' . $column . ') as pkColCnt '
             . 'FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
-        $res = $this->dbi->fetchResult($query);
-        $pkColCnt = $res[0];
+        $pkColCnt = $this->dbi->fetchValue($query);
         if ($pkCnt !== 0 && $pkCnt === $colCnt && $colCnt == $pkColCnt) {
             return true;
         }
@@ -1008,7 +1006,6 @@ class Normalization
      */
     private function findDistinctValuesCount(array $columns, string $table): array
     {
-        $result = [];
         $query = 'SELECT ';
         foreach ($columns as $column) {
             if ($column === '') {
@@ -1016,20 +1013,24 @@ class Normalization
             }
 
             //each column is already backquoted
-            $query .= 'COUNT(DISTINCT ' . $column . ') as \''
-                . $column . '_cnt\', ';
+            $query .= 'COUNT(DISTINCT ' . $column . ') as \'' . $column . '_cnt\', ';
         }
 
         $query = trim($query, ', ');
         $query .= ' FROM (SELECT * FROM ' . Util::backquote($table)
             . ' LIMIT 500) as dt;';
-        $res = $this->dbi->fetchResult($query);
+        $res = $this->dbi->fetchSingleRow($query);
+        if ($res === []) {
+            return [];
+        }
+
+        $result = [];
         foreach ($columns as $column) {
             if ($column === '') {
                 continue;
             }
 
-            $result[$column] = (int) ($res[0][$column . '_cnt'] ?? null);
+            $result[$column] = (int) $res[$column . '_cnt'];
         }
 
         return $result;

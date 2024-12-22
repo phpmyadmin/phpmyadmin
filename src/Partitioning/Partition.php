@@ -143,14 +143,13 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $result = $dbi->fetchResult(
+            $result = $dbi->fetchResultSimple(
                 'SELECT * FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
             );
             if ($result !== []) {
                 $partitionMap = [];
-                /** @var array $row */
                 foreach ($result as $row) {
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];
@@ -179,14 +178,14 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return mixed[]   of partition names
+     * @return list<string|null>   of partition names
      */
     public static function getPartitionNames(string $db, string $table): array
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
 
-            return $dbi->fetchResult(
+            return $dbi->fetchSingleColumn(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
@@ -208,14 +207,14 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $partitionMethod = $dbi->fetchResult(
+            $partitionMethod = $dbi->fetchValue(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table)
                 . ' LIMIT 1',
             );
-            if ($partitionMethod !== []) {
-                return $partitionMethod[0];
+            if ($partitionMethod !== false) {
+                return $partitionMethod;
             }
         }
 
@@ -237,7 +236,7 @@ class Partition extends SubPartition
                 self::$havePartitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
-                $plugins = $dbi->fetchResult('SHOW PLUGINS');
+                $plugins = $dbi->fetchResultSimple('SHOW PLUGINS');
                 foreach ($plugins as $value) {
                     if ($value['Name'] === 'partition') {
                         self::$havePartitioning = true;
