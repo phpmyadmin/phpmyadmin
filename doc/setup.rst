@@ -343,7 +343,7 @@ You can configure several phpMyAdmin features using environment variables:
 
 .. envvar:: PMA_SSL_VERIFY
 
-    When set to 1, enables SSL certificate verification for the MySQL connection.
+    When set to `1`, enables SSL certificate verification for the MySQL connection.
 
 .. envvar:: PMA_SSL_VERIFIES
 
