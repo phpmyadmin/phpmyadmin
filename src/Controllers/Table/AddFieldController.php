@@ -48,8 +48,6 @@ final class AddFieldController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $numberOfFields = $request->getParsedBodyParamAsStringOrNull('num_fields');
 
         $this->response->addScriptFiles(['table/structure.js']);
@@ -132,13 +130,13 @@ final class AddFieldController implements InvocableController
             }
 
             // Go back to the structure sub-page
-            $GLOBALS['message'] = Message::success(
+            Current::$message = Message::success(
                 __('Table %1$s has been altered successfully.'),
             );
-            $GLOBALS['message']->addParam(Current::$table);
+            Current::$message->addParam(Current::$table);
             $this->response->addJSON(
                 'message',
-                Generator::getMessage($GLOBALS['message'], Current::$sqlQuery, MessageType::Success),
+                Generator::getMessage(Current::$message, Current::$sqlQuery, MessageType::Success),
             );
 
             // Give an URL to call and use to appends the structure after the success message

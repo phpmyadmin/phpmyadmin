@@ -49,7 +49,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
         $GLOBALS['compression'] ??= null;
         $GLOBALS['asfile'] ??= null;
         $GLOBALS['buffer_needed'] ??= null;
@@ -273,7 +272,7 @@ final class ExportController implements InvocableController
             if ($exportType === ExportType::Database) {
                 $GLOBALS['num_tables'] = count($tableNames);
                 if ($GLOBALS['num_tables'] === 0) {
-                    $GLOBALS['message'] = Message::error(
+                    Current::$message = Message::error(
                         __('No tables found in database.'),
                     );
                     /** @var DatabaseExportController $controller */
@@ -396,8 +395,8 @@ final class ExportController implements InvocableController
             // Ignore
         }
 
-        if ($GLOBALS['save_on_server'] && $GLOBALS['message'] instanceof Message) {
-            $location = $this->export->getPageLocationAndSaveMessage($exportType, $GLOBALS['message']);
+        if ($GLOBALS['save_on_server'] && Current::$message !== null) {
+            $location = $this->export->getPageLocationAndSaveMessage($exportType, Current::$message);
             $this->response->redirect($location);
 
             return $this->response->response();

@@ -192,7 +192,6 @@ class ImportCsv extends AbstractImportCsv
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['message'] ??= null;
 
         $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
         $this->terminated = strtr($this->terminated, $replacements);
@@ -200,7 +199,7 @@ class ImportCsv extends AbstractImportCsv
         $this->escaped = strtr($this->escaped, $replacements);
         $this->newLine = strtr($this->newLine, $replacements);
 
-        [$GLOBALS['error'], $GLOBALS['message']] = $this->buildErrorsForParams(
+        [$GLOBALS['error'], Current::$message] = $this->buildErrorsForParams(
             $this->terminated,
             $this->enclosed,
             $this->escaped,
@@ -285,10 +284,10 @@ class ImportCsv extends AbstractImportCsv
             while ($i < $len) {
                 // Deadlock protection
                 if ($lasti == $i && $lastlen == $len) {
-                    $GLOBALS['message'] = Message::error(
+                    Current::$message = Message::error(
                         __('Invalid format of CSV input on line %d.'),
                     );
-                    $GLOBALS['message']->addParam($line);
+                    Current::$message->addParam($line);
                     $GLOBALS['error'] = true;
                     break;
                 }
@@ -491,12 +490,12 @@ class ImportCsv extends AbstractImportCsv
                     if (count($values) !== count($fields)) {
                         // Hack for excel
                         if ($values[count($values) - 1] !== ';') {
-                            $GLOBALS['message'] = Message::error(
+                            Current::$message = Message::error(
                                 __(
                                     'Invalid column count in CSV input on line %d.',
                                 ),
                             );
-                            $GLOBALS['message']->addParam($line);
+                            Current::$message->addParam($line);
                             $GLOBALS['error'] = true;
                             break;
                         }
@@ -609,16 +608,16 @@ class ImportCsv extends AbstractImportCsv
             return $sqlStatements;
         }
 
-        $GLOBALS['message'] = Message::error(
+        Current::$message = Message::error(
             __('Invalid format of CSV input on line %d.'),
         );
-        $GLOBALS['message']->addParam($line);
+        Current::$message->addParam($line);
         $GLOBALS['error'] = true;
 
         return $sqlStatements;
     }
 
-    /** @return mixed[] */
+    /** @return array{mixed, Message|null} */
     private function buildErrorsForParams(
         string $csvTerminated,
         string $csvEnclosed,
@@ -627,14 +626,13 @@ class ImportCsv extends AbstractImportCsv
         string $errUrl,
     ): array {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['message'] ??= null;
 
         $paramError = false;
         if ($csvTerminated === '') {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
-            $GLOBALS['message']->addParam(__('Columns terminated with'));
+            Current::$message->addParam(__('Columns terminated with'));
             $GLOBALS['error'] = true;
             $paramError = true;
             // The default dialog of MS Excel when generating a CSV produces a
@@ -646,10 +644,10 @@ class ImportCsv extends AbstractImportCsv
             // But the parser won't work correctly with strings so we allow just
             // one character.
         } elseif (mb_strlen($csvEnclosed) > 1) {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
-            $GLOBALS['message']->addParam(__('Columns enclosed with'));
+            Current::$message->addParam(__('Columns enclosed with'));
             $GLOBALS['error'] = true;
             $paramError = true;
             // I could not find a test case where having no escaping characters
@@ -657,17 +655,17 @@ class ImportCsv extends AbstractImportCsv
             // But the parser won't work correctly with strings so we allow just
             // one character.
         } elseif (mb_strlen($csvEscaped) > 1) {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
-            $GLOBALS['message']->addParam(__('Columns escaped with'));
+            Current::$message->addParam(__('Columns escaped with'));
             $GLOBALS['error'] = true;
             $paramError = true;
         } elseif (mb_strlen($csvNewLine) != 1 && $csvNewLine !== 'auto') {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
-            $GLOBALS['message']->addParam(__('Lines terminated with'));
+            Current::$message->addParam(__('Lines terminated with'));
             $GLOBALS['error'] = true;
             $paramError = true;
         }
@@ -676,14 +674,14 @@ class ImportCsv extends AbstractImportCsv
         // indicate that immediately.
         if ($paramError) {
             Generator::mysqlDie(
-                $GLOBALS['message']->getMessage(),
+                Current::$message->getMessage(),
                 '',
                 false,
                 $errUrl,
             );
         }
 
-        return [$GLOBALS['error'], $GLOBALS['message']];
+        return [$GLOBALS['error'], Current::$message];
     }
 
     private function getTableNameFromImport(string $databaseName): string
@@ -729,7 +727,6 @@ class ImportCsv extends AbstractImportCsv
         string $csvColumns,
     ): array {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['message'] ??= null;
 
         $sqlTemplate = '';
         $fields = [];
@@ -761,14 +758,14 @@ class ImportCsv extends AbstractImportCsv
                     $val = trim($val, " \t\r\n\0\x0B`");
 
                     if (! in_array($val, $tmpFields, true)) {
-                        $GLOBALS['message'] = Message::error(
+                        Current::$message = Message::error(
                             __(
                                 'Invalid column (%s) specified! Ensure that columns'
                                 . ' names are spelled correctly, separated by commas'
                                 . ', and not enclosed in quotes.',
                             ),
                         );
-                        $GLOBALS['message']->addParam($val);
+                        Current::$message->addParam($val);
                         $GLOBALS['error'] = true;
                         break;
                     }

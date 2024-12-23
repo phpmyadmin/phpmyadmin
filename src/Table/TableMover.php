@@ -51,7 +51,7 @@ class TableMover
         if ($what === MoveScope::Move) {
             $tbl = new Table($sourceTable, $sourceDb, $this->dbi);
             if ($tbl->rename($targetTable, $targetDb)) {
-                $GLOBALS['message'] = $tbl->getLastMessage();
+                Current::$message = Message::success($tbl->getLastMessage());
 
                 return true;
             }
@@ -59,7 +59,7 @@ class TableMover
 
         $missingDatabaseMessage = $this->checkWhetherDatabasesExist($sourceDb, $targetDb);
         if ($missingDatabaseMessage !== null) {
-            $GLOBALS['message'] = $missingDatabaseMessage;
+            Current::$message = $missingDatabaseMessage;
 
             return false;
         }

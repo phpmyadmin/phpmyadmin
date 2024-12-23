@@ -1379,7 +1379,7 @@ class Sql
         if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
-            unset($GLOBALS['message']);
+            Current::$message = null;
             //we don't need to buffer the output in getMessage here.
             //set a global variable and check against it in the function
             $GLOBALS['buffer_message'] = false;

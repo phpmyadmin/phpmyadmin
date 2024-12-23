@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure\CentralColumns;
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
@@ -29,8 +30,6 @@ final class AddController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (! is_array($selected) || $selected === []) {
@@ -45,7 +44,7 @@ final class AddController implements InvocableController
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->syncUniqueColumns(DatabaseName::from($request->getParsedBodyParam('db')), $selected);
 
-        $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
+        Current::$message = $error instanceof Message ? $error : Message::success(__('Success!'));
 
         unset($_POST['submit_mult']);
 

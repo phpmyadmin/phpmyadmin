@@ -23,7 +23,7 @@ class SpatialControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['message'] = null;
+        Current::$message = null;
         Current::$sqlQuery = '';
 
         $dbiDummy = $this->createDbiDummy();
@@ -41,7 +41,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controller = new SpatialController(new ResponseRenderer(), $controllerStub, $indexes);
         $controller($request);
 
-        self::assertEquals(Message::success(), $GLOBALS['message']);
+        self::assertEquals(Message::success(), Current::$message);
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', Current::$sqlQuery);
         $dbiDummy->assertAllSelectsConsumed();
@@ -52,7 +52,7 @@ class SpatialControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['message'] = null;
+        Current::$message = null;
         Current::$sqlQuery = '';
 
         $dbiDummy = $this->createDbiDummy();
@@ -70,7 +70,7 @@ class SpatialControllerTest extends AbstractTestCase
         $controller = new SpatialController(new ResponseRenderer(), $controllerStub, $indexes);
         $controller($request);
 
-        self::assertEquals(Message::success(), $GLOBALS['message']);
+        self::assertEquals(Message::success(), Current::$message);
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('ALTER TABLE `test_table` ADD SPATIAL(`test_field1`, `test_field2`);', Current::$sqlQuery);
         $dbiDummy->assertAllSelectsConsumed();
@@ -81,7 +81,7 @@ class SpatialControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['message'] = null;
+        Current::$message = null;
         Current::$sqlQuery = '';
 
         $dbi = $this->createDatabaseInterface();
@@ -99,7 +99,7 @@ class SpatialControllerTest extends AbstractTestCase
         self::assertFalse($response->hasSuccessState());
         self::assertSame(['message' => 'No column selected.'], $response->getJSONResult());
         /** @psalm-suppress RedundantCondition */
-        self::assertNull($GLOBALS['message']);
+        self::assertNull(Current::$message);
         /** @psalm-suppress RedundantCondition */
         self::assertEmpty(Current::$sqlQuery);
     }
@@ -108,7 +108,7 @@ class SpatialControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['message'] = null;
+        Current::$message = null;
         Current::$sqlQuery = '';
 
         $dbiDummy = $this->createDbiDummy();
@@ -129,7 +129,7 @@ class SpatialControllerTest extends AbstractTestCase
 
         self::assertEquals(
             Message::error('#1210 - Incorrect arguments to SPATIAL INDEX'),
-            $GLOBALS['message'],
+            Current::$message,
         );
         /** @psalm-suppress TypeDoesNotContainType */
         self::assertSame('ALTER TABLE `test_table` ADD SPATIAL(`test_field`);', Current::$sqlQuery);

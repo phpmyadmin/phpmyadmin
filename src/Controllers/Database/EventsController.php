@@ -53,13 +53,11 @@ final class EventsController implements InvocableController
             $this->dbi->selectDb(Current::$database);
         }
 
-        $GLOBALS['message'] ??= null;
-
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->events->handleEditor();
 
             if ($request->isAjax()) {
-                if ($GLOBALS['message']->isSuccess()) {
+                if (Current::$message instanceof Message && Current::$message->isSuccess()) {
                     $events = $this->events->getDetails(Current::$database, $_POST['item_name']);
                     $event = $events[0];
                     $this->response->addJSON(
@@ -88,7 +86,7 @@ final class EventsController implements InvocableController
                     $this->response->addJSON('message', $output);
                 } else {
                     $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', $GLOBALS['message']);
+                    $this->response->addJSON('message', Current::$message);
                 }
 
                 $this->response->addJSON('tableType', 'events');

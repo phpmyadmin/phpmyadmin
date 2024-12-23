@@ -65,8 +65,6 @@ final class HomeController implements InvocableController
             return $this->redirectToDatabaseOrTablePage($request);
         }
 
-        $GLOBALS['message'] ??= null;
-
         if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
             return $this->response->response();
         }
@@ -85,9 +83,9 @@ final class HomeController implements InvocableController
 
         $languageManager = LanguageManager::getInstance();
 
-        if (! empty($GLOBALS['message'])) {
-            $displayMessage = Generator::getMessage($GLOBALS['message']);
-            unset($GLOBALS['message']);
+        if (Current::$message !== null) {
+            $displayMessage = Generator::getMessage(Current::$message);
+            Current::$message = null;
         }
 
         if (isset($_SESSION['partial_logout'])) {

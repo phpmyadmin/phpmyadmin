@@ -46,7 +46,6 @@ final class PrivilegesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
         $GLOBALS['username'] ??= null;
         $GLOBALS['hostname'] ??= null;
 
@@ -169,7 +168,7 @@ final class PrivilegesController implements InvocableController
             );
             //update the old variables
             if (isset($retMessage)) {
-                $GLOBALS['message'] = $retMessage;
+                Current::$message = $retMessage;
                 unset($retMessage);
             }
         }
@@ -199,7 +198,7 @@ final class PrivilegesController implements InvocableController
             if (is_array($databaseName)) {
                 $statements = [];
                 foreach ($databaseName as $key => $dbName) {
-                    [$statements[$key], $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
+                    [$statements[$key], Current::$message] = $serverPrivileges->updatePrivileges(
                         $GLOBALS['username'] ?? '',
                         $GLOBALS['hostname'] ?? '',
                         $tablename ?? $routinename ?? '',
@@ -210,7 +209,7 @@ final class PrivilegesController implements InvocableController
 
                 Current::$sqlQuery = implode("\n", $statements);
             } else {
-                [Current::$sqlQuery, $GLOBALS['message']] = $serverPrivileges->updatePrivileges(
+                [Current::$sqlQuery, Current::$message] = $serverPrivileges->updatePrivileges(
                     $GLOBALS['username'] ?? '',
                     $GLOBALS['hostname'] ?? '',
                     $tablename ?? $routinename ?? '',
@@ -231,14 +230,14 @@ final class PrivilegesController implements InvocableController
                 $GLOBALS['username'] ?? '',
                 $request->getParsedBodyParamAsString('userGroup', ''),
             );
-            $GLOBALS['message'] = Message::success();
+            Current::$message = Message::success();
         }
 
         /**
          * Revokes Privileges
          */
         if ($request->hasBodyParam('revokeall')) {
-            [$GLOBALS['message'], Current::$sqlQuery] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
+            [Current::$message, Current::$sqlQuery] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 is_string($databaseName) ? $databaseName : '',
                 $tablename ?? $routinename ?? '',
                 $GLOBALS['username'] ?? '',
@@ -251,7 +250,7 @@ final class PrivilegesController implements InvocableController
          * Updates the password
          */
         if ($request->hasBodyParam('change_pw')) {
-            $GLOBALS['message'] = $serverPrivileges->updatePassword(
+            Current::$message = $serverPrivileges->updatePassword(
                 $errorUrl,
                 $GLOBALS['username'] ?? '',
                 $GLOBALS['hostname'] ?? '',
@@ -268,7 +267,7 @@ final class PrivilegesController implements InvocableController
         ) {
             $queries = $serverPrivileges->getDataForDeleteUsers($queries);
             if (! $request->hasBodyParam('change_copy')) {
-                [Current::$sqlQuery, $GLOBALS['message']] = $serverPrivileges->deleteUser($queries);
+                [Current::$sqlQuery, Current::$message] = $serverPrivileges->deleteUser($queries);
             }
         }
 
@@ -277,7 +276,7 @@ final class PrivilegesController implements InvocableController
          */
         if ($request->hasBodyParam('change_copy')) {
             $queries = $serverPrivileges->getDataForQueries($queries, $queriesForDisplay);
-            $GLOBALS['message'] = Message::success();
+            Current::$message = Message::success();
             Current::$sqlQuery = implode("\n", $queries);
         }
 
@@ -286,7 +285,7 @@ final class PrivilegesController implements InvocableController
          */
         $messageRet = $serverPrivileges->updateMessageForReload();
         if ($messageRet !== null) {
-            $GLOBALS['message'] = $messageRet;
+            Current::$message = $messageRet;
             unset($messageRet);
         }
 
@@ -311,9 +310,9 @@ final class PrivilegesController implements InvocableController
                 ! is_array($databaseName) ? $databaseName : null,
             );
 
-            if (! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message) {
-                $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-                $this->response->addJSON('message', $GLOBALS['message']);
+            if (Current::$message instanceof Message) {
+                $this->response->setRequestStatus(Current::$message->isSuccess());
+                $this->response->addJSON('message', Current::$message);
                 $this->response->addJSON($extraData);
 
                 return $this->response->response();
@@ -323,9 +322,9 @@ final class PrivilegesController implements InvocableController
         /**
          * Displays the links
          */
-        if (! empty($GLOBALS['message'])) {
-            $this->response->addHTML(Generator::getMessage($GLOBALS['message']));
-            unset($GLOBALS['message']);
+        if (Current::$message !== null) {
+            $this->response->addHTML(Generator::getMessage(Current::$message));
+            Current::$message = null;
         }
 
         // export user definition

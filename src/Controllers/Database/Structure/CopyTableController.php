@@ -58,7 +58,7 @@ final class CopyTableController implements InvocableController
             );
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
         return ($this->structureController)($request);
     }

@@ -161,10 +161,10 @@ class Export
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
                         if ($writeResult != strlen($this->dumpBuffer)) {
-                            $GLOBALS['message'] = Message::error(
+                            Current::$message = Message::error(
                                 __('Insufficient space to save the file %s.'),
                             );
-                            $GLOBALS['message']->addParam($GLOBALS['save_filename']);
+                            Current::$message->addParam($GLOBALS['save_filename']);
 
                             return false;
                         }
@@ -197,10 +197,10 @@ class Export
                 // Here, use strlen rather than mb_strlen to get the length
                 // in bytes to compare against the number of bytes written.
                 if ($writeResult === 0 || $writeResult === false || $writeResult != strlen($line)) {
-                    $GLOBALS['message'] = Message::error(
+                    Current::$message = Message::error(
                         __('Insufficient space to save the file %s.'),
                     );
-                    $GLOBALS['message']->addParam($GLOBALS['save_filename']);
+                    Current::$message->addParam($GLOBALS['save_filename']);
 
                     return false;
                 }
@@ -749,7 +749,7 @@ class Export
             return;
         }
 
-        $GLOBALS['message'] = Message::error(
+        Current::$message = Message::error(
             // phpcs:disable Generic.Files.LineLength.TooLong
             /* l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular */
             __('Exporting a raw query is not supported for this export method.'),

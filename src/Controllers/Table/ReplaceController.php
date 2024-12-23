@@ -58,8 +58,6 @@ final class ReplaceController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
@@ -291,7 +289,7 @@ final class ReplaceController implements InvocableController
             // No change -> move back to the calling script
             //
             // Note: logic passes here for inline edit
-            $GLOBALS['message'] = Message::success(__('No change'));
+            Current::$message = Message::success(__('No change'));
             // Avoid infinite recursion
             if ($gotoInclude === '/table/replace') {
                 $gotoInclude = '/table/change';
@@ -325,28 +323,28 @@ final class ReplaceController implements InvocableController
         ] = $this->insertEdit->executeSqlQuery($GLOBALS['query']);
 
         if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
-            $GLOBALS['message'] = Message::getMessageForInsertedRows($totalAffectedRows);
+            Current::$message = Message::getMessageForInsertedRows($totalAffectedRows);
             $GLOBALS['unsaved_values'] = array_values($GLOBALS['unsaved_values']);
         } else {
-            $GLOBALS['message'] = Message::getMessageForAffectedRows($totalAffectedRows);
+            Current::$message = Message::getMessageForAffectedRows($totalAffectedRows);
         }
 
         if ($rowSkipped) {
             $gotoInclude = '/table/change';
-            $GLOBALS['message']->addMessagesString($insertErrors, '<br>');
-            $GLOBALS['message']->setType(MessageType::Error);
+            Current::$message->addMessagesString($insertErrors, '<br>');
+            Current::$message->setType(MessageType::Error);
         }
 
-        $GLOBALS['message']->addMessages($lastMessages, '<br>');
+        Current::$message->addMessages($lastMessages, '<br>');
 
         if (! empty($warningMessages)) {
-            $GLOBALS['message']->addMessagesString($warningMessages, '<br>');
-            $GLOBALS['message']->setType(MessageType::Error);
+            Current::$message->addMessagesString($warningMessages, '<br>');
+            Current::$message->setType(MessageType::Error);
         }
 
         if (! empty($errorMessages)) {
-            $GLOBALS['message']->addMessagesString($errorMessages);
-            $GLOBALS['message']->setType(MessageType::Error);
+            Current::$message->addMessagesString($errorMessages);
+            Current::$message->setType(MessageType::Error);
         }
 
         /**
@@ -368,8 +366,8 @@ final class ReplaceController implements InvocableController
 
         if (! empty($returnToSqlQuery)) {
             $GLOBALS['disp_query'] = Current::$sqlQuery;
-            $GLOBALS['disp_message'] = $GLOBALS['message'];
-            unset($GLOBALS['message']);
+            $GLOBALS['disp_message'] = Current::$message;
+            Current::$message = null;
             Current::$sqlQuery = $returnToSqlQuery;
         }
 
@@ -465,10 +463,11 @@ final class ReplaceController implements InvocableController
         );
         $extraData['row_count'] = $tableObj->countRecords();
 
-        $extraData['sql_query'] = Generator::getMessage($GLOBALS['message'], $GLOBALS['display_query']);
+        Current::$message ??= Message::success();
+        $extraData['sql_query'] = Generator::getMessage(Current::$message, $GLOBALS['display_query']);
 
-        $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-        $this->response->addJSON('message', $GLOBALS['message']);
+        $this->response->setRequestStatus(Current::$message->isSuccess());
+        $this->response->addJSON('message', Current::$message);
         $this->response->addJSON($extraData);
     }
 

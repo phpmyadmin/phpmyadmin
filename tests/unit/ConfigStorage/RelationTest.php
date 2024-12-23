@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -513,7 +514,6 @@ class RelationTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', true);
-        self::assertArrayNotHasKey('message', $GLOBALS);
         self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -795,7 +795,6 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
         $relation->fixPmaTables('db_pma', true);
-        self::assertArrayNotHasKey('message', $GLOBALS);
         self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -869,8 +868,7 @@ class RelationTest extends AbstractTestCase
 
         $relation->fixPmaTables('db_pma', true);
 
-        self::assertArrayHasKey('message', $GLOBALS);
-        self::assertSame('MYSQL_ERROR', $GLOBALS['message']);
+        self::assertEquals(Message::error('MYSQL_ERROR'), Current::$message);
         self::assertSame('', $config->selectedServer['pmadb']);
 
         self::assertNull((new ReflectionProperty(Relation::class, 'cache'))->getValue());
@@ -906,8 +904,6 @@ class RelationTest extends AbstractTestCase
             $relation->createPmaDatabase('phpmyadmin'),
         );
 
-        self::assertArrayNotHasKey('message', $GLOBALS);
-
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();
         $dummyDbi->assertAllSelectsConsumed();
@@ -930,12 +926,11 @@ class RelationTest extends AbstractTestCase
             $relation->createPmaDatabase('phpmyadmin'),
         );
 
-        self::assertArrayHasKey('message', $GLOBALS);
-        self::assertSame(
-            'You do not have necessary privileges to create a database named'
+        self::assertEquals(
+            Message::error('You do not have necessary privileges to create a database named'
             . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
-            . ' database to set up the phpMyAdmin configuration storage there.',
-            $GLOBALS['message'],
+            . ' database to set up the phpMyAdmin configuration storage there.'),
+            Current::$message,
         );
 
         $dummyDbi->assertAllQueriesConsumed();
@@ -959,8 +954,7 @@ class RelationTest extends AbstractTestCase
             $relation->createPmaDatabase('pma_1040'),
         );
 
-        self::assertArrayHasKey('message', $GLOBALS);
-        self::assertSame('Too many connections', $GLOBALS['message']);
+        self::assertEquals(Message::error('Too many connections'), Current::$message);
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();

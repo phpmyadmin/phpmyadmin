@@ -29,8 +29,6 @@ final class MakeConsistentController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (! is_array($selected) || $selected === []) {
@@ -45,7 +43,7 @@ final class MakeConsistentController implements InvocableController
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->makeConsistentWithList(Current::$database, $selected);
 
-        $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
+        Current::$message = $error instanceof Message ? $error : Message::success(__('Success!'));
 
         unset($_POST['submit_mult']);
 

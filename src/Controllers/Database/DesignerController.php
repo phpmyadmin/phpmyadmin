@@ -36,8 +36,6 @@ final class DesignerController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $db = $request->getParsedBodyParamAsStringOrNull('db');
         $table = $request->getParsedBodyParamAsStringOrNull('table');
 
@@ -118,14 +116,15 @@ final class DesignerController implements InvocableController
                 $success = $this->designerCommon->saveTablePositions((int) $page);
                 $this->response->setRequestStatus($success);
             } elseif ($operation === 'setDisplayField') {
-                [
-                    $success,
-                    $GLOBALS['message'],
-                ] = $this->designerCommon->saveDisplayField($db, $table, $request->getParsedBodyParamAsString('field'));
-                $this->response->setRequestStatus($success);
-                $this->response->addJSON('message', $GLOBALS['message']);
+                Current::$message = $this->designerCommon->saveDisplayField(
+                    $db,
+                    $table,
+                    $request->getParsedBodyParamAsString('field'),
+                );
+                $this->response->setRequestStatus(Current::$message->isSuccess());
+                $this->response->addJSON('message', Current::$message);
             } elseif ($operation === 'addNewRelation') {
-                [$success, $GLOBALS['message']] = $this->designerCommon->addNewRelation(
+                Current::$message = $this->designerCommon->addNewRelation(
                     $request->getParsedBodyParamAsString('T1'),
                     $request->getParsedBodyParamAsString('F1'),
                     $request->getParsedBodyParamAsString('T2'),
@@ -135,17 +134,17 @@ final class DesignerController implements InvocableController
                     $request->getParsedBodyParamAsString('DB1'),
                     $request->getParsedBodyParamAsString('DB2'),
                 );
-                $this->response->setRequestStatus($success);
-                $this->response->addJSON('message', $GLOBALS['message']);
+                $this->response->setRequestStatus(Current::$message->isSuccess());
+                $this->response->addJSON('message', Current::$message);
             } elseif ($operation === 'removeRelation') {
-                [$success, $GLOBALS['message']] = $this->designerCommon->removeRelation(
+                Current::$message = $this->designerCommon->removeRelation(
                     $request->getParsedBodyParamAsString('T1'),
                     $request->getParsedBodyParamAsString('F1'),
                     $request->getParsedBodyParamAsString('T2'),
                     $request->getParsedBodyParamAsString('F2'),
                 );
-                $this->response->setRequestStatus($success);
-                $this->response->addJSON('message', $GLOBALS['message']);
+                $this->response->setRequestStatus(Current::$message->isSuccess());
+                $this->response->addJSON('message', Current::$message);
             } elseif ($operation === 'save_setting_value') {
                 $success = $this->designerCommon->saveSetting(
                     $request->getParsedBodyParamAsString('index'),

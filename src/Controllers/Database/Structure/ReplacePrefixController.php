@@ -55,9 +55,9 @@ final class ReplacePrefixController implements InvocableController
             $this->dbi->query($aQuery);
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
-        $this->flashMessenger->addMessage('success', $GLOBALS['message']->getMessage(), Current::$sqlQuery);
+        $this->flashMessenger->addMessage('success', Current::$message->getMessage(), Current::$sqlQuery);
 
         return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
             ->withHeader('Location', Url::getFromRoute('/database/structure', ['db' => Current::$database]));

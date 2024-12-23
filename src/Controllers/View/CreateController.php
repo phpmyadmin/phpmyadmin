@@ -58,8 +58,6 @@ final class CreateController implements InvocableController
             return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['message'] ??= null;
-
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             if ($request->isAjax()) {
@@ -82,8 +80,8 @@ final class CreateController implements InvocableController
 
         // View name is a compulsory field
         if (isset($view['name']) && $view['name'] === '') {
-            $GLOBALS['message'] = Message::error(__('View name can not be empty!'));
-            $this->response->addJSON('message', $GLOBALS['message']);
+            Current::$message = Message::error(__('View name can not be empty!'));
+            $this->response->addJSON('message', Current::$message);
             $this->response->setRequestStatus(false);
 
             return $this->response->response();
@@ -98,7 +96,7 @@ final class CreateController implements InvocableController
 
             if (! $this->dbi->tryQuery(Current::$sqlQuery)) {
                 if (! $ajaxdialog) {
-                    $GLOBALS['message'] = Message::rawError($this->dbi->getError());
+                    Current::$message = Message::rawError($this->dbi->getError());
 
                     return $this->response->response();
                 }
@@ -220,7 +218,7 @@ final class CreateController implements InvocableController
         }
 
         if ($ajaxdialog) {
-            $GLOBALS['message'] = Message::success();
+            Current::$message = Message::success();
             /** @var StructureController $controller */
             $controller = ContainerBuilder::getContainer()->get(StructureController::class);
 

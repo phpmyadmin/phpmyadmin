@@ -2098,12 +2098,6 @@ parameters:
 			path: src/Controllers/Database/DesignerController.php
 
 		-
-			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Controllers/Database/EventsController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 16
@@ -2242,12 +2236,6 @@ parameters:
 			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -2880,7 +2868,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 7
+			count: 6
 			path: src/Controllers/HomeController.php
 
 		-
@@ -2904,12 +2892,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in \|\|, string\|false given on the right side\.$#'
 			identifier: booleanOr.rightNotBoolean
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/HomeController.php
 
@@ -2955,12 +2937,6 @@ parameters:
 		-
 			message: '#^Cannot access offset ''table_name'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: '#^Cannot call method getDisplay\(\) on mixed\.$#'
-			identifier: method.nonObject
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -3184,12 +3160,6 @@ parameters:
 			path: src/Controllers/Operations/DatabaseController.php
 
 		-
-			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -3204,18 +3174,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: '#^Parameter \#1 \$state of method PhpMyAdmin\\ResponseRenderer\:\:setRequestStatus\(\) expects bool, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
 
@@ -3591,7 +3549,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 5
+			count: 3
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
@@ -3603,12 +3561,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) has parameter \$selectedUsers with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
@@ -3643,27 +3595,9 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getExportUserDefinitionTextarea\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForRoutineSpecificPrivileges\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:updatePrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
@@ -3691,24 +3625,6 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Parameter \#3 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getDbSpecificPrivsQueriesForChangeOrCopyUser\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#3 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getExtraDataForAjaxBehavior\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#3 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:updatePassword\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3722,12 +3638,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getMessageAndSqlQueryForPrivilegesRevoke\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -4738,30 +4648,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Cannot call method addMessages\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Cannot call method addMessagesString\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 3
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Cannot call method setType\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 3
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 8
@@ -4816,7 +4702,7 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
+			message: '#^Parameter \#1 \$messages of method PhpMyAdmin\\Message\:\:addMessagesString\(\) expects array\<string\>, list\<PhpMyAdmin\\Message\|string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -4829,12 +4715,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$queryData of static method PhpMyAdmin\\Core\:\:previewSQL\(\) expects array\<mixed\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Parameter \#1 \$state of method PhpMyAdmin\\ResponseRenderer\:\:setRequestStatus\(\) expects bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -5011,18 +4891,6 @@ parameters:
 			path: src/Controllers/Table/Structure/BrowseController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/Structure/CentralColumnsAddController.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/Structure/CentralColumnsRemoveController.php
-
-		-
 			message: '#^Parameter \#1 \$selected of method PhpMyAdmin\\Controllers\\Table\\Structure\\ChangeController\:\:displayHtmlForColumnChange\(\) expects array\<string\>, array\<int, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -5081,12 +4949,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Table/Structure/PartitioningController.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Controllers/Table/Structure/PrimaryController.php
 
 		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
@@ -5600,12 +5462,6 @@ parameters:
 			identifier: empty.notAllowed
 			count: 1
 			path: src/Controllers/Transformation/WrapperController.php
-
-		-
-			message: '#^Cannot call method isSuccess\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Controllers/Triggers/IndexController.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
@@ -6439,12 +6295,6 @@ parameters:
 			path: src/Database/Events.php
 
 		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Events.php
-
-		-
 			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:tryQuery\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6635,12 +6485,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$itemParamName of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
@@ -9129,7 +8973,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 7
+			count: 6
 			path: src/Header.php
 
 		-
@@ -13126,12 +12970,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Cannot call method getMessage\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -13169,12 +13007,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, array\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '#^Parameter \#1 \$serverMessage of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -17545,12 +17377,6 @@ parameters:
 			path: src/Triggers/Triggers.php
 
 		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Triggers/Triggers.php
-
-		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -21528,18 +21354,6 @@ parameters:
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with ''auto'' will always evaluate to false\.$#'
 			identifier: staticMethod.impossibleType
-			count: 1
-			path: tests/unit/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: '#^Cannot call method __toString\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: tests/unit/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: tests/unit/Plugins/Import/ImportLdiTest.php
 
