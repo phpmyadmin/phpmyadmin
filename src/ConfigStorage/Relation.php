@@ -477,9 +477,9 @@ class Relation
                     . ' WHERE `db_name` = ' . $this->dbi->quoteString($db)
                     . ' AND `table_name` = ' . $this->dbi->quoteString($table);
 
-            $row = $this->dbi->fetchSingleRow($dispQuery, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-            if ($row['display_field'] !== null) {
-                return $row['display_field'];
+            $displayField = $this->dbi->fetchValue($dispQuery, 0, ConnectionType::ControlUser);
+            if (is_string($displayField)) {
+                return $displayField;
             }
         }
 
