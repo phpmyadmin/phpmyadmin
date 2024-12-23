@@ -51,7 +51,6 @@ use function is_int;
 use function mb_strtolower;
 use function microtime;
 use function openlog;
-use function reset;
 use function sprintf;
 use function str_contains;
 use function str_replace;
@@ -751,23 +750,21 @@ class DatabaseInterface
      *
      * @param string|null $database name of database
      * @param string|null $table    name of table to retrieve columns from
-     * @param string|null $column   name of specific column
      *
      * @return mixed[]
      */
     public function getColumnsFull(
         string|null $database = null,
         string|null $table = null,
-        string|null $column = null,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         if (! $this->config->selectedServer['DisableIS']) {
             $sql = QueryGenerator::getInformationSchemaColumnsFullRequest(
                 $database !== null ? $this->quoteString($database, $connectionType) : null,
                 $table !== null ? $this->quoteString($table, $connectionType) : null,
-                $column !== null ? $this->quoteString($column, $connectionType) : null,
+                null,
             );
-            $arrayKeys = QueryGenerator::getInformationSchemaColumns($database, $table, $column);
+            $arrayKeys = QueryGenerator::getInformationSchemaColumns($database, $table, null);
 
             return $this->fetchResult($sql, $arrayKeys, null, $connectionType);
         }
@@ -775,7 +772,7 @@ class DatabaseInterface
         $columns = [];
         if ($database === null) {
             foreach ($this->getDatabaseList() as $database) {
-                $columns[$database] = $this->getColumnsFull($database, null, null, $connectionType);
+                $columns[$database] = $this->getColumnsFull($database, null, $connectionType);
             }
 
             return $columns;
@@ -784,26 +781,17 @@ class DatabaseInterface
         if ($table === null) {
             $tables = $this->getTables($database);
             foreach ($tables as $table) {
-                $columns[$table] = $this->getColumnsFull($database, $table, null, $connectionType);
+                $columns[$table] = $this->getColumnsFull($database, $table, $connectionType);
             }
 
             return $columns;
         }
 
-        $sql = QueryGenerator::getColumnsSql(
-            $database,
-            $table,
-            $column !== null ? $this->quoteString($column, $connectionType) : null,
-            true,
-        );
+        $sql = QueryGenerator::getColumnsSql($database, $table, null, true);
 
         $columns = $this->fetchResult($sql, 'Field', null, $connectionType);
 
         $columns = Compatibility::getISCompatForGetColumnsFull($columns);
-
-        if ($column !== null && $columns !== []) {
-            return reset($columns);
-        }
 
         return $columns;
     }
