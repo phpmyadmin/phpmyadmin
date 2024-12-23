@@ -8,7 +8,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PhpMyAdmin\Query\Compatibility;

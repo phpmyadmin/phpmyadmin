@@ -9,8 +9,8 @@ namespace PhpMyAdmin\Plugins\Export;
 
 use DateTimeImmutable;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;

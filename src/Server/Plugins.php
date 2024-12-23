@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 
 use function __;
 use function array_map;

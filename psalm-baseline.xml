@@ -4169,7 +4169,7 @@
       <code><![CDATA[empty($_POST['criteriaTables'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/DatabaseInterface.php">
+  <file src="src/Dbal/DatabaseInterface.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
@@ -4296,7 +4296,6 @@
     </PossiblyUndefinedArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
-      <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$roleHost]]></code>
@@ -4315,12 +4314,6 @@
       <code><![CDATA[$resultTarget =& $resultTarget[$row[$keyIndex]]]]></code>
       <code><![CDATA[$resultTarget =& $resultTarget[]]]></code>
     </UnsupportedReferenceUsage>
-  </file>
-  <file src="src/Dbal/DbalInterface.php">
-    <PossiblyUnusedReturnValue>
-      <code><![CDATA[bool]]></code>
-      <code><![CDATA[bool]]></code>
-    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Dbal/DbiMysqli.php">
     <DeprecatedMethod>

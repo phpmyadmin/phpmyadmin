@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\UniqueCondition;
 use PHPUnit\Framework\Attributes\CoversClass;

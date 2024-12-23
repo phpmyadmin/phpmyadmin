@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Html\MySQLDocumentation;

@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use BaconQrCode\Renderer\ImageRenderer;
 use CodeLts\U2F\U2FServer\U2FServer;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;

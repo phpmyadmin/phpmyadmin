@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table\Maintenance;
 
 use PhpMyAdmin\Controllers\Table\Maintenance\ChecksumController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Table\Maintenance;
 use PhpMyAdmin\Tests\AbstractTestCase;

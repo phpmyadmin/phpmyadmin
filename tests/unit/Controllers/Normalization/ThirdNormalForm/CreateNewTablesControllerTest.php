@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\ThirdNormalForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\ThirdNormalForm\CreateNewTablesController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;

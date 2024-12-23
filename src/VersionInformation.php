@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 

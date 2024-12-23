@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Server\Status\Processes;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;

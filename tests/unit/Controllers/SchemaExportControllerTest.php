@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\SchemaExportController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;

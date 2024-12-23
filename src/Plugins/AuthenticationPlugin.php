@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Plugins;
 
 use Exception;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;

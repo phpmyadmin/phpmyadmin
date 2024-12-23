@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Error;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Error\ErrorReport;
 use PhpMyAdmin\Http\RequestMethod;

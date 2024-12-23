@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Processes;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Processes\RefreshController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;

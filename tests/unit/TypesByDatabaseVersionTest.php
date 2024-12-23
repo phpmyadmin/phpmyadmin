@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;

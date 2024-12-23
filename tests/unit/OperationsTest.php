@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;

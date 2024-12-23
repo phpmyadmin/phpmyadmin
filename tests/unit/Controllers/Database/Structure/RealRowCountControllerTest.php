@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\Structure\RealRowCountController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;

@@ -4,8 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Dbal\DbalInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function array_keys;
@@ -263,7 +262,7 @@ class Compatibility
     }
 
     /** @return non-empty-string */
-    public static function getShowBinLogStatusStmt(DbalInterface $dbal): string
+    public static function getShowBinLogStatusStmt(DatabaseInterface $dbal): string
     {
         if ($dbal->isMySql() && $dbal->getVersion() >= 80200) {
             return 'SHOW BINARY LOG STATUS';

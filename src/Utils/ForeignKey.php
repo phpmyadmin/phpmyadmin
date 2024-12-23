@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Utils;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 
 use function str_starts_with;
 use function strtolower;

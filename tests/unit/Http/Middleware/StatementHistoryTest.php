@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Http\Middleware;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Middleware\StatementHistory;
 use PhpMyAdmin\Tests\AbstractTestCase;

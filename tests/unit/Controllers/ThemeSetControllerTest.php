@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\ThemeSetController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;

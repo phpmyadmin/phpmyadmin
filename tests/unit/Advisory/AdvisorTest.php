@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Advisory;
 
 use PhpMyAdmin\Advisory\Advisor;
 use PhpMyAdmin\Advisory\Rules;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;

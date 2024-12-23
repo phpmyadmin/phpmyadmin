@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\ResponseRenderer;
 use Psr\Http\Message\ResponseInterface;

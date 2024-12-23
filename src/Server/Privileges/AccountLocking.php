@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Server\Privileges;
 
 use Exception;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Query\Compatibility;
 
 use function __;

@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Replication;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;

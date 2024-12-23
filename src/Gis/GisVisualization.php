@@ -9,7 +9,7 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;

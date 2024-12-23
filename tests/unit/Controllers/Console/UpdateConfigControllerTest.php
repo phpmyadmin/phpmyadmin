@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Console;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Console\UpdateConfigController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;

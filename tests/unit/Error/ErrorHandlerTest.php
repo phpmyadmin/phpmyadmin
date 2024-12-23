@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Error;
 
 use Exception;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;

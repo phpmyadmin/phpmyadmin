@@ -6,6 +6,7 @@ namespace PhpMyAdmin;
 
 use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\UserGroupLevel;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;

@@ -16,7 +16,7 @@ use PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Error\ErrorReport;

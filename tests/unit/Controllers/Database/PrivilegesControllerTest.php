@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\PrivilegesController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Privileges;
 use PhpMyAdmin\Tests\AbstractTestCase;

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Server\Status\Monitor;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Server\Status\Monitor\LogVarsController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;

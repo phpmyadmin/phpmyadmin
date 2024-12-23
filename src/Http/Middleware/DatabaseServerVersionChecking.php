@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;

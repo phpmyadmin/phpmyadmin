@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Util;
 

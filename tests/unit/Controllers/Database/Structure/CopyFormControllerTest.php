@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Database\Structure;
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\Database\Structure\CopyFormController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;

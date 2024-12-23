@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization\FirstNormalForm;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\FirstNormalForm\FirstStepController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;

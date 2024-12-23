@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\UserGroupLevel;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Tracking\Tracker;

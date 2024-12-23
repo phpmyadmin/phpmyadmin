@@ -2,30 +2,32 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Dbal;
 
+use PhpMyAdmin\Column;
+use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\Dbal\Connection;
-use PhpMyAdmin\Dbal\ConnectionException;
-use PhpMyAdmin\Dbal\ConnectionType;
-use PhpMyAdmin\Dbal\DbalInterface;
-use PhpMyAdmin\Dbal\DbiExtension;
-use PhpMyAdmin\Dbal\DbiMysqli;
-use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
-use PhpMyAdmin\Dbal\Warning;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Index;
+use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tracking\Tracker;
+use PhpMyAdmin\Types;
+use PhpMyAdmin\UserPrivilegesFactory;
+use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\SessionCache;
 use stdClass;
 
@@ -77,7 +79,7 @@ use const SORT_DESC;
 /**
  * Main interface for database interactions
  */
-class DatabaseInterface implements DbalInterface
+class DatabaseInterface
 {
     public static self|null $instance = null;
 
@@ -95,6 +97,9 @@ class DatabaseInterface implements DbalInterface
      * Get global variable.
      */
     public const GETVAR_GLOBAL = 2;
+
+    public const FETCH_NUM = 'NUM';
+    public const FETCH_ASSOC = 'ASSOC';
 
     /**
      * Opened database connections.
@@ -1067,13 +1072,13 @@ class DatabaseInterface implements DbalInterface
         string $var,
         string $value,
         ConnectionType $connectionType = ConnectionType::User,
-    ): bool {
+    ): void {
         $currentValue = $this->getVariable($var, self::GETVAR_SESSION, $connectionType);
         if ($currentValue == $value) {
-            return true;
+            return;
         }
 
-        return (bool) $this->query('SET ' . $var . ' = ' . $value . ';', $connectionType);
+        $this->query('SET ' . $var . ' = ' . $value . ';', $connectionType);
     }
 
     public function getDefaultCharset(): string
@@ -1215,7 +1220,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function fetchSingleRow(
         string $query,
-        string $type = DbalInterface::FETCH_ASSOC,
+        string $type = self::FETCH_ASSOC,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         $result = $this->tryQuery($query, $connectionType, cacheAffectedRows: false);

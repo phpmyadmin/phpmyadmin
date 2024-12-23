@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\DecimalSize;
 use PhpMyAdmin\Import\Import;

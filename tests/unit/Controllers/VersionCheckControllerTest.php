@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\VersionCheckController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Release;

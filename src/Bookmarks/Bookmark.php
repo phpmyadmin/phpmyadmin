@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Bookmarks;
 
 use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function count;

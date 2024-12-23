@@ -15,6 +15,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Utils\ForeignKey;
 

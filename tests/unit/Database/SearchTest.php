@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Search;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
