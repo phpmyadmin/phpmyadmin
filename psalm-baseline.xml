@@ -4195,6 +4195,7 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$columns]]></code>
       <code><![CDATA[uksort($eachTables, strnatcasecmp(...))]]></code>
       <code><![CDATA[uksort($oneDatabaseTables, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
@@ -4222,7 +4223,6 @@
     <MixedInferredReturnType>
       <code><![CDATA[list<string>]]></code>
       <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -4233,8 +4233,6 @@
       <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_role')]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
-      <code><![CDATA[reset($columns)]]></code>
-      <code><![CDATA[reset($columns)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$this->fetchResultSimple($sql, $connectionType)]]></code>
@@ -8716,33 +8714,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Query/Compatibility.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$columns[$columnName]['Collation']]]></code>
-      <code><![CDATA[$columns[$columnName]['Comment']]]></code>
-      <code><![CDATA[$columns[$columnName]['Default']]]></code>
-      <code><![CDATA[$columns[$columnName]['Extra']]]></code>
-      <code><![CDATA[$columns[$columnName]['Field']]]></code>
-      <code><![CDATA[$columns[$columnName]['Key']]]></code>
-      <code><![CDATA[$columns[$columnName]['Null']]]></code>
-      <code><![CDATA[$columns[$columnName]['Privileges']]]></code>
-      <code><![CDATA[$columns[$columnName]['Type']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$columns[$columnName]['CHARACTER_MAXIMUM_LENGTH']]]></code>
-      <code><![CDATA[$columns[$columnName]['CHARACTER_OCTET_LENGTH']]]></code>
-      <code><![CDATA[$columns[$columnName]['CHARACTER_SET_NAME']]]></code>
-      <code><![CDATA[$columns[$columnName]['DATA_TYPE']]]></code>
-      <code><![CDATA[$columns[$columnName]['NUMERIC_PRECISION']]]></code>
-      <code><![CDATA[$columns[$columnName]['NUMERIC_SCALE']]]></code>
-      <code><![CDATA[$columns[$columnName]['ORDINAL_POSITION']]]></code>
-      <code><![CDATA[$columns[$columnName]['TABLE_CATALOG']]]></code>
-      <code><![CDATA[$columns[$columnName]['TABLE_NAME']]]></code>
-      <code><![CDATA[$columns[$columnName]['TABLE_SCHEMA']]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$colCollation]]></code>
-      <code><![CDATA[$colType]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$eachTables[$tableName]['Comment'] ?? '']]></code>
     </PossiblyInvalidArgument>

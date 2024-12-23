@@ -8,12 +8,10 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function array_keys;
+use function explode;
 use function in_array;
 use function is_string;
-use function strlen;
-use function strpos;
 use function strtoupper;
-use function substr;
 
 /**
  * Handles data compatibility from SQL query results
@@ -77,13 +75,12 @@ class Compatibility
     }
 
     /**
-     * @param mixed[] $columns
+     * @param array<array<string|null>> $columns
      *
-     * @return mixed[]
+     * @return array<array<string|null>>
      */
-    public static function getISCompatForGetColumnsFull(array $columns, string $database, string $table): array
+    public static function getISCompatForGetColumnsFull(array $columns): array
     {
-        $ordinalPosition = 1;
         foreach (array_keys($columns) as $columnName) {
             // Compatibility with INFORMATION_SCHEMA output
             $columns[$columnName]['COLUMN_NAME'] =& $columns[$columnName]['Field'];
@@ -96,30 +93,9 @@ class Compatibility
             $columns[$columnName]['PRIVILEGES'] =& $columns[$columnName]['Privileges'];
             $columns[$columnName]['COLUMN_COMMENT'] =& $columns[$columnName]['Comment'];
 
-            $columns[$columnName]['TABLE_CATALOG'] = null;
-            $columns[$columnName]['TABLE_SCHEMA'] = $database;
-            $columns[$columnName]['TABLE_NAME'] = $table;
-            $columns[$columnName]['ORDINAL_POSITION'] = $ordinalPosition;
             $colType = $columns[$columnName]['COLUMN_TYPE'];
             $colType = is_string($colType) ? $colType : '';
-            $colTypePosComa = strpos($colType, '(');
-            $colTypePosComa = $colTypePosComa !== false ? $colTypePosComa : strlen($colType);
-            $columns[$columnName]['DATA_TYPE'] = substr($colType, 0, $colTypePosComa);
-            /** @todo guess CHARACTER_MAXIMUM_LENGTH from COLUMN_TYPE */
-            $columns[$columnName]['CHARACTER_MAXIMUM_LENGTH'] = null;
-            /** @todo guess CHARACTER_OCTET_LENGTH from CHARACTER_MAXIMUM_LENGTH */
-            $columns[$columnName]['CHARACTER_OCTET_LENGTH'] = null;
-            $columns[$columnName]['NUMERIC_PRECISION'] = null;
-            $columns[$columnName]['NUMERIC_SCALE'] = null;
-            $colCollation = $columns[$columnName]['COLLATION_NAME'];
-            $colCollation = is_string($colCollation) ? $colCollation : '';
-            $colCollationPosUnderscore = strpos($colCollation, '_');
-            $colCollationPosUnderscore = $colCollationPosUnderscore !== false
-                ? $colCollationPosUnderscore
-                : strlen($colCollation);
-            $columns[$columnName]['CHARACTER_SET_NAME'] = substr($colCollation, 0, $colCollationPosUnderscore);
-
-            $ordinalPosition++;
+            $columns[$columnName]['DATA_TYPE'] = explode('(', $colType)[0];
         }
 
         return $columns;

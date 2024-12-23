@@ -799,9 +799,9 @@ class DatabaseInterface
 
         $columns = $this->fetchResult($sql, 'Field', null, $connectionType);
 
-        $columns = Compatibility::getISCompatForGetColumnsFull($columns, $database, $table);
+        $columns = Compatibility::getISCompatForGetColumnsFull($columns);
 
-        if ($column !== null) {
+        if ($column !== null && $columns !== []) {
             return reset($columns);
         }
 
