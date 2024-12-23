@@ -8914,10 +8914,6 @@
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
       <code><![CDATA[$GLOBALS['pred_username']]]></code>
-      <code><![CDATA[$GLOBALS['ssl_cipher']]]></code>
-      <code><![CDATA[$GLOBALS['ssl_type']]]></code>
-      <code><![CDATA[$GLOBALS['x509_issuer']]]></code>
-      <code><![CDATA[$GLOBALS['x509_subject']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$paramDbName]]></code>
