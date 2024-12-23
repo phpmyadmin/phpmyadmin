@@ -1260,14 +1260,14 @@ class ExportSql extends ExportPlugin
 
         $createQuery .= Util::backquote($viewAlias) . ' (' . "\n";
         $tmp = [];
-        $columns = DatabaseInterface::getInstance()->getColumnsFull($db, $view);
-        foreach ($columns as $columnName => $definition) {
-            $colAlias = $columnName;
+        $columns = DatabaseInterface::getInstance()->getColumns($db, $view);
+        foreach ($columns as $column) {
+            $colAlias = $column->field;
             if (! empty($aliases[$db]['tables'][$view]['columns'][$colAlias])) {
                 $colAlias = $aliases[$db]['tables'][$view]['columns'][$colAlias];
             }
 
-            $tmp[] = Util::backquote($colAlias) . ' ' . $definition['Type'] . "\n";
+            $tmp[] = Util::backquote($colAlias) . ' ' . $column->type . "\n";
         }
 
         return $createQuery . implode(',', $tmp) . ');' . "\n";

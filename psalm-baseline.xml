@@ -4284,6 +4284,9 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getColumnsFull]]></code>
+    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
@@ -7097,7 +7100,6 @@
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]]]></code>
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]['columns']]]></code>
       <code><![CDATA[$columnAliases[$column['name']]]]></code>
-      <code><![CDATA[$definition['Type']]]></code>
     </MixedArrayAccess>
     <MixedArrayTypeCoercion>
       <code><![CDATA[$row[$j]]]></code>
@@ -7107,7 +7109,6 @@
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$columnAliases]]></code>
-      <code><![CDATA[$definition]]></code>
       <code><![CDATA[$field->name]]></code>
       <code><![CDATA[$field->references->table->table]]></code>
       <code><![CDATA[$newDatabase]]></code>
@@ -7118,9 +7119,6 @@
       <code><![CDATA[$statement->name->table]]></code>
       <code><![CDATA[$statement->table->table]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$definition['Type']]]></code>
-    </MixedOperand>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$field->key->columns]]></code>
       <code><![CDATA[$field->references->columns]]></code>

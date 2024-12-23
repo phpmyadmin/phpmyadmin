@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
@@ -650,9 +651,9 @@ class ExportSqlTest extends AbstractTestCase
             ->getMock();
 
         $dbi->expects(self::once())
-            ->method('getColumnsFull')
+            ->method('getColumns')
             ->with('db', 'view')
-            ->willReturn(['cname' => ['Type' => 'int']]);
+            ->willReturn([new Column('cname', 'int', false, '', null, '')]);
 
         DatabaseInterface::$instance = $dbi;
 
