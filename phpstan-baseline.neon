@@ -6898,12 +6898,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Parameter \#1 \$columns of static method PhpMyAdmin\\Query\\Compatibility\:\:getISCompatForGetColumnsFull\(\) expects array\<array\<string\|null\>\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2

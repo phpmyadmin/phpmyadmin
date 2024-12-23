@@ -4187,7 +4187,6 @@
       <code><![CDATA[$this->versionString]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$columns]]></code>
       <code><![CDATA[uksort($eachTables, strnatcasecmp(...))]]></code>
       <code><![CDATA[uksort($oneDatabaseTables, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
@@ -4284,9 +4283,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['SCRIPT_NAME']]]></code>
     </PossiblyUndefinedArrayOffset>
-    <PossiblyUnusedMethod>
-      <code><![CDATA[getColumnsFull]]></code>
-    </PossiblyUnusedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>

@@ -72,29 +72,6 @@ class Compatibility
         return $eachTables;
     }
 
-    /**
-     * @param array<array<string|null>> $columns
-     *
-     * @return array<array<string|null>>
-     */
-    public static function getISCompatForGetColumnsFull(array $columns): array
-    {
-        foreach (array_keys($columns) as $columnName) {
-            // Compatibility with INFORMATION_SCHEMA output
-            $columns[$columnName]['COLUMN_NAME'] =& $columns[$columnName]['Field'];
-            $columns[$columnName]['COLUMN_TYPE'] =& $columns[$columnName]['Type'];
-            $columns[$columnName]['COLLATION_NAME'] =& $columns[$columnName]['Collation'];
-            $columns[$columnName]['IS_NULLABLE'] =& $columns[$columnName]['Null'];
-            $columns[$columnName]['COLUMN_KEY'] =& $columns[$columnName]['Key'];
-            $columns[$columnName]['COLUMN_DEFAULT'] =& $columns[$columnName]['Default'];
-            $columns[$columnName]['EXTRA'] =& $columns[$columnName]['Extra'];
-            $columns[$columnName]['PRIVILEGES'] =& $columns[$columnName]['Privileges'];
-            $columns[$columnName]['COLUMN_COMMENT'] =& $columns[$columnName]['Comment'];
-        }
-
-        return $columns;
-    }
-
     public static function isMySqlOrPerconaDb(): bool
     {
         $serverType = Util::getServerType();
