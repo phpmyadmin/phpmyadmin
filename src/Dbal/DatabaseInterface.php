@@ -748,36 +748,25 @@ class DatabaseInterface
      * returns detailed array with all columns for given table in database,
      * or all tables/databases
      *
-     * @param string      $database name of database
-     * @param string|null $table    name of table to retrieve columns from
+     * @param string $database name of database
+     * @param string $table    name of table to retrieve columns from
      *
      * @return mixed[]
      */
     public function getColumnsFull(
         string $database,
-        string|null $table = null,
+        string $table,
         ConnectionType $connectionType = ConnectionType::User,
     ): array {
         if (! $this->config->selectedServer['DisableIS']) {
             $sql = QueryGenerator::getInformationSchemaColumnsFullRequest(
                 $this->quoteString($database, $connectionType),
-                $table !== null ? $this->quoteString($table, $connectionType) : null,
+                $this->quoteString($table, $connectionType),
                 null,
             );
             $arrayKeys = QueryGenerator::getInformationSchemaColumns($database, $table, null);
 
             return $this->fetchResult($sql, $arrayKeys, null, $connectionType);
-        }
-
-        $columns = [];
-
-        if ($table === null) {
-            $tables = $this->getTables($database);
-            foreach ($tables as $table) {
-                $columns[$table] = $this->getColumnsFull($database, $table, $connectionType);
-            }
-
-            return $columns;
         }
 
         $sql = QueryGenerator::getColumnsSql($database, $table, null, true);
