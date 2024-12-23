@@ -70,6 +70,11 @@ use function uksort;
  */
 class Privileges
 {
+    private string|null $sslType = null;
+    private string|null $sslCipher = null;
+    private string|null $x509Issuer = null;
+    private string|null $x509Subject = null;
+
     public function __construct(
         public Template $template,
         public DatabaseInterface $dbi,
@@ -954,13 +959,13 @@ class Privileges
     public function getRequireClause(): string
     {
         /** @var string|null $sslType */
-        $sslType = $_POST['ssl_type'] ?? $GLOBALS['ssl_type'] ?? null;
+        $sslType = $_POST['ssl_type'] ?? $this->sslType;
         /** @var string|null $sslCipher */
-        $sslCipher = $_POST['ssl_cipher'] ?? $GLOBALS['ssl_cipher'] ?? null;
+        $sslCipher = $_POST['ssl_cipher'] ?? $this->sslCipher;
         /** @var string|null $x509Issuer */
-        $x509Issuer = $_POST['x509_issuer'] ?? $GLOBALS['x509_issuer'] ?? null;
+        $x509Issuer = $_POST['x509_issuer'] ?? $this->x509Issuer;
         /** @var string|null $x509Subject */
-        $x509Subject = $_POST['x509_subject'] ?? $GLOBALS['x509_subject'] ?? null;
+        $x509Subject = $_POST['x509_subject'] ?? $this->x509Subject;
 
         if ($sslType === 'SPECIFIED') {
             $require = [];
@@ -2063,9 +2068,10 @@ class Privileges
                 );
                 unset($_POST['change_copy']);
             } else {
-                foreach ($row as $key => $value) {
-                    $GLOBALS[$key] = $value;
-                }
+                $this->sslType = $row['ssl_type'];
+                $this->sslCipher = $row['ssl_cipher'];
+                $this->x509Issuer = $row['x509_issuer'];
+                $this->x509Subject = $row['x509_subject'];
 
                 $serverVersion = $this->dbi->getVersion();
                 // Recent MySQL versions have the field "Password" in mysql.user,
