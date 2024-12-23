@@ -9707,7 +9707,6 @@
       <code><![CDATA[$index]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$options['expr']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
     </MixedArgument>
@@ -9722,10 +9721,6 @@
       <code><![CDATA[$existrel[$masterField]['foreign_table']]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$index[0]]]></code>
-      <code><![CDATA[$row['Field']]]></code>
-      <code><![CDATA[$row['Field']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs']]]></code>
@@ -9734,15 +9729,11 @@
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$columns[$row['Field']]]]></code>
-      <code><![CDATA[$columns[$row['Field']]]]></code>
       <code><![CDATA[$optionsArray[$_POST['on_delete'][$masterFieldMd5]]]]></code>
       <code><![CDATA[$optionsArray[$_POST['on_update'][$masterFieldMd5]]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$columns[$row['Field']]]]></code>
       <code><![CDATA[$index]]></code>
-      <code><![CDATA[$row]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[mixed[]]]></code>
@@ -9753,10 +9744,6 @@
     <MixedReturnStatement>
       <code><![CDATA[json_decode($value, true)]]></code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$columns]]></code>
-      <code><![CDATA[array<string, string>]]></code>
-    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
     </PossiblyInvalidArgument>

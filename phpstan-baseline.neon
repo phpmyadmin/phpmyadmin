@@ -16702,18 +16702,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Cannot access offset ''Field'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''Type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Table/Table.php
-
-		-
 			message: '#^Cannot access offset ''foreign_db'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -16798,12 +16786,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Table\\Table\:\:getNameAndTypeOfTheColumns\(\) should return array\<string, string\> but returns array\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Table\\Table\:\:getUiPrefsFromDb\(\) should return array\<mixed\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -16871,12 +16853,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#2 \$subject of function preg_match expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php
