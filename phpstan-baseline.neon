@@ -6820,12 +6820,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Foreach overwrites \$database with its value variable\.$#'
-			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Foreach overwrites \$table with its value variable\.$#'
 			identifier: foreach.valueOverwrite
 			count: 1
