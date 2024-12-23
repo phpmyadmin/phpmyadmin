@@ -56,6 +56,8 @@ class RelationTest extends AbstractTestCase
             $relation->getDisplayField($db, $table),
         );
 
+        $dummyDbi->addResult('SHOW COLUMNS FROM `information_schema`.`PMA`', []);
+
         $db = 'information_schema';
         $table = 'PMA';
         self::assertSame(

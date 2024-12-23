@@ -8,9 +8,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function array_keys;
-use function explode;
 use function in_array;
-use function is_string;
 use function strtoupper;
 
 /**
@@ -92,10 +90,6 @@ class Compatibility
             $columns[$columnName]['EXTRA'] =& $columns[$columnName]['Extra'];
             $columns[$columnName]['PRIVILEGES'] =& $columns[$columnName]['Privileges'];
             $columns[$columnName]['COLUMN_COMMENT'] =& $columns[$columnName]['Comment'];
-
-            $colType = $columns[$columnName]['COLUMN_TYPE'];
-            $colType = is_string($colType) ? $colType : '';
-            $columns[$columnName]['DATA_TYPE'] = explode('(', $colType)[0];
         }
 
         return $columns;

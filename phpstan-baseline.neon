@@ -1615,18 +1615,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Cannot access offset ''COLUMN_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Cannot access offset ''DATA_TYPE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -1658,12 +1646,6 @@ parameters:
 
 		-
 			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:getChildReferences\(\) should return array\<list\<array\<mixed\>\>\> but returns array\<mixed\>\.$#'
-			identifier: return.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1873,7 +1855,7 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/ConfigStorage/Relation.php

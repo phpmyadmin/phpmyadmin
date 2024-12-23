@@ -677,7 +677,6 @@
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
-      <code><![CDATA[$column['DATA_TYPE']]]></code>
       <code><![CDATA[$columns['table_name']]]></code>
       <code><![CDATA[$columns['table_schema']]]></code>
       <code><![CDATA[$foreignDb]]></code>
@@ -689,10 +688,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($foreign, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$column['COLUMN_NAME']]]></code>
-      <code><![CDATA[$column['DATA_TYPE']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['sql_history'][]]]></code>
     </MixedArrayAssignment>
@@ -700,7 +695,6 @@
       <code><![CDATA[$foreign[$key]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$column]]></code>
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
@@ -711,10 +705,8 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[array|false]]></code>
-      <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$foreigners[$column]]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
