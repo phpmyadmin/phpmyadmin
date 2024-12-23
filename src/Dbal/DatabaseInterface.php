@@ -790,11 +790,12 @@ class DatabaseInterface
             return $columns;
         }
 
-        $sql = 'SHOW FULL COLUMNS FROM '
-            . Util::backquote($database) . '.' . Util::backquote($table);
-        if ($column !== null) {
-            $sql .= ' LIKE ' . $this->quoteString($column, $connectionType);
-        }
+        $sql = QueryGenerator::getColumnsSql(
+            $database,
+            $table,
+            $column !== null ? $this->quoteString($column, $connectionType) : null,
+            true,
+        );
 
         $columns = $this->fetchResult($sql, 'Field', null, $connectionType);
 
