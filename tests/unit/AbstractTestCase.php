@@ -78,6 +78,7 @@ abstract class AbstractTestCase extends TestCase
         Current::$table = '';
         Current::$sqlQuery = '';
         Current::$message = null;
+        Current::$lang = 'en';
 
         // Config before DBI
         $this->setGlobalConfig();
@@ -116,7 +117,7 @@ abstract class AbstractTestCase extends TestCase
 
     protected function setLanguage(string $code = 'en'): void
     {
-        $GLOBALS['lang'] = $code;
+        Current::$lang = $code;
         $languageManager = LanguageManager::getInstance();
         /* Ensure default language is active */
         $languageEn = $languageManager->getLanguage($code);

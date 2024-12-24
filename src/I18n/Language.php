@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\I18n;
 
+use PhpMyAdmin\Current;
+
 use function addcslashes;
 use function in_array;
 use function preg_match;
@@ -102,7 +104,7 @@ class Language
      */
     public function isActive(): bool
     {
-        return $GLOBALS['lang'] == $this->code;
+        return Current::$lang === $this->code;
     }
 
     /**

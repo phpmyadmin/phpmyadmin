@@ -48,7 +48,7 @@ final class ExportControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectServer('1');
         $config->settings['Export']['sql_procedure_function'] = false;
@@ -209,7 +209,7 @@ final class ExportControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dbiDummy);
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectServer('1');
         $config->settings['Export']['sql_procedure_function'] = false;

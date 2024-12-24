@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -53,7 +54,7 @@ final class SetupPageRedirection implements MiddlewareInterface
         restore_error_handler();
 
         // Save current language in a cookie, since it was not set in Common::run().
-        $this->config->setCookie('pma_lang', $GLOBALS['lang']);
+        $this->config->setCookie('pma_lang', Current::$lang);
         $this->config->setSetup(true);
 
         // allows for redirection even after sending some data

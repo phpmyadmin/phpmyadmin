@@ -394,8 +394,6 @@ final class HomeController implements InvocableController
 
     private function checkLanguageStats(): void
     {
-        $GLOBALS['lang'] ??= null;
-
         /**
          * Warning about incomplete translations.
          *
@@ -409,8 +407,8 @@ final class HomeController implements InvocableController
         include ROOT_PATH . 'app/language_stats.inc.php';
         $config = Config::getInstance();
         if (
-            ! isset($GLOBALS['language_stats'][$GLOBALS['lang']])
-            || $GLOBALS['language_stats'][$GLOBALS['lang']] >= $config->settings['TranslationWarningThreshold']
+            ! isset($GLOBALS['language_stats'][Current::$lang])
+            || $GLOBALS['language_stats'][Current::$lang] >= $config->settings['TranslationWarningThreshold']
         ) {
             return;
         }

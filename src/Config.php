@@ -488,11 +488,11 @@ class Config
         if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
             if (
                 (! isset($configData['lang'])
-                && $GLOBALS['lang'] !== 'en')
+                && Current::$lang !== 'en')
                 || isset($configData['lang'])
-                && $GLOBALS['lang'] != $configData['lang']
+                && Current::$lang !== $configData['lang']
             ) {
-                $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
+                $this->setUserValue(null, 'lang', Current::$lang, 'en');
             }
         } elseif (isset($configData['lang'])) {
             $languageManager = LanguageManager::getInstance();

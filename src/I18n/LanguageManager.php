@@ -6,7 +6,9 @@ namespace PhpMyAdmin\I18n;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Exceptions\UnsupportedLanguageCode;
+use PhpMyAdmin\SqlParser\Translator;
 
 use function __;
 use function _bindtextdomain;
@@ -873,7 +875,7 @@ class LanguageManager
      */
     public function getCurrentLanguage(): Language
     {
-        return $this->availableLanguages[strtolower($GLOBALS['lang'])];
+        return $this->availableLanguages[strtolower(Current::$lang)];
     }
 
     /**
@@ -973,15 +975,17 @@ class LanguageManager
      */
     public function activate(Language $language): void
     {
-        $GLOBALS['lang'] = $language->getCode();
+        $languageCode = $language->getCode();
+        Current::$lang = $languageCode;
+        Translator::setLocale($languageCode);
 
         // Set locale
-        _setlocale(0, $language->getCode());
+        _setlocale(0, $languageCode);
         _bindtextdomain('phpmyadmin', LOCALE_PATH);
         _textdomain('phpmyadmin');
         // Set PHP locale as well
         if (function_exists('setlocale')) {
-            setlocale(0, $language->getCode());
+            setlocale(0, $languageCode);
         }
 
         self::$textDirection = $language->isRTL() ? TextDirection::RightToLeft : TextDirection::LeftToRight;
@@ -990,7 +994,7 @@ class LanguageManager
         $GLOBALS['l'] = [
             'a_meta_charset' => 'UTF-8',
             'a_meta_dir' => self::$textDirection->value,
-            'a_meta_language' => $language->getCode(),
+            'a_meta_language' => $languageCode,
             'w_page' => __('Page number:'),
         ];
 

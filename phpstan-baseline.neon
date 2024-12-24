@@ -570,7 +570,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 3
+			count: 2
 			path: src/Config.php
 
 		-
@@ -2860,7 +2860,7 @@ parameters:
 			path: src/Controllers/HomeController.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
+			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Controllers/HomeController.php
@@ -3276,7 +3276,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
@@ -8989,12 +8989,6 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: '#^Parameter \#2 \$params of method PhpMyAdmin\\Scripts\:\:addFile\(\) expects array\<string, string\>, array\<string, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Header.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
@@ -9160,12 +9154,6 @@ parameters:
 			path: src/Http/Middleware/DatabaseServerVersionChecking.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Http/Middleware/LanguageAndThemeCookieSaving.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -9182,12 +9170,6 @@ parameters:
 			identifier: staticProperty.deprecated
 			count: 1
 			path: src/Http/Middleware/RouteParsing.php
-
-		-
-			message: '#^Parameter \#2 \$value of method PhpMyAdmin\\Config\:\:setCookie\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Http/Middleware/SetupPageRedirection.php
 
 		-
 			message: '''
@@ -9283,12 +9265,6 @@ parameters:
 			path: src/Http/ServerRequest.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/I18n/Language.php
-
-		-
 			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -9317,12 +9293,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$filename of function is_dir expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/I18n/LanguageManager.php
-
-		-
-			message: '#^Parameter \#1 \$string of function strtolower expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/I18n/LanguageManager.php
@@ -17463,7 +17433,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 4
+			count: 2
 			path: src/Url.php
 
 		-

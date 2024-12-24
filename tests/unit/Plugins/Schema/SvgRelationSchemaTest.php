@@ -46,7 +46,7 @@ class SvgRelationSchemaTest extends AbstractTestCase
 
         Current::$database = 'test_db';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $this->object = new SvgRelationSchema(new Relation($dbi), DatabaseName::from('test_db'));

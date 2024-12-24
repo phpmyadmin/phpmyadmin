@@ -52,7 +52,7 @@ class TrackingTest extends AbstractTestCase
 
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['tracking_default_statements'] = 'DELETE';

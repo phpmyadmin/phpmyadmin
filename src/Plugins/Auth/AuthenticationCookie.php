@@ -176,7 +176,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             'has_servers' => $hasServers,
             'server_options' => $serversOptions,
             'server' => Current::$server,
-            'lang' => $GLOBALS['lang'],
+            'lang' => Current::$lang,
             'has_captcha' => ! empty($config->settings['CaptchaApi'])
                 && ! empty($config->settings['CaptchaRequestParam'])
                 && ! empty($config->settings['CaptchaResponseParam'])

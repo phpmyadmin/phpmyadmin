@@ -55,7 +55,7 @@ class ScriptsTest extends AbstractTestCase
             $actual,
         );
         self::assertStringContainsString(
-            'src="index.php?route=%2Fmessages&l=en&v=' . rawurlencode(Version::VERSION) . '"',
+            'src="index.php?route=%2Fmessages&l=en&v=' . rawurlencode(Version::VERSION) . '&lang=en"',
             $actual,
         );
         self::assertStringContainsString(

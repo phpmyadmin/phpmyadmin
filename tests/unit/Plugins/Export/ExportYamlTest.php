@@ -44,7 +44,7 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['save_on_server'] = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $this->object = new ExportYaml(
             new Relation($dbi),
             new Export($dbi),

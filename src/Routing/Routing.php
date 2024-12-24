@@ -17,6 +17,7 @@ use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -196,7 +197,7 @@ class Routing
             $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => Sanitize::convertBBCode(sprintf(
                     __('Error 404! The page %s was not found.'),
                     '[code]' . htmlspecialchars($route) . '[/code]',

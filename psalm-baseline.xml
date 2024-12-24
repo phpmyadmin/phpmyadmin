@@ -1555,7 +1555,7 @@
       <code><![CDATA[$this->config->get('TempDir')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['language_stats'][$GLOBALS['lang']]]]></code>
+      <code><![CDATA[$GLOBALS['language_stats'][Current::$lang]]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
@@ -1566,9 +1566,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$this->config->get('TempDir')]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$GLOBALS['language_stats']]]></code>
-    </PossiblyNullArrayOffset>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
@@ -5551,11 +5548,6 @@
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-  </file>
-  <file src="src/Http/Middleware/LanguageAndThemeCookieSaving.php">
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['lang']]]></code>
-    </RedundantCast>
   </file>
   <file src="src/Http/Middleware/ProfilingChecking.php">
     <DeprecatedMethod>
@@ -10137,8 +10129,6 @@
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
-      <code><![CDATA[empty($GLOBALS['lang'])]]></code>
-      <code><![CDATA[empty($GLOBALS['lang'])]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
     </RiskyTruthyFalsyComparison>

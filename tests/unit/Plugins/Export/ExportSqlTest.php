@@ -64,7 +64,7 @@ class ExportSqlTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
