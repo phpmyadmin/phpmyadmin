@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Exceptions\ConfigException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;
@@ -35,7 +36,7 @@ final class ConfigErrorAndPermissionChecking implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => $exception->getMessage(),
             ]));
         }

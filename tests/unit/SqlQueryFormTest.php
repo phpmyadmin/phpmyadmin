@@ -138,7 +138,7 @@ class SqlQueryFormTest extends AbstractTestCase
     public function testPMAGetHtmlForSqlQueryForm(): void
     {
         //Call the test function
-        $GLOBALS['lang'] = 'ja';
+        Current::$lang = 'ja';
         $query = 'select * from PMA';
         $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
@@ -175,6 +175,6 @@ class SqlQueryFormTest extends AbstractTestCase
             Encoding::kanjiEncodingForm(),
             $html,
         );
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
     }
 }

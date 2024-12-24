@@ -89,7 +89,7 @@ class Header
         $this->scripts->addFile('vendor/js.cookie.min.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-        $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
+        $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => Current::$lang]);
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
         $this->scripts->addFile('main.js');
@@ -111,7 +111,7 @@ class Header
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
             'opendb_url' => Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database'),
-            'lang' => $GLOBALS['lang'],
+            'lang' => Current::$lang,
             'server' => Current::$server,
             'table' => Current::$table,
             'db' => Current::$database,
@@ -276,7 +276,7 @@ class Header
         $this->scripts->addFile('validator-messages.js');
 
         return [
-            'lang' => $GLOBALS['lang'],
+            'lang' => Current::$lang,
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
             'theme_path' => $theme->getPath(),

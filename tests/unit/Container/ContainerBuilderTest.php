@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Container;
 
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -30,7 +31,7 @@ final class ContainerBuilderTest extends AbstractTestCase
     #[DataProvider('servicesProvider')]
     public function testContainerEntries(string $service): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $container = ContainerBuilder::getContainer();
         self::assertNotNull($container->get($service));

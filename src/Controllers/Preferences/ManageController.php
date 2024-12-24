@@ -10,6 +10,7 @@ use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
@@ -59,7 +60,6 @@ final class ManageController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['lang'] ??= null;
         $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
@@ -194,7 +194,7 @@ final class ManageController implements InvocableController
                     $this->themeManager->setThemeCookie();
                 }
 
-                if (isset($configuration['lang']) && $configuration['lang'] != $GLOBALS['lang']) {
+                if (isset($configuration['lang']) && $configuration['lang'] !== Current::$lang) {
                     $redirectParams['lang'] = $configuration['lang'];
                 }
 

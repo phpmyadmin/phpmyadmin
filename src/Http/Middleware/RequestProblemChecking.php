@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;
@@ -30,7 +31,7 @@ final class RequestProblemChecking implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => __('GLOBALS overwrite attempt'),
             ]));
         }
@@ -42,7 +43,7 @@ final class RequestProblemChecking implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => __('possible exploit'),
             ]));
         }

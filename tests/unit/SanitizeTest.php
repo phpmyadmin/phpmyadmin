@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Sanitize;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -38,15 +39,15 @@ class SanitizeTest extends AbstractTestCase
      */
     public function testLink(): void
     {
-        $lang = $GLOBALS['lang'];
+        $lang = Current::$lang;
 
-        unset($GLOBALS['lang']);
+        Current::$lang = '';
         self::assertSame(
             '<a href="index.php?route=/url&url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target="target">link</a>',
             Sanitize::convertBBCode('[a@https://www.phpmyadmin.net/@target]link[/a]'),
         );
 
-        $GLOBALS['lang'] = $lang;
+        Current::$lang = $lang;
     }
 
     /**

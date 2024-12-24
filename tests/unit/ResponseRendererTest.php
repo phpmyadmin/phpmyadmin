@@ -29,7 +29,7 @@ final class ResponseRendererTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
     }
 
     public function testSetAjax(): void

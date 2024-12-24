@@ -64,8 +64,8 @@ class Url
             $params['server'] = Current::$server;
         }
 
-        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
-            $params['lang'] = $GLOBALS['lang'];
+        if (empty($config->getCookie('pma_lang')) && Current::$lang !== '') {
+            $params['lang'] = Current::$lang;
         }
 
         if (! is_array($skip)) {
@@ -221,8 +221,8 @@ class Url
         }
 
         // Can be null when the user is missing an extension.
-        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
-            $params['lang'] = $GLOBALS['lang'];
+        if (empty($config->getCookie('pma_lang')) && Current::$lang !== '') {
+            $params['lang'] = Current::$lang;
         }
 
         $query = self::buildHttpQuery($params, $encrypt);

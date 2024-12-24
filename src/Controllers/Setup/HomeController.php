@@ -8,6 +8,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\ServerConfigChecks;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -43,7 +44,7 @@ final class HomeController implements InvocableController
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => __('Configuration already exists, setup is disabled!'),
             ]));
         }

@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
@@ -53,7 +54,7 @@ final class Authentication implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => $exception->getMessage(),
             ]));
         }
@@ -70,7 +71,7 @@ final class Authentication implements MiddlewareInterface
                 $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
                 return $response->write($this->template->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
+                    'lang' => Current::$lang,
                     'error_message' => $exception->getMessage(),
                 ]));
             }

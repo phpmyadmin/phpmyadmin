@@ -319,7 +319,7 @@ class UserPreferencesTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $GLOBALS['lang'] = '';
+        Current::$lang = '';
         Current::$database = 'db';
         Current::$table = 'table';
 

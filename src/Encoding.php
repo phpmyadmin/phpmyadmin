@@ -171,7 +171,7 @@ class Encoding
      */
     public static function canConvertKanji(): bool
     {
-        return $GLOBALS['lang'] === 'ja';
+        return Current::$lang === 'ja';
     }
 
     /**

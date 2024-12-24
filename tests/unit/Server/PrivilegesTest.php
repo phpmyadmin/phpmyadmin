@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
@@ -267,7 +268,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetDataForChangeOrCopyUser(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -1547,7 +1548,7 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetHtmlForUserOverview(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $userPrivileges = new UserPrivileges(isReload: true);
 
         $dummyDbi = $this->createDbiDummy();
@@ -1702,7 +1703,7 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetHtmlForInitials(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT COUNT(*) FROM `mysql`.`user`', [[21]]);

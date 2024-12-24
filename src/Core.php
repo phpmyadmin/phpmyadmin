@@ -79,8 +79,8 @@ class Core
         $phpDocLanguages = ['pt_BR', 'zh_CN', 'fr', 'de', 'ja', 'ru', 'es', 'tr'];
 
         $lang = 'en';
-        if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $phpDocLanguages, true)) {
-            $lang = $GLOBALS['lang'] === 'zh_CN' ? 'zh' : $GLOBALS['lang'];
+        if (in_array(Current::$lang, $phpDocLanguages, true)) {
+            $lang = Current::$lang === 'zh_CN' ? 'zh' : Current::$lang;
         }
 
         return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);

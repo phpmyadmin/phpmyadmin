@@ -44,7 +44,7 @@ class SqlControllerTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
 

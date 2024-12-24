@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\TwoFactor;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\WebAuthn;
@@ -42,7 +43,7 @@ class WebAuthnTest extends AbstractTestCase
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $uri = self::createStub(UriInterface::class);
@@ -105,7 +106,7 @@ class WebAuthnTest extends AbstractTestCase
     {
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
         $uri = self::createStub(UriInterface::class);

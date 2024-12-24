@@ -8,6 +8,7 @@ use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\Setup\SetupFormList;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -40,7 +41,7 @@ final class FormController implements InvocableController
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => __('Configuration already exists, setup is disabled!'),
             ]));
         }
@@ -57,7 +58,7 @@ final class FormController implements InvocableController
         $formClass = SetupFormList::get($formSet);
         if ($formClass === null) {
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
+                'lang' => Current::$lang,
                 'error_message' => __('Incorrect form specified!'),
             ]));
         }

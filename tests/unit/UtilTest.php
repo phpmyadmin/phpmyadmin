@@ -1329,7 +1329,7 @@ SQL;
     #[DataProvider('dataProviderScriptNames')]
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         self::assertSame(
             $finalLink,
             Util::getScriptNameForOption($target, $location),

@@ -25,7 +25,7 @@ class IndexRenameControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table_index_rename';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');

@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
@@ -28,7 +29,7 @@ final class AuthenticationPluginTest extends AbstractTestCase
         /** @psalm-suppress InaccessibleProperty */
         $config->config->debug->simple2fa = true;
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
@@ -91,7 +92,7 @@ final class AuthenticationPluginTest extends AbstractTestCase
         /** @psalm-suppress InaccessibleProperty */
         $config->config->debug->simple2fa = true;
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
             // phpcs:ignore Generic.Files.LineLength.TooLong
