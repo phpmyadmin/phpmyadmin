@@ -34,7 +34,7 @@ final class DropTableController implements InvocableController
         $selected = $_POST['selected'] ?? [];
 
         if ($multBtn !== __('Yes')) {
-            $GLOBALS['message'] = Message::success(__('No change'));
+            Current::$message = Message::success(__('No change'));
 
             unset($_POST['mult_btn']);
 
@@ -76,13 +76,13 @@ final class DropTableController implements InvocableController
             }
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
         $this->dbi->selectDb(Current::$database);
         $result = $this->dbi->tryQuery(Current::$sqlQuery);
 
         if (! $result) {
-            $GLOBALS['message'] = Message::error($this->dbi->getError());
+            Current::$message = Message::error($this->dbi->getError());
         }
 
         if ($result && $sqlQueryViews !== '') {
@@ -92,7 +92,7 @@ final class DropTableController implements InvocableController
         }
 
         if (! $result) {
-            $GLOBALS['message'] = Message::error($this->dbi->getError());
+            Current::$message = Message::error($this->dbi->getError());
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);

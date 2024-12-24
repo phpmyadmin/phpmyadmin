@@ -100,12 +100,10 @@ final class RoutinesController implements InvocableController
             $this->dbi->selectDb(Current::$database);
         }
 
-        $GLOBALS['message'] ??= null;
-
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database);
             if ($request->isAjax()) {
-                if (! $GLOBALS['message']->isSuccess()) {
+                if (! (Current::$message instanceof Message && Current::$message->isSuccess())) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $output);
 

@@ -9,6 +9,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -33,7 +34,6 @@ final class CentralColumnsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
         $db = DatabaseName::from($request->getParam('db'));
 
         if ($request->hasBodyParam('edit_save')) {
@@ -54,6 +54,7 @@ final class CentralColumnsController implements InvocableController
             return $this->response->response();
         }
 
+        $tmpMsg = null;
         if ($request->hasBodyParam('add_new_column')) {
             $tmpMsg = $this->addNewColumn(
                 $request->getParsedBodyParamAsString('col_name'),
@@ -100,7 +101,7 @@ final class CentralColumnsController implements InvocableController
         }
 
         if ($request->hasBodyParam('multi_edit_central_column_save')) {
-            $GLOBALS['message'] = $this->centralColumns->updateMultipleColumn([
+            $message = $this->centralColumns->updateMultipleColumn([
                 'db' => $request->getParsedBodyParam('db'),
                 'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
                 'field_name' => $request->getParsedBodyParam('field_name'),
@@ -113,9 +114,10 @@ final class CentralColumnsController implements InvocableController
                 'field_null' => $request->getParsedBodyParam('field_null'),
                 'col_extra' => $request->getParsedBodyParam('col_extra'),
             ]);
-            if (! is_bool($GLOBALS['message'])) {
+            if (! is_bool($message)) {
+                Current::$message = $message;
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $GLOBALS['message']);
+                $this->response->addJSON('message', Current::$message);
             }
         }
 
@@ -139,14 +141,14 @@ final class CentralColumnsController implements InvocableController
             $pos,
             Config::getInstance()->settings['MaxRows'],
         );
-        $GLOBALS['message'] = Message::success(
+        Current::$message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
         );
-        if (! isset($tmpMsg) || $tmpMsg === true) {
+        if (! ($tmpMsg instanceof Message)) {
             return $this->response->response();
         }
 
-        $GLOBALS['message'] = $tmpMsg;
+        Current::$message = $tmpMsg;
 
         return $this->response->response();
     }

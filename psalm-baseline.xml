@@ -820,9 +820,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['message']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -901,9 +898,6 @@
       <code><![CDATA[$_REQUEST['item_name']]]></code>
       <code><![CDATA[$itemName]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullReference>
-      <code><![CDATA[isSuccess]]></code>
-    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -1096,9 +1090,6 @@
     <PossiblyNullOperand>
       <code><![CDATA[$title]]></code>
     </PossiblyNullOperand>
-    <PossiblyNullReference>
-      <code><![CDATA[isSuccess]]></code>
-    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2142,9 +2133,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$queries]]></code>
     </MixedArgumentTypeCoercion>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[! empty($GLOBALS['message']) && $GLOBALS['message'] instanceof Message]]></code>
-    </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['ajax_page_request'])]]></code>
       <code><![CDATA[empty($routinename)]]></code>
@@ -3468,9 +3456,6 @@
                             $_REQUEST['item_name'],
                         )]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullReference>
-      <code><![CDATA[isSuccess]]></code>
-    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -7621,6 +7606,9 @@
       <code><![CDATA[$values[count($values) - 1]]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
     </InvalidArrayOffset>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['error']]]></code>
+    </MixedAssignment>
     <PossiblyNullOperand>
       <code><![CDATA[$ch]]></code>
     </PossiblyNullOperand>
@@ -11137,9 +11125,6 @@
     <TypeDoesNotContainType>
       <code><![CDATA[assertSame]]></code>
       <code><![CDATA[assertSame]]></code>
-      <code><![CDATA[assertSame]]></code>
-      <code><![CDATA[assertSame]]></code>
-      <code><![CDATA[assertSame]]></code>
     </TypeDoesNotContainType>
   </file>
   <file src="tests/unit/ConfigTest.php">
@@ -13000,7 +12985,6 @@
   <file src="tests/unit/Plugins/Import/ImportShpTest.php">
     <RedundantCondition>
       <code><![CDATA[assertFalse]]></code>
-      <code><![CDATA[assertSame]]></code>
     </RedundantCondition>
   </file>
   <file src="tests/unit/Plugins/Schema/DiaRelationSchemaTest.php">

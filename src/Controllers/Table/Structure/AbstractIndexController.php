@@ -48,7 +48,7 @@ abstract class AbstractIndexController
         $message = $this->indexes->executeAddIndexSql(Current::$database, $statement);
 
         Current::$sqlQuery = $statement;
-        $GLOBALS['message'] = $message;
+        Current::$message = $message;
 
         return ($this->structureController)($request);
     }

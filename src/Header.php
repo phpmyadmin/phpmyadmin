@@ -310,9 +310,9 @@ class Header
     {
         $retval = '';
         $message = '';
-        if (! empty($GLOBALS['message'])) {
-            $message = $GLOBALS['message'];
-            unset($GLOBALS['message']);
+        if (Current::$message !== null) {
+            $message = Current::$message;
+            Current::$message = null;
         } elseif (! empty($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }

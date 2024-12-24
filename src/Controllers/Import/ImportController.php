@@ -64,7 +64,6 @@ final class ImportController implements InvocableController
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['import_text'] ??= null;
-        $GLOBALS['message'] ??= null;
         $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
 
@@ -161,21 +160,21 @@ final class ImportController implements InvocableController
         $getParams = $request->getQueryParams();
         $postParams = $request->getParsedBody();
         if ($postParams === [] && $getParams === []) {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __(
                     'You probably tried to upload a file that is too large. Please refer ' .
                     'to %sdocumentation%s for a workaround for this limit.',
                 ),
             );
-            $GLOBALS['message']->addParam('[doc@faq1-16]');
-            $GLOBALS['message']->addParam('[/doc]');
+            Current::$message->addParam('[doc@faq1-16]');
+            Current::$message->addParam('[/doc]');
 
             // so we can obtain the message
-            $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
+            $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
             $_SESSION['Import_message']['go_back_url'] = UrlParams::$goto;
 
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $GLOBALS['message']);
+            $this->response->addJSON('message', Current::$message);
 
             return $this->response->response();
         }
@@ -303,9 +302,9 @@ final class ImportController implements InvocableController
 
                     $GLOBALS['import_text'] = $bookmark->getQuery();
                     if ($request->isAjax()) {
-                        $GLOBALS['message'] = Message::success(__('Showing bookmark'));
-                        $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-                        $this->response->addJSON('message', $GLOBALS['message']);
+                        Current::$message = Message::success(__('Showing bookmark'));
+                        $this->response->setRequestStatus(Current::$message->isSuccess());
+                        $this->response->addJSON('message', Current::$message);
                         $this->response->addJSON('sql_query', $GLOBALS['import_text']);
                         $this->response->addJSON('action_bookmark', $actionBookmark);
 
@@ -322,11 +321,11 @@ final class ImportController implements InvocableController
 
                     $bookmark->delete();
                     if ($request->isAjax()) {
-                        $GLOBALS['message'] = Message::success(
+                        Current::$message = Message::success(
                             __('The bookmark has been deleted.'),
                         );
-                        $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-                        $this->response->addJSON('message', $GLOBALS['message']);
+                        $this->response->setRequestStatus(Current::$message->isSuccess());
+                        $this->response->addJSON('message', Current::$message);
                         $this->response->addJSON('action_bookmark', $actionBookmark);
                         $this->response->addJSON('id_bookmark', $idBookmark);
 
@@ -433,7 +432,7 @@ final class ImportController implements InvocableController
                 return $this->response->response();
             }
         } elseif (! $GLOBALS['error'] && empty($GLOBALS['import_text'])) {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .
                     'submitted, or the file size exceeded the maximum size permitted ' .
@@ -441,11 +440,11 @@ final class ImportController implements InvocableController
                 ),
             );
 
-            $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
+            $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
 
             $this->response->setRequestStatus(false);
-            $this->response->addJSON('message', $GLOBALS['message']->getDisplay());
-            $this->response->addHTML($GLOBALS['message']->getDisplay());
+            $this->response->addJSON('message', Current::$message->getDisplay());
+            $this->response->addHTML(Current::$message->getDisplay());
 
             return $this->response->response();
         }
@@ -512,16 +511,16 @@ final class ImportController implements InvocableController
 
         // Show correct message
         if ($idBookmark !== 0 && $actionBookmark === 2) {
-            $GLOBALS['message'] = Message::success(__('The bookmark has been deleted.'));
+            Current::$message = Message::success(__('The bookmark has been deleted.'));
             $GLOBALS['display_query'] = $GLOBALS['import_text'];
             $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
-            $GLOBALS['message'] = Message::notice(__('Showing bookmark'));
+            Current::$message = Message::notice(__('Showing bookmark'));
         } elseif (ImportSettings::$finished && ! $GLOBALS['error']) {
             // Do not display the query with message, we do it separately
             $GLOBALS['display_query'] = ';';
             if (ImportSettings::$importType !== 'query') {
-                $GLOBALS['message'] = Message::success(
+                Current::$message = Message::success(
                     '<em>'
                     . _ngettext(
                         'Import has been successfully finished, %d query executed.',
@@ -530,21 +529,21 @@ final class ImportController implements InvocableController
                     )
                     . '</em>',
                 );
-                $GLOBALS['message']->addParam(ImportSettings::$executedQueries);
+                Current::$message->addParam(ImportSettings::$executedQueries);
 
                 if (ImportSettings::$importNotice !== '') {
-                    $GLOBALS['message']->addHtml(ImportSettings::$importNotice);
+                    Current::$message->addHtml(ImportSettings::$importNotice);
                 }
 
                 if (ImportSettings::$localImportFile !== '') {
-                    $GLOBALS['message']->addText('(' . ImportSettings::$localImportFile . ')');
+                    Current::$message->addText('(' . ImportSettings::$localImportFile . ')');
                 } elseif (
                     isset($_FILES['import_file'])
                     && is_array($_FILES['import_file'])
                     && isset($_FILES['import_file']['name'])
                     && is_string($_FILES['import_file']['name'])
                 ) {
-                    $GLOBALS['message']->addText('(' . $_FILES['import_file']['name'] . ')');
+                    Current::$message->addText('(' . $_FILES['import_file']['name'] . ')');
                 }
             }
         }
@@ -559,17 +558,17 @@ final class ImportController implements InvocableController
 
             $importUrl = $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
 
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __(
                     'Script timeout passed, if you want to finish import,'
                     . ' please %sresubmit the same file%s and import will resume.',
                 ),
             );
-            $GLOBALS['message']->addParamHtml('<a href="' . $importUrl . '">');
-            $GLOBALS['message']->addParamHtml('</a>');
+            Current::$message->addParamHtml('<a href="' . $importUrl . '">');
+            Current::$message->addParamHtml('</a>');
 
             if (ImportSettings::$offset === 0 || (isset($originalSkip) && $originalSkip == ImportSettings::$offset)) {
-                $GLOBALS['message']->addText(
+                Current::$message->addText(
                     __(
                         'However on last run no data has been parsed,'
                         . ' this usually means phpMyAdmin won\'t be able to'
@@ -581,8 +580,8 @@ final class ImportController implements InvocableController
 
         // if there is any message, copy it into $_SESSION as well,
         // so we can obtain it by AJAX call
-        if (isset($GLOBALS['message'])) {
-            $_SESSION['Import_message']['message'] = $GLOBALS['message']->getDisplay();
+        if (Current::$message instanceof Message) {
+            $_SESSION['Import_message']['message'] = Current::$message->getDisplay();
         }
 
         // Parse and analyze the query, for correct db and table name

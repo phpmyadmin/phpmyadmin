@@ -110,10 +110,10 @@ class Triggers
                                 . __('MySQL said: ') . $this->dbi->getError();
                         }
                     } else {
-                        $GLOBALS['message'] = Message::success(
+                        Current::$message = Message::success(
                             __('Trigger %1$s has been modified.'),
                         );
-                        $GLOBALS['message']->addParam(
+                        Current::$message->addParam(
                             Util::backquote($_POST['item_name']),
                         );
                         $sqlQuery = $dropItem . $itemQuery;
@@ -130,10 +130,10 @@ class Triggers
                         . '<br><br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                 } else {
-                    $GLOBALS['message'] = Message::success(
+                    Current::$message = Message::success(
                         __('Trigger %1$s has been created.'),
                     );
-                    $GLOBALS['message']->addParam(
+                    Current::$message->addParam(
                         Util::backquote($_POST['item_name']),
                     );
                     $sqlQuery = $itemQuery;
@@ -142,22 +142,22 @@ class Triggers
         }
 
         if ($this->errors !== []) {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 '<b>'
                 . __(
                     'One or more errors have occurred while processing your request:',
                 )
                 . '</b>',
             );
-            $GLOBALS['message']->addHtml('<ul>');
+            Current::$message->addHtml('<ul>');
             foreach ($this->errors as $string) {
-                $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
+                Current::$message->addHtml('<li>' . $string . '</li>');
             }
 
-            $GLOBALS['message']->addHtml('</ul>');
+            Current::$message->addHtml('</ul>');
         }
 
-        return Generator::getMessage($GLOBALS['message'], $sqlQuery);
+        return Generator::getMessage(Current::$message ?? Message::success(), $sqlQuery);
     }
 
     /** @return Trigger|null Data necessary to create the editor. */

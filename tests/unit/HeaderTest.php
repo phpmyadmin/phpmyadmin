@@ -11,6 +11,7 @@ use PhpMyAdmin\Console;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -36,7 +37,7 @@ class HeaderTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['message'] = 'phpmyadminmessage';
+        Current::$message = Message::success('phpmyadminmessage');
         Current::$database = 'db';
         Current::$table = '';
 
@@ -67,7 +68,7 @@ class HeaderTest extends AbstractTestCase
     public function testEnable(): void
     {
         Current::$server = 0;
-        $GLOBALS['message'] = '';
+        Current::$message = null;
         $config = Config::getInstance();
         $config->settings['CodemirrorEnable'] = false;
         $config->settings['SendErrorReports'] = 'never';

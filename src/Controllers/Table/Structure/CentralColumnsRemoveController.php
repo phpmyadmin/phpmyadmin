@@ -28,8 +28,6 @@ final class CentralColumnsRemoveController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $selected = $request->getParsedBodyParam('selected_fld', []);
 
         if (! is_array($selected) || $selected === []) {
@@ -44,11 +42,11 @@ final class CentralColumnsRemoveController implements InvocableController
         $centralColsError = $this->centralColumns->deleteColumnsFromList(Current::$database, $selected, false);
 
         if ($centralColsError instanceof Message) {
-            $GLOBALS['message'] = $centralColsError;
+            Current::$message = $centralColsError;
         }
 
-        if (empty($GLOBALS['message'])) {
-            $GLOBALS['message'] = Message::success();
+        if (Current::$message === null) {
+            Current::$message = Message::success();
         }
 
         return ($this->structureController)($request);

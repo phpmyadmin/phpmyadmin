@@ -69,7 +69,6 @@
             maximum_time: 0|positive-int,
             maxsize: string,
             memory_limit: int,
-            message: PhpMyAdmin\Message,
             offset: int,
             old_tz: string,
             onfly_compression: bool,

@@ -38,7 +38,7 @@ final class AddPrefixTableController implements InvocableController
             $this->dbi->query($aQuery);
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
         return ($this->structureController)($request);
     }

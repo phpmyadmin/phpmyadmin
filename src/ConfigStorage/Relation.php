@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InternalRelations;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
 use PhpMyAdmin\SqlParser\Utils\ForeignKey;
@@ -1445,17 +1446,17 @@ class Relation
             return true;
         }
 
-        $GLOBALS['message'] = $error;
+        Current::$message = Message::error($error);
 
         if ($GLOBALS['errno'] === 1044) {
-            $GLOBALS['message'] = sprintf(
+            Current::$message = Message::error(sprintf(
                 __(
                     'You do not have necessary privileges to create a database named'
                     . ' \'%s\'. You may go to \'Operations\' tab of any'
                     . ' database to set up the phpMyAdmin configuration storage there.',
                 ),
                 $configurationStorageDbName,
-            );
+            ));
         }
 
         return false;
@@ -1503,7 +1504,7 @@ class Relation
         if ($create) {
             $createQueries = $this->getCreateTableSqlQueries($tableNameReplacements);
             if (! $this->dbi->selectDb($db, ConnectionType::ControlUser)) {
-                $GLOBALS['message'] = $this->dbi->getError(ConnectionType::ControlUser);
+                Current::$message = Message::error($this->dbi->getError(ConnectionType::ControlUser));
 
                 return;
             }
@@ -1528,7 +1529,7 @@ class Relation
 
                 $error = $this->dbi->getError(ConnectionType::ControlUser);
                 if ($error !== '') {
-                    $GLOBALS['message'] = $error;
+                    Current::$message = Message::error($error);
 
                     return;
                 }

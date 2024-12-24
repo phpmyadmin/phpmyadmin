@@ -74,10 +74,10 @@ class ImportShpTest extends AbstractTestCase
         $importHandle->setDecompressContent(true);
         $importHandle->open();
 
-        $GLOBALS['message'] = '';
+        Current::$message = null;
         $GLOBALS['error'] = false;
         $this->object->doImport($importHandle);
-        self::assertSame('', $GLOBALS['message']);
+        self::assertNull(Current::$message);
         self::assertFalse($GLOBALS['error']);
     }
 

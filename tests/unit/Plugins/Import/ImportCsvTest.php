@@ -35,7 +35,7 @@ class ImportCsvTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$sqlQuery = '';
-        $GLOBALS['message'] = null;
+        Current::$message = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;

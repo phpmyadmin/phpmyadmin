@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -28,8 +29,6 @@ final class CentralColumnsAddController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $selected = $request->getParsedBodyParam('selected_fld', []);
 
         if (! is_array($selected) || $selected === []) {
@@ -49,11 +48,11 @@ final class CentralColumnsAddController implements InvocableController
         );
 
         if ($centralColsError instanceof Message) {
-            $GLOBALS['message'] = $centralColsError;
+            Current::$message = $centralColsError;
         }
 
-        if (empty($GLOBALS['message'])) {
-            $GLOBALS['message'] = Message::success();
+        if (Current::$message === null) {
+            Current::$message = Message::success();
         }
 
         return ($this->structureController)($request);

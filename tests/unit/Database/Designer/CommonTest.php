@@ -11,6 +11,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Designer\Common;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -355,7 +356,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        self::assertSame([false, 'Error: Relational features are disabled!'], $result);
+        self::assertEquals(Message::error('Error: Relational features are disabled!'), $result);
     }
 
     public function testRemoveRelationWorkingRelationDb(): void
@@ -398,7 +399,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        self::assertSame([true, 'Internal relationship has been removed.'], $result);
+        self::assertEquals(Message::success('Internal relationship has been removed.'), $result);
     }
 
     public function testRemoveRelationWorkingRelationDbFoundFk(): void
@@ -461,7 +462,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        self::assertSame([true, 'FOREIGN KEY relationship has been removed.'], $result);
+        self::assertEquals(Message::success('FOREIGN KEY relationship has been removed.'), $result);
     }
 
     public function testRemoveRelationWorkingRelationDbDeleteFails(): void
@@ -504,6 +505,6 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        self::assertSame([false, 'Error: Internal relationship could not be removed!<br>'], $result);
+        self::assertEquals(Message::error('Error: Internal relationship could not be removed!<br>'), $result);
     }
 }

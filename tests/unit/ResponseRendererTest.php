@@ -89,6 +89,7 @@ final class ResponseRendererTest extends AbstractTestCase
 
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$server = 0;
+        Current::$message = null;
 
         $responseRenderer = ResponseRenderer::getInstance();
         $responseRenderer->setAjax(false);
@@ -158,6 +159,7 @@ final class ResponseRendererTest extends AbstractTestCase
 
         $_SERVER['SCRIPT_NAME'] = 'index.php';
         Current::$server = 0;
+        Current::$message = null;
 
         $responseRenderer = ResponseRenderer::getInstance();
         $responseRenderer->setAjax(true);

@@ -90,13 +90,11 @@ final class IndexController implements InvocableController
             $this->dbi->selectDb(Current::$database);
         }
 
-        $GLOBALS['message'] ??= null;
-
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->triggers->handleEditor();
 
             if ($request->isAjax()) {
-                if ($GLOBALS['message']->isSuccess()) {
+                if (Current::$message instanceof Message && Current::$message->isSuccess()) {
                     $trigger = $this->triggers->getTriggerByName(
                         Current::$database,
                         Current::$table,
@@ -138,7 +136,7 @@ final class IndexController implements InvocableController
                     $this->response->addJSON('insert', $insert);
                     $this->response->addJSON('message', $output);
                 } else {
-                    $this->response->addJSON('message', $GLOBALS['message']);
+                    $this->response->addJSON('message', Current::$message);
                     $this->response->setRequestStatus(false);
                 }
 

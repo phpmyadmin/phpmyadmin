@@ -107,7 +107,7 @@ class Routines
                         . '<br>'
                         . __('MySQL said: ') . $this->dbi->getError();
                     } else {
-                        [$newErrors, $GLOBALS['message']] = $this->create(
+                        [$newErrors, Current::$message] = $this->create(
                             $userPrivileges,
                             $routineQuery,
                             $createRoutine,
@@ -133,10 +133,10 @@ class Routines
                     . '<br><br>'
                     . __('MySQL said: ') . $this->dbi->getError();
                 } else {
-                    $GLOBALS['message'] = Message::success(
+                    Current::$message = Message::success(
                         __('Routine %1$s has been created.'),
                     );
-                    $GLOBALS['message']->addParam(
+                    Current::$message->addParam(
                         Util::backquote($_POST['item_name']),
                     );
                     $sqlQuery = $routineQuery;
@@ -145,20 +145,20 @@ class Routines
         }
 
         if ($this->errors !== []) {
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __(
                     'One or more errors have occurred while processing your request:',
                 ),
             );
-            $GLOBALS['message']->addHtml('<ul>');
+            Current::$message->addHtml('<ul>');
             foreach ($this->errors as $string) {
-                $GLOBALS['message']->addHtml('<li>' . $string . '</li>');
+                Current::$message->addHtml('<li>' . $string . '</li>');
             }
 
-            $GLOBALS['message']->addHtml('</ul>');
+            Current::$message->addHtml('</ul>');
         }
 
-        return Generator::getMessage($GLOBALS['message'], $sqlQuery);
+        return Generator::getMessage(Current::$message ?? Message::success(), $sqlQuery);
     }
 
     /**

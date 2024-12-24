@@ -88,7 +88,6 @@ class ImportShp extends ImportPlugin
     public function doImport(File|null $importHandle = null): array
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['message'] ??= null;
         ImportSettings::$finished = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
@@ -108,10 +107,10 @@ class ImportShp extends ImportPlugin
             && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1
         ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
-                $GLOBALS['message'] = Message::error(
+                Current::$message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
                 );
-                $GLOBALS['message']->addParam($importHandle->getError());
+                Current::$message->addParam($importHandle->getError());
 
                 return [];
             }
@@ -175,10 +174,10 @@ class ImportShp extends ImportPlugin
 
         if ($shp->lastError != '') {
             $GLOBALS['error'] = true;
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".'),
             );
-            $GLOBALS['message']->addParam($shp->lastError);
+            Current::$message->addParam($shp->lastError);
 
             return [];
         }
@@ -200,10 +199,10 @@ class ImportShp extends ImportPlugin
                 break;
             default:
                 $GLOBALS['error'] = true;
-                $GLOBALS['message'] = Message::error(
+                Current::$message = Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".'),
                 );
-                $GLOBALS['message']->addParam($shp->getShapeName());
+                Current::$message->addParam($shp->getShapeName());
 
                 return [];
         }
@@ -245,7 +244,7 @@ class ImportShp extends ImportPlugin
 
         if ($rows === []) {
             $GLOBALS['error'] = true;
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('The imported file does not contain any data!'),
             );
 
