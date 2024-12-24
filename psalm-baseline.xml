@@ -677,7 +677,6 @@
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
       <code><![CDATA[$_SESSION['sql_history']]]></code>
-      <code><![CDATA[$column['DATA_TYPE']]]></code>
       <code><![CDATA[$columns['table_name']]]></code>
       <code><![CDATA[$columns['table_schema']]]></code>
       <code><![CDATA[$foreignDb]]></code>
@@ -689,10 +688,6 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[uksort($foreign, strnatcasecmp(...))]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$column['COLUMN_NAME']]]></code>
-      <code><![CDATA[$column['DATA_TYPE']]]></code>
-    </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['sql_history'][]]]></code>
     </MixedArrayAssignment>
@@ -700,7 +695,6 @@
       <code><![CDATA[$foreign[$key]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$column]]></code>
       <code><![CDATA[$foreignDb]]></code>
       <code><![CDATA[$foreignField]]></code>
       <code><![CDATA[$foreignTable]]></code>
@@ -711,10 +705,8 @@
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[array|false]]></code>
-      <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code><![CDATA[$column['COLUMN_NAME']]]></code>
       <code><![CDATA[$foreigners[$column]]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
@@ -4204,7 +4196,6 @@
     <MixedInferredReturnType>
       <code><![CDATA[list<string>]]></code>
       <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
       <code><![CDATA[string]]></code>
     </MixedInferredReturnType>
     <MixedOperand>
@@ -4215,8 +4206,6 @@
       <code><![CDATA[$resultRows]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_role')]]></code>
       <code><![CDATA[SessionCache::get('mysql_cur_user')]]></code>
-      <code><![CDATA[reset($columns)]]></code>
-      <code><![CDATA[reset($columns)]]></code>
     </MixedReturnStatement>
     <MixedReturnTypeCoercion>
       <code><![CDATA[$this->fetchResultSimple($sql, $connectionType)]]></code>
@@ -7084,7 +7073,6 @@
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]]]></code>
       <code><![CDATA[$aliases[$oldDatabase]['tables'][$oldTable]['columns']]]></code>
       <code><![CDATA[$columnAliases[$column['name']]]]></code>
-      <code><![CDATA[$definition['Type']]]></code>
     </MixedArrayAccess>
     <MixedArrayTypeCoercion>
       <code><![CDATA[$row[$j]]]></code>
@@ -7094,7 +7082,6 @@
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$columnAliases]]></code>
-      <code><![CDATA[$definition]]></code>
       <code><![CDATA[$field->name]]></code>
       <code><![CDATA[$field->references->table->table]]></code>
       <code><![CDATA[$newDatabase]]></code>
@@ -7105,9 +7092,6 @@
       <code><![CDATA[$statement->name->table]]></code>
       <code><![CDATA[$statement->table->table]]></code>
     </MixedAssignment>
-    <MixedOperand>
-      <code><![CDATA[$definition['Type']]]></code>
-    </MixedOperand>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[$field->key->columns]]></code>
       <code><![CDATA[$field->references->columns]]></code>
@@ -8696,33 +8680,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Query/Compatibility.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$columns[$columnName]['Collation']]]></code>
-      <code><![CDATA[$columns[$columnName]['Comment']]]></code>
-      <code><![CDATA[$columns[$columnName]['Default']]]></code>
-      <code><![CDATA[$columns[$columnName]['Extra']]]></code>
-      <code><![CDATA[$columns[$columnName]['Field']]]></code>
-      <code><![CDATA[$columns[$columnName]['Key']]]></code>
-      <code><![CDATA[$columns[$columnName]['Null']]]></code>
-      <code><![CDATA[$columns[$columnName]['Privileges']]]></code>
-      <code><![CDATA[$columns[$columnName]['Type']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$columns[$columnName]['CHARACTER_MAXIMUM_LENGTH']]]></code>
-      <code><![CDATA[$columns[$columnName]['CHARACTER_OCTET_LENGTH']]]></code>
-      <code><![CDATA[$columns[$columnName]['CHARACTER_SET_NAME']]]></code>
-      <code><![CDATA[$columns[$columnName]['DATA_TYPE']]]></code>
-      <code><![CDATA[$columns[$columnName]['NUMERIC_PRECISION']]]></code>
-      <code><![CDATA[$columns[$columnName]['NUMERIC_SCALE']]]></code>
-      <code><![CDATA[$columns[$columnName]['ORDINAL_POSITION']]]></code>
-      <code><![CDATA[$columns[$columnName]['TABLE_CATALOG']]]></code>
-      <code><![CDATA[$columns[$columnName]['TABLE_NAME']]]></code>
-      <code><![CDATA[$columns[$columnName]['TABLE_SCHEMA']]]></code>
-    </MixedArrayAssignment>
-    <MixedAssignment>
-      <code><![CDATA[$colCollation]]></code>
-      <code><![CDATA[$colType]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$eachTables[$tableName]['Comment'] ?? '']]></code>
     </PossiblyInvalidArgument>
@@ -9720,7 +9677,6 @@
       <code><![CDATA[$index]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$options['expr']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
     </MixedArgument>
@@ -9735,10 +9691,6 @@
       <code><![CDATA[$existrel[$masterField]['foreign_table']]]></code>
       <code><![CDATA[$index[0]]]></code>
       <code><![CDATA[$index[0]]]></code>
-      <code><![CDATA[$row['Field']]]></code>
-      <code><![CDATA[$row['Field']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
-      <code><![CDATA[$row['Type']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs']]]></code>
@@ -9747,15 +9699,11 @@
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
     </MixedArrayAssignment>
     <MixedArrayOffset>
-      <code><![CDATA[$columns[$row['Field']]]]></code>
-      <code><![CDATA[$columns[$row['Field']]]]></code>
       <code><![CDATA[$optionsArray[$_POST['on_delete'][$masterFieldMd5]]]]></code>
       <code><![CDATA[$optionsArray[$_POST['on_update'][$masterFieldMd5]]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$columns[$row['Field']]]]></code>
       <code><![CDATA[$index]]></code>
-      <code><![CDATA[$row]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[mixed[]]]></code>
@@ -9766,10 +9714,6 @@
     <MixedReturnStatement>
       <code><![CDATA[json_decode($value, true)]]></code>
     </MixedReturnStatement>
-    <MixedReturnTypeCoercion>
-      <code><![CDATA[$columns]]></code>
-      <code><![CDATA[array<string, string>]]></code>
-    </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['constraint_name'][$masterFieldMd5]]]></code>
     </PossiblyInvalidArgument>
