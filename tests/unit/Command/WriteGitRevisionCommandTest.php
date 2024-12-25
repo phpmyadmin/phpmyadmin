@@ -52,8 +52,8 @@ class WriteGitRevisionCommandTest extends AbstractTestCase
                     ['log -1 --format="%H"', '1c018e2a6c6d518c4a2dde059e49f33af67c4636'],
                     ['symbolic-ref -q HEAD', 'refs/heads/cli-rev-info'],
                     [
-                        'show -s --pretty=\'tree %T%nparent %P%nauthor %an <%ae> %at'
-                            . '%ncommitter %cn <%ce> %ct%n%n%B\'',
+                        'show -s --pretty="tree %T%nparent %P%nauthor %an <%ae> %at'
+                            . '%ncommitter %cn <%ce> %ct%n%n%B"',
                         $commitBody,
                     ],
                 ],
