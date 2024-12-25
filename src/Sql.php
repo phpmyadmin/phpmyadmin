@@ -980,7 +980,6 @@ class Sql
             'hasBookmarkForm' => true,
             'hasTextButton' => true,
             'hasPrintLink' => true,
-            'hasQueryStats' => true,
         ]);
 
         $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
@@ -1106,7 +1105,6 @@ class Sql
             $unlimNumRows,
             $this->dbi->getFieldsMeta($result),
             $statementInfo->flags->isCount,
-            $statementInfo->flags->isGroup,
             $statementInfo->flags->isExport,
             $statementInfo->flags->isFunc,
             $statementInfo->flags->isAnalyse,
@@ -1142,7 +1140,6 @@ class Sql
                     $numRows,
                     $this->dbi->getFieldsMeta($result),
                     $statementInfo->flags->isCount,
-                    $statementInfo->flags->isGroup,
                     $statementInfo->flags->isExport,
                     $statementInfo->flags->isFunc,
                     $statementInfo->flags->isAnalyse,
@@ -1164,7 +1161,6 @@ class Sql
                     'hasBookmarkForm' => true,
                     'hasTextButton' => true,
                     'hasPrintLink' => true,
-                    'hasQueryStats' => true,
                 ]);
 
                 $tableHtml .= $displayResultsObject->getTable(
@@ -1347,7 +1343,6 @@ class Sql
             'hasBookmarkForm' => true,
             'hasTextButton' => false,
             'hasPrintLink' => true,
-            'hasQueryStats' => true,
         ]);
 
         if (! $editable) {
@@ -1359,7 +1354,6 @@ class Sql
                 'hasBookmarkForm' => true,
                 'hasTextButton' => true,
                 'hasPrintLink' => true,
-                'hasQueryStats' => true,
             ]);
         }
 
@@ -1372,7 +1366,6 @@ class Sql
                 'hasBookmarkForm' => false,
                 'hasTextButton' => false,
                 'hasPrintLink' => false,
-                'hasQueryStats' => false,
             ]);
         }
 

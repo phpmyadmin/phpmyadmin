@@ -1178,7 +1178,6 @@ class ResultsTest extends AbstractTestCase
             3,
             $fieldsMeta,
             $statementInfo->flags->isCount,
-            $statementInfo->flags->isGroup,
             $statementInfo->flags->isExport,
             $statementInfo->flags->isFunc,
             $statementInfo->flags->isAnalyse,
@@ -1215,7 +1214,6 @@ class ResultsTest extends AbstractTestCase
             'hasBookmarkForm' => true,
             'hasTextButton' => false,
             'hasPrintLink' => true,
-            'hasQueryStats' => true,
         ]);
 
         self::assertNotFalse($dtResult);
@@ -1472,7 +1470,6 @@ class ResultsTest extends AbstractTestCase
             2,
             $fieldsMeta,
             $statementInfo->flags->isCount,
-            $statementInfo->flags->isGroup,
             $statementInfo->flags->isExport,
             $statementInfo->flags->isFunc,
             $statementInfo->flags->isAnalyse,
@@ -1509,7 +1506,6 @@ class ResultsTest extends AbstractTestCase
             'hasBookmarkForm' => true,
             'hasTextButton' => false,
             'hasPrintLink' => true,
-            'hasQueryStats' => true,
         ]);
 
         self::assertNotFalse($dtResult);

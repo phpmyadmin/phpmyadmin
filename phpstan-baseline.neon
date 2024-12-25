@@ -2520,7 +2520,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 5
+			count: 3
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -16081,7 +16081,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Parameter \#9 \$queryTime of method PhpMyAdmin\\Display\\Results\:\:setProperties\(\) expects float, mixed given\.$#'
+			message: '#^Parameter \#8 \$queryTime of method PhpMyAdmin\\Display\\Results\:\:setProperties\(\) expects float, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Sql.php

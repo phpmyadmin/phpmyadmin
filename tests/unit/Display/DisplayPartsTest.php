@@ -22,7 +22,6 @@ class DisplayPartsTest extends TestCase
             'hasBookmarkForm' => true,
             'hasTextButton' => true,
             'hasPrintLink' => true,
-            'hasQueryStats' => true,
         ]);
         self::assertTrue($displayParts->hasEditLink);
         self::assertSame(DeleteLinkEnum::DELETE_ROW, $displayParts->deleteLink);
@@ -31,7 +30,6 @@ class DisplayPartsTest extends TestCase
         self::assertTrue($displayParts->hasBookmarkForm);
         self::assertTrue($displayParts->hasTextButton);
         self::assertTrue($displayParts->hasPrintLink);
-        self::assertTrue($displayParts->hasQueryStats);
     }
 
     public function testWith(): void
@@ -44,7 +42,6 @@ class DisplayPartsTest extends TestCase
         self::assertFalse($displayParts->hasBookmarkForm);
         self::assertFalse($displayParts->hasTextButton);
         self::assertFalse($displayParts->hasPrintLink);
-        self::assertFalse($displayParts->hasQueryStats);
 
         $displayParts = $displayParts->with([
             'hasEditLink' => true,
@@ -54,7 +51,6 @@ class DisplayPartsTest extends TestCase
             'hasBookmarkForm' => true,
             'hasTextButton' => true,
             'hasPrintLink' => true,
-            'hasQueryStats' => true,
         ]);
         self::assertTrue($displayParts->hasEditLink);
         self::assertSame(DeleteLinkEnum::KILL_PROCESS, $displayParts->deleteLink);
@@ -63,7 +59,6 @@ class DisplayPartsTest extends TestCase
         self::assertTrue($displayParts->hasBookmarkForm);
         self::assertTrue($displayParts->hasTextButton);
         self::assertTrue($displayParts->hasPrintLink);
-        self::assertTrue($displayParts->hasQueryStats);
 
         $displayParts = $displayParts->with([]);
         self::assertTrue($displayParts->hasEditLink);
@@ -73,6 +68,5 @@ class DisplayPartsTest extends TestCase
         self::assertTrue($displayParts->hasBookmarkForm);
         self::assertTrue($displayParts->hasTextButton);
         self::assertTrue($displayParts->hasPrintLink);
-        self::assertTrue($displayParts->hasQueryStats);
     }
 }

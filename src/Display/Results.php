@@ -163,7 +163,6 @@ class Results
     private bool $editable = false;
     private bool $printView = false;
     private bool $isCount = false;
-    private bool $isGroup = false;
     private bool $isExport = false;
     private bool $isFunction = false;
     private bool $isAnalyse = false;
@@ -317,7 +316,6 @@ class Results
      *                                          any appended "LIMIT" clause programmatically
      * @param FieldMetadata[] $fieldsMeta       meta information about fields
      * @param bool            $isCount          statement is SELECT COUNT
-     * @param bool            $isGroup          statement has GROUP BY
      * @param bool            $isExport         statement contains INTO OUTFILE
      * @param bool            $isFunction       statement contains a function like SUM()
      * @param bool            $isAnalyse        statement contains PROCEDURE ANALYSE
@@ -336,7 +334,6 @@ class Results
         int|string $unlimNumRows,
         array $fieldsMeta,
         bool $isCount,
-        bool $isGroup,
         bool $isExport,
         bool $isFunction,
         bool $isAnalyse,
@@ -352,7 +349,6 @@ class Results
         $this->unlimNumRows = $unlimNumRows;
         $this->fieldsMeta = $fieldsMeta;
         $this->isCount = $isCount;
-        $this->isGroup = $isGroup;
         $this->isExport = $isExport;
         $this->isFunction = $isFunction;
         $this->isAnalyse = $isAnalyse;
@@ -379,7 +375,6 @@ class Results
             'hasBookmarkForm' => false,
             'hasTextButton' => false,
             'hasPrintLink' => false,
-            'hasQueryStats' => true,
         ]);
     }
 
@@ -409,7 +404,6 @@ class Results
             'hasBookmarkForm' => true,
             'hasTextButton' => true,
             'hasPrintLink' => true,
-            'hasQueryStats' => false,
         ]);
     }
 
@@ -429,7 +423,6 @@ class Results
             'hasBookmarkForm' => true,
             'hasTextButton' => $this->isMaintenance,
             'hasPrintLink' => true,
-            'hasQueryStats' => false,
         ]);
     }
 
@@ -502,7 +495,7 @@ class Results
         // 2. Updates the display parts
         if ($this->printView) {
             $displayParts = $this->setDisplayPartsForPrintView($displayParts);
-        } elseif ($this->isAnalyse || $this->isMaintenance || $this->isExplain) {
+        } elseif ($this->isCount || $this->isAnalyse || $this->isMaintenance || $this->isExplain) {
             $displayParts = $this->setDisplayPartsForNonData($displayParts);
         } elseif ($this->isShow) {
             $displayParts = $this->setDisplayPartsForShow($displayParts);
@@ -523,8 +516,8 @@ class Results
 
         // if for COUNT query, number of rows returned more than 1
         // (may be being used GROUP BY)
-        if ($this->isCount && ! $this->isGroup) {
-            $displayParts = $displayParts->with(['hasNavigationBar' => false, 'hasSortLink' => false]);
+        if ($this->isCount && $this->numRows > 1) {
+            $displayParts = $displayParts->with(['hasNavigationBar' => true, 'hasSortLink' => true]);
         }
 
         // 4. If navigation bar or sorting fields names URLs should be
@@ -3089,7 +3082,7 @@ class Results
         // 1.2 Defines offsets for the next and previous pages
         $posNext = 0;
         $posPrev = 0;
-        if ($displayParts->hasNavigationBar || $displayParts->hasQueryStats) {
+        if ($displayParts->hasNavigationBar) {
             [$posNext, $posPrev] = $this->getOffsets();
         }
 
@@ -3122,7 +3115,7 @@ class Results
 
         // 2.1 Prepares a messages with position information
         $sqlQueryMessage = '';
-        if ($displayParts->hasQueryStats && $total > 0) {
+        if ($displayParts->hasNavigationBar) {
             $message = $this->setMessageInformation(
                 $sortedColumnMessage,
                 $statementInfo,
