@@ -63,16 +63,10 @@ class OptionsTest extends AbstractTestCase
         $numTablesStr = '10';
         $unlimNumRowsStr = 'unlim_num_rows_str';
 
-        $columnsInfo = [
-            'test_column1' => ['COLUMN_NAME' => 'test_column1'],
-            'test_column2' => ['COLUMN_NAME' => 'test_column2'],
-        ];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects(self::any())->method('getColumnsFull')
-            ->willReturn($columnsInfo);
         $dbi->expects(self::any())->method('getCompatibilities')
             ->willReturn([]);
 

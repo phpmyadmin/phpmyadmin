@@ -1615,18 +1615,6 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Cannot access offset ''COLUMN_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Cannot access offset ''DATA_TYPE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -1658,12 +1646,6 @@ parameters:
 
 		-
 			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:getChildReferences\(\) should return array\<list\<array\<mixed\>\>\> but returns array\<mixed\>\.$#'
-			identifier: return.type
-			count: 1
-			path: src/ConfigStorage/Relation.php
-
-		-
-			message: '#^Method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) should return string but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -1873,7 +1855,7 @@ parameters:
 			path: src/ConfigStorage/Relation.php
 
 		-
-			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/ConfigStorage/Relation.php
@@ -6682,18 +6664,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Foreach overwrites \$database with its value variable\.$#'
-			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Foreach overwrites \$table with its value variable\.$#'
-			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -6701,12 +6671,6 @@ parameters:
 
 		-
 			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getColumnNames\(\) should return list\<string\> but returns list\<string\|null\>\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getColumnsFull\(\) should return array\<mixed\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
@@ -12094,12 +12058,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -12124,12 +12082,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Cannot access offset ''Type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Cannot access offset ''alias'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
@@ -12150,7 +12102,7 @@ parameters:
 		-
 			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -12162,7 +12114,7 @@ parameters:
 		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 10
+			count: 11
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -14569,174 +14521,6 @@ parameters:
 			path: src/Properties/Options/OptionsPropertyGroup.php
 
 		-
-			message: '#^Cannot access offset ''CHARACTER_MAXIMUM_LENGTH'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''CHARACTER_OCTET_LENGTH'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''CHARACTER_SET_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''COLLATION_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''COLUMN_COMMENT'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''COLUMN_DEFAULT'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''COLUMN_KEY'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''COLUMN_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''COLUMN_TYPE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Collation'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Comment'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''DATA_TYPE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Default'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''EXTRA'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Extra'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Field'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''IS_NULLABLE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Key'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''NUMERIC_PRECISION'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''NUMERIC_SCALE'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Null'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''ORDINAL_POSITION'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''PRIVILEGES'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Privileges'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_CATALOG'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_NAME'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''TABLE_SCHEMA'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
-			message: '#^Cannot access offset ''Type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Query/Compatibility.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -16702,18 +16486,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Cannot access offset ''Field'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Table/Table.php
-
-		-
-			message: '#^Cannot access offset ''Type'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Table/Table.php
-
-		-
 			message: '#^Cannot access offset ''foreign_db'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -16798,12 +16570,6 @@ parameters:
 			path: src/Table/Table.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Table\\Table\:\:getNameAndTypeOfTheColumns\(\) should return array\<string, string\> but returns array\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Table\\Table\:\:getUiPrefsFromDb\(\) should return array\<mixed\> but returns mixed\.$#'
 			identifier: return.type
 			count: 1
@@ -16871,12 +16637,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#2 \$subject of function preg_match expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php

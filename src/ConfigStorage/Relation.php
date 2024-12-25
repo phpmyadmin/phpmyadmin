@@ -43,6 +43,7 @@ use function mb_strtoupper;
 use function mb_substr;
 use function natcasesort;
 use function preg_match;
+use function preg_replace;
 use function sprintf;
 use function str_contains;
 use function str_replace;
@@ -500,10 +501,11 @@ class Relation
         /**
          * Pick first char field
          */
-        $columns = $this->dbi->getColumnsFull($db, $table);
+        $columns = $this->dbi->getColumns($db, $table);
         foreach ($columns as $column) {
-            if ($this->dbi->types->getTypeClass($column['DATA_TYPE']) === TypeClass::Char) {
-                return $column['COLUMN_NAME'];
+            $columnType = preg_replace('@(\(.*)|(\s/.*)@s', '', $column->type);
+            if ($this->dbi->types->getTypeClass($columnType) === TypeClass::Char) {
+                return $column->field;
             }
         }
 

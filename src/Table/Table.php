@@ -1299,18 +1299,15 @@ class Table implements Stringable
     public function getNameAndTypeOfTheColumns(): array
     {
         $columns = [];
-        foreach (
-            $this->dbi->getColumnsFull($this->dbName, $this->name) as $row
-        ) {
-            if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp) === 1) {
+        foreach ($this->dbi->getColumns($this->dbName, $this->name) as $row) {
+            if (preg_match('@^(set|enum)\((.+)\)$@i', $row->type, $tmp) === 1) {
                 $tmp[2] = mb_substr(
                     (string) preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]),
                     1,
                 );
-                $columns[$row['Field']] = $tmp[1] . '('
-                    . str_replace(',', ', ', $tmp[2]) . ')';
+                $columns[$row->field] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             } else {
-                $columns[$row['Field']] = $row['Type'];
+                $columns[$row->field] = $row->type;
             }
         }
 

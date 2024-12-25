@@ -66,15 +66,16 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
         );
         $dbiDummy->addResult('SELECT `actor_id` FROM .`actor` LIMIT 100', [['71'], ['173'], ['125']], ['actor_id']);
         $dbiDummy->addResult(
-            'SHOW FULL COLUMNS FROM .`actor`',
+            'SHOW COLUMNS FROM .`actor`',
             [
-                ['actor_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', 'select,insert,update,references', ''],
-                ['first_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', ''],
-                ['last_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', 'MUL', null, '', 'select,insert,update,references', ''],
-                ['last_update', 'timestamp', null, 'NO', '', 'current_timestamp()', 'on update current_timestamp()', 'select,insert,update,references', ''],
+                ['actor_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment' ],
+                ['first_name', 'varchar(45)', 'NO', '', null, '' ],
+                ['last_name', 'varchar(45)', 'NO', 'MUL', null, '' ],
+                ['last_update', 'timestamp', 'NO', '', 'current_timestamp()', 'on update current_timestamp()'],
             ],
-            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
         );
+        $dbiDummy->addResult('SHOW INDEXES FROM .`actor`', []);
         // phpcs:enable
         $dbiDummy->addResult(
             'SELECT `actor_id`, `first_name` FROM .`actor` ORDER BY `actor`.`first_name`LIMIT 0, 25',
