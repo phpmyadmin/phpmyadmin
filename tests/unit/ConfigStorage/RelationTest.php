@@ -65,6 +65,46 @@ class RelationTest extends AbstractTestCase
             '',
             $relation->getDisplayField($db, $table),
         );
+
+        $relationParameters = RelationParameters::fromArray([
+            'displaywork' => true,
+            'db' => 'pmadb',
+            'table_info' => 'table_info',
+            'relation' => 'relation',
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+
+        $dummyDbi->addResult(
+            'SELECT `display_field` FROM `pmadb`.`table_info`'
+            . ' WHERE `db_name` = \'information_schema\' AND `table_name` = \'PMA\'',
+            [['TABLE_COMMENT']],
+            ['display_field'],
+        );
+        $db = 'information_schema';
+        $table = 'PMA';
+        self::assertSame(
+            'TABLE_COMMENT',
+            $relation->getDisplayField($db, $table),
+        );
+
+        $dummyDbi->addResult(
+            'SELECT `display_field` FROM `pmadb`.`table_info`'
+            . ' WHERE `db_name` = \'information_schema\' AND `table_name` = \'NON_EXISTING_TABLE\'',
+            [],
+        );
+        $dummyDbi->addResult(
+            'SELECT *, `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+            . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`,'
+            . ' `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS`'
+            . ' WHERE `TABLE_SCHEMA` = \'information_schema\' AND `TABLE_NAME` = \'NON_EXISTING_TABLE\'',
+            [],
+        );
+        $db = 'information_schema';
+        $table = 'NON_EXISTING_TABLE';
+        self::assertSame(
+            '',
+            $relation->getDisplayField($db, $table),
+        );
     }
 
     /**
