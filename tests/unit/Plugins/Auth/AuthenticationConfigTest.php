@@ -38,8 +38,6 @@ class AuthenticationConfigTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'db';
         Current::$table = 'table';
-        $GLOBALS['token_provided'] = true;
-        $GLOBALS['token_mismatch'] = false;
         $this->object = new AuthenticationConfig();
     }
 

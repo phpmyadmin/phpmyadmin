@@ -4,81 +4,57 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Http\Middleware;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
+use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\ResponseInterface;
 
 #[CoversClass(TokenRequestParamChecking::class)]
 final class TokenRequestParamCheckingTest extends TestCase
 {
     public function testCheckTokenRequestParam(): void
     {
-        $_REQUEST = [];
-        $_GET = [];
         $_POST = [];
-        $_COOKIE = [];
 
         $middleware = new TokenRequestParamChecking();
 
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
         $_POST['test'] = 'test';
         $_SESSION[' PMA_token '] = 'token';
-        $middleware->checkTokenRequestParam();
-        self::assertFalse($GLOBALS['token_mismatch']);
-        self::assertTrue($GLOBALS['token_provided']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['token' => 'token']);
+        $response = $middleware->checkTokenRequestParam($request);
+        self::assertNull($response);
         self::assertArrayHasKey('test', $_POST);
         self::assertSame('test', $_POST['test']);
     }
 
-    public function testCheckTokenRequestParamWithGetMethod(): void
-    {
-        $_REQUEST = [];
-        $_GET = [];
-        $_POST = [];
-        $_COOKIE = [];
-
-        $middleware = new TokenRequestParamChecking();
-
-        $_SERVER['REQUEST_METHOD'] = 'GET';
-        $middleware->checkTokenRequestParam();
-        self::assertTrue($GLOBALS['token_mismatch']);
-        self::assertFalse($GLOBALS['token_provided']);
-    }
-
     public function testCheckTokenRequestParamWithoutToken(): void
     {
-        $_REQUEST = [];
-        $_GET = [];
         $_POST = [];
-        $_COOKIE = [];
 
         $middleware = new TokenRequestParamChecking();
 
-        $_SERVER['REQUEST_METHOD'] = 'POST';
         $_POST['test'] = 'test';
-        $middleware->checkTokenRequestParam();
-        self::assertTrue($GLOBALS['token_mismatch']);
-        self::assertFalse($GLOBALS['token_provided']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/');
+        $response = $middleware->checkTokenRequestParam($request);
+        self::assertNull($response);
         self::assertArrayNotHasKey('test', $_POST);
     }
 
     public function testCheckTokenRequestParamWithTokenMismatch(): void
     {
-        $_REQUEST = [];
-        $_GET = [];
-        $_POST = [];
-        $_COOKIE = [];
-
         $middleware = new TokenRequestParamChecking();
 
-        $_SERVER['REQUEST_METHOD'] = 'POST';
-        $_POST['token'] = 'token';
-        $_POST['test'] = 'test';
+        $dbi = new DatabaseInterface(new DbiDummy());
+        DatabaseInterface::$instance = $dbi;
+
         $_SESSION[' PMA_token '] = 'mismatch';
-        $middleware->checkTokenRequestParam();
-        self::assertTrue($GLOBALS['token_mismatch']);
-        self::assertTrue($GLOBALS['token_provided']);
-        self::assertArrayNotHasKey('test', $_POST);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['token' => 'token', 'ajax_request' => 'true']);
+        $response = $middleware->checkTokenRequestParam($request);
+        self::assertInstanceOf(ResponseInterface::class, $response);
     }
 }

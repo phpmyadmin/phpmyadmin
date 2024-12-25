@@ -84,8 +84,6 @@
             SESSION_KEY: string,
             showtable: array&lt;string, string|null&gt;,
             tbl_storage_engine: string,
-            token_mismatch: bool,
-            token_provided: bool,
             username: string
         }"/>
     </globals>

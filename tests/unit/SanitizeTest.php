@@ -184,22 +184,6 @@ class SanitizeTest extends AbstractTestCase
     }
 
     /**
-     * Test for removeRequestVars
-     */
-    public function testRemoveRequestVars(): void
-    {
-        $GLOBALS['_POST'] = [];
-        $_REQUEST['foo'] = 'bar';
-        $_REQUEST['allow'] = 'all';
-        $_REQUEST['second'] = 1;
-        $allowList = ['allow', 'second'];
-        Sanitize::removeRequestVars($allowList);
-        self::assertArrayNotHasKey('foo', $_REQUEST);
-        self::assertArrayNotHasKey('second', $_REQUEST);
-        self::assertArrayHasKey('allow', $_REQUEST);
-    }
-
-    /**
      * Data provider for sanitize links
      *
      * @return mixed[]

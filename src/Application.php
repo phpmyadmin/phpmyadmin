@@ -40,7 +40,6 @@ use PhpMyAdmin\Http\Middleware\SqlDelimiterSetting;
 use PhpMyAdmin\Http\Middleware\SqlQueryGlobalSetting;
 use PhpMyAdmin\Http\Middleware\StatementHistory;
 use PhpMyAdmin\Http\Middleware\ThemeInitialization;
-use PhpMyAdmin\Http\Middleware\TokenMismatchChecking;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
 use PhpMyAdmin\Http\Middleware\UriSchemeUpdating;
 use PhpMyAdmin\Http\Middleware\UrlParamsSetting;
@@ -113,7 +112,6 @@ class Application
         $requestHandler->add(new DatabaseServerVersionChecking($this->config, $this->template, $this->responseFactory));
         $requestHandler->add(new SqlDelimiterSetting($this->config));
         $requestHandler->add(new ResponseRendererLoading($this->config));
-        $requestHandler->add(new TokenMismatchChecking());
         $requestHandler->add(new ProfilingChecking());
         $requestHandler->add(new UserPreferencesLoading($this->config));
         $requestHandler->add(new RecentTableHandling($this->config));

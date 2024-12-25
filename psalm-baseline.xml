@@ -5555,10 +5555,6 @@
     <MixedArgument>
       <code><![CDATA[$_SESSION[' PMA_token ']]]></code>
     </MixedArgument>
-    <RedundantCast>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-      <code><![CDATA[(string) $_POST['token']]]></code>
-    </RedundantCast>
   </file>
   <file src="src/I18n/LanguageManager.php">
     <DeprecatedMethod>
@@ -8808,9 +8804,6 @@
       <code><![CDATA[empty($found[3])]]></code>
       <code><![CDATA[empty($found[3])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Server/Plugin.php">
     <MixedArgument>
