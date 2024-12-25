@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2024-10-11 21:28-0300\n"
-"PO-Revision-Date: 2023-12-11 09:06+0000\n"
-"Last-Translator: Marczis István <marczisi@yahoo.com>\n"
+"PO-Revision-Date: 2024-12-26 16:00+0000\n"
+"Last-Translator: Csörgő Márk Ábrahám <mcsorgo88@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "hu/>\n"
 "Language: hu\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -11198,8 +11198,9 @@ msgstr "A tábla adatainak kiíratása"
 #: templates/table/tracking/structure_snapshot_columns.twig:9
 #: templates/table/tracking/structure_snapshot_indexes.twig:12
 #: templates/table/zoom_search/result_form.twig:36
+#, fuzzy
 msgid "Null"
-msgstr "Nulla"
+msgstr "Null"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:281
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:376
