@@ -5056,11 +5056,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
-			message: "#^Cannot access offset 'ENGINE' on mixed\\.$#"
-			count: 2
-			path: libraries/classes/Controllers/Database/StructureController.php
-
-		-
 			message: "#^Cannot access offset 'LimitChars' on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
@@ -15787,7 +15782,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'nav_bar' on mixed\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15813,11 +15808,6 @@ parameters:
 		-
 			message: "#^Cannot access offset 'query' on mixed\\.$#"
 			count: 6
-			path: libraries/classes/Display/Results.php
-
-		-
-			message: "#^Cannot access offset 'query_stats' on mixed\\.$#"
-			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16372,7 +16362,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in a negated boolean, bool\\|null given\\.$#"
-			count: 2
+			count: 1
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16432,7 +16422,7 @@ parameters:
 
 		-
 			message: "#^Only booleans are allowed in \\|\\|, bool\\|null given on the right side\\.$#"
-			count: 5
+			count: 6
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -34431,22 +34421,22 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#10 \\$queryTime of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects float, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
 			message: "#^Parameter \\#10 \\$sqlQuery of method PhpMyAdmin\\\\Sql\\:\\:getQueryResponseForNoResultsReturned\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#11 \\$textDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, mixed given\\.$#"
+			message: "#^Parameter \\#10 \\$textDirection of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects string, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#12 \\$isMaintenance of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$isMaintenance of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			count: 2
+			path: libraries/classes/Sql.php
+
+		-
+			message: "#^Parameter \\#12 \\$isExplain of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -34456,17 +34446,12 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#13 \\$isExplain of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#13 \\$isShow of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#14 \\$isShow of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
-			count: 2
-			path: libraries/classes/Sql.php
-
-		-
-			message: "#^Parameter \\#15 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array\\<string, mixed\\>\\|null, array\\|null given\\.$#"
+			message: "#^Parameter \\#14 \\$showTable of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects array\\<string, mixed\\>\\|null, array\\|null given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -34561,7 +34546,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#4 \\$isGroup of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$isExport of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -34581,7 +34566,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#5 \\$isExport of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$isFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -34591,7 +34576,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#6 \\$isFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$isAnalyse of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -34601,7 +34586,7 @@ parameters:
 			path: libraries/classes/Sql.php
 
 		-
-			message: "#^Parameter \\#7 \\$isAnalyse of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#9 \\$queryTime of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects float, mixed given\\.$#"
 			count: 2
 			path: libraries/classes/Sql.php
 
@@ -43876,11 +43861,6 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Cannot access offset 'is_group' on mixed\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
 			message: "#^Cannot access offset 'is_maint' on mixed\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
@@ -44086,17 +44066,17 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#12 \\$isMaintenance of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#11 \\$isMaintenance of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#13 \\$isExplain of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#12 \\$isExplain of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#14 \\$isShow of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#13 \\$isShow of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
@@ -44116,22 +44096,17 @@ parameters:
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#4 \\$isGroup of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#4 \\$isExport of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#5 \\$isExport of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#5 \\$isFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
 		-
-			message: "#^Parameter \\#6 \\$isFunction of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
-			count: 1
-			path: test/classes/Display/ResultsTest.php
-
-		-
-			message: "#^Parameter \\#7 \\$isAnalyse of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
+			message: "#^Parameter \\#6 \\$isAnalyse of method PhpMyAdmin\\\\Display\\\\Results\\:\\:setProperties\\(\\) expects bool, mixed given\\.$#"
 			count: 1
 			path: test/classes/Display/ResultsTest.php
 
