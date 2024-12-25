@@ -9895,6 +9895,12 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
+			message: '#^Method PhpMyAdmin\\InsertEditColumn\:\:getDisplayType\(\) should return string but returns string\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: src/InsertEditColumn.php
+
+		-
 			message: '#^Property PhpMyAdmin\\InsertEditColumn\:\:\$trueType \(string\) does not accept string\|null\.$#'
 			identifier: assign.propertyType
 			count: 1

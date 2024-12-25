@@ -20,7 +20,6 @@ use function array_merge;
 use function array_values;
 use function bin2hex;
 use function count;
-use function explode;
 use function htmlspecialchars;
 use function implode;
 use function in_array;
@@ -341,9 +340,9 @@ class InsertEdit
         bool $foreignLink,
     ): string {
         $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column->field);
-        if (str_contains($column->trueType, 'enum')) {
+        if ($column->trueType === 'enum') {
             $nullifyCode = mb_strlen($column->type) > 20 ? '1' : '2';
-        } elseif (str_contains($column->trueType, 'set')) {
+        } elseif ($column->trueType === 'set') {
             $nullifyCode = '3';
         } elseif ($foreigner !== false && ! $foreignLink) {
             // foreign key in a drop-down
@@ -393,7 +392,7 @@ class InsertEdit
             $textareaCols = $this->config->settings['CharTextareaCols'];
             $extractedColumnspec = Util::extractColumnSpec($column->type);
             $maxlength = $extractedColumnspec['spec_in_brackets'];
-        } elseif ($this->config->settings['LongtextDoubleTextarea'] && str_contains($column->pmaType, 'longtext')) {
+        } elseif ($this->config->settings['LongtextDoubleTextarea'] && $column->trueType === 'longtext') {
             $textAreaRows = $this->config->settings['TextareaRows'] * 2;
             $textareaCols = $this->config->settings['TextareaCols'] * 2;
         }
@@ -434,7 +433,6 @@ class InsertEdit
         string $dataType,
     ): string {
         $theClass = 'textfield';
-        // verify True_Type which does not contain the parentheses and length
         if ($column->trueType === 'date') {
             $theClass .= ' datefield';
         } elseif ($column->trueType === 'time') {
@@ -506,14 +504,14 @@ class InsertEdit
     /**
      * Retrieve the maximum upload file size
      */
-    private function getMaxUploadSize(string $pmaType): string
+    private function getMaxUploadSize(string $type): string
     {
         // find maximum upload size, based on field type
         /**
          * @todo with functions this is not so easy, as you can basically
          * process any data with function like MD5
          */
-        $maxFieldSize = match ($pmaType) {
+        $maxFieldSize = match ($type) {
             'tinyblob' => 256,
             'blob' => 65536,
             'mediumblob' => 16777216,
@@ -588,7 +586,8 @@ class InsertEdit
             'backup_field' => $backupField,
             'is_textarea' => $isTextareaRequired,
             'columnNameAppendix' => $columnNameAppendix,
-            'column' => $column,
+            'extra' => $column->extra,
+            'trueType' => $column->trueType,
         ]);
     }
 
@@ -748,7 +747,7 @@ class InsertEdit
                     (int) $extractedColumnspec['spec_in_brackets'],
                 );
         } elseif (
-            (str_starts_with($column->trueType, 'timestamp')
+            ($column->trueType === 'timestamp'
                 || $column->trueType === 'datetime'
                 || $column->trueType === 'time')
             && (str_contains($currentRow[$column->field], '.'))
@@ -815,7 +814,7 @@ class InsertEdit
 
         if ($trueType === 'bit') {
             $specialChars = Util::convertBitDefaultValue($defaultValue);
-        } elseif (str_starts_with($trueType, 'timestamp') || $trueType === 'datetime' || $trueType === 'time') {
+        } elseif ($trueType === 'timestamp' || $trueType === 'datetime' || $trueType === 'time') {
             $specialChars = Util::addMicroseconds($defaultValue);
         } elseif ($trueType === 'binary' || $trueType === 'varbinary') {
             $specialChars = bin2hex($defaultValue);
@@ -1598,7 +1597,7 @@ class InsertEdit
         //Call validation when the form submitted...
         $onChangeClause = 'return verificationsAfterFieldChange('
             . json_encode($fieldHashMd5) . ', '
-            . json_encode((string) $rowId) . ',' . json_encode($column->pmaType) . ')';
+            . json_encode((string) $rowId) . ',' . json_encode($column->type) . ')';
 
         $vkey = '[multi_edit][' . $rowId . ']';
         // Use an MD5 as an array index to avoid having special characters
@@ -1662,14 +1661,6 @@ class InsertEdit
         // ----------------
         // See bug #1667887 for the reason why we don't use the maxlength
         // HTML attribute
-
-        //add data attributes "no of decimals" and "data type"
-        $noDecimals = 0;
-        $type = explode('(', $column->pmaType)[0];
-        if (preg_match('/\(([^()]+)\)/', $column->pmaType, $match) === 1) {
-            $match[0] = trim($match[0], '()');
-            $noDecimals = $match[0];
-        }
 
         // Check input transformation of column
         $transformedHtml = '';
@@ -1737,12 +1728,12 @@ class InsertEdit
                 $textAreaRows = max($this->config->settings['CharTextareaRows'], 7);
                 $textareaCols = $this->config->settings['CharTextareaCols'];
                 $maxlength = $extractedColumnspec['spec_in_brackets'];
-            } elseif ($this->config->settings['LongtextDoubleTextarea'] && str_contains($column->pmaType, 'longtext')) {
+            } elseif ($this->config->settings['LongtextDoubleTextarea'] && $column->trueType === 'longtext') {
                 $textAreaRows = $this->config->settings['TextareaRows'] * 2;
                 $textareaCols = $this->config->settings['TextareaCols'] * 2;
             }
 
-            if ($column->pmaType === 'enum') {
+            if ($column->trueType === 'enum') {
                 $enumValues = $extractedColumnspec['enum_set_values'];
 
                 foreach ($enumValues as $enumValue) {
@@ -1755,7 +1746,7 @@ class InsertEdit
                         break;
                     }
                 }
-            } elseif ($column->pmaType === 'set') {
+            } elseif ($column->trueType === 'set') {
                 $columnSetValues = $extractedColumnspec['enum_set_values'];
                 $setSelectSize = min(4, count($extractedColumnspec['enum_set_values']));
             } elseif ($column->isBinary || $column->isBlob) {
@@ -1767,7 +1758,7 @@ class InsertEdit
                 }
 
                 if ($isUpload && $column->isBlob) {
-                    $maxUploadSize = $this->getMaxUploadSize($column->pmaType);
+                    $maxUploadSize = $this->getMaxUploadSize($column->trueType);
                 }
 
                 if (! empty($this->config->settings['UploadDir'])) {
@@ -1814,8 +1805,9 @@ class InsertEdit
             'nullify_code' => $nullifyCode,
             'real_null_value' => $realNullValue,
             'id_index' => $this->fieldIndex,
-            'type' => $type,
-            'decimals' => $noDecimals,
+            'type' => $column->trueType,
+            'displayType' => $column->getDisplayType(),
+            'decimals' => $column->getFractionalSecondsPrecision(),
             'special_chars' => $specialChars,
             'transformed_value' => $transformedHtml,
             'value' => $columnValue,
