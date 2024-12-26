@@ -7269,7 +7269,7 @@ msgid ""
 "the browser."
 msgstr ""
 "Você realmente quer ver todas as linhas? Para uma tabela grande isto poderia "
-"travar o nevegador."
+"travar o navegador."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 msgid "Original length"
