@@ -92,19 +92,15 @@ class RelationTest extends AbstractTestCase
             . ' WHERE `db_name` = \'information_schema\' AND `table_name` = \'NON_EXISTING_TABLE\'',
             [],
         );
-        $dummyDbi->addResult(
-            'SELECT *, `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
-            . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`,'
-            . ' `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS`'
-            . ' WHERE `TABLE_SCHEMA` = \'information_schema\' AND `TABLE_NAME` = \'NON_EXISTING_TABLE\'',
-            [],
-        );
+        $dummyDbi->addResult('SHOW COLUMNS FROM `information_schema`.`NON_EXISTING_TABLE`', []);
         $db = 'information_schema';
         $table = 'NON_EXISTING_TABLE';
         self::assertSame(
             '',
             $relation->getDisplayField($db, $table),
         );
+
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
