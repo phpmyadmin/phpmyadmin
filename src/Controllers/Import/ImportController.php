@@ -664,10 +664,7 @@ final class ImportController implements InvocableController
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
             if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
-                $relation = new Relation($this->dbi);
-
                 $this->sql->storeTheQueryAsBookmark(
-                    $relation->getRelationParameters()->bookmarkFeature,
                     Current::$database,
                     $config->selectedServer['user'],
                     $request->getParsedBodyParamAsString('sql_query'),
@@ -695,7 +692,6 @@ final class ImportController implements InvocableController
                 $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(
-                    $relation->getRelationParameters()->bookmarkFeature,
                     Current::$database,
                     $config->selectedServer['user'],
                     $request->getParsedBodyParamAsString('sql_query'),

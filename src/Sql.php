@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -508,15 +507,13 @@ class Sql
      * @param bool   $bookmarkReplace     whether to replace existing bookmarks
      */
     public function storeTheQueryAsBookmark(
-        BookmarkFeature|null $bookmarkFeature,
         string $db,
         string $bookmarkUser,
         string $sqlQueryForBookmark,
         string $bookmarkLabel,
         bool $bookmarkReplace,
     ): void {
-        // Should we replace bookmark?
-        if ($bookmarkReplace && $bookmarkFeature !== null) {
+        if ($bookmarkReplace) {
             $bookmarks = $this->bookmarkRepository->getList($this->config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
@@ -759,11 +756,9 @@ class Sql
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
         if (! empty($_POST['bkm_label']) && $sqlQueryForBookmark) {
-            $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
             $this->storeTheQueryAsBookmark(
-                $bookmarkFeature,
                 $db,
-                $bookmarkFeature !== null ? $this->config->selectedServer['user'] : '',
+                $this->config->selectedServer['user'],
                 $sqlQueryForBookmark,
                 $_POST['bkm_label'],
                 isset($_POST['bkm_replace']),
