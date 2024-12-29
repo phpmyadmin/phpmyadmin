@@ -6463,9 +6463,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS[$match]]]></code>
-    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
     </InvalidReturnStatement>
@@ -6490,6 +6487,7 @@
       <code><![CDATA[new $class()]]></code>
     </MixedMethodCall>
     <PossiblyInvalidArgument>
+      <code><![CDATA[$GLOBALS[$match]]]></code>
       <code><![CDATA[$_GET[$opt]]]></code>
       <code><![CDATA[$_REQUEST[$opt]]]></code>
       <code><![CDATA[$val]]></code>
