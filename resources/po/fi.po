@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-22 00:25+0000\n"
+"POT-Creation-Date: 2024-12-29 00:25+0000\n"
 "PO-Revision-Date: 2024-04-19 15:55+0000\n"
 "Last-Translator: Niilo Poutanen <Niilo.poutanen@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -66,8 +66,8 @@ msgstr ""
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
-#: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:474
-#: src/Util.php:1456
+#: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
+#: src/Util.php:1457
 msgid "Settings"
 msgstr "Asetukset"
 
@@ -214,7 +214,7 @@ msgstr "Jälkeen sarakkeen: %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:934 src/Plugins/Export/ExportSql.php:2036
+#: src/Display/Results.php:926 src/Plugins/Export/ExportSql.php:2036
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Ei mitään"
@@ -289,8 +289,8 @@ msgstr "Lisää sarake/sarakkeita"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:229 src/Tracking/Tracking.php:287
+#: src/Controllers/Server/PrivilegesController.php:302
+#: src/Normalization.php:230 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "Siirry"
@@ -613,11 +613,11 @@ msgstr "Käyttäjät"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:723
-#: src/Import/Import.php:1165 src/Menu.php:213 src/Menu.php:317
+#: src/Import/Import.php:1165 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1040 src/Util.php:1465
-#: src/Util.php:1482
+#: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1041 src/Util.php:1466
+#: src/Util.php:1483
 msgid "Structure"
 msgstr "Rakenne"
 
@@ -893,7 +893,7 @@ msgstr "Palauta"
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
 #: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:49
-#: src/Sanitize.php:189
+#: src/Sanitize.php:185
 msgid "Documentation"
 msgstr "Ohjeet"
 
@@ -957,8 +957,8 @@ msgstr "Pois päältä"
 #: src/Controllers/JavaScriptMessagesController.php:510
 #: src/Controllers/Table/DeleteRowsController.php:55
 #: src/Controllers/Table/DropColumnController.php:44
-#: src/Controllers/Table/Structure/PrimaryController.php:102
-#: src/IndexColumn.php:148 src/Index.php:469
+#: src/Controllers/Table/Structure/PrimaryController.php:100
+#: src/IndexColumn.php:148 src/Index.php:471
 #: src/Plugins/Export/ExportHtmlword.php:563
 #: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -994,7 +994,7 @@ msgstr "Kyllä"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:443 src/Index.php:469
+#: src/Index.php:445 src/Index.php:471
 #: src/Plugins/Export/ExportHtmlword.php:563
 #: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -1062,7 +1062,7 @@ msgstr "Suorita hakulause uudelleen"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2477 src/Html/Generator.php:521
+#: src/Display/Results.php:2469 src/Html/Generator.php:521
 #: src/Html/Generator.php:789
 msgid "Edit"
 msgstr "Muokkaa"
@@ -1081,7 +1081,7 @@ msgstr "Muokkaa"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:408
-#: src/Display/Results.php:2536 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2528 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Poista"
 
@@ -1102,8 +1102,8 @@ msgstr "Poista"
 #: resources/templates/table/relation/foreign_key_row.twig:91
 #: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:147
 #: src/Plugins/Export/ExportOdt.php:191
-#: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1569
-#: src/Server/Privileges.php:1571 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1575 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Tietokanta"
 
@@ -1890,8 +1890,8 @@ msgstr "Tapahtuman tyyppi"
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:577
-#: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:445
-#: src/Server/Status/Processes.php:96 src/Util.php:1452
+#: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
+#: src/Server/Status/Processes.php:96 src/Util.php:1453
 msgid "Status"
 msgstr "Tila"
 
@@ -1964,11 +1964,11 @@ msgstr "Kokonaiset lisäyslauseet"
 msgid "Definer"
 msgstr ""
 
-#: resources/templates/database/events/index.twig:3 src/Menu.php:376
+#: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:993 src/Plugins/Export/ExportXml.php:95
-#: src/Util.php:1474
+#: src/Util.php:1475
 msgid "Events"
 msgstr "Tapahtumat"
 
@@ -2028,9 +2028,9 @@ msgstr "Valitse kaikki"
 #: resources/templates/triggers/list.twig:18
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
-#: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:240
-#: src/Menu.php:342 src/Menu.php:464 src/Server/Privileges.php:1285
-#: src/Util.php:1454 src/Util.php:1469 src/Util.php:1486
+#: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
+#: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1289
+#: src/Util.php:1455 src/Util.php:1470 src/Util.php:1487
 msgid "Export"
 msgstr "Vienti"
 
@@ -2058,7 +2058,7 @@ msgstr "Vienti"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:532
+#: resources/templates/triggers/row.twig:58 src/Operations.php:533
 msgid "Drop"
 msgstr "Tuhoa"
 
@@ -2207,7 +2207,7 @@ msgid "criteria"
 msgstr "Hakuehdot:"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1975
+#: src/Util.php:1976
 msgid "Sort"
 msgstr "Järjestä"
 
@@ -2218,8 +2218,8 @@ msgstr "Järjestä"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1462
-#: src/Display/Results.php:1469 src/Util.php:1983 src/Util.php:2000
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1454
+#: src/Display/Results.php:1461 src/Util.php:1984 src/Util.php:2001
 msgid "Ascending"
 msgstr "Nouseva"
 
@@ -2230,8 +2230,8 @@ msgstr "Nouseva"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1474 src/Util.php:1988 src/Util.php:2005
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1449
+#: src/Display/Results.php:1466 src/Util.php:1989 src/Util.php:2006
 msgid "Descending"
 msgstr "Laskeva"
 
@@ -2437,8 +2437,8 @@ msgstr "Lokin nimi"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:422 src/Menu.php:256
-#: src/Menu.php:364 src/Util.php:1472 src/Util.php:1488
+#: src/Controllers/Server/PrivilegesController.php:421 src/Menu.php:257
+#: src/Menu.php:365 src/Util.php:1473 src/Util.php:1489
 msgid "Privileges"
 msgstr "Käyttöoikeudet"
 
@@ -2483,7 +2483,7 @@ msgstr "Rutiinit"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1277
+#: src/Server/Privileges.php:1281
 #, fuzzy
 #| msgid "Edit Privileges"
 msgid "Edit privileges"
@@ -2491,7 +2491,7 @@ msgstr "Muokkaa käyttöoikeuksia"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2063
+#: src/Server/Privileges.php:2067
 #, fuzzy
 #| msgid "No user(s) found."
 msgid "No user found."
@@ -2513,7 +2513,7 @@ msgstr "Valitut:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1221
+#: src/Server/Privileges.php:1225
 msgid "Not enough privilege to view users."
 msgstr ""
 
@@ -2615,8 +2615,8 @@ msgstr "Rutiinit"
 msgid "Function"
 msgstr "Funktio"
 
-#: resources/templates/database/routines/index.twig:3 src/Menu.php:370
-#: src/Util.php:1473
+#: resources/templates/database/routines/index.twig:3 src/Menu.php:371
+#: src/Util.php:1474
 msgid "Routines"
 msgstr "Rutiinit"
 
@@ -2627,9 +2627,9 @@ msgstr "Rutiinit"
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
-#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:222
-#: src/Menu.php:326 src/Navigation/Nodes/NodeTable.php:285 src/Util.php:1042
-#: src/Util.php:1467 src/Util.php:1484
+#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:223
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:285 src/Util.php:1043
+#: src/Util.php:1468 src/Util.php:1485
 msgid "Search"
 msgstr "Etsi"
 
@@ -2742,8 +2742,8 @@ msgstr[1] "%1$s hakutulosta taulussa <strong>%2$s</strong>"
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
-#: src/Config/ConfigFile.php:603 src/Menu.php:206
-#: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1044 src/Util.php:1481
+#: src/Config/ConfigFile.php:603 src/Menu.php:207
+#: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1045 src/Util.php:1482
 msgid "Browse"
 msgstr "Selaa"
 
@@ -2771,8 +2771,8 @@ msgstr[1] "%s taulua"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
-#: resources/templates/server/replication/index.twig:5 src/Menu.php:496
-#: src/Server/Status/Data.php:124 src/Util.php:1458
+#: resources/templates/server/replication/index.twig:5 src/Menu.php:497
+#: src/Server/Status/Data.php:124 src/Util.php:1459
 msgid "Replication"
 msgstr "Kahdennus"
 
@@ -2781,7 +2781,7 @@ msgid "Sum"
 msgstr "Summa"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:414
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s on tämän MySQL-palvelimen oletustallennusmoottori."
@@ -2888,7 +2888,7 @@ msgid "Copy table with prefix"
 msgstr "Kopioi taulun etuliite"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:404 src/Util.php:1478
+#: src/Menu.php:405 src/Util.php:1479
 msgid "Central columns"
 msgstr "Keskisarakkeet"
 
@@ -2922,7 +2922,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:257
-#: src/Plugins/Export/ExportSql.php:924 src/Plugins/Export/ExportXml.php:367
+#: src/Plugins/Export/ExportSql.php:924 src/Plugins/Export/ExportXml.php:365
 #: src/Plugins/Export/Helpers/Pdf.php:176
 #, fuzzy
 #| msgid "Database"
@@ -2980,7 +2980,7 @@ msgstr "Tietosanasto"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:76
 #: src/Controllers/Database/TrackingController.php:125
-#: src/Controllers/Export/ExportController.php:277
+#: src/Controllers/Export/ExportController.php:276
 msgid "No tables found in database."
 msgstr "Tietokannassa ei ole tauluja."
 
@@ -3006,8 +3006,8 @@ msgstr "Näytä SQL-kyselyt"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:432 src/Server/Privileges.php:1575
-#: src/Server/Privileges.php:1577
+#: src/Plugins/Export/ExportXml.php:430 src/Server/Privileges.php:1579
+#: src/Server/Privileges.php:1581
 msgid "Table"
 msgstr "Taulu"
 
@@ -3050,8 +3050,8 @@ msgstr "Kahdennettu"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:523
-#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:233
-#: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1043 src/Util.php:1485
+#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:234
+#: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1044 src/Util.php:1486
 msgid "Insert"
 msgstr "Lisää rivi"
 
@@ -3265,12 +3265,12 @@ msgid "Extra options"
 msgstr "Taulun valinnat"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1116
+#: src/Display/Results.php:1108
 msgid "Partial texts"
 msgstr "Osittaiset tekstit"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1120
+#: src/Display/Results.php:1112
 msgid "Full texts"
 msgstr "Koko tekstit"
 
@@ -3311,7 +3311,7 @@ msgstr "Hyvin tunnettu ohjelmakoodi"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:496
-#: src/Display/Results.php:2481 src/Html/Generator.php:79
+#: src/Display/Results.php:2473 src/Html/Generator.php:79
 msgid "Copy"
 msgstr "Kopioi"
 
@@ -3352,7 +3352,7 @@ msgstr "Käännä Kana-merkeiksi"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:740 src/Import/Import.php:115 src/InsertEdit.php:487
+#: src/Html/Generator.php:740 src/Import/Import.php:115 src/InsertEdit.php:486
 #: src/Message.php:138
 msgid "Error"
 msgstr "Virhe"
@@ -3917,9 +3917,9 @@ msgstr "Takaisin"
 #: resources/templates/preferences/manage/main.twig:11
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
-#: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:249
-#: src/Menu.php:352 src/Menu.php:469 src/Util.php:1455 src/Util.php:1470
-#: src/Util.php:1487
+#: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1456 src/Util.php:1471
+#: src/Util.php:1488
 msgid "Import"
 msgstr "Tuonti"
 
@@ -3962,7 +3962,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:488
+#: src/InsertEdit.php:487
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää."
 
@@ -4060,7 +4060,7 @@ msgid "Taking you to the target site."
 msgstr "Viedään sinut seuraavaan vaiheeseen…"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/I18n/LanguageManager.php:994 src/Pdf.php:84
+#: src/I18n/LanguageManager.php:998 src/Pdf.php:84
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4098,8 +4098,8 @@ msgid "Server choice:"
 msgstr "Valitse palvelin"
 
 #: resources/templates/login/header.twig:10
-#: src/Plugins/Auth/AuthenticationConfig.php:95
-#: src/Plugins/Auth/AuthenticationHttp.php:85
+#: src/Plugins/Auth/AuthenticationConfig.php:91
+#: src/Plugins/Auth/AuthenticationHttp.php:86
 #, php-format
 msgid "Welcome to %s"
 msgstr "Tervetuloa, toivottaa %s"
@@ -4297,7 +4297,7 @@ msgstr "SQL-vedos"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:435 src/Util.php:1450
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1451
 msgid "Databases"
 msgstr "Tietokannat"
 
@@ -4559,7 +4559,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:294 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
 msgid "No change"
 msgstr "Ei muutoksia"
 
@@ -4817,8 +4817,8 @@ msgstr ""
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
-#: resources/templates/server/binlog/index.twig:3 src/Menu.php:489
-#: src/Server/Status/Data.php:119 src/Util.php:1457
+#: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
+#: src/Server/Status/Data.php:119 src/Util.php:1458
 msgid "Binary log"
 msgstr "Binääriloki"
 
@@ -4975,7 +4975,7 @@ msgstr "Kuvaus"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:579
-#: src/Menu.php:502 src/Server/Status/Data.php:186 src/Util.php:1459
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1460
 msgid "Variables"
 msgstr "Muuttujat"
 
@@ -4997,8 +4997,8 @@ msgstr "Tuo tietokantoja nykyiseltä palvelimelta"
 msgid "Importing into the current server"
 msgstr "Tuonti nykyiselle palvalimelle"
 
-#: resources/templates/server/plugins/index.twig:4 src/Menu.php:517
-#: src/Util.php:1461
+#: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
+#: src/Util.php:1462
 msgid "Plugins"
 msgstr "Liitännäiset"
 
@@ -5130,7 +5130,7 @@ msgstr "Käyttäjät"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1581 src/Server/Privileges.php:1583
+#: src/Server/Privileges.php:1585 src/Server/Privileges.php:1587
 #, fuzzy
 #| msgid "Routines"
 msgid "Routine"
@@ -5144,7 +5144,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1582
+#: src/Server/Privileges.php:1586
 #, fuzzy
 #| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
@@ -5305,7 +5305,7 @@ msgstr "Muokkaa palvelinta"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1576
+#: src/Server/Privileges.php:1580
 msgid "Table-specific privileges"
 msgstr "Taulukohtaiset käyttöoikeudet"
 
@@ -5340,7 +5340,7 @@ msgstr "Lisää käyttöoikeudet seuraavaan tauluun"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:311
+#: src/Server/Privileges.php:315
 msgid "Allows reading data."
 msgstr "Sallii tietojen lukemisen."
 
@@ -5348,7 +5348,7 @@ msgstr "Sallii tietojen lukemisen."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:496
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:495
 msgid "Or"
 msgstr "Tai"
 
@@ -5369,20 +5369,20 @@ msgstr "Ei mitään"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:312
+#: src/Server/Privileges.php:316
 msgid "Allows inserting and replacing data."
 msgstr "Sallii tietojen lisäämisen ja korvaamisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:313
+#: src/Server/Privileges.php:317
 msgid "Allows changing data."
 msgstr "Sallii tietojen muuttamisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:325
 msgid "Has no effect in this MySQL version."
 msgstr "Ei vaikutusta tässä MySQL-palvelimen versiossa."
 
@@ -5390,7 +5390,7 @@ msgstr "Ei vaikutusta tässä MySQL-palvelimen versiossa."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:291 src/Server/Privileges.php:314
+#: src/Server/Privileges.php:295 src/Server/Privileges.php:318
 msgid "Allows deleting data."
 msgstr "Sallii tietojen poistamisen."
 
@@ -5398,7 +5398,7 @@ msgstr "Sallii tietojen poistamisen."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:292
+#: src/Server/Privileges.php:296
 msgid "Allows creating new tables."
 msgstr "Sallii uusien taulujen luomisen."
 
@@ -5406,7 +5406,7 @@ msgstr "Sallii uusien taulujen luomisen."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:293
+#: src/Server/Privileges.php:297
 msgid "Allows dropping tables."
 msgstr "Sallii taulujen poistamisen."
 
@@ -5423,7 +5423,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:294 src/Server/Privileges.php:322
+#: src/Server/Privileges.php:298 src/Server/Privileges.php:326
 msgid "Allows creating and dropping indexes."
 msgstr "Sallii indeksien luomisen ja poistamisen."
 
@@ -5431,7 +5431,7 @@ msgstr "Sallii indeksien luomisen ja poistamisen."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:323
+#: src/Server/Privileges.php:299 src/Server/Privileges.php:327
 msgid "Allows altering the structure of existing tables."
 msgstr "Sallii muuttaa olemassa olevien taulujen rakennetta."
 
@@ -5441,8 +5441,8 @@ msgstr "Sallii muuttaa olemassa olevien taulujen rakennetta."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:296 src/Server/Privileges.php:342
-#: src/Server/Privileges.php:346
+#: src/Server/Privileges.php:300 src/Server/Privileges.php:346
+#: src/Server/Privileges.php:350
 msgid "Allows creating new views."
 msgstr "Sallii uusien näkymien luomisen."
 
@@ -5450,8 +5450,8 @@ msgstr "Sallii uusien näkymien luomisen."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:297 src/Server/Privileges.php:347
-#: src/Server/Privileges.php:349
+#: src/Server/Privileges.php:301 src/Server/Privileges.php:351
+#: src/Server/Privileges.php:353
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Sallii SHOW CREATE VIEW -kyselyjen suorittamisen."
 
@@ -5459,7 +5459,7 @@ msgstr "Sallii SHOW CREATE VIEW -kyselyjen suorittamisen."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:298 src/Server/Privileges.php:344
+#: src/Server/Privileges.php:302 src/Server/Privileges.php:348
 #, fuzzy
 #| msgid "Allows creating and dropping triggers"
 msgid "Allows creating and dropping triggers."
@@ -5468,7 +5468,7 @@ msgstr "Sallii herättimien eli laukaisinten luomisen ja poistamisen"
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:355 src/Server/Privileges.php:364
+#: src/Server/Privileges.php:359 src/Server/Privileges.php:368
 #, fuzzy
 #| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
@@ -5486,55 +5486,55 @@ msgid "Global privileges"
 msgstr "Globaalit käyttöoikeudet"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1570
+#: src/Server/Privileges.php:1574
 msgid "Database-specific privileges"
 msgstr "Tietokantakohtaiset käyttöoikeudet"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:324
 msgid "Allows importing data from and exporting data into files."
 msgstr "Sallii tietojen tuomisen ja viemisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:319
 msgid "Allows creating new databases and tables."
 msgstr "Sallii uusien tietokantojen ja taulujen luomisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:320
 msgid "Allows dropping databases and tables."
 msgstr "Sallii tietokantojen ja taulujen poistamisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:334
+#: src/Server/Privileges.php:338
 msgid "Allows creating temporary tables."
 msgstr "Sallii tilapäisten taulujen luomisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:366
+#: src/Server/Privileges.php:370
 msgid "Allows creating stored routines."
 msgstr "Sallii talletettujen rutiinien luomisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:367
+#: src/Server/Privileges.php:371
 msgid "Allows altering and dropping stored routines."
 msgstr "Sallii talletettujen rutiinien muuntamisen ja poistamisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:369
+#: src/Server/Privileges.php:373
 msgid "Allows executing stored routines."
 msgstr "Sallii talletettujen rutiinien suorittamisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:343
+#: src/Server/Privileges.php:347
 #, fuzzy
 #| msgid "Allows to set up events for the event scheduler"
 msgid "Allows to set up events for the event scheduler."
@@ -5554,7 +5554,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:329
+#: src/Server/Privileges.php:333
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5566,7 +5566,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:323
 #, fuzzy
 #| msgid "Allows viewing processes of all users"
 msgid "Allows viewing processes of all users."
@@ -5574,7 +5574,7 @@ msgstr "Sallii kaikkien käyttäjien prosessien näyttämisen"
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:321
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Sallii palvelinasetusten uudelleenlataamisen ja palvelimen välimuistin "
@@ -5582,19 +5582,19 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:318
+#: src/Server/Privileges.php:322
 msgid "Allows shutting down the server."
 msgstr "Sallii palvelimen sammuttamisen."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:328
 msgid "Gives access to the complete list of databases."
 msgstr "Sallii koko tietokantaluettelon käytön."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:335
+#: src/Server/Privileges.php:339
 msgid "Allows locking tables for the current thread."
 msgstr "Sallii taulujen lukitsemisen nykyiselle säikeelle."
 
@@ -5616,7 +5616,7 @@ msgstr "Ei vaikutusta tässä MySQL-palvelimen versiossa."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:344
 #, fuzzy
 #| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
@@ -5624,7 +5624,7 @@ msgstr "Sallii käyttäjän kysyä, missä ali- ja pääpalvelimet sijaitsevat."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:336
+#: src/Server/Privileges.php:340
 #, fuzzy
 #| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
@@ -5632,7 +5632,7 @@ msgstr "Tarvitaan kahdennusta käyttävissä alipalvelimissa."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:368
+#: src/Server/Privileges.php:372
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Sallii käyttäjätilien luomisen, poistamisen ja uudelleennimeämisen."
 
@@ -6392,13 +6392,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:151
-#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:300
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:301
 msgid "KiB"
 msgstr "kt"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
-#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:302
+#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:303
 msgid "MiB"
 msgstr "Mt"
 
@@ -6485,7 +6485,7 @@ msgid "Start auto refresh"
 msgstr "Aloita automaattinen päivittäminen"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2555
+#: src/Display/Results.php:2547
 msgid "Kill"
 msgstr "Lopeta"
 
@@ -6697,7 +6697,7 @@ msgid "No users were found belonging to this user group."
 msgstr ""
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:425
+#: src/Controllers/Server/PrivilegesController.php:424
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Käyttäjä"
@@ -6927,7 +6927,7 @@ msgstr "Profiloinnin tulokset"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1027 src/Display/Results.php:3139
+#: src/Database/Routines.php:1027 src/Display/Results.php:3131
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "SQL-kyselysi on suoritettu onnistuneesti."
@@ -7391,7 +7391,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -7469,7 +7469,7 @@ msgstr "Tyhjennä taulun välimuisti (\"FLUSH\")"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:406
+#: src/Controllers/Database/StructureController.php:403
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Taulu %s on tyhjennetty."
@@ -7486,13 +7486,13 @@ msgstr "Tyhjennä taulu (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:358
+#: src/Controllers/Database/StructureController.php:356
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Näkymä %s on poistettu."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:359
+#: src/Controllers/Database/StructureController.php:356
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Taulu %s on poistettu."
@@ -7519,8 +7519,8 @@ msgid "Check referential integrity"
 msgstr "Tarkista viitteiden eheys:"
 
 #: resources/templates/table/operations/view.twig:8
-#: src/Config/ConfigFile.php:591 src/Menu.php:267 src/Menu.php:277
-#: src/Menu.php:357 src/Util.php:1045 src/Util.php:1471 src/Util.php:1489
+#: src/Config/ConfigFile.php:591 src/Menu.php:268 src/Menu.php:278
+#: src/Menu.php:358 src/Util.php:1046 src/Util.php:1472 src/Util.php:1490
 msgid "Operations"
 msgstr "Toiminnot"
 
@@ -7749,32 +7749,32 @@ msgid "Index length"
 msgstr "Rivin pituus"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:515
+#: src/Operations.php:516
 msgid "Analyze"
 msgstr "Analysoi"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:516
+#: src/Operations.php:517
 msgid "Check"
 msgstr "Tarkasta"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:517
+#: src/Operations.php:518
 msgid "Optimize"
 msgstr "Optimoi"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:518
+#: src/Operations.php:519
 msgid "Rebuild"
 msgstr "Rakenna uudestaan"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:519
+#: src/Operations.php:520
 msgid "Repair"
 msgstr "Korjaa"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:520
+#: src/Operations.php:521
 msgid "Truncate"
 msgstr ""
 
@@ -8071,20 +8071,20 @@ msgid "Event"
 msgstr "Tapahtuma"
 
 #: resources/templates/triggers/export.twig:2
-#: src/Controllers/Triggers/IndexController.php:235
+#: src/Controllers/Triggers/IndexController.php:233
 #, fuzzy, php-format
 #| msgid "Export contents"
 msgid "Export of trigger %s"
 msgstr "Vie sisällöt"
 
-#: resources/templates/triggers/list.twig:3 src/Menu.php:290 src/Menu.php:383
+#: resources/templates/triggers/list.twig:3 src/Menu.php:291 src/Menu.php:384
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:496
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
 #: src/Plugins/Export/ExportSql.php:1905
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:115 src/Util.php:1475 src/Util.php:1491
+#: src/Plugins/Export/ExportXml.php:115 src/Util.php:1476 src/Util.php:1492
 msgid "Triggers"
 msgstr "Herättimet"
 
@@ -9355,7 +9355,7 @@ msgstr ""
 msgid "Search:"
 msgstr "Haku:"
 
-#: src/Charsets/Collation.php:109 src/Charsets.php:183
+#: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -9659,9 +9659,9 @@ msgstr "Vietnamilainen"
 
 #: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
 #: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
-#: src/Config/Descriptions.php:755 src/Menu.php:218 src/Menu.php:322
-#: src/Menu.php:440 src/Navigation/Nodes/NodeTable.php:287 src/Util.php:1041
-#: src/Util.php:1451 src/Util.php:1466 src/Util.php:1483
+#: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:287 src/Util.php:1042
+#: src/Util.php:1452 src/Util.php:1467 src/Util.php:1484
 msgid "SQL"
 msgstr "SQL"
 
@@ -11337,12 +11337,12 @@ msgid "Put columns names in the first row"
 msgstr "Aseta sarakkeiden nimet ensimmäiselle riville"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:652
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:650
 msgid "Columns enclosed with"
 msgstr "Sarakkeet mukana"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:663
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:661
 msgid "Columns escaped with"
 msgstr "Sarakkeet unohtui"
 
@@ -11358,12 +11358,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Poista CRLF-merkit sarakkeista"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:637
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:635
 msgid "Columns terminated with"
 msgstr "Sarakkeet päätetään"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:670
+#: src/Plugins/Import/ImportCsv.php:668
 msgid "Lines terminated with"
 msgstr "Rivit päätetään"
 
@@ -12434,22 +12434,22 @@ msgstr ""
 "Asetuksia ei voitu tallentaa, sillä lähetetyssä konfiguraatiolomakkeessa on "
 "virheitä!"
 
-#: src/Config.php:619
+#: src/Config.php:620
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Olemassa oleva asetustiedosto (%s) ei ole luettavissa."
 
-#: src/Config.php:655
+#: src/Config.php:656
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Väärät pääsyasetukset asetustiedostolla, sen ei kuuluisi olla kaikkien "
 "kirjoitettavissa!"
 
-#: src/Config.php:669
+#: src/Config.php:670
 msgid "Failed to read configuration file!"
 msgstr "Asetustiedoston lukeminen epäonnistui!"
 
-#: src/Config.php:671
+#: src/Config.php:672
 #, fuzzy
 #| msgid ""
 #| "This usually means there is a syntax error in it, please check any errors "
@@ -12625,11 +12625,11 @@ msgstr ""
 msgid "Server %d"
 msgstr "Palvelin %d"
 
-#: src/ConfigStorage/Relation.php:1247
+#: src/ConfigStorage/Relation.php:1250
 msgid "no description"
 msgstr "ei kuvausta"
 
-#: src/ConfigStorage/Relation.php:1453
+#: src/ConfigStorage/Relation.php:1456
 #, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
@@ -12776,20 +12776,20 @@ msgstr "Taulun %1$s muuttaminen onnistui."
 msgid "Unexpected parameter value."
 msgstr "Odottamatton merkki."
 
-#: src/Controllers/Database/CentralColumnsController.php:143
+#: src/Controllers/Database/CentralColumnsController.php:145
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Näytetään rivi(t) %1$s–%2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:103
+#: src/Controllers/Database/DesignerController.php:101
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:168
-#: src/Controllers/Database/DesignerController.php:173
+#: src/Controllers/Database/DesignerController.php:167
+#: src/Controllers/Database/DesignerController.php:172
 #: src/Controllers/Database/EventsController.php:48
 #: src/Controllers/Database/ExportController.php:58
 #: src/Controllers/Database/ExportController.php:63
@@ -12809,15 +12809,15 @@ msgstr ""
 #: src/Controllers/Database/TrackingController.php:59
 #: src/Controllers/JavaScriptMessagesController.php:360
 #: src/Controllers/Operations/Database/CollationController.php:52
-#: src/Controllers/Operations/DatabaseController.php:240
-#: src/Controllers/Operations/DatabaseController.php:245
+#: src/Controllers/Operations/DatabaseController.php:239
+#: src/Controllers/Operations/DatabaseController.php:244
 #: src/Controllers/Operations/TableController.php:87
 #: src/Controllers/Operations/TableController.php:92
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
 #: src/Controllers/Server/Databases/DestroyController.php:59
-#: src/Controllers/Table/AddFieldController.php:161
-#: src/Controllers/Table/AddFieldController.php:166
+#: src/Controllers/Table/AddFieldController.php:159
+#: src/Controllers/Table/AddFieldController.php:164
 #: src/Controllers/Table/ChangeController.php:67
 #: src/Controllers/Table/ChangeController.php:72
 #: src/Controllers/Table/ChartController.php:86
@@ -12845,54 +12845,54 @@ msgstr ""
 #: src/Controllers/Table/SqlController.php:62
 #: src/Controllers/Table/StructureController.php:89
 #: src/Controllers/Table/StructureController.php:94
-#: src/Controllers/Table/Structure/PrimaryController.php:69
-#: src/Controllers/Table/Structure/PrimaryController.php:74
+#: src/Controllers/Table/Structure/PrimaryController.php:67
+#: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
 #: src/Controllers/Table/TrackingController.php:71
 #: src/Controllers/Table/ZoomSearchController.php:99
 #: src/Controllers/Table/ZoomSearchController.php:104
 #: src/Controllers/Triggers/IndexController.php:64
 #: src/Controllers/Triggers/IndexController.php:83
-#: src/Controllers/View/CreateController.php:67
-#: src/Controllers/View/CreateController.php:72
+#: src/Controllers/View/CreateController.php:65
+#: src/Controllers/View/CreateController.php:70
 msgid "No databases selected."
 msgstr "Yhtään tietokantaa ei ole valittu."
 
-#: src/Controllers/Database/EventsController.php:124
+#: src/Controllers/Database/EventsController.php:122
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add event"
 msgstr "Lisää uusi palvelin"
 
-#: src/Controllers/Database/EventsController.php:128
+#: src/Controllers/Database/EventsController.php:126
 #, fuzzy
 #| msgid "Edit server"
 msgid "Edit event"
 msgstr "Muokkaa palvelinta"
 
-#: src/Controllers/Database/EventsController.php:177
-#: src/Controllers/Database/RoutinesController.php:272
-#: src/Controllers/Database/RoutinesController.php:302
-#: src/Controllers/Database/RoutinesController.php:370
-#: src/Controllers/Triggers/IndexController.php:209
+#: src/Controllers/Database/EventsController.php:175
+#: src/Controllers/Database/RoutinesController.php:270
+#: src/Controllers/Database/RoutinesController.php:300
+#: src/Controllers/Database/RoutinesController.php:368
+#: src/Controllers/Triggers/IndexController.php:207
 #, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing request:"
 msgstr "Virhe pyynnön käsittelyssä"
 
-#: src/Controllers/Database/EventsController.php:179
+#: src/Controllers/Database/EventsController.php:177
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No event with name %1$s found in database %2$s."
 msgstr "Tietokannassa ei ole tauluja."
 
-#: src/Controllers/Database/EventsController.php:205
+#: src/Controllers/Database/EventsController.php:203
 #, fuzzy, php-format
 #| msgid "Export contents"
 msgid "Export of event %s"
 msgstr "Vie sisällöt"
 
-#: src/Controllers/Database/EventsController.php:223
+#: src/Controllers/Database/EventsController.php:221
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -12912,14 +12912,14 @@ msgid "Could not load import plugins, please check your installation!"
 msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 
 #: src/Controllers/Database/PrivilegesController.php:61
-#: src/Controllers/Server/PrivilegesController.php:100
+#: src/Controllers/Server/PrivilegesController.php:99
 #: src/Controllers/Server/UserGroupsController.php:45
 #: src/Controllers/Table/PrivilegesController.php:64
 msgid "No Privileges"
 msgstr "Ei käyttöoikeuksia"
 
 #: src/Controllers/Database/PrivilegesController.php:70
-#: src/Controllers/Server/PrivilegesController.php:109
+#: src/Controllers/Server/PrivilegesController.php:108
 #: src/Controllers/Table/PrivilegesController.php:73
 #, fuzzy
 #| msgid "You don't have sufficient privileges to be here right now!"
@@ -12928,9 +12928,9 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 
 #: src/Controllers/Database/RoutinesController.php:82
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:38
-#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:38
-#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:37
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:37
+#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:36
+#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:36
 #: src/Controllers/Database/Structure/ChangePrefixFormController.php:33
 #: src/Controllers/Database/Structure/CopyFormController.php:34
 #: src/Controllers/Database/Structure/DropFormController.php:32
@@ -12942,8 +12942,8 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 #: src/Controllers/Operations/TableController.php:106
 #: src/Controllers/Operations/ViewController.php:73
 #: src/Controllers/Operations/ViewController.php:78
-#: src/Controllers/Table/AddFieldController.php:175
-#: src/Controllers/Table/AddFieldController.php:180
+#: src/Controllers/Table/AddFieldController.php:173
+#: src/Controllers/Table/AddFieldController.php:178
 #: src/Controllers/Table/ChangeController.php:81
 #: src/Controllers/Table/ChangeController.php:86
 #: src/Controllers/Table/ChartController.php:100
@@ -12972,8 +12972,8 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 #: src/Controllers/Table/SqlController.php:76
 #: src/Controllers/Table/StructureController.php:103
 #: src/Controllers/Table/StructureController.php:108
-#: src/Controllers/Table/Structure/PrimaryController.php:83
-#: src/Controllers/Table/Structure/PrimaryController.php:88
+#: src/Controllers/Table/Structure/PrimaryController.php:81
+#: src/Controllers/Table/Structure/PrimaryController.php:86
 #: src/Controllers/Table/ZoomSearchController.php:113
 #: src/Controllers/Table/ZoomSearchController.php:118
 #: src/Controllers/Triggers/IndexController.php:72
@@ -12982,44 +12982,44 @@ msgstr "Sinulla ei ole riittäviä oikeuksia!"
 msgid "No table selected."
 msgstr "Yhtään taulua ei ole valittu."
 
-#: src/Controllers/Database/RoutinesController.php:172
+#: src/Controllers/Database/RoutinesController.php:170
 #, fuzzy
 #| msgid "Apply index(s)"
 msgid "Add routine"
 msgstr "Lisää rutiini"
 
-#: src/Controllers/Database/RoutinesController.php:176
+#: src/Controllers/Database/RoutinesController.php:174
 #, fuzzy
 #| msgid "Edit mode"
 msgid "Edit routine"
 msgstr "Muokkaustila"
 
-#: src/Controllers/Database/RoutinesController.php:275
+#: src/Controllers/Database/RoutinesController.php:273
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:304
-#: src/Controllers/Database/RoutinesController.php:372
+#: src/Controllers/Database/RoutinesController.php:302
+#: src/Controllers/Database/RoutinesController.php:370
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Tietokannassa ei ole tauluja."
 
-#: src/Controllers/Database/RoutinesController.php:353
-#: src/Controllers/Database/RoutinesController.php:363
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Database/RoutinesController.php:361
 msgid "Execute routine"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:415
+#: src/Controllers/Database/RoutinesController.php:413
 #, fuzzy, php-format
 #| msgid "Export defaults"
 msgid "Export of routine %s"
 msgstr "Vie oletusarvot"
 
-#: src/Controllers/Database/RoutinesController.php:434
+#: src/Controllers/Database/RoutinesController.php:432
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -13033,14 +13033,14 @@ msgid ""
 "code] configuration."
 msgstr ""
 
-#: src/Controllers/Database/Structure/CentralColumns/AddController.php:48
-#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:48
-#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:47
+#: src/Controllers/Database/Structure/CentralColumns/AddController.php:47
+#: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:46
+#: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:46
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:572
-#: src/Display/Results.php:3416
+#: src/Controllers/Database/StructureController.php:569
+#: src/Display/Results.php:3408
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -13049,7 +13049,7 @@ msgstr ""
 "Tässä näkymässä on vähintään tämän luvun verran rivejä. Katso lisätietoja "
 "%sohjeista%s."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:733
 msgid "unknown"
 msgstr "tuntematon"
 
@@ -13104,7 +13104,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Haluat ehkä päivittää tämän sivun."
 
-#: src/Controllers/Export/ExportController.php:102 src/Export/Export.php:1037
+#: src/Controllers/Export/ExportController.php:101 src/Export/Export.php:1037
 msgid "Bad type!"
 msgstr "Virheellinen tyyppi!"
 
@@ -13113,7 +13113,7 @@ msgstr "Virheellinen tyyppi!"
 msgid "Value for the column \"%s\""
 msgstr "Arvo sarakkeelle %s"
 
-#: src/Controllers/HomeController.php:95
+#: src/Controllers/HomeController.php:93
 #, fuzzy
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
@@ -13122,7 +13122,7 @@ msgstr ""
 "Kirjauduit ulos yhdeltä palvelimelta. Kirjautuaksesi kokonaan ulos "
 "phpMyAdminista, sinun tulee kirjautua ulos kaikilta palvelimilta."
 
-#: src/Controllers/HomeController.php:192
+#: src/Controllers/HomeController.php:190
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13132,14 +13132,14 @@ msgstr ""
 "tauluihin liittyvät lisäominaisuudet eivät ole käytössä. Katso miksi "
 "%slisätietoja%s. "
 
-#: src/Controllers/HomeController.php:198
+#: src/Controllers/HomeController.php:196
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Vaihtoehtoisesti, navigoi minkä tahansa tietokannan \"Toiminnot\" - "
 "välilehdelle."
 
-#: src/Controllers/HomeController.php:263
+#: src/Controllers/HomeController.php:261
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -13151,7 +13151,7 @@ msgstr ""
 "phpMyAdminissa määritetty evästekelpoisuus. Siksi kirjautumisesi saattaa "
 "erääntyä nopeammin kuin phpMyAdminissa on määritetty."
 
-#: src/Controllers/HomeController.php:283
+#: src/Controllers/HomeController.php:281
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -13159,21 +13159,21 @@ msgstr ""
 "Kirjautumistunnuksesi vanhenee nopeammin kuin phpMyAdminissa määritetty. "
 "Siksi kirjautumisesi erääntyy nopeammin kuin phpMyAdminissa on määritetty."
 
-#: src/Controllers/HomeController.php:302
+#: src/Controllers/HomeController.php:300
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:321
+#: src/Controllers/HomeController.php:319
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:331
+#: src/Controllers/HomeController.php:329
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13181,7 +13181,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:349
+#: src/Controllers/HomeController.php:347
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13193,7 +13193,7 @@ msgstr ""
 "asetukset on määritetty. Muuten palvelimen turvallisuus saattaa vaarantua "
 "luvattoman asetuksien lataamisen takia."
 
-#: src/Controllers/HomeController.php:370
+#: src/Controllers/HomeController.php:368
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13202,7 +13202,7 @@ msgstr ""
 "Palvelin käyttää Suhosin-suojausjärjestelmää. Lue %sohjeista%s tietoja "
 "mahdollisista ongelmista."
 
-#: src/Controllers/HomeController.php:384
+#: src/Controllers/HomeController.php:382
 #, fuzzy, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -13211,7 +13211,7 @@ msgstr ""
 "Ei kyetä avaamaan hakemistoa $cfg['TempDir'] (%s). phpMyAdmin ei kykene "
 "tallentamaan mallipohjia välimuistiin ja se aiheuttaa hidastelua."
 
-#: src/Controllers/HomeController.php:441
+#: src/Controllers/HomeController.php:437
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13221,7 +13221,7 @@ msgstr ""
 "olevan käytössä. Ilman mbstring-laajennusta phpMyAdmin ei osaa jaotella "
 "merkkijonoja oikein, ja tästä saattaa koitua odottamattomia seurauksia."
 
-#: src/Controllers/HomeController.php:459
+#: src/Controllers/HomeController.php:455
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13230,7 +13230,7 @@ msgstr ""
 "jotkin toiminnot, kuten virheraportointi tai versiontarkistus, ovat poissa "
 "käytöstä."
 
-#: src/Controllers/Import/ImportController.php:166
+#: src/Controllers/Import/ImportController.php:165
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13239,23 +13239,23 @@ msgstr ""
 "Yritit ehkä lähettää palvelimelle liian suurta tiedostoa. Katso "
 "%sohjeista%s, kuinka tämän rajoituksen voi poistaa."
 
-#: src/Controllers/Import/ImportController.php:192
+#: src/Controllers/Import/ImportController.php:191
 #, fuzzy
 #| msgid "Remove database"
 msgid "Incorrect format parameter"
 msgstr "Tuhoa tietokanta"
 
-#: src/Controllers/Import/ImportController.php:306
-#: src/Controllers/Import/ImportController.php:519
+#: src/Controllers/Import/ImportController.php:305
+#: src/Controllers/Import/ImportController.php:518
 msgid "Showing bookmark"
 msgstr "Näytetään kirjanmerkki"
 
-#: src/Controllers/Import/ImportController.php:326
-#: src/Controllers/Import/ImportController.php:515
+#: src/Controllers/Import/ImportController.php:325
+#: src/Controllers/Import/ImportController.php:514
 msgid "The bookmark has been deleted."
 msgstr "Kirjanmerkki on poistettu."
 
-#: src/Controllers/Import/ImportController.php:438
+#: src/Controllers/Import/ImportController.php:437
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13265,14 +13265,14 @@ msgstr ""
 "ylitti PHP:n asetusten salliman enimmäiskoon. Katso [doc@faq1-16]FAQ 1.16[/"
 "doc]."
 
-#: src/Controllers/Import/ImportController.php:527
+#: src/Controllers/Import/ImportController.php:526
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "Tuonti onnistui, %d kysely suoritettu."
 msgstr[1] "Tuonti onnistui, %d kyselyä suoritettu."
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:563
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -13281,7 +13281,7 @@ msgstr ""
 "Skriptin suoritus aikakatkaistiin. Jos haluat suorittaa tuonnin loppuun, "
 "%slähetä sama tiedosto uudestaan%s, ja tuonti jatkuu."
 
-#: src/Controllers/Import/ImportController.php:574
+#: src/Controllers/Import/ImportController.php:573
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13290,12 +13290,12 @@ msgstr ""
 "tarkoittaa yleensä sitä, että phpMyAdmin ei voi ajaa tätä tuontia loppuun "
 "asti ellei PHP:n suoritusaikarajaa nosteta."
 
-#: src/Controllers/Import/ImportController.php:637
+#: src/Controllers/Import/ImportController.php:636
 #: src/Controllers/Sql/SqlController.php:159
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" -kyselyjen käyttö on estetty."
 
-#: src/Controllers/Import/ImportController.php:690 src/Sql.php:881
+#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -13540,12 +13540,12 @@ msgid "The user name is empty!"
 msgstr "Käyttäjän nimi puuttuu!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:768 src/UserPassword.php:39
+#: src/Server/Privileges.php:772 src/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Salasana puuttuu!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:766 src/UserPassword.php:43
+#: src/Server/Privileges.php:770 src/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Salasanat eivät ole samat!"
 
@@ -13583,14 +13583,14 @@ msgid "Other"
 msgstr "Toinen"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:388
-#: src/Util.php:420
+#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:389
+#: src/Util.php:421
 msgid ","
 msgstr "."
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:386
-#: src/Util.php:418
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:387
+#: src/Util.php:419
 msgid "."
 msgstr ","
 
@@ -13693,27 +13693,27 @@ msgid "Bytes received"
 msgstr "Tavua vastaanotettu"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:298
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:299
 msgid "B"
 msgstr "tavua"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:304
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:305
 msgid "GiB"
 msgstr "Gt"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:306
+#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:307
 msgid "TiB"
 msgstr "Tt"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:308
+#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:309
 msgid "PiB"
 msgstr "Pt"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:310
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:311
 msgid "EiB"
 msgstr "Et"
 
@@ -14234,7 +14234,7 @@ msgid "Primary key added."
 msgstr "Pääavain lisätty."
 
 #: src/Controllers/JavaScriptMessagesController.php:430
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Taking you to next step…"
 msgstr "Viedään sinut seuraavaan vaiheeseen…"
 
@@ -14244,8 +14244,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Ensimmäinen askel taulun '%s' normalisoinnille on valmis."
 
 #: src/Controllers/JavaScriptMessagesController.php:432
-#: src/Normalization.php:511 src/Normalization.php:570
-#: src/Normalization.php:657 src/Normalization.php:730
+#: src/Normalization.php:512 src/Normalization.php:571
+#: src/Normalization.php:658 src/Normalization.php:731
 msgid "End of step"
 msgstr "Vaiheen loppu"
 
@@ -14256,7 +14256,7 @@ msgstr "Normalisaation toinen askel (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:434
 #: src/Controllers/JavaScriptMessagesController.php:782
-#: src/Normalization.php:343
+#: src/Normalization.php:344
 msgid "Done"
 msgstr "Valmis"
 
@@ -14983,133 +14983,133 @@ msgctxt "Month name"
 msgid "December"
 msgstr "Joulukuu"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:494
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:495
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Tammi"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:495
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:496
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Helmi"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:496
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:497
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Maalis"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:498
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Huhti"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:499
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Toukokuu"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:500
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Kesä"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:501
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Heinä"
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:502
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Elo"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:503
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Syys"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:504
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Loka"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:505
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Marras"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:506
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Joulu"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:509
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Su"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:510
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Ma"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:511
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Ti"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:512
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Ke"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:513
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "To"
 
-#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:514
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Pe"
 
-#: src/Controllers/JavaScriptMessagesController.php:762 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:762 src/Util.php:515
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -15393,21 +15393,21 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:219
+#: src/Normalization.php:220
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "Valitse kaksi saraketta"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "No such column"
 msgstr "Poista sarake/sarakkeet"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:224 src/Types.php:629
+#: src/Normalization.php:225 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "Merkkijono"
@@ -15417,7 +15417,7 @@ msgstr "Merkkijono"
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:83
+#: src/Controllers/Operations/DatabaseController.php:82
 #, fuzzy
 #| msgid ""
 #| "Cannot rename database to the same name. Change the name and try again"
@@ -15425,17 +15425,17 @@ msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Tietokantaa ei voi kopioida samalle nimelle. Vaihda nimi ja yritä uudelleen."
 
-#: src/Controllers/Operations/DatabaseController.php:168
+#: src/Controllers/Operations/DatabaseController.php:167
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Tietokannan %1$s nimi on nyt %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:182
+#: src/Controllers/Operations/DatabaseController.php:181
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Tietokanta %1$s on kopioitu kohteeseen %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:283
+#: src/Controllers/Operations/DatabaseController.php:282
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15471,7 +15471,7 @@ msgstr "Asetuksissa on virheellinen todennustapa:"
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:444
+#: src/ResponseRenderer.php:445
 msgid "Missing parameter:"
 msgstr "Puuttuva parametri:"
 
@@ -15499,7 +15499,7 @@ msgstr "Valitsemiesi käyttäjien poisto onnistui."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
-#: src/Controllers/Server/PrivilegesController.php:125
+#: src/Controllers/Server/PrivilegesController.php:124
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -16266,21 +16266,21 @@ msgstr "Palvelin ei vastaa"
 msgid "Setting variable failed"
 msgstr "Muuttujan asettaminen epäonnistui"
 
-#: src/Controllers/Setup/ConfigController.php:43
-#: src/Controllers/Setup/FormController.php:44
-#: src/Controllers/Setup/HomeController.php:47
-#: src/Controllers/Setup/ServerDestroyController.php:41
-#: src/Controllers/Setup/ServersController.php:44
-#: src/Controllers/Setup/ShowConfigController.php:42
-#: src/Controllers/Setup/ValidateController.php:45
+#: src/Controllers/Setup/ConfigController.php:44
+#: src/Controllers/Setup/FormController.php:45
+#: src/Controllers/Setup/HomeController.php:48
+#: src/Controllers/Setup/ServerDestroyController.php:42
+#: src/Controllers/Setup/ServersController.php:45
+#: src/Controllers/Setup/ShowConfigController.php:43
+#: src/Controllers/Setup/ValidateController.php:46
 msgid "Configuration already exists, setup is disabled!"
 msgstr ""
 
-#: src/Controllers/Setup/FormController.php:61
+#: src/Controllers/Setup/FormController.php:62
 msgid "Incorrect form specified!"
 msgstr ""
 
-#: src/Controllers/Setup/HomeController.php:73
+#: src/Controllers/Setup/HomeController.php:74
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
@@ -16288,7 +16288,7 @@ msgstr ""
 "Käytössäsi ei ole salattua yhteyttä; kaikki tiedot (mukaan lukien "
 "mahdollisesti arkaa tietoa kuten salasanoja) siirretään salaamattomana!"
 
-#: src/Controllers/Setup/HomeController.php:78
+#: src/Controllers/Setup/HomeController.php:79
 #, fuzzy
 #| msgid ""
 #| "If your server is also configured to accept HTTPS requests follow "
@@ -16300,17 +16300,17 @@ msgstr ""
 "Jos palvelimen asetukset on määritetty hyväksymään HTTPS-pyynnöt, [a@%s]ota "
 "käyttöön[/a] salattu yhteys."
 
-#: src/Controllers/Setup/HomeController.php:82
+#: src/Controllers/Setup/HomeController.php:83
 msgid "Insecure connection"
 msgstr "Salaamaton yhteys"
 
-#: src/Controllers/Setup/ValidateController.php:60
+#: src/Controllers/Setup/ValidateController.php:61
 #, fuzzy
 #| msgid "No databases"
 msgid "Wrong data"
 msgstr "Ei tietokantoja"
 
-#: src/Controllers/Setup/ValidateController.php:69
+#: src/Controllers/Setup/ValidateController.php:70
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
@@ -16326,7 +16326,7 @@ msgstr "Kirjanmerkki %s on nyt luotu."
 msgid "Bookmark not created!"
 msgstr "Kirjanmerkki %s luotu"
 
-#: src/Controllers/Table/AddFieldController.php:136
+#: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:137
 #: src/Controllers/Table/IndexRenameController.php:125
 #: src/Controllers/Table/Structure/PartitioningController.php:265
@@ -16371,10 +16371,10 @@ msgstr "Taulu %s on jo olemassa!"
 #: src/Controllers/Table/DropColumnController.php:38
 #: src/Controllers/Table/Structure/AbstractIndexController.php:34
 #: src/Controllers/Table/Structure/BrowseController.php:31
-#: src/Controllers/Table/Structure/CentralColumnsAddController.php:37
-#: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:37
+#: src/Controllers/Table/Structure/CentralColumnsAddController.php:36
+#: src/Controllers/Table/Structure/CentralColumnsRemoveController.php:35
 #: src/Controllers/Table/Structure/ChangeController.php:59
-#: src/Controllers/Table/Structure/PrimaryController.php:44
+#: src/Controllers/Table/Structure/PrimaryController.php:42
 msgid "No column selected."
 msgstr "Ei valittua saraketta."
 
@@ -16401,7 +16401,7 @@ msgstr "Lähetettäviä tiedostoja ei ole"
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:867
+#: src/InsertEdit.php:199 src/Sql.php:868
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL palautti tyhjän tulosjoukon (siis nolla riviä)."
 
@@ -16449,7 +16449,7 @@ msgstr "Säikeen %s lopetus onnistui."
 msgid "Internal relationships were successfully updated."
 msgstr "Sisäinen relaatio luotu"
 
-#: src/Controllers/Table/ReplaceController.php:189
+#: src/Controllers/Table/ReplaceController.php:187
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -16508,25 +16508,25 @@ msgstr "Valitsemiesi käyttäjien poisto onnistui."
 msgid "No versions selected."
 msgstr "Ei yhtään riviä valittu"
 
-#: src/Controllers/Triggers/IndexController.php:165
+#: src/Controllers/Triggers/IndexController.php:163
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Add trigger"
 msgstr "Lisää uusi palvelin"
 
-#: src/Controllers/Triggers/IndexController.php:169
+#: src/Controllers/Triggers/IndexController.php:167
 #, fuzzy
 #| msgid "Add a new server"
 msgid "Edit trigger"
 msgstr "Lisää uusi palvelin"
 
-#: src/Controllers/Triggers/IndexController.php:211
+#: src/Controllers/Triggers/IndexController.php:209
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "Tietokannassa ei ole tauluja."
 
-#: src/Controllers/Triggers/IndexController.php:252
+#: src/Controllers/Triggers/IndexController.php:250
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid ""
@@ -16538,7 +16538,7 @@ msgstr "Tietokannassa ei ole tauluja."
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Sinulla ei ole riittäviä oikeuksia!"
 
-#: src/Controllers/View/CreateController.php:85
+#: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
 msgstr ""
 
@@ -16547,16 +16547,16 @@ msgstr ""
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr "Pääte %s puuttuu. Tarkista PHP-määritykset."
 
-#: src/Database/CentralColumns.php:326
+#: src/Database/CentralColumns.php:321
 #, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr "Ei voitu lisätä %1$s koska ne ovat jo keskitetyssä listassa!"
 
-#: src/Database/CentralColumns.php:340
+#: src/Database/CentralColumns.php:335
 msgid "Could not add columns!"
 msgstr "Sarakkeita ei voida lisätä!"
 
-#: src/Database/CentralColumns.php:411
+#: src/Database/CentralColumns.php:406
 #, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
@@ -16564,18 +16564,18 @@ msgstr ""
 "Sarakkeita ei voitu poistaa %1$s koska ne eivät ole sarakkeiden keskitetyssä "
 "listassa!"
 
-#: src/Database/CentralColumns.php:424
+#: src/Database/CentralColumns.php:419
 msgid "Could not remove columns!"
 msgstr "Sarakkeita ei voida poistaa!"
 
-#: src/Database/CentralColumns.php:898
+#: src/Database/CentralColumns.php:896
 msgid ""
 "The configuration storage is not ready for the central list of columns "
 "feature."
 msgstr ""
 "Konfiguraation muisti ei ole valmis sarakkeiden keskitettyä listausta varten."
 
-#: src/Database/Designer/Common.php:448
+#: src/Database/Designer/Common.php:445
 #, fuzzy
 #| msgid ""
 #| "The configuration storage is not ready for the central list of columns "
@@ -16588,63 +16588,63 @@ msgid ""
 msgstr ""
 "Konfiguraation muisti ei ole valmis sarakkeiden keskitettyä listausta varten."
 
-#: src/Database/Designer/Common.php:493
+#: src/Database/Designer/Common.php:487
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Error: relationship already exists."
 msgstr "Virhe: relaatio on jo olemassa."
 
-#: src/Database/Designer/Common.php:542
+#: src/Database/Designer/Common.php:536
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been added."
 msgstr "FOREIGN KEY -relaatio lisätty"
 
-#: src/Database/Designer/Common.php:547
+#: src/Database/Designer/Common.php:541
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "Virhe: Relaatiota ei luotu."
 
-#: src/Database/Designer/Common.php:550
+#: src/Database/Designer/Common.php:544
 msgid "Error: Missing index on column(s)."
 msgstr ""
 
-#: src/Database/Designer/Common.php:555 src/Database/Designer/Common.php:619
+#: src/Database/Designer/Common.php:549 src/Database/Designer/Common.php:611
 msgid "Error: Relational features are disabled!"
 msgstr "Virhe: Relaatio ominaisuudet ovat poissa käytöstä!"
 
-#: src/Database/Designer/Common.php:576
+#: src/Database/Designer/Common.php:570
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been added."
 msgstr "Sisäinen relaatio luotu"
 
-#: src/Database/Designer/Common.php:581
+#: src/Database/Designer/Common.php:575
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "Virhe: Relaatiota ei luotu."
 
-#: src/Database/Designer/Common.php:613
+#: src/Database/Designer/Common.php:605
 #, fuzzy
 #| msgid "FOREIGN KEY relation added"
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "FOREIGN KEY -relaatio lisätty"
 
-#: src/Database/Designer/Common.php:638
+#: src/Database/Designer/Common.php:630
 #, fuzzy
 #| msgid "Error: Relation not added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "Virhe: Relaatiota ei luotu."
 
-#: src/Database/Designer/Common.php:641
+#: src/Database/Designer/Common.php:633
 #, fuzzy
 #| msgid "Internal relation added"
 msgid "Internal relationship has been removed."
 msgstr "Sisäinen relaatio luotu"
 
-#: src/Database/Designer.php:112
+#: src/Database/Designer.php:111
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
@@ -16653,8 +16653,8 @@ msgstr "Tuontiin tarvittavaa lisäosaa ei voida tuoda, tarkista asetukset!"
 #: src/Database/Events.php:93 src/Database/Events.php:102
 #: src/Database/Events.php:136 src/Database/Routines.php:104
 #: src/Database/Routines.php:130 src/Database/Routines.php:208
-#: src/Database/Routines.php:1004 src/Triggers/Triggers.php:86
-#: src/Triggers/Triggers.php:95 src/Triggers/Triggers.php:130
+#: src/Database/Routines.php:1004 src/Triggers/Triggers.php:83
+#: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, fuzzy, php-format
 #| msgid "The following queries have been executed:"
 msgid "The following query has failed: \"%s\""
@@ -16665,8 +16665,8 @@ msgstr "Seuraavat kyselyt on suoritettu:"
 #: src/Database/Routines.php:108 src/Database/Routines.php:134
 #: src/Database/Routines.php:212 src/Database/Routines.php:226
 #: src/Database/Routines.php:1008 src/Html/Generator.php:805
-#: src/Triggers/Triggers.php:90 src/Triggers/Triggers.php:99
-#: src/Triggers/Triggers.php:113 src/Triggers/Triggers.php:134
+#: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
+#: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
 msgstr "MySQL ilmoittaa: "
 
@@ -16675,7 +16675,7 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 
 #: src/Database/Events.php:117 src/Database/Routines.php:224
-#: src/Triggers/Triggers.php:111
+#: src/Triggers/Triggers.php:108
 msgid "The backed up query was:"
 msgstr ""
 
@@ -16692,12 +16692,12 @@ msgid "Event %1$s has been created."
 msgstr "Taulu %1$s on luotu."
 
 #: src/Database/Events.php:157 src/Database/Routines.php:150
-#: src/Triggers/Triggers.php:151
+#: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 
 #: src/Database/Events.php:270 src/Database/Routines.php:806
-#: src/Triggers/Triggers.php:193
+#: src/Triggers/Triggers.php:190
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
 
@@ -16722,31 +16722,6 @@ msgstr ""
 #: src/Database/Events.php:334
 msgid "You must provide an event definition."
 msgstr ""
-
-#: src/DatabaseInterface.php:1105
-#, fuzzy, php-format
-#| msgid ""
-#| "Unable to use timezone %1$s for server %2$d. Please check your "
-#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
-#| "em]. phpMyAdmin is currently using the default time zone of the database "
-#| "server."
-msgid ""
-"Unable to use timezone \"%1$s\" for server %2$d. Please check your "
-"configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin is currently using the default time zone of the database server."
-msgstr ""
-"Aikavyöhykettä %1$s ei voitu käyttää palvelimelle %2$d. Ole hyvä ja tarkasta "
-"konfiguraation asetukset [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
-"phpMyAdmin käyttää tällä hetkellä tietokantapalvelimen oletusaikavyöhykettä."
-
-#: src/DatabaseInterface.php:1147
-msgid "Failed to set configured collation connection!"
-msgstr "Konfiguroidun lajitteluyhteyden asettaminen epäonnistui!"
-
-#: src/DatabaseInterface.php:1661
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-"Yhteyden muodostus asetuksissa määriteltyyn superuser-käyttäjään epäonnistui."
 
 #: src/Database/Routines.php:85 src/Database/Routines.php:814
 #, fuzzy, php-format
@@ -16818,6 +16793,31 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 
+#: src/Dbal/DatabaseInterface.php:1062
+#, fuzzy, php-format
+#| msgid ""
+#| "Unable to use timezone %1$s for server %2$d. Please check your "
+#| "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/"
+#| "em]. phpMyAdmin is currently using the default time zone of the database "
+#| "server."
+msgid ""
+"Unable to use timezone \"%1$s\" for server %2$d. Please check your "
+"configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin is currently using the default time zone of the database server."
+msgstr ""
+"Aikavyöhykettä %1$s ei voitu käyttää palvelimelle %2$d. Ole hyvä ja tarkasta "
+"konfiguraation asetukset [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
+"phpMyAdmin käyttää tällä hetkellä tietokantapalvelimen oletusaikavyöhykettä."
+
+#: src/Dbal/DatabaseInterface.php:1104
+msgid "Failed to set configured collation connection!"
+msgstr "Konfiguroidun lajitteluyhteyden asettaminen epäonnistui!"
+
+#: src/Dbal/DatabaseInterface.php:1637
+msgid "Connection for controluser as defined in your configuration failed."
+msgstr ""
+"Yhteyden muodostus asetuksissa määriteltyyn superuser-käyttäjään epäonnistui."
+
 #: src/Dbal/DbiMysqli.php:120
 #, php-format
 msgid ""
@@ -16825,33 +16825,33 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2512 src/Display/Results.php:2527
+#: src/Display/Results.php:2504 src/Display/Results.php:2519
 msgid "The row has been deleted."
 msgstr "Rivi on nyt poistettu."
 
-#: src/Display/Results.php:3425
+#: src/Display/Results.php:3417
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Näytetään rivit %1s–%2s"
 
-#: src/Display/Results.php:3439
+#: src/Display/Results.php:3431
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "%1$d kokonaisuudessaan, %2$d hakulauseessa"
 
-#: src/Display/Results.php:3444
+#: src/Display/Results.php:3436
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "%d tulos"
 
-#: src/Display/Results.php:3457 src/Sql.php:873
+#: src/Display/Results.php:3449 src/Sql.php:874
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Kysely kesti %01.4f sekuntia."
 
-#: src/Display/Results.php:3755
+#: src/Display/Results.php:3747
 msgid "Link not found!"
 msgstr "Linkkiä ei löydy!"
 
@@ -17209,8 +17209,8 @@ msgstr "MySQL-palvelimelle ei voitu kirjautua"
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
-#: src/Plugins/Auth/AuthenticationConfig.php:88
-#: src/Plugins/Auth/AuthenticationHttp.php:80
+#: src/Plugins/Auth/AuthenticationConfig.php:84
+#: src/Plugins/Auth/AuthenticationHttp.php:81
 msgid "Access denied!"
 msgstr "Käyttö estetty!"
 
@@ -17396,7 +17396,7 @@ msgstr "Staattinen analyysi:"
 msgid "%d errors were found during analysis."
 msgstr "%d virhettä havaittu analyysin aikana."
 
-#: src/Http/Middleware/DatabaseServerVersionChecking.php:41
+#: src/Http/Middleware/DatabaseServerVersionChecking.php:42
 #, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
@@ -17406,11 +17406,11 @@ msgstr "Sinun tulisi päivittää versioon %s %s tai sitä uudempaan."
 msgid "See %sour documentation%s for more information."
 msgstr "Katso lisätietoa %sdokumentoinnistamme%s."
 
-#: src/Http/Middleware/RequestProblemChecking.php:34
+#: src/Http/Middleware/RequestProblemChecking.php:35
 msgid "GLOBALS overwrite attempt"
 msgstr "GLOBALS ylikirjoitus yritys"
 
-#: src/Http/Middleware/RequestProblemChecking.php:46
+#: src/Http/Middleware/RequestProblemChecking.php:47
 msgid "possible exploit"
 msgstr "mahdollinen turva-aukko"
 
@@ -17420,17 +17420,17 @@ msgid ""
 "requires these functions!"
 msgstr ""
 
-#: src/Http/Middleware/TokenMismatchChecking.php:30
-msgid "Error: Token mismatch"
-msgstr "Virhe: Tunnus ei täsmää"
-
 #: src/Http/Middleware/TokenRequestParamChecking.php:58
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: src/I18n/LanguageManager.php:966
+#: src/Http/Middleware/TokenRequestParamChecking.php:67
+msgid "Error: Token mismatch"
+msgstr "Virhe: Tunnus ei täsmää"
+
+#: src/I18n/LanguageManager.php:968
 msgid "Ignoring unsupported language code."
 msgstr "Tukematon kielikoodi ohitettiin."
 
@@ -17545,7 +17545,7 @@ msgstr "Muokkaa rakennetta seuraamalla \"Rakenne\" linkkiä"
 msgid "Go to database: %s"
 msgstr "Siirry tietokantaan: %s"
 
-#: src/Index.php:563
+#: src/Index.php:565
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -17554,17 +17554,17 @@ msgstr ""
 "Indeksit %1$s ja %2$s ovat ehkä samoja, ja niistä jompikumpi kannattanee "
 "poistaa."
 
-#: src/InsertEdit.php:497
+#: src/InsertEdit.php:496
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "palvelimen lähetyshakemisto"
 
-#: src/InsertEdit.php:924 src/Sql.php:864
+#: src/InsertEdit.php:924 src/Sql.php:865
 msgid "Showing SQL query"
 msgstr "Näytetään SQL-kysely"
 
-#: src/InsertEdit.php:948 src/Sql.php:844
+#: src/InsertEdit.php:948 src/Sql.php:845
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Lisätyn rivin tunnus: %1$d"
@@ -17581,31 +17581,31 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (lähellä <code>%2$s</code>)"
 
-#: src/Menu.php:283 src/Menu.php:390 src/Util.php:1476 src/Util.php:1490
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1477 src/Util.php:1491
 msgid "Tracking"
 msgstr "Seuranta"
 
-#: src/Menu.php:331 src/Menu.php:339 src/Menu.php:347
+#: src/Menu.php:332 src/Menu.php:340 src/Menu.php:348
 msgid "Database seems to be empty!"
 msgstr "Tietokanta on tyhjä!"
 
-#: src/Menu.php:334 src/Util.php:1468
+#: src/Menu.php:335 src/Util.php:1469
 msgid "Query"
 msgstr "Haku"
 
-#: src/Menu.php:397 src/Util.php:1477
+#: src/Menu.php:398 src/Util.php:1478
 msgid "Designer"
 msgstr "Suunnittelija"
 
-#: src/Menu.php:458
+#: src/Menu.php:459
 msgid "User accounts"
 msgstr "Käyttäjätilit"
 
-#: src/Menu.php:507 src/Util.php:1460
+#: src/Menu.php:508 src/Util.php:1461
 msgid "Charsets"
 msgstr "Merkistöt"
 
-#: src/Menu.php:512 src/Util.php:1462
+#: src/Menu.php:513 src/Util.php:1463
 msgid "Engines"
 msgstr "Moottorit"
 
@@ -17762,104 +17762,104 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Uusi"
 
-#: src/Normalization.php:199
+#: src/Normalization.php:200
 msgid "Make all columns atomic"
 msgstr ""
 
-#: src/Normalization.php:202 src/Normalization.php:251
-#: src/Normalization.php:297 src/Normalization.php:329
+#: src/Normalization.php:203 src/Normalization.php:252
+#: src/Normalization.php:298 src/Normalization.php:330
 msgid "Step 1."
 msgstr ""
 
-#: src/Normalization.php:205
+#: src/Normalization.php:206
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: src/Normalization.php:210
+#: src/Normalization.php:211
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: src/Normalization.php:212
+#: src/Normalization.php:213
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 
-#: src/Normalization.php:227
+#: src/Normalization.php:228
 msgid "split into "
 msgstr ""
 
-#: src/Normalization.php:248
+#: src/Normalization.php:249
 #, fuzzy
 #| msgid "Adding Primary Key"
 msgid "Have a primary key"
 msgstr "Pääavaimen lisäys"
 
-#: src/Normalization.php:254
+#: src/Normalization.php:255
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "Virhe: relaatio on jo olemassa."
 
-#: src/Normalization.php:259
+#: src/Normalization.php:260
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: src/Normalization.php:267
+#: src/Normalization.php:268
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: src/Normalization.php:271
+#: src/Normalization.php:272
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: src/Normalization.php:273
+#: src/Normalization.php:274
 #, fuzzy
 #| msgid "Adding Primary Key"
 msgid "+ Add a new primary key column"
 msgstr "Pääavaimen lisäys"
 
-#: src/Normalization.php:296
+#: src/Normalization.php:297
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "Poista sarake/sarakkeet"
 
-#: src/Normalization.php:299
+#: src/Normalization.php:300
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: src/Normalization.php:305
+#: src/Normalization.php:306
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: src/Normalization.php:310
+#: src/Normalization.php:311
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "Poista valitut käyttäjät"
 
-#: src/Normalization.php:312
+#: src/Normalization.php:313
 #, fuzzy
 #| msgid "Add column(s)"
 msgid "No redundant column"
 msgstr "Lisää sarake/sarakkeita"
 
-#: src/Normalization.php:328
+#: src/Normalization.php:329
 msgid "Move repeating groups"
 msgstr ""
 
-#: src/Normalization.php:331
+#: src/Normalization.php:332
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -17868,118 +17868,118 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: src/Normalization.php:339
+#: src/Normalization.php:340
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "No repeating group"
 msgstr ""
 
-#: src/Normalization.php:372
+#: src/Normalization.php:373
 msgid "Step 2."
 msgstr ""
 
-#: src/Normalization.php:372
+#: src/Normalization.php:373
 msgid "Find partial dependencies"
 msgstr ""
 
-#: src/Normalization.php:393
+#: src/Normalization.php:394
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: src/Normalization.php:399 src/Normalization.php:441
+#: src/Normalization.php:400 src/Normalization.php:442
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: src/Normalization.php:404
+#: src/Normalization.php:405
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: src/Normalization.php:408 src/Normalization.php:819
+#: src/Normalization.php:409 src/Normalization.php:820
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: src/Normalization.php:410
+#: src/Normalization.php:411
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Normalization.php:413
+#: src/Normalization.php:414
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: src/Normalization.php:426 src/Normalization.php:861
+#: src/Normalization.php:427 src/Normalization.php:862
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: src/Normalization.php:437
+#: src/Normalization.php:438
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: src/Normalization.php:465
+#: src/Normalization.php:466
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:507
+#: src/Normalization.php:508
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: src/Normalization.php:559 src/Normalization.php:719
-#: src/Normalization.php:794
+#: src/Normalization.php:560 src/Normalization.php:720
+#: src/Normalization.php:795
 #, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing!"
 msgstr "Virhe pyynnön käsittelyssä"
 
-#: src/Normalization.php:606
+#: src/Normalization.php:607
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:655
+#: src/Normalization.php:656
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: src/Normalization.php:770
+#: src/Normalization.php:771
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Valitut kohdetaulut on yhtenäistetty lähdetaulujen kanssa."
 
-#: src/Normalization.php:817
+#: src/Normalization.php:818
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "Syys"
 
-#: src/Normalization.php:817
+#: src/Normalization.php:818
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: src/Normalization.php:821
+#: src/Normalization.php:822
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -17987,13 +17987,13 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: src/Normalization.php:875
+#: src/Normalization.php:876
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: src/Normalization.php:878
+#: src/Normalization.php:879
 msgid "Table is already in Third normal form!"
 msgstr ""
 
@@ -18007,47 +18007,47 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr ""
 
-#: src/Operations.php:534
+#: src/Operations.php:535
 #, fuzzy
 #| msgid "Collapse"
 msgid "Coalesce"
 msgstr "Paina kokoon"
 
-#: src/Operations.php:888
+#: src/Operations.php:889
 msgid "Can't move table to same one!"
 msgstr "Taulua ei voi siirtää itseensä!"
 
-#: src/Operations.php:890
+#: src/Operations.php:891
 msgid "Can't copy table to same one!"
 msgstr "Taulua ei voi kopioida itseensä!"
 
-#: src/Operations.php:926
+#: src/Operations.php:927
 #, fuzzy, php-format
 #| msgid "Table %s has been moved to %s."
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Taulu %s on siirretty %s."
 
-#: src/Operations.php:932
+#: src/Operations.php:933
 #, fuzzy, php-format
 #| msgid "Table %s has been copied to %s."
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Taulu %s on kopioitu uuteen tauluun %s."
 
-#: src/Operations.php:938
+#: src/Operations.php:939
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Taulu %s on siirretty %s."
 
-#: src/Operations.php:942
+#: src/Operations.php:943
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Taulu %s on kopioitu uuteen tauluun %s."
 
-#: src/Operations.php:965
+#: src/Operations.php:966
 msgid "The table name is empty!"
 msgstr "Taulun nimi puuttuu!"
 
-#: src/Partitioning/Maintenance.php:142
+#: src/Partitioning/Maintenance.php:136
 msgid "This table is a view, it can not be truncated."
 msgstr ""
 
@@ -18055,11 +18055,11 @@ msgstr ""
 msgid "Error while creating PDF:"
 msgstr "Virhe luotaessa PDF-tiedostoa:"
 
-#: src/Plugins/Auth/AuthenticationConfig.php:80
+#: src/Plugins/Auth/AuthenticationConfig.php:76
 msgid "Cannot connect: invalid settings."
 msgstr "Yhteyttä ei voitu muodostaa: virheelliset asetukset."
 
-#: src/Plugins/Auth/AuthenticationConfig.php:110
+#: src/Plugins/Auth/AuthenticationConfig.php:106
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -18068,7 +18068,7 @@ msgstr ""
 "Et liene luonut asetustiedostoa. Voit luoda asetustiedoston "
 "%1$sasetusskriptillä%2$s."
 
-#: src/Plugins/Auth/AuthenticationConfig.php:131
+#: src/Plugins/Auth/AuthenticationConfig.php:127
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -18080,7 +18080,7 @@ msgstr ""
 "php-tiedostosta ja varmista, että ne vastaavat MySQL-palvelimen "
 "järjestelmänvalvojan antamia tietoja."
 
-#: src/Plugins/Auth/AuthenticationConfig.php:152
+#: src/Plugins/Auth/AuthenticationConfig.php:148
 msgid "Retry to connect"
 msgstr ""
 
@@ -18114,11 +18114,11 @@ msgstr ""
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL-palvelimelle ei voitu kirjautua"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:90
+#: src/Plugins/Auth/AuthenticationHttp.php:91
 msgid "Wrong username/password. Access denied."
 msgstr "Väärä käyttäjätunnus tai salasana. Käyttö estetty."
 
-#: src/Plugins/Auth/AuthenticationSignon.php:128
+#: src/Plugins/Auth/AuthenticationSignon.php:129
 #, fuzzy, php-format
 #| msgid "Can not find signon authentication script:"
 msgid "Can not find signon authentication script: %s"
@@ -18632,24 +18632,24 @@ msgstr ""
 msgid "Column names:"
 msgstr "Sarakkeiden nimet"
 
-#: src/Plugins/Import/ImportCsv.php:289 src/Plugins/Import/ImportCsv.php:613
+#: src/Plugins/Import/ImportCsv.php:288 src/Plugins/Import/ImportCsv.php:612
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Virheellinen muoto CSV-syötteessä rivillä %d."
 
-#: src/Plugins/Import/ImportCsv.php:496
+#: src/Plugins/Import/ImportCsv.php:495
 #, fuzzy, php-format
 #| msgid "Invalid field count in CSV input on line %d."
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Virheellinen kenttien määrä CSV-syötteessä rivillä %d."
 
-#: src/Plugins/Import/ImportCsv.php:635 src/Plugins/Import/ImportCsv.php:650
-#: src/Plugins/Import/ImportCsv.php:661 src/Plugins/Import/ImportCsv.php:668
+#: src/Plugins/Import/ImportCsv.php:633 src/Plugins/Import/ImportCsv.php:648
+#: src/Plugins/Import/ImportCsv.php:659 src/Plugins/Import/ImportCsv.php:666
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Virheellinen CSV-tuonnin parametri: %s"
 
-#: src/Plugins/Import/ImportCsv.php:766
+#: src/Plugins/Import/ImportCsv.php:763
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18707,17 +18707,17 @@ msgstr "Open Document -laskentataulukko"
 msgid "ESRI Shape File"
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:112 src/Plugins/Import/ImportShp.php:179
+#: src/Plugins/Import/ImportShp.php:111 src/Plugins/Import/ImportShp.php:178
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:204
+#: src/Plugins/Import/ImportShp.php:203
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
-#: src/Plugins/Import/ImportShp.php:249
+#: src/Plugins/Import/ImportShp.php:248
 #, fuzzy
 #| msgid "File %s does not contain any key id"
 msgid "The imported file does not contain any data!"
@@ -18873,7 +18873,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:519
+#: src/Util.php:520
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y klo %H:%M"
 
@@ -19268,25 +19268,25 @@ msgstr "Pääpalvelinta ei voitu vaihtaa"
 msgid "Primary server changed successfully to %s."
 msgstr "%s on onnistuneesti vaihdettu isäntäpalvelimeksi"
 
-#: src/Routing/Routing.php:124
+#: src/Routing/Routing.php:125
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:158 src/Routing/Routing.php:201
+#: src/Routing/Routing.php:159 src/Routing/Routing.php:202
 #, fuzzy, php-format
 #| msgid "Source database `%s` was not found!"
 msgid "Error 404! The page %s was not found."
 msgstr "Lähdetietokanta '%s' ei löytynyt!"
 
-#: src/Routing/Routing.php:166
+#: src/Routing/Routing.php:167
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:635
-#: src/Server/Privileges.php:3139
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:639
+#: src/Server/Privileges.php:3144
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -19321,66 +19321,66 @@ msgstr "Eväste tunnistautuminen"
 msgid "Account locking is not supported."
 msgstr ""
 
-#: src/Server/Privileges.php:268
+#: src/Server/Privileges.php:272
 msgid "No privileges."
 msgstr "Ei käyttöoikeuksia."
 
-#: src/Server/Privileges.php:274
+#: src/Server/Privileges.php:278
 msgid "Includes all privileges except GRANT."
 msgstr "Sisältää kaikki käyttöoikeudet GRANT-oikeutta lukuun ottamatta."
 
-#: src/Server/Privileges.php:895
+#: src/Server/Privileges.php:899
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Käyttäjän %s salasanan vaihto onnistui."
 
-#: src/Server/Privileges.php:943
+#: src/Server/Privileges.php:947
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on poistettu."
 
-#: src/Server/Privileges.php:1281
+#: src/Server/Privileges.php:1285
 msgid "Revoke"
 msgstr "Pura käyttöoikeudet"
 
-#: src/Server/Privileges.php:1885
+#: src/Server/Privileges.php:1889
 msgid "No users selected for deleting!"
 msgstr "Yhtään käyttäjää ei valittu poistettavaksi!"
 
-#: src/Server/Privileges.php:1888
+#: src/Server/Privileges.php:1892
 msgid "Reloading the privileges"
 msgstr "Ladataan käyttöoikeuksia uudelleen"
 
-#: src/Server/Privileges.php:1913
+#: src/Server/Privileges.php:1917
 msgid "The selected users have been deleted successfully."
 msgstr "Valitsemiesi käyttäjien poisto onnistui."
 
-#: src/Server/Privileges.php:1987
+#: src/Server/Privileges.php:1991
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Käyttäjän %s käyttöoikeudet on päivitetty."
 
-#: src/Server/Privileges.php:2144
+#: src/Server/Privileges.php:2149
 #, php-format
 msgid "Deleting %s"
 msgstr "Poistetaan: %s"
 
-#: src/Server/Privileges.php:2174
+#: src/Server/Privileges.php:2179
 msgid "The privileges were reloaded successfully."
 msgstr "Käyttöoikeuksien uudelleenlataus onnistui."
 
-#: src/Server/Privileges.php:2239
+#: src/Server/Privileges.php:2244
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Käyttäjä %s on jo olemassa!"
 
-#: src/Server/Privileges.php:2392
+#: src/Server/Privileges.php:2397
 #, fuzzy, php-format
 #| msgid "Privileges"
 msgid "Privileges for %s"
 msgstr "Käyttöoikeudet"
 
-#: src/Server/Privileges.php:2478
+#: src/Server/Privileges.php:2483
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19398,7 +19398,7 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: src/Server/Privileges.php:2494
+#: src/Server/Privileges.php:2499
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -19417,11 +19417,11 @@ msgstr ""
 "käyttämistä käyttöoikeuksista, jos tauluihin on tehty muutoksia käsin. "
 "Tällöin %skäyttöoikeudet on ladattava uudestaan%s ennen jatkamista."
 
-#: src/Server/Privileges.php:2782
+#: src/Server/Privileges.php:2787
 msgid "You have added a new user."
 msgstr "Uusi käyttäjä lisätty."
 
-#: src/Server/Privileges.php:3233
+#: src/Server/Privileges.php:3238
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19524,16 +19524,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Saatavilla ei ole uudempaa vakaata versiota"
 
-#: src/Sql.php:440
+#: src/Sql.php:441
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:861
+#: src/Sql.php:862
 msgid "Showing as PHP code"
 msgstr "Näytetään PHP-koodina"
 
-#: src/Sql.php:1227
+#: src/Sql.php:1224
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19546,7 +19546,7 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: src/Sql.php:1241
+#: src/Sql.php:1238
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19559,40 +19559,40 @@ msgstr ""
 "valintaneliöihin, Muokkaa-, Kopioi- ja Poista-linkkeihin liittyvät "
 "ominaisuudet eivät ehkä ole toiminnassa tallennuksen jälkeen."
 
-#: src/SqlQueryForm.php:143
+#: src/SqlQueryForm.php:144
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on server %s"
 msgid "Run SQL query/queries on server “%s”"
 msgstr "Suorita SQL-kysely(jä) palvelimella %s"
 
-#: src/SqlQueryForm.php:159
+#: src/SqlQueryForm.php:160
 #, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr "Suorita SQL-kyselyjä tietokannassa %s"
 
-#: src/SqlQueryForm.php:174
+#: src/SqlQueryForm.php:175
 #, fuzzy, php-format
 #| msgid "Run SQL query/queries on database %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Suorita SQL-kyselyjä tietokannassa %s"
 
-#: src/StorageEngine.php:320
+#: src/StorageEngine.php:318
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
 "Tämän tallennusmoottorin tilasta ei ole saatavilla yksityiskohtaisia tietoja."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:415
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s on käytettävissä tällä MySQL-palvelimella."
 
-#: src/StorageEngine.php:418
+#: src/StorageEngine.php:416
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s ei ole käytettävissä tällä MySQL-palvelimella."
 
-#: src/StorageEngine.php:419
+#: src/StorageEngine.php:417
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Tämä MySQL-palvelin ei tue %s-tallennusmoottoria."
@@ -19637,11 +19637,11 @@ msgstr "Virheellinen taulukon nimi:"
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Taulu %1$s on nimeltään %2$s."
 
-#: src/Table/Table.php:1107
+#: src/Table/Table.php:1108
 msgid "Could not save table UI preferences!"
 msgstr "Taulukon käyttöliittymäasetuksia ei voida tallentaa!"
 
-#: src/Table/Table.php:1129
+#: src/Table/Table.php:1130
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19650,7 +19650,7 @@ msgstr ""
 "Taulun käyttöliittymäasetuksia ei voitu siivota (katso $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1247
+#: src/Table/Table.php:1248
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19661,7 +19661,7 @@ msgstr ""
 "eivät säily sivun päivittämisen jälkeen. Tarkista onko taulukon rakenne "
 "muuttunut."
 
-#: src/Table/Table.php:1571
+#: src/Table/Table.php:1569
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Virhe luotaessa kohteen %1$s viiteavainta (tarkista tietotyypit)"
@@ -19794,58 +19794,58 @@ msgstr "Luo versio %s kohteesta %s.%s"
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr "Versio %s on luotu, kohteen %s.%s seuranta on käytössä."
 
-#: src/Triggers/Triggers.php:110
+#: src/Triggers/Triggers.php:107
 msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
-#: src/Triggers/Triggers.php:117
+#: src/Triggers/Triggers.php:114
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Trigger %1$s has been modified."
 msgstr "Taulu %s on poistettu"
 
-#: src/Triggers/Triggers.php:137
+#: src/Triggers/Triggers.php:134
 #, fuzzy, php-format
 #| msgid "Table %1$s has been created."
 msgid "Trigger %1$s has been created."
 msgstr "Taulu %1$s on luotu."
 
-#: src/Triggers/Triggers.php:201
+#: src/Triggers/Triggers.php:198
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a trigger name!"
 msgstr "Virheellinen taulun nimi"
 
-#: src/Triggers/Triggers.php:207
+#: src/Triggers/Triggers.php:204
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid timing for the trigger!"
 msgstr "Virheellinen taulun nimi"
 
-#: src/Triggers/Triggers.php:213
+#: src/Triggers/Triggers.php:210
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid event for the trigger!"
 msgstr "Virheellinen taulun nimi"
 
-#: src/Triggers/Triggers.php:223
+#: src/Triggers/Triggers.php:220
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "You must provide a valid table name!"
 msgstr "Virheellinen taulun nimi"
 
-#: src/Triggers/Triggers.php:230
+#: src/Triggers/Triggers.php:227
 msgid "You must provide a trigger definition."
 msgstr ""
 
-#: src/Types.php:145
+#: src/Types.php:146
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1-tavuinen kokonaisluku, etumerkillisenä arvot välillä -128 - 127, "
 "etumerkittömänä arvot välillä 0 - 255"
 
-#: src/Types.php:146
+#: src/Types.php:147
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -19853,7 +19853,7 @@ msgstr ""
 "2-tavuinen kokonaisluku, etumerkillisenä arvot olvat -32768 - 32767,  "
 "etumerkittömänä arvot ovat 0 - 65535"
 
-#: src/Types.php:148
+#: src/Types.php:149
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -19861,7 +19861,7 @@ msgstr ""
 "3-tavuinen kokonaisluku, etumerkillisenä arvot ovat -8388608 - 8388607, "
 "etumerkittömänä arvot ovat 0 - 16777215"
 
-#: src/Types.php:151
+#: src/Types.php:152
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -19869,7 +19869,7 @@ msgstr ""
 "4-tavuinen kokonaisluku, etumerkillisenä arvot ovat -2147483648 - "
 "2147483647, etumerkittämänä arvot ovat 0 - 4294967295"
 
-#: src/Types.php:156
+#: src/Types.php:157
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -19877,7 +19877,7 @@ msgstr ""
 "8-tavuinen kokonaisluku, etumerkillisenä arvot ovat -9223372036854775808 - "
 "9223372036854775807, etumerkittämänä arvot ovat 0 - 18446744073709551615"
 
-#: src/Types.php:161
+#: src/Types.php:162
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -19885,7 +19885,7 @@ msgstr ""
 "Desimaaliluku (M,D) - kokonaislukuosan numeroiden maksimäärä (M) on 65 "
 "(oletuksena 10), desimaaliosan numeroiden maksimäärä (D) on 30 (oletuksena 0)"
 
-#: src/Types.php:166
+#: src/Types.php:167
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -19893,7 +19893,7 @@ msgstr ""
 "Pieni liukuluku, mahdolliset arvot ovat välillä -3.402823466E+38 - "
 "-1.175494351E-38, 0 ja 1.175494351E-38 - 3.402823466E+38"
 
-#: src/Types.php:171
+#: src/Types.php:172
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -19903,7 +19903,7 @@ msgstr ""
 "-1.7976931348623157E+308 - -2.2250738585072014E-308, 0, ja "
 "2.2250738585072014E-308 - 1.7976931348623157E+308"
 
-#: src/Types.php:175
+#: src/Types.php:176
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -19911,7 +19911,7 @@ msgstr ""
 "Synonyymi DOUBLE:lle (poikkeus: REAL_AS_FLOAT SQL moodissa se on synonyymi "
 "FLOAT:lle)"
 
-#: src/Types.php:176
+#: src/Types.php:177
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -19919,7 +19919,7 @@ msgstr ""
 "Bittikenttä tyyppi (M), sisältää M verran bittejä arvoa kohti (oletuksena on "
 "1, maksimi on 64)"
 
-#: src/Types.php:178
+#: src/Types.php:179
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -19927,21 +19927,21 @@ msgstr ""
 "Synonyymi TINYINT(1), arvo nolla ilmoitetaan false, muut arvot ilmoitetaan "
 "true"
 
-#: src/Types.php:180
+#: src/Types.php:181
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Alias arvolle BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:182
+#: src/Types.php:183
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Päiväys, pitää olla välillä %1$s - %2$s"
 
-#: src/Types.php:187
+#: src/Types.php:188
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Päivämäärän ja ajan yhdistelmä, tuettu alue on %1$s - %2$s"
 
-#: src/Types.php:192
+#: src/Types.php:193
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -19949,12 +19949,12 @@ msgstr ""
 "Aikaleima, alue on 1970-01-01 00:00:01 UTC 01.09.2038 03:14:07 UTC, "
 "tallentaa monta sekunteina, koska aikakausi on (1970-01-01 00:00:00 UTC )"
 
-#: src/Types.php:197
+#: src/Types.php:198
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Aika, mahdollinen välillä %1$s - %2$s"
 
-#: src/Types.php:202
+#: src/Types.php:203
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -19962,7 +19962,7 @@ msgstr ""
 "Vuosi on nelinumeroinen (4, oletus) tai kaksinumeroinen (2) muodossa, "
 "sallitut arvot ovat 70 (1970), 69 (2069) tai 1901-2155 ja 0000"
 
-#: src/Types.php:207
+#: src/Types.php:208
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -19970,7 +19970,7 @@ msgstr ""
 "Pituudeltaan (0-255, oletus 1) merkkijono, johon on lisätty välilyöntejä "
 "määrittämään pituutta tallennettuna"
 
-#: src/Types.php:212
+#: src/Types.php:213
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -19978,7 +19978,7 @@ msgid ""
 msgstr ""
 "Vaihtelevan pituinen (%s) merkkijono, tehokas enimmäispituus on enimmäisarvo"
 
-#: src/Types.php:217
+#: src/Types.php:218
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -19986,7 +19986,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 255 (2 ^ 8 - 1) merkkiä, tallennettu "
 "yksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
-#: src/Types.php:222
+#: src/Types.php:223
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -19994,7 +19994,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 65,535 (2^16-1) merkkiä, tallennettu "
 "kaksitavuisena etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
-#: src/Types.php:227
+#: src/Types.php:228
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -20002,7 +20002,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 16,777,215 (2^24-1) merkkiä, tallennettu "
 "kolmen tavun etuliitteenä, joka osoittaa arvon pituuden tavuina"
 
-#: src/Types.php:232
+#: src/Types.php:233
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -20011,7 +20011,7 @@ msgstr ""
 "A TEXT sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) merkkiä, "
 "tallennetaan neljän tavun etuliirteenä, joka osoittaa arvon pituuden tavuina"
 
-#: src/Types.php:237
+#: src/Types.php:238
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -20019,7 +20019,7 @@ msgstr ""
 "Samanlainen kuin CHAR tyyppi, mutta tallentaa binaariset merkkijonot "
 "mieluummin kuin ei binaariset merkkijonot"
 
-#: src/Types.php:240
+#: src/Types.php:241
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -20027,7 +20027,7 @@ msgstr ""
 "Samanlainen kuin VARCHAR tyyppi, mutta tallentaa binaariset merkkijonot "
 "mieluummin ei binaariset merkkijonot"
 
-#: src/Types.php:244
+#: src/Types.php:245
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -20035,7 +20035,7 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 255 (2^8-1) tavua, tallennettu yksitavuisena "
 "etuliitteenä, joka ilmaisee arvon pituuden"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -20043,7 +20043,7 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 16,777,215 (2^24-1) tavua, tallennetaan "
 "kolmen tavun etuliiteenä, joka ilmaisee arvon pituuden"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -20051,7 +20051,7 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 65,535 (2^16-1) tavua, tallennettu "
 "kaksitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
-#: src/Types.php:257
+#: src/Types.php:258
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -20059,50 +20059,50 @@ msgstr ""
 "A BLOB sarakkeen enimmäispituus 4,294,967,295 tai 4GiB (2^32-1) tavua, "
 "varastoitu nelitavuisena etuliiteenä, joka ilmaisee arvon pituuden"
 
-#: src/Types.php:261
+#: src/Types.php:262
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
 "Luettelo, listalta valittu jopa 65,535 arvoa tai erityinen \" virhe arvo"
 
-#: src/Types.php:262
+#: src/Types.php:263
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Yksittäinen arvo, joka on valittu 64 jäsenen joukosta"
 
-#: src/Types.php:263
+#: src/Types.php:264
 msgid "A type that can store a geometry of any type"
 msgstr "Tyyppi, joka voi tallentaa mitä tahansa geometriaa"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid "A point in 2-dimensional space"
 msgstr "Kohta 2-ulotteisessa avaruudessa"
 
-#: src/Types.php:265
+#: src/Types.php:266
 msgid "A curve with linear interpolation between points"
 msgstr "Käyrän pisteiden välisen lineaarinen interpolointi"
 
-#: src/Types.php:266
+#: src/Types.php:267
 msgid "A polygon"
 msgstr "Monikulmio"
 
-#: src/Types.php:267
+#: src/Types.php:268
 msgid "A collection of points"
 msgstr "Kokoelma pisteitä"
 
-#: src/Types.php:268
+#: src/Types.php:269
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Käyrien pisteiden välisen lineaarisen interpolointi kokoelma"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid "A collection of polygons"
 msgstr "Kokoelma polygoneja"
 
-#: src/Types.php:270
+#: src/Types.php:271
 msgid "A collection of geometry objects of any type"
 msgstr "Kokoelma mitä tahansa geometrisiä objekteja"
 
-#: src/Types.php:271
+#: src/Types.php:272
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -20110,76 +20110,76 @@ msgstr ""
 "Mahdollistaa tehokkaan pääsyn JSON-tiedostojen (JavaScript Object Notation) "
 "tietoihin"
 
-#: src/Types.php:272
+#: src/Types.php:273
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:275
+#: src/Types.php:276
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Tallentaa maailmanlaajuista yksilöllistä tunnistetta (UUID)"
 
-#: src/Types.php:583
+#: src/Types.php:584
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Lukuarvo"
 
-#: src/Types.php:601
+#: src/Types.php:602
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Päiväys ja aika"
 
-#: src/Types.php:631
+#: src/Types.php:632
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Geometrinen"
 
-#: src/UserPassword.php:35
+#: src/UserPassword.php:36
 msgid "The profile has been updated."
 msgstr "Profiili on päivitetty."
 
-#: src/UserPassword.php:47
+#: src/UserPassword.php:48
 #, fuzzy
 #| msgid "Password Hashing:"
 msgid "Password is too long!"
 msgstr "Salasanan salaus:"
 
-#: src/UserPreferences.php:160
+#: src/UserPreferences.php:161
 #, fuzzy
 #| msgid "Cannot load or save configuration"
 msgid "Could not save configuration"
 msgstr "Asetuksia ei voi ladata tai tallentaa"
 
-#: src/UserPreferences.php:171
+#: src/UserPreferences.php:172
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "Puuttuvat phpMyAdmin konfiguraatiomuistin taulut"
 
-#: src/Util.php:124
+#: src/Util.php:125
 #, php-format
 msgid "Max: %s%s"
 msgstr "Enimmäiskoko: %s%s"
 
-#: src/Util.php:528
+#: src/Util.php:529
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "IP"
 
-#: src/Util.php:530
+#: src/Util.php:531
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AP"
 
-#: src/Util.php:602
+#: src/Util.php:603
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s päivää, %s tuntia, %s minuuttia ja %s sekuntia"
 
-#: src/Util.php:1453
+#: src/Util.php:1454
 msgid "Users"
 msgstr "Käyttäjät"
 
