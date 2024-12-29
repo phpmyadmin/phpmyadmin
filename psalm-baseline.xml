@@ -9356,7 +9356,7 @@
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['bkm_label']]]></code>
-      <code><![CDATA[$_POST['dropped_column'] ?? null]]></code>
+      <code><![CDATA[$_POST['dropped_column'] ?? '']]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
@@ -9364,6 +9364,7 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['bkm_label']]]></code>
+      <code><![CDATA[$_POST['dropped_column'] ?? '']]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$numRows]]></code>

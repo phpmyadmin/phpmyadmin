@@ -16027,7 +16027,7 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Parameter \#3 \$column of method PhpMyAdmin\\Sql\:\:cleanupRelations\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#3 \$column of method PhpMyAdmin\\Sql\:\:cleanupRelations\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Sql.php

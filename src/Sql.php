@@ -584,19 +584,19 @@ class Sql
     /**
      * If a table, database or column gets dropped, clean comments.
      *
-     * @param string      $db     current database
-     * @param string      $table  current table
-     * @param string|null $column current column
-     * @param bool        $purge  whether purge set or not
+     * @param string $db     current database
+     * @param string $table  current table
+     * @param string $column current column
+     * @param bool   $purge  whether purge set or not
      */
-    private function cleanupRelations(string $db, string $table, string|null $column, bool $purge): void
+    private function cleanupRelations(string $db, string $table, string $column, bool $purge): void
     {
         if (! $purge || $db === '') {
             return;
         }
 
         if ($table !== '') {
-            if ($column !== null && $column !== '') {
+            if ($column !== '') {
                 $this->relationCleanup->column($db, $table, $column);
             } else {
                 $this->relationCleanup->table($db, $table);
@@ -776,7 +776,7 @@ class Sql
 
         $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
 
-        $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, ! empty($_POST['purge']));
+        $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? '', ! empty($_POST['purge']));
 
         return [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage];
     }
