@@ -903,7 +903,7 @@ class InsertEdit
     /**
      * Executes the sql query and get the result, then move back to the calling page
      *
-     * @param mixed[] $query built query from buildSqlQuery()
+     * @param string[] $query built query from buildSqlQuery()
      *
      * @return array{int, Message[], string[], string[]}
      */

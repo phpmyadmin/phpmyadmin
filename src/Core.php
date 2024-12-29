@@ -490,7 +490,7 @@ class Core
     /**
      * Displays SQL query before executing.
      *
-     * @param mixed[]|string $queryData Array containing queries or query itself
+     * @param string[]|string $queryData Array containing queries or query itself
      */
     public static function previewSQL(array|string $queryData): void
     {

@@ -1890,9 +1890,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['query']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
@@ -1901,7 +1898,6 @@
       <code><![CDATA[$key]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$_POST[str_replace('/', '-', (string) $k)]]]></code>
       <code><![CDATA[$configuration]]></code>
       <code><![CDATA[$redirectParams['lang']]]></code>
@@ -2932,7 +2928,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
-      <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
     </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
@@ -2975,7 +2970,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
-      <code><![CDATA[$GLOBALS['query']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
       <code><![CDATA[$clauseIsUnique]]></code>
@@ -3016,7 +3010,6 @@
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['query'])]]></code>
       <code><![CDATA[empty($mimeMap[$columnName]['input_transformation'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -3522,7 +3515,6 @@
     </InvalidOperand>
     <MixedArgument>
       <code><![CDATA[$path[$depth + 1]]]></code>
-      <code><![CDATA[$query]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$a[$key]]]></code>
@@ -3541,7 +3533,6 @@
       <code><![CDATA[$a[$lastKey]]]></code>
       <code><![CDATA[$parsedBody[$urlQueryParamKey]]]></code>
       <code><![CDATA[$path[$depth]]]></code>
-      <code><![CDATA[$query]]></code>
       <code><![CDATA[$queryParams[$urlQueryParamKey]]]></code>
       <code><![CDATA[$secret]]></code>
       <code><![CDATA[$secret]]></code>
@@ -5756,12 +5747,9 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$rows[$keyId]]]></code>
-      <code><![CDATA[$singleQuery]]></code>
-      <code><![CDATA[$singleQuery]]></code>
       <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$query]]></code>
       <code><![CDATA[$thisUrlParams]]></code>
       <code><![CDATA[$thisUrlParams]]></code>
       <code><![CDATA[$whereClauseArray]]></code>
@@ -5789,7 +5777,6 @@
       <code><![CDATA[$isUnsigned]]></code>
       <code><![CDATA[$maxlength]]></code>
       <code><![CDATA[$maxlength]]></code>
-      <code><![CDATA[$singleQuery]]></code>
       <code><![CDATA[$specialChars]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>

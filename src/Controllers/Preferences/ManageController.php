@@ -60,7 +60,6 @@ final class ManageController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['error'] ??= null;
-        $GLOBALS['query'] ??= null;
 
         $route = $request->getRoute();
 
@@ -202,10 +201,10 @@ final class ManageController implements InvocableController
                 $result = $this->userPreferences->save($configFile->getConfigArray());
                 if ($result === true) {
                     if ($returnUrl !== null && $returnUrl !== '') {
-                        $GLOBALS['query'] = Util::splitURLQuery($returnUrl);
+                        $query = Util::splitURLQuery($returnUrl);
                         $returnUrl = parse_url($returnUrl, PHP_URL_PATH);
 
-                        foreach ($GLOBALS['query'] as $q) {
+                        foreach ($query as $q) {
                             $pos = mb_strpos($q, '=');
                             $k = mb_substr($q, 0, (int) $pos);
                             if ($k === 'token') {
