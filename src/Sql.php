@@ -703,11 +703,11 @@ class Sql
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param string      $fullSqlQuery        full sql query
-     * @param bool        $isGotoFile          whether to go to a file
-     * @param string      $db                  current database
-     * @param string|null $table               current table
-     * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
+     * @param string $fullSqlQuery        full sql query
+     * @param bool   $isGotoFile          whether to go to a file
+     * @param string $db                  current database
+     * @param string $table               current table
+     * @param string $sqlQueryForBookmark sql query to be stored as bookmark
      *
      * @psalm-return array{
      *  ResultInterface|false,
@@ -722,11 +722,11 @@ class Sql
         string $fullSqlQuery,
         bool $isGotoFile,
         string $db,
-        string|null $table,
-        string|null $sqlQueryForBookmark,
+        string $table,
+        string $sqlQueryForBookmark,
     ): array {
         $response = ResponseRenderer::getInstance();
-        $response->getHeader()->getMenu()->setTable($table ?? '');
+        $response->getHeader()->getMenu()->setTable($table);
 
         Profiling::enable($this->dbi);
 
@@ -774,9 +774,9 @@ class Sql
 
         $justBrowsing = self::isJustBrowsing($statementInfo);
 
-        $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
+        $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table, $statementInfo);
 
-        $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? '', ! empty($_POST['purge']));
+        $this->cleanupRelations($db, $table, $_POST['dropped_column'] ?? '', ! empty($_POST['purge']));
 
         return [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage];
     }
@@ -810,11 +810,11 @@ class Sql
     /**
      * Function to get the message for the no rows returned case
      *
-     * @param string|null $messageToShow message to show
-     * @param int|string  $numRows       number of rows
+     * @param string     $messageToShow message to show
+     * @param int|string $numRows       number of rows
      */
     private function getMessageForNoRowsReturned(
-        string|null $messageToShow,
+        string $messageToShow,
         StatementInfo $statementInfo,
         int|string $numRows,
     ): Message {
@@ -851,7 +851,7 @@ class Sql
             // fact that $message_to_show is sent for every case.
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
-        } elseif ($messageToShow && $statementInfo->flags->queryType !== StatementType::Select) {
+        } elseif ($messageToShow !== '' && $statementInfo->flags->queryType !== StatementType::Select) {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
         } elseif (! empty($GLOBALS['show_as_php'])) {
             $message = Message::success(__('Showing as PHP code'));
@@ -893,7 +893,7 @@ class Sql
      *
      * @param string                $db                   current database
      * @param string|null           $table                current table
-     * @param string|null           $messageToShow        message to show
+     * @param string                $messageToShow        message to show
      * @param int|string            $numRows              number of rows
      * @param DisplayResults        $displayResultsObject DisplayResult instance
      * @param string                $errorMessage         error message from tryQuery
@@ -909,7 +909,7 @@ class Sql
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
-        string|null $messageToShow,
+        string $messageToShow,
         int|string $numRows,
         DisplayResults $displayResultsObject,
         string $errorMessage,
@@ -1432,9 +1432,9 @@ class Sql
      *
      * @param bool                $isGotoFile          whether goto file or not
      * @param string              $db                  current database
-     * @param string|null         $table               current table
-     * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string|null         $messageToShow       message to show
+     * @param string              $table               current table
+     * @param string              $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string              $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
      * @param string|null         $dispQuery           display query
@@ -1446,9 +1446,9 @@ class Sql
         StatementInfo|null $statementInfo,
         bool $isGotoFile,
         string $db,
-        string|null $table,
-        string|null $sqlQueryForBookmark,
-        string|null $messageToShow,
+        string $table,
+        string $sqlQueryForBookmark,
+        string $messageToShow,
         array|null $sqlData,
         string $goto,
         string|null $dispQuery,
@@ -1484,9 +1484,9 @@ class Sql
      *
      * @param bool                $isGotoFile          whether goto file or not
      * @param string              $db                  current database
-     * @param string|null         $table               current table
-     * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string|null         $messageToShow       message to show
+     * @param string              $table               current table
+     * @param string              $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string              $messageToShow       message to show
      * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
      * @param string|null         $dispQuery           display query
@@ -1500,9 +1500,9 @@ class Sql
         StatementInfo $statementInfo,
         bool $isGotoFile,
         string $db,
-        string|null $table,
-        string|null $sqlQueryForBookmark,
-        string|null $messageToShow,
+        string $table,
+        string $sqlQueryForBookmark,
+        string $messageToShow,
         array|null $sqlData,
         string $goto,
         string|null $dispQuery,
@@ -1554,7 +1554,7 @@ class Sql
             // The following was copied from getQueryResponseForNoResultsReturned()
             // Delete if it's not needed in this context
             if ($this->isDeleteTransformationInfo($statementInfo)) {
-                $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
+                $this->deleteTransformationInfo($db, $table, $statementInfo);
             }
 
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);

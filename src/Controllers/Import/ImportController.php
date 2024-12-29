@@ -649,8 +649,8 @@ final class ImportController implements InvocableController
                     false, // is_gotofile
                     Current::$database, // db
                     Current::$table, // table
-                    null, // sql_query_for_bookmark - see below
-                    null, // message_to_show
+                    '', // sql_query_for_bookmark - see below
+                    '', // message_to_show
                     null, // sql_data
                     UrlParams::$goto, // goto
                     null, // disp_query

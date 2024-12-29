@@ -3916,13 +3916,13 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#5 \$sqlQueryForBookmark of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#5 \$sqlQueryForBookmark of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#6 \$messageToShow of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#6 \$messageToShow of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
@@ -15945,19 +15945,13 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in &&, string given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
-			count: 2
-			path: src/Sql.php
-
-		-
-			message: '#^Only booleans are allowed in &&, string\|null given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
+			count: 3
 			path: src/Sql.php
 
 		-
 			message: '#^Only booleans are allowed in &&, string\|null given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
-			count: 2
+			count: 1
 			path: src/Sql.php
 
 		-
@@ -16018,12 +16012,6 @@ parameters:
 			message: '#^Parameter \#2 \$list of static method PhpMyAdmin\\SqlParser\\Utils\\Query\:\:replaceClause\(\) expects PhpMyAdmin\\SqlParser\\TokensList, PhpMyAdmin\\SqlParser\\TokensList\|null given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Sql.php
-
-		-
-			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\Sql\:\:handleSortOrder\(\) expects string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Sql.php
 
 		-

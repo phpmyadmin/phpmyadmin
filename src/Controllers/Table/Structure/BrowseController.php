@@ -66,8 +66,8 @@ final class BrowseController implements InvocableController
                 false, // is_gotofile
                 Current::$database, // db
                 Current::$table, // table
-                null, // sql_query_for_bookmark
-                null, // message_to_show
+                '', // sql_query_for_bookmark
+                '', // message_to_show
                 null, // sql_data
                 $goto, // goto
                 null, // disp_query

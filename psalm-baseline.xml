@@ -2378,7 +2378,7 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
-      <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
+      <code><![CDATA[$GLOBALS['message_to_show'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -9378,7 +9378,6 @@
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
-      <code><![CDATA[$table]]></code>
     </PossiblyNullArgument>
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
@@ -9391,8 +9390,6 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $index->isUnique()]]></code>
-      <code><![CDATA[$messageToShow]]></code>
-      <code><![CDATA[$sqlQueryForBookmark]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>

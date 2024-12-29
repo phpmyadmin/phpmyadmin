@@ -90,9 +90,9 @@ class MultiTableQuery
             null,
             false, // is_gotofile
             $db, // db
-            null, // table
-            null, // sql_query_for_bookmark - see below
-            null, // message_to_show
+            '', // table
+            '', // sql_query_for_bookmark - see below
+            '', // message_to_show
             null, // sql_data
             $goto, // goto
             null, // disp_query
