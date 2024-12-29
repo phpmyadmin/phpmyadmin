@@ -1194,21 +1194,15 @@ class Sql
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string|null $table        current table
-     * @param string      $database     current database
-     * @param bool        $editable     whether the results table can be editable or not
-     * @param bool        $hasUniqueKey whether there is a unique key
+     * @param string $database     current database
+     * @param bool   $editable     whether the results table can be editable or not
+     * @param bool   $hasUniqueKey whether there is a unique key
      */
     private function getMessageIfMissingColumnIndex(
-        string|null $table,
         string $database,
         bool $editable,
         bool $hasUniqueKey,
     ): string {
-        if ($table === null) {
-            return '';
-        }
-
         $output = '';
         if (Utilities::isSystemSchema($database) || ! $editable) {
             $output = Message::notice(
@@ -1377,7 +1371,9 @@ class Sql
 
         $profilingChartHtml = $this->getProfilingChart($profilingResults);
 
-        $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex($table, $db, $editable, $hasUnique);
+        $missingUniqueColumnMessage = $table !== null
+            ? $this->getMessageIfMissingColumnIndex($db, $editable, $hasUnique)
+            : '';
 
         $bookmarkCreatedMessage = $this->getBookmarkCreatedMessage();
 
@@ -1427,7 +1423,7 @@ class Sql
      *
      * @param bool           $isGotoFile          whether goto file or not
      * @param string         $db                  current database
-     * @param string         $table               current table
+     * @param string|null    $table               current table
      * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string         $messageToShow       message to show
      * @param string         $goto                goto page url
@@ -1440,7 +1436,7 @@ class Sql
         StatementInfo|null $statementInfo,
         bool $isGotoFile,
         string $db,
-        string $table,
+        string|null $table,
         string $sqlQueryForBookmark,
         string $messageToShow,
         string $goto,
@@ -1476,7 +1472,7 @@ class Sql
      *
      * @param bool           $isGotoFile          whether goto file or not
      * @param string         $db                  current database
-     * @param string         $table               current table
+     * @param string|null    $table               current table
      * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string         $messageToShow       message to show
      * @param string         $goto                goto page url
@@ -1491,7 +1487,7 @@ class Sql
         StatementInfo $statementInfo,
         bool $isGotoFile,
         string $db,
-        string $table,
+        string|null $table,
         string $sqlQueryForBookmark,
         string $messageToShow,
         string $goto,
@@ -1511,7 +1507,7 @@ class Sql
             && ! isset($_POST['sort_by_key'])
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {
-                $statementInfo = $this->handleSortOrder($db, $table, $statementInfo, $sqlQuery);
+                $statementInfo = $this->handleSortOrder($db, $table ?? '', $statementInfo, $sqlQuery);
             } else {
                 unset($_SESSION['sql_from_query_box']);
             }
@@ -1544,7 +1540,7 @@ class Sql
             // The following was copied from getQueryResponseForNoResultsReturned()
             // Delete if it's not needed in this context
             if ($this->isDeleteTransformationInfo($statementInfo)) {
-                $this->deleteTransformationInfo($db, $table, $statementInfo);
+                $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
             }
 
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);
@@ -1560,7 +1556,7 @@ class Sql
             $fullSqlQuery,
             $isGotoFile,
             $db,
-            $table,
+            $table ?? '',
             $sqlQueryForBookmark,
         );
 
