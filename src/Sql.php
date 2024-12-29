@@ -1177,16 +1177,14 @@ class Sql
      *
      * @param string|null    $displayQuery   display query
      * @param bool           $showSql        whether to show sql
-     * @param mixed[]        $sqlData        sql data
      * @param Message|string $displayMessage display message
      */
     private function getHtmlForPreviousUpdateQuery(
         string|null $displayQuery,
         bool $showSql,
-        array $sqlData,
         Message|string $displayMessage,
     ): string {
-        if ($displayQuery !== null && $showSql && $sqlData === []) {
+        if ($displayQuery !== null && $showSql) {
             return Generator::getMessage($displayMessage, $displayQuery, MessageType::Success);
         }
 
@@ -1251,7 +1249,6 @@ class Sql
      * @param ResultInterface     $result               executed query results
      * @param string              $db                   current database
      * @param string|null         $table                current table
-     * @param mixed[]|null        $sqlData              sql data
      * @param DisplayResults      $displayResultsObject Instance of DisplayResults
      * @param int|string          $unlimNumRows         unlimited number of rows
      * @param int|string          $numRows              number of rows
@@ -1270,7 +1267,6 @@ class Sql
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
-        array|null $sqlData,
         DisplayResults $displayResultsObject,
         int|string $unlimNumRows,
         int|string $numRows,
@@ -1376,7 +1372,6 @@ class Sql
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
             $this->config->settings['ShowSQL'],
-            $sqlData ?? [],
             $dispMessage ?? '',
         );
 
@@ -1435,7 +1430,6 @@ class Sql
      * @param string              $table               current table
      * @param string              $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string              $messageToShow       message to show
-     * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
      * @param string|null         $dispQuery           display query
      * @param Message|string|null $dispMessage         display message
@@ -1449,7 +1443,6 @@ class Sql
         string $table,
         string $sqlQueryForBookmark,
         string $messageToShow,
-        array|null $sqlData,
         string $goto,
         string|null $dispQuery,
         Message|string|null $dispMessage,
@@ -1470,7 +1463,6 @@ class Sql
             $table, // table
             $sqlQueryForBookmark, // sql_query_for_bookmark
             $messageToShow, // message_to_show
-            $sqlData, // sql_data
             $goto, // goto
             $dispQuery, // disp_query
             $dispMessage, // disp_message
@@ -1487,7 +1479,6 @@ class Sql
      * @param string              $table               current table
      * @param string              $sqlQueryForBookmark the sql query to be stored as bookmark
      * @param string              $messageToShow       message to show
-     * @param mixed[]|null        $sqlData             sql data
      * @param string              $goto                goto page url
      * @param string|null         $dispQuery           display query
      * @param Message|string|null $dispMessage         display message
@@ -1503,7 +1494,6 @@ class Sql
         string $table,
         string $sqlQueryForBookmark,
         string $messageToShow,
-        array|null $sqlData,
         string $goto,
         string|null $dispQuery,
         Message|string|null $dispMessage,
@@ -1598,7 +1588,6 @@ class Sql
                 $statementInfo,
                 $db,
                 $table,
-                $sqlData,
                 $displayResultsObject,
                 $unlimNumRows,
                 $numRows,

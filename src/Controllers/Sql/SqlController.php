@@ -193,7 +193,6 @@ class SqlController implements InvocableController
             Current::$table,
             $GLOBALS['import_text'] ?? '',
             $GLOBALS['message_to_show'] ?? '',
-            null,
             UrlParams::$goto,
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
             $GLOBALS['disp_message'] ?? null,

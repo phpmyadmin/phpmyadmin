@@ -252,7 +252,6 @@ final class SearchController implements InvocableController
             Current::$table, // table
             '', // sql_query_for_bookmark
             '', // message_to_show
-            null, // sql_data
             UrlParams::$goto, // goto
             null, // disp_query
             null, // disp_message

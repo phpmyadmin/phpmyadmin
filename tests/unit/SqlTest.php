@@ -609,7 +609,6 @@ class SqlTest extends AbstractTestCase
             'different_table',
             '',
             '',
-            null,
             'index.php?route=/sql',
             null,
             null,

@@ -93,7 +93,6 @@ class MultiTableQuery
             '', // table
             '', // sql_query_for_bookmark - see below
             '', // message_to_show
-            null, // sql_data
             $goto, // goto
             null, // disp_query
             null, // disp_message
