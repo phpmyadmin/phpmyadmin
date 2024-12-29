@@ -70,9 +70,9 @@ final class BrowseController implements InvocableController
                 '', // message_to_show
                 $goto, // goto
                 null, // disp_query
-                null, // disp_message
+                '', // disp_message
                 $sqlQuery, // sql_query
-                null, // complete_query
+                $sqlQuery, // complete_query
             ),
         );
     }

@@ -899,7 +899,7 @@ class Sql
      * @param string                $errorMessage         error message from tryQuery
      * @param ResultInterface|false $result               executed query results
      * @param string                $sqlQuery             sql query
-     * @param string|null           $completeQuery        complete sql query
+     * @param string                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $numRows
      * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
@@ -916,7 +916,7 @@ class Sql
         array $profilingResults,
         ResultInterface|false $result,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         if ($this->isDeleteTransformationInfo($statementInfo)) {
             $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
@@ -1006,7 +1006,7 @@ class Sql
                     'id_bookmark' => 1,
                 ]),
                 'user' => $this->config->selectedServer['user'],
-                'sql_query' => $completeQuery ?? $sqlQuery,
+                'sql_query' => $completeQuery,
                 'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
             ]);
         }
@@ -1246,16 +1246,16 @@ class Sql
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param ResultInterface     $result               executed query results
-     * @param string              $db                   current database
-     * @param string|null         $table                current table
-     * @param DisplayResults      $displayResultsObject Instance of DisplayResults
-     * @param int|string          $unlimNumRows         unlimited number of rows
-     * @param int|string          $numRows              number of rows
-     * @param string|null         $dispQuery            display query
-     * @param Message|string|null $dispMessage          display message
-     * @param string              $sqlQuery             sql query
-     * @param string|null         $completeQuery        complete sql query
+     * @param ResultInterface $result               executed query results
+     * @param string          $db                   current database
+     * @param string|null     $table                current table
+     * @param DisplayResults  $displayResultsObject Instance of DisplayResults
+     * @param int|string      $unlimNumRows         unlimited number of rows
+     * @param int|string      $numRows              number of rows
+     * @param string|null     $dispQuery            display query
+     * @param Message|string  $dispMessage          display message
+     * @param string          $sqlQuery             sql query
+     * @param string          $completeQuery        complete sql query
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
      * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
@@ -1271,10 +1271,10 @@ class Sql
         int|string $unlimNumRows,
         int|string $numRows,
         string|null $dispQuery,
-        Message|string|null $dispMessage,
+        Message|string $dispMessage,
         array $profilingResults,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
@@ -1372,7 +1372,7 @@ class Sql
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
             $this->config->settings['ShowSQL'],
-            $dispMessage ?? '',
+            $dispMessage,
         );
 
         $profilingChartHtml = $this->getProfilingChart($profilingResults);
@@ -1408,7 +1408,7 @@ class Sql
                     'id_bookmark' => 1,
                 ]),
                 'user' => $this->config->selectedServer['user'],
-                'sql_query' => $completeQuery ?? $sqlQuery,
+                'sql_query' => $completeQuery,
             ]);
         }
 
@@ -1425,16 +1425,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool                $isGotoFile          whether goto file or not
-     * @param string              $db                  current database
-     * @param string              $table               current table
-     * @param string              $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string              $messageToShow       message to show
-     * @param string              $goto                goto page url
-     * @param string|null         $dispQuery           display query
-     * @param Message|string|null $dispMessage         display message
-     * @param string              $sqlQuery            sql query
-     * @param string|null         $completeQuery       complete query
+     * @param bool           $isGotoFile          whether goto file or not
+     * @param string         $db                  current database
+     * @param string         $table               current table
+     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string         $messageToShow       message to show
+     * @param string         $goto                goto page url
+     * @param string|null    $dispQuery           display query
+     * @param Message|string $dispMessage         display message
+     * @param string         $sqlQuery            sql query
+     * @param string         $completeQuery       complete query
      */
     public function executeQueryAndSendQueryResponse(
         StatementInfo|null $statementInfo,
@@ -1445,9 +1445,9 @@ class Sql
         string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string|null $dispMessage,
+        Message|string $dispMessage,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         if ($statementInfo === null) {
             // Parse and analyze the query
@@ -1474,16 +1474,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool                $isGotoFile          whether goto file or not
-     * @param string              $db                  current database
-     * @param string              $table               current table
-     * @param string              $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string              $messageToShow       message to show
-     * @param string              $goto                goto page url
-     * @param string|null         $dispQuery           display query
-     * @param Message|string|null $dispMessage         display message
-     * @param string              $sqlQuery            sql query
-     * @param string|null         $completeQuery       complete query
+     * @param bool           $isGotoFile          whether goto file or not
+     * @param string         $db                  current database
+     * @param string         $table               current table
+     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string         $messageToShow       message to show
+     * @param string         $goto                goto page url
+     * @param string|null    $dispQuery           display query
+     * @param Message|string $dispMessage         display message
+     * @param string         $sqlQuery            sql query
+     * @param string         $completeQuery       complete query
      *
      * @return string html
      */
@@ -1496,9 +1496,9 @@ class Sql
         string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string|null $dispMessage,
+        Message|string $dispMessage,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         // Handle remembered sorting order, only for single table query.
         // Handling is not required when it's a union query

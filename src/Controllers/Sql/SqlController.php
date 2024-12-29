@@ -195,9 +195,9 @@ class SqlController implements InvocableController
             $GLOBALS['message_to_show'] ?? '',
             UrlParams::$goto,
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
-            $GLOBALS['disp_message'] ?? null,
+            $GLOBALS['disp_message'] ?? '',
             Current::$sqlQuery,
-            $GLOBALS['complete_query'] ?? null,
+            $GLOBALS['complete_query'] ?? Current::$sqlQuery,
         ));
 
         return $this->response->response();

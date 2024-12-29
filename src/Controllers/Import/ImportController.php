@@ -653,9 +653,9 @@ final class ImportController implements InvocableController
                     '', // message_to_show
                     UrlParams::$goto, // goto
                     null, // disp_query
-                    null, // disp_message
+                    '', // disp_message
                     Current::$sqlQuery,
-                    null, // complete_query
+                    Current::$sqlQuery, // complete_query
                 );
             }
 
