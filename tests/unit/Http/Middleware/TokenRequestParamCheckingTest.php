@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Http\Middleware;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -50,6 +51,9 @@ final class TokenRequestParamCheckingTest extends TestCase
 
         $dbi = new DatabaseInterface(new DbiDummy());
         DatabaseInterface::$instance = $dbi;
+
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setAjax(true);
 
         $_SESSION[' PMA_token '] = 'mismatch';
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
