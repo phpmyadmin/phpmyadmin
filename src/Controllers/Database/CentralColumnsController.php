@@ -42,7 +42,7 @@ final class CentralColumnsController implements InvocableController
                 $request->getParsedBodyParamAsString('orig_col_name'),
                 $request->getParsedBodyParamAsString('col_default'),
                 $request->getParsedBodyParamAsString('col_default_sel'),
-                $request->getParsedBodyParamAsStringOrNull('col_extra'),
+                $request->getParsedBodyParamAsString('col_extra', ''),
                 $request->getParsedBodyParamAsStringOrNull('col_isNull'),
                 $request->getParsedBodyParamAsString('col_length'),
                 $request->getParsedBodyParamAsString('col_attribute'),
@@ -60,7 +60,7 @@ final class CentralColumnsController implements InvocableController
                 $request->getParsedBodyParamAsString('col_name'),
                 $request->getParsedBodyParamAsString('col_default'),
                 $request->getParsedBodyParamAsString('col_default_sel'),
-                $request->getParsedBodyParamAsStringOrNull('col_extra'),
+                $request->getParsedBodyParamAsString('col_extra', ''),
                 $request->getParsedBodyParamAsStringOrNull('col_isNull'),
                 $request->getParsedBodyParamAsString('col_length'),
                 $request->getParsedBodyParamAsString('col_attribute'),
@@ -176,7 +176,7 @@ final class CentralColumnsController implements InvocableController
         string $origColName,
         string $colDefault,
         string $colDefaultSel,
-        string|null $colExtra,
+        string $colExtra,
         string|null $colIsNull,
         string $colLength,
         string $colAttribute,
@@ -198,7 +198,7 @@ final class CentralColumnsController implements InvocableController
             $colLength,
             $colIsNull !== null,
             $collation,
-            $colExtra ?? '',
+            $colExtra,
             $columnDefault,
         );
     }
@@ -207,7 +207,7 @@ final class CentralColumnsController implements InvocableController
         string $colName,
         string $colDefault,
         string $colDefaultSel,
-        string|null $colExtra,
+        string $colExtra,
         string|null $colIsNull,
         string $colLength,
         string $colAttribute,
@@ -224,7 +224,7 @@ final class CentralColumnsController implements InvocableController
             $colLength,
             $colIsNull !== null,
             $collation,
-            $colExtra ?? '',
+            $colExtra,
             $colDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED' ? '' : $colDefault,
         );
     }

@@ -68,7 +68,8 @@ class FormTest extends AbstractTestCase
             ['7' => 'Seven'],
         );
 
-        self::assertNull(
+        self::assertSame(
+            '',
             $this->object->getOptionType('123/4/5/6'),
         );
 

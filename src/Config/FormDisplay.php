@@ -566,7 +566,7 @@ class FormDisplay
             foreach ($form->fields as $field => $systemPath) {
                 $workPath = array_search($systemPath, $this->systemPaths);
                 $key = $this->translatedPaths[$workPath];
-                $type = (string) $form->getOptionType($field);
+                $type = $form->getOptionType($field);
 
                 // skip groups
                 if ($type === 'group') {
