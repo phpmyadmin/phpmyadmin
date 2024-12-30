@@ -290,9 +290,8 @@ class Transformations
             return null;
         }
 
-        $comQry = '';
         if ($fullName) {
-            $comQry .= 'SELECT CONCAT(`db_name`, \'.\', `table_name`, \'.\', `column_name`) AS column_name, ';
+            $comQry = 'SELECT CONCAT(`db_name`, \'.\', `table_name`, \'.\', `column_name`) AS column_name, ';
         } else {
             $comQry = 'SELECT `column_name`, ';
         }
