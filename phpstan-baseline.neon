@@ -9225,7 +9225,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 2
+			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -9326,12 +9326,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$foreignField of method PhpMyAdmin\\ConfigStorage\\Relation\:\:foreignDropdown\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#2 \$row of class PhpMyAdmin\\UniqueCondition constructor expects array\<int, mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -16362,12 +16356,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/UniqueCondition.php
-
-		-
-			message: '#^Parameter \#1 \$row of method PhpMyAdmin\\UniqueCondition\:\:getConditionValue\(\) expects float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/UniqueCondition.php
 

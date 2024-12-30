@@ -298,7 +298,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'showEmptyResultMessageOrSetUniqueCondition',
-            [[false], 0, ['1'], 'SELECT', ['1' => 'result1']],
+            [[[]], 0, ['1'], 'SELECT', ['1' => 'result1']],
         );
 
         $response->setValue(null, $restoreInstance);

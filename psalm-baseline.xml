@@ -5527,7 +5527,6 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$rows[$keyId]]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$thisUrlParams]]></code>
@@ -9592,12 +9591,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$row[$i] ?? null]]></code>
-    </MixedArgument>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$row[$i]]]></code>
-    </MixedArrayTypeCoercion>
   </file>
   <file src="src/Url.php">
     <DeprecatedMethod>

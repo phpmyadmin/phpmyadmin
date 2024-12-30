@@ -140,8 +140,7 @@ class InsertEdit
      * @param string   $table            name of the table
      * @param string   $db               name of the database
      *
-     * @return array<int, string[]|ResultInterface[]|array<string, string|null>[]|bool>
-     * @phpstan-return array{string[], ResultInterface[], array<string|null>[], bool}
+     * @return array{string[], ResultInterface[], array<string|null>[], bool}
      */
     private function analyzeWhereClauses(
         array $whereClauseArray,
@@ -181,11 +180,11 @@ class InsertEdit
     /**
      * Show message for empty result or set the unique_condition
      *
-     * @param mixed[]           $rows             MySQL returned rows
-     * @param string|int        $keyId            ID in current key
-     * @param mixed[]           $whereClauseArray array of where clauses
-     * @param string            $localQuery       query performed
-     * @param ResultInterface[] $result           MySQL result handle
+     * @param array<array<string|null>> $rows             MySQL returned rows
+     * @param string|int                $keyId            ID in current key
+     * @param mixed[]                   $whereClauseArray array of where clauses
+     * @param string                    $localQuery       query performed
+     * @param ResultInterface[]         $result           MySQL result handle
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
@@ -195,7 +194,7 @@ class InsertEdit
         array $result,
     ): bool {
         // No row returned
-        if (! $rows[$keyId]) {
+        if ($rows[$keyId] === []) {
             unset($rows[$keyId], $whereClauseArray[$keyId]);
             ResponseRenderer::getInstance()->addHTML(
                 Generator::getMessage(
