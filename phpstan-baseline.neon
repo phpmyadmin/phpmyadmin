@@ -4312,12 +4312,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Implicit array creation is not allowed \- variable \$extraData might not exist\.$#'
-			identifier: variable.implicitArray
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -4422,12 +4416,6 @@ parameters:
 		-
 			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<string, mixed\>\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Variable \$extraData might not be defined\.$#'
-			identifier: variable.undefined
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 

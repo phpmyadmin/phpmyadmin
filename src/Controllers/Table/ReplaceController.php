@@ -383,6 +383,8 @@ final class ReplaceController implements InvocableController
     /** @param string[][] $mimeMap */
     private function doTransformations(array $mimeMap, ServerRequest $request): void
     {
+        $extraData = [];
+
         $relFieldsList = $request->getParsedBodyParamAsString('rel_fields_list', '');
         if ($relFieldsList !== '') {
             $foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
@@ -415,10 +417,6 @@ final class ReplaceController implements InvocableController
         if ($request->getParsedBodyParam('do_transformations') == true) {
             $editedValues = [];
             parse_str($request->getParsedBodyParamAsString('transform_fields_list'), $editedValues);
-
-            if (! isset($extraData)) {
-                $extraData = [];
-            }
 
             foreach ($mimeMap as $transformation) {
                 $extraData = $this->insertEdit->transformEditedValues(
