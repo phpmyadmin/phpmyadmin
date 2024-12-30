@@ -721,9 +721,7 @@ class InsertEdit
      * @param string             $columnNameAppendix  string to append to column name in input
      * @param bool               $asIs                use the data as is, used in repopulating
      *
-     * @return mixed[] $real_null_value, $data, $special_chars, $backup_field,
-     *               $special_chars_encoded
-     * @psalm-return array{bool, string, string, string, string}
+     * @return array{bool, string, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForExistingRow(
         array $currentRow,
@@ -733,52 +731,50 @@ class InsertEdit
         bool $asIs,
     ): array {
         $specialCharsEncoded = '';
-        $data = null;
+        $data = '';
         $realNullValue = false;
+        $currentValue = $currentRow[$column->field] ?? null;
         // (we are editing)
-        if (! isset($currentRow[$column->field])) {
+        if ($currentValue === null) {
             $realNullValue = true;
-            $currentRow[$column->field] = '';
+            $currentValue = '';
             $specialChars = '';
             $data = '';
         } elseif ($column->trueType === 'bit') {
             $specialChars = $asIs
-                ? $currentRow[$column->field]
-                : Util::printableBitValue(
-                    (int) $currentRow[$column->field],
-                    (int) $extractedColumnspec['spec_in_brackets'],
-                );
+                ? $currentValue
+                : Util::printableBitValue((int) $currentValue, (int) $extractedColumnspec['spec_in_brackets']);
         } elseif (
             ($column->trueType === 'timestamp'
                 || $column->trueType === 'datetime'
                 || $column->trueType === 'time')
-            && (str_contains($currentRow[$column->field], '.'))
+            && (str_contains($currentValue, '.'))
         ) {
-            $currentRow[$column->field] = $asIs
-                ? $currentRow[$column->field]
-                : Util::addMicroseconds($currentRow[$column->field]);
-            $specialChars = htmlspecialchars($currentRow[$column->field], ENT_COMPAT);
+            $currentValue = $asIs
+                ? $currentValue
+                : Util::addMicroseconds($currentValue);
+            $specialChars = htmlspecialchars($currentValue, ENT_COMPAT);
         } elseif (in_array($column->trueType, Gis::getDataTypes(), true)) {
             // Convert gis data to Well Know Text format
-            $currentRow[$column->field] = $asIs
-                ? $currentRow[$column->field]
-                : Gis::convertToWellKnownText($currentRow[$column->field], true);
-            $specialChars = htmlspecialchars($currentRow[$column->field], ENT_COMPAT);
+            $currentValue = $asIs
+                ? $currentValue
+                : Gis::convertToWellKnownText($currentValue, true);
+            $specialChars = htmlspecialchars($currentValue, ENT_COMPAT);
         } else {
             // special binary "characters"
             if ($column->isBinary || ($column->isBlob && $this->config->settings['ProtectBinary'] !== 'all')) {
-                $currentRow[$column->field] = $asIs
-                    ? $currentRow[$column->field]
-                    : bin2hex($currentRow[$column->field]);
+                $currentValue = $asIs
+                    ? $currentValue
+                    : bin2hex($currentValue);
             }
 
-            $specialChars = htmlspecialchars($currentRow[$column->field], ENT_COMPAT);
+            $specialChars = htmlspecialchars($currentValue, ENT_COMPAT);
 
             //We need to duplicate the first \n or otherwise we will lose
             //the first newline entered in a VARCHAR or TEXT column
             $specialCharsEncoded = Util::duplicateFirstNewline($specialChars);
 
-            $data = $currentRow[$column->field];
+            $data = $currentValue;
         }
 
         /** @var string $defaultAction */
@@ -789,7 +785,7 @@ class InsertEdit
             && str_contains($column->extra, 'auto_increment')
         ) {
             // When copying row, it is useful to empty auto-increment column to prevent duplicate key error.
-            $data = $specialCharsEncoded = $specialChars = null;
+            $data = $specialCharsEncoded = $specialChars = '';
         }
 
         // If a timestamp field value is not included in an update
@@ -798,9 +794,9 @@ class InsertEdit
         // it's better to set a fields_prev in this situation
         $backupField = '<input type="hidden" name="fields_prev'
             . $columnNameAppendix . '" value="'
-            . htmlspecialchars($currentRow[$column->field], ENT_COMPAT) . '">';
+            . htmlspecialchars($currentValue, ENT_COMPAT) . '">';
 
-        return [$realNullValue, (string) $specialCharsEncoded, (string) $specialChars, (string) $data, $backupField];
+        return [$realNullValue, $specialCharsEncoded, $specialChars, $data, $backupField];
     }
 
     /**
