@@ -238,9 +238,9 @@ class InsertEdit
     /**
      * Show type information or function selectors in Insert/Edit
      *
-     * @param string  $which     function|type
-     * @param mixed[] $urlParams containing url parameters
-     * @param bool    $isShow    whether to show the element in $which
+     * @param string                         $which     function|type
+     * @param array<string, bool|int|string> $urlParams containing url parameters
+     * @param bool                           $isShow    whether to show the element in $which
      *
      * @return string an HTML snippet
      */
@@ -685,7 +685,7 @@ class InsertEdit
     /**
      * Get table head and table foot for insert row table
      *
-     * @param mixed[] $urlParams url parameters
+     * @param array<string, bool|int|string> $urlParams url parameters
      *
      * @return string           an html snippet
      */
@@ -1840,19 +1840,19 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param mixed[]            $urlParams        url parameters
-     * @param list<ColumnFull>   $tableColumns     table columns
-     * @param string[]           $commentsMap      comments map
-     * @param ResultInterface    $currentResult    current result
-     * @param bool               $insertMode       whether insert mode
-     * @param array<string|null> $currentRow       current row
-     * @param bool               $isUpload         whether upload
-     * @param mixed[]            $foreigners       foreigners
-     * @param string             $table            table
-     * @param string             $db               database
-     * @param int                $rowId            row id
-     * @param mixed[]            $repopulate       the data to be repopulated
-     * @param string[]           $whereClauseArray the array of where clauses
+     * @param array<string, bool|int|string> $urlParams        url parameters
+     * @param list<ColumnFull>               $tableColumns     table columns
+     * @param string[]                       $commentsMap      comments map
+     * @param ResultInterface                $currentResult    current result
+     * @param bool                           $insertMode       whether insert mode
+     * @param array<string|null>             $currentRow       current row
+     * @param bool                           $isUpload         whether upload
+     * @param mixed[]                        $foreigners       foreigners
+     * @param string                         $table            table
+     * @param string                         $db               database
+     * @param int                            $rowId            row id
+     * @param mixed[]                        $repopulate       the data to be repopulated
+     * @param string[]                       $whereClauseArray the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,

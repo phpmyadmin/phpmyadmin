@@ -5522,8 +5522,6 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$currentRow]]></code>
-      <code><![CDATA[$thisUrlParams]]></code>
-      <code><![CDATA[$thisUrlParams]]></code>
       <code><![CDATA[$whereClauseArray]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
