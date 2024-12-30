@@ -116,7 +116,7 @@ class ChangeController implements InvocableController
         );
         // Increase number of rows if unsaved rows are more
         if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
-            $rows = array_fill(0, count($GLOBALS['unsaved_values']), false);
+            $rows = array_fill(0, count($GLOBALS['unsaved_values']), []);
         }
 
         /**
@@ -248,7 +248,7 @@ class ChangeController implements InvocableController
                 $commentsMap,
                 $GLOBALS['current_result'],
                 $insertMode,
-                $currentRow ?: [],
+                $currentRow,
                 $isUpload,
                 $foreigners,
                 Current::$table,

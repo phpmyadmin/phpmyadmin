@@ -2462,7 +2462,6 @@
       <code><![CDATA[$isUpload]]></code>
     </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
       <code><![CDATA[empty($GLOBALS['unsaved_values'])]]></code>
     </RiskyTruthyFalsyComparison>
@@ -5722,12 +5721,6 @@
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field] ?? '']]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
@@ -5743,6 +5736,7 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[$thisUrlParams]]></code>
       <code><![CDATA[$thisUrlParams]]></code>
       <code><![CDATA[$whereClauseArray]]></code>
@@ -5753,9 +5747,6 @@
     <MixedAssignment>
       <code><![CDATA[$columnSetValues]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$data]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$enumSelectedValue]]></code>
       <code><![CDATA[$enumValue]]></code>
@@ -5764,7 +5755,6 @@
       <code><![CDATA[$isUnsigned]]></code>
       <code><![CDATA[$maxlength]]></code>
       <code><![CDATA[$maxlength]]></code>
-      <code><![CDATA[$specialChars]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <MixedOperand>
@@ -5777,7 +5767,7 @@
      *     string[],
      *     string[]|null,
      *     ResultInterface[]|ResultInterface,
-     *     array<string, string|null>[]|false[],
+     *     array<string, string|null>[],
      *     bool,
      *     string|null
      * }]]></code>
@@ -5795,6 +5785,10 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
+    <PossiblyNullArgument>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+      <code><![CDATA[$currentRow[$column->field]]]></code>
+    </PossiblyNullArgument>
     <PropertyTypeCoercion>
       <code><![CDATA[$this->config->settings]]></code>
     </PropertyTypeCoercion>
