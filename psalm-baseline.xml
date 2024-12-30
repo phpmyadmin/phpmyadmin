@@ -5785,10 +5785,6 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['where_clause'][0]]]></code>
     </PossiblyInvalidOperand>
-    <PossiblyNullArgument>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-    </PossiblyNullArgument>
     <PropertyTypeCoercion>
       <code><![CDATA[$this->config->settings]]></code>
     </PropertyTypeCoercion>
