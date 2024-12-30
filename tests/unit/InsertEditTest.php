@@ -1580,20 +1580,18 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['ServerDefault'] = 1;
         $_POST['where_clause'] = '1';
         $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
-        $transformation = ['transformation_options' => "'','option ,, quoted',abd"];
         $result = $this->insertEdit->transformEditedValues(
             'db',
             'table',
-            $transformation,
+            "'','option ,, quoted',abd",
             $editedValues,
             'Text_Plain_PreApPend.php',
             'c',
-            ['a' => 'b'],
-            'transformation',
+            [['a' => 'b']],
         );
 
         self::assertSame(
-            ['a' => 'b', 'transformations' => ['cnameoption ,, quoted']],
+            [['a' => 'b'], 'transformations' => ['cnameoption ,, quoted']],
             $result,
         );
     }

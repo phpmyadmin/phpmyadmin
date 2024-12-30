@@ -4390,6 +4390,12 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
+			message: '#^Parameter \#4 \$editedValues of method PhpMyAdmin\\InsertEdit\:\:transformEditedValues\(\) expects array\<array\<string\>\>, array\<array\<mixed\>\|string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Table/ReplaceController.php
+
+		-
 			message: '#^Parameter \#5 \$relationFieldValue of method PhpMyAdmin\\InsertEdit\:\:getLinkForRelationalDisplayField\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9145,21 +9151,9 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
 			path: src/InsertEdit.php
 
 		-
@@ -9253,12 +9247,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$buffer of method PhpMyAdmin\\Plugins\\TransformationsInterface\:\:applyTransformation\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Parameter \#1 \$data of static method PhpMyAdmin\\Utils\\Gis\:\:convertToWellKnownText\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9291,7 +9279,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$optionString of method PhpMyAdmin\\Transformations\:\:getOptions\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/InsertEdit.php
 
 		-

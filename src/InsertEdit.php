@@ -1079,27 +1079,23 @@ class InsertEdit
     /**
      * Transform edited values
      *
-     * @param string  $db             db name
-     * @param string  $table          table name
-     * @param mixed[] $transformation mimetypes for all columns of a table
-     *                               [field_name][field_key]
-     * @param mixed[] $editedValues   transform columns list and new values
-     * @param string  $file           file containing the transformation plugin
-     * @param string  $columnName     column name
-     * @param mixed[] $extraData      extra data array
-     * @param string  $type           the type of transformation
+     * @param string     $db           db name
+     * @param string     $table        table name
+     * @param string[][] $editedValues transform columns list and new values
+     * @param string     $file         file containing the transformation plugin
+     * @param string     $columnName   column name
+     * @param string[][] $extraData    extra data array
      *
-     * @return mixed[]
+     * @return string[][]
      */
     public function transformEditedValues(
         string $db,
         string $table,
-        array $transformation,
+        string $transformationOption,
         array &$editedValues,
         string $file,
         string $columnName,
         array $extraData,
-        string $type,
     ): array {
         // $cfg['SaveCellsAtOnce'] = true; JS code sends an array
         $whereClause = is_array($_POST['where_clause']) ? $_POST['where_clause'][0] : $_POST['where_clause'];
@@ -1110,7 +1106,7 @@ class InsertEdit
             'where_clause' => $whereClause,
             'transform_key' => $columnName,
         ];
-        $transformOptions = $this->transformations->getOptions($transformation[$type . '_options'] ?? '');
+        $transformOptions = $this->transformations->getOptions($transformationOption);
         $transformOptions['wrapper_link'] = Url::getCommon($urlParams);
         $transformOptions['wrapper_params'] = $urlParams;
 

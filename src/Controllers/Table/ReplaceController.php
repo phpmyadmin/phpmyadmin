@@ -428,12 +428,11 @@ final class ReplaceController implements InvocableController
                     $extraData = $this->insertEdit->transformEditedValues(
                         Current::$database,
                         Current::$table,
-                        $transformation,
+                        $transformation[$type . '_options'] ?? '',
                         $editedValues,
                         $file,
                         $columnName,
                         $extraData,
-                        $type,
                     );
                 }
             }

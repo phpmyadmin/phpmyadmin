@@ -2780,6 +2780,9 @@
       <code><![CDATA[Current::$table]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$editedValues]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$extraData['relations']]]></code>
       <code><![CDATA[$multiEditColumnsPrev[$key]]]></code>
@@ -5512,7 +5515,6 @@
     </LessSpecificReturnStatement>
     <MixedArgument>
       <code><![CDATA[$columnMime['input_transformation_options']]]></code>
-      <code><![CDATA[$currCellEditedValues[$columnName]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
@@ -5533,7 +5535,6 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$rows[$keyId]]]></code>
-      <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$thisUrlParams]]></code>
@@ -5542,15 +5543,9 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
-      <code><![CDATA[$currCellEditedValues[$columnName]]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$editedValues[$cellIndex][$columnName]]]></code>
-      <code><![CDATA[$extraData['transformations'][$cellIndex]]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$columnSetValues]]></code>
-      <code><![CDATA[$currCellEditedValues]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
