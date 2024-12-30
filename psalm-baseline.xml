@@ -2937,7 +2937,6 @@
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
-      <code><![CDATA[$extraData]]></code>
       <code><![CDATA[$fields['multi_edit']]]></code>
       <code><![CDATA[$multiEditColumnsPrev[$key] ?? null]]></code>
       <code><![CDATA[$multiEditColumnsType[$key] ?? '']]></code>
@@ -2953,7 +2952,6 @@
       <code><![CDATA[$editedValues]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$extraData['relations']]]></code>
       <code><![CDATA[$multiEditColumnsPrev[$key]]]></code>
       <code><![CDATA[$multiEditColumnsType[$key]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
@@ -2962,8 +2960,6 @@
       <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$extraData['relations']]]></code>
-      <code><![CDATA[$extraData['relations'][$cellIndex]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
     </MixedArrayAssignment>
@@ -3006,9 +3002,6 @@
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </PossiblyInvalidArrayAssignment>
-    <PossiblyUndefinedVariable>
-      <code><![CDATA[$extraData]]></code>
-    </PossiblyUndefinedVariable>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
