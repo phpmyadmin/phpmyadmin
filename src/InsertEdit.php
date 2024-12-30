@@ -1541,7 +1541,7 @@ class InsertEdit
      * @param string             $table              table
      * @param string             $db                 database
      * @param int                $rowId              row id
-     * @param string             $defaultCharEditing default char editing mode which is stored in the config.inc.php script
+     * @param string             $defaultCharEditing default char editing mode which is stored in config.inc.php
      * @param mixed[]            $repopulate         the data to be repopulated
      * @param mixed[]            $columnMime         the mime information of column
      * @param string             $whereClause        the where clause
