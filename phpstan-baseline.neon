@@ -3766,12 +3766,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
-			identifier: ternary.shortNotAllowed
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
@@ -9147,13 +9141,13 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 3
+			count: 2
 			path: src/InsertEdit.php
 
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 4
+			count: 2
 			path: src/InsertEdit.php
 
 		-
@@ -9175,7 +9169,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) should return array\{bool, array\<string\>\|string\|null, array\<string\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string, string\|null\>\|false\>, bool, string\|null\} but returns array\{bool, mixed, array\<mixed\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string\|null\>\|false\>, bool, mixed\}\.$#'
+			message: '#^Method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) should return array\{bool, array\<string\>\|string\|null, array\<string\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string, string\|null\>\>, bool, string\|null\} but returns array\{bool, mixed, array\<mixed\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string\|null\>\>, bool, mixed\}\.$#'
 			identifier: return.type
 			count: 1
 			path: src/InsertEdit.php
@@ -9235,7 +9229,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$data of static method PhpMyAdmin\\Utils\\Gis\:\:convertToWellKnownText\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$currentRow of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsAndBackupFieldForExistingRow\(\) expects array\<string\|null\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -9248,12 +9242,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$defaultValue of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsForInsertingMode\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -9295,25 +9283,13 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$string of function bin2hex expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 4
 			path: src/InsertEdit.php
 
 		-
 			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:addMicroseconds\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php

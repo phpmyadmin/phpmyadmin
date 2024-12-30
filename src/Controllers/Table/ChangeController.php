@@ -110,7 +110,7 @@ class ChangeController implements InvocableController
         ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
         // Increase number of rows if unsaved rows are more
         if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
-            $rows = array_fill(0, count(self::$unsavedValues), false);
+            $rows = array_fill(0, count(self::$unsavedValues), []);
         }
 
         /**
@@ -240,7 +240,7 @@ class ChangeController implements InvocableController
                 $commentsMap,
                 $currentResult,
                 $insertMode,
-                $currentRow ?: [],
+                $currentRow,
                 $isUpload,
                 $foreigners,
                 Current::$table,

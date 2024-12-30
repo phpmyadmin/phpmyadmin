@@ -339,16 +339,16 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame($resultStub, $result);
     }
 
-    /** @return list<array{int, array<false>}> */
+    /** @return list<array{int, array<array<never>>}> */
     public static function dataProviderConfigValueInsertRows(): array
     {
-        return [[2, [false, false]], [3, [false, false, false]]];
+        return [[2, [[], []]], [3, [[], [], []]]];
     }
 
     /**
      * Test for loadFirstRow
      *
-     * @param array<false> $rowsValue
+     * @param array<array<never>> $rowsValue
      */
     #[DataProvider('dataProviderConfigValueInsertRows')]
     public function testGetInsertRows(int $configValue, array $rowsValue): void
@@ -2387,7 +2387,7 @@ class InsertEditTest extends AbstractTestCase
         $response->setValue(null, $restoreInstance);
 
         self::assertSame(
-            [true, null, [], null, $resultStub, [false, false], false, 'edit_next'],
+            [true, null, [], null, $resultStub, [[], []], false, 'edit_next'],
             $result,
         );
     }
