@@ -420,21 +420,26 @@ final class ReplaceController implements InvocableController
                 $extraData = [];
             }
 
-            $transformationTypes = ['input_transformation', 'transformation'];
             foreach ($mimeMap as $transformation) {
-                $columnName = $transformation['column_name'];
-                foreach ($transformationTypes as $type) {
-                    $file = Core::securePath($transformation[$type]);
-                    $extraData = $this->insertEdit->transformEditedValues(
-                        Current::$database,
-                        Current::$table,
-                        $transformation[$type . '_options'] ?? '',
-                        $editedValues,
-                        $file,
-                        $columnName,
-                        $extraData,
-                    );
-                }
+                $extraData = $this->insertEdit->transformEditedValues(
+                    Current::$database,
+                    Current::$table,
+                    $transformation['input_transformation_options'],
+                    $editedValues,
+                    Core::securePath($transformation['input_transformation']),
+                    $transformation['column_name'],
+                    $extraData,
+                );
+
+                $extraData = $this->insertEdit->transformEditedValues(
+                    Current::$database,
+                    Current::$table,
+                    $transformation['transformation_options'],
+                    $editedValues,
+                    Core::securePath($transformation['transformation']),
+                    $transformation['column_name'],
+                    $extraData,
+                );
             }
         }
 

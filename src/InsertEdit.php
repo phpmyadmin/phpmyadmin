@@ -1366,8 +1366,7 @@ class InsertEdit
             return;
         }
 
-        $fieldsMeta = $this->dbi->getFieldsMeta($result);
-        $meta = $fieldsMeta[0];
+        $metadata = $this->dbi->getFieldsMeta($result)[0];
         $newValue = $result->fetchValue();
 
         if ($newValue === false) {
@@ -1375,9 +1374,9 @@ class InsertEdit
         }
 
         if ($newValue !== null) {
-            if ($meta->isTimeType()) {
+            if ($metadata->isTimeType()) {
                 $newValue = Util::addMicroseconds($newValue);
-            } elseif ($meta->isBinary()) {
+            } elseif ($metadata->isBinary()) {
                 $newValue = '0x' . bin2hex($newValue);
             }
         }
