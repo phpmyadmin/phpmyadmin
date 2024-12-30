@@ -5506,7 +5506,6 @@
         ]]]></code>
     </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$columnMime['input_transformation_options']]]></code>
       <code><![CDATA[$currentRow[$column->field] ?? '']]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
@@ -5537,7 +5536,6 @@
       <code><![CDATA[$enumSelectedValue]]></code>
       <code><![CDATA[$enumValue]]></code>
       <code><![CDATA[$enumValues]]></code>
-      <code><![CDATA[$file]]></code>
       <code><![CDATA[$isUnsigned]]></code>
       <code><![CDATA[$maxlength]]></code>
       <code><![CDATA[$maxlength]]></code>
@@ -5577,6 +5575,7 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
+      <code><![CDATA[empty($columnMime['input_transformation'])]]></code>
       <code><![CDATA[empty($this->config->settings['UploadDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

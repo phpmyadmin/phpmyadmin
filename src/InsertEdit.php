@@ -1543,7 +1543,7 @@ class InsertEdit
      * @param int                $rowId              row id
      * @param string             $defaultCharEditing default char editing mode which is stored in config.inc.php
      * @param mixed[]            $repopulate         the data to be repopulated
-     * @param mixed[]            $columnMime         the mime information of column
+     * @param string[]           $columnMime         the mime information of column
      * @param string             $whereClause        the where clause
      */
     private function getHtmlForInsertEditFormColumn(
@@ -1658,8 +1658,7 @@ class InsertEdit
         // Check input transformation of column
         $transformedHtml = '';
         if (! empty($columnMime['input_transformation'])) {
-            $file = $columnMime['input_transformation'];
-            $transformationPlugin = $this->transformations->getPluginInstance((string) $file);
+            $transformationPlugin = $this->transformations->getPluginInstance($columnMime['input_transformation']);
             if ($transformationPlugin instanceof IOTransformationsPlugin) {
                 $transformationOptions = $this->transformations->getOptions(
                     $columnMime['input_transformation_options'],
