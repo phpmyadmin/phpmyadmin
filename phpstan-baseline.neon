@@ -6625,15 +6625,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Cannot access an offset on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -18354,7 +18345,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: tests/unit/AbstractTestCase.php
 
 		-
@@ -20413,6 +20404,15 @@ parameters:
 			path: tests/unit/Html/MySQLDocumentationTest.php
 
 		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php
+
+		-
 			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -21423,7 +21423,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 8
 			path: tests/unit/Table/TableTest.php
 
 		-

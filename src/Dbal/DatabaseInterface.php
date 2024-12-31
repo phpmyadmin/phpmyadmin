@@ -139,13 +139,12 @@ class DatabaseInterface
     public float $lastQueryExecutionTime = 0;
 
     private ListDatabase|null $databaseList = null;
-    private readonly Config $config;
 
     /** @var int|numeric-string */
     private static int|string $cachedAffectedRows = -1;
 
     /** @param DbiExtension $extension Object to be used for database queries */
-    public function __construct(private DbiExtension $extension)
+    public function __construct(private DbiExtension $extension, private readonly Config $config)
     {
         if (defined('TESTSUITE')) {
             $this->connections[ConnectionType::User->value] = new Connection(new stdClass());
@@ -154,14 +153,13 @@ class DatabaseInterface
 
         $this->cache = new Cache();
         $this->types = new Types($this);
-        $this->config = Config::getInstance();
     }
 
     /** @deprecated Use dependency injection instead. */
-    public static function getInstance(): self
+    public static function getInstance(Config|null $config = null): self
     {
         if (self::$instance === null) {
-            self::$instance = new self(new DbiMysqli());
+            self::$instance = new self(new DbiMysqli(), $config ?? Config::getInstance());
         }
 
         return self::$instance;
