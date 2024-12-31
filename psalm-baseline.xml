@@ -2304,7 +2304,6 @@
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
-      <code><![CDATA[$whereClause]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$rowId]]></code>
@@ -2313,7 +2312,6 @@
     <MixedAssignment>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
-      <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>

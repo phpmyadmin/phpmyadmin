@@ -22,6 +22,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_fill;
@@ -54,6 +55,8 @@ class ChangeController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
+        $inputWhereClauses = Current::$whereClause;
+
         $this->pageSettings->init('Edit');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -90,8 +93,9 @@ class ChangeController implements InvocableController
 
         if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
             $whereClause = $request->getQueryParam('where_clause');
+            Assert::string($whereClause);
             if (Core::checkSqlQuerySignature($whereClause, $request->getQueryParam('where_clause_signature'))) {
-                Current::$whereClause = $whereClause;
+                $inputWhereClauses = $whereClause;
             }
         }
 
@@ -100,14 +104,14 @@ class ChangeController implements InvocableController
          */
         [
             $insertMode,
-            Current::$whereClause,
+            $inputWhereClauses,
             $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
-        ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
-        $whereClauseArray = (array) Current::$whereClause;
+        ] = $this->insertEdit->determineInsertOrEdit($inputWhereClauses, Current::$database, Current::$table);
+        $whereClauseArray = (array) $inputWhereClauses;
         // Increase number of rows if unsaved rows are more
         if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
             $rows = array_fill(0, count(self::$unsavedValues), []);
@@ -255,9 +259,9 @@ class ChangeController implements InvocableController
         InsertEdit::$pluginScripts = [];
         self::$unsavedValues = [];
 
-        $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
+        $isNumeric = InsertEdit::isWhereClauseNumeric($inputWhereClauses);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [
-            'where_clause' => Current::$whereClause,
+            'where_clause' => $inputWhereClauses,
             'after_insert' => $afterInsert ?? 'back',
             'found_unique_key' => $foundUniqueIndex,
             'is_numeric' => $isNumeric,

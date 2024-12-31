@@ -3724,12 +3724,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#1 \$sqlQuery of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#11 \$rowId of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects int, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3756,12 +3750,6 @@ parameters:
 		-
 			message: '#^Parameter \#7 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects bool, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept mixed\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
