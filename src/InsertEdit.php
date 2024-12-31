@@ -1375,7 +1375,6 @@ class InsertEdit
      * @return array{
      *     bool,
      *     string[]|string|null,
-     *     string[],
      *     string[]|null,
      *     ResultInterface[]|ResultInterface,
      *     array<string, string|null>[],
@@ -1410,9 +1409,8 @@ class InsertEdit
         if (isset($whereClause)) {
             // we are editing
             $insertMode = false;
-            $whereClauseArray = (array) $whereClause;
             [$whereClauses, $result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses(
-                $whereClauseArray,
+                (array) $whereClause,
                 $table,
                 $db,
             );
@@ -1423,7 +1421,6 @@ class InsertEdit
             $result = $this->loadFirstRow($table, $db);
             $rows = $this->getInsertRows();
             $whereClauses = null;
-            $whereClauseArray = [];
             $foundUniqueKey = false;
         }
 
@@ -1437,7 +1434,6 @@ class InsertEdit
         return [
             $insertMode,
             $whereClause,
-            $whereClauseArray,
             $whereClauses,
             $result,
             $rows,

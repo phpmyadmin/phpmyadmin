@@ -5481,7 +5481,6 @@
       <code><![CDATA[[
             $insertMode,
             $whereClause,
-            $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
@@ -5504,7 +5503,7 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$currentRow]]></code>
-      <code><![CDATA[$whereClauseArray]]></code>
+      <code><![CDATA[(array) $whereClause]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -5521,7 +5520,6 @@
       <code><![CDATA[array{
      *     bool,
      *     string[]|string|null,
-     *     string[],
      *     string[]|null,
      *     ResultInterface[]|ResultInterface,
      *     array<string, string|null>[],

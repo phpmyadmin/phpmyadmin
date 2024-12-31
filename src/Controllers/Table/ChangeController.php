@@ -101,13 +101,13 @@ class ChangeController implements InvocableController
         [
             $insertMode,
             Current::$whereClause,
-            $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
         ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
+        $whereClauseArray = (array) Current::$whereClause;
         // Increase number of rows if unsaved rows are more
         if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
             $rows = array_fill(0, count(self::$unsavedValues), []);

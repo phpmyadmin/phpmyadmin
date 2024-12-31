@@ -9121,7 +9121,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) should return array\{bool, array\<string\>\|string\|null, array\<string\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string, string\|null\>\>, bool, string\|null\} but returns array\{bool, mixed, array\<mixed\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string\|null\>\>, bool, mixed\}\.$#'
+			message: '#^Method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) should return array\{bool, array\<string\>\|string\|null, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string, string\|null\>\>, bool, string\|null\} but returns array\{bool, mixed, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string\|null\>\>, bool, mixed\}\.$#'
 			identifier: return.type
 			count: 1
 			path: src/InsertEdit.php
