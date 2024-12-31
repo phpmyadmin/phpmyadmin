@@ -160,13 +160,22 @@ class InsertEdit
             $rows[$keyId] = $result[$keyId]->fetchAssoc();
 
             $whereClauses[$keyId] = str_replace('\\', '\\\\', $whereClause);
-            $hasUniqueCondition = $this->showEmptyResultMessageOrSetUniqueCondition(
-                $rows,
-                $keyId,
-                $localQuery,
-                $result,
-            );
-            if (! $hasUniqueCondition) {
+
+            if ($rows[$keyId] === []) {
+                ResponseRenderer::getInstance()->addHTML(
+                    Generator::getMessage(
+                        __('MySQL returned an empty result set (i.e. zero rows).'),
+                        $localQuery,
+                    ),
+                );
+                /**
+                 * @todo not sure what should be done at this point, but we must not
+                 * exit if we want the message to be displayed
+                 */
+                continue;
+            }
+
+            if (! $this->hasUniqueCondition($rows[$keyId], $result[$keyId])) {
                 continue;
             }
 
@@ -176,39 +185,12 @@ class InsertEdit
         return [$whereClauses, $result, $rows, $foundUniqueKey];
     }
 
-    /**
-     * Show message for empty result or set the unique_condition
-     *
-     * @param array<array<string|null>> $rows       MySQL returned rows
-     * @param string|int                $keyId      ID in current key
-     * @param string                    $localQuery query performed
-     * @param ResultInterface[]         $result     MySQL result handle
-     */
-    private function showEmptyResultMessageOrSetUniqueCondition(
-        array $rows,
-        string|int $keyId,
-        string $localQuery,
-        array $result,
-    ): bool {
-        // No row returned
-        if ($rows[$keyId] === []) {
-            ResponseRenderer::getInstance()->addHTML(
-                Generator::getMessage(
-                    __('MySQL returned an empty result set (i.e. zero rows).'),
-                    $localQuery,
-                ),
-            );
-            /**
-             * @todo not sure what should be done at this point, but we must not
-             * exit if we want the message to be displayed
-             */
+    /** @param array<string|null> $row */
+    private function hasUniqueCondition(array $row, ResultInterface $result): bool
+    {
+        $meta = $this->dbi->getFieldsMeta($result);
 
-            return false;
-        }
-
-        $meta = $this->dbi->getFieldsMeta($result[$keyId]);
-
-        return (bool) (new UniqueCondition($meta, $rows[$keyId], true))->getWhereClause();
+        return (bool) (new UniqueCondition($meta, $row, true))->getWhereClause();
     }
 
     /**
