@@ -515,9 +515,6 @@ class InsertEdit
      * @param string           $specialCharsEncoded replaced char if the string starts
      *                                                with a \r\n pair (0x0d0a) add an extra \n
      * @param string           $data                data to edit
-     * @param mixed[]          $extractedColumnspec associative array containing type,
-     *                                              spec_in_brackets and possibly
-     *                                              enum_set_values (another array)
      *
      * @return string an html snippet
      */
@@ -530,11 +527,11 @@ class InsertEdit
         string $specialChars,
         string $specialCharsEncoded,
         string $data,
-        array $extractedColumnspec,
+        string $specInBrackets,
     ): string {
         // HTML5 data-* attribute data-type
         $dataType = $this->dbi->types->getTypeClass($column->trueType);
-        $fieldsize = $this->getColumnSize($column, $extractedColumnspec['spec_in_brackets']);
+        $fieldsize = $this->getColumnSize($column, $specInBrackets);
 
         $isTextareaRequired = $column->isChar
             && ($this->config->settings['CharEditing'] === 'textarea' || str_contains($data, "\n"));
@@ -1753,7 +1750,7 @@ class InsertEdit
                     $specialChars,
                     $specialCharsEncoded,
                     $data,
-                    $extractedColumnspec,
+                    $extractedColumnspec['spec_in_brackets'],
                 );
             }
         }

@@ -9289,12 +9289,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#2 \$specInBrackets of method PhpMyAdmin\\InsertEdit\:\:getColumnSize\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Parameter \#2 \$table of method PhpMyAdmin\\ConfigStorage\\Relation\:\:getDisplayField\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9302,6 +9296,12 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$value of method PhpMyAdmin\\Plugins\\IOTransformationsPlugin\:\:getInputHtml\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/InsertEdit.php
+
+		-
+			message: '#^Parameter \#9 \$specInBrackets of method PhpMyAdmin\\InsertEdit\:\:getValueColumnForOtherDatatypes\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
