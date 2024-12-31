@@ -2427,7 +2427,6 @@
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
@@ -2447,7 +2446,6 @@
       <code><![CDATA[$rowId]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
@@ -2456,7 +2454,7 @@
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['current_result']]]></code>
+      <code><![CDATA[$currentResult]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>

@@ -3994,12 +3994,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#1 \$files of method PhpMyAdmin\\ResponseRenderer\:\:addScriptFiles\(\) expects list\<string\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

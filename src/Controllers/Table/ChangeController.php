@@ -54,7 +54,6 @@ class ChangeController implements InvocableController
         $GLOBALS['disp_message'] ??= null;
         $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['current_result'] ??= null;
 
         $this->pageSettings->init('Edit');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -228,7 +227,7 @@ class ChangeController implements InvocableController
 
         $GLOBALS['plugin_scripts'] = [];
         foreach ($rows as $rowId => $currentRow) {
-            $GLOBALS['current_result'] = is_array($result) && isset($result[$rowId])
+            $currentResult = is_array($result) && isset($result[$rowId])
                 ? $result[$rowId]
                 : $result;
             $repopulate = [];
@@ -246,7 +245,7 @@ class ChangeController implements InvocableController
                 UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
-                $GLOBALS['current_result'],
+                $currentResult,
                 $insertMode,
                 $currentRow,
                 $isUpload,
