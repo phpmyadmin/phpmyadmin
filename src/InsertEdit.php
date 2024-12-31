@@ -100,7 +100,6 @@ class InsertEdit
     public function getFormParametersForInsertForm(
         string $db,
         string $table,
-        array|null $whereClauses,
         array $whereClauseArray,
         string $errorUrl,
     ): array {
@@ -118,10 +117,8 @@ class InsertEdit
             }
         }
 
-        if (isset($whereClauses)) {
-            foreach ($whereClauseArray as $keyId => $whereClause) {
-                $formParams['where_clause[' . $keyId . ']'] = trim($whereClause);
-            }
+        foreach ($whereClauseArray as $keyId => $whereClause) {
+            $formParams['where_clause[' . $keyId . ']'] = trim($whereClause);
         }
 
         if (isset($_POST['clause_is_unique'])) {
@@ -140,7 +137,7 @@ class InsertEdit
      * @param string   $table            name of the table
      * @param string   $db               name of the database
      *
-     * @return array{string[], ResultInterface[], array<string|null>[], bool}
+     * @return array{ResultInterface[], array<string|null>[], bool}
      */
     private function analyzeWhereClauses(
         array $whereClauseArray,
@@ -149,7 +146,6 @@ class InsertEdit
     ): array {
         $rows = [];
         $result = [];
-        $whereClauses = [];
         $foundUniqueKey = false;
         foreach ($whereClauseArray as $keyId => $whereClause) {
             $localQuery = 'SELECT * FROM '
@@ -158,8 +154,6 @@ class InsertEdit
                 . ' WHERE ' . $whereClause . ';';
             $result[$keyId] = $this->dbi->query($localQuery);
             $rows[$keyId] = $result[$keyId]->fetchAssoc();
-
-            $whereClauses[$keyId] = str_replace('\\', '\\\\', $whereClause);
 
             if ($rows[$keyId] === []) {
                 ResponseRenderer::getInstance()->addHTML(
@@ -182,7 +176,7 @@ class InsertEdit
             $foundUniqueKey = true;
         }
 
-        return [$whereClauses, $result, $rows, $foundUniqueKey];
+        return [$result, $rows, $foundUniqueKey];
     }
 
     /** @param array<string|null> $row */
@@ -1375,7 +1369,6 @@ class InsertEdit
      * @return array{
      *     bool,
      *     string[]|string|null,
-     *     string[]|null,
      *     ResultInterface[]|ResultInterface,
      *     array<string, string|null>[],
      *     bool,
@@ -1406,21 +1399,15 @@ class InsertEdit
             $afterInsert = $_POST['after_insert'];
         }
 
-        if (isset($whereClause)) {
+        if ($whereClause !== null) {
             // we are editing
             $insertMode = false;
-            [$whereClauses, $result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses(
-                (array) $whereClause,
-                $table,
-                $db,
-            );
+            [$result, $rows, $foundUniqueKey] = $this->analyzeWhereClauses((array) $whereClause, $table, $db);
         } else {
             // we are inserting
             $insertMode = true;
-            $whereClause = null;
             $result = $this->loadFirstRow($table, $db);
             $rows = $this->getInsertRows();
-            $whereClauses = null;
             $foundUniqueKey = false;
         }
 
@@ -1428,13 +1415,12 @@ class InsertEdit
         $defaultAction = $_POST['default_action'] ?? $_GET['default_action'] ?? '';
         if ($defaultAction === 'insert') {
             // Copying a row - fetched data will be inserted as a new row, therefore the where clause is needless.
-            $whereClause = $whereClauses = null;
+            $whereClause = null;
         }
 
         return [
             $insertMode,
             $whereClause,
-            $whereClauses,
             $result,
             $rows,
             $foundUniqueKey,
