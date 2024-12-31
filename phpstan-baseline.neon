@@ -4024,12 +4024,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#1 \$whereClause of static method PhpMyAdmin\\InsertEdit\:\:isWhereClauseNumeric\(\) expects array\<string\>\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#11 \$rowId of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects int, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1

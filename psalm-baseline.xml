@@ -2435,7 +2435,7 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
+      <code><![CDATA[$inputWhereClauses]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
@@ -2448,7 +2448,7 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
+      <code><![CDATA[$inputWhereClauses]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
@@ -5693,7 +5693,6 @@
       <code><![CDATA[[
             $insertMode,
             $whereClause,
-            $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
@@ -5716,7 +5715,7 @@
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$currentRow]]></code>
-      <code><![CDATA[$whereClauseArray]]></code>
+      <code><![CDATA[(array) $whereClause]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
@@ -5733,7 +5732,6 @@
       <code><![CDATA[array{
      *     bool,
      *     string[]|string|null,
-     *     string[],
      *     string[]|null,
      *     ResultInterface[]|ResultInterface,
      *     array<string, string|null>[],
