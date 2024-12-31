@@ -131,12 +131,7 @@ class InsertEditTest extends AbstractTestCase
         $_POST['sql_query'] = 'SELECT a';
         UrlParams::$goto = 'index.php';
 
-        $result = $this->insertEdit->getFormParametersForInsertForm(
-            'dbname',
-            'tablename',
-            $whereClause,
-            'localhost',
-        );
+        $result = $this->insertEdit->getFormParametersForInsertForm('dbname', 'tablename', $whereClause, 'localhost');
 
         self::assertSame(
             [
@@ -164,12 +159,7 @@ class InsertEditTest extends AbstractTestCase
         $_GET['sql_signature'] = Core::signSqlQuery($_GET['sql_query']);
         UrlParams::$goto = 'index.php';
 
-        $result = $this->insertEdit->getFormParametersForInsertForm(
-            'dbname',
-            'tablename',
-            $whereClause,
-            'localhost',
-        );
+        $result = $this->insertEdit->getFormParametersForInsertForm('dbname', 'tablename', $whereClause, 'localhost');
 
         self::assertSame(
             [
@@ -2582,16 +2572,11 @@ class InsertEditTest extends AbstractTestCase
             new ColumnFull('test', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
-        $resultStub->expects(self::any())
-            ->method('getFieldsMeta')
-            ->willReturn([FieldHelper::fromArray(['type' => 0, 'length' => -1])]);
-
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
             $tableColumns,
             [],
-            $resultStub,
+            [FieldHelper::fromArray(['type' => 0, 'length' => -1])],
             false,
             [],
             false,
@@ -2631,20 +2616,17 @@ class InsertEditTest extends AbstractTestCase
             new ColumnFull('bar', 'longtext', null, true, '', null, '', 'select,insert,references', ''),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
-        $resultStub->expects(self::any())
-            ->method('getFieldsMeta')
-            ->willReturn([
-                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-            ]);
+        $fieldMetadata = [
+            FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+            FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+            FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+        ];
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
             $tableColumns,
             [],
-            $resultStub,
+            $fieldMetadata,
             false,
             [],
             false,
@@ -2668,7 +2650,7 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            $resultStub,
+            $fieldMetadata,
             true,
             [],
             false,

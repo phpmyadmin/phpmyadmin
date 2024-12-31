@@ -221,8 +221,8 @@ class ChangeController implements InvocableController
         $GLOBALS['plugin_scripts'] = [];
         foreach ($rows as $rowId => $currentRow) {
             $currentResult = is_array($result)
-                ? $result[$rowId]
-                : $result;
+                ? $result[$rowId]->getFieldsMeta()
+                : $result->getFieldsMeta();
             $repopulate = [];
             $checked = true;
             if (isset($GLOBALS['unsaved_values'][$rowId])) {

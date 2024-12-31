@@ -1795,7 +1795,7 @@ class InsertEdit
      * @param array<string, bool|int|string> $urlParams        url parameters
      * @param list<ColumnFull>               $tableColumns     table columns
      * @param string[]                       $commentsMap      comments map
-     * @param ResultInterface                $currentResult    current result
+     * @param FieldMetadata[]                $fieldMetadata    current result's field metadata
      * @param bool                           $insertMode       whether insert mode
      * @param array<string|null>             $currentRow       current row
      * @param bool                           $isUpload         whether upload
@@ -1810,7 +1810,7 @@ class InsertEdit
         array $urlParams,
         array $tableColumns,
         array $commentsMap,
-        ResultInterface $currentResult,
+        array $fieldMetadata,
         bool $insertMode,
         array $currentRow,
         bool $isUpload,
@@ -1843,7 +1843,7 @@ class InsertEdit
                 $tableColumn,
                 $columnNumber,
                 $commentsMap,
-                $this->dbi->getFieldsMeta($currentResult)[$columnNumber]->length,
+                $fieldMetadata[$columnNumber]->length,
                 $insertMode,
                 $currentRow,
                 $columnCount,
