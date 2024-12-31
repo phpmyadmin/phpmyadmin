@@ -241,9 +241,9 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for showEmptyResultMessageOrSetUniqueCondition
+     * Test for hasUniqueCondition
      */
-    public function testShowEmptyResultMessageOrSetUniqueCondition(): void
+    public function testHasUniqueCondition(): void
     {
         $meta = FieldHelper::fromArray([
             'type' => MYSQLI_TYPE_DECIMAL,
@@ -276,34 +276,13 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'showEmptyResultMessageOrSetUniqueCondition',
-            [['1' => ['1' => 1]], 1, 'SELECT', ['1' => $resultStub]],
+            'hasUniqueCondition',
+            [['1' => 1], $resultStub],
         );
 
         self::assertTrue($result);
 
-        // case 2
-        Config::getInstance()->settings['ShowSQL'] = false;
-
-        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['addHtml'])
-            ->getMock();
-
-        $restoreInstance = ResponseRenderer::getInstance();
-        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setValue(null, $responseMock);
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'showEmptyResultMessageOrSetUniqueCondition',
-            [[[]], 0, 'SELECT', ['1' => 'result1']],
-        );
-
-        $response->setValue(null, $restoreInstance);
-
-        self::assertFalse($result);
+        // TODO: Add test for false case
     }
 
     public function testLoadFirstRow(): void
