@@ -709,8 +709,7 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['LimitChars'] = 50;
         $config->settings['ShowFunctionFields'] = true;
 
-        $extractedColumnSpec = [];
-        $extractedColumnSpec['spec_in_brackets'] = '25';
+        $extractedColumnSpec = '25';
         (new ReflectionProperty(InsertEdit::class, 'fieldIndex'))->setValue($this->insertEdit, 22);
         $result = $this->callFunction(
             $this->insertEdit,
