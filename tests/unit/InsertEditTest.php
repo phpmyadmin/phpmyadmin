@@ -1019,7 +1019,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetSpecialCharsAndBackupFieldForExistingRow(): void
     {
-        $currentRow = $extractedColumnSpec = [];
+        $currentRow = [];
         $currentRow['f'] = null;
         $_POST['default_action'] = 'insert';
         $column = new InsertEditColumn(
@@ -1040,7 +1040,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, [], 'a', false],
+            [$currentRow, $column, '', 'a', false],
         );
 
         self::assertEquals(
@@ -1052,7 +1052,7 @@ class InsertEditTest extends AbstractTestCase
         unset($_POST['default_action']);
 
         $currentRow['f'] = '123';
-        $extractedColumnSpec['spec_in_brackets'] = '20';
+        $extractedColumnSpec = '20';
         $column = new InsertEditColumn(
             'f',
             'bit',
@@ -1108,7 +1108,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $currentRow['f'] = '123';
-        $extractedColumnSpec['spec_in_brackets'] = '20';
+        $extractedColumnSpec = '20';
         $column = new InsertEditColumn(
             'f',
             'geometry',
@@ -1152,7 +1152,7 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['ProtectBinary'] = false;
         $currentRow['f'] = '11001';
-        $extractedColumnSpec['spec_in_brackets'] = '20';
+        $extractedColumnSpec = '20';
         $config->settings['ShowFunctionFields'] = true;
 
         $result = $this->callFunction(
