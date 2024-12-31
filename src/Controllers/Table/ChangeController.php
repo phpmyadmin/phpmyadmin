@@ -239,7 +239,7 @@ class ChangeController implements InvocableController
                 UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
-                $currentResult,
+                $currentResult->getFieldsMeta(),
                 $insertMode,
                 $currentRow,
                 $isUpload,
