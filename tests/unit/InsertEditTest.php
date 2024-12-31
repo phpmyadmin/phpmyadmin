@@ -277,7 +277,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'showEmptyResultMessageOrSetUniqueCondition',
-            [['1' => ['1' => 1]], 1, [], 'SELECT', ['1' => $resultStub]],
+            [['1' => ['1' => 1]], 1, 'SELECT', ['1' => $resultStub]],
         );
 
         self::assertTrue($result);
@@ -298,7 +298,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'showEmptyResultMessageOrSetUniqueCondition',
-            [[[]], 0, ['1'], 'SELECT', ['1' => 'result1']],
+            [[[]], 0, 'SELECT', ['1' => 'result1']],
         );
 
         $response->setValue(null, $restoreInstance);
