@@ -111,7 +111,6 @@ class ChangeController implements InvocableController
             $foundUniqueIndex,
             $afterInsert,
         ] = $this->insertEdit->determineInsertOrEdit($inputWhereClauses, Current::$database, Current::$table);
-        $whereClauseArray = (array) $inputWhereClauses;
         // Increase number of rows if unsaved rows are more
         if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
             $rows = array_fill(0, count(self::$unsavedValues), []);
@@ -177,7 +176,7 @@ class ChangeController implements InvocableController
             Current::$database,
             Current::$table,
             $whereClauses,
-            $whereClauseArray,
+            (array) $inputWhereClauses,
             $errorUrl,
         );
 
@@ -191,7 +190,7 @@ class ChangeController implements InvocableController
 
         UrlParams::$params['db'] = Current::$database;
         UrlParams::$params['table'] = Current::$table;
-        UrlParams::$params = $this->urlParamsInEditMode($request, UrlParams::$params, $whereClauseArray);
+        UrlParams::$params = $this->urlParamsInEditMode($request, UrlParams::$params, (array) $inputWhereClauses);
 
         $hasBlobField = false;
         foreach ($tableColumns as $tableColumn) {
@@ -251,7 +250,7 @@ class ChangeController implements InvocableController
                 Current::$database,
                 $rowId,
                 $repopulate,
-                $whereClauseArray,
+                (array) $inputWhereClauses,
             );
         }
 
@@ -277,7 +276,7 @@ class ChangeController implements InvocableController
             $htmlOutput .= $this->insertEdit->getContinueInsertionForm(
                 Current::$table,
                 Current::$database,
-                $whereClauseArray,
+                (array) $inputWhereClauses,
                 $errorUrl,
             );
         }
