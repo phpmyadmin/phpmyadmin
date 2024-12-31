@@ -277,7 +277,12 @@ class UniqueConditionTest extends AbstractTestCase
     /**
      * Provider for testGetUniqueConditionForGroupFlag
      *
-     * @return array<string, array{FieldMetadata[], array<int, string|int|float|null>, array{string, bool, array<string, string>}}>
+     * @return array<string, array{
+     *  FieldMetadata[],
+     *  array<int,
+     *  string|int|float|null>,
+     *  array{string, bool, array<string, string>}
+     * }>
      */
     public static function providerGetUniqueConditionForGroupFlag(): array
     {
