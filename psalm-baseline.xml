@@ -2435,11 +2435,11 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$inputWhereClauses]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
       <code><![CDATA[$whereClause]]></code>
+      <code><![CDATA[$whereClauses]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$rowId]]></code>
@@ -2448,10 +2448,10 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$inputWhereClauses]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
+      <code><![CDATA[$whereClauses]]></code>
     </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>
