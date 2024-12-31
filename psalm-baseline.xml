@@ -4146,6 +4146,7 @@
   <file src="src/Dbal/DatabaseInterface.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <DeprecatedProperty>
       <code><![CDATA[Routing::$route]]></code>
@@ -10552,7 +10553,6 @@
   <file src="tests/unit/AbstractTestCase.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$_SERVER['PHP_SELF']]]></code>
@@ -12312,9 +12312,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <RedundantCondition>
       <code><![CDATA[assertSame]]></code>
     </RedundantCondition>
@@ -13171,12 +13168,6 @@
   </file>
   <file src="tests/unit/Table/TableTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

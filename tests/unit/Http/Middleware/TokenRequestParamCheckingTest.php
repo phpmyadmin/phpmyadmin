@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Http\Middleware;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\Middleware\TokenRequestParamChecking;
@@ -49,7 +48,7 @@ final class TokenRequestParamCheckingTest extends TestCase
     {
         $middleware = new TokenRequestParamChecking();
 
-        $dbi = new DatabaseInterface(new DbiDummy(), Config::getInstance());
+        $dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
         DatabaseInterface::$instance = $dbi;
 
         $_SESSION[' PMA_token '] = 'mismatch';
