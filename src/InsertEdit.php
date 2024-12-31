@@ -163,7 +163,6 @@ class InsertEdit
             $hasUniqueCondition = $this->showEmptyResultMessageOrSetUniqueCondition(
                 $rows,
                 $keyId,
-                $whereClauseArray,
                 $localQuery,
                 $result,
             );
@@ -180,22 +179,19 @@ class InsertEdit
     /**
      * Show message for empty result or set the unique_condition
      *
-     * @param array<array<string|null>> $rows             MySQL returned rows
-     * @param string|int                $keyId            ID in current key
-     * @param mixed[]                   $whereClauseArray array of where clauses
-     * @param string                    $localQuery       query performed
-     * @param ResultInterface[]         $result           MySQL result handle
+     * @param array<array<string|null>> $rows       MySQL returned rows
+     * @param string|int                $keyId      ID in current key
+     * @param string                    $localQuery query performed
+     * @param ResultInterface[]         $result     MySQL result handle
      */
     private function showEmptyResultMessageOrSetUniqueCondition(
         array $rows,
         string|int $keyId,
-        array $whereClauseArray,
         string $localQuery,
         array $result,
     ): bool {
         // No row returned
         if ($rows[$keyId] === []) {
-            unset($rows[$keyId], $whereClauseArray[$keyId]);
             ResponseRenderer::getInstance()->addHTML(
                 Generator::getMessage(
                     __('MySQL returned an empty result set (i.e. zero rows).'),
@@ -212,9 +208,7 @@ class InsertEdit
 
         $meta = $this->dbi->getFieldsMeta($result[$keyId]);
 
-        $uniqueCondition = (new UniqueCondition($meta, $rows[$keyId], true))->getWhereClause();
-
-        return (bool) $uniqueCondition;
+        return (bool) (new UniqueCondition($meta, $rows[$keyId], true))->getWhereClause();
     }
 
     /**
