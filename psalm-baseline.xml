@@ -5693,7 +5693,6 @@
       <code><![CDATA[[
             $insertMode,
             $whereClause,
-            $whereClauses,
             $result,
             $rows,
             $foundUniqueKey,
@@ -5732,7 +5731,6 @@
       <code><![CDATA[array{
      *     bool,
      *     string[]|string|null,
-     *     string[]|null,
      *     ResultInterface[]|ResultInterface,
      *     array<string, string|null>[],
      *     bool,

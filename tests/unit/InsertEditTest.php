@@ -134,7 +134,6 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getFormParametersForInsertForm(
             'dbname',
             'tablename',
-            [],
             $whereClause,
             'localhost',
         );
@@ -168,7 +167,6 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->getFormParametersForInsertForm(
             'dbname',
             'tablename',
-            [],
             $whereClause,
             'localhost',
         );
@@ -235,7 +233,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         self::assertSame(
-            [['a=1', 'b="fo\\\\o"'], [$resultStub1, $resultStub2], [['assoc1'], ['assoc2']], false],
+            [[$resultStub1, $resultStub2], [['assoc1'], ['assoc2']], false],
             $result,
         );
     }
@@ -2351,7 +2349,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
 
         self::assertEquals(
-            [false, null, null, [$resultStub], [[]], false, 'edit_next'],
+            [false, null, [$resultStub], [[]], false, 'edit_next'],
             $result,
         );
 
@@ -2365,7 +2363,7 @@ class InsertEditTest extends AbstractTestCase
         $response->setValue(null, $restoreInstance);
 
         self::assertSame(
-            [true, null, null, $resultStub, [[], []], false, 'edit_next'],
+            [true, null, $resultStub, [[], []], false, 'edit_next'],
             $result,
         );
     }

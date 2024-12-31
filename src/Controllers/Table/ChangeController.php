@@ -102,7 +102,6 @@ class ChangeController implements InvocableController
         [
             $insertMode,
             $inputWhereClauses,
-            $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
@@ -172,7 +171,6 @@ class ChangeController implements InvocableController
         $formParams = $this->insertEdit->getFormParametersForInsertForm(
             Current::$database,
             Current::$table,
-            $whereClauses,
             (array) $inputWhereClauses,
             $errorUrl,
         );
