@@ -686,20 +686,17 @@ class InsertEdit
     /**
      * Prepares the field value and retrieve special chars, backup field and data array
      *
-     * @param array<string|null> $currentRow          a row of the table
-     * @param InsertEditColumn   $column              description of column in given table
-     * @param mixed[]            $extractedColumnspec associative array containing type,
-     *                                                spec_in_brackets and possibly
-     *                                                enum_set_values (another array)
-     * @param string             $columnNameAppendix  string to append to column name in input
-     * @param bool               $asIs                use the data as is, used in repopulating
+     * @param array<string|null> $currentRow         a row of the table
+     * @param InsertEditColumn   $column             description of column in given table
+     * @param string             $columnNameAppendix string to append to column name in input
+     * @param bool               $asIs               use the data as is, used in repopulating
      *
      * @return array{bool, string, string, string, string}
      */
     private function getSpecialCharsAndBackupFieldForExistingRow(
         array $currentRow,
         InsertEditColumn $column,
-        array $extractedColumnspec,
+        string $specInBrackets,
         string $columnNameAppendix,
         bool $asIs,
     ): array {
@@ -716,7 +713,7 @@ class InsertEdit
         } elseif ($column->trueType === 'bit') {
             $specialChars = $asIs
                 ? $currentValue
-                : Util::printableBitValue((int) $currentValue, (int) $extractedColumnspec['spec_in_brackets']);
+                : Util::printableBitValue((int) $currentValue, (int) $specInBrackets);
         } elseif (
             ($column->trueType === 'timestamp'
                 || $column->trueType === 'datetime'
@@ -1582,7 +1579,7 @@ class InsertEdit
             ] = $this->getSpecialCharsAndBackupFieldForExistingRow(
                 $currentRow,
                 $column,
-                $extractedColumnspec,
+                $extractedColumnspec['spec_in_brackets'],
                 $columnNameAppendix,
                 $asIs,
             );

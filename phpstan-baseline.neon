@@ -9093,7 +9093,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 2
+			count: 1
 			path: src/InsertEdit.php
 
 		-
