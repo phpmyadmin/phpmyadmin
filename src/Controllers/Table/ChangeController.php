@@ -102,7 +102,6 @@ class ChangeController implements InvocableController
         [
             $insertMode,
             $GLOBALS['where_clause'],
-            $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
@@ -113,6 +112,7 @@ class ChangeController implements InvocableController
             Current::$database,
             Current::$table,
         );
+        $whereClauseArray = (array) $GLOBALS['where_clause'];
         // Increase number of rows if unsaved rows are more
         if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
             $rows = array_fill(0, count($GLOBALS['unsaved_values']), []);

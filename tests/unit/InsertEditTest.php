@@ -2351,7 +2351,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
 
         self::assertEquals(
-            [false, null, [1], null, [$resultStub], [[]], false, 'edit_next'],
+            [false, null, null, [$resultStub], [[]], false, 'edit_next'],
             $result,
         );
 
@@ -2365,7 +2365,7 @@ class InsertEditTest extends AbstractTestCase
         $response->setValue(null, $restoreInstance);
 
         self::assertSame(
-            [true, null, [], null, $resultStub, [[], []], false, 'edit_next'],
+            [true, null, null, $resultStub, [[], []], false, 'edit_next'],
             $result,
         );
     }
