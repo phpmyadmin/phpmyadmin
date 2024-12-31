@@ -227,7 +227,7 @@ class ChangeController implements InvocableController
 
         $GLOBALS['plugin_scripts'] = [];
         foreach ($rows as $rowId => $currentRow) {
-            $currentResult = is_array($result) && isset($result[$rowId])
+            $currentResult = is_array($result)
                 ? $result[$rowId]
                 : $result;
             $repopulate = [];
