@@ -222,7 +222,7 @@ class ChangeController implements InvocableController
 
         InsertEdit::$pluginScripts = [];
         foreach ($rows as $rowId => $currentRow) {
-            $currentResult = is_array($result) && isset($result[$rowId]) ? $result[$rowId] : $result;
+            $currentResult = is_array($result) ? $result[$rowId] : $result;
             $repopulate = [];
             $checked = true;
             if (isset(self::$unsavedValues[$rowId])) {
