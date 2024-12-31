@@ -240,7 +240,7 @@ class CentralColumns
             . 'VALUES ( ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' ,'
             . $this->dbi->quoteString($def->field, ConnectionType::ControlUser) . ','
             . $this->dbi->quoteString($type, ConnectionType::ControlUser) . ','
-            . $this->dbi->quoteString((string) $length, ConnectionType::ControlUser) . ','
+            . $this->dbi->quoteString($length, ConnectionType::ControlUser) . ','
             . $this->dbi->quoteString($collation, ConnectionType::ControlUser) . ','
             . $this->dbi->quoteString($isNull, ConnectionType::ControlUser) . ','
             . '\'' . implode(',', [$extra, $attribute])
