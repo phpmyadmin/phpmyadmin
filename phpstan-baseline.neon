@@ -17815,12 +17815,6 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: '#^Only booleans are allowed in &&, int\<0, 2\> given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 2
-			path: tests/unit/ConfigTest.php
-
-		-
 			message: '#^Only booleans are allowed in an elseif condition, string\|false given\.$#'
 			identifier: elseif.condNotBoolean
 			count: 3
