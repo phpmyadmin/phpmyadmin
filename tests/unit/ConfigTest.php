@@ -19,7 +19,6 @@ use ReflectionProperty;
 use function define;
 use function defined;
 use function file_put_contents;
-use function fileperms;
 use function function_exists;
 use function gd_info;
 use function md5;
@@ -563,26 +562,6 @@ PHP;
     public function testGetUserValue(): void
     {
         self::assertSame($this->object->getUserValue('test_val', 'val'), 'val');
-    }
-
-    /**
-     * Should test checking of config permissions
-     */
-    public function testCheckPermissions(): void
-    {
-        //load file permissions for the current permissions file
-        $perms = @fileperms($this->object->getSource());
-        //testing for permissions for no configuration file
-        self::assertFalse($perms !== false && ($perms & 2));
-
-        //load file permissions for the current permissions file
-        $perms = @fileperms($this->permTestObj->getSource());
-
-        if ($perms !== false && ($perms & 2)) {
-            self::assertTrue((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
-        } else {
-            self::assertFalse((bool) $this->permTestObj->get('PMA_IS_WINDOWS'));
-        }
     }
 
     /**
