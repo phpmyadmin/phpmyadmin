@@ -358,16 +358,16 @@ PHP;
     /**
      * test for CheckConfigSource
      */
-    public function testCheckConfigSource(): void
+    public function testConfigFileExists(): void
     {
         $this->object->setSource('unexisted.config.php');
-        self::assertFalse($this->object->checkConfigSource());
+        self::assertFalse($this->object->configFileExists());
         self::assertSame(0, $this->object->sourceMtime);
 
         $this->object->setSource(__DIR__ . '/../test_data/config.inc.php');
 
         self::assertNotEmpty($this->object->getSource());
-        self::assertTrue($this->object->checkConfigSource());
+        self::assertTrue($this->object->configFileExists());
     }
 
     /**
