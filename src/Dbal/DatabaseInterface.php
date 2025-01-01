@@ -1711,25 +1711,6 @@ class DatabaseInterface
     }
 
     /**
-     * returns the number of rows returned by last query
-     * used with tryQuery as it accepts false
-     *
-     * @param string $query query to run
-     *
-     * @psalm-return int|numeric-string
-     */
-    public function queryAndGetNumRows(string $query): string|int
-    {
-        $result = $this->tryQuery($query);
-
-        if (! $result) {
-            return 0;
-        }
-
-        return $result->numRows();
-    }
-
-    /**
      * returns last inserted auto_increment id for given $link
      */
     public function insertId(ConnectionType $connectionType = ConnectionType::User): int

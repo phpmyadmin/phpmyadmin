@@ -94,7 +94,7 @@ class NodeTable extends NodeDatabaseChild
                     $db = Util::backquote($db);
                     $table = Util::backquote($table);
                     $query = 'SHOW COLUMNS FROM ' . $table . ' FROM ' . $db;
-                    $retval = (int) $dbi->queryAndGetNumRows($query);
+                    $retval = $this->queryAndGetNumRows($query);
                 }
 
                 break;
@@ -102,7 +102,7 @@ class NodeTable extends NodeDatabaseChild
                 $db = Util::backquote($db);
                 $table = Util::backquote($table);
                 $query = 'SHOW INDEXES FROM ' . $table . ' FROM ' . $db;
-                $retval = (int) $dbi->queryAndGetNumRows($query);
+                $retval = $this->queryAndGetNumRows($query);
                 break;
             case 'triggers':
                 if (! $this->config->selectedServer['DisableIS']) {
@@ -116,7 +116,7 @@ class NodeTable extends NodeDatabaseChild
                 } else {
                     $db = Util::backquote($db);
                     $query = 'SHOW TRIGGERS FROM ' . $db . ' WHERE `Table` = ' . $dbi->quoteString($table);
-                    $retval = (int) $dbi->queryAndGetNumRows($query);
+                    $retval = $this->queryAndGetNumRows($query);
                 }
 
                 break;

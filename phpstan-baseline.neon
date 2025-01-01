@@ -6702,7 +6702,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 3
+			count: 2
 			path: src/Dbal/DatabaseInterface.php
 
 		-
@@ -10200,7 +10200,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 7
+			count: 8
 			path: src/Navigation/Nodes/Node.php
 
 		-
