@@ -347,7 +347,7 @@ class Config
             $this->setSource($source);
         }
 
-        if (! $this->checkConfigSource()) {
+        if (! $this->configFileExists()) {
             return false;
         }
 
@@ -570,7 +570,7 @@ class Config
     }
 
     /** @throws ConfigException */
-    public function checkConfigSource(): bool
+    public function configFileExists(): bool
     {
         if ($this->getSource() === '') {
             // no configuration file set at all
