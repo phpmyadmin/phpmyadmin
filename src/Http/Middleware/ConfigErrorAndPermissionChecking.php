@@ -31,7 +31,6 @@ final class ConfigErrorAndPermissionChecking implements MiddlewareInterface
     {
         try {
             $this->config->checkPermissions();
-            $this->config->checkErrors();
         } catch (ConfigException $exception) {
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
