@@ -771,6 +771,19 @@ class DatabaseInterfaceTest extends AbstractTestCase
         self::assertSame($stmtStub, $stmt);
     }
 
+    public function testExecuteQuery(): void
+    {
+        $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
+        $resultStub = self::createStub(ResultInterface::class);
+        $dummyDbi = $this->createMock(DbiExtension::class);
+        $dummyDbi->expects(self::once())->method('executeQuery')
+            ->with(self::isType('object'), self::equalTo($query), self::equalTo(['root', 'localhost']))
+            ->willReturn($resultStub);
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        $stmt = $dbi->executeQuery($query, ['root', 'localhost'], ConnectionType::ControlUser);
+        self::assertSame($resultStub, $stmt);
+    }
+
     /**
      * Tests for setVersion method.
      *

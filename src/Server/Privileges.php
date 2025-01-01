@@ -1196,12 +1196,12 @@ class Privileges
                 NOT (`Table_priv` = \'\' AND Column_priv = \'\')
             ORDER BY `User` ASC, `Host` ASC, `Db` ASC, `Table_priv` ASC;
         ';
-        $statement = $this->dbi->prepare($query);
-        if ($statement === null || ! $statement->execute([$db->getName(), $table->getName()])) {
+        $result = $this->dbi->executeQuery($query, [$db->getName(), $table->getName()]);
+        if ($result === null) {
             return [];
         }
 
-        return $statement->getResult()->fetchAllAssoc();
+        return $result->fetchAllAssoc();
     }
 
     /** @return array<int, array<string|null>> */
@@ -3171,12 +3171,11 @@ class Privileges
     private function getUserPrivileges(string $user, string $host, bool $hasAccountLocking): array|null
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $statement = $this->dbi->prepare($query);
-        if ($statement === null || ! $statement->execute([$user, $host])) {
+        $result = $this->dbi->executeQuery($query, [$user, $host]);
+        if ($result === null) {
             return null;
         }
 
-        $result = $statement->getResult();
         /** @var array<string, string|null>|null $userPrivileges */
         $userPrivileges = $result->fetchAssoc();
         if ($userPrivileges === []) {
@@ -3190,12 +3189,11 @@ class Privileges
         $userPrivileges['account_locked'] = 'N';
 
         $query = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
-        $statement = $this->dbi->prepare($query);
-        if ($statement === null || ! $statement->execute([$user, $host])) {
+        $result = $this->dbi->executeQuery($query, [$user, $host]);
+        if ($result === null) {
             return $userPrivileges;
         }
 
-        $result = $statement->getResult();
         /** @var array<string, string|null>|null $globalPrivileges */
         $globalPrivileges = $result->fetchAssoc();
         if ($globalPrivileges === []) {

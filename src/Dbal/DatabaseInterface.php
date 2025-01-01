@@ -1960,6 +1960,15 @@ class DatabaseInterface
         return $this->extension->prepare($this->connections[$connectionType->value], $query);
     }
 
+    /** @param list<string> $params */
+    public function executeQuery(
+        string $query,
+        array $params,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): ResultInterface|null {
+        return $this->extension->executeQuery($this->connections[$connectionType->value], $query, $params);
+    }
+
     public function getDatabaseList(): ListDatabase
     {
         if ($this->databaseList === null) {

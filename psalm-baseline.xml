@@ -4309,6 +4309,11 @@
       <code><![CDATA[list<string|null>]]></code>
     </MixedReturnTypeCoercion>
   </file>
+  <file src="src/Dbal/Statement.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[execute]]></code>
+    </PossiblyUnusedMethod>
+  </file>
   <file src="src/Display/Results.php">
     <InvalidArgument>
       <code><![CDATA[$linkingUrlParams]]></code>

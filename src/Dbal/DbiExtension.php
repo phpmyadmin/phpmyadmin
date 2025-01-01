@@ -98,6 +98,13 @@ interface DbiExtension
     public function prepare(Connection $connection, string $query): Statement|null;
 
     /**
+     * Execute a prepared statement and return the result.
+     *
+     * @param list<string> $params
+     */
+    public function executeQuery(Connection $connection, string $query, array $params): ResultInterface|null;
+
+    /**
      * Returns the number of warnings from the last query.
      */
     public function getWarningCount(Connection $connection): int;

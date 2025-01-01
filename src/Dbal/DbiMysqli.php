@@ -301,6 +301,24 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
+     * Execute a prepared statement and return the result.
+     *
+     * @param list<string> $params
+     */
+    public function executeQuery(Connection $connection, string $query, array $params): MysqliResult|null
+    {
+        /** @var mysqli $mysqli */
+        $mysqli = $connection->connection;
+        $result = $mysqli->execute_query($query, $params);
+
+        if ($result === false) {
+            return null;
+        }
+
+        return new MysqliResult($result);
+    }
+
+    /**
      * Returns the number of warnings from the last query.
      */
     public function getWarningCount(Connection $connection): int

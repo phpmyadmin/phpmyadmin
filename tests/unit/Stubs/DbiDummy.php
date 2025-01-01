@@ -320,6 +320,16 @@ class DbiDummy implements DbiExtension
     }
 
     /**
+     * Execute a prepared statement and return the result.
+     *
+     * @param list<string> $params
+     */
+    public function executeQuery(Connection $connection, string $query, array $params): ResultInterface|null
+    {
+        return null;
+    }
+
+    /**
      * Returns the number of warnings from the last query.
      */
     public function getWarningCount(Connection $connection): int
