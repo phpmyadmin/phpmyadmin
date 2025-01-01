@@ -13,7 +13,6 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Utilities;
@@ -756,19 +755,6 @@ class DatabaseInterfaceTest extends AbstractTestCase
         ], $databaseList);
 
         $dummyDbi->assertAllQueriesConsumed();
-    }
-
-    public function testPrepare(): void
-    {
-        $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $stmtStub = self::createStub(Statement::class);
-        $dummyDbi = $this->createMock(DbiExtension::class);
-        $dummyDbi->expects(self::once())->method('prepare')
-            ->with(self::isType('object'), self::equalTo($query))
-            ->willReturn($stmtStub);
-        $dbi = $this->createDatabaseInterface($dummyDbi);
-        $stmt = $dbi->prepare($query, ConnectionType::ControlUser);
-        self::assertSame($stmtStub, $stmt);
     }
 
     public function testExecuteQuery(): void

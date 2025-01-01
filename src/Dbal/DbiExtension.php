@@ -91,13 +91,6 @@ interface DbiExtension
     public function escapeString(Connection $connection, string $string): string;
 
     /**
-     * Prepare an SQL statement for execution.
-     *
-     * @param string $query The query, as a string.
-     */
-    public function prepare(Connection $connection, string $query): Statement|null;
-
-    /**
      * Execute a prepared statement and return the result.
      *
      * @param list<string> $params

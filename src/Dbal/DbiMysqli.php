@@ -284,23 +284,6 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * Prepare an SQL statement for execution.
-     *
-     * @param string $query The query, as a string.
-     */
-    public function prepare(Connection $connection, string $query): Statement|null
-    {
-        /** @var mysqli $mysqli */
-        $mysqli = $connection->connection;
-        $statement = $mysqli->prepare($query);
-        if ($statement === false) {
-            return null;
-        }
-
-        return new MysqliStatement($statement);
-    }
-
-    /**
      * Execute a prepared statement and return the result.
      *
      * @param list<string> $params

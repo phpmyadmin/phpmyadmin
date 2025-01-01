@@ -1950,16 +1950,6 @@ class DatabaseInterface
         $this->isPercona = stripos($this->versionComment, 'percona') !== false;
     }
 
-    /**
-     * Prepare an SQL statement for execution.
-     *
-     * @param string $query The query, as a string.
-     */
-    public function prepare(string $query, ConnectionType $connectionType = ConnectionType::User): Statement|null
-    {
-        return $this->extension->prepare($this->connections[$connectionType->value], $query);
-    }
-
     /** @param list<string> $params */
     public function executeQuery(
         string $query,

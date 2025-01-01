@@ -15,7 +15,6 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -312,11 +311,6 @@ class DbiDummy implements DbiExtension
     public function removeDefaultResults(): void
     {
         $this->dummyQueries = [];
-    }
-
-    public function prepare(Connection $connection, string $query): Statement|null
-    {
-        return null;
     }
 
     /**
