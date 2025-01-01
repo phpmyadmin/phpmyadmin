@@ -799,12 +799,6 @@ parameters:
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#1 \$array of function array_flip expects array\<int\|string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Config/ConfigFile.php
-
-		-
 			message: '#^Parameter \#1 \$array of method PhpMyAdmin\\Config\\ConfigFile\:\:getFlatArray\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -879,12 +873,6 @@ parameters:
 		-
 			message: '#^Parameter \#3 \$canonicalPath of method PhpMyAdmin\\Config\\ConfigFile\:\:set\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\\ConfigFile\:\:\$setFilter type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: src/Config/ConfigFile.php
 
