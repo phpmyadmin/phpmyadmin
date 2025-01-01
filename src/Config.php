@@ -85,8 +85,7 @@ class Config
     /** @psalm-var SettingsType */
     public array $settings;
 
-    /** @var string  config source */
-    public string $source = '';
+    private string $source = '';
 
     /** @var int     source modification time */
     public int $sourceMtime = 0;
@@ -144,8 +143,11 @@ class Config
      */
     public function loadAndCheck(string|null $source = null): void
     {
-        // functions need to refresh in case of config file changed goes in PhpMyAdmin\Config::load()
-        $this->load($source);
+        if ($source !== null) {
+            $this->setSource($source);
+        }
+
+        $this->load();
 
         // other settings, independent of config file, comes in
         $this->checkSystem();
@@ -337,16 +339,10 @@ class Config
      * loads configuration from $source, usually the config file
      * should be called on object creation
      *
-     * @param string|null $source config file
-     *
      * @throws ConfigException
      */
-    public function load(string|null $source = null): bool
+    public function load(): bool
     {
-        if ($source !== null) {
-            $this->setSource($source);
-        }
-
         if (! $this->configFileExists()) {
             return false;
         }
@@ -361,14 +357,14 @@ class Config
              *
              * @psalm-suppress UnresolvableInclude
              */
-            @require $this->getSource();
+            @require $this->source;
         } catch (Throwable) {
             throw new ConfigException('Failed to load phpMyAdmin configuration.');
         }
 
         ob_end_clean();
 
-        $this->sourceMtime = (int) filemtime($this->getSource());
+        $this->sourceMtime = (int) filemtime($this->source);
 
         if (is_array($cfg)) {
             $this->config = new Settings($cfg);
@@ -572,21 +568,21 @@ class Config
     /** @throws ConfigException */
     public function configFileExists(): bool
     {
-        if ($this->getSource() === '') {
+        if ($this->source === '') {
             // no configuration file set at all
             return false;
         }
 
-        if (! @file_exists($this->getSource())) {
+        if (! @file_exists($this->source)) {
             return false;
         }
 
-        if (! @is_readable($this->getSource())) {
+        if (! @is_readable($this->source)) {
             // manually check if file is readable
             // might be bug #3059806 Supporting running from CIFS/Samba shares
 
             $contents = false;
-            $handle = @fopen($this->getSource(), 'r');
+            $handle = @fopen($this->source, 'r');
             if ($handle !== false) {
                 $contents = @fread($handle, 1); // reading 1 byte is enough to test
                 fclose($handle);
@@ -597,7 +593,7 @@ class Config
                     function_exists('__')
                         ? __('Existing configuration file (%s) is not readable.')
                         : 'Existing configuration file (%s) is not readable.',
-                    $this->getSource(),
+                    $this->source,
                 ));
             }
         }
@@ -614,11 +610,11 @@ class Config
     public function checkPermissions(): void
     {
         // Check for permissions (on platforms that support it):
-        if (! $this->get('CheckConfigurationPermissions') || ! @file_exists($this->getSource())) {
+        if (! $this->get('CheckConfigurationPermissions') || ! @file_exists($this->source)) {
             return;
         }
 
-        $perms = @fileperms($this->getSource());
+        $perms = @fileperms($this->source);
         if ($perms === false || ! ($perms & 2)) {
             return;
         }

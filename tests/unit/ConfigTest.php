@@ -364,8 +364,6 @@ PHP;
         self::assertFalse($this->object->configFileExists());
 
         $this->object->setSource(__DIR__ . '/../test_data/config.inc.php');
-
-        self::assertNotEmpty($this->object->getSource());
         self::assertTrue($this->object->configFileExists());
     }
 
@@ -386,9 +384,7 @@ PHP;
      */
     public function testGetSetSource(): void
     {
-        echo $this->object->getSource();
-
-        self::assertEmpty($this->object->getSource(), 'Source is null by default');
+        self::assertSame('', $this->object->getSource());
 
         $this->object->setSource(ROOT_PATH . 'config.sample.inc.php');
 
@@ -529,11 +525,8 @@ PHP;
     #[DataProvider('configPaths')]
     public function testLoad(string $source, bool $result): void
     {
-        if ($result) {
-            self::assertTrue($this->object->load($source));
-        } else {
-            self::assertFalse($this->object->load($source));
-        }
+        $this->object->setSource($source);
+        self::assertSame($result, $this->object->load());
     }
 
     /**
