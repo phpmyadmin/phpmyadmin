@@ -578,8 +578,6 @@ class Config
         }
 
         if (! @file_exists($this->getSource())) {
-            $this->sourceMtime = 0;
-
             return false;
         }
 
@@ -595,8 +593,6 @@ class Config
             }
 
             if ($contents === false) {
-                $this->sourceMtime = 0;
-
                 throw new ConfigException(sprintf(
                     function_exists('__')
                         ? __('Existing configuration file (%s) is not readable.')
@@ -632,8 +628,6 @@ class Config
         if ($this->get('PMA_IS_WINDOWS') === true) {
             return;
         }
-
-        $this->sourceMtime = 0;
 
         throw new ConfigException(__('Wrong permissions on configuration file, should not be world writable!'));
     }

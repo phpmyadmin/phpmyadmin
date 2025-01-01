@@ -362,7 +362,6 @@ PHP;
     {
         $this->object->setSource('unexisted.config.php');
         self::assertFalse($this->object->configFileExists());
-        self::assertSame(0, $this->object->sourceMtime);
 
         $this->object->setSource(__DIR__ . '/../test_data/config.inc.php');
 
