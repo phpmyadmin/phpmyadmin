@@ -1463,7 +1463,6 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-      <code><![CDATA[$this->config->get('TempDir')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$languageStats[Current::$lang]]]></code>
@@ -1477,9 +1476,6 @@
     <MixedAssignment>
       <code><![CDATA[$languageStats]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->config->get('TempDir')]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
