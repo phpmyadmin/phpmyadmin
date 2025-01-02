@@ -54,11 +54,6 @@ class ThemeManagerTest extends AbstractTestCase
         $tm->initializeTheme();
         $themes = $tm->getThemesArray();
         self::assertArrayHasKey(0, $themes);
-        self::assertIsArray($themes[0]);
-        self::assertArrayHasKey('id', $themes[0]);
-        self::assertArrayHasKey('name', $themes[0]);
-        self::assertArrayHasKey('version', $themes[0]);
-        self::assertArrayHasKey('is_active', $themes[0]);
     }
 
     /**

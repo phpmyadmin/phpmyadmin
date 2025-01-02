@@ -116,9 +116,6 @@ class ThemeManager
         $this->activeTheme = $theme;
         $this->theme = $this->themes[$theme];
 
-        // need to set later
-        //$this->setThemeCookie();
-
         return true;
     }
 
@@ -230,7 +227,14 @@ class ThemeManager
         return array_key_exists($theme ?? '', $this->themes);
     }
 
-    /** @return mixed[] */
+    /** @return array{
+     *   id: string,
+     *   name: string,
+     *   version: string,
+     *   is_active: bool,
+     *   color_mode: string,
+     *   color_modes: array<string|int, string>
+     * }[] $themes */
     public function getThemesArray(): array
     {
         $themes = [];
