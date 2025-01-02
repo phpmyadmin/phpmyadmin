@@ -604,12 +604,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 2
