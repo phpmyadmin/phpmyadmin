@@ -180,7 +180,7 @@ class Config
         }
 
         // enable output-buffering (if set to 'auto')
-        if (strtolower((string) $this->get('OBGzip')) !== 'auto') {
+        if ($this->config->OBGzip !== 'auto') {
             return;
         }
 

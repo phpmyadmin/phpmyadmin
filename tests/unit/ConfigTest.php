@@ -145,12 +145,14 @@ PHP;
         $this->object->set('PMA_USR_BROWSER_VER', 6);
         $this->object->checkOutputCompression();
         self::assertTrue($this->object->get('OBGzip'));
+        self::assertTrue($this->object->config->OBGzip);
 
         $this->object->set('OBGzip', 'auto');
         $this->object->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
         $this->object->set('PMA_USR_BROWSER_VER', 5);
         $this->object->checkOutputCompression();
         self::assertTrue($this->object->get('OBGzip'));
+        self::assertTrue($this->object->config->OBGzip);
     }
 
     /**
