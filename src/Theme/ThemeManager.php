@@ -116,9 +116,6 @@ class ThemeManager
         $this->activeTheme = $theme;
         $this->theme = $this->themes[$theme];
 
-        // need to set later
-        //$this->setThemeCookie();
-
         return true;
     }
 
