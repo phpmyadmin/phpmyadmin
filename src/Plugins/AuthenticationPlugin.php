@@ -8,6 +8,7 @@ use Exception;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Footer;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
@@ -316,7 +317,7 @@ abstract class AuthenticationPlugin
             'show_submit' => $twofactor->showSubmit(),
         ]));
         $responseRenderer->addHTML($this->template->render('login/footer'));
-        $responseRenderer->addHTML(Config::renderFooter());
+        $responseRenderer->addHTML(Footer::renderFooter());
 
         return $responseRenderer->response();
     }

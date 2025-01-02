@@ -14,6 +14,7 @@ use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Footer;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
@@ -93,7 +94,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         );
         $response->addHTML('</h3>');
 
-        $response->addHTML(Config::renderFooter());
+        $response->addHTML(Footer::renderFooter());
 
         return $response->response();
     }
