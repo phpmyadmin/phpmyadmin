@@ -50,7 +50,6 @@ class ErrorReportTest extends AbstractTestCase
         $_SERVER['SERVER_SOFTWARE'] = 'SERVER_SOFTWARE';
         $_SERVER['HTTP_USER_AGENT'] = 'HTTP_USER_AGENT';
         $_COOKIE['pma_lang'] = 'en';
-        $config->set('is_https', false);
 
         $this->errorReport = new ErrorReport(
             new HttpRequest(),

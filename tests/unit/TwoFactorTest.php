@@ -375,11 +375,11 @@ class TwoFactorTest extends AbstractTestCase
         self::assertSame('https://demo.example.com:123', $object->getBackend()->getAppId(true));
         self::assertSame('demo.example.com', $object->getBackend()->getAppId(false));
         $config->set('PmaAbsoluteUri', '');
-        $config->set('is_https', true);
+        (new ReflectionProperty(Config::class, 'isHttps'))->setValue($config, true);
         $_SERVER['HTTP_HOST'] = 'pma.example.com';
         self::assertSame('https://pma.example.com', $object->getBackend()->getAppId(true));
         self::assertSame('pma.example.com', $object->getBackend()->getAppId(false));
-        $config->set('is_https', false);
+        (new ReflectionProperty(Config::class, 'isHttps'))->setValue($config, false);
         self::assertSame('http://pma.example.com', $object->getBackend()->getAppId(true));
         self::assertSame('pma.example.com', $object->getBackend()->getAppId(false));
     }

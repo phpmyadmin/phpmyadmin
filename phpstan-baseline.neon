@@ -19837,12 +19837,6 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{host\: ''b'', port\: ''2'', socket\: true, ssl\: true, user\: ''pmaUser2'', password\: ''testPW''\} and array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
-			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
 			message: '#^Cannot access offset ''default'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2

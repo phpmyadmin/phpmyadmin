@@ -435,7 +435,6 @@ PHP;
         $_SERVER['HTTP_CLOUDFRONT_FORWARDED_PROTO'] = $protoCloudFront;
         $_SERVER['SERVER_PORT'] = $port;
 
-        $this->object->set('is_https', null);
         $this->object->set('PmaAbsoluteUri', $pmaAbsoluteUri);
         self::assertSame($expected, $this->object->isHttps());
     }
@@ -572,7 +571,6 @@ PHP;
      */
     public function testSetCookie(): void
     {
-        $this->object->set('is_https', false);
         self::assertFalse(
             $this->object->setCookie(
                 'TEST_DEF_COOKIE',
