@@ -40,7 +40,6 @@ use function is_string;
 use function is_writable;
 use function mb_strtolower;
 use function md5;
-use function min;
 use function mkdir;
 use function ob_end_clean;
 use function ob_start;
@@ -162,7 +161,6 @@ class Config
     {
         $this->checkGd2();
         $this->checkUpload();
-        $this->checkUploadSize();
         $this->checkOutputCompression();
     }
 
@@ -577,30 +575,6 @@ class Config
         }
 
         $this->set('enable_upload', false);
-    }
-
-    /**
-     * Maximum upload size as limited by PHP
-     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
-     *
-     * this section generates max_upload_size in bytes
-     */
-    public function checkUploadSize(): void
-    {
-        $fileSize = ini_get('upload_max_filesize');
-
-        if (! $fileSize) {
-            $fileSize = '5M';
-        }
-
-        $size = Core::getRealSize($fileSize);
-        $postSize = ini_get('post_max_size');
-
-        if ($postSize) {
-            $size = min($size, Core::getRealSize($postSize));
-        }
-
-        $this->set('max_upload_size', $size);
     }
 
     /**

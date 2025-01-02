@@ -131,7 +131,7 @@ final class ImportController implements InvocableController
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
-        $maxUploadSize = (int) $config->get('max_upload_size');
+        $maxUploadSize = Util::getUploadSizeInBytes();
 
         $this->response->render('table/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
