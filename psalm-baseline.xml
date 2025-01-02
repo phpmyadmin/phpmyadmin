@@ -186,7 +186,6 @@
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$gdInfo['GD Version']]]></code>
-      <code><![CDATA[$path]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$url]]></code>
@@ -213,7 +212,6 @@
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$path]]></code>
       <code><![CDATA[$prefsType]]></code>
       <code><![CDATA[$prefsType]]></code>
       <code><![CDATA[$url]]></code>
@@ -244,7 +242,6 @@
       <code><![CDATA[$prefsType]]></code>
       <code><![CDATA[empty($collationConnection)]]></code>
       <code><![CDATA[empty($dir)]]></code>
-      <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty($url)]]></code>
       <code><![CDATA[empty($url)]]></code>
