@@ -45,7 +45,6 @@ use function mkdir;
 use function ob_end_clean;
 use function ob_start;
 use function parse_url;
-use function preg_match;
 use function realpath;
 use function rtrim;
 use function setcookie;
@@ -162,7 +161,6 @@ class Config
     public function checkSystem(): void
     {
         $this->checkGd2();
-        $this->checkClient();
         $this->checkUpload();
         $this->checkUploadSize();
         $this->checkOutputCompression();
@@ -185,97 +183,6 @@ class Config
         }
 
         $this->set('OBGzip', true);
-    }
-
-    /**
-     * Sets the client platform based on user agent
-     *
-     * @param string $userAgent the user agent
-     */
-    private function setClientPlatform(string $userAgent): void
-    {
-        if (str_contains($userAgent, 'Win')) {
-            $this->set('PMA_USR_OS', 'Win');
-        } elseif (str_contains($userAgent, 'Mac')) {
-            $this->set('PMA_USR_OS', 'Mac');
-        } elseif (str_contains($userAgent, 'Linux')) {
-            $this->set('PMA_USR_OS', 'Linux');
-        } elseif (str_contains($userAgent, 'Unix')) {
-            $this->set('PMA_USR_OS', 'Unix');
-        } elseif (str_contains($userAgent, 'OS/2')) {
-            $this->set('PMA_USR_OS', 'OS/2');
-        } else {
-            $this->set('PMA_USR_OS', 'Other');
-        }
-    }
-
-    /**
-     * Determines platform (OS), browser and version of the user
-     * Based on a phpBuilder article:
-     *
-     * @see http://www.phpbuilder.net/columns/tim20000821.php
-     */
-    public function checkClient(): void
-    {
-        $httpUserAgent = '';
-        if (Core::getEnv('HTTP_USER_AGENT') !== '') {
-            $httpUserAgent = Core::getEnv('HTTP_USER_AGENT');
-        }
-
-        // 1. Platform
-        $this->setClientPlatform($httpUserAgent);
-
-        // 2. browser and version
-        // (must check everything else before Mozilla)
-
-        $isMozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $httpUserAgent, $mozillaVersion) === 1;
-
-        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
-        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', (string) ((int) $logVersion[1] + 4));
-            $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
-            // Konqueror 2.2.2 says Konqueror/2.2.2
-            // Konqueror 3.0.3 says Konqueror/3
-        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
-            // must check Chrome before Safari
-        } elseif ($isMozilla && preg_match('@Chrome/([0-9.]*)@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
-            // newer Safari
-        } elseif ($isMozilla && preg_match('@Version/(.*) Safari@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
-            // older Safari
-        } elseif ($isMozilla && preg_match('@Safari/([0-9]*)@', $httpUserAgent, $logVersion) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', $mozillaVersion[1] . '.' . $logVersion[1]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
-            // Firefox
-        } elseif (
-            ! str_contains($httpUserAgent, 'compatible')
-            && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion) === 1
-        ) {
-            $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $httpUserAgent) === 1) {
-            $this->set('PMA_USR_BROWSER_VER', '1.9');
-            $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
-        } elseif ($isMozilla) {
-            $this->set('PMA_USR_BROWSER_VER', $mozillaVersion[1]);
-            $this->set('PMA_USR_BROWSER_AGENT', 'MOZILLA');
-        } else {
-            $this->set('PMA_USR_BROWSER_VER', 0);
-            $this->set('PMA_USR_BROWSER_AGENT', 'OTHER');
-        }
     }
 
     /**

@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Error;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\HttpRequest;
+use PhpMyAdmin\Utils\UserAgentParser;
 use PhpMyAdmin\Version;
 
 use function count;
@@ -65,12 +67,13 @@ class ErrorReport
     public function getData(string $exceptionType = 'js'): array
     {
         $relationParameters = $this->relation->getRelationParameters();
+        $userAgentParser = new UserAgentParser(Core::getEnv('HTTP_USER_AGENT'));
         // common params for both, php & js exceptions
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => $this->config->get('PMA_USR_BROWSER_AGENT'),
-            'browser_version' => $this->config->get('PMA_USR_BROWSER_VER'),
-            'user_os' => $this->config->get('PMA_USR_OS'),
+            'browser_name' => $userAgentParser->getUserBrowserAgent(),
+            'browser_version' => $userAgentParser->getUserBrowserVersion(),
+            'user_os' => $userAgentParser->getClientPlatform(),
             'server_software' => $_SERVER['SERVER_SOFTWARE'] ?? null,
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $this->config->getCookie('pma_lang'),

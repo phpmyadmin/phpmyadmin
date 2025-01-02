@@ -7203,7 +7203,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -18729,7 +18729,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 6
+			count: 4
 			path: tests/unit/CoreTest.php
 
 		-
@@ -19098,7 +19098,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 4
+			count: 2
 			path: tests/unit/Error/ErrorReportTest.php
 
 		-
