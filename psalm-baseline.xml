@@ -181,7 +181,6 @@
       <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$collationConnection]]></code>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
@@ -208,7 +207,6 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$collationConnection]]></code>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$defaultValue]]></code>
@@ -240,7 +238,6 @@
       <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[$postSize]]></code>
       <code><![CDATA[$prefsType]]></code>
-      <code><![CDATA[empty($collationConnection)]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty($url)]]></code>
