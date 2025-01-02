@@ -4734,7 +4734,6 @@
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
@@ -11028,7 +11027,6 @@
       <code><![CDATA[httpsParams]]></code>
       <code><![CDATA[rootUris]]></code>
       <code><![CDATA[selectServerProvider]]></code>
-      <code><![CDATA[userAgentProvider]]></code>
     </PossiblyUnusedMethod>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertIsArray]]></code>
@@ -11648,8 +11646,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$arr['arr']]]></code>
@@ -11963,12 +11959,8 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
-      <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
     </PossiblyUndefinedArrayOffset>
@@ -13476,6 +13468,11 @@
       <code><![CDATA[$_SESSION['cache']['server_2']['test_data']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_2']['test_data_3']]]></code>
     </MixedArrayAccess>
+  </file>
+  <file src="tests/unit/Utils/UserAgentParserTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[userAgentProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/VersionInformationTest.php">
     <DeprecatedMethod>
