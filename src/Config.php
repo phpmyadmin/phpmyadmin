@@ -367,9 +367,8 @@ class Config
 
         if (is_array($cfg)) {
             $this->config = new Settings($cfg);
+            $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
         }
-
-        $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
 
         return true;
     }
