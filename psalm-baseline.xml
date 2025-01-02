@@ -228,7 +228,6 @@
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $fileSize]]></code>
-      <code><![CDATA[! $this->get('CheckConfigurationPermissions')]]></code>
       <code><![CDATA[! ini_get('file_uploads')]]></code>
       <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[$postSize]]></code>

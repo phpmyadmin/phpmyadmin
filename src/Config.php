@@ -596,7 +596,7 @@ class Config
     public function checkPermissions(): void
     {
         // Check for permissions (on platforms that support it):
-        if (! $this->get('CheckConfigurationPermissions') || ! @file_exists($this->source)) {
+        if (! $this->config->CheckConfigurationPermissions || ! @file_exists($this->source)) {
             return;
         }
 
