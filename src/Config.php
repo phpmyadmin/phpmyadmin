@@ -33,7 +33,6 @@ use function gd_info;
 use function implode;
 use function ini_get;
 use function is_array;
-use function is_bool;
 use function is_dir;
 use function is_numeric;
 use function is_readable;
@@ -89,7 +88,7 @@ class Config
     /** @var int     source modification time */
     public int $sourceMtime = 0;
 
-    private bool $isHttps = false;
+    private bool|null $isHttps = null;
 
     public Settings $config;
     /** @var int<0, max> */
@@ -154,7 +153,6 @@ class Config
         // other settings, independent of config file, comes in
         $this->checkSystem();
 
-        $this->isHttps = $this->isHttps();
         $this->baseSettings = $this->settings;
     }
 
@@ -717,10 +715,8 @@ class Config
      */
     public function isHttps(): bool
     {
-        /** @var mixed $isHttps */
-        $isHttps = $this->get('is_https');
-        if (is_bool($isHttps)) {
-            return $isHttps;
+        if ($this->isHttps !== null) {
+            return $this->isHttps;
         }
 
         $url = $this->get('PmaAbsoluteUri');
@@ -751,7 +747,7 @@ class Config
             $isHttps = true;
         }
 
-        $this->set('is_https', $isHttps);
+        $this->isHttps = $isHttps;
 
         return $isHttps;
     }
@@ -819,7 +815,7 @@ class Config
             time() - 3600,
             $this->getRootPath(),
             '',
-            $this->isHttps,
+            $this->isHttps(),
         );
     }
 
@@ -883,7 +879,7 @@ class Config
                 'expires' => $validity,
                 'path' => $this->getRootPath(),
                 'domain' => '',
-                'secure' => $this->isHttps,
+                'secure' => $this->isHttps(),
                 'httponly' => $httponly,
                 'samesite' => $cookieSameSite,
             ];
@@ -914,7 +910,7 @@ class Config
      */
     public function getCookieName(string $cookieName): string
     {
-        return ($this->isHttps ? '__Secure-' : '') . $cookieName . ($this->isHttps ? '_https' : '');
+        return ($this->isHttps() ? '__Secure-' : '') . $cookieName . ($this->isHttps() ? '_https' : '');
     }
 
     /**
