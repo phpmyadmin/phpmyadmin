@@ -934,8 +934,8 @@ class Config
             return self::$tempDir[$name];
         }
 
-        $path = $this->get('TempDir');
-        if (! is_string($path) || $path === '') {
+        $path = $this->config->TempDir;
+        if ($path === '') {
             return null;
         }
 

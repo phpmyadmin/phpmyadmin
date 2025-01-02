@@ -384,7 +384,7 @@ final class HomeController implements InvocableController
                         'phpMyAdmin is not able to cache templates and will ' .
                         'be slow because of this.',
                     ),
-                    $this->config->get('TempDir'),
+                    $this->config->config->TempDir,
                 ),
                 'severity' => 'warning',
             ];
