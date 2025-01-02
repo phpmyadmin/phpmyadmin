@@ -187,8 +187,6 @@
       <code><![CDATA[$gdInfo['GD Version']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
-      <code><![CDATA[$url]]></code>
-      <code><![CDATA[$url]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
@@ -211,8 +209,6 @@
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$this->userPreferences]]></code>
-      <code><![CDATA[$url]]></code>
-      <code><![CDATA[$url]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
@@ -238,8 +234,6 @@
       <code><![CDATA[$postSize]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
-      <code><![CDATA[empty($url)]]></code>
-      <code><![CDATA[empty($url)]]></code>
       <code><![CDATA[ini_get('zlib.output_compression')]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
@@ -8196,15 +8190,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$url]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$url]]></code>
-    </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($url)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/UploadInterface.php">
     <PossiblyUnusedMethod>
@@ -12176,7 +12161,6 @@
       <code><![CDATA[dataProviderPasswordLength]]></code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>

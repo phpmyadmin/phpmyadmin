@@ -564,7 +564,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 5
+			count: 3
 			path: src/Config.php
 
 		-
@@ -643,12 +643,6 @@ parameters:
 			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:themeExists\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#1 \$url of function parse_url expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Config.php
 
 		-
@@ -13551,18 +13545,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Plugins/TwoFactorPlugin.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/TwoFactorPlugin.php
-
-		-
-			message: '#^Parameter \#1 \$url of function parse_url expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Plugins/TwoFactorPlugin.php
 

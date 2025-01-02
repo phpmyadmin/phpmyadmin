@@ -18,7 +18,7 @@ final class UrlRedirectorTest extends AbstractTestCase
     public function testRedirectWithDisallowedUrl(): void
     {
         $config = Config::getInstance();
-        $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
+        $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
 
         $urlRedirector = new UrlRedirector(new ResponseRenderer(), new Template(), ResponseFactory::create());
 
