@@ -872,8 +872,7 @@ class Config
                 return true;
             }
 
-            /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
-            $cookieSameSite = $this->get('CookieSameSite');
+            $cookieSameSite = $this->config->CookieSameSite;
 
             $optionalParams = [
                 'expires' => $validity,

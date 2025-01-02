@@ -127,8 +127,7 @@ class Session
             }
         }
 
-        /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
-        $cookieSameSite = $config->get('CookieSameSite') ?? 'Strict';
+        $cookieSameSite = $config->config->CookieSameSite;
         $cookiePath = $config->getRootPath();
 
         session_set_cookie_params([
