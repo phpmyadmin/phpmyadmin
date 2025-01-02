@@ -257,7 +257,7 @@ class UniqueConditionTest extends AbstractTestCase
      * @param FieldMetadata[] $meta     Meta Information for Field
      * @param array           $row      Current Ddata Row
      * @param array           $expected Expected Result
-     * @psalm-param array<int, mixed> $row
+     * @psalm-param array<int, string|int|float|null> $row
      * @psalm-param array{string, bool, array<string, string>} $expected
      */
     #[DataProvider('providerGetUniqueConditionForGroupFlag')]
@@ -277,7 +277,12 @@ class UniqueConditionTest extends AbstractTestCase
     /**
      * Provider for testGetUniqueConditionForGroupFlag
      *
-     * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
+     * @return array<string, array{
+     *  FieldMetadata[],
+     *  array<int,
+     *  string|int|float|null>,
+     *  array{string, bool, array<string, string>}
+     * }>
      */
     public static function providerGetUniqueConditionForGroupFlag(): array
     {

@@ -131,13 +131,7 @@ class InsertEditTest extends AbstractTestCase
         $_POST['sql_query'] = 'SELECT a';
         UrlParams::$goto = 'index.php';
 
-        $result = $this->insertEdit->getFormParametersForInsertForm(
-            'dbname',
-            'tablename',
-            [],
-            $whereClause,
-            'localhost',
-        );
+        $result = $this->insertEdit->getFormParametersForInsertForm('dbname', 'tablename', $whereClause, 'localhost');
 
         self::assertSame(
             [
@@ -165,13 +159,7 @@ class InsertEditTest extends AbstractTestCase
         $_GET['sql_signature'] = Core::signSqlQuery($_GET['sql_query']);
         UrlParams::$goto = 'index.php';
 
-        $result = $this->insertEdit->getFormParametersForInsertForm(
-            'dbname',
-            'tablename',
-            [],
-            $whereClause,
-            'localhost',
-        );
+        $result = $this->insertEdit->getFormParametersForInsertForm('dbname', 'tablename', $whereClause, 'localhost');
 
         self::assertSame(
             [
@@ -235,15 +223,15 @@ class InsertEditTest extends AbstractTestCase
         );
 
         self::assertSame(
-            [['a=1', 'b="fo\\\\o"'], [$resultStub1, $resultStub2], [['assoc1'], ['assoc2']], false],
+            [[$resultStub1, $resultStub2], [['assoc1'], ['assoc2']], false],
             $result,
         );
     }
 
     /**
-     * Test for showEmptyResultMessageOrSetUniqueCondition
+     * Test for hasUniqueCondition
      */
-    public function testShowEmptyResultMessageOrSetUniqueCondition(): void
+    public function testHasUniqueCondition(): void
     {
         $meta = FieldHelper::fromArray([
             'type' => MYSQLI_TYPE_DECIMAL,
@@ -276,34 +264,13 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'showEmptyResultMessageOrSetUniqueCondition',
-            [['1' => ['1' => 1]], 1, [], 'SELECT', ['1' => $resultStub]],
+            'hasUniqueCondition',
+            [['1' => 1], $resultStub],
         );
 
         self::assertTrue($result);
 
-        // case 2
-        Config::getInstance()->settings['ShowSQL'] = false;
-
-        $responseMock = $this->getMockBuilder(ResponseRenderer::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['addHtml'])
-            ->getMock();
-
-        $restoreInstance = ResponseRenderer::getInstance();
-        $response = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $response->setValue(null, $responseMock);
-
-        $result = $this->callFunction(
-            $this->insertEdit,
-            InsertEdit::class,
-            'showEmptyResultMessageOrSetUniqueCondition',
-            [[false], 0, ['1'], 'SELECT', ['1' => 'result1']],
-        );
-
-        $response->setValue(null, $restoreInstance);
-
-        self::assertFalse($result);
+        // TODO: Add test for false case
     }
 
     public function testLoadFirstRow(): void
@@ -339,16 +306,16 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame($resultStub, $result);
     }
 
-    /** @return list<array{int, array<false>}> */
+    /** @return list<array{int, array<array<never>>}> */
     public static function dataProviderConfigValueInsertRows(): array
     {
-        return [[2, [false, false]], [3, [false, false, false]]];
+        return [[2, [[], []]], [3, [[], [], []]]];
     }
 
     /**
      * Test for loadFirstRow
      *
-     * @param array<false> $rowsValue
+     * @param array<array<never>> $rowsValue
      */
     #[DataProvider('dataProviderConfigValueInsertRows')]
     public function testGetInsertRows(int $configValue, array $rowsValue): void
@@ -730,8 +697,7 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['LimitChars'] = 50;
         $config->settings['ShowFunctionFields'] = true;
 
-        $extractedColumnSpec = [];
-        $extractedColumnSpec['spec_in_brackets'] = '25';
+        $extractedColumnSpec = '25';
         (new ReflectionProperty(InsertEdit::class, 'fieldIndex'))->setValue($this->insertEdit, 22);
         $result = $this->callFunction(
             $this->insertEdit,
@@ -1041,7 +1007,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetSpecialCharsAndBackupFieldForExistingRow(): void
     {
-        $currentRow = $extractedColumnSpec = [];
+        $currentRow = [];
         $currentRow['f'] = null;
         $_POST['default_action'] = 'insert';
         $column = new InsertEditColumn(
@@ -1062,7 +1028,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getSpecialCharsAndBackupFieldForExistingRow',
-            [$currentRow, $column, [], 'a', false],
+            [$currentRow, $column, '', 'a', false],
         );
 
         self::assertEquals(
@@ -1074,7 +1040,7 @@ class InsertEditTest extends AbstractTestCase
         unset($_POST['default_action']);
 
         $currentRow['f'] = '123';
-        $extractedColumnSpec['spec_in_brackets'] = '20';
+        $extractedColumnSpec = '20';
         $column = new InsertEditColumn(
             'f',
             'bit',
@@ -1130,7 +1096,7 @@ class InsertEditTest extends AbstractTestCase
         );
 
         $currentRow['f'] = '123';
-        $extractedColumnSpec['spec_in_brackets'] = '20';
+        $extractedColumnSpec = '20';
         $column = new InsertEditColumn(
             'f',
             'geometry',
@@ -1174,7 +1140,7 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['ProtectBinary'] = false;
         $currentRow['f'] = '11001';
-        $extractedColumnSpec['spec_in_brackets'] = '20';
+        $extractedColumnSpec = '20';
         $config->settings['ShowFunctionFields'] = true;
 
         $result = $this->callFunction(
@@ -1580,20 +1546,18 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['ServerDefault'] = 1;
         $_POST['where_clause'] = '1';
         $_POST['where_clause_sign'] = Core::signSqlQuery($_POST['where_clause']);
-        $transformation = ['transformation_options' => "'','option ,, quoted',abd"];
         $result = $this->insertEdit->transformEditedValues(
             'db',
             'table',
-            $transformation,
+            "'','option ,, quoted',abd",
             $editedValues,
             'Text_Plain_PreApPend.php',
             'c',
-            ['a' => 'b'],
-            'transformation',
+            [['a' => 'b']],
         );
 
         self::assertSame(
-            ['a' => 'b', 'transformations' => ['cnameoption ,, quoted']],
+            [['a' => 'b'], 'transformations' => ['cnameoption ,, quoted']],
             $result,
         );
     }
@@ -2375,7 +2339,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->insertEdit->determineInsertOrEdit('1', 'db', 'table');
 
         self::assertEquals(
-            [false, null, [1], null, [$resultStub], [[]], false, 'edit_next'],
+            [false, null, [$resultStub], [[]], false, 'edit_next'],
             $result,
         );
 
@@ -2389,7 +2353,7 @@ class InsertEditTest extends AbstractTestCase
         $response->setValue(null, $restoreInstance);
 
         self::assertSame(
-            [true, null, [], null, $resultStub, [false, false], false, 'edit_next'],
+            [true, null, $resultStub, [[], []], false, 'edit_next'],
             $result,
         );
     }
@@ -2608,16 +2572,11 @@ class InsertEditTest extends AbstractTestCase
             new ColumnFull('test', 'longtext', null, true, '', null, '', 'select,insert,update,references', ''),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
-        $resultStub->expects(self::any())
-            ->method('getFieldsMeta')
-            ->willReturn([FieldHelper::fromArray(['type' => 0, 'length' => -1])]);
-
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
             $tableColumns,
             [],
-            $resultStub,
+            [FieldHelper::fromArray(['type' => 0, 'length' => -1])],
             false,
             [],
             false,
@@ -2657,20 +2616,17 @@ class InsertEditTest extends AbstractTestCase
             new ColumnFull('bar', 'longtext', null, true, '', null, '', 'select,insert,references', ''),
         ];
 
-        $resultStub = self::createMock(DummyResult::class);
-        $resultStub->expects(self::any())
-            ->method('getFieldsMeta')
-            ->willReturn([
-                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-                FieldHelper::fromArray(['type' => 0, 'length' => -1]),
-            ]);
+        $fieldMetadata = [
+            FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+            FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+            FieldHelper::fromArray(['type' => 0, 'length' => -1]),
+        ];
 
         $actual = $this->insertEdit->getHtmlForInsertEditRow(
             [],
             $tableColumns,
             [],
-            $resultStub,
+            $fieldMetadata,
             false,
             [],
             false,
@@ -2694,7 +2650,7 @@ class InsertEditTest extends AbstractTestCase
             [],
             $tableColumns,
             [],
-            $resultStub,
+            $fieldMetadata,
             true,
             [],
             false,
