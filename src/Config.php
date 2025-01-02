@@ -105,6 +105,9 @@ class Config
 
     private bool $isSetup = false;
 
+    /** @var ''|'db'|'session' */
+    public string $userPreferences = '';
+
     public function __construct()
     {
         $this->config = new Settings([]);
@@ -409,14 +412,14 @@ class Config
                 $_SESSION['cache'][$cacheKey]['config_mtime'] = $this->sourceMtime;
             }
         } elseif (Current::$server === 0 || ! isset($_SESSION['cache'][$cacheKey]['userprefs'])) {
-            $this->set('user_preferences', false);
+            $this->userPreferences = '';
 
             return;
         }
 
         $configData = $_SESSION['cache'][$cacheKey]['userprefs'];
         // type is 'db' or 'session'
-        $this->set('user_preferences', $_SESSION['cache'][$cacheKey]['userprefs_type']);
+        $this->userPreferences = $_SESSION['cache'][$cacheKey]['userprefs_type'];
         $this->set('user_preferences_mtime', $_SESSION['cache'][$cacheKey]['userprefs_mtime']);
 
         if (isset($configData['Server']) && is_array($configData['Server'])) {
@@ -505,8 +508,7 @@ class Config
     ): true|Message {
         $result = true;
         // use permanent user preferences if possible
-        $prefsType = $this->get('user_preferences');
-        if ($prefsType) {
+        if ($this->userPreferences !== '') {
             if ($defaultValue === null) {
                 $defaultValue = Core::arrayRead($cfgPath, $this->default);
             }
@@ -516,7 +518,7 @@ class Config
             $result = $userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
         }
 
-        if ($prefsType !== 'db' && $cookieName) {
+        if ($this->userPreferences !== 'db' && $cookieName) {
             // fall back to cookies
             if ($defaultValue === null) {
                 $defaultValue = Core::arrayRead($cfgPath, $this->settings);
@@ -539,8 +541,7 @@ class Config
     public function getUserValue(string $cookieName, mixed $cfgValue): mixed
     {
         $cookieExists = ! empty($this->getCookie($cookieName));
-        $prefsType = $this->get('user_preferences');
-        if ($prefsType === 'db') {
+        if ($this->userPreferences === 'db') {
             // permanent user preferences value exists, remove cookie
             if ($cookieExists) {
                 $this->removeCookie($cookieName);

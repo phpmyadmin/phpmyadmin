@@ -257,7 +257,7 @@ class Header
 
         // offer to load user preferences from localStorage
         if (
-            $this->config->get('user_preferences') === 'session'
+            $this->config->userPreferences === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();

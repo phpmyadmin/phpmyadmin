@@ -210,8 +210,7 @@
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$prefsType]]></code>
-      <code><![CDATA[$prefsType]]></code>
+      <code><![CDATA[$this->userPreferences]]></code>
       <code><![CDATA[$url]]></code>
       <code><![CDATA[$url]]></code>
       <code><![CDATA[$value]]></code>
@@ -237,7 +236,6 @@
       <code><![CDATA[! ini_get('file_uploads')]]></code>
       <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[$postSize]]></code>
-      <code><![CDATA[$prefsType]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty($url)]]></code>
