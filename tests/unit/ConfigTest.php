@@ -538,6 +538,7 @@ PHP;
         return [
             [__DIR__ . '/../test_data/config.inc.php', true],
             [__DIR__ . '/../test_data/config-nonexisting.inc.php', false],
+            ['', false],
         ];
     }
 
