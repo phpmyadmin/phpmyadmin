@@ -1235,10 +1235,10 @@ class Relation
     /**
      * Create a PDF page
      *
-     * @param string|null $newpage name of the new PDF page
-     * @param string      $db      database name
+     * @param string $newpage name of the new PDF page
+     * @param string $db      database name
      */
-    public function createPage(string|null $newpage, PdfFeature $pdfFeature, string $db): int
+    public function createPage(string $newpage, PdfFeature $pdfFeature, string $db): int
     {
         $insQuery = 'INSERT INTO '
             . Util::backquote($pdfFeature->database) . '.'
@@ -1247,7 +1247,7 @@ class Relation
             . ' VALUES ('
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ', '
             . $this->dbi->quoteString(
-                $newpage !== null && $newpage !== '' ? $newpage : __('no description'),
+                $newpage !== '' ? $newpage : __('no description'),
                 ConnectionType::ControlUser,
             ) . ')';
         $this->dbi->tryQueryAsControlUser($insQuery);

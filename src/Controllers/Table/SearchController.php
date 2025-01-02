@@ -250,14 +250,13 @@ final class SearchController implements InvocableController
             false, // is_gotofile
             Current::$database, // db
             Current::$table, // table
-            null, // sql_query_for_bookmark
-            null, // message_to_show
-            null, // sql_data
+            '', // sql_query_for_bookmark
+            '', // message_to_show
             UrlParams::$goto, // goto
             null, // disp_query
-            null, // disp_message
+            '', // disp_message
             $sqlQuery, // sql_query
-            null, // complete_query
+            $sqlQuery, // complete_query
         ));
     }
 

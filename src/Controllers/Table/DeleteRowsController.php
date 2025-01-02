@@ -87,14 +87,13 @@ final class DeleteRowsController implements InvocableController
             false,
             Current::$database,
             Current::$table,
-            null,
-            null,
-            null,
+            '',
+            '',
             UrlParams::$goto,
             $GLOBALS['disp_query'] ?? null,
-            $GLOBALS['disp_message'] ?? null,
+            $GLOBALS['disp_message'] ?? '',
             Current::$sqlQuery,
-            null,
+            Current::$sqlQuery,
         ));
 
         return $this->response->response();

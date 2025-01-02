@@ -2373,8 +2373,8 @@
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
-      <code><![CDATA[$GLOBALS['message_to_show'] ?? null]]></code>
+      <code><![CDATA[$GLOBALS['disp_message'] ?? '']]></code>
+      <code><![CDATA[$GLOBALS['message_to_show'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -2568,7 +2568,7 @@
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['disp_message'] ?? null]]></code>
+      <code><![CDATA[$GLOBALS['disp_message'] ?? '']]></code>
       <code><![CDATA[$GLOBALS['disp_query'] ?? null]]></code>
       <code><![CDATA[$row]]></code>
     </MixedArgument>
@@ -9341,7 +9341,7 @@
     </NullableReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['bkm_label']]]></code>
-      <code><![CDATA[$_POST['dropped_column'] ?? null]]></code>
+      <code><![CDATA[$_POST['dropped_column'] ?? '']]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
       <code><![CDATA[$numRows]]></code>
@@ -9349,6 +9349,7 @@
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['bkm_label']]]></code>
+      <code><![CDATA[$_POST['dropped_column'] ?? '']]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidOperand>
       <code><![CDATA[$numRows]]></code>
@@ -9362,7 +9363,6 @@
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>
-      <code><![CDATA[$table]]></code>
     </PossiblyNullArgument>
     <PossiblyNullReference>
       <code><![CDATA[has]]></code>
@@ -9375,8 +9375,6 @@
     </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $index->isUnique()]]></code>
-      <code><![CDATA[$messageToShow]]></code>
-      <code><![CDATA[$sqlQueryForBookmark]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>
       <code><![CDATA[empty($_GET['id_bookmark'])]]></code>

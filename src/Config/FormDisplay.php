@@ -204,17 +204,17 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool         $showButtons  whether show submit and reset button
-     * @param string|null  $formAction   action attribute for the form
-     * @param mixed[]|null $hiddenFields array of form hidden fields (key: field
+     * @param bool    $showButtons  whether show submit and reset button
+     * @param string  $formAction   action attribute for the form
+     * @param mixed[] $hiddenFields array of form hidden fields (key: field
      *                                 name)
      *
      * @return string HTML for forms
      */
     public function getDisplay(
         bool $showButtons = true,
-        string|null $formAction = null,
-        array|null $hiddenFields = null,
+        string $formAction = '',
+        array $hiddenFields = [],
     ): string {
         $fieldValidators = [];
         $defaultValues = [];
@@ -293,7 +293,7 @@ class FormDisplay
         return $this->formDisplayTemplate->display([
             'action' => $formAction,
             'has_check_page_refresh' => self::$hasCheckPageRefresh,
-            'hidden_fields' => (array) $hiddenFields,
+            'hidden_fields' => $hiddenFields,
             'tabs' => $tabs,
             'forms' => $forms,
             'show_buttons' => $showButtons,
@@ -566,7 +566,7 @@ class FormDisplay
             foreach ($form->fields as $field => $systemPath) {
                 $workPath = array_search($systemPath, $this->systemPaths);
                 $key = $this->translatedPaths[$workPath];
-                $type = (string) $form->getOptionType($field);
+                $type = $form->getOptionType($field);
 
                 // skip groups
                 if ($type === 'group') {

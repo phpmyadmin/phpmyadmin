@@ -607,14 +607,13 @@ class SqlTest extends AbstractTestCase
             false,
             'sakila',
             'different_table',
-            null,
-            null,
-            null,
+            '',
+            '',
             'index.php?route=/sql',
             null,
-            null,
+            '',
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
-            null,
+            'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
         );
         self::assertStringContainsString('Showing rows 0 -  2 (3 total', $actual);
         self::assertStringContainsString('SELECT * FROM `sakila`.`country` LIMIT 0, 3;', $actual);

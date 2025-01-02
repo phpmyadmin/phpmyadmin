@@ -191,14 +191,13 @@ class SqlController implements InvocableController
             $isGotofile,
             Current::$database,
             Current::$table,
-            $GLOBALS['import_text'] ?? null,
-            $GLOBALS['message_to_show'] ?? null,
-            null,
+            $GLOBALS['import_text'] ?? '',
+            $GLOBALS['message_to_show'] ?? '',
             UrlParams::$goto,
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
-            $GLOBALS['disp_message'] ?? null,
+            $GLOBALS['disp_message'] ?? '',
             Current::$sqlQuery,
-            $GLOBALS['complete_query'] ?? null,
+            $GLOBALS['complete_query'] ?? Current::$sqlQuery,
         ));
 
         return $this->response->response();
