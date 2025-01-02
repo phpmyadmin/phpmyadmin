@@ -52,10 +52,11 @@ final class TokenRequestParamCheckingTest extends TestCase
         $dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
         DatabaseInterface::$instance = $dbi;
 
+        $_SESSION[' PMA_token '] = 'mismatch';
+
         $responseRenderer = ResponseRenderer::getInstance();
         $responseRenderer->setAjax(true);
 
-        $_SESSION[' PMA_token '] = 'mismatch';
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody(['token' => 'token', 'ajax_request' => 'true']);
         $response = $middleware->checkTokenRequestParam($request);
