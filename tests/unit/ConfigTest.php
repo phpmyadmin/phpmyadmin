@@ -186,7 +186,7 @@ PHP;
     /**
      * user Agent Provider
      *
-     * @return mixed[]
+     * @return array<array<string>>
      */
     public static function userAgentProvider(): array
     {
@@ -441,7 +441,7 @@ PHP;
     /**
      * Data provider for https detection
      *
-     * @return mixed[]
+     * @return array<array<string|int|bool>>
      */
     public static function httpsParams(): array
     {
@@ -497,7 +497,7 @@ PHP;
     /**
      * Data provider for testGetRootPath
      *
-     * @return mixed[] data for testGetRootPath
+     * @return array<array<string>>
      */
     public static function rootUris(): array
     {
@@ -531,7 +531,7 @@ PHP;
     /**
      * return of config Paths
      *
-     * @return mixed[]
+     * @return array<array{string, bool}>
      */
     public static function configPaths(): array
     {
