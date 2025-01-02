@@ -666,8 +666,6 @@ class CoreTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testDownloadHeader(): void
     {
-        Config::getInstance()->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-
         header('Cache-Control: private, max-age=10800');
 
         Core::downloadHeader('test.sql', 'text/x-sql', 100, false);
@@ -691,8 +689,6 @@ class CoreTest extends AbstractTestCase
     #[RunInSeparateProcess]
     public function testDownloadHeader2(): void
     {
-        Config::getInstance()->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-
         header('Cache-Control: private, max-age=10800');
 
         Core::downloadHeader('test.sql.gz', 'application/x-gzip', 0, false);
