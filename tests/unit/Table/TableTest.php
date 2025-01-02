@@ -1443,7 +1443,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'DBIDUMMY';
@@ -1459,7 +1459,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'Test comment for "table1" in \'pma_test\'';
@@ -1475,7 +1475,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'utf8mb4_general_ci';
@@ -1491,7 +1491,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'Redundant';
@@ -1507,7 +1507,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = '5';
@@ -1523,7 +1523,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = ['pack_keys' => 'DEFAULT', 'row_format' => 'REDUNDANT'];

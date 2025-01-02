@@ -4137,6 +4137,7 @@
   <file src="src/Dbal/DatabaseInterface.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <DeprecatedProperty>
       <code><![CDATA[Routing::$route]]></code>

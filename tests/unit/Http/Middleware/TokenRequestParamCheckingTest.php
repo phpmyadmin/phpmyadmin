@@ -49,7 +49,7 @@ final class TokenRequestParamCheckingTest extends TestCase
     {
         $middleware = new TokenRequestParamChecking();
 
-        $dbi = new DatabaseInterface(new DbiDummy());
+        $dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
         DatabaseInterface::$instance = $dbi;
 
         $responseRenderer = ResponseRenderer::getInstance();

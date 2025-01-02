@@ -30,7 +30,7 @@ $cfg['environment'] = 'production';
 $config = new Config();
 $config->loadAndCheck(CONFIG_FILE);
 $config->set('environment', $cfg['environment']);
-$dbi = new DatabaseInterface(new DbiDummy());
+$dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
 
 $application = new Application('phpMyAdmin Console Tool');
 

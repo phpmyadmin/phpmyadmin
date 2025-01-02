@@ -43,7 +43,6 @@ use function array_shift;
 use function array_slice;
 use function basename;
 use function closelog;
-use function defined;
 use function explode;
 use function implode;
 use function is_array;
@@ -139,32 +138,34 @@ class DatabaseInterface
     public float $lastQueryExecutionTime = 0;
 
     private ListDatabase|null $databaseList = null;
-    private readonly Config $config;
 
     /** @var int|numeric-string */
     private static int|string $cachedAffectedRows = -1;
 
     /** @param DbiExtension $extension Object to be used for database queries */
-    public function __construct(private DbiExtension $extension)
+    private function __construct(private DbiExtension $extension, private readonly Config $config)
     {
-        if (defined('TESTSUITE')) {
-            $this->connections[ConnectionType::User->value] = new Connection(new stdClass());
-            $this->connections[ConnectionType::ControlUser->value] = new Connection(new stdClass());
-        }
-
         $this->cache = new Cache();
         $this->types = new Types($this);
-        $this->config = Config::getInstance();
     }
 
     /** @deprecated Use dependency injection instead. */
-    public static function getInstance(): self
+    public static function getInstance(Config|null $config = null): self
     {
         if (self::$instance === null) {
-            self::$instance = new self(new DbiMysqli());
+            self::$instance = new self(new DbiMysqli(), $config ?? Config::getInstance());
         }
 
         return self::$instance;
+    }
+
+    public static function getInstanceForTest(DbiExtension $extension, Config|null $config = null): self
+    {
+        $instance = new self($extension, $config ?? Config::getInstance());
+        $instance->connections[ConnectionType::User->value] = new Connection(new stdClass());
+        $instance->connections[ConnectionType::ControlUser->value] = new Connection(new stdClass());
+
+        return $instance;
     }
 
     public function query(

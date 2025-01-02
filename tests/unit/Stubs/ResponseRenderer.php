@@ -54,7 +54,7 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
         $template = new Template($config);
         $dummyDbi = new DbiDummy();
         $dummyDbi->addSelectDb('phpmyadmin');
-        $dbi = new DatabaseInterface($dummyDbi);
+        $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
         $relation = new Relation($dbi);
         $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
 
