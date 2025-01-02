@@ -719,10 +719,10 @@ class Config
             return $this->isHttps;
         }
 
-        $url = $this->get('PmaAbsoluteUri');
+        $url = $this->config->PmaAbsoluteUri;
 
         $isHttps = false;
-        if (! empty($url) && parse_url($url, PHP_URL_SCHEME) === 'https') {
+        if ($url !== '' && parse_url($url, PHP_URL_SCHEME) === 'https') {
             $isHttps = true;
         } elseif (strtolower(Core::getEnv('HTTP_SCHEME')) === 'https') {
             $isHttps = true;
@@ -757,9 +757,9 @@ class Config
      */
     public function getRootPath(): string
     {
-        $url = $this->get('PmaAbsoluteUri');
+        $url = $this->config->PmaAbsoluteUri;
 
-        if (! empty($url)) {
+        if ($url !== '') {
             $path = parse_url($url, PHP_URL_PATH);
             if (! empty($path)) {
                 if (! str_ends_with($path, '/')) {
