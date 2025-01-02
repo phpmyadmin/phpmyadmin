@@ -227,10 +227,8 @@
       <code><![CDATA[$this->settings]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $fileSize]]></code>
       <code><![CDATA[! ini_get('file_uploads')]]></code>
       <code><![CDATA[$cookieName]]></code>
-      <code><![CDATA[$postSize]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[ini_get('zlib.output_compression')]]></code>
@@ -1780,9 +1778,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ManageController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
@@ -11833,7 +11828,6 @@
   </file>
   <file src="tests/unit/InsertEditTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>

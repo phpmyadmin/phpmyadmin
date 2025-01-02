@@ -655,8 +655,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetMaxUploadSize(): void
     {
-        $config = Config::getInstance();
-        $config->set('max_upload_size', 257);
         $type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
@@ -668,8 +666,8 @@ class InsertEditTest extends AbstractTestCase
         self::assertSame("(Max: 256B)\n", $result);
 
         // case 2
-        $config->set('max_upload_size', 250);
-        $type = 'tinyblob';
+        // this should stub Util::getUploadSizeInBytes() but it's not possible
+        $type = 'blob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
@@ -677,7 +675,7 @@ class InsertEditTest extends AbstractTestCase
             [$type],
         );
 
-        self::assertSame("(Max: 250B)\n", $result);
+        self::assertSame("(Max: 64KiB)\n", $result);
     }
 
     /**

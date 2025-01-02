@@ -606,13 +606,13 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 2
+			count: 1
 			path: src/Config.php
 
 		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
-			count: 2
+			count: 1
 			path: src/Config.php
 
 		-
@@ -2083,12 +2083,6 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/ImportController.php
-
-		-
 			message: '#^Parameter \#2 \$db of static method PhpMyAdmin\\Database\\MultiTableQuery\:\:displayResults\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3055,15 +3049,6 @@ parameters:
 			path: src/Controllers/Preferences/MainPanelController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 1
@@ -3285,12 +3270,6 @@ parameters:
 		-
 			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
 			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Server/ImportController.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
 			count: 1
 			path: src/Controllers/Server/ImportController.php
 
@@ -3951,12 +3930,6 @@ parameters:
 		-
 			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
 			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Table/ImportController.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
 			count: 1
 			path: src/Controllers/Table/ImportController.php
 
@@ -8991,12 +8964,6 @@ parameters:
 		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
 			count: 1
 			path: src/InsertEdit.php
 
@@ -19419,7 +19386,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 34
+			count: 33
 			path: tests/unit/InsertEditTest.php
 
 		-

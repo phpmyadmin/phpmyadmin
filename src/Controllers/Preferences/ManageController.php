@@ -246,7 +246,7 @@ final class ManageController implements InvocableController
 
         $this->response->render('preferences/manage/main', [
             'error' => $error instanceof Message ? $error->getDisplay() : '',
-            'max_upload_size' => Config::getInstance()->get('max_upload_size'),
+            'max_upload_size' => Util::getUploadSizeInBytes(),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')
                 && ! @file_exists(CONFIG_FILE),
         ]);
