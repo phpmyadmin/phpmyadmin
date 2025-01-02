@@ -52,6 +52,8 @@ final class TokenRequestParamCheckingTest extends TestCase
         $dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
         DatabaseInterface::$instance = $dbi;
 
+        $_SESSION[' PMA_token '] = 'token';
+
         $responseRenderer = ResponseRenderer::getInstance();
         $responseRenderer->setAjax(true);
 
