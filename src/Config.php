@@ -161,7 +161,6 @@ class Config
      */
     public function checkSystem(): void
     {
-        $this->checkWebServerOs();
         $this->checkGd2();
         $this->checkClient();
         $this->checkUpload();
@@ -314,25 +313,15 @@ class Config
         $this->set('PMA_IS_GD2', 0);
     }
 
-    /**
-     * Whether the os php is running on is windows or not
-     */
-    public function checkWebServerOs(): void
+    public function isWindows(): bool
     {
-        // Default to Unix or Equiv
-        $this->set('PMA_IS_WINDOWS', false);
-        // If PHP_OS is defined then continue
-        if (! defined('PHP_OS')) {
-            return;
-        }
-
         if (stripos(PHP_OS, 'win') !== false && stripos(PHP_OS, 'darwin') === false) {
             // Is it some version of Windows
-            $this->set('PMA_IS_WINDOWS', true);
-        } elseif (stripos(PHP_OS, 'OS/2') !== false) {
-            // Is it OS/2 (No file permissions like Windows)
-            $this->set('PMA_IS_WINDOWS', true);
+            return true;
         }
+
+        // Is it OS/2 (No file permissions like Windows)
+        return stripos(PHP_OS, 'OS/2') !== false;
     }
 
     /**
@@ -617,8 +606,7 @@ class Config
         }
 
         // This check is normally done after loading configuration
-        $this->checkWebServerOs();
-        if ($this->get('PMA_IS_WINDOWS') === true) {
+        if ($this->isWindows()) {
             return;
         }
 
