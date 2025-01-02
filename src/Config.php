@@ -283,13 +283,13 @@ class Config
      */
     public function checkGd2(): void
     {
-        if ($this->get('GD2Available') === 'yes') {
+        if ($this->config->GD2Available === 'yes') {
             $this->set('PMA_IS_GD2', 1);
 
             return;
         }
 
-        if ($this->get('GD2Available') === 'no') {
+        if ($this->config->GD2Available === 'no') {
             $this->set('PMA_IS_GD2', 0);
 
             return;
