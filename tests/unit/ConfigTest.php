@@ -144,39 +144,26 @@ PHP;
     public function testCheckGd2(): void
     {
         $this->object->set('GD2Available', 'yes');
-        $this->object->checkGd2();
-        self::assertSame(1, $this->object->get('PMA_IS_GD2'));
+        self::assertTrue($this->object->isGd2Available());
 
         $this->object->set('GD2Available', 'no');
-        $this->object->checkGd2();
-        self::assertSame(0, $this->object->get('PMA_IS_GD2'));
+        self::assertFalse($this->object->isGd2Available());
 
         $this->object->set('GD2Available', 'auto');
 
         if (! function_exists('imagecreatetruecolor')) {
-            $this->object->checkGd2();
-            self::assertSame(
-                0,
-                $this->object->get('PMA_IS_GD2'),
-                'imagecreatetruecolor does not exist, PMA_IS_GD2 should be 0',
+            self::assertFalse(
+                $this->object->isGd2Available(),
+                'imagecreatetruecolor does not exist, isGd2 should be false',
             );
         }
 
         if (function_exists('gd_info')) {
-            $this->object->checkGd2();
             $gdNfo = gd_info();
             if (str_contains($gdNfo['GD Version'], '2.')) {
-                self::assertSame(
-                    1,
-                    $this->object->get('PMA_IS_GD2'),
-                    'GD Version >= 2, PMA_IS_GD2 should be 1',
-                );
+                self::assertTrue($this->object->isGd2Available(), 'GD Version >= 2, isGd2 should be true');
             } else {
-                self::assertSame(
-                    0,
-                    $this->object->get('PMA_IS_GD2'),
-                    'GD Version < 2, PMA_IS_GD2 should be 0',
-                );
+                self::assertFalse($this->object->isGd2Available(), 'GD Version < 2, isGd2 should be false');
             }
         }
 
@@ -191,17 +178,9 @@ PHP;
 
         // TODO: The variable $v clearly is incorrect. Was this meant to be $a?
         if (str_contains($v, '2.')) {
-            self::assertSame(
-                1,
-                $this->object->get('PMA_IS_GD2'),
-                'PMA_IS_GD2 should be 1',
-            );
+            self::assertTrue($this->object->isGd2Available(), 'isGd2 should be true');
         } else {
-            self::assertSame(
-                0,
-                $this->object->get('PMA_IS_GD2'),
-                'PMA_IS_GD2 should be 0',
-            );
+            self::assertFalse($this->object->isGd2Available(), 'isGd2 should be false');
         }
     }
 
