@@ -124,7 +124,7 @@ class SqlQueryForm
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
+            'allow_shared_bookmarks' => $this->config->config->AllowSharedBookmarks,
         ]);
     }
 

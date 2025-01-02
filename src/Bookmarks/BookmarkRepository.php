@@ -49,7 +49,7 @@ final class BookmarkRepository
             return false;
         }
 
-        if (! $this->config->settings['AllowSharedBookmarks']) {
+        if (! $this->config->config->AllowSharedBookmarks) {
             $shared = false;
         }
 
@@ -78,7 +78,7 @@ final class BookmarkRepository
             return [];
         }
 
-        $exactUserMatch = ! $this->config->settings['AllowSharedBookmarks'];
+        $exactUserMatch = ! $this->config->config->AllowSharedBookmarks;
 
         $query = 'SELECT * FROM ' . Util::backquote($this->bookmarkFeature->database)
             . '.' . Util::backquote($this->bookmarkFeature->bookmark)
@@ -123,7 +123,7 @@ final class BookmarkRepository
         if ($user !== null) {
             $query .= ' AND (user = ' . $this->dbi->quoteString($user);
 
-            $exactUserMatch = ! $this->config->settings['AllowSharedBookmarks'];
+            $exactUserMatch = ! $this->config->config->AllowSharedBookmarks;
             if (! $exactUserMatch) {
                 $query .= " OR user = ''";
             }
