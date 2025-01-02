@@ -15,12 +15,12 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Setup\SetupHelper;
 use PhpMyAdmin\Template;
-use stdClass;
 
 use function __;
 use function explode;
 use function file_exists;
 use function implode;
+use function is_array;
 use function json_decode;
 use function json_encode;
 use function sprintf;
@@ -56,14 +56,13 @@ final class ValidateController implements InvocableController
         $vids = explode(',', $id);
 
         $valuesParam = $request->getParsedBodyParamAsString('values', '');
-        $values = json_decode($valuesParam);
-        if (! $values instanceof stdClass) {
+        $values = json_decode($valuesParam, true);
+        if (! is_array($values)) {
             return $response->write((string) json_encode(['success' => false, 'message' => __('Wrong data')]));
         }
 
         $configFile = SetupHelper::createConfigFile();
 
-        $values = (array) $values;
         $result = Validator::validate($configFile, $vids, $values, true);
         if ($result === false) {
             $result = sprintf(
