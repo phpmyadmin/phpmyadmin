@@ -6736,10 +6736,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['csv_null']]]></code>
-      <code><![CDATA[$GLOBALS['csv_removeCRLF']]]></code>
-      <code><![CDATA[$GLOBALS['excel_columns']]]></code>
-      <code><![CDATA[$GLOBALS['excel_null']]]></code>
-      <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
@@ -6778,9 +6774,80 @@
       <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
       <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
     </PossiblyNullOperand>
+    <RedundantCondition>
+      <code><![CDATA[$GLOBALS['csv_removeCRLF']]]></code>
+      <code><![CDATA[isset($GLOBALS['csv_removeCRLF']) && $GLOBALS['csv_removeCRLF']]]></code>
+    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($GLOBALS['csv_terminated'])]]></code>
     </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Plugins/Export/ExportExcel.php">
+    <DeprecatedMethod>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+    </DeprecatedMethod>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['excel_columns']]]></code>
+      <code><![CDATA[$GLOBALS['excel_columns']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_null']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$GLOBALS['excel_terminated']]]></code>
+    </InvalidArrayOffset>
+    <MixedArgument>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$colAs]]></code>
+    </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$insertFields]]></code>
+      <code><![CDATA[$insertValues]]></code>
+    </MixedArgumentTypeCoercion>
+    <MixedAssignment>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$GLOBALS['excel_terminated']]]></code>
+      <code><![CDATA[$colAs]]></code>
+      <code><![CDATA[$insertFields[]]]></code>
+      <code><![CDATA[$insertValues[]]]></code>
+    </MixedAssignment>
+    <MixedOperand>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_terminated']]]></code>
+      <code><![CDATA[$GLOBALS['excel_terminated']]]></code>
+    </MixedOperand>
+    <PossiblyNullArgument>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+    </PossiblyNullArgument>
+    <RedundantCondition>
+      <code><![CDATA[$GLOBALS['excel_removeCRLF']]]></code>
+      <code><![CDATA[isset($GLOBALS['excel_removeCRLF']) && $GLOBALS['excel_removeCRLF']]]></code>
+    </RedundantCondition>
   </file>
   <file src="src/Plugins/Export/ExportHtmlword.php">
     <DeprecatedMethod>
@@ -12777,6 +12844,12 @@
     <DocblockTypeContradiction>
       <code><![CDATA[assertSame]]></code>
     </DocblockTypeContradiction>
+    <InvalidArrayOffset>
+      <code><![CDATA[$GLOBALS['excel_enclosed']]]></code>
+      <code><![CDATA[$GLOBALS['excel_escaped']]]></code>
+      <code><![CDATA[$GLOBALS['excel_separator']]]></code>
+      <code><![CDATA[$GLOBALS['excel_terminated']]]></code>
+    </InvalidArrayOffset>
     <RedundantCondition>
       <code><![CDATA[assertFalse]]></code>
       <code><![CDATA[assertSame]]></code>

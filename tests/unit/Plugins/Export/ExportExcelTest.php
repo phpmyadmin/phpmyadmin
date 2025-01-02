@@ -7,7 +7,6 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
-use PhpMyAdmin\Plugins\Export\ExportCsv;
 use PhpMyAdmin\Plugins\Export\ExportExcel;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -27,7 +26,6 @@ use function ob_get_clean;
 use function ob_start;
 
 #[CoversClass(ExportExcel::class)]
-#[CoversClass(ExportCsv::class)]
 #[Medium]
 class ExportExcelTest extends AbstractTestCase
 {
@@ -199,13 +197,13 @@ class ExportExcelTest extends AbstractTestCase
             $this->object->exportHeader(),
         );
 
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
+        self::assertSame("\015\012", $GLOBALS['excel_terminated']);
 
-        self::assertSame(';', $GLOBALS['csv_separator']);
+        self::assertSame(';', $GLOBALS['excel_separator']);
 
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
+        self::assertSame('"', $GLOBALS['excel_enclosed']);
 
-        self::assertSame('"', $GLOBALS['csv_escaped']);
+        self::assertSame('"', $GLOBALS['excel_escaped']);
 
         self::assertTrue($GLOBALS['excel_columns']);
 
@@ -219,13 +217,13 @@ class ExportExcelTest extends AbstractTestCase
             $this->object->exportHeader(),
         );
 
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
+        self::assertSame("\015\012", $GLOBALS['excel_terminated']);
 
-        self::assertSame(';', $GLOBALS['csv_separator']);
+        self::assertSame(';', $GLOBALS['excel_separator']);
 
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
+        self::assertSame('"', $GLOBALS['excel_enclosed']);
 
-        self::assertSame('"', $GLOBALS['csv_escaped']);
+        self::assertSame('"', $GLOBALS['excel_escaped']);
 
         self::assertFalse($GLOBALS['excel_columns']);
 
@@ -237,13 +235,13 @@ class ExportExcelTest extends AbstractTestCase
             $this->object->exportHeader(),
         );
 
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
+        self::assertSame("\015\012", $GLOBALS['excel_terminated']);
 
-        self::assertSame(',', $GLOBALS['csv_separator']);
+        self::assertSame(',', $GLOBALS['excel_separator']);
 
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
+        self::assertSame('"', $GLOBALS['excel_enclosed']);
 
-        self::assertSame('"', $GLOBALS['csv_escaped']);
+        self::assertSame('"', $GLOBALS['excel_escaped']);
 
         self::assertFalse($GLOBALS['excel_columns']);
 
@@ -262,8 +260,8 @@ class ExportExcelTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['csv_columns'] = true;
-        $GLOBALS['csv_terminated'] = ';';
+        $GLOBALS['excel_columns'] = true;
+        $GLOBALS['excel_terminated'] = ';';
 
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
@@ -287,8 +285,8 @@ class ExportExcelTest extends AbstractTestCase
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['asfile'] = true;
         $GLOBALS['save_on_server'] = false;
-        $GLOBALS['csv_enclosed'] = '';
-        $GLOBALS['csv_separator'] = '';
+        $GLOBALS['excel_enclosed'] = '';
+        $GLOBALS['excel_separator'] = '';
 
         ob_start();
         self::assertTrue($this->object->exportData(
@@ -304,8 +302,8 @@ class ExportExcelTest extends AbstractTestCase
         );
 
         // case 3
-        $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['csv_escaped'] = '';
+        $GLOBALS['excel_enclosed'] = '"';
+        $GLOBALS['excel_escaped'] = '';
 
         ob_start();
         self::assertTrue($this->object->exportData(
@@ -322,9 +320,9 @@ class ExportExcelTest extends AbstractTestCase
         );
 
         // case 4
-        $GLOBALS['csv_enclosed'] = '"';
+        $GLOBALS['excel_enclosed'] = '"';
         $GLOBALS['excel_removeCRLF'] = true;
-        $GLOBALS['csv_escaped'] = '"';
+        $GLOBALS['excel_escaped'] = '"';
 
         ob_start();
         self::assertTrue($this->object->exportData(

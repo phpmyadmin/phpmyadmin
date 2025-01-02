@@ -22,7 +22,6 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use function __;
 use function implode;
 use function mb_strtolower;
-use function preg_replace;
 use function str_replace;
 
 /**
@@ -109,36 +108,17 @@ class ExportCsv extends ExportPlugin
         $GLOBALS['csv_escaped'] ??= null;
 
         // Here we just prepare some values for export
-        if ($this->getName() === 'excel') {
-            $GLOBALS['csv_terminated'] = "\015\012";
-            switch ($GLOBALS['excel_edition']) {
-                case 'win': // as tested on Windows with Excel 2002 and Excel 2007
-                case 'mac_excel2003':
-                    $GLOBALS['csv_separator'] = ';';
-                    break;
-                case 'mac_excel2008':
-                    $GLOBALS['csv_separator'] = ',';
-                    break;
-            }
-
-            $GLOBALS['csv_enclosed'] = '"';
-            $GLOBALS['csv_escaped'] = '"';
-            if (isset($GLOBALS['excel_columns'])) {
-                $GLOBALS['csv_columns'] = true;
-            }
+        if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
+            $GLOBALS['csv_terminated'] = "\n";
         } else {
-            if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
-                $GLOBALS['csv_terminated'] = "\n";
-            } else {
-                $GLOBALS['csv_terminated'] = str_replace(
-                    ['\\r', '\\n', '\\t'],
-                    ["\015", "\012", "\011"],
-                    $GLOBALS['csv_terminated'],
-                );
-            }
-
-            $GLOBALS['csv_separator'] = str_replace('\\t', "\011", $GLOBALS['csv_separator']);
+            $GLOBALS['csv_terminated'] = str_replace(
+                ['\\r', '\\n', '\\t'],
+                ["\015", "\012", "\011"],
+                $GLOBALS['csv_terminated'],
+            );
         }
+
+        $GLOBALS['csv_separator'] = str_replace('\\t', "\011", $GLOBALS['csv_separator']);
 
         return true;
     }
@@ -244,18 +224,10 @@ class ExportCsv extends ExportPlugin
             $insertValues = [];
             foreach ($row as $field) {
                 if ($field === null) {
-                    $insertValues[] = $this->getName() === 'excel' ? $GLOBALS['excel_null'] : $GLOBALS['csv_null'];
+                    $insertValues[] = $GLOBALS['csv_null'];
                 } elseif ($field !== '') {
-                    // always enclose fields
-                    if ($this->getName() === 'excel') {
-                        $field = preg_replace("/\015(\012)?/", "\012", $field);
-                    }
-
                     // remove CRLF characters within field
-                    if (
-                        isset($GLOBALS['excel_removeCRLF']) && $GLOBALS['excel_removeCRLF']
-                        || isset($GLOBALS['csv_removeCRLF']) && $GLOBALS['csv_removeCRLF']
-                    ) {
+                    if (isset($GLOBALS['csv_removeCRLF']) && $GLOBALS['csv_removeCRLF']) {
                         $field = str_replace(
                             ["\r", "\n"],
                             '',
