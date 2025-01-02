@@ -1529,7 +1529,6 @@
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-      <code><![CDATA[$this->config->get('TempDir')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['language_stats'][Current::$lang]]]></code>
@@ -1540,9 +1539,6 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayTypeCoercion>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->config->get('TempDir')]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
@@ -12668,7 +12664,6 @@
       <code><![CDATA[dataProviderPasswordLength]]></code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
