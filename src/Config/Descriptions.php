@@ -96,6 +96,7 @@ class Descriptions
             'CaptchaLoginPublicKey_desc' => __('Enter your public key for the reCAPTCHA service on your domain.'),
             'CaptchaLoginPrivateKey_desc' => __('Enter your private key for your domain reCAPTCHA service.'),
             'CaptchaSiteVerifyURL_desc' => __('Enter your siteverify URL for your reCAPTCHA service.'),
+            'CaptchaExpectedHostname_desc' => __('Enter your domain (without a protocol or trailing slash) for phpMyAdmin.'),
             'CharEditing_desc' => __(
                 'Defines which type of editing controls should be used for CHAR and VARCHAR '
                 . 'columns; [kbd]input[/kbd] - allows limiting of input length, '
@@ -951,6 +952,7 @@ class Descriptions
             'CaptchaLoginPublicKey_name' => __('Public key for reCAPTCHA'),
             'CaptchaLoginPrivateKey_name' => __('Private key for reCAPTCHA'),
             'CaptchaSiteVerifyURL_name' => __('URL for reCAPTCHA siteverify'),
+            'CaptchaExpectedHostname_name' => __('Domain for reCAPTCHA to ensure the captcha request came from phpMyAdmin'),
             'SendErrorReports_name' => __('Send error reports'),
             'ConsoleEnterExecutes_name' => __('Enter executes queries in console'),
             'ZeroConf_name' => __('Enable Zero Configuration mode'),
