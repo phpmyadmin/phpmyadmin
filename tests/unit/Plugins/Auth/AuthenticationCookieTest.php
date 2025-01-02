@@ -585,7 +585,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
-        $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
+        $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
