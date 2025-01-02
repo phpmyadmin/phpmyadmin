@@ -12,7 +12,6 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
@@ -1896,18 +1895,15 @@ class PrivilegesTest extends AbstractTestCase
     public function testGetUserPrivileges(): void
     {
         $mysqliResultStub = $this->createMock(ResultInterface::class);
-        $mysqliStmtStub = $this->createMock(Statement::class);
-        $mysqliStmtStub->expects(self::exactly(2))->method('execute')->willReturn(true);
-        $mysqliStmtStub->expects(self::exactly(2))->method('getResult')->willReturn($mysqliResultStub);
 
         $dbi = $this->createMock(DatabaseInterface::class);
         $dbi->expects(self::once())->method('isMariaDB')->willReturn(true);
 
         $userQuery = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
         $globalPrivQuery = 'SELECT * FROM `mysql`.`global_priv` WHERE `User` = ? AND `Host` = ?;';
-        $dbi->expects(self::exactly(2))->method('prepare')->willReturnMap([
-            [$userQuery, ConnectionType::User, $mysqliStmtStub],
-            [$globalPrivQuery, ConnectionType::User, $mysqliStmtStub],
+        $dbi->expects(self::exactly(2))->method('executeQuery')->willReturnMap([
+            [$userQuery, ['test.user', 'test.host'], ConnectionType::User, $mysqliResultStub],
+            [$globalPrivQuery,['test.user', 'test.host'], ConnectionType::User, $mysqliResultStub],
         ]);
 
         $mysqliResultStub->expects(self::exactly(2))

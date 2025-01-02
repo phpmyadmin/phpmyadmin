@@ -13,7 +13,6 @@ use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Query\Utilities;
@@ -758,17 +757,17 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->assertAllQueriesConsumed();
     }
 
-    public function testPrepare(): void
+    public function testExecuteQuery(): void
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $stmtStub = self::createStub(Statement::class);
+        $resultStub = self::createStub(ResultInterface::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
-        $dummyDbi->expects(self::once())->method('prepare')
-            ->with(self::isType('object'), self::equalTo($query))
-            ->willReturn($stmtStub);
+        $dummyDbi->expects(self::once())->method('executeQuery')
+            ->with(self::isType('object'), self::equalTo($query), self::equalTo(['root', 'localhost']))
+            ->willReturn($resultStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $stmt = $dbi->prepare($query, ConnectionType::ControlUser);
-        self::assertSame($stmtStub, $stmt);
+        $stmt = $dbi->executeQuery($query, ['root', 'localhost'], ConnectionType::ControlUser);
+        self::assertSame($resultStub, $stmt);
     }
 
     /**

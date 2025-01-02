@@ -1712,25 +1712,6 @@ class DatabaseInterface
     }
 
     /**
-     * returns the number of rows returned by last query
-     * used with tryQuery as it accepts false
-     *
-     * @param string $query query to run
-     *
-     * @psalm-return int|numeric-string
-     */
-    public function queryAndGetNumRows(string $query): string|int
-    {
-        $result = $this->tryQuery($query);
-
-        if (! $result) {
-            return 0;
-        }
-
-        return $result->numRows();
-    }
-
-    /**
      * returns last inserted auto_increment id for given $link
      */
     public function insertId(ConnectionType $connectionType = ConnectionType::User): int
@@ -1970,14 +1951,13 @@ class DatabaseInterface
         $this->isPercona = stripos($this->versionComment, 'percona') !== false;
     }
 
-    /**
-     * Prepare an SQL statement for execution.
-     *
-     * @param string $query The query, as a string.
-     */
-    public function prepare(string $query, ConnectionType $connectionType = ConnectionType::User): Statement|null
-    {
-        return $this->extension->prepare($this->connections[$connectionType->value], $query);
+    /** @param list<string> $params */
+    public function executeQuery(
+        string $query,
+        array $params,
+        ConnectionType $connectionType = ConnectionType::User,
+    ): ResultInterface|null {
+        return $this->extension->executeQuery($this->connections[$connectionType->value], $query, $params);
     }
 
     public function getDatabaseList(): ListDatabase

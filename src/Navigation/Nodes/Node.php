@@ -379,13 +379,13 @@ class Node
                 $query = 'SHOW DATABASES ';
                 $query .= $this->getWhereClause('Database', $searchClause);
 
-                return (int) $dbi->queryAndGetNumRows($query);
+                return $this->queryAndGetNumRows($query);
             }
 
             $retval = 0;
             foreach ($this->getDatabasesToSearch($userPrivileges, $searchClause) as $db) {
                 $query = 'SHOW DATABASES LIKE ' . $dbi->quoteString($db);
-                $retval += (int) $dbi->queryAndGetNumRows($query);
+                $retval += $this->queryAndGetNumRows($query);
             }
 
             return $retval;
@@ -830,5 +830,21 @@ class Node
         sort($retval);
 
         return $retval;
+    }
+
+    /**
+     * returns the number of rows returned by last query
+     * used with tryQuery as it accepts false
+     */
+    protected function queryAndGetNumRows(string $query): int
+    {
+        $dbi = DatabaseInterface::getInstance();
+        $result = $dbi->tryQuery($query);
+
+        if ($result === false) {
+            return 0;
+        }
+
+        return (int) $result->numRows();
     }
 }

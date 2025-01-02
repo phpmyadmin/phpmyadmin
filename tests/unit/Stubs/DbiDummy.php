@@ -15,7 +15,6 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -314,7 +313,12 @@ class DbiDummy implements DbiExtension
         $this->dummyQueries = [];
     }
 
-    public function prepare(Connection $connection, string $query): Statement|null
+    /**
+     * Execute a prepared statement and return the result.
+     *
+     * @param list<string> $params
+     */
+    public function executeQuery(Connection $connection, string $query, array $params): ResultInterface|null
     {
         return null;
     }

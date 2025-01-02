@@ -91,11 +91,11 @@ interface DbiExtension
     public function escapeString(Connection $connection, string $string): string;
 
     /**
-     * Prepare an SQL statement for execution.
+     * Execute a prepared statement and return the result.
      *
-     * @param string $query The query, as a string.
+     * @param list<string> $params
      */
-    public function prepare(Connection $connection, string $query): Statement|null;
+    public function executeQuery(Connection $connection, string $query, array $params): ResultInterface|null;
 
     /**
      * Returns the number of warnings from the last query.
