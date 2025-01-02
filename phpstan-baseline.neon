@@ -616,12 +616,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
 			count: 2
@@ -689,6 +683,12 @@ parameters:
 
 		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept non\-empty\-array\<string, mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Config.php
+
+		-
+			message: '#^Property PhpMyAdmin\\Config\:\:\$userPreferences \(''''\|''db''\|''session''\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
