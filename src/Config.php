@@ -504,8 +504,6 @@ class Config
         mixed $newCfgValue,
         string|null $defaultValue = null,
     ): true|Message {
-        $dbi = DatabaseInterface::getInstance();
-        $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = true;
         // use permanent user preferences if possible
         $prefsType = $this->get('user_preferences');
@@ -514,6 +512,8 @@ class Config
                 $defaultValue = Core::arrayRead($cfgPath, $this->default);
             }
 
+            $dbi = DatabaseInterface::getInstance();
+            $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
             $result = $userPreferences->persistOption($cfgPath, $newCfgValue, $defaultValue);
         }
 
