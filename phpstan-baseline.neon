@@ -640,12 +640,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Config\:\:renderCustom\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Config.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7702,6 +7696,12 @@ parameters:
 			path: src/Footer.php
 
 		-
+			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Footer.php
+
+		-
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommonRaw\(\) expects array\<int\|string, bool\|int\|string\>, array\<string, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -8409,6 +8409,12 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
+			count: 1
+			path: src/Header.php
+
+		-
+			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Header.php
 

@@ -44,7 +44,6 @@ use function md5;
 use function min;
 use function mkdir;
 use function ob_end_clean;
-use function ob_get_clean;
 use function ob_start;
 use function parse_url;
 use function preg_match;
@@ -926,42 +925,6 @@ class Config
     public function issetCookie(string $cookieName): bool
     {
         return isset($_COOKIE[$this->getCookieName($cookieName)]);
-    }
-
-    /**
-     * Wrapper for footer/header rendering
-     *
-     * @param string $filename File to check and render
-     * @param string $id       Div ID
-     */
-    private static function renderCustom(string $filename, string $id): string
-    {
-        $retval = '';
-        if (@file_exists($filename)) {
-            $retval .= '<div id="' . $id . '" class="d-print-none">';
-            ob_start();
-            include $filename;
-            $retval .= ob_get_clean();
-            $retval .= '</div>';
-        }
-
-        return $retval;
-    }
-
-    /**
-     * Renders user configured footer
-     */
-    public static function renderFooter(): string
-    {
-        return self::renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
-    }
-
-    /**
-     * Renders user configured footer
-     */
-    public static function renderHeader(): string
-    {
-        return self::renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 
     /**

@@ -37,6 +37,7 @@ use function array_key_exists;
 use function ceil;
 use function count;
 use function explode;
+use function file_exists;
 use function htmlentities;
 use function htmlspecialchars;
 use function implode;
@@ -49,6 +50,8 @@ use function mb_strlen;
 use function mb_strtolower;
 use function mb_substr;
 use function nl2br;
+use function ob_get_clean;
+use function ob_start;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
@@ -1120,6 +1123,26 @@ class Generator
                 $dbi->types->getTypeDescription($value),
                 $value,
             );
+        }
+
+        return $retval;
+    }
+
+    /**
+     * Wrapper for footer/header rendering
+     *
+     * @param string $filename File to check and render
+     * @param string $id       Div ID
+     */
+    public static function renderCustom(string $filename, string $id): string
+    {
+        $retval = '';
+        if (@file_exists($filename)) {
+            $retval .= '<div id="' . $id . '" class="d-print-none">';
+            ob_start();
+            include $filename;
+            $retval .= ob_get_clean();
+            $retval .= '</div>';
         }
 
         return $retval;

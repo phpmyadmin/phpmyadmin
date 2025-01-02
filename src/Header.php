@@ -253,7 +253,7 @@ class Header
             $navigation = (new Navigation($this->template, new Relation($dbi), $dbi, $this->config))->getDisplay();
         }
 
-        $customHeader = Config::renderHeader();
+        $customHeader = self::renderHeader();
 
         // offer to load user preferences from localStorage
         if (
@@ -502,5 +502,13 @@ class Header
     public function getConsole(): Console
     {
         return $this->console;
+    }
+
+    /**
+     * Renders user configured footer
+     */
+    public static function renderHeader(): string
+    {
+        return Generator::renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 }
