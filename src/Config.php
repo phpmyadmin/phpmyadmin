@@ -378,9 +378,9 @@ class Config
      */
     private function setConnectionCollation(): void
     {
-        $collationConnection = $this->get('DefaultConnectionCollation');
+        $collationConnection = $this->config->DefaultConnectionCollation;
         $dbi = DatabaseInterface::getInstance();
-        if (empty($collationConnection) || $collationConnection === $dbi->getDefaultCollation()) {
+        if ($collationConnection === '' || $collationConnection === $dbi->getDefaultCollation()) {
             return;
         }
 
