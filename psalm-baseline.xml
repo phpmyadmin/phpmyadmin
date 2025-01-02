@@ -10558,6 +10558,7 @@
     </PossiblyUnusedMethod>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertIsArray]]></code>
+      <code><![CDATA[assertTrue]]></code>
     </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[stristr(PHP_OS, 'Linux')]]></code>
