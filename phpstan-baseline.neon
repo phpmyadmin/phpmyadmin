@@ -3511,12 +3511,6 @@ parameters:
 			path: src/Controllers/Setup/FormController.php
 
 		-
-			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
-			identifier: ternary.condNotBoolean
-			count: 1
-			path: src/Controllers/Setup/HomeController.php
-
-		-
 			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

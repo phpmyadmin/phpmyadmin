@@ -2179,9 +2179,6 @@
       <code><![CDATA[$id]]></code>
       <code><![CDATA[$id]]></code>
     </MixedArgumentTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('PMA_IS_WINDOWS')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Setup/MainController.php">
     <PossiblyUnusedMethod>

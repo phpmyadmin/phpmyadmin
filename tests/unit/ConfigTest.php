@@ -16,8 +16,6 @@ use PHPUnit\Framework\Attributes\Group;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
-use function define;
-use function defined;
 use function file_put_contents;
 use function function_exists;
 use function gd_info;
@@ -122,16 +120,6 @@ PHP;
         // Teardown
         unlink($tmpConfig);
         self::assertFileDoesNotExist($tmpConfig);
-    }
-
-    /**
-     * Test for CheckSystem
-     */
-    public function testCheckSystem(): void
-    {
-        $this->object->checkSystem();
-
-        self::assertIsBool($this->object->get('PMA_IS_WINDOWS'));
     }
 
     /**
@@ -322,25 +310,18 @@ PHP;
      */
     public function testCheckWebServerOs(): void
     {
-        $this->object->checkWebServerOs();
+        $isWindows = $this->object->isWindows();
 
-        if (defined('PHP_OS')) {
-            if (stristr(PHP_OS, 'darwin')) {
-                self::assertFalse($this->object->get('PMA_IS_WINDOWS'));
-            } elseif (stristr(PHP_OS, 'win')) {
-                self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
-            } elseif (stristr(PHP_OS, 'OS/2')) {
-                self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
-            } elseif (stristr(PHP_OS, 'Linux')) {
-                self::assertFalse($this->object->get('PMA_IS_WINDOWS'));
-            } else {
-                self::markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
-            }
+        if (stristr(PHP_OS, 'darwin')) {
+            self::assertFalse($isWindows);
+        } elseif (stristr(PHP_OS, 'win')) {
+            self::assertTrue($isWindows);
+        } elseif (stristr(PHP_OS, 'OS/2')) {
+            self::assertTrue($isWindows);
+        } elseif (stristr(PHP_OS, 'Linux')) {
+            self::assertFalse($isWindows);
         } else {
-            self::assertSame(0, $this->object->get('PMA_IS_WINDOWS'));
-
-            define('PHP_OS', 'Windows');
-            self::assertTrue($this->object->get('PMA_IS_WINDOWS'));
+            self::markTestIncomplete('Not known PHP_OS: ' . PHP_OS);
         }
     }
 
