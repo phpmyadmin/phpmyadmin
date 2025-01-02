@@ -45,7 +45,7 @@ abstract class InlineTransformationsPlugin extends TransformationsPlugin
         $cfg = $config->settings;
         $options = $this->getOptions($options, $cfg['DefaultTransformations']['Inline']);
 
-        if ($config->get('PMA_IS_GD2') === 1) {
+        if ($config->isGd2Available()) {
             return '<a href="' . Url::getFromRoute('/transformation/wrapper', $options['wrapper_params'])
                 . '" rel="noopener noreferrer" target="_blank"><img src="'
                 . Url::getFromRoute('/transformation/wrapper', array_merge($options['wrapper_params'], [

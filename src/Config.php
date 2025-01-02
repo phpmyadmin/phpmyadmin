@@ -159,7 +159,6 @@ class Config
      */
     public function checkSystem(): void
     {
-        $this->checkGd2();
         $this->checkOutputCompression();
     }
 
@@ -182,39 +181,27 @@ class Config
         $this->set('OBGzip', true);
     }
 
-    /**
-     * Whether GD2 is present
-     */
-    public function checkGd2(): void
+    public function isGd2Available(): bool
     {
         if ($this->config->GD2Available === 'yes') {
-            $this->set('PMA_IS_GD2', 1);
-
-            return;
+            return true;
         }
 
         if ($this->config->GD2Available === 'no') {
-            $this->set('PMA_IS_GD2', 0);
-
-            return;
+            return false;
         }
 
         if (! function_exists('imagecreatetruecolor')) {
-            $this->set('PMA_IS_GD2', 0);
-
-            return;
+            return false;
         }
 
         if (function_exists('gd_info')) {
-            $gdInfo = gd_info();
-            if (str_contains($gdInfo['GD Version'], '2.')) {
-                $this->set('PMA_IS_GD2', 1);
-
-                return;
+            if (str_contains(gd_info()['GD Version'], '2.')) {
+                return true;
             }
         }
 
-        $this->set('PMA_IS_GD2', 0);
+        return false;
     }
 
     public function isWindows(): bool

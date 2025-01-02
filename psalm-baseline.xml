@@ -184,9 +184,9 @@
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$gdInfo['GD Version']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
+      <code><![CDATA[gd_info()['GD Version']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
