@@ -73,7 +73,6 @@ final class ReplaceController implements InvocableController
         $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['query'] ??= null;
 
         $this->dbi->selectDb(Current::$database);
 
@@ -103,7 +102,7 @@ final class ReplaceController implements InvocableController
 
         $isInsertignore = $request->getParsedBodyParam('submit_type') === 'insertignore';
 
-        $GLOBALS['query'] = [];
+        $query = [];
         $valueSets = [];
 
         $mimeMap = $this->transformations->getMime(Current::$database, Current::$table) ?? [];
@@ -255,7 +254,7 @@ final class ReplaceController implements InvocableController
             } else {
                 // build update query
                 $clauseIsUnique = $request->getParam('clause_is_unique', '');// Should contain 0 or 1
-                $GLOBALS['query'][] = 'UPDATE ' . Util::backquote(Current::$table)
+                $query[] = 'UPDATE ' . Util::backquote(Current::$table)
                     . ' SET ' . implode(', ', $queryValues)
                     . ' WHERE ' . $whereClause
                     . ($clauseIsUnique ? '' : ' LIMIT 1');
@@ -279,13 +278,13 @@ final class ReplaceController implements InvocableController
 
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
-            $GLOBALS['query'] = (array) QueryGenerator::buildInsertSqlQuery(
+            $query = (array) QueryGenerator::buildInsertSqlQuery(
                 Current::$table,
                 $isInsertignore,
                 $queryFields,
                 $valueSets,
             );
-        } elseif (empty($GLOBALS['query']) && ! $request->hasBodyParam('preview_sql') && ! $rowSkipped) {
+        } elseif ($query === [] && ! $request->hasBodyParam('preview_sql') && ! $rowSkipped) {
             // No change -> move back to the calling script
             //
             // Note: logic passes here for inline edit
@@ -300,7 +299,7 @@ final class ReplaceController implements InvocableController
 
         // If there is a request for SQL previewing.
         if ($request->hasBodyParam('preview_sql')) {
-            Core::previewSQL($GLOBALS['query']);
+            Core::previewSQL($query);
 
             return $this->response->response();
         }
@@ -320,7 +319,7 @@ final class ReplaceController implements InvocableController
             $lastMessages,
             $warningMessages,
             $errorMessages,
-        ] = $this->insertEdit->executeSqlQuery($GLOBALS['query']);
+        ] = $this->insertEdit->executeSqlQuery($query);
 
         if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
             Current::$message = Message::getMessageForInsertedRows($totalAffectedRows);
