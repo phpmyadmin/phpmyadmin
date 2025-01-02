@@ -96,7 +96,7 @@ class Config
     /** @var int<0, max> */
     public int $server = 0;
 
-    /** @var array<string,string|null> $tempDir */
+    /** @var array<string,string> $tempDir */
     private static array $tempDir = [];
 
     private bool $hasSelectedServer = false;
@@ -976,17 +976,17 @@ class Config
         }
 
         $path = $this->get('TempDir');
-        if (empty($path)) {
-            $path = null;
-        } else {
-            $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
-            if (! @is_dir($path)) {
-                @mkdir($path, 0770, true);
-            }
+        if (! is_string($path) || $path === '') {
+            return null;
+        }
 
-            if (! @is_dir($path) || ! @is_writable($path)) {
-                $path = null;
-            }
+        $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $name;
+        if (! @is_dir($path)) {
+            @mkdir($path, 0770, true);
+        }
+
+        if (! @is_dir($path) || ! @is_writable($path)) {
+            return null;
         }
 
         self::$tempDir[$name] = $path;
