@@ -140,25 +140,17 @@ class Config
      *
      * @throws ConfigException
      */
-    public function loadAndCheck(string|null $source = null): void
+    public function loadFromFile(string|null $source = null): void
     {
         if ($source !== null) {
             $this->setSource($source);
         }
 
-        $this->load();
-
-        // other settings, independent of config file, comes in
-        $this->checkSystem();
+        if ($this->configFileExists()) {
+            $this->load();
+        }
 
         $this->baseSettings = $this->settings;
-    }
-
-    /**
-     * sets system and application settings
-     */
-    public function checkSystem(): void
-    {
     }
 
     public function isGd2Available(): bool
@@ -201,12 +193,8 @@ class Config
      *
      * @throws ConfigException
      */
-    public function load(): bool
+    private function load(): void
     {
-        if (! $this->configFileExists()) {
-            return false;
-        }
-
         /** @var mixed $cfg */
         $cfg = [];
 
@@ -226,12 +214,12 @@ class Config
 
         $this->sourceMtime = (int) filemtime($this->source);
 
-        if (is_array($cfg)) {
-            $this->config = new Settings($cfg);
-            $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
+        if (! is_array($cfg)) {
+            return;
         }
 
-        return true;
+        $this->config = new Settings($cfg);
+        $this->settings = array_replace_recursive($this->settings, $this->config->asArray());
     }
 
     /**

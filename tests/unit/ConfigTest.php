@@ -62,12 +62,12 @@ class ConfigTest extends AbstractTestCase
         $_SESSION['is_git_revision'] = true;
         Config::$instance = null;
         $config = Config::getInstance();
-        $config->loadAndCheck(CONFIG_FILE);
+        $config->loadFromFile(CONFIG_FILE);
         $config->settings['ProxyUrl'] = '';
 
         //for testing file permissions
         $this->permTestObj = new Config();
-        $this->permTestObj->loadAndCheck(ROOT_PATH . 'config.sample.inc.php');
+        $this->permTestObj->loadFromFile(ROOT_PATH . 'config.sample.inc.php');
     }
 
     /**
@@ -96,7 +96,7 @@ class ConfigTest extends AbstractTestCase
 
         // Test loading an empty file does not change the default config
         $config = new Config();
-        $config->loadAndCheck($tmpConfig);
+        $config->loadFromFile($tmpConfig);
         self::assertSame($defaultConfig->settings, $config->settings);
         self::assertEquals($defaultConfig->getSettings(), $config->getSettings());
 
@@ -109,7 +109,7 @@ PHP;
 
         // Test loading a config changes the setup
         $config = new Config();
-        $config->loadAndCheck($tmpConfig);
+        $config->loadFromFile($tmpConfig);
         $defaultConfig->set('environment', 'development');
         self::assertSame($defaultConfig->settings, $config->settings);
         self::assertArrayHasKey('environment', $config->settings);
@@ -198,18 +198,6 @@ PHP;
         self::assertSame($config, $object->default);
         self::assertSame($config, $object->settings);
         self::assertSame($config, $object->baseSettings);
-    }
-
-    /**
-     * test for CheckConfigSource
-     */
-    public function testConfigFileExists(): void
-    {
-        $this->object->setSource('unexisted.config.php');
-        self::assertFalse($this->object->configFileExists());
-
-        $this->object->setSource(__DIR__ . '/../test_data/config.inc.php');
-        self::assertTrue($this->object->configFileExists());
     }
 
     /**
@@ -360,24 +348,14 @@ PHP;
         ];
     }
 
-    /**
-     * Tests loading of config file
-     *
-     * @param string $source File name of config to load
-     * @param bool   $result Expected result of loading
-     */
     #[DataProvider('configPaths')]
-    public function testLoad(string $source, bool $result): void
+    public function testConfigFileExists(string $source, bool $result): void
     {
         $this->object->setSource($source);
-        self::assertSame($result, $this->object->load());
+        self::assertSame($result, $this->object->configFileExists());
     }
 
-    /**
-     * return of config Paths
-     *
-     * @return array<array{string, bool}>
-     */
+    /** @return array<array{string, bool}> */
     public static function configPaths(): array
     {
         return [
