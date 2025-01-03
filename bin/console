@@ -28,7 +28,7 @@ if (! class_exists(Application::class)) {
 $containerBuilder = ContainerBuilder::getContainer();
 $cfg['environment'] = 'production';
 $config = new Config();
-$config->loadAndCheck(CONFIG_FILE);
+$config->loadFromFile(CONFIG_FILE);
 $config->set('environment', $cfg['environment']);
 $dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
 
