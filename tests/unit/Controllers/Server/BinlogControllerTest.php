@@ -35,7 +35,7 @@ class BinlogControllerTest extends AbstractTestCase
 
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
-        $config->settings['ServerDefault'] = 'server';
+        $config->set('ServerDefault', 0);
         $config->selectedServer['DisableIS'] = false;
 
         Current::$database = 'db';
