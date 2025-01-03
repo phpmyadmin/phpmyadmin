@@ -159,26 +159,6 @@ class Config
      */
     public function checkSystem(): void
     {
-        $this->checkOutputCompression();
-    }
-
-    /**
-     * whether to use gzip output compression or not
-     */
-    public function checkOutputCompression(): void
-    {
-        // If zlib output compression is set in the php configuration file, no
-        // output buffering should be run
-        if (ini_get('zlib.output_compression')) {
-            $this->set('OBGzip', false);
-        }
-
-        // enable output-buffering (if set to 'auto')
-        if ($this->config->OBGzip !== 'auto') {
-            return;
-        }
-
-        $this->set('OBGzip', true);
     }
 
     public function isGd2Available(): bool

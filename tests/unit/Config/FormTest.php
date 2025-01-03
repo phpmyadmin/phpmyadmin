@@ -89,11 +89,6 @@ class FormTest extends AbstractTestCase
             $this->object->getOptionValueList('Export/codegen_format'),
         );
 
-        self::assertEquals(
-            ['auto' => 'auto', '1' => 1, '0' => 0],
-            $this->object->getOptionValueList('OBGzip'),
-        );
-
         self::assertSame(
             ['none' => 'Nowhere', 'left' => 'Left', 'right' => 'Right', 'both' => 'Both'],
             $this->object->getOptionValueList('RowActionLinks'),
