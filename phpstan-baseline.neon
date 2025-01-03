@@ -604,12 +604,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
@@ -2089,12 +2083,6 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/ImportController.php
-
-		-
 			message: '#^Parameter \#2 \$db of static method PhpMyAdmin\\Database\\MultiTableQuery\:\:displayResults\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3310,12 +3298,6 @@ parameters:
 			path: src/Controllers/Server/ImportController.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Controllers/Server/ImportController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 3
@@ -3679,12 +3661,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#2 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditFormHeader\(\) expects bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3692,12 +3668,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$currentResult of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects PhpMyAdmin\\Dbal\\ResultInterface, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#7 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -3996,12 +3966,6 @@ parameters:
 		-
 			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
 			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Table/ImportController.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
 			count: 1
 			path: src/Controllers/Table/ImportController.php
 

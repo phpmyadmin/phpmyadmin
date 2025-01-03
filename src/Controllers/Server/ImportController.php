@@ -96,7 +96,7 @@ final class ImportController implements InvocableController
             'skip_queries_default' => $skipQueriesDefault,
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
-            'is_upload' => $config->get('enable_upload'),
+            'is_upload' => $config->isUploadEnabled(),
             'upload_dir' => $config->settings['UploadDir'] ?? null,
             'timeout_passed_global' => ImportSettings::$timeoutPassed,
             'compressions' => $compressions,
