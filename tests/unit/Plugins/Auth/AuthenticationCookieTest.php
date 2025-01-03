@@ -107,7 +107,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         AuthenticationCookie::$authServer = 'localhost';
 
         AuthenticationCookie::$connectionError = 'Error';
-        $config->settings['Lang'] = 'en';
+        $config->set('Lang', 'en');
         $config->settings['AllowArbitraryServer'] = true;
         $config->settings['CaptchaApi'] = '';
         $config->settings['CaptchaRequestParam'] = '';
@@ -169,7 +169,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LoginCookieRecall'] = false;
 
-        $config->settings['Lang'] = '';
+        $config->set('Lang', '');
         $config->settings['AllowArbitraryServer'] = false;
         $config->settings['Servers'] = [1];
         $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
@@ -224,7 +224,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LoginCookieRecall'] = false;
 
-        $config->settings['Lang'] = '';
+        $config->set('Lang', '');
         $config->settings['AllowArbitraryServer'] = false;
         $config->settings['Servers'] = [1];
         $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
