@@ -103,9 +103,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
     <UnusedClass>
       <code><![CDATA[CacheWarmupCommand]]></code>
     </UnusedClass>

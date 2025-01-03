@@ -35,14 +35,14 @@ final class RoutingTest extends AbstractTestCase
 {
     public function testGetDispatcherWithDevEnv(): void
     {
-        Config::getInstance()->settings['environment'] = 'development';
+        Config::getInstance()->set('environment', 'development');
         $expected = [Dispatcher::FOUND, HomeController::class, []];
         self::assertSame($expected, Routing::getDispatcher()->dispatch('GET', '/'));
     }
 
     public function testGetDispatcherWithValidCacheFile(): void
     {
-        Config::getInstance()->settings['environment'] = 'production';
+        Config::getInstance()->set('environment', 'production');
         $_SESSION['isRoutesCacheFileValid'] = true;
 
         self::assertDirectoryIsWritable(CACHE_DIR);
@@ -58,7 +58,7 @@ final class RoutingTest extends AbstractTestCase
 
     public function testGetDispatcherWithInvalidCacheFile(): void
     {
-        Config::getInstance()->settings['environment'] = 'production';
+        Config::getInstance()->set('environment', 'production');
         $_SESSION['isRoutesCacheFileValid'] = null;
 
         self::assertDirectoryIsWritable(CACHE_DIR);
@@ -77,7 +77,7 @@ final class RoutingTest extends AbstractTestCase
 
     public function testGetDispatcherWithNoCacheFile(): void
     {
-        Config::getInstance()->settings['environment'] = 'production';
+        Config::getInstance()->set('environment', 'production');
         $_SESSION['isRoutesCacheFileValid'] = null;
 
         self::assertDirectoryIsWritable(CACHE_DIR);

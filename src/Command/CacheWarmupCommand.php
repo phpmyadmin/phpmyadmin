@@ -120,8 +120,7 @@ final class CacheWarmupCommand extends Command
         $output->writeln('Warming up the twig cache', OutputInterface::VERBOSITY_VERBOSE);
         $config = Config::getInstance();
         $config->loadFromFile(CONFIG_FILE);
-        $config->settings['environment'] = $environment;
-        $config->set('environment', $config->settings['environment']);
+        $config->set('environment', $environment);
         DatabaseInterface::$instance = DatabaseInterface::getInstanceForTest(new DbiDummy(), $config);
         $tmpDir = ROOT_PATH . 'twig-templates';
         $twig = Template::getTwigEnvironment($tmpDir, $config->config->environment === 'development');
