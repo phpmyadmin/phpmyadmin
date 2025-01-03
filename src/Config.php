@@ -473,18 +473,6 @@ class Config
     }
 
     /**
-     * returns specific config setting
-     *
-     * @param string $setting config setting
-     *
-     * @return mixed|null value
-     */
-    public function get(string $setting): mixed
-    {
-        return $this->settings[$setting] ?? null;
-    }
-
-    /**
      * sets configuration variable
      *
      * @param string $setting configuration option
