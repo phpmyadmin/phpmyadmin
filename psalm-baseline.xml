@@ -9463,9 +9463,6 @@
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/UserPassword.php">
     <DeprecatedMethod>

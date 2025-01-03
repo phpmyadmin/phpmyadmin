@@ -16012,12 +16012,6 @@ parameters:
 			path: src/Url.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Url.php
-
-		-
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommon\(\) expects array\<string, bool\|int\|string\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
