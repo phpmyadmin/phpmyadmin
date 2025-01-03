@@ -493,22 +493,6 @@ final class ExportController implements InvocableController
             $GLOBALS['xkana'] = $postParams['xkana'];
         }
 
-        if (isset($postParams['excel_null'])) {
-            $GLOBALS['excel_null'] = $postParams['excel_null'];
-        }
-
-        if (isset($postParams['excel_removeCRLF'])) {
-            $GLOBALS['excel_removeCRLF'] = $postParams['excel_removeCRLF'];
-        }
-
-        if (isset($postParams['excel_columns'])) {
-            $GLOBALS['excel_columns'] = $postParams['excel_columns'];
-        }
-
-        if (isset($postParams['excel_edition'])) {
-            $GLOBALS['excel_edition'] = $postParams['excel_edition'];
-        }
-
         if (isset($postParams['csv_separator'])) {
             $GLOBALS['csv_separator'] = $postParams['csv_separator'];
         }

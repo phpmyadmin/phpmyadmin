@@ -54,7 +54,6 @@
             display_query: string,
             errno: int,
             error: bool,
-            excel_edition: 'win'|'mac_excel2003'|'mac_excel2008',
             file_handle: resource|null,
             from_cookie: bool,
             hostname: string,

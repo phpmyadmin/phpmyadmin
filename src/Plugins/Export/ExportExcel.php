@@ -22,6 +22,8 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
 use function implode;
+use function in_array;
+use function is_string;
 use function preg_replace;
 use function str_replace;
 
@@ -30,6 +32,16 @@ use function str_replace;
  */
 class ExportExcel extends ExportPlugin
 {
+    /** @var 'win'|'mac_excel2003'|'mac_excel2008' */
+    private string $edition = 'win';
+    private bool $columns = false;
+    private bool $removeCrLf = false;
+    private string $null = 'NULL';
+    private string $separator = ',';
+    private string $enclosed = '"';
+    private string $escaped = '"';
+    private string $terminated = '';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -95,25 +107,20 @@ class ExportExcel extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['excel_separator'] ??= null;
-        $GLOBALS['excel_enclosed'] ??= null;
-        $GLOBALS['excel_escaped'] ??= null;
-
         // Here we just prepare some values for export
-        $GLOBALS['excel_terminated'] = "\015\012";
-        switch ($GLOBALS['excel_edition']) {
+        $this->terminated = "\015\012";
+        switch ($this->edition) {
             case 'win': // as tested on Windows with Excel 2002 and Excel 2007
             case 'mac_excel2003':
-                $GLOBALS['excel_separator'] = ';';
+                $this->separator = ';';
                 break;
             case 'mac_excel2008':
-                $GLOBALS['excel_separator'] = ',';
+                $this->separator = ',';
                 break;
         }
 
-        $GLOBALS['excel_enclosed'] = '"';
-        $GLOBALS['excel_escaped'] = '"';
-        $GLOBALS['excel_columns'] = isset($GLOBALS['excel_columns']) && $GLOBALS['excel_columns'];
+        $this->enclosed = '"';
+        $this->escaped = '"';
 
         return true;
     }
@@ -172,11 +179,6 @@ class ExportExcel extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['excel_terminated'] ??= null;
-        $GLOBALS['excel_separator'] ??= '';
-        $GLOBALS['excel_enclosed'] ??= null;
-        $GLOBALS['excel_escaped'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -188,28 +190,24 @@ class ExportExcel extends ExportPlugin
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['excel_columns']) && $GLOBALS['excel_columns']) {
+        if ($this->columns) {
             $insertFields = [];
             foreach ($result->getFieldNames() as $colAs) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                     $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
-                if ($GLOBALS['excel_enclosed'] == '') {
+                if ($this->enclosed === '') {
                     $insertFields[] = $colAs;
                 } else {
-                    $insertFields[] = $GLOBALS['excel_enclosed']
-                        . str_replace(
-                            $GLOBALS['excel_enclosed'],
-                            $GLOBALS['excel_escaped'] . $GLOBALS['excel_enclosed'],
-                            $colAs,
-                        )
-                        . $GLOBALS['excel_enclosed'];
+                    $insertFields[] = $this->enclosed
+                        . str_replace($this->enclosed, $this->escaped . $this->enclosed, $colAs)
+                        . $this->enclosed;
                 }
             }
 
-            $schemaInsert = implode($GLOBALS['excel_separator'], $insertFields);
-            if (! $this->export->outputHandler($schemaInsert . $GLOBALS['excel_terminated'])) {
+            $schemaInsert = implode($this->separator, $insertFields);
+            if (! $this->export->outputHandler($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -219,13 +217,13 @@ class ExportExcel extends ExportPlugin
             $insertValues = [];
             foreach ($row as $field) {
                 if ($field === null) {
-                    $insertValues[] = $GLOBALS['excel_null'];
+                    $insertValues[] = $this->null;
                 } elseif ($field !== '') {
                     // always enclose fields
                     $field = preg_replace("/\015(\012)?/", "\012", $field);
 
                     // remove CRLF characters within field
-                    if (isset($GLOBALS['excel_removeCRLF']) && $GLOBALS['excel_removeCRLF']) {
+                    if ($this->removeCrLf) {
                         $field = str_replace(
                             ["\r", "\n"],
                             '',
@@ -233,38 +231,34 @@ class ExportExcel extends ExportPlugin
                         );
                     }
 
-                    if ($GLOBALS['excel_enclosed'] == '') {
+                    if ($this->enclosed === '') {
                         $insertValues[] = $field;
-                    } elseif ($GLOBALS['excel_escaped'] != $GLOBALS['excel_enclosed']) {
+                    } elseif ($this->escaped !== $this->enclosed) {
                         // also double the escape string if found in the data
-                        $insertValues[] = $GLOBALS['excel_enclosed']
+                        $insertValues[] = $this->enclosed
                             . str_replace(
-                                $GLOBALS['excel_enclosed'],
-                                $GLOBALS['excel_escaped'] . $GLOBALS['excel_enclosed'],
+                                $this->enclosed,
+                                $this->escaped . $this->enclosed,
                                 str_replace(
-                                    $GLOBALS['excel_escaped'],
-                                    $GLOBALS['excel_escaped'] . $GLOBALS['excel_escaped'],
+                                    $this->escaped,
+                                    $this->escaped . $this->escaped,
                                     $field,
                                 ),
                             )
-                            . $GLOBALS['excel_enclosed'];
+                            . $this->enclosed;
                     } else {
                         // avoid a problem when escape string equals enclose
-                        $insertValues[] = $GLOBALS['excel_enclosed']
-                            . str_replace(
-                                $GLOBALS['excel_enclosed'],
-                                $GLOBALS['excel_escaped'] . $GLOBALS['excel_enclosed'],
-                                $field,
-                            )
-                            . $GLOBALS['excel_enclosed'];
+                        $insertValues[] = $this->enclosed
+                            . str_replace($this->enclosed, $this->escaped . $this->enclosed, $field)
+                            . $this->enclosed;
                     }
                 } else {
                     $insertValues[] = '';
                 }
             }
 
-            $schemaInsert = implode($GLOBALS['excel_separator'], $insertValues);
-            if (! $this->export->outputHandler($schemaInsert . $GLOBALS['excel_terminated'])) {
+            $schemaInsert = implode($this->separator, $insertValues);
+            if (! $this->export->outputHandler($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -295,5 +289,56 @@ class ExportExcel extends ExportPlugin
             $exportConfig['excel_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        $this->edition = $this->setEdition($this->setStringValue(
+            $request->getParsedBodyParam('excel_edition'),
+            $exportConfig['excel_edition'] ?? null,
+        ));
+        $this->columns = (bool) ($request->getParsedBodyParam('excel_columns')
+            ?? $exportConfig['excel_columns'] ?? false);
+        $this->removeCrLf = (bool) ($request->getParsedBodyParam('excel_removeCRLF')
+            ?? $exportConfig['excel_removeCRLF'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('excel_null'),
+            $exportConfig['excel_null'] ?? null,
+        );
+        $this->separator = $this->setStringValue(
+            $request->getParsedBodyParam('excel_separator'),
+            $exportConfig['excel_separator'] ?? null,
+        );
+        $this->enclosed = $this->setStringValue(
+            $request->getParsedBodyParam('excel_enclosed'),
+            $exportConfig['excel_enclosed'] ?? null,
+        );
+        $this->escaped = $this->setStringValue(
+            $request->getParsedBodyParam('excel_escaped'),
+            $exportConfig['excel_escaped'] ?? null,
+        );
+        $this->terminated = $this->setStringValue(
+            $request->getParsedBodyParam('excel_terminated'),
+            $exportConfig['excel_terminated'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
+    }
+
+    /** @return 'win'|'mac_excel2003'|'mac_excel2008' */
+    private function setEdition(string $edition): string
+    {
+        if (in_array($edition, ['mac_excel2003', 'mac_excel2008'], true)) {
+            return $edition;
+        }
+
+        return 'win';
     }
 }

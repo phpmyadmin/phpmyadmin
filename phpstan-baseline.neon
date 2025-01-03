@@ -11539,33 +11539,9 @@ parameters:
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
-			message: '#^Binary operation "\." between mixed and \(list\<string\>\|string\) results in an error\.$#'
+			message: '#^Binary operation "\." between non\-empty\-string and \(list\<string\>\|string\) results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Binary operation "\." between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 4
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Binary operation "\." between mixed and string results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Binary operation "\." between non\-empty\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 3
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Binary operation "\." between string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
 			path: src/Plugins/Export/ExportExcel.php
 
 		-
@@ -11599,36 +11575,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 3
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Parameter \#1 \$search of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Parameter \#1 \$separator of function implode expects array\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Plugins/Export/ExportExcel.php
 
 		-
