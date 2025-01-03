@@ -1505,9 +1505,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/GitInfoController.php">
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1522,9 +1519,6 @@
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['language_stats'][Current::$lang]]]></code>
     </MixedArrayAccess>

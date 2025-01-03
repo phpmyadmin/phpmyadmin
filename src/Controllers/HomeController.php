@@ -213,7 +213,7 @@ final class HomeController implements InvocableController
 
         $this->checkRequirements();
 
-        $git = new Git($this->config->get('ShowGitRevision') ?? true);
+        $git = new Git($this->config->config->ShowGitRevision);
 
         $this->response->render('home/index', [
             'db' => Current::$database,
