@@ -9964,7 +9964,6 @@
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
     </RiskyTruthyFalsyComparison>
