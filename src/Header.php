@@ -237,7 +237,7 @@ class Header
             $this->scripts->addFile('drag_drop_import.js');
         }
 
-        if (! $this->config->get('DisableShortcutKeys')) {
+        if (! $this->config->config->DisableShortcutKeys) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 

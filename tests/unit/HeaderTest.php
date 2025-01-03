@@ -73,7 +73,7 @@ class HeaderTest extends AbstractTestCase
         $config->settings['CodemirrorEnable'] = false;
         $config->set('SendErrorReports', 'never');
         $config->settings['enable_drag_drop_import'] = false;
-        $config->settings['DisableShortcutKeys'] = true;
+        $config->set('DisableShortcutKeys', true);
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $relation = new Relation($dbi);

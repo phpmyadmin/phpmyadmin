@@ -5149,7 +5149,6 @@
       <code><![CDATA[strtolower]]></code>
     </RedundantFunctionCallGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $this->config->get('DisableShortcutKeys')]]></code>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
       <code><![CDATA[empty($this->config->settings['CaptchaApi'])]]></code>
       <code><![CDATA[empty($this->config->settings['CaptchaLoginPrivateKey'])]]></code>

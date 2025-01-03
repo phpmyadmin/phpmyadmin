@@ -8278,12 +8278,6 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Header.php
-
-		-
 			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
