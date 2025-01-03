@@ -14550,17 +14550,11 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 6
+			count: 5
 			path: src/Session.php
 
 		-
 			message: '#^Parameter \#1 \$id of function session_id expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Session.php
-
-		-
-			message: '#^Parameter \#1 \$path of function session_save_path expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Session.php
