@@ -10700,9 +10700,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Controllers/Server/CollationsControllerTest.php">
     <DeprecatedMethod>
