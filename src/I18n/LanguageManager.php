@@ -949,7 +949,7 @@ class LanguageManager
         }
 
         // Fallback to English
-        return $langs[$this->config->get('DefaultLang')] ?? $langs['en'];
+        return $langs[$this->config->config->DefaultLang] ?? $langs['en'];
     }
 
     /**

@@ -5258,18 +5258,9 @@
     <DocblockTypeContradiction>
       <code><![CDATA[$locales]]></code>
     </DocblockTypeContradiction>
-    <MixedArrayOffset>
-      <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$languageFromCookie]]></code>
     </MixedAssignment>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$langs]]></code>
-    </PossiblyNullArrayOffset>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$availableLocales !== false]]></code>
     </RedundantConditionGivenDocblockType>
