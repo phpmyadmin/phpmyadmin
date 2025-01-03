@@ -160,7 +160,6 @@ class Config
     public function checkSystem(): void
     {
         $this->checkGd2();
-        $this->checkUpload();
         $this->checkOutputCompression();
     }
 
@@ -556,25 +555,13 @@ class Config
         return $this->source;
     }
 
-    /**
-     * checks if upload is enabled
-     */
-    public function checkUpload(): void
+    public function isUploadEnabled(): bool
     {
-        if (! ini_get('file_uploads')) {
-            $this->set('enable_upload', false);
+        $iniValue = ini_get('file_uploads');
 
-            return;
-        }
-
-        $this->set('enable_upload', true);
         // if set "php_admin_value file_uploads Off" in httpd.conf
         // ini_get() also returns the string "Off" in this case:
-        if (strtolower(ini_get('file_uploads')) !== 'off') {
-            return;
-        }
-
-        $this->set('enable_upload', false);
+        return $iniValue !== false && $iniValue !== '' && $iniValue !== '0' && strtolower($iniValue) !== 'off';
     }
 
     /**

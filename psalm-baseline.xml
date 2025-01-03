@@ -227,7 +227,6 @@
       <code><![CDATA[$this->settings]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! ini_get('file_uploads')]]></code>
       <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
@@ -2270,7 +2269,6 @@
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
     <MixedArgument>
-      <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
     </MixedArgument>
@@ -2279,12 +2277,8 @@
       <code><![CDATA[$rowId]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$isUpload]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty(Current::$displayMessage)]]></code>
     </RiskyTruthyFalsyComparison>
