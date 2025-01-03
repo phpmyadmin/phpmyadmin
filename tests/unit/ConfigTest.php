@@ -205,11 +205,10 @@ PHP;
      */
     public function testGetAndSet(): void
     {
-        self::assertNull($this->object->get('unresisting_setting'));
-
-        $this->object->set('test_setting', 'test_value');
-
-        self::assertSame('test_value', $this->object->get('test_setting'));
+        $originalValue = $this->object->config->TempDir;
+        $this->object->set('TempDir', 'test_value');
+        self::assertSame('test_value', $this->object->settings['TempDir']);
+        $this->object->set('TempDir', $originalValue);
     }
 
     /**
