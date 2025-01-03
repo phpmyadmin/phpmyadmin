@@ -51,8 +51,8 @@ class ErrorHandlerTest extends AbstractTestCase
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
         $config = Config::getInstance();
-        $config->settings['environment'] = 'production';
-        $config->settings['SendErrorReports'] = 'always';
+        $config->set('environment', 'production');
+        $config->set('SendErrorReports', 'always');
     }
 
     /**
@@ -96,8 +96,8 @@ class ErrorHandlerTest extends AbstractTestCase
         string $expected,
     ): void {
         $config = new Config();
-        $config->settings['environment'] = 'production';
-        $config->settings['SendErrorReports'] = $reportErrorConfig;
+        $config->set('environment', 'production');
+        $config->set('SendErrorReports', $reportErrorConfig);
         Config::$instance = $config;
 
         $error = new Error($errorNumber, $errorMessage, $errorFile, $errorLine);

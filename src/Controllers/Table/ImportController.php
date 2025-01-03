@@ -131,7 +131,7 @@ final class ImportController implements InvocableController
         $options = Plugins::getOptions('Import', $importList);
         $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
-        $maxUploadSize = (int) $config->get('max_upload_size');
+        $maxUploadSize = Util::getUploadSizeInBytes();
 
         $this->response->render('table/import/index', [
             'page_settings_error_html' => $pageSettingsErrorHtml,
@@ -148,7 +148,7 @@ final class ImportController implements InvocableController
             'skip_queries_default' => $skipQueriesDefault,
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
-            'is_upload' => $config->get('enable_upload'),
+            'is_upload' => $config->isUploadEnabled(),
             'upload_dir' => $config->settings['UploadDir'] ?? null,
             'timeout_passed_global' => ImportSettings::$timeoutPassed,
             'compressions' => $compressions,

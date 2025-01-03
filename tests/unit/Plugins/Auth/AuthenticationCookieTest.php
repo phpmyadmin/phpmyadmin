@@ -107,7 +107,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $GLOBALS['pma_auth_server'] = 'localhost';
 
         $GLOBALS['conn_error'] = true;
-        $config->settings['Lang'] = 'en';
+        $config->set('Lang', 'en');
         $config->settings['AllowArbitraryServer'] = true;
         $config->settings['CaptchaApi'] = '';
         $config->settings['CaptchaRequestParam'] = '';
@@ -169,7 +169,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LoginCookieRecall'] = false;
 
-        $config->settings['Lang'] = '';
+        $config->set('Lang', '');
         $config->settings['AllowArbitraryServer'] = false;
         $config->settings['Servers'] = [1];
         $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
@@ -224,7 +224,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['LoginCookieRecall'] = false;
 
-        $config->settings['Lang'] = '';
+        $config->set('Lang', '');
         $config->settings['AllowArbitraryServer'] = false;
         $config->settings['Servers'] = [1];
         $config->settings['CaptchaApi'] = 'https://www.google.com/recaptcha/api.js';
@@ -297,7 +297,6 @@ class AuthenticationCookieTest extends AbstractTestCase
     public function testAuthHeaderPartial(): void
     {
         $config = Config::getInstance();
-        $config->set('is_https', false);
         $config->settings['LoginCookieDeleteAll'] = false;
         $config->settings['Servers'] = [1, 2, 3];
         $config->selectedServer['LogoutURL'] = 'https://example.com/logout';
@@ -346,7 +345,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaLoginPublicKey'] = '';
         $config->settings['LoginCookieDeleteAll'] = true;
         $config->set('PmaAbsoluteUri', '');
-        $config->set('is_https', false);
         $config->settings['Servers'] = [1];
 
         $_COOKIE['pmaAuth-0'] = 'test';
@@ -373,7 +371,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaLoginPublicKey'] = '';
         $config->settings['LoginCookieDeleteAll'] = false;
         $config->set('PmaAbsoluteUri', '');
-        $config->set('is_https', false);
         $config->settings['Servers'] = [1];
         $config->selectedServer = ['auth_type' => 'cookie'];
 
@@ -460,7 +457,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaResponseParam'] = '';
         $config->settings['CaptchaLoginPrivateKey'] = '';
         $config->settings['CaptchaLoginPublicKey'] = '';
-        $config->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -496,7 +492,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaLoginPublicKey'] = '';
         $_SESSION['browser_access_time']['default'] = time() - 1000;
         $config->settings['LoginCookieValidity'] = 1440;
-        $config->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -534,7 +529,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['CaptchaLoginPublicKey'] = '';
         $config->settings['LoginCookieValidity'] = 0;
         $_SESSION['browser_access_time']['default'] = -1;
-        $config->set('is_https', false);
 
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
@@ -565,7 +559,6 @@ class AuthenticationCookieTest extends AbstractTestCase
         Current::$server = 2;
         $config->settings['LoginCookieStore'] = 100;
         $GLOBALS['from_cookie'] = true;
-        $config->set('is_https', false);
 
         $this->object->storeCredentials();
 
@@ -592,7 +585,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
-        $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
+        $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
         $GLOBALS['pma_auth_server'] = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
@@ -892,7 +885,6 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         $newPassword = 'PMAPASSWD2';
         $config = Config::getInstance();
-        $config->set('is_https', false);
         $config->settings['AllowArbitraryServer'] = true;
         $GLOBALS['pma_auth_server'] = 'b 2';
         $_SESSION['encryption_key'] = '';

@@ -127,8 +127,7 @@ class Session
             }
         }
 
-        /** @psalm-var 'Lax'|'Strict'|'None' $cookieSameSite */
-        $cookieSameSite = $config->get('CookieSameSite') ?? 'Strict';
+        $cookieSameSite = $config->config->CookieSameSite;
         $cookiePath = $config->getRootPath();
 
         session_set_cookie_params([
@@ -144,8 +143,8 @@ class Session
         ini_set('session.use_cookies', 'true');
 
         // optionally set session_save_path
-        $path = $config->get('SessionSavePath');
-        if (! empty($path)) {
+        $path = $config->config->SessionSavePath;
+        if ($path !== '') {
             session_save_path($path);
             // We can not do this unconditionally as this would break
             // any more complex setup (eg. cluster), see

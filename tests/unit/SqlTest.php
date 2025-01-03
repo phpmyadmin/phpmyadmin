@@ -49,7 +49,7 @@ class SqlTest extends AbstractTestCase
         Current::$table = 'table';
         $config = Config::getInstance();
         $config->settings['AllowThirdPartyFraming'] = false;
-        $config->settings['SendErrorReports'] = 'ask';
+        $config->set('SendErrorReports', 'ask');
         $config->settings['ServerDefault'] = 1;
         $config->settings['DefaultTabDatabase'] = 'structure';
         $config->settings['DefaultTabTable'] = 'browse';

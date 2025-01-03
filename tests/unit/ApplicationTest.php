@@ -30,7 +30,7 @@ final class ApplicationTest extends AbstractTestCase
         $errorHandler = self::createStub(ErrorHandler::class);
 
         $config = self::createMock(Config::class);
-        $config->expects(self::once())->method('loadAndCheck')
+        $config->expects(self::once())->method('loadFromFile')
             ->willThrowException(new ConfigException('Failed to load phpMyAdmin configuration.'));
         $config->config = new Config\Settings([]);
 

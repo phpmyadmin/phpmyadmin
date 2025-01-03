@@ -103,9 +103,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
     <UnusedClass>
       <code><![CDATA[CacheWarmupCommand]]></code>
     </UnusedClass>
@@ -181,16 +178,12 @@
       <code><![CDATA[$this->settings]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$collationConnection]]></code>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$configData['lang']]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$gdInfo['GD Version']]]></code>
-      <code><![CDATA[$path]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
       <code><![CDATA[$this->settings['ThemeDefault']]]></code>
-      <code><![CDATA[$url]]></code>
-      <code><![CDATA[$url]]></code>
+      <code><![CDATA[gd_info()['GD Version']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']]]></code>
@@ -209,20 +202,13 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$collationConnection]]></code>
       <code><![CDATA[$configData]]></code>
       <code><![CDATA[$defaultValue]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$evalResult]]></code>
-      <code><![CDATA[$path]]></code>
-      <code><![CDATA[$prefsType]]></code>
-      <code><![CDATA[$prefsType]]></code>
-      <code><![CDATA[$url]]></code>
-      <code><![CDATA[$url]]></code>
+      <code><![CDATA[$this->userPreferences]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
-      <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[$this->settings]]></code>
       <code><![CDATA[array_replace_recursive($this->settings, $configData)]]></code>
       <code><![CDATA[array_replace_recursive($this->settings, $this->config->asArray())]]></code>
@@ -237,21 +223,11 @@
       <code><![CDATA[$this->settings]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $fileSize]]></code>
-      <code><![CDATA[! $this->get('CheckConfigurationPermissions')]]></code>
-      <code><![CDATA[! ini_get('file_uploads')]]></code>
       <code><![CDATA[$cookieName]]></code>
-      <code><![CDATA[$postSize]]></code>
-      <code><![CDATA[$prefsType]]></code>
       <code><![CDATA[$themeManager->getThemeCookie()]]></code>
-      <code><![CDATA[empty($collationConnection)]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
-      <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty($this->getCookie($cookieName))]]></code>
-      <code><![CDATA[empty($url)]]></code>
-      <code><![CDATA[empty($url)]]></code>
-      <code><![CDATA[ini_get('zlib.output_compression')]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[md5($verboseToLower) === $serverToLower]]></code>
@@ -1525,9 +1501,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/GitInfoController.php">
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1542,10 +1515,6 @@
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
       <code><![CDATA[$GLOBALS['language_stats']]]></code>
     </InvalidArrayOffset>
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-      <code><![CDATA[$this->config->get('TempDir')]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$GLOBALS['language_stats'][Current::$lang]]]></code>
     </MixedArrayAccess>
@@ -1555,14 +1524,10 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayTypeCoercion>
-    <PossiblyNullArgument>
-      <code><![CDATA[$this->config->get('TempDir')]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
-      <code><![CDATA[empty($config->settings['Lang'])]]></code>
       <code><![CDATA[empty($config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[ini_get('suhosin.request.max_value_length')]]></code>
@@ -1887,9 +1852,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ManageController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
       <code><![CDATA[$configuration['ThemeDefault']]]></code>
@@ -2310,9 +2272,6 @@
       <code><![CDATA[$id]]></code>
       <code><![CDATA[$id]]></code>
     </MixedArgumentTypeCoercion>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('PMA_IS_WINDOWS')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Setup/MainController.php">
     <PossiblyUnusedMethod>
@@ -2437,7 +2396,6 @@
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
-      <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
       <code><![CDATA[$whereClause]]></code>
@@ -2451,16 +2409,12 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['where_clause']]]></code>
-      <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyNullArgument>
-      <code><![CDATA[$isUpload]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
@@ -2803,41 +2757,26 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Maintenance/CheckController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Maintenance/ChecksumController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Maintenance/OptimizeController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Maintenance/RepairController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$this->config->get('DisableMultiTableMaintenance')]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Partition/AnalyzeController.php">
     <PossiblyUnusedReturnValue>
@@ -3701,7 +3640,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
-      <code><![CDATA[$key]]></code>
       <code><![CDATA[$key]]></code>
     </MixedAssignment>
   </file>
@@ -4757,7 +4695,6 @@
     </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
@@ -5430,7 +5367,6 @@
       <code><![CDATA[strtolower]]></code>
     </RedundantFunctionCallGivenDocblockType>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! $this->config->get('DisableShortcutKeys')]]></code>
       <code><![CDATA[empty($_REQUEST['message'])]]></code>
       <code><![CDATA[empty($this->config->settings['CaptchaApi'])]]></code>
       <code><![CDATA[empty($this->config->settings['CaptchaLoginPrivateKey'])]]></code>
@@ -5555,19 +5491,9 @@
     <DocblockTypeContradiction>
       <code><![CDATA[$locales]]></code>
     </DocblockTypeContradiction>
-    <MixedArrayOffset>
-      <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
-    </MixedArrayOffset>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$languageFromConfig]]></code>
       <code><![CDATA[$languageFromCookie]]></code>
     </MixedAssignment>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$langs]]></code>
-    </PossiblyNullArrayOffset>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[$availableLocales !== false]]></code>
     </RedundantConditionGivenDocblockType>
@@ -6609,7 +6535,6 @@
       <code><![CDATA[empty($config->settings['CaptchaRequestParam'])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
-      <code><![CDATA[empty($config->settings['Lang'])]]></code>
       <code><![CDATA[empty($serverCookie)]]></code>
       <code><![CDATA[empty($serverCookie)]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
@@ -8642,15 +8567,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$url]]></code>
-    </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$url]]></code>
-    </MixedAssignment>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($url)]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/UploadInterface.php">
     <PossiblyUnusedMethod>
@@ -9185,17 +9101,14 @@
     <MixedArgument>
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
       <code><![CDATA[$error->getMessage()]]></code>
-      <code><![CDATA[$path]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$error]]></code>
-      <code><![CDATA[$path]]></code>
     </MixedAssignment>
     <MixedMethodCall>
       <code><![CDATA[getMessage]]></code>
     </MixedMethodCall>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty(ini_get('session.auto_start'))]]></code>
       <code><![CDATA[empty(session_id())]]></code>
     </RiskyTruthyFalsyComparison>
@@ -10050,7 +9963,6 @@
       <code><![CDATA[$values['token']]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
       <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
     </RiskyTruthyFalsyComparison>
@@ -11060,7 +10972,6 @@
       <code><![CDATA[httpsParams]]></code>
       <code><![CDATA[rootUris]]></code>
       <code><![CDATA[selectServerProvider]]></code>
-      <code><![CDATA[userAgentProvider]]></code>
     </PossiblyUnusedMethod>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertIsArray]]></code>
@@ -11292,9 +11203,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidPropertyAssignmentValue>
-      <code><![CDATA[$config->settings]]></code>
-    </InvalidPropertyAssignmentValue>
   </file>
   <file src="tests/unit/Controllers/Server/CollationsControllerTest.php">
     <DeprecatedMethod>
@@ -11679,8 +11587,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$arr['arr']]]></code>
@@ -11986,20 +11892,13 @@
       <code><![CDATA[addErrorProvider]]></code>
       <code><![CDATA[providerForTestHandleError]]></code>
     </PossiblyUnusedMethod>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
   </file>
   <file src="tests/unit/Error/ErrorReportTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
-      <code><![CDATA[$_SERVER['HTTP_USER_AGENT']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
       <code><![CDATA[$_SERVER['SERVER_SOFTWARE']]]></code>
     </PossiblyUndefinedArrayOffset>
@@ -12411,7 +12310,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
@@ -12691,7 +12589,6 @@
       <code><![CDATA[dataProviderPasswordLength]]></code>
     </PossiblyUnusedMethod>
     <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
       <code><![CDATA[$config->settings]]></code>
@@ -13508,6 +13405,11 @@
       <code><![CDATA[$_SESSION['cache']['server_2']['test_data']]]></code>
       <code><![CDATA[$_SESSION['cache']['server_2']['test_data_3']]]></code>
     </MixedArrayAccess>
+  </file>
+  <file src="tests/unit/Utils/UserAgentParserTest.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[userAgentProvider]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/VersionInformationTest.php">
     <DeprecatedMethod>

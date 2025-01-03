@@ -51,7 +51,7 @@ class ConfigFile
     /**
      * Keys which will be always written to config file
      *
-     * @var mixed[]
+     * @var int[]
      */
     private array $persistKeys = [];
 
@@ -65,6 +65,8 @@ class ConfigFile
 
     /**
      * Key filter for {@link set()}
+     *
+     * @var array-key[]|null
      */
     private array|null $setFilter = null;
 
@@ -101,7 +103,7 @@ class ConfigFile
      * Sets names of config options which will be placed in config file even if
      * they are set to their default values (use only full paths)
      *
-     * @param mixed[] $keys the names of the config options
+     * @param list<array-key> $keys the names of the config options
      */
     public function setPersistKeys(array $keys): void
     {
@@ -113,7 +115,7 @@ class ConfigFile
     /**
      * Returns flipped array set by {@link setPersistKeys()}
      *
-     * @return mixed[]
+     * @return int[]
      */
     public function getPersistKeysMap(): array
     {
@@ -124,7 +126,7 @@ class ConfigFile
      * By default ConfigFile allows setting of all configuration keys, use
      * this method to set up a filter on {@link set()} method
      *
-     * @param mixed[]|null $keys array of allowed keys or null to remove filter
+     * @param string[]|null $keys array of allowed keys or null to remove filter
      */
     public function setAllowedKeys(array|null $keys): void
     {
@@ -509,7 +511,6 @@ class ConfigFile
                 ],
             ],
             'RecodingEngine' => ['auto', 'iconv', 'mb', 'none'],
-            'OBGzip' => ['auto', true, false],
             'MemoryLimit' => 'short_string',
             'NavigationLogoLinkWindow' => ['main', 'new'],
             'NavigationTreeDefaultTabTable' => [

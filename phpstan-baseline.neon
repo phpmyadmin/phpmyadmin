@@ -355,7 +355,7 @@ parameters:
 			path: src/Command/CacheWarmupCommand.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Command/CacheWarmupCommand.php
@@ -363,12 +363,6 @@ parameters:
 		-
 			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Command/CacheWarmupCommand.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: src/Command/CacheWarmupCommand.php
 
@@ -558,13 +552,13 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 2
+			count: 1
 			path: src/Config.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 7
+			count: 3
 			path: src/Config.php
 
 		-
@@ -604,30 +598,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 2
-			path: src/Config.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
-			identifier: if.condNotBoolean
-			count: 2
-			path: src/Config.php
-
-		-
 			message: '#^Only booleans are allowed in \|\|, string\|false given on the left side\.$#'
 			identifier: booleanOr.leftNotBoolean
 			count: 1
@@ -640,25 +610,7 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$collation of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:setCollation\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Config\:\:renderCustom\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Config.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#1 \$string of function rtrim expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config.php
@@ -673,12 +625,6 @@ parameters:
 			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:setActiveTheme\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Config.php
-
-		-
-			message: '#^Parameter \#1 \$url of function parse_url expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Config.php
 
 		-
@@ -706,13 +652,13 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept non\-empty\-array\<string, mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept non\-empty\-array\<string, mixed\>\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$userPreferences \(''''\|''db''\|''session''\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Config.php
@@ -805,12 +751,6 @@ parameters:
 			path: src/Config/ConfigFile.php
 
 		-
-			message: '#^Parameter \#1 \$array of function array_flip expects array\<int\|string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Config/ConfigFile.php
-
-		-
 			message: '#^Parameter \#1 \$array of method PhpMyAdmin\\Config\\ConfigFile\:\:getFlatArray\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -885,12 +825,6 @@ parameters:
 		-
 			message: '#^Parameter \#3 \$canonicalPath of method PhpMyAdmin\\Config\\ConfigFile\:\:set\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Config/ConfigFile.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\\ConfigFile\:\:\$setFilter type has no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: src/Config/ConfigFile.php
 
@@ -2161,12 +2095,6 @@ parameters:
 			path: src/Controllers/Database/ImportController.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Controllers/Database/ImportController.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -2827,12 +2755,6 @@ parameters:
 			path: src/Controllers/GisDataEditorController.php
 
 		-
-			message: '#^Parameter \#1 \$showGitRevision of class PhpMyAdmin\\Git constructor expects bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/GitInfoController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -2850,7 +2772,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 6
+			count: 5
 			path: src/Controllers/HomeController.php
 
 		-
@@ -2874,18 +2796,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in \|\|, string\|false given on the right side\.$#'
 			identifier: booleanOr.rightNotBoolean
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: '#^Parameter \#1 \$showGitRevision of class PhpMyAdmin\\Git constructor expects bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/HomeController.php
 
@@ -3241,15 +3151,6 @@ parameters:
 			path: src/Controllers/Preferences/MainPanelController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 1
@@ -3507,12 +3408,6 @@ parameters:
 		-
 			message: '#^Cannot call static method getIdKey\(\) on mixed\.$#'
 			identifier: staticMethod.nonObject
-			count: 1
-			path: src/Controllers/Server/ImportController.php
-
-		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
 			count: 1
 			path: src/Controllers/Server/ImportController.php
 
@@ -3817,12 +3712,6 @@ parameters:
 			path: src/Controllers/Setup/FormController.php
 
 		-
-			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
-			identifier: ternary.condNotBoolean
-			count: 1
-			path: src/Controllers/Setup/HomeController.php
-
-		-
 			message: '#^Parameter \#1 \$filename of function file_exists expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4048,12 +3937,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#2 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditFormHeader\(\) expects bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4061,12 +3944,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#4 \$currentResult of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects PhpMyAdmin\\Dbal\\ResultInterface, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#7 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -4375,12 +4252,6 @@ parameters:
 			path: src/Controllers/Table/ImportController.php
 
 		-
-			message: '#^Cannot cast mixed to int\.$#'
-			identifier: cast.int
-			count: 1
-			path: src/Controllers/Table/ImportController.php
-
-		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
 			count: 1
@@ -4436,36 +4307,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Controllers/Table/Maintenance/AnalyzeController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Controllers/Table/Maintenance/CheckController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Controllers/Table/Maintenance/ChecksumController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Controllers/Table/Maintenance/OptimizeController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Controllers/Table/Maintenance/RepairController.php
 
 		-
 			message: '''
@@ -7707,7 +7548,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -8208,6 +8049,12 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in &&, array\<mixed, mixed\>\|object given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
+			count: 1
+			path: src/Footer.php
+
+		-
+			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Footer.php
 
@@ -8917,8 +8764,8 @@ parameters:
 			path: src/Header.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
+			message: '#^Parameter \#1 \$filename of static method PhpMyAdmin\\Html\\Generator\:\:renderCustom\(\) expects string, mixed given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Header.php
 
@@ -9079,7 +8926,7 @@ parameters:
 			path: src/Http/Middleware/Authentication.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Http/Middleware/ConfigLoading.php
@@ -9609,7 +9456,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 3
+			count: 2
 			path: src/InsertEdit.php
 
 		-
@@ -11109,7 +10956,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 21
+			count: 20
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -14437,18 +14284,6 @@ parameters:
 			path: src/Plugins/TwoFactorPlugin.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 1
-			path: src/Plugins/TwoFactorPlugin.php
-
-		-
-			message: '#^Parameter \#1 \$url of function parse_url expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/TwoFactorPlugin.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Plugins\\UploadInterface\:\:getUploadStatus\(\) return type has no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -15603,17 +15438,11 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 6
+			count: 5
 			path: src/Session.php
 
 		-
 			message: '#^Parameter \#1 \$id of function session_id expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Session.php
-
-		-
-			message: '#^Parameter \#1 \$path of function session_save_path expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Session.php
@@ -17122,12 +16951,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
-			path: src/Url.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Url.php
 
 		-
@@ -18769,12 +18592,6 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: '#^Only booleans are allowed in &&, int\<0, 2\> given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 2
-			path: tests/unit/ConfigTest.php
-
-		-
 			message: '#^Only booleans are allowed in an elseif condition, string\|false given\.$#'
 			identifier: elseif.condNotBoolean
 			count: 3
@@ -18799,7 +18616,7 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/ConfigTest.php
@@ -19092,12 +18909,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: tests/unit/Controllers/Server/BinlogControllerTest.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/Controllers/Server/BinlogControllerTest.php
 
@@ -19731,7 +19542,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 6
+			count: 4
 			path: tests/unit/CoreTest.php
 
 		-
@@ -20089,18 +19900,12 @@ parameters:
 			path: tests/unit/Error/ErrorHandlerTest.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$settings \(array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\) does not accept array\{PmaAbsoluteUri\: string, AuthLog\: string, AuthLogSuccess\: bool, PmaNoRelation_DisableWarning\: bool, SuhosinDisableWarning\: bool, LoginCookieValidityDisableWarning\: bool, ReservedWordDisableWarning\: bool, TranslationWarningThreshold\: int, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: tests/unit/Error/ErrorHandlerTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 4
+			count: 2
 			path: tests/unit/Error/ErrorReportTest.php
 
 		-
@@ -20421,7 +20226,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 35
+			count: 34
 			path: tests/unit/InsertEditTest.php
 
 		-
@@ -20804,12 +20609,6 @@ parameters:
 
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with 32 and 0 will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
-			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{host\: ''b'', port\: ''2'', socket\: true, ssl\: true, user\: ''pmaUser2'', password\: ''testPW''\} and array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\} will always evaluate to false\.$#'
 			identifier: staticMethod.impossibleType
 			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php

@@ -14,6 +14,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Footer;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\I18n\LanguageManager;
@@ -128,7 +129,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $languageManager = LanguageManager::getInstance();
         $availableLanguages = [];
-        if (empty($config->settings['Lang']) && $languageManager->hasChoice()) {
+        if ($config->config->Lang === '' && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
@@ -160,7 +161,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             $loginFooter = $this->template->render('login/footer', ['session_expired' => 0]);
         }
 
-        $configFooter = Config::renderFooter();
+        $configFooter = Footer::renderFooter();
 
         $responseRenderer->addHTML($this->template->render('login/form', [
             'login_header' => $loginHeader,

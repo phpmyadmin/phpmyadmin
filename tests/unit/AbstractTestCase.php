@@ -102,7 +102,7 @@ abstract class AbstractTestCase extends TestCase
     protected function createConfig(): Config
     {
         $config = new Config();
-        $config->loadAndCheck();
+        $config->loadFromFile();
 
         return $config;
     }
@@ -111,7 +111,7 @@ abstract class AbstractTestCase extends TestCase
     {
         Config::$instance = null;
         $config = Config::getInstance();
-        $config->loadAndCheck();
+        $config->loadFromFile();
         $config->set('environment', 'development');
     }
 

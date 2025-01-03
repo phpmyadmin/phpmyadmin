@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Export;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
@@ -24,6 +25,7 @@ use PhpMyAdmin\Plugins\SchemaPlugin;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use PhpMyAdmin\Utils\UserAgentParser;
 use PhpMyAdmin\ZipExtension;
 
 use function __;
@@ -113,14 +115,13 @@ class Export
          * We should gzencode only if the function exists
          * but we don't want to compress twice, therefore
          * gzencode only if transparent compression is not enabled
-         * and gz compression was not asked via $cfg['OBGzip']
          * but transparent compression does not apply when saving to server
          */
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
                     && ! $this->isGzHandlerEnabled())
                 || $GLOBALS['save_on_server']
-                || Config::getInstance()->get('PMA_USR_BROWSER_AGENT') === 'CHROME');
+                || (new UserAgentParser(Core::getEnv('HTTP_USER_AGENT')))->getUserBrowserAgent() === 'CHROME');
     }
 
     /**

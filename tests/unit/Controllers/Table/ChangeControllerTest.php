@@ -52,7 +52,6 @@ final class ChangeControllerTest extends AbstractTestCase
             ->withParsedBody(['insert_rows' => '0']);
 
         $config = Config::getInstance();
-        $config->set('enable_upload', false);
         $config->set('InsertRows', 3);
         $config->set('ShowFunctionFields', true);
         $config->set('ShowFieldTypesInDataEditView', true);
@@ -147,7 +146,6 @@ final class ChangeControllerTest extends AbstractTestCase
             ->withParsedBody(['insert_rows' => '1']);
 
         $config = Config::getInstance();
-        $config->set('enable_upload', false);
         $config->set('InsertRows', 3);
         $config->set('ShowFunctionFields', false);
         $config->set('ShowFieldTypesInDataEditView', false);
