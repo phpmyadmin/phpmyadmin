@@ -2677,12 +2677,6 @@ parameters:
 			path: src/Controllers/GisDataEditorController.php
 
 		-
-			message: '#^Parameter \#1 \$showGitRevision of class PhpMyAdmin\\Git constructor expects bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/GitInfoController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -2718,12 +2712,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in \|\|, string\|false given on the right side\.$#'
 			identifier: booleanOr.rightNotBoolean
-			count: 1
-			path: src/Controllers/HomeController.php
-
-		-
-			message: '#^Parameter \#1 \$showGitRevision of class PhpMyAdmin\\Git constructor expects bool, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/HomeController.php
 

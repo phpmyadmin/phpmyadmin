@@ -24,7 +24,7 @@ final class GitInfoController implements InvocableController
             return $this->response->response();
         }
 
-        $git = new Git($this->config->get('ShowGitRevision') ?? true);
+        $git = new Git($this->config->config->ShowGitRevision);
 
         if (! $git->isGitRevision()) {
             return $this->response->response();

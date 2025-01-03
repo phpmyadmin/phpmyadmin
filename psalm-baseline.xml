@@ -1443,9 +1443,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/GitInfoController.php">
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1456,9 +1453,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$languageStats[Current::$lang]]]></code>
     </MixedArrayAccess>
