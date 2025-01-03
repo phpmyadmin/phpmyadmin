@@ -355,7 +355,7 @@ parameters:
 			path: src/Command/CacheWarmupCommand.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Command/CacheWarmupCommand.php
@@ -8470,7 +8470,7 @@ parameters:
 			path: src/Http/Middleware/Authentication.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Http/Middleware/ConfigLoading.php
@@ -17740,7 +17740,7 @@ parameters:
 			path: tests/unit/ConfigTest.php
 
 		-
-			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadAndCheck\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$source of method PhpMyAdmin\\Config\:\:loadFromFile\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/ConfigTest.php

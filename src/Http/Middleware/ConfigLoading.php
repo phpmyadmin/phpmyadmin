@@ -28,7 +28,7 @@ final class ConfigLoading implements MiddlewareInterface
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         try {
-            $this->config->loadAndCheck(CONFIG_FILE);
+            $this->config->loadFromFile(CONFIG_FILE);
         } catch (ConfigException $exception) {
             // Disables template caching because the cache directory is not known yet.
             $this->template->disableCache();
