@@ -52,7 +52,7 @@ class ErrorHandlerTest extends AbstractTestCase
         $_SESSION['errors'] = [];
         $config = Config::getInstance();
         $config->set('environment', 'production');
-        $config->settings['SendErrorReports'] = 'always';
+        $config->set('SendErrorReports', 'always');
     }
 
     /**
@@ -97,7 +97,7 @@ class ErrorHandlerTest extends AbstractTestCase
     ): void {
         $config = new Config();
         $config->set('environment', 'production');
-        $config->settings['SendErrorReports'] = $reportErrorConfig;
+        $config->set('SendErrorReports', $reportErrorConfig);
         Config::$instance = $config;
 
         $error = new Error($errorNumber, $errorMessage, $errorFile, $errorLine);
