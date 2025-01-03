@@ -1420,13 +1420,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
-      <code><![CDATA[$GLOBALS['csv_columns']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_null']]]></code>
-      <code><![CDATA[$GLOBALS['csv_removeCRLF']]]></code>
-      <code><![CDATA[$GLOBALS['csv_separator']]]></code>
-      <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
@@ -6730,53 +6723,16 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['csv_null']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$colAs]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$insertFields]]></code>
-      <code><![CDATA[$insertValues]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$insertFields[]]]></code>
-      <code><![CDATA[$insertValues[]]]></code>
     </MixedAssignment>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_separator']]]></code>
-    </PossiblyNullArgument>
-    <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_enclosed']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_escaped']]]></code>
-      <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
-      <code><![CDATA[$GLOBALS['csv_terminated']]]></code>
-    </PossiblyNullOperand>
-    <RedundantCondition>
-      <code><![CDATA[$GLOBALS['csv_removeCRLF']]]></code>
-      <code><![CDATA[isset($GLOBALS['csv_removeCRLF']) && $GLOBALS['csv_removeCRLF']]]></code>
-    </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['csv_terminated'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Plugins/Export/ExportExcel.php">
     <DeprecatedMethod>

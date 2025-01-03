@@ -21,6 +21,7 @@ use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 
 use function __;
 use function implode;
+use function is_string;
 use function mb_strtolower;
 use function str_replace;
 
@@ -29,6 +30,14 @@ use function str_replace;
  */
 class ExportCsv extends ExportPlugin
 {
+    private string $terminated = 'AUTO';
+    private string $separator = ',';
+    private bool $columns = false;
+    private string $enclosed = '"';
+    private string $escaped = '"';
+    private bool $removeCrLf = false;
+    private string $null = 'NULL';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -102,23 +111,18 @@ class ExportCsv extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['csv_terminated'] ??= null;
-        $GLOBALS['csv_separator'] ??= null;
-        $GLOBALS['csv_enclosed'] ??= null;
-        $GLOBALS['csv_escaped'] ??= null;
-
         // Here we just prepare some values for export
-        if (empty($GLOBALS['csv_terminated']) || mb_strtolower($GLOBALS['csv_terminated']) === 'auto') {
-            $GLOBALS['csv_terminated'] = "\n";
+        if ($this->terminated === '' || mb_strtolower($this->terminated) === 'auto') {
+            $this->terminated = "\n";
         } else {
-            $GLOBALS['csv_terminated'] = str_replace(
+            $this->terminated = str_replace(
                 ['\\r', '\\n', '\\t'],
                 ["\015", "\012", "\011"],
-                $GLOBALS['csv_terminated'],
+                $this->terminated,
             );
         }
 
-        $GLOBALS['csv_separator'] = str_replace('\\t', "\011", $GLOBALS['csv_separator']);
+        $this->separator = str_replace('\\t', "\011", $this->separator);
 
         return true;
     }
@@ -177,11 +181,6 @@ class ExportCsv extends ExportPlugin
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['csv_terminated'] ??= null;
-        $GLOBALS['csv_separator'] ??= '';
-        $GLOBALS['csv_enclosed'] ??= null;
-        $GLOBALS['csv_escaped'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -193,28 +192,24 @@ class ExportCsv extends ExportPlugin
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS['csv_columns']) && $GLOBALS['csv_columns']) {
+        if ($this->columns) {
             $insertFields = [];
             foreach ($result->getFieldNames() as $colAs) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                     $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
-                if ($GLOBALS['csv_enclosed'] == '') {
+                if ($this->enclosed === '') {
                     $insertFields[] = $colAs;
                 } else {
-                    $insertFields[] = $GLOBALS['csv_enclosed']
-                        . str_replace(
-                            $GLOBALS['csv_enclosed'],
-                            $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                            $colAs,
-                        )
-                        . $GLOBALS['csv_enclosed'];
+                    $insertFields[] = $this->enclosed
+                        . str_replace($this->enclosed, $this->escaped . $this->enclosed, $colAs)
+                        . $this->enclosed;
                 }
             }
 
-            $schemaInsert = implode($GLOBALS['csv_separator'], $insertFields);
-            if (! $this->export->outputHandler($schemaInsert . $GLOBALS['csv_terminated'])) {
+            $schemaInsert = implode($this->separator, $insertFields);
+            if (! $this->export->outputHandler($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -224,10 +219,10 @@ class ExportCsv extends ExportPlugin
             $insertValues = [];
             foreach ($row as $field) {
                 if ($field === null) {
-                    $insertValues[] = $GLOBALS['csv_null'];
+                    $insertValues[] = $this->null;
                 } elseif ($field !== '') {
                     // remove CRLF characters within field
-                    if (isset($GLOBALS['csv_removeCRLF']) && $GLOBALS['csv_removeCRLF']) {
+                    if ($this->removeCrLf) {
                         $field = str_replace(
                             ["\r", "\n"],
                             '',
@@ -235,38 +230,34 @@ class ExportCsv extends ExportPlugin
                         );
                     }
 
-                    if ($GLOBALS['csv_enclosed'] == '') {
+                    if ($this->enclosed === '') {
                         $insertValues[] = $field;
-                    } elseif ($GLOBALS['csv_escaped'] != $GLOBALS['csv_enclosed']) {
+                    } elseif ($this->escaped !== $this->enclosed) {
                         // also double the escape string if found in the data
-                        $insertValues[] = $GLOBALS['csv_enclosed']
+                        $insertValues[] = $this->enclosed
                             . str_replace(
-                                $GLOBALS['csv_enclosed'],
-                                $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
+                                $this->enclosed,
+                                $this->escaped . $this->enclosed,
                                 str_replace(
-                                    $GLOBALS['csv_escaped'],
-                                    $GLOBALS['csv_escaped'] . $GLOBALS['csv_escaped'],
+                                    $this->escaped,
+                                    $this->escaped . $this->escaped,
                                     $field,
                                 ),
                             )
-                            . $GLOBALS['csv_enclosed'];
+                            . $this->enclosed;
                     } else {
                         // avoid a problem when escape string equals enclose
-                        $insertValues[] = $GLOBALS['csv_enclosed']
-                            . str_replace(
-                                $GLOBALS['csv_enclosed'],
-                                $GLOBALS['csv_escaped'] . $GLOBALS['csv_enclosed'],
-                                $field,
-                            )
-                            . $GLOBALS['csv_enclosed'];
+                        $insertValues[] = $this->enclosed
+                            . str_replace($this->enclosed, $this->escaped . $this->enclosed, $field)
+                            . $this->enclosed;
                     }
                 } else {
                     $insertValues[] = '';
                 }
             }
 
-            $schemaInsert = implode($GLOBALS['csv_separator'], $insertValues);
-            if (! $this->export->outputHandler($schemaInsert . $GLOBALS['csv_terminated'])) {
+            $schemaInsert = implode($this->separator, $insertValues);
+            if (! $this->export->outputHandler($schemaInsert . $this->terminated)) {
                 return false;
             }
         }
@@ -297,5 +288,42 @@ class ExportCsv extends ExportPlugin
             $exportConfig['csv_structure_or_data'] ?? null,
             StructureOrData::Data,
         );
+        $this->terminated = $this->setStringValue(
+            $request->getParsedBodyParam('csv_terminated'),
+            $exportConfig['csv_terminated'] ?? null,
+        );
+        $this->separator = $this->setStringValue(
+            $request->getParsedBodyParam('csv_separator'),
+            $exportConfig['csv_separator'] ?? null,
+        );
+        $this->columns = (bool) ($request->getParsedBodyParam('csv_columns')
+            ?? $exportConfig['csv_columns'] ?? false);
+        $this->enclosed = $this->setStringValue(
+            $request->getParsedBodyParam('csv_enclosed'),
+            $exportConfig['csv_enclosed'] ?? null,
+        );
+        $this->escaped = $this->setStringValue(
+            $request->getParsedBodyParam('csv_escaped'),
+            $exportConfig['csv_escaped'] ?? null,
+        );
+        $this->removeCrLf = (bool) ($request->getParsedBodyParam('csv_removeCRLF')
+            ?? $exportConfig['csv_removeCRLF'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('csv_null'),
+            $exportConfig['csv_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }
