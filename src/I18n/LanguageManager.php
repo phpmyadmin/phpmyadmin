@@ -800,8 +800,8 @@ class LanguageManager
             return $this->availableLocales;
         }
 
-        $filterLanguages = $this->config->get('FilterLanguages');
-        if (! is_string($filterLanguages) || $filterLanguages === '') {
+        $filterLanguages = $this->config->config->FilterLanguages;
+        if ($filterLanguages === '') {
             return $this->availableLocales = $this->listLocaleDir();
         }
 
