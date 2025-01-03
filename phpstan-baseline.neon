@@ -628,12 +628,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Only booleans are allowed in \|\|, string\|false given on the left side\.$#'
-			identifier: booleanOr.leftNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Parameter \#1 \$code of method PhpMyAdmin\\I18n\\LanguageManager\:\:getLanguage\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -664,13 +658,13 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:checkTheme\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:setActiveTheme\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config.php
 
 		-
-			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:setActiveTheme\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:themeExists\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Config.php
@@ -3292,13 +3286,13 @@ parameters:
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
-			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:checkTheme\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:setActiveTheme\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
-			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:setActiveTheme\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$theme of method PhpMyAdmin\\Theme\\ThemeManager\:\:themeExists\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
@@ -16690,33 +16684,9 @@ parameters:
 			path: src/Theme/ThemeManager.php
 
 		-
-			message: '#^Left side of && is always true\.$#'
-			identifier: booleanAnd.leftAlwaysTrue
-			count: 1
-			path: src/Theme/ThemeManager.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Theme\\ThemeManager\:\:getColorModeCookie\(\) should return string\|false but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Theme/ThemeManager.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Theme\\ThemeManager\:\:getThemeCookie\(\) should return string\|false but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: src/Theme/ThemeManager.php
-
-		-
-			message: '#^Only booleans are allowed in &&, string\|false given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Theme/ThemeManager.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Theme\\ThemeManager\:\:\$activeTheme \(string\) does not accept string\|null\.$#'
-			identifier: assign.propertyType
-			count: 1
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 2
 			path: src/Theme/ThemeManager.php
 
 		-

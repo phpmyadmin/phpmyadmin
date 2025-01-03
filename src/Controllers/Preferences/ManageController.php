@@ -187,7 +187,7 @@ final class ManageController implements InvocableController
                 if (
                     isset($configuration['ThemeDefault'])
                     && $this->themeManager->theme->getId() != $configuration['ThemeDefault']
-                    && $this->themeManager->checkTheme($configuration['ThemeDefault'])
+                    && $this->themeManager->themeExists($configuration['ThemeDefault'])
                 ) {
                     $this->themeManager->setActiveTheme($configuration['ThemeDefault']);
                     $this->themeManager->setThemeCookie();

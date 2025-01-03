@@ -243,12 +243,10 @@
       <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[$postSize]]></code>
       <code><![CDATA[$prefsType]]></code>
-      <code><![CDATA[$themeManager->getThemeCookie()]]></code>
       <code><![CDATA[empty($collationConnection)]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
       <code><![CDATA[empty($path)]]></code>
-      <code><![CDATA[empty($this->getCookie($cookieName))]]></code>
       <code><![CDATA[empty($url)]]></code>
       <code><![CDATA[empty($url)]]></code>
       <code><![CDATA[ini_get('zlib.output_compression')]]></code>
@@ -6610,8 +6608,6 @@
       <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
       <code><![CDATA[empty($config->settings['Lang'])]]></code>
-      <code><![CDATA[empty($serverCookie)]]></code>
-      <code><![CDATA[empty($serverCookie)]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -9797,32 +9793,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedInferredReturnType>
-      <code><![CDATA[string|false]]></code>
-      <code><![CDATA[string|false]]></code>
-    </MixedInferredReturnType>
-    <MixedReturnStatement>
-      <code><![CDATA[$config->getCookie($name)]]></code>
-      <code><![CDATA[$config->getCookie($name)]]></code>
-      <code><![CDATA[$config->getCookie($name)]]></code>
-      <code><![CDATA[$config->getCookie($name)]]></code>
-    </MixedReturnStatement>
-    <NullableReturnStatement>
-      <code><![CDATA[$config->getCookie($name)]]></code>
-      <code><![CDATA[$config->getCookie($name)]]></code>
-    </NullableReturnStatement>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$this->themes]]></code>
-    </PossiblyNullArrayOffset>
-    <PossiblyNullPropertyAssignmentValue>
-      <code><![CDATA[$theme]]></code>
-    </PossiblyNullPropertyAssignmentValue>
-    <RedundantCondition>
-      <code><![CDATA[$configThemeExists]]></code>
-    </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$cookieTheme]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Tracking/Tracker.php">
     <DeprecatedMethod>
@@ -10051,8 +10021,6 @@
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! Config::getInstance()->get('URLQueryEncryption')]]></code>
-      <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
-      <code><![CDATA[empty($config->getCookie('pma_lang'))]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/UserPassword.php">
