@@ -228,7 +228,7 @@ class Header
             }
         }
 
-        if ($this->config->settings['SendErrorReports'] !== 'never') {
+        if ($this->config->config->SendErrorReports !== 'never') {
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
         }

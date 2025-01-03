@@ -11412,9 +11412,6 @@
       <code><![CDATA[addErrorProvider]]></code>
       <code><![CDATA[providerForTestHandleError]]></code>
     </PossiblyUnusedMethod>
-    <PropertyTypeCoercion>
-      <code><![CDATA[$config->settings]]></code>
-    </PropertyTypeCoercion>
   </file>
   <file src="tests/unit/Error/ErrorReportTest.php">
     <DeprecatedMethod>
