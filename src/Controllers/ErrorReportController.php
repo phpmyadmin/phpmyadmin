@@ -87,7 +87,7 @@ final class ErrorReportController implements InvocableController
 
                 /* Message to show to the user */
                 if ($success) {
-                    if ($automatic === 'true' || $config->settings['SendErrorReports'] === 'always') {
+                    if ($automatic === 'true' || $config->config->SendErrorReports === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
                             . 'automatically submitted based on your settings.',
@@ -134,7 +134,7 @@ final class ErrorReportController implements InvocableController
                 }
             }
         } elseif ($request->hasBodyParam('get_settings')) {
-            $this->response->addJSON('report_setting', $config->settings['SendErrorReports']);
+            $this->response->addJSON('report_setting', $config->config->SendErrorReports);
         } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());

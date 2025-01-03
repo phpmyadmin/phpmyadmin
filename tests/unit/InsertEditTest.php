@@ -85,7 +85,7 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['CharTextareaRows'] = 5;
         $config->settings['CharTextareaCols'] = 6;
         $config->settings['AllowThirdPartyFraming'] = false;
-        $config->settings['SendErrorReports'] = 'ask';
+        $config->set('SendErrorReports', 'ask');
         $config->settings['DefaultTabDatabase'] = '/database/structure';
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
         $config->settings['DefaultTabTable'] = '/sql';
