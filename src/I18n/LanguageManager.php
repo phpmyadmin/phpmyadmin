@@ -884,8 +884,8 @@ class LanguageManager
      */
     public function selectLanguage(): Language
     {
-        $languageFromConfig = $this->config->get('Lang');
-        if (is_string($languageFromConfig) && $languageFromConfig !== '') {
+        $languageFromConfig = $this->config->config->Lang;
+        if ($languageFromConfig !== '') {
             $lang = $this->getLanguage($languageFromConfig);
             if ($lang !== false) {
                 return $lang;

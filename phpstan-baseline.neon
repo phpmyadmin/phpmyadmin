@@ -2682,7 +2682,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 6
+			count: 5
 			path: src/Controllers/HomeController.php
 
 		-
@@ -10269,7 +10269,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 18
+			count: 17
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-

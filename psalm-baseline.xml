@@ -1466,7 +1466,6 @@
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
       <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
-      <code><![CDATA[empty($config->settings['Lang'])]]></code>
       <code><![CDATA[empty($config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[ini_get('suhosin.request.max_value_length')]]></code>
@@ -5266,7 +5265,6 @@
       <code><![CDATA[$langs[$this->config->get('DefaultLang')]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$languageFromConfig]]></code>
       <code><![CDATA[$languageFromCookie]]></code>
     </MixedAssignment>
     <PossiblyNullArrayOffset>
@@ -6249,7 +6247,6 @@
       <code><![CDATA[empty($config->settings['CaptchaRequestParam'])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaResponseParam'])]]></code>
-      <code><![CDATA[empty($config->settings['Lang'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

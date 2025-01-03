@@ -130,7 +130,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $languageManager = LanguageManager::getInstance();
         $availableLanguages = [];
-        if (empty($config->settings['Lang']) && $languageManager->hasChoice()) {
+        if ($config->config->Lang === '' && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 

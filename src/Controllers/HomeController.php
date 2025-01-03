@@ -139,7 +139,7 @@ final class HomeController implements InvocableController
         }
 
         $availableLanguages = [];
-        if (empty($config->settings['Lang']) && $languageManager->hasChoice()) {
+        if ($config->config->Lang === '' && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
