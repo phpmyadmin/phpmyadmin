@@ -21,8 +21,8 @@ final class Crypto
 {
     private function getEncryptionKey(): string
     {
-        $key = Config::getInstance()->get('URLQueryEncryptionSecretKey');
-        if (is_string($key) && mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
+        $key = Config::getInstance()->config->URLQueryEncryptionSecretKey;
+        if (mb_strlen($key, '8bit') === SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
             return $key;
         }
 

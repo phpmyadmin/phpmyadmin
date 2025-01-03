@@ -3448,7 +3448,6 @@
     </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$key]]></code>
-      <code><![CDATA[$key]]></code>
     </MixedAssignment>
   </file>
   <file src="src/Database/CentralColumns.php">
