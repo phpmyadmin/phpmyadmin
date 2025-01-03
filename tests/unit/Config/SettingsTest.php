@@ -1289,15 +1289,6 @@ class SettingsTest extends TestCase
         yield 'invalid value' => [0, 1000];
     }
 
-    #[DataProvider('valuesForOBGzipProvider')]
-    public function testOBGzip(mixed $actual, string|bool $expected): void
-    {
-        $settings = new Settings(['OBGzip' => $actual]);
-        $settingsArray = $settings->asArray();
-        self::assertSame($expected, $settings->OBGzip);
-        self::assertSame($expected, $settingsArray['OBGzip']);
-    }
-
     /** @return iterable<string, array{mixed, string|bool}> */
     public static function valuesForOBGzipProvider(): iterable
     {

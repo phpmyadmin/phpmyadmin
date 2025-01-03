@@ -604,12 +604,6 @@ parameters:
 			path: src/Config.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Config.php
-
-		-
 			message: '#^Parameter \#1 \$code of method PhpMyAdmin\\I18n\\LanguageManager\:\:getLanguage\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

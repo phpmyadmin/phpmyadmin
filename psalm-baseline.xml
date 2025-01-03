@@ -230,7 +230,6 @@
       <code><![CDATA[$cookieName]]></code>
       <code><![CDATA[empty($dir)]]></code>
       <code><![CDATA[empty($path)]]></code>
-      <code><![CDATA[ini_get('zlib.output_compression')]]></code>
     </RiskyTruthyFalsyComparison>
     <TypeDoesNotContainType>
       <code><![CDATA[md5($verboseToLower) === $serverToLower]]></code>
@@ -10517,7 +10516,6 @@
     </PossiblyUnusedMethod>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assertIsArray]]></code>
-      <code><![CDATA[assertTrue]]></code>
     </RedundantConditionGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[stristr(PHP_OS, 'Linux')]]></code>

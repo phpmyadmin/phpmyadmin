@@ -123,22 +123,6 @@ PHP;
     }
 
     /**
-     * Test for checkOutputCompression
-     */
-    public function testCheckOutputCompression(): void
-    {
-        $this->object->set('OBGzip', 'auto');
-        $this->object->checkOutputCompression();
-        self::assertTrue($this->object->get('OBGzip'));
-        self::assertTrue($this->object->config->OBGzip);
-
-        $this->object->set('OBGzip', 'auto');
-        $this->object->checkOutputCompression();
-        self::assertTrue($this->object->get('OBGzip'));
-        self::assertTrue($this->object->config->OBGzip);
-    }
-
-    /**
      * test for CheckGd2
      */
     public function testCheckGd2(): void
