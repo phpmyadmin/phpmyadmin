@@ -60,7 +60,7 @@ final class AnalyzeController implements InvocableController
             return $this->response->response();
         }
 
-        if ($this->config->get('DisableMultiTableMaintenance') && count($selectedTables) > 1) {
+        if ($this->config->config->DisableMultiTableMaintenance && count($selectedTables) > 1) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
