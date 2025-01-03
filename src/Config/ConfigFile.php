@@ -511,7 +511,6 @@ class ConfigFile
                 ],
             ],
             'RecodingEngine' => ['auto', 'iconv', 'mb', 'none'],
-            'OBGzip' => ['auto', true, false],
             'MemoryLimit' => 'short_string',
             'NavigationLogoLinkWindow' => ['main', 'new'],
             'NavigationTreeDefaultTabTable' => [
