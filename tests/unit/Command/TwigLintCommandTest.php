@@ -32,7 +32,7 @@ class TwigLintCommandTest extends AbstractTestCase
 
         parent::setUp();
 
-        Config::getInstance()->settings['environment'] = 'development';
+        Config::getInstance()->set('environment', 'development');
 
         $this->command = new TwigLintCommand();
     }

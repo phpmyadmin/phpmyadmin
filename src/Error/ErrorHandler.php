@@ -207,8 +207,7 @@ class ErrorHandler
 
             $config = Config::getInstance();
             if (
-                isset($config->settings['environment'])
-                && $config->settings['environment'] === 'development'
+                $config->config->environment === 'development'
                 && ! $isSilenced
             ) {
                 throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
@@ -235,7 +234,7 @@ class ErrorHandler
      */
     public function handleException(Throwable $exception): void
     {
-        $this->hideLocation = Config::getInstance()->get('environment') !== 'development';
+        $this->hideLocation = Config::getInstance()->config->environment !== 'development';
         $message = $exception::class;
         if (! ($exception instanceof \Error) || ! $this->hideLocation) {
             $message .= ': ' . $exception->getMessage();
