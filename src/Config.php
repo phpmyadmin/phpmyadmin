@@ -914,7 +914,6 @@ class Config
 
         $value = $_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity'];
         $this->set('LoginCookieValidity', $value);
-        $this->settings['LoginCookieValidity'] = $value;
     }
 
     public function getSettings(): Settings
