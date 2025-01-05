@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2024-09-26 08:15+0000\n"
 "Last-Translator: Sebastian Kålås Møller <sebastianmollerkalas@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
@@ -4553,7 +4553,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Ingen endring"
 
@@ -13531,7 +13531,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-uttrykk er avslått."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -15669,17 +15669,17 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "phpMyAdmin konfigurasjonslager har blitt deaktivert. %sSe hvorfor%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Mangler phpMyAdmin konfigurasjonslagertabeller"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr "Lim det inn i din config.inc.php-fil"
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
@@ -16524,17 +16524,17 @@ msgstr "Usikker tilkobling"
 msgid "Wrong data"
 msgstr "Ingen databaser"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmerke %s har blitt opprettet."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Bokmerke er ikke opprettet!"
 
@@ -16617,7 +16617,7 @@ msgstr "Det er ingen filer å laste opp"
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerte et tomt resultat - det vil si ingen rader."
 
@@ -16665,7 +16665,7 @@ msgstr "Tråd %s ble avsluttet med suksess."
 msgid "Internal relationships were successfully updated."
 msgstr "Intern relasjon lagt til"
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rad: %1$s, Kolonne: %2$s, Feil: %3$s"
@@ -17001,7 +17001,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -17009,13 +17009,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 #, fuzzy
 #| msgid "Failed to read configuration file!"
 msgid "Failed to set configured collation connection!"
 msgstr "Kunne ikke lese konfigurasjonsfilen!"
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Tilkoblingen for kontrollbrukeren som definert i din konfigurasjon feilet."
@@ -17048,7 +17048,7 @@ msgstr "%1$d total, %2$d i spørring"
 msgid "%s total"
 msgstr "%d totalt"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Spørring tok %01.4f sekunder."
@@ -17775,11 +17775,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "webtjener opplastingskatalog"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Viser SQL spørring"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Insatt rad id: %1$d"
@@ -19620,7 +19620,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Du har lagt til en ny bruker."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19720,16 +19720,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Ingen ny stabil versjon er tilgjengelig"
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Viser som PHP kode"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19742,7 +19742,7 @@ msgstr ""
 "valgene Endring, avkrysningsruten, redigere, kopiere og slette koblinger "
 "virker kanskje ikke etter lagring."
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19864,12 +19864,12 @@ msgstr ""
 "Feil oppstod under forsøk på opprettelse av fremmednøkkel på %1$s "
 "(kontroller datatyper)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Standard stil %s ble ikke funnet!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Stilen %s ble ikke funnet!"

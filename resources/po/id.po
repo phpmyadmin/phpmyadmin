@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2022-12-30 07:50+0000\n"
 "Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4309,7 +4309,7 @@ msgstr "Anda mengaktifkan otentikasi dua langkah."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Tidak ada perubahan"
 
@@ -12826,7 +12826,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Perintah \"DROP DATABASE\" dinonaktifkan."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[Terjadi ROLLBACK.]"
 
@@ -14914,16 +14914,16 @@ msgstr ""
 "Penyimpanan konfigurasi phpMyAdmin telah dinonaktifkan. %sCari tahu "
 "mengapa%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 msgid "phpMyAdmin configuration snippet"
 msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr "Pastel di config.inc.php anda"
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Tidak dapat mengimpor konfigurasi"
 
@@ -15816,17 +15816,17 @@ msgstr "Koneksi tidak aman"
 msgid "Wrong data"
 msgstr "Data salah"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, fuzzy, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Salah data atau tidak ada validasi untuk %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Markah %s telah dibuat."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Bookmark tidak dibuat!"
 
@@ -15900,7 +15900,7 @@ msgstr "Terlalu banyak join tanpa indeks."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
@@ -15941,7 +15941,7 @@ msgstr "Kolom display sukses diperbarui."
 msgid "Internal relationships were successfully updated."
 msgstr "Hubungan internal sukses diperbarui."
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Baris: %1$s, Kolom: %2$s, Kesalahan: %3$s"
@@ -16251,7 +16251,7 @@ msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d baris dipengaruh oleh pernyataan terakhir dalam prosedur."
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, fuzzy, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16263,11 +16263,11 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin saat ini menggunakan zona waktu semula "
 "dari server database."
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 msgid "Failed to set configured collation connection!"
 msgstr "Gagal untuk menyetel pemeriksaan koneksi yang telah terkonfigurasi!"
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Koneksi untuk controluser yang di definisikan di konfigurasi Anda gagal."
@@ -16298,7 +16298,7 @@ msgstr "total %1$d, %2$d dalam kueri"
 msgid "%s total"
 msgstr "total %d"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Pencarian dilakukan dalam %01.4f detik."
@@ -17009,11 +17009,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "direktori unggahan server web:"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -18825,7 +18825,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Pengguna baru telah ditambahkan."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 #, fuzzy
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
@@ -18928,16 +18928,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Tidak ada versi stabil baru yang tersedia"
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Menggunakan markah \"%s\" sebagai kueri penjelajahan bawaan."
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Tampilkan sebagai kode PHP"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18947,7 +18947,7 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19061,12 +19061,12 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Kesalahan membuat kunci asing pada %1$s (periksa tipe data)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Tema %s bawaan tidak ditemukan!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s tidak ditemukan!"

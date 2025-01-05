@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2023-02-17 01:47+0000\n"
 "Last-Translator: Anders Johansson <johansson@aljmedia.se>\n"
 "Language-Team: Swedish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4379,7 +4379,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Ingen förändring"
 
@@ -13019,7 +13019,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\"-satser är inaktiverade."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ÅTERTOG tidigare version]"
 
@@ -15140,17 +15140,17 @@ msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr "PhpMyAdmins konfigurationslagring har inaktiverats. %sSe varför%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 #| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
 msgstr "Saknade phpMyAdmin konfiguration lagringstabeller"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Kan inte importera konfiguration"
 
@@ -15987,17 +15987,17 @@ msgstr "Osäker anslutning"
 msgid "Wrong data"
 msgstr "Felaktigt data"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Bokmärket %s har skapats."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Bokmärke ej skapat!"
 
@@ -16074,7 +16074,7 @@ msgstr "Det finns för många JOINS som saknar index."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL returnerade ett tomt resultat (dvs inga rader)."
 
@@ -16120,7 +16120,7 @@ msgstr "Kolumnen har uppdaterats."
 msgid "Internal relationships were successfully updated."
 msgstr "Intern relation har uppdaterats."
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Rad: %1$s, kolumn: %2$s, fel: %3$s"
@@ -16437,7 +16437,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "%d rad berörs av det sista uttrycket inom proceduren."
 msgstr[1] "%d rader berörs av det sista uttrycket inom proceduren."
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -16454,11 +16454,11 @@ msgstr ""
 "['SessionTimeZone'][/em]. phpMyAdmin för närvarande används "
 "standardtidszonen på databasservern."
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 msgid "Failed to set configured collation connection!"
 msgstr "Kunde inte applicera den konfigurerade sorteringsanslutningen!"
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Uppkoppling för kontrollanvändare enligt din konfiguration misslyckades."
@@ -16491,7 +16491,7 @@ msgstr "%1$d totalt, %2$d i fråga"
 msgid "%s total"
 msgstr "%d totalt"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Frågan tog %01.4f sekunder."
@@ -17202,11 +17202,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "Uppladdningskatalog på webbserver:"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Visar SQL-fråga"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Infogade rad-id: %1$d"
@@ -18995,7 +18995,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Du har lagt till en ny användare."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19098,16 +19098,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Ingen nyare stabil version finns tillgänglig"
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Använd bokmärket \"%s\" som standard webbläsarfråga."
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Visar som PHP-kod"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19117,7 +19117,7 @@ msgstr ""
 "rutnätsredigera, kryssruta, redigera, kopiera och radera är inte "
 "tillgängliga. %s"
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19234,12 +19234,12 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Fel vid skapande av främmande nyckel för %1$s (kontrollera datatyper)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Standardtema %s hittades inte!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Tema %s hittades inte!"

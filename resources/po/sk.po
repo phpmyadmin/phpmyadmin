@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2023-10-24 11:03+0000\n"
 "Last-Translator: Pavol Linet <linet.pavol@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4227,7 +4227,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Žiadna zmena"
 
@@ -12360,7 +12360,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Príkaz \"DROP DATABASE\" je zakázaný."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -14442,16 +14442,16 @@ msgstr ""
 "Konfiguračná pamäť phpMyAdmina bola deaktivovaná. Ak chcete zistiť prečo, "
 "kliknite %ssem%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 msgid "phpMyAdmin configuration snippet"
 msgstr "Chýbajú tabuľky pre miesto uloženia phpMyAdmin konfigurácie"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Nepodarilo sa načítať konfiguráciu"
 
@@ -15263,17 +15263,17 @@ msgstr "Nezabezpečené pripojenie"
 msgid "Wrong data"
 msgstr "Nesprávne dáta"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Príkaz %s bol zaradený medzi obľúbené."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Záložka nebola vytvorená!"
 
@@ -15348,7 +15348,7 @@ msgstr "Je príliš veľa spojení bez indexov."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL vrátil prázdny výsledok (tj. nulový počet riadkov)."
 
@@ -15391,7 +15391,7 @@ msgstr "Zobrazený stĺpec bol aktualizovný."
 msgid "Internal relationships were successfully updated."
 msgstr "Interné vzťahy boli úspešne zmenené."
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -15695,7 +15695,7 @@ msgstr[0] "Posledným príkazom v procedúre bol ovplyvnený %d riadok."
 msgstr[1] "Posledným príkazom v procedúre boli ovplyvnené %d riadky."
 msgstr[2] "Posledným príkazom v procedúre bolo ovplyvnených %d riadkov."
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15703,12 +15703,12 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 #, fuzzy
 msgid "Failed to set configured collation connection!"
 msgstr "Nepodarilo sa načítať konfiguračný súbor!"
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Nepodarilo sa pripojiť ku controluser podľa nastavení z konfigurácie."
 
@@ -15740,7 +15740,7 @@ msgstr "%1$d celkom, %2$d v dotaze"
 msgid "%s total"
 msgstr "celkom %d"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Dopyt zabral %01.4f sekúnd."
@@ -16411,11 +16411,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "upload adresár web serveru:"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Zobrazujem SQL dotaz"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Vložený riadok id: %1$d"
@@ -18056,7 +18056,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Používateľ bol pridaný."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18150,16 +18150,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Zobrazujem ako PHP kód"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18168,7 +18168,7 @@ msgstr ""
 "Aktuálny výber neobsahuje unikátny stĺpec. Úprava gridu, zaškrtávanie, "
 "editácia, kopírovanie a mazanie nie sú dostupné. %s"
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18281,12 +18281,12 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Predvolený vzhľad %s nebol nájdený!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Vzhľad %s nebol nájdený!"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4318,7 +4318,7 @@ msgstr "Έχετε ενεργοποιήσει την πιστοποίηση δύ
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Χωρίς αλλαγή"
 
@@ -13019,7 +13019,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Οι εντολές «DROP DATABASE» έχουν απενεργοποιηθεί."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[συνέβει ROLLBACK.]"
 
@@ -15177,15 +15177,15 @@ msgstr ""
 "Οι επιπρόσθετες λειτουργίες για εργασία με συσχετισμένους πίνακες έχουν "
 "απενεργοποιηθεί. %sΜάθετε γιατί%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 msgid "phpMyAdmin configuration snippet"
 msgstr "Απόσπασμα ρυθμίσεων του phpMyAdmin"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr "Επικολλήστε το στο config.inc.php"
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Αδύνατη η εισαγωγή ρυθμίσεων"
 
@@ -16060,17 +16060,17 @@ msgstr "Μη ασφαλής σύνδεση"
 msgid "Wrong data"
 msgstr "Εσφαλμένα δεδομένα"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Εσφαλμένα δεδομένα ή καμιά πιστοποίηση για %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ο σελιδοδείκτης %s έχει δημιουργηθεί."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Ο σελιδοδείκτης δεν δημιουργήθηκε!"
 
@@ -16147,7 +16147,7 @@ msgstr "Υπάρχουν πολλές ενώσεις χωρίς ευρετήρι
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 "Η MySQL επέστρεψε ένα άδειο σύνολο αποτελεσμάτων (π.χ. καμμία εγγραφή)."
@@ -16192,7 +16192,7 @@ msgstr "Η προβολή της στήλης ενημερώθηκε επιτυ�
 msgid "Internal relationships were successfully updated."
 msgstr "Οι εσωτερικές συσχετίσεις έχουν ενημερωθεί επιτυχώς."
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Γραμμή: %1$s, Στήλη: %2$s, Σφάλμα: %3$s"
@@ -16504,7 +16504,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d εγγραφές επηρεάστηκαν από την τελευταία δήλωση μέσα στη διαδικασία."
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16516,11 +16516,11 @@ msgstr ""
 "το phpMyAdmin χρησιμοποιεί την προεπιλεγμένη ζώνη ώρας του διακομιστή της "
 "βάσης δεδομένων."
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 msgid "Failed to set configured collation connection!"
 msgstr "Αδύνατος ο ορισμός σύνδεσης ρυθμισμένης σύνθεσης!"
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "Ανεπιτυχής σύνδεση του χρήστη ελέγχου όπως ορίστηκε στη ρύθμισή σας."
 
@@ -16552,7 +16552,7 @@ msgstr "%1$d σύνολο, %2$d στο ερώτημα"
 msgid "%s total"
 msgstr "%d συνολικά"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Το ερώτημα χρειάστηκε %01.4f δευτερόλεπτα."
@@ -17275,11 +17275,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "κατάλογος αποθήκευσης αρχείων διακομιστή:"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Εμφάνιση ερωτήματος SQL"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Ταυτότητα εισερχόμενης εγγραφής: %1$d"
@@ -19081,7 +19081,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Προσθέσατε ένα νέο χρήστη."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -19185,16 +19185,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Δεν υπάρχει νεότερη σταθερή έκδοση διαθέσιμη"
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Χρήση του σελιδοδείκτη «%s» ως προεπιλεγμένο ερώτημα φυλλομετρητή."
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Εμφάνιση ως κώδικά PHP"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -19204,7 +19204,7 @@ msgstr ""
 "επεξεργασίας πλέγματος, πλαίσια ελέγχου, Επεξεργασίας, Αντιγραφής και "
 "Διαγραφής δεν είναι διαθέσιμα. %s"
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -19322,12 +19322,12 @@ msgstr ""
 "Σφάλμα δημιουργίας μη διακριτού κλειδιού στο %1$s (ελέξτε τους τύπους "
 "δεδομένων)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Το προεπιλεγμένο θέμα %s δεν βρέθηκε!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Το θέμα %s δεν βρέθηκε!"

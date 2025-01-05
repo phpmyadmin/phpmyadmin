@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2024-12-06 03:00+0000\n"
 "Last-Translator: Eric Marcel Black Stiller <marcelstiller2005@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4161,7 +4161,7 @@ msgstr "Sie haben Zwei-Faktor-Authentifizierung aktiviert."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Keine Änderung"
 
@@ -12455,7 +12455,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" - Anweisungen wurden deaktiviert."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK aufgetreten.]"
 
@@ -14515,15 +14515,15 @@ msgstr ""
 "Der phpMyAdmin Konfigurations-Speicher wurde deaktiviert. %sFinden Sie "
 "heraus warum%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin-Konfigurationsschnipsel"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr "Fügen Sie dies in Ihre config.inc.php ein"
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Fehler beim Importieren der Konfiguration"
 
@@ -15375,17 +15375,17 @@ msgstr "Unsichere Verbindung"
 msgid "Wrong data"
 msgstr "Fehlerhafte Daten"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "Falsche Daten oder keine Bestätigung für %s"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Lesezeichen %s wurde erstellt."
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Bookmark nicht erstellt!"
 
@@ -15459,7 +15459,7 @@ msgstr "Es gibt ein Problem mit Ihrer Anfrage."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL lieferte ein leeres Resultat zurück (d.h. null Datensätze)."
 
@@ -15497,7 +15497,7 @@ msgstr "Spaltendarstellung erfolgreich aktualisiert."
 msgid "Internal relationships were successfully updated."
 msgstr "Interne Verknüpfungen wurden erfolgreich aktualisiert."
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Zeile: %1$s, Spalte: %2$s, Fehler: %3$s"
@@ -15809,7 +15809,7 @@ msgstr[0] ""
 msgstr[1] ""
 "%d Datensätze betroffen aufgrund des letzten Befehls innerhalb der Prozedur."
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15821,13 +15821,13 @@ msgstr ""
 "[%3$d]['SessionTimeZone'][/em]. phpMyAdmin verwendet aktuell die Standard-"
 "Zeitzone des Datenbankservers."
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 msgid "Failed to set configured collation connection!"
 msgstr ""
 "Fehler beim Einstellen des konfigurierten Zeichensatzes/der konfigurierten "
 "Kollation für die Verbindung!"
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Verbindung für den controluser, wie er in Ihrer Konfiguration angegeben ist, "
@@ -15864,7 +15864,7 @@ msgstr "%s insgesamt"
 
 # (s is the abbreviation of "Sekunde", sec is it not (according to
 # International System of Units), so we wrote the complete one.)
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Die Abfrage dauerte %01.4f Sekunden."
@@ -16566,11 +16566,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "Upload-Verzeichnis auf dem Webserver:"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Ansicht als SQL-Abfrage"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID der eingefügten Zeile: %1$d"
@@ -18353,7 +18353,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "Der Benutzer wurde hinzugefügt."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18452,16 +18452,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Keine neuere stabile Version verfügbar"
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Lesezeichen \"%s\" wird als Standard-Anzeigeabfrage verwendet."
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "Ansicht als PHP-Code"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18471,7 +18471,7 @@ msgstr ""
 "Bearbeitungsfunktion, Kontrollkästchen, Bearbeiten, Kopieren und Löschen von "
 "Links sind nicht verfügbar. %s"
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18588,12 +18588,12 @@ msgstr ""
 "Fehler beim Erzeugen eines Fremdschlüssels für %1$s (überprüfen Sie die "
 "Datentypen)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "Standard-Oberflächendesign %s nicht gefunden!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "Oberflächendesign %s nicht gefunden!"

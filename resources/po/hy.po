@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2021-01-22 03:17+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Armenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4291,7 +4291,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "Առանց փոփոխությունների"
 
@@ -12384,7 +12384,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" արտահայտությունները կասեցված են։"
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[Տեղի է ունեցել ՀԵՏԴԱՐՁ]"
 
@@ -14514,17 +14514,17 @@ msgid ""
 msgstr ""
 "phpMyAdmin-ի կազմաձևի պաշարները կասեցվել են։ %sԻմացեք պատճառը այստեղ%s։"
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 #| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin-ի պաշտոնական ուղեցույց"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr ""
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 msgid "Could not import configuration"
 msgstr "Չհաջողվեց ներմուծել կազմաձևի կայանքները"
 
@@ -15227,17 +15227,17 @@ msgstr ""
 msgid "Wrong data"
 msgstr "Սխալ տվյալներ"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s էջանիշը ստեղծվեց։"
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 msgid "Bookmark not created!"
 msgstr "Էջանիշը չի ստեղծվել։"
 
@@ -15312,7 +15312,7 @@ msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -15358,7 +15358,7 @@ msgstr ""
 msgid "Internal relationships were successfully updated."
 msgstr "Ներքին կապակցումները հաջողությամբ արդիացվեցին։"
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
@@ -15676,7 +15676,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 msgstr[1] "Ընթացակարգի վերջին արտահայտությունով ընդգրկվել է %d տող։"
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, fuzzy, php-format
 #| msgid ""
 #| "Unable to use timezone %1$s for server %2$d. Please check your "
@@ -15693,11 +15693,11 @@ msgstr ""
 "[/em]-ի համար։ Տվյալ պահին phpMyAdmin-ը օգտագործում է սպասարկչի լռելյայն "
 "ժամային գոտին։"
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Չհաջողվեց միանալ որպես controluser, ինչպես այն սահմանված է կազմաձևի մեջ։"
@@ -15730,7 +15730,7 @@ msgstr "Ընդամենը %1$d,%2$d հարցման մեջ"
 msgid "%s total"
 msgstr "Ընդամենը %d"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Հարցումը տևեց %01.4f վայրկյան։"
@@ -16389,11 +16389,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr ""
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "SQL հարցման ցուցադրում"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Զետեղված տողի id՝ %1$d"
@@ -18006,7 +18006,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr ""
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18102,23 +18102,23 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr ""
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "PHP կոդի տեսքով ցուցադրում"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -18227,12 +18227,12 @@ msgstr ""
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s-ի արտաքին բանալիի ստեղծման սխալ (ստուգեք տվյալների տեսակները)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "%s լռելյայն ոճը չի գտնվել։"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "%s ոճը չի գտնվել։"

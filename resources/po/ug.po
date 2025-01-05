@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-12-29 00:25+0000\n"
+"POT-Creation-Date: 2025-01-05 00:25+0000\n"
 "PO-Revision-Date: 2024-10-29 18:22+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -4685,7 +4685,7 @@ msgstr "ئىككى ئامىل دەلىللەشنى قوزغىتىڭ."
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:348
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:292 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
 msgid "No change"
 msgstr "ئۆزگەرتىش يوق"
 
@@ -13583,7 +13583,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكلەنگەن."
 
-#: src/Controllers/Import/ImportController.php:689 src/Sql.php:882
+#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK يۈز بەردى.]"
 
@@ -15909,17 +15909,17 @@ msgstr ""
 "ئالاقىدار جەدۋەللەرنىڭ قوشۇمچە ئىقتىدارى پائالسىز. سەۋەبىنى ئېنىقلاش ئۈچۈن "
 "%sبۇ يەرنى كۆرۈڭ%s."
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:87
 #, fuzzy
 #| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin ھۆججىتى"
 
-#: src/Controllers/Preferences/ManageController.php:89
+#: src/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
 msgstr "ئۇنى config.inc.php غا چاپلاڭ"
 
-#: src/Controllers/Preferences/ManageController.php:139
+#: src/Controllers/Preferences/ManageController.php:138
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Could not import configuration"
@@ -16746,18 +16746,18 @@ msgstr "بىخەتەر ئۇلىنىش"
 msgid "Wrong data"
 msgstr "خاتا سانلىق مەلۇمات"
 
-#: src/Controllers/Setup/ValidateController.php:70
+#: src/Controllers/Setup/ValidateController.php:69
 #, fuzzy, php-format
 msgid "Wrong data or no validation for %s"
 msgstr "خاتا سانلىق مەلۇمات ياكى% s ئۈچۈن دەلىللەش يوق"
 
-#: src/Controllers/Sql/SqlController.php:230 src/Sql.php:1058
+#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
 #, fuzzy, php-format
 #| msgid "Bookmark %s created"
 msgid "Bookmark %s has been created."
 msgstr "قۇرۇلغان خەتكۈچ %s"
 
-#: src/Controllers/Sql/SqlController.php:237
+#: src/Controllers/Sql/SqlController.php:236
 #, fuzzy
 #| msgid "Bookmark %s created"
 msgid "Bookmark not created!"
@@ -16839,7 +16839,7 @@ msgstr "ئىزلانغان جەدۋەل"
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:868
+#: src/InsertEdit.php:199 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL قۇرۇق نەتىجە توپلىمىنى قايتۇردى (يەنى نۆل قۇر)."
 
@@ -16885,7 +16885,7 @@ msgstr "كۆرسىتىش ئىستونى مۇۋەپپەقىيەتلىك يېڭى�
 msgid "Internal relationships were successfully updated."
 msgstr ".ئىچكى ئۇلىنىش مۇاسىۋىتى قۇشۇلدى"
 
-#: src/Controllers/Table/ReplaceController.php:187
+#: src/Controllers/Table/ReplaceController.php:186
 #, fuzzy, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "قۇر:% 1 $ s ، ستون:% 2 $ s ، خاتالىق:% 3 $ s"
@@ -17235,7 +17235,7 @@ msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 
-#: src/Dbal/DatabaseInterface.php:1062
+#: src/Dbal/DatabaseInterface.php:1063
 #, fuzzy, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -17247,13 +17247,13 @@ msgstr ""
 "تەڭشىكىڭىزنى تەكشۈرۈڭ. phpMyAdmin ھازىر ساندان مۇلازىمېتىرىنىڭ سۈكۈتتىكى "
 "ۋاقىت رايونىنى ئىشلىتىۋاتىدۇ."
 
-#: src/Dbal/DatabaseInterface.php:1104
+#: src/Dbal/DatabaseInterface.php:1105
 #, fuzzy
 #| msgid "Could not load default configuration from: %1$s"
 msgid "Failed to set configured collation connection!"
 msgstr "تەڭشەك ئەندىزى %1$s كىرگۈزىلمىدى."
 
-#: src/Dbal/DatabaseInterface.php:1637
+#: src/Dbal/DatabaseInterface.php:1638
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr "تەڭشەك ھۆججىتى ئىچىدىكى ئىشلەنكۈچى ئۇلۈنما كونتىرولى مەغلۇب بولدى."
 
@@ -17288,7 +17288,7 @@ msgstr ""
 msgid "%s total"
 msgstr "ئۇمۇمىي"
 
-#: src/Display/Results.php:3449 src/Sql.php:874
+#: src/Display/Results.php:3449 src/Sql.php:869
 #, fuzzy, php-format
 msgid "Query took %01.4f seconds."
 msgstr "سۈرۈشتۈرۈش% 01.4f سېكۇنت."
@@ -18016,11 +18016,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "مۇلازىمىتېردىكى يۈكلەش مۇندەرىجىسى"
 
-#: src/InsertEdit.php:924 src/Sql.php:865
+#: src/InsertEdit.php:924 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "SQL سوئالنى كۆرسىتىش"
 
-#: src/InsertEdit.php:948 src/Sql.php:845
+#: src/InsertEdit.php:948 src/Sql.php:840
 #, fuzzy, php-format
 msgid "Inserted row id: %1$d"
 msgstr "قىستۇرما قۇر id:% 1 $ d"
@@ -19903,7 +19903,7 @@ msgstr ""
 msgid "You have added a new user."
 msgstr "يېڭى ئىشلەتكۈچى قوشتىڭىز."
 
-#: src/Server/Privileges.php:3238
+#: src/Server/Privileges.php:3236
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -20006,16 +20006,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "يېڭى مۇقىم نەشرى يوق"
 
-#: src/Sql.php:441
+#: src/Sql.php:440
 #, fuzzy, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "خەتكۈچ \"% s\" نى سۈكۈتتىكى كۆز قاراش سۈپىتىدە ئىشلىتىش."
 
-#: src/Sql.php:862
+#: src/Sql.php:857
 msgid "Showing as PHP code"
 msgstr "PHP كودى سۈپىتىدە كۆرسىتىلىدۇ"
 
-#: src/Sql.php:1224
+#: src/Sql.php:1211
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -20024,7 +20024,7 @@ msgstr ""
 "نۆۋەتتىكى تاللاشتا ئۆزگىچە ئىستون يوق. كاتەكچە تەھرىرلەش ، تەكشۈرۈش "
 "رامكىسى ، تەھرىرلەش ، كۆپەيتىش ۋە ئۆچۈرۈش ئىقتىدارلىرى يوق. % s"
 
-#: src/Sql.php:1238
+#: src/Sql.php:1225
 #, fuzzy, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
@@ -20149,12 +20149,12 @@ msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 "% 1 $ s دە چەتئەل ئاچقۇچى قۇرۇشتا خاتالىق (سانلىق مەلۇمات تىپلىرىنى تەكشۈرۈش)"
 
-#: src/Theme/ThemeManager.php:68
+#: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
 msgstr "ئۇسلۇپ ئەندىزسى %s تېپىلمىدى!"
 
-#: src/Theme/ThemeManager.php:111
+#: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
 msgstr "تېما %s تېپىلمىدى!"
