@@ -11428,33 +11428,9 @@ parameters:
 			path: src/Plugins/Export/ExportCodegen.php
 
 		-
-			message: '#^Binary operation "\." between mixed and \(list\<string\>\|string\) results in an error\.$#'
+			message: '#^Binary operation "\." between non\-empty\-string and \(list\<string\>\|string\) results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Binary operation "\." between mixed and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 4
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Binary operation "\." between mixed and string results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Binary operation "\." between non\-empty\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 3
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Binary operation "\." between string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 2
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
@@ -11487,56 +11463,65 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the right side\.$#'
-			identifier: booleanAnd.rightNotBoolean
-			count: 3
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Parameter \#1 \$search of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Parameter \#1 \$separator of function implode expects array\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Export/ExportCsv.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Plugins/Export/ExportCsv.php
 
 		-
 			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 1
 			path: src/Plugins/Export/ExportCsv.php
+
+		-
+			message: '#^Binary operation "\." between non\-empty\-string and \(list\<string\>\|string\) results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Plugins/Export/ExportExcel.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 2
+			path: src/Plugins/Export/ExportExcel.php
+
+		-
+			message: '#^Cannot access offset ''columns'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Plugins/Export/ExportExcel.php
+
+		-
+			message: '#^Cannot access offset ''tables'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Plugins/Export/ExportExcel.php
+
+		-
+			message: '#^Cannot access offset string on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: src/Plugins/Export/ExportExcel.php
+
+		-
+			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
+			identifier: empty.notAllowed
+			count: 1
+			path: src/Plugins/Export/ExportExcel.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Plugins/Export/ExportExcel.php
 
 		-
 			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, string\|null given\.$#'
 			identifier: argument.type
 			count: 3
-			path: src/Plugins/Export/ExportCsv.php
+			path: src/Plugins/Export/ExportExcel.php
 
 		-
 			message: '#^Binary operation "\." between ''\<html xmlns\:o\="urn…'' and mixed results in an error\.$#'
