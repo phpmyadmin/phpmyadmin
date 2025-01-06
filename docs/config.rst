@@ -3602,7 +3602,7 @@ Various display setting
 
     Sorts database, table names and foreign key constaint according to natural order (for
     example, t1, t2, t10). Currently implemented in the navigation panel,
-    in Database view for the table list and Relation view for list of Foreign key constraints.
+    in Database view for the table list and Relation view while listing Foreign key constraints.
 
 .. config:option:: $cfg['InitialSlidersState']
 
