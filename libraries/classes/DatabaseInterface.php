@@ -2264,7 +2264,7 @@ class DatabaseInterface implements DbalInterface
      */
     public function getKillQuery(int $process): string
     {
-        if ($this->isAmazonRds()) {
+        if ($this->isAmazonRds() && $this->isSuperUser()) {
             return 'CALL mysql.rds_kill(' . $process . ');';
         }
 
