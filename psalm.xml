@@ -50,7 +50,6 @@
             errno: int,
             file_handle: resource|null,
             from_cookie: bool,
-            hostname: string,
             import_text: string,
             knjenc: string,
             maxsize: string,

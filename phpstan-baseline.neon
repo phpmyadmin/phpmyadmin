@@ -3511,19 +3511,7 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForRoutineSpecificPrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Parameter \#2 \$initial of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserOverview\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -5367,12 +5355,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\UserPassword\:\:getFormForChangePassword\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/UserPasswordController.php
 
@@ -15007,12 +14989,6 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Parameter \#1 \$string of function mb_substr expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -15020,12 +14996,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getUserHostCondition\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Privileges.php
@@ -15058,12 +15028,6 @@ parameters:
 			message: '#^Parameter \#4 \$dbname of method PhpMyAdmin\\Server\\Privileges\:\:getUserLink\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getSqlQueryForDisplayPrivTable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Privileges.php
 
 		-

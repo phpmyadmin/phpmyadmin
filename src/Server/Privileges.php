@@ -71,6 +71,7 @@ use function uksort;
 class Privileges
 {
     public string|null $username = null;
+    public string|null $hostname = null;
     private string|null $sslType = null;
     private string|null $sslCipher = null;
     private string|null $x509Issuer = null;
@@ -473,7 +474,7 @@ class Privileges
         $row = [];
         if ($this->username !== null) {
             $username = $this->username;
-            $hostname = $GLOBALS['hostname'];
+            $hostname = $this->hostname ?? '';
             $sqlQuery = $this->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
             $row = $this->dbi->fetchSingleRow($sqlQuery);
         }
@@ -596,7 +597,6 @@ class Privileges
     ): string {
         $GLOBALS['pred_username'] ??= null;
         $GLOBALS['pred_hostname'] ??= null;
-        $GLOBALS['hostname'] ??= null;
         $GLOBALS['new_username'] ??= null;
 
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
@@ -618,8 +618,8 @@ class Privileges
             );
         }
 
-        if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-            $GLOBALS['pred_hostname'] = match (mb_strtolower($GLOBALS['hostname'])) {
+        if (! isset($GLOBALS['pred_hostname']) && $this->hostname !== null) {
+            $GLOBALS['pred_hostname'] = match (mb_strtolower($this->hostname)) {
                 'localhost', '127.0.0.1' => 'localhost',
                 '%' => 'any',
                 default => 'userdefined',
@@ -651,7 +651,7 @@ class Privileges
             'hostname_length' => $hostnameLength,
             'username' => $this->username,
             'new_username' => $GLOBALS['new_username'] ?? null,
-            'hostname' => $GLOBALS['hostname'] ?? null,
+            'hostname' => $this->hostname,
             'this_host' => $thisHost,
             'is_change' => $user !== null && $host !== null,
             'auth_plugin' => $authPlugin,

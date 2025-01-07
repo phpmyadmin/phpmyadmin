@@ -599,11 +599,11 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
-        $GLOBALS['hostname'] = 'hostname';
         $dbi = $this->createDatabaseInterface();
 
         $serverPrivileges = $this->getPrivileges($dbi);
         $serverPrivileges->username = 'username';
+        $serverPrivileges->hostname = 'hostname';
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable();
 
         //validate 2: button
@@ -877,7 +877,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges->dbi = $dbi;
 
         $serverPrivileges->username = 'PMA_username';
-        $GLOBALS['hostname'] = 'PMA_hostname';
+        $serverPrivileges->hostname = 'PMA_hostname';
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable('PMA_db', 'PMA_table');
 
         self::assertStringContainsString('checkbox_Update_priv_none', $html);
@@ -1473,7 +1473,7 @@ class PrivilegesTest extends AbstractTestCase
         $serverPrivileges = $this->getPrivileges($this->dbi);
 
         $serverPrivileges->username = 'user';
-        $GLOBALS['hostname'] = 'host';
+        $serverPrivileges->hostname = 'host';
 
         $actual = $serverPrivileges->getHtmlForUserProperties(
             false,

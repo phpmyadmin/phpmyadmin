@@ -46,8 +46,6 @@ final class PrivilegesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['hostname'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -80,7 +78,7 @@ final class PrivilegesController implements InvocableController
         }
 
         $serverPrivileges->username = $serverPrivileges->getUsernameParam($request);
-        $GLOBALS['hostname'] = $serverPrivileges->getHostnameParam($request);
+        $serverPrivileges->hostname = $serverPrivileges->getHostnameParam($request);
         $databaseName = $serverPrivileges->getDbname($request);
         $tablename = $serverPrivileges->getTablename($request);
         $routinename = $serverPrivileges->getRoutinename($request);
@@ -115,7 +113,7 @@ final class PrivilegesController implements InvocableController
         if (
             $request->hasBodyParam('change_copy')
             && $serverPrivileges->username === $request->getParsedBodyParam('old_username')
-            && $GLOBALS['hostname'] === $request->getParsedBodyParam('old_hostname')
+            && $serverPrivileges->hostname === $request->getParsedBodyParam('old_hostname')
         ) {
             $this->response->addHTML(
                 Message::error(
@@ -150,7 +148,7 @@ final class PrivilegesController implements InvocableController
         if ($request->hasBodyParam('adduser_submit') || $request->hasBodyParam('change_copy')) {
             $hostname = $serverPrivileges->getHostname(
                 $request->getParsedBodyParamAsString('pred_hostname', ''),
-                $GLOBALS['hostname'] ?? '',
+                $serverPrivileges->hostname ?? '',
             );
             [
                 $retMessage,
@@ -178,12 +176,12 @@ final class PrivilegesController implements InvocableController
         if (
             $request->hasBodyParam('change_copy')
             && $serverPrivileges->username !== null
-            && $GLOBALS['hostname'] !== null
+            && $serverPrivileges->hostname !== null
         ) {
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $queries,
                 $serverPrivileges->username,
-                $GLOBALS['hostname'],
+                $serverPrivileges->hostname,
                 $request->getParsedBodyParamAsString('old_username'),
                 $request->getParsedBodyParamAsString('old_hostname'),
             );
@@ -203,7 +201,7 @@ final class PrivilegesController implements InvocableController
                 foreach ($databaseName as $key => $dbName) {
                     [$statements[$key], Current::$message] = $serverPrivileges->updatePrivileges(
                         $serverPrivileges->username ?? '',
-                        $GLOBALS['hostname'] ?? '',
+                        $serverPrivileges->hostname ?? '',
                         $tablename ?? $routinename ?? '',
                         $dbName,
                         $itemType,
@@ -214,7 +212,7 @@ final class PrivilegesController implements InvocableController
             } else {
                 [Current::$sqlQuery, Current::$message] = $serverPrivileges->updatePrivileges(
                     $serverPrivileges->username ?? '',
-                    $GLOBALS['hostname'] ?? '',
+                    $serverPrivileges->hostname ?? '',
                     $tablename ?? $routinename ?? '',
                     $databaseName ?? '',
                     $itemType,
@@ -244,7 +242,7 @@ final class PrivilegesController implements InvocableController
                 is_string($databaseName) ? $databaseName : '',
                 $tablename ?? $routinename ?? '',
                 $serverPrivileges->username ?? '',
-                $GLOBALS['hostname'] ?? '',
+                $serverPrivileges->hostname ?? '',
                 $itemType,
             );
         }
@@ -256,7 +254,7 @@ final class PrivilegesController implements InvocableController
             Current::$message = $serverPrivileges->updatePassword(
                 $errorUrl,
                 $serverPrivileges->username ?? '',
-                $GLOBALS['hostname'] ?? '',
+                $serverPrivileges->hostname ?? '',
             );
         }
 
@@ -308,7 +306,7 @@ final class PrivilegesController implements InvocableController
             $extraData = $serverPrivileges->getExtraDataForAjaxBehavior(
                 $password ?? '',
                 Current::$sqlQuery,
-                $GLOBALS['hostname'] ?? '',
+                $serverPrivileges->hostname ?? '',
                 $serverPrivileges->username ?? '',
                 ! is_array($databaseName) ? $databaseName : null,
             );
@@ -337,18 +335,18 @@ final class PrivilegesController implements InvocableController
 
             $title = $this->getExportPageTitle(
                 $serverPrivileges->username ?? '',
-                $GLOBALS['hostname'] ?? '',
+                $serverPrivileges->hostname ?? '',
                 $selectedUsers,
             );
 
             $export = $serverPrivileges->getExportUserDefinitionTextarea(
                 $serverPrivileges->username ?? '',
-                $GLOBALS['hostname'] ?? '',
+                $serverPrivileges->hostname ?? '',
                 $selectedUsers,
             );
 
             $serverPrivileges->username = null;
-            unset($GLOBALS['hostname']);
+            $serverPrivileges->hostname = null;
 
             if ($request->isAjax()) {
                 $this->response->addJSON('message', $export);
@@ -387,7 +385,7 @@ final class PrivilegesController implements InvocableController
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
                         $serverPrivileges->username,
-                        $GLOBALS['hostname'] ?? '',
+                        $serverPrivileges->hostname ?? '',
                         is_string($databaseName) ? $databaseName : '',
                         $routinename,
                         $serverPrivileges->escapeGrantWildcards($urlDbname ?? ''),
@@ -405,7 +403,7 @@ final class PrivilegesController implements InvocableController
                         $dbnameIsWildcard,
                         $serverPrivileges->escapeGrantWildcards($urlDbname ?? ''),
                         $serverPrivileges->username,
-                        $GLOBALS['hostname'] ?? '',
+                        $serverPrivileges->hostname ?? '',
                         $databaseName ?? '',
                         $tablename ?? '',
                         $request->getRoute(),
