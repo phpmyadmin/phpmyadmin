@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportOds;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -35,7 +36,7 @@ class ImportOdsTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['error'] = null;
+        Import::$hasError = false;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;

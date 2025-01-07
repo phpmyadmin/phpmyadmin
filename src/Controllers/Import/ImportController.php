@@ -64,7 +64,6 @@ final class ImportController implements InvocableController
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['import_text'] ??= null;
-        $GLOBALS['error'] ??= null;
         $GLOBALS['result'] ??= null;
 
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
@@ -240,7 +239,7 @@ final class ImportController implements InvocableController
 
         // set default values
         ImportSettings::$timeoutPassed = false;
-        $GLOBALS['error'] = false;
+        Import::$hasError = false;
         ImportSettings::$readMultiply = 1;
         ImportSettings::$finished = false;
         ImportSettings::$offset = 0;
@@ -333,7 +332,7 @@ final class ImportController implements InvocableController
                     }
 
                     ImportSettings::$runQuery = false;
-                    $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
+                    Import::$hasError = true; // this is kind of hack to skip processing the query
                     break;
             }
         }
@@ -394,7 +393,7 @@ final class ImportController implements InvocableController
 
         // Do we have file to import?
 
-        if (ImportSettings::$importFile !== 'none' && ! $GLOBALS['error']) {
+        if (ImportSettings::$importFile !== 'none' && ! Import::$hasError) {
             /**
              *  Handle file compression
              */
@@ -431,7 +430,7 @@ final class ImportController implements InvocableController
 
                 return $this->response->response();
             }
-        } elseif (! $GLOBALS['error'] && empty($GLOBALS['import_text'])) {
+        } elseif (! Import::$hasError && empty($GLOBALS['import_text'])) {
             Current::$message = Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .
@@ -463,7 +462,7 @@ final class ImportController implements InvocableController
         }
 
         // Something to skip? (because timeout has passed)
-        if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
+        if (! Import::$hasError && $request->hasBodyParam('skip')) {
             $originalSkip = $skip = (int) $request->getParsedBodyParamAsStringOrNull('skip');
             while ($skip > 0 && ! ImportSettings::$finished) {
                 $this->import->getNextChunk(
@@ -482,7 +481,7 @@ final class ImportController implements InvocableController
         // and complete valid sql statement (which affected for rows)
         $queriesToBeExecuted = [];
 
-        if (! $GLOBALS['error']) {
+        if (! Import::$hasError) {
             $importPlugin = new ($importFormat->getClassName());
 
             $importPlugin->setImportOptions($request);
@@ -513,10 +512,10 @@ final class ImportController implements InvocableController
         if ($idBookmark !== 0 && $actionBookmark === 2) {
             Current::$message = Message::success(__('The bookmark has been deleted.'));
             $GLOBALS['display_query'] = $GLOBALS['import_text'];
-            $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
+            Import::$hasError = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             Current::$message = Message::notice(__('Showing bookmark'));
-        } elseif (ImportSettings::$finished && ! $GLOBALS['error']) {
+        } elseif (ImportSettings::$finished && ! Import::$hasError) {
             // Do not display the query with message, we do it separately
             $GLOBALS['display_query'] = ';';
             if (ImportSettings::$importType !== 'query') {
@@ -604,7 +603,7 @@ final class ImportController implements InvocableController
         }
 
         foreach (ImportSettings::$failedQueries as $die) {
-            Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], $GLOBALS['error']);
+            Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], Import::$hasError);
         }
 
         if (ImportSettings::$goSql) {

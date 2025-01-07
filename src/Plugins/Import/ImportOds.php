@@ -13,6 +13,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
@@ -117,8 +118,6 @@ class ImportOds extends ImportPlugin
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
-
         $sqlStatements = [];
         $buffer = '';
 
@@ -126,7 +125,7 @@ class ImportOds extends ImportPlugin
          * Read in the file via Import::getNextChunk so that
          * it can process compressed files
          */
-        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! ImportSettings::$finished && ! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */
@@ -158,7 +157,7 @@ class ImportOds extends ImportPlugin
             Current::$message = Message::error(__(
                 'The XML file specified was either malformed or incomplete. Please correct the issue and try again.',
             ));
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
         } else {
             $root = $xml->children('office', true)->body->spreadsheet;
             if ($root === null) {
@@ -166,7 +165,7 @@ class ImportOds extends ImportPlugin
                 Current::$message = Message::error(
                     __('Could not parse OpenDocument Spreadsheet!'),
                 );
-                $GLOBALS['error'] = true;
+                Import::$hasError = true;
             } else {
                 $sheets = $root->children('table', true);
             }

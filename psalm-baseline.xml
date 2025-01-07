@@ -1918,9 +1918,6 @@
       <code><![CDATA[is_array($_FILES['import_file'])]]></code>
       <code><![CDATA[is_string($_FILES['import_file']['tmp_name'])]]></code>
     </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$GLOBALS['error']]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Preferences/NavigationController.php">
     <DeprecatedMethod>
@@ -7529,9 +7526,6 @@
       <code><![CDATA[$values[count($values) - 1]]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
     </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['error']]]></code>
-    </MixedAssignment>
     <PossiblyNullOperand>
       <code><![CDATA[$ch]]></code>
     </PossiblyNullOperand>

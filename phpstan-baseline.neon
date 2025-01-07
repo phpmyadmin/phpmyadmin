@@ -2965,12 +2965,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 5
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
@@ -2992,12 +2986,6 @@ parameters:
 			message: '#^Parameter \#4 \$backUrl of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: '#^Parameter \#5 \$exit of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3252,12 +3240,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Preferences/ManageController.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, PhpMyAdmin\\Message\|string given\.$#'
-			identifier: if.condNotBoolean
 			count: 1
 			path: src/Controllers/Preferences/ManageController.php
 
@@ -9364,18 +9346,6 @@ parameters:
 			path: src/Import/Import.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Import/Import.php
-
-		-
 			message: '#^Parameter \#1 \$precision of static method PhpMyAdmin\\Import\\DecimalSize\:\:fromPrecisionAndScale\(\) expects int, int\|PhpMyAdmin\\Import\\DecimalSize given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12847,12 +12817,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: '#^Parameter \#1 \$columnNames of method PhpMyAdmin\\Plugins\\Import\\ImportCsv\:\:getColumnNames\(\) expects list\<string\>, array\|null given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12891,12 +12855,6 @@ parameters:
 		-
 			message: '#^Negated boolean expression is always true\.$#'
 			identifier: booleanNot.alwaysTrue
-			count: 1
-			path: src/Plugins/Import/ImportMediawiki.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Plugins/Import/ImportMediawiki.php
 
@@ -12958,12 +12916,6 @@ parameters:
 			message: '#^Offset ''number\-columns\-repeated'' might not exist on SimpleXMLElement\|null\.$#'
 			identifier: offsetAccess.notFound
 			count: 2
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Plugins/Import/ImportOds.php
 
 		-
@@ -13087,18 +13039,6 @@ parameters:
 			path: src/Plugins/Import/ImportSql.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 2
-			path: src/Plugins/Import/ImportSql.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Plugins/Import/ImportSql.php
-
-		-
 			message: '#^Parameter \#1 \$delimiter of method PhpMyAdmin\\SqlParser\\Utils\\BufferedQuery\:\:setDelimiter\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -13156,12 +13096,6 @@ parameters:
 			message: '#^Offset ''name'' might not exist on SimpleXMLElement\|null\.$#'
 			identifier: offsetAccess.notFound
 			count: 4
-			path: src/Plugins/Import/ImportXml.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Plugins/Import/ImportXml.php
 
 		-

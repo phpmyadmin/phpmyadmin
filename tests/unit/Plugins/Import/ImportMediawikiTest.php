@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportMediawiki;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -29,7 +30,7 @@ class ImportMediawikiTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['error'] = null;
+        Import::$hasError = false;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
