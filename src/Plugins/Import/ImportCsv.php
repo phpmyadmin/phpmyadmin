@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
@@ -191,15 +192,13 @@ class ImportCsv extends AbstractImportCsv
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
-
         $replacements = ['\\n' => "\n", '\\t' => "\t", '\\r' => "\r"];
         $this->terminated = strtr($this->terminated, $replacements);
         $this->enclosed = strtr($this->enclosed, $replacements);
         $this->escaped = strtr($this->escaped, $replacements);
         $this->newLine = strtr($this->newLine, $replacements);
 
-        [$GLOBALS['error'], Current::$message] = $this->buildErrorsForParams(
+        [Import::$hasError, Current::$message] = $this->buildErrorsForParams(
             $this->terminated,
             $this->enclosed,
             $this->escaped,
@@ -235,7 +234,7 @@ class ImportCsv extends AbstractImportCsv
         $maxCols = 0;
         $csvTerminatedLen = mb_strlen($this->terminated);
         $dbi = DatabaseInterface::getInstance();
-        while (! (ImportSettings::$finished && $i >= $len) && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! (ImportSettings::$finished && $i >= $len) && ! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 // subtract data we didn't handle yet and stop processing
@@ -288,7 +287,7 @@ class ImportCsv extends AbstractImportCsv
                         __('Invalid format of CSV input on line %d.'),
                     );
                     Current::$message->addParam($line);
-                    $GLOBALS['error'] = true;
+                    Import::$hasError = true;
                     break;
                 }
 
@@ -496,7 +495,7 @@ class ImportCsv extends AbstractImportCsv
                                 ),
                             );
                             Current::$message->addParam($line);
-                            $GLOBALS['error'] = true;
+                            Import::$hasError = true;
                             break;
                         }
 
@@ -604,7 +603,7 @@ class ImportCsv extends AbstractImportCsv
         // Commit any possible data in buffers
         $this->import->runQuery('', $sqlStatements);
 
-        if ($values === [] || $GLOBALS['error'] !== false) {
+        if ($values === [] || Import::$hasError !== false) {
             return $sqlStatements;
         }
 
@@ -612,12 +611,12 @@ class ImportCsv extends AbstractImportCsv
             __('Invalid format of CSV input on line %d.'),
         );
         Current::$message->addParam($line);
-        $GLOBALS['error'] = true;
+        Import::$hasError = true;
 
         return $sqlStatements;
     }
 
-    /** @return array{mixed, Message|null} */
+    /** @return array{bool, Message|null} */
     private function buildErrorsForParams(
         string $csvTerminated,
         string $csvEnclosed,
@@ -625,15 +624,13 @@ class ImportCsv extends AbstractImportCsv
         string $csvNewLine,
         string $errUrl,
     ): array {
-        $GLOBALS['error'] ??= null;
-
         $paramError = false;
         if ($csvTerminated === '') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
             Current::$message->addParam(__('Columns terminated with'));
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
             $paramError = true;
             // The default dialog of MS Excel when generating a CSV produces a
             // semi-colon-separated file with no chance of specifying the
@@ -648,7 +645,7 @@ class ImportCsv extends AbstractImportCsv
                 __('Invalid parameter for CSV import: %s'),
             );
             Current::$message->addParam(__('Columns enclosed with'));
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
             $paramError = true;
             // I could not find a test case where having no escaping characters
             // confuses this script.
@@ -659,14 +656,14 @@ class ImportCsv extends AbstractImportCsv
                 __('Invalid parameter for CSV import: %s'),
             );
             Current::$message->addParam(__('Columns escaped with'));
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
             $paramError = true;
         } elseif (mb_strlen($csvNewLine) != 1 && $csvNewLine !== 'auto') {
             Current::$message = Message::error(
                 __('Invalid parameter for CSV import: %s'),
             );
             Current::$message->addParam(__('Lines terminated with'));
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
             $paramError = true;
         }
 
@@ -681,7 +678,7 @@ class ImportCsv extends AbstractImportCsv
             );
         }
 
-        return [$GLOBALS['error'], Current::$message];
+        return [Import::$hasError, Current::$message];
     }
 
     private function getTableNameFromImport(string $databaseName): string
@@ -726,8 +723,6 @@ class ImportCsv extends AbstractImportCsv
         string|null $table,
         string $csvColumns,
     ): array {
-        $GLOBALS['error'] ??= null;
-
         $sqlTemplate = '';
         $fields = [];
         if (! $this->analyze && $db !== null && $table !== null) {
@@ -766,7 +761,7 @@ class ImportCsv extends AbstractImportCsv
                             ),
                         );
                         Current::$message->addParam($val);
-                        $GLOBALS['error'] = true;
+                        Import::$hasError = true;
                         break;
                     }
 

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -95,8 +96,6 @@ class ImportSql extends ImportPlugin
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
-
         // Handle compatibility options.
         $this->setSQLMode(DatabaseInterface::getInstance(), $_REQUEST);
 
@@ -112,7 +111,7 @@ class ImportSql extends ImportPlugin
 
         $sqlStatements = [];
 
-        while (! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             // Getting the first statement, the remaining data and the last
             // delimiter.
             $statement = $bq->extract();
@@ -148,7 +147,7 @@ class ImportSql extends ImportPlugin
 
         // Extracting remaining statements.
         /** @infection-ignore-all */
-        while (! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed && ! empty($bq->query)) {
+        while (! Import::$hasError && ! ImportSettings::$timeoutPassed && ! empty($bq->query)) {
             $statement = $bq->extract(true);
             if ($statement === false || $statement === '') {
                 continue;
@@ -157,7 +156,7 @@ class ImportSql extends ImportPlugin
             $this->import->runQuery($statement, $sqlStatements);
         }
 
-        if ($GLOBALS['error']) {
+        if (Import::$hasError) {
             return $sqlStatements;
         }
 

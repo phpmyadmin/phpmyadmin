@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -124,7 +125,7 @@ class ImportLdi extends AbstractImportCsv
             Current::$message = Message::error(
                 __('This plugin does not support compressed imports!'),
             );
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
 
             return [];
         }

@@ -61,6 +61,7 @@ use function trim;
 class Import
 {
     private string|null $importRunBuffer = null;
+    public static bool $hasError = false;
 
     public function __construct()
     {
@@ -100,7 +101,6 @@ class Import
      */
     public function executeQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['error'] ??= null;
         $dbi = DatabaseInterface::getInstance();
         $GLOBALS['result'] = $dbi->tryQuery($sql);
 
@@ -115,7 +115,7 @@ class Import
             ImportSettings::$message .= __('Error');
 
             if (! Config::getInstance()->settings['IgnoreMultiSubmitErrors']) {
-                $GLOBALS['error'] = true;
+                self::$hasError = true;
 
                 return;
             }
@@ -219,13 +219,13 @@ class Import
 
                 foreach ($queries as $query) {
                     $this->executeQuery($query, $sqlData);
-                    if ($GLOBALS['error']) {
+                    if (self::$hasError) {
                         break;
                     }
                 }
             }
 
-            if (! $GLOBALS['error']) {
+            if (! self::$hasError) {
                 $this->executeQuery($this->importRunBuffer, $sqlData);
             }
         }

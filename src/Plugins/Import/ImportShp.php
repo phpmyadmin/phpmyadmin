@@ -87,7 +87,6 @@ class ImportShp extends ImportPlugin
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
         ImportSettings::$finished = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
@@ -173,7 +172,7 @@ class ImportShp extends ImportPlugin
         }
 
         if ($shp->lastError != '') {
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
             Current::$message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".'),
             );
@@ -198,7 +197,7 @@ class ImportShp extends ImportPlugin
                 $gisType = 'multipoint';
                 break;
             default:
-                $GLOBALS['error'] = true;
+                Import::$hasError = true;
                 Current::$message = Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".'),
                 );
@@ -243,7 +242,7 @@ class ImportShp extends ImportPlugin
         }
 
         if ($rows === []) {
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
             Current::$message = Message::error(
                 __('The imported file does not contain any data!'),
             );
@@ -296,7 +295,7 @@ class ImportShp extends ImportPlugin
         $this->import->buildSql($dbName, [$table], [$analysis], sqlData: $sqlStatements);
 
         ImportSettings::$finished = true;
-        $GLOBALS['error'] = false;
+        Import::$hasError = false;
 
         // Commit any possible data in buffers
         $this->import->runQuery('', $sqlStatements);

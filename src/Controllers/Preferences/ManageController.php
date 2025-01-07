@@ -59,14 +59,12 @@ final class ManageController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['error'] ??= null;
-
         $route = $request->getRoute();
 
         $configFile = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($configFile);
 
-        $GLOBALS['error'] = '';
+        $error = null;
         if ($request->hasBodyParam('submit_export') && $request->getParsedBodyParam('export_type') === 'text_file') {
             // export to JSON file
             $response = $this->responseFactory->createResponse();
@@ -118,7 +116,7 @@ final class ManageController implements InvocableController
                 $importHandle = new File($_FILES['import_file']['tmp_name']);
                 $importHandle->checkUploadedFile();
                 if ($importHandle->isError()) {
-                    $GLOBALS['error'] = $importHandle->getError();
+                    $error = $importHandle->getError();
                 } else {
                     // read JSON from uploaded file
                     $json = $importHandle->getRawContent();
@@ -134,8 +132,8 @@ final class ManageController implements InvocableController
             $configuration = json_decode($json, true);
             $returnUrl = $request->getParsedBodyParamAsStringOrNull('return_url');
             if (! is_array($configuration)) {
-                if (! isset($GLOBALS['error'])) {
-                    $GLOBALS['error'] = __('Could not import configuration');
+                if ($error === null) {
+                    $error = Message::error(__('Could not import configuration'));
                 }
             } else {
                 // sanitize input values: treat them as though
@@ -224,7 +222,7 @@ final class ManageController implements InvocableController
                     return $this->response->response();
                 }
 
-                $GLOBALS['error'] = $result;
+                $error = $result;
             }
         } elseif ($request->hasBodyParam('submit_clear')) {
             $result = $this->userPreferences->save([]);
@@ -234,8 +232,6 @@ final class ManageController implements InvocableController
 
                 return $this->response->response();
             }
-
-            $GLOBALS['error'] = $result;
 
             return $this->response->response();
         }
@@ -248,16 +244,8 @@ final class ManageController implements InvocableController
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        if ($GLOBALS['error']) {
-            if (! $GLOBALS['error'] instanceof Message) {
-                $GLOBALS['error'] = Message::error($GLOBALS['error']);
-            }
-
-            $GLOBALS['error']->getDisplay();
-        }
-
         $this->response->render('preferences/manage/main', [
-            'error' => $GLOBALS['error'],
+            'error' => $error instanceof Message ? $error->getDisplay() : '',
             'max_upload_size' => Config::getInstance()->get('max_upload_size'),
             'exists_setup_and_not_exists_config' => @file_exists(ROOT_PATH . 'setup/index.php')
                 && ! @file_exists(CONFIG_FILE),

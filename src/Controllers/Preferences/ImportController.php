@@ -35,8 +35,6 @@ final class ImportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['error'] ??= null;
-
         $configFile = new ConfigFile($this->config->baseSettings);
         $this->userPreferences->pageInit($configFile);
 
@@ -50,7 +48,7 @@ final class ImportController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['error'] = null;
+        $result = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
             $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
@@ -66,8 +64,6 @@ final class ImportController implements InvocableController
 
                 return $this->response->response();
             }
-
-            $GLOBALS['error'] = $result;
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -81,7 +77,7 @@ final class ImportController implements InvocableController
         $formErrors = $formDisplay->displayErrors();
 
         $this->response->render('preferences/forms/main', [
-            'error' => $GLOBALS['error'] instanceof Message ? $GLOBALS['error']->getDisplay() : '',
+            'error' => $result instanceof Message ? $result->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(

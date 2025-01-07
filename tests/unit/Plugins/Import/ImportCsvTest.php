@@ -8,6 +8,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -31,7 +32,7 @@ class ImportCsvTest extends AbstractTestCase
         parent::setUp();
 
         $GLOBALS['errorUrl'] = 'index.php?route=/';
-        $GLOBALS['error'] = false;
+        Import::$hasError = false;
         Current::$database = '';
         Current::$table = '';
         Current::$sqlQuery = '';
