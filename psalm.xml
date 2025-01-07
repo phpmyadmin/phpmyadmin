@@ -48,7 +48,6 @@
             conn_error: string,
             display_query: string,
             errno: int,
-            error: bool,
             file_handle: resource|null,
             from_cookie: bool,
             hostname: string,
@@ -64,8 +63,7 @@
             pma_auth_server: string,
             querytime: float|int,
             save_on_server: bool,
-            SESSION_KEY: string,
-            username: string
+            SESSION_KEY: string
         }"/>
     </globals>
 </psalm>

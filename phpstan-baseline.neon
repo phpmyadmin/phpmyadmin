@@ -3505,45 +3505,9 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) has parameter \$selectedUsers with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getExportUserDefinitionTextarea\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForRoutineSpecificPrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:updatePrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
@@ -3559,43 +3523,7 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Parameter \#2 \$username of method PhpMyAdmin\\Server\\Privileges\:\:addUser\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getDbSpecificPrivsQueriesForChangeOrCopyUser\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$username of method PhpMyAdmin\\Server\\Privileges\:\:updatePassword\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getMessageAndSqlQueryForPrivilegesRevoke\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#4 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getExtraDataForAjaxBehavior\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -5439,12 +5367,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\UserPassword\:\:getFormForChangePassword\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/UserPasswordController.php
 
@@ -15097,15 +15019,9 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getUserHostCondition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -15136,12 +15052,6 @@ parameters:
 			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getSqlQueryForDisplayPrivTable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Privileges.php
 
 		-

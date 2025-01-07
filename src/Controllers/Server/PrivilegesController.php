@@ -46,7 +46,6 @@ final class PrivilegesController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['username'] ??= null;
         $GLOBALS['hostname'] ??= null;
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -80,7 +79,7 @@ final class PrivilegesController implements InvocableController
             $this->dbi->selectDb('mysql');
         }
 
-        $GLOBALS['username'] = $serverPrivileges->getUsernameParam($request);
+        $serverPrivileges->username = $serverPrivileges->getUsernameParam($request);
         $GLOBALS['hostname'] = $serverPrivileges->getHostnameParam($request);
         $databaseName = $serverPrivileges->getDbname($request);
         $tablename = $serverPrivileges->getTablename($request);
@@ -115,8 +114,8 @@ final class PrivilegesController implements InvocableController
          */
         if (
             $request->hasBodyParam('change_copy')
-            && $GLOBALS['username'] == $request->getParsedBodyParam('old_username')
-            && $GLOBALS['hostname'] == $request->getParsedBodyParam('old_hostname')
+            && $serverPrivileges->username === $request->getParsedBodyParam('old_username')
+            && $GLOBALS['hostname'] === $request->getParsedBodyParam('old_hostname')
         ) {
             $this->response->addHTML(
                 Message::error(
@@ -161,7 +160,7 @@ final class PrivilegesController implements InvocableController
                 $addUserError,
             ] = $serverPrivileges->addUser(
                 is_string($databaseName) ? $databaseName : '',
-                $GLOBALS['username'] ?? '',
+                $serverPrivileges->username ?? '',
                 $hostname,
                 $password,
                 $relationParameters->configurableMenusFeature !== null,
@@ -176,10 +175,14 @@ final class PrivilegesController implements InvocableController
         /**
          * Changes / copies a user, part III
          */
-        if ($request->hasBodyParam('change_copy') && $GLOBALS['username'] !== null && $GLOBALS['hostname'] !== null) {
+        if (
+            $request->hasBodyParam('change_copy')
+            && $serverPrivileges->username !== null
+            && $GLOBALS['hostname'] !== null
+        ) {
             $queries = $serverPrivileges->getDbSpecificPrivsQueriesForChangeOrCopyUser(
                 $queries,
-                $GLOBALS['username'],
+                $serverPrivileges->username,
                 $GLOBALS['hostname'],
                 $request->getParsedBodyParamAsString('old_username'),
                 $request->getParsedBodyParamAsString('old_hostname'),
@@ -199,7 +202,7 @@ final class PrivilegesController implements InvocableController
                 $statements = [];
                 foreach ($databaseName as $key => $dbName) {
                     [$statements[$key], Current::$message] = $serverPrivileges->updatePrivileges(
-                        $GLOBALS['username'] ?? '',
+                        $serverPrivileges->username ?? '',
                         $GLOBALS['hostname'] ?? '',
                         $tablename ?? $routinename ?? '',
                         $dbName,
@@ -210,7 +213,7 @@ final class PrivilegesController implements InvocableController
                 Current::$sqlQuery = implode("\n", $statements);
             } else {
                 [Current::$sqlQuery, Current::$message] = $serverPrivileges->updatePrivileges(
-                    $GLOBALS['username'] ?? '',
+                    $serverPrivileges->username ?? '',
                     $GLOBALS['hostname'] ?? '',
                     $tablename ?? $routinename ?? '',
                     $databaseName ?? '',
@@ -227,7 +230,7 @@ final class PrivilegesController implements InvocableController
             && $this->dbi->isSuperUser() && $this->dbi->isCreateUser()
         ) {
             $serverPrivileges->setUserGroup(
-                $GLOBALS['username'] ?? '',
+                $serverPrivileges->username ?? '',
                 $request->getParsedBodyParamAsString('userGroup', ''),
             );
             Current::$message = Message::success();
@@ -240,7 +243,7 @@ final class PrivilegesController implements InvocableController
             [Current::$message, Current::$sqlQuery] = $serverPrivileges->getMessageAndSqlQueryForPrivilegesRevoke(
                 is_string($databaseName) ? $databaseName : '',
                 $tablename ?? $routinename ?? '',
-                $GLOBALS['username'] ?? '',
+                $serverPrivileges->username ?? '',
                 $GLOBALS['hostname'] ?? '',
                 $itemType,
             );
@@ -252,7 +255,7 @@ final class PrivilegesController implements InvocableController
         if ($request->hasBodyParam('change_pw')) {
             Current::$message = $serverPrivileges->updatePassword(
                 $errorUrl,
-                $GLOBALS['username'] ?? '',
+                $serverPrivileges->username ?? '',
                 $GLOBALS['hostname'] ?? '',
             );
         }
@@ -306,7 +309,7 @@ final class PrivilegesController implements InvocableController
                 $password ?? '',
                 Current::$sqlQuery,
                 $GLOBALS['hostname'] ?? '',
-                $GLOBALS['username'] ?? '',
+                $serverPrivileges->username ?? '',
                 ! is_array($databaseName) ? $databaseName : null,
             );
 
@@ -332,15 +335,20 @@ final class PrivilegesController implements InvocableController
             /** @var string[]|null $selectedUsers */
             $selectedUsers = $request->getParsedBodyParam('selected_usr');
 
-            $title = $this->getExportPageTitle($GLOBALS['username'] ?? '', $GLOBALS['hostname'] ?? '', $selectedUsers);
-
-            $export = $serverPrivileges->getExportUserDefinitionTextarea(
-                $GLOBALS['username'] ?? '',
+            $title = $this->getExportPageTitle(
+                $serverPrivileges->username ?? '',
                 $GLOBALS['hostname'] ?? '',
                 $selectedUsers,
             );
 
-            unset($GLOBALS['username'], $GLOBALS['hostname']);
+            $export = $serverPrivileges->getExportUserDefinitionTextarea(
+                $serverPrivileges->username ?? '',
+                $GLOBALS['hostname'] ?? '',
+                $selectedUsers,
+            );
+
+            $serverPrivileges->username = null;
+            unset($GLOBALS['hostname']);
 
             if ($request->isAjax()) {
                 $this->response->addJSON('message', $export);
@@ -369,7 +377,7 @@ final class PrivilegesController implements InvocableController
                 );
             }
 
-            if (! isset($GLOBALS['username'])) {
+            if ($serverPrivileges->username === null) {
                 // No username is given --> display the overview
                 $this->response->addHTML($serverPrivileges->getHtmlForUserOverview(
                     $userPrivileges,
@@ -378,7 +386,7 @@ final class PrivilegesController implements InvocableController
             } elseif (! empty($routinename)) {
                 $this->response->addHTML(
                     $serverPrivileges->getHtmlForRoutineSpecificPrivileges(
-                        $GLOBALS['username'],
+                        $serverPrivileges->username,
                         $GLOBALS['hostname'] ?? '',
                         is_string($databaseName) ? $databaseName : '',
                         $routinename,
@@ -396,7 +404,7 @@ final class PrivilegesController implements InvocableController
                     $serverPrivileges->getHtmlForUserProperties(
                         $dbnameIsWildcard,
                         $serverPrivileges->escapeGrantWildcards($urlDbname ?? ''),
-                        $GLOBALS['username'],
+                        $serverPrivileges->username,
                         $GLOBALS['hostname'] ?? '',
                         $databaseName ?? '',
                         $tablename ?? '',

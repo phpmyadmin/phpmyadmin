@@ -70,6 +70,7 @@ use function uksort;
  */
 class Privileges
 {
+    public string|null $username = null;
     private string|null $sslType = null;
     private string|null $sslCipher = null;
     private string|null $x509Issuer = null;
@@ -470,8 +471,8 @@ class Privileges
         $username = '';
         $hostname = '';
         $row = [];
-        if (isset($GLOBALS['username'])) {
-            $username = $GLOBALS['username'];
+        if ($this->username !== null) {
+            $username = $this->username;
             $hostname = $GLOBALS['hostname'];
             $sqlQuery = $this->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
             $row = $this->dbi->fetchSingleRow($sqlQuery);
@@ -595,13 +596,12 @@ class Privileges
     ): string {
         $GLOBALS['pred_username'] ??= null;
         $GLOBALS['pred_hostname'] ??= null;
-        $GLOBALS['username'] ??= null;
         $GLOBALS['hostname'] ??= null;
         $GLOBALS['new_username'] ??= null;
 
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
-        if (isset($GLOBALS['username']) && $GLOBALS['username'] === '') {
+        if ($this->username !== null && $this->username === '') {
             $GLOBALS['pred_username'] = 'any';
         }
 
@@ -649,7 +649,7 @@ class Privileges
             'pred_hostname' => $GLOBALS['pred_hostname'] ?? null,
             'username_length' => $usernameLength,
             'hostname_length' => $hostnameLength,
-            'username' => $GLOBALS['username'] ?? null,
+            'username' => $this->username,
             'new_username' => $GLOBALS['new_username'] ?? null,
             'hostname' => $GLOBALS['hostname'] ?? null,
             'this_host' => $thisHost,
@@ -2295,7 +2295,7 @@ class Privileges
                 isset($_POST['createdb-3']),
             );
             if (! empty($_POST['userGroup']) && $isMenuwork) {
-                $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
+                $this->setUserGroup($this->username ?? '', $_POST['userGroup']);
             }
 
             return [
