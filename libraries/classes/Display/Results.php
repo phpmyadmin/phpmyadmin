@@ -2906,7 +2906,7 @@ class Results
         array $descriptions,
         int $numEmptyColumnsAfter
     ): string {
-        $headerHtml = '<tr>' . "\n";
+        $headerHtml = '<tr class="repeating_header_row">' . "\n";
 
         if ($numEmptyColumnsBefore > 0) {
             $headerHtml .= '    <th colspan="'
