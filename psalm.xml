@@ -60,8 +60,7 @@
             plugin_scripts: string[],
             pma_auth_server: string,
             querytime: float|int,
-            save_on_server: bool,
-            SESSION_KEY: string
+            save_on_server: bool
         }"/>
     </globals>
 </psalm>

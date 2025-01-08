@@ -943,19 +943,15 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$idKey]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2046,19 +2042,15 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$idKey]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2709,24 +2701,20 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
       <code><![CDATA[$idKey]]></code>
     </MixedAssignment>
     <MixedMethodCall>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey()]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey()]]></code>
     </MixedMethodCall>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
       <code><![CDATA[UrlParams::$params]]></code>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -5556,18 +5544,15 @@
   </file>
   <file src="src/Import/Ajax.php">
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']]]></code>
+      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION[$sessionKey]['handler']]]></code>
-      <code><![CDATA[$_SESSION[$sessionKey]['handler']]]></code>
+      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
+      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']]]></code>
     </MixedArrayAssignment>
     <MixedMethodCall>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id)]]></code>
+      <code><![CDATA[$_SESSION[self::SESSION_KEY]['handler']::getUploadStatus($id)]]></code>
     </MixedMethodCall>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
   </file>
   <file src="src/Import/Import.php">
     <ArgumentTypeCoercion>
@@ -7713,42 +7698,34 @@
   </file>
   <file src="src/Plugins/Import/Upload/UploadNoplugin.php">
     <MixedArgument>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
     </MixedArrayAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[array|null]]></code>
     </MixedInferredReturnType>
     <MixedReturnStatement>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-    </PossiblyNullArrayOffset>
   </file>
   <file src="src/Plugins/Import/Upload/UploadProgress.php">
     <MixedArgument>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret['finished']]]></code>
+      <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$ret['total']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret['complete']]]></code>
       <code><![CDATA[$ret['finished']]]></code>
       <code><![CDATA[$ret['finished']]]></code>
@@ -7756,7 +7733,7 @@
       <code><![CDATA[$ret['total']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret]]></code>
     </MixedAssignment>
     <MixedInferredReturnType>
@@ -7766,50 +7743,38 @@
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
-      <code><![CDATA[$ret]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-    </PossiblyNullArrayOffset>
     <RedundantCondition>
       <code><![CDATA[$status !== []]]></code>
       <code><![CDATA[$status !== null && $status !== []]]></code>
     </RedundantCondition>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$ret['finished']]]></code>
-    </RiskyTruthyFalsyComparison>
     <UnusedClass>
       <code><![CDATA[UploadProgress]]></code>
     </UnusedClass>
   </file>
   <file src="src/Plugins/Import/Upload/UploadSession.php">
     <MixedArgument>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret['finished']]]></code>
+      <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$status['bytes_processed']]]></code>
       <code><![CDATA[$status['content_length']]]></code>
       <code><![CDATA[$status['done']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret['complete']]]></code>
       <code><![CDATA[$ret['finished']]]></code>
       <code><![CDATA[$ret['percent']]]></code>
       <code><![CDATA[$ret['total']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']][$id]]]></code>
+      <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret['complete']]]></code>
       <code><![CDATA[$ret['finished']]]></code>
@@ -7821,26 +7786,14 @@
       <code><![CDATA[array|null]]></code>
     </MixedInferredReturnType>
     <MixedOperand>
-      <code><![CDATA[$ret['complete'] / $ret['total']]]></code>
-      <code><![CDATA[$ret['total']]]></code>
+      <code><![CDATA[$ret['complete']]]></code>
     </MixedOperand>
     <MixedReturnStatement>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
-      <code><![CDATA[$ret]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidArrayOffset>
-      <code><![CDATA[$_SESSION[$GLOBALS['SESSION_KEY']]]]></code>
-    </PossiblyInvalidArrayOffset>
-    <PossiblyNullArrayOffset>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-      <code><![CDATA[$_SESSION]]></code>
-    </PossiblyNullArrayOffset>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$ret['finished']]]></code>
       <code><![CDATA[$status]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedClass>
