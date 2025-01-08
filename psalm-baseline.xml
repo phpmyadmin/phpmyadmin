@@ -8668,7 +8668,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
-      <code><![CDATA[$GLOBALS['pred_username']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$errorMessage]]></code>
@@ -8788,7 +8787,6 @@
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
-      <code><![CDATA[$GLOBALS['pred_username']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$paramDbName]]></code>
@@ -8843,7 +8841,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$GLOBALS['pred_hostname']]]></code>
-      <code><![CDATA[$GLOBALS['pred_username']]]></code>
       <code><![CDATA[$extraData['db_wildcard_privs']]]></code>
       <code><![CDATA[$foundRows[]]]></code>
       <code><![CDATA[$grantValue]]></code>

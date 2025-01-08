@@ -379,8 +379,9 @@ class ReplicationGui
         [$usernameLength, $hostnameLength] = $this->getUsernameHostnameLength();
 
         $username = '';
+        $predefinedUsername = 'userdefined';
         if ($postUsername === '') {
-            $GLOBALS['pred_username'] = 'any';
+            $predefinedUsername = 'any';
         } elseif ($postUsername !== null && $postUsername !== '0') {
             $username = $GLOBALS['new_username'] ?? $postUsername;
         }
@@ -415,7 +416,7 @@ class ReplicationGui
             'has_username' => $postUsername !== null,
             'username' => $username,
             'hostname' => $hostname ?? '',
-            'predefined_username' => $GLOBALS['pred_username'] ?? '',
+            'predefined_username' => $predefinedUsername,
             'predefined_hostname' => $GLOBALS['pred_hostname'] ?? '',
             'this_host' => $thisHost ?? null,
         ]);

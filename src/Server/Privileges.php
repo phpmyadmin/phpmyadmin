@@ -595,15 +595,12 @@ class Privileges
         string|null $user = null,
         string|null $host = null,
     ): string {
-        $GLOBALS['pred_username'] ??= null;
         $GLOBALS['pred_hostname'] ??= null;
         $GLOBALS['new_username'] ??= null;
 
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
-        if ($this->username !== null && $this->username === '') {
-            $GLOBALS['pred_username'] = 'any';
-        }
+        $predefinedUsername = $this->username === '' ? 'any' : 'userdefined';
 
         $currentUser = (string) $this->dbi->fetchValue('SELECT USER();');
         $thisHost = null;
@@ -645,7 +642,7 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/login_information_fields', [
-            'pred_username' => $GLOBALS['pred_username'] ?? null,
+            'predefined_username' => $predefinedUsername,
             'pred_hostname' => $GLOBALS['pred_hostname'] ?? null,
             'username_length' => $usernameLength,
             'hostname_length' => $hostnameLength,

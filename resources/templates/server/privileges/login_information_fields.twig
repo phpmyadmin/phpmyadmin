@@ -5,13 +5,13 @@
       <label for="select_pred_username">{{ t('User name:') }}</label>
       <span class="options">
         <select name="pred_username" id="select_pred_username" title="{{ t('User name') }}">
-          <option value="any"{{ pred_username == 'any' ? ' selected' }}>{{ t('Any user') }}</option>
-          <option value="userdefined"{{ pred_username is null or pred_username == 'userdefined' ? ' selected' }}>{{ t('Use text field') }}</option>
+          <option value="any"{{ predefined_username == 'any' ? ' selected' }}>{{ t('Any user') }}</option>
+          <option value="userdefined"{{ predefined_username == 'userdefined' ? ' selected' }}>{{ t('Use text field') }}</option>
         </select>
       </span>
       <input type="text" spellcheck="false" name="username" id="pma_username" class="autofocus" maxlength="{{ username_length }}" title="{{ t('User name') }}"
         {%- if username is not empty %} value="{{ new_username is not null ? new_username : username }}"{% endif -%}
-        {{- pred_username is null or pred_username == 'userdefined' ? ' required' }}>
+        {{- predefined_username == 'userdefined' ? ' required' }}>
 
       <div id="user_exists_warning" class="hide">
         {{ t('An account already exists with the same username but possibly a different hostname.')|notice }}
