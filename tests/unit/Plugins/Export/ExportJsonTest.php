@@ -36,7 +36,7 @@ class ExportJsonTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
+        Export::$outputCharsetConversion = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = true;
         Export::$saveOnServer = false;

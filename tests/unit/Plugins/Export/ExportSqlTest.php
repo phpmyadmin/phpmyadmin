@@ -389,7 +389,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['charset'] = 'utf-8';
         $GLOBALS['old_tz'] = 'GMT';
         Export::$asFile = true;
-        $GLOBALS['output_charset_conversion'] = 'utf-8';
+        Export::$outputCharsetConversion = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -420,7 +420,7 @@ class ExportSqlTest extends AbstractTestCase
         $config->selectedServer['port'] = 80;
         $GLOBALS['old_tz'] = 'GMT';
         Export::$asFile = true;
-        $GLOBALS['output_charset_conversion'] = 'utf-8';
+        Export::$outputCharsetConversion = true;
         $GLOBALS['charset'] = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

@@ -52,7 +52,6 @@ final class ExportController implements InvocableController
         $GLOBALS['compression'] ??= null;
         $GLOBALS['buffer_needed'] ??= null;
         $GLOBALS['file_handle'] ??= null;
-        $GLOBALS['output_charset_conversion'] ??= null;
         $GLOBALS['output_kanji_conversion'] ??= null;
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['save_filename'] ??= null;
@@ -206,7 +205,7 @@ final class ExportController implements InvocableController
         $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
-        $GLOBALS['output_charset_conversion'] = Export::$asFile
+        Export::$outputCharsetConversion = Export::$asFile
             && Encoding::isSupported()
             && isset($GLOBALS['charset']) && $GLOBALS['charset'] !== 'utf-8';
 
@@ -410,7 +409,7 @@ final class ExportController implements InvocableController
         }
 
         // Convert the charset if required.
-        if ($GLOBALS['output_charset_conversion']) {
+        if (Export::$outputCharsetConversion) {
             $this->export->dumpBuffer = Encoding::convertString(
                 'utf-8',
                 $GLOBALS['charset'],

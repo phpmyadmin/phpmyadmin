@@ -54,7 +54,6 @@
             memory_limit: int,
             old_tz: string,
             onfly_compression: bool,
-            output_charset_conversion: bool,
             output_kanji_conversion: bool,
             plugin_scripts: string[],
             pma_auth_server: string,

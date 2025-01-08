@@ -171,7 +171,7 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['output_charset_conversion'] = 1;
+        Export::$outputCharsetConversion = true;
         $GLOBALS['charset'] = 'iso-8859-1';
         $config = Config::getInstance();
         $config->selectedServer['port'] = 80;
@@ -283,7 +283,7 @@ class ExportXmlTest extends AbstractTestCase
 
         // case 2 with isView as true and false
 
-        $GLOBALS['output_charset_conversion'] = 0;
+        Export::$outputCharsetConversion = false;
 
         $dbiDummy->addResult(
             'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
@@ -401,7 +401,7 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportData(): void
     {
         Export::$asFile = true;
-        $GLOBALS['output_charset_conversion'] = false;
+        Export::$outputCharsetConversion = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_contents' => 'On']);

@@ -76,6 +76,7 @@ class Export
 
     public static bool $asFile = false;
     public static bool $saveOnServer = false;
+    public static bool $outputCharsetConversion = false;
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -149,7 +150,7 @@ class Export
                 $this->dumpBufferLength += strlen($line);
 
                 if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
-                    if ($GLOBALS['output_charset_conversion']) {
+                    if (self::$outputCharsetConversion) {
                         $this->dumpBuffer = Encoding::convertString('utf-8', $GLOBALS['charset'], $this->dumpBuffer);
                     }
 
@@ -186,7 +187,7 @@ class Export
                 }
             }
         } elseif (self::$asFile) {
-            if ($GLOBALS['output_charset_conversion']) {
+            if (self::$outputCharsetConversion) {
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
