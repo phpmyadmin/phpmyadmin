@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            buffer_needed: bool,
             cached_affected_rows: int|numeric-string,
             charset: string,
             complete_query: string,

@@ -260,7 +260,7 @@ class ExportCsvTest extends AbstractTestCase
         // case 1
         $GLOBALS['output_kanji_conversion'] = false;
         Export::$outputCharsetConversion = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = true;
         $GLOBALS['file_handle'] = null;
@@ -276,7 +276,7 @@ class ExportCsvTest extends AbstractTestCase
         // case 2
         $GLOBALS['output_kanji_conversion'] = false;
         Export::$outputCharsetConversion = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = false;
 

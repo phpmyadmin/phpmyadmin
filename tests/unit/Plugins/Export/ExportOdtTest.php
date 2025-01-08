@@ -69,7 +69,7 @@ class ExportOdtTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['output_kanji_conversion'] = false;
         Export::$outputCharsetConversion = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = false;
         ExportPlugin::$exportType = ExportType::Table;

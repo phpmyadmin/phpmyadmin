@@ -77,6 +77,7 @@ class Export
     public static bool $asFile = false;
     public static bool $saveOnServer = false;
     public static bool $outputCharsetConversion = false;
+    public static bool $bufferNeeded = false;
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -144,7 +145,7 @@ class Export
         }
 
         // If we have to buffer data, we will perform everything at once at the end
-        if ($GLOBALS['buffer_needed']) {
+        if (self::$bufferNeeded) {
             $this->dumpBuffer .= $line;
             if ($GLOBALS['onfly_compression']) {
                 $this->dumpBufferLength += strlen($line);

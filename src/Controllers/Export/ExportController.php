@@ -50,7 +50,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['compression'] ??= null;
-        $GLOBALS['buffer_needed'] ??= null;
         $GLOBALS['file_handle'] ??= null;
         $GLOBALS['output_kanji_conversion'] ??= null;
         $GLOBALS['single_table'] ??= null;
@@ -120,7 +119,7 @@ final class ExportController implements InvocableController
          */
         $GLOBALS['compression'] = '';
         Export::$saveOnServer = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         $GLOBALS['save_filename'] = '';
         $GLOBALS['file_handle'] = '';
         $filename = '';
@@ -139,7 +138,7 @@ final class ExportController implements InvocableController
 
             if (in_array($compressionParam, $compressionMethods, true)) {
                 $GLOBALS['compression'] = $compressionParam;
-                $GLOBALS['buffer_needed'] = true;
+                Export::$bufferNeeded = true;
             }
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {

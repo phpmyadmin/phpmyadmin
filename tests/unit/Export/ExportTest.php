@@ -99,7 +99,7 @@ class ExportTest extends AbstractTestCase
     public function testExportDatabase(): void
     {
         $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         Export::$asFile = false;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
@@ -156,7 +156,7 @@ SQL;
     public function testExportServer(): void
     {
         $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         Export::$asFile = false;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;

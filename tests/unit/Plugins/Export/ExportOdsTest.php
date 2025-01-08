@@ -54,7 +54,7 @@ class ExportOdsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['output_kanji_conversion'] = false;
         Export::$outputCharsetConversion = false;
-        $GLOBALS['buffer_needed'] = false;
+        Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = false;
         $this->object = new ExportOds(
