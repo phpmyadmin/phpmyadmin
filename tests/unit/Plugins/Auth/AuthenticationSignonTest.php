@@ -85,7 +85,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $GLOBALS['header'] = [];
         $config = Config::getInstance();
         $config->selectedServer['SignonURL'] = 'https://example.com/SignonURL';
         $config->selectedServer['LogoutURL'] = '';

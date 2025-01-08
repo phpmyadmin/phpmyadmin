@@ -1561,9 +1561,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['is_js_confirmed']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['noplugin']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$bookmarkVariables]]></code>
@@ -1951,14 +1949,10 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['selected']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$database]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['selected']]]></code>
       <code><![CDATA[$database]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
@@ -4265,7 +4259,6 @@
       <code><![CDATA[$sortExpressionNoDirection]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['is_header_sent']]]></code>
       <code><![CDATA[$GLOBALS['row']]]></code>
       <code><![CDATA[$delUrlParams]]></code>
     </InvalidArrayOffset>
@@ -6569,12 +6562,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['PHP_AUTH_PW']]]></code>
-    </InvalidArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$this->password]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$oldUser]]></code>
     </PossiblyInvalidArgument>

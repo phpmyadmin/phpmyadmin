@@ -811,7 +811,6 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerTimespanFormat')]
     public function testTimespanFormat(int $a, string $e): void
     {
-        $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set('Europe/London');
 

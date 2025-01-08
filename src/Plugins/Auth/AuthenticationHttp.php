@@ -124,11 +124,6 @@ class AuthenticationHttp extends AuthenticationPlugin
             }
         }
 
-        // Grabs the $PHP_AUTH_PW variable
-        if (isset($GLOBALS['PHP_AUTH_PW'])) {
-            $this->password = $GLOBALS['PHP_AUTH_PW'];
-        }
-
         if ($this->password === '') {
             if (Core::getEnv('PHP_AUTH_PW') !== '') {
                 $this->password = Core::getEnv('PHP_AUTH_PW');
@@ -142,7 +137,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         }
 
         // Avoid showing the password in phpinfo()'s output
-        unset($GLOBALS['PHP_AUTH_PW'], $_SERVER['PHP_AUTH_PW']);
+        unset($_SERVER['PHP_AUTH_PW']);
 
         // Decode possibly encoded information (used by IIS/CGI/FastCGI)
         // (do not use explode() because a user might have a colon in their password

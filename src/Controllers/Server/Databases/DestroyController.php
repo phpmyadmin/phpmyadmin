@@ -34,8 +34,6 @@ final class DestroyController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['selected'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
@@ -64,7 +62,6 @@ final class DestroyController implements InvocableController
             return $this->response->response();
         }
 
-        $GLOBALS['selected'] = $selectedDbs;
         $numberOfDatabases = count($selectedDbs);
 
         foreach ($selectedDbs as $database) {
