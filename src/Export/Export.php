@@ -75,6 +75,7 @@ class Export
     public array $dumpBufferObjects = [];
 
     public static bool $asFile = false;
+    public static bool $saveOnServer = false;
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -121,7 +122,7 @@ class Export
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
                     && ! $this->isGzHandlerEnabled())
-                || $GLOBALS['save_on_server']
+                || self::$saveOnServer
                 || Config::getInstance()->get('PMA_USR_BROWSER_AGENT') === 'CHROME');
     }
 
@@ -158,7 +159,7 @@ class Export
                         $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
                     }
 
-                    if ($GLOBALS['save_on_server']) {
+                    if (self::$saveOnServer) {
                         $writeResult = @fwrite($GLOBALS['file_handle'], $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
@@ -189,7 +190,7 @@ class Export
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }
 
-            if ($GLOBALS['save_on_server'] && $line !== '') {
+            if (self::$saveOnServer && $line !== '') {
                 if ($GLOBALS['file_handle'] !== null) {
                     $writeResult = @fwrite($GLOBALS['file_handle'], $line);
                 } else {

@@ -41,7 +41,7 @@ class ExportYamlTest extends AbstractTestCase
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = false;
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';

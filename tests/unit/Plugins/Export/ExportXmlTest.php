@@ -46,7 +46,7 @@ class ExportXmlTest extends AbstractTestCase
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = false;
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';

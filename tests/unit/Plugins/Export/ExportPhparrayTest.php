@@ -42,7 +42,7 @@ class ExportPhparrayTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = 'en';

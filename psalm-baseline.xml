@@ -1452,7 +1452,6 @@
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
       <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
-      <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Export/TablesController.php">

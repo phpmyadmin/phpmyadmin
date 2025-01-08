@@ -58,8 +58,7 @@
             output_kanji_conversion: bool,
             plugin_scripts: string[],
             pma_auth_server: string,
-            querytime: float|int,
-            save_on_server: bool
+            querytime: float|int
         }"/>
     </globals>
 </psalm>

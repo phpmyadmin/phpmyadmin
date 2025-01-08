@@ -39,7 +39,7 @@ class ExportJsonTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
         $this->object = new ExportJson(
             new Relation($dbi),
             new Export($dbi),

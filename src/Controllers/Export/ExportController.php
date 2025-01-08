@@ -51,7 +51,6 @@ final class ExportController implements InvocableController
     {
         $GLOBALS['compression'] ??= null;
         $GLOBALS['buffer_needed'] ??= null;
-        $GLOBALS['save_on_server'] ??= null;
         $GLOBALS['file_handle'] ??= null;
         $GLOBALS['output_charset_conversion'] ??= null;
         $GLOBALS['output_kanji_conversion'] ??= null;
@@ -121,7 +120,7 @@ final class ExportController implements InvocableController
          * init and variable checking
          */
         $GLOBALS['compression'] = '';
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
         $GLOBALS['buffer_needed'] = false;
         $GLOBALS['save_filename'] = '';
         $GLOBALS['file_handle'] = '';
@@ -146,7 +145,7 @@ final class ExportController implements InvocableController
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $GLOBALS['save_on_server'] = ! empty($config->settings['SaveDir']);
+                Export::$saveOnServer = $config->settings['SaveDir'] !== '';
             }
         }
 
@@ -242,7 +241,7 @@ final class ExportController implements InvocableController
         }
 
         // Open file on server if needed
-        if ($GLOBALS['save_on_server']) {
+        if (Export::$saveOnServer) {
             [$GLOBALS['save_filename'], $message, $GLOBALS['file_handle']] = $this->export->openFile(
                 $filename,
                 $isQuickExport,
@@ -394,7 +393,7 @@ final class ExportController implements InvocableController
             // Ignore
         }
 
-        if ($GLOBALS['save_on_server'] && Current::$message !== null) {
+        if (Export::$saveOnServer && Current::$message !== null) {
             $location = $this->export->getPageLocationAndSaveMessage($exportType, Current::$message);
             $this->response->redirect($location);
 
@@ -437,7 +436,7 @@ final class ExportController implements InvocableController
         }
 
         /* If we saved on server, we have to close file now */
-        if ($GLOBALS['save_on_server']) {
+        if (Export::$saveOnServer) {
             $message = $this->export->closeFile(
                 $GLOBALS['file_handle'],
                 $this->export->dumpBuffer,

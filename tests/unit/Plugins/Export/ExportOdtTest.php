@@ -71,7 +71,7 @@ class ExportOdtTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Config::getInstance()->selectedServer['DisableIS'] = true;

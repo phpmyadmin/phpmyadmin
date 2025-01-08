@@ -262,7 +262,7 @@ class ExportCsvTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = true;
-        $GLOBALS['save_on_server'] = true;
+        Export::$saveOnServer = true;
         $GLOBALS['file_handle'] = null;
 
         ob_start();
@@ -278,7 +278,7 @@ class ExportCsvTest extends AbstractTestCase
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
         Export::$asFile = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$saveOnServer = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['csv_terminated' => ';', 'csv_columns' => 'On']);
