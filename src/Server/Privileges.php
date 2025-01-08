@@ -595,8 +595,6 @@ class Privileges
         string|null $user = null,
         string|null $host = null,
     ): string {
-        $GLOBALS['new_username'] ??= null;
-
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
         $predefinedUsername = $this->username === '' ? 'any' : 'userdefined';
@@ -647,7 +645,6 @@ class Privileges
             'username_length' => $usernameLength,
             'hostname_length' => $hostnameLength,
             'username' => $this->username,
-            'new_username' => $GLOBALS['new_username'] ?? null,
             'hostname' => $this->hostname,
             'this_host' => $thisHost,
             'is_change' => $user !== null && $host !== null,

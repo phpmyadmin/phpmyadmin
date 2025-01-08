@@ -383,7 +383,7 @@ class ReplicationGui
         if ($postUsername === '') {
             $predefinedUsername = 'any';
         } elseif ($postUsername !== null && $postUsername !== '0') {
-            $username = $GLOBALS['new_username'] ?? $postUsername;
+            $username = $postUsername;
         }
 
         $currentUser = DatabaseInterface::getInstance()->fetchValue('SELECT USER();');

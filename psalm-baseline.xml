@@ -8665,9 +8665,6 @@
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['new_username']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$errorMessage]]></code>
       <code><![CDATA[$serverReplicationVariable]]></code>
@@ -8698,7 +8695,6 @@
       <code><![CDATA[$errorMessage]]></code>
       <code><![CDATA[$serverReplicationVariable]]></code>
       <code><![CDATA[$successMessage]]></code>
-      <code><![CDATA[$username]]></code>
     </MixedAssignment>
     <PossiblyFalseOperand>
       <code><![CDATA[mb_strrpos($currentUser, '@')]]></code>
@@ -8783,9 +8779,6 @@
     <InvalidArgument>
       <code><![CDATA[$initials]]></code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['new_username']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$paramDbName]]></code>
       <code><![CDATA[$paramDbName]]></code>
@@ -8837,7 +8830,6 @@
       <code><![CDATA[$groupAssignment[$host['User']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['new_username']]]></code>
       <code><![CDATA[$extraData['db_wildcard_privs']]]></code>
       <code><![CDATA[$foundRows[]]]></code>
       <code><![CDATA[$grantValue]]></code>

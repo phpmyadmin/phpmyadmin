@@ -10,7 +10,7 @@
         </select>
       </span>
       <input type="text" spellcheck="false" name="username" id="pma_username" class="autofocus" maxlength="{{ username_length }}" title="{{ t('User name') }}"
-        {%- if username is not empty %} value="{{ new_username is not null ? new_username : username }}"{% endif -%}
+        {%- if username is not empty %} value="{{ username }}"{% endif -%}
         {{- predefined_username == 'userdefined' ? ' required' }}>
 
       <div id="user_exists_warning" class="hide">
