@@ -49,7 +49,6 @@
             errno: int,
             file_handle: resource|null,
             from_cookie: bool,
-            import_text: string,
             knjenc: string,
             maxsize: string,
             memory_limit: int,

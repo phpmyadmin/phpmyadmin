@@ -63,7 +63,6 @@ final class ImportController implements InvocableController
     {
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
-        $GLOBALS['import_text'] ??= null;
         $GLOBALS['result'] ??= null;
 
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
@@ -83,7 +82,7 @@ final class ImportController implements InvocableController
         ResponseRenderer::$reload = false;
 
         $GLOBALS['ajax_reload'] = [];
-        $GLOBALS['import_text'] = '';
+        Import::$importText = '';
         // Are we just executing plain query or sql file?
         // (eg. non import, but query box/window run)
         if (Current::$sqlQuery !== '') {
@@ -113,14 +112,14 @@ final class ImportController implements InvocableController
             }
 
             // run SQL query
-            $GLOBALS['import_text'] = Current::$sqlQuery;
+            Import::$importText = Current::$sqlQuery;
             ImportSettings::$importType = 'query';
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
 
             // If there is a request to ROLLBACK when finished.
             if ($request->hasBodyParam('rollback_query')) {
-                $this->import->handleRollbackRequest($GLOBALS['import_text']);
+                $this->import->handleRollbackRequest(Import::$importText);
             }
 
             // refresh navigation and main panels
@@ -271,23 +270,20 @@ final class ImportController implements InvocableController
 
                     $bookmarkVariables = $request->getParsedBodyParam('bookmark_variable');
                     if (is_array($bookmarkVariables)) {
-                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmarkVariables);
+                        Import::$importText = $bookmark->applyVariables($bookmarkVariables);
                     } else {
-                        $GLOBALS['import_text'] = $bookmark->getQuery();
+                        Import::$importText = $bookmark->getQuery();
                     }
 
                     // refresh navigation and main panels
-                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['import_text']) === 1) {
+                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1) {
                         ResponseRenderer::$reload = true;
                         $GLOBALS['ajax_reload']['reload'] = true;
                     }
 
                     // refresh navigation panel only
                     if (
-                        preg_match(
-                            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                            $GLOBALS['import_text'],
-                        ) === 1
+                        preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1
                     ) {
                         $GLOBALS['ajax_reload']['reload'] = true;
                     }
@@ -299,12 +295,12 @@ final class ImportController implements InvocableController
                         break;
                     }
 
-                    $GLOBALS['import_text'] = $bookmark->getQuery();
+                    Import::$importText = $bookmark->getQuery();
                     if ($request->isAjax()) {
                         Current::$message = Message::success(__('Showing bookmark'));
                         $this->response->setRequestStatus(Current::$message->isSuccess());
                         $this->response->addJSON('message', Current::$message);
-                        $this->response->addJSON('sql_query', $GLOBALS['import_text']);
+                        $this->response->addJSON('sql_query', Import::$importText);
                         $this->response->addJSON('action_bookmark', $actionBookmark);
 
                         return $this->response->response();
@@ -430,7 +426,7 @@ final class ImportController implements InvocableController
 
                 return $this->response->response();
             }
-        } elseif (! Import::$hasError && empty($GLOBALS['import_text'])) {
+        } elseif (! Import::$hasError && Import::$importText === '') {
             Current::$message = Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .
@@ -511,7 +507,7 @@ final class ImportController implements InvocableController
         // Show correct message
         if ($idBookmark !== 0 && $actionBookmark === 2) {
             Current::$message = Message::success(__('The bookmark has been deleted.'));
-            $GLOBALS['display_query'] = $GLOBALS['import_text'];
+            $GLOBALS['display_query'] = Import::$importText;
             Import::$hasError = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             Current::$message = Message::notice(__('Showing bookmark'));
@@ -661,7 +657,7 @@ final class ImportController implements InvocableController
             // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
-            if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
+            if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
                 $this->sql->storeTheQueryAsBookmark(
                     Current::$database,
                     $config->selectedServer['user'],
@@ -686,7 +682,7 @@ final class ImportController implements InvocableController
 
         if ($GLOBALS['result']) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
-            if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
+            if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
                 $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(

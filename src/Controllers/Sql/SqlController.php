@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
@@ -44,7 +45,6 @@ class SqlController implements InvocableController
         $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['import_text'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
@@ -191,7 +191,7 @@ class SqlController implements InvocableController
             $isGotofile,
             Current::$database,
             Current::$table,
-            $GLOBALS['import_text'] ?? '',
+            Import::$importText,
             $GLOBALS['message_to_show'] ?? '',
             UrlParams::$goto,
             isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,

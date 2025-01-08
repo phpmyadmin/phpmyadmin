@@ -62,6 +62,7 @@ class Import
 {
     private string|null $importRunBuffer = null;
     public static bool $hasError = false;
+    public static string $importText = '';
 
     public function __construct()
     {
@@ -300,15 +301,15 @@ class Import
         if (ImportSettings::$importFile === 'none') {
             // Well this is not yet supported and tested,
             // but should return content of textarea
-            if (mb_strlen($GLOBALS['import_text']) < $size) {
+            if (mb_strlen(self::$importText) < $size) {
                 ImportSettings::$finished = true;
 
-                return $GLOBALS['import_text'];
+                return self::$importText;
             }
 
-            $r = mb_substr($GLOBALS['import_text'], 0, $size);
+            $r = mb_substr(self::$importText, 0, $size);
             ImportSettings::$offset += $size;
-            $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
+            self::$importText = mb_substr(self::$importText, $size);
 
             return $r;
         }
