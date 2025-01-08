@@ -59,17 +59,15 @@ use const SODIUM_CRYPTO_SECRETBOX_NONCEBYTES;
  */
 class AuthenticationCookie extends AuthenticationPlugin
 {
+    public static string $connectionError = '';
+
     /**
      * Displays authentication form
      *
      * this function MUST exit/quit the application
-     *
-     * @global string $conn_error the last connection error
      */
     public function showLoginForm(): Response
     {
-        $GLOBALS['conn_error'] ??= null;
-
         $responseRenderer = ResponseRenderer::getInstance();
 
         /**
@@ -118,8 +116,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $errorMessages = '';
         // Show error message
-        if (! empty($GLOBALS['conn_error'])) {
-            $errorMessages = Message::rawError((string) $GLOBALS['conn_error'])->getDisplay();
+        if (self::$connectionError !== '') {
+            $errorMessages = Message::rawError(self::$connectionError)->getDisplay();
         } elseif (isset($_GET['session_expired']) && (int) $_GET['session_expired'] == 1) {
             $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.'),
@@ -215,8 +213,6 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        $GLOBALS['conn_error'] ??= null;
-
         // Initialization
         /**
          * @global $GLOBALS['pma_auth_server'] the user provided server to
@@ -238,7 +234,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($config->settings['CaptchaLoginPublicKey'])
             ) {
                 if (empty($_POST[$config->settings['CaptchaResponseParam']])) {
-                    $GLOBALS['conn_error'] = __('Missing Captcha verification, maybe it has been blocked by adblock?');
+                    self::$connectionError = __('Missing Captcha verification, maybe it has been blocked by adblock?');
 
                     return false;
                 }
@@ -273,9 +269,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                     $codes = $resp->getErrorCodes();
 
                     if (in_array('invalid-json', $codes)) {
-                        $GLOBALS['conn_error'] = __('Failed to connect to the reCAPTCHA service!');
+                        self::$connectionError = __('Failed to connect to the reCAPTCHA service!');
                     } else {
-                        $GLOBALS['conn_error'] = __('Entered captcha is wrong, try again!');
+                        self::$connectionError = __('Entered captcha is wrong, try again!');
                     }
 
                     return false;
@@ -287,7 +283,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $password = $_POST['pma_password'] ?? '';
             if (strlen($password) >= 2000) {
-                $GLOBALS['conn_error'] = __('Your password is too long. To prevent denial-of-service attacks, ' .
+                self::$connectionError = __('Your password is too long. To prevent denial-of-service attacks, ' .
                     'phpMyAdmin restricts passwords to less than 2000 characters.');
 
                 return false;
@@ -305,7 +301,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
 
                     if (preg_match($config->settings['ArbitraryServerRegexp'], $tmpHost) !== 1) {
-                        $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
+                        self::$connectionError = __('You are not allowed to log in to this MySQL server!');
 
                         return false;
                     }
@@ -542,7 +538,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Deletes password cookie and displays the login form
         Config::getInstance()->removeCookie('pmaAuth-' . Current::$server);
 
-        $GLOBALS['conn_error'] = $this->getErrorMessage($failure);
+        self::$connectionError = $this->getErrorMessage($failure);
 
         $responseRenderer = ResponseRenderer::getInstance();
 

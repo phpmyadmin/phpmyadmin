@@ -10915,15 +10915,9 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 21
+			count: 20
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
