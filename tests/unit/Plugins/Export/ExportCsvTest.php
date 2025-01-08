@@ -258,7 +258,7 @@ class ExportCsvTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;
@@ -274,7 +274,7 @@ class ExportCsvTest extends AbstractTestCase
         ob_get_clean();
 
         // case 2
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;

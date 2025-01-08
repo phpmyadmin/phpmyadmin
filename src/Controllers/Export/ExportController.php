@@ -51,7 +51,6 @@ final class ExportController implements InvocableController
     {
         $GLOBALS['compression'] ??= null;
         $GLOBALS['file_handle'] ??= null;
-        $GLOBALS['output_kanji_conversion'] ??= null;
         $GLOBALS['single_table'] ??= null;
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['table_select'] ??= null;
@@ -201,7 +200,7 @@ final class ExportController implements InvocableController
         // We send fake headers to avoid browser timeout when buffering
         $GLOBALS['time_start'] = time();
 
-        $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
+        Export::$outputKanjiConversion = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
         Export::$outputCharsetConversion = Export::$asFile

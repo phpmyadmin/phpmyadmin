@@ -48,7 +48,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;

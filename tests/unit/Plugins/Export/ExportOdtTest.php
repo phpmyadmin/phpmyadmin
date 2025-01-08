@@ -67,7 +67,7 @@ class ExportOdtTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;

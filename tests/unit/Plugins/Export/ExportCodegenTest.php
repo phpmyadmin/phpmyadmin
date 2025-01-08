@@ -167,7 +167,7 @@ class ExportCodegenTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;

@@ -62,7 +62,7 @@ class ExportHtmlwordTest extends AbstractTestCase
             new Export($this->dbi),
             new Transformations(),
         );
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;
@@ -292,7 +292,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$outputCharsetConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = true;

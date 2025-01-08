@@ -43,7 +43,7 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
+        Export::$outputKanjiConversion = false;
         Export::$bufferNeeded = false;
         Export::$asFile = false;
         Export::$saveOnServer = false;

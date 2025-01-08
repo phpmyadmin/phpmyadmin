@@ -77,6 +77,7 @@ class Export
     public static bool $asFile = false;
     public static bool $saveOnServer = false;
     public static bool $outputCharsetConversion = false;
+    public static bool $outputKanjiConversion = false;
     public static bool $bufferNeeded = false;
 
     public function __construct(private DatabaseInterface $dbi)
@@ -140,7 +141,7 @@ class Export
         $GLOBALS['save_filename'] ??= null;
 
         // Kanji encoding convert feature
-        if ($GLOBALS['output_kanji_conversion']) {
+        if (self::$outputKanjiConversion) {
             $line = Encoding::kanjiStrConv($line, $GLOBALS['knjenc'], $GLOBALS['xkana'] ?? '');
         }
 
