@@ -51,7 +51,7 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['output_charset_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
+        Export::$asFile = true;
         $GLOBALS['save_on_server'] = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;

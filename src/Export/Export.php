@@ -74,6 +74,8 @@ class Export
     /** @var mixed[] */
     public array $dumpBufferObjects = [];
 
+    public static bool $asFile = false;
+
     public function __construct(private DatabaseInterface $dbi)
     {
     }
@@ -182,7 +184,7 @@ class Export
                     header('X-pmaPing: Pong');
                 }
             }
-        } elseif ($GLOBALS['asfile']) {
+        } elseif (self::$asFile) {
             if ($GLOBALS['output_charset_conversion']) {
                 $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
             }

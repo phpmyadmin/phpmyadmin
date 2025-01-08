@@ -100,7 +100,7 @@ class ExportTest extends AbstractTestCase
     {
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        Export::$asFile = false;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -157,7 +157,7 @@ SQL;
     {
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        Export::$asFile = false;
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = '';

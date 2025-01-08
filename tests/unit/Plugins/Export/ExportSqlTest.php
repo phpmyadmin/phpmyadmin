@@ -69,7 +69,7 @@ class ExportSqlTest extends AbstractTestCase
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        Export::$asFile = false;
         $GLOBALS['save_on_server'] = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
@@ -388,7 +388,7 @@ class ExportSqlTest extends AbstractTestCase
     {
         $GLOBALS['charset'] = 'utf-8';
         $GLOBALS['old_tz'] = 'GMT';
-        $GLOBALS['asfile'] = 'yes';
+        Export::$asFile = true;
         $GLOBALS['output_charset_conversion'] = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -419,7 +419,7 @@ class ExportSqlTest extends AbstractTestCase
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['port'] = 80;
         $GLOBALS['old_tz'] = 'GMT';
-        $GLOBALS['asfile'] = 'yes';
+        Export::$asFile = true;
         $GLOBALS['output_charset_conversion'] = 'utf-8';
         $GLOBALS['charset'] = 'utf-8';
 

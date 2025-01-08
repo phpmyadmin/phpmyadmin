@@ -40,7 +40,7 @@ class ExportYamlTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        Export::$asFile = false;
         $GLOBALS['save_on_server'] = false;
         Current::$database = '';
         Current::$table = '';

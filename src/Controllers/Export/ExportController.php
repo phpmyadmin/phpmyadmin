@@ -50,7 +50,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['compression'] ??= null;
-        $GLOBALS['asfile'] ??= null;
         $GLOBALS['buffer_needed'] ??= null;
         $GLOBALS['save_on_server'] ??= null;
         $GLOBALS['file_handle'] ??= null;
@@ -133,9 +132,9 @@ final class ExportController implements InvocableController
         $isQuickExport = $quickOrCustom === 'quick';
 
         if ($outputFormat === 'astext') {
-            $GLOBALS['asfile'] = false;
+            Export::$asFile = false;
         } else {
-            $GLOBALS['asfile'] = true;
+            Export::$asFile = true;
             if ($asSeparateFiles && $compressionParam === 'zip') {
                 $separateFiles = $asSeparateFiles;
             }
@@ -208,7 +207,7 @@ final class ExportController implements InvocableController
         $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
-        $GLOBALS['output_charset_conversion'] = $GLOBALS['asfile']
+        $GLOBALS['output_charset_conversion'] = Export::$asFile
             && Encoding::isSupported()
             && isset($GLOBALS['charset']) && $GLOBALS['charset'] !== 'utf-8';
 
@@ -221,7 +220,7 @@ final class ExportController implements InvocableController
 
         // Generate filename and mime type if needed
         $mimeType = '';
-        if ($GLOBALS['asfile']) {
+        if (Export::$asFile) {
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template');
 
             if ((bool) $rememberTemplate) {
@@ -256,7 +255,7 @@ final class ExportController implements InvocableController
 
                 return $this->response->response();
             }
-        } elseif ($GLOBALS['asfile']) {
+        } elseif (Export::$asFile) {
             /**
              * Send headers depending on whether the user chose to download a dump file
              * or not
@@ -405,7 +404,7 @@ final class ExportController implements InvocableController
         /**
          * Send the dump as a file...
          */
-        if (empty($GLOBALS['asfile'])) {
+        if (! Export::$asFile) {
             echo $this->export->getHtmlForDisplayedExportFooter($exportType, Current::$database, Current::$table);
 
             return $this->response->response();

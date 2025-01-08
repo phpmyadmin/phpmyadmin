@@ -61,7 +61,7 @@ class ExportTexytextTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->dbi;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        Export::$asFile = false;
         $GLOBALS['save_on_server'] = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;

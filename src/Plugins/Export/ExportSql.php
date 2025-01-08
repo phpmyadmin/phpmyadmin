@@ -15,6 +15,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -799,7 +800,7 @@ class ExportSql extends ExportPlugin
 
         $head .= $this->possibleCRLF();
 
-        if (! empty($GLOBALS['asfile'])) {
+        if (Export::$asFile) {
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly

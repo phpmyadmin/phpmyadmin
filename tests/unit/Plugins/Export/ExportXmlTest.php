@@ -45,7 +45,7 @@ class ExportXmlTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $GLOBALS['output_kanji_conversion'] = false;
         $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
+        Export::$asFile = false;
         $GLOBALS['save_on_server'] = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
@@ -400,7 +400,7 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['asfile'] = true;
+        Export::$asFile = true;
         $GLOBALS['output_charset_conversion'] = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')

@@ -1458,15 +1458,6 @@
       <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
       <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
     </RiskyTruthyFalsyComparison>
-    <TypeDoesNotContainType>
-      <code><![CDATA[$GLOBALS['compression'] === 'gzip']]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-      <code><![CDATA[$GLOBALS['save_on_server']]]></code>
-    </TypeDoesNotContainType>
   </file>
   <file src="src/Controllers/Export/TablesController.php">
     <PossiblyUnusedMethod>
