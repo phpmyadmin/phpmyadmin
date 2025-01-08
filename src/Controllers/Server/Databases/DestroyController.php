@@ -70,7 +70,7 @@ final class DestroyController implements InvocableController
         foreach ($selectedDbs as $database) {
             $this->relationCleanup->database($database);
             $aQuery = 'DROP DATABASE ' . Util::backquote($database);
-            $GLOBALS['reload'] = true;
+            ResponseRenderer::$reload = true;
 
             $this->dbi->query($aQuery);
             $this->transformations->clear($database);

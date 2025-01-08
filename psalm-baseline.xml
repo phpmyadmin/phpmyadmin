@@ -1191,16 +1191,10 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/DropTableController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-    </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
     </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -5626,9 +5620,6 @@
       <code><![CDATA[$lastCumulativeSize->scale]]></code>
       <code><![CDATA[$lastCumulativeSize->scale]]></code>
     </PossiblyInvalidPropertyFetch>
-    <RedundantCondition>
-      <code><![CDATA[$GLOBALS['result'] == false]]></code>
-    </RedundantCondition>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[ImportSettings::$runQuery]]></code>
     </RiskyTruthyFalsyComparison>
@@ -8717,9 +8708,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$params]]></code>
     </MixedArgumentTypeCoercion>
@@ -9219,7 +9207,6 @@
   </file>
   <file src="src/Sql.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['reload']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>

@@ -14517,7 +14517,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/ResponseRenderer.php
 
 		-
@@ -15648,7 +15648,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 12
+			count: 11
 			path: src/Sql.php
 
 		-

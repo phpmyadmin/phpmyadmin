@@ -184,7 +184,7 @@ final class DatabaseController implements InvocableController
                         Current::$message->addParam($newDatabaseName->getName());
                     }
 
-                    $GLOBALS['reload'] = true;
+                    ResponseRenderer::$reload = true;
 
                     /* Change database to be used */
                     if ($move) {

@@ -2155,7 +2155,7 @@ class Privileges
 
             $queries[] = 'DROP DATABASE IF EXISTS '
                 . Util::backquote($thisUser) . ';';
-            $GLOBALS['reload'] = true;
+            ResponseRenderer::$reload = true;
         }
 
         return $queries;
@@ -2792,7 +2792,7 @@ class Privileges
             /**
              * Reload the navigation
              */
-            $GLOBALS['reload'] = true;
+            ResponseRenderer::$reload = true;
             Current::$database = $username;
 
             $query = 'GRANT ALL PRIVILEGES ON '

@@ -146,7 +146,7 @@ class Import
             $dbNameInsideUse = $this->lookForUse($sql);
             if ($dbNameInsideUse !== '') {
                 Current::$database = $dbNameInsideUse;
-                $GLOBALS['reload'] = true;
+                ResponseRenderer::$reload = true;
             }
         }
 
@@ -155,7 +155,7 @@ class Import
             return;
         }
 
-        $GLOBALS['reload'] = true;
+        ResponseRenderer::$reload = true;
     }
 
     /**

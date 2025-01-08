@@ -935,7 +935,7 @@ class Sql
         }
 
         $extraData = [];
-        if (! empty($GLOBALS['reload'])) {
+        if (ResponseRenderer::$reload) {
             $extraData['reload'] = 1;
             $extraData['db'] = Current::$database;
         }
@@ -1532,7 +1532,7 @@ class Sql
             $fullSqlQuery = $this->getSqlWithLimitClause($statementInfo);
         }
 
-        $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
+        ResponseRenderer::$reload = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
         if (isset($GLOBALS['show_as_php'])) {

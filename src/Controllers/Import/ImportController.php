@@ -80,7 +80,7 @@ final class ImportController implements InvocableController
         $_SESSION['Import_message']['message'] = null;
         $_SESSION['Import_message']['go_back_url'] = null;
         // default values
-        $GLOBALS['reload'] = false;
+        ResponseRenderer::$reload = false;
 
         $GLOBALS['ajax_reload'] = [];
         $GLOBALS['import_text'] = '';
@@ -125,7 +125,7 @@ final class ImportController implements InvocableController
 
             // refresh navigation and main panels
             if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
-                $GLOBALS['reload'] = true;
+                ResponseRenderer::$reload = true;
                 $GLOBALS['ajax_reload']['reload'] = true;
             }
 
@@ -278,7 +278,7 @@ final class ImportController implements InvocableController
 
                     // refresh navigation and main panels
                     if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['import_text']) === 1) {
-                        $GLOBALS['reload'] = true;
+                        ResponseRenderer::$reload = true;
                         $GLOBALS['ajax_reload']['reload'] = true;
                     }
 
@@ -594,7 +594,7 @@ final class ImportController implements InvocableController
                 Current::$database,
             );
 
-            $GLOBALS['reload'] = $statementInfo->flags->reload;
+            ResponseRenderer::$reload = $statementInfo->flags->reload;
             ImportSettings::$offset = (int) $statementInfo->flags->offset;
 
             if (Current::$table != $tableFromSql && $tableFromSql !== '') {
@@ -621,7 +621,7 @@ final class ImportController implements InvocableController
                 );
 
                 ImportSettings::$offset = (int) $statementInfo->flags->offset;
-                $GLOBALS['reload'] = $statementInfo->flags->reload;
+                ResponseRenderer::$reload = $statementInfo->flags->reload;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
                 if (

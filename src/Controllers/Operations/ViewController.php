@@ -94,7 +94,7 @@ final class ViewController implements InvocableController
                 Current::$table = $tableObject->getName();
                 /* Force reread after rename */
                 $this->dbi->getCache()->clearTableCache();
-                $GLOBALS['reload'] = true;
+                ResponseRenderer::$reload = true;
             } else {
                 $message->addText($tableObject->getLastError());
                 $result = false;

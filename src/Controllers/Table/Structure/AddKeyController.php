@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 use function in_array;
@@ -15,7 +16,7 @@ final class AddKeyController extends AbstractIndexController implements Invocabl
 {
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['reload'] = true;
+        ResponseRenderer::$reload = true;
 
         $keyType = $this->getKeyType($request->getParsedBodyParamAsStringOrNull('key_type'));
         if ($keyType === '') {

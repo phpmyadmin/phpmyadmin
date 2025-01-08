@@ -214,7 +214,7 @@ final class TableController implements InvocableController
                     $result = true;
                     Current::$table = $pmaTable->getName();
                     $rereadInfo = true;
-                    $GLOBALS['reload'] = true;
+                    ResponseRenderer::$reload = true;
                 } else {
                     $newMessage .= $pmaTable->getLastError();
                     $result = false;
