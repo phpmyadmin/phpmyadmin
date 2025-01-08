@@ -129,9 +129,11 @@ final class ExportController implements InvocableController
             $exportType = ExportType::Database;
         }
 
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
+        }
 
-        $exportList = Plugins::getExport($exportType, isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport($exportType, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(

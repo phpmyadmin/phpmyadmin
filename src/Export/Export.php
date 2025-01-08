@@ -79,6 +79,7 @@ class Export
     public static bool $outputCharsetConversion = false;
     public static bool $outputKanjiConversion = false;
     public static bool $bufferNeeded = false;
+    public static bool $singleTable = false;
 
     public function __construct(private DatabaseInterface $dbi)
     {

@@ -51,7 +51,6 @@ final class ExportController implements InvocableController
     {
         $GLOBALS['compression'] ??= null;
         $GLOBALS['file_handle'] ??= null;
-        $GLOBALS['single_table'] ??= null;
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['time_start'] ??= null;
@@ -77,6 +76,10 @@ final class ExportController implements InvocableController
 
         $this->response->addScriptFiles(['export_output.js']);
 
+        if ($request->hasBodyParam('single_table')) {
+            Export::$singleTable = (bool) $request->getParsedBodyParam('single_table');
+        }
+
         $this->setGlobalsFromRequest($postParams);
 
         // sanitize this parameter which will be used below in a file inclusion
@@ -88,7 +91,7 @@ final class ExportController implements InvocableController
         $exportType = ExportType::from($request->getParsedBodyParamAsString('export_type'));
 
         // export class instance, not array of properties, as before
-        $exportPlugin = Plugins::getPlugin('export', $what, $exportType, isset($GLOBALS['single_table']));
+        $exportPlugin = Plugins::getPlugin('export', $what, $exportType, Export::$singleTable);
 
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {
@@ -456,10 +459,6 @@ final class ExportController implements InvocableController
      */
     private function setGlobalsFromRequest(array $postParams): void
     {
-        if (isset($postParams['single_table'])) {
-            $GLOBALS['single_table'] = $postParams['single_table'];
-        }
-
         if (isset($postParams['table_select'])) {
             $GLOBALS['table_select'] = $postParams['table_select'];
         }

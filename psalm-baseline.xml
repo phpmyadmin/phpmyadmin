@@ -912,7 +912,6 @@
   </file>
   <file src="src/Controllers/Database/ExportController.php">
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
@@ -922,7 +921,6 @@
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
@@ -1388,7 +1386,6 @@
     </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
@@ -1411,8 +1408,6 @@
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
@@ -1761,17 +1756,11 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$exportSqlPlugin]]></code>
     </PossiblyNullArgument>
@@ -2015,7 +2004,6 @@
   <file src="src/Controllers/Server/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2023,7 +2011,6 @@
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedAssignment>
     <PossiblyUnusedMethod>
@@ -2570,7 +2557,6 @@
   <file src="src/Controllers/Table/ExportController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -2583,7 +2569,6 @@
       <code><![CDATA[Current::$whereClause]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
@@ -2599,15 +2584,9 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ExportRowsController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[array_values($_POST['rows_to_delete'])]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </MixedAssignment>
     <MixedInferredReturnType>
       <code><![CDATA[Response]]></code>
     </MixedInferredReturnType>
@@ -4787,9 +4766,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['single_table']]]></code>
-    </InvalidArrayOffset>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAccess>

@@ -152,7 +152,7 @@ final class Options
             'template_id' => $_POST['template_id'] ?? '',
         ];
 
-        if (! empty($GLOBALS['single_table'])) {
+        if (Export::$singleTable) {
             $hiddenInputs['single_table'] = true;
         }
 

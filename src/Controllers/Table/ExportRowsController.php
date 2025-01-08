@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -25,8 +26,6 @@ final class ExportRowsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['single_table'] ??= null;
-
         if (UrlParams::$goto !== '' && (! isset($_POST['rows_to_delete']) || ! is_array($_POST['rows_to_delete']))) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
@@ -35,7 +34,7 @@ final class ExportRowsController implements InvocableController
         }
 
         // Needed to allow SQL export
-        $GLOBALS['single_table'] = true;
+        Export::$singleTable = true;
 
         // As we got the rows to be exported from the
         // 'rows_to_delete' checkbox, we use the index of it as the

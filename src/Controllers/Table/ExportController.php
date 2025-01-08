@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -86,9 +87,11 @@ class ExportController implements InvocableController
             $GLOBALS['unlim_num_rows'] = 0;
         }
 
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
+        }
 
-        $exportList = Plugins::getExport(ExportType::Table, isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport(ExportType::Table, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(

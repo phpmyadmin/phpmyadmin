@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Controllers\Table\ExportRowsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -24,7 +25,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
-        $GLOBALS['single_table'] = null;
+        Export::$singleTable = false;
         Current::$whereClause = null;
         $_POST = [];
     }
@@ -43,8 +44,7 @@ class ExportRowsControllerTest extends AbstractTestCase
             $controller,
         ))(self::createStub(ServerRequest::class));
 
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertTrue($GLOBALS['single_table']);
+        self::assertTrue(Export::$singleTable);
         self::assertSame([], Current::$whereClause);
     }
 
@@ -60,8 +60,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         self::assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         self::assertFalse($response->hasSuccessState());
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertNull($GLOBALS['single_table']);
+        self::assertFalse(Export::$singleTable);
         self::assertNull(Current::$whereClause);
     }
 
@@ -79,8 +78,7 @@ class ExportRowsControllerTest extends AbstractTestCase
             $controller,
         ))(self::createStub(ServerRequest::class));
 
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertTrue($GLOBALS['single_table']);
+        self::assertTrue(Export::$singleTable);
         self::assertSame(['row1', 'row2'], Current::$whereClause);
     }
 }
