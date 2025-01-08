@@ -13,4 +13,6 @@ final class Current
     public static string $sqlQuery = '';
     public static Message|null $message = null;
     public static string $lang = 'en';
+    /** @var array<string>|string|null */
+    public static array|string|null $whereClause = null;
 }

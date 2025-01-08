@@ -3892,18 +3892,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#1 \$whereClause of method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) expects array\<string\>\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#1 \$whereClause of static method PhpMyAdmin\\InsertEdit\:\:isWhereClauseNumeric\(\) expects array\<string\>\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#11 \$rowId of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects int, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3944,6 +3932,18 @@ parameters:
 			identifier: ternary.shortNotAllowed
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Controllers/Table/ChangeController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Controllers/Table/ChangeRowsController.php
 
 		-
 			message: '#^Binary operation "\+" between int\|string and mixed results in an error\.$#'
@@ -4116,7 +4116,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ExportController.php
 
 		-
@@ -4136,6 +4136,12 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ExportController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Controllers/Table/ExportRowsController.php
 
 		-
 			message: '''

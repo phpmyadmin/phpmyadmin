@@ -36,7 +36,6 @@ class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
 
         $this->pageSettings->init('Export');
@@ -67,8 +66,8 @@ class ExportController implements InvocableController
             if (! empty($parser->statements[0]) && $parser->statements[0] instanceof SelectStatement) {
                 // Checking if the WHERE clause has to be replaced.
                 $replaces = [];
-                if (! empty($GLOBALS['where_clause']) && is_array($GLOBALS['where_clause'])) {
-                    $replaces[] = ['WHERE', 'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')'];
+                if (is_array(Current::$whereClause) && Current::$whereClause !== []) {
+                    $replaces[] = ['WHERE', 'WHERE (' . implode(') OR (', Current::$whereClause) . ')'];
                 }
 
                 // Preparing to remove the LIMIT clause.

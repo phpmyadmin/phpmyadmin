@@ -28,6 +28,7 @@ final class ChangeControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
+        Current::$whereClause = null;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
@@ -123,6 +124,7 @@ final class ChangeControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
+        Current::$whereClause = null;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');

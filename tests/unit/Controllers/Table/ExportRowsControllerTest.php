@@ -25,7 +25,7 @@ class ExportRowsControllerTest extends AbstractTestCase
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
         $GLOBALS['single_table'] = null;
-        $GLOBALS['where_clause'] = null;
+        Current::$whereClause = null;
         $_POST = [];
     }
 
@@ -45,8 +45,7 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         /** @psalm-suppress InvalidArrayOffset */
         self::assertTrue($GLOBALS['single_table']);
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertSame([], $GLOBALS['where_clause']);
+        self::assertSame([], Current::$whereClause);
     }
 
     public function testWithoutRowsToDelete(): void
@@ -63,8 +62,7 @@ class ExportRowsControllerTest extends AbstractTestCase
         self::assertFalse($response->hasSuccessState());
         /** @psalm-suppress InvalidArrayOffset */
         self::assertNull($GLOBALS['single_table']);
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertNull($GLOBALS['where_clause']);
+        self::assertNull(Current::$whereClause);
     }
 
     public function testWithRowsToDelete(): void
@@ -83,7 +81,6 @@ class ExportRowsControllerTest extends AbstractTestCase
 
         /** @psalm-suppress InvalidArrayOffset */
         self::assertTrue($GLOBALS['single_table']);
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
+        self::assertSame(['row1', 'row2'], Current::$whereClause);
     }
 }

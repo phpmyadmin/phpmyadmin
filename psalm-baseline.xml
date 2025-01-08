@@ -2390,13 +2390,11 @@
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause'] ?? null]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
@@ -2410,7 +2408,6 @@
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
@@ -2428,13 +2425,12 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
-    </InvalidArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
       <code><![CDATA[$rowsToDelete]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[array_values($rowsToDelete)]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2582,7 +2578,6 @@
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
@@ -2591,12 +2586,11 @@
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
+      <code><![CDATA[Current::$whereClause]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
@@ -2606,22 +2600,29 @@
     <PossiblyNullArgument>
       <code><![CDATA[$parser->list]]></code>
     </PossiblyNullArgument>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['where_clause'])]]></code>
-    </RiskyTruthyFalsyComparison>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[Response]]></code>
+    </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ExportRowsController.php">
     <InvalidArrayOffset>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </InvalidArrayOffset>
+    <InvalidPropertyAssignmentValue>
+      <code><![CDATA[array_values($_POST['rows_to_delete'])]]></code>
+    </InvalidPropertyAssignmentValue>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['single_table']]]></code>
-      <code><![CDATA[$GLOBALS['where_clause']]]></code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[Response]]></code>
+    </MixedInferredReturnType>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
+    <UnusedProperty>
+      <code><![CDATA[$exportController]]></code>
+    </UnusedProperty>
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
     <DeprecatedMethod>

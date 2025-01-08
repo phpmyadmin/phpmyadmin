@@ -52,7 +52,6 @@ class ChangeController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['where_clause'] ??= null;
         $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['current_result'] ??= null;
 
@@ -93,7 +92,7 @@ class ChangeController implements InvocableController
         if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
             $whereClause = $request->getQueryParam('where_clause');
             if (Core::checkSqlQuerySignature($whereClause, $request->getQueryParam('where_clause_signature'))) {
-                $GLOBALS['where_clause'] = $whereClause;
+                Current::$whereClause = $whereClause;
             }
         }
 
@@ -102,18 +101,14 @@ class ChangeController implements InvocableController
          */
         [
             $insertMode,
-            $GLOBALS['where_clause'],
+            Current::$whereClause,
             $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
-        ] = $this->insertEdit->determineInsertOrEdit(
-            $GLOBALS['where_clause'] ?? null,
-            Current::$database,
-            Current::$table,
-        );
+        ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
         // Increase number of rows if unsaved rows are more
         if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
             $rows = array_fill(0, count($GLOBALS['unsaved_values']), false);
@@ -263,9 +258,9 @@ class ChangeController implements InvocableController
 
         unset($GLOBALS['unsaved_values'], $GLOBALS['plugin_scripts']);
 
-        $isNumeric = InsertEdit::isWhereClauseNumeric($GLOBALS['where_clause']);
+        $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [
-            'where_clause' => $GLOBALS['where_clause'],
+            'where_clause' => Current::$whereClause,
             'after_insert' => $afterInsert ?? 'back',
             'found_unique_key' => $foundUniqueIndex,
             'is_numeric' => $isNumeric,
