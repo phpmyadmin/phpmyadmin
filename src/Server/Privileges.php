@@ -595,7 +595,6 @@ class Privileges
         string|null $user = null,
         string|null $host = null,
     ): string {
-        $GLOBALS['pred_hostname'] ??= null;
         $GLOBALS['new_username'] ??= null;
 
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
@@ -615,8 +614,9 @@ class Privileges
             );
         }
 
-        if (! isset($GLOBALS['pred_hostname']) && $this->hostname !== null) {
-            $GLOBALS['pred_hostname'] = match (mb_strtolower($this->hostname)) {
+        $predefinedHostname = 'any';
+        if ($this->hostname !== null) {
+            $predefinedHostname = match (mb_strtolower($this->hostname)) {
                 'localhost', '127.0.0.1' => 'localhost',
                 '%' => 'any',
                 default => 'userdefined',
@@ -643,7 +643,7 @@ class Privileges
 
         return $this->template->render('server/privileges/login_information_fields', [
             'predefined_username' => $predefinedUsername,
-            'pred_hostname' => $GLOBALS['pred_hostname'] ?? null,
+            'predefined_hostname' => $predefinedHostname,
             'username_length' => $usernameLength,
             'hostname_length' => $hostnameLength,
             'username' => $this->username,

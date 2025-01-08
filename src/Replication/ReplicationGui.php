@@ -401,9 +401,9 @@ class ReplicationGui
             }
         }
 
-        // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
-        if (! isset($GLOBALS['pred_hostname']) && $hostname !== null) {
-            $GLOBALS['pred_hostname'] = match (mb_strtolower($hostname)) {
+        $predefinedHostname = 'any';
+        if ($hostname !== null) {
+            $predefinedHostname = match (mb_strtolower($hostname)) {
                 'localhost', '127.0.0.1' => 'localhost',
                 '%' => 'any',
                 default => 'userdefined',
@@ -417,7 +417,7 @@ class ReplicationGui
             'username' => $username,
             'hostname' => $hostname ?? '',
             'predefined_username' => $predefinedUsername,
-            'predefined_hostname' => $GLOBALS['pred_hostname'] ?? '',
+            'predefined_hostname' => $predefinedHostname,
             'this_host' => $thisHost ?? null,
         ]);
     }
