@@ -169,7 +169,6 @@ class Import
     public function runQuery(string $sql, array &$sqlData): void
     {
         $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['display_query'] ??= null;
 
         ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
@@ -203,10 +202,10 @@ class Import
 
             if (! ImportSettings::$sqlQueryDisabled) {
                 $GLOBALS['complete_query'] = Current::$sqlQuery;
-                $GLOBALS['display_query'] = Current::$sqlQuery;
+                Current::$displayQuery = Current::$sqlQuery;
             } else {
                 $GLOBALS['complete_query'] = '';
-                $GLOBALS['display_query'] = '';
+                Current::$displayQuery = '';
             }
 
             Current::$sqlQuery = $this->importRunBuffer;

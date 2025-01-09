@@ -408,8 +408,8 @@ class Generator
         $retval = '';
 
         if ($sqlQuery === null) {
-            if (! empty($GLOBALS['display_query'])) {
-                $sqlQuery = (string) $GLOBALS['display_query'];
+            if (Current::$displayQuery !== null && Current::$displayQuery !== '') {
+                $sqlQuery = Current::$displayQuery;
             } elseif (Current::$sqlQuery !== '') {
                 $sqlQuery = Current::$sqlQuery;
             } else {

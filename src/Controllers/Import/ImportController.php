@@ -61,7 +61,6 @@ final class ImportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['result'] ??= null;
 
@@ -505,13 +504,13 @@ final class ImportController implements InvocableController
         // Show correct message
         if ($idBookmark !== 0 && $actionBookmark === 2) {
             Current::$message = Message::success(__('The bookmark has been deleted.'));
-            $GLOBALS['display_query'] = Import::$importText;
+            Current::$displayQuery = Import::$importText;
             Import::$hasError = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             Current::$message = Message::notice(__('Showing bookmark'));
         } elseif (ImportSettings::$finished && ! Import::$hasError) {
             // Do not display the query with message, we do it separately
-            $GLOBALS['display_query'] = ';';
+            Current::$displayQuery = ';';
             if (ImportSettings::$importType !== 'query') {
                 Current::$message = Message::success(
                     '<em>'

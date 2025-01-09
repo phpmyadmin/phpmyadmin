@@ -3790,12 +3790,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#8 \$dispQuery of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Parameter \#9 \$dispMessage of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4559,12 +4553,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$relationField of method PhpMyAdmin\\InsertEdit\:\:getLinkForRelationalDisplayField\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Parameter \#2 \$sqlQuery of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -8845,15 +8833,9 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 12
+			count: 11
 			path: src/Html/Generator.php
 
 		-

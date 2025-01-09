@@ -475,7 +475,7 @@ class GeneratorTest extends AbstractTestCase
     public function testGetMessage(): void
     {
         Config::getInstance()->settings['ShowSQL'] = true;
-        $GLOBALS['display_query'] = null;
+        Current::$displayQuery = null;
         Current::$sqlQuery = 'SELECT 1;';
         $usingBookmarkMessage = Message::notice('Bookmark message');
         $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
@@ -531,7 +531,7 @@ HTML;
         $config->settings['ShowSQL'] = true;
         $config->settings['SQLQuery']['Edit'] = false;
         $config->settings['SQLQuery']['Refresh'] = true;
-        $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
+        Current::$displayQuery = 'EXPLAIN SELECT 1;';
         Current::$sqlQuery = '';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';

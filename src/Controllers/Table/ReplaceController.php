@@ -463,7 +463,7 @@ final class ReplaceController implements InvocableController
         $extraData['row_count'] = $tableObj->countRecords();
 
         Current::$message ??= Message::success();
-        $extraData['sql_query'] = Generator::getMessage(Current::$message, $GLOBALS['display_query']);
+        $extraData['sql_query'] = Generator::getMessage(Current::$message, Current::$displayQuery);
 
         $this->response->setRequestStatus(Current::$message->isSuccess());
         $this->response->addJSON('message', Current::$message);

@@ -42,7 +42,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['display_query'] ??= null;
         $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['disp_query'] ??= null;
@@ -194,7 +193,7 @@ class SqlController implements InvocableController
             Import::$importText,
             $GLOBALS['message_to_show'] ?? '',
             UrlParams::$goto,
-            isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
+            isset($GLOBALS['disp_query']) ? Current::$displayQuery : null,
             $GLOBALS['disp_message'] ?? '',
             Current::$sqlQuery,
             $GLOBALS['complete_query'] ?? Current::$sqlQuery,

@@ -912,7 +912,7 @@ class InsertEdit
         Current::$sqlQuery = implode('; ', $query) . ';';
         // to ensure that the query is displayed in case of
         // "insert as new row" and then "insert another new row"
-        $GLOBALS['display_query'] = Current::$sqlQuery;
+        Current::$displayQuery = Current::$sqlQuery;
 
         $totalAffectedRows = 0;
         $lastMessages = [];

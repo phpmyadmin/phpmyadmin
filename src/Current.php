@@ -15,4 +15,5 @@ final class Current
     public static string $lang = 'en';
     /** @var array<string>|string|null */
     public static array|string|null $whereClause = null;
+    public static string|null $displayQuery = null;
 }

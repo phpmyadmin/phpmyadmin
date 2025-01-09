@@ -5395,6 +5395,8 @@
       <code><![CDATA[$alt]]></code>
       <code><![CDATA[$database]]></code>
       <code><![CDATA[$database]]></code>
+      <code><![CDATA[$sqlQuery]]></code>
+      <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$title]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
@@ -5410,6 +5412,7 @@
     <MixedAssignment>
       <code><![CDATA[$alt]]></code>
       <code><![CDATA[$database]]></code>
+      <code><![CDATA[$sqlQuery]]></code>
       <code><![CDATA[$title]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
@@ -5427,9 +5430,6 @@
     <PossiblyUndefinedArrayOffset>
       <code><![CDATA[$parts[1]]]></code>
     </PossiblyUndefinedArrayOffset>
-    <RedundantCast>
-      <code><![CDATA[(string) $GLOBALS['display_query']]]></code>
-    </RedundantCast>
     <RiskyCast>
       <code><![CDATA[$_REQUEST['pos']]]></code>
       <code><![CDATA[$_REQUEST['session_max_rows']]]></code>
@@ -5437,7 +5437,6 @@
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$suhosinGetMaxValueLength]]></code>
-      <code><![CDATA[empty($GLOBALS['display_query'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
@@ -12166,7 +12165,6 @@
       <code><![CDATA[providerContentWithByteOrderMarks]]></code>
     </PossiblyUnusedMethod>
     <TypeDoesNotContainNull>
-      <code><![CDATA[assertNull]]></code>
       <code><![CDATA[assertNull]]></code>
     </TypeDoesNotContainNull>
   </file>
