@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            onfly_compression: bool,
             plugin_scripts: string[],
             querytime: float|int
         }"/>

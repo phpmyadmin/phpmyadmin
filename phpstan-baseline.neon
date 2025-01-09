@@ -7603,12 +7603,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1

@@ -89,6 +89,7 @@ class Export
     public static string $kanjiEncoding = '';
     public static string $maxSize = '';
     public static int $memoryLimit = 0;
+    public static bool $onFlyCompression = false;
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -158,7 +159,7 @@ class Export
         // If we have to buffer data, we will perform everything at once at the end
         if (self::$bufferNeeded) {
             $this->dumpBuffer .= $line;
-            if ($GLOBALS['onfly_compression']) {
+            if (self::$onFlyCompression) {
                 $this->dumpBufferLength += strlen($line);
 
                 if ($this->dumpBufferLength > self::$memoryLimit) {

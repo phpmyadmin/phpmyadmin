@@ -224,8 +224,8 @@ final class ExportController implements InvocableController
             && isset(Current::$charset) && Current::$charset !== 'utf-8';
 
         // Use on the fly compression?
-        $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';
-        if ($GLOBALS['onfly_compression']) {
+        Export::$onFlyCompression = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';
+        if (Export::$onFlyCompression) {
             Export::$memoryLimit = $this->export->getMemoryLimit();
         }
 
