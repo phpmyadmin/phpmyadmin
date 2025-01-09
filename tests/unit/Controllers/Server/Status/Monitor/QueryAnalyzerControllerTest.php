@@ -32,7 +32,6 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['host'] = 'localhost';
-        $GLOBALS['cached_affected_rows'] = 'cached_affected_rows';
         SessionCache::set('profiling_supported', true);
 
         $value = ['sql_text' => 'insert sql_text', '#' => 10, 'argument' => 'argument argument2'];
@@ -41,6 +40,8 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
 
         $dummyDbi = new DbiDummy();
         $dbi = $this->createDatabaseInterface($dummyDbi);
+
+        $dummyDbi->cachedAffectedRows = 123;
 
         $statusData = new Data($dbi, $config);
         $controller = new QueryAnalyzerController($response, new Template(), $statusData, new Monitor($dbi), $dbi);
@@ -58,7 +59,7 @@ class QueryAnalyzerControllerTest extends AbstractTestCase
         $dummyDbi->assertAllSelectsConsumed();
         $ret = $response->getJSONResult();
 
-        self::assertSame('cached_affected_rows', $ret['message']['affectedRows']);
+        self::assertSame(123, $ret['message']['affectedRows']);
         self::assertSame(
             [],
             $ret['message']['profiling'],

@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            cached_affected_rows: int|numeric-string,
             complete_query: string,
             compression: 'none'|'zip'|'gzip',
             file_handle: resource|null,

@@ -20953,12 +20953,6 @@ parameters:
 			path: tests/unit/SqlTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:affectedRows\(\) should return int\|numeric\-string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: tests/unit/Stubs/DbiDummy.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:connect\(\) never returns null so it can be removed from the return type\.$#'
 			identifier: return.unusedType
 			count: 1
