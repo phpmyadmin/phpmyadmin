@@ -226,7 +226,7 @@ final class ExportController implements InvocableController
         // Use on the fly compression?
         $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';
         if ($GLOBALS['onfly_compression']) {
-            $GLOBALS['memory_limit'] = $this->export->getMemoryLimit();
+            Export::$memoryLimit = $this->export->getMemoryLimit();
         }
 
         // Generate filename and mime type if needed

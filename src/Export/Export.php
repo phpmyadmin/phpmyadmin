@@ -88,6 +88,7 @@ class Export
     public static mixed $fileHandle = null;
     public static string $kanjiEncoding = '';
     public static string $maxSize = '';
+    public static int $memoryLimit = 0;
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -160,7 +161,7 @@ class Export
             if ($GLOBALS['onfly_compression']) {
                 $this->dumpBufferLength += strlen($line);
 
-                if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
+                if ($this->dumpBufferLength > self::$memoryLimit) {
                     if (self::$outputCharsetConversion) {
                         $this->dumpBuffer = Encoding::convertString(
                             'utf-8',

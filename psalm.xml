@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            memory_limit: int,
             old_tz: string,
             onfly_compression: bool,
             plugin_scripts: string[],
