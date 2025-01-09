@@ -10846,12 +10846,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationConfig.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Plugins/Auth/AuthenticationConfig.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -11035,12 +11029,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Auth/AuthenticationHttp.php
-
-		-
 			message: '#^Only booleans are allowed in &&, string given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
@@ -11126,12 +11114,6 @@ parameters:
 			identifier: assign.propertyType
 			count: 1
 			path: src/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: '#^Binary operation "\." between ''\#'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/AuthenticationPlugin.php
 
 		-
 			message: '''

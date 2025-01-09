@@ -177,7 +177,7 @@ class AuthenticationHttp extends AuthenticationPlugin
         $this->logFailure($failure);
 
         $error = DatabaseInterface::getInstance()->getError();
-        if ($error && $GLOBALS['errno'] != 1045) {
+        if ($error && DatabaseInterface::$errorNumber !== 1045) {
             $responseRenderer = ResponseRenderer::getInstance();
             $responseRenderer->addHTML($this->template->render('error/generic', [
                 'lang' => Current::$lang,

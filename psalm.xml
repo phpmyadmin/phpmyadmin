@@ -43,7 +43,6 @@
             charset: string,
             complete_query: string,
             compression: 'none'|'zip'|'gzip',
-            errno: int,
             file_handle: resource|null,
             from_cookie: bool,
             knjenc: string,

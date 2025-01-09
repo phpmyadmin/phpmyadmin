@@ -142,6 +142,8 @@ class DatabaseInterface
     /** @var int|numeric-string */
     private static int|string $cachedAffectedRows = -1;
 
+    public static int|null $errorNumber = null;
+
     /** @param DbiExtension $extension Object to be used for database queries */
     private function __construct(private DbiExtension $extension, private readonly Config $config)
     {
@@ -665,7 +667,7 @@ class DatabaseInterface
             $databases = $this->fetchResult($sql, 'SCHEMA_NAME', null, $connectionType);
 
             $mysqlError = $this->getError($connectionType);
-            if ($databases === [] && isset($GLOBALS['errno'])) {
+            if ($databases === [] && self::$errorNumber !== null) {
                 Generator::mysqlDie($mysqlError, $sql);
             }
 

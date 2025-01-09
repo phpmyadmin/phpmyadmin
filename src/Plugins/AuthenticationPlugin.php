@@ -170,8 +170,8 @@ abstract class AuthenticationPlugin
                 return htmlspecialchars($dbiError);
             }
 
-            if (isset($GLOBALS['errno'])) {
-                return '#' . $GLOBALS['errno'] . ' ' . $failure->getMessage();
+            if (DatabaseInterface::$errorNumber !== null) {
+                return '#' . DatabaseInterface::$errorNumber . ' ' . $failure->getMessage();
             }
         }
 

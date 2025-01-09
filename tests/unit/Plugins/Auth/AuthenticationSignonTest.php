@@ -344,7 +344,7 @@ class AuthenticationSignonTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
-        unset($GLOBALS['errno']);
+        DatabaseInterface::$errorNumber = null;
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()

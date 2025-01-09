@@ -770,7 +770,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->willReturn('');
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['errno'] = 42;
+        DatabaseInterface::$errorNumber = 42;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -811,7 +811,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        unset($GLOBALS['errno']);
+        DatabaseInterface::$errorNumber = null;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);

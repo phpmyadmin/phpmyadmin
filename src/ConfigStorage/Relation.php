@@ -1450,7 +1450,7 @@ class Relation
 
         Current::$message = Message::error($error);
 
-        if ($GLOBALS['errno'] === 1044) {
+        if (DatabaseInterface::$errorNumber === 1044) {
             Current::$message = Message::error(sprintf(
                 __(
                     'You do not have necessary privileges to create a database named'
