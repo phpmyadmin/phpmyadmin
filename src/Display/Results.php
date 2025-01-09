@@ -1582,10 +1582,10 @@ class Results
         // Displays the needed checkboxes at the right
         // column of the result table header if possible and required...
         if (
-            ($this->config->settings['RowActionLinks'] === self::POSITION_RIGHT)
-            || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
-            && ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
-            && $displayParts->hasTextButton
+            $this->config->settings['RowActionLinks'] === self::POSITION_RIGHT
+            || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH
+                && ($displayParts->hasEditLink || $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE)
+                && $displayParts->hasTextButton
         ) {
             $this->numEmptyColumnsAfter = $displayParts->hasEditLink
                 && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
@@ -1595,20 +1595,17 @@ class Results
                 . $fullOrPartialTextLink
                 . '</th>';
         } elseif (
-            ($this->config->settings['RowActionLinks'] === self::POSITION_LEFT)
-            || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
-            && (! $displayParts->hasEditLink
-            && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE)
-            && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
+            $this->config->settings['RowActionLinks'] === self::POSITION_LEFT
+            || $this->config->settings['RowActionLinks'] === self::POSITION_BOTH
+                && ! $displayParts->hasEditLink
+                && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE
+                && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
         ) {
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
 
             $this->numEmptyColumnsAfter = $displayParts->hasEditLink
                 && $displayParts->deleteLink !== DeleteLinkEnum::NO_DELETE ? 4 : 1;
-
-            $rightColumnHtml .= "\n" . '<td class="position-sticky bg-body d-print-none"' . $colspan
-                . '></td>';
         }
 
         return $rightColumnHtml;
