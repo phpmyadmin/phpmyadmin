@@ -515,7 +515,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertTrue($GLOBALS['from_cookie']);
+        self::assertTrue(AuthenticationCookie::$fromCookie);
 
         self::assertSame('', $this->object->password);
     }
@@ -567,7 +567,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object->password = 'testPW';
         Current::$server = 2;
         $config->settings['LoginCookieStore'] = 100;
-        $GLOBALS['from_cookie'] = true;
+        AuthenticationCookie::$fromCookie = true;
         $config->set('is_https', false);
 
         $this->object->storeCredentials();
@@ -599,7 +599,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
-        $GLOBALS['from_cookie'] = false;
+        AuthenticationCookie::$fromCookie = false;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);

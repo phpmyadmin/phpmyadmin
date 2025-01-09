@@ -60,9 +60,9 @@ use const SODIUM_CRYPTO_SECRETBOX_NONCEBYTES;
 class AuthenticationCookie extends AuthenticationPlugin
 {
     public static string $connectionError = '';
-
     /** The user provided server to connect to */
     public static string $authServer = '';
+    public static bool $fromCookie = false;
 
     /**
      * Displays authentication form
@@ -219,7 +219,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         self::$authServer = '';
 
         $this->user = $this->password = '';
-        $GLOBALS['from_cookie'] = false;
+        self::$fromCookie = false;
 
         $config = Config::getInstance();
         if (isset($_POST['pma_username']) && $_POST['pma_username'] != '') {
@@ -388,7 +388,7 @@ class AuthenticationCookie extends AuthenticationPlugin
             self::$authServer = $authData['server'];
         }
 
-        $GLOBALS['from_cookie'] = true;
+        self::$fromCookie = true;
 
         return true;
     }
@@ -463,7 +463,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
-        if ($GLOBALS['from_cookie']) {
+        if (self::$fromCookie) {
             return null;
         }
 

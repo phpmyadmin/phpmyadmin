@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            from_cookie: bool,
             knjenc: string,
             maxsize: string,
             memory_limit: int,
