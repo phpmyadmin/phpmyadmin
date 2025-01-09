@@ -125,6 +125,8 @@ class ExportSql extends ExportPlugin
     private bool $viewsAsTables = false;
     private bool $metadata = false;
 
+    public static string $oldTimezone = '';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -727,7 +729,7 @@ class ExportSql extends ExportPlugin
 
         /* Restore timezone */
         if ($this->utcTime) {
-            DatabaseInterface::getInstance()->query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
+            DatabaseInterface::getInstance()->query('SET time_zone = "' . self::$oldTimezone . '"');
         }
 
         return $this->export->outputHandler($foot);
@@ -793,8 +795,7 @@ class ExportSql extends ExportPlugin
         /* Change timezone if we should export timestamps in UTC */
         if ($this->utcTime) {
             $head .= 'SET time_zone = "+00:00";' . "\n";
-            $GLOBALS['old_tz'] = $dbi
-                ->fetchValue('SELECT @@session.time_zone');
+            self::$oldTimezone = $dbi->fetchValue('SELECT @@session.time_zone');
             $dbi->query('SET time_zone = "+00:00"');
         }
 

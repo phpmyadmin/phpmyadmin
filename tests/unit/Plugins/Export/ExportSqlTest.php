@@ -387,7 +387,7 @@ class ExportSqlTest extends AbstractTestCase
     public function testExportFooter(): void
     {
         Current::$charset = 'utf-8';
-        $GLOBALS['old_tz'] = 'GMT';
+        ExportSql::$oldTimezone = 'GMT';
         Export::$asFile = true;
         Export::$outputCharsetConversion = true;
 
@@ -418,7 +418,7 @@ class ExportSqlTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['port'] = 80;
-        $GLOBALS['old_tz'] = 'GMT';
+        ExportSql::$oldTimezone = 'GMT';
         Export::$asFile = true;
         Export::$outputCharsetConversion = true;
         Current::$charset = 'utf-8';

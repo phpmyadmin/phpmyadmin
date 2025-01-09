@@ -11701,12 +11701,6 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: '#^Binary operation "\." between ''SET time_zone \= "'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -11942,6 +11936,12 @@ parameters:
 
 		-
 			message: '#^Property PhpMyAdmin\\SqlParser\\Components\\Reference\:\:\$columns \(array\<string\>\) does not accept array\<mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Plugins/Export/ExportSql.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:\$oldTimezone \(string\) does not accept string\|false\|null\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Plugins/Export/ExportSql.php
