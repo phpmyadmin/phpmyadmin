@@ -61,7 +61,6 @@ final class ImportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['result'] ??= null;
 
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
@@ -78,7 +77,7 @@ final class ImportController implements InvocableController
         // default values
         ResponseRenderer::$reload = false;
 
-        $GLOBALS['ajax_reload'] = [];
+        $ajaxReload = [];
         Import::$importText = '';
         // Are we just executing plain query or sql file?
         // (eg. non import, but query box/window run)
@@ -122,12 +121,12 @@ final class ImportController implements InvocableController
             // refresh navigation and main panels
             if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
                 ResponseRenderer::$reload = true;
-                $GLOBALS['ajax_reload']['reload'] = true;
+                $ajaxReload['reload'] = true;
             }
 
             // refresh navigation panel only
             if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
-                $GLOBALS['ajax_reload']['reload'] = true;
+                $ajaxReload['reload'] = true;
             }
 
             // do a dynamic reload if table is RENAMED
@@ -139,8 +138,8 @@ final class ImportController implements InvocableController
                     $renameTableNames,
                 ) === 1
             ) {
-                $GLOBALS['ajax_reload']['reload'] = true;
-                $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($renameTableNames[2]);
+                $ajaxReload['reload'] = true;
+                $ajaxReload['table_name'] = Util::unQuote($renameTableNames[2]);
             }
 
             Current::$sqlQuery = '';
@@ -275,14 +274,14 @@ final class ImportController implements InvocableController
                     // refresh navigation and main panels
                     if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1) {
                         ResponseRenderer::$reload = true;
-                        $GLOBALS['ajax_reload']['reload'] = true;
+                        $ajaxReload['reload'] = true;
                     }
 
                     // refresh navigation panel only
                     if (
                         preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1
                     ) {
-                        $GLOBALS['ajax_reload']['reload'] = true;
+                        $ajaxReload['reload'] = true;
                     }
 
                     break;
@@ -664,7 +663,7 @@ final class ImportController implements InvocableController
                 );
             }
 
-            $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
+            $this->response->addJSON('ajax_reload', $ajaxReload);
             $this->response->addHTML($htmlOutput);
 
             return $this->response->response();

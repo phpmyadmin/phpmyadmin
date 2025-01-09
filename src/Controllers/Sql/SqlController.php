@@ -42,7 +42,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['ajax_reload'] ??= null;
         $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
@@ -58,13 +57,6 @@ class SqlController implements InvocableController
             'gis_data_editor.js',
             'multi_column_sort.js',
         ]);
-
-        /**
-         * Set ajax_reload in the response if it was already set
-         */
-        if (isset($GLOBALS['ajax_reload']) && $GLOBALS['ajax_reload']['reload'] === true) {
-            $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
-        }
 
         /**
          * Defines the url to return to in case of error in a sql statement

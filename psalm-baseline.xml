@@ -1528,11 +1528,6 @@
       <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
-      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
-      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
-      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
-      <code><![CDATA[$GLOBALS['ajax_reload']['table_name']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -1540,7 +1535,6 @@
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$GLOBALS['result']]]></code>
       <code><![CDATA[$GLOBALS['show_as_php']]]></code>
@@ -2288,11 +2282,7 @@
       <code><![CDATA[$GLOBALS['message_to_show'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
