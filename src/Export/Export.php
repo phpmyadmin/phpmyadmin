@@ -87,6 +87,7 @@ class Export
     /** @var resource|null */
     public static mixed $fileHandle = null;
     public static string $kanjiEncoding = '';
+    public static string $maxSize = '';
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -631,7 +632,7 @@ class Export
                         break;
                     }
                 } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable()) {
-                    $tableSize = $GLOBALS['maxsize'];
+                    $tableSize = self::$maxSize;
                     // Checking if the maximum table size constrain has been set
                     // And if that constrain is a valid number or not
                     if ($tableSize !== '' && is_numeric($tableSize)) {

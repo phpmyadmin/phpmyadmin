@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            maxsize: string,
             memory_limit: int,
             old_tz: string,
             onfly_compression: bool,

@@ -89,6 +89,10 @@ final class ExportController implements InvocableController
             Export::$kanjiEncoding = $request->getParsedBodyParamAsString('knjenc');
         }
 
+        if ($request->hasBodyParam('maxsize')) {
+            Export::$maxSize = $request->getParsedBodyParamAsString('maxsize');
+        }
+
         $this->setGlobalsFromRequest($postParams);
 
         // sanitize this parameter which will be used below in a file inclusion
@@ -473,10 +477,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['table_data'])) {
             $GLOBALS['table_data'] = $postParams['table_data'];
-        }
-
-        if (isset($postParams['maxsize'])) {
-            $GLOBALS['maxsize'] = $postParams['maxsize'];
         }
 
         if (! isset($postParams['xkana'])) {
