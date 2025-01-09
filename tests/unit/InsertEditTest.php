@@ -2464,7 +2464,7 @@ class InsertEditTest extends AbstractTestCase
     public function testGetHtmlForInsertEditFormColumn(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         $foreigners = ['foreign_keys_data' => []];
         $tableColumn = new ColumnFull('col', 'varchar(20)', null, true, '', null, '', 'insert,update,select', '');
         $repopulate = [md5('col') => 'val'];
@@ -2597,7 +2597,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRow(): void
     {
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
         $config->settings['CharEditing'] = 'input';
@@ -2645,7 +2645,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges(): void
     {
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
         $config->settings['CharEditing'] = 'input';

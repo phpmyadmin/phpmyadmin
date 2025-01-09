@@ -221,7 +221,7 @@ class ChangeController implements InvocableController
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', UrlParams::$params, false);
         }
 
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         foreach ($rows as $rowId => $currentRow) {
             $GLOBALS['current_result'] = is_array($result) && isset($result[$rowId])
                 ? $result[$rowId]
@@ -254,9 +254,10 @@ class ChangeController implements InvocableController
             );
         }
 
-        $this->response->addScriptFiles($GLOBALS['plugin_scripts']);
+        $this->response->addScriptFiles(InsertEdit::$pluginScripts);
+        InsertEdit::$pluginScripts = [];
 
-        unset($GLOBALS['unsaved_values'], $GLOBALS['plugin_scripts']);
+        unset($GLOBALS['unsaved_values']);
 
         $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [

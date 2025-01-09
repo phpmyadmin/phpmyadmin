@@ -3832,12 +3832,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#1 \$files of method PhpMyAdmin\\ResponseRenderer\:\:addScriptFiles\(\) expects list\<string\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9542,12 +9536,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$whereClauseArray of method PhpMyAdmin\\InsertEdit\:\:analyzeWhereClauses\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php

@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            plugin_scripts: string[],
             querytime: float|int
         }"/>
     </globals>

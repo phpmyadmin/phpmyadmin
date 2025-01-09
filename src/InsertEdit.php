@@ -75,6 +75,9 @@ class InsertEdit
     private int $rowOffset = 0;
     private int $fieldIndex = 0;
 
+    /** @var string[] */
+    public static array $pluginScripts = [];
+
     public function __construct(
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
@@ -1688,10 +1691,7 @@ class InsertEdit
                     $this->fieldIndex,
                 );
 
-                $GLOBALS['plugin_scripts'] = array_merge(
-                    $GLOBALS['plugin_scripts'],
-                    $transformationPlugin->getScripts(),
-                );
+                self::$pluginScripts = array_merge(self::$pluginScripts, $transformationPlugin->getScripts());
             }
         }
 
