@@ -54,7 +54,6 @@ final class ExportController implements InvocableController
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['time_start'] ??= null;
-        $GLOBALS['charset'] ??= null;
         $GLOBALS['table_data'] ??= null;
 
         /** @var array<string, string> $postParams */
@@ -78,6 +77,10 @@ final class ExportController implements InvocableController
 
         if ($request->hasBodyParam('single_table')) {
             Export::$singleTable = (bool) $request->getParsedBodyParam('single_table');
+        }
+
+        if ($request->hasBodyParam('charset')) {
+            Current::$charset = $request->getParsedBodyParamAsString('charset');
         }
 
         $this->setGlobalsFromRequest($postParams);
@@ -208,7 +211,7 @@ final class ExportController implements InvocableController
         // Do we need to convert charset?
         Export::$outputCharsetConversion = Export::$asFile
             && Encoding::isSupported()
-            && isset($GLOBALS['charset']) && $GLOBALS['charset'] !== 'utf-8';
+            && isset(Current::$charset) && Current::$charset !== 'utf-8';
 
         // Use on the fly compression?
         $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly']
@@ -413,7 +416,7 @@ final class ExportController implements InvocableController
         if (Export::$outputCharsetConversion) {
             $this->export->dumpBuffer = Encoding::convertString(
                 'utf-8',
-                $GLOBALS['charset'],
+                Current::$charset ?? 'utf-8',
                 $this->export->dumpBuffer,
             );
         }
@@ -469,10 +472,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['maxsize'])) {
             $GLOBALS['maxsize'] = $postParams['maxsize'];
-        }
-
-        if (isset($postParams['charset'])) {
-            $GLOBALS['charset'] = $postParams['charset'];
         }
 
         if (isset($postParams['compression'])) {

@@ -2731,12 +2731,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#2 \$destCharset of static method PhpMyAdmin\\Encoding\:\:convertString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Parameter \#3 \$saveFilename of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -7657,12 +7651,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Parameter \#2 \$destCharset of static method PhpMyAdmin\\Encoding\:\:convertString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Export/Export.php
-
-		-
 			message: '#^Parameter \#2 \$enc of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -11296,12 +11284,6 @@ parameters:
 			path: src/Plugins/Export/ExportExcel.php
 
 		-
-			message: '#^Binary operation "\." between ''\<html xmlns\:o\="urn…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -12044,12 +12026,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Binary operation "\." between ''\<\?xml version\="1\.0"…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: '''

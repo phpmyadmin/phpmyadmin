@@ -172,7 +172,7 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportHeader(): void
     {
         Export::$outputCharsetConversion = true;
-        $GLOBALS['charset'] = 'iso-8859-1';
+        Current::$charset = 'iso-8859-1';
         $config = Config::getInstance();
         $config->selectedServer['port'] = 80;
         $config->selectedServer['host'] = 'localhost';

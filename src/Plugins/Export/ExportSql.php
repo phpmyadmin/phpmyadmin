@@ -804,9 +804,9 @@ class ExportSql extends ExportPlugin
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
-            if (isset($GLOBALS['charset'], Charsets::$mysqlCharsetMap[$GLOBALS['charset']])) {
+            if (isset(Current::$charset, Charsets::$mysqlCharsetMap[Current::$charset])) {
                 // we got a charset from the export dialog
-                $setNames = Charsets::$mysqlCharsetMap[$GLOBALS['charset']];
+                $setNames = Charsets::$mysqlCharsetMap[Current::$charset];
             } else {
                 // by default we use the connection charset
                 $setNames = Charsets::$mysqlCharsetMap['utf-8'];

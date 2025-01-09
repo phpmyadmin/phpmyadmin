@@ -79,6 +79,10 @@ abstract class AbstractTestCase extends TestCase
         Current::$sqlQuery = '';
         Current::$message = null;
         Current::$lang = 'en';
+        Current::$whereClause = null;
+        Current::$displayQuery = null;
+        Current::$charset = null;
+        DatabaseInterface::$errorNumber = null;
 
         // Config before DBI
         $this->setGlobalConfig();

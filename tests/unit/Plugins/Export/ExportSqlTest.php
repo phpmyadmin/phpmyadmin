@@ -386,7 +386,7 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $GLOBALS['charset'] = 'utf-8';
+        Current::$charset = 'utf-8';
         $GLOBALS['old_tz'] = 'GMT';
         Export::$asFile = true;
         Export::$outputCharsetConversion = true;
@@ -421,7 +421,7 @@ class ExportSqlTest extends AbstractTestCase
         $GLOBALS['old_tz'] = 'GMT';
         Export::$asFile = true;
         Export::$outputCharsetConversion = true;
-        $GLOBALS['charset'] = 'utf-8';
+        Current::$charset = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()

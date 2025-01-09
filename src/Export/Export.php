@@ -154,7 +154,11 @@ class Export
 
                 if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
                     if (self::$outputCharsetConversion) {
-                        $this->dumpBuffer = Encoding::convertString('utf-8', $GLOBALS['charset'], $this->dumpBuffer);
+                        $this->dumpBuffer = Encoding::convertString(
+                            'utf-8',
+                            Current::$charset ?? 'utf-8',
+                            $this->dumpBuffer,
+                        );
                     }
 
                     if ($GLOBALS['compression'] === 'gzip' && $this->gzencodeNeeded()) {
@@ -191,7 +195,7 @@ class Export
             }
         } elseif (self::$asFile) {
             if (self::$outputCharsetConversion) {
-                $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
+                $line = Encoding::convertString('utf-8', Current::$charset ?? 'utf-8', $line);
             }
 
             if (self::$saveOnServer && $line !== '') {

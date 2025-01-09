@@ -1403,7 +1403,6 @@
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['charset']]]></code>
       <code><![CDATA[$GLOBALS['compression']]]></code>
       <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
@@ -1439,9 +1438,6 @@
                     $filename,
                 )]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
-    <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['charset']]]></code>
-    </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
@@ -7091,6 +7087,9 @@
       <code><![CDATA[$record[$i]]]></code>
       <code><![CDATA[$tableAlias]]></code>
     </PossiblyNullArgument>
+    <PossiblyNullOperand>
+      <code><![CDATA[$charset]]></code>
+    </PossiblyNullOperand>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($config->selectedServer['port'])]]></code>
     </RiskyTruthyFalsyComparison>

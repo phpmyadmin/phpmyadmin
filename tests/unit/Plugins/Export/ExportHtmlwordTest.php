@@ -232,7 +232,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 2
 
-        $GLOBALS['charset'] = 'ISO-8859-1';
+        Current::$charset = 'ISO-8859-1';
         ob_start();
         $this->object->exportHeader();
         $result = ob_get_clean();

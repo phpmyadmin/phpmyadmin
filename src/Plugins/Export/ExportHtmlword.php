@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\StructureOrData;
@@ -105,8 +106,6 @@ class ExportHtmlword extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['charset'] ??= null;
-
         return $this->export->outputHandler(
             '<html xmlns:o="urn:schemas-microsoft-com:office:office"
             xmlns:x="urn:schemas-microsoft-com:office:word"
@@ -117,7 +116,7 @@ class ExportHtmlword extends ExportPlugin
             <html>
             <head>
                 <meta http-equiv="Content-type" content="text/html;charset='
-            . ($GLOBALS['charset'] ?? 'utf-8') . '" />
+            . (Current::$charset ?? 'utf-8') . '" />
             </head>
             <body>',
         );

@@ -194,7 +194,7 @@ class ExportXml extends ExportPlugin
             || $this->exportTriggers
             || $this->exportViews;
 
-        $charset = Export::$outputCharsetConversion ? $GLOBALS['charset'] : 'utf-8';
+        $charset = Export::$outputCharsetConversion ? Current::$charset : 'utf-8';
 
         $config = Config::getInstance();
         $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . "\n"
