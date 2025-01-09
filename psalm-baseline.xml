@@ -1417,7 +1417,6 @@
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['file_handle']]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
     </PossiblyInvalidArgument>
@@ -1437,6 +1436,9 @@
                     $filename,
                 )]]></code>
     </PossiblyInvalidPropertyAssignmentValue>
+    <PossiblyNullArgument>
+      <code><![CDATA[Export::$fileHandle]]></code>
+    </PossiblyNullArgument>
     <PropertyTypeCoercion>
       <code><![CDATA[$request->getParsedBodyParamAsString('compression')]]></code>
     </PropertyTypeCoercion>
@@ -4745,7 +4747,7 @@
       <code><![CDATA[$tmpSelect]]></code>
     </MixedOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['file_handle']]]></code>
+      <code><![CDATA[self::$fileHandle]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
       <code><![CDATA[$error['message']]]></code>
@@ -6365,6 +6367,9 @@
     </PropertyNotSetInConstructor>
   </file>
   <file src="src/Plugins.php">
+    <ArgumentTypeCoercion>
+      <code><![CDATA[$GLOBALS[$match]]]></code>
+    </ArgumentTypeCoercion>
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
@@ -6393,7 +6398,6 @@
       <code><![CDATA[new $class()]]></code>
     </MixedMethodCall>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS[$match]]]></code>
       <code><![CDATA[$_GET[$opt]]]></code>
       <code><![CDATA[$_REQUEST[$opt]]]></code>
       <code><![CDATA[$val]]></code>

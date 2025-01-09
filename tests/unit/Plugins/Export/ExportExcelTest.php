@@ -224,7 +224,7 @@ class ExportExcelTest extends AbstractTestCase
         Export::$bufferNeeded = false;
         Export::$asFile = true;
         Export::$saveOnServer = true;
-        $GLOBALS['file_handle'] = null;
+        Export::$fileHandle = null;
 
         ob_start();
         self::assertFalse($this->object->exportData(

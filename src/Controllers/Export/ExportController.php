@@ -49,7 +49,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['file_handle'] ??= null;
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['table_select'] ??= null;
         $GLOBALS['time_start'] ??= null;
@@ -129,7 +128,7 @@ final class ExportController implements InvocableController
         Export::$saveOnServer = false;
         Export::$bufferNeeded = false;
         $GLOBALS['save_filename'] = '';
-        $GLOBALS['file_handle'] = '';
+        Export::$fileHandle = null;
         $filename = '';
         $separateFiles = '';
 
@@ -247,7 +246,7 @@ final class ExportController implements InvocableController
 
         // Open file on server if needed
         if (Export::$saveOnServer) {
-            [$GLOBALS['save_filename'], $message, $GLOBALS['file_handle']] = $this->export->openFile(
+            [$GLOBALS['save_filename'], $message, Export::$fileHandle] = $this->export->openFile(
                 $filename,
                 $isQuickExport,
             );
@@ -443,7 +442,7 @@ final class ExportController implements InvocableController
         /* If we saved on server, we have to close file now */
         if (Export::$saveOnServer) {
             $message = $this->export->closeFile(
-                $GLOBALS['file_handle'],
+                Export::$fileHandle,
                 $this->export->dumpBuffer,
                 $GLOBALS['save_filename'],
             );

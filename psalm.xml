@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            file_handle: resource|null,
             from_cookie: bool,
             knjenc: string,
             maxsize: string,

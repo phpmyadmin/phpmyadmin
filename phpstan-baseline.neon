@@ -2707,7 +2707,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#1 \$fileHandle of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects resource, mixed given\.$#'
+			message: '#^Parameter \#1 \$fileHandle of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects resource, resource\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -7615,9 +7615,9 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Parameter \#1 \$stream of function fwrite expects resource, mixed given\.$#'
+			message: '#^Parameter \#1 \$stream of function fwrite expects resource, resource\|null given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Export/Export.php
 
 		-

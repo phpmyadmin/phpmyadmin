@@ -84,6 +84,9 @@ class Export
     /** @var ''|'none'|'zip'|'gzip' */
     public static string $compression = '';
 
+    /** @var resource|null */
+    public static mixed $fileHandle = null;
+
     public function __construct(private DatabaseInterface $dbi)
     {
     }
@@ -171,7 +174,7 @@ class Export
                     }
 
                     if (self::$saveOnServer) {
-                        $writeResult = @fwrite($GLOBALS['file_handle'], $this->dumpBuffer);
+                        $writeResult = @fwrite(self::$fileHandle, $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
                         if ($writeResult != strlen($this->dumpBuffer)) {
@@ -202,8 +205,8 @@ class Export
             }
 
             if (self::$saveOnServer && $line !== '') {
-                if ($GLOBALS['file_handle'] !== null) {
-                    $writeResult = @fwrite($GLOBALS['file_handle'], $line);
+                if (self::$fileHandle !== null) {
+                    $writeResult = @fwrite(self::$fileHandle, $line);
                 } else {
                     $writeResult = false;
                 }
