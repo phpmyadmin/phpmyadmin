@@ -47,7 +47,6 @@ class SqlController implements InvocableController
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['complete_query'] ??= null;
 
         $this->pageSettings->init('Browse');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
@@ -196,7 +195,7 @@ class SqlController implements InvocableController
             isset($GLOBALS['disp_query']) ? Current::$displayQuery : null,
             $GLOBALS['disp_message'] ?? '',
             Current::$sqlQuery,
-            $GLOBALS['complete_query'] ?? Current::$sqlQuery,
+            Current::$completeQuery ?? Current::$sqlQuery,
         ));
 
         return $this->response->response();

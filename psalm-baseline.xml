@@ -12161,9 +12161,6 @@
       <code><![CDATA[provPMACheckIfRollbackPossiblePositive]]></code>
       <code><![CDATA[providerContentWithByteOrderMarks]]></code>
     </PossiblyUnusedMethod>
-    <TypeDoesNotContainNull>
-      <code><![CDATA[assertNull]]></code>
-    </TypeDoesNotContainNull>
   </file>
   <file src="tests/unit/IndexTest.php">
     <MixedArgument>

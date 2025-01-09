@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            complete_query: string,
             compression: 'none'|'zip'|'gzip',
             file_handle: resource|null,
             from_cookie: bool,

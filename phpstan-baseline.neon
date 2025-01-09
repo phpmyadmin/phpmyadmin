@@ -3766,12 +3766,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#11 \$completeQuery of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

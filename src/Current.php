@@ -17,4 +17,5 @@ final class Current
     public static array|string|null $whereClause = null;
     public static string|null $displayQuery = null;
     public static string|null $charset = null;
+    public static string|null $completeQuery = null;
 }
