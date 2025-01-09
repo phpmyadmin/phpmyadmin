@@ -911,10 +911,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/ExportController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
@@ -1384,12 +1380,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['time_start']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$dbSelect]]></code>
     </MixedArgument>
@@ -1498,10 +1488,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['language_stats']]]></code>
-      <code><![CDATA[$GLOBALS['language_stats']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$this->config->get('ShowGitRevision') ?? true]]></code>
       <code><![CDATA[$this->config->get('TempDir')]]></code>
@@ -1538,14 +1524,15 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['result']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
+      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
+      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
+      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
+      <code><![CDATA[$GLOBALS['ajax_reload']['reload']]]></code>
+      <code><![CDATA[$GLOBALS['ajax_reload']['table_name']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
       <code><![CDATA[$_SESSION['Import_message']['go_back_url']]]></code>
@@ -1776,10 +1763,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-    </InvalidArrayOffset>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[is_array($partitionNames) ? $partitionNames : []]]></code>
     </MixedArgumentTypeCoercion>
@@ -2000,10 +1983,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/ExportController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
@@ -2304,13 +2283,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['ajax_reload']]]></code>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['disp_query']]]></code>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message'] ?? '']]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? '']]></code>
@@ -2365,11 +2337,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['current_result']]]></code>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
@@ -2498,10 +2465,6 @@
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['disp_query']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message'] ?? '']]></code>
       <code><![CDATA[$GLOBALS['disp_query'] ?? null]]></code>
@@ -2553,10 +2516,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ExportController.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
       <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
@@ -2853,15 +2812,11 @@
     <InvalidArgument>
       <code><![CDATA[$insertErrors]]></code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['disp_query']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-    </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[UrlParams::$params]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
@@ -2887,6 +2842,7 @@
       <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
+      <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
       <code><![CDATA[$extraData['relations']]]></code>
       <code><![CDATA[$extraData['relations'][$cellIndex]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
@@ -4236,7 +4192,6 @@
       <code><![CDATA[$sortExpressionNoDirection]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['row']]]></code>
       <code><![CDATA[$delUrlParams]]></code>
     </InvalidArrayOffset>
     <InvalidReturnStatement>
@@ -4686,11 +4641,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['time_start']]]></code>
-      <code><![CDATA[$GLOBALS['xkana']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['xkana'] ?? '']]></code>
       <code><![CDATA[$dbAlias]]></code>
@@ -5339,9 +5289,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['buffer_message']]]></code>
-    </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['buffer_message']]]></code>
       <code><![CDATA[$bufferMessage]]></code>
@@ -5383,11 +5330,6 @@
       <code><![CDATA[$urlParams]]></code>
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-      <code><![CDATA[$GLOBALS['special_message']]]></code>
-      <code><![CDATA[$GLOBALS['using_bookmark_message']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code><![CDATA[$alt]]></code>
@@ -5435,8 +5377,6 @@
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$suhosinGetMaxValueLength]]></code>
-      <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
-      <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($GLOBALS['show_as_php'])]]></code>
       <code><![CDATA[empty($server['socket'])]]></code>
       <code><![CDATA[empty($server['ssl_ca'])]]></code>
@@ -6111,9 +6051,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Operations.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$arr['foreign_db']]]></code>
       <code><![CDATA[$arr['foreign_db']]]></code>
@@ -6369,16 +6306,8 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$GLOBALS[$match]]]></code>
-    </InvalidArgument>
-    <InvalidReturnStatement>
-      <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[string]]></code>
-    </InvalidReturnType>
     <MixedArgument>
+      <code><![CDATA[$GLOBALS[$match]]]></code>
       <code><![CDATA[$doc[0]]]></code>
       <code><![CDATA[$doc[1]]]></code>
       <code><![CDATA[$doc[1]]]></code>
@@ -6392,9 +6321,16 @@
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$val]]></code>
     </MixedAssignment>
+    <MixedInferredReturnType>
+      <code><![CDATA[string]]></code>
+    </MixedInferredReturnType>
     <MixedMethodCall>
       <code><![CDATA[new $class()]]></code>
     </MixedMethodCall>
+    <MixedReturnStatement>
+      <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
+      <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
+    </MixedReturnStatement>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_GET[$opt]]]></code>
       <code><![CDATA[$_REQUEST[$opt]]]></code>
@@ -6915,12 +6851,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['exporting_metadata']]]></code>
-      <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
-    </InvalidArrayOffset>
     <LessSpecificReturnStatement>
       <code><![CDATA[(int) $fromConfig]]></code>
       <code><![CDATA[(int) $fromRequest]]></code>
@@ -7121,9 +7051,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['maxY']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['maxY'] - $this->tMargin]]></code>
       <code><![CDATA[$cellFontSize]]></code>
@@ -7448,7 +7375,6 @@
       <code><![CDATA[$colNames]]></code>
     </InvalidArgument>
     <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['errorUrl']]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
       <code><![CDATA[$values[count($values) - 1]]]></code>
     </InvalidArrayOffset>
@@ -7549,11 +7475,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$GLOBALS['eof']]]></code>
-      <code><![CDATA[$GLOBALS['importHandle']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
@@ -7648,9 +7569,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ShapeFileImport.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['eof']]]></code>
-    </InvalidArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['eof']]]></code>
     </MixedAssignment>
@@ -8238,10 +8156,6 @@
     </DeprecatedMethod>
   </file>
   <file src="src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['fields_meta']]]></code>
-      <code><![CDATA[$GLOBALS['row']]]></code>
-    </InvalidArrayOffset>
     <MixedArgument>
       <code><![CDATA[$cn]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
@@ -9109,11 +9023,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Sql.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-      <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-      <code><![CDATA[$GLOBALS['show_as_php']]]></code>
-    </InvalidArrayOffset>
     <InvalidNullableReturnType>
       <code><![CDATA[string]]></code>
     </InvalidNullableReturnType>
@@ -12620,10 +12529,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArrayOffset>
-      <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-      <code><![CDATA[$GLOBALS['no_constraints_comments']]]></code>
-    </InvalidArrayOffset>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
@@ -12872,6 +12777,16 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
+    <MixedArrayAssignment>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['pos']]]></code>
+    </MixedArrayAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[dataProviderCountQueryResults]]></code>
     </PossiblyUnusedMethod>

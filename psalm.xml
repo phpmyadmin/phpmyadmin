@@ -36,10 +36,4 @@
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
-
-    <globals>
-        <var name="GLOBALS" type="array{
-            querytime: float|int
-        }"/>
-    </globals>
 </psalm>

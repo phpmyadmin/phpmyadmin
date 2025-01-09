@@ -15610,12 +15610,6 @@ parameters:
 			path: src/Sql.php
 
 		-
-			message: '#^Parameter \#8 \$queryTime of method PhpMyAdmin\\Display\\Results\:\:setProperties\(\) expects float, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Sql.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#

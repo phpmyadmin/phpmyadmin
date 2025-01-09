@@ -51,6 +51,8 @@ use function ucwords;
  */
 class Sql
 {
+    private float $queryTime = 0;
+
     public function __construct(
         private DatabaseInterface $dbi,
         private Relation $relation,
@@ -736,7 +738,7 @@ class Sql
         }
 
         $result = $this->dbi->tryQuery($fullSqlQuery);
-        $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
+        $this->queryTime = $this->dbi->lastQueryExecutionTime;
 
         if (! defined('TESTSUITE')) {
             // reopen session
@@ -864,11 +866,11 @@ class Sql
             );
         }
 
-        if (isset($GLOBALS['querytime'])) {
+        if ($this->queryTime > 0) {
             $queryTime = Message::notice(
                 '(' . __('Query took %01.4f seconds.') . ')',
             );
-            $queryTime->addParam($GLOBALS['querytime']);
+            $queryTime->addParam($this->queryTime);
             $message->addMessage($queryTime);
         }
 
@@ -1104,7 +1106,7 @@ class Sql
             $statementInfo->flags->isFunc,
             $statementInfo->flags->isAnalyse,
             $numRows,
-            $GLOBALS['querytime'],
+            $this->queryTime,
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1139,7 +1141,7 @@ class Sql
                     $statementInfo->flags->isFunc,
                     $statementInfo->flags->isAnalyse,
                     $numRows,
-                    $GLOBALS['querytime'],
+                    $this->queryTime,
                     $statementInfo->flags->isMaint,
                     $statementInfo->flags->queryType === StatementType::Explain,
                     $statementInfo->flags->queryType === StatementType::Show,
