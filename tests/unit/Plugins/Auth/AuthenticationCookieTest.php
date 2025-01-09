@@ -104,7 +104,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['LoginCookieRecall'] = true;
         $config->settings['blowfish_secret'] = str_repeat('a', 32);
         $this->object->user = 'pmauser';
-        $GLOBALS['pma_auth_server'] = 'localhost';
+        AuthenticationCookie::$authServer = 'localhost';
 
         AuthenticationCookie::$connectionError = 'Error';
         $config->settings['Lang'] = 'en';
@@ -413,7 +413,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         self::assertSame('testPMAPSWD', $this->object->password);
 
-        self::assertSame('testPMAServer', $GLOBALS['pma_auth_server']);
+        self::assertSame('testPMAServer', AuthenticationCookie::$authServer);
 
         self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
@@ -563,7 +563,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         Current::$server = 2;
         $config->settings['LoginCookieStore'] = 100;
@@ -596,7 +596,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
         $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
         $GLOBALS['from_cookie'] = false;
@@ -897,7 +897,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->set('is_https', false);
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $_SESSION['encryption_key'] = '';
         $_COOKIE = [];
 

@@ -61,6 +61,9 @@ class AuthenticationCookie extends AuthenticationPlugin
 {
     public static string $connectionError = '';
 
+    /** The user provided server to connect to */
+    public static string $authServer = '';
+
     /**
      * Displays authentication form
      *
@@ -103,7 +106,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // garbage
         if ($config->settings['LoginCookieRecall'] && $config->settings['blowfish_secret'] !== '') {
             $defaultUser = $this->user;
-            $defaultServer = $GLOBALS['pma_auth_server'];
+            $defaultServer = self::$authServer;
             $hasAutocomplete = true;
         } else {
             $defaultUser = '';
@@ -213,12 +216,7 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        // Initialization
-        /**
-         * @global $GLOBALS['pma_auth_server'] the user provided server to
-         * connect to
-         */
-        $GLOBALS['pma_auth_server'] = '';
+        self::$authServer = '';
 
         $this->user = $this->password = '';
         $GLOBALS['from_cookie'] = false;
@@ -307,7 +305,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
                 }
 
-                $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
+                self::$authServer = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
 
             /* Secure current session on login to avoid session fixation */
@@ -387,7 +385,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $this->password = $authData['password'];
         if ($config->settings['AllowArbitraryServer'] && ! empty($authData['server'])) {
-            $GLOBALS['pma_auth_server'] = $authData['server'];
+            self::$authServer = $authData['server'];
         }
 
         $GLOBALS['from_cookie'] = true;
@@ -403,18 +401,18 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function storeCredentials(): bool
     {
         $config = Config::getInstance();
-        if ($config->settings['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
+        if ($config->settings['AllowArbitraryServer'] && self::$authServer !== '') {
             /* Allow to specify 'host port' */
-            $parts = explode(' ', $GLOBALS['pma_auth_server']);
+            $parts = explode(' ', self::$authServer);
             if (count($parts) === 2) {
                 $tmpHost = $parts[0];
                 $tmpPort = $parts[1];
             } else {
-                $tmpHost = $GLOBALS['pma_auth_server'];
+                $tmpHost = self::$authServer;
                 $tmpPort = '';
             }
 
-            if ($config->selectedServer['host'] != $GLOBALS['pma_auth_server']) {
+            if ($config->selectedServer['host'] !== self::$authServer) {
                 $config->selectedServer['host'] = $tmpHost;
                 if ($tmpPort !== '') {
                     $config->selectedServer['port'] = $tmpPort;
@@ -509,8 +507,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         $payload = ['password' => $password];
         $config = Config::getInstance();
-        if ($config->settings['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
-            $payload['server'] = $GLOBALS['pma_auth_server'];
+        if ($config->settings['AllowArbitraryServer'] && self::$authServer !== '') {
+            $payload['server'] = self::$authServer;
         }
 
         // Duration = as configured

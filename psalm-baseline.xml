@@ -6474,12 +6474,12 @@
       <code><![CDATA[$_SESSION['browser_access_time'][$key]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['pma_auth_server']]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$serverCookie]]></code>
       <code><![CDATA[$serverCookie]]></code>
       <code><![CDATA[$this->password]]></code>
       <code><![CDATA[$value]]></code>
+      <code><![CDATA[self::$authServer]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST[$config->settings['CaptchaResponseParam']]]]></code>
@@ -6507,8 +6507,6 @@
       <code><![CDATA[$_GET['session_expired']]]></code>
     </RiskyCast>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['pma_auth_server'])]]></code>
-      <code><![CDATA[empty($GLOBALS['pma_auth_server'])]]></code>
       <code><![CDATA[empty($_POST[$config->settings['CaptchaResponseParam']])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaApi'])]]></code>
       <code><![CDATA[empty($config->settings['CaptchaApi'])]]></code>

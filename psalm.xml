@@ -50,7 +50,6 @@
             old_tz: string,
             onfly_compression: bool,
             plugin_scripts: string[],
-            pma_auth_server: string,
             querytime: float|int
         }"/>
     </globals>
