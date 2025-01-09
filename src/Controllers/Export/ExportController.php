@@ -49,7 +49,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['compression'] ??= null;
         $GLOBALS['file_handle'] ??= null;
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['table_select'] ??= null;
@@ -81,6 +80,10 @@ final class ExportController implements InvocableController
 
         if ($request->hasBodyParam('charset')) {
             Current::$charset = $request->getParsedBodyParamAsString('charset');
+        }
+
+        if ($request->hasBodyParam('compression')) {
+            Export::$compression = $request->getParsedBodyParamAsString('compression');
         }
 
         $this->setGlobalsFromRequest($postParams);
@@ -122,7 +125,7 @@ final class ExportController implements InvocableController
         /**
          * init and variable checking
          */
-        $GLOBALS['compression'] = '';
+        Export::$compression = '';
         Export::$saveOnServer = false;
         Export::$bufferNeeded = false;
         $GLOBALS['save_filename'] = '';
@@ -142,7 +145,7 @@ final class ExportController implements InvocableController
             }
 
             if (in_array($compressionParam, $compressionMethods, true)) {
-                $GLOBALS['compression'] = $compressionParam;
+                Export::$compression = $compressionParam;
                 Export::$bufferNeeded = true;
             }
 
@@ -214,8 +217,7 @@ final class ExportController implements InvocableController
             && isset(Current::$charset) && Current::$charset !== 'utf-8';
 
         // Use on the fly compression?
-        $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly']
-            && $GLOBALS['compression'] === 'gzip';
+        $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';
         if ($GLOBALS['onfly_compression']) {
             $GLOBALS['memory_limit'] = $this->export->getMemoryLimit();
         }
@@ -231,16 +233,16 @@ final class ExportController implements InvocableController
 
             $filename = $this->export->getFinalFilename(
                 $exportPlugin,
-                $GLOBALS['compression'],
+                Export::$compression,
                 Sanitize::sanitizeFilename(Util::expandUserString($filenameTemplate), true),
             );
 
-            $mimeType = $this->export->getMimeType($exportPlugin, $GLOBALS['compression']);
+            $mimeType = $this->export->getMimeType($exportPlugin, Export::$compression);
         }
 
         // For raw query export, filename will be export.extension
         if ($exportType === ExportType::Raw) {
-            $filename = $this->export->getFinalFilename($exportPlugin, $GLOBALS['compression'], 'export');
+            $filename = $this->export->getFinalFilename($exportPlugin, Export::$compression, 'export');
         }
 
         // Open file on server if needed
@@ -422,17 +424,17 @@ final class ExportController implements InvocableController
         }
 
         // Compression needed?
-        if ($GLOBALS['compression']) {
+        if (Export::$compression) {
             if ($separateFiles !== '') {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
-                    $GLOBALS['compression'],
+                    Export::$compression,
                     $filename,
                 );
             } else {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBuffer,
-                    $GLOBALS['compression'],
+                    Export::$compression,
                     $filename,
                 );
             }
@@ -472,10 +474,6 @@ final class ExportController implements InvocableController
 
         if (isset($postParams['maxsize'])) {
             $GLOBALS['maxsize'] = $postParams['maxsize'];
-        }
-
-        if (isset($postParams['compression'])) {
-            $GLOBALS['compression'] = $postParams['compression'];
         }
 
         if (isset($postParams['knjenc'])) {

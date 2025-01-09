@@ -81,6 +81,9 @@ class Export
     public static bool $bufferNeeded = false;
     public static bool $singleTable = false;
 
+    /** @var ''|'none'|'zip'|'gzip' */
+    public static string $compression = '';
+
     public function __construct(private DatabaseInterface $dbi)
     {
     }
@@ -161,7 +164,7 @@ class Export
                         );
                     }
 
-                    if ($GLOBALS['compression'] === 'gzip' && $this->gzencodeNeeded()) {
+                    if (self::$compression === 'gzip' && $this->gzencodeNeeded()) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
                         $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
