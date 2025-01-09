@@ -1403,7 +1403,6 @@
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['knjenc']]]></code>
       <code><![CDATA[$GLOBALS['maxsize']]]></code>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>

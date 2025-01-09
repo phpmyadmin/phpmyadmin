@@ -39,7 +39,6 @@
 
     <globals>
         <var name="GLOBALS" type="array{
-            knjenc: string,
             maxsize: string,
             memory_limit: int,
             old_tz: string,

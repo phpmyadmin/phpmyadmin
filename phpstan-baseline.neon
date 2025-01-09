@@ -7633,12 +7633,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Parameter \#2 \$enc of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '#^Parameter \#3 \$kana of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

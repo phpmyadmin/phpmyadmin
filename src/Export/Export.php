@@ -86,6 +86,7 @@ class Export
 
     /** @var resource|null */
     public static mixed $fileHandle = null;
+    public static string $kanjiEncoding = '';
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -149,7 +150,7 @@ class Export
 
         // Kanji encoding convert feature
         if (self::$outputKanjiConversion) {
-            $line = Encoding::kanjiStrConv($line, $GLOBALS['knjenc'], $GLOBALS['xkana'] ?? '');
+            $line = Encoding::kanjiStrConv($line, self::$kanjiEncoding, $GLOBALS['xkana'] ?? '');
         }
 
         // If we have to buffer data, we will perform everything at once at the end
