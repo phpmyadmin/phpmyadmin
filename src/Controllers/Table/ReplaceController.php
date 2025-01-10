@@ -70,8 +70,6 @@ final class ReplaceController implements InvocableController
             return $this->response->missingParameterError('goto');
         }
 
-        $GLOBALS['disp_query'] ??= null;
-
         $this->dbi->selectDb(Current::$database);
 
         $this->response->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
@@ -362,7 +360,7 @@ final class ReplaceController implements InvocableController
         }
 
         if (! empty($returnToSqlQuery)) {
-            $GLOBALS['disp_query'] = Current::$sqlQuery;
+            Current::$dispQuery = Current::$sqlQuery;
             Current::$displayMessage = Current::$message;
             Current::$message = null;
             Current::$sqlQuery = $returnToSqlQuery;

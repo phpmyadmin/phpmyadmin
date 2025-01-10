@@ -2261,7 +2261,6 @@
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$bkmAllUsers]]></code>
       <code><![CDATA[$sqlQuery]]></code>
@@ -2426,11 +2425,9 @@
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['disp_query'] ?? null]]></code>
       <code><![CDATA[$row]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
     <PossiblyInvalidIterator>
@@ -2803,7 +2800,6 @@
       <code><![CDATA[$mimeMap[$columnName]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$clauseIsUnique]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
