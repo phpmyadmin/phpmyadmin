@@ -50,6 +50,7 @@ use const PATHINFO_FILENAME;
 class ImportShp extends ImportPlugin
 {
     private ZipExtension|null $zipExtension = null;
+    private static File|null $importHandle = null;
 
     protected function init(): void
     {
@@ -93,8 +94,7 @@ class ImportShp extends ImportPlugin
             return [];
         }
 
-        /** @see ImportShp::readFromBuffer() */
-        $GLOBALS['importHandle'] = $importHandle;
+        self::$importHandle = $importHandle;
 
         $compression = $importHandle->getCompression();
 
@@ -315,7 +315,6 @@ class ImportShp extends ImportPlugin
     {
         $GLOBALS['buffer'] ??= null;
         $GLOBALS['eof'] ??= null;
-        $GLOBALS['importHandle'] ??= null;
 
         $import = new Import();
 
@@ -323,7 +322,7 @@ class ImportShp extends ImportPlugin
             if (ImportSettings::$finished) {
                 $GLOBALS['eof'] = true;
             } else {
-                $GLOBALS['buffer'] .= $import->getNextChunk($GLOBALS['importHandle']);
+                $GLOBALS['buffer'] .= $import->getNextChunk(self::$importHandle);
             }
         }
 

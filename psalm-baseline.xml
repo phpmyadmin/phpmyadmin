@@ -7399,7 +7399,6 @@
     <MixedArgument>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$GLOBALS['importHandle']]]></code>
       <code><![CDATA[$dbfFilePath]]></code>
       <code><![CDATA[$dbfFilePath]]></code>
       <code><![CDATA[$gisType]]></code>
@@ -7417,7 +7416,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
-      <code><![CDATA[$GLOBALS['importHandle']]]></code>
       <code><![CDATA[$c]]></code>
       <code><![CDATA[$colNames[]]]></code>
     </MixedAssignment>

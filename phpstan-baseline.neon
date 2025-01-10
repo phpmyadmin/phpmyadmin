@@ -12574,12 +12574,6 @@ parameters:
 			path: src/Plugins/Import/ImportShp.php
 
 		-
-			message: '#^Parameter \#1 \$importHandle of method PhpMyAdmin\\Import\\Import\:\:getNextChunk\(\) expects PhpMyAdmin\\File\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
 			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
