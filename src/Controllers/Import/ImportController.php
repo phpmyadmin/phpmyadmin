@@ -61,8 +61,6 @@ final class ImportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['result'] ??= null;
-
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
         $format = $request->getParsedBodyParamAsString('format', '');
         ImportSettings::$importType = $request->getParsedBodyParamAsString('import_type', '');
@@ -250,7 +248,7 @@ final class ImportController implements InvocableController
         $resetCharset = false;
         ImportSettings::$message = 'Sorry an unexpected error happened!';
 
-        $GLOBALS['result'] = false;
+        Import::$result = false;
 
         // Bookmark Support: get a query back from bookmark if required
         $idBookmark = (int) $request->getParsedBodyParamAsStringOrNull('id_bookmark');
@@ -678,7 +676,7 @@ final class ImportController implements InvocableController
             ImportSettings::$message .= __('[ROLLBACK occurred.]');
         }
 
-        if ($GLOBALS['result']) {
+        if (Import::$result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
             if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
                 $relation = new Relation($this->dbi);
@@ -698,7 +696,7 @@ final class ImportController implements InvocableController
                 'sql_query',
                 Generator::getMessage(ImportSettings::$message, Current::$sqlQuery, MessageType::Success),
             );
-        } elseif ($GLOBALS['result'] === false) {
+        } elseif (Import::$result === false) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
         } else {
