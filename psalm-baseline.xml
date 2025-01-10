@@ -1383,7 +1383,6 @@
       <code><![CDATA[$_SESSION['tmpval']['aliases']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$dbSelect]]></code>
       <code><![CDATA[$tableData]]></code>
       <code><![CDATA[$tableNames]]></code>
@@ -4612,7 +4611,6 @@
       <code><![CDATA[$aliases[$dbName]['tables'][$tableName]['columns'][$col]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$aliases[$dbName]['alias']]]></code>
       <code><![CDATA[$aliases[$dbName]['tables'][$tableName]['alias']]]></code>
       <code><![CDATA[$aliases[$dbName]['tables'][$tableName]['columns'][$col]]]></code>

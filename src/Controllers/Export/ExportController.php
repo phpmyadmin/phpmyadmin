@@ -49,8 +49,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['time_start'] ??= null;
-
         $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
         $outputFormat = $request->getParsedBodyParamAsStringOrNull('output_format');
         $compressionParam = $request->getParsedBodyParamAsString('compression', '');
@@ -220,7 +218,7 @@ final class ExportController implements InvocableController
         $this->export->dumpBufferObjects = [];
 
         // We send fake headers to avoid browser timeout when buffering
-        $GLOBALS['time_start'] = time();
+        Export::$timeStart = time();
 
         Export::$outputKanjiConversion = Encoding::canConvertKanji();
 

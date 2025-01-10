@@ -94,6 +94,7 @@ class Export
     /** @var array<string> */
     public static array $tableData = [];
     public static string $saveFilename = '';
+    public static int $timeStart = 0;
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -152,8 +153,6 @@ class Export
      */
     public function outputHandler(string $line): bool
     {
-        $GLOBALS['time_start'] ??= null;
-
         // Kanji encoding convert feature
         if (self::$outputKanjiConversion) {
             $line = Encoding::kanjiStrConv($line, self::$kanjiEncoding, self::$xkana);
@@ -201,8 +200,8 @@ class Export
                 }
             } else {
                 $timeNow = time();
-                if ($GLOBALS['time_start'] >= $timeNow + 30) {
-                    $GLOBALS['time_start'] = $timeNow;
+                if (self::$timeStart >= $timeNow + 30) {
+                    self::$timeStart = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             }
@@ -230,8 +229,8 @@ class Export
                 }
 
                 $timeNow = time();
-                if ($GLOBALS['time_start'] >= $timeNow + 30) {
-                    $GLOBALS['time_start'] = $timeNow;
+                if (self::$timeStart >= $timeNow + 30) {
+                    self::$timeStart = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             } else {
