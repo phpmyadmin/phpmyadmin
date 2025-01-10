@@ -42,8 +42,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message_to_show'] ??= null;
-
         $this->pageSettings->init('Browse');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -179,7 +177,7 @@ class SqlController implements InvocableController
             Current::$database,
             Current::$table,
             Import::$importText,
-            $GLOBALS['message_to_show'] ?? '',
+            Current::$messageToShow ?? '',
             UrlParams::$goto,
             isset(Current::$dispQuery) ? Current::$displayQuery : null,
             Current::$displayMessage ?? '',

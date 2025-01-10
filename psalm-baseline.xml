@@ -1523,7 +1523,6 @@
       <code><![CDATA[$_SESSION['Import_message']['message']]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$bookmarkVariables]]></code>
       <code><![CDATA[$consoleMessageId]]></code>
     </MixedAssignment>
@@ -1746,18 +1745,15 @@
     <MixedArgumentTypeCoercion>
       <code><![CDATA[is_array($partitionNames) ? $partitionNames : []]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['message_to_show'])]]></code>
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
       <code><![CDATA[empty($createOptions['checksum'])]]></code>
       <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
       <code><![CDATA[empty($createOptions['delay_key_write'])]]></code>
+      <code><![CDATA[empty(Current::$messageToShow)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Operations/ViewController.php">
@@ -2256,11 +2252,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['message_to_show'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$bkmAllUsers]]></code>
       <code><![CDATA[$sqlQuery]]></code>
     </MixedAssignment>

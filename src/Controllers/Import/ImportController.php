@@ -64,7 +64,7 @@ final class ImportController implements InvocableController
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
         $format = $request->getParsedBodyParamAsString('format', '');
         ImportSettings::$importType = $request->getParsedBodyParamAsString('import_type', '');
-        $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
+        Current::$messageToShow = $request->getParsedBodyParamAsStringOrNull('message_to_show');
         ImportSettings::$skipQueries = (int) $request->getParsedBodyParamAsStringOrNull('skip_queries');
         ImportSettings::$localImportFile = $request->getParsedBodyParamAsString('local_import_file', '');
         if ($request->hasBodyParam('show_as_php')) {

@@ -55,8 +55,6 @@ final class TableController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message_to_show'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         if ($this->dbi->getLowerCaseNames() === 1) {
@@ -341,7 +339,7 @@ final class TableController implements InvocableController
             $createOptions = $pmaTable->getCreateOptions();
         }
 
-        if (isset($result) && empty($GLOBALS['message_to_show'])) {
+        if (isset($result) && empty(Current::$messageToShow)) {
             if ($newMessage === '') {
                 if (Current::$sqlQuery === '') {
                     $newMessage = Message::success(__('No change'));
