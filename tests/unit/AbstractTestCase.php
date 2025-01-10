@@ -83,6 +83,7 @@ abstract class AbstractTestCase extends TestCase
         Current::$whereClause = null;
         Current::$displayQuery = null;
         Current::$charset = null;
+        Current::$numTables = 0;
         DatabaseInterface::$errorNumber = null;
         Sql::$showAsPhp = null;
 

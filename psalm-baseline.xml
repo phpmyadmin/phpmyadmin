@@ -1966,9 +1966,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/ExportController.php">
-    <MixedArgument>
-      <code><![CDATA[$GLOBALS['num_tables']]]></code>
-    </MixedArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2481,7 +2478,6 @@
   </file>
   <file src="src/Controllers/Table/ExportController.php">
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['num_tables']]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>

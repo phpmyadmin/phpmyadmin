@@ -77,10 +77,6 @@ class ExportController implements InvocableController
             }
         }
 
-        if (! isset($GLOBALS['num_tables'])) {
-            $GLOBALS['num_tables'] = 0;
-        }
-
         if ($request->has('single_table')) {
             Export::$singleTable = (bool) $request->getParam('single_table');
         }
@@ -106,7 +102,7 @@ class ExportController implements InvocableController
             Current::$database,
             Current::$table,
             Current::$sqlQuery,
-            $GLOBALS['num_tables'],
+            Current::$numTables,
             0,
             $exportList,
         );

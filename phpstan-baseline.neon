@@ -3382,12 +3382,6 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -4007,12 +4001,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$list of static method PhpMyAdmin\\SqlParser\\Utils\\Query\:\:replaceClauses\(\) expects PhpMyAdmin\\SqlParser\\TokensList, PhpMyAdmin\\SqlParser\\TokensList\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
-			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ExportController.php

@@ -65,10 +65,10 @@ final class ExportController implements InvocableController
         UrlParams::$params['goto'] = Url::getFromRoute('/database/export');
 
         $tableNames = $this->export->getTableNames(Current::$database);
-        $GLOBALS['num_tables'] = count($tableNames);
+        Current::$numTables = count($tableNames);
 
         // exit if no tables in db found
-        if ($GLOBALS['num_tables'] < 1) {
+        if (Current::$numTables < 1) {
             $this->response->addHTML(
                 Message::error(__('No tables found in database.'))->getDisplay(),
             );
@@ -137,7 +137,7 @@ final class ExportController implements InvocableController
             Current::$database,
             Current::$table,
             Current::$sqlQuery,
-            $GLOBALS['num_tables'],
+            Current::$numTables,
             0,
             $exportList,
         );

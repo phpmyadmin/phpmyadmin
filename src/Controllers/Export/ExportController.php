@@ -287,8 +287,8 @@ final class ExportController implements InvocableController
         } else {
             // HTML
             if ($exportType === ExportType::Database) {
-                $GLOBALS['num_tables'] = count($tableNames);
-                if ($GLOBALS['num_tables'] === 0) {
+                Current::$numTables = count($tableNames);
+                if (Current::$numTables === 0) {
                     Current::$message = Message::error(
                         __('No tables found in database.'),
                     );
