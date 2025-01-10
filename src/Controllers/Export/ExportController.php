@@ -49,7 +49,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['save_filename'] ??= null;
         $GLOBALS['time_start'] ??= null;
 
         $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
@@ -142,7 +141,7 @@ final class ExportController implements InvocableController
         Export::$compression = '';
         Export::$saveOnServer = false;
         Export::$bufferNeeded = false;
-        $GLOBALS['save_filename'] = '';
+        Export::$saveFilename = '';
         Export::$fileHandle = null;
         $filename = '';
         $separateFiles = '';
@@ -261,10 +260,7 @@ final class ExportController implements InvocableController
 
         // Open file on server if needed
         if (Export::$saveOnServer) {
-            [$GLOBALS['save_filename'], $message, Export::$fileHandle] = $this->export->openFile(
-                $filename,
-                $isQuickExport,
-            );
+            [Export::$saveFilename, $message, Export::$fileHandle] = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
             if ($message !== null) {
@@ -452,11 +448,7 @@ final class ExportController implements InvocableController
 
         /* If we saved on server, we have to close file now */
         if (Export::$saveOnServer) {
-            $message = $this->export->closeFile(
-                Export::$fileHandle,
-                $this->export->dumpBuffer,
-                $GLOBALS['save_filename'],
-            );
+            $message = $this->export->closeFile(Export::$fileHandle, $this->export->dumpBuffer, Export::$saveFilename);
             $location = $this->export->getPageLocationAndSaveMessage($exportType, $message);
             $this->response->redirect($location);
 

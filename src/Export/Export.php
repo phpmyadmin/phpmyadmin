@@ -93,6 +93,7 @@ class Export
     public static bool $onFlyCompression = false;
     /** @var array<string> */
     public static array $tableData = [];
+    public static string $saveFilename = '';
 
     public function __construct(private DatabaseInterface $dbi)
     {
@@ -152,7 +153,6 @@ class Export
     public function outputHandler(string $line): bool
     {
         $GLOBALS['time_start'] ??= null;
-        $GLOBALS['save_filename'] ??= null;
 
         // Kanji encoding convert feature
         if (self::$outputKanjiConversion) {
@@ -188,7 +188,7 @@ class Export
                             Current::$message = Message::error(
                                 __('Insufficient space to save the file %s.'),
                             );
-                            Current::$message->addParam($GLOBALS['save_filename']);
+                            Current::$message->addParam(self::$saveFilename);
 
                             return false;
                         }
@@ -224,7 +224,7 @@ class Export
                     Current::$message = Message::error(
                         __('Insufficient space to save the file %s.'),
                     );
-                    Current::$message->addParam($GLOBALS['save_filename']);
+                    Current::$message->addParam(self::$saveFilename);
 
                     return false;
                 }

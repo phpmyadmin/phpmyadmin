@@ -44,7 +44,7 @@ class ExportCsvTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = '';
-        $GLOBALS['save_filename'] = null;
+        Export::$saveFilename = '';
 
         $this->object = new ExportCsv(
             new Relation($dbi),
