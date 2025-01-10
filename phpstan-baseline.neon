@@ -3085,12 +3085,6 @@ parameters:
 			path: src/Controllers/Operations/TableController.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Controllers/Operations/TableController.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 4

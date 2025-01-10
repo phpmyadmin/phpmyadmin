@@ -55,7 +55,6 @@ final class TableController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['auto_increment'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
@@ -129,7 +128,7 @@ final class TableController implements InvocableController
         }
 
         $tableCollation = $pmaTable->getCollation();
-        $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
+        Operations::$autoIncrement = $pmaTable->getAutoIncrement();
         $createOptions = $pmaTable->getCreateOptions();
 
         // set initial value of these variables, based on the current table engine
@@ -338,7 +337,7 @@ final class TableController implements InvocableController
             }
 
             $tableCollation = $pmaTable->getCollation();
-            $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
+            Operations::$autoIncrement = $pmaTable->getAutoIncrement();
             $createOptions = $pmaTable->getCreateOptions();
         }
 
@@ -456,7 +455,7 @@ final class TableController implements InvocableController
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);
         $hasChecksumAndDelayKeyWrite = $pmaTable->isEngine(['MYISAM', 'ARIA']);
         $hasTransactionalAndPageChecksum = $pmaTable->isEngine('ARIA');
-        $hasAutoIncrement = $GLOBALS['auto_increment'] != ''
+        $hasAutoIncrement = Operations::$autoIncrement !== ''
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB']);
 
         $possibleRowFormats = $this->operations->getPossibleRowFormat();
@@ -502,7 +501,7 @@ final class TableController implements InvocableController
             'row_formats' => $possibleRowFormats[$tableStorageEngine] ?? [],
             'row_format_current' => $rowFormat,
             'has_auto_increment' => $hasAutoIncrement,
-            'auto_increment' => $GLOBALS['auto_increment'],
+            'auto_increment' => Operations::$autoIncrement,
             'has_pack_keys' => $hasPackKeys,
             'pack_keys' => $createOptions['pack_keys'] ?? '',
             'has_transactional_and_page_checksum' => $hasTransactionalAndPageChecksum,

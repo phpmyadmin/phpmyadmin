@@ -1749,7 +1749,6 @@
       <code><![CDATA[is_array($partitionNames) ? $partitionNames : []]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
@@ -6051,7 +6050,6 @@
       <code><![CDATA[$oldPriv[7]]]></code>
     </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['auto_increment']]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$oldPriv]]></code>
       <code><![CDATA[$oldPriv]]></code>
