@@ -2128,12 +2128,6 @@ parameters:
 			path: src/Controllers/Database/ExportController.php
 
 		-
-			message: '#^Parameter \#6 \$unlimNumRows of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -3412,12 +3406,6 @@ parameters:
 			path: src/Controllers/Server/ExportController.php
 
 		-
-			message: '#^Parameter \#6 \$unlimNumRows of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -4073,12 +4061,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
-			message: '#^Parameter \#6 \$unlimNumRows of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ExportController.php

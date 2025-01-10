@@ -39,7 +39,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['table_select'] ??= null;
-        $GLOBALS['unlim_num_rows'] ??= null;
 
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
@@ -118,10 +117,6 @@ final class ExportController implements InvocableController
             ];
         }
 
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
         $isReturnBackFromRawExport = $request->getParsedBodyParam('export_type') === 'raw';
         if ($request->hasBodyParam('raw_query') || $isReturnBackFromRawExport) {
             $exportType = ExportType::Raw;
@@ -149,7 +144,7 @@ final class ExportController implements InvocableController
             Current::$table,
             Current::$sqlQuery,
             $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            0,
             $exportList,
         );
 

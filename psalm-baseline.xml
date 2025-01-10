@@ -913,13 +913,11 @@
   <file src="src/Controllers/Database/ExportController.php">
     <MixedArgument>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code><![CDATA[$selectedTable]]></code>
       <code><![CDATA[$tableData]]></code>
       <code><![CDATA[$tableSelect]]></code>
@@ -1979,11 +1977,7 @@
   <file src="src/Controllers/Server/ExportController.php">
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-    </MixedAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -2286,7 +2280,6 @@
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code><![CDATA[$bkmAllUsers]]></code>
       <code><![CDATA[$sqlQuery]]></code>
     </MixedAssignment>
@@ -2508,16 +2501,12 @@
   <file src="src/Controllers/Table/ExportController.php">
     <MixedArgument>
       <code><![CDATA[$GLOBALS['num_tables']]]></code>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[Current::$whereClause]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['unlim_num_rows']]]></code>
-    </MixedAssignment>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
       <code><![CDATA[UrlParams::$params]]></code>

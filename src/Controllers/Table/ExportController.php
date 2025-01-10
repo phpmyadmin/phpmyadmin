@@ -37,8 +37,6 @@ class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['unlim_num_rows'] ??= null;
-
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
@@ -83,10 +81,6 @@ class ExportController implements InvocableController
             $GLOBALS['num_tables'] = 0;
         }
 
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
         if ($request->has('single_table')) {
             Export::$singleTable = (bool) $request->getParam('single_table');
         }
@@ -113,7 +107,7 @@ class ExportController implements InvocableController
             Current::$table,
             Current::$sqlQuery,
             $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            0,
             $exportList,
         );
 

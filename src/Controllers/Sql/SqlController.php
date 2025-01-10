@@ -42,7 +42,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['unlim_num_rows'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['message_to_show'] ??= null;
         $GLOBALS['disp_message'] ??= null;
