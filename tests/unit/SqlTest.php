@@ -79,8 +79,8 @@ class SqlTest extends AbstractTestCase
     public function testGetSqlWithLimitClause(): void
     {
         // Test environment.
-        $GLOBALS['_SESSION']['tmpval']['pos'] = 1;
-        $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
+        $_SESSION['tmpval']['pos'] = 1;
+        $_SESSION['tmpval']['max_rows'] = 2;
 
         self::assertSame('SELECT * FROM test LIMIT 1, 2', $this->callFunction(
             $this->sql,
@@ -135,7 +135,7 @@ class SqlTest extends AbstractTestCase
     public function testIsAppendLimitClause(): void
     {
         // Test environment.
-        $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
+        $_SESSION['tmpval']['max_rows'] = 10;
 
         self::assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
@@ -153,7 +153,7 @@ class SqlTest extends AbstractTestCase
     public function testIsJustBrowsing(): void
     {
         // Test environment.
-        $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
+        $_SESSION['tmpval']['max_rows'] = 10;
 
         self::assertTrue(Sql::isJustBrowsing(
             ParseAnalyze::sqlQuery('SELECT * FROM db.tbl', Current::$database)[0],

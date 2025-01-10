@@ -12676,14 +12676,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['max_rows']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['max_rows']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['max_rows']]]></code>
-      <code><![CDATA[$GLOBALS['_SESSION']['tmpval']['pos']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
     </MixedArrayAssignment>
     <PossiblyUnusedMethod>
       <code><![CDATA[dataProviderCountQueryResults]]></code>

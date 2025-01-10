@@ -20713,12 +20713,6 @@ parameters:
 			path: tests/unit/SqlTest.php
 
 		-
-			message: '#^Cannot access offset ''tmpval'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: tests/unit/SqlTest.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:connect\(\) never returns null so it can be removed from the return type\.$#'
 			identifier: return.unusedType
 			count: 1
