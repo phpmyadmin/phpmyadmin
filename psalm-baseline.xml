@@ -6985,7 +6985,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['maxY'] - $this->tMargin]]></code>
       <code><![CDATA[$cellFontSize]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$fullwidth + $l]]></code>
@@ -7024,6 +7023,7 @@
       <code><![CDATA[$lh]]></code>
       <code><![CDATA[$lh]]></code>
       <code><![CDATA[$lh]]></code>
+      <code><![CDATA[$maxY - $this->tMargin]]></code>
       <code><![CDATA[$t]]></code>
       <code><![CDATA[$t]]></code>
       <code><![CDATA[$t]]></code>
@@ -7090,8 +7090,6 @@
       <code><![CDATA[$this->pagedim[$this->page]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['maxY']]]></code>
-      <code><![CDATA[$GLOBALS['maxY']]]></code>
       <code><![CDATA[$availableWidth]]></code>
       <code><![CDATA[$cellFontSize]]></code>
       <code><![CDATA[$colAs]]></code>
@@ -7154,7 +7152,6 @@
       <code><![CDATA[$t]]></code>
       <code><![CDATA[$t]]></code>
       <code><![CDATA[$t]]></code>
-      <code><![CDATA[$this->dataY]]></code>
       <code><![CDATA[$thisPageOlm]]></code>
       <code><![CDATA[$thisPageOrm]]></code>
       <code><![CDATA[$txt]]></code>
@@ -7230,9 +7227,6 @@
       <code><![CDATA[$y]]></code>
       <code><![CDATA[count($colFits) * $sColWidth]]></code>
     </MixedOperand>
-    <PossiblyNullOperand>
-      <code><![CDATA[$GLOBALS['maxY']]]></code>
-    </PossiblyNullOperand>
     <PossiblyUndefinedVariable>
       <code><![CDATA[$comments]]></code>
       <code><![CDATA[$data]]></code>

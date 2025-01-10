@@ -150,7 +150,7 @@ class Pdf extends PdfLib
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header(): void
     {
-        $GLOBALS['maxY'] ??= null;
+        $maxY = 0;
 
         // We don't want automatic page breaks while generating header
         // as this can lead to infinite recursion as auto generated page
@@ -185,7 +185,7 @@ class Pdf extends PdfLib
                 $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt ?? 'NULL');
                 $l += $this->tablewidths[$col];
-                $GLOBALS['maxY'] = $GLOBALS['maxY'] < $this->GetY() ? $this->GetY() : $GLOBALS['maxY'];
+                $maxY = $maxY < $this->GetY() ? $this->GetY() : $maxY;
             }
 
             $this->setXY($this->lMargin, $this->tMargin);
@@ -193,7 +193,7 @@ class Pdf extends PdfLib
             $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
                 $this->setXY($l, $this->tMargin);
-                $this->Cell($this->tablewidths[$col], $GLOBALS['maxY'] - $this->tMargin, '', 1, 0, 'L', true);
+                $this->Cell($this->tablewidths[$col], $maxY - $this->tMargin, '', 1, 0, 'L', true);
                 $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt ?? 'NULL', 0, 'C');
                 $l += $this->tablewidths[$col];
@@ -206,7 +206,7 @@ class Pdf extends PdfLib
 
         // phpcs:enable
 
-        $this->dataY = $GLOBALS['maxY'];
+        $this->dataY = $maxY;
         $this->setAutoPageBreak(true);
     }
 
