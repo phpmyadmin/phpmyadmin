@@ -2263,12 +2263,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['disp_message'] ?? '']]></code>
       <code><![CDATA[$GLOBALS['message_to_show'] ?? '']]></code>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$GLOBALS['message_to_show']]]></code>
       <code><![CDATA[$bkmAllUsers]]></code>
@@ -2312,7 +2310,6 @@
   </file>
   <file src="src/Controllers/Table/ChangeController.php">
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
@@ -2324,7 +2321,6 @@
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
@@ -2337,7 +2333,7 @@
     </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
-      <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
+      <code><![CDATA[empty(Current::$displayMessage)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
@@ -2436,12 +2432,10 @@
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['disp_message'] ?? '']]></code>
       <code><![CDATA[$GLOBALS['disp_query'] ?? null]]></code>
       <code><![CDATA[$row]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$row]]></code>
     </MixedAssignment>
@@ -2816,7 +2810,6 @@
       <code><![CDATA[$mimeMap[$columnName]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
       <code><![CDATA[$clauseIsUnique]]></code>
       <code><![CDATA[$columnName]]></code>

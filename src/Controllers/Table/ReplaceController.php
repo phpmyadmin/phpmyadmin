@@ -71,7 +71,6 @@ final class ReplaceController implements InvocableController
         }
 
         $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['disp_message'] ??= null;
 
         $this->dbi->selectDb(Current::$database);
 
@@ -364,7 +363,7 @@ final class ReplaceController implements InvocableController
 
         if (! empty($returnToSqlQuery)) {
             $GLOBALS['disp_query'] = Current::$sqlQuery;
-            $GLOBALS['disp_message'] = Current::$message;
+            Current::$displayMessage = Current::$message;
             Current::$message = null;
             Current::$sqlQuery = $returnToSqlQuery;
         }

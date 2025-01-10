@@ -18,4 +18,5 @@ final class Current
     public static string|null $displayQuery = null;
     public static string|null $charset = null;
     public static string|null $completeQuery = null;
+    public static Message|string|null $displayMessage = null;
 }

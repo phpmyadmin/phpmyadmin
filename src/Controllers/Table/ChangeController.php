@@ -54,7 +54,6 @@ class ChangeController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['disp_message'] ??= null;
         $GLOBALS['current_result'] ??= null;
 
         $this->pageSettings->init('Edit');
@@ -162,8 +161,8 @@ class ChangeController implements InvocableController
          *
          * $disp_message come from /table/replace
          */
-        if (! empty($GLOBALS['disp_message'])) {
-            $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
+        if (! empty(Current::$displayMessage)) {
+            $this->response->addHTML(Generator::getMessage(Current::$displayMessage));
         }
 
         $tableColumns = $this->insertEdit->getTableColumns(Current::$database, Current::$table);
