@@ -38,6 +38,9 @@ use function trim;
  */
 class ChangeController implements InvocableController
 {
+    /** @var array<mixed> */
+    public static array $unsavedValues = [];
+
     public function __construct(
         private readonly ResponseRenderer $response,
         private readonly Template $template,
@@ -52,7 +55,6 @@ class ChangeController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['current_result'] ??= null;
 
         $this->pageSettings->init('Edit');
@@ -110,8 +112,8 @@ class ChangeController implements InvocableController
             $afterInsert,
         ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
         // Increase number of rows if unsaved rows are more
-        if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
-            $rows = array_fill(0, count($GLOBALS['unsaved_values']), false);
+        if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
+            $rows = array_fill(0, count(self::$unsavedValues), false);
         }
 
         /**
@@ -228,8 +230,8 @@ class ChangeController implements InvocableController
                 : $result;
             $repopulate = [];
             $checked = true;
-            if (isset($GLOBALS['unsaved_values'][$rowId])) {
-                $repopulate = $GLOBALS['unsaved_values'][$rowId];
+            if (isset(self::$unsavedValues[$rowId])) {
+                $repopulate = self::$unsavedValues[$rowId];
                 $checked = false;
             }
 
@@ -256,8 +258,7 @@ class ChangeController implements InvocableController
 
         $this->response->addScriptFiles(InsertEdit::$pluginScripts);
         InsertEdit::$pluginScripts = [];
-
-        unset($GLOBALS['unsaved_values']);
+        self::$unsavedValues = [];
 
         $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [

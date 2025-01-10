@@ -70,7 +70,6 @@ final class ReplaceController implements InvocableController
             return $this->response->missingParameterError('goto');
         }
 
-        $GLOBALS['unsaved_values'] ??= null;
         $GLOBALS['disp_query'] ??= null;
         $GLOBALS['disp_message'] ??= null;
 
@@ -111,7 +110,7 @@ final class ReplaceController implements InvocableController
         $queryFields = [];
         $insertErrors = [];
         $rowSkipped = false;
-        $GLOBALS['unsaved_values'] = [];
+        ChangeController::$unsavedValues = [];
         /** @var string|int $whereClause */
         foreach ($loopArray as $rowNumber => $whereClause) {
             // skip fields to be ignored
@@ -242,7 +241,7 @@ final class ReplaceController implements InvocableController
             // temporarily store rows not inserted
             // so that they can be populated again.
             if ($insertFail) {
-                $GLOBALS['unsaved_values'][$rowNumber] = $multiEditColumns;
+                ChangeController::$unsavedValues[$rowNumber] = $multiEditColumns;
             }
 
             if ($insertFail || $queryValues === []) {
@@ -323,7 +322,7 @@ final class ReplaceController implements InvocableController
 
         if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
             Current::$message = Message::getMessageForInsertedRows($totalAffectedRows);
-            $GLOBALS['unsaved_values'] = array_values($GLOBALS['unsaved_values']);
+            ChangeController::$unsavedValues = array_values(ChangeController::$unsavedValues);
         } else {
             Current::$message = Message::getMessageForAffectedRows($totalAffectedRows);
         }

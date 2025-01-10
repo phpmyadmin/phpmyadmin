@@ -2313,8 +2313,6 @@
   <file src="src/Controllers/Table/ChangeController.php">
     <MixedArgument>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
@@ -2327,7 +2325,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
@@ -2341,7 +2338,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty($GLOBALS['disp_message'])]]></code>
-      <code><![CDATA[empty($GLOBALS['unsaved_values'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/ChangeRowsController.php">
@@ -2786,7 +2782,6 @@
       <code><![CDATA[UrlParams::$params]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
@@ -2812,7 +2807,6 @@
       <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
       <code><![CDATA[$extraData['relations']]]></code>
       <code><![CDATA[$extraData['relations'][$cellIndex]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
@@ -2824,8 +2818,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['disp_message']]]></code>
       <code><![CDATA[$GLOBALS['disp_query']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values']]]></code>
-      <code><![CDATA[$GLOBALS['unsaved_values'][$rowNumber]]]></code>
       <code><![CDATA[$clauseIsUnique]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
@@ -2846,6 +2838,7 @@
       <code><![CDATA[$relationFieldValue]]></code>
       <code><![CDATA[$submitType]]></code>
       <code><![CDATA[$whereClause]]></code>
+      <code><![CDATA[ChangeController::$unsavedValues[$rowNumber]]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$relationFieldValue]]></code>
