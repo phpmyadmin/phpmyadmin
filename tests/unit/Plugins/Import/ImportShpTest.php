@@ -36,7 +36,7 @@ class ImportShpTest extends AbstractTestCase
 
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
-        $GLOBALS['eof'] = null;
+        ImportShp::$eof = false;
         Current::$database = '';
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;

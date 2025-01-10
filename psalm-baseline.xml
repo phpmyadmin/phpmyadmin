@@ -7412,7 +7412,6 @@
       <code><![CDATA[$record->dbfData[$c[0]]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$c]]></code>
       <code><![CDATA[$colNames[]]]></code>
     </MixedAssignment>
@@ -7480,11 +7479,6 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
-  </file>
-  <file src="src/Plugins/Import/ShapeFileImport.php">
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['eof']]]></code>
-    </MixedAssignment>
   </file>
   <file src="src/Plugins/Import/Upload/UploadNoplugin.php">
     <MixedArgument>
