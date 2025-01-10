@@ -50,7 +50,6 @@ final class ExportController implements InvocableController
     public function __invoke(ServerRequest $request): Response
     {
         $GLOBALS['save_filename'] ??= null;
-        $GLOBALS['table_select'] ??= null;
         $GLOBALS['time_start'] ??= null;
         $GLOBALS['table_data'] ??= null;
 
@@ -91,6 +90,11 @@ final class ExportController implements InvocableController
 
         if ($request->hasBodyParam('maxsize')) {
             Export::$maxSize = $request->getParsedBodyParamAsString('maxsize');
+        }
+
+        $tableSelectParam = [];
+        if ($request->hasBodyParam('table_select')) {
+            $tableSelectParam = $request->getParsedBodyParam('table_select');
         }
 
         $this->setGlobalsFromRequest($postParams);
@@ -170,7 +174,7 @@ final class ExportController implements InvocableController
             }
 
             // Check if we have something to export
-            $tableNames = $GLOBALS['table_select'] ?? [];
+            $tableNames = $tableSelectParam;
             Assert::isArray($tableNames);
             Assert::allString($tableNames);
         } elseif ($exportType === ExportType::Table) {
@@ -471,10 +475,6 @@ final class ExportController implements InvocableController
      */
     private function setGlobalsFromRequest(array $postParams): void
     {
-        if (isset($postParams['table_select'])) {
-            $GLOBALS['table_select'] = $postParams['table_select'];
-        }
-
         if (isset($postParams['table_data'])) {
             $GLOBALS['table_data'] = $postParams['table_data'];
         }

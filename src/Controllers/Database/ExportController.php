@@ -38,8 +38,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['table_select'] ??= null;
-
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
@@ -79,30 +77,26 @@ final class ExportController implements InvocableController
         }
 
         $selectedTable = $request->getParsedBodyParam('selected_tbl');
-        if (! empty($selectedTable) && empty($GLOBALS['table_select'])) {
-            $GLOBALS['table_select'] = $selectedTable;
-        }
-
+        $tableSelect = $request->getParsedBodyParam('table_select');
+        $tableStructure = $request->getParsedBodyParam('table_structure');
+        $tableData = $request->getParsedBodyParam('table_data');
         $tablesForMultiValues = [];
 
         foreach ($tableNames as $tableName) {
-            $tableSelect = $request->getParsedBodyParam('table_select');
             if (is_array($tableSelect)) {
                 $isChecked = $this->export->getCheckedClause($tableName, $tableSelect);
-            } elseif (isset($GLOBALS['table_select'])) {
-                $isChecked = $this->export->getCheckedClause($tableName, $GLOBALS['table_select']);
+            } elseif (is_array($selectedTable)) {
+                $isChecked = $this->export->getCheckedClause($tableName, $selectedTable);
             } else {
                 $isChecked = true;
             }
 
-            $tableStructure = $request->getParsedBodyParam('table_structure');
             if (is_array($tableStructure)) {
                 $structureChecked = $this->export->getCheckedClause($tableName, $tableStructure);
             } else {
                 $structureChecked = $isChecked;
             }
 
-            $tableData = $request->getParsedBodyParam('table_data');
             if (is_array($tableData)) {
                 $dataChecked = $this->export->getCheckedClause($tableName, $tableData);
             } else {

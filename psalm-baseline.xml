@@ -912,12 +912,9 @@
   </file>
   <file src="src/Controllers/Database/ExportController.php">
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$selectedTable]]></code>
       <code><![CDATA[$tableData]]></code>
       <code><![CDATA[$tableSelect]]></code>
@@ -926,9 +923,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
-    <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($GLOBALS['table_select'])]]></code>
-    </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/ImportController.php">
     <DeprecatedMethod>
@@ -1394,12 +1388,11 @@
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
-      <code><![CDATA[$GLOBALS['table_select']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
       <code><![CDATA[$dbSelect]]></code>
       <code><![CDATA[$tableNames]]></code>
+      <code><![CDATA[$tableSelectParam]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>

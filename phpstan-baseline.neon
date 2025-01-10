@@ -2110,24 +2110,6 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 2
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: '#^Parameter \#2 \$array of method PhpMyAdmin\\Export\\Export\:\:getCheckedClause\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
