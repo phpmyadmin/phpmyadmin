@@ -5224,8 +5224,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['buffer_message']]]></code>
-      <code><![CDATA[$bufferMessage]]></code>
       <code><![CDATA[$pftext]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>

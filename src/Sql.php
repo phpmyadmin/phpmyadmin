@@ -1358,9 +1358,6 @@ class Sql
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             Current::$message = null;
-            //we don't need to buffer the output in getMessage here.
-            //set a global variable and check against it in the function
-            $GLOBALS['buffer_message'] = false;
         }
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(

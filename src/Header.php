@@ -318,14 +318,7 @@ class Header
         }
 
         if ($message !== '') {
-            if (isset($GLOBALS['buffer_message'])) {
-                $bufferMessage = $GLOBALS['buffer_message'];
-            }
-
             $retval .= Generator::getMessage($message);
-            if (isset($bufferMessage)) {
-                $GLOBALS['buffer_message'] = $bufferMessage;
-            }
         }
 
         return $retval;
