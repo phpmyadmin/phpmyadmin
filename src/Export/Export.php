@@ -87,6 +87,7 @@ class Export
     /** @var resource|null */
     public static mixed $fileHandle = null;
     public static string $kanjiEncoding = '';
+    public static string $xkana = '';
     public static string $maxSize = '';
     public static int $memoryLimit = 0;
     public static bool $onFlyCompression = false;
@@ -155,7 +156,7 @@ class Export
 
         // Kanji encoding convert feature
         if (self::$outputKanjiConversion) {
-            $line = Encoding::kanjiStrConv($line, self::$kanjiEncoding, $GLOBALS['xkana'] ?? '');
+            $line = Encoding::kanjiStrConv($line, self::$kanjiEncoding, self::$xkana);
         }
 
         // If we have to buffer data, we will perform everything at once at the end

@@ -1385,7 +1385,6 @@
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
-      <code><![CDATA[$GLOBALS['xkana']]]></code>
       <code><![CDATA[$dbSelect]]></code>
       <code><![CDATA[$tableData]]></code>
       <code><![CDATA[$tableNames]]></code>
@@ -4613,7 +4612,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['xkana'] ?? '']]></code>
       <code><![CDATA[$dbAlias]]></code>
       <code><![CDATA[$dbAlias]]></code>
       <code><![CDATA[$table]]></code>

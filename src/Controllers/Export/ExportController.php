@@ -52,9 +52,6 @@ final class ExportController implements InvocableController
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['time_start'] ??= null;
 
-        /** @var array<string, string> $postParams */
-        $postParams = $request->getParsedBody();
-
         $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
         $outputFormat = $request->getParsedBodyParamAsStringOrNull('output_format');
         $compressionParam = $request->getParsedBodyParamAsString('compression', '');
@@ -101,7 +98,9 @@ final class ExportController implements InvocableController
             Export::$tableData = $tableData;
         }
 
-        $this->setGlobalsFromRequest($postParams);
+        if ($request->hasBodyParam('xkana')) {
+            Export::$xkana = $request->getParsedBodyParamAsString('xkana');
+        }
 
         // sanitize this parameter which will be used below in a file inclusion
         $what = Core::securePath($request->getParsedBodyParamAsString('what', ''));
@@ -465,20 +464,5 @@ final class ExportController implements InvocableController
         }
 
         return $this->responseFactory->createResponse()->write($this->export->dumpBuffer);
-    }
-
-    /**
-     * Please keep the parameters in order of their appearance in the form.
-     * Some of these parameters are not used.
-     *
-     * @param mixed[] $postParams
-     */
-    private function setGlobalsFromRequest(array $postParams): void
-    {
-        if (! isset($postParams['xkana'])) {
-            return;
-        }
-
-        $GLOBALS['xkana'] = $postParams['xkana'];
     }
 }

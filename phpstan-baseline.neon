@@ -7567,12 +7567,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Parameter \#3 \$kana of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
