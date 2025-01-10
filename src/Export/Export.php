@@ -90,6 +90,8 @@ class Export
     public static string $maxSize = '';
     public static int $memoryLimit = 0;
     public static bool $onFlyCompression = false;
+    /** @var array<string> */
+    public static array $tableData = [];
 
     public function __construct(private DatabaseInterface $dbi)
     {

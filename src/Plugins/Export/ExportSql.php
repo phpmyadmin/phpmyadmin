@@ -1685,7 +1685,7 @@ class ExportSql extends ExportPlugin
                     if (
                         $this->autoIncrement
                         && $statement->entityOptions->has('AUTO_INCREMENT')
-                        && (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data']))
+                        && (Export::$tableData === [] || in_array($table, Export::$tableData, true))
                     ) {
                         $sqlAutoIncrementsQuery .= ', AUTO_INCREMENT='
                             . $statement->entityOptions->get('AUTO_INCREMENT');

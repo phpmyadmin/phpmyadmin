@@ -2701,12 +2701,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#4 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Export\\Export\:\:\$dumpBuffer \(string\) does not accept array\|bool\|string\.$#'
 			identifier: assign.propertyType
 			count: 2
@@ -2714,6 +2708,12 @@ parameters:
 
 		-
 			message: '#^Static property PhpMyAdmin\\Export\\Export\:\:\$compression \(''''\|''gzip''\|''none''\|''zip''\) does not accept string\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Controllers/Export/ExportController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Export\\Export\:\:\$tableData \(array\<string\>\) does not accept array\<mixed, mixed\>\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -11649,7 +11649,7 @@ parameters:
 		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -11806,12 +11806,6 @@ parameters:
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquoteCompat\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 5
-			path: src/Plugins/Export/ExportSql.php
-
-		-
-			message: '#^Parameter \#2 \$haystack of function in_array expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-

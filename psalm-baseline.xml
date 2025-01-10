@@ -1376,8 +1376,6 @@
       <code><![CDATA[$dbSelect]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$tableStructure]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedArgumentTypeCoercion>
@@ -1386,15 +1384,17 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['save_filename']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$GLOBALS['time_start']]]></code>
       <code><![CDATA[$GLOBALS['xkana']]]></code>
       <code><![CDATA[$dbSelect]]></code>
+      <code><![CDATA[$tableData]]></code>
       <code><![CDATA[$tableNames]]></code>
       <code><![CDATA[$tableSelectParam]]></code>
       <code><![CDATA[$tableStructure]]></code>
     </MixedAssignment>
+    <MixedPropertyTypeCoercion>
+      <code><![CDATA[$tableData]]></code>
+    </MixedPropertyTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
       <code><![CDATA[$this->export->dumpBuffer]]></code>
@@ -6826,7 +6826,6 @@
       <code><![CDATA[(int) $fromRequest]]></code>
     </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['table_data']]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAlias]]></code>
       <code><![CDATA[$colAs]]></code>

@@ -51,7 +51,6 @@ final class ExportController implements InvocableController
     {
         $GLOBALS['save_filename'] ??= null;
         $GLOBALS['time_start'] ??= null;
-        $GLOBALS['table_data'] ??= null;
 
         /** @var array<string, string> $postParams */
         $postParams = $request->getParsedBody();
@@ -95,6 +94,11 @@ final class ExportController implements InvocableController
         $tableSelectParam = [];
         if ($request->hasBodyParam('table_select')) {
             $tableSelectParam = $request->getParsedBodyParam('table_select');
+        }
+
+        $tableData = $request->getParsedBodyParam('table_data');
+        if (is_array($tableData)) {
+            Export::$tableData = $tableData;
         }
 
         $this->setGlobalsFromRequest($postParams);
@@ -328,13 +332,9 @@ final class ExportController implements InvocableController
                     $tableStructure = [];
                 }
 
-                if (! isset($GLOBALS['table_data']) || ! is_array($GLOBALS['table_data'])) {
-                    $GLOBALS['table_data'] = [];
-                }
-
                 if ($structureOrDataForced) {
                     $tableStructure = $tableNames;
-                    $GLOBALS['table_data'] = $tableNames;
+                    Export::$tableData = $tableNames;
                 }
 
                 if ($lockTables) {
@@ -344,7 +344,7 @@ final class ExportController implements InvocableController
                             DatabaseName::from(Current::$database),
                             $tableNames,
                             $tableStructure,
-                            $GLOBALS['table_data'],
+                            Export::$tableData,
                             $exportPlugin,
                             $aliases,
                             $separateFiles,
@@ -357,7 +357,7 @@ final class ExportController implements InvocableController
                         DatabaseName::from(Current::$database),
                         $tableNames,
                         $tableStructure,
-                        $GLOBALS['table_data'],
+                        Export::$tableData,
                         $exportPlugin,
                         $aliases,
                         $separateFiles,
@@ -475,10 +475,6 @@ final class ExportController implements InvocableController
      */
     private function setGlobalsFromRequest(array $postParams): void
     {
-        if (isset($postParams['table_data'])) {
-            $GLOBALS['table_data'] = $postParams['table_data'];
-        }
-
         if (! isset($postParams['xkana'])) {
             return;
         }
