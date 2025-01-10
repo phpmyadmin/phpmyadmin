@@ -7397,8 +7397,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$dbfFilePath]]></code>
       <code><![CDATA[$dbfFilePath]]></code>
       <code><![CDATA[$gisType]]></code>
@@ -7414,18 +7412,14 @@
       <code><![CDATA[$record->dbfData[$c[0]]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$GLOBALS['eof']]]></code>
       <code><![CDATA[$c]]></code>
       <code><![CDATA[$colNames[]]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$gisObj->getShape($record->shpData)]]></code>
     </MixedOperand>
     <PossiblyNullArgument>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
-      <code><![CDATA[$GLOBALS['buffer']]]></code>
       <code><![CDATA[$shp->getDBFHeader()]]></code>
     </PossiblyNullArgument>
     <PossiblyNullIterator>

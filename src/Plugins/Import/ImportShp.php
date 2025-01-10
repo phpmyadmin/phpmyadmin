@@ -51,6 +51,7 @@ class ImportShp extends ImportPlugin
 {
     private ZipExtension|null $zipExtension = null;
     private static File|null $importHandle = null;
+    private static string $buffer = '';
 
     protected function init(): void
     {
@@ -313,21 +314,20 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer(int $length): string
     {
-        $GLOBALS['buffer'] ??= null;
         $GLOBALS['eof'] ??= null;
 
         $import = new Import();
 
-        if (strlen((string) $GLOBALS['buffer']) < $length) {
+        if (strlen(self::$buffer) < $length) {
             if (ImportSettings::$finished) {
                 $GLOBALS['eof'] = true;
             } else {
-                $GLOBALS['buffer'] .= $import->getNextChunk(self::$importHandle);
+                self::$buffer .= $import->getNextChunk(self::$importHandle);
             }
         }
 
-        $result = substr($GLOBALS['buffer'], 0, $length);
-        $GLOBALS['buffer'] = substr($GLOBALS['buffer'], $length);
+        $result = substr(self::$buffer, 0, $length);
+        self::$buffer = substr(self::$buffer, $length);
 
         return $result;
     }
