@@ -484,7 +484,6 @@ class GeneratorTest extends AbstractTestCase
         Current::$table = 'test_table';
         Current::$server = 2;
         Sql::$showAsPhp = null;
-        $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -494,7 +493,7 @@ class GeneratorTest extends AbstractTestCase
 </div>
 <div class="card mb-3 result_query">
 <div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>. Message <em>two</em>.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>.
 </div>
 <div class="card-body sqlOuter"><code class="sql" dir="ltr"><pre>
 SELECT 1;
@@ -539,14 +538,13 @@ HTML;
         Current::$table = 'test_table';
         Current::$server = 2;
         Sql::$showAsPhp = true;
-        $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
 <div class="card mb-3 result_query">
 <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>.
 </div>
 <div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
 $sql = "EXPLAIN SELECT 1;";

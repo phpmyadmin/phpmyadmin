@@ -430,11 +430,6 @@ class Generator
             $message = new Message($message, $type);
         }
 
-        if (isset($GLOBALS['special_message'])) {
-            $message->addText($GLOBALS['special_message']);
-            unset($GLOBALS['special_message']);
-        }
-
         if (! $renderSql) {
             return $retval . $message->getDisplay();
         }

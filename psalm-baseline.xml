@@ -5265,7 +5265,6 @@
       <code><![CDATA[$urlParams]]></code>
     </InvalidArgument>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS['special_message']]]></code>
       <code><![CDATA[$alt]]></code>
       <code><![CDATA[$database]]></code>
       <code><![CDATA[$database]]></code>

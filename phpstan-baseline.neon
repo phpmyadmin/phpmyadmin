@@ -8659,12 +8659,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: '#^Parameter \#1 \$message of method PhpMyAdmin\\Message\:\:addText\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommon\(\) expects array\<string, bool\|int\|string\>, array\<int\|string, mixed\> given\.$#'
 			identifier: argument.type
 			count: 2
