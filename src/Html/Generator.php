@@ -421,9 +421,9 @@ class Generator
         $config = Config::getInstance();
         $renderSql = $config->settings['ShowSQL'] == true && $sqlQuery !== '' && $sqlQuery !== ';';
 
-        if (isset($GLOBALS['using_bookmark_message'])) {
-            $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
-            unset($GLOBALS['using_bookmark_message']);
+        if (isset(Sql::$usingBookmarkMessage)) {
+            $retval .= Sql::$usingBookmarkMessage->getDisplay();
+            Sql::$usingBookmarkMessage = null;
         }
 
         if (is_string($message)) {

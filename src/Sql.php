@@ -53,6 +53,7 @@ class Sql
 {
     private float $queryTime = 0;
     public static bool|null $showAsPhp = null;
+    public static Message|null $usingBookmarkMessage = null;
 
     public function __construct(
         private DatabaseInterface $dbi,
@@ -439,13 +440,9 @@ class Sql
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
-            $GLOBALS['using_bookmark_message'] = Message::notice(
-                __('Using bookmark "%s" as default browse query.'),
-            );
-            $GLOBALS['using_bookmark_message']->addParam($table);
-            $GLOBALS['using_bookmark_message']->addHtml(
-                MySQLDocumentation::showDocumentation('faq', 'faq6-22'),
-            );
+            self::$usingBookmarkMessage = Message::notice(__('Using bookmark "%s" as default browse query.'));
+            self::$usingBookmarkMessage->addParam($table);
+            self::$usingBookmarkMessage->addHtml(MySQLDocumentation::showDocumentation('faq', 'faq6-22'));
 
             return $bookmark->getQuery();
         }

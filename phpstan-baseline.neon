@@ -8593,12 +8593,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: '#^Binary operation "\.\=" between '''' and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -8644,12 +8638,6 @@ parameters:
 			message: '#^Cannot access offset ''pos'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
-			path: src/Html/Generator.php
-
-		-
-			message: '#^Cannot call method getDisplay\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
 			path: src/Html/Generator.php
 
 		-

@@ -5296,11 +5296,7 @@
       <code><![CDATA[$title]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getDisplay]]></code>
-    </MixedMethodCall>
     <MixedOperand>
-      <code><![CDATA[$GLOBALS['using_bookmark_message']->getDisplay()]]></code>
       <code><![CDATA[$attributes['class']]]></code>
       <code><![CDATA[$value]]></code>
     </MixedOperand>
