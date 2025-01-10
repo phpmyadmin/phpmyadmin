@@ -13540,12 +13540,6 @@ parameters:
 			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
 			message: '#^Cannot access property \$name on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -20529,6 +20523,12 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Tests\\Plugins\\Transformations\\TransformationPluginsTest\:\:testTransformation\(\) has parameter \$applyArgs with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
+			count: 1
+			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Display\\Results\:\:\$row \(list\<string\|null\>\) does not accept array\{pma\: ''aaa'', pca\: ''bbb''\}\.$#'
+			identifier: assign.propertyType
 			count: 1
 			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
 

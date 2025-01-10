@@ -4289,7 +4289,6 @@
       <code><![CDATA[$this->fieldsMeta[$i]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['row']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['geoOption']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
@@ -8106,16 +8105,11 @@
       <code><![CDATA[$cn]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['row'][$pos]]]></code>
-    </MixedArrayAccess>
     <MixedArrayOffset>
-      <code><![CDATA[$GLOBALS['row'][$pos]]]></code>
+      <code><![CDATA[Results::$row[$pos]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$GLOBALS['fields_meta']]]></code>
-      <code><![CDATA[$GLOBALS['row']]]></code>
-      <code><![CDATA[$cn]]></code>
       <code><![CDATA[$cn]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$pos]]></code>
@@ -8124,9 +8118,6 @@
     <MixedPropertyFetch>
       <code><![CDATA[$val->name]]></code>
     </MixedPropertyFetch>
-    <PossiblyNullArrayAccess>
-      <code><![CDATA[$GLOBALS['row'][$pos]]]></code>
-    </PossiblyNullArrayAccess>
     <PossiblyNullIterator>
       <code><![CDATA[$GLOBALS['fields_meta']]]></code>
     </PossiblyNullIterator>
@@ -12561,6 +12552,9 @@
       <code><![CDATA[multiDataProvider]]></code>
       <code><![CDATA[transformationDataProvider]]></code>
     </PossiblyUnusedMethod>
+    <PropertyTypeCoercion>
+      <code><![CDATA[['pma' => 'aaa', 'pca' => 'bbb']]]></code>
+    </PropertyTypeCoercion>
   </file>
   <file src="tests/unit/PluginsTest.php">
     <DeprecatedMethod>
