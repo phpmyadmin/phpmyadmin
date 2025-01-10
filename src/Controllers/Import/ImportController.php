@@ -69,7 +69,9 @@ final class ImportController implements InvocableController
         $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
         ImportSettings::$skipQueries = (int) $request->getParsedBodyParamAsStringOrNull('skip_queries');
         ImportSettings::$localImportFile = $request->getParsedBodyParamAsString('local_import_file', '');
-        $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
+        if ($request->hasBodyParam('show_as_php')) {
+            Sql::$showAsPhp = (bool) $request->getParsedBodyParam('show_as_php');
+        }
 
         // reset import messages for ajax request
         $_SESSION['Import_message']['message'] = null;
@@ -330,7 +332,7 @@ final class ImportController implements InvocableController
         }
 
         // Do no run query if we show PHP code
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(Sql::$showAsPhp)) {
             ImportSettings::$runQuery = false;
             ImportSettings::$goSql = true;
         }

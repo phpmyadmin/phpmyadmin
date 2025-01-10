@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
@@ -483,6 +484,7 @@ class GeneratorTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Current::$server = 2;
+        Sql::$showAsPhp = null;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
 
@@ -537,7 +539,7 @@ HTML;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Current::$server = 2;
-        $GLOBALS['show_as_php'] = true;
+        Sql::$showAsPhp = true;
         $GLOBALS['special_message'] = 'Message [em]two[/em].';
         SessionCache::set('profiling_supported', true);
 

@@ -52,6 +52,7 @@ use function ucwords;
 class Sql
 {
     private float $queryTime = 0;
+    public static bool|null $showAsPhp = null;
 
     public function __construct(
         private DatabaseInterface $dbi,
@@ -855,9 +856,9 @@ class Sql
             // the form should not have priority over errors
         } elseif ($messageToShow !== '' && $statementInfo->flags->queryType !== StatementType::Select) {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
-        } elseif (! empty($GLOBALS['show_as_php'])) {
+        } elseif (! empty(self::$showAsPhp)) {
             $message = Message::success(__('Showing as PHP code'));
-        } elseif (isset($GLOBALS['show_as_php'])) {
+        } elseif (isset(self::$showAsPhp)) {
             /* User disable showing as PHP, query is only displayed */
             $message = Message::notice(__('Showing SQL query'));
         } else {
@@ -932,7 +933,7 @@ class Sql
 
         $queryMessage = Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
 
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(self::$showAsPhp)) {
             return $queryMessage;
         }
 
@@ -1537,7 +1538,7 @@ class Sql
         ResponseRenderer::$reload = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(self::$showAsPhp)) {
             // Only if we ask to see the php code
             // The following was copied from getQueryResponseForNoResultsReturned()
             // Delete if it's not needed in this context

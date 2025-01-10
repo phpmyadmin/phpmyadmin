@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -83,6 +84,7 @@ abstract class AbstractTestCase extends TestCase
         Current::$displayQuery = null;
         Current::$charset = null;
         DatabaseInterface::$errorNumber = null;
+        Sql::$showAsPhp = null;
 
         // Config before DBI
         $this->setGlobalConfig();

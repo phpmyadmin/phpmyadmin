@@ -17,6 +17,7 @@ use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
@@ -450,7 +451,7 @@ class Generator
         // If we want to show some sql code it is easiest to create it here
         /* SQL-Parser-Analyzer */
 
-        if (! empty($GLOBALS['show_as_php'])) {
+        if (! empty(Sql::$showAsPhp)) {
             $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
             $queryBase = htmlspecialchars(addslashes($sqlQuery));
             $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
@@ -513,7 +514,7 @@ class Generator
 
         // even if the query is big and was truncated, offer the chance
         // to edit it (unless it's enormous, see linkOrButton() )
-        if (! empty($config->settings['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && empty(Sql::$showAsPhp)) {
             $editLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     Url::getFromRoute($editLinkRoute, $urlParams),
@@ -529,7 +530,7 @@ class Generator
         // Also we would like to get the SQL formed in some nice
         // php-code
         if (! empty($config->settings['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
-            if (! empty($GLOBALS['show_as_php'])) {
+            if (! empty(Sql::$showAsPhp)) {
                 $phpLink = '<div class="col-auto">'
                     . self::linkOrButton(
                         Url::getFromRoute('/import', $urlParams),
@@ -566,7 +567,7 @@ class Generator
         // Refresh query
         if (
             ! empty($config->settings['SQLQuery']['Refresh'])
-            && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
+            && ! isset(Sql::$showAsPhp) // 'Submit query' does the same
             && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery) === 1
         ) {
             $refreshLink = Url::getFromRoute('/sql', $urlParams);
@@ -614,7 +615,7 @@ class Generator
         /**
          * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
          */
-        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && empty(Sql::$showAsPhp)) {
             $inlineEditLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     '#',

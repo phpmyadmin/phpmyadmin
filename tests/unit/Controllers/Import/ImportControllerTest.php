@@ -44,6 +44,7 @@ class ImportControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = 'user';
 
         // Some params were not added as they are not required for this test
+        Sql::$showAsPhp = null;
         Current::$database = 'pma_test';
         Current::$table = 'table1';
         Current::$sqlQuery = 'SELECT A.*' . "\n"
@@ -62,6 +63,7 @@ class ImportControllerTest extends AbstractTestCase
             ['rollback_query', false],
             ['allow_interrupt', false],
             ['skip', false],
+            ['show_as_php', false],
         ]);
 
         $this->dummyDbi->addResult(
