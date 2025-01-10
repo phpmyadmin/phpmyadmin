@@ -65,6 +65,7 @@ class Import
     public static bool $hasError = false;
     public static string $importText = '';
     public static ResultInterface|false $result = false;
+    public static string $errorUrl = '';
 
     public function __construct()
     {

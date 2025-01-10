@@ -31,7 +31,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['errorUrl'] = 'index.php?route=/';
+        Import::$errorUrl = 'index.php?route=/';
         Import::$hasError = false;
         Current::$database = '';
         Current::$table = '';

@@ -203,7 +203,7 @@ class ImportCsv extends AbstractImportCsv
             $this->enclosed,
             $this->escaped,
             $this->newLine,
-            (string) $GLOBALS['errorUrl'],
+            Import::$errorUrl,
         );
 
         [$sqlTemplate, $fields] = $this->getSqlTemplateAndRequiredFields(

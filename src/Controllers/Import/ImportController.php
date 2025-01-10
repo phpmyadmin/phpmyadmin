@@ -212,8 +212,8 @@ final class ImportController implements InvocableController
             }
         }
 
-        $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
-        $_SESSION['Import_message']['go_back_url'] = $GLOBALS['errorUrl'];
+        Import::$errorUrl = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
+        $_SESSION['Import_message']['go_back_url'] = Import::$errorUrl;
 
         if (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
@@ -547,7 +547,7 @@ final class ImportController implements InvocableController
                 UrlParams::$params['local_import_file'] = ImportSettings::$localImportFile;
             }
 
-            $importUrl = $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
+            $importUrl = Import::$errorUrl = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
 
             Current::$message = Message::error(
                 __(
@@ -595,7 +595,7 @@ final class ImportController implements InvocableController
         }
 
         foreach (ImportSettings::$failedQueries as $die) {
-            Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], Import::$hasError);
+            Generator::mysqlDie($die['error'], $die['sql'], false, Import::$errorUrl, Import::$hasError);
         }
 
         if (ImportSettings::$goSql) {

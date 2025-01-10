@@ -12367,12 +12367,6 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
 			message: '#^Foreach overwrites \$i with its key variable\.$#'
 			identifier: foreach.keyOverwrite
 			count: 1
