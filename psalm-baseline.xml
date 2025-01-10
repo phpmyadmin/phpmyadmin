@@ -2306,13 +2306,12 @@
       <code><![CDATA[$rowId]]></code>
     </MixedArgumentTypeCoercion>
     <MixedAssignment>
-      <code><![CDATA[$GLOBALS['current_result']]]></code>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
-      <code><![CDATA[$GLOBALS['current_result']]]></code>
+      <code><![CDATA[$currentResult]]></code>
     </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>

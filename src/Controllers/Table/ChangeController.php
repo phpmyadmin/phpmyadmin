@@ -54,8 +54,6 @@ class ChangeController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['current_result'] ??= null;
-
         $this->pageSettings->init('Edit');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -224,9 +222,7 @@ class ChangeController implements InvocableController
 
         InsertEdit::$pluginScripts = [];
         foreach ($rows as $rowId => $currentRow) {
-            $GLOBALS['current_result'] = is_array($result) && isset($result[$rowId])
-                ? $result[$rowId]
-                : $result;
+            $currentResult = is_array($result) && isset($result[$rowId]) ? $result[$rowId] : $result;
             $repopulate = [];
             $checked = true;
             if (isset(self::$unsavedValues[$rowId])) {
@@ -242,7 +238,7 @@ class ChangeController implements InvocableController
                 UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
-                $GLOBALS['current_result'],
+                $currentResult,
                 $insertMode,
                 $currentRow ?: [],
                 $isUpload,
