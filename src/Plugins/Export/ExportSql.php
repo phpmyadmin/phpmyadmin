@@ -126,6 +126,7 @@ class ExportSql extends ExportPlugin
     private bool $metadata = false;
 
     public static string $oldTimezone = '';
+    public static bool $noConstraintsComments = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -2585,7 +2586,7 @@ class ExportSql extends ExportPlugin
         string $compat,
     ): string {
         if ($sqlStatement === null) {
-            if (isset($GLOBALS['no_constraints_comments'])) {
+            if (self::$noConstraintsComments) {
                 $sqlStatement = '';
             } else {
                 $sqlStatement = "\n"
@@ -2596,7 +2597,7 @@ class ExportSql extends ExportPlugin
         }
 
         // comments for current table
-        if (! isset($GLOBALS['no_constraints_comments'])) {
+        if (! self::$noConstraintsComments) {
             $sqlStatement .= "\n"
                 . $this->exportComment()
                 . $this->exportComment(

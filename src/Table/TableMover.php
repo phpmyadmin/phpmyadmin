@@ -468,7 +468,7 @@ class TableMover
         // It is better that all identifiers are quoted
         $exportSqlPlugin->useSqlBackquotes(true);
 
-        $GLOBALS['no_constraints_comments'] = true;
+        ExportSql::$noConstraintsComments = true;
         $exportSqlPlugin->setAutoIncrement(isset($_POST['sql_auto_increment']) && (bool) $_POST['sql_auto_increment']);
 
         $isView = (new Table($sourceTable, $sourceDb, $this->dbi))->isView();

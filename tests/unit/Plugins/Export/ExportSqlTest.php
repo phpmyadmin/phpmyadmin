@@ -758,9 +758,7 @@ class ExportSqlTest extends AbstractTestCase
     {
         $this->object->sqlConstraints = null;
 
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
+        ExportSql::$noConstraintsComments = false;
 
         $createTableStatement = <<<'SQL'
 CREATE TABLE `table` (
@@ -838,9 +836,7 @@ SQL;
     {
         $this->object->sqlConstraints = null;
 
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
+        ExportSql::$noConstraintsComments = false;
 
         $isViewQuery = 'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'db\' AND TABLE_NAME = \'table\'';
 
