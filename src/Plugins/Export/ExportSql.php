@@ -127,6 +127,7 @@ class ExportSql extends ExportPlugin
 
     public static string $oldTimezone = '';
     public static bool $noConstraintsComments = false;
+    private static bool $exportingMetadata = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -1180,7 +1181,7 @@ class ExportSql extends ExportPlugin
                         . '.' . Util::backquote($relationParameters->pdfFeature->tableCoords)
                         . " WHERE `pdf_page_number` = '" . $page . "'";
 
-                    $GLOBALS['exporting_metadata'] = true;
+                    self::$exportingMetadata = true;
                     if (
                         ! $this->exportData(
                             $relationParameters->pdfFeature->database->getName(),
@@ -1189,12 +1190,12 @@ class ExportSql extends ExportPlugin
                             $aliases,
                         )
                     ) {
-                        $GLOBALS['exporting_metadata'] = false;
+                        self::$exportingMetadata = false;
 
                         return false;
                     }
 
-                    $GLOBALS['exporting_metadata'] = false;
+                    self::$exportingMetadata = false;
                 }
 
                 continue;
@@ -2210,7 +2211,7 @@ class ExportSql extends ExportPlugin
                 } elseif ($metaInfo->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
-                } elseif (! empty($GLOBALS['exporting_metadata']) && $row[$j] === '@LAST_PAGE') {
+                } elseif (self::$exportingMetadata && $row[$j] === '@LAST_PAGE') {
                     $values[] = '@LAST_PAGE';
                 } elseif ($row[$j] === '') {
                     $values[] = "''";
