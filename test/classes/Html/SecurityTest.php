@@ -30,6 +30,7 @@ class SecurityTest extends AbstractTestCase
 
     public function testInjectCodeUsingTemplate(): void
     {
+        $GLOBALS['lang'] = '';
         self::assertSame('?db=%3Cscript%3Ealert%28%27%26%3D%21%3A%3B%27%29%3B%3C%2Fscr'
         . 'ipt%3E&amp;table=%26mytable%3E1%3F&amp;server=12'
         . "\n"

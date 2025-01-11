@@ -22181,21 +22181,6 @@ parameters:
 			path: libraries/classes/Language.php
 
 		-
-			message: "#^Cannot access offset 'a_meta_dir' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Cannot access offset 'a_meta_language' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
-			message: "#^Cannot access offset 'w_page' on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Language.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: libraries/classes/Language.php
