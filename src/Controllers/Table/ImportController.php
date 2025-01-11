@@ -42,8 +42,6 @@ final class ImportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['SESSION_KEY'] ??= null;
-
         $this->pageSettings->init('Import');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
@@ -92,7 +90,7 @@ final class ImportController implements InvocableController
         UrlParams::$params['goto'] = Url::getFromRoute('/table/import');
         UrlParams::$params['back'] = Url::getFromRoute('/table/import');
 
-        [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
+        [$uploadId] = Ajax::uploadProgressSetup();
 
         ImportSettings::$importType = 'table';
         $importList = Plugins::getImport();
@@ -116,7 +114,7 @@ final class ImportController implements InvocableController
 
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
-        $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
+        $idKey = $_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey();
         $hiddenInputs = [
             $idKey => $uploadId,
             'import_type' => 'table',
@@ -137,7 +135,7 @@ final class ImportController implements InvocableController
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,
-            'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
+            'handler' => $_SESSION[Ajax::SESSION_KEY]['handler'],
             'hidden_inputs' => $hiddenInputs,
             'db' => Current::$database,
             'table' => Current::$table,

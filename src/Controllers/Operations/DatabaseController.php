@@ -12,6 +12,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -50,8 +51,6 @@ final class DatabaseController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['single_table'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->response->addScriptFiles(['database/operations.js']);
@@ -100,12 +99,7 @@ final class DatabaseController implements InvocableController
                     $tableNames = $this->dbi->getTables(Current::$database);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $exportSqlPlugin = Plugins::getPlugin(
-                        'export',
-                        'sql',
-                        ExportType::Database,
-                        isset($GLOBALS['single_table']),
-                    );
+                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Database, Export::$singleTable);
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(
@@ -184,7 +178,7 @@ final class DatabaseController implements InvocableController
                         Current::$message->addParam($newDatabaseName->getName());
                     }
 
-                    $GLOBALS['reload'] = true;
+                    ResponseRenderer::$reload = true;
 
                     /* Change database to be used */
                     if ($move) {

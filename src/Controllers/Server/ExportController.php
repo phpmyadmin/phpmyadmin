@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -31,8 +32,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['unlim_num_rows'] ??= null;
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
@@ -45,17 +44,11 @@ final class ExportController implements InvocableController
 
         $databases = $this->export->getDatabasesForSelectOptions();
 
-        if (! isset($GLOBALS['num_tables'])) {
-            $GLOBALS['num_tables'] = 0;
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
         }
 
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
-
-        $exportList = Plugins::getExport(ExportType::Server, isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport(ExportType::Server, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
@@ -70,8 +63,8 @@ final class ExportController implements InvocableController
             Current::$database,
             Current::$table,
             Current::$sqlQuery,
-            $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            Current::$numTables,
+            0,
             $exportList,
         );
 

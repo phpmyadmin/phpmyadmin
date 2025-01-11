@@ -49,23 +49,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['compression'] ??= null;
-        $GLOBALS['asfile'] ??= null;
-        $GLOBALS['buffer_needed'] ??= null;
-        $GLOBALS['save_on_server'] ??= null;
-        $GLOBALS['file_handle'] ??= null;
-        $GLOBALS['output_charset_conversion'] ??= null;
-        $GLOBALS['output_kanji_conversion'] ??= null;
-        $GLOBALS['single_table'] ??= null;
-        $GLOBALS['save_filename'] ??= null;
-        $GLOBALS['table_select'] ??= null;
-        $GLOBALS['time_start'] ??= null;
-        $GLOBALS['charset'] ??= null;
-        $GLOBALS['table_data'] ??= null;
-
-        /** @var array<string, string> $postParams */
-        $postParams = $request->getParsedBody();
-
         $quickOrCustom = $request->getParsedBodyParamAsStringOrNull('quick_or_custom');
         $outputFormat = $request->getParsedBodyParamAsStringOrNull('output_format');
         $compressionParam = $request->getParsedBodyParamAsString('compression', '');
@@ -82,7 +65,39 @@ final class ExportController implements InvocableController
 
         $this->response->addScriptFiles(['export_output.js']);
 
-        $this->setGlobalsFromRequest($postParams);
+        if ($request->hasBodyParam('single_table')) {
+            Export::$singleTable = (bool) $request->getParsedBodyParam('single_table');
+        }
+
+        if ($request->hasBodyParam('charset')) {
+            Current::$charset = $request->getParsedBodyParamAsString('charset');
+        }
+
+        if ($request->hasBodyParam('compression')) {
+            Export::$compression = $request->getParsedBodyParamAsString('compression');
+        }
+
+        if ($request->hasBodyParam('knjenc')) {
+            Export::$kanjiEncoding = $request->getParsedBodyParamAsString('knjenc');
+        }
+
+        if ($request->hasBodyParam('maxsize')) {
+            Export::$maxSize = $request->getParsedBodyParamAsString('maxsize');
+        }
+
+        $tableSelectParam = [];
+        if ($request->hasBodyParam('table_select')) {
+            $tableSelectParam = $request->getParsedBodyParam('table_select');
+        }
+
+        $tableData = $request->getParsedBodyParam('table_data');
+        if (is_array($tableData)) {
+            Export::$tableData = $tableData;
+        }
+
+        if ($request->hasBodyParam('xkana')) {
+            Export::$xkana = $request->getParsedBodyParamAsString('xkana');
+        }
 
         // sanitize this parameter which will be used below in a file inclusion
         $what = Core::securePath($request->getParsedBodyParamAsString('what', ''));
@@ -93,7 +108,7 @@ final class ExportController implements InvocableController
         $exportType = ExportType::from($request->getParsedBodyParamAsString('export_type'));
 
         // export class instance, not array of properties, as before
-        $exportPlugin = Plugins::getPlugin('export', $what, $exportType, isset($GLOBALS['single_table']));
+        $exportPlugin = Plugins::getPlugin('export', $what, $exportType, Export::$singleTable);
 
         // Check export type
         if (! $exportPlugin instanceof ExportPlugin) {
@@ -121,11 +136,11 @@ final class ExportController implements InvocableController
         /**
          * init and variable checking
          */
-        $GLOBALS['compression'] = '';
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['save_filename'] = '';
-        $GLOBALS['file_handle'] = '';
+        Export::$compression = '';
+        Export::$saveOnServer = false;
+        Export::$bufferNeeded = false;
+        Export::$saveFilename = '';
+        Export::$fileHandle = null;
         $filename = '';
         $separateFiles = '';
 
@@ -133,21 +148,21 @@ final class ExportController implements InvocableController
         $isQuickExport = $quickOrCustom === 'quick';
 
         if ($outputFormat === 'astext') {
-            $GLOBALS['asfile'] = false;
+            Export::$asFile = false;
         } else {
-            $GLOBALS['asfile'] = true;
+            Export::$asFile = true;
             if ($asSeparateFiles && $compressionParam === 'zip') {
                 $separateFiles = $asSeparateFiles;
             }
 
             if (in_array($compressionParam, $compressionMethods, true)) {
-                $GLOBALS['compression'] = $compressionParam;
-                $GLOBALS['buffer_needed'] = true;
+                Export::$compression = $compressionParam;
+                Export::$bufferNeeded = true;
             }
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                $GLOBALS['save_on_server'] = ! empty($config->settings['SaveDir']);
+                Export::$saveOnServer = $config->settings['SaveDir'] !== '';
             }
         }
 
@@ -159,7 +174,7 @@ final class ExportController implements InvocableController
             }
 
             // Check if we have something to export
-            $tableNames = $GLOBALS['table_select'] ?? [];
+            $tableNames = $tableSelectParam;
             Assert::isArray($tableNames);
             Assert::allString($tableNames);
         } elseif ($exportType === ExportType::Table) {
@@ -203,25 +218,24 @@ final class ExportController implements InvocableController
         $this->export->dumpBufferObjects = [];
 
         // We send fake headers to avoid browser timeout when buffering
-        $GLOBALS['time_start'] = time();
+        Export::$timeStart = time();
 
-        $GLOBALS['output_kanji_conversion'] = Encoding::canConvertKanji();
+        Export::$outputKanjiConversion = Encoding::canConvertKanji();
 
         // Do we need to convert charset?
-        $GLOBALS['output_charset_conversion'] = $GLOBALS['asfile']
+        Export::$outputCharsetConversion = Export::$asFile
             && Encoding::isSupported()
-            && isset($GLOBALS['charset']) && $GLOBALS['charset'] !== 'utf-8';
+            && isset(Current::$charset) && Current::$charset !== 'utf-8';
 
         // Use on the fly compression?
-        $GLOBALS['onfly_compression'] = $config->settings['CompressOnFly']
-            && $GLOBALS['compression'] === 'gzip';
-        if ($GLOBALS['onfly_compression']) {
-            $GLOBALS['memory_limit'] = $this->export->getMemoryLimit();
+        Export::$onFlyCompression = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';
+        if (Export::$onFlyCompression) {
+            Export::$memoryLimit = $this->export->getMemoryLimit();
         }
 
         // Generate filename and mime type if needed
         $mimeType = '';
-        if ($GLOBALS['asfile']) {
+        if (Export::$asFile) {
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template');
 
             if ((bool) $rememberTemplate) {
@@ -230,24 +244,21 @@ final class ExportController implements InvocableController
 
             $filename = $this->export->getFinalFilename(
                 $exportPlugin,
-                $GLOBALS['compression'],
+                Export::$compression,
                 Sanitize::sanitizeFilename(Util::expandUserString($filenameTemplate), true),
             );
 
-            $mimeType = $this->export->getMimeType($exportPlugin, $GLOBALS['compression']);
+            $mimeType = $this->export->getMimeType($exportPlugin, Export::$compression);
         }
 
         // For raw query export, filename will be export.extension
         if ($exportType === ExportType::Raw) {
-            $filename = $this->export->getFinalFilename($exportPlugin, $GLOBALS['compression'], 'export');
+            $filename = $this->export->getFinalFilename($exportPlugin, Export::$compression, 'export');
         }
 
         // Open file on server if needed
-        if ($GLOBALS['save_on_server']) {
-            [$GLOBALS['save_filename'], $message, $GLOBALS['file_handle']] = $this->export->openFile(
-                $filename,
-                $isQuickExport,
-            );
+        if (Export::$saveOnServer) {
+            [Export::$saveFilename, $message, Export::$fileHandle] = $this->export->openFile($filename, $isQuickExport);
 
             // problem opening export file on server?
             if ($message !== null) {
@@ -256,7 +267,7 @@ final class ExportController implements InvocableController
 
                 return $this->response->response();
             }
-        } elseif ($GLOBALS['asfile']) {
+        } elseif (Export::$asFile) {
             /**
              * Send headers depending on whether the user chose to download a dump file
              * or not
@@ -270,8 +281,8 @@ final class ExportController implements InvocableController
         } else {
             // HTML
             if ($exportType === ExportType::Database) {
-                $GLOBALS['num_tables'] = count($tableNames);
-                if ($GLOBALS['num_tables'] === 0) {
+                Current::$numTables = count($tableNames);
+                if (Current::$numTables === 0) {
                     Current::$message = Message::error(
                         __('No tables found in database.'),
                     );
@@ -314,13 +325,9 @@ final class ExportController implements InvocableController
                     $tableStructure = [];
                 }
 
-                if (! isset($GLOBALS['table_data']) || ! is_array($GLOBALS['table_data'])) {
-                    $GLOBALS['table_data'] = [];
-                }
-
                 if ($structureOrDataForced) {
                     $tableStructure = $tableNames;
-                    $GLOBALS['table_data'] = $tableNames;
+                    Export::$tableData = $tableNames;
                 }
 
                 if ($lockTables) {
@@ -330,7 +337,7 @@ final class ExportController implements InvocableController
                             DatabaseName::from(Current::$database),
                             $tableNames,
                             $tableStructure,
-                            $GLOBALS['table_data'],
+                            Export::$tableData,
                             $exportPlugin,
                             $aliases,
                             $separateFiles,
@@ -343,7 +350,7 @@ final class ExportController implements InvocableController
                         DatabaseName::from(Current::$database),
                         $tableNames,
                         $tableStructure,
-                        $GLOBALS['table_data'],
+                        Export::$tableData,
                         $exportPlugin,
                         $aliases,
                         $separateFiles,
@@ -395,7 +402,7 @@ final class ExportController implements InvocableController
             // Ignore
         }
 
-        if ($GLOBALS['save_on_server'] && Current::$message !== null) {
+        if (Export::$saveOnServer && Current::$message !== null) {
             $location = $this->export->getPageLocationAndSaveMessage($exportType, Current::$message);
             $this->response->redirect($location);
 
@@ -405,45 +412,41 @@ final class ExportController implements InvocableController
         /**
          * Send the dump as a file...
          */
-        if (empty($GLOBALS['asfile'])) {
+        if (! Export::$asFile) {
             echo $this->export->getHtmlForDisplayedExportFooter($exportType, Current::$database, Current::$table);
 
             return $this->response->response();
         }
 
         // Convert the charset if required.
-        if ($GLOBALS['output_charset_conversion']) {
+        if (Export::$outputCharsetConversion) {
             $this->export->dumpBuffer = Encoding::convertString(
                 'utf-8',
-                $GLOBALS['charset'],
+                Current::$charset ?? 'utf-8',
                 $this->export->dumpBuffer,
             );
         }
 
         // Compression needed?
-        if ($GLOBALS['compression']) {
+        if (Export::$compression) {
             if ($separateFiles !== '') {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBufferObjects,
-                    $GLOBALS['compression'],
+                    Export::$compression,
                     $filename,
                 );
             } else {
                 $this->export->dumpBuffer = $this->export->compress(
                     $this->export->dumpBuffer,
-                    $GLOBALS['compression'],
+                    Export::$compression,
                     $filename,
                 );
             }
         }
 
         /* If we saved on server, we have to close file now */
-        if ($GLOBALS['save_on_server']) {
-            $message = $this->export->closeFile(
-                $GLOBALS['file_handle'],
-                $this->export->dumpBuffer,
-                $GLOBALS['save_filename'],
-            );
+        if (Export::$saveOnServer) {
+            $message = $this->export->closeFile(Export::$fileHandle, $this->export->dumpBuffer, Export::$saveFilename);
             $location = $this->export->getPageLocationAndSaveMessage($exportType, $message);
             $this->response->redirect($location);
 
@@ -451,48 +454,5 @@ final class ExportController implements InvocableController
         }
 
         return $this->responseFactory->createResponse()->write($this->export->dumpBuffer);
-    }
-
-    /**
-     * Please keep the parameters in order of their appearance in the form.
-     * Some of these parameters are not used.
-     *
-     * @param mixed[] $postParams
-     */
-    private function setGlobalsFromRequest(array $postParams): void
-    {
-        if (isset($postParams['single_table'])) {
-            $GLOBALS['single_table'] = $postParams['single_table'];
-        }
-
-        if (isset($postParams['table_select'])) {
-            $GLOBALS['table_select'] = $postParams['table_select'];
-        }
-
-        if (isset($postParams['table_data'])) {
-            $GLOBALS['table_data'] = $postParams['table_data'];
-        }
-
-        if (isset($postParams['maxsize'])) {
-            $GLOBALS['maxsize'] = $postParams['maxsize'];
-        }
-
-        if (isset($postParams['charset'])) {
-            $GLOBALS['charset'] = $postParams['charset'];
-        }
-
-        if (isset($postParams['compression'])) {
-            $GLOBALS['compression'] = $postParams['compression'];
-        }
-
-        if (isset($postParams['knjenc'])) {
-            $GLOBALS['knjenc'] = $postParams['knjenc'];
-        }
-
-        if (! isset($postParams['xkana'])) {
-            return;
-        }
-
-        $GLOBALS['xkana'] = $postParams['xkana'];
     }
 }

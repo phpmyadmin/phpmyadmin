@@ -42,7 +42,7 @@ class ImportSqlTest extends AbstractTestCase
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         ImportSettings::$importFile = 'tests/test_data/pma_bookmark.sql';
-        $GLOBALS['import_text'] = 'ImportSql_Test';
+        Import::$importText = 'ImportSql_Test';
         ImportSettings::$readMultiply = 10;
 
         $this->object = new ImportSql();

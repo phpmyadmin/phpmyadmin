@@ -67,10 +67,10 @@ class ExportSqlTest extends AbstractTestCase
         Current::$table = '';
         Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = false;
+        Export::$saveOnServer = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
 
@@ -386,10 +386,10 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['old_tz'] = 'GMT';
-        $GLOBALS['asfile'] = 'yes';
-        $GLOBALS['output_charset_conversion'] = 'utf-8';
+        Current::$charset = 'utf-8';
+        ExportSql::$oldTimezone = 'GMT';
+        Export::$asFile = true;
+        Export::$outputCharsetConversion = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -418,10 +418,10 @@ class ExportSqlTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['port'] = 80;
-        $GLOBALS['old_tz'] = 'GMT';
-        $GLOBALS['asfile'] = 'yes';
-        $GLOBALS['output_charset_conversion'] = 'utf-8';
-        $GLOBALS['charset'] = 'utf-8';
+        ExportSql::$oldTimezone = 'GMT';
+        Export::$asFile = true;
+        Export::$outputCharsetConversion = true;
+        Current::$charset = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -758,9 +758,7 @@ class ExportSqlTest extends AbstractTestCase
     {
         $this->object->sqlConstraints = null;
 
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
+        ExportSql::$noConstraintsComments = false;
 
         $createTableStatement = <<<'SQL'
 CREATE TABLE `table` (
@@ -838,9 +836,7 @@ SQL;
     {
         $this->object->sqlConstraints = null;
 
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
+        ExportSql::$noConstraintsComments = false;
 
         $isViewQuery = 'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'db\' AND TABLE_NAME = \'table\'';
 

@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
+use PhpMyAdmin\Display\Results;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
@@ -43,7 +44,6 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        $GLOBALS['row'] ??= null;
         $GLOBALS['fields_meta'] ??= null;
 
         if (! empty($options[0])) {
@@ -58,7 +58,7 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
                 }
 
                 if (isset($pos)) {
-                    $cn = $GLOBALS['row'][$pos];
+                    $cn = Results::$row[$pos];
                 }
             }
 

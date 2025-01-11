@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -36,9 +37,6 @@ class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['where_clause'] ??= null;
-        $GLOBALS['unlim_num_rows'] ??= null;
-
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
@@ -67,8 +65,8 @@ class ExportController implements InvocableController
             if (! empty($parser->statements[0]) && $parser->statements[0] instanceof SelectStatement) {
                 // Checking if the WHERE clause has to be replaced.
                 $replaces = [];
-                if (! empty($GLOBALS['where_clause']) && is_array($GLOBALS['where_clause'])) {
-                    $replaces[] = ['WHERE', 'WHERE (' . implode(') OR (', $GLOBALS['where_clause']) . ')'];
+                if (is_array(Current::$whereClause) && Current::$whereClause !== []) {
+                    $replaces[] = ['WHERE', 'WHERE (' . implode(') OR (', Current::$whereClause) . ')'];
                 }
 
                 // Preparing to remove the LIMIT clause.
@@ -79,17 +77,11 @@ class ExportController implements InvocableController
             }
         }
 
-        if (! isset($GLOBALS['num_tables'])) {
-            $GLOBALS['num_tables'] = 0;
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
         }
 
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
-
-        $exportList = Plugins::getExport(ExportType::Table, isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport(ExportType::Table, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
@@ -110,8 +102,8 @@ class ExportController implements InvocableController
             Current::$database,
             Current::$table,
             Current::$sqlQuery,
-            $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            Current::$numTables,
+            0,
             $exportList,
         );
 

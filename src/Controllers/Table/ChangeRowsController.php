@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table;
 
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -23,8 +24,6 @@ final class ChangeRowsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['where_clause'] ??= null;
-
         $rowsToDelete = $request->getParsedBodyParam('rows_to_delete');
 
         if (
@@ -41,9 +40,9 @@ final class ChangeRowsController implements InvocableController
         // 'rows_to_delete' checkbox, we use the index of it as the
         // indicating WHERE clause. Then we build the array which is used
         // for the /table/change script.
-        $GLOBALS['where_clause'] = [];
+        Current::$whereClause = [];
         if (is_array($rowsToDelete)) {
-            $GLOBALS['where_clause'] = array_values($rowsToDelete);
+            Current::$whereClause = array_values($rowsToDelete);
         }
 
         return ($this->changeController)($request);

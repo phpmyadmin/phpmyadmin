@@ -27,7 +27,7 @@ class SearchTest extends AbstractTestCase
         parent::setUp();
 
         Current::$database = 'pma';
-        $GLOBALS['_POST'] = [];
+        $_POST = [];
 
         //mock DBI
         $dbi = $this->getMockBuilder(DatabaseInterface::class)

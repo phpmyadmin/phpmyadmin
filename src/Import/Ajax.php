@@ -20,22 +20,20 @@ use function uniqid;
  */
 final class Ajax
 {
+    /** For differentiating array in $_SESSION variable */
+    public const SESSION_KEY = '__upload_status';
+
     /**
      * Sets up some variables for upload progress
      *
-     * @return array{string, string, string[]}
+     * @return array{string, string[]}
      */
     public static function uploadProgressSetup(): array
     {
         /**
-         * constant for differentiating array in $_SESSION variable
-         */
-        $sessionKey = '__upload_status';
-
-        /**
          * sets default plugin for handling the import process
          */
-        $_SESSION[$sessionKey]['handler'] = '';
+        $_SESSION[self::SESSION_KEY]['handler'] = '';
 
         /**
          * unique ID for each upload
@@ -58,12 +56,12 @@ final class Ajax
 
             if (self::$check()) {
                 $uploadClass = 'PhpMyAdmin\Plugins\Import\Upload\Upload' . ucwords($plugin);
-                $_SESSION[$sessionKey]['handler'] = $uploadClass;
+                $_SESSION[self::SESSION_KEY]['handler'] = $uploadClass;
                 break;
             }
         }
 
-        return [$sessionKey, $uploadId, $plugins];
+        return [$uploadId, $plugins];
     }
 
     /**
@@ -105,7 +103,7 @@ final class Ajax
         }
 
         echo json_encode(
-            $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getUploadStatus($id),
+            $_SESSION[self::SESSION_KEY]['handler']::getUploadStatus($id),
         );
     }
 }

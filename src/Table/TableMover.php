@@ -8,6 +8,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -65,7 +66,7 @@ class TableMover
         }
 
         // Setting required export settings.
-        $GLOBALS['asfile'] = 1;
+        Export::$asFile = true;
 
         // Selecting the database could avoid some problems with replicated
         // databases, when moving table from replicated one to not replicated one.
@@ -467,7 +468,7 @@ class TableMover
         // It is better that all identifiers are quoted
         $exportSqlPlugin->useSqlBackquotes(true);
 
-        $GLOBALS['no_constraints_comments'] = true;
+        ExportSql::$noConstraintsComments = true;
         $exportSqlPlugin->setAutoIncrement(isset($_POST['sql_auto_increment']) && (bool) $_POST['sql_auto_increment']);
 
         $isView = (new Table($sourceTable, $sourceDb, $this->dbi))->isView();

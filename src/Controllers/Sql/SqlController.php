@@ -14,6 +14,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
@@ -41,15 +42,6 @@ class SqlController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['display_query'] ??= null;
-        $GLOBALS['ajax_reload'] ??= null;
-        $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['import_text'] ??= null;
-        $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['complete_query'] ??= null;
-
         $this->pageSettings->init('Browse');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -60,13 +52,6 @@ class SqlController implements InvocableController
             'gis_data_editor.js',
             'multi_column_sort.js',
         ]);
-
-        /**
-         * Set ajax_reload in the response if it was already set
-         */
-        if (isset($GLOBALS['ajax_reload']) && $GLOBALS['ajax_reload']['reload'] === true) {
-            $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
-        }
 
         /**
          * Defines the url to return to in case of error in a sql statement
@@ -191,13 +176,13 @@ class SqlController implements InvocableController
             $isGotofile,
             Current::$database,
             Current::$table,
-            $GLOBALS['import_text'] ?? '',
-            $GLOBALS['message_to_show'] ?? '',
+            Import::$importText,
+            Current::$messageToShow ?? '',
             UrlParams::$goto,
-            isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
-            $GLOBALS['disp_message'] ?? '',
+            isset(Current::$dispQuery) ? Current::$displayQuery : null,
+            Current::$displayMessage ?? '',
             Current::$sqlQuery,
-            $GLOBALS['complete_query'] ?? Current::$sqlQuery,
+            Current::$completeQuery ?? Current::$sqlQuery,
         ));
 
         return $this->response->response();

@@ -192,6 +192,9 @@ class Results
 
     public Template $template;
 
+    /** @var list<string|null> */
+    public static array $row = [];
+
     /**
      * @param string $db       the database name
      * @param string $table    the table name
@@ -1599,7 +1602,6 @@ class Results
             || ($this->config->settings['RowActionLinks'] === self::POSITION_BOTH)
             && (! $displayParts->hasEditLink
             && $displayParts->deleteLink === DeleteLinkEnum::NO_DELETE)
-            && (! isset($GLOBALS['is_header_sent']) || ! $GLOBALS['is_header_sent'])
         ) {
             //     ... elseif no button, displays empty columns if required
             // (unless coming from Browse mode print view)
@@ -1765,8 +1767,6 @@ class Results
     ): string {
         // Mostly because of browser transformations, to make the row-data accessible in a plugin.
 
-        $GLOBALS['row'] ??= null;
-
         $tableBodyHtml = '';
 
         // query without conditions to shorten URLs when needed, 200 is just
@@ -1798,7 +1798,7 @@ class Results
         // table being displayed has one or more keys; but to display
         // delete/edit options correctly for tables without keys.
 
-        while ($GLOBALS['row'] = $dtResult->fetchRow()) {
+        while (self::$row = $dtResult->fetchRow()) {
             // add repeating headers
             if (
                 $rowNumber !== 0 && $_SESSION['tmpval']['repeat_cells'] > 0
@@ -1853,7 +1853,7 @@ class Results
                  */
                 $uniqueCondition = new UniqueCondition(
                     $this->fieldsMeta,
-                    $GLOBALS['row'],
+                    self::$row,
                     false,
                     $this->table,
                     $expressions,
@@ -1880,7 +1880,7 @@ class Results
                     $clauseIsUnique,
                     $urlSqlQuery,
                     $displayParts->deleteLink,
-                    (int) $GLOBALS['row'][0],
+                    (int) self::$row[0],
                 );
 
                 // 1.3 Displays the links at left if required
@@ -1942,7 +1942,7 @@ class Results
             }
 
             $tableBodyHtml .= $this->getRowValues(
-                $GLOBALS['row'],
+                self::$row,
                 $rowNumber,
                 $colOrder,
                 $map,

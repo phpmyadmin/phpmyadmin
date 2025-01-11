@@ -143,8 +143,6 @@ class EncodingTest extends AbstractTestCase
             Encoding::kanjiStrConv('test', '', ''),
         );
 
-        $GLOBALS['kanji_encoding_list'] = 'ASCII,SJIS,EUC-JP,JIS';
-
         self::assertSame(
             'test è',
             Encoding::kanjiStrConv('test è', '', ''),
@@ -169,7 +167,6 @@ class EncodingTest extends AbstractTestCase
         $fileStr = '教育漢字常用漢字';
         $filename = 'test.kanji';
         self::assertNotFalse(file_put_contents($filename, $fileStr));
-        $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
         $result = Encoding::kanjiFileConv($filename, 'JIS', 'kana');
 

@@ -35,6 +35,8 @@ use function urldecode;
  */
 class Operations
 {
+    public static string $autoIncrement = '';
+
     public function __construct(
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
@@ -633,8 +635,6 @@ class Operations
         string $tableCollation,
         string $tableStorageEngine,
     ): array {
-        $GLOBALS['auto_increment'] ??= null;
-
         $tableAlters = [];
 
         if (isset($_POST['comment']) && urldecode($_POST['prev_comment']) !== $_POST['comment']) {
@@ -684,8 +684,7 @@ class Operations
         if (
             $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
             && ! empty($_POST['new_auto_increment'])
-            && (! isset($GLOBALS['auto_increment'])
-            || $_POST['new_auto_increment'] !== $GLOBALS['auto_increment'])
+            && $_POST['new_auto_increment'] !== self::$autoIncrement
             && $_POST['new_auto_increment'] !== $_POST['hidden_auto_increment']
         ) {
             $tableAlters[] = 'auto_increment = ' . (int) $_POST['new_auto_increment'];

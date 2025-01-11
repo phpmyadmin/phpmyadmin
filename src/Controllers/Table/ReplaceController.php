@@ -70,10 +70,6 @@ final class ReplaceController implements InvocableController
             return $this->response->missingParameterError('goto');
         }
 
-        $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['disp_message'] ??= null;
-
         $this->dbi->selectDb(Current::$database);
 
         $this->response->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
@@ -111,7 +107,7 @@ final class ReplaceController implements InvocableController
         $queryFields = [];
         $insertErrors = [];
         $rowSkipped = false;
-        $GLOBALS['unsaved_values'] = [];
+        ChangeController::$unsavedValues = [];
         /** @var string|int $whereClause */
         foreach ($loopArray as $rowNumber => $whereClause) {
             // skip fields to be ignored
@@ -242,7 +238,7 @@ final class ReplaceController implements InvocableController
             // temporarily store rows not inserted
             // so that they can be populated again.
             if ($insertFail) {
-                $GLOBALS['unsaved_values'][$rowNumber] = $multiEditColumns;
+                ChangeController::$unsavedValues[$rowNumber] = $multiEditColumns;
             }
 
             if ($insertFail || $queryValues === []) {
@@ -323,7 +319,7 @@ final class ReplaceController implements InvocableController
 
         if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
             Current::$message = Message::getMessageForInsertedRows($totalAffectedRows);
-            $GLOBALS['unsaved_values'] = array_values($GLOBALS['unsaved_values']);
+            ChangeController::$unsavedValues = array_values(ChangeController::$unsavedValues);
         } else {
             Current::$message = Message::getMessageForAffectedRows($totalAffectedRows);
         }
@@ -364,8 +360,8 @@ final class ReplaceController implements InvocableController
         }
 
         if (! empty($returnToSqlQuery)) {
-            $GLOBALS['disp_query'] = Current::$sqlQuery;
-            $GLOBALS['disp_message'] = Current::$message;
+            Current::$dispQuery = Current::$sqlQuery;
+            Current::$displayMessage = Current::$message;
             Current::$message = null;
             Current::$sqlQuery = $returnToSqlQuery;
         }
@@ -463,7 +459,7 @@ final class ReplaceController implements InvocableController
         $extraData['row_count'] = $tableObj->countRecords();
 
         Current::$message ??= Message::success();
-        $extraData['sql_query'] = Generator::getMessage(Current::$message, $GLOBALS['display_query']);
+        $extraData['sql_query'] = Generator::getMessage(Current::$message, Current::$displayQuery);
 
         $this->response->setRequestStatus(Current::$message->isSuccess());
         $this->response->addJSON('message', Current::$message);

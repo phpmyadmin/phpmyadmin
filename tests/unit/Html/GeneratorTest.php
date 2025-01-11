@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 use PhpMyAdmin\Util;
@@ -475,15 +476,14 @@ class GeneratorTest extends AbstractTestCase
     public function testGetMessage(): void
     {
         Config::getInstance()->settings['ShowSQL'] = true;
-        $GLOBALS['display_query'] = null;
+        Current::$displayQuery = null;
         Current::$sqlQuery = 'SELECT 1;';
-        $usingBookmarkMessage = Message::notice('Bookmark message');
-        $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
+        Sql::$usingBookmarkMessage = Message::notice('Bookmark message');
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Current::$server = 2;
-        $GLOBALS['special_message'] = 'Message [em]two[/em].';
+        Sql::$showAsPhp = null;
         SessionCache::set('profiling_supported', true);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -493,7 +493,7 @@ class GeneratorTest extends AbstractTestCase
 </div>
 <div class="card mb-3 result_query">
 <div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>. Message <em>two</em>.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>.
 </div>
 <div class="card-body sqlOuter"><code class="sql" dir="ltr"><pre>
 SELECT 1;
@@ -520,8 +520,6 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
-        self::assertArrayNotHasKey('using_bookmark_message', $GLOBALS);
-        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 
@@ -531,21 +529,20 @@ HTML;
         $config->settings['ShowSQL'] = true;
         $config->settings['SQLQuery']['Edit'] = false;
         $config->settings['SQLQuery']['Refresh'] = true;
-        $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
+        Current::$displayQuery = 'EXPLAIN SELECT 1;';
         Current::$sqlQuery = '';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Current::$server = 2;
-        $GLOBALS['show_as_php'] = true;
-        $GLOBALS['special_message'] = 'Message [em]two[/em].';
+        Sql::$showAsPhp = true;
         SessionCache::set('profiling_supported', true);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
 <div class="card mb-3 result_query">
 <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>.
 </div>
 <div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
 $sql = "EXPLAIN SELECT 1;";
@@ -565,7 +562,6 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));
-        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 }

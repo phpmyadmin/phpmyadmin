@@ -235,7 +235,7 @@ class DbiMysqli implements DbiExtension
      */
     public function getError(Connection $connection): string
     {
-        $GLOBALS['errno'] = 0;
+        DatabaseInterface::$errorNumber = 0;
 
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
@@ -249,7 +249,7 @@ class DbiMysqli implements DbiExtension
 
         // keep the error number for further check after
         // the call to getError()
-        $GLOBALS['errno'] = $errorNumber;
+        DatabaseInterface::$errorNumber = $errorNumber;
 
         return Utilities::formatError($errorNumber, $errorMessage);
     }

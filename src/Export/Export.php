@@ -74,6 +74,28 @@ class Export
     /** @var mixed[] */
     public array $dumpBufferObjects = [];
 
+    public static bool $asFile = false;
+    public static bool $saveOnServer = false;
+    public static bool $outputCharsetConversion = false;
+    public static bool $outputKanjiConversion = false;
+    public static bool $bufferNeeded = false;
+    public static bool $singleTable = false;
+
+    /** @var ''|'none'|'zip'|'gzip' */
+    public static string $compression = '';
+
+    /** @var resource|null */
+    public static mixed $fileHandle = null;
+    public static string $kanjiEncoding = '';
+    public static string $xkana = '';
+    public static string $maxSize = '';
+    public static int $memoryLimit = 0;
+    public static bool $onFlyCompression = false;
+    /** @var array<string> */
+    public static array $tableData = [];
+    public static string $saveFilename = '';
+    public static int $timeStart = 0;
+
     public function __construct(private DatabaseInterface $dbi)
     {
     }
@@ -119,7 +141,7 @@ class Export
         return function_exists('gzencode')
             && ((! ini_get('zlib.output_compression')
                     && ! $this->isGzHandlerEnabled())
-                || $GLOBALS['save_on_server']
+                || self::$saveOnServer
                 || Config::getInstance()->get('PMA_USR_BROWSER_AGENT') === 'CHROME');
     }
 
@@ -131,40 +153,41 @@ class Export
      */
     public function outputHandler(string $line): bool
     {
-        $GLOBALS['time_start'] ??= null;
-        $GLOBALS['save_filename'] ??= null;
-
         // Kanji encoding convert feature
-        if ($GLOBALS['output_kanji_conversion']) {
-            $line = Encoding::kanjiStrConv($line, $GLOBALS['knjenc'], $GLOBALS['xkana'] ?? '');
+        if (self::$outputKanjiConversion) {
+            $line = Encoding::kanjiStrConv($line, self::$kanjiEncoding, self::$xkana);
         }
 
         // If we have to buffer data, we will perform everything at once at the end
-        if ($GLOBALS['buffer_needed']) {
+        if (self::$bufferNeeded) {
             $this->dumpBuffer .= $line;
-            if ($GLOBALS['onfly_compression']) {
+            if (self::$onFlyCompression) {
                 $this->dumpBufferLength += strlen($line);
 
-                if ($this->dumpBufferLength > $GLOBALS['memory_limit']) {
-                    if ($GLOBALS['output_charset_conversion']) {
-                        $this->dumpBuffer = Encoding::convertString('utf-8', $GLOBALS['charset'], $this->dumpBuffer);
+                if ($this->dumpBufferLength > self::$memoryLimit) {
+                    if (self::$outputCharsetConversion) {
+                        $this->dumpBuffer = Encoding::convertString(
+                            'utf-8',
+                            Current::$charset ?? 'utf-8',
+                            $this->dumpBuffer,
+                        );
                     }
 
-                    if ($GLOBALS['compression'] === 'gzip' && $this->gzencodeNeeded()) {
+                    if (self::$compression === 'gzip' && $this->gzencodeNeeded()) {
                         // as a gzipped file
                         // without the optional parameter level because it bugs
                         $this->dumpBuffer = (string) gzencode($this->dumpBuffer);
                     }
 
-                    if ($GLOBALS['save_on_server']) {
-                        $writeResult = @fwrite($GLOBALS['file_handle'], $this->dumpBuffer);
+                    if (self::$saveOnServer) {
+                        $writeResult = @fwrite(self::$fileHandle, $this->dumpBuffer);
                         // Here, use strlen rather than mb_strlen to get the length
                         // in bytes to compare against the number of bytes written.
                         if ($writeResult != strlen($this->dumpBuffer)) {
                             Current::$message = Message::error(
                                 __('Insufficient space to save the file %s.'),
                             );
-                            Current::$message->addParam($GLOBALS['save_filename']);
+                            Current::$message->addParam(self::$saveFilename);
 
                             return false;
                         }
@@ -177,19 +200,19 @@ class Export
                 }
             } else {
                 $timeNow = time();
-                if ($GLOBALS['time_start'] >= $timeNow + 30) {
-                    $GLOBALS['time_start'] = $timeNow;
+                if (self::$timeStart >= $timeNow + 30) {
+                    self::$timeStart = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             }
-        } elseif ($GLOBALS['asfile']) {
-            if ($GLOBALS['output_charset_conversion']) {
-                $line = Encoding::convertString('utf-8', $GLOBALS['charset'], $line);
+        } elseif (self::$asFile) {
+            if (self::$outputCharsetConversion) {
+                $line = Encoding::convertString('utf-8', Current::$charset ?? 'utf-8', $line);
             }
 
-            if ($GLOBALS['save_on_server'] && $line !== '') {
-                if ($GLOBALS['file_handle'] !== null) {
-                    $writeResult = @fwrite($GLOBALS['file_handle'], $line);
+            if (self::$saveOnServer && $line !== '') {
+                if (self::$fileHandle !== null) {
+                    $writeResult = @fwrite(self::$fileHandle, $line);
                 } else {
                     $writeResult = false;
                 }
@@ -200,14 +223,14 @@ class Export
                     Current::$message = Message::error(
                         __('Insufficient space to save the file %s.'),
                     );
-                    Current::$message->addParam($GLOBALS['save_filename']);
+                    Current::$message->addParam(self::$saveFilename);
 
                     return false;
                 }
 
                 $timeNow = time();
-                if ($GLOBALS['time_start'] >= $timeNow + 30) {
-                    $GLOBALS['time_start'] = $timeNow;
+                if (self::$timeStart >= $timeNow + 30) {
+                    self::$timeStart = $timeNow;
                     header('X-pmaPing: Pong');
                 }
             } else {
@@ -613,7 +636,7 @@ class Export
                         break;
                     }
                 } elseif ($exportPlugin instanceof ExportSql && $exportPlugin->hasCreateTable()) {
-                    $tableSize = $GLOBALS['maxsize'];
+                    $tableSize = self::$maxSize;
                     // Checking if the maximum table size constrain has been set
                     // And if that constrain is a valid number or not
                     if ($tableSize !== '' && is_numeric($tableSize)) {

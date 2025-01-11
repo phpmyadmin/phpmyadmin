@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Import;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\FileListing;
@@ -62,6 +63,9 @@ class Import
 {
     private string|null $importRunBuffer = null;
     public static bool $hasError = false;
+    public static string $importText = '';
+    public static ResultInterface|false $result = false;
+    public static string $errorUrl = '';
 
     public function __construct()
     {
@@ -102,14 +106,14 @@ class Import
     public function executeQuery(string $sql, array &$sqlData): void
     {
         $dbi = DatabaseInterface::getInstance();
-        $GLOBALS['result'] = $dbi->tryQuery($sql);
+        self::$result = $dbi->tryQuery($sql);
 
         // USE query changes the database, son need to track
         // while running multiple queries
         $isUseQuery = mb_stripos($sql, 'use ') !== false;
 
         ImportSettings::$message = '# ';
-        if ($GLOBALS['result'] === false) {
+        if (self::$result === false) {
             ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $dbi->getError()];
 
             ImportSettings::$message .= __('Error');
@@ -120,7 +124,7 @@ class Import
                 return;
             }
         } else {
-            $aNumRows = (int) $GLOBALS['result']->numRows();
+            $aNumRows = (int) self::$result->numRows();
             $aAffectedRows = (int) @$dbi->affectedRows();
             if ($aNumRows > 0) {
                 ImportSettings::$message .= __('Rows') . ': ' . $aNumRows;
@@ -142,20 +146,20 @@ class Import
 
         // If a 'USE <db>' SQL-clause was found and the query
         // succeeded, set our current $db to the new one
-        if ($GLOBALS['result'] != false) {
+        if (self::$result !== false) {
             $dbNameInsideUse = $this->lookForUse($sql);
             if ($dbNameInsideUse !== '') {
                 Current::$database = $dbNameInsideUse;
-                $GLOBALS['reload'] = true;
+                ResponseRenderer::$reload = true;
             }
         }
 
         $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im';
-        if ($GLOBALS['result'] == false || preg_match($pattern, $sql) !== 1) {
+        if (self::$result === false || preg_match($pattern, $sql) !== 1) {
             return;
         }
 
-        $GLOBALS['reload'] = true;
+        ResponseRenderer::$reload = true;
     }
 
     /**
@@ -167,9 +171,6 @@ class Import
      */
     public function runQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['display_query'] ??= null;
-
         ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
             // Do we have something to push into buffer?
@@ -201,11 +202,11 @@ class Import
             ImportSettings::$goSql = true;
 
             if (! ImportSettings::$sqlQueryDisabled) {
-                $GLOBALS['complete_query'] = Current::$sqlQuery;
-                $GLOBALS['display_query'] = Current::$sqlQuery;
+                Current::$completeQuery = Current::$sqlQuery;
+                Current::$displayQuery = Current::$sqlQuery;
             } else {
-                $GLOBALS['complete_query'] = '';
-                $GLOBALS['display_query'] = '';
+                Current::$completeQuery = '';
+                Current::$displayQuery = '';
             }
 
             Current::$sqlQuery = $this->importRunBuffer;
@@ -300,15 +301,15 @@ class Import
         if (ImportSettings::$importFile === 'none') {
             // Well this is not yet supported and tested,
             // but should return content of textarea
-            if (mb_strlen($GLOBALS['import_text']) < $size) {
+            if (mb_strlen(self::$importText) < $size) {
                 ImportSettings::$finished = true;
 
-                return $GLOBALS['import_text'];
+                return self::$importText;
             }
 
-            $r = mb_substr($GLOBALS['import_text'], 0, $size);
+            $r = mb_substr(self::$importText, 0, $size);
             ImportSettings::$offset += $size;
-            $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
+            self::$importText = mb_substr(self::$importText, $size);
 
             return $r;
         }

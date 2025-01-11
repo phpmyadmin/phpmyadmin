@@ -315,7 +315,6 @@ class PrivilegesTest extends AbstractTestCase
     public function testAddUser(): void
     {
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['username'] = 'pma_username';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT \'1\' FROM `mysql`.`user` WHERE `User` = \'\' AND `Host` = \'localhost\';', []);
@@ -333,6 +332,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
+        $serverPrivileges->username = 'pma_username';
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'localhost';
@@ -380,7 +380,7 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $GLOBALS['username'] = 'username';
+        $serverPrivileges->username = 'username';
         $dbname = 'pma_dbname';
         $username = 'pma_username';
         $hostname = 'localhost';
@@ -599,13 +599,12 @@ class PrivilegesTest extends AbstractTestCase
 
     public function testGetHtmlToDisplayPrivilegesTable(): void
     {
-        $GLOBALS['hostname'] = 'hostname';
-        $GLOBALS['username'] = 'username';
         $dbi = $this->createDatabaseInterface();
 
         $serverPrivileges = $this->getPrivileges($dbi);
+        $serverPrivileges->username = 'username';
+        $serverPrivileges->hostname = 'hostname';
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable();
-        $GLOBALS['username'] = 'username';
 
         //validate 2: button
         self::assertStringContainsString('Update user privileges', $html);
@@ -877,8 +876,8 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges->dbi = $dbi;
 
-        $GLOBALS['username'] = 'PMA_username';
-        $GLOBALS['hostname'] = 'PMA_hostname';
+        $serverPrivileges->username = 'PMA_username';
+        $serverPrivileges->hostname = 'PMA_hostname';
         $html = $serverPrivileges->getHtmlToDisplayPrivilegesTable('PMA_db', 'PMA_table');
 
         self::assertStringContainsString('checkbox_Update_priv_none', $html);
@@ -917,7 +916,7 @@ class PrivilegesTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $serverPrivileges = $this->getPrivileges($dbi);
 
-        $GLOBALS['username'] = 'pma_username';
+        $serverPrivileges->username = 'pma_username';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -1473,8 +1472,8 @@ class PrivilegesTest extends AbstractTestCase
 
         $serverPrivileges = $this->getPrivileges($this->dbi);
 
-        $GLOBALS['username'] = 'user';
-        $GLOBALS['hostname'] = 'host';
+        $serverPrivileges->username = 'user';
+        $serverPrivileges->hostname = 'host';
 
         $actual = $serverPrivileges->getHtmlForUserProperties(
             false,

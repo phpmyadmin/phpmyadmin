@@ -51,6 +51,10 @@ use function ucwords;
  */
 class Sql
 {
+    private float $queryTime = 0;
+    public static bool|null $showAsPhp = null;
+    public static Message|null $usingBookmarkMessage = null;
+
     public function __construct(
         private DatabaseInterface $dbi,
         private Relation $relation,
@@ -436,13 +440,9 @@ class Sql
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
-            $GLOBALS['using_bookmark_message'] = Message::notice(
-                __('Using bookmark "%s" as default browse query.'),
-            );
-            $GLOBALS['using_bookmark_message']->addParam($table);
-            $GLOBALS['using_bookmark_message']->addHtml(
-                MySQLDocumentation::showDocumentation('faq', 'faq6-22'),
-            );
+            self::$usingBookmarkMessage = Message::notice(__('Using bookmark "%s" as default browse query.'));
+            self::$usingBookmarkMessage->addParam($table);
+            self::$usingBookmarkMessage->addHtml(MySQLDocumentation::showDocumentation('faq', 'faq6-22'));
 
             return $bookmark->getQuery();
         }
@@ -736,7 +736,7 @@ class Sql
         }
 
         $result = $this->dbi->tryQuery($fullSqlQuery);
-        $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
+        $this->queryTime = $this->dbi->lastQueryExecutionTime;
 
         if (! defined('TESTSUITE')) {
             // reopen session
@@ -853,9 +853,9 @@ class Sql
             // the form should not have priority over errors
         } elseif ($messageToShow !== '' && $statementInfo->flags->queryType !== StatementType::Select) {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
-        } elseif (! empty($GLOBALS['show_as_php'])) {
+        } elseif (! empty(self::$showAsPhp)) {
             $message = Message::success(__('Showing as PHP code'));
-        } elseif (isset($GLOBALS['show_as_php'])) {
+        } elseif (isset(self::$showAsPhp)) {
             /* User disable showing as PHP, query is only displayed */
             $message = Message::notice(__('Showing SQL query'));
         } else {
@@ -864,11 +864,11 @@ class Sql
             );
         }
 
-        if (isset($GLOBALS['querytime'])) {
+        if ($this->queryTime > 0) {
             $queryTime = Message::notice(
                 '(' . __('Query took %01.4f seconds.') . ')',
             );
-            $queryTime->addParam($GLOBALS['querytime']);
+            $queryTime->addParam($this->queryTime);
             $message->addMessage($queryTime);
         }
 
@@ -930,12 +930,12 @@ class Sql
 
         $queryMessage = Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
 
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(self::$showAsPhp)) {
             return $queryMessage;
         }
 
         $extraData = [];
-        if (! empty($GLOBALS['reload'])) {
+        if (ResponseRenderer::$reload) {
             $extraData['reload'] = 1;
             $extraData['db'] = Current::$database;
         }
@@ -1104,7 +1104,7 @@ class Sql
             $statementInfo->flags->isFunc,
             $statementInfo->flags->isAnalyse,
             $numRows,
-            $GLOBALS['querytime'],
+            $this->queryTime,
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1139,7 +1139,7 @@ class Sql
                     $statementInfo->flags->isFunc,
                     $statementInfo->flags->isAnalyse,
                     $numRows,
-                    $GLOBALS['querytime'],
+                    $this->queryTime,
                     $statementInfo->flags->isMaint,
                     $statementInfo->flags->queryType === StatementType::Explain,
                     $statementInfo->flags->queryType === StatementType::Show,
@@ -1358,9 +1358,6 @@ class Sql
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
             Current::$message = null;
-            //we don't need to buffer the output in getMessage here.
-            //set a global variable and check against it in the function
-            $GLOBALS['buffer_message'] = false;
         }
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
@@ -1532,10 +1529,10 @@ class Sql
             $fullSqlQuery = $this->getSqlWithLimitClause($statementInfo);
         }
 
-        $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
+        ResponseRenderer::$reload = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(self::$showAsPhp)) {
             // Only if we ask to see the php code
             // The following was copied from getQueryResponseForNoResultsReturned()
             // Delete if it's not needed in this context

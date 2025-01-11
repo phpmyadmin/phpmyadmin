@@ -2110,30 +2110,6 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 2
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: '#^Parameter \#2 \$array of method PhpMyAdmin\\Export\\Export\:\:getCheckedClause\(\) expects array\<mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
-			message: '#^Parameter \#6 \$unlimNumRows of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -2673,12 +2649,6 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 4
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
 			count: 2
 			path: src/Controllers/Export/ExportController.php
 
@@ -2695,15 +2665,9 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Only booleans are allowed in an elseif condition, mixed given\.$#'
-			identifier: elseif.condNotBoolean
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
+			message: '#^Only booleans are allowed in an if condition, string given\.$#'
 			identifier: if.condNotBoolean
-			count: 5
+			count: 1
 			path: src/Controllers/Export/ExportController.php
 
 		-
@@ -2719,37 +2683,7 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#1 \$fileHandle of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects resource, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#2 \$compression of method PhpMyAdmin\\Export\\Export\:\:compress\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#2 \$compression of method PhpMyAdmin\\Export\\Export\:\:getFinalFilename\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#2 \$compression of method PhpMyAdmin\\Export\\Export\:\:getMimeType\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#2 \$destCharset of static method PhpMyAdmin\\Encoding\:\:convertString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Export/ExportController.php
-
-		-
-			message: '#^Parameter \#3 \$saveFilename of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$fileHandle of method PhpMyAdmin\\Export\\Export\:\:closeFile\(\) expects resource, resource\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Export/ExportController.php
@@ -2761,15 +2695,21 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Parameter \#4 \$tableData of method PhpMyAdmin\\Export\\Export\:\:exportDatabase\(\) expects array\<string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
+			message: '#^Property PhpMyAdmin\\Export\\Export\:\:\$dumpBuffer \(string\) does not accept array\|bool\|string\.$#'
+			identifier: assign.propertyType
 			count: 2
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Export\\Export\:\:\$dumpBuffer \(string\) does not accept array\|bool\|string\.$#'
+			message: '#^Static property PhpMyAdmin\\Export\\Export\:\:\$compression \(''''\|''gzip''\|''none''\|''zip''\) does not accept string\.$#'
 			identifier: assign.propertyType
-			count: 2
+			count: 1
+			path: src/Controllers/Export/ExportController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Export\\Export\:\:\$tableData \(array\<string\>\) does not accept array\<mixed, mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
 			path: src/Controllers/Export/ExportController.php
 
 		-
@@ -2905,18 +2845,6 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: '#^Cannot access offset ''reload'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 5
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: '#^Cannot access offset ''table_name'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: '#^Casting to string something that''s already string\.$#'
 			identifier: cast.useless
 			count: 1
@@ -2931,13 +2859,13 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 7
+			count: 4
 			path: src/Controllers/Import/ImportController.php
 
 		-
 			message: '#^If condition is always false\.$#'
 			identifier: if.alwaysFalse
-			count: 1
+			count: 2
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -2965,19 +2893,7 @@ parameters:
 			path: src/Controllers/Import/ImportController.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
 			message: '#^Parameter \#2 \$size of method PhpMyAdmin\\Import\\Import\:\:getNextChunk\(\) expects int, float\|int\<min, \-1\>\|int\<1, max\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: '#^Parameter \#2 \$subject of function preg_match expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -2985,7 +2901,7 @@ parameters:
 		-
 			message: '#^Parameter \#4 \$backUrl of static method PhpMyAdmin\\Html\\Generator\:\:mysqlDie\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Controllers/Import/ImportController.php
 
 		-
@@ -3008,6 +2924,12 @@ parameters:
 
 		-
 			message: '#^Strict comparison using \=\=\= between 0 and 0 will always evaluate to true\.$#'
+			identifier: identical.alwaysTrue
+			count: 1
+			path: src/Controllers/Import/ImportController.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between false and false will always evaluate to true\.$#'
 			identifier: identical.alwaysTrue
 			count: 1
 			path: src/Controllers/Import/ImportController.php
@@ -3154,12 +3076,6 @@ parameters:
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 5
-			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
 			path: src/Controllers/Operations/TableController.php
 
 		-
@@ -3454,18 +3370,6 @@ parameters:
 			path: src/Controllers/Server/DatabasesController.php
 
 		-
-			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
-			message: '#^Parameter \#6 \$unlimNumRows of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/ExportController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -3505,97 +3409,13 @@ parameters:
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 2
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) has parameter \$selectedUsers with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
 
 		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Controllers\\Server\\PrivilegesController\:\:getExportPageTitle\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getExportUserDefinitionTextarea\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForRoutineSpecificPrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:updatePrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForRoutineSpecificPrivileges\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
 			message: '#^Parameter \#2 \$initial of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserOverview\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$username of method PhpMyAdmin\\Server\\Privileges\:\:addUser\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getDbSpecificPrivsQueriesForChangeOrCopyUser\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#2 \$username of method PhpMyAdmin\\Server\\Privileges\:\:updatePassword\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getMessageAndSqlQueryForPrivilegesRevoke\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getHtmlForUserProperties\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Server/PrivilegesController.php
-
-		-
-			message: '#^Parameter \#4 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getExtraDataForAjaxBehavior\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/PrivilegesController.php
@@ -3856,12 +3676,6 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Cannot access offset ''reload'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 3
@@ -3874,37 +3688,7 @@ parameters:
 			path: src/Controllers/Sql/SqlController.php
 
 		-
-			message: '#^Parameter \#11 \$completeQuery of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: '#^Parameter \#5 \$sqlQueryForBookmark of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: '#^Parameter \#6 \$messageToShow of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: '#^Parameter \#8 \$dispQuery of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: '#^Parameter \#9 \$dispMessage of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
@@ -3958,27 +3742,9 @@ parameters:
 			path: src/Controllers/Table/AddFieldController.php
 
 		-
-			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 2
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#1 \$files of method PhpMyAdmin\\ResponseRenderer\:\:addScriptFiles\(\) expects list\<string\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#1 \$message of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
 		-
@@ -3989,24 +3755,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$sqlQuery of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#1 \$whereClause of method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) expects array\<string\>\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Parameter \#1 \$whereClause of static method PhpMyAdmin\\InsertEdit\:\:isWhereClauseNumeric\(\) expects array\<string\>\|string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
@@ -4052,6 +3800,18 @@ parameters:
 			identifier: ternary.shortNotAllowed
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Controllers/Table/ChangeController.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Controllers/Table/ChangeRowsController.php
 
 		-
 			message: '#^Binary operation "\+" between int\|string and mixed results in an error\.$#'
@@ -4174,18 +3934,6 @@ parameters:
 			path: src/Controllers/Table/DeleteRowsController.php
 
 		-
-			message: '#^Parameter \#8 \$dispQuery of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: '#^Parameter \#9 \$dispMessage of method PhpMyAdmin\\Sql\:\:executeQueryAndSendQueryResponse\(\) expects PhpMyAdmin\\Message\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
@@ -4224,7 +3972,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Controllers/Table/ExportController.php
 
 		-
@@ -4234,16 +3982,10 @@ parameters:
 			path: src/Controllers/Table/ExportController.php
 
 		-
-			message: '#^Parameter \#5 \$numTables of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
+			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept list\<mixed\>\.$#'
+			identifier: assign.propertyType
 			count: 1
-			path: src/Controllers/Table/ExportController.php
-
-		-
-			message: '#^Parameter \#6 \$unlimNumRows of method PhpMyAdmin\\Export\\Options\:\:getOptions\(\) expects int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ExportController.php
+			path: src/Controllers/Table/ExportRowsController.php
 
 		-
 			message: '''
@@ -4584,7 +4326,7 @@ parameters:
 		-
 			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 11
+			count: 10
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
@@ -4642,12 +4384,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Parameter \#1 \$array of function array_values expects array\<T\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Parameter \#1 \$columnName of class PhpMyAdmin\\EditField constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4661,12 +4397,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$relationField of method PhpMyAdmin\\InsertEdit\:\:getLinkForRelationalDisplayField\(\) expects string, \(int\|string\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Parameter \#2 \$sqlQuery of static method PhpMyAdmin\\Html\\Generator\:\:getMessage\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
@@ -5439,18 +5169,6 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\UserPassword\:\:getFormForChangePassword\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/UserPasswordController.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\UserPassword\:\:getFormForChangePassword\(\) expects string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/UserPasswordController.php
 
@@ -7095,7 +6813,7 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 5
+			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -7747,32 +7465,8 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: '#^Only booleans are allowed in an elseif condition, mixed given\.$#'
-			identifier: elseif.condNotBoolean
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 6
-			path: src/Export/Export.php
-
-		-
-			message: '#^Only booleans are allowed in \|\|, mixed given on the right side\.$#'
-			identifier: booleanOr.rightNotBoolean
 			count: 1
 			path: src/Export/Export.php
 
@@ -7783,9 +7477,9 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Parameter \#1 \$stream of function fwrite expects resource, mixed given\.$#'
+			message: '#^Parameter \#1 \$stream of function fwrite expects resource, resource\|null given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -7798,24 +7492,6 @@ parameters:
 			message: '#^Parameter \#2 \$dbAlias of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:exportDBHeader\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Export/Export.php
-
-		-
-			message: '#^Parameter \#2 \$destCharset of static method PhpMyAdmin\\Encoding\:\:convertString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Export/Export.php
-
-		-
-			message: '#^Parameter \#2 \$enc of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Export/Export.php
-
-		-
-			message: '#^Parameter \#3 \$kana of static method PhpMyAdmin\\Encoding\:\:kanjiStrConv\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Export/Export.php
 
 		-
@@ -7857,7 +7533,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/Export/Options.php
 
 		-
@@ -8911,12 +8587,6 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: '#^Binary operation "\.\=" between '''' and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -8965,27 +8635,15 @@ parameters:
 			path: src/Html/Generator.php
 
 		-
-			message: '#^Cannot call method getDisplay\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 5
 			path: src/Html/Generator.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Html/Generator.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 12
+			count: 11
 			path: src/Html/Generator.php
 
 		-
@@ -8997,12 +8655,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
-			count: 1
-			path: src/Html/Generator.php
-
-		-
-			message: '#^Parameter \#1 \$message of method PhpMyAdmin\\Message\:\:addText\(\) expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Html/Generator.php
 
@@ -9318,18 +8970,12 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
+			count: 1
 			path: src/Import/Import.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 2
-			path: src/Import/Import.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Import\\Import\:\:getNextChunk\(\) should return bool\|string but returns mixed\.$#'
-			identifier: return.type
 			count: 1
 			path: src/Import/Import.php
 
@@ -9361,18 +9007,6 @@ parameters:
 			message: '#^Parameter \#1 \$sql of method PhpMyAdmin\\Import\\Import\:\:runQuery\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_strlen expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Import/Import.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_substr expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Import/Import.php
 
 		-
@@ -9752,12 +9386,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$whereClauseArray of method PhpMyAdmin\\InsertEdit\:\:analyzeWhereClauses\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -11014,12 +10642,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationConfig.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 2
-			path: src/Plugins/Auth/AuthenticationConfig.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -11065,15 +10687,9 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 21
+			count: 18
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -11085,7 +10701,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 2
+			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -11103,12 +10719,6 @@ parameters:
 		-
 			message: '#^Only booleans are allowed in an elseif condition, string\|false given\.$#'
 			identifier: elseif.condNotBoolean
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
 			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
@@ -11157,7 +10767,7 @@ parameters:
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -11167,15 +10777,15 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{host\: mixed, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Plugins/Auth/AuthenticationCookie.php
-
-		-
 			message: '#^Property PhpMyAdmin\\Plugins\\AuthenticationPlugin\:\:\$password \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 2
+			path: src/Plugins/Auth/AuthenticationCookie.php
+
+		-
+			message: '#^Static property PhpMyAdmin\\Plugins\\Auth\\AuthenticationCookie\:\:\$authServer \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
 			path: src/Plugins/Auth/AuthenticationCookie.php
 
 		-
@@ -11209,12 +10819,6 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationHttp.php
 
 		-
-			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
-			identifier: notEqual.notAllowed
-			count: 1
-			path: src/Plugins/Auth/AuthenticationHttp.php
-
-		-
 			message: '#^Only booleans are allowed in &&, string given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
@@ -11229,12 +10833,6 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$known_string of function hash_equals expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Plugins/Auth/AuthenticationHttp.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Plugins\\AuthenticationPlugin\:\:\$password \(string\) does not accept mixed\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: src/Plugins/Auth/AuthenticationHttp.php
 
@@ -11306,12 +10904,6 @@ parameters:
 			identifier: assign.propertyType
 			count: 1
 			path: src/Plugins/Auth/AuthenticationSignon.php
-
-		-
-			message: '#^Binary operation "\." between ''\#'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/AuthenticationPlugin.php
 
 		-
 			message: '''
@@ -11492,12 +11084,6 @@ parameters:
 			identifier: argument.type
 			count: 3
 			path: src/Plugins/Export/ExportExcel.php
-
-		-
-			message: '#^Binary operation "\." between ''\<html xmlns\:o\="urn…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
 			message: '''
@@ -11947,12 +11533,6 @@ parameters:
 			path: src/Plugins/Export/ExportPhparray.php
 
 		-
-			message: '#^Binary operation "\." between ''SET time_zone \= "'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -11973,7 +11553,7 @@ parameters:
 		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -12063,7 +11643,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 27
+			count: 25
 			path: src/Plugins/Export/ExportSql.php
 
 		-
@@ -12133,12 +11713,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Parameter \#2 \$haystack of function in_array expects array, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Parameter \#2 \$id of method PhpMyAdmin\\Plugins\\ExportPlugin\:\:getAlias\(\) expects string, bool\|float\|int\|string given\.$#'
 			identifier: argument.type
 			count: 1
@@ -12193,6 +11767,12 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
+			message: '#^Static property PhpMyAdmin\\Plugins\\Export\\ExportSql\:\:\$oldTimezone \(string\) does not accept string\|false\|null\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: src/Plugins/Export/ExportSql.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Dbal\\DatabaseInterface\:
 				Use dependency injection instead\.$#
@@ -12242,12 +11822,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Plugins/Export/ExportTexytext.php
-
-		-
-			message: '#^Binary operation "\." between ''\<\?xml version\="1\.0"…'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
 
 		-
 			message: '''
@@ -12306,12 +11880,6 @@ parameters:
 		-
 			message: '#^Foreach overwrites \$table with its value variable\.$#'
 			identifier: foreach.valueOverwrite
-			count: 1
-			path: src/Plugins/Export/ExportXml.php
-
-		-
-			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
-			identifier: ternary.condNotBoolean
 			count: 1
 			path: src/Plugins/Export/ExportXml.php
 
@@ -12415,6 +11983,12 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
+			message: '#^Binary operation "\-" between 0\|float and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: src/Plugins/Export/Helpers/Pdf.php
+
+		-
 			message: '#^Binary operation "\-" between mixed and \(float\|int\) results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 2
@@ -12435,7 +12009,7 @@ parameters:
 		-
 			message: '#^Binary operation "\-" between mixed and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 6
+			count: 5
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -12670,12 +12244,6 @@ parameters:
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Plugins\\Export\\Helpers\\Pdf\:\:\$dataY \(float\|int\) does not accept mixed\.$#'
-			identifier: assign.propertyType
-			count: 1
-			path: src/Plugins/Export/Helpers/Pdf.php
-
-		-
 			message: '#^Variable \$columnsCnt might not be defined\.$#'
 			identifier: variable.undefined
 			count: 6
@@ -12784,12 +12352,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: src/Plugins/Import/ImportCsv.php
-
-		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
@@ -12955,12 +12517,6 @@ parameters:
 			path: src/Plugins/Import/ImportShp.php
 
 		-
-			message: '#^Binary operation "\.\=" between mixed and bool\|string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -12978,7 +12534,7 @@ parameters:
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 2
+			count: 1
 			path: src/Plugins/Import/ImportShp.php
 
 		-
@@ -13003,18 +12559,6 @@ parameters:
 			message: '#^Offset ''dirname'' might not exist on array\{dirname\?\: string, basename\: string, extension\?\: string, filename\: string\}\.$#'
 			identifier: offsetAccess.notFound
 			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: '#^Parameter \#1 \$importHandle of method PhpMyAdmin\\Import\\Import\:\:getNextChunk\(\) expects PhpMyAdmin\\File\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Plugins/Import/ImportShp.php
-
-		-
-			message: '#^Parameter \#1 \$string of function substr expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Plugins/Import/ImportShp.php
 
 		-
@@ -13936,12 +13480,6 @@ parameters:
 			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
 			message: '#^Cannot access property \$name on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
@@ -14613,7 +14151,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 2
+			count: 1
 			path: src/ResponseRenderer.php
 
 		-
@@ -15085,31 +14623,13 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$string of function mb_strtolower expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Parameter \#1 \$string of function mb_substr expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getUserHostCondition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Parameter \#1 \$username of method PhpMyAdmin\\Server\\Privileges\:\:setUserGroup\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#2 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getUserHostCondition\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Server/Privileges.php
@@ -15139,21 +14659,9 @@ parameters:
 			path: src/Server/Privileges.php
 
 		-
-			message: '#^Parameter \#3 \$username of method PhpMyAdmin\\Server\\Privileges\:\:getSqlQueryForDisplayPrivTable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Server/Privileges.php
-
-		-
 			message: '#^Parameter \#4 \$dbname of method PhpMyAdmin\\Server\\Privileges\:\:getUserLink\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Server/Privileges.php
-
-		-
-			message: '#^Parameter \#4 \$hostname of method PhpMyAdmin\\Server\\Privileges\:\:getSqlQueryForDisplayPrivTable\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Server/Privileges.php
 
 		-
@@ -15774,7 +15282,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 12
+			count: 11
 			path: src/Sql.php
 
 		-
@@ -15913,12 +15421,6 @@ parameters:
 			message: '#^Parameter \#4 \$bookmarkLabel of method PhpMyAdmin\\Sql\:\:storeTheQueryAsBookmark\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Parameter \#8 \$queryTime of method PhpMyAdmin\\Display\\Results\:\:setProperties\(\) expects float, mixed given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/Sql.php
 
 		-
@@ -20965,6 +20467,12 @@ parameters:
 			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
 
 		-
+			message: '#^Static property PhpMyAdmin\\Display\\Results\:\:\$row \(list\<string\|null\>\) does not accept array\{pma\: ''aaa'', pca\: ''bbb''\}\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: tests/unit/Plugins/Transformations/TransformationPluginsTest.php
+
+		-
 			message: '#^PHPDoc tag @var with type array\{backend\: string, settings\: array\<mixed\>\} is not subtype of native type array\{backend\: '''', settings\: array\{\}\}\.$#'
 			identifier: varTag.nativeType
 			count: 1
@@ -21203,18 +20711,6 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/SqlTest.php
-
-		-
-			message: '#^Cannot access offset ''tmpval'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: tests/unit/SqlTest.php
-
-		-
-			message: '#^Method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:affectedRows\(\) should return int\|numeric\-string but returns mixed\.$#'
-			identifier: return.type
-			count: 1
-			path: tests/unit/Stubs/DbiDummy.php
 
 		-
 			message: '#^Method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:connect\(\) never returns null so it can be removed from the return type\.$#'

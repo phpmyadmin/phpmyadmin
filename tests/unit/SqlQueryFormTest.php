@@ -58,7 +58,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi, $bookmarkRepository);
 
-        //$GLOBALS
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
 

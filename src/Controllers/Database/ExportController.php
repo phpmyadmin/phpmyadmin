@@ -38,9 +38,6 @@ final class ExportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['table_select'] ??= null;
-        $GLOBALS['unlim_num_rows'] ??= null;
-
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
@@ -68,10 +65,10 @@ final class ExportController implements InvocableController
         UrlParams::$params['goto'] = Url::getFromRoute('/database/export');
 
         $tableNames = $this->export->getTableNames(Current::$database);
-        $GLOBALS['num_tables'] = count($tableNames);
+        Current::$numTables = count($tableNames);
 
         // exit if no tables in db found
-        if ($GLOBALS['num_tables'] < 1) {
+        if (Current::$numTables < 1) {
             $this->response->addHTML(
                 Message::error(__('No tables found in database.'))->getDisplay(),
             );
@@ -80,30 +77,26 @@ final class ExportController implements InvocableController
         }
 
         $selectedTable = $request->getParsedBodyParam('selected_tbl');
-        if (! empty($selectedTable) && empty($GLOBALS['table_select'])) {
-            $GLOBALS['table_select'] = $selectedTable;
-        }
-
+        $tableSelect = $request->getParsedBodyParam('table_select');
+        $tableStructure = $request->getParsedBodyParam('table_structure');
+        $tableData = $request->getParsedBodyParam('table_data');
         $tablesForMultiValues = [];
 
         foreach ($tableNames as $tableName) {
-            $tableSelect = $request->getParsedBodyParam('table_select');
             if (is_array($tableSelect)) {
                 $isChecked = $this->export->getCheckedClause($tableName, $tableSelect);
-            } elseif (isset($GLOBALS['table_select'])) {
-                $isChecked = $this->export->getCheckedClause($tableName, $GLOBALS['table_select']);
+            } elseif (is_array($selectedTable)) {
+                $isChecked = $this->export->getCheckedClause($tableName, $selectedTable);
             } else {
                 $isChecked = true;
             }
 
-            $tableStructure = $request->getParsedBodyParam('table_structure');
             if (is_array($tableStructure)) {
                 $structureChecked = $this->export->getCheckedClause($tableName, $tableStructure);
             } else {
                 $structureChecked = $isChecked;
             }
 
-            $tableData = $request->getParsedBodyParam('table_data');
             if (is_array($tableData)) {
                 $dataChecked = $this->export->getCheckedClause($tableName, $tableData);
             } else {
@@ -118,10 +111,6 @@ final class ExportController implements InvocableController
             ];
         }
 
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
         $isReturnBackFromRawExport = $request->getParsedBodyParam('export_type') === 'raw';
         if ($request->hasBodyParam('raw_query') || $isReturnBackFromRawExport) {
             $exportType = ExportType::Raw;
@@ -129,9 +118,11 @@ final class ExportController implements InvocableController
             $exportType = ExportType::Database;
         }
 
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
+        }
 
-        $exportList = Plugins::getExport($exportType, isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport($exportType, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
@@ -146,8 +137,8 @@ final class ExportController implements InvocableController
             Current::$database,
             Current::$table,
             Current::$sqlQuery,
-            $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            Current::$numTables,
+            0,
             $exportList,
         );
 

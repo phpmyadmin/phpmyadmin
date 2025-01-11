@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Display\Results;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
@@ -110,7 +111,7 @@ class TransformationPluginsTest extends AbstractTestCase
         // For Application Octetstream Download plugin
 
         $GLOBALS['fields_meta'] = [];
-        $GLOBALS['row'] = ['pma' => 'aaa', 'pca' => 'bbb'];
+        Results::$row = ['pma' => 'aaa', 'pca' => 'bbb'];
 
         // For Image_*_Inline plugin
         $this->setGlobalConfig();

@@ -35,9 +35,6 @@ final class DeleteRowsController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['disp_query'] ??= null;
-
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
@@ -74,8 +71,8 @@ final class DeleteRowsController implements InvocableController
 
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-            $GLOBALS['disp_message'] = __('Your SQL query has been executed successfully.');
-            $GLOBALS['disp_query'] = Current::$sqlQuery;
+            Current::$displayMessage = __('Your SQL query has been executed successfully.');
+            Current::$dispQuery = Current::$sqlQuery;
         }
 
         if ($request->hasBodyParam('original_sql_query')) {
@@ -90,8 +87,8 @@ final class DeleteRowsController implements InvocableController
             '',
             '',
             UrlParams::$goto,
-            $GLOBALS['disp_query'] ?? null,
-            $GLOBALS['disp_message'] ?? '',
+            Current::$dispQuery,
+            Current::$displayMessage ?? '',
             Current::$sqlQuery,
             Current::$sqlQuery,
         ));

@@ -133,7 +133,7 @@ final class RelationController implements InvocableController
         }
 
         if ($displayQuery !== '' && ! $seenError) {
-            $GLOBALS['display_query'] = $displayQuery;
+            Current::$displayQuery = $displayQuery;
             $this->response->addHTML(
                 Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),

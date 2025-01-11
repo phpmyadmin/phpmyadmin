@@ -85,7 +85,6 @@ class AuthenticationSignonTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $GLOBALS['header'] = [];
         $config = Config::getInstance();
         $config->selectedServer['SignonURL'] = 'https://example.com/SignonURL';
         $config->selectedServer['LogoutURL'] = '';
@@ -345,7 +344,7 @@ class AuthenticationSignonTest extends AbstractTestCase
     {
         Config::getInstance()->selectedServer['SignonSession'] = 'newSession';
         $_COOKIE['newSession'] = '42';
-        unset($GLOBALS['errno']);
+        DatabaseInterface::$errorNumber = null;
 
         $this->object = $this->getMockBuilder(AuthenticationSignon::class)
             ->disableOriginalConstructor()

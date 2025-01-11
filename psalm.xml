@@ -36,36 +36,4 @@
     <plugins>
         <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
     </plugins>
-
-    <globals>
-        <var name="GLOBALS" type="array{
-            asfile: bool,
-            buffer_needed: bool,
-            cached_affected_rows: int|numeric-string,
-            charset: string,
-            complete_query: string,
-            compression: 'none'|'zip'|'gzip',
-            conn_error: string,
-            display_query: string,
-            errno: int,
-            error: bool,
-            file_handle: resource|null,
-            from_cookie: bool,
-            hostname: string,
-            import_text: string,
-            knjenc: string,
-            maxsize: string,
-            memory_limit: int,
-            old_tz: string,
-            onfly_compression: bool,
-            output_charset_conversion: bool,
-            output_kanji_conversion: bool,
-            plugin_scripts: string[],
-            pma_auth_server: string,
-            querytime: float|int,
-            save_on_server: bool,
-            SESSION_KEY: string,
-            username: string
-        }"/>
-    </globals>
 </psalm>

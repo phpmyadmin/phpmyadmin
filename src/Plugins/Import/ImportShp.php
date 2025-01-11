@@ -50,6 +50,9 @@ use const PATHINFO_FILENAME;
 class ImportShp extends ImportPlugin
 {
     private ZipExtension|null $zipExtension = null;
+    private static File|null $importHandle = null;
+    private static string $buffer = '';
+    public static bool $eof = false;
 
     protected function init(): void
     {
@@ -93,8 +96,7 @@ class ImportShp extends ImportPlugin
             return [];
         }
 
-        /** @see ImportShp::readFromBuffer() */
-        $GLOBALS['importHandle'] = $importHandle;
+        self::$importHandle = $importHandle;
 
         $compression = $importHandle->getCompression();
 
@@ -313,22 +315,18 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer(int $length): string
     {
-        $GLOBALS['buffer'] ??= null;
-        $GLOBALS['eof'] ??= null;
-        $GLOBALS['importHandle'] ??= null;
-
         $import = new Import();
 
-        if (strlen((string) $GLOBALS['buffer']) < $length) {
+        if (strlen(self::$buffer) < $length) {
             if (ImportSettings::$finished) {
-                $GLOBALS['eof'] = true;
+                self::$eof = true;
             } else {
-                $GLOBALS['buffer'] .= $import->getNextChunk($GLOBALS['importHandle']);
+                self::$buffer .= $import->getNextChunk(self::$importHandle);
             }
         }
 
-        $result = substr($GLOBALS['buffer'], 0, $length);
-        $GLOBALS['buffer'] = substr($GLOBALS['buffer'], $length);
+        $result = substr(self::$buffer, 0, $length);
+        self::$buffer = substr(self::$buffer, $length);
 
         return $result;
     }

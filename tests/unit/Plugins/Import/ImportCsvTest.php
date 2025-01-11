@@ -31,7 +31,7 @@ class ImportCsvTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['errorUrl'] = 'index.php?route=/';
+        Import::$errorUrl = 'index.php?route=/';
         Import::$hasError = false;
         Current::$database = '';
         Current::$table = '';
@@ -66,7 +66,7 @@ class ImportCsvTest extends AbstractTestCase
             ]);
         $this->object->setImportOptions($request);
 
-        $GLOBALS['import_text'] = 'ImportCsv_Test';
+        Import::$importText = 'ImportCsv_Test';
     }
 
     /**
@@ -215,7 +215,7 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportNormal(): void
     {
         ImportSettings::$importFile = 'none';
-        $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -262,7 +262,7 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportSkipHeaders(): void
     {
         ImportSettings::$importFile = 'none';
-        $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([

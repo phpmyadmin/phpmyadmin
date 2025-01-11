@@ -130,6 +130,8 @@ class ResponseRenderer
 
     protected Response $response;
 
+    public static bool $reload = false;
+
     protected function __construct(
         protected Config $config,
         protected Template $template,
@@ -307,7 +309,7 @@ class ResponseRenderer
                 ['db' => Current::$database, 'table' => Current::$table, 'sql_query' => $query],
             );
 
-            if (! empty($GLOBALS['reload'])) {
+            if (self::$reload) {
                 $this->addJSON('reloadNavigation', 1);
             }
 

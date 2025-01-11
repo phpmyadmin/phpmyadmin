@@ -44,7 +44,7 @@ class ExportCsvTest extends AbstractTestCase
         Current::$database = '';
         Current::$table = '';
         Current::$lang = '';
-        $GLOBALS['save_filename'] = null;
+        Export::$saveFilename = '';
 
         $this->object = new ExportCsv(
             new Relation($dbi),
@@ -258,12 +258,12 @@ class ExportCsvTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = true;
-        $GLOBALS['file_handle'] = null;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = true;
+        Export::$fileHandle = null;
 
         ob_start();
         self::assertFalse($this->object->exportData(
@@ -274,11 +274,11 @@ class ExportCsvTest extends AbstractTestCase
         ob_get_clean();
 
         // case 2
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['csv_terminated' => ';', 'csv_columns' => 'On']);

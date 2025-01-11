@@ -30,9 +30,6 @@ final class UserPasswordController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['hostname'] ??= null;
-        $GLOBALS['username'] ??= null;
-
         $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
         $config = Config::getInstance();
@@ -104,11 +101,7 @@ final class UserPasswordController implements InvocableController
             $this->response->addHTML($message->getDisplay());
         }
 
-        $this->response->addHTML($this->userPassword->getFormForChangePassword(
-            $GLOBALS['username'],
-            $GLOBALS['hostname'],
-            $request->getRoute(),
-        ));
+        $this->response->addHTML($this->userPassword->getFormForChangePassword('', '', $request->getRoute()));
 
         return $this->response->response();
     }

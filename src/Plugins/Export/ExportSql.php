@@ -15,6 +15,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -123,6 +124,10 @@ class ExportSql extends ExportPlugin
     private bool $dropDatabase = false;
     private bool $viewsAsTables = false;
     private bool $metadata = false;
+
+    public static string $oldTimezone = '';
+    public static bool $noConstraintsComments = false;
+    private static bool $exportingMetadata = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -726,7 +731,7 @@ class ExportSql extends ExportPlugin
 
         /* Restore timezone */
         if ($this->utcTime) {
-            DatabaseInterface::getInstance()->query('SET time_zone = "' . $GLOBALS['old_tz'] . '"');
+            DatabaseInterface::getInstance()->query('SET time_zone = "' . self::$oldTimezone . '"');
         }
 
         return $this->export->outputHandler($foot);
@@ -792,20 +797,19 @@ class ExportSql extends ExportPlugin
         /* Change timezone if we should export timestamps in UTC */
         if ($this->utcTime) {
             $head .= 'SET time_zone = "+00:00";' . "\n";
-            $GLOBALS['old_tz'] = $dbi
-                ->fetchValue('SELECT @@session.time_zone');
+            self::$oldTimezone = $dbi->fetchValue('SELECT @@session.time_zone');
             $dbi->query('SET time_zone = "+00:00"');
         }
 
         $head .= $this->possibleCRLF();
 
-        if (! empty($GLOBALS['asfile'])) {
+        if (Export::$asFile) {
             // we are saving as file, therefore we provide charset information
             // so that a utility like the mysql client can interpret
             // the file correctly
-            if (isset($GLOBALS['charset'], Charsets::$mysqlCharsetMap[$GLOBALS['charset']])) {
+            if (isset(Current::$charset, Charsets::$mysqlCharsetMap[Current::$charset])) {
                 // we got a charset from the export dialog
-                $setNames = Charsets::$mysqlCharsetMap[$GLOBALS['charset']];
+                $setNames = Charsets::$mysqlCharsetMap[Current::$charset];
             } else {
                 // by default we use the connection charset
                 $setNames = Charsets::$mysqlCharsetMap['utf-8'];
@@ -1177,7 +1181,7 @@ class ExportSql extends ExportPlugin
                         . '.' . Util::backquote($relationParameters->pdfFeature->tableCoords)
                         . " WHERE `pdf_page_number` = '" . $page . "'";
 
-                    $GLOBALS['exporting_metadata'] = true;
+                    self::$exportingMetadata = true;
                     if (
                         ! $this->exportData(
                             $relationParameters->pdfFeature->database->getName(),
@@ -1186,12 +1190,12 @@ class ExportSql extends ExportPlugin
                             $aliases,
                         )
                     ) {
-                        $GLOBALS['exporting_metadata'] = false;
+                        self::$exportingMetadata = false;
 
                         return false;
                     }
 
-                    $GLOBALS['exporting_metadata'] = false;
+                    self::$exportingMetadata = false;
                 }
 
                 continue;
@@ -1683,7 +1687,7 @@ class ExportSql extends ExportPlugin
                     if (
                         $this->autoIncrement
                         && $statement->entityOptions->has('AUTO_INCREMENT')
-                        && (! isset($GLOBALS['table_data']) || in_array($table, $GLOBALS['table_data']))
+                        && (Export::$tableData === [] || in_array($table, Export::$tableData, true))
                     ) {
                         $sqlAutoIncrementsQuery .= ', AUTO_INCREMENT='
                             . $statement->entityOptions->get('AUTO_INCREMENT');
@@ -2207,7 +2211,7 @@ class ExportSql extends ExportPlugin
                 } elseif ($metaInfo->isMappedTypeGeometry) {
                     // export GIS types as hex
                     $values[] = '0x' . bin2hex($row[$j]);
-                } elseif (! empty($GLOBALS['exporting_metadata']) && $row[$j] === '@LAST_PAGE') {
+                } elseif (self::$exportingMetadata && $row[$j] === '@LAST_PAGE') {
                     $values[] = '@LAST_PAGE';
                 } elseif ($row[$j] === '') {
                     $values[] = "''";
@@ -2583,7 +2587,7 @@ class ExportSql extends ExportPlugin
         string $compat,
     ): string {
         if ($sqlStatement === null) {
-            if (isset($GLOBALS['no_constraints_comments'])) {
+            if (self::$noConstraintsComments) {
                 $sqlStatement = '';
             } else {
                 $sqlStatement = "\n"
@@ -2594,7 +2598,7 @@ class ExportSql extends ExportPlugin
         }
 
         // comments for current table
-        if (! isset($GLOBALS['no_constraints_comments'])) {
+        if (! self::$noConstraintsComments) {
             $sqlStatement .= "\n"
                 . $this->exportComment()
                 . $this->exportComment(

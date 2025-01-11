@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Import\Upload;
 
+use PhpMyAdmin\Import\Ajax;
 use PhpMyAdmin\Plugins\UploadInterface;
 
 use function array_key_exists;
@@ -37,14 +38,12 @@ class UploadNoplugin implements UploadInterface
      */
     public static function getUploadStatus(string $id): array|null
     {
-        $GLOBALS['SESSION_KEY'] ??= null;
-
         if (trim($id) == '') {
             return null;
         }
 
-        if (! array_key_exists($id, $_SESSION[$GLOBALS['SESSION_KEY']])) {
-            $_SESSION[$GLOBALS['SESSION_KEY']][$id] = [
+        if (! array_key_exists($id, $_SESSION[Ajax::SESSION_KEY])) {
+            $_SESSION[Ajax::SESSION_KEY][$id] = [
                 'id' => $id,
                 'finished' => false,
                 'percent' => 0,
@@ -54,6 +53,6 @@ class UploadNoplugin implements UploadInterface
             ];
         }
 
-        return $_SESSION[$GLOBALS['SESSION_KEY']][$id];
+        return $_SESSION[Ajax::SESSION_KEY][$id];
     }
 }
