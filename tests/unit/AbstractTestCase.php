@@ -23,9 +23,6 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
 
-use function array_keys;
-use function in_array;
-
 /**
  * Abstract class to hold some usefull methods used in tests
  * And make tests clean
@@ -33,33 +30,11 @@ use function in_array;
 abstract class AbstractTestCase extends TestCase
 {
     /**
-     * The variables to keep between tests
-     *
-     * @var string[]
-     */
-    private array $globalsAllowList = [
-        '__composer_autoload_files',
-        'GLOBALS',
-        '_SERVER',
-        '__composer_autoload_files',
-        '__PHPUNIT_CONFIGURATION_FILE',
-        '__PHPUNIT_BOOTSTRAP',
-    ];
-
-    /**
      * Prepares environment for the test.
      * Clean all variables
      */
     protected function setUp(): void
     {
-        foreach (array_keys($GLOBALS) as $key) {
-            if (in_array($key, $this->globalsAllowList, true)) {
-                continue;
-            }
-
-            unset($GLOBALS[$key]);
-        }
-
         $_GET = [];
         $_POST = [];
         $_SERVER = [
@@ -153,13 +128,6 @@ abstract class AbstractTestCase extends TestCase
         DatabaseInterface::$instance = null;
         Config::$instance = null;
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
-        foreach (array_keys($GLOBALS) as $key) {
-            if (in_array($key, $this->globalsAllowList, true)) {
-                continue;
-            }
-
-            unset($GLOBALS[$key]);
-        }
     }
 
     /**
