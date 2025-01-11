@@ -936,8 +936,6 @@ class RelationTest extends AbstractTestCase
         );
         $dummyDbi->addSelectDb('phpmyadmin');
 
-        self::assertArrayNotHasKey('errno', $GLOBALS);
-
         self::assertTrue(
             $relation->createPmaDatabase('phpmyadmin'),
         );

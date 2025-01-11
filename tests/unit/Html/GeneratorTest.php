@@ -520,8 +520,6 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
-        self::assertArrayNotHasKey('using_bookmark_message', $GLOBALS);
-        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 
@@ -564,7 +562,6 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));
-        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 }

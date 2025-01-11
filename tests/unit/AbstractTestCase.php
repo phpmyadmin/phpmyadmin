@@ -12,6 +12,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
@@ -86,6 +87,7 @@ abstract class AbstractTestCase extends TestCase
         Current::$numTables = 0;
         DatabaseInterface::$errorNumber = null;
         Sql::$showAsPhp = null;
+        ExportSql::$noConstraintsComments = false;
 
         // Config before DBI
         $this->setGlobalConfig();
