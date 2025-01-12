@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 00:25+0000\n"
-"PO-Revision-Date: 2024-08-29 02:09+0000\n"
+"PO-Revision-Date: 2025-01-12 23:24+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ja/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7.1-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -6193,7 +6193,7 @@ msgstr "実行した SQL"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "単一行として整形"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -12485,6 +12485,10 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"このアカウントをパスワードなしでログインできるように設定しようとしていますが"
+"、構成ディレクティブ <code>AllowNoPassword</code> が false "
+"です。このまま進むと、このアカウントは phpMyAdmin "
+"からログインできなくなります。"
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
