@@ -813,7 +813,7 @@ class Relation
             $reloption = '<option value="' . $key . '"';
 
             if ($selected) {
-                $reloption .= ' selected="selected"';
+                $reloption .= ' selected';
             }
 
             if ($mode === 'content-id') {

@@ -15,14 +15,14 @@
                   enctype="multipart/form-data">
                 {{ get_hidden_inputs() }}
                 <input type="hidden" name="json" value="">
-                <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked">
+                <input type="radio" id="import_text_file" name="import_type" value="text_file" checked>
                 <label for="import_text_file"> {{ t('Import from file') }} </label>
                 <div id="opts_import_text_file" class="prefsmanage_opts">
                     <label for="input_import_file"> {{ t('Browse your computer:') }} </label>
                     <input type="file" name="import_file" id="input_import_file">
                 </div>
                 <input type="radio" id="import_local_storage" name="import_type" value="local_storage"
-                       disabled="disabled">
+                       disabled>
                 <label for="import_local_storage">{{ t("Import from browser's storage") }}</label>
                 <div id="opts_import_local_storage" class="prefsmanage_opts disabled">
                     <div class="localStorage-supported">
@@ -75,7 +75,7 @@
                 {{ get_hidden_inputs() }}
                 <div>
                     <input type="radio" id="export_text_file" name="export_type"
-                           value="text_file" checked="checked">
+                           value="text_file" checked>
                     <label for="export_text_file">
                         {{ t('Save as JSON file') }}
                     </label><br>
@@ -84,7 +84,7 @@
                         {{ t('Save as PHP file') }}
                     </label><br>
                     <input type="radio" id="export_local_storage" name="export_type" value="local_storage"
-                           disabled="disabled">
+                           disabled>
                     <label for="export_local_storage">
                         {{ t("Save to browser's storage") }}
                     </label>

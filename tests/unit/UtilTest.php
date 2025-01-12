@@ -65,7 +65,7 @@ class UtilTest extends AbstractTestCase
 
         // If pageNow > nbTotalPage, show the pageNow number to avoid confusion
         self::assertStringContainsString(
-            '<option selected="selected" style="font-weight: bold" value="297">100</option>',
+            '<option selected style="font-weight: bold" value="297">100</option>',
             Util::pageselector('pma', 3, 100, 50),
         );
     }

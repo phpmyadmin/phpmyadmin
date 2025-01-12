@@ -499,7 +499,7 @@ class InsertEdit
             . __('web server upload directory:') . '<br>' . "\n"
             . '<select size="1" name="fields_uploadlocal'
             . $vkey . '[' . $fieldHashMd5 . ']">' . "\n"
-            . '<option value="" selected="selected"></option>' . "\n"
+            . '<option value="" selected></option>' . "\n"
             . $files
             . '</select>' . "\n";
     }
@@ -1512,7 +1512,7 @@ class InsertEdit
     public function getHtmlForIgnoreOption(int $rowId, bool $checked = true): string
     {
         return '<input type="checkbox"'
-            . ($checked ? ' checked="checked"' : '')
+            . ($checked ? ' checked' : '')
             . ' name="insert_ignore_' . $rowId . '"'
             . ' id="insert_ignore_' . $rowId . '">'
             . '<label for="insert_ignore_' . $rowId . '">'

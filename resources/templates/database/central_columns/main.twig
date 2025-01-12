@@ -189,7 +189,7 @@
                 <input type="hidden" name="total_rows" value="{{ total_rows }}">
                 {# getHtmlForTableDropdown #}
                 <select name="table-select" id="table-select">
-                    <option value="" disabled="disabled" selected="selected">
+                    <option value="" disabled selected>
                         {{ t('Select a table') }}
                     </option>
                     {% for table in tables %}
@@ -197,7 +197,7 @@
                     {% endfor %}
                 </select>
                 <select name="column-select" id="column-select">
-                    <option value="" selected="selected">{{ t('Select a column.') }}</option>
+                    <option value="" selected>{{ t('Select a column.') }}</option>
                 </select>
                 <input class="btn btn-primary" type="submit" value="{{ t('Add') }}">
             </form>

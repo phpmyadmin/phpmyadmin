@@ -1867,7 +1867,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     var currHeader = $firstRowCols[i];
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
-                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '>');
+                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked ' : '') + '>');
 
                     $listDiv.append(listElmt);
                     // add event on click

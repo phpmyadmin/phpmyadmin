@@ -1028,7 +1028,7 @@ class Export
     public function getCheckedClause(string $key, array $array): string
     {
         if (in_array($key, $array)) {
-            return ' checked="checked"';
+            return ' checked';
         }
 
         return '';

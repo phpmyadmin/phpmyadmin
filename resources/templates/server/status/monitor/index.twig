@@ -104,7 +104,7 @@
           <select name="presetCharts"></select>
           <br>
 
-          <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked="checked">
+          <input type="radio" name="chartType" value="variable" id="chartStatusVar" checked>
           <label for="chartStatusVar">
             {{ t('Status variable(s)') }}
           </label>
@@ -137,7 +137,7 @@
             <input type="text" name="variableInput" id="variableInput">
             <br>
 
-            <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked="checked">
+            <input type="checkbox" name="differentialValue" id="differentialValue" value="differential" checked>
             <label for="differentialValue">
               {{ t('Display as differential value') }}
             </label>
@@ -194,13 +194,13 @@
     <input type="text" name="dateEnd" class="datetimefield" value="">
   </p>
 
-  <input type="checkbox" id="limitTypes" value="1" checked="checked">
+  <input type="checkbox" id="limitTypes" value="1" checked>
   <label for="limitTypes">
     {{ t('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements') }}
   </label>
   <br>
 
-  <input type="checkbox" id="removeVariables" value="1" checked="checked">
+  <input type="checkbox" id="removeVariables" value="1" checked>
   <label for="removeVariables">
     {{ t('Remove variable data in INSERT statements for better grouping') }}
   </label>

@@ -868,7 +868,7 @@ function addNewContinueInsertionFields (event) {
 
             // Insert/Clone the ignore checkboxes
             if (currRows === 1) {
-                $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
+                $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked>')
                     .insertBefore($('table.insertRowTable').last())
                     .after('<label for="insert_ignore_1">' + window.Messages.strIgnore + '</label>');
             } else {

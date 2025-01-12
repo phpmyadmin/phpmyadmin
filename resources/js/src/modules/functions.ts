@@ -1049,7 +1049,7 @@ export function loadForeignKeyCheckbox () {
     $.get('index.php?route=/sql/get-default-fk-check-value', params, function (data) {
         var html = '<input type="hidden" name="fk_checks" value="0">' +
             '<input type="checkbox" name="fk_checks" id="fk_checks"' +
-            (data.default_fk_check_value ? ' checked="checked"' : '') + '>' +
+            (data.default_fk_check_value ? ' checked' : '') + '>' +
             '<label for="fk_checks">' + window.Messages.strForeignKeyCheck + '</label>';
         $('.load-default-fk-check-value').replaceWith(html);
     });

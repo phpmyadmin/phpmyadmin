@@ -2446,7 +2446,7 @@ class InsertEditTest extends AbstractTestCase
         $expected = '<input type="checkbox" %sname="insert_ignore_1"'
             . ' id="insert_ignore_1"><label for="insert_ignore_1">'
             . 'Ignore</label><br>' . "\n";
-        $checked = 'checked="checked" ';
+        $checked = 'checked ';
         self::assertSame(
             sprintf($expected, $checked),
             $this->insertEdit->getHtmlForIgnoreOption(1),

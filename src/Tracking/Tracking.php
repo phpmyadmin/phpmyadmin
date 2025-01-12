@@ -268,13 +268,13 @@ class Tracking
     ): string {
         $str1 = '<select name="log_type">'
             . '<option value="schema"'
-            . ($logType === LogType::Schema ? ' selected="selected"' : '') . '>'
+            . ($logType === LogType::Schema ? ' selected' : '') . '>'
             . __('Structure only') . '</option>'
             . '<option value="data"'
-            . ($logType === LogType::Data ? ' selected="selected"' : '') . '>'
+            . ($logType === LogType::Data ? ' selected' : '') . '>'
             . __('Data only') . '</option>'
             . '<option value="schema_and_data"'
-            . ($logType === LogType::SchemaAndData ? ' selected="selected"' : '') . '>'
+            . ($logType === LogType::SchemaAndData ? ' selected' : '') . '>'
             . __('Structure and data') . '</option>'
             . '</select>';
         $str2 = '<input type="text" name="date_from" value="'

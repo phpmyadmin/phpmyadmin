@@ -120,7 +120,7 @@ class TrackingTest extends AbstractTestCase
         );
         self::assertStringContainsString(
             '<input type="checkbox" name="delete" value="true"'
-                . ' checked="checked">' . "\n" . '            DELETE<br>',
+                . ' checked>' . "\n" . '            DELETE<br>',
             $html,
         );
         self::assertStringContainsString(__('Create version'), $html);

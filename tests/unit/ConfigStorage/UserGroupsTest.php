@@ -147,7 +147,7 @@ class UserGroupsTest extends AbstractTestCase
         self::assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         self::assertStringContainsString(
             '<input class="form-check-input checkall" type="checkbox"'
-            . ' checked="checked" name="server_sql" id="server_sql" value="Y">',
+            . ' checked name="server_sql" id="server_sql" value="Y">',
             $html,
         );
         self::assertStringContainsString(
