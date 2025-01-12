@@ -1092,7 +1092,7 @@ class Generator
                 $retval .= '<optgroup label="' . htmlspecialchars($key) . '">';
                 foreach ($value as $subvalue) {
                     if ($subvalue === '-') {
-                        $retval .= '<option disabled="disabled">';
+                        $retval .= '<option disabled>';
                         $retval .= $subvalue;
                         $retval .= '</option>';
                         continue;
