@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-05 00:25+0000\n"
+"POT-Creation-Date: 2025-01-12 00:25+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: KwiatekMiki <niecierpiehiszpanskiego@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -200,7 +200,7 @@ msgstr "po %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:553
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:926 src/Plugins/Export/ExportSql.php:2036
+#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2040
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "Żaden"
@@ -273,7 +273,7 @@ msgstr "kolumna(y)"
 #: resources/templates/triggers/editor_form.twig:75
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
-#: src/Controllers/Server/PrivilegesController.php:302
+#: src/Controllers/Server/PrivilegesController.php:303
 #: src/Normalization.php:230 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
@@ -445,8 +445,8 @@ msgstr "Jest obcym kluczem."
 #: resources/templates/table/zoom_search/index.twig:36
 #: resources/templates/table/zoom_search/result_form.twig:33
 #: src/Navigation/Nodes/NodeColumn.php:30
-#: src/Plugins/Export/ExportHtmlword.php:261
-#: src/Plugins/Export/ExportHtmlword.php:337
+#: src/Plugins/Export/ExportHtmlword.php:260
+#: src/Plugins/Export/ExportHtmlword.php:336
 #: src/Plugins/Export/ExportLatex.php:496 src/Plugins/Export/ExportOdt.php:364
 #: src/Plugins/Export/ExportOdt.php:441
 #: src/Plugins/Export/ExportTexytext.php:288
@@ -550,7 +550,7 @@ msgstr "Grupa węzłów"
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
 #: src/Controllers/JavaScriptMessagesController.php:723
-#: src/Import/Import.php:1165 src/Menu.php:214 src/Menu.php:318
+#: src/Import/Import.php:1166 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
 #: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1041 src/Util.php:1466
@@ -569,7 +569,7 @@ msgstr "Struktura"
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
-#: src/Plugins/Export/ExportHtmlword.php:440
+#: src/Plugins/Export/ExportHtmlword.php:439
 #: src/Plugins/Export/ExportOdt.php:556
 #: src/Plugins/Export/ExportTexytext.php:424
 #: src/Plugins/Export/Helpers/Pdf.php:330
@@ -596,9 +596,9 @@ msgstr "Nazwa"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:288
-#: src/Plugins/Export/ExportHtmlword.php:264
-#: src/Plugins/Export/ExportHtmlword.php:340
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:291
+#: src/Plugins/Export/ExportHtmlword.php:263
+#: src/Plugins/Export/ExportHtmlword.php:339
 #: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:367
 #: src/Plugins/Export/ExportOdt.php:444
 #: src/Plugins/Export/ExportTexytext.php:289
@@ -636,8 +636,8 @@ msgstr ""
 #: resources/templates/server/replication/replica_configuration.twig:9
 #: resources/templates/table/structure/display_structure.twig:26
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
-#: src/Plugins/Export/ExportHtmlword.php:270
-#: src/Plugins/Export/ExportHtmlword.php:346
+#: src/Plugins/Export/ExportHtmlword.php:269
+#: src/Plugins/Export/ExportHtmlword.php:345
 #: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:373
 #: src/Plugins/Export/ExportOdt.php:450
 #: src/Plugins/Export/ExportTexytext.php:291
@@ -701,8 +701,8 @@ msgstr "Atrybuty"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:9
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:12
 #: resources/templates/table/zoom_search/result_form.twig:34
-#: src/Plugins/Export/ExportHtmlword.php:267
-#: src/Plugins/Export/ExportHtmlword.php:343
+#: src/Plugins/Export/ExportHtmlword.php:266
+#: src/Plugins/Export/ExportHtmlword.php:342
 #: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:370
 #: src/Plugins/Export/ExportOdt.php:447
 #: src/Plugins/Export/ExportTexytext.php:290
@@ -728,7 +728,7 @@ msgstr "Dostosuj uprawnienia"
 #: resources/templates/database/data_dictionary/index.twig:29
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
-#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:356
+#: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:355
 #: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:460
 #: src/Plugins/Export/ExportTexytext.php:361
 #: src/Plugins/Export/Helpers/Pdf.php:509
@@ -748,7 +748,7 @@ msgstr "Przenieść kolumnę"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:71
 #: resources/templates/database/data_dictionary/index.twig:31
 #: src/Config/Descriptions.php:664 src/Config/Descriptions.php:676
-#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:363
+#: src/Config/Descriptions.php:714 src/Plugins/Export/ExportHtmlword.php:362
 #: src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:517
@@ -809,7 +809,7 @@ msgstr "Resetuj"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:672 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:185
 msgid "Documentation"
 msgstr "Dokumentacja"
@@ -869,14 +869,14 @@ msgstr "Wyłączone"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/Database/Structure/DropTableController.php:36
+#: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
 #: src/Controllers/JavaScriptMessagesController.php:510
-#: src/Controllers/Table/DeleteRowsController.php:55
+#: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/IndexColumn.php:148 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:563
+#: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -912,7 +912,7 @@ msgstr "Tak"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
 #: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:563
+#: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -979,8 +979,8 @@ msgstr "Wykonaj zapytanie ponownie"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2469 src/Html/Generator.php:521
-#: src/Html/Generator.php:789
+#: src/Display/Results.php:2469 src/Html/Generator.php:517
+#: src/Html/Generator.php:785
 msgid "Edit"
 msgstr "Edytuj"
 
@@ -1017,10 +1017,10 @@ msgstr "Usuń"
 #: resources/templates/table/relation/common_form.twig:38
 #: resources/templates/table/relation/common_form.twig:95
 #: resources/templates/table/relation/foreign_key_row.twig:91
-#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:147
+#: src/Config/Descriptions.php:934 src/Plugins/Export/ExportHtmlword.php:146
 #: src/Plugins/Export/ExportOdt.php:191
-#: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1573
-#: src/Server/Privileges.php:1575 src/Server/Status/Processes.php:93
+#: src/Plugins/Export/ExportTexytext.php:131 src/Server/Privileges.php:1567
+#: src/Server/Privileges.php:1569 src/Server/Status/Processes.php:93
 msgid "Database"
 msgstr "Baza danych"
 
@@ -1047,21 +1047,21 @@ msgstr "Historia"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1166 src/Import/Import.php:1224
-#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:45
-#: src/Plugins/Export/ExportExcel.php:39
-#: src/Plugins/Export/ExportHtmlword.php:56
+#: src/Import/Import.php:1167 src/Import/Import.php:1225
+#: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
+#: src/Plugins/Export/ExportExcel.php:57
+#: src/Plugins/Export/ExportHtmlword.php:57
 #: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:84
 #: src/Plugins/Export/ExportMediawiki.php:48
 #: src/Plugins/Export/ExportOds.php:58 src/Plugins/Export/ExportOdt.php:69
 #: src/Plugins/Export/ExportPdf.php:66 src/Plugins/Export/ExportPhparray.php:45
-#: src/Plugins/Export/ExportSql.php:163
-#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:71
-#: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:86
-#: src/Plugins/Import/ImportLdi.php:61
-#: src/Plugins/Import/ImportMediawiki.php:61
-#: src/Plugins/Import/ImportOds.php:59 src/Plugins/Import/ImportShp.php:74
-#: src/Plugins/Import/ImportSql.php:43 src/Plugins/Import/ImportXml.php:50
+#: src/Plugins/Export/ExportSql.php:168
+#: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:72
+#: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:87
+#: src/Plugins/Import/ImportLdi.php:62
+#: src/Plugins/Import/ImportMediawiki.php:62
+#: src/Plugins/Import/ImportOds.php:60 src/Plugins/Import/ImportShp.php:77
+#: src/Plugins/Import/ImportSql.php:44 src/Plugins/Import/ImportXml.php:51
 msgid "Options"
 msgstr "Opcje"
 
@@ -1090,7 +1090,7 @@ msgstr "Wyjaśnij"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:608
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:604
 msgid "Profiling"
 msgstr "Profilowanie"
 
@@ -1171,8 +1171,8 @@ msgstr "Zajęło to:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1057
-#: src/Html/Generator.php:577
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1080
+#: src/Html/Generator.php:573
 msgid "Refresh"
 msgstr "Odśwież"
 
@@ -1388,7 +1388,7 @@ msgid "Print"
 msgstr "Drukuj"
 
 #: resources/templates/database/data_dictionary/index.twig:27
-#: src/Plugins/Export/ExportHtmlword.php:350
+#: src/Plugins/Export/ExportHtmlword.php:349
 #: src/Plugins/Export/ExportLatex.php:501 src/Plugins/Export/ExportOdt.php:454
 #: src/Plugins/Export/ExportTexytext.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:501
@@ -1764,7 +1764,7 @@ msgstr "Koniec"
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
 #: resources/templates/triggers/editor_form.twig:62
-#: src/Plugins/Export/ExportHtmlword.php:443
+#: src/Plugins/Export/ExportHtmlword.php:442
 #: src/Plugins/Export/ExportOdt.php:565
 #: src/Plugins/Export/ExportTexytext.php:427
 #: src/Plugins/Export/Helpers/Pdf.php:336
@@ -1795,7 +1795,7 @@ msgstr "Definiujący"
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:993 src/Plugins/Export/ExportXml.php:95
+#: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1475
 msgid "Events"
 msgstr "Zdarzenia"
@@ -1857,7 +1857,7 @@ msgstr "Zaznacz wszystko"
 #: resources/templates/triggers/row.twig:41
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
-#: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1289
+#: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
 #: src/Util.php:1455 src/Util.php:1470 src/Util.php:1487
 msgid "Export"
 msgstr "Eksport"
@@ -1886,7 +1886,7 @@ msgstr "Eksport"
 #: resources/templates/triggers/list.twig:20
 #: resources/templates/triggers/list.twig:21
 #: resources/templates/triggers/row.twig:52
-#: resources/templates/triggers/row.twig:58 src/Operations.php:533
+#: resources/templates/triggers/row.twig:58 src/Operations.php:535
 msgid "Drop"
 msgstr "Usuń"
 
@@ -1943,7 +1943,7 @@ msgstr "Tabele:"
 #: src/Controllers/Server/DatabasesController.php:258
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
-#: src/Plugins/Export/ExportXml.php:110 src/Server/Status/Data.php:126
+#: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
 msgid "Tables"
 msgstr "Tabele"
 
@@ -1990,7 +1990,7 @@ msgstr "wybierz kolumnę"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:722
-#: src/Controllers/Table/ChangeController.php:218
+#: src/Controllers/Table/ChangeController.php:212
 msgid "Show"
 msgstr "Pokaż"
 
@@ -2022,8 +2022,8 @@ msgstr "Sortuj"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1454
-#: src/Display/Results.php:1461 src/Util.php:1984 src/Util.php:2001
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
+#: src/Display/Results.php:1464 src/Util.php:1984 src/Util.php:2001
 msgid "Ascending"
 msgstr "Rosnąco"
 
@@ -2034,8 +2034,8 @@ msgstr "Rosnąco"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1449
-#: src/Display/Results.php:1466 src/Util.php:1989 src/Util.php:2006
+#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
+#: src/Display/Results.php:1469 src/Util.php:1989 src/Util.php:2006
 msgid "Descending"
 msgstr "Malejąco"
 
@@ -2071,7 +2071,7 @@ msgid "Update query"
 msgstr "Zaktualizuj zapytanie"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#: src/Html/Generator.php:546
+#: src/Html/Generator.php:542
 msgid "Submit query"
 msgstr "Prześlij zapytanie"
 
@@ -2219,7 +2219,7 @@ msgstr "Nazwa hosta"
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
-#: src/Controllers/Server/PrivilegesController.php:421 src/Menu.php:257
+#: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
 #: src/Menu.php:365 src/Util.php:1473 src/Util.php:1489
 msgid "Privileges"
 msgstr "Uprawnienia"
@@ -2263,13 +2263,13 @@ msgstr "Procedura"
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
-#: src/Server/Privileges.php:1281
+#: src/Server/Privileges.php:1275
 msgid "Edit privileges"
 msgstr "Edytuj uprawnienia"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
-#: src/Server/Privileges.php:2067
+#: src/Server/Privileges.php:2061
 msgid "No user found."
 msgstr "Żadnego użytkownika nie znaleziono."
 
@@ -2289,7 +2289,7 @@ msgstr "Z zaznaczonymi:"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
-#: src/Server/Privileges.php:1225
+#: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
 msgstr "Za małe uprawnienia do przeglądania użytkowników."
 
@@ -2368,7 +2368,7 @@ msgstr "Parametry procedury"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:287
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:290
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Funkcja"
@@ -2651,7 +2651,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:257
-#: src/Plugins/Export/ExportSql.php:924 src/Plugins/Export/ExportXml.php:365
+#: src/Plugins/Export/ExportSql.php:928 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr "Baza danych:"
@@ -2697,9 +2697,9 @@ msgstr "Słownik danych"
 
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
-#: src/Controllers/Database/ExportController.php:76
+#: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:125
-#: src/Controllers/Export/ExportController.php:276
+#: src/Controllers/Export/ExportController.php:287
 msgid "No tables found in database."
 msgstr "Nie znaleziono żadnych tabel w bazie danych."
 
@@ -2723,23 +2723,23 @@ msgstr "Wyświetlanie zapytań tworzenia"
 #: resources/templates/table/relation/foreign_key_row.twig:102
 #: resources/templates/triggers/editor_form.twig:32
 #: resources/templates/triggers/list.twig:49 src/Config/Descriptions.php:937
-#: src/Plugins/Export/ExportXml.php:430 src/Server/Privileges.php:1579
-#: src/Server/Privileges.php:1581
+#: src/Plugins/Export/ExportXml.php:431 src/Server/Privileges.php:1573
+#: src/Server/Privileges.php:1575
 msgid "Table"
 msgstr "Tabela"
 
 #: resources/templates/database/structure/show_create.twig:30
 #: src/Navigation/Nodes/NodeViewContainer.php:22
 #: src/Navigation/Nodes/NodeViewContainer.php:24
-#: src/Plugins/Export/ExportXml.php:120
+#: src/Plugins/Export/ExportXml.php:121
 msgid "Views"
 msgstr "Widoki"
 
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
-#: src/Controllers/Operations/TableController.php:123
-#: src/Controllers/Operations/TableController.php:332
+#: src/Controllers/Operations/TableController.php:120
+#: src/Controllers/Operations/TableController.php:329
 #: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
@@ -2780,7 +2780,7 @@ msgstr "w użyciu"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:126
+#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Rekordy"
 
@@ -2972,12 +2972,12 @@ msgid "Extra options"
 msgstr "Dodatkowe opcje"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1108
+#: src/Display/Results.php:1111
 msgid "Partial texts"
 msgstr "Częściowe teksty"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1112
+#: src/Display/Results.php:1115
 msgid "Full texts"
 msgstr "Pełne teksty"
 
@@ -3018,7 +3018,7 @@ msgstr "Znane binarne"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:496
-#: src/Display/Results.php:2473 src/Html/Generator.php:79
+#: src/Display/Results.php:2473 src/Html/Generator.php:80
 msgid "Copy"
 msgstr "Kopiuj"
 
@@ -3029,7 +3029,7 @@ msgstr "Operacja na wynikach zapytania"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:495
-#: src/Export/Export.php:1076
+#: src/Export/Export.php:1099
 msgid "Copy to clipboard"
 msgstr "Kopiuj do schowka"
 
@@ -3059,7 +3059,7 @@ msgstr "Konwersja do Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:740 src/Import/Import.php:115 src/InsertEdit.php:486
+#: src/Html/Generator.php:736 src/Import/Import.php:119 src/InsertEdit.php:489
 #: src/Message.php:138
 msgid "Error"
 msgstr "Błąd"
@@ -3140,7 +3140,7 @@ msgstr "Aktualizacja"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:764
+#: src/Html/Generator.php:760
 msgid "SQL query:"
 msgstr "Zapytanie SQL:"
 
@@ -3410,7 +3410,7 @@ msgstr "Ustawienia ogólne"
 #: resources/templates/modals/change_password.twig:5
 #: resources/templates/server/privileges/change_password.twig:10
 #: resources/templates/server/privileges/change_password.twig:11
-#: src/Controllers/UserPasswordController.php:82
+#: src/Controllers/UserPasswordController.php:79
 msgid "Change password"
 msgstr "Zmień hasło"
 
@@ -3463,8 +3463,8 @@ msgid "Server connection:"
 msgstr "Połączenie z serwerem:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:230 src/Plugins/Export/ExportSql.php:761
-#: src/Plugins/Export/ExportXml.php:214
+#: src/Plugins/Export/ExportLatex.php:230 src/Plugins/Export/ExportSql.php:766
+#: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "Wersja serwera:"
 
@@ -3561,7 +3561,7 @@ msgstr "Weź to"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:442
-#: src/Export/Export.php:1099 src/Html/Generator.php:855
+#: src/Export/Export.php:1122 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Powrót"
@@ -3612,7 +3612,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Możesz także przeciągnąć i upuścić plik na dowolnej stronie."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:487
+#: src/InsertEdit.php:490
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Nie można znaleźć katalogu do zapisu przesyłanych plików."
 
@@ -4155,11 +4155,11 @@ msgid "You have enabled two factor authentication."
 msgstr "Aktywowałeś podwójną weryfikację."
 
 #: resources/templates/preview_sql.twig:3
-#: src/Controllers/Database/Structure/DropTableController.php:37
+#: src/Controllers/Database/Structure/DropTableController.php:42
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
-#: src/Controllers/Operations/TableController.php:348
+#: src/Controllers/Operations/TableController.php:345
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:291 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:287 src/Core.php:499
 msgid "No change"
 msgstr "Bez zmian"
 
@@ -4651,7 +4651,7 @@ msgstr "Konto użytkownika"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
-#: src/Server/Privileges.php:1585 src/Server/Privileges.php:1587
+#: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
 msgstr "Algorytm"
 
@@ -4665,7 +4665,7 @@ msgstr ""
 "zalogowany."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
-#: src/Server/Privileges.php:1586
+#: src/Server/Privileges.php:1580
 msgid "Routine-specific privileges"
 msgstr "Uprawnienia specyficzne dla rutyny"
 
@@ -4805,7 +4805,7 @@ msgstr "Edytuj grupę użytkownika"
 #: resources/templates/server/privileges/privileges_summary.twig:19
 #: resources/templates/server/privileges/privileges_table.twig:7
 #: resources/templates/server/privileges/privileges_table.twig:267
-#: src/Server/Privileges.php:1580
+#: src/Server/Privileges.php:1574
 msgid "Table-specific privileges"
 msgstr "Uprawnienia specyficzne dla tabel"
 
@@ -4834,7 +4834,7 @@ msgstr "Dodaj uprawnienia do następującej procedury:"
 #: resources/templates/server/privileges/privileges_table.twig:16
 #: resources/templates/server/privileges/privileges_table.twig:287
 #: resources/templates/server/privileges/privileges_table.twig:290
-#: src/Server/Privileges.php:315
+#: src/Server/Privileges.php:317
 msgid "Allows reading data."
 msgstr "Pozwól czytać dane."
 
@@ -4842,7 +4842,7 @@ msgstr "Pozwól czytać dane."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:495
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:498
 msgid "Or"
 msgstr "Lub"
 
@@ -4861,20 +4861,20 @@ msgstr "Brak"
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
 #: resources/templates/server/privileges/privileges_table.twig:303
-#: src/Server/Privileges.php:316
+#: src/Server/Privileges.php:318
 msgid "Allows inserting and replacing data."
 msgstr "Pozwól dodawać i zamieniać dane."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
 #: resources/templates/server/privileges/privileges_table.twig:316
-#: src/Server/Privileges.php:317
+#: src/Server/Privileges.php:319
 msgid "Allows changing data."
 msgstr "Pozwól zmieniać dane."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
-#: src/Server/Privileges.php:325
+#: src/Server/Privileges.php:327
 msgid "Has no effect in this MySQL version."
 msgstr "Nie ma żadnych skutków w tej wersji MySQL."
 
@@ -4882,7 +4882,7 @@ msgstr "Nie ma żadnych skutków w tej wersji MySQL."
 #: resources/templates/server/privileges/privileges_table.twig:128
 #: resources/templates/server/privileges/privileges_table.twig:326
 #: resources/templates/server/privileges/privileges_table.twig:329
-#: src/Server/Privileges.php:295 src/Server/Privileges.php:318
+#: src/Server/Privileges.php:297 src/Server/Privileges.php:320
 msgid "Allows deleting data."
 msgstr "Pozwól usuwać dane."
 
@@ -4890,7 +4890,7 @@ msgstr "Pozwól usuwać dane."
 #: resources/templates/server/privileges/privileges_table.twig:140
 #: resources/templates/server/privileges/privileges_table.twig:367
 #: resources/templates/server/privileges/privileges_table.twig:375
-#: src/Server/Privileges.php:296
+#: src/Server/Privileges.php:298
 msgid "Allows creating new tables."
 msgstr "Pozwól tworzyć nowe tabele."
 
@@ -4898,7 +4898,7 @@ msgstr "Pozwól tworzyć nowe tabele."
 #: resources/templates/server/privileges/privileges_table.twig:152
 #: resources/templates/server/privileges/privileges_table.twig:415
 #: resources/templates/server/privileges/privileges_table.twig:423
-#: src/Server/Privileges.php:297
+#: src/Server/Privileges.php:299
 msgid "Allows dropping tables."
 msgstr "Pozwól usuwać tabele."
 
@@ -4917,7 +4917,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:177
 #: resources/templates/server/privileges/privileges_table.twig:399
 #: resources/templates/server/privileges/privileges_table.twig:402
-#: src/Server/Privileges.php:298 src/Server/Privileges.php:326
+#: src/Server/Privileges.php:300 src/Server/Privileges.php:328
 msgid "Allows creating and dropping indexes."
 msgstr "Pozwól tworzyć i usuwać indeksy."
 
@@ -4925,7 +4925,7 @@ msgstr "Pozwól tworzyć i usuwać indeksy."
 #: resources/templates/server/privileges/privileges_table.twig:189
 #: resources/templates/server/privileges/privileges_table.twig:386
 #: resources/templates/server/privileges/privileges_table.twig:389
-#: src/Server/Privileges.php:299 src/Server/Privileges.php:327
+#: src/Server/Privileges.php:301 src/Server/Privileges.php:329
 msgid "Allows altering the structure of existing tables."
 msgstr "Pozwól zmieniać strukturę istniejących tabel."
 
@@ -4935,8 +4935,8 @@ msgstr "Pozwól zmieniać strukturę istniejących tabel."
 #: resources/templates/server/privileges/privileges_table.twig:503
 #: resources/templates/server/privileges/privileges_table.twig:515
 #: resources/templates/server/privileges/privileges_table.twig:518
-#: src/Server/Privileges.php:300 src/Server/Privileges.php:346
-#: src/Server/Privileges.php:350
+#: src/Server/Privileges.php:302 src/Server/Privileges.php:348
+#: src/Server/Privileges.php:352
 msgid "Allows creating new views."
 msgstr "Pozwól tworzyć widoki."
 
@@ -4944,8 +4944,8 @@ msgstr "Pozwól tworzyć widoki."
 #: resources/templates/server/privileges/privileges_table.twig:213
 #: resources/templates/server/privileges/privileges_table.twig:447
 #: resources/templates/server/privileges/privileges_table.twig:450
-#: src/Server/Privileges.php:301 src/Server/Privileges.php:351
-#: src/Server/Privileges.php:353
+#: src/Server/Privileges.php:303 src/Server/Privileges.php:353
+#: src/Server/Privileges.php:355
 msgid "Allows performing SHOW CREATE VIEW queries."
 msgstr "Pozwól wykonywać zapytania SHOW CREATE VIEW."
 
@@ -4953,14 +4953,14 @@ msgstr "Pozwól wykonywać zapytania SHOW CREATE VIEW."
 #: resources/templates/server/privileges/privileges_table.twig:225
 #: resources/templates/server/privileges/privileges_table.twig:543
 #: resources/templates/server/privileges/privileges_table.twig:546
-#: src/Server/Privileges.php:302 src/Server/Privileges.php:348
+#: src/Server/Privileges.php:304 src/Server/Privileges.php:350
 msgid "Allows creating and dropping triggers."
 msgstr "Pozwala tworzyć i upuszczać wyzwalacze."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
-#: src/Server/Privileges.php:359 src/Server/Privileges.php:368
+#: src/Server/Privileges.php:361 src/Server/Privileges.php:370
 msgid "Allows deleting historical rows."
 msgstr "Umożliwia usuwanie historycznych wierszy."
 
@@ -4974,55 +4974,55 @@ msgid "Global privileges"
 msgstr "Globalne uprawnienia"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
-#: src/Server/Privileges.php:1574
+#: src/Server/Privileges.php:1568
 msgid "Database-specific privileges"
 msgstr "Uprawnienia specyficzne dla baz danych"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
-#: src/Server/Privileges.php:324
+#: src/Server/Privileges.php:326
 msgid "Allows importing data from and exporting data into files."
 msgstr "Pozwól importować i eksportować dane z/do plików."
 
 #: resources/templates/server/privileges/privileges_table.twig:365
 #: resources/templates/server/privileges/privileges_table.twig:373
-#: src/Server/Privileges.php:319
+#: src/Server/Privileges.php:321
 msgid "Allows creating new databases and tables."
 msgstr "Pozwól tworzyć nowe bazy danych i tabele."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
-#: src/Server/Privileges.php:320
+#: src/Server/Privileges.php:322
 msgid "Allows dropping databases and tables."
 msgstr "Pozwól usuwać bazy danych i tabele."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
-#: src/Server/Privileges.php:338
+#: src/Server/Privileges.php:340
 msgid "Allows creating temporary tables."
 msgstr "Pozwala tworzyć tabele tymczasowe."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
-#: src/Server/Privileges.php:370
+#: src/Server/Privileges.php:372
 msgid "Allows creating stored routines."
 msgstr "Pozwól tworzyć procedury składowane."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
-#: src/Server/Privileges.php:371
+#: src/Server/Privileges.php:373
 msgid "Allows altering and dropping stored routines."
 msgstr "Pozwól modyfikować i usuwać procedury składowane."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
-#: src/Server/Privileges.php:373
+#: src/Server/Privileges.php:375
 msgid "Allows executing stored routines."
 msgstr "Pozwól wykonywać procedury składowane."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
-#: src/Server/Privileges.php:347
+#: src/Server/Privileges.php:349
 msgid "Allows to set up events for the event scheduler."
 msgstr "Umożliwia konfigurowanie zdarzeń dla programu planującego zdarzenia."
 
@@ -5040,7 +5040,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
-#: src/Server/Privileges.php:333
+#: src/Server/Privileges.php:335
 msgid ""
 "Allows connecting, even if maximum number of connections is reached; "
 "required for most administrative operations like setting global variables or "
@@ -5052,32 +5052,32 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
-#: src/Server/Privileges.php:323
+#: src/Server/Privileges.php:325
 msgid "Allows viewing processes of all users."
 msgstr "Umożliwia przeglądanie procesów wszystkich użytkowników."
 
 #: resources/templates/server/privileges/privileges_table.twig:610
 #: resources/templates/server/privileges/privileges_table.twig:613
-#: src/Server/Privileges.php:321
+#: src/Server/Privileges.php:323
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
 "Pozwól przeładowywać ustawienia serwera i opróżniać pamięć podręczną serwera."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
-#: src/Server/Privileges.php:322
+#: src/Server/Privileges.php:324
 msgid "Allows shutting down the server."
 msgstr "Pozwól wyłączyć serwer."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
-#: src/Server/Privileges.php:328
+#: src/Server/Privileges.php:330
 msgid "Gives access to the complete list of databases."
 msgstr "Daj dostęp do pełnej listy baz danych."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
-#: src/Server/Privileges.php:339
+#: src/Server/Privileges.php:341
 msgid "Allows locking tables for the current thread."
 msgstr "Pozwól blokować tabele dla aktualnego wątku."
 
@@ -5095,20 +5095,20 @@ msgstr "Nie używany w tej wersji MySQL."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
-#: src/Server/Privileges.php:344
+#: src/Server/Privileges.php:346
 msgid "Allows the user to ask where the replicas / primaries are."
 msgstr ""
 "Nadaj użytkownikowi prawo, by zapytać gdzie są serwery podrzędne / nadrzędne."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
-#: src/Server/Privileges.php:340
+#: src/Server/Privileges.php:342
 msgid "Needed for the replication replicas."
 msgstr "Potrzebne dla replikacji serwera podrzędnego."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
-#: src/Server/Privileges.php:372
+#: src/Server/Privileges.php:374
 msgid "Allows creating, dropping and renaming user accounts."
 msgstr "Pozwól tworzyć, usuwać i zmieniać nazwy kont użytkowników."
 
@@ -5277,8 +5277,8 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:222 src/Plugins/Export/ExportSql.php:750
-#: src/Plugins/Export/ExportXml.php:205
+#: src/Plugins/Export/ExportLatex.php:222 src/Plugins/Export/ExportSql.php:755
+#: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "Host:"
 
@@ -6025,7 +6025,7 @@ msgid "No users were found belonging to this user group."
 msgstr "Nie znaleziono użytkowników należących do tej grupy użytkowników."
 
 #: resources/templates/server/user_groups/user_listings.twig:9
-#: src/Controllers/Server/PrivilegesController.php:424
+#: src/Controllers/Server/PrivilegesController.php:430
 #: src/Server/Status/Processes.php:91
 msgid "User"
 msgstr "Użytkownik"
@@ -6180,7 +6180,7 @@ msgstr "Stan"
 #: resources/templates/sql/profiling_chart.twig:13
 #: resources/templates/triggers/list.twig:51
 #: src/Controllers/JavaScriptMessagesController.php:293
-#: src/Plugins/Export/ExportHtmlword.php:441
+#: src/Plugins/Export/ExportHtmlword.php:440
 #: src/Plugins/Export/ExportOdt.php:559
 #: src/Plugins/Export/ExportTexytext.php:425
 #: src/Plugins/Export/Helpers/Pdf.php:332 src/Server/Status/Processes.php:95
@@ -6214,7 +6214,7 @@ msgstr "Wykres kołowy z wynikami profilowania."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
-#: src/Controllers/Table/DeleteRowsController.php:77
+#: src/Controllers/Table/DeleteRowsController.php:74
 #: src/Controllers/Table/FindReplaceController.php:117
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
@@ -6537,7 +6537,7 @@ msgstr "Przeciągnij, aby zmienić kolejność"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Controllers/JavaScriptMessagesController.php:646
-#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1516
+#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1519
 msgid "Ignore"
 msgstr "Ignoruj"
 
@@ -6925,32 +6925,32 @@ msgid "Index length"
 msgstr "Długość indeksu"
 
 #: resources/templates/table/structure/display_partitions.twig:85
-#: src/Operations.php:516
+#: src/Operations.php:518
 msgid "Analyze"
 msgstr "Analizuj"
 
 #: resources/templates/table/structure/display_partitions.twig:95
-#: src/Operations.php:517
+#: src/Operations.php:519
 msgid "Check"
 msgstr "Sprawdź"
 
 #: resources/templates/table/structure/display_partitions.twig:105
-#: src/Operations.php:518
+#: src/Operations.php:520
 msgid "Optimize"
 msgstr "Optymalizuj"
 
 #: resources/templates/table/structure/display_partitions.twig:115
-#: src/Operations.php:519
+#: src/Operations.php:521
 msgid "Rebuild"
 msgstr "Przebuduj"
 
 #: resources/templates/table/structure/display_partitions.twig:125
-#: src/Operations.php:520
+#: src/Operations.php:522
 msgid "Repair"
 msgstr "Napraw"
 
 #: resources/templates/table/structure/display_partitions.twig:135
-#: src/Operations.php:521
+#: src/Operations.php:523
 msgid "Truncate"
 msgstr "Wyczyść(obetnij)"
 
@@ -7195,7 +7195,7 @@ msgstr "Czas"
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
 #: src/Navigation/Nodes/NodeEvent.php:24
-#: src/Plugins/Export/ExportHtmlword.php:442
+#: src/Plugins/Export/ExportHtmlword.php:441
 #: src/Plugins/Export/ExportOdt.php:562
 #: src/Plugins/Export/ExportTexytext.php:426
 #: src/Plugins/Export/Helpers/Pdf.php:334
@@ -7211,11 +7211,11 @@ msgstr "Eksport wyzwalacza %s"
 #: resources/templates/triggers/list.twig:3 src/Menu.php:291 src/Menu.php:384
 #: src/Navigation/Nodes/NodeTriggerContainer.php:23
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
-#: src/Plugins/Export/ExportHtmlword.php:496
+#: src/Plugins/Export/ExportHtmlword.php:495
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
-#: src/Plugins/Export/ExportSql.php:1905
+#: src/Plugins/Export/ExportSql.php:1909
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:115 src/Util.php:1476 src/Util.php:1492
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1476 src/Util.php:1492
 msgid "Triggers"
 msgstr "Wyzwalacze"
 
@@ -8954,33 +8954,33 @@ msgstr "Wyłącz"
 
 #: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
-#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:71
+#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:110
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:262
+#: src/Plugins/Export/ExportSql.php:267
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure"
 msgstr "struktura"
 
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
-#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:71
+#: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:110
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:262
+#: src/Plugins/Export/ExportSql.php:267
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "data"
 msgstr "dane"
 
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
-#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:71
+#: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:110
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:262
+#: src/Plugins/Export/ExportSql.php:267
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure and data"
 msgstr "struktura i dane"
@@ -9184,7 +9184,7 @@ msgstr ""
 "limitu)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:362
+#: src/Plugins/Export/ExportSql.php:367
 msgid "Exclude definition of current user"
 msgstr "Wyklucz definicję bieżącego użytkownika"
 
@@ -10450,21 +10450,21 @@ msgstr "Typ kompresji"
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
 #: src/Config/Descriptions.php:672 src/Config/Descriptions.php:674
-#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:87
-#: src/Plugins/Export/ExportExcel.php:61
-#: src/Plugins/Export/ExportHtmlword.php:91 src/Plugins/Export/ExportOds.php:75
+#: src/Config/Descriptions.php:721 src/Plugins/Export/ExportCsv.php:95
+#: src/Plugins/Export/ExportExcel.php:79
+#: src/Plugins/Export/ExportHtmlword.php:92 src/Plugins/Export/ExportOds.php:75
 #: src/Plugins/Export/ExportOdt.php:133
 #: src/Plugins/Export/ExportTexytext.php:85
 msgid "Put columns names in the first row"
 msgstr "Umieść nazwy kolumn w pierwszym wierszu"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:650
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:647
 msgid "Columns enclosed with"
 msgstr "Kolumn ujęte w"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:661
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:658
 msgid "Columns escaped with"
 msgstr "Kolumny uciekają z"
 
@@ -10480,12 +10480,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "Usuń znaki nowej linii z kolumn"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:635
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:632
 msgid "Columns terminated with"
 msgstr "Kolumny zakończone"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:668
+#: src/Plugins/Import/ImportCsv.php:665
 msgid "Lines terminated with"
 msgstr "Linie zakończone z"
 
@@ -10507,12 +10507,12 @@ msgstr "Nazwa szablonu tabeli"
 
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
-#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:66
+#: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
 #: src/Plugins/Export/ExportLatex.php:105
 #: src/Plugins/Export/ExportMediawiki.php:58
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:87
-#: src/Plugins/Export/ExportSql.php:258
+#: src/Plugins/Export/ExportSql.php:263
 #: src/Plugins/Export/ExportTexytext.php:65
 msgid "Dump table"
 msgstr "Zrzut tabeli"
@@ -10574,11 +10574,11 @@ msgstr "Daty utworzenia/aktualizacji/sprawdzenia"
 msgid "Use delayed inserts"
 msgstr "Użyj opóźnionych dodań"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:227
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
 msgstr "Wyłącz sprawdzanie kluczy zewnętrznych"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:237
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
 msgstr "Eksportuj widoki jako tabele"
 
@@ -10598,7 +10598,7 @@ msgstr ""
 "Dodaj IF NOT EXISTS (mniej wydajne, ponieważ indeksy będą generowane podczas "
 "tworzenia tabeli)"
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:368
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:373
 #, php-format
 msgid "%s view"
 msgstr "%s widok"
@@ -10611,7 +10611,7 @@ msgstr "Użyj ignorowanych dodań"
 msgid "Syntax to use when inserting data"
 msgstr "Składnia do użycia podczas wstawiania danych"
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:495
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
 msgid "Maximal length of created query"
 msgstr "Maksymalna długość utworzonego zapytania"
 
@@ -10619,7 +10619,7 @@ msgstr "Maksymalna długość utworzonego zapytania"
 msgid "Export type"
 msgstr "Rodzaj eksportu"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:217
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
 msgstr "Obejmij eksport transakcją"
 
@@ -10773,7 +10773,7 @@ msgid "Partial import: allow interrupt"
 msgstr "Import częściowy: pozwalaj na przerwanie"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
-#: src/Plugins/Import/ImportCsv.php:157 src/Plugins/Import/ImportLdi.php:78
+#: src/Plugins/Import/ImportCsv.php:158 src/Plugins/Import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
 msgstr "Nie przerywaj w przypadku błędów WSTAWIANIA wierszy"
 
@@ -10785,7 +10785,7 @@ msgstr "Dodaj ON DUPLICATE KEY UPDATE"
 msgid "Format of imported file"
 msgstr "Format importowanych plików"
 
-#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:84
+#: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
 msgstr "Użyj słowa kluczowego LOCAL"
 
@@ -10793,7 +10793,7 @@ msgstr "Użyj słowa kluczowego LOCAL"
 msgid "Column names in first row"
 msgstr "W pierwszym wierszu znajdują się nazwy kolumn"
 
-#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:80
+#: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:81
 msgid "Do not import empty rows"
 msgstr "Nie importuj pustych wierszy"
 
@@ -11316,11 +11316,11 @@ msgstr "Pokaż statystyki"
 msgid "Skip locked tables"
 msgstr "Pomiń zablokowane tabele"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:496
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:492
 msgid "Explain SQL"
 msgstr "Wyjaśnij SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:557
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:553
 msgid "Create PHP code"
 msgstr "Utwórz kod PHP"
 
@@ -11849,10 +11849,10 @@ msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 #: src/Controllers/Database/DesignerController.php:167
 #: src/Controllers/Database/DesignerController.php:172
 #: src/Controllers/Database/EventsController.php:48
-#: src/Controllers/Database/ExportController.php:58
-#: src/Controllers/Database/ExportController.php:63
-#: src/Controllers/Database/ImportController.php:60
-#: src/Controllers/Database/ImportController.php:65
+#: src/Controllers/Database/ExportController.php:55
+#: src/Controllers/Database/ExportController.php:60
+#: src/Controllers/Database/ImportController.php:58
+#: src/Controllers/Database/ImportController.php:63
 #: src/Controllers/Database/RoutinesController.php:74
 #: src/Controllers/Database/RoutinesController.php:93
 #: src/Controllers/Database/SearchController.php:52
@@ -11867,17 +11867,17 @@ msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 #: src/Controllers/Database/TrackingController.php:59
 #: src/Controllers/JavaScriptMessagesController.php:360
 #: src/Controllers/Operations/Database/CollationController.php:52
-#: src/Controllers/Operations/DatabaseController.php:239
-#: src/Controllers/Operations/DatabaseController.php:244
-#: src/Controllers/Operations/TableController.php:87
-#: src/Controllers/Operations/TableController.php:92
+#: src/Controllers/Operations/DatabaseController.php:233
+#: src/Controllers/Operations/DatabaseController.php:238
+#: src/Controllers/Operations/TableController.php:84
+#: src/Controllers/Operations/TableController.php:89
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Server/Databases/DestroyController.php:59
+#: src/Controllers/Server/Databases/DestroyController.php:57
 #: src/Controllers/Table/AddFieldController.php:159
 #: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/ChangeController.php:67
-#: src/Controllers/Table/ChangeController.php:72
+#: src/Controllers/Table/ChangeController.php:65
+#: src/Controllers/Table/ChangeController.php:70
 #: src/Controllers/Table/ChartController.php:86
 #: src/Controllers/Table/ChartController.php:91
 #: src/Controllers/Table/ChartController.php:121
@@ -11891,8 +11891,8 @@ msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 #: src/Controllers/Table/FindReplaceController.php:76
 #: src/Controllers/Table/GisVisualizationController.php:60
 #: src/Controllers/Table/GisVisualizationController.php:65
-#: src/Controllers/Table/ImportController.php:68
-#: src/Controllers/Table/ImportController.php:73
+#: src/Controllers/Table/ImportController.php:66
+#: src/Controllers/Table/ImportController.php:71
 #: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexesController.php:69
 #: src/Controllers/Table/IndexRenameController.php:53
@@ -11950,27 +11950,27 @@ msgstr ""
 "Błąd w przetwarzaniu żądania: Nie znaleziono zdarzenia o nazwie %1$s w bazie "
 "danych %2$s."
 
-#: src/Controllers/Database/ExportController.php:138
-#: src/Controllers/Server/ExportController.php:62
-#: src/Controllers/Table/ExportController.php:96
+#: src/Controllers/Database/ExportController.php:129
+#: src/Controllers/Server/ExportController.php:55
+#: src/Controllers/Table/ExportController.php:88
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Nie udało się załadować modułów eksportu, proszę sprawdzić instalację!"
 
-#: src/Controllers/Database/ImportController.php:77
-#: src/Controllers/Server/ImportController.php:58
-#: src/Controllers/Table/ImportController.php:102
+#: src/Controllers/Database/ImportController.php:75
+#: src/Controllers/Server/ImportController.php:56
+#: src/Controllers/Table/ImportController.php:100
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację!"
 
 #: src/Controllers/Database/PrivilegesController.php:61
-#: src/Controllers/Server/PrivilegesController.php:99
+#: src/Controllers/Server/PrivilegesController.php:96
 #: src/Controllers/Server/UserGroupsController.php:45
 #: src/Controllers/Table/PrivilegesController.php:64
 msgid "No Privileges"
 msgstr "Brak uprawnień"
 
 #: src/Controllers/Database/PrivilegesController.php:70
-#: src/Controllers/Server/PrivilegesController.php:108
+#: src/Controllers/Server/PrivilegesController.php:105
 #: src/Controllers/Table/PrivilegesController.php:73
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nie masz uprawnień do administrowania użytkownikami!"
@@ -11987,14 +11987,14 @@ msgstr "Nie masz uprawnień do administrowania użytkownikami!"
 #: src/Controllers/Database/Structure/ShowCreateController.php:34
 #: src/Controllers/Export/TablesController.php:27
 #: src/Controllers/JavaScriptMessagesController.php:361
-#: src/Controllers/Operations/TableController.php:101
-#: src/Controllers/Operations/TableController.php:106
+#: src/Controllers/Operations/TableController.php:98
+#: src/Controllers/Operations/TableController.php:103
 #: src/Controllers/Operations/ViewController.php:73
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Table/AddFieldController.php:173
 #: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/ChangeController.php:81
-#: src/Controllers/Table/ChangeController.php:86
+#: src/Controllers/Table/ChangeController.php:79
+#: src/Controllers/Table/ChangeController.php:84
 #: src/Controllers/Table/ChartController.php:100
 #: src/Controllers/Table/ChartController.php:105
 #: src/Controllers/Table/ChartController.php:208
@@ -12004,8 +12004,8 @@ msgstr "Nie masz uprawnień do administrowania użytkownikami!"
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
 #: src/Controllers/Table/FindReplaceController.php:85
 #: src/Controllers/Table/FindReplaceController.php:90
-#: src/Controllers/Table/ImportController.php:82
-#: src/Controllers/Table/ImportController.php:87
+#: src/Controllers/Table/ImportController.php:80
+#: src/Controllers/Table/ImportController.php:85
 #: src/Controllers/Table/IndexesController.php:78
 #: src/Controllers/Table/IndexesController.php:83
 #: src/Controllers/Table/IndexRenameController.php:67
@@ -12155,7 +12155,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Jeśli chcesz, możesz odświeżyć stronę."
 
-#: src/Controllers/Export/ExportController.php:101 src/Export/Export.php:1037
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1060
 msgid "Bad type!"
 msgstr "Zły typ!"
 
@@ -12292,7 +12292,7 @@ msgstr ""
 "allow_url_fopen. W związku z tym niektóre funkcjonalności, jak raportowanie "
 "błędów czy sprawdzanie wersji nie będą dostępne."
 
-#: src/Controllers/Import/ImportController.php:165
+#: src/Controllers/Import/ImportController.php:159
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12301,21 +12301,21 @@ msgstr ""
 "Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się z "
 "%sdokumentacją%s, aby obejść to ograniczenie."
 
-#: src/Controllers/Import/ImportController.php:191
+#: src/Controllers/Import/ImportController.php:185
 msgid "Incorrect format parameter"
 msgstr "Nieprawidłowy parametr formatu"
 
-#: src/Controllers/Import/ImportController.php:305
-#: src/Controllers/Import/ImportController.php:518
+#: src/Controllers/Import/ImportController.php:296
+#: src/Controllers/Import/ImportController.php:509
 msgid "Showing bookmark"
 msgstr "Pokazywanie zakładki"
 
-#: src/Controllers/Import/ImportController.php:325
-#: src/Controllers/Import/ImportController.php:514
+#: src/Controllers/Import/ImportController.php:316
+#: src/Controllers/Import/ImportController.php:505
 msgid "The bookmark has been deleted."
 msgstr "Zakładka została usunięta."
 
-#: src/Controllers/Import/ImportController.php:437
+#: src/Controllers/Import/ImportController.php:428
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12325,7 +12325,7 @@ msgstr ""
 "albo jego rozmiar przekroczył rozmiar maksymalny, dozwolony przez twoją "
 "konfigurację PHP. Zobacz [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:526
+#: src/Controllers/Import/ImportController.php:517
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -12333,7 +12333,7 @@ msgstr[0] "Import zakończony sukcesem, wykonano %d zapytanie."
 msgstr[1] "Import zakończony sukcesem, wykonano %d zapytań."
 msgstr[2] "Import zakończony sukcesem, wykonano %d zapytań."
 
-#: src/Controllers/Import/ImportController.php:563
+#: src/Controllers/Import/ImportController.php:554
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12342,7 +12342,7 @@ msgstr ""
 "Limit czasu wykonania skryptu minął. Aby ukończyć import, proszę %sponownie "
 "przesłać ten sam plik%s, a import zostanie wznowiony."
 
-#: src/Controllers/Import/ImportController.php:573
+#: src/Controllers/Import/ImportController.php:564
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12351,12 +12351,12 @@ msgstr ""
 "dane, co zwykle oznacza, że phpMyAdmin nie będzie w stanie ukończyć tego "
 "importu bez zwiększenia limitów czasowych PHP."
 
-#: src/Controllers/Import/ImportController.php:636
-#: src/Controllers/Sql/SqlController.php:159
+#: src/Controllers/Import/ImportController.php:627
+#: src/Controllers/Sql/SqlController.php:144
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Instrukcje \"DROP DATABASE\" są wyłączone."
 
-#: src/Controllers/Import/ImportController.php:685 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:676 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[Wystąpił ROLLBACK.]"
 
@@ -12365,7 +12365,7 @@ msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Tylko dla pojedynczej tabeli zapytania UPDATE i DELETE mogą być symulowane."
 
-#: src/Controllers/Import/StatusController.php:65
+#: src/Controllers/Import/StatusController.php:63
 msgid "Could not load the progress of the import."
 msgstr "Nie można wczytać postępu importu."
 
@@ -12590,12 +12590,12 @@ msgid "The user name is empty!"
 msgstr "Nazwa użytkownika jest pusta!"
 
 #: src/Controllers/JavaScriptMessagesController.php:144
-#: src/Server/Privileges.php:772 src/UserPassword.php:40
+#: src/Server/Privileges.php:766 src/UserPassword.php:40
 msgid "The password is empty!"
 msgstr "Hasło jest puste!"
 
 #: src/Controllers/JavaScriptMessagesController.php:145
-#: src/Server/Privileges.php:770 src/UserPassword.php:44
+#: src/Server/Privileges.php:764 src/UserPassword.php:44
 msgid "The passwords aren't the same!"
 msgstr "Hasła nie są identyczne!"
 
@@ -13935,7 +13935,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabela %s już istnieje!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:272
+#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:275
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Ukryj"
@@ -14345,27 +14345,27 @@ msgid "String"
 msgstr "Ciąg"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
-#: src/Controllers/Operations/TableController.php:278
+#: src/Controllers/Operations/TableController.php:275
 msgid "No collation provided."
 msgstr "Brak zestawień."
 
-#: src/Controllers/Operations/DatabaseController.php:82
+#: src/Controllers/Operations/DatabaseController.php:81
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nie można utworzyć kopii bazy danych o takiej samej nazwie. Zmień nazwę i "
 "spróbuj ponownie."
 
-#: src/Controllers/Operations/DatabaseController.php:167
+#: src/Controllers/Operations/DatabaseController.php:161
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Nazwę bazy danych %1$s zmieniono na %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:181
+#: src/Controllers/Operations/DatabaseController.php:175
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza danych %1$s została przekopiowana do %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:282
+#: src/Controllers/Operations/DatabaseController.php:276
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14373,15 +14373,15 @@ msgstr ""
 "Przechowywanie konfiguracji phpMyAdmin zostało wyłączone. Aby dowiedzieć się "
 "dlaczego, kliknij %stutaj%s."
 
-#: src/Controllers/Preferences/ManageController.php:87
+#: src/Controllers/Preferences/ManageController.php:85
 msgid "phpMyAdmin configuration snippet"
 msgstr "Fragment konfiguracyjny phpMyAdmin"
 
-#: src/Controllers/Preferences/ManageController.php:88
+#: src/Controllers/Preferences/ManageController.php:86
 msgid "Paste it to your config.inc.php"
 msgstr "Wklej go do pliku config.inc.php"
 
-#: src/Controllers/Preferences/ManageController.php:138
+#: src/Controllers/Preferences/ManageController.php:136
 msgid "Could not import configuration"
 msgstr "Nie można zaimportować konfiguracji"
 
@@ -14395,7 +14395,7 @@ msgstr "Skonfigurowano uwierzytelnianie dwuskładnikowe."
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
-#: src/ResponseRenderer.php:445
+#: src/ResponseRenderer.php:447
 msgid "Missing parameter:"
 msgstr "Brakuje parametru:"
 
@@ -14404,7 +14404,7 @@ msgstr "Brakuje parametru:"
 msgid "Database %1$s has been created."
 msgstr "Baza danych %1$s została utworzona."
 
-#: src/Controllers/Server/Databases/DestroyController.php:83
+#: src/Controllers/Server/Databases/DestroyController.php:80
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -14422,7 +14422,7 @@ msgstr "Konto %s@%s zostało pomyślnie zablokowane."
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "Konto %s@%s zostało pomyślnie odblokowane."
 
-#: src/Controllers/Server/PrivilegesController.php:124
+#: src/Controllers/Server/PrivilegesController.php:121
 msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
@@ -15210,12 +15210,12 @@ msgstr "Nieprawidłowe dane"
 msgid "Wrong data or no validation for %s"
 msgstr "Błędne dane lub brak sprawdzania poprawności dla %s"
 
-#: src/Controllers/Sql/SqlController.php:229 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:214 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Zakładka %s została utworzona."
 
-#: src/Controllers/Sql/SqlController.php:236
+#: src/Controllers/Sql/SqlController.php:221
 msgid "Bookmark not created!"
 msgstr "Zakładka nie utworzona!"
 
@@ -15228,9 +15228,9 @@ msgstr "Zakładka nie utworzona!"
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabela %1$s została pomyślnie zmodyfikowana."
 
-#: src/Controllers/Table/ChangeRowsController.php:35
+#: src/Controllers/Table/ChangeRowsController.php:34
 #: src/Controllers/Table/DeleteConfirmController.php:36
-#: src/Controllers/Table/ExportRowsController.php:32
+#: src/Controllers/Table/ExportRowsController.php:31
 msgid "No row selected."
 msgstr "Nie wybrano wiersza."
 
@@ -15288,8 +15288,8 @@ msgid "There is an issue with your request."
 msgstr "Wystąpił problem z Twoją prośbą."
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1044 src/Import/Import.php:131
-#: src/InsertEdit.php:199 src/Sql.php:863
+#: src/Database/Routines.php:1044 src/Import/Import.php:135
+#: src/InsertEdit.php:202 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL zwrócił pusty wynik (zero wierszy)."
 
@@ -15327,12 +15327,12 @@ msgstr "Kolumna wyświetlania została pomyślnie zaktualizowana."
 msgid "Internal relationships were successfully updated."
 msgstr "Relacje wewnętrzne zostały pomyślnie zaktualizowane."
 
-#: src/Controllers/Table/ReplaceController.php:186
+#: src/Controllers/Table/ReplaceController.php:182
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Linia: %1$s, Kolumna: %2$s, Błąd: %3$s"
 
-#: src/Controllers/Table/Structure/AddKeyController.php:23
+#: src/Controllers/Table/Structure/AddKeyController.php:24
 msgid "Invalid request parameter."
 msgstr "Nieprawidłowy parametr żądania."
 
@@ -15400,7 +15400,7 @@ msgstr ""
 "Błąd w przetwarzaniu żądania: Nie znaleziono wyzwalacza o nazwie %1$s w "
 "bazie danych %2$s."
 
-#: src/Controllers/UserPasswordController.php:49
+#: src/Controllers/UserPasswordController.php:46
 msgid "You don't have sufficient privileges to be here right now!"
 msgstr "Nie masz wystarczających uprawnień, aby być tu i teraz!"
 
@@ -15507,7 +15507,7 @@ msgstr "Następujące zapytanie nie powiodło się: \"%s\""
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:108 src/Database/Routines.php:134
 #: src/Database/Routines.php:212 src/Database/Routines.php:226
-#: src/Database/Routines.php:1008 src/Html/Generator.php:805
+#: src/Database/Routines.php:1008 src/Html/Generator.php:801
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -15628,7 +15628,7 @@ msgstr[0] "%d wiersz dotyczy ostatniego sprawozdania wewnątrz procedury."
 msgstr[1] "%d wiersze dotyczą ostatniego sprawozdania wewnątrz procedury."
 msgstr[2] "%d wierszy dotyczy ostatniego sprawozdania wewnątrz procedury."
 
-#: src/Dbal/DatabaseInterface.php:1063
+#: src/Dbal/DatabaseInterface.php:1065
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15639,11 +15639,11 @@ msgstr ""
 "konfiguracji dla [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin używa obecnie domyślnej strefy czasowej serwera bazy danych."
 
-#: src/Dbal/DatabaseInterface.php:1105
+#: src/Dbal/DatabaseInterface.php:1107
 msgid "Failed to set configured collation connection!"
 msgstr "Nie można ustawić skonfigurowanego połączenia sortowania!"
 
-#: src/Dbal/DatabaseInterface.php:1638
+#: src/Dbal/DatabaseInterface.php:1640
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Połączenie dla użytkownika kontrolnego zdefiniowanego w pliku "
@@ -16064,13 +16064,13 @@ msgstr ""
 "Po ponownym zalogowaniu się powinno być możliwe wznowienie pracy w miejscu, "
 "w którym przerwałeś."
 
-#: src/Export/Export.php:165 src/Export/Export.php:201
-#: src/Export/Export.php:409
+#: src/Export/Export.php:188 src/Export/Export.php:224
+#: src/Export/Export.php:432
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Za mało miejsca na zapis pliku %s."
 
-#: src/Export/Export.php:362
+#: src/Export/Export.php:385
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16078,18 +16078,18 @@ msgstr ""
 "Plik %s już istnieje na serwerze. Zmień nazwę pliku lub zaznacz opcję "
 "nadpisywania plików."
 
-#: src/Export/Export.php:369 src/Export/Export.php:379
+#: src/Export/Export.php:392 src/Export/Export.php:402
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Serwer WWW nie ma uprawnień do zapisania tego pliku %s."
 
-#: src/Export/Export.php:416
+#: src/Export/Export.php:439
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Zrzut został zapisany do pliku %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:755
+#: src/Export/Export.php:778
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 "Eksportowanie nieprzetworzonego zapytania nie jest obsługiwane w przypadku "
@@ -16174,53 +16174,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "Nie znaleziono sesji."
 
-#: src/Html/Generator.php:147
+#: src/Html/Generator.php:148
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Przejście do bazy danych \"%s\"."
 
-#: src/Html/Generator.php:213
+#: src/Html/Generator.php:214
 msgid "SSL is not being used"
 msgstr "SSL nie jest używany"
 
-#: src/Html/Generator.php:220
+#: src/Html/Generator.php:221
 msgid "SSL is used with disabled verification"
 msgstr "SSL jest używany z wyłączoną weryfikacją"
 
-#: src/Html/Generator.php:222
+#: src/Html/Generator.php:223
 msgid "SSL is used without certification authority"
 msgstr "SSL jest używany bez urzędu certyfikacji"
 
-#: src/Html/Generator.php:225
+#: src/Html/Generator.php:226
 msgid "SSL is used"
 msgstr "Protokół SSL jest w użyciu"
 
-#: src/Html/Generator.php:329
+#: src/Html/Generator.php:330
 msgid "The PHP function password_hash() with default options."
 msgstr "Funkcja PHP password_hash() z opcjami domyślnymi."
 
-#: src/Html/Generator.php:330
+#: src/Html/Generator.php:331
 msgid "password_hash() PHP function"
 msgstr "password_hash() funkcja PHP"
 
-#: src/Html/Generator.php:505
+#: src/Html/Generator.php:501
 msgid "Skip Explain SQL"
 msgstr "Pomiń wyjaśnienie SQL"
 
-#: src/Html/Generator.php:537
+#: src/Html/Generator.php:533
 msgid "Without PHP code"
 msgstr "Bez kodu PHP"
 
-#: src/Html/Generator.php:622
+#: src/Html/Generator.php:618
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Edytuj w linii"
 
-#: src/Html/Generator.php:747
+#: src/Html/Generator.php:743
 msgid "Static analysis:"
 msgstr "Analiza statyczna:"
 
-#: src/Html/Generator.php:750
+#: src/Html/Generator.php:746
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "%d błędów zostało znalezionych podczas analizy."
@@ -16306,7 +16306,7 @@ msgstr "Nazwa wyzwalacza nie może być dłuższa niż %d znaków."
 msgid "The trigger name cannot end with a space character."
 msgstr "Nazwa wyzwalacza nie może kończyć się znakiem spacji."
 
-#: src/Import/Import.php:947
+#: src/Import/Import.php:948
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
@@ -16314,46 +16314,46 @@ msgstr ""
 "Tylko INSERT, UPDATE, DELETE, REPLACE i SET Zapytania SQL zawierające "
 "transakcyjne tabele silników mogą zostać wycofane."
 
-#: src/Import/Import.php:1169
+#: src/Import/Import.php:1170
 #, php-format
 msgid "Go to table: %s"
 msgstr "Przejdź do tabeli: %s"
 
-#: src/Import/Import.php:1177
+#: src/Import/Import.php:1178
 #, php-format
 msgid "Structure of %s"
 msgstr "Struktura %s"
 
-#: src/Import/Import.php:1184 src/Import/Import.php:1233
+#: src/Import/Import.php:1185 src/Import/Import.php:1234
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Edytuj ustawienia dla %s"
 
-#: src/Import/Import.php:1195
+#: src/Import/Import.php:1196
 #, php-format
 msgid "Go to view: %s"
 msgstr "Przejdź do widoku: %s"
 
-#: src/Import/Import.php:1216
+#: src/Import/Import.php:1217
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 "Następujące struktury zostały wcześniej utworzone lub zaktualizowane. Możesz:"
 
-#: src/Import/Import.php:1218
+#: src/Import/Import.php:1219
 msgid "View a structure's contents by clicking on its name."
 msgstr "Zobacz zawartość struktury klikając jej nazwę."
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1220
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "Zmień dowolne ustawienia, klikając odpowiedni link \"Opcje\"."
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1221
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Edytuj strukturę, klikając link \"Struktura\"."
 
-#: src/Import/Import.php:1227
+#: src/Import/Import.php:1228
 #, php-format
 msgid "Go to database: %s"
 msgstr "Idź do bazy danych: %s"
@@ -16367,15 +16367,15 @@ msgstr ""
 "Indeksy %1$s i %2$s wyglądają na identyczne i jeden z nich mógłby zostać "
 "usunięty."
 
-#: src/InsertEdit.php:496
+#: src/InsertEdit.php:499
 msgid "web server upload directory:"
 msgstr "katalog przesyłania serwera web:"
 
-#: src/InsertEdit.php:924 src/Sql.php:860
+#: src/InsertEdit.php:927 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Wyświetl zapytanie SQL"
 
-#: src/InsertEdit.php:948 src/Sql.php:840
+#: src/InsertEdit.php:951 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id wstawionego wiersza: %1$d"
@@ -16509,7 +16509,7 @@ msgstr "Nowy"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:639 src/Plugins/Export/ExportXml.php:100
+#: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "Funkcje"
 
@@ -16529,7 +16529,7 @@ msgstr "Rozwiń/Zwiń"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:628 src/Plugins/Export/ExportXml.php:105
+#: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "Procedury"
 
@@ -16832,39 +16832,39 @@ msgstr ""
 msgid "No partial dependencies found!"
 msgstr "Nie znaleziono częściowych zależności!"
 
-#: src/Operations.php:535
+#: src/Operations.php:537
 msgid "Coalesce"
 msgstr "Łączyć"
 
-#: src/Operations.php:889
+#: src/Operations.php:888
 msgid "Can't move table to same one!"
 msgstr "Nie można przenieść tabeli do niej samej!"
 
-#: src/Operations.php:891
+#: src/Operations.php:890
 msgid "Can't copy table to same one!"
 msgstr "Nie można przekopiować tabeli do niej samej!"
 
-#: src/Operations.php:927
+#: src/Operations.php:926
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr "Tabela %s została przeniesiona do %s. Przywileje zostały dostosowane."
 
-#: src/Operations.php:933
+#: src/Operations.php:932
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr "Tabela %s została skopiowana do %s. Przywileje zostały dostosowane."
 
-#: src/Operations.php:939
+#: src/Operations.php:938
 #, php-format
 msgid "Table %s has been moved to %s."
 msgstr "Tabela %s została przeniesiona do %s."
 
-#: src/Operations.php:943
+#: src/Operations.php:942
 #, php-format
 msgid "Table %s has been copied to %s."
 msgstr "Tabela %s została przekopiowana do %s."
 
-#: src/Operations.php:966
+#: src/Operations.php:965
 msgid "The table name is empty!"
 msgstr "Nazwa tabeli jest pusta!"
 
@@ -16905,23 +16905,23 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Ponów podłączenie"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:125
+#: src/Plugins/Auth/AuthenticationCookie.php:126
 msgid "Your session has expired. Please log in again."
 msgstr "Twoja sesja wygasła. Zaloguj się ponownie."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:241
+#: src/Plugins/Auth/AuthenticationCookie.php:235
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr "Brak weryfikacji Captcha, może została zablokowana przez adblock?"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:276
+#: src/Plugins/Auth/AuthenticationCookie.php:270
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Nie udało się połączyć z usługą reCAPTCHA!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:278
+#: src/Plugins/Auth/AuthenticationCookie.php:272
 msgid "Entered captcha is wrong, try again!"
 msgstr "Wprowadzona captcha jest niewłaściwa, spróbuj ponownie!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:290
+#: src/Plugins/Auth/AuthenticationCookie.php:284
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
@@ -16929,7 +16929,7 @@ msgstr ""
 "Twoje hasło jest za długie. Aby zapobiec atakom typu „odmowa usługi”, "
 "phpMyAdmin ogranicza hasła do mniej niż 2000 znaków."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:308
+#: src/Plugins/Auth/AuthenticationCookie.php:302
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nie możesz logować się do tego serwera MySQL!"
 
@@ -16950,69 +16950,69 @@ msgstr "W konfiguracji ustawiono błędną metodę uwierzytelniania:"
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr "Włączyłeś uwierzytelnianie dwuskładnikowe, potwierdź swój login."
 
-#: src/Plugins/Export/ExportCsv.php:57
+#: src/Plugins/Export/ExportCsv.php:65
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
 msgstr "Kolumny oddzielone:"
 
-#: src/Plugins/Export/ExportCsv.php:62
+#: src/Plugins/Export/ExportCsv.php:70
 #: src/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
 msgstr "Kolumny dołączyć:"
 
-#: src/Plugins/Export/ExportCsv.php:67
+#: src/Plugins/Export/ExportCsv.php:75
 #: src/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
 msgstr "Kolumny uciekły z:"
 
-#: src/Plugins/Export/ExportCsv.php:72
+#: src/Plugins/Export/ExportCsv.php:80
 #: src/Plugins/Import/AbstractImportCsv.php:56
 msgid "Lines terminated with:"
 msgstr "Linie zakończone z:"
 
-#: src/Plugins/Export/ExportCsv.php:77 src/Plugins/Export/ExportExcel.php:51
-#: src/Plugins/Export/ExportHtmlword.php:86
+#: src/Plugins/Export/ExportCsv.php:85 src/Plugins/Export/ExportExcel.php:69
+#: src/Plugins/Export/ExportHtmlword.php:87
 #: src/Plugins/Export/ExportLatex.php:200 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:138
 #: src/Plugins/Export/ExportTexytext.php:90
 msgid "Replace NULL with:"
 msgstr "Zamiana NULL na:"
 
-#: src/Plugins/Export/ExportCsv.php:82 src/Plugins/Export/ExportExcel.php:56
+#: src/Plugins/Export/ExportCsv.php:90 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
 msgstr "Usuń znaki nowej linii z kolumn"
 
-#: src/Plugins/Export/ExportExcel.php:66
+#: src/Plugins/Export/ExportExcel.php:84
 msgid "Excel edition:"
 msgstr "Wydanie Excela:"
 
-#: src/Plugins/Export/ExportHtmlword.php:80
+#: src/Plugins/Export/ExportHtmlword.php:81
 #: src/Plugins/Export/ExportLatex.php:171 src/Plugins/Export/ExportOdt.php:127
 #: src/Plugins/Export/ExportTexytext.php:79
-#: src/Plugins/Export/ExportXml.php:128
+#: src/Plugins/Export/ExportXml.php:129
 msgid "Data dump options"
 msgstr "Opcje eksportu danych"
 
-#: src/Plugins/Export/ExportHtmlword.php:193
-#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2151
+#: src/Plugins/Export/ExportHtmlword.php:192
+#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2155
 #: src/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Zrzut danych tabeli"
 
-#: src/Plugins/Export/ExportHtmlword.php:487
-#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1891
+#: src/Plugins/Export/ExportHtmlword.php:486
+#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1895
 #: src/Plugins/Export/ExportTexytext.php:458
 msgid "Table structure for table"
 msgstr "Struktura tabeli dla tabeli"
 
-#: src/Plugins/Export/ExportHtmlword.php:504
-#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1948
+#: src/Plugins/Export/ExportHtmlword.php:503
+#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1952
 #: src/Plugins/Export/ExportTexytext.php:471
 msgid "Structure for view"
 msgstr "Struktura widoku"
 
-#: src/Plugins/Export/ExportHtmlword.php:510
-#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1987
+#: src/Plugins/Export/ExportHtmlword.php:509
+#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1991
 #: src/Plugins/Export/ExportTexytext.php:475
 msgid "Stand-in structure for view"
 msgstr "Zastąpiona struktura widoku"
@@ -17039,7 +17039,7 @@ msgid "Structure of table @TABLE@"
 msgstr "Struktura tabeli @TABLE@"
 
 #: src/Plugins/Export/ExportLatex.php:120 src/Plugins/Export/ExportOdt.php:94
-#: src/Plugins/Export/ExportSql.php:274
+#: src/Plugins/Export/ExportSql.php:279
 msgid "Object creation options"
 msgstr "Opcje tworzenia obiektu"
 
@@ -17059,7 +17059,7 @@ msgid "Label key:"
 msgstr "Etykieta klucza:"
 
 #: src/Plugins/Export/ExportLatex.php:146 src/Plugins/Export/ExportOdt.php:102
-#: src/Plugins/Export/ExportSql.php:199
+#: src/Plugins/Export/ExportSql.php:204
 msgid "Display foreign key relationships"
 msgstr "Wyświetlanie związki z kluczem zewnętrznym"
 
@@ -17068,7 +17068,7 @@ msgid "Display comments"
 msgstr "Wyświetl komentarze"
 
 #: src/Plugins/Export/ExportLatex.php:159 src/Plugins/Export/ExportOdt.php:115
-#: src/Plugins/Export/ExportSql.php:207
+#: src/Plugins/Export/ExportSql.php:212
 msgid "Display media types"
 msgstr "Wyświetl typy mediów"
 
@@ -17076,17 +17076,17 @@ msgstr "Wyświetl typy mediów"
 msgid "Put columns names in the first row:"
 msgstr "Umieść nazwy kolumn w pierwszym wierszu:"
 
-#: src/Plugins/Export/ExportLatex.php:228 src/Plugins/Export/ExportSql.php:757
-#: src/Plugins/Export/ExportXml.php:212
+#: src/Plugins/Export/ExportLatex.php:228 src/Plugins/Export/ExportSql.php:762
+#: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "Czas generowania:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:763
-#: src/Plugins/Export/ExportXml.php:215
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:768
+#: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "Wersja PHP:"
 
-#: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2036
+#: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2040
 msgid "Data:"
 msgstr "Dane:"
 
@@ -17127,7 +17127,7 @@ msgstr "Zobacz strukturę"
 msgid "Stand in"
 msgstr "Przyłączać się"
 
-#: src/Plugins/Export/ExportSql.php:178
+#: src/Plugins/Export/ExportSql.php:183
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
@@ -17135,11 +17135,11 @@ msgstr ""
 "Wyświetl komentarze <i>(zawiera informacje takie jak znacznik czasowy "
 "eksportu, wersję PHP, wersję serwera)</i>"
 
-#: src/Plugins/Export/ExportSql.php:185
+#: src/Plugins/Export/ExportSql.php:190
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Dodatkowy komentarz niestandardowych nagłówków (\\n dzieli wiersze):"
 
-#: src/Plugins/Export/ExportSql.php:191
+#: src/Plugins/Export/ExportSql.php:196
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
@@ -17147,38 +17147,38 @@ msgstr ""
 "Dołącz znacznik czasu, gdy bazy danych zostały stworzone, ostatnio "
 "aktualizowane i ostatnio sprawdzane"
 
-#: src/Plugins/Export/ExportSql.php:244
+#: src/Plugins/Export/ExportSql.php:249
 msgid "Export metadata"
 msgstr "Eksportuj metadane"
 
-#: src/Plugins/Export/ExportSql.php:282
+#: src/Plugins/Export/ExportSql.php:287
 msgid "Add statements:"
 msgstr "Cecha:"
 
-#: src/Plugins/Export/ExportSql.php:290 src/Plugins/Export/ExportSql.php:299
-#: src/Plugins/Export/ExportSql.php:316 src/Plugins/Export/ExportSql.php:325
-#: src/Plugins/Export/ExportSql.php:349 src/Plugins/Export/ExportSql.php:377
-#: src/Plugins/Export/ExportSql.php:386
+#: src/Plugins/Export/ExportSql.php:295 src/Plugins/Export/ExportSql.php:304
+#: src/Plugins/Export/ExportSql.php:321 src/Plugins/Export/ExportSql.php:330
+#: src/Plugins/Export/ExportSql.php:354 src/Plugins/Export/ExportSql.php:382
+#: src/Plugins/Export/ExportSql.php:391
 #, php-format
 msgid "Add %s statement"
 msgstr "Dodaj oświadczenie %s"
 
-#: src/Plugins/Export/ExportSql.php:332
+#: src/Plugins/Export/ExportSql.php:337
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 "(mniej wydajne, ponieważ indeksy będą generowane podczas tworzenia tabeli)"
 
-#: src/Plugins/Export/ExportSql.php:339
+#: src/Plugins/Export/ExportSql.php:344
 #, php-format
 msgid "%s value"
 msgstr "Wartość %s"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:356
+#: src/Plugins/Export/ExportSql.php:361
 msgid "Use simple view export"
 msgstr "Użyj prostego eksportu widoku"
 
-#: src/Plugins/Export/ExportSql.php:395
+#: src/Plugins/Export/ExportSql.php:400
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
@@ -17186,35 +17186,35 @@ msgstr ""
 "Załącz tabelę i nazwę kolumny z odwrotnym cudzysłowem <i> (Chroni kolumn i "
 "nazwy tabeli utworzonych ze znakami specjalnymi lub słowami kluczowymi)</i>"
 
-#: src/Plugins/Export/ExportSql.php:410
+#: src/Plugins/Export/ExportSql.php:415
 msgid "Data creation options"
 msgstr "Opcje tworzenia danych"
 
-#: src/Plugins/Export/ExportSql.php:415 src/Plugins/Export/ExportSql.php:2114
+#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2118
 msgid "Truncate table before insert"
 msgstr "Tabela Truncate przed wstawieniem"
 
-#: src/Plugins/Export/ExportSql.php:422
+#: src/Plugins/Export/ExportSql.php:427
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr "Zamiast zapytań <code>INSERT</code> użyj:"
 
-#: src/Plugins/Export/ExportSql.php:428
+#: src/Plugins/Export/ExportSql.php:433
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr "Zapytania <code>INSERT DELAYED</code>"
 
-#: src/Plugins/Export/ExportSql.php:437 src/Plugins/Export/ExportSql.php:464
+#: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr "Zapytania <code>INSERT IGNORE</code>"
 
-#: src/Plugins/Export/ExportSql.php:448
+#: src/Plugins/Export/ExportSql.php:453
 msgid "Function to use when dumping data:"
 msgstr "Funkcja eksportu danych:"
 
-#: src/Plugins/Export/ExportSql.php:459
+#: src/Plugins/Export/ExportSql.php:464
 msgid "Syntax to use when inserting data:"
 msgstr "Składnia do użycia podczas wstawiania danych:"
 
-#: src/Plugins/Export/ExportSql.php:469
+#: src/Plugins/Export/ExportSql.php:474
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
@@ -17224,7 +17224,7 @@ msgstr ""
 "&nbsp; &nbsp; Np: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 
-#: src/Plugins/Export/ExportSql.php:474
+#: src/Plugins/Export/ExportSql.php:479
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
@@ -17234,7 +17234,7 @@ msgstr ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:479
+#: src/Plugins/Export/ExportSql.php:484
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
@@ -17242,7 +17242,7 @@ msgstr ""
 "obu powyższych<br> Przykład:<code>INSERT INTO tbl_name (col_A,col_B,col_C) "
 "VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 
-#: src/Plugins/Export/ExportSql.php:484
+#: src/Plugins/Export/ExportSql.php:489
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
@@ -17250,7 +17250,7 @@ msgstr ""
 "żadne z powyższych<br>Przykład: <code>INSERT INTO tbl_name VALUES (1,2,3)</"
 "code>"
 
-#: src/Plugins/Export/ExportSql.php:503
+#: src/Plugins/Export/ExportSql.php:508
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
@@ -17258,7 +17258,7 @@ msgstr ""
 "Zrzuć binarne kolumny w postaci szesnastkowej <i>(np. \"abc\" zmienia się na "
 "0x616263)</i>"
 
-#: src/Plugins/Export/ExportSql.php:512
+#: src/Plugins/Export/ExportSql.php:517
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
@@ -17266,116 +17266,116 @@ msgstr ""
 "Zrzuć znacznik czasu kolumn w UTC <i>(znacznik czasu kolumn będzie zrzucony "
 "i przeładowany między serwerami w różnych strefach czasowych)</i>"
 
-#: src/Plugins/Export/ExportSql.php:588
+#: src/Plugins/Export/ExportSql.php:593
 msgid "It appears your database uses routines;"
 msgstr "Wygląda na to, że twoja baza danych używa procedur;"
 
-#: src/Plugins/Export/ExportSql.php:591 src/Plugins/Export/ExportSql.php:1504
-#: src/Plugins/Export/ExportSql.php:1936
+#: src/Plugins/Export/ExportSql.php:596 src/Plugins/Export/ExportSql.php:1508
+#: src/Plugins/Export/ExportSql.php:1940
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 "eksport aliasów może nie działać niezawodnie we wszystkich przypadkach."
 
-#: src/Plugins/Export/ExportSql.php:1049
+#: src/Plugins/Export/ExportSql.php:1053
 msgid "Metadata"
 msgstr "Metadane"
 
-#: src/Plugins/Export/ExportSql.php:1110
+#: src/Plugins/Export/ExportSql.php:1114
 #, php-format
 msgid "Metadata for table %s"
 msgstr "Metadane dla tabeli %s"
 
-#: src/Plugins/Export/ExportSql.php:1117
+#: src/Plugins/Export/ExportSql.php:1121
 #, php-format
 msgid "Metadata for database %s"
 msgstr "Metadane dla Bazy danych %s"
 
-#: src/Plugins/Export/ExportSql.php:1416
+#: src/Plugins/Export/ExportSql.php:1420
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr "Błąd odczytu struktury tabeli %s:"
 
-#: src/Plugins/Export/ExportSql.php:1501
+#: src/Plugins/Export/ExportSql.php:1505
 msgid "It appears your database uses views;"
 msgstr "Wygląda na to, że twoja baza danych używa widoków;"
 
-#: src/Plugins/Export/ExportSql.php:1645
+#: src/Plugins/Export/ExportSql.php:1649
 msgid "Constraints for dumped tables"
 msgstr "Ograniczenia dla zrzutów tabel"
 
-#: src/Plugins/Export/ExportSql.php:1646
+#: src/Plugins/Export/ExportSql.php:1650
 msgid "Constraints for table"
 msgstr "Ograniczenia dla tabeli"
 
-#: src/Plugins/Export/ExportSql.php:1672
+#: src/Plugins/Export/ExportSql.php:1676
 msgid "Indexes for dumped tables"
 msgstr "Indeksy dla zrzutów tabel"
 
-#: src/Plugins/Export/ExportSql.php:1673
+#: src/Plugins/Export/ExportSql.php:1677
 msgid "Indexes for table"
 msgstr "Indeksy dla tabeli"
 
-#: src/Plugins/Export/ExportSql.php:1696
+#: src/Plugins/Export/ExportSql.php:1700
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "AUTO_INCREMENT dla zrzuconych tabel"
 
-#: src/Plugins/Export/ExportSql.php:1697
+#: src/Plugins/Export/ExportSql.php:1701
 msgid "AUTO_INCREMENT for table"
 msgstr "AUTO_INCREMENT dla tabeli"
 
-#: src/Plugins/Export/ExportSql.php:1753
+#: src/Plugins/Export/ExportSql.php:1757
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "TYPY NOŚNIKÓW NA TABELĘ"
 
-#: src/Plugins/Export/ExportSql.php:1783
+#: src/Plugins/Export/ExportSql.php:1787
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "RELACJE DLA TABELI"
 
-#: src/Plugins/Export/ExportSql.php:1933
+#: src/Plugins/Export/ExportSql.php:1937
 msgid "It appears your table uses triggers;"
 msgstr "Wygląda na to, że twoja tabela używa wyzwalaczy;"
 
-#: src/Plugins/Export/ExportSql.php:1963
+#: src/Plugins/Export/ExportSql.php:1967
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr "Struktura widoku %s eksportowana jako tabela"
 
-#: src/Plugins/Export/ExportSql.php:1990
+#: src/Plugins/Export/ExportSql.php:1994
 msgid "(See below for the actual view)"
 msgstr "(Zobacz poniżej rzeczywisty widok)"
 
-#: src/Plugins/Export/ExportSql.php:2047
+#: src/Plugins/Export/ExportSql.php:2051
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr "Błąd odczytu danych dla tabeli %s:"
 
-#: src/Plugins/Export/ExportSql.php:2628
+#: src/Plugins/Export/ExportSql.php:2632
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr "Utworzenie:"
 
-#: src/Plugins/Export/ExportSql.php:2636
+#: src/Plugins/Export/ExportSql.php:2640
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr "Ostatnia aktualizacja:"
 
-#: src/Plugins/Export/ExportSql.php:2644
+#: src/Plugins/Export/ExportSql.php:2648
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr "Ostatnie sprawdzanie:"
 
-#: src/Plugins/Export/ExportSql.php:2665
+#: src/Plugins/Export/ExportSql.php:2669
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
 "System bazy danych lub starszego serwera MySQL w celu maksymalizacji "
 "zgodności produkcji z:"
 
-#: src/Plugins/Export/ExportXml.php:89
+#: src/Plugins/Export/ExportXml.php:90
 msgid "Object creation options (all are recommended)"
 msgstr "Opcje tworzenia obiektów (wszystkie są polecane)"
 
-#: src/Plugins/Export/ExportXml.php:133
+#: src/Plugins/Export/ExportXml.php:134
 msgid "Export contents"
 msgstr "Eksportuj zawartość"
 
@@ -17390,19 +17390,19 @@ msgstr ""
 "Aktualizuj dane, gdy wykryte zostaną duplikaty kluczy podczas importowania "
 "(dodaj ON DUPLICATE KEY UPDATE)"
 
-#: src/Plugins/Import/ImportCsv.php:99
+#: src/Plugins/Import/ImportCsv.php:100
 msgid "Name of the new table (optional):"
 msgstr "Nazwa nowej tabeli (opcjonalnie):"
 
-#: src/Plugins/Import/ImportCsv.php:108
+#: src/Plugins/Import/ImportCsv.php:109
 msgid "Name of the new database (optional):"
 msgstr "Nazwa nowej bazy danych (opcjonalnie):"
 
-#: src/Plugins/Import/ImportCsv.php:117 src/Plugins/Import/ImportCsv.php:135
+#: src/Plugins/Import/ImportCsv.php:118 src/Plugins/Import/ImportCsv.php:136
 msgid "Import these many number of rows (optional):"
 msgstr "Zaimportuj wskazaną ilość wierszy (opcjonalnie):"
 
-#: src/Plugins/Import/ImportCsv.php:125 src/Plugins/Import/ImportOds.php:72
+#: src/Plugins/Import/ImportCsv.php:126 src/Plugins/Import/ImportOds.php:73
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17410,7 +17410,7 @@ msgstr ""
 "Pierwsza linia pliku zawiera nazwy kolumn <i>(jeśli wyłączone, pierwsza "
 "linia będzie częścią danych)</i>"
 
-#: src/Plugins/Import/ImportCsv.php:142
+#: src/Plugins/Import/ImportCsv.php:143
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
@@ -17420,27 +17420,27 @@ msgstr ""
 "bazie danych, lista odpowiednich nazw kolumn tutaj. Nazwy kolumn muszą być "
 "oddzielone przecinkami, a nie zamknięte cudzysłowami."
 
-#: src/Plugins/Import/ImportCsv.php:150
+#: src/Plugins/Import/ImportCsv.php:151
 msgid "Column names:"
 msgstr "Nazwy kolumn:"
 
-#: src/Plugins/Import/ImportCsv.php:288 src/Plugins/Import/ImportCsv.php:612
+#: src/Plugins/Import/ImportCsv.php:287 src/Plugins/Import/ImportCsv.php:611
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "Niewłaściwy format w linii %d danych wejściowych CSV."
 
-#: src/Plugins/Import/ImportCsv.php:495
+#: src/Plugins/Import/ImportCsv.php:494
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr "Niewłaściwa suma kolumn w CSV w linii %d."
 
-#: src/Plugins/Import/ImportCsv.php:633 src/Plugins/Import/ImportCsv.php:648
-#: src/Plugins/Import/ImportCsv.php:659 src/Plugins/Import/ImportCsv.php:666
+#: src/Plugins/Import/ImportCsv.php:630 src/Plugins/Import/ImportCsv.php:645
+#: src/Plugins/Import/ImportCsv.php:656 src/Plugins/Import/ImportCsv.php:663
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "Niewłaściwy parametr importu CSV: %s"
 
-#: src/Plugins/Import/ImportCsv.php:763
+#: src/Plugins/Import/ImportCsv.php:758
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -17449,34 +17449,34 @@ msgstr ""
 "Nieprawidłowa kolumna (%s) określona! Upewnij się, że nazwy kolumn są "
 "napisane poprawnie, oddzielone przecinkami, a nie w cudzysłowie."
 
-#: src/Plugins/Import/ImportLdi.php:72
+#: src/Plugins/Import/ImportLdi.php:73
 msgid "Column names: "
 msgstr "Nazwy kolumn: "
 
-#: src/Plugins/Import/ImportLdi.php:125
+#: src/Plugins/Import/ImportLdi.php:126
 msgid "This plugin does not support compressed imports!"
 msgstr "Ten moduł nie obsługuje skompresowanych importów!"
 
-#: src/Plugins/Import/ImportMediawiki.php:58
+#: src/Plugins/Import/ImportMediawiki.php:59
 msgid "MediaWiki Table"
 msgstr "Tabela MediaWiki"
 
-#: src/Plugins/Import/ImportMediawiki.php:278
+#: src/Plugins/Import/ImportMediawiki.php:277
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "Nieprawidłowy format danych wejściowych mediawiki w linii: <br>%s."
 
-#: src/Plugins/Import/ImportOds.php:86
+#: src/Plugins/Import/ImportOds.php:87
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
 "Importuj procenty jako dane \"po przecinku\" <i>np: 12.00% jako 0.12</i>"
 
-#: src/Plugins/Import/ImportOds.php:92
+#: src/Plugins/Import/ImportOds.php:93
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
 msgstr "Importuj waluty <i>(np. $5.00 do 5.00)</i>"
 
-#: src/Plugins/Import/ImportOds.php:159 src/Plugins/Import/ImportXml.php:75
-#: src/Plugins/Import/ImportXml.php:113
+#: src/Plugins/Import/ImportOds.php:158 src/Plugins/Import/ImportXml.php:74
+#: src/Plugins/Import/ImportXml.php:112
 msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
@@ -17484,37 +17484,37 @@ msgstr ""
 "Plik XML ma nieprawidłową strukturę lub jest niekompletny. Proszę skorygować "
 "problem i spróbować ponownie."
 
-#: src/Plugins/Import/ImportOds.php:167
+#: src/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Nie można przeanalizować arkusza kalkulacyjnego OpenDocument!"
 
-#: src/Plugins/Import/ImportShp.php:72
+#: src/Plugins/Import/ImportShp.php:75
 msgid "ESRI Shape File"
 msgstr "Plik kształtu ESRI"
 
-#: src/Plugins/Import/ImportShp.php:111 src/Plugins/Import/ImportShp.php:178
+#: src/Plugins/Import/ImportShp.php:112 src/Plugins/Import/ImportShp.php:179
 #, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr "Wystąpił błąd podczas importowania pliku kształtów ESRI: \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:203
+#: src/Plugins/Import/ImportShp.php:204
 #, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr "MySQL Spatial Extension nie obsługuje typu ESRI \"%s\"."
 
-#: src/Plugins/Import/ImportShp.php:248
+#: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
 msgstr "Importowany plik nie zawiera żadnych danych!"
 
-#: src/Plugins/Import/ImportSql.php:62
+#: src/Plugins/Import/ImportSql.php:63
 msgid "SQL compatibility mode:"
 msgstr "Tryb zgodności SQL:"
 
-#: src/Plugins/Import/ImportSql.php:71
+#: src/Plugins/Import/ImportSql.php:72
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr "Nie używaj <code>AUTO_INCREMENT</code> dla wartości zerowych"
 
-#: src/Plugins/Import/ImportXml.php:47
+#: src/Plugins/Import/ImportXml.php:48
 msgid "XML"
 msgstr "XML"
 
@@ -17636,7 +17636,7 @@ msgstr ""
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y, %H:%M"
 
-#: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:29
+#: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:30
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
@@ -17927,7 +17927,7 @@ msgstr "Proszę sprawdzić uprawnienia katalogu zawierającej bazę danych."
 msgid "Details…"
 msgstr "Szczegóły…"
 
-#: src/Replication/ReplicationGui.php:452
+#: src/Replication/ReplicationGui.php:453
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
@@ -17935,55 +17935,55 @@ msgstr ""
 "Połączenie z serwerem jest wyłączone, proszę włączyć "
 "$cfg['AllowArbitraryServer'] w konfiguracji phpMyAdmin."
 
-#: src/Replication/ReplicationGui.php:463
+#: src/Replication/ReplicationGui.php:464
 msgid "Replication started successfully."
 msgstr "Replikacja rozpoczęła się pomyślnie."
 
-#: src/Replication/ReplicationGui.php:464
+#: src/Replication/ReplicationGui.php:465
 msgid "Error starting replication."
 msgstr "Błąd uruchomienia replikacji."
 
-#: src/Replication/ReplicationGui.php:467
+#: src/Replication/ReplicationGui.php:468
 msgid "Replication stopped successfully."
 msgstr "Replikacja została zatrzymana pomyślnie."
 
-#: src/Replication/ReplicationGui.php:468
+#: src/Replication/ReplicationGui.php:469
 msgid "Error stopping replication."
 msgstr "Błąd zatrzymywania replikacji."
 
-#: src/Replication/ReplicationGui.php:471
+#: src/Replication/ReplicationGui.php:472
 msgid "Replication resetting successfully."
 msgstr "Reset replikacji powiódł się pomyślnie."
 
-#: src/Replication/ReplicationGui.php:472
+#: src/Replication/ReplicationGui.php:473
 msgid "Error resetting replication."
 msgstr "Błąd resetowania replikacji."
 
-#: src/Replication/ReplicationGui.php:475
+#: src/Replication/ReplicationGui.php:476
 msgid "Success."
 msgstr "Sukces."
 
-#: src/Replication/ReplicationGui.php:476
+#: src/Replication/ReplicationGui.php:477
 msgid "Error."
 msgstr "Błąd."
 
-#: src/Replication/ReplicationGui.php:521
+#: src/Replication/ReplicationGui.php:522
 #, php-format
 msgid "Unable to connect to primary %s."
 msgstr "Nie można połączyć się z serwerem głównym %s."
 
-#: src/Replication/ReplicationGui.php:531
+#: src/Replication/ReplicationGui.php:532
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
 "Nie można odczytać pozycji dziennika głównego. Możliwy problem uprawnień na "
 "serwerze głównym."
 
-#: src/Replication/ReplicationGui.php:549
+#: src/Replication/ReplicationGui.php:550
 msgid "Unable to change primary!"
 msgstr "Nie można zmienić serwera głównego!"
 
-#: src/Replication/ReplicationGui.php:553
+#: src/Replication/ReplicationGui.php:554
 #, php-format
 msgid "Primary server changed successfully to %s."
 msgstr "Serwer główny został pomyślnie zmieniony na %s."
@@ -18006,8 +18006,8 @@ msgstr "Błąd 404! Strona %s nie została znaleziona."
 msgid "Error 405! Request method not allowed."
 msgstr "Błąd 405! Metoda żądania jest niedozwolona."
 
-#: src/Server/Plugins.php:53 src/Server/Privileges.php:639
-#: src/Server/Privileges.php:3144
+#: src/Server/Plugins.php:53 src/Server/Privileges.php:634
+#: src/Server/Privileges.php:3138
 msgid "Native MySQL authentication"
 msgstr "Natywne uwierzytelnianie MySQL"
 
@@ -18032,65 +18032,65 @@ msgstr "Stare uwierzytelnianie MySQL-4.0"
 msgid "Account locking is not supported."
 msgstr "Blokowanie konta nie jest obsługiwane."
 
-#: src/Server/Privileges.php:272
+#: src/Server/Privileges.php:274
 msgid "No privileges."
 msgstr "Brak uprawnień."
 
-#: src/Server/Privileges.php:278
+#: src/Server/Privileges.php:280
 msgid "Includes all privileges except GRANT."
 msgstr "Wszystkie uprawnienia, oprócz GRANT."
 
-#: src/Server/Privileges.php:899
+#: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
 msgstr "Hasło dla %s zostało zmienione."
 
-#: src/Server/Privileges.php:947
+#: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
 msgstr "Masz cofnięte uprawnienia dla %s."
 
-#: src/Server/Privileges.php:1285
+#: src/Server/Privileges.php:1279
 msgid "Revoke"
 msgstr "Cofnij"
 
-#: src/Server/Privileges.php:1889
+#: src/Server/Privileges.php:1883
 msgid "No users selected for deleting!"
 msgstr "Żaden użytkownik ze został zaznaczony do usunięcia!"
 
-#: src/Server/Privileges.php:1892
+#: src/Server/Privileges.php:1886
 msgid "Reloading the privileges"
 msgstr "Przeładuj uprawnienia"
 
-#: src/Server/Privileges.php:1917
+#: src/Server/Privileges.php:1911
 msgid "The selected users have been deleted successfully."
 msgstr "Wybrani użytkownicy zostali usunięci pomyślnie."
 
-#: src/Server/Privileges.php:1991
+#: src/Server/Privileges.php:1985
 #, php-format
 msgid "You have updated the privileges for %s."
 msgstr "Zaktualizowano uprawnienia dla %s."
 
-#: src/Server/Privileges.php:2149
+#: src/Server/Privileges.php:2143
 #, php-format
 msgid "Deleting %s"
 msgstr "Usuwanie %s"
 
-#: src/Server/Privileges.php:2179
+#: src/Server/Privileges.php:2173
 msgid "The privileges were reloaded successfully."
 msgstr "Uprawnienia były przeładowane pomyślnie."
 
-#: src/Server/Privileges.php:2244
+#: src/Server/Privileges.php:2238
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Użytkownik %s już istnieje!"
 
-#: src/Server/Privileges.php:2397
+#: src/Server/Privileges.php:2391
 #, php-format
 msgid "Privileges for %s"
 msgstr "Uprawnienia dla %s"
 
-#: src/Server/Privileges.php:2483
+#: src/Server/Privileges.php:2477
 #, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
@@ -18103,7 +18103,7 @@ msgstr ""
 "przez serwer, jeśli zostały one zmienione ręcznie. W takim przypadku przed "
 "kontynuowaniem powinieneś %s przeładować uprawnienia %s."
 
-#: src/Server/Privileges.php:2499
+#: src/Server/Privileges.php:2493
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -18117,11 +18117,11 @@ msgstr ""
 "uprawnienia muszą zostać ponownie załadowane, ale obecnie nie masz "
 "uprawnienia RELOAD."
 
-#: src/Server/Privileges.php:2787
+#: src/Server/Privileges.php:2781
 msgid "You have added a new user."
 msgstr "Dodałeś nowego użytkownika."
 
-#: src/Server/Privileges.php:3236
+#: src/Server/Privileges.php:3230
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
@@ -18220,7 +18220,7 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nowsza stabilna wersja nie jest dostępna"
 
-#: src/Sql.php:440
+#: src/Sql.php:443
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Korzystanie z zakładki \"%s\" jako domyślne przeglądanie zapytania."
@@ -18299,12 +18299,12 @@ msgstr "Brak zdefiniowanych części indeksu!"
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemy z indeksami tabeli `%s`"
 
-#: src/Table/TableMover.php:293
+#: src/Table/TableMover.php:294
 #, php-format
 msgid "Source database `%s` was not found!"
 msgstr "Źródło bazy danych '%s' nie zostało znalezione!"
 
-#: src/Table/TableMover.php:302
+#: src/Table/TableMover.php:303
 #, php-format
 msgid "Target database `%s` was not found!"
 msgstr "Docelowej bazy '%s' nie znaleziono!"
