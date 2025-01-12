@@ -15,7 +15,7 @@
                   enctype="multipart/form-data">
                 {{ get_hidden_inputs() }}
                 <input type="hidden" name="json" value="">
-                <input type="radio" id="import_text_file" name="import_type" value="text_file" checked="checked">
+                <input type="radio" id="import_text_file" name="import_type" value="text_file" checked>
                 <label for="import_text_file"> {{ t('Import from file') }} </label>
                 <div id="opts_import_text_file" class="prefsmanage_opts">
                     <label for="input_import_file"> {{ t('Browse your computer:') }} </label>
@@ -75,7 +75,7 @@
                 {{ get_hidden_inputs() }}
                 <div>
                     <input type="radio" id="export_text_file" name="export_type"
-                           value="text_file" checked="checked">
+                           value="text_file" checked>
                     <label for="export_text_file">
                         {{ t('Save as JSON file') }}
                     </label><br>

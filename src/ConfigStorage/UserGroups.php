@@ -266,7 +266,7 @@ class UserGroups
         $tabDetails = [];
         foreach ($tabs as $tab => $tabName) {
             $tabDetail = [];
-            $tabDetail['in_array'] = in_array($tab, $selected) ? ' checked="checked"' : '';
+            $tabDetail['in_array'] = in_array($tab, $selected) ? ' checked' : '';
             $tabDetail['tab'] = $tab;
             $tabDetail['tab_name'] = $tabName;
             $tabDetails[] = $tabDetail;

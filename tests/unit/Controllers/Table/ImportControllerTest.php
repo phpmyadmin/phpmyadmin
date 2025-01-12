@@ -73,7 +73,7 @@ class ImportControllerTest extends AbstractTestCase
             'plugins_choice' => $choice,
             'options' => $options,
             'skip_queries_default' => '0',
-            'is_allow_interrupt_checked' => ' checked="checked"',
+            'is_allow_interrupt_checked' => ' checked',
             'local_import_file' => null,
             'is_upload' => true,
             'upload_dir' => '',

@@ -258,7 +258,7 @@ function getCompositeIndexList (sourceArray, colIndex) {
         $compositeIndexList.append(
             '<li>' +
             '<input type="radio" name="composite_with" ' +
-            (alreadyPresent ? 'checked="checked"' : '') +
+            (alreadyPresent ? 'checked' : '') +
             ' id="composite_index_' + i + '" value="' + i + '">' +
             '<label for="composite_index_' + i + '">' + columnNames.join(', ') +
             '</label>' +
@@ -444,7 +444,7 @@ var removeIndexOnChangeEvent = function () {
  */
 function indexTypeSelectionDialog (sourceArray, indexChoice, colIndex): void {
     var $singleColumnRadio = $('<div class="form-check">' +
-        '<input class="form-check-input" type="radio" id="single_column" name="index_choice" checked="checked">' +
+        '<input class="form-check-input" type="radio" id="single_column" name="index_choice" checked>' +
         '<label class="form-check-label" for="single_column">' +
         window.Messages.strCreateSingleColumnIndex + '</label></div>');
     var $compositeIndexRadio = $('<div class="form-check">' +

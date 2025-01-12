@@ -1512,7 +1512,7 @@ class InsertEdit
     public function getHtmlForIgnoreOption(int $rowId, bool $checked = true): string
     {
         return '<input type="checkbox"'
-            . ($checked ? ' checked="checked"' : '')
+            . ($checked ? ' checked' : '')
             . ' name="insert_ignore_' . $rowId . '"'
             . ' id="insert_ignore_' . $rowId . '">'
             . '<label for="insert_ignore_' . $rowId . '">'

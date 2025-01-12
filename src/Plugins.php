@@ -206,7 +206,7 @@ class Plugins
             && ((ImportSettings::$timeoutPassed && isset($_REQUEST[$opt]))
                 || ! empty(Config::getInstance()->settings[$section][$opt]))
         ) {
-            return ' checked="checked"';
+            return ' checked';
         }
 
         return '';

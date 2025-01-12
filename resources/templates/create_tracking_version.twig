@@ -22,16 +22,16 @@
 
             {% if type == 'both' or type == 'table' %}
                 <input type="checkbox" name="alter_table" value="true"
-                    {{- 'ALTER TABLE' in default_statements ? ' checked="checked"' }}>
+                    {{- 'ALTER TABLE' in default_statements ? ' checked' }}>
                 ALTER TABLE<br>
                 <input type="checkbox" name="rename_table" value="true"
-                    {{- 'RENAME TABLE' in default_statements ? ' checked="checked"' }}>
+                    {{- 'RENAME TABLE' in default_statements ? ' checked' }}>
                 RENAME TABLE<br>
                 <input type="checkbox" name="create_table" value="true"
-                    {{- 'CREATE TABLE' in default_statements ? ' checked="checked"' }}>
+                    {{- 'CREATE TABLE' in default_statements ? ' checked' }}>
                 CREATE TABLE<br>
                 <input type="checkbox" name="drop_table" value="true"
-                    {{- 'DROP TABLE' in default_statements ? ' checked="checked"' }}>
+                    {{- 'DROP TABLE' in default_statements ? ' checked' }}>
                 DROP TABLE<br>
             {% endif %}
             {% if type == 'both' %}
@@ -39,36 +39,36 @@
             {% endif %}
             {% if type == 'both' or type == 'view' %}
                 <input type="checkbox" name="alter_view" value="true"
-                    {{- 'ALTER VIEW' in default_statements ? ' checked="checked"' }}>
+                    {{- 'ALTER VIEW' in default_statements ? ' checked' }}>
                 ALTER VIEW<br>
                 <input type="checkbox" name="create_view" value="true"
-                    {{- 'CREATE VIEW' in default_statements ? ' checked="checked"' }}>
+                    {{- 'CREATE VIEW' in default_statements ? ' checked' }}>
                 CREATE VIEW<br>
                 <input type="checkbox" name="drop_view" value="true"
-                    {{- 'DROP VIEW' in default_statements ? ' checked="checked"' }}>
+                    {{- 'DROP VIEW' in default_statements ? ' checked' }}>
                 DROP VIEW<br>
             {% endif %}
             <br>
 
             <input type="checkbox" name="create_index" value="true"
-                {{- 'CREATE INDEX' in default_statements ? ' checked="checked"' }}>
+                {{- 'CREATE INDEX' in default_statements ? ' checked' }}>
             CREATE INDEX<br>
             <input type="checkbox" name="drop_index" value="true"
-                {{- 'DROP INDEX' in default_statements ? ' checked="checked"' }}>
+                {{- 'DROP INDEX' in default_statements ? ' checked' }}>
             DROP INDEX<br>
 
             <p>{{ t('Track these data manipulation statements:') }}</p>
             <input type="checkbox" name="insert" value="true"
-                {{- 'INSERT' in default_statements ? ' checked="checked"' }}>
+                {{- 'INSERT' in default_statements ? ' checked' }}>
             INSERT<br>
             <input type="checkbox" name="update" value="true"
-                {{- 'UPDATE' in default_statements ? ' checked="checked"' }}>
+                {{- 'UPDATE' in default_statements ? ' checked' }}>
             UPDATE<br>
             <input type="checkbox" name="delete" value="true"
-                {{- 'DELETE' in default_statements ? ' checked="checked"' }}>
+                {{- 'DELETE' in default_statements ? ' checked' }}>
             DELETE<br>
             <input type="checkbox" name="truncate" value="true"
-                {{- 'TRUNCATE' in default_statements ? ' checked="checked"' }}>
+                {{- 'TRUNCATE' in default_statements ? ' checked' }}>
             TRUNCATE<br>
         </div>
 
