@@ -174,7 +174,7 @@
 
                                         <option value="{{ field_name }}"
                                             {%- if field_name == column.getName() %}
-                                                selected="selected"
+                                                selected
                                             {%- endif %}>
                                             {{ field_name }} [{{ field_type }}]
                                         </option>
@@ -210,7 +210,7 @@
                                         {% set j = j + 1 %}
                                         <option value="{{ col_index is defined ?
                                             col_index : field_name }}"
-                                            {{- j == i ? ' selected="selected"' }}>
+                                            {{- j == i ? ' selected' }}>
                                             {{ field_name }} [{{ field_type }}]
                                         </option>
                                     {% endfor %}

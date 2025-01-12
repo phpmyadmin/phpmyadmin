@@ -763,7 +763,7 @@ class Util
 
         foreach ($pages as $i) {
             if ($i == $pageNow) {
-                $selected = 'selected="selected" style="font-weight: bold"';
+                $selected = 'selected style="font-weight: bold"';
             } else {
                 $selected = '';
             }

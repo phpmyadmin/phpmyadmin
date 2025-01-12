@@ -15,7 +15,7 @@
     {% set cnt_attribute_types = attribute_types|length - 1 %}
     {% for i in 0..cnt_attribute_types %}
         <option value="{{ attribute_types[i] }}"
-            {{- attribute == attribute_types[i]|upper ? ' selected="selected"' }}>
+            {{- attribute == attribute_types[i]|upper ? ' selected' }}>
             {{ attribute_types[i] }}
         </option>
     {% endfor %}

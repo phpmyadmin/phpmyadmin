@@ -320,7 +320,7 @@ class Generator
         foreach ($functions as $function) {
             $retval .= '<option';
             if ($function === $defaultFunction && $foreignField === null) {
-                $retval .= ' selected="selected"';
+                $retval .= ' selected';
             }
 
             $retval .= '>' . $function . '</option>' . "\n";
@@ -1102,7 +1102,7 @@ class Generator
                     $retval .= sprintf(
                         '<option data-length-restricted="%b" %s title="%s">%s</option>',
                         $isLengthRestricted ? 0 : 1,
-                        $selected === $subvalue ? 'selected="selected"' : '',
+                        $selected === $subvalue ? 'selected' : '',
                         $dbi->types->getTypeDescription($subvalue),
                         $subvalue,
                     );
@@ -1116,7 +1116,7 @@ class Generator
             $retval .= sprintf(
                 '<option data-length-restricted="%b" %s title="%s">%s</option>',
                 $isLengthRestricted ? 0 : 1,
-                $selected === $value ? 'selected="selected"' : '',
+                $selected === $value ? 'selected' : '',
                 $dbi->types->getTypeDescription($value),
                 $value,
             );

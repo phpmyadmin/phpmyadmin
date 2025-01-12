@@ -499,7 +499,7 @@ class InsertEdit
             . __('web server upload directory:') . '<br>' . "\n"
             . '<select size="1" name="fields_uploadlocal'
             . $vkey . '[' . $fieldHashMd5 . ']">' . "\n"
-            . '<option value="" selected="selected"></option>' . "\n"
+            . '<option value="" selected></option>' . "\n"
             . $files
             . '</select>' . "\n";
     }
