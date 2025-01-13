@@ -46,7 +46,7 @@ class CollationsControllerTest extends AbstractTestCase
         self::assertStringContainsString('<div>cp1252 West European</div>', $actual);
         self::assertStringContainsString('<div><strong>latin1_swedish_ci</strong></div>', $actual);
         self::assertStringContainsString('<div>Swedish, case-insensitive</div>', $actual);
-        self::assertStringContainsString('<span class="badge bg-secondary text-dark">default</span>', $actual);
+        self::assertStringContainsString('<span class="badge bg-secondary">default</span>', $actual);
         self::assertStringContainsString('<div><strong>utf8</strong></div>', $actual);
         self::assertStringContainsString('<div>UTF-8 Unicode</div>', $actual);
         self::assertStringContainsString('<div><strong>utf8_bin</strong></div>', $actual);
