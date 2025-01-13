@@ -1634,9 +1634,9 @@ class InsertEditTest extends AbstractTestCase
                 [
                     false,
                     '"lorem\"ipsem"',
-                    'lorem"ipsem',
+                    'lorem&quot;ipsem',
                     '',
-                    'lorem"ipsem',
+                    'lorem&quot;ipsem',
                 ],
             ],
             'varchar with html special chars' => [
@@ -1650,6 +1650,16 @@ class InsertEditTest extends AbstractTestCase
                     'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
                     '',
                     'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
+                ],
+            ],
+            'text with html special chars' => [
+                ['True_Type' => 'text', 'Default' => '\'</textarea><script>alert(1)</script>\''],
+                [
+                    false,
+                    '\'</textarea><script>alert(1)</script>\'',
+                    '&lt;/textarea&gt;&lt;script&gt;alert(1)&lt;/script&gt;',
+                    '',
+                    '&lt;/textarea&gt;&lt;script&gt;alert(1)&lt;/script&gt;',
                 ],
             ],
         ];
