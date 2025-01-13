@@ -928,7 +928,7 @@ class Sql
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, $numRows);
         }
 
-        $queryMessage = Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
+        $queryMessage = Generator::getMessage($message, $sqlQuery, MessageType::Success);
 
         if (isset(self::$showAsPhp)) {
             return $queryMessage;

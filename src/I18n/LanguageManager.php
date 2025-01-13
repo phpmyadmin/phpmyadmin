@@ -990,14 +990,6 @@ class LanguageManager
 
         self::$textDirection = $language->isRTL() ? TextDirection::RightToLeft : TextDirection::LeftToRight;
 
-        /* TCPDF settings and translations */
-        $GLOBALS['l'] = [
-            'a_meta_charset' => 'UTF-8',
-            'a_meta_dir' => self::$textDirection->value,
-            'a_meta_language' => $languageCode,
-            'w_page' => __('Page number:'),
-        ];
-
         /* Show possible warnings from language selection */
         $this->showWarnings();
     }
