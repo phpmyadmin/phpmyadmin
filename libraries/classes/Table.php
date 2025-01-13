@@ -672,11 +672,11 @@ class Table implements Stringable
         if (! $virtuality && ! empty($extra)) {
             if ($oldColumnName === null) {
                 if (is_array($columnsWithIndex) && ! in_array($name, $columnsWithIndex)) {
-                    $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+                    $query .= ', ADD PRIMARY KEY (' . Util::backquote($name) . ')';
                 }
             } else {
                 if (is_array($columnsWithIndex) && ! in_array($oldColumnName, $columnsWithIndex)) {
-                    $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+                    $query .= ', ADD PRIMARY KEY (' . Util::backquote($name) . ')';
                 }
             }
         }

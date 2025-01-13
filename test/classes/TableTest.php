@@ -773,7 +773,7 @@ class TableTest extends AbstractTestCase
         );
         // Add primary key for AUTO_INCREMENT if missing
         self::assertSame('`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
-        . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)", $query);
+        . "COMMENT 'PMA_comment' FIRST, ADD PRIMARY KEY (`ids`)", $query);
 
         $default_type = 'NONE';
         $move_to = '-first';
@@ -840,7 +840,7 @@ class TableTest extends AbstractTestCase
         );
         // Add it beaucause it is missing
         self::assertSame(
-            '`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST, add PRIMARY KEY (`ids`)',
+            '`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST, ADD PRIMARY KEY (`ids`)',
             $query
         );
 
