@@ -8081,7 +8081,7 @@
       <code>$specialChars</code>
       <code>$specialChars</code>
       <code>$specialCharsEncoded</code>
-      <code>$textDefault !== false ? $textDefault : $column['Default']</code>
+      <code>$textDefault !== '' ? $textDefault : $column['Default']</code>
       <code>$transformationPlugin-&gt;getScripts()</code>
       <code>$transformation[$type . '_options'] ?? ''</code>
       <code>$trueType</code>
