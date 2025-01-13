@@ -7,7 +7,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
-use PhpMyAdmin\Display\Results;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\TransformationsPlugin;
 use PhpMyAdmin\Url;
@@ -15,6 +14,7 @@ use PhpMyAdmin\Url;
 use function __;
 use function array_merge;
 use function htmlspecialchars;
+use function is_string;
 
 /**
  * Provides common methods for all of the download transformations plugins.
@@ -27,11 +27,8 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
     public static function getInfo(): string
     {
         return __(
-            'Displays a link to download the binary data of the column. You can'
-            . ' use the first option to specify the filename, or use the second'
-            . ' option as the name of a column which contains the filename. If'
-            . ' you use the second option, you need to set the first option to'
-            . ' the empty string.',
+            'Displays a link to download the binary data of the column.'
+            . ' You can use the option to specify the filename.',
         );
     }
 
@@ -44,27 +41,9 @@ abstract class DownloadTransformationsPlugin extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        $GLOBALS['fields_meta'] ??= null;
-
-        if (! empty($options[0])) {
-            $cn = $options[0]; // filename
-        } else {
-            if (! empty($options[1])) {
-                foreach ($GLOBALS['fields_meta'] as $key => $val) {
-                    if ($val->name == $options[1]) {
-                        $pos = $key;
-                        break;
-                    }
-                }
-
-                if (isset($pos)) {
-                    $cn = Results::$row[$pos];
-                }
-            }
-
-            if (empty($cn)) {
-                $cn = 'binary_file.dat';
-            }
+        $cn = 'binary_file.dat';
+        if (isset($options[0]) && is_string($options[0]) && $options[0] !== '') {
+            $cn = $options[0];
         }
 
         $link = '<a href="' . Url::getFromRoute(

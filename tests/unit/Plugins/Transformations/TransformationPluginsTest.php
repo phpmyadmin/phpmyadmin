@@ -110,7 +110,6 @@ class TransformationPluginsTest extends AbstractTestCase
 
         // For Application Octetstream Download plugin
 
-        $GLOBALS['fields_meta'] = [];
         Results::$row = ['pma' => 'aaa', 'pca' => 'bbb'];
 
         // For Image_*_Inline plugin
@@ -206,11 +205,8 @@ class TransformationPluginsTest extends AbstractTestCase
             [
                 new Application_Octetstream_Download(),
                 'getInfo',
-                'Displays a link to download the binary data of the column. You can'
-                . ' use the first option to specify the filename, or use the second'
-                . ' option as the name of a column which contains the filename. If'
-                . ' you use the second option, you need to set the first option to'
-                . ' the empty string.',
+                'Displays a link to download the binary data of the column.'
+                . ' You can use the option to specify the filename.',
             ],
             [new Application_Octetstream_Download(), 'getMIMEType', 'Application'],
             [new Application_Octetstream_Download(), 'getMIMESubtype', 'OctetStream'],

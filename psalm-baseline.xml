@@ -8060,25 +8060,8 @@
   </file>
   <file src="src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php">
     <MixedArgument>
-      <code><![CDATA[$cn]]></code>
       <code><![CDATA[$options['wrapper_params']]]></code>
     </MixedArgument>
-    <MixedArrayOffset>
-      <code><![CDATA[Results::$row[$pos]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$GLOBALS['fields_meta']]]></code>
-      <code><![CDATA[$cn]]></code>
-      <code><![CDATA[$key]]></code>
-      <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$val]]></code>
-    </MixedAssignment>
-    <MixedPropertyFetch>
-      <code><![CDATA[$val->name]]></code>
-    </MixedPropertyFetch>
-    <PossiblyNullIterator>
-      <code><![CDATA[$GLOBALS['fields_meta']]]></code>
-    </PossiblyNullIterator>
   </file>
   <file src="src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php">
     <DeprecatedMethod>

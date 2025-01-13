@@ -13474,36 +13474,6 @@ parameters:
 			path: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
-			message: '#^Cannot access property \$name on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
-			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
-			identifier: empty.notAllowed
-			count: 3
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php
-
-		-
 			message: '#^Parameter \#1 \.\.\.\$arrays of function array_merge expects array, mixed given\.$#'
 			identifier: argument.type
 			count: 1
