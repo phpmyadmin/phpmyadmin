@@ -36,6 +36,7 @@ use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
+use PhpMyAdmin\Controllers\SyncFavoriteTablesController;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
@@ -323,6 +324,7 @@ final class RoutesTest extends TestCase
             '/version-check' => VersionCheckController::class,
             '/view/create' => View\CreateController::class,
             '/view/operations' => Operations\ViewController::class,
+            '/sync-favorite-tables' => SyncFavoriteTablesController::class,
         ];
 
         $regex = '~^(?|/server/engines/([^/]+)|/server/engines/([^/]+)/([^/]+)|/server/variables/get/([^/]+)()())$~';
