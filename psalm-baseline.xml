@@ -1206,9 +1206,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$favoriteTables]]></code>
-    </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$value['db']]]></code>
       <code><![CDATA[$value['table']]]></code>
@@ -1218,7 +1215,6 @@
       <code><![CDATA[$_SESSION['tmpval']['favorites_synced'][Current::$server]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$favoriteTables]]></code>
       <code><![CDATA[$favoriteTables]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>

@@ -52,9 +52,7 @@ final class FavoriteTableController implements InvocableController
 
         $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
 
-        $favoriteTables = $request->getParam('favoriteTables');
-        $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
-
+        $favoriteTables = json_decode($request->getParsedBodyParamAsString('favoriteTables'), true);
         if (! is_array($favoriteTables)) {
             $favoriteTables = [];
         }
