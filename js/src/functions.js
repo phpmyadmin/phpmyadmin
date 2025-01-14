@@ -3817,37 +3817,6 @@ AJAX.registerOnload('functions.js', function () {
             }
         );
     }
-
-    // Sync favorite tables from localStorage to pmadb.
-    if ($('#sync_favorite_tables').length) {
-        var favoriteTables = '';
-        if (isStorageSupported('localStorage')
-            && typeof window.localStorage.favoriteTables !== 'undefined'
-            && window.localStorage.favoriteTables !== 'undefined') {
-            favoriteTables = window.localStorage.favoriteTables;
-            if (favoriteTables === 'undefined') {
-                // Do not send an invalid value
-                return;
-            }
-        }
-        $.ajax({
-            url: $('#sync_favorite_tables').attr('href'),
-            cache: false,
-            type: 'POST',
-            data: {
-                'favoriteTables': favoriteTables,
-                'server': CommonParams.get('server'),
-                'no_debug': true
-            },
-            success: function (data) {
-                // Update localStorage.
-                if (isStorageSupported('localStorage')) {
-                    window.localStorage.favoriteTables = data.favoriteTables;
-                }
-                $('#pma_favorite_list').html(data.list);
-            }
-        });
-    }
 }); // end of $()
 
 /**
