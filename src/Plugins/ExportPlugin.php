@@ -342,4 +342,9 @@ abstract class ExportPlugin implements Plugin
             ?? StructureOrData::tryFrom(is_string($valueFromConfig) ? $valueFromConfig : '')
             ?? $defaultValue;
     }
+
+    public function getTranslatedText(string $text): string
+    {
+        return $text;
+    }
 }

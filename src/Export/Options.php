@@ -99,6 +99,8 @@ final class Options
         int|string $numTables,
         int|string $unlimNumRows,
         array $exportList,
+        mixed $formatParam,
+        mixed $whatParam,
     ): array {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
 
@@ -116,8 +118,7 @@ final class Options
             $templates = is_array($templates) ? $templates : [];
         }
 
-        $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
-        $dropdown = Plugins::getChoice($exportList, $default);
+        $dropdown = Plugins::getChoice($exportList, $this->getFormat($formatParam, $whatParam));
         $tableObject = new Table($table, $db, DatabaseInterface::getInstance());
         $rows = [];
 
@@ -200,6 +201,19 @@ final class Options
             'selected_compression' => $selectedCompression,
             'filename_template' => $filenameTemplate,
         ];
+    }
+
+    private function getFormat(mixed $formatParam, mixed $whatParam): string
+    {
+        if (is_string($whatParam) && $whatParam !== '') {
+            return $whatParam;
+        }
+
+        if (is_string($formatParam) && $formatParam !== '') {
+            return $formatParam;
+        }
+
+        return Config::getInstance()->settings['Export']['format'];
     }
 
     private function getFileNameTemplate(ExportType $exportType, string|null $filename = null): string

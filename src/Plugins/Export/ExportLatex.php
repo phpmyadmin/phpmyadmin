@@ -26,6 +26,8 @@ use PhpMyAdmin\Version;
 
 use function __;
 use function addcslashes;
+use function array_keys;
+use function array_values;
 use function in_array;
 use function is_string;
 use function mb_strpos;
@@ -59,15 +61,16 @@ class ExportLatex extends ExportPlugin
         return 'latex';
     }
 
-    /**
-     * Initialize the local variables that are used for export Latex.
-     */
-    protected function init(): void
+    public function getTranslatedText(string $text): string
     {
         /* Messages used in default captions */
-        $GLOBALS['strLatexContent'] = __('Content of table @TABLE@');
-        $GLOBALS['strLatexContinued'] = __('(continued)');
-        $GLOBALS['strLatexStructure'] = __('Structure of table @TABLE@');
+        $messages = [
+            'strLatexContent' => __('Content of table @TABLE@'),
+            'strLatexContinued' => __('(continued)'),
+            'strLatexStructure' => __('Structure of table @TABLE@'),
+        ];
+
+        return str_replace(array_keys($messages), array_values($messages), $text);
     }
 
     protected function setProperties(): ExportPluginProperties

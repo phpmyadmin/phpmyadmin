@@ -13,5 +13,8 @@ interface Plugin
 
     public function getProperties(): PluginPropertyItem;
 
+    /** Returns locale string for $text or $text if no locale is found */
+    public function getTranslatedText(string $text): string;
+
     public static function isAvailable(): bool;
 }
