@@ -35,6 +35,7 @@ use function count;
 use function extension_loaded;
 use function file_exists;
 use function ini_get;
+use function is_array;
 use function mb_strlen;
 use function preg_match;
 use function sprintf;
@@ -403,12 +404,13 @@ final class HomeController implements InvocableController
             return;
         }
 
-        /** @psalm-suppress MissingFile */
-        include ROOT_PATH . 'app/language_stats.inc.php';
         $config = Config::getInstance();
+        /** @psalm-suppress MissingFile */
+        $languageStats = include ROOT_PATH . 'app/language_stats.inc.php';
         if (
-            ! isset($GLOBALS['language_stats'][Current::$lang])
-            || $GLOBALS['language_stats'][Current::$lang] >= $config->settings['TranslationWarningThreshold']
+            ! is_array($languageStats)
+            || ! isset($languageStats[Current::$lang])
+            || $languageStats[Current::$lang] >= $config->settings['TranslationWarningThreshold']
         ) {
             return;
         }

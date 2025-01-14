@@ -1481,7 +1481,7 @@
       <code><![CDATA[$this->config->get('TempDir')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$GLOBALS['language_stats'][Current::$lang]]]></code>
+      <code><![CDATA[$languageStats[Current::$lang]]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
@@ -1489,6 +1489,9 @@
     <MixedArrayTypeCoercion>
       <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayTypeCoercion>
+    <MixedAssignment>
+      <code><![CDATA[$languageStats]]></code>
+    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->config->get('TempDir')]]></code>
     </PossiblyNullArgument>
