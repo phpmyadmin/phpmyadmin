@@ -531,13 +531,14 @@ $(function () {
         }
 
         var hasLocalStorage = isStorageSupported('localStorage') &&
-            typeof window.localStorage.favoriteTables !== 'undefined';
+            typeof window.localStorage.favoriteTables !== 'undefined' &&
+            window.localStorage.favoriteTables !== 'undefined';
         $.ajax({
             url: $self.attr('href'),
             cache: false,
             type: 'POST',
             data: {
-                'favoriteTables': hasLocalStorage ? window.localStorage.favoriteTables : '',
+                'favoriteTables': hasLocalStorage ? window.localStorage.favoriteTables : null,
                 'server': CommonParams.get('server'),
             },
             success: function (data) {

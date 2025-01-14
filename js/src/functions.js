@@ -3820,15 +3820,14 @@ AJAX.registerOnload('functions.js', function () {
 
     // Sync favorite tables from localStorage to pmadb.
     if ($('#sync_favorite_tables').length) {
-        var favoriteTables = '';
-        if (isStorageSupported('localStorage')
-            && typeof window.localStorage.favoriteTables !== 'undefined'
-            && window.localStorage.favoriteTables !== 'undefined') {
-            favoriteTables = window.localStorage.favoriteTables;
-            if (favoriteTables === 'undefined') {
-                // Do not send an invalid value
-                return;
-            }
+        var hasLocalStorage = isStorageSupported('localStorage') &&
+            typeof window.localStorage.favoriteTables !== 'undefined' &&
+            window.localStorage.favoriteTables !== 'undefined';
+        var favoriteTables = hasLocalStorage ? window.localStorage.favoriteTables : null;
+
+        if (favoriteTables === null) {
+            // Do not send an invalid value
+            return;
         }
         $.ajax({
             url: $('#sync_favorite_tables').attr('href'),
