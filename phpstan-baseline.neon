@@ -4856,11 +4856,6 @@ parameters:
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: "#^Cannot access offset non\\-falsy\\-string on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
@@ -4917,11 +4912,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table of method PhpMyAdmin\\\\RecentFavoriteTable\\:\\:remove\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: "#^Parameter \\#3 \\$favoriteTables of method PhpMyAdmin\\\\Controllers\\\\Database\\\\Structure\\\\FavoriteTableController\\:\\:synchronizeFavoriteTables\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php
 

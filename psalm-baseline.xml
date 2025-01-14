@@ -1686,8 +1686,7 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
-    <MixedArgument occurrences="3">
-      <code>$favoriteTables</code>
+    <MixedArgument occurrences="2">
       <code>$value['db']</code>
       <code>$value['table']</code>
     </MixedArgument>
@@ -1700,9 +1699,8 @@
       <code>$value['table']</code>
       <code>$value['table']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
+    <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['favorites_synced']</code>
-      <code>$favoriteTables[$user]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="3">
       <code>$favoriteTables</code>

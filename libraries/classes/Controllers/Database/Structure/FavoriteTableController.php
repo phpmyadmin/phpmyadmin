@@ -14,6 +14,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function is_array;
 use function json_decode;
 use function json_encode;
 use function md5;
@@ -52,6 +53,9 @@ final class FavoriteTableController extends AbstractController
         $favoriteInstance = RecentFavoriteTable::getInstance('favorite');
         if (isset($parameters['favoriteTables'])) {
             $favoriteTables = json_decode($parameters['favoriteTables'], true);
+            if (! is_array($favoriteTables)) {
+                $favoriteTables = [];
+            }
         } else {
             $favoriteTables = [];
         }
