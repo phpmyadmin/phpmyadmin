@@ -17,6 +17,7 @@ use PhpMyAdmin\Util;
 use stdClass;
 
 use function __;
+use function is_string;
 use function json_decode;
 use function str_contains;
 
@@ -101,7 +102,7 @@ class Designer
      * @param string $db   database name
      * @param int    $page the page to be exported
      */
-    public function getHtmlForSchemaExport(string $db, int $page): string
+    public function getHtmlForSchemaExport(string $db, int $page, mixed $formatParam, mixed $exportTypeParam): string
     {
         $exportList = Plugins::getSchema();
 
@@ -112,10 +113,7 @@ class Designer
             )->getDisplay();
         }
 
-        $default = isset($_GET['export_type'])
-            ? (string) $_GET['export_type']
-            : Plugins::getDefault('Schema', 'format');
-        $choice = Plugins::getChoice($exportList, $default);
+        $choice = Plugins::getChoice($exportList, $this->getFormat($formatParam, $exportTypeParam));
         $options = Plugins::getOptions('Schema', $exportList);
 
         return $this->template->render('database/designer/schema_export', [
@@ -124,6 +122,19 @@ class Designer
             'plugins_choice' => $choice,
             'options' => $options,
         ]);
+    }
+
+    private function getFormat(mixed $formatParam, mixed $exportTypeParam): string
+    {
+        if (is_string($exportTypeParam) && $exportTypeParam !== '') {
+            return $exportTypeParam;
+        }
+
+        if (is_string($formatParam) && $formatParam !== '') {
+            return $formatParam;
+        }
+
+        return Config::getInstance()->settings['Schema']['format'];
     }
 
     /**

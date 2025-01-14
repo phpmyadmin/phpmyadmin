@@ -927,6 +927,8 @@
   <file src="src/Controllers/Database/ImportController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
@@ -1968,6 +1970,8 @@
   <file src="src/Controllers/Server/ImportController.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
@@ -2573,6 +2577,8 @@
   </file>
   <file src="src/Controllers/Table/ImportController.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArrayAccess>
@@ -3598,6 +3604,7 @@
   <file src="src/Database/Designer.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$params]]></code>
@@ -3609,9 +3616,6 @@
       <code><![CDATA[$params]]></code>
       <code><![CDATA[$params]]></code>
     </MixedReturnStatement>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['export_type']]]></code>
-    </PossiblyInvalidCast>
   </file>
   <file src="src/Database/Designer/Common.php">
     <DeprecatedMethod>
@@ -4647,6 +4651,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
@@ -4659,9 +4664,6 @@
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['filename_template'] ?? null]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidCast>
-      <code><![CDATA[$_GET['what']]]></code>
-    </PossiblyInvalidCast>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[$config->settings['Export'][$str]]]></code>
       <code><![CDATA[empty($config->settings['SaveDir'])]]></code>
@@ -6234,13 +6236,10 @@
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <MixedArgument>
-      <code><![CDATA[$GLOBALS[$match]]]></code>
       <code><![CDATA[$doc[0]]]></code>
       <code><![CDATA[$doc[1]]]></code>
       <code><![CDATA[$doc[1]]]></code>
       <code><![CDATA[$doc[2]]]></code>
-      <code><![CDATA[$val]]></code>
-      <code><![CDATA[$val]]></code>
     </MixedArgument>
     <MixedAssignment>
       <code><![CDATA[$doc]]></code>
@@ -6248,24 +6247,10 @@
       <code><![CDATA[$val]]></code>
       <code><![CDATA[$val]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedMethodCall>
       <code><![CDATA[new $class()]]></code>
     </MixedMethodCall>
-    <MixedReturnStatement>
-      <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
-      <code><![CDATA[$GLOBALS[$name] ?? $name ?? '']]></code>
-    </MixedReturnStatement>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$_GET[$opt]]]></code>
-      <code><![CDATA[$_REQUEST[$opt]]]></code>
-      <code><![CDATA[$val]]></code>
-      <code><![CDATA[$val]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$config->settings[$section][$opt]]]></code>
       <code><![CDATA[$config->settings[$section][$opt]]]></code>
     </PossiblyInvalidCast>
     <PossiblyNullOperand>
@@ -12386,6 +12371,9 @@
       <code><![CDATA[$config->selectedServer]]></code>
       <code><![CDATA[$config->selectedServer]]></code>
     </InvalidPropertyAssignmentValue>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[providerForGetTranslatedText]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Plugins/Export/ExportOdtTest.php">
     <DeprecatedMethod>

@@ -82,7 +82,17 @@ class OptionsTest extends AbstractTestCase
         $_POST['filename_template'] = 'user value for test';
 
         //Call the test function
-        $actual = $this->export->getOptions($exportType, $db, $table, '', $numTablesStr, $unlimNumRowsStr, $exportList);
+        $actual = $this->export->getOptions(
+            $exportType,
+            $db,
+            $table,
+            '',
+            $numTablesStr,
+            $unlimNumRowsStr,
+            $exportList,
+            'sql',
+            null,
+        );
 
         $expected = [
             'export_type' => $exportType->value,

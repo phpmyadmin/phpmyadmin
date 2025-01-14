@@ -25,6 +25,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -774,5 +775,26 @@ class ExportLatexTest extends AbstractTestCase
             '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',
             ExportLatex::texEscape('$%{foo&bar}#_^'),
         );
+    }
+
+    #[DataProvider('providerForGetTranslatedText')]
+    public function testGetTranslatedText(string $text, string $expected): void
+    {
+        self::assertSame($expected, $this->object->getTranslatedText($text));
+    }
+
+    /** @return iterable<array{string, string}> */
+    public static function providerForGetTranslatedText(): iterable
+    {
+        return [
+            ['strTest strTest strTest', 'strTest strTest strTest'],
+            ['strTest strLatexContent strTest', 'strTest Content of table @TABLE@ strTest'],
+            ['strTest strLatexContinued strTest', 'strTest (continued) strTest'],
+            ['strTest strLatexStructure strTest', 'strTest Structure of table @TABLE@ strTest'],
+            [
+                'strTest strLatexStructure strLatexContent strLatexContinued strTest',
+                'strTest Structure of table @TABLE@ Content of table @TABLE@ (continued) strTest',
+            ],
+        ];
     }
 }

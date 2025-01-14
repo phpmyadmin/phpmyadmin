@@ -92,4 +92,9 @@ abstract class SchemaPlugin implements Plugin
     {
         return true;
     }
+
+    public function getTranslatedText(string $text): string
+    {
+        return $text;
+    }
 }

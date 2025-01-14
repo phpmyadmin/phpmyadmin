@@ -140,6 +140,8 @@ final class ExportController implements InvocableController
             Current::$numTables,
             0,
             $exportList,
+            $request->getParam('format'),
+            $request->getParam('what'),
         );
 
         $this->response->render('database/export/index', array_merge($options, [

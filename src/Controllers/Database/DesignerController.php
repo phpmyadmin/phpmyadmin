@@ -52,6 +52,8 @@ final class DesignerController implements InvocableController
                 $html = $this->databaseDesigner->getHtmlForSchemaExport(
                     $db,
                     (int) $request->getParsedBodyParamAsStringOrNull('selected_page'),
+                    $request->getParam('format'),
+                    $request->getParam('export_type'),
                 );
             } elseif ($dialog === 'add_table') {
                 // Pass the db and table to the getTablesInfo so we only have the table we asked for
