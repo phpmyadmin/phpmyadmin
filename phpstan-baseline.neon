@@ -15647,7 +15647,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'MaxExactCount' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15757,7 +15757,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
-			count: 19
+			count: 20
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15922,7 +15922,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 4
+			count: 6
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16527,7 +16527,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$var of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
