@@ -167,7 +167,10 @@ final class Search
             // strings to numbers and numbers to strings as necessary
             // during the comparison
             if (
-                preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
+                (
+                    preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
+                    && !str_starts_with($criteriaValues, '0x')
+                )
                 || mb_strpos(' ' . $func_type, 'LIKE')
             ) {
                 $quot = '\'';
@@ -197,8 +200,6 @@ final class Search
                 && $func_type !== 'BETWEEN'
                 && $func_type !== 'NOT BETWEEN'
             ) {
-                $quot = $names === 'varbinary' ? '' : $quot;
-
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
                     . $this->dbi->escapeString($criteriaValues) . $quot;
             }
