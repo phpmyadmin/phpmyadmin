@@ -197,6 +197,8 @@ final class Search
                 && $func_type !== 'BETWEEN'
                 && $func_type !== 'NOT BETWEEN'
             ) {
+                $quot = $names === 'varbinary' ? '' : $quot;
+
                 return $backquoted_name . ' ' . $func_type . ' ' . $quot
                     . $this->dbi->escapeString($criteriaValues) . $quot;
             }
