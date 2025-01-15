@@ -27,6 +27,7 @@ use function gzuncompress;
 use function implode;
 use function in_array;
 use function intval;
+use function is_array;
 use function is_bool;
 use function is_dir;
 use function is_file;
@@ -104,7 +105,9 @@ class Git
         // find out if there is a .git folder
         // or a .git file (--separate-git-dir)
         $git = $this->baseDir . '.git';
-        if (is_dir($git)) {
+        if (file_exists($this->baseDir . 'revision-info.php')) {
+            $git_location = 'revision-info.php';
+        } elseif (is_dir($git)) {
             if (! @is_file($git . '/config')) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
@@ -367,11 +370,11 @@ class Git
     /**
      * Extract committer, author and message from commit body
      *
-     * @param array $commit The commit body
+     * @param string[] $commit The commit body
      *
      * @return array<int,array<string,string>|string>
      */
-    private function extractDataFormTextBody(array $commit): array
+    public static function extractDataFormTextBody(array $commit): array
     {
         $author = [
             'name' => '',
@@ -545,6 +548,44 @@ class Git
     }
 
     /**
+     * @return array<string, string|array<string, string>>|null
+     * @psalm-return array{
+     *        revision: string,
+     *        revisionHash: string,
+     *        revisionUrl: string,
+     *        branch: string,
+     *        branchUrl: string,
+     *        message: string,
+     *        author: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        },
+     *        committer: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        }
+     * }|null
+     */
+    public function getGitRevisionInfo(): ?array
+    {
+        if (@file_exists($this->baseDir . 'revision-info.php')) {
+            /** @var array{ revision: string, revisionHash: string, revisionUrl: string, branch: string, branchUrl: string, message: string, author: array{ name: string, email: string, date: string }, committer: array{ name: string, email: string, date: string }}|null $info */
+            /** @psalm-suppress MissingFile,UnresolvableInclude */
+            $info = include $this->baseDir . 'revision-info.php';
+
+            if (! is_array($info)) {
+                return null;
+            }
+
+            return $info;
+        }
+
+        return null;
+    }
+
+    /**
      * detects Git revision, if running inside repo
      */
     public function checkGitRevision(): ?array
@@ -555,6 +596,37 @@ class Git
             $this->hasGit = false;
 
             return null;
+        }
+
+        // Special name to indicate the use of the config file
+        if ($gitFolder === 'revision-info.php') {
+            $info = $this->getGitRevisionInfo();
+
+            if ($info === null) {
+                return null;
+            }
+
+            $this->hasGit = true;
+
+            return [
+                'hash' => $info['revisionHash'],
+                'branch' => $info['branch'],
+                'message' => $info['message'],
+                'author' => [
+                    'name' => $info['author']['name'],
+                    'email' => $info['author']['email'],
+                    'date' => $info['author']['date'],
+                ],
+                'committer' => [
+                    'name' => $info['committer']['name'],
+                    'email' => $info['committer']['email'],
+                    'date' => $info['committer']['date'],
+                ],
+                // Let's make the guess that the data is remote
+                // The write script builds a remote commit url without checking that it exists
+                'is_remote_commit' => true,
+                'is_remote_branch' => true,
+            ];
         }
 
         $ref_head = @file_get_contents($gitFolder . '/HEAD');
@@ -616,7 +688,7 @@ class Git
         }
 
         if ($commit !== false) {
-            [$author, $committer, $message] = $this->extractDataFormTextBody($commit);
+            [$author, $committer, $message] = self::extractDataFormTextBody($commit);
         } elseif (isset($commit_json->author, $commit_json->committer, $commit_json->message)) {
             $author = [
                 'name' => $commit_json->author->name,

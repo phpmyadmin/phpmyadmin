@@ -356,16 +356,13 @@ class StructureController extends AbstractController
             if (! $this->dbIsSystemSchema) {
                 $dropQuery = sprintf(
                     'DROP %s %s',
-                    $tableIsView || $currentTable['ENGINE'] == null ? 'VIEW'
-                    : 'TABLE',
+                    $tableIsView ? 'VIEW' : 'TABLE',
                     Util::backquote(
                         $currentTable['TABLE_NAME']
                     )
                 );
                 $dropMessage = sprintf(
-                    ($tableIsView || $currentTable['ENGINE'] == null
-                        ? __('View %s has been dropped.')
-                        : __('Table %s has been dropped.')),
+                    ($tableIsView ? __('View %s has been dropped.') : __('Table %s has been dropped.')),
                     str_replace(
                         ' ',
                         '&nbsp;',

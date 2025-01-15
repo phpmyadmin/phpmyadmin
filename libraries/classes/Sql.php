@@ -183,6 +183,10 @@ class Sql
      */
     private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta): bool
     {
+        if ($table === '') {
+            return false;
+        }
+
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
         foreach ($fieldsMeta as $oneMeta) {
@@ -1044,7 +1048,7 @@ class Sql
             $message = $this->getMessageForNoRowsReturned($messageToShow, $analyzedSqlResults, $numRows);
         }
 
-        $queryMessage = Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
+        $queryMessage = Generator::getMessage($message, $sqlQuery, 'success');
 
         if (isset($GLOBALS['show_as_php'])) {
             return $queryMessage;
@@ -1078,7 +1082,6 @@ class Sql
             'bkm_form' => '1',
             'text_btn' => '1',
             'pview_lnk' => '1',
-            'query_stats' => '1',
         ];
 
         $sqlQueryResultsTable = $this->getHtmlForSqlQueryResultsTable(
@@ -1223,7 +1226,6 @@ class Sql
                         $numRows,
                         $fieldsMeta,
                         $analyzedSqlResults['is_count'],
-                        $analyzedSqlResults['is_group'],
                         $analyzedSqlResults['is_export'],
                         $analyzedSqlResults['is_func'],
                         $analyzedSqlResults['is_analyse'],
@@ -1248,7 +1250,6 @@ class Sql
                         'bkm_form' => '1',
                         'text_btn' => '1',
                         'pview_lnk' => '1',
-                        'query_stats' => '1',
                     ];
 
                     $tableHtml .= $displayResultsObject->getTable(
@@ -1273,7 +1274,6 @@ class Sql
                 $unlimNumRows,
                 $fieldsMeta,
                 $analyzedSqlResults['is_count'],
-                $analyzedSqlResults['is_group'],
                 $analyzedSqlResults['is_export'],
                 $analyzedSqlResults['is_func'],
                 $analyzedSqlResults['is_analyse'],
@@ -1481,7 +1481,6 @@ class Sql
             'bkm_form' => '1',
             'text_btn' => '0',
             'pview_lnk' => '1',
-            'query_stats' => '1',
         ];
 
         if (! $editable) {
@@ -1493,7 +1492,6 @@ class Sql
                 'bkm_form' => '1',
                 'text_btn' => '1',
                 'pview_lnk' => '1',
-                'query_stats' => '1',
             ];
         }
 
@@ -1506,7 +1504,6 @@ class Sql
                 'bkm_form' => '0',
                 'text_btn' => '0',
                 'pview_lnk' => '0',
-                'query_stats' => '0',
             ];
         }
 

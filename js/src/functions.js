@@ -1214,7 +1214,7 @@ Functions.insertQuery = function (queryType) {
 
     var query = '';
     var myListBox = document.sqlform.dummy;
-    table = document.sqlform.table.value;
+    table = Functions.escapeBacktick(document.sqlform.table.value);
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;
@@ -4188,9 +4188,14 @@ $(function () {
 
 /**
  * Scrolls the page to the top if clicking the server-breadcrumb bar
+ * If the user holds the Ctrl (or Meta on macOS) key, it prevents the scroll
+ * so they can open the link in a new tab.
  */
 $(function () {
     $(document).on('click', '#server-breadcrumb, #goto_pagetop', function (event) {
+        if (event.ctrlKey || event.metaKey) {
+            return;
+        }
         event.preventDefault();
         $('html, body').animate({ scrollTop: 0 }, 'fast');
     });

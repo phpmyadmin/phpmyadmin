@@ -93,6 +93,7 @@ abstract class AbstractTestCase extends TestCase
         $GLOBALS['db'] = '';
         $GLOBALS['table'] = '';
         $GLOBALS['PMA_PHP_SELF'] = '';
+        $GLOBALS['lang'] = 'en';
 
         // Config before DBI
         $this->setGlobalConfig();

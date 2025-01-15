@@ -1384,7 +1384,6 @@ class ResultsTest extends AbstractTestCase
             3,
             $fieldsMeta,
             $analyzedSqlResults['is_count'],
-            $analyzedSqlResults['is_group'],
             $analyzedSqlResults['is_export'],
             $analyzedSqlResults['is_func'],
             $analyzedSqlResults['is_analyse'],
@@ -1423,7 +1422,6 @@ class ResultsTest extends AbstractTestCase
             'bkm_form' => '1',
             'text_btn' => '0',
             'pview_lnk' => '1',
-            'query_stats' => '1',
         ];
         self::assertNotFalse($dtResult);
         $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);

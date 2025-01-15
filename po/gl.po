@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2024-10-11 21:28-0300\n"
+"POT-Creation-Date: 2025-01-12 15:57-0300\n"
 "PO-Revision-Date: 2022-02-17 10:34+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Galician <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -303,14 +303,14 @@ msgstr "O método para a caché non é o máis óptimo."
 #| "Query cache, especially if you have multiple slaves."
 msgid ""
 "You are using the MySQL Query cache with a fairly high traffic database. It "
-"might be worth considering to use <a href=\"https://dev.mysql.com/doc/"
-"refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
-"cache, especially if you have multiple replicas."
+"might be worth considering to use <a href=\"https://dev.mysql.com/doc/refman/"
+"5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
+"especially if you have multiple replicas."
 msgstr ""
 "Está a empregar a caché de consultas de MySQL cunha base de datos de "
-"bastante tráfico. Sería boa idea considerar o uso de <a href=\"https://dev."
-"mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> no canto da "
-"caché de consultas de MySQL, especialmente se ten varios escravos."
+"bastante tráfico. Sería boa idea considerar o uso de <a href=\"https://"
+"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> no canto "
+"da caché de consultas de MySQL, especialmente se ten varios escravos."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -560,9 +560,9 @@ msgstr ""
 "disco, independentemente do valor destas variábeis. Para eliminalas hai que "
 "reescribir as consultas para que eviten esas condicións (Nunha táboa "
 "temporal: presenza dunha columna tipo BLOB ou TEXT ou presenza dunha columna "
-"maior de 512 bytes), como se menciona no comezo dun <a href=\"https://www."
-"facebook.com/note.php?note_id=10150111255065841&comments\">artigo do grupo "
-"Pythian</a>"
+"maior de 512 bytes), como se menciona no comezo dun <a href=\"https://"
+"www.facebook.com/note.php?note_id=10150111255065841&comments\">artigo do "
+"grupo Pythian</a>"
 
 #: libraries/advisory_rules_generic.php:331
 #, php-format
@@ -1054,8 +1054,8 @@ msgid ""
 "note however that you cannot simply change the value of this variable. You "
 "need to shutdown the server, remove the InnoDB log files, set the new value "
 "in my.cnf, start the server, then check the error logs if everything went "
-"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
-"com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
+"fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
+"2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
 "Especialmente nun sistema con moitas escritas nas táboas de InnoDB, habería "
 "que configurar innodb_log_file size como o 25%% de "
@@ -1113,13 +1113,13 @@ msgstr ""
 "Normalmente abonda con configurar {innodb_log_file_size} como o 25%% do "
 "tamaño de {innodb_buffer_pool_size}. Un innodb_log_file moi grande enlentece "
 "considerabelmente o tempo de recuperación a seguir unha quebra da base de "
-"datos. Consulte tamén <a href=\"https://www.mysqlperformanceblog."
-"com/2006/07/03/choosing-proper-innodb_log_file_size/\">este artigo</a>. Hai "
-"que apagar o servidor, retirar os ficheiros de rexistro de InnoDB, "
-"configurar o novo valor en my.cnf, iniciar o servidor, e a seguir comprobar "
-"os rexistros de erro para comprobar que todo fose ben. Consulte tamén <a "
-"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
-"innodblogfilesize-proper-way.html\">esta entrada de blogue</a>"
+"datos. Consulte tamén <a href=\"https://www.mysqlperformanceblog.com/"
+"2006/07/03/choosing-proper-innodb_log_file_size/\">este artigo</a>. Hai que "
+"apagar o servidor, retirar os ficheiros de rexistro de InnoDB, configurar o "
+"novo valor en my.cnf, iniciar o servidor, e a seguir comprobar os rexistros "
+"de erro para comprobar que todo fose ben. Consulte tamén <a href=\"https://"
+"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
+"proper-way.html\">esta entrada de blogue</a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
@@ -1168,8 +1168,8 @@ msgstr ""
 "memoria dos demais servizos e as táboas que non sexan de InnoDB e configurar "
 "esta variábel en consecuencia. Se se configura demasiado alta, o sistema "
 "comezará a gravar no disco, o que reduce o desempeño de maneira "
-"significativa. Consulte tamén <a href=\"https://www.mysqlperformanceblog."
-"com/2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</a>"
+"significativa. Consulte tamén <a href=\"https://www.mysqlperformanceblog.com/"
+"2007/11/03/choosing-innodb_buffer_pool_size/\">este artigo</a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1199,8 +1199,9 @@ msgid ""
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
 "Configurar {concurrent_insert} como 1 reduce a contención entre as lecturas "
-"e as escritas nunha táboa dada. Consulte tamén a <a href=\"https://dev.mysql."
-"com/doc/refman/5.5/en/concurrent-inserts.html\">documentación do MySQL</a>"
+"e as escritas nunha táboa dada. Consulte tamén a <a href=\"https://"
+"dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\">documentación do "
+"MySQL</a>"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
@@ -1460,7 +1461,7 @@ msgstr "Buscar:"
 
 #: libraries/classes/BrowseForeigners.php:206
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:323
-#: libraries/classes/Controllers/Server/PrivilegesController.php:329
+#: libraries/classes/Controllers/Server/PrivilegesController.php:330
 #: libraries/classes/Normalization.php:255
 #: libraries/classes/Normalization.php:978 libraries/classes/Tracking.php:327
 #: libraries/classes/Tracking.php:481
@@ -1532,8 +1533,8 @@ msgstr "Nome da chave"
 msgid "Description"
 msgstr "Descrición"
 
-#: libraries/classes/BrowseForeigners.php:321
-#: libraries/classes/Language.php:204 libraries/classes/Pdf.php:81
+#: libraries/classes/BrowseForeigners.php:321 libraries/classes/Pdf.php:67
+#: libraries/classes/Pdf.php:87
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:496
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:530
 #: templates/list_navigator.twig:4
@@ -2105,8 +2106,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:118
 #, fuzzy
 #| msgid ""
-#| "Use user-friendly editor for editing SQL queries ([a@https://codemirror."
-#| "net/]CodeMirror[/a]) with syntax highlighting and line numbers."
+#| "Use user-friendly editor for editing SQL queries ([a@https://"
+#| "codemirror.net/]CodeMirror[/a]) with syntax highlighting and line numbers."
 msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
@@ -2637,8 +2638,9 @@ msgid ""
 "Leave blank for no [doc@bookmarks@]bookmark[/doc] support, suggested: "
 "[kbd]pma__bookmark[/kbd]"
 msgstr ""
-"Déixeo en branco se non quere a funcionalidade de [a@https://wiki.phpmyadmin."
-"net/pma/bookmark]bookmark[/a]  ; por omisión: [kbd]pma_bookmark[/kbd]"
+"Déixeo en branco se non quere a funcionalidade de [a@https://"
+"wiki.phpmyadmin.net/pma/bookmark]bookmark[/a]  ; por omisión: "
+"[kbd]pma_bookmark[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:351
 #, fuzzy
@@ -2687,17 +2689,17 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:366
 #, fuzzy
 #| msgid ""
-#| "More information on [a@https://sourceforge.net/p/phpmyadmin/"
-#| "bugs/2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
-#| "Bugs[/a]"
+#| "More information on [a@https://sourceforge.net/p/phpmyadmin/bugs/"
+#| "2606/]PMA bug tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/"
+#| "a]"
 msgid ""
-"More information on [a@https://github.com/phpmyadmin/phpmyadmin/"
-"issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
-"com/19588]MySQL Bugs[/a]"
+"More information on [a@https://github.com/phpmyadmin/phpmyadmin/issues/"
+"8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
+"Bugs[/a]"
 msgstr ""
-"Máis información no [a@https://sourceforge.net/p/phpmyadmin/"
-"bugs/2606/]Seguidor de erros de PMA[/a] e en [a@https://bugs.mysql."
-"com/19588]Erros do MySQL[/a]"
+"Máis información no [a@https://sourceforge.net/p/phpmyadmin/bugs/"
+"2606/]Seguidor de erros de PMA[/a] e en [a@https://bugs.mysql.com/"
+"19588]Erros do MySQL[/a]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
@@ -3027,8 +3029,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
-"Mostra unha ligazón á saída de [a@https://www.php.net/manual/function."
-"phpinfo.php]phpinfo()[/a]."
+"Mostra unha ligazón á saída de [a@https://www.php.net/manual/"
+"function.phpinfo.php]phpinfo()[/a]."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -3068,8 +3070,8 @@ msgstr ""
 #| msgid "Allow to display database and table statistics (eg. space usage)."
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
-"Permitir que se mostren as estatísticas das bases de datos e das táboas (p."
-"ex. o uso do espazo)."
+"Permitir que se mostren as estatísticas das bases de datos e das táboas "
+"(p.ex. o uso do espazo)."
 
 #: libraries/classes/Config/Descriptions.php:506
 msgid ""
@@ -3922,7 +3924,7 @@ msgid "First day of calendar"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:748
-#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:480
+#: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:477
 #: libraries/classes/Util.php:1938 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
 #: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
@@ -4038,7 +4040,7 @@ msgid "Changes tracking"
 msgstr "Seguimento de cambios"
 
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:255
-#: libraries/classes/Menu.php:362 libraries/classes/Menu.php:485
+#: libraries/classes/Menu.php:362 libraries/classes/Menu.php:482
 #: libraries/classes/Navigation/Nodes/NodeTable.php:310
 #: libraries/classes/Util.php:1489 libraries/classes/Util.php:1939
 #: libraries/classes/Util.php:1954 libraries/classes/Util.php:1971
@@ -4710,7 +4712,7 @@ msgstr "Ignorar as táboas bloqueadas"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2973
+#: libraries/classes/Display/Results.php:2965
 #: libraries/classes/Html/Generator.php:614
 #: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -5086,7 +5088,7 @@ msgstr "Texto de OpenDocument"
 #: libraries/classes/Config/Forms/User/ExportForm.php:153
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:372
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
-#: libraries/classes/Menu.php:513 libraries/classes/Server/Privileges.php:1513
+#: libraries/classes/Menu.php:510 libraries/classes/Server/Privileges.php:1513
 #: libraries/classes/Util.php:1942 libraries/classes/Util.php:1957
 #: libraries/classes/Util.php:1974 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
@@ -5131,7 +5133,7 @@ msgstr "CSV empregando LOAD DATA"
 #: libraries/classes/Config/Forms/User/ImportForm.php:67
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:309
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
-#: libraries/classes/Menu.php:518 libraries/classes/Util.php:1943
+#: libraries/classes/Menu.php:515 libraries/classes/Util.php:1943
 #: libraries/classes/Util.php:1958 libraries/classes/Util.php:1975
 #: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
@@ -5298,8 +5300,8 @@ msgid ""
 "%5$d)."
 msgstr ""
 "Unha %svalidez das cookies de rexistro%s maior de %ssession.gc_maxlifetime%s "
-"pode causar invalidacións aleatorias da sesión  (actualmente a session."
-"gc_maxlifetime é %d)."
+"pode causar invalidacións aleatorias da sesión  (actualmente a "
+"session.gc_maxlifetime é %d)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
@@ -5590,7 +5592,7 @@ msgstr "Non hai ningunha base de datos seleccionada."
 msgid "Success!"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/StructureController.php:367
+#: libraries/classes/Controllers/Database/StructureController.php:365
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
 #, fuzzy, php-format
@@ -5598,21 +5600,21 @@ msgstr ""
 msgid "View %s has been dropped."
 msgstr "Deixouse a vista %s"
 
-#: libraries/classes/Controllers/Database/StructureController.php:368
+#: libraries/classes/Controllers/Database/StructureController.php:365
 #: templates/table/operations/index.twig:451
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Eliminouse a táboa %s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:415
+#: libraries/classes/Controllers/Database/StructureController.php:412
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Baleirouse a táboa %s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:578
-#: libraries/classes/Display/Results.php:3984
+#: libraries/classes/Controllers/Database/StructureController.php:575
+#: libraries/classes/Display/Results.php:3976
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5621,7 +5623,7 @@ msgstr ""
 "Esta vista ten, cando menos, este número de fileiras. Vexa a "
 "%sdocumentation%s."
 
-#: libraries/classes/Controllers/Database/StructureController.php:766
+#: libraries/classes/Controllers/Database/StructureController.php:763
 msgid "unknown"
 msgstr "descoñecido"
 
@@ -5760,15 +5762,17 @@ msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:270
 msgid ""
-"Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
-"than cookie validity configured in phpMyAdmin, because of this, your login "
-"might expire sooner than configured in phpMyAdmin."
+"Your PHP parameter [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] is lower than cookie validity "
+"configured in phpMyAdmin, because of this, your login might expire sooner "
+"than configured in phpMyAdmin."
 msgstr ""
-"O parámetro PHP [a@https://www.php.net/manual/en/session.configuration."
-"php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do "
-"que a validez das cookies que se configurou en phpMyAdmin; por causa disto, "
-"o rexistro podería caducar antes do que está configurado en phpMyAdmin."
+"O parámetro PHP [a@https://www.php.net/manual/en/"
+"session.configuration.php#ini.session.gc-"
+"maxlifetime@_blank]session.gc_maxlifetime[/a] é menor do que a validez das "
+"cookies que se configurou en phpMyAdmin; por causa disto, o rexistro podería "
+"caducar antes do que está configurado en phpMyAdmin."
 
 #: libraries/classes/Controllers/HomeController.php:287
 msgid ""
@@ -6499,7 +6503,7 @@ msgid "Traffic"
 msgstr "Tráfico"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
-#: libraries/classes/Menu.php:523 libraries/classes/Util.php:1944
+#: libraries/classes/Menu.php:520 libraries/classes/Util.php:1944
 #: templates/server/status/monitor/index.twig:12
 msgid "Settings"
 msgstr "Configuración"
@@ -6514,7 +6518,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Engádalle ao menos unha variábel á serie!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1269
+#: libraries/classes/Display/Results.php:1261
 #: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6734,7 +6738,7 @@ msgid "Explain output"
 msgstr "Explicar a saída"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:274
-#: libraries/classes/Menu.php:490
+#: libraries/classes/Menu.php:487
 #: libraries/classes/Server/Status/Processes.php:134
 #: libraries/classes/Util.php:1940 libraries/config.values.php:157
 #: templates/database/events/editor_form.twig:25
@@ -7138,7 +7142,7 @@ msgid "Edit query"
 msgstr "Enviar esta consulta"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3041
+#: libraries/classes/Display/Results.php:3033
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -7398,7 +7402,7 @@ msgstr "Contido do punto de datos"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:423 libraries/classes/InsertEdit.php:2012
+#: libraries/classes/ErrorHandler.php:422 libraries/classes/InsertEdit.php:2012
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorar"
@@ -7409,7 +7413,7 @@ msgid "Copy to clipboard"
 msgstr "Copiar ao portapapeis"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
-#: libraries/classes/Display/Results.php:2977
+#: libraries/classes/Display/Results.php:2969
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:234
 #: templates/display/results/table.twig:235
@@ -7839,7 +7843,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Mire na parte inferior desta xanela."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:428
+#: libraries/classes/ErrorHandler.php:427
 msgid "Ignore All"
 msgstr "Ignorar todo"
 
@@ -8155,7 +8159,7 @@ msgid ""
 "password, 'Change password' tab should be used."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/PrivilegesController.php:405
+#: libraries/classes/Controllers/Server/PrivilegesController.php:406
 msgid "User has been added."
 msgstr "O usuario foi engadido."
 
@@ -8952,7 +8956,7 @@ msgid "Insecure connection"
 msgstr "A conexión non é segura"
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
-#: libraries/classes/Sql.php:1165
+#: libraries/classes/Sql.php:1168
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Creouse o marcador %s."
@@ -9020,7 +9024,7 @@ msgstr "Xa existe a táboa %s!!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1222
-#: libraries/classes/Display/Results.php:3699 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3691 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "A consulta de SQL executouse sen problemas."
@@ -9063,7 +9067,7 @@ msgstr "Hai demasiadas unións sen índices."
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1241
 #: libraries/classes/Import.php:149 libraries/classes/InsertEdit.php:229
-#: libraries/classes/Sql.php:978
+#: libraries/classes/Sql.php:982
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "O MySQL retornou un conxunto baleiro (isto é, cero fileiras)."
 
@@ -9464,7 +9468,7 @@ msgstr ""
 "Fallou a conexión para «controluser» tal e como está definida na "
 "configuración."
 
-#: libraries/classes/DatabaseInterface.php:2399
+#: libraries/classes/DatabaseInterface.php:2405
 #, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
@@ -9733,44 +9737,44 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:905 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr "Inicio"
 
-#: libraries/classes/Display/Results.php:912 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
-#: libraries/classes/Display/Results.php:938 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Seguinte"
 
-#: libraries/classes/Display/Results.php:968 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Fin"
 
-#: libraries/classes/Display/Results.php:1476
+#: libraries/classes/Display/Results.php:1468
 #: templates/display/results/table.twig:132
 msgid "Partial texts"
 msgstr "Textos parciais"
 
-#: libraries/classes/Display/Results.php:1480
+#: libraries/classes/Display/Results.php:1472
 #: templates/display/results/table.twig:136
 msgid "Full texts"
 msgstr "Textos completos"
 
-#: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1849 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1815
+#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9783,8 +9787,8 @@ msgstr "Textos completos"
 msgid "Descending"
 msgstr "Descendente"
 
-#: libraries/classes/Display/Results.php:1831
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2559
+#: libraries/classes/Display/Results.php:1823
+#: libraries/classes/Display/Results.php:1833 libraries/classes/Util.php:2559
 #: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9797,42 +9801,42 @@ msgstr "Descendente"
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: libraries/classes/Display/Results.php:3017
-#: libraries/classes/Display/Results.php:3032
+#: libraries/classes/Display/Results.php:3009
+#: libraries/classes/Display/Results.php:3024
 msgid "The row has been deleted."
 msgstr "A fila foi eliminada."
 
-#: libraries/classes/Display/Results.php:3064
+#: libraries/classes/Display/Results.php:3056
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Matar (kill)"
 
-#: libraries/classes/Display/Results.php:3632
+#: libraries/classes/Display/Results.php:3624
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 "Pode non ser exacto. Consulte a [doc@faq3-11]pregunta frecuente 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3993
+#: libraries/classes/Display/Results.php:3985
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "A mostrar as filas %1s + %2s"
 
-#: libraries/classes/Display/Results.php:4007
+#: libraries/classes/Display/Results.php:3999
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d en total, %2$d en consulta"
 
-#: libraries/classes/Display/Results.php:4012
+#: libraries/classes/Display/Results.php:4004
 #, php-format
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/classes/Display/Results.php:4025 libraries/classes/Sql.php:984
+#: libraries/classes/Display/Results.php:4017 libraries/classes/Sql.php:988
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A consulta levou %01.4f segundos."
 
-#: libraries/classes/Display/Results.php:4356
+#: libraries/classes/Display/Results.php:4348
 msgid "Link not found!"
 msgstr "Non se atopou a ligazón!"
 
@@ -10171,10 +10175,10 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
-"Este é o número de ficheiros de rexistro de transaccións (pbxt/system/xlog*."
-"xt) que vai manter o sistema. Se o número de ficheiros de rexistro excede "
-"este valor, os ficheiros de rexistro antigos elimínanse; se non, múdaselles "
-"o nome e dáselles o número máis alto seguinte."
+"Este é o número de ficheiros de rexistro de transaccións (pbxt/system/"
+"xlog*.xt) que vai manter o sistema. Se o número de ficheiros de rexistro "
+"excede este valor, os ficheiros de rexistro antigos elimínanse; se non, "
+"múdaselles o nome e dáselles o número máis alto seguinte."
 
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Html/Generator.php:745
@@ -10195,15 +10199,15 @@ msgstr ""
 "Pódese atopar documentación e información adicional sobre PBXT na %sPáxina "
 "de PrimeBase XT %s."
 
-#: libraries/classes/ErrorHandler.php:104
+#: libraries/classes/ErrorHandler.php:103
 msgid "Too many error messages, some are not displayed."
 msgstr "Houbo demasiadas mensaxes de erro; algunhas non se mostran."
 
-#: libraries/classes/ErrorHandler.php:412
+#: libraries/classes/ErrorHandler.php:411
 msgid "Report"
 msgstr "Informar"
 
-#: libraries/classes/ErrorHandler.php:417 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:416 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "A próxima vez, enviar un informe automaticamente"
 
@@ -10243,8 +10247,8 @@ msgstr "O ficheiro non foi subido como un ficheiro."
 #: libraries/classes/File.php:266
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
-"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de php."
-"ini."
+"O tamaño do ficheiro enviado excede a directiva upload_max_filesize de "
+"php.ini."
 
 #: libraries/classes/File.php:271
 msgid ""
@@ -10379,7 +10383,7 @@ msgstr "Análise estática:"
 msgid "%d errors were found during analysis."
 msgstr "Atopáronse %d erros durante a análise."
 
-#: libraries/classes/Import.php:292 libraries/classes/Sql.php:992
+#: libraries/classes/Import.php:292 libraries/classes/Sql.php:996
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -10538,11 +10542,11 @@ msgstr "ou"
 msgid "web server upload directory:"
 msgstr "directorio de recepción do servidor web:"
 
-#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:975
+#: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
 msgstr "Mostrar a consulta de SQL"
 
-#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:955
+#: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:959
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identificador da fileira inserida: %1$d"
@@ -10596,7 +10600,7 @@ msgid "Insert"
 msgstr "Inserir"
 
 #: libraries/classes/Menu.php:296 libraries/classes/Menu.php:406
-#: libraries/classes/Server/Privileges.php:2844 libraries/classes/Util.php:1960
+#: libraries/classes/Server/Privileges.php:2843 libraries/classes/Util.php:1960
 #: libraries/classes/Util.php:1976 libraries/config.values.php:161
 #: templates/database/privileges/index.twig:20
 #: templates/server/privileges/privileges_summary.twig:15
@@ -10663,16 +10667,16 @@ msgstr "Deseñador"
 msgid "Central columns"
 msgstr "Columnas centrais"
 
-#: libraries/classes/Menu.php:503
+#: libraries/classes/Menu.php:500
 msgid "User accounts"
 msgstr "Contas de usuario"
 
-#: libraries/classes/Menu.php:538 libraries/classes/Server/Status/Data.php:152
+#: libraries/classes/Menu.php:535 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:1945 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr "Rexistro binario"
 
-#: libraries/classes/Menu.php:545 libraries/classes/Server/Status/Data.php:157
+#: libraries/classes/Menu.php:542 libraries/classes/Server/Status/Data.php:157
 #: libraries/classes/Util.php:1946
 #: templates/database/structure/body_for_table_summary.twig:11
 #: templates/database/structure/table_header.twig:10
@@ -10680,22 +10684,22 @@ msgstr "Rexistro binario"
 msgid "Replication"
 msgstr "Replicación"
 
-#: libraries/classes/Menu.php:551 libraries/classes/Server/Status/Data.php:229
+#: libraries/classes/Menu.php:548 libraries/classes/Server/Status/Data.php:229
 #: libraries/classes/Util.php:1947 libraries/config.values.php:159
 #: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr "Variábeis"
 
-#: libraries/classes/Menu.php:556 libraries/classes/Util.php:1948
+#: libraries/classes/Menu.php:553 libraries/classes/Util.php:1948
 msgid "Charsets"
 msgstr "Conxuntos de caracteres"
 
-#: libraries/classes/Menu.php:561 libraries/classes/Util.php:1950
+#: libraries/classes/Menu.php:558 libraries/classes/Util.php:1950
 msgid "Engines"
 msgstr "Motores"
 
-#: libraries/classes/Menu.php:566 libraries/classes/Util.php:1949
+#: libraries/classes/Menu.php:563 libraries/classes/Util.php:1949
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
 msgstr "Engadidos"
@@ -11320,7 +11324,7 @@ msgstr "O nome da táboa está baleiro!"
 msgid "This table is a view, it can not be truncated."
 msgstr ""
 
-#: libraries/classes/Pdf.php:136
+#: libraries/classes/Pdf.php:142
 msgid "Error while creating PDF:"
 msgstr "Produciuse un erro ao crear o PDF:"
 
@@ -11885,8 +11889,8 @@ msgid ""
 "(1,2,3)</code>"
 msgstr ""
 "incluír os nomes das columnas en todas as instrucións <code>INSERT</code> "
-"<br> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa (col_A,col_B,"
-"col_C) VALUES (1,2,3)</code>"
+"<br> &nbsp;&nbsp;&nbsp; Exemplo: <code>INSERT INTO nome_taboa "
+"(col_A,col_B,col_C) VALUES (1,2,3)</code>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid ""
@@ -12708,69 +12712,69 @@ msgstr "Recentes"
 msgid "Favorites"
 msgstr "Favoritos"
 
-#: libraries/classes/ReplicationGui.php:438
+#: libraries/classes/ReplicationGui.php:463
 msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:449
+#: libraries/classes/ReplicationGui.php:474
 #, fuzzy
 #| msgid "Replication status"
 msgid "Replication started successfully."
 msgstr "Estado da replicación"
 
-#: libraries/classes/ReplicationGui.php:450
+#: libraries/classes/ReplicationGui.php:475
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error starting replication."
 msgstr "Replicación do principal"
 
-#: libraries/classes/ReplicationGui.php:453
+#: libraries/classes/ReplicationGui.php:478
 #, fuzzy
 #| msgid "Chart generated successfully."
 msgid "Replication stopped successfully."
 msgstr "Non houbo problemas ao recargar os privilexios."
 
-#: libraries/classes/ReplicationGui.php:454
+#: libraries/classes/ReplicationGui.php:479
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error stopping replication."
 msgstr "Replicación do principal"
 
-#: libraries/classes/ReplicationGui.php:457
+#: libraries/classes/ReplicationGui.php:482
 #, fuzzy
 #| msgid "Replication status"
 msgid "Replication resetting successfully."
 msgstr "Estado da replicación"
 
-#: libraries/classes/ReplicationGui.php:458
+#: libraries/classes/ReplicationGui.php:483
 #, fuzzy
 #| msgid "Master replication"
 msgid "Error resetting replication."
 msgstr "Replicación do principal"
 
-#: libraries/classes/ReplicationGui.php:461
+#: libraries/classes/ReplicationGui.php:486
 msgid "Success."
 msgstr ""
 
-#: libraries/classes/ReplicationGui.php:462
+#: libraries/classes/ReplicationGui.php:487
 #, fuzzy
 #| msgid "Error"
 msgid "Error."
 msgstr "Produciuse un erro"
 
-#: libraries/classes/ReplicationGui.php:507
+#: libraries/classes/ReplicationGui.php:532
 msgid "Unknown error"
 msgstr "Produciuse un erro descoñecido"
 
-#: libraries/classes/ReplicationGui.php:520
+#: libraries/classes/ReplicationGui.php:545
 #, fuzzy, php-format
 #| msgid "Unable to connect to master %s."
 msgid "Unable to connect to primary %s."
 msgstr "Foi imposíbel conectar co principal %s."
 
-#: libraries/classes/ReplicationGui.php:530
+#: libraries/classes/ReplicationGui.php:555
 #, fuzzy
 #| msgid ""
 #| "Unable to read master log position. Possible privilege problem on master."
@@ -12780,13 +12784,13 @@ msgstr ""
 "Foi imposíbel ler a posición do rexistro do principal. É posíbel que haxa un "
 "problema de privilexios no principal."
 
-#: libraries/classes/ReplicationGui.php:548
+#: libraries/classes/ReplicationGui.php:573
 #, fuzzy
 #| msgid "Unable to change master"
 msgid "Unable to change primary!"
 msgstr "Foi imposíbel mudar de principal"
 
-#: libraries/classes/ReplicationGui.php:552
+#: libraries/classes/ReplicationGui.php:577
 #, fuzzy, php-format
 #| msgid "Master server changed successfully to %s"
 msgid "Primary server changed successfully to %s."
@@ -12836,7 +12840,7 @@ msgstr "Produciuse un erro ao cargar a busca."
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:795
-#: libraries/classes/Server/Privileges.php:3719
+#: libraries/classes/Server/Privileges.php:3718
 #, fuzzy
 #| msgid "Cookie authentication"
 msgid "Native MySQL authentication"
@@ -13199,30 +13203,30 @@ msgstr "A eliminar %s"
 msgid "The privileges were reloaded successfully."
 msgstr "Non houbo problemas ao recargar os privilexios."
 
-#: libraries/classes/Server/Privileges.php:2586
+#: libraries/classes/Server/Privileges.php:2585
 #, php-format
 msgid "The user %s already exists!"
 msgstr "Xa existe o usuario %s!"
 
-#: libraries/classes/Server/Privileges.php:2861
+#: libraries/classes/Server/Privileges.php:2860
 #, php-format
 msgid "Privileges for %s"
 msgstr "Privilexios para %s"
 
-#: libraries/classes/Server/Privileges.php:2870
+#: libraries/classes/Server/Privileges.php:2869
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
 msgstr "Usuario"
 
-#: libraries/classes/Server/Privileges.php:2981
+#: libraries/classes/Server/Privileges.php:2980
 msgid ""
 "A user account allowing any user from localhost to connect is present. This "
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
 
-#: libraries/classes/Server/Privileges.php:3016
+#: libraries/classes/Server/Privileges.php:3015
 #, fuzzy, php-format
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13240,7 +13244,7 @@ msgstr ""
 "privilexios que usa o servidor se se levaron a cabo alteracións manuais. "
 "Neste caso, debería %svolver a cargar os privilexios%s antes de proseguir."
 
-#: libraries/classes/Server/Privileges.php:3032
+#: libraries/classes/Server/Privileges.php:3031
 #, fuzzy
 #| msgid ""
 #| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
@@ -13259,7 +13263,7 @@ msgstr ""
 "privilexios que usa o servidor se se levaron a cabo alteracións manuais. "
 "Neste caso, debería %svolver a cargar os privilexios%s antes de proseguir."
 
-#: libraries/classes/Server/Privileges.php:3346
+#: libraries/classes/Server/Privileges.php:3345
 msgid "You have added a new user."
 msgstr "Engadiu un usuario novo."
 
@@ -13389,12 +13393,12 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Non existe ningunha versión estábel máis recente"
 
-#: libraries/classes/Sql.php:500
+#: libraries/classes/Sql.php:504
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "A empregar o marcador «%s» como consulta de navegación por omisión."
 
-#: libraries/classes/Sql.php:972
+#: libraries/classes/Sql.php:976
 msgid "Showing as PHP code"
 msgstr "Mostrar como código PHP"
 
@@ -17878,8 +17882,8 @@ msgid ""
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
 "Active as funcionalidades avanzadas no ficheiro de configuración "
-"(<code>config.inc.php</code>) comezando, por exemplo con <code>config.sample."
-"inc.php</code>."
+"(<code>config.inc.php</code>) comezando, por exemplo con "
+"<code>config.sample.inc.php</code>."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -20996,9 +21000,9 @@ msgstr "Nomes das columnas"
 #~ "authentication[/a] (not located in your document root; suggested: /etc/"
 #~ "swekey.conf)."
 #~ msgstr ""
-#~ "A ruta ao ficheiro de configuración da [a@https://swekey."
-#~ "com]autenticación de hardware SweKey[/a] (non se localiza na raíz dos "
-#~ "documentos; suxírese: /etc/swekey.conf)"
+#~ "A ruta ao ficheiro de configuración da [a@https://"
+#~ "swekey.com]autenticación de hardware SweKey[/a] (non se localiza na raíz "
+#~ "dos documentos; suxírese: /etc/swekey.conf)"
 
 #~ msgid "SweKey config file"
 #~ msgstr "Ficheiro de configuración SweKey"
@@ -21739,9 +21743,9 @@ msgstr "Nomes das columnas"
 #~ msgstr ""
 #~ "Se desexa empregar o servizo do validador de SQL ha de te ren conta que "
 #~ "[strong]todas as instrucións de SQL se almacenan de maneira anónima con "
-#~ "finalidade estatística[/strong].[br][em][a@https://sqlválidator.mimer."
-#~ "com/]Mimer SQL Validator[/a], Copyright 2002 Upright Database Technology. "
-#~ "Todos os dereitos reservados.[/em]"
+#~ "finalidade estatística[/strong].[br][em][a@https://"
+#~ "sqlválidator.mimer.com/]Mimer SQL Validator[/a], Copyright 2002 Upright "
+#~ "Database Technology. Todos os dereitos reservados.[/em]"
 
 #, fuzzy
 #~| msgid "Requires SQL Validator to be enabled"
@@ -22630,12 +22634,12 @@ msgstr "Nomes das columnas"
 #~ msgstr "Base de datos PMA"
 
 #~ msgid ""
-#~ "SQL queries settings, for SQL Query box options see [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
+#~ "SQL queries settings, for SQL Query box options see [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]Navigation frame[/a] settings"
 #~ msgstr ""
 #~ "Configuración das solicitudes de SQL; para as opcións da caixa Procuras "
-#~ "SQL vexa a configuración da [a@?page=form&amp;"
-#~ "formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
+#~ "SQL vexa a configuración da [a@?"
+#~ "page=form&amp;formset=main_frame#tab_Sql_box]moldura de navegación[/a]"
 
 #~ msgid "Remove carriage return/line field characters within columns"
 #~ msgstr "Eliminar os caracteres CRLF dentro dos campos"

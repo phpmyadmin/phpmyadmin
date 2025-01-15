@@ -266,9 +266,28 @@
     </UnusedVariable>
   </file>
   <file src="libraries/classes/Command/WriteGitRevisionCommand.php">
+    <MixedArgument occurrences="6">
+      <code>$author['date']</code>
+      <code>$author['email']</code>
+      <code>$author['name']</code>
+      <code>$committer['date']</code>
+      <code>$committer['email']</code>
+      <code>$committer['name']</code>
+    </MixedArgument>
     <NonInvariantDocblockPropertyType occurrences="1">
       <code>$defaultName</code>
     </NonInvariantDocblockPropertyType>
+    <PossiblyInvalidArgument occurrences="1">
+      <code>$message</code>
+    </PossiblyInvalidArgument>
+    <PossiblyInvalidArrayOffset occurrences="6">
+      <code>$author['date']</code>
+      <code>$author['email']</code>
+      <code>$author['name']</code>
+      <code>$committer['date']</code>
+      <code>$committer['email']</code>
+      <code>$committer['name']</code>
+    </PossiblyInvalidArrayOffset>
   </file>
   <file src="libraries/classes/Common.php">
     <MixedArgument occurrences="5">
@@ -1667,8 +1686,7 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="libraries/classes/Controllers/Database/Structure/FavoriteTableController.php">
-    <MixedArgument occurrences="3">
-      <code>$favoriteTables</code>
+    <MixedArgument occurrences="2">
       <code>$value['db']</code>
       <code>$value['table']</code>
     </MixedArgument>
@@ -1681,9 +1699,8 @@
       <code>$value['table']</code>
       <code>$value['table']</code>
     </MixedArrayAccess>
-    <MixedArrayAssignment occurrences="2">
+    <MixedArrayAssignment occurrences="1">
       <code>$_SESSION['tmpval']['favorites_synced']</code>
-      <code>$favoriteTables[$user]</code>
     </MixedArrayAssignment>
     <MixedAssignment occurrences="3">
       <code>$favoriteTables</code>
@@ -1804,12 +1821,10 @@
     <MixedArgumentTypeCoercion occurrences="1">
       <code>['db' =&gt; $db]</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="18">
+    <MixedArrayAccess occurrences="16">
       <code>$currentTable['Check_time']</code>
       <code>$currentTable['Collation']</code>
       <code>$currentTable['Create_time']</code>
-      <code>$currentTable['ENGINE']</code>
-      <code>$currentTable['ENGINE']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
       <code>$currentTable['TABLE_NAME']</code>
@@ -6059,7 +6074,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="69">
+    <MixedArrayAccess occurrences="68">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6105,8 +6120,7 @@
       <code>$displayParams['data'][$rowNumber]</code>
       <code>$displayParts['nav_bar']</code>
       <code>$displayParts['nav_bar']</code>
-      <code>$displayParts['query_stats']</code>
-      <code>$displayParts['query_stats']</code>
+      <code>$displayParts['nav_bar']</code>
       <code>$displayParts['sort_lnk']</code>
       <code>$oneKey['index_list']</code>
       <code>$oneKey['ref_db_name']</code>
@@ -6748,16 +6762,11 @@
       <code>$db</code>
       <code>$table</code>
     </MixedArgument>
-    <MixedAssignment occurrences="4">
-      <code>$info</code>
+    <MixedAssignment occurrences="3">
       <code>$params['route']</code>
       <code>$params['server']</code>
       <code>$subObject</code>
     </MixedAssignment>
-    <MixedReturnTypeCoercion occurrences="2">
-      <code>array{revision: string, revisionUrl: string, branch: string, branchUrl: string}|[]</code>
-      <code>is_array($info) ? $info : []</code>
-    </MixedReturnTypeCoercion>
     <RedundantCast occurrences="3">
       <code>(string) $GLOBALS['db']</code>
       <code>(string) $GLOBALS['table']</code>
@@ -7542,22 +7551,17 @@
     </RedundantConditionGivenDocblockType>
   </file>
   <file src="libraries/classes/Git.php">
-    <MixedArgument occurrences="8">
+    <MixedArgument occurrences="7">
       <code>$commit</code>
       <code>$commit_json-&gt;message</code>
-      <code>$dataline</code>
       <code>$hash</code>
       <code>$hash</code>
       <code>$hash</code>
       <code>$offset + ($position * 20)</code>
       <code>$offset + ($position * 4)</code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion occurrences="1">
+    <MixedAssignment occurrences="9">
       <code>$commit</code>
-    </MixedArgumentTypeCoercion>
-    <MixedAssignment occurrences="10">
-      <code>$commit</code>
-      <code>$dataline</code>
       <code>$end</code>
       <code>$git_location</code>
       <code>$isRemoteCommit</code>
@@ -7594,6 +7598,9 @@
       <code>$packOffsets[1]</code>
       <code>json_decode((string) $is_found)</code>
     </MixedReturnStatement>
+    <MixedReturnTypeCoercion occurrences="2">
+      <code>$info</code>
+    </MixedReturnTypeCoercion>
     <PossiblyInvalidArrayOffset occurrences="1">
       <code>$_SESSION['PMA_VERSION_COMMITDATA_' . $hash]</code>
     </PossiblyInvalidArrayOffset>
@@ -8036,13 +8043,13 @@
       <code>$column['True_Type']</code>
       <code>$column['True_Type']</code>
       <code>$column['True_Type']</code>
+      <code>$column['True_Type']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
       <code>$column['Type']</code>
-      <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
       <code>$column['pma_type']</code>
@@ -13124,7 +13131,7 @@
     <LessSpecificReturnStatement occurrences="1">
       <code>$unlimNumRows</code>
     </LessSpecificReturnStatement>
-    <MixedArgument occurrences="43">
+    <MixedArgument occurrences="41">
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults['is_affected']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
@@ -13137,8 +13144,6 @@
       <code>$analyzedSqlResults['is_export']</code>
       <code>$analyzedSqlResults['is_func']</code>
       <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_group']</code>
-      <code>$analyzedSqlResults['is_group']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
@@ -15273,7 +15278,7 @@
     <DocblockTypeContradiction occurrences="1">
       <code>assertSame</code>
     </DocblockTypeContradiction>
-    <MixedArgument occurrences="17">
+    <MixedArgument occurrences="16">
       <code>$actual</code>
       <code>$analyzedSqlResults</code>
       <code>$analyzedSqlResults</code>
@@ -15284,20 +15289,18 @@
       <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_export']</code>
       <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_group']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
       <code>$output</code>
       <code>$output</code>
     </MixedArgument>
-    <MixedArrayAccess occurrences="9">
+    <MixedArrayAccess occurrences="8">
       <code>$_SESSION['tmpval']['pftext']</code>
       <code>$analyzedSqlResults['is_analyse']</code>
       <code>$analyzedSqlResults['is_count']</code>
       <code>$analyzedSqlResults['is_explain']</code>
       <code>$analyzedSqlResults['is_export']</code>
       <code>$analyzedSqlResults['is_func']</code>
-      <code>$analyzedSqlResults['is_group']</code>
       <code>$analyzedSqlResults['is_maint']</code>
       <code>$analyzedSqlResults['is_show']</code>
     </MixedArrayAccess>
@@ -15516,6 +15519,11 @@
       <code>$dataSet</code>
       <code>$queryString</code>
     </MixedAssignment>
+  </file>
+  <file src="test/classes/GitTest.php">
+    <RedundantConditionGivenDocblockType occurrences="1">
+      <code>assertIsArray</code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="test/classes/HeaderTest.php">
     <MixedInferredReturnType occurrences="1">

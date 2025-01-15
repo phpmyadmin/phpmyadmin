@@ -183,7 +183,7 @@ class GisLineString extends GisGeometry
     public function prepareRowAsSvg($spatial, $label, $line_color, array $scale_data)
     {
         $line_options = [
-            'name' => $label,
+            'data-label' => $label,
             'id' => $label . $this->getRandomId(),
             'class' => 'linestring vector',
             'fill' => 'none',

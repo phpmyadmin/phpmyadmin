@@ -11,7 +11,9 @@ parameters:
     stubFiles:
         - test/stubs/uploadprogress.stub
     excludePaths:
-        - examples/openid.php
+        - config.inc.php (?)
+        - config.sample.inc.php
+        - examples/config.manyhosts.inc.php
         - node_modules/*
         - libraries/cache/*
         - test/doctum-config.php
@@ -21,3 +23,8 @@ parameters:
     dynamicConstantNames:
         - ROOT_PATH
         - VERSION_SUFFIX
+    checkBenevolentUnionTypes: true
+    checkUninitializedProperties: true
+    checkDynamicProperties: true
+    checkTooWideReturnTypesInProtectedAndPublicMethods: true
+    checkImplicitMixed: true
