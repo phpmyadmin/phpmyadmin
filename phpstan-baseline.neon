@@ -13828,6 +13828,12 @@ parameters:
 			path: src/Properties/Options/OptionsPropertyGroup.php
 
 		-
+			message: '#^Loose comparison using \=\= between \(int\|string\|null\) and null will always evaluate to true\.$#'
+			identifier: equal.alwaysTrue
+			count: 1
+			path: src/Query/Compatibility.php
+
+		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
