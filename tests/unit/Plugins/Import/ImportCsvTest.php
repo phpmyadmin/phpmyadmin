@@ -303,4 +303,55 @@ class ImportCsvTest extends AbstractTestCase
         self::assertTrue(ImportSettings::$finished);
         $dummyDbi->assertAllQueriesConsumed();
     }
+
+    /**
+     * Test for doImport skipping headers but with ignore mode
+     */
+    public function testDoImportSkipHeadersInsertIgnore(): void
+    {
+        Current::$database = 'public';
+        Current::$table = 'csv_file_table';
+        ImportSettings::$importFile = 'none';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+                'csv_ignore' => 'yes',
+                'csv_col_names' => 'yes',
+                'csv_new_tbl_name' => 'already_uploaded_file',
+            ]);
+        $this->object->setImportOptions($request);
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+
+        $dummyDbi->addResult(
+            'SHOW DATABASES',
+            [],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT 1 FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'public\' AND TABLE_NAME = \'already_uploaded_file\'',
+            [],
+        );
+
+        $this->object->doImport();
+
+        self::assertSame(
+            'CREATE TABLE IF NOT EXISTS `public`.`already_uploaded_file` (`Row 1` int(3), `Row 2` int(3));'
+            . 'INSERT IGNORE INTO `public`.`already_uploaded_file`'
+            . ' (`Row 1`, `Row 2`) VALUES (123, 456);',
+            Current::$sqlQuery,
+        );
+
+        self::assertTrue(ImportSettings::$finished);
+        $dummyDbi->assertAllQueriesConsumed();
+    }
 }
