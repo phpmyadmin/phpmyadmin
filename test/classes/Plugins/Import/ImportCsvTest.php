@@ -217,7 +217,7 @@ class ImportCsvTest extends AbstractTestCase
 
         self::assertSame('CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
         . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5))'
-        . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
+        . ';;INSERT INTO `CSV_DB 1`.`db_test`'
         . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (\'123\', \'456\');;', $sql_query);
 
         self::assertTrue($GLOBALS['finished']);
@@ -258,7 +258,7 @@ class ImportCsvTest extends AbstractTestCase
 
         self::assertSame('CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;'
         . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`Row 1` int(3), `Row 2` int(3))'
-        . ' DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;;INSERT INTO `CSV_DB 1`.`db_test`'
+        . ';;INSERT INTO `CSV_DB 1`.`db_test`'
         . ' (`Row 1`, `Row 2`) VALUES (123, 456);;', $sql_query);
 
         self::assertTrue($GLOBALS['finished']);
