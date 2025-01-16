@@ -194,7 +194,7 @@ final class CreateController implements InvocableController
     {
         // If different column names defined for VIEW
         $viewColumns = [];
-        if (isset($view['column_names'])) {
+        if (isset($view['column_names']) && $view['column_names'] !== '') {
             $viewColumns = explode(',', $view['column_names']);
         }
 

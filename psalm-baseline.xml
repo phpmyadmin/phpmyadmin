@@ -1208,7 +1208,6 @@
     </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$favoriteTables]]></code>
-      <code><![CDATA[$favoriteTables]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$value['db']]]></code>
@@ -1217,7 +1216,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['favorites_synced']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['favorites_synced'][Current::$server]]]></code>
-      <code><![CDATA[$favoriteTables[$user]]]></code>
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$favoriteTables]]></code>

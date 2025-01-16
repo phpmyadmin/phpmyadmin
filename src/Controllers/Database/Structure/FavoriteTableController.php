@@ -22,6 +22,7 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function count;
+use function is_array;
 use function json_decode;
 use function json_encode;
 use function md5;
@@ -53,6 +54,10 @@ final class FavoriteTableController implements InvocableController
 
         $favoriteTables = $request->getParam('favoriteTables');
         $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
+
+        if (! is_array($favoriteTables)) {
+            $favoriteTables = [];
+        }
 
         // Required to keep each user's preferences separate.
         $user = sha1($config->selectedServer['user']);

@@ -2383,12 +2383,6 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: '#^Cannot access offset non\-falsy\-string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -2396,12 +2390,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: '#^Parameter \#3 \$favoriteTables of method PhpMyAdmin\\Controllers\\Database\\Structure\\FavoriteTableController\:\:synchronizeFavoriteTables\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php

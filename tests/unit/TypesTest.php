@@ -65,8 +65,8 @@ class TypesTest extends AbstractTestCase
                 'CHAR',
                 true,
                 [
-                    'LIKE',
                     'LIKE %...%',
+                    'LIKE',
                     'NOT LIKE',
                     'NOT LIKE %...%',
                     '=',
