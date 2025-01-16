@@ -145,6 +145,7 @@ phpMyAdmin - ChangeLog
 - issue        Fix sql editor height on multi-table query
 - issue #18852 Fix notification color scheme on the Bootstrap dark theme
 - issue #14542 Show the query even if no results are found in the Table search
+- issue #16936 Fixed import (e.g. ods) doesn't respect database default collation
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid
