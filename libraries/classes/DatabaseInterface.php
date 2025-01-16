@@ -831,7 +831,7 @@ class DatabaseInterface implements DbalInterface
                 'refering_column' => $field->name,
             ];
 
-            if ($nbColumns >= $i) {
+            if ($nbColumns >= $i && isset($view_columns[$i])) {
                 $map['real_column'] = $view_columns[$i];
             }
 
