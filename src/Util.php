@@ -1032,80 +1032,17 @@ class Util
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
      *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
-     *
-     * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget(string $target): string|bool
+    public static function getTitleForTarget(string $target): string
     {
-        $mapping = [
-            'structure' => __('Structure'),
-            'sql' => __('SQL'),
-            'search' => __('Search'),
-            'insert' => __('Insert'),
-            'browse' => __('Browse'),
-            'operations' => __('Operations'),
-        ];
-
-        return $mapping[$target] ?? false;
-    }
-
-    /**
-     * Get the script name corresponding to a plain English config word
-     * in order to append in links on navigation and main panel
-     *
-     * @param string                      $target   a valid value for
-     *                                              $cfg['NavigationTreeDefaultTabTable'],
-     *                                              $cfg['NavigationTreeDefaultTabTable2'],
-     *                                              $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                                              $cfg['DefaultTabServer']
-     * @param 'server'|'database'|'table' $location
-     *
-     * @return string script name corresponding to the config word
-     */
-    public static function getScriptNameForOption(string $target, string $location): string
-    {
-        return Url::getFromRoute(self::getUrlForOption($target, $location));
-    }
-
-    /**
-     * Get the URL corresponding to a plain English config word
-     * in order to append in links on navigation and main panel
-     *
-     * @param string                      $target   a valid value for
-     *                                              $cfg['NavigationTreeDefaultTabTable'],
-     *                                              $cfg['NavigationTreeDefaultTabTable2'],
-     *                                              $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                                              $cfg['DefaultTabServer']
-     * @param 'server'|'database'|'table' $location
-     *
-     * @return string The URL corresponding to the config word
-     */
-    public static function getUrlForOption(string $target, string $location): string
-    {
-        return match ($location) {
-            'server' => match ($target) {
-                'welcome' => '/',
-                'databases' => '/server/databases',
-                'status' => '/server/status',
-                'variables' => '/server/variables',
-                'privileges' => '/server/privileges',
-                default => '/',
-            },
-            'database' => match ($target) {
-                'structure' => '/database/structure',
-                'sql' => '/database/sql',
-                'search' => '/database/search',
-                'operations' => '/database/operations',
-                default => '/',
-            },
-            'table' => match ($target) {
-                'structure' => '/table/structure',
-                'sql' => '/table/sql',
-                'search' => '/table/search',
-                'insert' => '/table/change',
-                'browse' => '/sql',
-                default => '/',
-            },
+        return match ($target) {
+            '/table/structure', '/database/structure' => __('Structure'),
+            '/table/sql', '/database/sql' => __('SQL'),
+            '/table/search', '/database/search' => __('Search'),
+            '/table/change' => __('Insert'),
+            '/sql' => __('Browse'),
+            '/database/operations' => __('Operations'),
+            default => '',
         };
     }
 

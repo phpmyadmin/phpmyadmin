@@ -16,7 +16,7 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 use function __;
 use function count;
@@ -143,7 +143,7 @@ class AuthenticationConfig extends AuthenticationPlugin
         <tr>
             <td>' , "\n";
         echo '<a href="'
-            , Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server')
+            , Url::getFromRoute($config->settings['DefaultTabServer'])
             , '" class="btn btn-primary mt-1 mb-1 disableAjax">'
             , __('Retry to connect')
             , '</a>' , "\n";

@@ -2591,9 +2591,9 @@ class Privileges
         }
 
         $config = Config::getInstance();
-        $databaseUrl = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+        $databaseUrl = Url::getFromRoute($config->settings['DefaultTabDatabase']);
         $databaseUrlTitle = Util::getTitleForTarget($config->settings['DefaultTabDatabase']);
-        $tableUrl = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+        $tableUrl = Url::getFromRoute($config->settings['DefaultTabTable']);
         $tableUrlTitle = Util::getTitleForTarget($config->settings['DefaultTabTable']);
 
         $changePassword = '';

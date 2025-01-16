@@ -86,10 +86,10 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['CharTextareaCols'] = 6;
         $config->settings['AllowThirdPartyFraming'] = false;
         $config->settings['SendErrorReports'] = 'ask';
-        $config->settings['DefaultTabDatabase'] = 'structure';
+        $config->settings['DefaultTabDatabase'] = '/database/structure';
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
-        $config->settings['DefaultTabTable'] = 'browse';
-        $config->settings['NavigationTreeDefaultTabTable'] = 'structure';
+        $config->settings['DefaultTabTable'] = '/sql';
+        $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
         $config->settings['NavigationTreeDefaultTabTable2'] = '';
         $config->settings['Confirm'] = true;
         $config->settings['LoginCookieValidity'] = 1440;

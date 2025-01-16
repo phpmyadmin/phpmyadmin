@@ -17,7 +17,6 @@ use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
-use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
 use function __;
@@ -215,7 +214,7 @@ final class DatabasesController implements InvocableController
             }
 
             $config = Config::getInstance();
-            $url = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $url = Url::getFromRoute($config->settings['DefaultTabDatabase']);
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
                 ! str_contains($url, '?') ? '?' : '&',

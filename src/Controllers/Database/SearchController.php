@@ -19,7 +19,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 
@@ -42,7 +41,7 @@ final class SearchController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $errorUrl = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+        $errorUrl = Url::getFromRoute($config->settings['DefaultTabDatabase']);
         $errorUrl .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));

@@ -152,7 +152,7 @@ class SqlQueryForm
             // prepare for db related
             $db = Current::$database;
             // if you want navigation:
-            $scriptName = Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database');
+            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
             $tmpDbLink = '<a href="' . $scriptName
                 . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
@@ -169,7 +169,7 @@ class SqlQueryForm
             // trying to synchronize and the table has not yet been created
             $columnsList = $this->dbi->getColumns($db, Current::$table, true);
 
-            $scriptName = Util::getScriptNameForOption($this->config->settings['DefaultTabTable'], 'table');
+            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabTable']);
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmpTblLink .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmpTblLink);

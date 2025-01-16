@@ -21,7 +21,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function is_string;
@@ -60,9 +59,9 @@ class SqlController implements InvocableController
         $config = Config::getInstance();
         if (UrlParams::$goto === '') {
             if (Current::$table === '') {
-                UrlParams::$goto = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+                UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabDatabase']);
             } else {
-                UrlParams::$goto = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+                UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
             }
         }
 

@@ -23,7 +23,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function array_search;
@@ -133,10 +132,7 @@ final class GisVisualizationController implements InvocableController
          * Displays the page
          */
         $urlParams = UrlParams::$params;
-        $urlParams['goto'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
+        $urlParams['goto'] = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
         $urlParams['back'] = Url::getFromRoute('/sql');
         $urlParams['sql_query'] = $sqlQuery;
         $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);

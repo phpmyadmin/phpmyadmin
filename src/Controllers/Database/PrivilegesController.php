@@ -17,7 +17,7 @@ use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 use function __;
 use function mb_strtolower;
@@ -71,7 +71,7 @@ final class PrivilegesController implements InvocableController
             )->getDisplay());
         }
 
-        $scriptName = Util::getScriptNameForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database');
+        $scriptName = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {

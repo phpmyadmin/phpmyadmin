@@ -110,7 +110,7 @@ class Header
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database'),
+            'opendb_url' => Url::getFromRoute($this->config->settings['DefaultTabDatabase']),
             'lang' => Current::$lang,
             'server' => Current::$server,
             'table' => Current::$table,

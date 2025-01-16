@@ -5681,6 +5681,9 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$table]]></code>
     </ArgumentTypeCoercion>
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[$this->pos2Name]]></code>
       <code><![CDATA[$this->pos2Name]]></code>
@@ -12561,6 +12564,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerGetHostname]]></code>
@@ -12957,7 +12961,6 @@
     </MixedArrayAccess>
     <PossiblyUnusedMethod>
       <code><![CDATA[charsetQueryData]]></code>
-      <code><![CDATA[dataProviderScriptNames]]></code>
       <code><![CDATA[provideForTestIsUUIDSupported]]></code>
       <code><![CDATA[providerConvertBitDefaultValue]]></code>
       <code><![CDATA[providerDuplicateFirstNewline]]></code>

@@ -22,6 +22,7 @@ use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
@@ -267,7 +268,7 @@ final class SearchController implements InvocableController
     {
         $config = Config::getInstance();
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
         }
 
         $properties = [];

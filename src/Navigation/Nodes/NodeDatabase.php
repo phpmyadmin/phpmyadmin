@@ -52,7 +52,7 @@ class NodeDatabase extends Node
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption($this->config->settings['DefaultTabDatabase'], 'database'),
+                'route' => $this->config->settings['DefaultTabDatabase'],
                 'params' => ['db' => null],
             ],
             'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],

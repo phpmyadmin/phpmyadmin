@@ -111,8 +111,8 @@ use const VERSION_CHECK_DEFAULT;
  *     NavigationDisplayServers: bool,
  *     DisplayServersList: bool,
  *     NavigationTreeDisplayDbFilterMinimum: int<1, max>,
- *     NavigationTreeDefaultTabTable: string,
- *     NavigationTreeDefaultTabTable2: string,
+ *     NavigationTreeDefaultTabTable: '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure',
+ *     NavigationTreeDefaultTabTable2: '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'|'',
  *     NavigationTreeEnableExpansion: bool,
  *     NavigationTreeShowTables: bool,
  *     NavigationTreeShowViews: bool,
@@ -157,9 +157,9 @@ use const VERSION_CHECK_DEFAULT;
  *     TabsMode: 'both'|'icons'|'text',
  *     ActionLinksMode: 'both'|'icons'|'text',
  *     PropertiesNumColumns: int<1, max>,
- *     DefaultTabServer: string,
- *     DefaultTabDatabase: string,
- *     DefaultTabTable: string,
+ *     DefaultTabServer: '/'|'/server/databases'|'/server/status'|'/server/variables'|'/server/privileges',
+ *     DefaultTabDatabase: '/database/structure'|'/database/sql'|'/database/search'|'/database/operations',
+ *     DefaultTabTable: '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure',
  *     RowActionType: 'both'|'icons'|'text',
  *     Export: ExportSettingsType,
  *     Import: ImportSettingsType,
@@ -1114,7 +1114,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDefaultTabTable
      *
-     * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
+     * @psalm-var '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'
      */
     public string $NavigationTreeDefaultTabTable;
 
@@ -1135,7 +1135,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_NavigationTreeDefaultTabTable2
      *
-     * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'|''
+     * @psalm-var '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'|''
      */
     public string $NavigationTreeDefaultTabTable2;
 
@@ -1700,7 +1700,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTabServer
      *
-     * @psalm-var 'welcome'|'databases'|'status'|'variables'|'privileges'
+     * @psalm-var '/'|'/server/databases'|'/server/status'|'/server/variables'|'/server/privileges'
      */
     public string $DefaultTabServer;
 
@@ -1717,7 +1717,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTabDatabase
      *
-     * @psalm-var 'structure'|'sql'|'search'|'operations'
+     * @psalm-var '/database/structure'|'/database/sql'|'/database/search'|'/database/operations'
      */
     public string $DefaultTabDatabase;
 
@@ -1735,7 +1735,7 @@ final class Settings
      *
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_DefaultTabTable
      *
-     * @psalm-var 'structure'|'sql'|'search'|'insert'|'browse'
+     * @psalm-var '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'
      */
     public string $DefaultTabTable;
 
@@ -3909,27 +3909,27 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-return 'structure'|'sql'|'search'|'insert'|'browse'
+     * @psalm-return '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'
      */
     private function setNavigationTreeDefaultTabTable(array $settings): string
     {
         if (! isset($settings['NavigationTreeDefaultTabTable'])) {
-            return 'structure';
+            return '/table/structure';
         }
 
         return match ($settings['NavigationTreeDefaultTabTable']) {
-            'sql', 'tbl_sql.php' => 'sql',
-            'search', 'tbl_select.php' => 'search',
-            'insert', 'tbl_change.php' => 'insert',
-            'browse', 'sql.php' => 'browse',
-            default => 'structure',
+            'sql', 'tbl_sql.php' => '/table/sql',
+            'search', 'tbl_select.php' => '/table/search',
+            'insert', 'tbl_change.php' => '/table/change',
+            'browse', 'sql.php' => '/sql',
+            default => '/table/structure',
         };
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-return 'structure'|'sql'|'search'|'insert'|'browse'|''
+     * @psalm-return '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'|''
      */
     private function setNavigationTreeDefaultTabTable2(array $settings): string
     {
@@ -3938,11 +3938,11 @@ final class Settings
         }
 
         return match ($settings['NavigationTreeDefaultTabTable2']) {
-            'structure', 'tbl_structure.php' => 'structure',
-            'sql', 'tbl_sql.php' => 'sql',
-            'search', 'tbl_select.php' => 'search',
-            'insert', 'tbl_change.php' => 'insert',
-            'browse', 'sql.php' => 'browse',
+            'structure', 'tbl_structure.php' => '/table/structure',
+            'sql', 'tbl_sql.php' => '/table/sql',
+            'search', 'tbl_select.php' => '/table/search',
+            'insert', 'tbl_change.php' => '/table/change',
+            'browse', 'sql.php' => '/sql',
             default => '',
         };
     }
@@ -4509,59 +4509,59 @@ final class Settings
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-return 'welcome'|'databases'|'status'|'variables'|'privileges'
+     * @psalm-return '/'|'/server/databases'|'/server/status'|'/server/variables'|'/server/privileges'
      */
     private function setDefaultTabServer(array $settings): string
     {
         if (! isset($settings['DefaultTabServer'])) {
-            return 'welcome';
+            return '/';
         }
 
         return match ($settings['DefaultTabServer']) {
-            'databases', 'server_databases.php' => 'databases',
-            'status', 'server_status.php' => 'status',
-            'variables', 'server_variables.php' => 'variables',
-            'privileges', 'server_privileges.php' => 'privileges',
-            default => 'welcome',
+            'databases', 'server_databases.php' => '/server/databases',
+            'status', 'server_status.php' => '/server/status',
+            'variables', 'server_variables.php' => '/server/variables',
+            'privileges', 'server_privileges.php' => '/server/privileges',
+            default => '/',
         };
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-return 'structure'|'sql'|'search'|'operations'
+     * @psalm-return '/database/structure'|'/database/sql'|'/database/search'|'/database/operations'
      */
     private function setDefaultTabDatabase(array $settings): string
     {
         if (! isset($settings['DefaultTabDatabase'])) {
-            return 'structure';
+            return '/database/structure';
         }
 
         return match ($settings['DefaultTabDatabase']) {
-            'sql', 'db_sql.php' => 'sql',
-            'search', 'db_search.php' => 'search',
-            'operations', 'db_operations.php' => 'operations',
-            default => 'structure',
+            'sql', 'db_sql.php' => '/database/sql',
+            'search', 'db_search.php' => '/database/search',
+            'operations', 'db_operations.php' => '/database/operations',
+            default => '/database/structure',
         };
     }
 
     /**
      * @param array<int|string, mixed> $settings
      *
-     * @psalm-return 'structure'|'sql'|'search'|'insert'|'browse'
+     * @psalm-return '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'
      */
     private function setDefaultTabTable(array $settings): string
     {
         if (! isset($settings['DefaultTabTable'])) {
-            return 'browse';
+            return '/sql';
         }
 
         return match ($settings['DefaultTabTable']) {
-            'structure', 'tbl_structure.php' => 'structure',
-            'sql', 'tbl_sql.php' => 'sql',
-            'search', 'tbl_select.php' => 'search',
-            'insert', 'tbl_change.php' => 'insert',
-            default => 'browse',
+            'structure', 'tbl_structure.php' => '/table/structure',
+            'sql', 'tbl_sql.php' => '/table/sql',
+            'search', 'tbl_select.php' => '/table/search',
+            'insert', 'tbl_change.php' => '/table/change',
+            default => '/sql',
         };
     }
 

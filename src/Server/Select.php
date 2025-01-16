@@ -8,7 +8,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 use function count;
 use function implode;
@@ -38,7 +37,7 @@ class Select
 
         $formAction = '';
         if ($notOnlyOptions) {
-            $formAction = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
+            $formAction = Url::getFromRoute($config->settings['DefaultTabServer']);
         }
 
         /** @var array{list: list<array<string, mixed>>, select: list<array<string, mixed>>} $servers */
@@ -76,7 +75,7 @@ class Select
                 if ($selected) {
                     $servers['list'][] = ['selected' => true, 'href' => '', 'label' => $label];
                 } else {
-                    $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
+                    $scriptName = Url::getFromRoute($config->settings['DefaultTabServer']);
                     $href = $scriptName . Url::getCommon(
                         ['server' => $key],
                         ! str_contains($scriptName, '?') ? '?' : '&',
