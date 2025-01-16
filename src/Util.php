@@ -1053,12 +1053,12 @@ class Util
      * Get the script name corresponding to a plain English config word
      * in order to append in links on navigation and main panel
      *
-     * @param string $target   a valid value for
-     *                         $cfg['NavigationTreeDefaultTabTable'],
-     *                         $cfg['NavigationTreeDefaultTabTable2'],
-     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                         $cfg['DefaultTabServer']
-     * @param string $location one out of 'server', 'table', 'database'
+     * @param string                      $target   a valid value for
+     *                                              $cfg['NavigationTreeDefaultTabTable'],
+     *                                              $cfg['NavigationTreeDefaultTabTable2'],
+     *                                              $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
+     *                                              $cfg['DefaultTabServer']
+     * @param 'server'|'database'|'table' $location
      *
      * @return string script name corresponding to the config word
      */
@@ -1071,73 +1071,42 @@ class Util
      * Get the URL corresponding to a plain English config word
      * in order to append in links on navigation and main panel
      *
-     * @param string $target   a valid value for
-     *                         $cfg['NavigationTreeDefaultTabTable'],
-     *                         $cfg['NavigationTreeDefaultTabTable2'],
-     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                         $cfg['DefaultTabServer']
-     * @param string $location one out of 'server', 'table', 'database'
+     * @param string                      $target   a valid value for
+     *                                              $cfg['NavigationTreeDefaultTabTable'],
+     *                                              $cfg['NavigationTreeDefaultTabTable2'],
+     *                                              $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
+     *                                              $cfg['DefaultTabServer']
+     * @param 'server'|'database'|'table' $location
      *
      * @return string The URL corresponding to the config word
      */
     public static function getUrlForOption(string $target, string $location): string
     {
-        if ($location === 'server') {
-            // Values for $cfg['DefaultTabServer']
-            switch ($target) {
-                case 'welcome':
-                    return '/';
-
-                case 'databases':
-                    return '/server/databases';
-
-                case 'status':
-                    return '/server/status';
-
-                case 'variables':
-                    return '/server/variables';
-
-                case 'privileges':
-                    return '/server/privileges';
-            }
-        } elseif ($location === 'database') {
-            // Values for $cfg['DefaultTabDatabase']
-            switch ($target) {
-                case 'structure':
-                    return '/database/structure';
-
-                case 'sql':
-                    return '/database/sql';
-
-                case 'search':
-                    return '/database/search';
-
-                case 'operations':
-                    return '/database/operations';
-            }
-        } elseif ($location === 'table') {
-            // Values for $cfg['DefaultTabTable'],
-            // $cfg['NavigationTreeDefaultTabTable'] and
-            // $cfg['NavigationTreeDefaultTabTable2']
-            switch ($target) {
-                case 'structure':
-                    return '/table/structure';
-
-                case 'sql':
-                    return '/table/sql';
-
-                case 'search':
-                    return '/table/search';
-
-                case 'insert':
-                    return '/table/change';
-
-                case 'browse':
-                    return '/sql';
-            }
-        }
-
-        return '/';
+        return match ($location) {
+            'server' => match ($target) {
+                'welcome' => '/',
+                'databases' => '/server/databases',
+                'status' => '/server/status',
+                'variables' => '/server/variables',
+                'privileges' => '/server/privileges',
+                default => '/',
+            },
+            'database' => match ($target) {
+                'structure' => '/database/structure',
+                'sql' => '/database/sql',
+                'search' => '/database/search',
+                'operations' => '/database/operations',
+                default => '/',
+            },
+            'table' => match ($target) {
+                'structure' => '/table/structure',
+                'sql' => '/table/sql',
+                'search' => '/table/search',
+                'insert' => '/table/change',
+                'browse' => '/sql',
+                default => '/',
+            },
+        };
     }
 
     /**

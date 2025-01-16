@@ -1221,18 +1221,13 @@ SQL;
         $dbiDummy->assertAllQueriesConsumed();
     }
 
-    /** @return mixed[][] */
+    /** @return array<array{string, 'server'|'database'|'table', string}> */
     public static function dataProviderScriptNames(): array
     {
         // target
         // location
         // function output
         return [
-            [
-                'structure', // Notice the typo on db_structure.php
-                'databasesss',
-                'index.php?route=/&lang=en', // Fallback to the base route
-            ],
             [
                 'db_structures.php', // Notice the typo on databases
                 'database',
@@ -1325,6 +1320,7 @@ SQL;
         ];
     }
 
+    /** @param 'server'|'database'|'table' $location */
     #[DataProvider('dataProviderScriptNames')]
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
