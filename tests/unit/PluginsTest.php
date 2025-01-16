@@ -69,9 +69,6 @@ class PluginsTest extends AbstractTestCase
             $_GET[$option] = $actualGet;
         }
 
-        $GLOBALS['strLatexContinued'] = '(continued)';
-        $GLOBALS['strLatexStructure'] = 'Structure of table @TABLE@';
-        /** @psalm-suppress InvalidArrayOffset, PossiblyInvalidArrayAssignment */
         Config::getInstance()->settings[$section][$option] = $actualConfig;
         $default = Plugins::getDefault($section, $option);
         self::assertSame($expected, $default);
@@ -86,7 +83,7 @@ class PluginsTest extends AbstractTestCase
             ['xml', null, 'xml', 'Export', 'format', null],
             ['', null, null, 'Export', 'format', null],
             [
-                'Structure of table @TABLE@ strTest (continued)',
+                'strLatexStructure strTest strLatexContinued',
                 'strLatexStructure strTest strLatexContinued',
                 null,
                 'Export',

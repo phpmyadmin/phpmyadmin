@@ -12,6 +12,8 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\I18n\LanguageManager;
+use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Translator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -21,9 +23,6 @@ use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 use ReflectionProperty;
 
-use function array_keys;
-use function in_array;
-
 /**
  * Abstract class to hold some usefull methods used in tests
  * And make tests clean
@@ -31,33 +30,11 @@ use function in_array;
 abstract class AbstractTestCase extends TestCase
 {
     /**
-     * The variables to keep between tests
-     *
-     * @var string[]
-     */
-    private array $globalsAllowList = [
-        '__composer_autoload_files',
-        'GLOBALS',
-        '_SERVER',
-        '__composer_autoload_files',
-        '__PHPUNIT_CONFIGURATION_FILE',
-        '__PHPUNIT_BOOTSTRAP',
-    ];
-
-    /**
      * Prepares environment for the test.
      * Clean all variables
      */
     protected function setUp(): void
     {
-        foreach (array_keys($GLOBALS) as $key) {
-            if (in_array($key, $this->globalsAllowList, true)) {
-                continue;
-            }
-
-            unset($GLOBALS[$key]);
-        }
-
         $_GET = [];
         $_POST = [];
         $_SERVER = [
@@ -79,6 +56,13 @@ abstract class AbstractTestCase extends TestCase
         Current::$sqlQuery = '';
         Current::$message = null;
         Current::$lang = 'en';
+        Current::$whereClause = null;
+        Current::$displayQuery = null;
+        Current::$charset = null;
+        Current::$numTables = 0;
+        DatabaseInterface::$errorNumber = null;
+        Sql::$showAsPhp = null;
+        ExportSql::$noConstraintsComments = false;
 
         // Config before DBI
         $this->setGlobalConfig();
@@ -144,13 +128,6 @@ abstract class AbstractTestCase extends TestCase
         DatabaseInterface::$instance = null;
         Config::$instance = null;
         (new ReflectionProperty(Template::class, 'twig'))->setValue(null, null);
-        foreach (array_keys($GLOBALS) as $key) {
-            if (in_array($key, $this->globalsAllowList, true)) {
-                continue;
-            }
-
-            unset($GLOBALS[$key]);
-        }
     }
 
     /**

@@ -63,7 +63,7 @@ class FileListingTest extends AbstractTestCase
         $expectedHtmlWithActive = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
             . '  </option>' . "\n"
-            . '  <option value="two.md" selected="selected">' . "\n"
+            . '  <option value="two.md" selected>' . "\n"
             . '    two.md' . "\n"
             . '  </option>' . "\n";
 

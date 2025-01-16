@@ -33,9 +33,7 @@ class StatusController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['SESSION_KEY'] ??= null;
-
-        [$GLOBALS['SESSION_KEY']] = Ajax::uploadProgressSetup();
+        Ajax::uploadProgressSetup();
 
         // $_GET["message"] is used for asking for an import message
         if ($request->hasQueryParam('message')) {

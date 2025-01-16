@@ -75,6 +75,9 @@ class InsertEdit
     private int $rowOffset = 0;
     private int $fieldIndex = 0;
 
+    /** @var string[] */
+    public static array $pluginScripts = [];
+
     public function __construct(
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
@@ -496,7 +499,7 @@ class InsertEdit
             . __('web server upload directory:') . '<br>' . "\n"
             . '<select size="1" name="fields_uploadlocal'
             . $vkey . '[' . $fieldHashMd5 . ']">' . "\n"
-            . '<option value="" selected="selected"></option>' . "\n"
+            . '<option value="" selected></option>' . "\n"
             . $files
             . '</select>' . "\n";
     }
@@ -912,7 +915,7 @@ class InsertEdit
         Current::$sqlQuery = implode('; ', $query) . ';';
         // to ensure that the query is displayed in case of
         // "insert as new row" and then "insert another new row"
-        $GLOBALS['display_query'] = Current::$sqlQuery;
+        Current::$displayQuery = Current::$sqlQuery;
 
         $totalAffectedRows = 0;
         $lastMessages = [];
@@ -1509,7 +1512,7 @@ class InsertEdit
     public function getHtmlForIgnoreOption(int $rowId, bool $checked = true): string
     {
         return '<input type="checkbox"'
-            . ($checked ? ' checked="checked"' : '')
+            . ($checked ? ' checked' : '')
             . ' name="insert_ignore_' . $rowId . '"'
             . ' id="insert_ignore_' . $rowId . '">'
             . '<label for="insert_ignore_' . $rowId . '">'
@@ -1688,10 +1691,7 @@ class InsertEdit
                     $this->fieldIndex,
                 );
 
-                $GLOBALS['plugin_scripts'] = array_merge(
-                    $GLOBALS['plugin_scripts'],
-                    $transformationPlugin->getScripts(),
-                );
+                self::$pluginScripts = array_merge(self::$pluginScripts, $transformationPlugin->getScripts());
             }
         }
 

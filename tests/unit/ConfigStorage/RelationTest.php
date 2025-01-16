@@ -936,8 +936,6 @@ class RelationTest extends AbstractTestCase
         );
         $dummyDbi->addSelectDb('phpmyadmin');
 
-        self::assertArrayNotHasKey('errno', $GLOBALS);
-
         self::assertTrue(
             $relation->createPmaDatabase('phpmyadmin'),
         );
@@ -958,7 +956,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addErrorCode('MYSQL_ERROR');
         $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', false);
 
-        $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
+        DatabaseInterface::$errorNumber = 1044;// ER_DBACCESS_DENIED_ERROR
 
         self::assertFalse(
             $relation->createPmaDatabase('phpmyadmin'),
@@ -986,7 +984,7 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addErrorCode('Too many connections');
         $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `pma_1040`', false);
 
-        $GLOBALS['errno'] = 1040;
+        DatabaseInterface::$errorNumber = 1040;
 
         self::assertFalse(
             $relation->createPmaDatabase('pma_1040'),

@@ -65,7 +65,7 @@ class UtilTest extends AbstractTestCase
 
         // If pageNow > nbTotalPage, show the pageNow number to avoid confusion
         self::assertStringContainsString(
-            '<option selected="selected" style="font-weight: bold" value="297">100</option>',
+            '<option selected style="font-weight: bold" value="297">100</option>',
             Util::pageselector('pma', 3, 100, 50),
         );
     }
@@ -811,7 +811,6 @@ class UtilTest extends AbstractTestCase
     #[DataProvider('providerTimespanFormat')]
     public function testTimespanFormat(int $a, string $e): void
     {
-        $GLOBALS['timespanfmt'] = '%s days, %s hours, %s minutes and %s seconds';
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set('Europe/London');
 

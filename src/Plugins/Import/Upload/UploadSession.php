@@ -38,14 +38,12 @@ class UploadSession implements UploadInterface
      */
     public static function getUploadStatus(string $id): array|null
     {
-        $GLOBALS['SESSION_KEY'] ??= null;
-
         if (trim($id) == '') {
             return null;
         }
 
-        if (! array_key_exists($id, $_SESSION[$GLOBALS['SESSION_KEY']])) {
-            $_SESSION[$GLOBALS['SESSION_KEY']][$id] = [
+        if (! array_key_exists($id, $_SESSION[Ajax::SESSION_KEY])) {
+            $_SESSION[Ajax::SESSION_KEY][$id] = [
                 'id' => $id,
                 'finished' => false,
                 'percent' => 0,
@@ -55,7 +53,7 @@ class UploadSession implements UploadInterface
             ];
         }
 
-        $ret = $_SESSION[$GLOBALS['SESSION_KEY']][$id];
+        $ret = $_SESSION[Ajax::SESSION_KEY][$id];
 
         if (! Ajax::sessionCheck() || $ret['finished']) {
             return $ret;
@@ -87,7 +85,7 @@ class UploadSession implements UploadInterface
             ];
         }
 
-        $_SESSION[$GLOBALS['SESSION_KEY']][$id] = $ret;
+        $_SESSION[Ajax::SESSION_KEY][$id] = $ret;
 
         return $ret;
     }

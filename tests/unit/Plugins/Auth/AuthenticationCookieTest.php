@@ -61,7 +61,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object = new AuthenticationCookie();
         $_SERVER['PHP_SELF'] = '/phpmyadmin/index.php';
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['conn_error'] = null;
+        AuthenticationCookie::$connectionError = '';
     }
 
     /**
@@ -76,7 +76,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthErrorAJAX(): void
     {
-        $GLOBALS['conn_error'] = true;
+        AuthenticationCookie::$connectionError = 'Error';
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         $responseRenderer = ResponseRenderer::getInstance();
@@ -104,9 +104,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['LoginCookieRecall'] = true;
         $config->settings['blowfish_secret'] = str_repeat('a', 32);
         $this->object->user = 'pmauser';
-        $GLOBALS['pma_auth_server'] = 'localhost';
+        AuthenticationCookie::$authServer = 'localhost';
 
-        $GLOBALS['conn_error'] = true;
+        AuthenticationCookie::$connectionError = 'Error';
         $config->settings['Lang'] = 'en';
         $config->settings['AllowArbitraryServer'] = true;
         $config->settings['CaptchaApi'] = '';
@@ -330,7 +330,10 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertSame('Missing Captcha verification, maybe it has been blocked by adblock?', $GLOBALS['conn_error']);
+        self::assertSame(
+            'Missing Captcha verification, maybe it has been blocked by adblock?',
+            AuthenticationCookie::$connectionError,
+        );
     }
 
     public function testLogoutDelete(): void
@@ -410,7 +413,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         self::assertSame('testPMAPSWD', $this->object->password);
 
-        self::assertSame('testPMAServer', $GLOBALS['pma_auth_server']);
+        self::assertSame('testPMAServer', AuthenticationCookie::$authServer);
 
         self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
@@ -512,7 +515,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertTrue($GLOBALS['from_cookie']);
+        self::assertTrue(AuthenticationCookie::$fromCookie);
 
         self::assertSame('', $this->object->password);
     }
@@ -560,11 +563,11 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         Current::$server = 2;
         $config->settings['LoginCookieStore'] = 100;
-        $GLOBALS['from_cookie'] = true;
+        AuthenticationCookie::$fromCookie = true;
         $config->set('is_https', false);
 
         $this->object->storeCredentials();
@@ -593,10 +596,10 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
         $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
-        $GLOBALS['from_cookie'] = false;
+        AuthenticationCookie::$fromCookie = false;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -639,8 +642,8 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(200, $response->getStatusCode());
 
         self::assertSame(
-            $GLOBALS['conn_error'],
             'Login without a password is forbidden by configuration (see AllowNoPassword).',
+            AuthenticationCookie::$connectionError,
         );
     }
 
@@ -660,13 +663,13 @@ class AuthenticationCookieTest extends AbstractTestCase
                 'Your password is too long. To prevent denial-of-service attacks,'
                 . ' phpMyAdmin restricts passwords to less than 2000 characters.',
             ],
-            [str_repeat('a', 256), true, null],
-            ['', true, null],
+            [str_repeat('a', 256), true, ''],
+            ['', true, ''],
         ];
     }
 
     #[DataProvider('dataProviderPasswordLength')]
-    public function testAuthFailsTooLongPass(string $password, bool $expected, string|null $connError): void
+    public function testAuthFailsTooLongPass(string $password, bool $expected, string $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
         $_POST['pma_password'] = $password;
@@ -676,7 +679,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertSame($GLOBALS['conn_error'], $connError);
+        self::assertSame($connError, AuthenticationCookie::$connectionError);
     }
 
     public function testAuthFailsDeny(): void
@@ -706,7 +709,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], 'Access denied!');
+        self::assertSame('Access denied!', AuthenticationCookie::$connectionError);
     }
 
     public function testAuthFailsActivity(): void
@@ -739,9 +742,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(200, $response->getStatusCode());
 
         self::assertSame(
-            $GLOBALS['conn_error'],
             'You have been automatically logged out due to inactivity of 10 seconds.'
             . ' Once you log in again, you should be able to resume the work where you left off.',
+            AuthenticationCookie::$connectionError,
         );
     }
 
@@ -767,7 +770,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->willReturn('');
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['errno'] = 42;
+        DatabaseInterface::$errorNumber = 42;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -783,7 +786,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the database server.');
+        self::assertSame('#42 Cannot log in to the database server.', AuthenticationCookie::$connectionError);
     }
 
     public function testAuthFailsErrno(): void
@@ -808,7 +811,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        unset($GLOBALS['errno']);
+        DatabaseInterface::$errorNumber = null;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
@@ -824,7 +827,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], 'Cannot log in to the database server.');
+        self::assertSame('Cannot log in to the database server.', AuthenticationCookie::$connectionError);
     }
 
     public function testGetEncryptionSecretEmpty(): void
@@ -894,7 +897,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->set('is_https', false);
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $_SESSION['encryption_key'] = '';
         $_COOKIE = [];
 

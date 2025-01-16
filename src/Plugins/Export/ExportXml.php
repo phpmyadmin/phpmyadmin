@@ -11,6 +11,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
@@ -193,7 +194,7 @@ class ExportXml extends ExportPlugin
             || $this->exportTriggers
             || $this->exportViews;
 
-        $charset = $GLOBALS['output_charset_conversion'] ? $GLOBALS['charset'] : 'utf-8';
+        $charset = Export::$outputCharsetConversion ? Current::$charset : 'utf-8';
 
         $config = Config::getInstance();
         $head = '<?xml version="1.0" encoding="' . $charset . '"?>' . "\n"

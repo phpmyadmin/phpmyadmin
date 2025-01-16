@@ -216,7 +216,7 @@ class Normalization
             . '</p>'
             . "<div id='extra'>"
             . "<select id='selectNonAtomicCol' name='makeAtomic'>"
-            . '<option selected="selected" disabled="disabled">'
+            . '<option selected disabled>'
             . __('Select one…') . '</option>'
             . "<option value='no_such_col'>" . __('No such column') . '</option>'
             . $this->getHtmlForColumnsList(

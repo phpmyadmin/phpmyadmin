@@ -59,17 +59,18 @@ use const SODIUM_CRYPTO_SECRETBOX_NONCEBYTES;
  */
 class AuthenticationCookie extends AuthenticationPlugin
 {
+    public static string $connectionError = '';
+    /** The user provided server to connect to */
+    public static string $authServer = '';
+    public static bool $fromCookie = false;
+
     /**
      * Displays authentication form
      *
      * this function MUST exit/quit the application
-     *
-     * @global string $conn_error the last connection error
      */
     public function showLoginForm(): Response
     {
-        $GLOBALS['conn_error'] ??= null;
-
         $responseRenderer = ResponseRenderer::getInstance();
 
         /**
@@ -105,7 +106,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // garbage
         if ($config->settings['LoginCookieRecall'] && $config->settings['blowfish_secret'] !== '') {
             $defaultUser = $this->user;
-            $defaultServer = $GLOBALS['pma_auth_server'];
+            $defaultServer = self::$authServer;
             $hasAutocomplete = true;
         } else {
             $defaultUser = '';
@@ -118,8 +119,8 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $errorMessages = '';
         // Show error message
-        if (! empty($GLOBALS['conn_error'])) {
-            $errorMessages = Message::rawError((string) $GLOBALS['conn_error'])->getDisplay();
+        if (self::$connectionError !== '') {
+            $errorMessages = Message::rawError(self::$connectionError)->getDisplay();
         } elseif (isset($_GET['session_expired']) && (int) $_GET['session_expired'] == 1) {
             $errorMessages = Message::rawError(
                 __('Your session has expired. Please log in again.'),
@@ -215,17 +216,10 @@ class AuthenticationCookie extends AuthenticationPlugin
      */
     public function readCredentials(): bool
     {
-        $GLOBALS['conn_error'] ??= null;
-
-        // Initialization
-        /**
-         * @global $GLOBALS['pma_auth_server'] the user provided server to
-         * connect to
-         */
-        $GLOBALS['pma_auth_server'] = '';
+        self::$authServer = '';
 
         $this->user = $this->password = '';
-        $GLOBALS['from_cookie'] = false;
+        self::$fromCookie = false;
 
         $config = Config::getInstance();
         if (isset($_POST['pma_username']) && $_POST['pma_username'] != '') {
@@ -238,7 +232,7 @@ class AuthenticationCookie extends AuthenticationPlugin
                 && ! empty($config->settings['CaptchaLoginPublicKey'])
             ) {
                 if (empty($_POST[$config->settings['CaptchaResponseParam']])) {
-                    $GLOBALS['conn_error'] = __('Missing Captcha verification, maybe it has been blocked by adblock?');
+                    self::$connectionError = __('Missing Captcha verification, maybe it has been blocked by adblock?');
 
                     return false;
                 }
@@ -273,9 +267,9 @@ class AuthenticationCookie extends AuthenticationPlugin
                     $codes = $resp->getErrorCodes();
 
                     if (in_array('invalid-json', $codes)) {
-                        $GLOBALS['conn_error'] = __('Failed to connect to the reCAPTCHA service!');
+                        self::$connectionError = __('Failed to connect to the reCAPTCHA service!');
                     } else {
-                        $GLOBALS['conn_error'] = __('Entered captcha is wrong, try again!');
+                        self::$connectionError = __('Entered captcha is wrong, try again!');
                     }
 
                     return false;
@@ -287,7 +281,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
             $password = $_POST['pma_password'] ?? '';
             if (strlen($password) >= 2000) {
-                $GLOBALS['conn_error'] = __('Your password is too long. To prevent denial-of-service attacks, ' .
+                self::$connectionError = __('Your password is too long. To prevent denial-of-service attacks, ' .
                     'phpMyAdmin restricts passwords to less than 2000 characters.');
 
                 return false;
@@ -305,13 +299,13 @@ class AuthenticationCookie extends AuthenticationPlugin
                     }
 
                     if (preg_match($config->settings['ArbitraryServerRegexp'], $tmpHost) !== 1) {
-                        $GLOBALS['conn_error'] = __('You are not allowed to log in to this MySQL server!');
+                        self::$connectionError = __('You are not allowed to log in to this MySQL server!');
 
                         return false;
                     }
                 }
 
-                $GLOBALS['pma_auth_server'] = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
+                self::$authServer = Core::sanitizeMySQLHost($_REQUEST['pma_servername']);
             }
 
             /* Secure current session on login to avoid session fixation */
@@ -391,10 +385,10 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         $this->password = $authData['password'];
         if ($config->settings['AllowArbitraryServer'] && ! empty($authData['server'])) {
-            $GLOBALS['pma_auth_server'] = $authData['server'];
+            self::$authServer = $authData['server'];
         }
 
-        $GLOBALS['from_cookie'] = true;
+        self::$fromCookie = true;
 
         return true;
     }
@@ -407,18 +401,18 @@ class AuthenticationCookie extends AuthenticationPlugin
     public function storeCredentials(): bool
     {
         $config = Config::getInstance();
-        if ($config->settings['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
+        if ($config->settings['AllowArbitraryServer'] && self::$authServer !== '') {
             /* Allow to specify 'host port' */
-            $parts = explode(' ', $GLOBALS['pma_auth_server']);
+            $parts = explode(' ', self::$authServer);
             if (count($parts) === 2) {
                 $tmpHost = $parts[0];
                 $tmpPort = $parts[1];
             } else {
-                $tmpHost = $GLOBALS['pma_auth_server'];
+                $tmpHost = self::$authServer;
                 $tmpPort = '';
             }
 
-            if ($config->selectedServer['host'] != $GLOBALS['pma_auth_server']) {
+            if ($config->selectedServer['host'] !== self::$authServer) {
                 $config->selectedServer['host'] = $tmpHost;
                 if ($tmpPort !== '') {
                     $config->selectedServer['port'] = $tmpPort;
@@ -469,7 +463,7 @@ class AuthenticationCookie extends AuthenticationPlugin
 
         // Set server cookies if required (once per session) and, in this case,
         // force reload to ensure the client accepts cookies
-        if ($GLOBALS['from_cookie']) {
+        if (self::$fromCookie) {
             return null;
         }
 
@@ -513,8 +507,8 @@ class AuthenticationCookie extends AuthenticationPlugin
     {
         $payload = ['password' => $password];
         $config = Config::getInstance();
-        if ($config->settings['AllowArbitraryServer'] && ! empty($GLOBALS['pma_auth_server'])) {
-            $payload['server'] = $GLOBALS['pma_auth_server'];
+        if ($config->settings['AllowArbitraryServer'] && self::$authServer !== '') {
+            $payload['server'] = self::$authServer;
         }
 
         // Duration = as configured
@@ -542,7 +536,7 @@ class AuthenticationCookie extends AuthenticationPlugin
         // Deletes password cookie and displays the login form
         Config::getInstance()->removeCookie('pmaAuth-' . Current::$server);
 
-        $GLOBALS['conn_error'] = $this->getErrorMessage($failure);
+        self::$connectionError = $this->getErrorMessage($failure);
 
         $responseRenderer = ResponseRenderer::getInstance();
 

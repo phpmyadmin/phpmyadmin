@@ -68,4 +68,9 @@ abstract class ImportPlugin implements Plugin
     }
 
     abstract public function setImportOptions(ServerRequest $request): void;
+
+    public function getTranslatedText(string $text): string
+    {
+        return $text;
+    }
 }

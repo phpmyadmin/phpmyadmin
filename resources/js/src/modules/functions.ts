@@ -1049,7 +1049,7 @@ export function loadForeignKeyCheckbox () {
     $.get('index.php?route=/sql/get-default-fk-check-value', params, function (data) {
         var html = '<input type="hidden" name="fk_checks" value="0">' +
             '<input type="checkbox" name="fk_checks" id="fk_checks"' +
-            (data.default_fk_check_value ? ' checked="checked"' : '') + '>' +
+            (data.default_fk_check_value ? ' checked' : '') + '>' +
             '<label for="fk_checks">' + window.Messages.strForeignKeyCheck + '</label>';
         $('.load-default-fk-check-value').replaceWith(html);
     });
@@ -3362,11 +3362,18 @@ export function floatingMenuBar () {
 
 /**
  * Scrolls the page to the top if clicking the server-breadcrumb bar
+ * If the user holds the Ctrl (or Meta on macOS) key, it prevents the scroll
+ * so they can open the link in a new tab.
+ *
  * @return {function}
  */
 export function breadcrumbScrollToTop () {
     return function () {
         $(document).on('click', '#server-breadcrumb, #goto_pagetop', function (event) {
+            if (event.ctrlKey || event.metaKey) {
+                return;
+            }
+
             event.preventDefault();
             $('html, body').animate({ scrollTop: 0 }, 'fast');
         });

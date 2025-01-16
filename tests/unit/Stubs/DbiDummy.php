@@ -84,6 +84,9 @@ class DbiDummy implements DbiExtension
      */
     private array $fifoErrorCodes = [];
 
+    /** @var int|numeric-string */
+    public int|string $cachedAffectedRows = 0;
+
     public function __construct()
     {
         $this->init();
@@ -257,7 +260,7 @@ class DbiDummy implements DbiExtension
      */
     public function affectedRows(Connection $connection): int|string
     {
-        return $GLOBALS['cached_affected_rows'] ?? 0;
+        return $this->cachedAffectedRows;
     }
 
     /**

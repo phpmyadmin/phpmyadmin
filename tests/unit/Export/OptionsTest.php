@@ -9,6 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
@@ -57,6 +58,8 @@ class OptionsTest extends AbstractTestCase
         $config->settings['ZipDump'] = false;
         $config->settings['GZipDump'] = false;
 
+        Export::$singleTable = false;
+
         $exportType = ExportType::Server;
         $db = 'PMA';
         $table = 'PMA_test';
@@ -79,7 +82,17 @@ class OptionsTest extends AbstractTestCase
         $_POST['filename_template'] = 'user value for test';
 
         //Call the test function
-        $actual = $this->export->getOptions($exportType, $db, $table, '', $numTablesStr, $unlimNumRowsStr, $exportList);
+        $actual = $this->export->getOptions(
+            $exportType,
+            $db,
+            $table,
+            '',
+            $numTablesStr,
+            $unlimNumRowsStr,
+            $exportList,
+            'sql',
+            null,
+        );
 
         $expected = [
             'export_type' => $exportType->value,

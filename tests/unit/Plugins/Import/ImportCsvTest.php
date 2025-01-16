@@ -8,6 +8,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -30,8 +31,8 @@ class ImportCsvTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['errorUrl'] = 'index.php?route=/';
-        $GLOBALS['error'] = false;
+        Import::$errorUrl = 'index.php?route=/';
+        Import::$hasError = false;
         Current::$database = '';
         Current::$table = '';
         Current::$sqlQuery = '';
@@ -65,7 +66,7 @@ class ImportCsvTest extends AbstractTestCase
             ]);
         $this->object->setImportOptions($request);
 
-        $GLOBALS['import_text'] = 'ImportCsv_Test';
+        Import::$importText = 'ImportCsv_Test';
     }
 
     /**
@@ -214,7 +215,7 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportNormal(): void
     {
         ImportSettings::$importFile = 'none';
-        $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -261,7 +262,7 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportSkipHeaders(): void
     {
         ImportSettings::$importFile = 'none';
-        $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([

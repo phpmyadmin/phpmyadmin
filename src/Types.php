@@ -125,7 +125,7 @@ class Types
         $html = '';
 
         foreach ($this->getTypeOperators($type, $null) as $fc) {
-            $selected = $selectedOperator !== null && $selectedOperator === $fc ? ' selected="selected"' : '';
+            $selected = $selectedOperator !== null && $selectedOperator === $fc ? ' selected' : '';
 
             $html .= '<option value="' . htmlspecialchars($fc) . '"'
                 . $selected . '>'

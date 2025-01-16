@@ -19,7 +19,7 @@
 <input id="field_{{ column_number }}_{{ ci - ci_offset }}"
     {% if column_meta['column_status'] is defined
         and not column_meta['column_status']['isEditable'] %}
-        disabled="disabled"
+        disabled
     {% endif %}
     type="text"
     name="field_name[{{ column_number }}]"

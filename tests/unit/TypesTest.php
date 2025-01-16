@@ -157,7 +157,7 @@ class TypesTest extends AbstractTestCase
     public static function providerForTestGetTypeOperatorsHtml(): array
     {
         return [
-            ['enum', false, '=', '<option value="=" selected="selected">=</option><option value="!=">!=</option>'],
+            ['enum', false, '=', '<option value="=" selected>=</option><option value="!=">!=</option>'],
         ];
     }
 

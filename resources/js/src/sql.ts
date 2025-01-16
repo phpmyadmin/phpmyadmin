@@ -52,6 +52,8 @@ function autoSave (query): void {
         } else {
             window.Cookies.set(key, query, { path: CommonParams.get('rootPath') });
         }
+
+        checkSavedQuery();
     }
 }
 
@@ -309,8 +311,6 @@ const insertQuery = function (queryType) {
         } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
             // @ts-ignore
             setQuery(window.Cookies.get(key, { path: CommonParams.get('rootPath') }));
-        } else {
-            ajaxShowMessage(window.Messages.strNoAutoSavedQuery);
         }
 
         return;
@@ -624,6 +624,10 @@ AJAX.registerOnload('sql.js', function () {
 
         textArea.value += '\n';
         $('.table_results tbody tr').each(function () {
+            if ($(this).hasClass('repeating_header_row')) {
+                return;
+            }
+
             $(this).find('.data span').each(function () {
                 // Extract <em> tag for NULL values before converting to string to not mess up formatting
                 var data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
@@ -1269,15 +1273,20 @@ function getAutoSavedKey () {
 }
 
 function checkSavedQuery () {
-    var key = Sql.getAutoSavedKey();
+    let key = Sql.getAutoSavedKey();
+    let buttonGetAutoSavedQuery = $('#saved');
 
-    if (isStorageSupported('localStorage') &&
-        typeof window.localStorage.getItem(key) === 'string') {
-        ajaxShowMessage(window.Messages.strPreviousSaveQuery);
-        // @ts-ignore
-    } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
-        ajaxShowMessage(window.Messages.strPreviousSaveQuery);
+    let isAutoSavedInLocalStorage = isStorageSupported('localStorage') && (typeof window.localStorage.getItem(key) === 'string');
+    // @ts-ignore
+    let isAutoSavedInCookie = window.Cookies.get(key, { path: CommonParams.get('rootPath') });
+
+    if (isAutoSavedInLocalStorage || isAutoSavedInCookie) {
+        buttonGetAutoSavedQuery.prop('disabled', false);
+
+        return;
     }
+
+    buttonGetAutoSavedQuery.prop('disabled', true);
 }
 
 AJAX.registerOnload('sql.js', function () {

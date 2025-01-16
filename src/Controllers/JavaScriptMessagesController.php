@@ -408,10 +408,6 @@ final class JavaScriptMessagesController implements InvocableController
             'strDelete' => __('Delete'),
             'strNotValidRowNumber' => __('%d is not valid row number.'),
             'strBrowseForeignValues' => __('Browse foreign values'),
-            'strNoAutoSavedQuery' => __('No previously auto-saved query is available. Loading default query.'),
-            'strPreviousSaveQuery' => __(
-                'You have a previously saved query. Click Get auto-saved query to load the query.',
-            ),
             'strBookmarkVariable' => __('Variable %d:'),
 
             /* For Central list of columns */
@@ -455,6 +451,8 @@ final class JavaScriptMessagesController implements InvocableController
             'strConfirmTd' => __('Confirm transitive dependencies'),
             'strSelectedTd' => __('Selected dependencies are as follows:'),
             'strNoTdSelected' => __('No dependencies selected!'),
+            'strFirstValuePlaceholder' => __('Enter first value'),
+            'strSecondValuePlaceholder' => __('Enter second value'),
 
             /* For server/variables.js */
             'strSave' => __('Save'),

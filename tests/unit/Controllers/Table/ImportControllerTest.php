@@ -36,7 +36,6 @@ class ImportControllerTest extends AbstractTestCase
         Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
-        $_GET['format'] = 'xml';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
@@ -73,7 +72,7 @@ class ImportControllerTest extends AbstractTestCase
             'plugins_choice' => $choice,
             'options' => $options,
             'skip_queries_default' => '0',
-            'is_allow_interrupt_checked' => ' checked="checked"',
+            'is_allow_interrupt_checked' => ' checked',
             'local_import_file' => null,
             'is_upload' => true,
             'upload_dir' => '',
@@ -92,7 +91,7 @@ class ImportControllerTest extends AbstractTestCase
         ]);
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table', 'format' => 'xml']);
 
         $response = new ResponseRenderer();
         (new ImportController($response, $dbi, $pageSettings, new DbTableExists($dbi)))($request);

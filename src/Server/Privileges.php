@@ -70,6 +70,8 @@ use function uksort;
  */
 class Privileges
 {
+    public string|null $username = null;
+    public string|null $hostname = null;
     private string|null $sslType = null;
     private string|null $sslCipher = null;
     private string|null $x509Issuer = null;
@@ -470,9 +472,9 @@ class Privileges
         $username = '';
         $hostname = '';
         $row = [];
-        if (isset($GLOBALS['username'])) {
-            $username = $GLOBALS['username'];
-            $hostname = $GLOBALS['hostname'];
+        if ($this->username !== null) {
+            $username = $this->username;
+            $hostname = $this->hostname ?? '';
             $sqlQuery = $this->getSqlQueryForDisplayPrivTable($db, $table, $username, $hostname);
             $row = $this->dbi->fetchSingleRow($sqlQuery);
         }
@@ -593,17 +595,9 @@ class Privileges
         string|null $user = null,
         string|null $host = null,
     ): string {
-        $GLOBALS['pred_username'] ??= null;
-        $GLOBALS['pred_hostname'] ??= null;
-        $GLOBALS['username'] ??= null;
-        $GLOBALS['hostname'] ??= null;
-        $GLOBALS['new_username'] ??= null;
-
         [$usernameLength, $hostnameLength] = $this->getUsernameAndHostnameLength();
 
-        if (isset($GLOBALS['username']) && $GLOBALS['username'] === '') {
-            $GLOBALS['pred_username'] = 'any';
-        }
+        $predefinedUsername = $this->username === '' ? 'any' : 'userdefined';
 
         $currentUser = (string) $this->dbi->fetchValue('SELECT USER();');
         $thisHost = null;
@@ -618,8 +612,9 @@ class Privileges
             );
         }
 
-        if (! isset($GLOBALS['pred_hostname']) && isset($GLOBALS['hostname'])) {
-            $GLOBALS['pred_hostname'] = match (mb_strtolower($GLOBALS['hostname'])) {
+        $predefinedHostname = 'any';
+        if ($this->hostname !== null) {
+            $predefinedHostname = match (mb_strtolower($this->hostname)) {
                 'localhost', '127.0.0.1' => 'localhost',
                 '%' => 'any',
                 default => 'userdefined',
@@ -645,13 +640,12 @@ class Privileges
         }
 
         return $this->template->render('server/privileges/login_information_fields', [
-            'pred_username' => $GLOBALS['pred_username'] ?? null,
-            'pred_hostname' => $GLOBALS['pred_hostname'] ?? null,
+            'predefined_username' => $predefinedUsername,
+            'predefined_hostname' => $predefinedHostname,
             'username_length' => $usernameLength,
             'hostname_length' => $hostnameLength,
-            'username' => $GLOBALS['username'] ?? null,
-            'new_username' => $GLOBALS['new_username'] ?? null,
-            'hostname' => $GLOBALS['hostname'] ?? null,
+            'username' => $this->username,
+            'hostname' => $this->hostname,
             'this_host' => $thisHost,
             'is_change' => $user !== null && $host !== null,
             'auth_plugin' => $authPlugin,
@@ -2161,7 +2155,7 @@ class Privileges
 
             $queries[] = 'DROP DATABASE IF EXISTS '
                 . Util::backquote($thisUser) . ';';
-            $GLOBALS['reload'] = true;
+            ResponseRenderer::$reload = true;
         }
 
         return $queries;
@@ -2295,7 +2289,7 @@ class Privileges
                 isset($_POST['createdb-3']),
             );
             if (! empty($_POST['userGroup']) && $isMenuwork) {
-                $this->setUserGroup($GLOBALS['username'], $_POST['userGroup']);
+                $this->setUserGroup($this->username ?? '', $_POST['userGroup']);
             }
 
             return [
@@ -2798,7 +2792,7 @@ class Privileges
             /**
              * Reload the navigation
              */
-            $GLOBALS['reload'] = true;
+            ResponseRenderer::$reload = true;
             Current::$database = $username;
 
             $query = 'GRANT ALL PRIVILEGES ON '

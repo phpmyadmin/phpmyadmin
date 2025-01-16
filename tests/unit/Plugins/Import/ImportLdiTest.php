@@ -9,6 +9,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
@@ -31,6 +32,7 @@ class ImportLdiTest extends AbstractTestCase
     {
         parent::setUp();
 
+        Import::$hasError = false;
         ImportSettings::$charsetConversion = false;
         ImportSettings::$maxSqlLength = 0;
         Current::$sqlQuery = '';
@@ -45,7 +47,7 @@ class ImportLdiTest extends AbstractTestCase
         $config = Config::getInstance();
 
         ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
-        $GLOBALS['import_text'] = 'ImportLdi_Test';
+        Import::$importText = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
 
         $config->settings['Import']['ldi_replace'] = false;
@@ -151,7 +153,7 @@ class ImportLdiTest extends AbstractTestCase
             Current::$message->__toString(),
         );
 
-        self::assertTrue($GLOBALS['error']);
+        self::assertTrue(Import::$hasError);
     }
 
     /**

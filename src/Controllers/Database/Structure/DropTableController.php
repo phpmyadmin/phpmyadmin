@@ -12,6 +12,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -28,7 +29,11 @@ final class DropTableController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
+        if ($request->hasBodyParam('reload')) {
+            $reload = $request->getParsedBodyParamAsString('reload');
+            ResponseRenderer::$reload = $reload === '1' || $reload === 'true';
+        }
+
         $multBtn = $_POST['mult_btn'] ?? '';
         /** @var string[] $selected */
         $selected = $_POST['selected'] ?? [];
@@ -55,7 +60,7 @@ final class DropTableController implements InvocableController
                     . Util::backquote($selectedValue);
             }
 
-            $GLOBALS['reload'] = 1;
+            ResponseRenderer::$reload = true;
         }
 
         if (Current::$sqlQuery !== '') {

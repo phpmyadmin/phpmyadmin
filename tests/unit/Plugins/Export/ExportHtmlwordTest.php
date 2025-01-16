@@ -62,11 +62,11 @@ class ExportHtmlwordTest extends AbstractTestCase
             new Export($this->dbi),
             new Transformations(),
         );
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         Current::$database = '';
         Current::$table = '';
         Current::$lang = '';
@@ -232,7 +232,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 2
 
-        $GLOBALS['charset'] = 'ISO-8859-1';
+        Current::$charset = 'ISO-8859-1';
         ob_start();
         $this->object->exportHeader();
         $result = ob_get_clean();
@@ -292,11 +292,11 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['htmlword_columns' => 'On']);

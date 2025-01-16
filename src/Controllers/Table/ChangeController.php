@@ -38,6 +38,9 @@ use function trim;
  */
 class ChangeController implements InvocableController
 {
+    /** @var array<mixed> */
+    public static array $unsavedValues = [];
+
     public function __construct(
         private readonly ResponseRenderer $response,
         private readonly Template $template,
@@ -51,11 +54,6 @@ class ChangeController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['where_clause'] ??= null;
-        $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['current_result'] ??= null;
-
         $this->pageSettings->init('Edit');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -93,7 +91,7 @@ class ChangeController implements InvocableController
         if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
             $whereClause = $request->getQueryParam('where_clause');
             if (Core::checkSqlQuerySignature($whereClause, $request->getQueryParam('where_clause_signature'))) {
-                $GLOBALS['where_clause'] = $whereClause;
+                Current::$whereClause = $whereClause;
             }
         }
 
@@ -102,21 +100,17 @@ class ChangeController implements InvocableController
          */
         [
             $insertMode,
-            $GLOBALS['where_clause'],
+            Current::$whereClause,
             $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
-        ] = $this->insertEdit->determineInsertOrEdit(
-            $GLOBALS['where_clause'] ?? null,
-            Current::$database,
-            Current::$table,
-        );
+        ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
         // Increase number of rows if unsaved rows are more
-        if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
-            $rows = array_fill(0, count($GLOBALS['unsaved_values']), false);
+        if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
+            $rows = array_fill(0, count(self::$unsavedValues), false);
         }
 
         /**
@@ -165,8 +159,8 @@ class ChangeController implements InvocableController
          *
          * $disp_message come from /table/replace
          */
-        if (! empty($GLOBALS['disp_message'])) {
-            $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
+        if (! empty(Current::$displayMessage)) {
+            $this->response->addHTML(Generator::getMessage(Current::$displayMessage));
         }
 
         $tableColumns = $this->insertEdit->getTableColumns(Current::$database, Current::$table);
@@ -226,15 +220,13 @@ class ChangeController implements InvocableController
             $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', UrlParams::$params, false);
         }
 
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         foreach ($rows as $rowId => $currentRow) {
-            $GLOBALS['current_result'] = is_array($result) && isset($result[$rowId])
-                ? $result[$rowId]
-                : $result;
+            $currentResult = is_array($result) && isset($result[$rowId]) ? $result[$rowId] : $result;
             $repopulate = [];
             $checked = true;
-            if (isset($GLOBALS['unsaved_values'][$rowId])) {
-                $repopulate = $GLOBALS['unsaved_values'][$rowId];
+            if (isset(self::$unsavedValues[$rowId])) {
+                $repopulate = self::$unsavedValues[$rowId];
                 $checked = false;
             }
 
@@ -246,7 +238,7 @@ class ChangeController implements InvocableController
                 UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
-                $GLOBALS['current_result'],
+                $currentResult,
                 $insertMode,
                 $currentRow ?: [],
                 $isUpload,
@@ -259,13 +251,13 @@ class ChangeController implements InvocableController
             );
         }
 
-        $this->response->addScriptFiles($GLOBALS['plugin_scripts']);
+        $this->response->addScriptFiles(InsertEdit::$pluginScripts);
+        InsertEdit::$pluginScripts = [];
+        self::$unsavedValues = [];
 
-        unset($GLOBALS['unsaved_values'], $GLOBALS['plugin_scripts']);
-
-        $isNumeric = InsertEdit::isWhereClauseNumeric($GLOBALS['where_clause']);
+        $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [
-            'where_clause' => $GLOBALS['where_clause'],
+            'where_clause' => Current::$whereClause,
             'after_insert' => $afterInsert ?? 'back',
             'found_unique_key' => $foundUniqueIndex,
             'is_numeric' => $isNumeric,

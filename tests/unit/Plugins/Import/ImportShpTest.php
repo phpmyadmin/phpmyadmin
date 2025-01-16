@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportShp;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -33,10 +34,9 @@ class ImportShpTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['error'] = null;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
-        $GLOBALS['eof'] = null;
+        ImportShp::$eof = false;
         Current::$database = '';
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
@@ -75,10 +75,10 @@ class ImportShpTest extends AbstractTestCase
         $importHandle->open();
 
         Current::$message = null;
-        $GLOBALS['error'] = false;
+        Import::$hasError = false;
         $this->object->doImport($importHandle);
         self::assertNull(Current::$message);
-        self::assertFalse($GLOBALS['error']);
+        self::assertFalse(Import::$hasError);
     }
 
     /**

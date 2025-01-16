@@ -379,10 +379,11 @@ class ReplicationGui
         [$usernameLength, $hostnameLength] = $this->getUsernameHostnameLength();
 
         $username = '';
+        $predefinedUsername = 'userdefined';
         if ($postUsername === '') {
-            $GLOBALS['pred_username'] = 'any';
+            $predefinedUsername = 'any';
         } elseif ($postUsername !== null && $postUsername !== '0') {
-            $username = $GLOBALS['new_username'] ?? $postUsername;
+            $username = $postUsername;
         }
 
         $currentUser = DatabaseInterface::getInstance()->fetchValue('SELECT USER();');
@@ -400,9 +401,9 @@ class ReplicationGui
             }
         }
 
-        // when we start editing a user, $GLOBALS['pred_hostname'] is not defined
-        if (! isset($GLOBALS['pred_hostname']) && $hostname !== null) {
-            $GLOBALS['pred_hostname'] = match (mb_strtolower($hostname)) {
+        $predefinedHostname = 'any';
+        if ($hostname !== null) {
+            $predefinedHostname = match (mb_strtolower($hostname)) {
                 'localhost', '127.0.0.1' => 'localhost',
                 '%' => 'any',
                 default => 'userdefined',
@@ -415,8 +416,8 @@ class ReplicationGui
             'has_username' => $postUsername !== null,
             'username' => $username,
             'hostname' => $hostname ?? '',
-            'predefined_username' => $GLOBALS['pred_username'] ?? '',
-            'predefined_hostname' => $GLOBALS['pred_hostname'] ?? '',
+            'predefined_username' => $predefinedUsername,
+            'predefined_hostname' => $predefinedHostname,
             'this_host' => $thisHost ?? null,
         ]);
     }

@@ -11,6 +11,7 @@ use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
@@ -46,7 +47,7 @@ class ExportControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;
-        $GLOBALS['single_table'] = '1';
+        Export::$singleTable = true;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT COUNT(*) FROM `test_db`.`test_table`', [['3']]);

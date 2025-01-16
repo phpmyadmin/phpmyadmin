@@ -33,8 +33,8 @@ class ImportTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->settings['ServerDefault'] = '';
-        $GLOBALS['complete_query'] = null;
-        $GLOBALS['display_query'] = null;
+        Current::$completeQuery = null;
+        Current::$displayQuery = null;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
@@ -333,22 +333,22 @@ class ImportTest extends AbstractTestCase
 
         self::assertSame([], $sqlData);
         self::assertSame('', Current::$sqlQuery);
-        self::assertNull($GLOBALS['complete_query']);
-        self::assertNull($GLOBALS['display_query']);
+        self::assertNull(Current::$completeQuery);
+        self::assertNull(Current::$displayQuery);
 
         $this->import->runQuery('SELECT 2', $sqlData);
 
         self::assertSame(['SELECT 1;'], $sqlData);
         self::assertSame('SELECT 1;', Current::$sqlQuery);
-        self::assertSame('SELECT 1;', $GLOBALS['complete_query']);
-        self::assertSame('SELECT 1;', $GLOBALS['display_query']);
+        self::assertSame('SELECT 1;', Current::$completeQuery);
+        self::assertSame('SELECT 1;', Current::$displayQuery);
 
         $this->import->runQuery('', $sqlData);
 
         self::assertSame(['SELECT 1;', 'SELECT 2;'], $sqlData);
 
         self::assertSame('SELECT 2;', Current::$sqlQuery);
-        self::assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);
-        self::assertSame('SELECT 1;SELECT 2;', $GLOBALS['display_query']);
+        self::assertSame('SELECT 1;SELECT 2;', Current::$completeQuery);
+        self::assertSame('SELECT 1;SELECT 2;', Current::$displayQuery);
     }
 }

@@ -13,6 +13,9 @@ phpMyAdmin - ChangeLog
 - issue #17951 Allow rollbacking SET queries
 - issue #18529 Add copy to clipboard for export as text
 - issue #19398 Use `application/json` instead of `text/plain` for JSON export
+- issue #19242 Removed the popup that warned about having an auto-saved query
+- issue        Added support for `BETWEEN` and `NOT BETWEEN` on the query generator
+- issue #17480 Added an option in the SQL box to "Format as a single line"
 
 5.2.2 (not yet released)
 - issue #17851 Fix total count of rows in not accurate
@@ -150,6 +153,14 @@ phpMyAdmin - ChangeLog
 - issue #19321 Suppress deprecation message of E_STRICT constant
 - issue        Fix PHP 8.4 `str_getcsv` `$escape` parameter deprecation
 - issue #19426 Fix PHP warnings when the column is a `COMPRESSED BLOB`
+- issue        Allow opening server breadcrumb links in new tab with Ctrl/Meta key
+- issue #19500 Use `KILL` instead of `CALL mysql.rds_kill` for non super users
+- issue        Fix "copy to clipboard" was adding a blank row for each repeating header row
+- issue        Fix TCPDF translations
+- issue        Remove underline for links on Bootstrap theme
+- issue        Fix sql editor height on multi-table query
+- issue #18852 Fix notification color scheme on the Bootstrap dark theme
+- issue #14542 Show the query even if no results are found in the Table search
 
 5.2.1 (2023-02-07)
 - issue #17522 Fix case where the routes cache file is invalid

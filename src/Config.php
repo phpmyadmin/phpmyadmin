@@ -461,7 +461,7 @@ class Config
         // in frames
 
         // save theme
-        if ($themeManager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
+        if ($themeManager->getThemeCookie() !== '' || isset($_REQUEST['set_theme'])) {
             if (
                 (! isset($configData['ThemeDefault'])
                 && $themeManager->theme->getId() !== 'original')
@@ -477,7 +477,7 @@ class Config
             }
         } elseif (
             $this->settings['ThemeDefault'] != $themeManager->theme->getId()
-            && $themeManager->checkTheme($this->settings['ThemeDefault'])
+            && $themeManager->themeExists($this->settings['ThemeDefault'])
         ) {
             // no cookie - read default from settings
             $themeManager->setActiveTheme($this->settings['ThemeDefault']);
@@ -947,7 +947,7 @@ class Config
      *
      * @param string $cookieName The name of the cookie to get
      *
-     * @return mixed|null result of getCookie()
+     * @return mixed result of getCookie()
      */
     public function getCookie(string $cookieName): mixed
     {

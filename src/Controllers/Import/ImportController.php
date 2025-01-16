@@ -61,30 +61,24 @@ final class ImportController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['display_query'] ??= null;
-        $GLOBALS['ajax_reload'] ??= null;
-        $GLOBALS['import_text'] ??= null;
-        $GLOBALS['error'] ??= null;
-        $GLOBALS['result'] ??= null;
-
         ImportSettings::$charsetOfFile = $request->getParsedBodyParamAsString('charset_of_file', '');
         $format = $request->getParsedBodyParamAsString('format', '');
         ImportSettings::$importType = $request->getParsedBodyParamAsString('import_type', '');
-        $GLOBALS['is_js_confirmed'] = $request->getParsedBodyParam('is_js_confirmed');
-        $GLOBALS['message_to_show'] = $request->getParsedBodyParam('message_to_show');
-        $GLOBALS['noplugin'] = $request->getParsedBodyParam('noplugin');
+        Current::$messageToShow = $request->getParsedBodyParamAsStringOrNull('message_to_show');
         ImportSettings::$skipQueries = (int) $request->getParsedBodyParamAsStringOrNull('skip_queries');
         ImportSettings::$localImportFile = $request->getParsedBodyParamAsString('local_import_file', '');
-        $GLOBALS['show_as_php'] = $request->getParsedBodyParam('show_as_php');
+        if ($request->hasBodyParam('show_as_php')) {
+            Sql::$showAsPhp = (bool) $request->getParsedBodyParam('show_as_php');
+        }
 
         // reset import messages for ajax request
         $_SESSION['Import_message']['message'] = null;
         $_SESSION['Import_message']['go_back_url'] = null;
         // default values
-        $GLOBALS['reload'] = false;
+        ResponseRenderer::$reload = false;
 
-        $GLOBALS['ajax_reload'] = [];
-        $GLOBALS['import_text'] = '';
+        $ajaxReload = [];
+        Import::$importText = '';
         // Are we just executing plain query or sql file?
         // (eg. non import, but query box/window run)
         if (Current::$sqlQuery !== '') {
@@ -114,25 +108,25 @@ final class ImportController implements InvocableController
             }
 
             // run SQL query
-            $GLOBALS['import_text'] = Current::$sqlQuery;
+            Import::$importText = Current::$sqlQuery;
             ImportSettings::$importType = 'query';
             $format = 'sql';
             $_SESSION['sql_from_query_box'] = true;
 
             // If there is a request to ROLLBACK when finished.
             if ($request->hasBodyParam('rollback_query')) {
-                $this->import->handleRollbackRequest($GLOBALS['import_text']);
+                $this->import->handleRollbackRequest(Import::$importText);
             }
 
             // refresh navigation and main panels
             if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
-                $GLOBALS['reload'] = true;
-                $GLOBALS['ajax_reload']['reload'] = true;
+                ResponseRenderer::$reload = true;
+                $ajaxReload['reload'] = true;
             }
 
             // refresh navigation panel only
             if (preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Current::$sqlQuery) === 1) {
-                $GLOBALS['ajax_reload']['reload'] = true;
+                $ajaxReload['reload'] = true;
             }
 
             // do a dynamic reload if table is RENAMED
@@ -144,8 +138,8 @@ final class ImportController implements InvocableController
                     $renameTableNames,
                 ) === 1
             ) {
-                $GLOBALS['ajax_reload']['reload'] = true;
-                $GLOBALS['ajax_reload']['table_name'] = Util::unQuote($renameTableNames[2]);
+                $ajaxReload['reload'] = true;
+                $ajaxReload['table_name'] = Util::unQuote($renameTableNames[2]);
             }
 
             Current::$sqlQuery = '';
@@ -218,8 +212,8 @@ final class ImportController implements InvocableController
             }
         }
 
-        $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
-        $_SESSION['Import_message']['go_back_url'] = $GLOBALS['errorUrl'];
+        Import::$errorUrl = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
+        $_SESSION['Import_message']['go_back_url'] = Import::$errorUrl;
 
         if (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
@@ -240,7 +234,7 @@ final class ImportController implements InvocableController
 
         // set default values
         ImportSettings::$timeoutPassed = false;
-        $GLOBALS['error'] = false;
+        Import::$hasError = false;
         ImportSettings::$readMultiply = 1;
         ImportSettings::$finished = false;
         ImportSettings::$offset = 0;
@@ -254,7 +248,7 @@ final class ImportController implements InvocableController
         $resetCharset = false;
         ImportSettings::$message = 'Sorry an unexpected error happened!';
 
-        $GLOBALS['result'] = false;
+        Import::$result = false;
 
         // Bookmark Support: get a query back from bookmark if required
         $idBookmark = (int) $request->getParsedBodyParamAsStringOrNull('id_bookmark');
@@ -272,25 +266,22 @@ final class ImportController implements InvocableController
 
                     $bookmarkVariables = $request->getParsedBodyParam('bookmark_variable');
                     if (is_array($bookmarkVariables)) {
-                        $GLOBALS['import_text'] = $bookmark->applyVariables($bookmarkVariables);
+                        Import::$importText = $bookmark->applyVariables($bookmarkVariables);
                     } else {
-                        $GLOBALS['import_text'] = $bookmark->getQuery();
+                        Import::$importText = $bookmark->getQuery();
                     }
 
                     // refresh navigation and main panels
-                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', $GLOBALS['import_text']) === 1) {
-                        $GLOBALS['reload'] = true;
-                        $GLOBALS['ajax_reload']['reload'] = true;
+                    if (preg_match('/^(DROP)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1) {
+                        ResponseRenderer::$reload = true;
+                        $ajaxReload['reload'] = true;
                     }
 
                     // refresh navigation panel only
                     if (
-                        preg_match(
-                            '/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i',
-                            $GLOBALS['import_text'],
-                        ) === 1
+                        preg_match('/^(CREATE|ALTER)\s+(VIEW|TABLE|DATABASE|SCHEMA)\s+/i', Import::$importText) === 1
                     ) {
-                        $GLOBALS['ajax_reload']['reload'] = true;
+                        $ajaxReload['reload'] = true;
                     }
 
                     break;
@@ -300,12 +291,12 @@ final class ImportController implements InvocableController
                         break;
                     }
 
-                    $GLOBALS['import_text'] = $bookmark->getQuery();
+                    Import::$importText = $bookmark->getQuery();
                     if ($request->isAjax()) {
                         Current::$message = Message::success(__('Showing bookmark'));
                         $this->response->setRequestStatus(Current::$message->isSuccess());
                         $this->response->addJSON('message', Current::$message);
-                        $this->response->addJSON('sql_query', $GLOBALS['import_text']);
+                        $this->response->addJSON('sql_query', Import::$importText);
                         $this->response->addJSON('action_bookmark', $actionBookmark);
 
                         return $this->response->response();
@@ -333,13 +324,13 @@ final class ImportController implements InvocableController
                     }
 
                     ImportSettings::$runQuery = false;
-                    $GLOBALS['error'] = true; // this is kind of hack to skip processing the query
+                    Import::$hasError = true; // this is kind of hack to skip processing the query
                     break;
             }
         }
 
         // Do no run query if we show PHP code
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(Sql::$showAsPhp)) {
             ImportSettings::$runQuery = false;
             ImportSettings::$goSql = true;
         }
@@ -394,7 +385,7 @@ final class ImportController implements InvocableController
 
         // Do we have file to import?
 
-        if (ImportSettings::$importFile !== 'none' && ! $GLOBALS['error']) {
+        if (ImportSettings::$importFile !== 'none' && ! Import::$hasError) {
             /**
              *  Handle file compression
              */
@@ -431,7 +422,7 @@ final class ImportController implements InvocableController
 
                 return $this->response->response();
             }
-        } elseif (! $GLOBALS['error'] && empty($GLOBALS['import_text'])) {
+        } elseif (! Import::$hasError && Import::$importText === '') {
             Current::$message = Message::error(
                 __(
                     'No data was received to import. Either no file name was ' .
@@ -463,7 +454,7 @@ final class ImportController implements InvocableController
         }
 
         // Something to skip? (because timeout has passed)
-        if (! $GLOBALS['error'] && $request->hasBodyParam('skip')) {
+        if (! Import::$hasError && $request->hasBodyParam('skip')) {
             $originalSkip = $skip = (int) $request->getParsedBodyParamAsStringOrNull('skip');
             while ($skip > 0 && ! ImportSettings::$finished) {
                 $this->import->getNextChunk(
@@ -482,7 +473,7 @@ final class ImportController implements InvocableController
         // and complete valid sql statement (which affected for rows)
         $queriesToBeExecuted = [];
 
-        if (! $GLOBALS['error']) {
+        if (! Import::$hasError) {
             $importPlugin = new ($importFormat->getClassName());
 
             $importPlugin->setImportOptions($request);
@@ -512,13 +503,13 @@ final class ImportController implements InvocableController
         // Show correct message
         if ($idBookmark !== 0 && $actionBookmark === 2) {
             Current::$message = Message::success(__('The bookmark has been deleted.'));
-            $GLOBALS['display_query'] = $GLOBALS['import_text'];
-            $GLOBALS['error'] = false; // unset error marker, it was used just to skip processing
+            Current::$displayQuery = Import::$importText;
+            Import::$hasError = false; // unset error marker, it was used just to skip processing
         } elseif ($idBookmark !== 0 && $actionBookmark === 1) {
             Current::$message = Message::notice(__('Showing bookmark'));
-        } elseif (ImportSettings::$finished && ! $GLOBALS['error']) {
+        } elseif (ImportSettings::$finished && ! Import::$hasError) {
             // Do not display the query with message, we do it separately
-            $GLOBALS['display_query'] = ';';
+            Current::$displayQuery = ';';
             if (ImportSettings::$importType !== 'query') {
                 Current::$message = Message::success(
                     '<em>'
@@ -556,7 +547,7 @@ final class ImportController implements InvocableController
                 UrlParams::$params['local_import_file'] = ImportSettings::$localImportFile;
             }
 
-            $importUrl = $GLOBALS['errorUrl'] = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
+            $importUrl = Import::$errorUrl = UrlParams::$goto . Url::getCommon(UrlParams::$params, '&');
 
             Current::$message = Message::error(
                 __(
@@ -595,7 +586,7 @@ final class ImportController implements InvocableController
                 Current::$database,
             );
 
-            $GLOBALS['reload'] = $statementInfo->flags->reload;
+            ResponseRenderer::$reload = $statementInfo->flags->reload;
             ImportSettings::$offset = (int) $statementInfo->flags->offset;
 
             if (Current::$table != $tableFromSql && $tableFromSql !== '') {
@@ -604,7 +595,7 @@ final class ImportController implements InvocableController
         }
 
         foreach (ImportSettings::$failedQueries as $die) {
-            Generator::mysqlDie($die['error'], $die['sql'], false, $GLOBALS['errorUrl'], $GLOBALS['error']);
+            Generator::mysqlDie($die['error'], $die['sql'], false, Import::$errorUrl, Import::$hasError);
         }
 
         if (ImportSettings::$goSql) {
@@ -622,7 +613,7 @@ final class ImportController implements InvocableController
                 );
 
                 ImportSettings::$offset = (int) $statementInfo->flags->offset;
-                $GLOBALS['reload'] = $statementInfo->flags->reload;
+                ResponseRenderer::$reload = $statementInfo->flags->reload;
 
                 // Check if User is allowed to issue a 'DROP DATABASE' Statement
                 if (
@@ -662,7 +653,7 @@ final class ImportController implements InvocableController
             // sql_query_for_bookmark is not included in Sql::executeQueryAndGetQueryResponse
             // since only one bookmark has to be added for all the queries submitted through
             // the SQL tab
-            if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
+            if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
                 $this->sql->storeTheQueryAsBookmark(
                     Current::$database,
                     $config->selectedServer['user'],
@@ -672,7 +663,7 @@ final class ImportController implements InvocableController
                 );
             }
 
-            $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
+            $this->response->addJSON('ajax_reload', $ajaxReload);
             $this->response->addHTML($htmlOutput);
 
             return $this->response->response();
@@ -685,9 +676,9 @@ final class ImportController implements InvocableController
             ImportSettings::$message .= __('[ROLLBACK occurred.]');
         }
 
-        if ($GLOBALS['result']) {
+        if (Import::$result) {
             // Save a Bookmark with more than one queries (if Bookmark label given).
-            if (! empty($request->getParsedBodyParam('bkm_label')) && ! empty($GLOBALS['import_text'])) {
+            if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
                 $relation = new Relation($this->dbi);
 
                 $this->sql->storeTheQueryAsBookmark(
@@ -705,7 +696,7 @@ final class ImportController implements InvocableController
                 'sql_query',
                 Generator::getMessage(ImportSettings::$message, Current::$sqlQuery, MessageType::Success),
             );
-        } elseif ($GLOBALS['result'] === false) {
+        } elseif (Import::$result === false) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(ImportSettings::$message));
         } else {

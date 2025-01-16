@@ -30,7 +30,7 @@
             <td class="text-nowrap"><label for="or_replace">OR REPLACE</label></td>
             <td>
               <input type="checkbox" name="view[or_replace]" id="or_replace"
-                {% if (view['or_replace']) %} checked="checked" {% endif %}
+                {% if (view['or_replace']) %} checked {% endif %}
                      value="1">
             </td>
           </tr>
@@ -43,7 +43,7 @@
               {% for option in view_algorithm_options %}
                 <option value="{{ option }}"
                   {% if view['algorithm'] == option %}
-                    selected="selected"
+                    selected
                   {% endif %}
                 >{{ option }}</option>
               {% endfor %}
@@ -63,7 +63,7 @@
               <option value=""></option>
               {% for option in view_security_options %}
                 <option value="{{ option }}"
-                  {% if option == view['sql_security'] %} selected="selected" {% endif %}
+                  {% if option == view['sql_security'] %} selected {% endif %}
                 >{{ option }}</option>
               {% endfor %}
             </select>
@@ -108,7 +108,7 @@
               <option value=""></option>
               {% for option in view_with_options %}
                 <option value="{{ option }}"
-                  {% if option == view['with'] %} selected="selected" {% endif %}
+                  {% if option == view['with'] %} selected {% endif %}
                 >{{ option }}</option>
               {% endfor %}
             </select>

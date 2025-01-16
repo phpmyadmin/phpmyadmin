@@ -265,7 +265,7 @@ class AuthenticationHttpTest extends AbstractTestCase
             ->willReturn('error 123', 'error 321', '');
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['errno'] = 31;
+        DatabaseInterface::$errorNumber = 31;
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         ResponseRenderer::getInstance()->setAjax(false);
@@ -277,7 +277,7 @@ class AuthenticationHttpTest extends AbstractTestCase
 
         // case 2
         $config->selectedServer['host'] = 'host';
-        $GLOBALS['errno'] = 1045;
+        DatabaseInterface::$errorNumber = 1045;
 
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
         ResponseRenderer::getInstance()->setAjax(false);
@@ -290,7 +290,7 @@ class AuthenticationHttpTest extends AbstractTestCase
         ResponseRenderer::getInstance()->setAjax(false);
 
         // case 3
-        $GLOBALS['errno'] = 1043;
+        DatabaseInterface::$errorNumber = 1043;
         $response = $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         $result = (string) $response->getBody();
         self::assertStringContainsString('Wrong username/password. Access denied.', $result);

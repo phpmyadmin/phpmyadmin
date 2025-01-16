@@ -42,13 +42,17 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
 AJAX.registerOnload('database/multi_table_query.js', function () {
     var editor = getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
     $('.CodeMirror-line').css('text-align', 'left');
-    editor.setSize(-1, 50);
+    editor.setSize(-1, -1);
 
     var columnCount = 3;
     addNewColumnCallbacks();
 
     function opsWithMultipleArgs (): string[] {
         return ['IN (...)', 'NOT IN (...)'];
+    }
+
+    function opsWithTwoArgs (): string[] {
+        return ['BETWEEN', 'NOT BETWEEN'];
     }
 
     $('#update_query_button').on('click', function () {
@@ -200,10 +204,13 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     });
 
     const acceptsMultipleArgs: string[] = opsWithMultipleArgs();
+    const acceptsTwoArgs: string[] = opsWithTwoArgs();
     $('.criteria_op').each(function () {
         $(this).on('change', function () {
             if (acceptsMultipleArgs.includes($(this).val().toString())) {
                 showMultiFields($(this));
+            } else if (acceptsTwoArgs.includes($(this).val().toString())) {
+                showTwoFields($(this));
             } else {
                 const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
                 options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="Enter criteria as free text"></input>');
@@ -212,14 +219,33 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
-    function showMultiFields (opSelect: JQuery<HTMLElement>) {
-        const criteriaInput: JQuery<HTMLElement> = opSelect.closest('table').find('.rhs_text_val');
-        const criteriaInputCol: JQuery<HTMLElement> = criteriaInput.parent();
-        const hasAtLeastOneOption: boolean = criteriaInputCol.find('.option').length > 0;
+    function showTwoFields (opSelect: JQuery<HTMLElement>) {
+        const critetiaRow: JQuery<HTMLElement> = opSelect.closest('table').find('.rhs_text');
+        const critetiaCol: JQuery<HTMLElement> = critetiaRow.find('td').last();
+        const criteriaInput: JQuery<HTMLElement> = critetiaCol.find('input').first();
 
-        if (!hasAtLeastOneOption) {
-            criteriaInputCol.append(`
-                <div class="options">
+        if (critetiaCol.find('.binary').length === 0) {
+            critetiaCol.empty();
+
+            critetiaCol.append(`
+                <div class="options binary">
+                    <input type="text" class="val" placeholder="${window.Messages.strFirstValuePlaceholder}" value="${criteriaInput.val()}" />
+                    <input type="text" class="val" placeholder="${window.Messages.strSecondValuePlaceholder}" />
+                </div>
+            `);
+        }
+    }
+
+    function showMultiFields (opSelect: JQuery<HTMLElement>) {
+        const critetiaRow: JQuery<HTMLElement> = opSelect.closest('table').find('.rhs_text');
+        const critetiaCol: JQuery<HTMLElement> = critetiaRow.find('td').last();
+        const criteriaInput: JQuery<HTMLElement> = critetiaCol.find('input').first();
+
+        if (critetiaCol.find('.multi').length === 0) {
+            critetiaCol.empty();
+
+            critetiaCol.append(`
+                <div class="options multi">
                     <div class="option">
                         <input type="text" class="val" placeholder="Enter an option" value="${criteriaInput.val()}" />
                         <input type="button" class="btn btn-secondary add-option" value="+" />
@@ -227,8 +253,6 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 </div>
             `);
         }
-
-        criteriaInput.remove();
     }
 
     $('body').on('click', 'input.add-option', function () {

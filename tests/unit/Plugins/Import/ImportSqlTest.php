@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -27,7 +28,7 @@ class ImportSqlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['error'] = null;
+        Import::$hasError = false;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
@@ -41,7 +42,7 @@ class ImportSqlTest extends AbstractTestCase
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         ImportSettings::$importFile = 'tests/test_data/pma_bookmark.sql';
-        $GLOBALS['import_text'] = 'ImportSql_Test';
+        Import::$importText = 'ImportSql_Test';
         ImportSettings::$readMultiply = 10;
 
         $this->object = new ImportSql();

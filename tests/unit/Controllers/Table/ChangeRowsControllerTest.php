@@ -23,7 +23,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$server = 2;
-        $GLOBALS['where_clause'] = null;
+        Current::$whereClause = null;
         $_POST = [];
     }
 
@@ -38,8 +38,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         (new ChangeRowsController(new ResponseRenderer(), $mock))($request);
 
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertSame([], $GLOBALS['where_clause']);
+        self::assertSame([], Current::$whereClause);
     }
 
     public function testWithoutRowsToDelete(): void
@@ -56,8 +55,7 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         self::assertSame(['message' => 'No row selected.'], $response->getJSONResult());
         self::assertFalse($response->hasSuccessState());
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertNull($GLOBALS['where_clause']);
+        self::assertNull(Current::$whereClause);
     }
 
     public function testWithRowsToDelete(): void
@@ -71,7 +69,6 @@ class ChangeRowsControllerTest extends AbstractTestCase
 
         (new ChangeRowsController(new ResponseRenderer(), $mock))($request);
 
-        /** @psalm-suppress InvalidArrayOffset */
-        self::assertSame(['row1', 'row2'], $GLOBALS['where_clause']);
+        self::assertSame(['row1', 'row2'], Current::$whereClause);
     }
 }

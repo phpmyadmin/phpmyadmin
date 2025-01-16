@@ -36,7 +36,6 @@ class ReplicationGuiTest extends AbstractTestCase
         //$_POST
         $_POST['primary_add_user'] = 'primary_add_user';
 
-        //$GLOBALS
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
         $config->settings['ServerDefault'] = 'server';

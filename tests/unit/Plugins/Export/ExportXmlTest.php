@@ -43,10 +43,10 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = false;
+        Export::$saveOnServer = false;
         ExportPlugin::$exportType = ExportType::Table;
         ExportPlugin::$singleTable = false;
         Current::$database = 'db';
@@ -171,8 +171,8 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['output_charset_conversion'] = 1;
-        $GLOBALS['charset'] = 'iso-8859-1';
+        Export::$outputCharsetConversion = true;
+        Current::$charset = 'iso-8859-1';
         $config = Config::getInstance();
         $config->selectedServer['port'] = 80;
         $config->selectedServer['host'] = 'localhost';
@@ -283,7 +283,7 @@ class ExportXmlTest extends AbstractTestCase
 
         // case 2 with isView as true and false
 
-        $GLOBALS['output_charset_conversion'] = 0;
+        Export::$outputCharsetConversion = false;
 
         $dbiDummy->addResult(
             'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
@@ -400,8 +400,8 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['output_charset_conversion'] = false;
+        Export::$asFile = true;
+        Export::$outputCharsetConversion = false;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['xml_export_contents' => 'On']);

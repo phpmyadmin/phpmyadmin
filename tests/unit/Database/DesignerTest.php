@@ -165,7 +165,7 @@ class DesignerTest extends AbstractTestCase
         $dbi = DatabaseInterface::getInstance();
         $this->designer = new Designer($dbi, new Relation($dbi), new Template());
 
-        $result = $this->designer->getHtmlForSchemaExport($db, $page);
+        $result = $this->designer->getHtmlForSchemaExport($db, $page, null, null);
         // export type
         self::assertStringContainsString('<select class="form-select" id="plugins" name="export_type">', $result);
 

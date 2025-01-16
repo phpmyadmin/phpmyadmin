@@ -28,7 +28,6 @@ class SelectTest extends AbstractTestCase
         $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
 
-        //$GLOBALS
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
         $config->settings['ServerDefault'] = 'server';

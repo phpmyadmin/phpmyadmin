@@ -111,9 +111,9 @@ class AuthenticationConfig extends AuthenticationPlugin
                     '</a>',
                 ) , '</p>' , "\n";
             } elseif (
-                ! isset($GLOBALS['errno'])
-                || $GLOBALS['errno'] != 2002
-                && $GLOBALS['errno'] != 2003
+                DatabaseInterface::$errorNumber === null
+                || DatabaseInterface::$errorNumber !== 2002
+                && DatabaseInterface::$errorNumber !== 2003
             ) {
                 // if we display the "Server not responding" error, do not confuse
                 // users by telling them they have a settings problem
