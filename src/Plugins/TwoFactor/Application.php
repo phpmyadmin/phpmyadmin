@@ -7,16 +7,18 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\TwoFactor;
 
+use chillerlan\Authenticator\Authenticator;
+use chillerlan\Authenticator\AuthenticatorOptions;
+use chillerlan\Authenticator\Authenticators\HOTP;
+use chillerlan\QRCode\Output\QROutputInterface;
+use chillerlan\QRCode\QRCode;
+use chillerlan\QRCode\QROptions;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactorPlugin;
 use PhpMyAdmin\TwoFactor;
-use PragmaRX\Google2FA\Exceptions\IncompatibleWithGoogleAuthenticatorException;
-use PragmaRX\Google2FA\Exceptions\InvalidCharactersException;
-use PragmaRX\Google2FA\Exceptions\SecretKeyTooShortException;
-use PragmaRX\Google2FAQRCode\Google2FA;
 
 use function __;
-use function extension_loaded;
+use function class_exists;
 
 /**
  * HOTP and TOTP based two-factor authentication
@@ -27,32 +29,86 @@ class Application extends TwoFactorPlugin
 {
     public static string $id = 'application';
 
-    protected Google2FA $google2fa;
+    protected Authenticator $authenticator;
 
     public function __construct(TwoFactor $twofactor)
     {
         parent::__construct($twofactor);
 
-        $this->google2fa = new Google2FA();
-        $this->google2fa->setWindow(8);
-        if (isset($this->twofactor->config['settings']['secret'])) {
-            return;
-        }
-
-        $this->twofactor->config['settings']['secret'] = '';
+        // init variables/set default values
+        $this->twofactor->config['settings']['secret'] ??= '';
+        $this->twofactor->config['settings']['backup_counter'] ??= 0;
+        // invoke the main TOTP authenticator instance
+        $this->authenticator = new Authenticator($this->getAuthenticatorOptions());
     }
 
-    public function getGoogle2fa(): Google2FA
+    /**
+     * Prepares an options instance for both, TOTP and HOTP authenticators
+     */
+    protected function getAuthenticatorOptions(): AuthenticatorOptions
     {
-        return $this->google2fa;
+        // any of these settings can be made optional via $this->twofactor->config['settings']
+        return new AuthenticatorOptions([
+            'secret_length' => 32,
+            'adjacent' => 1,
+            'time_offset' => 0,
+        ]);
+    }
+
+    /**
+     * Creates an HOTP code for the given counter value
+     */
+    protected function getBackupCode(int $counter): string
+    {
+        $options = $this->getAuthenticatorOptions();
+        // using 8 digits here to signify the difference to a TOTP code
+        $options->digits = 8;
+
+        return (new HOTP($options))
+            ->setSecret($this->twofactor->config['settings']['secret'])
+            ->code($counter);
+    }
+
+    /**
+     * Creates the URI for use with a mobile authenticator via QR Code
+     */
+    protected function getUri(): string
+    {
+        $issuer = 'phpMyAdmin (' . $this->getAppId(false) . ')';
+
+        return $this->authenticator
+            ->setSecret($this->twofactor->config['settings']['secret'])
+            ->getUri(label: $this->twofactor->user, issuer: $issuer, omitSettings: false);
+    }
+
+    /**
+     * Creates a QR Code for the given string
+     */
+    protected function getQRCode(string $data): string
+    {
+        $options = new QROptions([
+            'versionMin' => 7,
+            'quietzoneSize' => 2,
+            'outputType' => QROutputInterface::CUSTOM, // removed in php-qrcode v6
+            'outputInterface' => PmaQrCodeSVG::class,
+            'cssClass' => 'pma-2fa-qrcode',
+        ]);
+
+        return (new QRCode($options))
+            ->addByteSegment($data)
+            ->render();
+    }
+
+    /**
+     * Returns the authenticator instance (for use in tests)
+     */
+    public function getAuthenticator(): Authenticator
+    {
+        return $this->authenticator;
     }
 
     /**
      * Checks authentication, returns true on success
-     *
-     * @throws IncompatibleWithGoogleAuthenticatorException
-     * @throws InvalidCharactersException
-     * @throws SecretKeyTooShortException
      */
     public function check(ServerRequest $request): bool
     {
@@ -63,7 +119,9 @@ class Application extends TwoFactorPlugin
 
         $this->provided = true;
 
-        return (bool) $this->google2fa->verifyKey($this->twofactor->config['settings']['secret'], $_POST['2fa_code']);
+        return $this->authenticator
+            ->setSecret($this->twofactor->config['settings']['secret'])
+            ->verify($_POST['2fa_code']);
     }
 
     /**
@@ -83,32 +141,27 @@ class Application extends TwoFactorPlugin
      */
     public function setup(ServerRequest $request): string
     {
-        $secret = $this->twofactor->config['settings']['secret'];
-        $inlineUrl = $this->google2fa->getQRCodeInline(
-            'phpMyAdmin (' . $this->getAppId(false) . ')',
-            $this->twofactor->user,
-            $secret,
-        );
+        $uri = $this->getUri();
+        $qrcode = null;
+
+        if (class_exists(QRCode::class)) {
+            $qrcode = $this->getQRCode($uri);
+        }
 
         return $this->template->render('login/twofactor/application_configure', [
-            'image' => $inlineUrl,
-            'secret' => $secret,
-            'has_imagick' => extension_loaded('imagick'),
+            'uri' => $uri,
+            'qrcode' => $qrcode,
+            'secret' => $this->twofactor->config['settings']['secret'],
+            'backup' => $this->getBackupCode($this->twofactor->config['settings']['backup_counter']),
         ]);
     }
 
     /**
      * Performs backend configuration
-     *
-     * @throws IncompatibleWithGoogleAuthenticatorException
-     * @throws InvalidCharactersException
-     * @throws SecretKeyTooShortException
      */
     public function configure(ServerRequest $request): bool
     {
-        if (! isset($_SESSION['2fa_application_key'])) {
-            $_SESSION['2fa_application_key'] = $this->google2fa->generateSecretKey();
-        }
+        $_SESSION['2fa_application_key'] ??= $this->authenticator->createSecret();
 
         $this->twofactor->config['settings']['secret'] = $_SESSION['2fa_application_key'];
 
