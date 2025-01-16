@@ -21,11 +21,11 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function count;
+use function hash;
 use function is_array;
 use function json_decode;
 use function json_encode;
 use function md5;
-use function sha1;
 
 final class FavoriteTableController implements InvocableController
 {
@@ -56,7 +56,7 @@ final class FavoriteTableController implements InvocableController
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1($config->selectedServer['user']);
+        $user = hash('sha1', $config->selectedServer['user']);
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {

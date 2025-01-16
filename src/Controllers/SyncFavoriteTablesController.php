@@ -16,10 +16,10 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\ResponseRenderer;
 
+use function hash;
 use function is_array;
 use function json_decode;
 use function json_encode;
-use function sha1;
 
 final class SyncFavoriteTablesController implements InvocableController
 {
@@ -43,7 +43,7 @@ final class SyncFavoriteTablesController implements InvocableController
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1(Config::getInstance()->selectedServer['user']);
+        $user = hash('sha1', Config::getInstance()->selectedServer['user']);
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->favoriteTablesFeature !== null) {
