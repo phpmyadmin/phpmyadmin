@@ -272,7 +272,7 @@ class Transformations
      * @param bool   $strict   whether to include only results having a mimetype set
      * @param bool   $fullName whether to use full column names as the key
      *
-     * @psalm-return array<string, array{
+     * @return array<string, array{
      *     column_name: string,
      *     mimetype: string,
      *     transformation: string,
@@ -290,9 +290,8 @@ class Transformations
             return null;
         }
 
-        $comQry = '';
         if ($fullName) {
-            $comQry .= 'SELECT CONCAT(`db_name`, \'.\', `table_name`, \'.\', `column_name`) AS column_name, ';
+            $comQry = 'SELECT CONCAT(`db_name`, \'.\', `table_name`, \'.\', `column_name`) AS column_name, ';
         } else {
             $comQry = 'SELECT `column_name`, ';
         }

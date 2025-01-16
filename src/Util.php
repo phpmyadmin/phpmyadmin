@@ -893,8 +893,18 @@ class Util
      *
      * @param string $columnSpecification Column specification
      *
-     * @return mixed[] associative array containing type, spec_in_brackets
-     *          and possibly enum_set_values (another array)
+     * @return array{
+     *  type : string,
+     *  spec_in_brackets : string,
+     *  enum_set_values : string[],
+     *  print_type : string,
+     *  binary : bool,
+     *  unsigned : bool,
+     *  zerofill : bool,
+     *  attribute : string,
+     *  can_contain_collation : bool,
+     *  displayed_type : string,
+     * }
      */
     public static function extractColumnSpec(string $columnSpecification): array
     {
