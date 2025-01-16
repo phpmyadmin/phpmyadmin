@@ -51,10 +51,10 @@ class SqlTest extends AbstractTestCase
         $config->settings['AllowThirdPartyFraming'] = false;
         $config->settings['SendErrorReports'] = 'ask';
         $config->settings['ServerDefault'] = 1;
-        $config->settings['DefaultTabDatabase'] = 'structure';
-        $config->settings['DefaultTabTable'] = 'browse';
+        $config->settings['DefaultTabDatabase'] = '/database/structure';
+        $config->settings['DefaultTabTable'] = '/sql';
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
-        $config->settings['NavigationTreeDefaultTabTable'] = 'structure';
+        $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
         $config->settings['NavigationTreeDefaultTabTable2'] = '';
         $config->settings['LimitChars'] = 50;
         $config->settings['Confirm'] = true;

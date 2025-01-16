@@ -137,7 +137,7 @@ class Generator
             $database = Current::$database;
         }
 
-        $scriptName = Util::getScriptNameForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database');
+        $scriptName = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
 
         return '<a href="'
             . $scriptName

@@ -39,7 +39,6 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\UserPrivilegesFactory;
-use PhpMyAdmin\Util;
 
 use function __;
 use function _ngettext;
@@ -1203,7 +1202,7 @@ class NavigationTree
 
         $nodes = $this->renderNodes($userPrivileges, $children);
 
-        $databaseUrl = Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database');
+        $databaseUrl = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
 
         return $this->template->render('navigation/tree/database_select', [
             'quick_warp' => $quickWarp,

@@ -1514,10 +1514,7 @@ class PrivilegesTest extends AbstractTestCase
         );
         $config = Config::getInstance();
         self::assertStringContainsString(
-            Util::getScriptNameForOption(
-                $config->settings['DefaultTabDatabase'],
-                'database',
-            ),
+            Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']),
             $actual,
         );
         $item = Url::getCommon(['db' => 'sakila', 'reload' => 1], '');
@@ -1530,17 +1527,14 @@ class PrivilegesTest extends AbstractTestCase
             $actual,
         );
         self::assertStringContainsString(
-            Util::getScriptNameForOption(
-                $config->settings['DefaultTabTable'],
-                'table',
-            ),
+            Url::getFromRoute($config->settings['DefaultTabTable']),
             $actual,
         );
         $item = Url::getCommon(['db' => 'sakila', 'table' => 'actor', 'reload' => 1], '');
         self::assertStringContainsString($item, $actual);
         self::assertStringContainsString('table', $actual);
         $item = Util::getTitleForTarget($config->settings['DefaultTabTable']);
-        self::assertStringContainsString((string) $item, $actual);
+        self::assertStringContainsString($item, $actual);
     }
 
     public function testGetHtmlForUserOverview(): void

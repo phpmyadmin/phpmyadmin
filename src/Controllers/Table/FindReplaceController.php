@@ -18,6 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
@@ -169,10 +170,7 @@ final class FindReplaceController implements InvocableController
     private function displaySelectionFormAction(): void
     {
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
+            UrlParams::$goto = Url::getFromRoute(Config::getInstance()->settings['DefaultTabTable']);
         }
 
         $types = [];

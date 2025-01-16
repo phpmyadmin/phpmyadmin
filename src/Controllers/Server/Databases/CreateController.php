@@ -82,7 +82,7 @@ final class CreateController implements InvocableController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($newDb);
 
-            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $scriptName = Url::getFromRoute($config->settings['DefaultTabDatabase']);
 
             $json = [
                 'message' => $message,

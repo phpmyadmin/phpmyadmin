@@ -20,6 +20,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UniqueCondition;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
@@ -177,7 +178,7 @@ final class ZoomSearchController implements InvocableController
         }
 
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
         }
 
         $this->zoomSubmitAction($dataLabel, UrlParams::$goto);
@@ -245,7 +246,7 @@ final class ZoomSearchController implements InvocableController
     {
         $config = Config::getInstance();
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;

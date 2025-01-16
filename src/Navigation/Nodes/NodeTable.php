@@ -10,7 +10,6 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
 use PhpMyAdmin\Util;
 
@@ -35,30 +34,25 @@ class NodeTable extends NodeDatabaseChild
     {
         parent::__construct($config, $name);
 
-        $icon = $this->addIcon(
-            Util::getScriptNameForOption($this->config->settings['NavigationTreeDefaultTabTable'], 'table'),
-        );
+        $icon = $this->addIcon($this->config->settings['NavigationTreeDefaultTabTable']);
         if ($icon !== null) {
             $this->icon = $icon;
         }
 
-        $this->secondIcon = $this->addIcon(
-            Util::getScriptNameForOption($this->config->settings['NavigationTreeDefaultTabTable2'], 'table'),
-        );
-        $title = (string) Util::getTitleForTarget($this->config->settings['DefaultTabTable']);
-        $this->title = $title;
+        $this->secondIcon = $this->addIcon($this->config->settings['NavigationTreeDefaultTabTable2']);
+        $this->title = Util::getTitleForTarget($this->config->settings['DefaultTabTable']);
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption($this->config->settings['DefaultTabTable'], 'table'),
+                'route' => $this->config->settings['DefaultTabTable'],
                 'params' => ['pos' => 0, 'db' => null, 'table' => null],
             ],
             'icon' => [
-                'route' => Util::getUrlForOption($this->config->settings['NavigationTreeDefaultTabTable'], 'table'),
+                'route' => $this->config->settings['NavigationTreeDefaultTabTable'],
                 'params' => ['db' => null, 'table' => null],
             ],
             'second_icon' => [
-                'route' => Util::getUrlForOption($this->config->settings['NavigationTreeDefaultTabTable2'], 'table'),
+                'route' => $this->config->settings['NavigationTreeDefaultTabTable2'],
                 'params' => ['db' => null, 'table' => null],
             ],
             'title' => $this->title,
@@ -273,19 +267,18 @@ class NodeTable extends NodeDatabaseChild
     /**
      * Add an icon to navigation tree
      *
-     * @param string $page Page name to redirect
+     * @param '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure'|'' $page Page name to redirect
      *
-     * @return array<string, string>|null
-     * @psalm-return array{image: string, title: string}|null
+     * @return array{image: string, title: string}|null
      */
     private function addIcon(string $page): array|null
     {
         return match ($page) {
-            Url::getFromRoute('/table/structure') => ['image' => 'b_props', 'title' => __('Structure')],
-            Url::getFromRoute('/table/search') => ['image' => 'b_search', 'title' => __('Search')],
-            Url::getFromRoute('/table/change') => ['image' => 'b_insrow', 'title' => __('Insert')],
-            Url::getFromRoute('/table/sql') => ['image' => 'b_sql', 'title' => __('SQL')],
-            Url::getFromRoute('/sql') => ['image' => 'b_browse', 'title' => __('Browse')],
+            '/table/structure' => ['image' => 'b_props', 'title' => __('Structure')],
+            '/table/search' => ['image' => 'b_search', 'title' => __('Search')],
+            '/table/change' => ['image' => 'b_insrow', 'title' => __('Insert')],
+            '/table/sql' => ['image' => 'b_sql', 'title' => __('SQL')],
+            '/sql' => ['image' => 'b_browse', 'title' => __('Browse')],
             default => null,
         };
     }

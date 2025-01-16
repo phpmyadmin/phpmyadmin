@@ -69,10 +69,10 @@ class SqlQueryFormTest extends AbstractTestCase
         $config->settings['TextareaAutoSelect'] = true;
         $config->settings['TextareaRows'] = 100;
         $config->settings['TextareaCols'] = 11;
-        $config->settings['DefaultTabDatabase'] = 'structure';
+        $config->settings['DefaultTabDatabase'] = '/database/structure';
         $config->settings['RetainQueryBox'] = true;
         $config->settings['ActionLinksMode'] = 'both';
-        $config->settings['DefaultTabTable'] = 'browse';
+        $config->settings['DefaultTabTable'] = '/sql';
         $config->settings['CodemirrorEnable'] = true;
         $config->settings['DefaultForeignKeyChecks'] = 'default';
 

@@ -9553,6 +9553,15 @@ parameters:
 			path: src/Navigation/NavigationTree.php
 
 		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Navigation/NavigationTree.php
+
+		-
 			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -20487,7 +20496,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 10
+			count: 11
 			path: tests/unit/Server/PrivilegesTest.php
 
 		-

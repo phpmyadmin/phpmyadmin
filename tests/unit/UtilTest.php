@@ -701,17 +701,20 @@ class UtilTest extends AbstractTestCase
     /**
      * Data provider for testGetTitleForTarget
      *
-     * @return mixed[]
+     * @return string[][]
      */
     public static function providerGetTitleForTarget(): array
     {
         return [
-            ['structure', __('Structure')],
-            ['sql', __('SQL')],
-            ['search', __('Search')],
-            ['insert', __('Insert')],
-            ['browse', __('Browse')],
-            ['operations', __('Operations')],
+            ['/table/structure', __('Structure')],
+            ['/table/sql', __('SQL')],
+            ['/table/search', __('Search')],
+            ['/table/change', __('Insert')],
+            ['/sql', __('Browse')],
+            ['/database/operations', __('Operations')],
+            ['/database/structure', __('Structure')],
+            ['/database/sql', __('SQL')],
+            ['/database/search', __('Search')],
         ];
     }
 
@@ -1219,120 +1222,6 @@ SQL;
 
         self::assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $dbiDummy->assertAllQueriesConsumed();
-    }
-
-    /** @return mixed[][] */
-    public static function dataProviderScriptNames(): array
-    {
-        // target
-        // location
-        // function output
-        return [
-            [
-                'structure', // Notice the typo on db_structure.php
-                'databasesss',
-                'index.php?route=/&lang=en', // Fallback to the base route
-            ],
-            [
-                'db_structures.php', // Notice the typo on databases
-                'database',
-                'index.php?route=/&lang=en', // Fallback to the base route
-            ],
-            [
-                'tbl_structure.php', // Support the legacy value
-                'table',
-                'index.php?route=/table/structure&lang=en',
-            ],
-            ['structure', 'table', 'index.php?route=/table/structure&lang=en'],
-            [
-                'tbl_sql.php', // Support the legacy value
-                'table',
-                'index.php?route=/table/sql&lang=en',
-            ],
-            ['sql', 'table', 'index.php?route=/table/sql&lang=en'],
-            [
-                'tbl_select.php', // Support the legacy value
-                'table',
-                'index.php?route=/table/search&lang=en',
-            ],
-            ['search', 'table', 'index.php?route=/table/search&lang=en'],
-            [
-                'tbl_change.php', // Support the legacy value
-                'table',
-                'index.php?route=/table/change&lang=en',
-            ],
-            ['insert', 'table', 'index.php?route=/table/change&lang=en'],
-            [
-                'sql.php', // Support the legacy value
-                'table',
-                'index.php?route=/sql&lang=en',
-            ],
-            ['browse', 'table', 'index.php?route=/sql&lang=en'],
-            [
-                'db_structure.php', // Support the legacy value
-                'database',
-                'index.php?route=/database/structure&lang=en',
-            ],
-            ['structure', 'database', 'index.php?route=/database/structure&lang=en'],
-            [
-                'db_sql.php', // Support the legacy value
-                'database',
-                'index.php?route=/database/sql&lang=en',
-            ],
-            ['sql', 'database', 'index.php?route=/database/sql&lang=en'],
-            [
-                'db_search.php', // Support the legacy value
-                'database',
-                'index.php?route=/database/search&lang=en',
-            ],
-            ['search', 'database', 'index.php?route=/database/search&lang=en'],
-            [
-                'db_operations.php', // Support the legacy value
-                'database',
-                'index.php?route=/database/operations&lang=en',
-            ],
-            ['operations', 'database', 'index.php?route=/database/operations&lang=en'],
-            [
-                'index.php', // Support the legacy value
-                'server',
-                'index.php?route=/&lang=en',
-            ],
-            ['welcome', 'server', 'index.php?route=/&lang=en'],
-            [
-                'server_databases.php', // Support the legacy value
-                'server',
-                'index.php?route=/server/databases&lang=en',
-            ],
-            ['databases', 'server', 'index.php?route=/server/databases&lang=en'],
-            [
-                'server_status.php', // Support the legacy value
-                'server',
-                'index.php?route=/server/status&lang=en',
-            ],
-            ['status', 'server', 'index.php?route=/server/status&lang=en'],
-            [
-                'server_variables.php', // Support the legacy value
-                'server',
-                'index.php?route=/server/variables&lang=en',
-            ],
-            ['variables', 'server', 'index.php?route=/server/variables&lang=en'],
-            [
-                'server_privileges.php', // Support the legacy value
-                'server',
-                'index.php?route=/server/privileges&lang=en',
-            ],
-            ['privileges', 'server', 'index.php?route=/server/privileges&lang=en'],
-        ];
-    }
-
-    #[DataProvider('dataProviderScriptNames')]
-    public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
-    {
-        Current::$lang = 'en';
-        self::assertSame(
-            $finalLink,
-            Util::getScriptNameForOption($target, $location),
-        );
     }
 
     public function testShowIcons(): void

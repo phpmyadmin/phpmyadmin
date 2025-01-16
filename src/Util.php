@@ -1032,126 +1032,18 @@ class Util
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
      *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
-     *
-     * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget(string $target): string|bool
+    public static function getTitleForTarget(string $target): string
     {
-        $mapping = [
-            'structure' => __('Structure'),
-            'sql' => __('SQL'),
-            'search' => __('Search'),
-            'insert' => __('Insert'),
-            'browse' => __('Browse'),
-            'operations' => __('Operations'),
-        ];
-
-        return $mapping[$target] ?? false;
-    }
-
-    /**
-     * Get the script name corresponding to a plain English config word
-     * in order to append in links on navigation and main panel
-     *
-     * @param string $target   a valid value for
-     *                         $cfg['NavigationTreeDefaultTabTable'],
-     *                         $cfg['NavigationTreeDefaultTabTable2'],
-     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                         $cfg['DefaultTabServer']
-     * @param string $location one out of 'server', 'table', 'database'
-     *
-     * @return string script name corresponding to the config word
-     */
-    public static function getScriptNameForOption(string $target, string $location): string
-    {
-        return Url::getFromRoute(self::getUrlForOption($target, $location));
-    }
-
-    /**
-     * Get the URL corresponding to a plain English config word
-     * in order to append in links on navigation and main panel
-     *
-     * @param string $target   a valid value for
-     *                         $cfg['NavigationTreeDefaultTabTable'],
-     *                         $cfg['NavigationTreeDefaultTabTable2'],
-     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                         $cfg['DefaultTabServer']
-     * @param string $location one out of 'server', 'table', 'database'
-     *
-     * @return string The URL corresponding to the config word
-     */
-    public static function getUrlForOption(string $target, string $location): string
-    {
-        if ($location === 'server') {
-            // Values for $cfg['DefaultTabServer']
-            switch ($target) {
-                case 'welcome':
-                case 'index.php':
-                    return '/';
-
-                case 'databases':
-                case 'server_databases.php':
-                    return '/server/databases';
-
-                case 'status':
-                case 'server_status.php':
-                    return '/server/status';
-
-                case 'variables':
-                case 'server_variables.php':
-                    return '/server/variables';
-
-                case 'privileges':
-                case 'server_privileges.php':
-                    return '/server/privileges';
-            }
-        } elseif ($location === 'database') {
-            // Values for $cfg['DefaultTabDatabase']
-            switch ($target) {
-                case 'structure':
-                case 'db_structure.php':
-                    return '/database/structure';
-
-                case 'sql':
-                case 'db_sql.php':
-                    return '/database/sql';
-
-                case 'search':
-                case 'db_search.php':
-                    return '/database/search';
-
-                case 'operations':
-                case 'db_operations.php':
-                    return '/database/operations';
-            }
-        } elseif ($location === 'table') {
-            // Values for $cfg['DefaultTabTable'],
-            // $cfg['NavigationTreeDefaultTabTable'] and
-            // $cfg['NavigationTreeDefaultTabTable2']
-            switch ($target) {
-                case 'structure':
-                case 'tbl_structure.php':
-                    return '/table/structure';
-
-                case 'sql':
-                case 'tbl_sql.php':
-                    return '/table/sql';
-
-                case 'search':
-                case 'tbl_select.php':
-                    return '/table/search';
-
-                case 'insert':
-                case 'tbl_change.php':
-                    return '/table/change';
-
-                case 'browse':
-                case 'sql.php':
-                    return '/sql';
-            }
-        }
-
-        return '/';
+        return match ($target) {
+            '/table/structure', '/database/structure' => __('Structure'),
+            '/table/sql', '/database/sql' => __('SQL'),
+            '/table/search', '/database/search' => __('Search'),
+            '/table/change' => __('Insert'),
+            '/sql' => __('Browse'),
+            '/database/operations' => __('Operations'),
+            default => '',
+        };
     }
 
     /**

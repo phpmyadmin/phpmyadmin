@@ -12,7 +12,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -47,10 +47,7 @@ class GeneratorTest extends AbstractTestCase
         $database = Current::$database;
         self::assertSame(
             '<a href="'
-            . Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            )
+            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
             . '&db=' . $database
             . '&server=99&lang=en" '
             . 'title="Jump to database “'
@@ -68,10 +65,7 @@ class GeneratorTest extends AbstractTestCase
         Current::$server = 99;
         $database = 'test_database';
         self::assertSame(
-            '<a href="' . Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            )
+            '<a href="' . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
             . '&db=' . $database
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
@@ -89,10 +83,7 @@ class GeneratorTest extends AbstractTestCase
         $database = 'test&data\'base';
         self::assertSame(
             '<a href="'
-            . Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            )
+            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
             . '&db='
             . htmlspecialchars(urlencode($database))
             . '&server=99&lang=en" title="Jump to database “'

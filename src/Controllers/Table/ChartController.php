@@ -22,7 +22,6 @@ use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
-use PhpMyAdmin\Util;
 
 use function __;
 use function array_keys;
@@ -107,11 +106,11 @@ final class ChartController implements InvocableController
                 return $this->response->response();
             }
 
-            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabTable']);
             $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb(Current::$database);
         } elseif (Current::$database !== '') {
-            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabDatabase']);
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -128,7 +127,7 @@ final class ChartController implements InvocableController
                 return $this->response->response();
             }
         } else {
-            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
+            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabServer']);
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             if ($this->dbi->isSuperUser()) {
