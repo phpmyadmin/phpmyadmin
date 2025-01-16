@@ -185,7 +185,6 @@ final class LanguageManagerTest extends AbstractTestCase
         $config = new Config();
         $config->set('FilterLanguages', '');
         $config->set('Lang', $lang);
-        $config->set('is_https', false);
         $_POST['lang'] = $post;
         $_GET['lang'] = $get;
         $_COOKIE['pma_lang'] = $cookie;

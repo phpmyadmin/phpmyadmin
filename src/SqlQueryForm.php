@@ -115,7 +115,7 @@ class SqlQueryForm
             'has_bookmark' => $bookmarkFeature !== null,
             'delimiter' => $delimiter,
             'retain_query_box' => $this->config->settings['RetainQueryBox'] !== false,
-            'is_upload' => $this->config->get('enable_upload'),
+            'is_upload' => $this->config->isUploadEnabled(),
             'db' => $db,
             'table' => $table,
             'goto' => $goto,
@@ -124,7 +124,7 @@ class SqlQueryForm
             'bookmarks' => $bookmarks,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
+            'allow_shared_bookmarks' => $this->config->config->AllowSharedBookmarks,
         ]);
     }
 

@@ -139,7 +139,7 @@ final class HomeController implements InvocableController
         }
 
         $availableLanguages = [];
-        if (empty($config->settings['Lang']) && $languageManager->hasChoice()) {
+        if ($config->config->Lang === '' && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
@@ -214,7 +214,7 @@ final class HomeController implements InvocableController
 
         $this->checkRequirements();
 
-        $git = new Git($this->config->get('ShowGitRevision') ?? true);
+        $git = new Git($this->config->config->ShowGitRevision);
 
         $this->response->render('home/index', [
             'db' => Current::$database,
@@ -384,7 +384,7 @@ final class HomeController implements InvocableController
                         'phpMyAdmin is not able to cache templates and will ' .
                         'be slow because of this.',
                     ),
-                    $this->config->get('TempDir'),
+                    $this->config->config->TempDir,
                 ),
                 'severity' => 'warning',
             ];

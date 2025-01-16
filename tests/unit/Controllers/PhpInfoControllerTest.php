@@ -47,7 +47,7 @@ final class PhpInfoControllerTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->settings['ShowPhpInfo'] = false;
-        $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
+        $config->set('PmaAbsoluteUri', 'http://localhost/phpmyadmin');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/');
 

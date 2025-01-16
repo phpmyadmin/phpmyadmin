@@ -61,7 +61,6 @@ use const VERSION_CHECK_DEFAULT;
  *     MaxTableList: int<1, max>,
  *     ShowHint: bool,
  *     MaxCharactersInDisplayedSQL: int<1, max>,
- *     OBGzip: 'auto'|bool,
  *     PersistentConnections: bool,
  *     ExecTimeLimit: int<0, max>,
  *     SessionSavePath: string,
@@ -503,19 +502,6 @@ final class Settings
      * @psalm-var positive-int
      */
     public int $MaxCharactersInDisplayedSQL;
-
-    /**
-     * use GZIP output buffering if possible (true|false|'auto')
-     *
-     * ```php
-     * $cfg['OBGzip'] = 'auto';
-     * ```
-     *
-     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_OBGzip
-     *
-     * @psalm-var 'auto'|bool
-     */
-    public string|bool $OBGzip;
 
     /**
      * use persistent connections to MySQL database
@@ -2646,7 +2632,6 @@ final class Settings
         $this->MaxTableList = $this->setMaxTableList($settings);
         $this->ShowHint = $this->setShowHint($settings);
         $this->MaxCharactersInDisplayedSQL = $this->setMaxCharactersInDisplayedSQL($settings);
-        $this->OBGzip = $this->setOBGzip($settings);
         $this->PersistentConnections = $this->setPersistentConnections($settings);
         $this->ExecTimeLimit = $this->setExecTimeLimit($settings);
         $this->SessionSavePath = $this->setSessionSavePath($settings);
@@ -2844,7 +2829,6 @@ final class Settings
             'MaxTableList' => $this->MaxTableList,
             'ShowHint' => $this->ShowHint,
             'MaxCharactersInDisplayedSQL' => $this->MaxCharactersInDisplayedSQL,
-            'OBGzip' => $this->OBGzip,
             'PersistentConnections' => $this->PersistentConnections,
             'ExecTimeLimit' => $this->ExecTimeLimit,
             'SessionSavePath' => $this->SessionSavePath,
@@ -3290,20 +3274,6 @@ final class Settings
         $maxCharactersInDisplayedSQL = (int) $settings['MaxCharactersInDisplayedSQL'];
 
         return $maxCharactersInDisplayedSQL >= 1 ? $maxCharactersInDisplayedSQL : 1000;
-    }
-
-    /**
-     * @param array<int|string, mixed> $settings
-     *
-     * @psalm-return 'auto'|bool
-     */
-    private function setOBGzip(array $settings): bool|string
-    {
-        if (! isset($settings['OBGzip']) || $settings['OBGzip'] === 'auto') {
-            return 'auto';
-        }
-
-        return (bool) $settings['OBGzip'];
     }
 
     /** @param array<int|string, mixed> $settings */
