@@ -1003,8 +1003,8 @@ class Import
         $import_notice = null;
 
         /* Take care of the options */
-        $collation = $options['db_collation'] ?? 'utf8_general_ci';
-        $charset = $options['db_charset'] ?? 'utf8';
+        $collation = 'utf8_general_ci';
+        $charset = 'utf8';
         $createDb = $options['create_db'] ?? true;
 
         /**
@@ -1106,8 +1106,7 @@ class Import
                     $tempSQLStr .= ', ';
                 }
 
-                $tempSQLStr .= ') DEFAULT CHARACTER SET ' . $charset
-                    . ' COLLATE ' . $collation . ';';
+                $tempSQLStr .= ');';
 
                 /**
                  * Each SQL statement is executed immediately
