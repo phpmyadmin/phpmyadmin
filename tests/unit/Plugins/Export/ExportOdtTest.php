@@ -594,7 +594,7 @@ class ExportOdtTest extends AbstractTestCase
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $column = new Column('fieldname', '', false, '', null, '');
+        $column = new Column('fieldname', '', null, false, '', null, '', '', '');
         $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
@@ -675,7 +675,7 @@ class ExportOdtTest extends AbstractTestCase
                 ['field' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
             );
 
-        $column = new Column('fieldname', '', false, '', null, '');
+        $column = new Column('fieldname', '', null, false, '', null, '', '', '');
         $dbi->expects(self::once())
             ->method('getColumns')
             ->with('database', '')
@@ -868,7 +868,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         $method = new ReflectionMethod(ExportOdt::class, 'formatOneColumnDefinition');
 
-        $column = new Column('field', 'set(abc)enum123', true, 'PRI', null, '');
+        $column = new Column('field', 'set(abc)enum123', null, true, 'PRI', null, '', '', '');
 
         $colAlias = 'alias';
 
@@ -882,7 +882,7 @@ class ExportOdtTest extends AbstractTestCase
             $method->invoke($this->object, $column, $colAlias),
         );
 
-        $column = new Column('fields', '', false, 'COMP', 'def', '');
+        $column = new Column('fields', '', null, false, 'COMP', 'def', '', '', '');
 
         self::assertSame(
             '<table:table-row><table:table-cell office:value-type="string">' .

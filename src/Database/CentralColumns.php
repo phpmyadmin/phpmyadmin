@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Database;
 
 use PhpMyAdmin\Charsets;
-use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
@@ -212,15 +212,15 @@ class CentralColumns
      * build the insert query for central columns list given PMA storage
      * db, central_columns table, column name and corresponding definition to be added
      *
-     * @param ColumnFull $def              list of attributes of the column being added
-     * @param string     $db               PMA configuration storage database name
-     * @param string     $centralListTable central columns configuration storage table name
+     * @param Column $def              list of attributes of the column being added
+     * @param string $db               PMA configuration storage database name
+     * @param string $centralListTable central columns configuration storage table name
      *
      * @return string query string to insert the given column
      * with definition into central list
      */
     private function getInsertQuery(
-        ColumnFull $def,
+        Column $def,
         string $db,
         string $centralListDb,
         string $centralListTable,
@@ -273,7 +273,7 @@ class CentralColumns
             $cols = [];
             $fields = [];
             foreach ($fieldSelect as $table) {
-                $fields[$table] = $this->dbi->getColumns($databaseName->getName(), $table, true);
+                $fields[$table] = $this->dbi->getColumns($databaseName->getName(), $table);
                 $cols = array_merge($cols, array_column($fields[$table], 'field'));
             }
 
@@ -299,7 +299,7 @@ class CentralColumns
             foreach ($fieldSelect as $column) {
                 if (! in_array($column, $hasList, true)) {
                     $hasList[] = $column;
-                    $field = $this->dbi->getColumn($databaseName->getName(), $containingTable, $column, true);
+                    $field = $this->dbi->getColumn($databaseName->getName(), $containingTable, $column);
                     $insQuery[] = $this->getInsertQuery(
                         $field,
                         $databaseName->getName(),
@@ -529,7 +529,7 @@ class CentralColumns
         $centralListDb = $cfgCentralColumns['db'];
         $centralTable = $cfgCentralColumns['table'];
         if ($origColName === '') {
-            $def = new ColumnFull(
+            $def = new Column(
                 $colName,
                 $colType . ($colLength !== '' ? '(' . $colLength . ')' : ''),
                 $collation,

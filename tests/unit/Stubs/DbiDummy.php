@@ -434,30 +434,42 @@ class DbiDummy implements DbiExtension
             ['query' => 'SHOW TABLES FROM `pma_test`;', 'result' => [['table1'], ['table2']]],
             ['query' => 'SHOW TABLES FROM `pmadb`', 'result' => [['column_info']]],
             [
-                'query' => 'SHOW COLUMNS FROM `pma_test`.`table1`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND `TABLE_NAME` COLLATE utf8_bin = \'table1\'',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
-                    ['i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
-                    ['o', 'int(11)', 'NO', 'MUL', 'NULL', ''],
+                    ['i', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
+                    ['o', 'int(11)', null, 'NO', 'MUL', 'NULL', '', '', ''],
                 ],
             ],
             ['query' => 'SHOW INDEXES FROM `pma_test`.`table1` WHERE (Non_unique = 0)', 'result' => []],
             [
-                'query' => 'SHOW COLUMNS FROM `pma_test`.`table2`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND `TABLE_NAME` COLLATE utf8_bin = \'table2\'',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
-                    ['i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
-                    ['o', 'int(11)', 'NO', 'MUL', 'NULL', ''],
+                    ['i', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
+                    ['o', 'int(11)', null, 'NO', 'MUL', 'NULL', '', '', ''],
                 ],
             ],
             ['query' => 'SHOW INDEXES FROM `pma_test`.`table1`', 'result' => []],
             ['query' => 'SHOW INDEXES FROM `pma_test`.`table2`', 'result' => []],
             [
-                'query' => 'SHOW COLUMNS FROM `pma`.`table1`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma\' AND `TABLE_NAME` COLLATE utf8_bin = \'table1\'',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
-                    ['i', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
-                    ['o', 'varchar(100)', 'NO', 'MUL', 'NULL', ''],
+                    ['i', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
+                    ['o', 'varchar(100)', null, 'NO', 'MUL', 'NULL', '', '', ''],
                 ],
             ],
             [
@@ -1338,7 +1350,14 @@ class DbiDummy implements DbiExtension
                 'columns' => ['Table_priv'],
                 'result' => [['Select,Insert,Update,References,Create View,Show view']],
             ],
-            ['query' => 'SHOW COLUMNS FROM `my_db`.`test_tbl`', 'result' => []],
+            [
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'my_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_tbl\'',
+                'result' => [],
+            ],
             [
                 'query' => 'SHOW COLUMNS FROM `mysql`.`tables_priv` LIKE \'Table_priv\';',
                 'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
@@ -1351,6 +1370,19 @@ class DbiDummy implements DbiExtension
                     ['id', 'int(11)', 'NO', 'PRI', null, 'auto_increment'],
                     ['name', 'varchar(20)', 'NO', '', null, ''],
                     ['datetimefield', 'datetime', 'NO', '', null, ''],
+                ],
+            ],
+            [
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'PMA_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'PMA_table\'',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+                'result' => [
+                    ['id', 'int(11)', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
+                    ['name', 'varchar(20)', null, 'NO', '', null, '', '', ''],
+                    ['datetimefield', 'datetime', null, 'NO', '', null, '', '', ''],
                 ],
             ],
             [
@@ -1455,9 +1487,13 @@ class DbiDummy implements DbiExtension
             ],
             ['query' => 'SHOW ALL SLAVES STATUS', 'result' => []],
             [
-                'query' => 'SHOW COLUMNS FROM `mysql`.`user`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
-                'result' => [['host', 'char(60)', 'NO', '', null, '']],
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mysql\' AND `TABLE_NAME` COLLATE utf8_bin = \'user\'',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+                'result' => [['host', 'char(60)', null, 'NO', '', null, '', '', '']],
             ],
             ['query' => 'SHOW INDEXES FROM `mysql`.`user`', 'result' => []],
             ['query' => 'SHOW INDEXES FROM `my_db`.`test_tbl`', 'result' => []],
@@ -1578,7 +1614,11 @@ class DbiDummy implements DbiExtension
                 'result' => [['_id', 'tinyint(4)', null, 'NO', '', null, '', 'select,insert,update,references', '']],
             ],
             [
-                'query' => 'SHOW FULL COLUMNS FROM `testdb`.`mytable`',
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'testdb\' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\'',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['aid', 'tinyint(4)', null, 'NO', 'PRI', null, '', 'select,insert,update,references', ''],
@@ -1616,7 +1656,29 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
+                'query' => 'SELECT `COLUMN_NAME`, `COLUMN_TYPE` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\'',
+                'columns' => ['COLUMN_NAME', 'COLUMN_TYPE'],
+                'result' => [
+                    ['id', 'int(11)'],
+                    ['name', 'varchar(20)'],
+                    ['datetimefield', 'datetime'],
+                ],
+            ],
+            [
                 'query' => 'SHOW FULL COLUMNS FROM `test_db`.`test_table`',
+                'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
+                'result' => [
+                    ['id', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
+                    ['name', 'varchar(20)', null, 'NO', '', 'NULL', '', '', ''],
+                    ['datetimefield', 'datetime', null, 'NO', '', 'NULL', '', '', ''],
+                ],
+            ],
+            [
+                'query' => 'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                    . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                    . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
+                    . ' FROM `information_schema`.`COLUMNS`'
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\'',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['id', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],

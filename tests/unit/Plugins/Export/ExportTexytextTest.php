@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\Column;
-use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -289,14 +288,12 @@ class ExportTexytextTest extends AbstractTestCase
             ->method('fetchValue')
             ->willReturn('SELECT a FROM b');
 
-        $column = new Column('fname', '', false, '', null, '');
-        $columnFull = new ColumnFull('fname', '', null, false, '', null, '', '', 'comm');
+        $columnFull = new Column('fname', '', null, false, '', null, '', '', 'comm');
 
         $dbi->expects(self::exactly(2))
             ->method('getColumns')
             ->willReturnMap([
-                ['db', 'table', false, ConnectionType::User, [$column]],
-                ['db', 'table', true, ConnectionType::User, [$columnFull]],
+                ['db', 'table', ConnectionType::User, [$columnFull]],
             ]);
 
         DatabaseInterface::$instance = $dbi;
@@ -309,7 +306,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         $this->object->expects(self::exactly(1))
             ->method('formatOneColumnDefinition')
-            ->with($column, ['cname'])
+            ->with($columnFull, ['cname'])
             ->willReturn('1');
 
         $relationParameters = RelationParameters::fromArray([
@@ -421,7 +418,7 @@ class ExportTexytextTest extends AbstractTestCase
 
     public function testFormatOneColumnDefinition(): void
     {
-        $cols = new Column('field', 'set(abc)enum123', true, 'PRI', null, '');
+        $cols = new Column('field', 'set(abc)enum123', null, true, 'PRI', null, '', '', '');
 
         $uniqueKeys = ['field'];
 
@@ -430,7 +427,7 @@ class ExportTexytextTest extends AbstractTestCase
             $this->object->formatOneColumnDefinition($cols, $uniqueKeys),
         );
 
-        $cols = new Column('fields', '', false, 'COMP', 'def', '');
+        $cols = new Column('fields', '', null, false, 'COMP', 'def', '', '', '');
 
         $uniqueKeys = ['field'];
 

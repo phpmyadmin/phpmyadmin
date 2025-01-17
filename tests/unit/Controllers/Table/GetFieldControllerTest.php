@@ -36,9 +36,18 @@ class GetFieldControllerTest extends AbstractTestCase
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
         $dummyDbi->addResult(
-            'SHOW COLUMNS FROM `test_db`.`table_with_blob`',
-            [['id', 'int(11)', 'NO', 'PRI', null, 'auto_increment'], ['file', 'blob', 'NO', '', null, '']],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'table_with_blob\'',
+            [
+                ['id', 'int(11)', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
+                ['file', 'blob', null, 'NO', '', null, '', '', ''],
+            ],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $dummyDbi->addResult(
             'SHOW INDEXES FROM `test_db`.`table_with_blob`',

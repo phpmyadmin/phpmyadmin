@@ -538,7 +538,13 @@ class SqlTest extends AbstractTestCase
         );
         $this->dummyDbi->addResult('SELECT COUNT(*) FROM `sakila`.`country`', [['109']]);
         $this->dummyDbi->addResult(
-            'SHOW FULL COLUMNS FROM `sakila`.`country`',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'country\'',
             [
                 [
                     'country_id',
@@ -577,13 +583,29 @@ class SqlTest extends AbstractTestCase
             ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $this->dummyDbi->addResult(
-            'SHOW COLUMNS FROM `sakila`.`country`',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'country\'',
             [
-                ['country_id', 'smallint(5) unsigned', 'NO', 'PRI', null, 'auto_increment'],
-                ['country', 'varchar(50)', 'NO', '', null, ''],
-                ['last_update', 'timestamp', 'NO', '', 'current_timestamp()', 'on update current_timestamp()'],
+                ['country_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
+                ['country', 'varchar(50)', null, 'NO', '', null, '', '', ''],
+                [
+                    'last_update',
+                    'timestamp',
+                    null,
+                    'NO',
+                    '',
+                    'current_timestamp()',
+                    'on update current_timestamp()',
+                    '',
+                    '',
+                ],
             ],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $this->dummyDbi->addResult(
             'SHOW INDEXES FROM `sakila`.`country`',

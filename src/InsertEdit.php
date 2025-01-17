@@ -1396,13 +1396,13 @@ class InsertEdit
      * @param string $db    current db
      * @param string $table current table
      *
-     * @return list<ColumnFull>
+     * @return list<Column>
      */
     public function getTableColumns(string $db, string $table): array
     {
         $this->dbi->selectDb($db);
 
-        return array_values($this->dbi->getColumns($db, $table, true));
+        return array_values($this->dbi->getColumns($db, $table));
     }
 
     /**
@@ -1539,25 +1539,25 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit column
      *
-     * @param ColumnFull $tableColumn        column
-     * @param int        $columnNumber       column index in table_columns
-     * @param string[]   $commentsMap        comments map
-     * @param int        $columnLength       length of the current column taken from field metadata
-     * @param bool       $insertMode         whether insert mode
-     * @param mixed[]    $currentRow         current row
-     * @param int        $columnsCnt         columns count
-     * @param bool       $isUpload           whether upload
-     * @param mixed[]    $foreigners         foreigners
-     * @param string     $table              table
-     * @param string     $db                 database
-     * @param int        $rowId              row id
-     * @param string     $defaultCharEditing default char editing mode which is stored in the config.inc.php script
-     * @param mixed[]    $repopulate         the data to be repopulated
-     * @param mixed[]    $columnMime         the mime information of column
-     * @param string     $whereClause        the where clause
+     * @param Column   $tableColumn        column
+     * @param int      $columnNumber       column index in table_columns
+     * @param string[] $commentsMap        comments map
+     * @param int      $columnLength       length of the current column taken from field metadata
+     * @param bool     $insertMode         whether insert mode
+     * @param mixed[]  $currentRow         current row
+     * @param int      $columnsCnt         columns count
+     * @param bool     $isUpload           whether upload
+     * @param mixed[]  $foreigners         foreigners
+     * @param string   $table              table
+     * @param string   $db                 database
+     * @param int      $rowId              row id
+     * @param string   $defaultCharEditing default char editing mode which is stored in the config.inc.php script
+     * @param mixed[]  $repopulate         the data to be repopulated
+     * @param mixed[]  $columnMime         the mime information of column
+     * @param string   $whereClause        the where clause
      */
     private function getHtmlForInsertEditFormColumn(
-        ColumnFull $tableColumn,
+        Column $tableColumn,
         int $columnNumber,
         array $commentsMap,
         int $columnLength,
@@ -1851,19 +1851,19 @@ class InsertEdit
     /**
      * Function to get html for each insert/edit row
      *
-     * @param mixed[]          $urlParams        url parameters
-     * @param list<ColumnFull> $tableColumns     table columns
-     * @param string[]         $commentsMap      comments map
-     * @param ResultInterface  $currentResult    current result
-     * @param bool             $insertMode       whether insert mode
-     * @param mixed[]          $currentRow       current row
-     * @param bool             $isUpload         whether upload
-     * @param mixed[]          $foreigners       foreigners
-     * @param string           $table            table
-     * @param string           $db               database
-     * @param int              $rowId            row id
-     * @param mixed[]          $repopulate       the data to be repopulated
-     * @param string[]         $whereClauseArray the array of where clauses
+     * @param mixed[]         $urlParams        url parameters
+     * @param list<Column>    $tableColumns     table columns
+     * @param string[]        $commentsMap      comments map
+     * @param ResultInterface $currentResult    current result
+     * @param bool            $insertMode       whether insert mode
+     * @param mixed[]         $currentRow       current row
+     * @param bool            $isUpload         whether upload
+     * @param mixed[]         $foreigners       foreigners
+     * @param string          $table            table
+     * @param string          $db               database
+     * @param int             $rowId            row id
+     * @param mixed[]         $repopulate       the data to be repopulated
+     * @param string[]        $whereClauseArray the array of where clauses
      */
     public function getHtmlForInsertEditRow(
         array $urlParams,

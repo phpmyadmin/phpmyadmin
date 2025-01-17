@@ -133,7 +133,7 @@ class SqlQueryForm
      *
      * @param string $query query to display in the textarea
      *
-     * @return array{string, string, ColumnFull[]}
+     * @return array{string, string, Column[]}
      */
     public function init(string $query): array
     {
@@ -167,7 +167,7 @@ class SqlQueryForm
             // Get the list and number of fields
             // we do a try_query here, because we could be in the query window,
             // trying to synchronize and the table has not yet been created
-            $columnsList = $this->dbi->getColumns($db, Current::$table, true);
+            $columnsList = $this->dbi->getColumns($db, Current::$table);
 
             $scriptName = Url::getFromRoute($this->config->settings['DefaultTabTable']);
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';

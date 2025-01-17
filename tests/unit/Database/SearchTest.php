@@ -38,8 +38,8 @@ class SearchTest extends AbstractTestCase
             ->method('getColumns')
             ->with('pma', 'table1')
             ->willReturn([
-                new Column('column1', '', false, '', null, ''),
-                new Column('column2', '', false, '', null, ''),
+                new Column('column1', '', null, false, '', null, '', '', ''),
+                new Column('column2', '', null, false, '', null, '', '', ''),
             ]);
 
         $dbi->expects(self::any())
