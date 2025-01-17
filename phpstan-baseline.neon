@@ -7281,27 +7281,22 @@ parameters:
 			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
 
 		-
+			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
+
+		-
+			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
+
+		-
 			message: "#^Cannot access property \\$databases on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
 
 		-
 			message: "#^Cannot call method build\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:database\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:clear\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
 
