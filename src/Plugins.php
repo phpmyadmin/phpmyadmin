@@ -286,8 +286,7 @@ class Plugins
                 }
 
                 if ($text != null) {
-                    $ret .= '<h5 class="card-title mt-4 mb-2">'
-                        . htmlspecialchars($plugin->getTranslatedText($text)) . '</h5>';
+                    $ret .= '<h5 class="card-title mt-4 mb-2">' . $plugin->getTranslatedText($text) . '</h5>';
                 }
 
                 $ret .= '<ul class="list-group">';
@@ -411,7 +410,7 @@ class Plugins
                 $ret .= '>';
                 $ret .= '<label class="form-check-label" for="checkbox_' . $pluginName . '_'
                     . $propertyItem->getName() . '">'
-                    . htmlspecialchars($plugin->getTranslatedText($propertyItem->getText() ?? '')) . '</label></div>';
+                    . $plugin->getTranslatedText($propertyItem->getText() ?? '') . '</label></div>';
                 break;
             case DocPropertyItem::class:
                 echo DocPropertyItem::class;
@@ -428,7 +427,7 @@ class Plugins
                 break;
             case MessageOnlyPropertyItem::class:
                 $ret .= '<li class="list-group-item">' . "\n";
-                $ret .= htmlspecialchars($plugin->getTranslatedText($propertyItem->getText() ?? ''));
+                $ret .= $plugin->getTranslatedText($propertyItem->getText() ?? '');
                 break;
             case RadioPropertyItem::class:
                 /** @var RadioPropertyItem $pitem */
@@ -452,7 +451,7 @@ class Plugins
 
                     $ret .= '><label class="form-check-label" for="radio_' . $pluginName . '_'
                         . $pitem->getName() . '_' . $key . '">'
-                        . htmlspecialchars($plugin->getTranslatedText((string) $val)) . '</label></div>';
+                        . $plugin->getTranslatedText((string) $val) . '</label></div>';
                 }
 
                 $ret .= '</li>';
@@ -464,7 +463,7 @@ class Plugins
                 $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="select_' . $pluginName . '_'
                     . $pitem->getName() . '" class="form-label">'
-                    . htmlspecialchars($plugin->getTranslatedText($pitem->getText() ?? '')) . '</label>';
+                    . $plugin->getTranslatedText($pitem->getText() ?? '') . '</label>';
                 $ret .= '<select class="form-select" name="' . $pluginName . '_'
                     . $pitem->getName() . '"'
                     . ' id="select_' . $pluginName . '_'
@@ -479,7 +478,7 @@ class Plugins
                         $ret .= ' selected';
                     }
 
-                    $ret .= '>' . htmlspecialchars($plugin->getTranslatedText((string) $val)) . '</option>';
+                    $ret .= '>' . $plugin->getTranslatedText((string) $val) . '</option>';
                 }
 
                 $ret .= '</select>';
@@ -490,7 +489,7 @@ class Plugins
                 $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="text_' . $pluginName . '_'
                     . $pitem->getName() . '" class="form-label">'
-                    . htmlspecialchars($plugin->getTranslatedText($pitem->getText() ?? '')) . '</label>';
+                    . $plugin->getTranslatedText($pitem->getText() ?? '') . '</label>';
                 $ret .= '<input class="form-control" type="text" name="' . $pluginName . '_'
                     . $pitem->getName() . '"'
                     . ' value="'
@@ -512,7 +511,7 @@ class Plugins
                 $ret .= '<li class="list-group-item">' . "\n";
                 $ret .= '<label for="number_' . $pluginName . '_'
                     . $propertyItem->getName() . '" class="form-label">'
-                    . htmlspecialchars($plugin->getTranslatedText($propertyItem->getText() ?? '')) . '</label>';
+                    . $plugin->getTranslatedText($propertyItem->getText() ?? '') . '</label>';
                 $ret .= '<input class="form-control" type="number" name="' . $pluginName . '_'
                     . $propertyItem->getName() . '"'
                     . ' value="'
@@ -554,7 +553,7 @@ class Plugins
 
             $ret .= '<div id="' . $pluginName
                 . '_options" class="format_specific_options">';
-            $ret .= '<h3>' . htmlspecialchars($plugin->getTranslatedText($text)) . '</h3>';
+            $ret .= '<h3>' . $plugin->getTranslatedText($text) . '</h3>';
 
             $noOptions = true;
             if ($options !== null && count($options) > 0) {
