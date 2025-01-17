@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 00:25+0000\n"
-"PO-Revision-Date: 2024-04-19 15:55+0000\n"
-"Last-Translator: Niilo Poutanen <Niilo.poutanen@gmail.com>\n"
+"PO-Revision-Date: 2025-01-17 15:00+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
 "Language: fi\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -3967,10 +3967,9 @@ msgid "The directory you set for upload work cannot be reached."
 msgstr "Tiedostojen lähetykseen valittua hakemistoa ei voida käyttää."
 
 #: resources/templates/import.twig:58 resources/templates/import.twig:83
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Valitse verkkopalvelimen lähetyskansiosta <b>%s</b>:"
+msgstr "Valitse verkkopalvelimen uloslataushakemistosta [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
 #, fuzzy
@@ -10305,16 +10304,12 @@ msgid "Link with main panel by highlighting the current database or table."
 msgstr "Yhdistä pääpaneelin kanssa korostamalla nykyinen tietokanta tai taulu."
 
 #: src/Config/Descriptions.php:284
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Avaa linkitetty sivu pääikkunassa ([kbd]pääikkuna[/kbd]) tai uudessa "
-"ikkunassa ([kbd]uusi ikkuna[/kbd])."
+"Avaa linkitetty sivu pääikkunassa ([code]main[/code]) tai uudessa sivulla ("
+"[code]new[/code])."
 
 #: src/Config/Descriptions.php:287
 msgid ""
@@ -10910,9 +10905,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
-"Käyttäjänimi kirjautumiseen välityspalvelimelle. Oletuksena kirjautumista ei "
-"suoriteta. Jos käyttäjänimi annettu, käytetään yksinkertaista  kirjautumista "
-"(Basic Authentication). Muita kirjautumistyylejä ei tällä hetkellä tueta."
+"Käyttäjätunnus välityspalvelimen todentamista varten. Oletusarvoisesti "
+"todennusta ei suoriteta. Jos käyttäjätunnus annetaan, suoritetaan "
+"perustodennus. Muita todennustyyppejä ei tueta tällä hetkellä."
 
 #: src/Config/Descriptions.php:529
 msgid ""
@@ -12509,13 +12504,7 @@ msgstr ""
 "tuhannet käyttäjät ovat yhteydessä."
 
 #: src/Config/ServerConfigChecks.php:175
-#, fuzzy, php-format
-#| msgid ""
-#| "You set the [kbd]config[/kbd] authentication type and included username "
-#| "and password for auto-login, which is not a desirable option for live "
-#| "hosts. Anyone who knows or guesses your phpMyAdmin URL can directly "
-#| "access your phpMyAdmin panel. Set %sauthentication type%s to [kbd]cookie[/"
-#| "kbd] or [kbd]http[/kbd]."
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -12523,11 +12512,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
-"Asetit [kbd]config[/kbd]-todennustyypin ja sisällytit käyttäjänimen ja "
-"salasanan automaattista kirjautumista varten. Tämä ei ole suotava vaihtoehto "
-"oikeille palvelimille. Joka tietää tai arvaa phpMyAdmin-osoitteesi pystyy "
-"suoraan käyttämään phpMyAdmin-paneeliasi.  %sTodennustyypiksi%s kannattaa "
-"asettaa [kbd]cookie[/kbd] tai [kbd]http[/kbd]."
+"Olet määrittänyt [kbd]config[/kbd]-todennustyypin ja lisäsit käyttäjänimen "
+"ja salasanan automaattista sisäänkirjautumista varten, mikä ei ole "
+"toivottava vaihtoehto reaaliaikaisille isännille. Jokainen, joka tietää tai "
+"arvaa phpMyAdmin URL-osoitteesi, voi käyttää suoraan phpMyAdmin-paneeliasi. "
+"Aseta %1$todennustyypiksi%2$s [kbd]eväste[/kbd] tai [kbd]http[/kbd]."
 
 #: src/Config/ServerConfigChecks.php:204
 msgid "You allow for connecting to the server without a password."
@@ -16076,11 +16065,11 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
-"Niiden kyselyjen määrä, jotka on poistettu välimuistista muistin "
-"vapauttamiseksi, jotta uusia kyselyjä voitaisiin tallentaa välimuistiin. "
-"Tämän tiedon avulla  kyselyvälimuistin koon voi asettaa sopivaksi. "
-"Kyselyvälimuisti päättää välimuistista poistettavat kyselyt LRU-käytännön "
-"avulla (\"least recently used\" eli \"äskettäin vähiten käytetyt kyselyt\")."
+"Välimuistista poistettujen kyselyiden määrä vapauttaakseen muistia uusien "
+"kyselyjen välimuistiin tallentamista varten. Nämä tiedot voivat auttaa sinua "
+"säätämään kyselyn välimuistin kokoa. Kyselyvälimuisti käyttää vähiten "
+"käytettyä (least recently used (LRU)) -strategiaa päättääkseen, mitkä "
+"kyselyt poistetaan välimuistista."
 
 #: src/Controllers/Server/Status/VariablesController.php:439
 msgid ""
@@ -17318,7 +17307,8 @@ msgstr "Tiedostoa ei voi lukea!"
 #: src/File.php:455
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
-"Virhe siirrettäessä ladattua tiedostoa, katso  [doc@faq1-11]FAQ 1.11[/doc]."
+"Virhe siirrettäessä ulosladattua tiedostoa, katso [doc@faq1-11]FAQ 1.11[/"
+"doc]."
 
 #: src/File.php:475
 msgid "Error while moving uploaded file."
@@ -18878,22 +18868,17 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y klo %H:%M"
 
 #: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:30
-#, fuzzy
-#| msgid ""
-#| "ys a link to download the binary data of the field. You can use the st "
-#| "ion to specify the filename, or use the second option as the e of a "
-#| "fieldich contains the filename. If you use the second ion, you need to "
-#| "set therst option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Näytä linkki kentän binääritietojen lataamiseen. Ensimmäisellä asetuksella "
-"voi määrittää tiedostonimen, ja toiseen asetukseen voi määrittää "
-"tiedostonimen sisältävälle kentälle nimen. Jos toista (2) asetusta "
-"käytetään,  ensimmäinen asetus on asetettava tyhjäksi."
+"Näyttää linkin sarakkeen binääritietojen lataamiseen. Voit käyttää "
+"ensimmäistä vaihtoehtoa tiedostonimen määrittämiseen tai käyttää toista "
+"vaihtoehtoa tiedostonimen sisältävän sarakkeen nimenä. Jos käytät toista "
+"vaihtoehtoa, sinun on asetettava ensimmäinen vaihtoehto tyhjäksi "
+"merkkijonoksi."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 #, fuzzy
@@ -19850,8 +19835,8 @@ msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
-"2-tavuinen kokonaisluku, etumerkillisenä arvot olvat -32768 - 32767,  "
-"etumerkittömänä arvot ovat 0 - 65535"
+"2-tavuinen kokonaisluku, etumerkillinen alue on -32768-32767, etumerkitön "
+"alue on 0-65535"
 
 #: src/Types.php:149
 msgid ""
