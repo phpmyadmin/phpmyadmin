@@ -128,7 +128,12 @@ DatabaseStructure.adjustTotals = function () {
 
     // Update summary with new data
     var $summary = $('#tbl_summary_row');
-    $summary.find('.tbl_num').text(Functions.sprintf(Messages.strNTables, tableSum));
+    $summary.find('.tbl_num').text(
+        tableSum === 1
+            ? Functions.sprintf(Messages.strOneTable, tableSum)
+            : Functions.sprintf(Messages.strNTables, tableSum)
+    );
+
     if (rowSumApproximated) {
         $summary.find('.row_count_sum').text(strRowSum);
     } else {

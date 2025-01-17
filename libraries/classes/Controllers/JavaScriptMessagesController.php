@@ -196,7 +196,8 @@ final class JavaScriptMessagesController
             'strTiB' => __('TiB'),
             'strPiB' => __('PiB'),
             'strEiB' => __('EiB'),
-            'strNTables' => __('%d table(s)'),
+            'strOneTable' => __('%d table'),
+            'strNTables' => __('%d tables'),
 
             /* l10n: Questions is the name of a MySQL Status variable */
             'strQuestions' => __('Questions'),
