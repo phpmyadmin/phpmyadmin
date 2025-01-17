@@ -33,7 +33,7 @@
     "rtlcss": "^3.5.0",
     "sass": "1.60.0",
     "tablesorter": "^2.31.3",
-    "tracekit": "0.4.6",
+    "tracekit": "0.4.7",
     "u2f-api-polyfill": "0.4.4",
     "updated-jqplot": "1.0.9"
   },
