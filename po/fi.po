@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2024-12-18 10:00+0000\n"
+"PO-Revision-Date: 2025-01-17 09:44+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "fi/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -2199,16 +2199,12 @@ msgid "Link with main panel by highlighting the current database or table."
 msgstr "Yhdistä pääpaneelin kanssa korostamalla nykyinen tietokanta tai taulu."
 
 #: libraries/classes/Config/Descriptions.php:297
-#, fuzzy
-#| msgid ""
-#| "Open the linked page in the main window ([kbd]main[/kbd]) or in a new one "
-#| "([kbd]new[/kbd])."
 msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
-"Avaa linkitetty sivu pääikkunassa ([kbd]pääikkuna[/kbd]) tai uudessa "
-"ikkunassa ([kbd]uusi ikkuna[/kbd])."
+"Avaa linkitetty sivu pääikkunassa ([code]main[/code]) tai uudessa sivulla ("
+"[code]new[/code])."
 
 #: libraries/classes/Config/Descriptions.php:300
 msgid ""
@@ -11994,22 +11990,17 @@ msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d.%m.%Y klo %H:%M"
 
 #: libraries/classes/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:31
-#, fuzzy
-#| msgid ""
-#| "ys a link to download the binary data of the field. You can use the st "
-#| "ion to specify the filename, or use the second option as the e of a "
-#| "fieldich contains the filename. If you use the second ion, you need to "
-#| "set therst option to the empty string."
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "first option to specify the filename, or use the second option as the name "
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
-"Näytä linkki kentän binääritietojen lataamiseen. Ensimmäisellä asetuksella "
-"voi määrittää tiedostonimen, ja toiseen asetukseen voi määrittää "
-"tiedostonimen sisältävälle kentälle nimen. Jos toista (2) asetusta "
-"käytetään,  ensimmäinen asetus on asetettava tyhjäksi."
+"Näyttää linkin sarakkeen binääritietojen lataamiseen. Voit käyttää "
+"ensimmäistä vaihtoehtoa tiedostonimen määrittämiseen tai käyttää toista "
+"vaihtoehtoa tiedostonimen sisältävän sarakkeen nimenä. Jos käytät toista "
+"vaihtoehtoa, sinun on asetettava ensimmäinen vaihtoehto tyhjäksi "
+"merkkijonoksi."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:41
 #, fuzzy
@@ -16636,10 +16627,9 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: templates/import.twig:62 templates/import.twig:88
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "Valitse verkkopalvelimen lähetyskansiosta <b>%s</b>:"
+msgstr "Valitse verkkopalvelimen uloslataushakemistosta [strong]%s[/strong]:"
 
 #: templates/import.twig:69 templates/import.twig:96
 #, fuzzy
