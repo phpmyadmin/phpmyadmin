@@ -729,6 +729,8 @@ class Import
      * @param AnalysedColumn[][]|null $analyses      Analyses of the tables
      * @param string[]|null           $additionalSql Additional SQL to be executed
      * @param string[]                $sqlData       List of SQL to be executed
+     * @param string                  $insertMode    The insert mode you can use
+     * @phpstan-param 'INSERT'|'REPLACE'|'INSERT IGNORE' $insertMode
      */
     public function buildSql(
         string $dbName,
@@ -736,6 +738,7 @@ class Import
         array|null $analyses = null,
         array|null $additionalSql = null,
         array &$sqlData = [],
+        string $insertMode = 'INSERT',
     ): void {
         /* Needed to quell the beast that is Message */
         ImportSettings::$importNotice = '';
@@ -828,7 +831,7 @@ class Import
                 break;
             }
 
-            $tempSQLStr = 'INSERT INTO ' . Util::backquote($dbName) . '.'
+            $tempSQLStr = $insertMode . ' INTO ' . Util::backquote($dbName) . '.'
                 . Util::backquote($table->tableName) . ' (';
 
             $tempSQLStr .= implode(', ', array_map(Util::backquote(...), $table->columns));

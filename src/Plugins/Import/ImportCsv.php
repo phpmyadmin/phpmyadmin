@@ -597,7 +597,13 @@ class ImportCsv extends AbstractImportCsv
                 $sqlStatements = $this->import->createDatabase($dbName, 'utf8', 'utf8_general_ci', $sqlStatements);
             }
 
-            $this->import->buildSql($dbName, [$table], [$analysis], sqlData: $sqlStatements);
+            $this->import->buildSql(
+                $dbName,
+                [$table],
+                [$analysis],
+                sqlData: $sqlStatements,
+                insertMode: $this->ignore ? 'INSERT IGNORE' : 'INSERT',
+            );
         }
 
         // Commit any possible data in buffers
