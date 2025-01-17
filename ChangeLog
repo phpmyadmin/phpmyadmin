@@ -16,6 +16,7 @@ phpMyAdmin - ChangeLog
 - issue #19242 Removed the popup that warned about having an auto-saved query
 - issue        Added support for `BETWEEN` and `NOT BETWEEN` on the query generator
 - issue #17480 Added an option in the SQL box to "Format as a single line"
+- issue        Add support for `INSERT IGNORE` into for non table imports
 
 5.2.2 (not yet released)
 - issue #17851 Fix total count of rows in not accurate
