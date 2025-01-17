@@ -322,16 +322,13 @@ class StructureController extends AbstractController
         if (isset($showtable['Data_free'])) {
             [$free_size, $free_unit] = Util::formatByteDown($showtable['Data_free'], $max_digits, $decimals);
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $showtable['Data_length']
-                + $showtable['Index_length']
-                - $showtable['Data_free'],
+                $showtable['Data_length'] + $showtable['Index_length'] + $showtable['Data_free'],
                 $max_digits,
                 $decimals
             );
         } else {
             [$effect_size, $effect_unit] = Util::formatByteDown(
-                $showtable['Data_length']
-                + $showtable['Index_length'],
+                $showtable['Data_length'] + $showtable['Index_length'],
                 $max_digits,
                 $decimals
             );
