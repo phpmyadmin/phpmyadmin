@@ -294,7 +294,6 @@ class RecentFavoriteTables
      */
     public function getHtmlSyncFavoriteTables(): string
     {
-        $retval = '';
         if (Current::$server === 0) {
             return '';
         }
@@ -305,16 +304,12 @@ class RecentFavoriteTables
             $relationParameters->favoriteTablesFeature !== null
             && ! isset($_SESSION['tmpval']['favorites_synced'][Current::$server])
         ) {
-            $url = Url::getFromRoute('/database/structure/favorite-table', [
-                'ajax_request' => true,
-                'favorite_table' => true,
-                'sync_favorite_tables' => true,
-            ]);
-            $retval = '<a class="hide" id="sync_favorite_tables"';
-            $retval .= ' href="' . $url . '"></a>';
+            $url = Url::getFromRoute('/sync-favorite-tables', ['ajax_request' => true]);
+
+            return '<a class="hide" id="sync_favorite_tables" href="' . $url . '"></a>';
         }
 
-        return $retval;
+        return '';
     }
 
     /**

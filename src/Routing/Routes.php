@@ -33,6 +33,7 @@ use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Sql;
+use PhpMyAdmin\Controllers\SyncFavoriteTablesController;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
@@ -314,5 +315,6 @@ final class Routes
             $routes->addRoute(['GET', 'POST'], '/create', View\CreateController::class);
             $routes->addRoute(['GET', 'POST'], '/operations', Operations\ViewController::class);
         });
+        $routes->post('/sync-favorite-tables', SyncFavoriteTablesController::class);
     }
 }
