@@ -111,16 +111,22 @@ class SearchTest extends AbstractTestCase
             'a',
             'c',
             'd',
+            'e',
+            'f',
         ];
         $_POST['criteriaColumnOperators'] = [
             '<=',
             '=',
             'IS NULL',
             'IS NOT NULL',
+            'EMPTY',
+            'NOT EMPTY',
         ];
         $_POST['criteriaValues'] = [
             '10',
             '2',
+            '',
+            '',
             '',
             '',
         ];
@@ -129,10 +135,12 @@ class SearchTest extends AbstractTestCase
             'int(11)',
             'int(11)',
             'int(11)',
+            'int(11)',
+            'int(11)',
         ];
 
         self::assertSame(
-            'SELECT * FROM `PMA` WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL',
+            'SELECT * FROM `PMA` WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL AND `e` = \'\' AND `f` != \'\'',
             $this->search->buildSqlQuery()
         );
     }
