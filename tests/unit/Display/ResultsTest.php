@@ -344,23 +344,23 @@ class ResultsTest extends AbstractTestCase
     public static function dataProviderForTestGetPartialText(): array
     {
         return [
-            ['P', 10, 'foo', [false, 'foo', 3]],
-            ['P', 1, 'foo', [true, 'f...', 3]],
-            ['F', 10, 'foo', [false, 'foo', 3]],
-            ['F', 1, 'foo', [false, 'foo', 3]],
+            ['P', 10, 'foo', 'foo'],
+            ['P', 1, 'foo', 'f...'],
+            ['F', 10, 'foo', 'foo'],
+            ['F', 1, 'foo', 'foo'],
         ];
     }
 
     /**
      * Test getPartialText
      *
-     * @param string  $pftext     Partial or Full text
-     * @param int     $limitChars Partial or Full text
-     * @param string  $str        the string to be tested
-     * @param mixed[] $output     return value of getPartialText
+     * @param string $pftext     Partial or Full text
+     * @param int    $limitChars Partial or Full text
+     * @param string $str        the string to be tested
+     * @param string $output     return value of getPartialText
      */
     #[DataProvider('dataProviderForTestGetPartialText')]
-    public function testGetPartialText(string $pftext, int $limitChars, string $str, array $output): void
+    public function testGetPartialText(string $pftext, int $limitChars, string $str, string $output): void
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         Config::getInstance()->settings['LimitChars'] = $limitChars;
