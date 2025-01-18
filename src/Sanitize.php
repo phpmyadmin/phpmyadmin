@@ -10,11 +10,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Html\MySQLDocumentation;
 
 use function __;
-use function array_keys;
-use function array_merge;
 use function count;
-use function in_array;
-use function is_string;
 use function json_encode;
 use function preg_match;
 use function preg_replace;
@@ -30,6 +26,13 @@ use const JSON_HEX_TAG;
  */
 class Sanitize
 {
+    /**
+     * Interpret bb code
+     *
+     * @var array<string, string>
+     */
+    private static array $replacePairs = [];
+
     /**
      * Checks whether given link is valid
      *
@@ -79,9 +82,9 @@ class Sanitize
     /**
      * Check if we are currently on a setup folder page
      */
-    public static function isSetup(): bool
+    private static function isSetup(): bool
     {
-        return Config::getInstance()->get('is_setup');
+        return Config::getInstance()->isSetup();
     }
 
     /**
@@ -99,7 +102,7 @@ class Sanitize
         }
 
         /* a-z and _ allowed in target */
-        if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3])) {
+        if (! empty($found[3]) && preg_match('/[^a-z_]+/i', $found[3]) === 1) {
             return $found[0];
         }
 
@@ -163,14 +166,8 @@ class Sanitize
             $message = strtr($message, ['<' => '&lt;', '>' => '&gt;', '"' => '&quot;', "'" => '&#039;']);
         }
 
-        /**
-         * Interpret bb code
-         *
-         * @var array<string, string> $replacePairs
-         */
-        static $replacePairs = [];
-        if ($replacePairs === []) {
-            $replacePairs = [
+        if (self::$replacePairs === []) {
+            self::$replacePairs = [
                 '[em]' => '<em>',
                 '[/em]' => '</em>',
                 '[strong]' => '<strong>',
@@ -189,7 +186,7 @@ class Sanitize
             ];
         }
 
-        $message = strtr($message, $replacePairs);
+        $message = strtr($message, self::$replacePairs);
 
         /* Match links in bb code ([a@url@target], where @target is options) */
         $pattern = '/\[a@([^]"@]*)(@([^]"]*))?\]/';
@@ -250,47 +247,5 @@ class Sanitize
     public static function getJsValue(string $key, mixed $value): string
     {
         return $key . ' = ' . json_encode($value, JSON_HEX_TAG) . ";\n";
-    }
-
-    /**
-     * Removes all variables from request except allowed ones.
-     *
-     * @param string[] $allowList list of variables to allow
-     */
-    public static function removeRequestVars(array $allowList): void
-    {
-        // do not check only $_REQUEST because it could have been overwritten
-        // and use type casting because the variables could have become
-        // strings
-        $keys = array_keys(
-            array_merge($_REQUEST, $_GET, $_POST, $_COOKIE),
-        );
-
-        foreach ($keys as $key) {
-            if (! in_array($key, $allowList)) {
-                unset($_REQUEST[$key], $_GET[$key], $_POST[$key]);
-                continue;
-            }
-
-            // allowed stuff could be compromised so escape it
-            // we require it to be a string
-            if (isset($_REQUEST[$key]) && ! is_string($_REQUEST[$key])) {
-                unset($_REQUEST[$key]);
-            }
-
-            if (isset($_POST[$key]) && ! is_string($_POST[$key])) {
-                unset($_POST[$key]);
-            }
-
-            if (isset($_COOKIE[$key]) && ! is_string($_COOKIE[$key])) {
-                unset($_COOKIE[$key]);
-            }
-
-            if (! isset($_GET[$key]) || is_string($_GET[$key])) {
-                continue;
-            }
-
-            unset($_GET[$key]);
-        }
     }
 }

@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Controllers\Database\StructureController;
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\FlashMessenger;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function mb_strlen;
@@ -20,23 +23,24 @@ final class ReplacePrefixController implements InvocableController
 {
     public function __construct(
         private readonly DatabaseInterface $dbi,
-        private readonly StructureController $structureController,
+        private readonly ResponseFactory $responseFactory,
+        private readonly FlashMessenger $flashMessenger,
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
-        $fromPrefix = $request->getParsedBodyParam('from_prefix', '');
-        $toPrefix = $request->getParsedBodyParam('to_prefix', '');
+        $fromPrefix = $request->getParsedBodyParamAsString('from_prefix', '');
+        $toPrefix = $request->getParsedBodyParamAsString('to_prefix', '');
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         $this->dbi->selectDb(Current::$database);
 
         foreach ($selected as $selectedValue) {
-            $subFromPrefix = mb_substr($selectedValue, 0, mb_strlen((string) $fromPrefix));
+            $subFromPrefix = mb_substr($selectedValue, 0, mb_strlen($fromPrefix));
 
             if ($subFromPrefix === $fromPrefix) {
                 $newTableName = $toPrefix . mb_substr($selectedValue, mb_strlen($fromPrefix));
@@ -47,14 +51,15 @@ final class ReplacePrefixController implements InvocableController
             $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue)
                 . ' RENAME ' . Util::backquote($newTableName);
 
-            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
-        ($this->structureController)($request);
+        $this->flashMessenger->addMessage('success', Current::$message->getMessage(), Current::$sqlQuery);
 
-        return null;
+        return $this->responseFactory->createResponse(StatusCodeInterface::STATUS_FOUND)
+            ->withHeader('Location', Url::getFromRoute('/database/structure', ['db' => Current::$database]));
     }
 }

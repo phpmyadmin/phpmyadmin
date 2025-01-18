@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Operations;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -15,9 +14,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_map;
@@ -36,24 +36,21 @@ final class ViewController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
         $tableObject = $this->dbi->getTable(Current::$database, Current::$table);
 
-        $GLOBALS['errorUrl'] ??= null;
         $this->response->addScriptFiles(['table/operations.js']);
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -61,12 +58,12 @@ final class ViewController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -75,18 +72,18 @@ final class ViewController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/view/operations');
+        UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/view/operations');
 
         $message = new Message();
-        $type = 'success';
+        $type = MessageType::Success;
         $newname = $request->getParsedBodyParam('new_name');
 
         $warningMessages = [];
@@ -97,7 +94,7 @@ final class ViewController implements InvocableController
                 Current::$table = $tableObject->getName();
                 /* Force reread after rename */
                 $this->dbi->getCache()->clearTableCache();
-                $GLOBALS['reload'] = true;
+                ResponseRenderer::$reload = true;
             } else {
                 $message->addText($tableObject->getLastError());
                 $result = false;
@@ -118,17 +115,17 @@ final class ViewController implements InvocableController
                     $message->addText(__('Error'));
                 }
 
-                $type = $result ? 'success' : 'error';
+                $type = $result ? MessageType::Success : MessageType::Error;
             }
 
             if ($warningMessages !== []) {
                 $message->addMessagesString($warningMessages);
-                $message->setType(Message::ERROR);
+                $message->setType(MessageType::Error);
             }
 
             $this->response->addHTML(Generator::getMessage(
                 $message,
-                $GLOBALS['sql_query'],
+                Current::$sqlQuery,
                 $type,
             ));
         }
@@ -136,9 +133,9 @@ final class ViewController implements InvocableController
         $this->response->render('table/operations/view', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

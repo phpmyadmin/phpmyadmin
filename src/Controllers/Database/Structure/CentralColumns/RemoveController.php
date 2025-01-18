@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Controllers\Database\Structure\CentralColumns;
 
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -26,17 +27,15 @@ final class RemoveController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $selected = $request->getParsedBodyParam('selected_tbl', []);
 
         if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         Assert::allString($selected);
@@ -44,12 +43,10 @@ final class RemoveController implements InvocableController
         $centralColumns = new CentralColumns($this->dbi);
         $error = $centralColumns->deleteColumnsFromList($_POST['db'], $selected);
 
-        $GLOBALS['message'] = $error instanceof Message ? $error : Message::success(__('Success!'));
+        Current::$message = $error instanceof Message ? $error : Message::success(__('Success!'));
 
         unset($_POST['submit_mult']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

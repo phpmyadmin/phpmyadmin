@@ -15,6 +15,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -67,7 +68,7 @@ class SqlQueryForm
 
         // query to show
         if ($query === true) {
-            $query = $GLOBALS['sql_query'];
+            $query = Current::$sqlQuery;
             if (empty($query) && (isset($_GET['show_query']) || isset($_POST['show_query']))) {
                 $query = $_GET['sql_query'] ?? $_POST['sql_query'] ?? '';
             }
@@ -75,12 +76,12 @@ class SqlQueryForm
 
         if ($db === '') {
             // prepare for server related
-            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/server/sql') : $GLOBALS['goto'];
+            $goto = UrlParams::$goto === '' ? Url::getFromRoute('/server/sql') : UrlParams::$goto;
         } elseif ($table === '') {
             // prepare for db related
-            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/database/sql') : $GLOBALS['goto'];
+            $goto = UrlParams::$goto === '' ? Url::getFromRoute('/database/sql') : UrlParams::$goto;
         } else {
-            $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
+            $goto = UrlParams::$goto === '' ? Url::getFromRoute('/table/sql') : UrlParams::$goto;
         }
 
         if ($displayTab === 'full' || $displayTab === 'sql') {
@@ -152,7 +153,7 @@ class SqlQueryForm
             // prepare for db related
             $db = Current::$database;
             // if you want navigation:
-            $scriptName = Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database');
+            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
             $tmpDbLink = '<a href="' . $scriptName
                 . Url::getCommon(['db' => $db], ! str_contains($scriptName, '?') ? '?' : '&')
                 . '">';
@@ -169,7 +170,7 @@ class SqlQueryForm
             // trying to synchronize and the table has not yet been created
             $columnsList = $this->dbi->getColumns($db, Current::$table, true);
 
-            $scriptName = Util::getScriptNameForOption($this->config->settings['DefaultTabTable'], 'table');
+            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabTable']);
             $tmpTblLink = '<a href="' . $scriptName . Url::getCommon(['db' => $db, 'table' => $table], '&') . '">';
             $tmpTblLink .= htmlspecialchars($db) . '.' . htmlspecialchars($table) . '</a>';
             $legend = sprintf(__('Run SQL query/queries on table %s'), $tmpTblLink);

@@ -7,11 +7,13 @@ namespace PhpMyAdmin\Tests\Export;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Util;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -56,22 +58,18 @@ class OptionsTest extends AbstractTestCase
         $config->settings['ZipDump'] = false;
         $config->settings['GZipDump'] = false;
 
-        $exportType = 'server';
+        Export::$singleTable = false;
+
+        $exportType = ExportType::Server;
         $db = 'PMA';
         $table = 'PMA_test';
         $numTablesStr = '10';
         $unlimNumRowsStr = 'unlim_num_rows_str';
 
-        $columnsInfo = [
-            'test_column1' => ['COLUMN_NAME' => 'test_column1'],
-            'test_column2' => ['COLUMN_NAME' => 'test_column2'],
-        ];
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
-        $dbi->expects(self::any())->method('getColumnsFull')
-            ->willReturn($columnsInfo);
         $dbi->expects(self::any())->method('getCompatibilities')
             ->willReturn([]);
 
@@ -84,10 +82,20 @@ class OptionsTest extends AbstractTestCase
         $_POST['filename_template'] = 'user value for test';
 
         //Call the test function
-        $actual = $this->export->getOptions($exportType, $db, $table, '', $numTablesStr, $unlimNumRowsStr, $exportList);
+        $actual = $this->export->getOptions(
+            $exportType,
+            $db,
+            $table,
+            '',
+            $numTablesStr,
+            $unlimNumRowsStr,
+            $exportList,
+            'sql',
+            null,
+        );
 
         $expected = [
-            'export_type' => $exportType,
+            'export_type' => $exportType->value,
             'db' => $db,
             'table' => $table,
             'templates' => ['is_enabled' => '', 'templates' => [], 'selected' => null],
@@ -95,7 +103,7 @@ class OptionsTest extends AbstractTestCase
             'hidden_inputs' => [
                 'db' => $db,
                 'table' => $table,
-                'export_type' => $exportType,
+                'export_type' => $exportType->value,
                 'export_method' => $config->settings['Export']['method'],
                 'template_id' => '',
             ],

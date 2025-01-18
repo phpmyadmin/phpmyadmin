@@ -4,24 +4,20 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function htmlspecialchars;
 use function mb_strtoupper;
 use function sprintf;
@@ -38,46 +34,30 @@ final class EventsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errors'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['database/events.js', 'sql.js']);
 
         if (! $request->isAjax()) {
-            if (! $this->response->checkParameters(['db'])) {
-                return null;
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
             }
-
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            );
-            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return null;
+                return $this->response->response();
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
         }
 
-        /**
-         * Keep a list of errors that occurred while
-         * processing an 'Add' or 'Edit' operation.
-         */
-        $GLOBALS['errors'] = [];
-        $GLOBALS['message'] ??= null;
-
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->events->handleEditor();
 
             if ($request->isAjax()) {
-                if ($GLOBALS['message']->isSuccess()) {
+                if (Current::$message instanceof Message && Current::$message->isSuccess()) {
                     $events = $this->events->getDetails(Current::$database, $_POST['item_name']);
                     $event = $events[0];
                     $this->response->addJSON(
@@ -106,12 +86,12 @@ final class EventsController implements InvocableController
                     $this->response->addJSON('message', $output);
                 } else {
                     $this->response->setRequestStatus(false);
-                    $this->response->addJSON('message', $GLOBALS['message']);
+                    $this->response->addJSON('message', Current::$message);
                 }
 
                 $this->response->addJSON('tableType', 'events');
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -119,7 +99,7 @@ final class EventsController implements InvocableController
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            count($GLOBALS['errors'])
+            $this->events->getErrorCount() > 0
             || empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
             && (
@@ -184,12 +164,12 @@ final class EventsController implements InvocableController
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -203,7 +183,7 @@ final class EventsController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -226,7 +206,7 @@ final class EventsController implements InvocableController
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $output = '<div class="container">';
@@ -248,7 +228,7 @@ final class EventsController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML($message->getDisplay());
@@ -262,10 +242,9 @@ final class EventsController implements InvocableController
             'items' => $items,
             'has_privilege' => Util::currentUserHasPrivilege('EVENT', Current::$database),
             'scheduler_state' => $this->events->getEventSchedulerStatus(),
-            'text_dir' => LanguageManager::$textDir,
             'is_ajax' => $request->isAjax() && empty($_REQUEST['ajax_page_request']),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

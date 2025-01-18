@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Url;
 
 use function is_array;
 use function is_string;
@@ -27,11 +26,9 @@ final class ShowEngineController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->setEngineAndPageProperties($request->getAttribute('routeVars'));
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -54,7 +51,7 @@ final class ShowEngineController implements InvocableController
 
         $this->response->render('server/engines/show', ['engine' => $engine, 'page' => $this->page]);
 
-        return null;
+        return $this->response->response();
     }
 
     private function setEngineAndPageProperties(mixed $routeVars): void

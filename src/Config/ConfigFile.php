@@ -514,29 +514,29 @@ class ConfigFile
             'NavigationLogoLinkWindow' => ['main', 'new'],
             'NavigationTreeDefaultTabTable' => [
                 // fields list
-                'structure' => __('Structure'),
+                '/table/structure' => __('Structure'),
                 // SQL form
-                'sql' => __('SQL'),
+                '/table/sql' => __('SQL'),
                 // search page
-                'search' => __('Search'),
+                '/table/search' => __('Search'),
                 // insert row page
-                'insert' => __('Insert'),
+                '/table/change' => __('Insert'),
                 // browse page
-                'browse' => __('Browse'),
+                '/sql' => __('Browse'),
             ],
             'NavigationTreeDefaultTabTable2' => [
                 //don't display
                 '' => '',
                 // fields list
-                'structure' => __('Structure'),
+                '/table/structure' => __('Structure'),
                 // SQL form
-                'sql' => __('SQL'),
+                '/table/sql' => __('SQL'),
                 // search page
-                'search' => __('Search'),
+                '/table/search' => __('Search'),
                 // insert row page
-                'insert' => __('Insert'),
+                '/table/change' => __('Insert'),
                 // browse page
-                'browse' => __('Browse'),
+                '/sql' => __('Browse'),
             ],
             'NavigationTreeDbSeparator' => 'short_string',
             'NavigationTreeTableSeparator' => 'short_string',
@@ -570,37 +570,37 @@ class ConfigFile
             'RelationalDisplay' => ['K' => __('key'), 'D' => __('display column')],
             'DefaultTabServer' => [
                 // the welcome page (recommended for multiuser setups)
-                'welcome' => __('Welcome'),
+                '/' => __('Welcome'),
                 // list of databases
-                'databases' => __('Databases'),
+                '/server/databases' => __('Databases'),
                 // runtime information
-                'status' => __('Status'),
+                '/server/status' => __('Status'),
                 // MySQL server variables
-                'variables' => __('Variables'),
+                '/server/variables' => __('Variables'),
                 // user management
-                'privileges' => __('Privileges'),
+                '/server/privileges' => __('Privileges'),
             ],
             'DefaultTabDatabase' => [
                 // tables list
-                'structure' => __('Structure'),
+                '/database/structure' => __('Structure'),
                 // SQL form
-                'sql' => __('SQL'),
+                '/database/sql' => __('SQL'),
                 // search query
-                'search' => __('Search'),
+                '/database/search' => __('Search'),
                 // operations on database
-                'operations' => __('Operations'),
+                '/database/operations' => __('Operations'),
             ],
             'DefaultTabTable' => [
                 // fields list
-                'structure' => __('Structure'),
+                '/table/structure' => __('Structure'),
                 // SQL form
-                'sql' => __('SQL'),
+                '/table/sql' => __('SQL'),
                 // search page
-                'search' => __('Search'),
+                '/table/search' => __('Search'),
                 // insert row page
-                'insert' => __('Insert'),
+                '/table/change' => __('Insert'),
                 // browse page
-                'browse' => __('Browse'),
+                '/sql' => __('Browse'),
             ],
             'InitialSlidersState' => ['open' => __('Open'), 'closed' => __('Closed'), 'disabled' => __('Disabled')],
             'FirstDayOfCalendar' => [

@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Server\Status;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Util;
@@ -193,14 +193,14 @@ class Monitor
          */
         switch ($type) {
             case 'servervar':
-                if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
+                if (preg_match('/[^a-zA-Z_]+/', $pName) !== 1) {
                     $serverVars[] = $pName;
                 }
 
                 break;
 
             case 'statusvar':
-                if (! preg_match('/[^a-zA-Z_]+/', $pName)) {
+                if (preg_match('/[^a-zA-Z_]+/', $pName) !== 1) {
                     $statusVars[] = $pName;
                 }
 
@@ -373,7 +373,7 @@ class Monitor
                             '/^INSERT INTO (`|\'|"|)([^\s\\1]+)\\1/i',
                             $row['argument'],
                             $matches,
-                        )
+                        ) === 1
                     ) {
                         if (! isset($insertTables[$matches[2]])) {
                             $insertTables[$matches[2]] = 0;
@@ -460,7 +460,7 @@ class Monitor
     public function getJsonForLoggingVars(string|null $name, string|null $value): array
     {
         if (isset($name, $value)) {
-            if (! preg_match('/[^a-zA-Z0-9_]+/', $name)) {
+            if (preg_match('/[^a-zA-Z0-9_]+/', $name) !== 1) {
                 $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $this->dbi->quoteString($value));
             }
         }
@@ -485,8 +485,6 @@ class Monitor
         string $database,
         string $query,
     ): array {
-        $GLOBALS['cached_affected_rows'] ??= null;
-
         $return = [];
 
         if ($database !== '') {
@@ -503,7 +501,7 @@ class Monitor
         $sqlQuery = preg_replace('/^(\s*SELECT)/i', '\\1 SQL_NO_CACHE', $query);
 
         $this->dbi->tryQuery($sqlQuery);
-        $return['affectedRows'] = $GLOBALS['cached_affected_rows'];
+        $return['affectedRows'] = $this->dbi->affectedRows();
 
         $result = $this->dbi->tryQuery('EXPLAIN ' . $sqlQuery);
         if ($result !== false) {

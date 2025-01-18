@@ -32,12 +32,9 @@ interface DbiExtension
     /**
      * runs a query and returns the result
      *
-     * @param string $query   query to execute
-     * @param int    $options query options
-     *
      * @return ResultInterface|false result
      */
-    public function realQuery(string $query, Connection $connection, int $options): ResultInterface|false;
+    public function realQuery(string $query, Connection $connection, bool $unbuffered = false): ResultInterface|false;
 
     /**
      * Run the multi query and output the results
@@ -64,13 +61,6 @@ interface DbiExtension
      * @return string type of connection used
      */
     public function getHostInfo(Connection $connection): string;
-
-    /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int version of the MySQL protocol used
-     */
-    public function getProtoInfo(Connection $connection): int;
 
     /**
      * returns a string that represents the client library version
@@ -101,11 +91,11 @@ interface DbiExtension
     public function escapeString(Connection $connection, string $string): string;
 
     /**
-     * Prepare an SQL statement for execution.
+     * Execute a prepared statement and return the result.
      *
-     * @param string $query The query, as a string.
+     * @param list<string> $params
      */
-    public function prepare(Connection $connection, string $query): Statement|null;
+    public function executeQuery(Connection $connection, string $query, array $params): ResultInterface|null;
 
     /**
      * Returns the number of warnings from the last query.

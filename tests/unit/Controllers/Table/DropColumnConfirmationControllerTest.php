@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\DropColumnConfirmationController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Template;

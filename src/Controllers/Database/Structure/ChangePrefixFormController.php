@@ -6,19 +6,24 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Template;
 
 use function __;
 
 final class ChangePrefixFormController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
-    {
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly ResponseFactory $responseFactory,
+        private readonly Template $template,
+    ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -27,7 +32,7 @@ final class ChangePrefixFormController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $route = '/database/structure/replace-prefix';
@@ -40,12 +45,14 @@ final class ChangePrefixFormController implements InvocableController
             $urlParams['selected'][] = $selectedValue;
         }
 
-        $this->response->disable();
-        $this->response->render('database/structure/change_prefix_form', [
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->response->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
+
+        return $response->write($this->template->render('database/structure/change_prefix_form', [
             'route' => $route,
             'url_params' => $urlParams,
-        ]);
-
-        return null;
+        ]));
     }
 }

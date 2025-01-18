@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Database\MultiTableQuery;
 
 use PhpMyAdmin\Controllers\Database\MultiTableQuery\TablesController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;

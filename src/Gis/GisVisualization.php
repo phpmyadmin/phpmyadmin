@@ -9,17 +9,17 @@ namespace PhpMyAdmin\Gis;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Gis\Ds\Extent;
 use PhpMyAdmin\Gis\Ds\ScaleData;
 use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 use TCPDF;
-use Webmozart\Assert\Assert;
 
 use function assert;
 use function count;
+use function htmlspecialchars;
 use function is_string;
 use function max;
 use function mb_strlen;
@@ -101,36 +101,26 @@ class GisVisualization
     /**
      * Factory
      *
-     * @param string                        $sqlQuery SQL to fetch raw data for visualization
-     * @param array<string,string|int|null> $options  Users specified options
-     * @param int                           $rows     number of rows
-     * @param int                           $pos      start position
-     * @psalm-param array{
-     *   spatialColumn: non-empty-string,
-     *   labelColumn?: non-empty-string|null,
-     *   width: int,
-     *   height: int,
-     * } $options
+     * @param string $sqlQuery SQL to fetch raw data for visualization
+     * @param int    $rows     number of rows
+     * @param int    $pos      start position
      */
-    public static function get(string $sqlQuery, array $options, int $rows, int $pos): GisVisualization
-    {
+    public static function get(
+        string $sqlQuery,
+        GisVisualizationSettings $options,
+        int $rows,
+        int $pos,
+    ): GisVisualization {
         return new GisVisualization($sqlQuery, $options, $rows, $pos);
     }
 
     /**
      * Get visualization
      *
-     * @param mixed[][]                     $data    Raw data, if set, parameters other
-     *                                               than $options will be ignored
-     * @param array<string,string|int|null> $options Users specified options
-     * @psalm-param array{
-     *     spatialColumn: non-empty-string,
-     *     labelColumn?: non-empty-string|null,
-     *     width: int,
-     *     height: int,
-     * } $options
+     * @param mixed[][] $data Raw data, if set, parameters other
+     *                        than $options will be ignored
      */
-    public static function getByData(array $data, array $options): GisVisualization
+    public static function getByData(array $data, GisVisualizationSettings $options): GisVisualization
     {
         return new GisVisualization($data, $options);
     }
@@ -152,34 +142,25 @@ class GisVisualization
     /**
      * Stores user specified options.
      *
-     * @param mixed[][]|string    $sqlOrData SQL to fetch raw data for visualization
-     *                                       or an array with data.
-     *                                       If it is an array row and pos are ignored
-     * @param array<string,mixed> $options   Users specified options
-     * @param int                 $rows      Number of rows
-     * @param int                 $pos       Start position
+     * @param mixed[][]|string $sqlOrData SQL to fetch raw data for visualization
+     *                                    or an array with data.
+     *                                    If it is an array row and pos are ignored
+     * @param int              $rows      Number of rows
+     * @param int              $pos       Start position
      */
     private function __construct(
         array|string $sqlOrData,
-        array $options,
+        GisVisualizationSettings $options,
         private int $rows = 0,
         private int $pos = 0,
     ) {
-        $width = $options['width'] ?? null;
-        Assert::positiveInteger($width);
-        $this->width = $width;
+        $this->width = $options->width;
 
-        $height = $options['height'] ?? null;
-        Assert::positiveInteger($height);
-        $this->height = $height;
+        $this->height = $options->height;
 
-        $spatialColumn = $options['spatialColumn'] ?? null;
-        Assert::stringNotEmpty($spatialColumn);
-        $this->spatialColumn = $spatialColumn;
+        $this->spatialColumn = $options->spatialColumn;
 
-        $labelColumn = $options['labelColumn'] ?? null;
-        Assert::nullOrStringNotEmpty($labelColumn);
-        $this->labelColumn = $labelColumn;
+        $this->labelColumn = $options->labelColumn;
 
         $this->data = is_string($sqlOrData)
             ? $this->modifyQueryAndFetch($sqlOrData)
@@ -383,48 +364,13 @@ class GisVisualization
     }
 
     /**
-     * Get the code for visualization with OpenLayers.
+     * Get the data for visualization with OpenLayers.
      *
-     * @return string the code for visualization with OpenLayers
-     *
-     * @todo Should return JSON to avoid eval() in gis_data_editor.js
+     * @psalm-return list<mixed[]>
      */
-    public function asOl(): string
+    public function asOl(): array
     {
-        $olCode = $this->prepareDataSet($this->data, 'ol');
-
-        return 'window.drawOpenLayers = function drawOpenLayers(target) {'
-            . 'if (typeof ol === "undefined") { return undefined; }'
-            . 'var olCss = "js/vendor/openlayers/theme/ol.css";'
-            . '$(\'head\').append(\'<link rel="stylesheet" type="text/css" href=\'+olCss+\'>\');'
-            . 'var vectorSource = new ol.source.Vector({});'
-            . 'var map = new ol.Map({'
-            . 'target: target,'
-            . 'layers: ['
-            . 'new ol.layer.Tile({'
-            . 'source: new ol.source.OSM()'
-            . '}),'
-            . 'new ol.layer.Vector({'
-            . 'source: vectorSource'
-            . '})'
-            . '],'
-            . 'view: new ol.View({'
-            . 'center: [0, 0],'
-            . 'zoom: 4'
-            . '}),'
-            . 'controls: [new ol.control.MousePosition({'
-            . 'coordinateFormat: ol.coordinate.createStringXY(4),'
-            . 'projection: \'EPSG:4326\'}),'
-            . 'new ol.control.Zoom,'
-            . 'new ol.control.Attribution]'
-            . '});'
-            . $olCode
-            . 'var extent = vectorSource.getExtent();'
-            . 'if (!ol.extent.isEmpty(extent)) {'
-            . 'map.getView().fit(extent, {padding: [20, 20, 20, 20]});'
-            . '}'
-            . 'return map;'
-            . '}';
+        return $this->prepareDataSet($this->data, 'ol');
     }
 
     /**
@@ -529,11 +475,10 @@ class GisVisualization
      *
      * @param mixed[][]               $data     Raw data
      * @param string                  $format   Format of the visualization
-     * @param ImageWrapper|TCPDF|null $renderer Image object in the case of png
-     *                                          TCPDF object in the case of pdf
+     * @param ImageWrapper|TCPDF|null $renderer Image object in the case of png, TCPDF object in the case of pdf
      * @psalm-param T $format
      *
-     * @psalm-return (T is 'ol'|'svg' ? string : null) The exported data
+     * @psalm-return (T is 'svg' ? string : (T is 'ol' ? list<mixed[]> : null)) The exported data
      *
      * @template T of 'ol'|'pdf'|'png'|'svg'
      */
@@ -541,8 +486,9 @@ class GisVisualization
         array $data,
         string $format,
         ImageWrapper|TCPDF|null $renderer = null,
-    ): string|null {
-        $results = '';
+    ): array|string|null {
+        $svg = '';
+        $olDataset = [];
         $scaleData = $this->scaleDataSet($this->data);
         if ($scaleData !== null) {
             $colorIndex = 0;
@@ -563,7 +509,7 @@ class GisVisualization
                 $label = trim((string) ($row[$this->labelColumn] ?? ''));
 
                 if ($format === 'svg') {
-                    $results .= $gisObj->prepareRowAsSvg($wkt, $label, $color, $scaleData);
+                    $svg .= $gisObj->prepareRowAsSvg($wkt, htmlspecialchars($label), $color, $scaleData);
                 } elseif ($format === 'png') {
                     assert($renderer instanceof ImageWrapper);
                     $gisObj->prepareRowAsPng($wkt, $label, $color, $scaleData, $renderer);
@@ -571,13 +517,13 @@ class GisVisualization
                     assert($renderer instanceof TCPDF);
                     $gisObj->prepareRowAsPdf($wkt, $label, $color, $scaleData, $renderer);
                 } elseif ($format === 'ol') {
-                    $results .= $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label, $color);
+                    $olDataset[] = $gisObj->prepareRowAsOl($wkt, (int) $row['srid'], $label, $color);
                 }
 
                 $colorIndex = ($colorIndex + 1) % count(self::COLORS);
             }
         }
 
-        return $format === 'svg' || $format === 'ol' ? $results : null;
+        return $format === 'svg' ? $svg : ($format === 'ol' ? $olDataset : null);
     }
 }

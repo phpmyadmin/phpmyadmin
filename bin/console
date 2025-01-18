@@ -4,11 +4,11 @@
 use PhpMyAdmin\Command\CacheWarmupCommand;
 use PhpMyAdmin\Command\FixPoTwigCommand;
 use PhpMyAdmin\Command\SetVersionCommand;
-use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Command\TwigLintCommand;
+use PhpMyAdmin\Command\WriteGitRevisionCommand;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use Symfony\Component\Console\Application;
 
@@ -16,7 +16,6 @@ if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
 }
 
-define('PHPMYADMIN', true);
 require_once ROOT_PATH . 'app/constants.php';
 require_once AUTOLOAD_FILE;
 
@@ -31,7 +30,7 @@ $cfg['environment'] = 'production';
 $config = new Config();
 $config->loadAndCheck(CONFIG_FILE);
 $config->set('environment', $cfg['environment']);
-$dbi = new DatabaseInterface(new DbiDummy());
+$dbi = DatabaseInterface::getInstanceForTest(new DbiDummy());
 
 $application = new Application('phpMyAdmin Console Tool');
 

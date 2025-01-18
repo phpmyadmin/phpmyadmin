@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -23,13 +23,13 @@ use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_keys;
 use function in_array;
-use function is_array;
 use function mb_strtolower;
 use function md5;
 use function preg_match;
@@ -127,7 +127,7 @@ final class SearchController implements InvocableController
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
-                if (! preg_match('@BINARY[\(]@i', $type)) {
+                if (preg_match('@BINARY[\(]@i', $type) !== 1) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
 
@@ -154,18 +154,17 @@ final class SearchController implements InvocableController
     /**
      * Index action
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -173,12 +172,12 @@ final class SearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -187,12 +186,12 @@ final class SearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->loadTableInfo();
@@ -209,7 +208,7 @@ final class SearchController implements InvocableController
         if (isset($_POST['range_search'])) {
             $this->rangeSearchAction();
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -221,7 +220,7 @@ final class SearchController implements InvocableController
             $this->doSelectionAction();
         }
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -252,14 +251,13 @@ final class SearchController implements InvocableController
             false, // is_gotofile
             Current::$database, // db
             Current::$table, // table
-            null, // sql_query_for_bookmark
-            null, // message_to_show
-            null, // sql_data
-            $GLOBALS['goto'], // goto
+            '', // sql_query_for_bookmark
+            '', // message_to_show
+            UrlParams::$goto, // goto
             null, // disp_query
-            null, // disp_message
+            '', // disp_message
             $sqlQuery, // sql_query
-            null, // complete_query
+            $sqlQuery, // complete_query
         ));
     }
 
@@ -269,8 +267,8 @@ final class SearchController implements InvocableController
     private function displaySelectionFormAction(): void
     {
         $config = Config::getInstance();
-        if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+        if (UrlParams::$goto === '') {
+            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
         }
 
         $properties = [];
@@ -281,7 +279,7 @@ final class SearchController implements InvocableController
         $this->response->render('table/search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
@@ -306,9 +304,9 @@ final class SearchController implements InvocableController
      *
      * @param string $column Column name
      *
-     * @return mixed[]|null
+     * @return array<string|null>
      */
-    private function getColumnMinMax(string $column): array|null
+    private function getColumnMinMax(string $column): array
     {
         $sqlQuery = 'SELECT MIN(' . Util::backquote($column) . ') AS `min`, '
             . 'MAX(' . Util::backquote($column) . ') AS `max` '
@@ -374,15 +372,13 @@ final class SearchController implements InvocableController
             $this->columnNames[$columnIndex],
         );
 
-        if (
-            $this->foreigners
-            && $searchColumnInForeigners
-            && is_array($foreignData['disp_row'])
-        ) {
+        $hasForeigner = $searchColumnInForeigners !== false && $searchColumnInForeigners !== [];
+
+        if ($hasForeigner && $foreignData->dispRow !== null) {
             $foreignDropdown = $this->relation->foreignDropdown(
-                $foreignData['disp_row'],
-                $foreignData['foreign_field'],
-                $foreignData['foreign_display'],
+                $foreignData->dispRow,
+                $foreignData->foreignField,
+                $foreignData->foreignDisplay,
                 '',
                 Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
@@ -395,7 +391,6 @@ final class SearchController implements InvocableController
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
-            'foreigners' => $this->foreigners,
             'column_name' => $this->columnNames[$columnIndex],
             'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
@@ -405,7 +400,7 @@ final class SearchController implements InvocableController
             'db' => Current::$database,
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
-            'search_column_in_foreigners' => $searchColumnInForeigners,
+            'has_foreigner' => $hasForeigner,
             'is_integer' => $isInteger,
             'is_float' => $isFloat,
         ]);

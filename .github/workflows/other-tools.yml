@@ -19,7 +19,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Install Sphinx for the documentation build
-        run: sudo apt install sphinx-doc python3-sphinx
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y sphinx-doc python3-sphinx
 
       - name: Build the documentation
         run: make -C docs html SPHINXOPTS='-n -W -a'
@@ -28,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["8.1"]
+        php-version: ["8.2"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,7 +46,7 @@ jobs:
           tools: composer:v2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -55,7 +57,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.7'
+          python-version: '3.11'
 
       - name: Install Sphinx for the documentation build
         run: pip install 'Sphinx'

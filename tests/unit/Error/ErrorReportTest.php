@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Tests\Error;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Error\ErrorReport;
+use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -124,7 +125,7 @@ class ErrorReportTest extends AbstractTestCase
             ->method('create')
             ->with(
                 $submissionUrl,
-                'POST',
+                RequestMethod::Post,
                 false,
                 json_encode($report),
                 'Content-Type: application/json',

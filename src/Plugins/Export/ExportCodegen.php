@@ -7,7 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\TableProperty;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -19,6 +21,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function implode;
+use function is_numeric;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
@@ -36,6 +39,9 @@ class ExportCodegen extends ExportPlugin
 
     private const HANDLER_NHIBERNATE_CS = 0;
     private const HANDLER_NHIBERNATE_XML = 1;
+
+    /** @var self::HANDLER_NHIBERNATE_* */
+    private int $format = self::HANDLER_NHIBERNATE_CS;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -116,11 +122,10 @@ class ExportCodegen extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -130,28 +135,20 @@ class ExportCodegen extends ExportPlugin
      *
      * @param string  $db       database name
      * @param string  $table    table name
-     * @param string  $errorUrl the url to go back in case of error
      * @param string  $sqlQuery SQL query for obtaining data
      * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
         string $table,
-        string $errorUrl,
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $format = (int) $GLOBALS['codegen_format'];
-
-        if ($format === self::HANDLER_NHIBERNATE_CS) {
-            return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $aliases));
-        }
-
-        if ($format === self::HANDLER_NHIBERNATE_XML) {
+        if ($this->format === self::HANDLER_NHIBERNATE_XML) {
             return $this->export->outputHandler($this->handleNHibernateXMLBody($db, $table, $aliases));
         }
 
-        return $this->export->outputHandler(sprintf('%s is not supported.', $format));
+        return $this->export->outputHandler($this->handleNHibernateCSBody($db, $table, $aliases));
     }
 
     /**
@@ -167,7 +164,7 @@ class ExportCodegen extends ExportPlugin
         // remove unsafe characters
         $str = (string) preg_replace('/[^\p{L}\p{Nl}_]/u', '', $str);
         // make sure first character is a letter or _
-        if (! preg_match('/^\pL/u', $str)) {
+        if (preg_match('/^\pL/u', $str) !== 1) {
             $str = '_' . $str;
         }
 
@@ -345,5 +342,32 @@ class ExportCodegen extends ExportPlugin
         $lines[] = '</hibernate-mapping>';
 
         return implode("\n", $lines);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('codegen_structure_or_data'),
+            $exportConfig['codegen_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
+        $this->format = $this->setFormat(
+            $request->getParsedBodyParam('codegen_format'),
+            $exportConfig['codegen_format'] ?? null,
+        );
+    }
+
+    /** @return self::HANDLER_NHIBERNATE_* */
+    private function setFormat(mixed $fromRequest, mixed $fromConfig): int
+    {
+        $value = self::HANDLER_NHIBERNATE_CS;
+        if (is_numeric($fromRequest)) {
+            $value = (int) $fromRequest;
+        } elseif (is_numeric($fromConfig)) {
+            $value = (int) $fromConfig;
+        }
+
+        return $value === self::HANDLER_NHIBERNATE_XML ? self::HANDLER_NHIBERNATE_XML : self::HANDLER_NHIBERNATE_CS;
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Table\Table;
@@ -13,6 +14,7 @@ use function implode;
 use function in_array;
 use function json_decode;
 use function preg_replace;
+use function rtrim;
 use function trim;
 
 /**
@@ -64,7 +66,7 @@ class CreateAddField
             }
 
             $definition = $this->getStatementPrefix($isCreateTable) . Table::generateFieldSpec(
-                trim($_POST['field_name'][$i]),
+                rtrim($_POST['field_name'][$i]),
                 $_POST['field_type'][$i],
                 $_POST['field_length'][$i],
                 $_POST['field_attribute'][$i],
@@ -153,7 +155,7 @@ class CreateAddField
 
         $indexFields = [];
         foreach ($index['columns'] as $key => $column) {
-            $indexFields[$key] = Util::backquote($_POST['field_name'][$column['col_index']]);
+            $indexFields[$key] = Util::backquote(rtrim($_POST['field_name'][$column['col_index']]));
             if (! $column['size']) {
                 continue;
             }

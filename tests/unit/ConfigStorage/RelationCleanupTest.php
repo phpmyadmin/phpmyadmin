@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\ConfigStorage;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;

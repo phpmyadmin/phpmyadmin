@@ -6,14 +6,13 @@ namespace PhpMyAdmin\Controllers\Server\Status\Monitor;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Server\Status\AbstractController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Monitor;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 final class LogVarsController extends AbstractController implements InvocableController
 {
@@ -27,27 +26,23 @@ final class LogVarsController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON([
             'message' => $this->monitor->getJsonForLoggingVars(
-                $request->getParsedBodyParam('varName'),
-                $request->getParsedBodyParam('varValue'),
+                $request->getParsedBodyParamAsStringOrNull('varName'),
+                $request->getParsedBodyParamAsStringOrNull('varValue'),
             ),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -33,45 +33,37 @@ final class FeaturesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['cf'] ??= null;
-        $GLOBALS['error'] ??= null;
-        $GLOBALS['tabHash'] ??= null;
-        $GLOBALS['hash'] ??= null;
+        $configFile = new ConfigFile($this->config->baseSettings);
+        $this->userPreferences->pageInit($configFile);
 
-        $GLOBALS['cf'] = new ConfigFile($this->config->baseSettings);
-        $this->userPreferences->pageInit($GLOBALS['cf']);
-
-        $formDisplay = new FeaturesForm($GLOBALS['cf'], 1);
+        $formDisplay = new FeaturesForm($configFile, 1);
 
         if ($request->hasBodyParam('revert')) {
             // revert erroneous fields to their default values
             $formDisplay->fixErrors();
             $this->response->redirectToRoute('/preferences/features', []);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['error'] = null;
+        $result = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
             $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
             // save settings
-            $result = $this->userPreferences->save($GLOBALS['cf']->getConfigArray());
+            $result = $this->userPreferences->save($configFile->getConfigArray());
             // save back the 2FA setting only
             $twoFactor->save();
             if ($result === true) {
                 // reload config
                 $this->config->loadUserPreferences($this->themeManager);
-                $GLOBALS['tabHash'] = $request->getParsedBodyParam('tab_hash');
-                $GLOBALS['hash'] = ltrim($GLOBALS['tabHash'], '#');
-                $this->userPreferences->redirect('index.php?route=/preferences/features', null, $GLOBALS['hash']);
+                $hash = ltrim($request->getParsedBodyParamAsString('tab_hash'), '#');
+                $this->userPreferences->redirect('index.php?route=/preferences/features', null, $hash);
 
-                return null;
+                return $this->response->response();
             }
-
-            $GLOBALS['error'] = $result;
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -85,7 +77,7 @@ final class FeaturesController implements InvocableController
         $formErrors = $formDisplay->displayErrors();
 
         $this->response->render('preferences/forms/main', [
-            'error' => $GLOBALS['error'] instanceof Message ? $GLOBALS['error']->getDisplay() : '',
+            'error' => $result instanceof Message ? $result->getDisplay() : '',
             'has_errors' => $formDisplay->hasErrors(),
             'errors' => $formErrors,
             'form' => $formDisplay->getDisplay(
@@ -101,6 +93,6 @@ final class FeaturesController implements InvocableController
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
 
-        return null;
+        return $this->response->response();
     }
 }

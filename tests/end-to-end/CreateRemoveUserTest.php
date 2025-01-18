@@ -68,9 +68,9 @@ class CreateRemoveUserTest extends TestBase
         $genButton = $this->waitForElement('id', 'button_generate_password');
         $genButton->click();
 
-        self::assertNotEquals('', $this->byId('text_pma_pw')->getAttribute('value'));
-        self::assertNotEquals('', $this->byId('text_pma_pw2')->getAttribute('value'));
-        self::assertNotEquals('', $this->byId('generated_pw')->getAttribute('value'));
+        self::assertNotSame('', $this->byId('text_pma_pw')->getAttribute('value'));
+        self::assertNotSame('', $this->byId('text_pma_pw2')->getAttribute('value'));
+        self::assertNotSame('', $this->byId('generated_pw')->getAttribute('value'));
 
         $this->byId('text_pma_pw')->sendKeys($this->txtPassword);
         $this->byId('text_pma_pw2')->sendKeys($this->txtPassword);

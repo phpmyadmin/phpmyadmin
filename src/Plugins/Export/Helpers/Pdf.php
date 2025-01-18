@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export\Helpers;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Pdf as PdfLib;
@@ -150,7 +150,7 @@ class Pdf extends PdfLib
     // phpcs:ignore PSR1.Methods.CamelCapsMethodName.NotCamelCaps
     public function Header(): void
     {
-        $GLOBALS['maxY'] ??= null;
+        $maxY = 0;
 
         // We don't want automatic page breaks while generating header
         // as this can lead to infinite recursion as auto generated page
@@ -185,7 +185,7 @@ class Pdf extends PdfLib
                 $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt ?? 'NULL');
                 $l += $this->tablewidths[$col];
-                $GLOBALS['maxY'] = $GLOBALS['maxY'] < $this->GetY() ? $this->GetY() : $GLOBALS['maxY'];
+                $maxY = $maxY < $this->GetY() ? $this->GetY() : $maxY;
             }
 
             $this->setXY($this->lMargin, $this->tMargin);
@@ -193,7 +193,7 @@ class Pdf extends PdfLib
             $l = $this->lMargin;
             foreach ($this->colTitles as $col => $txt) {
                 $this->setXY($l, $this->tMargin);
-                $this->Cell($this->tablewidths[$col], $GLOBALS['maxY'] - $this->tMargin, '', 1, 0, 'L', true);
+                $this->Cell($this->tablewidths[$col], $maxY - $this->tMargin, '', 1, 0, 'L', true);
                 $this->setXY($l, $this->tMargin);
                 $this->MultiCell($this->tablewidths[$col], $this->FontSizePt, $txt ?? 'NULL', 0, 'C');
                 $l += $this->tablewidths[$col];
@@ -206,7 +206,7 @@ class Pdf extends PdfLib
 
         // phpcs:enable
 
-        $this->dataY = $GLOBALS['maxY'];
+        $this->dataY = $maxY;
         $this->setAutoPageBreak(true);
     }
 
@@ -437,14 +437,12 @@ class Pdf extends PdfLib
      *
      * @param string $db         the database name
      * @param string $table      the table name
-     * @param bool   $doRelation whether to include relation comments
      * @param bool   $doComments whether to include the pmadb-style column
      *                            comments as comments in the structure;
      *                            this is deprecated but the parameter is
      *                            left here because /export calls
      *                            PMA_exportStructure() also for other
      *                            export types which use this parameter
-     * @param bool   $doMime     whether to include mime comments
      */
     public function getTableDef(
         string $db,
@@ -475,13 +473,12 @@ class Pdf extends PdfLib
          * it will be of use
          */
         // Check if we can use Relations
+        $haveRel = false;
         if ($doRelation) {
             // Find which tables are related with the current one and write it in
             // an array
-            $resRel = $this->relation->getForeigners($db, $table);
-            $haveRel = $resRel !== [];
-        } else {
-            $haveRel = false;
+            $foreigners = $this->relation->getForeigners($db, $table);
+            $haveRel = $foreigners !== [];
         }
 
         //column count and table heading
@@ -573,9 +570,9 @@ class Pdf extends PdfLib
             $fieldName = $column->field;
 
             if ($doRelation && $haveRel) {
-                $data[] = isset($resRel[$fieldName])
-                    ? $resRel[$fieldName]['foreign_table']
-                    . ' (' . $resRel[$fieldName]['foreign_field']
+                $data[] = isset($foreigners[$fieldName])
+                    ? $foreigners[$fieldName]['foreign_table']
+                    . ' (' . $foreigners[$fieldName]['foreign_field']
                     . ')'
                     : '';
             }

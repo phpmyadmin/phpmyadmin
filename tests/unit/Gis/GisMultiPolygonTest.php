@@ -349,10 +349,12 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: -50, offsetY: -50, scale: 2, height: 400),
                 '<path d=" M 110, 290 L 290, 290 L 290, 110 L 110, 110 Z  M 120, 280 L 120, 220 L 180, 220 L 180, 28'
-                . '0 Z  M 220, 180 L 280, 180 L 280, 120 L 220, 120 Z " name="svg" class="multipolygon vector" stroke='
+                . '0 Z  M 220, 180 L 280, 180 L 280, 120 L 220, 120 Z " data-label="svg" class="multipolygon vector"'
+                . ' stroke='
                 . '"black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"'
                 . '/><path d=" M 90, 310 L -90, 310 L -90, 490 L 90, 490 Z  M 80, 320 L 80, 380 L 20, 380 L 20, 320 Z '
-                . ' M -20, 420 L -80, 420 L -80, 480 L -20, 480 Z " name="svg" class="multipolygon vector" stroke="bla'
+                . ' M -20, 420 L -80, 420 L -80, 480 L -20, 480 Z " data-label="svg" class="multipolygon vector"'
+                . ' stroke="bla'
                 . 'ck" stroke-width="0.5" fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8" id="svg1234567890"/>',
             ],
         ];
@@ -361,11 +363,11 @@ class GisMultiPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS MULTIPOLYGON object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS MULTIPOLYGON object
-     * @param int[]  $color   color for the GIS MULTIPOLYGON object
-     * @param string $output  expected output
+     * @param string  $spatial  GIS MULTIPOLYGON object
+     * @param int     $srid     spatial reference ID
+     * @param string  $label    label for the GIS MULTIPOLYGON object
+     * @param int[]   $color    color for the GIS MULTIPOLYGON object
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -373,17 +375,16 @@ class GisMultiPolygonTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisMultiPolygon::singleton();
-        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertSame($output, $ol);
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -393,11 +394,21 @@ class GisMultiPolygonTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.MultiPolygon([[[[136,40],[147,83],[16,75]'
-                . ',[136,40]]],[[[105,0],[56,20],[78,73],[105,0]]]]).transform(\'EPSG:4326\', \'EPS'
-                . 'G:3857\'));feature.setStyle(new ol.style.Style({fill: new ol.style.Fill({"color"'
-                . ':[176,46,224,0.8]}),stroke: new ol.style.Stroke({"color":[0,0,0],"width":0.5}),t'
-                . 'ext: new ol.style.Text({"text":"Ol"})}));vectorSource.addFeature(feature);',
+                [
+                    'geometry' => [
+                        'type' => 'MultiPolygon',
+                        'coordinates' => [
+                            [[[136.0, 40.0], [147.0, 83.0], [16.0, 75.0], [136.0, 40.0]]],
+                            [[[105.0, 0.0], [56.0, 20.0], [78.0, 73.0], [105.0, 0.0]]],
+                        ],
+                        'srid' => 4326,
+                    ],
+                    'style' => [
+                        'fill' => ['color' => [176, 46, 224, 0.8]],
+                        'stroke' => ['color' => [0, 0, 0], 'width' => 0.5],
+                        'text' => ['text' => 'Ol'],
+                    ],
+                ],
             ],
         ];
     }

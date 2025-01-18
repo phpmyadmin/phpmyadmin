@@ -8,17 +8,15 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
-use PhpMyAdmin\Util;
 use Webmozart\Assert\Assert;
 
 use function __;
@@ -66,10 +64,8 @@ final class DatabasesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->hasStatistics = ! empty($request->getParam('statistics'));
@@ -84,14 +80,13 @@ final class DatabasesController implements InvocableController
         $this->sortOrder = strtolower($sortOrder) !== 'desc' ? 'asc' : 'desc';
 
         $this->response->addScriptFiles(['server/databases.js']);
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        $replicationInfo->load($request->getParsedBodyParam('primary_connection'));
+        $replicationInfo->load($request->getParsedBodyParamAsStringOrNull('primary_connection'));
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
         $replicaInfo = $replicationInfo->getReplicaInfo();
@@ -163,10 +158,9 @@ final class DatabasesController implements InvocableController
             'has_primary_replication' => $primaryInfo['status'],
             'has_replica_replication' => $replicaInfo['status'],
             'is_drop_allowed' => $this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'],
-            'text_dir' => LanguageManager::$textDir,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -220,7 +214,7 @@ final class DatabasesController implements InvocableController
             }
 
             $config = Config::getInstance();
-            $url = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $url = Url::getFromRoute($config->settings['DefaultTabDatabase']);
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
                 ! str_contains($url, '?') ? '?' : '&',

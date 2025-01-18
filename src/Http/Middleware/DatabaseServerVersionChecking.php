@@ -6,9 +6,9 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -37,8 +37,7 @@ final class DatabaseServerVersionChecking implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
+                'lang' => Current::$lang,
                 'error_message' => sprintf(
                     __('You should upgrade to %s %s or later.'),
                     'MySQL',

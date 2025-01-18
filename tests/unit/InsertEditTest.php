@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\EditField;
 use PhpMyAdmin\FileListing;
@@ -21,7 +21,9 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
@@ -84,10 +86,10 @@ class InsertEditTest extends AbstractTestCase
         $config->settings['CharTextareaCols'] = 6;
         $config->settings['AllowThirdPartyFraming'] = false;
         $config->settings['SendErrorReports'] = 'ask';
-        $config->settings['DefaultTabDatabase'] = 'structure';
+        $config->settings['DefaultTabDatabase'] = '/database/structure';
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
-        $config->settings['DefaultTabTable'] = 'browse';
-        $config->settings['NavigationTreeDefaultTabTable'] = 'structure';
+        $config->settings['DefaultTabTable'] = '/sql';
+        $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
         $config->settings['NavigationTreeDefaultTabTable2'] = '';
         $config->settings['Confirm'] = true;
         $config->settings['LoginCookieValidity'] = 1440;
@@ -127,7 +129,7 @@ class InsertEditTest extends AbstractTestCase
         $whereClause = ['foo' => 'bar ', '1' => ' test'];
         $_POST['clause_is_unique'] = false;
         $_POST['sql_query'] = 'SELECT a';
-        $GLOBALS['goto'] = 'index.php';
+        UrlParams::$goto = 'index.php';
 
         $result = $this->insertEdit->getFormParametersForInsertForm(
             'dbname',
@@ -161,7 +163,7 @@ class InsertEditTest extends AbstractTestCase
         $_GET['clause_is_unique'] = false;
         $_GET['sql_query'] = 'SELECT a';
         $_GET['sql_signature'] = Core::signSqlQuery($_GET['sql_query']);
-        $GLOBALS['goto'] = 'index.php';
+        UrlParams::$goto = 'index.php';
 
         $result = $this->insertEdit->getFormParametersForInsertForm(
             'dbname',
@@ -503,7 +505,6 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetNullifyCodeForNullColumn(): void
     {
-        $foreignData = [];
         $foreigners = ['foreign_keys_data' => []];
         $column = new InsertEditColumn(
             'f',
@@ -524,7 +525,7 @@ class InsertEditTest extends AbstractTestCase
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, []],
+                [$column, $foreigners, false],
             ),
         );
 
@@ -547,7 +548,7 @@ class InsertEditTest extends AbstractTestCase
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, []],
+                [$column, $foreigners, false],
             ),
         );
 
@@ -558,20 +559,19 @@ class InsertEditTest extends AbstractTestCase
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, []],
+                [$column, $foreigners, false],
             ),
         );
 
         $column = new InsertEditColumn('f', '', false, '', null, '', -1, false, false, false, false);
         $foreigners['f'] = ['something'/* What should the mocked value actually be? */];
-        $foreignData['foreign_link'] = '';
         self::assertSame(
             '4',
             $this->callFunction(
                 $this->insertEdit,
                 InsertEdit::class,
                 'getNullifyCodeForNullColumn',
-                [$column, $foreigners, $foreignData],
+                [$column, $foreigners, false],
             ),
         );
     }
@@ -606,14 +606,14 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit,
             InsertEdit::class,
             'getTextarea',
-            [$column, 'a', 'b', '', 'abc/', 'foobar', 'CHAR'],
+            [$column, 'a', 'b', '', 'foobar', TypeClass::Char],
         );
 
         $result = $this->parseString($result);
 
         self::assertStringContainsString(
-            '<textarea name="fieldsb" class="char charField" '
-            . 'data-maxlength="10" rows="7" cols="1" dir="abc/" '
+            '<textarea name="fieldsb" class="charField" '
+            . 'data-maxlength="10" rows="7" cols="1" dir="ltr" '
             . 'id="field_2_3" tabindex="2" data-type="CHAR">',
             $result,
         );
@@ -690,24 +690,24 @@ class InsertEditTest extends AbstractTestCase
     {
         $config = Config::getInstance();
         $config->set('max_upload_size', 257);
-        $pmaType = 'tinyblob';
+        $type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType],
+            [$type],
         );
 
         self::assertSame("(Max: 256B)\n", $result);
 
         // case 2
         $config->set('max_upload_size', 250);
-        $pmaType = 'tinyblob';
+        $type = 'tinyblob';
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
             'getMaxUploadSize',
-            [$pmaType],
+            [$type],
         );
 
         self::assertSame("(Max: 250B)\n", $result);
@@ -744,7 +744,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -753,8 +752,8 @@ class InsertEditTest extends AbstractTestCase
 
         self::assertSame(
             "a\na\n"
-            . '<textarea name="fieldsb" class="char charField" '
-            . 'data-maxlength="25" rows="7" cols="1" dir="/" '
+            . '<textarea name="fieldsb" class="charField" '
+            . 'data-maxlength="25" rows="7" cols="1" dir="ltr" '
             . 'id="field_22_3" onchange="c" tabindex="22" data-type="CHAR">'
             . '&lt;</textarea>',
             $result,
@@ -785,7 +784,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -826,7 +824,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -850,7 +847,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -874,7 +870,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -898,7 +893,6 @@ class InsertEditTest extends AbstractTestCase
                 'b',
                 'c',
                 '&lt;',
-                '/',
                 '&lt;',
                 "foo\nbar",
                 $extractedColumnSpec,
@@ -979,7 +973,7 @@ class InsertEditTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->settings['InsertRows'] = 1;
         $config->settings['ServerDefault'] = 1;
-        $GLOBALS['goto'] = 'index.php';
+        UrlParams::$goto = 'index.php';
         $_POST['where_clause'] = true;
         $_POST['sql_query'] = 'SELECT 1';
 
@@ -1354,7 +1348,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetGotoInclude(): void
     {
-        $GLOBALS['goto'] = '123.php';
+        UrlParams::$goto = '123.php';
         Current::$table = '';
 
         self::assertSame(
@@ -1368,7 +1362,7 @@ class InsertEditTest extends AbstractTestCase
             $this->insertEdit->getGotoInclude('index'),
         );
 
-        $GLOBALS['goto'] = 'index.php?route=/database/sql';
+        UrlParams::$goto = 'index.php?route=/database/sql';
 
         self::assertSame(
             '/database/sql',
@@ -1377,7 +1371,7 @@ class InsertEditTest extends AbstractTestCase
 
         self::assertSame('', Current::$table);
 
-        $GLOBALS['goto'] = 'index.php?route=/sql&server=2';
+        UrlParams::$goto = 'index.php?route=/sql&server=2';
 
         self::assertSame(
             '/sql',
@@ -1535,7 +1529,7 @@ class InsertEditTest extends AbstractTestCase
 
         $result = $this->insertEdit->getDisplayValueForForeignTableColumn('=1', $map, 'f');
 
-        self::assertEquals(2, $result);
+        self::assertSame('2', $result);
     }
 
     /**
@@ -2452,7 +2446,7 @@ class InsertEditTest extends AbstractTestCase
         $expected = '<input type="checkbox" %sname="insert_ignore_1"'
             . ' id="insert_ignore_1"><label for="insert_ignore_1">'
             . 'Ignore</label><br>' . "\n";
-        $checked = 'checked="checked" ';
+        $checked = 'checked ';
         self::assertSame(
             sprintf($expected, $checked),
             $this->insertEdit->getHtmlForIgnoreOption(1),
@@ -2470,7 +2464,7 @@ class InsertEditTest extends AbstractTestCase
     public function testGetHtmlForInsertEditFormColumn(): void
     {
         $_SESSION[' HMAC_secret '] = hash('sha1', 'test');
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         $foreigners = ['foreign_keys_data' => []];
         $tableColumn = new ColumnFull('col', 'varchar(20)', null, true, '', null, '', 'insert,update,select', '');
         $repopulate = [md5('col') => 'val'];
@@ -2497,7 +2491,6 @@ class InsertEditTest extends AbstractTestCase
                 'table',
                 'db',
                 0,
-                '',
                 '',
                 $repopulate,
                 $columnMime,
@@ -2542,7 +2535,6 @@ class InsertEditTest extends AbstractTestCase
                 'table',
                 'db',
                 0,
-                '',
                 '',
                 $repopulate,
                 [],
@@ -2605,7 +2597,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRow(): void
     {
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
         $config->settings['CharEditing'] = 'input';
@@ -2633,7 +2625,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            'ltr',
             [],
             ['wc'],
         );
@@ -2654,7 +2645,7 @@ class InsertEditTest extends AbstractTestCase
      */
     public function testGetHtmlForInsertEditRowBasedOnColumnPrivileges(): void
     {
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         $config = Config::getInstance();
         $config->settings['LongtextDoubleTextarea'] = true;
         $config->settings['CharEditing'] = 'input';
@@ -2687,7 +2678,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            '',
             [],
             ['wc'],
         );
@@ -2712,7 +2702,6 @@ class InsertEditTest extends AbstractTestCase
             'table',
             'db',
             0,
-            '',
             [],
             ['wc'],
         );
@@ -2722,8 +2711,8 @@ class InsertEditTest extends AbstractTestCase
             $actual,
         );
         self::assertStringContainsString(
-            '<a href="#" ><span class="text-nowrap"><img src="themes/dot.gif" title="Edit/Insert"' .
-            ' alt="Edit/Insert" class="icon ic_b_edit">&nbsp;Edit/Insert</span></a>',
+            '<span class="text-nowrap"><img src="themes/dot.gif" title="Edit/Insert"' .
+            ' alt="Edit/Insert" class="icon ic_b_edit">&nbsp;Edit/Insert</span>',
             $actual,
         );
     }

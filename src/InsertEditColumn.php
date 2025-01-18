@@ -9,29 +9,28 @@ use function md5;
 use function preg_match;
 use function preg_replace;
 
-final class InsertEditColumn
+final readonly class InsertEditColumn
 {
-    public readonly string|null $default;
-    public readonly string $md5;
+    public string|null $default;
+    public string $md5;
     /**
      * trueType contains only the type (stops at first bracket)
      */
-    public readonly string $trueType;
-    public readonly string $pmaType;
-    public readonly int $length;
-    public readonly bool $firstTimestamp;
+    public string $trueType;
+    public int $length;
+    public bool $firstTimestamp;
 
     public function __construct(
-        public readonly string $field,
-        public readonly string $type,
-        public readonly bool $isNull,
-        public readonly string $key,
+        public string $field,
+        public string $type,
+        public bool $isNull,
+        public string $key,
         string|null $default,
-        public readonly string $extra,
+        public string $extra,
         int $columnLength,
-        public readonly bool $isBinary,
-        public readonly bool $isBlob,
-        public readonly bool $isChar,
+        public bool $isBinary,
+        public bool $isBlob,
+        public bool $isChar,
         bool $insertMode,
     ) {
         if (
@@ -46,23 +45,42 @@ final class InsertEditColumn
         }
 
         $this->md5 = md5($this->field);
-        $this->trueType = preg_replace('@\(.*@s', '', $this->type);
+        $this->trueType = preg_replace('@(\(.*)|(\s/.*)@s', '', $this->type);
         // length is unknown for geometry fields,
         // make enough space to edit very simple WKTs
         if ($columnLength === -1) {
             $columnLength = 30;
         }
 
-        $this->length = preg_match('@float|double@', $this->type) ? 100 : $columnLength;
-        $this->pmaType = match ($this->trueType) {
-            'set', 'enum' => $this->trueType,
-            default => $this->type,
-        };
+        $this->length = preg_match('@float|double@', $this->type) === 1 ? 100 : $columnLength;
         /**
          * TODO: This property is useless at the moment.
          * It seems like a long time ago before refactoring into classes,
          * this kept track of how many timestamps are in the table.
          */
         $this->firstTimestamp = $this->trueType === 'timestamp';
+    }
+
+    public function getFractionalSecondsPrecision(): int
+    {
+        if ($this->trueType !== 'timestamp' && $this->trueType !== 'datetime' && $this->trueType !== 'time') {
+            return 0;
+        }
+
+        $matches = [];
+        if (preg_match('@\((\d+)\)@', $this->type, $matches) === 1) {
+            return (int) $matches[1];
+        }
+
+        return 0;
+    }
+
+    public function getDisplayType(): string
+    {
+        // Enum and set values, and any additional options within comments, are not displayed
+        return match ($this->trueType) {
+            'set', 'enum' => $this->trueType,
+            default => preg_replace('@\s/.+@', '', $this->type),
+        };
     }
 }

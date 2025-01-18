@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\SysInfo\SysInfo;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function is_numeric;
 use function microtime;
@@ -28,28 +27,18 @@ final class MonitorController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         $this->response->addScriptFiles([
+            'vendor/chart.umd.js',
+            'vendor/chartjs-adapter-date-fns.bundle.js',
             'vendor/jquery/jquery.tablesorter.js',
             'jquery.sortable-table.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
-            'vendor/jqplot/plugins/jqplot.cursor.js',
-            'jqplot/plugins/jqplot.byteFormatter.js',
             'server/status/monitor.js',
-            'chart.js',// Needed by createProfilingChart in server/status/monitor.js
         ]);
 
         $form = [
@@ -73,6 +62,6 @@ final class MonitorController extends AbstractController implements InvocableCon
             'form' => $form,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

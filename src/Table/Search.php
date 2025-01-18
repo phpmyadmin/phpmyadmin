@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
@@ -44,7 +44,7 @@ final class Search
         // (more efficient and this helps prevent a problem in IE
         // if one of the rows is edited and we come back to the Select results)
         if (isset($_POST['zoom_submit']) || ! empty($_POST['displayAllColumns'])) {
-            $sqlQuery .= '* ';
+            $sqlQuery .= '*';
         } else {
             $columnsToDisplay = $_POST['columnsToDisplay'];
             $quotedColumns = [];
@@ -158,7 +158,7 @@ final class Search
             // (like INT), for a LIKE we always quote the value. MySQL converts
             // strings to numbers and numbers to strings as necessary
             // during the comparison
-            $needsQuoting = preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types)
+            $needsQuoting = preg_match('@char|binary|blob|text|set|date|time|year|uuid@i', $types) === 1
                 || str_contains($funcType, 'LIKE');
 
             // LIKE %...%

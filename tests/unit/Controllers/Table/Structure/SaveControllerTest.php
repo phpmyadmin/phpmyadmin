@@ -8,7 +8,8 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\SaveController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -89,7 +90,8 @@ class SaveControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
 
         $mock = self::createMock(StructureController::class);
-        $mock->expects(self::once())->method('__invoke')->with($request);
+        $mock->expects(self::once())->method('__invoke')->with($request)
+            ->willReturn(ResponseFactory::create()->createResponse());
 
         (new SaveController(
             new ResponseRenderer(),

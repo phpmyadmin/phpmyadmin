@@ -10,7 +10,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SqlController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -44,7 +44,7 @@ class SqlControllerTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
 

@@ -9,7 +9,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -21,15 +21,16 @@ use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\UniqueCondition;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\Gis;
 
 use function __;
+use function array_map;
 use function array_search;
 use function array_values;
 use function htmlspecialchars;
 use function in_array;
-use function is_array;
 use function is_numeric;
 use function json_encode;
 use function mb_strtolower;
@@ -79,19 +80,18 @@ final class ZoomSearchController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['goto'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -99,12 +99,12 @@ final class ZoomSearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -113,26 +113,23 @@ final class ZoomSearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->loadTableInfo();
 
         $this->response->addScriptFiles([
+            'vendor/chart.umd.js',
+            'vendor/hammer.js',
+            'vendor/chartjs-plugin-zoom.js',
             'makegrid.js',
             'sql.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
-            'vendor/jqplot/plugins/jqplot.cursor.js',
-            'table/zoom_plot_jqplot.js',
+            'table/zoom_search.js',
             'table/select.js',
             'table/change.js',
             'gis_data_editor.js',
@@ -144,7 +141,7 @@ final class ZoomSearchController implements InvocableController
         if (isset($_POST['get_data_row']) && $_POST['get_data_row'] == true) {
             $this->getDataRowAction();
 
-            return null;
+            return $this->response->response();
         }
 
         /**
@@ -154,7 +151,7 @@ final class ZoomSearchController implements InvocableController
         if ($request->hasBodyParam('change_tbl_info')) {
             $this->changeTableInfoAction();
 
-            return null;
+            return $this->response->response();
         }
 
         //Set default datalabel if not selected
@@ -177,16 +174,16 @@ final class ZoomSearchController implements InvocableController
             || $_POST['criteriaColumnNames'][1] === 'pma_null'
             || $_POST['criteriaColumnNames'][0] == $_POST['criteriaColumnNames'][1]
         ) {
-            return null;
+            return $this->response->response();
         }
 
-        if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+        if (UrlParams::$goto === '') {
+            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
         }
 
-        $this->zoomSubmitAction($dataLabel, $GLOBALS['goto']);
+        $this->zoomSubmitAction($dataLabel, UrlParams::$goto);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -218,7 +215,7 @@ final class ZoomSearchController implements InvocableController
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
-                if (! preg_match('@BINARY[\(]@i', $type)) {
+                if (preg_match('@BINARY[\(]@i', $type) !== 1) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
 
@@ -248,8 +245,8 @@ final class ZoomSearchController implements InvocableController
     private function displaySelectionFormAction(string $dataLabel): void
     {
         $config = Config::getInstance();
-        if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+        if (UrlParams::$goto === '') {
+            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
         }
 
         $criteriaColumnNames = $_POST['criteriaColumnNames'] ?? null;
@@ -273,7 +270,7 @@ final class ZoomSearchController implements InvocableController
         $this->response->render('table/zoom_search/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'properties' => $properties,
             'geom_column_flag' => $this->geomColumnFlag,
             'column_names' => $this->columnNames,
@@ -398,31 +395,40 @@ final class ZoomSearchController implements InvocableController
                 $columnName,
             );
             if (
-                $this->foreigners === []
-                || $searchColumnInForeigners[$columnIndex] === []
+                $searchColumnInForeigners[$columnIndex] === []
                 || $searchColumnInForeigners[$columnIndex] === false
-                || ! is_array($foreignData[$columnIndex]['disp_row'])
+                || $foreignData[$columnIndex]->dispRow === null
             ) {
                 continue;
             }
 
             $foreignDropdown[$columnIndex] = $this->relation->foreignDropdown(
-                $foreignData[$columnIndex]['disp_row'],
-                (string) $foreignData[$columnIndex]['foreign_field'],
-                $foreignData[$columnIndex]['foreign_display'],
+                $foreignData[$columnIndex]->dispRow,
+                (string) $foreignData[$columnIndex]->foreignField,
+                $foreignData[$columnIndex]->foreignDisplay,
                 '',
                 Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
         }
+
+        $integerTypes = $this->dbi->types->getIntegerTypes();
+        $floatTypes = $this->dbi->types->getFloatTypes();
+        $columnDataTypes = array_map(static function (string $type) use ($integerTypes, $floatTypes): string {
+            $cleanType = (string) preg_replace('@\(.*@s', '', $type);
+            $isInteger = in_array($cleanType, $integerTypes, true);
+            $isFloat = in_array($cleanType, $floatTypes, true);
+
+            return $isInteger ? 'INT' : ($isFloat ? 'FLOAT' : strtoupper($cleanType));
+        }, $this->columnTypes);
 
         $this->response->render('table/zoom_search/result_form', [
             'db' => Current::$database,
             'table' => Current::$table,
             'column_names' => $this->columnNames,
             'column_names_hashes' => $columnNamesHashes,
-            'foreigners' => $this->foreigners,
             'column_null_flags' => $this->columnNullFlags,
             'column_types' => $this->columnTypes,
+            'column_data_types' => $columnDataTypes,
             'goto' => $goto,
             'data' => $data,
             'data_json' => json_encode($data),
@@ -482,22 +488,22 @@ final class ZoomSearchController implements InvocableController
         $htmlAttributes .= ' onfocus="return '
                         . 'verifyAfterSearchFieldChange(' . $searchIndex . ', \'#zoom_search_form\')"';
 
-        $searchColumnInForeigners = false;
         $foreignDropdown = '';
-        if ($this->foreigners) {
-            $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
-                $this->foreigners,
-                $this->columnNames[$columnIndex],
+        $searchColumnInForeigners = $this->relation->searchColumnInForeigners(
+            $this->foreigners,
+            $this->columnNames[$columnIndex],
+        );
+
+        $hasForeigner = $searchColumnInForeigners !== false && $searchColumnInForeigners !== [];
+
+        if ($hasForeigner && $foreignData->dispRow !== null) {
+            $foreignDropdown = $this->relation->foreignDropdown(
+                $foreignData->dispRow,
+                $foreignData->foreignField,
+                $foreignData->foreignDisplay,
+                '',
+                Config::getInstance()->settings['ForeignKeyMaxLimit'],
             );
-            if ($searchColumnInForeigners && is_array($foreignData['disp_row'])) {
-                $foreignDropdown = $this->relation->foreignDropdown(
-                    $foreignData['disp_row'],
-                    $foreignData['foreign_field'],
-                    $foreignData['foreign_display'],
-                    '',
-                    Config::getInstance()->settings['ForeignKeyMaxLimit'],
-                );
-            }
         }
 
         $value = $this->template->render('table/search/input_box', [
@@ -507,7 +513,6 @@ final class ZoomSearchController implements InvocableController
             'html_attributes' => $htmlAttributes,
             'column_id' => 'fieldID_',
             'in_zoom_search_edit' => false,
-            'foreigners' => $this->foreigners,
             'column_name' => $this->columnNames[$columnIndex],
             'column_name_hash' => md5($this->columnNames[$columnIndex]),
             'foreign_data' => $foreignData,
@@ -517,7 +522,7 @@ final class ZoomSearchController implements InvocableController
             'db' => Current::$database,
             'in_fbs' => true,
             'foreign_dropdown' => $foreignDropdown,
-            'search_column_in_foreigners' => $searchColumnInForeigners,
+            'has_foreigner' => $hasForeigner,
             'is_integer' => $isInteger,
             'is_float' => $isFloat,
         ]);

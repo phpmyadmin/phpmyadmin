@@ -1,7 +1,4 @@
 <?php
-/**
- * Form validation for configuration editor
- */
 
 declare(strict_types=1);
 
@@ -16,7 +13,6 @@ use function __;
 use function array_map;
 use function array_merge;
 use function array_shift;
-use function call_user_func_array;
 use function count;
 use function error_clear_last;
 use function error_get_last;
@@ -44,7 +40,7 @@ use const MYSQLI_REPORT_OFF;
 use const PHP_INT_MAX;
 
 /**
- * Validation class for various validation functions
+ * Form validation for configuration editor
  *
  * Validation function takes two argument: id for which it is called
  * and array of fields' values (usually values for entire formset).
@@ -56,6 +52,9 @@ use const PHP_INT_MAX;
  */
 class Validator
 {
+    /** @var mixed[]|null */
+    private static array|null $validators = null;
+
     /**
      * Returns validator list
      *
@@ -65,16 +64,14 @@ class Validator
      */
     public static function getValidators(ConfigFile $cf): array
     {
-        static $validators = null;
-
-        if ($validators !== null) {
-            return $validators;
+        if (self::$validators !== null) {
+            return self::$validators;
         }
 
-        $validators = $cf->getDbEntry('_validators', []);
+        self::$validators = $cf->getDbEntry('_validators', []);
         $config = Config::getInstance();
-        if ($config->get('is_setup')) {
-            return $validators;
+        if ($config->isSetup()) {
+            return self::$validators;
         }
 
         // not in setup script: load additional validators for user
@@ -101,12 +98,12 @@ class Validator
                 }
             }
 
-            $validators[$field] = isset($validators[$field])
-                ? array_merge((array) $validators[$field], $uvList)
+            self::$validators[$field] = isset(self::$validators[$field])
+                ? array_merge((array) self::$validators[$field], $uvList)
                 : $uvList;
         }
 
-        return $validators;
+        return self::$validators;
     }
 
     /**
@@ -118,11 +115,12 @@ class Validator
      *   cleanup in HTML document
      * o false - when no validators match name(s) given by $validator_id
      *
-     * @param ConfigFile     $cf           Config file instance
-     * @param string|mixed[] $validatorId  ID of validator(s) to run
-     * @param mixed[]        $values       Values to validate
-     * @param bool           $isPostSource tells whether $values are directly from
-     *                                     POST request
+     * @param ConfigFile      $cf           Config file instance
+     * @param string|string[] $validatorId  ID of validator(s) to run
+     * @param mixed[]         $values       Values to validate
+     * @param bool            $isPostSource tells whether $values are directly from POST request
+     *
+     * @return mixed[]|bool
      */
     public static function validate(
         ConfigFile $cf,
@@ -132,7 +130,7 @@ class Validator
     ): bool|array {
         // find validators
         $validatorId = (array) $validatorId;
-        $validators = static::getValidators($cf);
+        $validators = self::getValidators($cf);
         $vids = [];
         foreach ($validatorId as &$vid) {
             $vid = $cf->getCanonicalPath($vid);
@@ -166,17 +164,27 @@ class Validator
             foreach ((array) $validators[$vid] as $validator) {
                 $vdef = (array) $validator;
                 $vname = array_shift($vdef);
-                /** @var callable $vname */
-                $vname = 'PhpMyAdmin\Config\Validator::' . $vname;
                 $args = array_merge([$vid, &$arguments], $vdef);
-                $r = call_user_func_array($vname, $args);
+
+                $validationResult = match ($vname) {
+                    'validateServer' => self::validateServer(...$args),
+                    'validatePMAStorage' => self::validatePMAStorage(...$args),
+                    'validateRegex' => self::validateRegex(...$args),
+                    'validateTrustedProxies' => self::validateTrustedProxies(...$args),
+                    'validatePortNumber' => self::validatePortNumber(...$args),
+                    'validatePositiveNumber' => self::validatePositiveNumber(...$args),
+                    'validateNonNegativeNumber' => self::validateNonNegativeNumber(...$args),
+                    'validateByRegex' => self::validateByRegex(...$args),
+                    'validateUpperBound' => self::validateUpperBound(...$args),
+                    default => null,
+                };
 
                 // merge results
-                if (! is_array($r)) {
+                if (! is_array($validationResult)) {
                     continue;
                 }
 
-                foreach ($r as $key => $errorList) {
+                foreach ($validationResult as $key => $errorList) {
                     // skip empty values if $isPostSource is false
                     if (! $isPostSource && empty($errorList)) {
                         continue;
@@ -211,8 +219,10 @@ class Validator
      * @param string $user     username to use
      * @param string $pass     password to use
      * @param string $errorKey key to use in return array
+     *
+     * @return array<string, string>|true
      */
-    public static function testDBConnection(
+    private static function testDBConnection(
         string $host,
         string $port,
         string $socket,
@@ -263,9 +273,9 @@ class Validator
      *                        reflection along with other similar methods
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
-    public static function validateServer(string $path, array $values): array
+    private static function validateServer(string $path, array $values): array
     {
         $result = [
             'Server' => '',
@@ -305,7 +315,7 @@ class Validator
                 $password = $values['Servers/1/password'];
             }
 
-            $test = static::testDBConnection(
+            $test = self::testDBConnection(
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
@@ -329,9 +339,9 @@ class Validator
      *                        reflection along with other similar methods
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
-    public static function validatePMAStorage(string $path, array $values): array
+    private static function validatePMAStorage(string $path, array $values): array
     {
         $result = [
             'Server_pmadb' => '',
@@ -360,7 +370,7 @@ class Validator
         }
 
         if (! $error) {
-            $test = static::testDBConnection(
+            $test = self::testDBConnection(
                 empty($values['Servers/1/host']) ? '' : $values['Servers/1/host'],
                 empty($values['Servers/1/port']) ? '' : $values['Servers/1/port'],
                 empty($values['Servers/1/socket']) ? '' : $values['Servers/1/socket'],
@@ -382,9 +392,9 @@ class Validator
      * @param string  $path   path to config
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string|null>
      */
-    public static function validateRegex(string $path, array $values): array
+    private static function validateRegex(string $path, array $values): array
     {
         $result = [$path => ''];
 
@@ -416,9 +426,9 @@ class Validator
      * @param string  $path   path to config
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string[]>
      */
-    public static function validateTrustedProxies(string $path, array $values): array
+    private static function validateTrustedProxies(string $path, array $values): array
     {
         $result = [$path => []];
 
@@ -431,9 +441,7 @@ class Validator
             $lines = [];
             foreach ($values[$path] as $ip => $v) {
                 $v = Util::requestString($v);
-                $lines[] = preg_match('/^-\d+$/', $ip)
-                    ? $v
-                    : $ip . ': ' . $v;
+                $lines[] = preg_match('/^-\d+$/', $ip) === 1 ? $v : $ip . ': ' . $v;
             }
         } else {
             // AJAX validation
@@ -444,7 +452,7 @@ class Validator
             $line = trim($line);
             $matches = [];
             // we catch anything that may (or may not) be an IP
-            if (! preg_match('/^(.+):(?:[ ]?)\\w+$/', $line, $matches)) {
+            if (preg_match('/^(.+):(?:[ ]?)\\w+$/', $line, $matches) !== 1) {
                 $result[$path][] = __('Incorrect value:') . ' '
                     . htmlspecialchars($line);
                 continue;
@@ -476,7 +484,7 @@ class Validator
      *
      * @return string  empty string if test is successful
      */
-    public static function validateNumber(
+    private static function validateNumber(
         string $path,
         array $values,
         bool $allowNegative,
@@ -508,12 +516,12 @@ class Validator
      * @param string  $path   path to config
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
-    public static function validatePortNumber(string $path, array $values): array
+    private static function validatePortNumber(string $path, array $values): array
     {
         return [
-            $path => static::validateNumber(
+            $path => self::validateNumber(
                 $path,
                 $values,
                 false,
@@ -530,12 +538,12 @@ class Validator
      * @param string  $path   path to config
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
-    public static function validatePositiveNumber(string $path, array $values): array
+    private static function validatePositiveNumber(string $path, array $values): array
     {
         return [
-            $path => static::validateNumber(
+            $path => self::validateNumber(
                 $path,
                 $values,
                 false,
@@ -552,12 +560,12 @@ class Validator
      * @param string  $path   path to config
      * @param mixed[] $values config values
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
-    public static function validateNonNegativeNumber(string $path, array $values): array
+    private static function validateNonNegativeNumber(string $path, array $values): array
     {
         return [
-            $path => static::validateNumber(
+            $path => self::validateNumber(
                 $path,
                 $values,
                 false,
@@ -575,16 +583,16 @@ class Validator
      * @param string           $path   path to config
      * @param mixed[]          $values config values
      * @param non-empty-string $regex  regular expression to match
+     *
+     * @return array<string, string>|string
      */
-    public static function validateByRegex(string $path, array $values, string $regex): array|string
+    private static function validateByRegex(string $path, array $values, string $regex): array|string
     {
         if (! isset($values[$path])) {
             return '';
         }
 
-        $result = preg_match($regex, Util::requestString($values[$path]));
-
-        return [$path => $result ? '' : __('Incorrect value!')];
+        return [$path => preg_match($regex, Util::requestString($values[$path])) === 1 ? '' : __('Incorrect value!')];
     }
 
     /**
@@ -594,9 +602,9 @@ class Validator
      * @param mixed[] $values   config values
      * @param int     $maxValue maximal allowed value
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
-    public static function validateUpperBound(string $path, array $values, int $maxValue): array
+    private static function validateUpperBound(string $path, array $values, int $maxValue): array
     {
         $result = $values[$path] <= $maxValue;
 

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\IndexesController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
@@ -19,6 +19,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionMethod;
 
@@ -43,7 +44,7 @@ class IndexesControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer['pmadb'] = '';
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['urlParams'] = ['db' => 'db', 'server' => 1];
+        UrlParams::$params = ['db' => 'db', 'server' => 1];
     }
 
     protected function tearDown(): void

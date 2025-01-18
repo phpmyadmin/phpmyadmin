@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Triggers;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
@@ -61,8 +61,6 @@ class TriggersTest extends AbstractTestCase
         string $query,
         int $numErr,
     ): void {
-        $GLOBALS['errors'] = [];
-
         $_POST['item_definer'] = $definer;
         $_POST['item_name'] = $name;
         $_POST['item_timing'] = $timing;
@@ -71,7 +69,7 @@ class TriggersTest extends AbstractTestCase
         $_POST['item_definition'] = $definition;
 
         self::assertSame($query, $this->triggers->getQueryFromRequest());
-        self::assertCount($numErr, $GLOBALS['errors']);
+        self::assertSame($numErr, $this->triggers->getErrorCount());
     }
 
     /**

@@ -80,7 +80,7 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         // second case
 
-        $this->config->set('is_setup', true);
+        $this->config->setSetup(true);
         $opts = [];
         $opts['errors'] = [];
         $opts['setvalue'] = 'setVal';
@@ -203,14 +203,14 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         $this->formDisplayTemplate->group = 3;
 
-        $this->config->set('is_setup', true);
+        $this->config->setSetup(true);
 
         $result = $this->formDisplayTemplate->displayGroupHeader('headerText');
 
         self::assertStringContainsString('<tr class="group-header group-header-4">', $result);
 
         // without PMA_SETUP
-        $this->config->set('is_setup', false);
+        $this->config->setSetup(false);
 
         $this->formDisplayTemplate->group = 3;
 
@@ -242,10 +242,8 @@ class FormDisplayTemplateTest extends AbstractTestCase
 
         self::assertSame(
             [
-                'window.Config.registerFieldValidator(\'testID\', \'\\\';\', true, '
-                . '["\\\\r\\\\n\\\\\''
-                . '\u003CscrIpt\u003E\u003C\/\' + \'script\u003E"])',
-                'window.Config.registerFieldValidator(\'testID\', \'\', true)',
+                ['fieldId' => 'testID', 'name' => '\\\';', 'args' => ['\r\n\\\'<scrIpt></\' + \'script>']],
+                ['fieldId' => 'testID', 'name' => null, 'args' => null],
             ],
             $js,
         );

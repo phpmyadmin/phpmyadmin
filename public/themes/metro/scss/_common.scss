@@ -733,11 +733,6 @@ table#chartGrid {
     padding: 3px;
     margin: 0;
   }
-
-  div.monitorChart {
-    background: $th-background;
-    min-width: 1px;
-  }
 }
 
 div.tabLinks {
@@ -771,10 +766,6 @@ div {
     div {
       &.CodeMirror-scroll {
         height: auto;
-      }
-
-      &#queryProfiling {
-        height: 300px;
       }
     }
 
@@ -1071,19 +1062,6 @@ input {
   /** Need this parent to properly center the notification division */
   position: relative;
   width: 100%;
-}
-
-#popup_background {
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.7;
-  z-index: 1000;
-  overflow: hidden;
 }
 
 #structure-action-links a {
@@ -2580,16 +2558,6 @@ body {
 
 #tooltip_font {
   font-weight: bold;
-}
-
-#selection_box {
-  z-index: 1000;
-  height: 205px;
-  position: absolute;
-  background-color: #87ceeb;
-  opacity: 0.4;
-  filter: alpha(opacity=40);
-  pointer-events: none;
 }
 
 #filterQueryText {

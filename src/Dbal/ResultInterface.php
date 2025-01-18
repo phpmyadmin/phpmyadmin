@@ -106,8 +106,7 @@ interface ResultInterface extends IteratorAggregate
     /**
      * Returns the names of the fields in the result
      *
-     * @return array<int, string> Fields names
-     * @psalm-return list<non-empty-string>
+     * @return list<string> Fields names
      */
     public function getFieldNames(): array;
 }

@@ -10,6 +10,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
@@ -74,8 +75,6 @@ class ImportMediawiki extends ImportPlugin
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
-
         $sqlStatements = [];
 
         // Defaults for parser
@@ -106,7 +105,7 @@ class ImportMediawiki extends ImportPlugin
         $inTableHeader = false;
 
         /** @infection-ignore-all */
-        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! ImportSettings::$finished && ! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
 
             if ($data === false) {
@@ -177,12 +176,12 @@ class ImportMediawiki extends ImportPlugin
                     } else {
                         // Check table name
                         $matchTableName = [];
-                        if (preg_match('/^Table data for `(.*)`$/', $curBufferLine, $matchTableName)) {
+                        if (preg_match('/^Table data for `(.*)`$/', $curBufferLine, $matchTableName) === 1) {
                             $curTableName = $matchTableName[1];
                             $insideDataComment = true;
 
                             $insideStructureComment = false;
-                        } elseif (preg_match('/^Table structure for `(.*)`$/', $curBufferLine, $matchTableName)) {
+                        } elseif (preg_match('/^Table structure for `(.*)`$/', $curBufferLine, $matchTableName) === 1) {
                             // The structure comments will be ignored
                             $insideStructureComment = true;
                         }
@@ -191,7 +190,7 @@ class ImportMediawiki extends ImportPlugin
                     continue;
                 }
 
-                if (preg_match('/^\{\|(.*)$/', $curBufferLine)) {
+                if (preg_match('/^\{\|(.*)$/', $curBufferLine) === 1) {
                     // Check start of table
 
                     // This will store all the column info on all rows from
@@ -278,7 +277,7 @@ class ImportMediawiki extends ImportPlugin
                         __('Invalid format of mediawiki input on line: <br>%s.'),
                     );
                     $message->addParam($curBufferLine);
-                    $GLOBALS['error'] = true;
+                    Import::$hasError = true;
                 }
             }
         }

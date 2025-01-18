@@ -12,7 +12,6 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 
 use function __;
-use function is_string;
 
 final class AddController implements InvocableController
 {
@@ -22,18 +21,12 @@ final class AddController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $db = $request->getParsedBodyParam('db');
-        $label = $request->getParsedBodyParam('label');
-        $bookmarkQuery = $request->getParsedBodyParam('bookmark_query');
-        $shared = $request->getParsedBodyParam('shared');
-
-        if (! is_string($label) || ! is_string($db) || ! is_string($bookmarkQuery) || ! is_string($shared)) {
-            $this->response->addJSON('message', __('Incomplete params'));
-
-            return null;
-        }
+        $db = $request->getParsedBodyParamAsString('db');
+        $label = $request->getParsedBodyParamAsString('label');
+        $bookmarkQuery = $request->getParsedBodyParamAsString('bookmark_query');
+        $shared = $request->getParsedBodyParamAsString('shared');
 
         $bookmark = $this->bookmarkRepository->createBookmark(
             $bookmarkQuery,
@@ -45,7 +38,7 @@ final class AddController implements InvocableController
         if ($bookmark === false || ! $bookmark->save()) {
             $this->response->addJSON('message', __('Failed'));
 
-            return null;
+            return $this->response->response();
         }
 
         $bookmarkFields = [
@@ -59,6 +52,6 @@ final class AddController implements InvocableController
         $this->response->addJSON('data', $bookmarkFields);
         $this->response->addJSON('isShared', $shared === 'true');
 
-        return null;
+        return $this->response->response();
     }
 }

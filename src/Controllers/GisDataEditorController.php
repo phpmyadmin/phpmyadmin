@@ -9,16 +9,19 @@ namespace PhpMyAdmin\Controllers;
 
 use PhpMyAdmin\Gis\GisFactory;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 
+use function __;
 use function array_merge;
 use function in_array;
 use function is_array;
 use function mb_strtoupper;
 use function preg_match;
+use function sprintf;
 use function trim;
 
 /**
@@ -40,21 +43,17 @@ final class GisDataEditorController implements InvocableController
         'GEOMETRYCOLLECTION',
     ];
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        /** @var string|null $field */
-        $field = $request->getParsedBodyParam('field');
+        $field = $request->getParsedBodyParamAsStringOrNull('field');
         /** @var array|null $gisDataParam */
         $gisDataParam = $request->getParsedBodyParam('gis_data');
-        /** @var string $type */
-        $type = $request->getParsedBodyParam('type', 'GEOMETRY');
-        /** @var string|null $value */
-        $value = $request->getParsedBodyParam('value');
-        /** @var string|null $inputName */
-        $inputName = $request->getParsedBodyParam('input_name');
+        $type = $request->getParsedBodyParamAsString('type', 'GEOMETRY');
+        $value = $request->getParsedBodyParamAsStringOrNull('value');
+        $inputName = $request->getParsedBodyParamAsStringOrNull('input_name');
 
         if (! isset($field)) {
-            return null;
+            return $this->response->response();
         }
 
         // Get data if any posted
@@ -66,7 +65,7 @@ final class GisDataEditorController implements InvocableController
         // Generate parameters from value passed.
         $gisObj = GisFactory::fromType($geomType);
         if ($gisObj === null) {
-            return null;
+            return $this->response->response();
         }
 
         if (isset($value)) {
@@ -80,18 +79,22 @@ final class GisDataEditorController implements InvocableController
         $result = "'" . $wkt . "'," . $srid;
 
         // Generate SVG based visualization
-        $visualizationSettings = ['width' => 450, 'height' => 300, 'spatialColumn' => 'wkt'];
+        $visualizationSettings = new GisVisualizationSettings(450, 300, 'wkt');
         $data = [['wkt' => $wktWithZero, 'srid' => $srid]];
 
         $visualization = GisVisualization::getByData($data, $visualizationSettings);
         $svg = $visualization->asSVG();
-        $openLayers = $visualization->asOl();
+        $openLayersData = $visualization->asOl();
 
         // If the call is to update the WKT and visualization make an AJAX response
         if ($request->hasBodyParam('generate')) {
-            $this->response->addJSON(['result' => $result, 'visualization' => $svg, 'openLayers' => $openLayers]);
+            $this->response->addJSON([
+                'result' => $result,
+                'visualization' => $svg,
+                'openLayersData' => $openLayersData,
+            ]);
 
-            return null;
+            return $this->response->response();
         }
 
         $templateOutput = $this->template->render('gis_data_editor_form', [
@@ -101,7 +104,7 @@ final class GisDataEditorController implements InvocableController
             'input_name' => $inputName,
             'srid' => $srid,
             'visualization' => $svg,
-            'open_layers' => $openLayers,
+            'open_layers_data' => $openLayersData,
             'column_type' => mb_strtoupper($type),
             'gis_types' => self::GIS_TYPES,
             'geom_type' => $geomType,
@@ -109,9 +112,10 @@ final class GisDataEditorController implements InvocableController
             'result' => $result,
         ]);
 
-        $this->response->addJSON(['gis_editor' => $templateOutput]);
+        $this->response->addJSON('gis_editor', $templateOutput);
+        $this->response->addJSON('gis_editor_title', sprintf(__('Value for the column "%s"'), $field));
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -125,7 +129,7 @@ final class GisDataEditorController implements InvocableController
                 $gisType = mb_strtoupper($type);
             }
 
-            if ($value !== null && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches)) {
+            if ($value !== null && trim($value) !== '' && preg_match('/^\'?(\w+)\b/', $value, $matches) === 1) {
                 $gisType = $matches[1];
             }
 

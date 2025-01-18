@@ -10,19 +10,23 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -45,18 +49,13 @@ final class DatabaseController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['single_table'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $this->response->addScriptFiles(['database/operations.js']);
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         /**
          * Rename/move or copy database
@@ -73,12 +72,12 @@ final class DatabaseController implements InvocableController
                 }
             } catch (InvalidDatabaseName $exception) {
                 $newDatabaseName = null;
-                $GLOBALS['message'] = Message::error($exception->getMessage());
+                Current::$message = Message::error($exception->getMessage());
             }
 
             if ($newDatabaseName !== null) {
                 if ($newDatabaseName->getName() === $_REQUEST['db']) {
-                    $GLOBALS['message'] = Message::error(
+                    Current::$message = Message::error(
                         __('Cannot copy database to the same name. Change the name and try again.'),
                     );
                 } else {
@@ -100,10 +99,7 @@ final class DatabaseController implements InvocableController
                     $tableNames = $this->dbi->getTables(Current::$database);
 
                     // remove all foreign key constraints, otherwise we can get errors
-                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-                        'export_type' => 'database',
-                        'single_table' => isset($GLOBALS['single_table']),
-                    ]);
+                    $exportSqlPlugin = Plugins::getPlugin('export', 'sql', ExportType::Database, Export::$singleTable);
 
                     // create stand-in tables for views
                     $views = $this->operations->getViewsAndCreateSqlViewStandIn(
@@ -158,14 +154,14 @@ final class DatabaseController implements InvocableController
 
                         // if someday the RENAME DATABASE reappears, do not DROP
                         $localQuery = 'DROP DATABASE ' . Util::backquote(Current::$database) . ';';
-                        $GLOBALS['sql_query'] .= "\n" . $localQuery;
+                        Current::$sqlQuery .= "\n" . $localQuery;
                         $this->dbi->query($localQuery);
 
-                        $GLOBALS['message'] = Message::success(
+                        Current::$message = Message::success(
                             __('Database %1$s has been renamed to %2$s.'),
                         );
-                        $GLOBALS['message']->addParam(Current::$database);
-                        $GLOBALS['message']->addParam($newDatabaseName->getName());
+                        Current::$message->addParam(Current::$database);
+                        Current::$message->addParam($newDatabaseName->getName());
                     } else {
                         if ($request->hasBodyParam('adjust_privileges')) {
                             $this->operations->adjustPrivilegesCopyDb(
@@ -175,14 +171,14 @@ final class DatabaseController implements InvocableController
                             );
                         }
 
-                        $GLOBALS['message'] = Message::success(
+                        Current::$message = Message::success(
                             __('Database %1$s has been copied to %2$s.'),
                         );
-                        $GLOBALS['message']->addParam(Current::$database);
-                        $GLOBALS['message']->addParam($newDatabaseName->getName());
+                        Current::$message->addParam(Current::$database);
+                        Current::$message->addParam($newDatabaseName->getName());
                     }
 
-                    $GLOBALS['reload'] = true;
+                    ResponseRenderer::$reload = true;
 
                     /* Change database to be used */
                     if ($move) {
@@ -201,16 +197,16 @@ final class DatabaseController implements InvocableController
              * generate the output with {@link ResponseRenderer} and exit
              */
             if ($request->isAjax()) {
-                $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-                $this->response->addJSON('message', $GLOBALS['message']);
+                $this->response->setRequestStatus(Current::$message->isSuccess());
+                $this->response->addJSON('message', Current::$message);
                 $this->response->addJSON('newname', $newDatabaseName?->getName() ?? '');
                 $this->response->addJSON(
                     'sql_query',
-                    Generator::getMessage('', $GLOBALS['sql_query']),
+                    Generator::getMessage('', Current::$sqlQuery),
                 );
                 $this->response->addJSON('db', Current::$database);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -221,16 +217,14 @@ final class DatabaseController implements InvocableController
          * (must be done before displaying the menu tabs)
          */
         if ($request->hasBodyParam('comment')) {
-            $this->relation->setDbComment(Current::$database, $request->getParsedBodyParam('comment'));
+            $this->relation->setDbComment(Current::$database, $request->getParsedBodyParamAsString('comment'));
         }
 
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -238,26 +232,26 @@ final class DatabaseController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/operations');
+        UrlParams::$params['goto'] = Url::getFromRoute('/database/operations');
 
         $oldMessage = '';
-        if (isset($GLOBALS['message'])) {
-            $oldMessage = Generator::getMessage($GLOBALS['message'], $GLOBALS['sql_query']);
-            unset($GLOBALS['message']);
+        if (Current::$message !== null) {
+            $oldMessage = Generator::getMessage(Current::$message, Current::$sqlQuery);
+            Current::$message = null;
         }
 
         $dbCollation = $this->dbi->getDbCollation(Current::$database);
 
         if (Utilities::isSystemSchema(Current::$database)) {
-            return null;
+            return $this->response->response();
         }
 
         $databaseComment = '';
@@ -277,19 +271,19 @@ final class DatabaseController implements InvocableController
         $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
 
         if (! $relationParameters->hasAllFeatures() && $config->settings['PmaNoRelation_DisableWarning'] == false) {
-            $GLOBALS['message'] = Message::notice(
+            Current::$message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',
                 ),
             );
-            $GLOBALS['message']->addParamHtml(
+            Current::$message->addParamHtml(
                 '<a href="' . Url::getFromRoute('/check-relations')
                 . '" data-post="' . Url::getCommon(['db' => Current::$database]) . '">',
             );
-            $GLOBALS['message']->addParamHtml('</a>');
+            Current::$message->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
             if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
-                $GLOBALS['message']->setType(Message::ERROR);
+                Current::$message->setType(MessageType::Error);
             }
         }
 
@@ -306,6 +300,6 @@ final class DatabaseController implements InvocableController
             'collations' => $collations,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

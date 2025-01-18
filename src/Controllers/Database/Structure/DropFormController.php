@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -22,7 +22,7 @@ final class DropFormController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -31,7 +31,7 @@ final class DropFormController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $fullQueryViews = '';
@@ -66,6 +66,6 @@ final class DropFormController implements InvocableController
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

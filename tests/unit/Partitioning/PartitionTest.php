@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Partitioning;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -43,7 +43,7 @@ class PartitionTest extends AbstractTestCase
         $mock = self::createStub(DatabaseInterface::class);
         $mock->method('getVersion')->willReturn($version);
         $mock->method('fetchValue')->willReturn($varValue);
-        $mock->method('fetchResult')->willReturn($pluginValue);
+        $mock->method('fetchResultSimple')->willReturn($pluginValue);
         DatabaseInterface::$instance = $mock;
         self::assertSame($expected, Partition::havePartitioning());
     }

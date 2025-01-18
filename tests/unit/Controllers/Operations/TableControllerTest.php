@@ -9,11 +9,12 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Operations\TableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\StorageEngine;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -39,7 +40,7 @@ class TableControllerTest extends AbstractTestCase
 
     public function testOperationsController(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Current::$database = 'test_db';
         Current::$table = 'test_table';
 
@@ -70,6 +71,11 @@ class TableControllerTest extends AbstractTestCase
             'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS` WHERE `TABLE_SCHEMA` = \'test_db\' AND `TABLE_NAME` = \'test_table\'',
             [[null]],
             ['PARTITION_NAME'],
+        );
+        $this->dummyDbi->addResult(
+            'SHOW CREATE TABLE `test_db`.`test_table`',
+            [['test_table', 'CREATE TABLE `test_table` (`ref` int(11) NOT NULL, CONSTRAINT `ref` FOREIGN KEY (`ref`) REFERENCES `refT` (`refC`) ON DELETE CASCADE ON UPDATE CASCADE )']],
+            ['Table', 'Create Table'],
         );
         // phpcs:enable
 
@@ -124,7 +130,7 @@ class TableControllerTest extends AbstractTestCase
         $relation = new Relation($this->dbi);
         $controller = new TableController(
             $responseRenderer,
-            new Operations($this->dbi, $relation),
+            new Operations($this->dbi, $relation, new TableMover($this->dbi, $relation)),
             new UserPrivilegesFactory($this->dbi),
             $relation,
             $this->dbi,

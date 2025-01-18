@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Normalization;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Normalization\GetColumnsController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;

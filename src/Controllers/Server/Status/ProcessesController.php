@@ -5,14 +5,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Server\Status\Processes;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 final class ProcessesController extends AbstractController implements InvocableController
 {
@@ -26,14 +25,12 @@ final class ProcessesController extends AbstractController implements InvocableC
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         $showExecuting = $request->hasBodyParam('showExecuting');
         $full = $request->getParsedBodyParam('full') === '1';
-        $orderByField = (string) $request->getParsedBodyParam('order_by_field', '');
-        $sortOrder = (string) $request->getParsedBodyParam('sort_order', '');
+        $orderByField = $request->getParsedBodyParamAsString('order_by_field', '');
+        $sortOrder = $request->getParsedBodyParamAsString('sort_order', '');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -62,6 +59,6 @@ final class ProcessesController extends AbstractController implements InvocableC
             'server_process_list' => $listHtml,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

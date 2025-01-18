@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Search;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Http\Response;
@@ -18,7 +18,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 
@@ -32,20 +32,17 @@ final class SearchController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-
         $this->response->addScriptFiles(['database/search.js', 'sql.js', 'makegrid.js']);
 
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
+        $errorUrl = Url::getFromRoute($config->settings['DefaultTabDatabase']);
+        $errorUrl .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -53,12 +50,12 @@ final class SearchController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $config->settings['UseDbSearch']) {
@@ -70,18 +67,18 @@ final class SearchController implements InvocableController
             if ($request->isAjax()) {
                 $this->response->addJSON('message', Message::error($errorMessage)->getDisplay());
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->render('error/simple', [
                 'error_message' => $errorMessage,
-                'back_url' => $GLOBALS['errorUrl'],
+                'back_url' => $errorUrl,
             ]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/search');
+        UrlParams::$params['goto'] = Url::getFromRoute('/database/search');
 
         // Create a database search instance
         $databaseSearch = new Search($this->dbi, Current::$database, $this->template);
@@ -93,12 +90,12 @@ final class SearchController implements InvocableController
 
         // If we are in an Ajax request, we need to exit after displaying all the HTML
         if ($request->isAjax() && empty($_REQUEST['ajax_page_request'])) {
-            return null;
+            return $this->response->response();
         }
 
         // Display the search form
         $this->response->addHTML($databaseSearch->getMainHtml());
 
-        return null;
+        return $this->response->response();
     }
 }

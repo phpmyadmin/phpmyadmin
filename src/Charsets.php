@@ -9,6 +9,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 
 use function __;
 use function array_keys;

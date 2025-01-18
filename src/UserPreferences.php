@@ -8,6 +8,7 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 
 use function __;
@@ -93,7 +94,7 @@ class UserPreferences
             . ' WHERE `username` = '
             . $this->dbi->quoteString((string) $relationParameters->user);
         $row = $this->dbi->fetchSingleRow($query, DatabaseInterface::FETCH_ASSOC, ConnectionType::ControlUser);
-        if (! is_array($row) || ! isset($row['config_data']) || ! isset($row['ts'])) {
+        if ($row === [] || ! isset($row['config_data']) || ! isset($row['ts'])) {
             return ['config_data' => [], 'mtime' => time(), 'type' => 'db'];
         }
 
@@ -110,10 +111,8 @@ class UserPreferences
      * Saves user preferences
      *
      * @param mixed[] $configArray configuration array
-     *
-     * @return true|Message
      */
-    public function save(array $configArray): bool|Message
+    public function save(array $configArray): true|Message
     {
         $relationParameters = $this->relation->getRelationParameters();
         $cacheKey = 'server_' . Current::$server;
@@ -191,7 +190,7 @@ class UserPreferences
                 );
         }
 
-        return (bool) $this->dbi->fetchSingleRow($query, 'ASSOC', ConnectionType::ControlUser);
+        return $this->dbi->fetchSingleRow($query, 'ASSOC', ConnectionType::ControlUser) !== [];
     }
 
     /**
@@ -232,10 +231,8 @@ class UserPreferences
      * @param string $path         configuration
      * @param mixed  $value        value
      * @param mixed  $defaultValue default value
-     *
-     * @return true|Message
      */
-    public function persistOption(string $path, mixed $value, mixed $defaultValue): bool|Message
+    public function persistOption(string $path, mixed $value, mixed $defaultValue): true|Message
     {
         $prefs = $this->load();
         if ($value === $defaultValue) {

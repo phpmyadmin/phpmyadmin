@@ -10,8 +10,8 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -175,7 +175,7 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetColumnsList(): void
     {
         $this->dbi->expects(self::exactly(2))
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->willReturnOnConsecutiveCalls(
                 self::COLUMN_DATA,
                 array_slice(self::COLUMN_DATA, 1, 2),
@@ -197,14 +197,13 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetCount(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchValue')
             ->with(
                 'SELECT count(db_name) FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
-                null,
-                null,
+                0,
                 ConnectionType::ControlUser,
             )
-            ->willReturn([3]);
+            ->willReturn('3');
 
         self::assertSame(
             3,
@@ -305,12 +304,10 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetHtmlForEditingPage(): void
     {
         $this->dbi->expects(self::any())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name IN ('col1','col2');",
-                null,
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn(self::COLUMN_DATA);
@@ -336,11 +333,9 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetListRaw(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` WHERE db_name = \'phpmyadmin\';',
-                null,
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn(self::COLUMN_DATA);
@@ -359,13 +354,11 @@ class CentralColumnsTest extends AbstractTestCase
     public function testGetListRawWithTable(): void
     {
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchResultSimple')
             ->with(
                 'SELECT * FROM `phpmyadmin`.`pma_central_columns` '
                 . "WHERE db_name = 'phpmyadmin' AND col_name "
                 . "NOT IN ('id','col1','col2');",
-                null,
-                null,
                 ConnectionType::ControlUser,
             )
             ->willReturn(self::COLUMN_DATA);
@@ -386,8 +379,8 @@ class CentralColumnsTest extends AbstractTestCase
         $expectedQuery = 'SELECT * FROM `phpmyadmin`.`pma_central_columns`'
             . ' WHERE db_name = \'phpmyadmin\' AND col_name IN (\'col1\');';
         $this->dbi->expects(self::once())
-            ->method('fetchResult')
-            ->with($expectedQuery, null, null, ConnectionType::ControlUser)
+            ->method('fetchResultSimple')
+            ->with($expectedQuery, ConnectionType::ControlUser)
             ->willReturn(array_slice(self::COLUMN_DATA, 1, 1));
         self::assertSame(
             array_slice(self::MODIFIED_COLUMN_DATA, 1, 1),

@@ -11,7 +11,7 @@ use PhpMyAdmin\Controllers\Sql\SqlController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\EditField;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Html\Generator;
@@ -19,12 +19,15 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_keys;
@@ -53,44 +56,40 @@ final class ReplaceController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['message'] ??= null;
-        if (! $this->response->checkParameters(['db', 'table', 'goto'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['query'] ??= null;
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        if (UrlParams::$goto === '') {
+            return $this->response->missingParameterError('goto');
+        }
 
         $this->dbi->selectDb(Current::$database);
 
         $this->response->addScriptFiles(['makegrid.js', 'sql.js', 'gis_data_editor.js']);
 
-        $afterInsert = $request->getParsedBodyParam('after_insert');
+        $afterInsert = $request->getParsedBodyParamAsStringOrNull('after_insert');
         if (in_array($afterInsert, ['new_insert', 'same_insert', 'edit_next'], true)) {
-            $GLOBALS['urlParams']['after_insert'] = $afterInsert;
-            $whereClause = $request->getParsedBodyParam('where_clause');
-            if ($whereClause !== null) {
-                foreach ($whereClause as $oneWhereClause) {
-                    if ($afterInsert === 'same_insert') {
-                        $GLOBALS['urlParams']['where_clause'][] = $oneWhereClause;
-                    } elseif ($afterInsert === 'edit_next') {
-                        $this->insertEdit->setSessionForEditNext($oneWhereClause);
-                    }
+            UrlParams::$params['after_insert'] = $afterInsert;
+            $whereClause = $request->getParsedBodyParam('where_clause', []);
+            Assert::allString($whereClause);
+            foreach ($whereClause as $oneWhereClause) {
+                if ($afterInsert === 'same_insert') {
+                    UrlParams::$params['where_clause'][] = $oneWhereClause;
+                } elseif ($afterInsert === 'edit_next') {
+                    $this->insertEdit->setSessionForEditNext($oneWhereClause);
                 }
             }
         }
 
         //get $goto_include for different cases
         $gotoInclude = $this->insertEdit->getGotoInclude(false);
-
-        // Defines the url to return in case of failure of the query
-        $GLOBALS['errorUrl'] = $this->insertEdit->getErrorUrl($GLOBALS['urlParams']);
 
         /**
          * Prepares the update/insert of a row
@@ -99,15 +98,16 @@ final class ReplaceController implements InvocableController
 
         $isInsertignore = $request->getParsedBodyParam('submit_type') === 'insertignore';
 
-        $GLOBALS['query'] = [];
+        $query = [];
         $valueSets = [];
 
         $mimeMap = $this->transformations->getMime(Current::$database, Current::$table) ?? [];
+        $columnsDefaultValues = $this->insertEdit->getColumnDefaultValues(Current::$database, Current::$table);
 
         $queryFields = [];
         $insertErrors = [];
         $rowSkipped = false;
-        $GLOBALS['unsaved_values'] = [];
+        ChangeController::$unsavedValues = [];
         /** @var string|int $whereClause */
         foreach ($loopArray as $rowNumber => $whereClause) {
             // skip fields to be ignored
@@ -210,7 +210,12 @@ final class ReplaceController implements InvocableController
 
                 if (! isset($multiEditVirtual[$key])) {
                     if ($isInsert) {
-                        $queryPart = $this->insertEdit->getQueryValueForInsert($editField, $usingKey, $whereClause);
+                        if ($editField->value === $columnsDefaultValues[$columnName]) {
+                            $queryPart = $editField->value;
+                        } else {
+                            $queryPart = $this->insertEdit->getQueryValueForInsert($editField, $usingKey, $whereClause);
+                        }
+
                         if ($queryPart !== '' && $valueSets === []) {
                             // first inserted row so prepare the list of fields
                             $queryFields[] = Util::backquote($editField->columnName);
@@ -233,7 +238,7 @@ final class ReplaceController implements InvocableController
             // temporarily store rows not inserted
             // so that they can be populated again.
             if ($insertFail) {
-                $GLOBALS['unsaved_values'][$rowNumber] = $multiEditColumns;
+                ChangeController::$unsavedValues[$rowNumber] = $multiEditColumns;
             }
 
             if ($insertFail || $queryValues === []) {
@@ -245,7 +250,7 @@ final class ReplaceController implements InvocableController
             } else {
                 // build update query
                 $clauseIsUnique = $request->getParam('clause_is_unique', '');// Should contain 0 or 1
-                $GLOBALS['query'][] = 'UPDATE ' . Util::backquote(Current::$table)
+                $query[] = 'UPDATE ' . Util::backquote(Current::$table)
                     . ' SET ' . implode(', ', $queryValues)
                     . ' WHERE ' . $whereClause
                     . ($clauseIsUnique ? '' : ' LIMIT 1');
@@ -269,38 +274,36 @@ final class ReplaceController implements InvocableController
 
         // Builds the sql query
         if ($isInsert && $valueSets !== []) {
-            $GLOBALS['query'] = (array) QueryGenerator::buildInsertSqlQuery(
+            $query = (array) QueryGenerator::buildInsertSqlQuery(
                 Current::$table,
                 $isInsertignore,
                 $queryFields,
                 $valueSets,
             );
-        } elseif (empty($GLOBALS['query']) && ! $request->hasBodyParam('preview_sql') && ! $rowSkipped) {
+        } elseif ($query === [] && ! $request->hasBodyParam('preview_sql') && ! $rowSkipped) {
             // No change -> move back to the calling script
             //
             // Note: logic passes here for inline edit
-            $GLOBALS['message'] = Message::success(__('No change'));
+            Current::$message = Message::success(__('No change'));
             // Avoid infinite recursion
             if ($gotoInclude === '/table/replace') {
                 $gotoInclude = '/table/change';
             }
 
-            $this->moveBackToCallingScript($gotoInclude, $request);
-
-            return null;
+            return $this->moveBackToCallingScript($gotoInclude, $request);
         }
 
         // If there is a request for SQL previewing.
         if ($request->hasBodyParam('preview_sql')) {
-            Core::previewSQL($GLOBALS['query']);
+            Core::previewSQL($query);
 
-            return null;
+            return $this->response->response();
         }
 
         $returnToSqlQuery = '';
-        if (! empty($GLOBALS['sql_query'])) {
-            $GLOBALS['urlParams']['sql_query'] = $GLOBALS['sql_query'];
-            $returnToSqlQuery = $GLOBALS['sql_query'];
+        if (Current::$sqlQuery !== '') {
+            UrlParams::$params['sql_query'] = Current::$sqlQuery;
+            $returnToSqlQuery = Current::$sqlQuery;
         }
 
         /**
@@ -312,31 +315,31 @@ final class ReplaceController implements InvocableController
             $lastMessages,
             $warningMessages,
             $errorMessages,
-        ] = $this->insertEdit->executeSqlQuery($GLOBALS['query']);
+        ] = $this->insertEdit->executeSqlQuery($query);
 
         if ($isInsert && ($valueSets !== [] || $rowSkipped)) {
-            $GLOBALS['message'] = Message::getMessageForInsertedRows($totalAffectedRows);
-            $GLOBALS['unsaved_values'] = array_values($GLOBALS['unsaved_values']);
+            Current::$message = Message::getMessageForInsertedRows($totalAffectedRows);
+            ChangeController::$unsavedValues = array_values(ChangeController::$unsavedValues);
         } else {
-            $GLOBALS['message'] = Message::getMessageForAffectedRows($totalAffectedRows);
+            Current::$message = Message::getMessageForAffectedRows($totalAffectedRows);
         }
 
         if ($rowSkipped) {
             $gotoInclude = '/table/change';
-            $GLOBALS['message']->addMessagesString($insertErrors, '<br>');
-            $GLOBALS['message']->setType(Message::ERROR);
+            Current::$message->addMessagesString($insertErrors, '<br>');
+            Current::$message->setType(MessageType::Error);
         }
 
-        $GLOBALS['message']->addMessages($lastMessages, '<br>');
+        Current::$message->addMessages($lastMessages, '<br>');
 
         if (! empty($warningMessages)) {
-            $GLOBALS['message']->addMessagesString($warningMessages, '<br>');
-            $GLOBALS['message']->setType(Message::ERROR);
+            Current::$message->addMessagesString($warningMessages, '<br>');
+            Current::$message->setType(MessageType::Error);
         }
 
         if (! empty($errorMessages)) {
-            $GLOBALS['message']->addMessagesString($errorMessages);
-            $GLOBALS['message']->setType(Message::ERROR);
+            Current::$message->addMessagesString($errorMessages);
+            Current::$message->setType(MessageType::Error);
         }
 
         /**
@@ -353,14 +356,14 @@ final class ReplaceController implements InvocableController
              */
             $this->doTransformations($mimeMap, $request);
 
-            return null;
+            return $this->response->response();
         }
 
         if (! empty($returnToSqlQuery)) {
-            $GLOBALS['disp_query'] = $GLOBALS['sql_query'];
-            $GLOBALS['disp_message'] = $GLOBALS['message'];
-            unset($GLOBALS['message']);
-            $GLOBALS['sql_query'] = $returnToSqlQuery;
+            Current::$dispQuery = Current::$sqlQuery;
+            Current::$displayMessage = Current::$message;
+            Current::$message = null;
+            Current::$sqlQuery = $returnToSqlQuery;
         }
 
         $this->response->addScriptFiles(['vendor/jquery/additional-methods.js', 'table/change.js']);
@@ -374,17 +377,15 @@ final class ReplaceController implements InvocableController
             unset($_POST['where_clause']);
         }
 
-        $this->moveBackToCallingScript($gotoInclude, $request);
-
-        return null;
+        return $this->moveBackToCallingScript($gotoInclude, $request);
     }
 
     /** @param string[][] $mimeMap */
     private function doTransformations(array $mimeMap, ServerRequest $request): void
     {
-        $relFieldsList = $request->getParsedBodyParam('rel_fields_list', '');
+        $relFieldsList = $request->getParsedBodyParamAsString('rel_fields_list', '');
         if ($relFieldsList !== '') {
-            $map = $this->relation->getForeigners(Current::$database, Current::$table);
+            $foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
 
             /** @var array<int,array> $relationFields */
             $relationFields = [];
@@ -396,12 +397,12 @@ final class ReplaceController implements InvocableController
                     $whereComparison = "='" . $relationFieldValue . "'";
                     $dispval = $this->insertEdit->getDisplayValueForForeignTableColumn(
                         $whereComparison,
-                        $map,
+                        $foreigners,
                         $relationField,
                     );
 
                     $extraData['relations'][$cellIndex] = $this->insertEdit->getLinkForRelationalDisplayField(
-                        $map,
+                        $foreigners,
                         $relationField,
                         $whereComparison,
                         $dispval,
@@ -413,7 +414,7 @@ final class ReplaceController implements InvocableController
 
         if ($request->getParsedBodyParam('do_transformations') == true) {
             $editedValues = [];
-            parse_str($request->getParsedBodyParam('transform_fields_list'), $editedValues);
+            parse_str($request->getParsedBodyParamAsString('transform_fields_list'), $editedValues);
 
             if (! isset($extraData)) {
                 $extraData = [];
@@ -451,40 +452,35 @@ final class ReplaceController implements InvocableController
 
         /**Get the total row count of the table*/
         $tableObj = new Table(
-            $request->getParsedBodyParam('table'),
-            $request->getParsedBodyParam('db'),
+            $request->getParsedBodyParamAsString('table'),
+            $request->getParsedBodyParamAsString('db'),
             $this->dbi,
         );
         $extraData['row_count'] = $tableObj->countRecords();
 
-        $extraData['sql_query'] = Generator::getMessage($GLOBALS['message'], $GLOBALS['display_query']);
+        Current::$message ??= Message::success();
+        $extraData['sql_query'] = Generator::getMessage(Current::$message, Current::$displayQuery);
 
-        $this->response->setRequestStatus($GLOBALS['message']->isSuccess());
-        $this->response->addJSON('message', $GLOBALS['message']);
+        $this->response->setRequestStatus(Current::$message->isSuccess());
+        $this->response->addJSON('message', Current::$message);
         $this->response->addJSON($extraData);
     }
 
-    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): void
+    private function moveBackToCallingScript(string $gotoInclude, ServerRequest $request): Response
     {
         if ($gotoInclude === '/sql') {
-            ($this->sqlController)($request);
-
-            return;
+            return ($this->sqlController)($request);
         }
 
         if ($gotoInclude === '/database/sql') {
-            ($this->databaseSqlController)($request);
-
-            return;
+            return ($this->databaseSqlController)($request);
         }
 
         if ($gotoInclude === '/table/sql') {
-            ($this->tableSqlController)($request);
-
-            return;
+            return ($this->tableSqlController)($request);
         }
 
-        ($this->changeController)($request);
+        return ($this->changeController)($request);
     }
 
     /**

@@ -9,11 +9,10 @@ use PhpMyAdmin\Charsets\Charset;
 use PhpMyAdmin\Charsets\Collation;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 
 /**
  * Handles viewing character sets and collations
@@ -41,10 +40,8 @@ final class CollationsController implements InvocableController
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
@@ -69,6 +66,6 @@ final class CollationsController implements InvocableController
 
         $this->response->render('server/collations/index', ['charsets' => $charsets]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -15,21 +15,21 @@ final class CheckTimeOutController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         if (isset($_SESSION['pma_export_error'])) {
             unset($_SESSION['pma_export_error']);
             $this->response->addJSON('message', 'timeout');
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON('message', 'success');
 
-        return null;
+        return $this->response->response();
     }
 }

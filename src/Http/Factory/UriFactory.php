@@ -90,7 +90,7 @@ final class UriFactory implements UriFactoryInterface
             $uri = $uri->withPort($uri->getScheme() === 'https' ? 443 : 80);
         }
 
-        if (preg_match('/^(\[[a-fA-F0-9:.]+])(:\d+)?\z/', $uri->getHost(), $matches)) {
+        if (preg_match('/^(\[[a-fA-F0-9:.]+])(:\d+)?\z/', $uri->getHost(), $matches) === 1) {
             $uri = $uri->withHost($matches[1]);
             if (isset($matches[2])) {
                 $uri = $uri->withPort((int) substr($matches[2], 1));

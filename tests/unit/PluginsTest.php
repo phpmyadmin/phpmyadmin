@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -26,8 +28,9 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetExport(): void
     {
-        $plugins = Plugins::getExport('database', false);
-        self::assertSame(['export_type' => 'database', 'single_table' => false], $GLOBALS['plugin_param']);
+        $plugins = Plugins::getExport(ExportType::Database, false);
+        self::assertSame(ExportType::Database, ExportPlugin::$exportType);
+        self::assertFalse(ExportPlugin::$singleTable);
         self::assertCount(14, $plugins);
         self::assertContainsOnlyInstancesOf(Plugins\ExportPlugin::class, $plugins);
     }
@@ -66,9 +69,6 @@ class PluginsTest extends AbstractTestCase
             $_GET[$option] = $actualGet;
         }
 
-        $GLOBALS['strLatexContinued'] = '(continued)';
-        $GLOBALS['strLatexStructure'] = 'Structure of table @TABLE@';
-        /** @psalm-suppress InvalidArrayOffset, PossiblyInvalidArrayAssignment */
         Config::getInstance()->settings[$section][$option] = $actualConfig;
         $default = Plugins::getDefault($section, $option);
         self::assertSame($expected, $default);
@@ -83,7 +83,7 @@ class PluginsTest extends AbstractTestCase
             ['xml', null, 'xml', 'Export', 'format', null],
             ['', null, null, 'Export', 'format', null],
             [
-                'Structure of table @TABLE@ strTest (continued)',
+                'strLatexStructure strTest strLatexContinued',
                 'strLatexStructure strTest strLatexContinued',
                 null,
                 'Export',
@@ -98,7 +98,6 @@ class PluginsTest extends AbstractTestCase
 
     public function testGetChoice(): void
     {
-        $GLOBALS['plugin_param'] = ['export_type' => 'database', 'single_table' => false];
         $dbi = DatabaseInterface::getInstance();
         $exportList = [
             new Plugins\Export\ExportJson(

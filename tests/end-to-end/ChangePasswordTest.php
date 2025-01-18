@@ -33,18 +33,18 @@ class ChangePasswordTest extends TestBase
         $this->waitForElement('xpath', "//span[contains(., 'Change password')]");
 
         $ele = $this->waitForElement('name', 'pma_pw');
-        self::assertEquals('', $ele->getAttribute('value'));
+        self::assertSame('', $ele->getAttribute('value'));
 
         $ele = $this->waitForElement('name', 'pma_pw2');
-        self::assertEquals('', $ele->getAttribute('value'));
+        self::assertSame('', $ele->getAttribute('value'));
 
         $ele = $this->waitForElement('name', 'generated_pw');
-        self::assertEquals('', $ele->getAttribute('value'));
+        self::assertSame('', $ele->getAttribute('value'));
 
         $this->byId('button_generate_password')->click();
-        self::assertNotEquals('', $this->byName('pma_pw')->getAttribute('value'));
-        self::assertNotEquals('', $this->byName('pma_pw2')->getAttribute('value'));
-        self::assertNotEquals('', $this->byName('generated_pw')->getAttribute('value'));
+        self::assertNotSame('', $this->byName('pma_pw')->getAttribute('value'));
+        self::assertNotSame('', $this->byName('pma_pw2')->getAttribute('value'));
+        self::assertNotSame('', $this->byName('generated_pw')->getAttribute('value'));
 
         if ($this->getTestSuiteUserPassword() !== '') {
             $this->byName('pma_pw')->clear();
@@ -59,7 +59,7 @@ class ChangePasswordTest extends TestBase
 
         $this->byId('changePasswordGoButton')->click();
         $ele = $this->waitForElement('cssSelector', '.alert-success');
-        self::assertEquals(
+        self::assertSame(
             'The profile has been updated.',
             trim($ele->getText()),
         );

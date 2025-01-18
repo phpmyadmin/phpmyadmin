@@ -45,12 +45,17 @@ class ScriptsTest extends AbstractTestCase
     public function testGetDisplay(): void
     {
         $this->object->addFile('vendor/codemirror/lib/codemirror.js');
+        $this->object->addFile('index.php', ['route' => '/messages', 'l' => 'en']);
         $this->object->addFile('common.js');
 
         $actual = $this->object->getDisplay();
 
         self::assertStringContainsString(
             'src="js/dist/common.js?v=' . rawurlencode(Version::VERSION) . '"',
+            $actual,
+        );
+        self::assertStringContainsString(
+            'src="index.php?route=%2Fmessages&l=en&v=' . rawurlencode(Version::VERSION) . '&lang=en"',
             $actual,
         );
         self::assertStringContainsString(

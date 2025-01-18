@@ -84,7 +84,7 @@ class ProceduresTest extends TestBase
     {
         if ($this->originalSqlMode !== '') {
             $this->dbQuery("SET GLOBAL sql_mode = '" . $this->originalSqlMode . "';");
-            self::assertEquals(
+            self::assertSame(
                 $this->originalSqlMode,
                 $this->getSqlMode(),
             );
@@ -162,7 +162,7 @@ class ProceduresTest extends TestBase
             "SHOW PROCEDURE STATUS WHERE Db='" . $this->databaseName . "'",
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame($this->databaseName, $this->getCellByTableClass('table_results', 1, 1));
             },
         );
 
@@ -236,6 +236,6 @@ class ProceduresTest extends TestBase
         $this->waitUntilElementIsVisible('cssSelector', 'span#PMA_slidingMessage', 30);
         sleep(2);// Give more chances to the JS effect to finish
         $head = $this->byCssSelector('span#PMA_slidingMessage table tbody')->getText();
-        self::assertEquals("outp\n" . $length, $head);
+        self::assertSame("outp\n" . $length, $head);
     }
 }

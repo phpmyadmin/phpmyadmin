@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Auth;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Plugins\Auth\AuthenticationCookie;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,6 +25,7 @@ use Throwable;
 use function base64_decode;
 use function base64_encode;
 use function is_readable;
+use function json_decode;
 use function json_encode;
 use function mb_strlen;
 use function ob_get_clean;
@@ -59,7 +61,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $this->object = new AuthenticationCookie();
         $_SERVER['PHP_SELF'] = '/phpmyadmin/index.php';
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['conn_error'] = null;
+        AuthenticationCookie::$connectionError = '';
     }
 
     /**
@@ -74,39 +76,23 @@ class AuthenticationCookieTest extends AbstractTestCase
 
     public function testAuthErrorAJAX(): void
     {
-        $GLOBALS['conn_error'] = true;
+        AuthenticationCookie::$connectionError = 'Error';
 
-        $responseStub = new ResponseRendererStub();
-        $responseStub->setAjax(true);
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
+        $responseRenderer = ResponseRenderer::getInstance();
+        $responseRenderer->setAjax(true);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        self::assertInstanceOf(ExitException::class, $throwable);
-        $response = $responseStub->getResponse();
-        self::assertSame(200, $response->getStatusCode());
-        self::assertFalse($responseStub->hasSuccessState());
-        self::assertSame(['redirect_flag' => '1'], $responseStub->getJSONResult());
-    }
-
-    private function getAuthErrorMockResponse(): void
-    {
-        // mock error handler
-
-        $mockErrorHandler = $this->getMockBuilder(ErrorHandler::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['hasDisplayErrors'])
-            ->getMock();
-
-        $mockErrorHandler->expects(self::once())
-            ->method('hasDisplayErrors')
-            ->with()
-            ->willReturn(true);
-
-        ErrorHandler::$instance = $mockErrorHandler;
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        $json = json_decode($body, true);
+        self::assertIsArray($json);
+        self::assertArrayHasKey('success', $json);
+        self::assertFalse($json['success']);
+        self::assertArrayHasKey('redirect_flag', $json);
+        self::assertSame('1', $json['redirect_flag']);
     }
 
     public function testAuthError(): void
@@ -118,9 +104,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->settings['LoginCookieRecall'] = true;
         $config->settings['blowfish_secret'] = str_repeat('a', 32);
         $this->object->user = 'pmauser';
-        $GLOBALS['pma_auth_server'] = 'localhost';
+        AuthenticationCookie::$authServer = 'localhost';
 
-        $GLOBALS['conn_error'] = true;
+        AuthenticationCookie::$connectionError = 'Error';
         $config->settings['Lang'] = 'en';
         $config->settings['AllowArbitraryServer'] = true;
         $config->settings['CaptchaApi'] = '';
@@ -132,17 +118,11 @@ class AuthenticationCookieTest extends AbstractTestCase
         Current::$table = 'testTable';
         $config->settings['Servers'] = [1, 2];
 
-        $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
+        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, null);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        $result = $responseStub->getHTMLResult();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString(' id="imLogo"', $result);
 
@@ -202,14 +182,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        $result = $responseStub->getHTMLResult();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString('id="imLogo"', $result);
 
@@ -263,14 +238,9 @@ class AuthenticationCookieTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        try {
-            $this->object->showLoginForm();
-        } catch (Throwable $throwable) {
-        }
+        $response = $this->object->showLoginForm();
 
-        $result = $responseStub->getHTMLResult();
-
-        self::assertInstanceOf(ExitException::class, $throwable);
+        $result = (string) $response->getBody();
 
         self::assertStringContainsString('id="imLogo"', $result);
 
@@ -360,7 +330,10 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertSame('Missing Captcha verification, maybe it has been blocked by adblock?', $GLOBALS['conn_error']);
+        self::assertSame(
+            'Missing Captcha verification, maybe it has been blocked by adblock?',
+            AuthenticationCookie::$connectionError,
+        );
     }
 
     public function testLogoutDelete(): void
@@ -440,7 +413,7 @@ class AuthenticationCookieTest extends AbstractTestCase
 
         self::assertSame('testPMAPSWD', $this->object->password);
 
-        self::assertSame('testPMAServer', $GLOBALS['pma_auth_server']);
+        self::assertSame('testPMAServer', AuthenticationCookie::$authServer);
 
         self::assertArrayNotHasKey('pmaAuth-1', $_COOKIE);
     }
@@ -542,7 +515,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertTrue($GLOBALS['from_cookie']);
+        self::assertTrue(AuthenticationCookie::$fromCookie);
 
         self::assertSame('', $this->object->password);
     }
@@ -569,18 +542,14 @@ class AuthenticationCookieTest extends AbstractTestCase
         // mock for blowfish function
         $this->object = $this->getMockBuilder(AuthenticationCookie::class)
             ->disableOriginalConstructor()
-            ->onlyMethods(['showFailure', 'cookieDecrypt'])
+            ->onlyMethods(['cookieDecrypt'])
             ->getMock();
 
         $this->object->expects(self::once())
             ->method('cookieDecrypt')
             ->willReturn('testBF');
 
-        $this->object->expects(self::once())
-            ->method('showFailure')
-            ->willThrowException(new ExitException());
-
-        $this->expectException(ExitException::class);
+        $this->expectExceptionObject(AuthenticationFailure::loggedOutDueToInactivity());
         $this->object->readCredentials();
     }
 
@@ -594,11 +563,11 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         Current::$server = 2;
         $config->settings['LoginCookieStore'] = 100;
-        $GLOBALS['from_cookie'] = true;
+        AuthenticationCookie::$fromCookie = true;
         $config->set('is_https', false);
 
         $this->object->storeCredentials();
@@ -626,17 +595,23 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['user'] = 'pmaUser';
         $config->settings['Servers'][1] = $arr;
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        $config->settings['PmaAbsoluteUri'] = 'http://localhost/phpmyadmin';
+        AuthenticationCookie::$authServer = 'b 2';
         $this->object->password = 'testPW';
         $config->settings['LoginCookieStore'] = 100;
-        $GLOBALS['from_cookie'] = false;
+        AuthenticationCookie::$fromCookie = false;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         $this->object->storeCredentials();
-        $this->expectException(ExitException::class);
-        $this->object->rememberCredentials();
+        $response = $this->object->rememberCredentials();
+        self::assertNotNull($response);
+        self::assertSame(StatusCodeInterface::STATUS_FOUND, $response->getStatusCode());
+        self::assertStringEndsWith(
+            '/phpmyadmin/index.php?route=/&db=db&table=table&lang=en',
+            $response->getHeaderLine('Location'),
+        );
     }
 
     public function testAuthFailsNoPass(): void
@@ -656,19 +631,19 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('empty-denied');
+            $this->object->showFailure(AuthenticationFailure::emptyPasswordDeniedByConfiguration());
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
         self::assertSame(
-            $GLOBALS['conn_error'],
-            'Login without a password is forbidden by configuration (see AllowNoPassword)',
+            'Login without a password is forbidden by configuration (see AllowNoPassword).',
+            AuthenticationCookie::$connectionError,
         );
     }
 
@@ -688,13 +663,13 @@ class AuthenticationCookieTest extends AbstractTestCase
                 'Your password is too long. To prevent denial-of-service attacks,'
                 . ' phpMyAdmin restricts passwords to less than 2000 characters.',
             ],
-            [str_repeat('a', 256), true, null],
-            ['', true, null],
+            [str_repeat('a', 256), true, ''],
+            ['', true, ''],
         ];
     }
 
     #[DataProvider('dataProviderPasswordLength')]
-    public function testAuthFailsTooLongPass(string $password, bool $expected, string|null $connError): void
+    public function testAuthFailsTooLongPass(string $password, bool $expected, string $connError): void
     {
         $_POST['pma_username'] = str_shuffle('123456987rootfoobar');
         $_POST['pma_password'] = $password;
@@ -704,7 +679,7 @@ class AuthenticationCookieTest extends AbstractTestCase
             $this->object->readCredentials(),
         );
 
-        self::assertSame($GLOBALS['conn_error'], $connError);
+        self::assertSame($connError, AuthenticationCookie::$connectionError);
     }
 
     public function testAuthFailsDeny(): void
@@ -724,17 +699,17 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('allow-denied');
+            $this->object->showFailure(AuthenticationFailure::deniedByAllowDenyRules());
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], 'Access denied!');
+        self::assertSame('Access denied!', AuthenticationCookie::$connectionError);
     }
 
     public function testAuthFailsActivity(): void
@@ -756,20 +731,20 @@ class AuthenticationCookieTest extends AbstractTestCase
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('no-activity');
+            $this->object->showFailure(AuthenticationFailure::loggedOutDueToInactivity());
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
         self::assertSame(
-            $GLOBALS['conn_error'],
             'You have been automatically logged out due to inactivity of 10 seconds.'
             . ' Once you log in again, you should be able to resume the work where you left off.',
+            AuthenticationCookie::$connectionError,
         );
     }
 
@@ -795,23 +770,23 @@ class AuthenticationCookieTest extends AbstractTestCase
             ->willReturn('');
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['errno'] = 42;
+        DatabaseInterface::$errorNumber = 42;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], '#42 Cannot log in to the MySQL server');
+        self::assertSame('#42 Cannot log in to the database server.', AuthenticationCookie::$connectionError);
     }
 
     public function testAuthFailsErrno(): void
@@ -836,23 +811,23 @@ class AuthenticationCookieTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $_COOKIE['pmaAuth-2'] = 'pass';
 
-        unset($GLOBALS['errno']);
+        DatabaseInterface::$errorNumber = null;
 
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
         try {
-            $this->object->showFailure('');
+            $this->object->showFailure(AuthenticationFailure::deniedByDatabaseServer());
         } catch (Throwable $throwable) {
         }
 
-        self::assertInstanceOf(ExitException::class, $throwable);
+        self::assertInstanceOf(ExitException::class, $throwable ?? null);
         $response = $responseStub->getResponse();
         self::assertSame(['no-store, no-cache, must-revalidate'], $response->getHeader('Cache-Control'));
         self::assertSame(['no-cache'], $response->getHeader('Pragma'));
         self::assertSame(200, $response->getStatusCode());
 
-        self::assertSame($GLOBALS['conn_error'], 'Cannot log in to the MySQL server');
+        self::assertSame('Cannot log in to the database server.', AuthenticationCookie::$connectionError);
     }
 
     public function testGetEncryptionSecretEmpty(): void
@@ -922,7 +897,7 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->set('is_https', false);
         $config->settings['AllowArbitraryServer'] = true;
-        $GLOBALS['pma_auth_server'] = 'b 2';
+        AuthenticationCookie::$authServer = 'b 2';
         $_SESSION['encryption_key'] = '';
         $_COOKIE = [];
 
@@ -954,9 +929,10 @@ class AuthenticationCookieTest extends AbstractTestCase
         $_POST['pma_password'] = 'testPassword';
 
         ob_start();
-        $this->object->authenticate();
+        $response = $this->object->authenticate();
         $result = ob_get_clean();
 
+        self::assertNull($response);
         /* Nothing should be printed */
         self::assertSame('', $result);
 
@@ -999,31 +975,20 @@ class AuthenticationCookieTest extends AbstractTestCase
         $config->selectedServer['AllowNoPassword'] = $nopass;
         $config->selectedServer['AllowDeny'] = $rules;
 
-        if ($expected !== '') {
-            $this->getAuthErrorMockResponse();
-        }
-
-        $responseStub = new ResponseRendererStub();
-        (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
-
+        $exception = null;
         try {
             $this->object->checkRules();
-        } catch (Throwable $throwable) {
-        }
-
-        $result = $responseStub->getHTMLResult();
-
-        if ($expected !== '') {
-            self::assertInstanceOf(ExitException::class, $throwable ?? null);
+        } catch (AuthenticationFailure $exception) {
         }
 
         if ($expected === '') {
-            self::assertSame($expected, $result);
-        } else {
-            self::assertStringContainsString($expected, $result);
+            self::assertNull($exception, 'checkRules() should not throw an exception.');
+
+            return;
         }
 
-        ErrorHandler::$instance = null;
+        self::assertInstanceOf(AuthenticationFailure::class, $exception);
+        self::assertSame($expected, $exception->failureType);
     }
 
     /** @return mixed[] */
@@ -1031,9 +996,9 @@ class AuthenticationCookieTest extends AbstractTestCase
     {
         return [
             'nopass-ok' => ['testUser', '', '1.2.3.4', true, true, [], ''],
-            'nopass' => ['testUser', '', '1.2.3.4', true, false, [], 'Login without a password is forbidden'],
+            'nopass' => ['testUser', '', '1.2.3.4', true, false, [], AuthenticationFailure::EMPTY_DENIED],
             'root-ok' => ['root', 'root', '1.2.3.4', true, true, [], ''],
-            'root' => ['root', 'root', '1.2.3.4', false, true, [], 'Access denied!'],
+            'root' => ['root', 'root', '1.2.3.4', false, true, [], AuthenticationFailure::ROOT_DENIED],
             'rules-deny-allow-ok' => [
                 'root',
                 'root',
@@ -1050,7 +1015,7 @@ class AuthenticationCookieTest extends AbstractTestCase
                 true,
                 true,
                 ['order' => 'deny,allow', 'rules' => ['allow root 1.2.3.4', 'deny % from all']],
-                'Access denied!',
+                AuthenticationFailure::ALLOW_DENIED,
             ],
             'rules-allow-deny-ok' => [
                 'root',
@@ -1068,7 +1033,7 @@ class AuthenticationCookieTest extends AbstractTestCase
                 true,
                 true,
                 ['order' => 'allow,deny', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
-                'Access denied!',
+                AuthenticationFailure::ALLOW_DENIED,
             ],
             'rules-explicit-ok' => [
                 'root',
@@ -1086,7 +1051,7 @@ class AuthenticationCookieTest extends AbstractTestCase
                 true,
                 true,
                 ['order' => 'explicit', 'rules' => ['deny user from all', 'allow root 1.2.3.4']],
-                'Access denied!',
+                AuthenticationFailure::ALLOW_DENIED,
             ],
         ];
     }

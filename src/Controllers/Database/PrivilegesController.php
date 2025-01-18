@@ -9,16 +9,15 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidDatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Privileges;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 
 use function __;
 use function mb_strtolower;
@@ -35,7 +34,7 @@ final class PrivilegesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         try {
             $db = DatabaseName::from($request->getParam('db'));
@@ -45,7 +44,7 @@ final class PrivilegesController implements InvocableController
         } catch (InvalidDatabaseName $exception) {
             $this->response->addHTML(Message::error($exception->getMessage())->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
@@ -63,7 +62,7 @@ final class PrivilegesController implements InvocableController
                     ->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         if (! $isGrantUser && ! $isCreateUser) {
@@ -72,7 +71,7 @@ final class PrivilegesController implements InvocableController
             )->getDisplay());
         }
 
-        $scriptName = Util::getScriptNameForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database');
+        $scriptName = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {
@@ -83,13 +82,12 @@ final class PrivilegesController implements InvocableController
             'is_superuser' => $this->dbi->isSuperUser(),
             'db' => $db->getName(),
             'database_url' => $scriptName,
-            'text_dir' => LanguageManager::$textDir,
             'is_createuser' => $this->dbi->isCreateUser(),
             'is_grantuser' => $this->dbi->isGrantUser(),
             'privileges' => $privileges,
         ]);
         $this->response->render('export_modal', []);
 
-        return null;
+        return $this->response->response();
     }
 }

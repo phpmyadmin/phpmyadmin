@@ -3,21 +3,13 @@
   {{- html_field|raw -}}
 {% else %}
   {{- html_field|raw -}}
-  {%- if column.extra matches '/(VIRTUAL|PERSISTENT|GENERATED)/' and 'DEFAULT_GENERATED' not in column.extra -%}
+  {%- if extra matches '/(VIRTUAL|PERSISTENT|GENERATED)/' and 'DEFAULT_GENERATED' not in extra -%}
     <input type="hidden" name="virtual{{ columnNameAppendix }}" value="1">
   {%- endif -%}
-  {%- if column.extra == 'auto_increment' -%}
+  {%- if extra == 'auto_increment' -%}
     <input type="hidden" name="auto_increment{{ columnNameAppendix }}" value="1">
   {%- endif -%}
-  {%- if column.pmaType starts with 'timestamp' -%}
-    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="timestamp">
-  {%- endif -%}
-  {%- if column.pmaType starts with 'datetime' -%}
-    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="datetime">
-  {%- elseif column.pmaType starts with 'date' -%}
-    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="date">
-  {%- endif -%}
-  {%- if column.trueType == 'bit' or column.trueType == 'uuid' -%}
-    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="{{ column.trueType }}">
+  {%- if trueType == 'bit' or trueType == 'uuid' or trueType == 'timestamp' or trueType == 'datetime' or trueType == 'date' -%}
+    <input type="hidden" name="fields_type{{ columnNameAppendix }}" value="{{ trueType }}">
   {%- endif -%}
 {% endif %}

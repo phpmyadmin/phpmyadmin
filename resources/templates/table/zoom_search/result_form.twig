@@ -1,26 +1,24 @@
-<form method="post" action="{{ url('/table/zoom-search') }}" name="displayResultForm" id="zoom_display_form" class="ajax">
+<form method="post" action="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}" name="displayResultForm" id="zoom_display_form" class="ajax">
   {{ get_hidden_inputs(db, table) }}
   <input type="hidden" name="goto" value="{{ goto }}">
-  <input type="hidden" name="back" value="{{ url('/table/zoom-search') }}">
+  <input type="hidden" name="back" value="{{ url('/table/zoom-search', {'db': db, 'table': table}) }}">
 
   <div class="card">
     <div class="card-header">{{ t('Browse/Edit the points') }}</div>
 
     <div class="card-body">
-      {# JSON encode the data(query result) #}
-      <div class="text-center">
-        {% if zoom_submit and data is not empty %}
-          <div id="resizer">
-            <a class="text-center" id="help_dialog" href="#">{{ t('How to use') }}</a>
-            <div id="querydata" class="hide">{{ data_json }}</div>
-            <div id="querychart"></div>
-            <button class="btn btn-primary button-reset">{{ t('Reset zoom') }}</button>
-          </div>
-        {% endif %}
-      </div>
+      {% if zoom_submit and data is not empty %}
+        <a class="btn btn-secondary" id="help_dialog" href="#">{{ t('How to use') }}</a>
+        <button class="btn btn-secondary button-reset">{{ t('Reset zoom') }}</button>
+        {# JSON encode the data(query result) #}
+        <div id="querydata" class="hide">{{ data_json }}</div>
+        <div class="mt-3" id="resizer">
+          <canvas id="queryChartCanvas" aria-label="{{ t('The generated chart') }}" role="img"></canvas>
+        </div>
+      {% endif %}
 
-      <div class="modal fade" id="dataPointModal" tabindex="-1" aria-labelledby="dataPointModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <div class="modal fade" id="dataPointModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="dataPointModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="dataPointModalLabel">{{ t('Loading') }}</h5>
@@ -53,20 +51,22 @@
                         {% include 'table/search/input_box.twig' with {
                           'str': '',
                           'column_type': column_types[column_index],
+                          'column_data_type': column_data_types[column_index],
+                          'html_attributes': '',
                           'column_id': column_types[column_index] ? 'edit_fieldID_' : 'fieldID_',
                           'in_zoom_search_edit': true,
-                          'foreigners': foreigners,
                           'column_name': field_popup,
-                          'column_name_hash': column_name_hashes[field_popup],
+                          'column_name_hash': column_names_hashes[field_popup],
                           'foreign_data': foreign_data[column_index],
                           'table': table,
                           'column_index': column_index,
-                          'foreign_max_limit': foreign_max_limit,
                           'criteria_values': '',
                           'db': db,
                           'in_fbs': false,
-                          'foreign_dropdown': foreign_dropdown[column_index],
-                          'search_columns_in_foreigners': search_columns_in_foreigners[column_index]
+                          'foreign_dropdown': foreign_dropdown[column_index] ?? '',
+                          'has_foreigner': search_columns_in_foreigners[column_index],
+                          'is_integer': column_data_types[column_index] == 'INT',
+                          'is_float': column_data_types[column_index] == 'FLOAT',
                         } only %}
                       </th>
                     </tr>

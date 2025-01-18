@@ -30,7 +30,7 @@ final class NavigationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
             $this->response->addHTML(
@@ -39,7 +39,7 @@ final class NavigationController implements InvocableController
                 )->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('getNaviSettings')) {
@@ -47,7 +47,7 @@ final class NavigationController implements InvocableController
             $this->response->addHTML($this->pageSettings->getErrorHTML());
             $this->response->addJSON('message', $this->pageSettings->getHTML());
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('reload')) {
@@ -56,16 +56,16 @@ final class NavigationController implements InvocableController
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->navigationItemsHidingFeature !== null) {
-            $itemName = $request->getParsedBodyParam('itemName', '');
-            $itemType = $request->getParsedBodyParam('itemType', '');
-            $dbName = $request->getParsedBodyParam('dbName', '');
+            $itemName = $request->getParsedBodyParamAsString('itemName', '');
+            $itemType = $request->getParsedBodyParamAsString('itemType', '');
+            $dbName = $request->getParsedBodyParamAsString('dbName', '');
 
-            if ($request->getParsedBodyParam('hideNavItem') !== null) {
+            if ($request->hasBodyParam('hideNavItem')) {
                 if ($itemName !== '' && $itemType !== '' && $dbName !== '') {
                     $this->navigation->hideNavigationItem($itemName, $itemType, $dbName);
                 }
 
-                return null;
+                return $this->response->response();
             }
 
             if ($request->hasBodyParam('unhideNavItem')) {
@@ -73,7 +73,7 @@ final class NavigationController implements InvocableController
                     $this->navigation->unhideNavigationItem($itemName, $itemType, $dbName);
                 }
 
-                return null;
+                return $this->response->response();
             }
 
             if ($request->hasBodyParam('showUnhideDialog')) {
@@ -84,12 +84,12 @@ final class NavigationController implements InvocableController
                     );
                 }
 
-                return null;
+                return $this->response->response();
             }
         }
 
         $this->response->addJSON('message', $this->navigation->getDisplay());
 
-        return null;
+        return $this->response->response();
     }
 }

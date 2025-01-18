@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { prepareForAjaxRequest } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -111,7 +111,7 @@ const CreateDatabase = {
         // end remove
 
         ajaxShowMessage(window.Messages.strProcessingRequest);
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
 
         $.post($form.attr('action'), $form.serialize(), function (data) {
             if (typeof data !== 'undefined' && data.success === true) {

@@ -12,7 +12,7 @@ permissions:
   contents: read
 
 env:
-  php-version: "8.1"
+  php-version: "8.2"
 
 jobs:
   selenium:
@@ -84,11 +84,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Refresh apt cache
-        run: sudo apt-get update
-
       - name: Install gettext
-        run: sudo apt-get install -y gettext
+        run: sudo apt-get update && sudo apt-get install -y gettext
 
       - name: Generate mo files
         run: ./bin/generate-mo --quiet
@@ -101,7 +98,7 @@ jobs:
           extensions: :opcache, mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -121,6 +118,8 @@ jobs:
           FPM_PATH: php-fpm${{ env.php-version }}
           SKIP_STANDALONE: 1
         run: |
+          sudo chown -R runner:docker /var/lib/nginx/
+          sudo chown -R runner:docker /var/log/nginx/
           ./tests/start-local-server
           echo "SELENIUM_TEMPDIR=$(cat /tmp/last_temp_dir_phpMyAdminTests)" >> $GITHUB_OUTPUT
         id: start-local-server
@@ -154,4 +153,4 @@ jobs:
         with:
           name: selenium-screenshots
           path: ${{ github.workspace }}/build/selenium/**/*
-          retention-days: 1
+          retention-days: 3

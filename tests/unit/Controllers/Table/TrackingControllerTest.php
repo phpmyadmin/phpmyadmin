@@ -4,13 +4,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\TrackingController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
@@ -49,15 +51,16 @@ class TrackingControllerTest extends AbstractTestCase
         $this->dummyDbi->addSelectDb('test_db');
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
-            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table']);
+            ->withQueryParams(['db' => 'test_db', 'table' => 'test_table'])
+            ->withParsedBody(['version' => '', 'table' => '']);
 
-        $response = new ResponseRenderer();
+        $responseRenderer = new ResponseRenderer();
         $template = new Template();
         $trackingChecker = self::createStub(TrackingChecker::class);
         $relation = new Relation($this->dbi);
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
-        (new TrackingController(
-            $response,
+        $response = (new TrackingController(
+            $responseRenderer,
             new Tracking(
                 new SqlQueryForm($template, $this->dbi, $bookmarkRepository),
                 $template,
@@ -67,7 +70,10 @@ class TrackingControllerTest extends AbstractTestCase
             ),
             $trackingChecker,
             new DbTableExists($this->dbi),
+            ResponseFactory::create(),
         ))($request);
+
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
 
         $main = $template->render('table/tracking/main', [
             'url_params' => [
@@ -84,7 +90,6 @@ class TrackingControllerTest extends AbstractTestCase
             'versions' => [],
             'type' => 'table',
             'default_statements' => $config->selectedServer['tracking_default_statements'],
-            'text_dir' => 'ltr',
         ]);
         $expected = $template->render('table/tracking/index', [
             'active_message' => '',
@@ -101,6 +106,6 @@ class TrackingControllerTest extends AbstractTestCase
             'main' => $main,
         ]);
 
-        self::assertSame($expected, $response->getHTMLResult());
+        self::assertSame($expected, $responseRenderer->getHTMLResult());
     }
 }

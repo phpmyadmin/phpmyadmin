@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Utils\SessionCache;
 
 /**
@@ -50,7 +51,7 @@ final class Profiling
         }
 
         /** @psalm-var list<array{Status: non-empty-string, Duration: numeric-string}> $profile */
-        $profile = $dbi->fetchResult('SHOW PROFILE;');
+        $profile = $dbi->fetchResultSimple('SHOW PROFILE;');
 
         return $profile;
     }

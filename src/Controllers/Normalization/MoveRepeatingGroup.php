@@ -19,12 +19,12 @@ final class MoveRepeatingGroup implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $repeatingColumns = $request->getParsedBodyParam('repeatingColumns');
-        $newTable = $request->getParsedBodyParam('newTable');
-        $newColumn = $request->getParsedBodyParam('newColumn');
-        $primaryColumns = $request->getParsedBodyParam('primary_columns');
+        $repeatingColumns = $request->getParsedBodyParamAsString('repeatingColumns');
+        $newTable = $request->getParsedBodyParamAsString('newTable');
+        $newColumn = $request->getParsedBodyParamAsString('newColumn');
+        $primaryColumns = $request->getParsedBodyParamAsString('primary_columns');
         $res = $this->normalization->moveRepeatingGroup(
             $repeatingColumns,
             $primaryColumns,
@@ -35,6 +35,6 @@ final class MoveRepeatingGroup implements InvocableController
         );
         $this->response->addJSON($res);
 
-        return null;
+        return $this->response->response();
     }
 }

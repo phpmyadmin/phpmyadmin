@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\ConfigStorage;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Util;
 
 use function sprintf;

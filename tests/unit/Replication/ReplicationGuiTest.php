@@ -6,16 +6,18 @@ namespace PhpMyAdmin\Tests\Replication;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Replication\Replication;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 #[CoversClass(ReplicationGui::class)]
+#[Medium]
 class ReplicationGuiTest extends AbstractTestCase
 {
     /**
@@ -34,7 +36,6 @@ class ReplicationGuiTest extends AbstractTestCase
         //$_POST
         $_POST['primary_add_user'] = 'primary_add_user';
 
-        //$GLOBALS
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
         $config->settings['ServerDefault'] = 'server';
@@ -47,12 +48,11 @@ class ReplicationGuiTest extends AbstractTestCase
         $config->settings['ShowHint'] = true;
 
         Current::$table = 'table';
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
 
         $this->replicationGui = new ReplicationGui(new Replication(DatabaseInterface::getInstance()), new Template());
     }
 
-    #[Group('medium')]
     public function testGetHtmlForPrimaryReplication(): void
     {
         $html = $this->replicationGui->getHtmlForPrimaryReplication(null, false, 'primary_add_user', null, null);

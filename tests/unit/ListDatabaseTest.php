@@ -9,29 +9,11 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 
 #[CoversClass(ListDatabase::class)]
 class ListDatabaseTest extends AbstractTestCase
 {
-    /**
-     * ListDatabase instance
-     */
-    private ListDatabase $object;
-
-    /**
-     * SetUp for test cases
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $dbi = $this->createDatabaseInterface();
-        $config = new Config();
-        $config->selectedServer['DisableIS'] = false;
-        $config->selectedServer['only_db'] = ['single\\_db'];
-        $this->object = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
-    }
-
     /**
      * Test for ListDatabase::exists
      */
@@ -41,29 +23,34 @@ class ListDatabaseTest extends AbstractTestCase
         $config = new Config();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
-        $arr = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
-        self::assertTrue($arr->exists('single_db'));
+        $object = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
+
+        self::assertTrue($object->exists('single_db'));
     }
 
-    public function testGetList(): void
+    #[DataProvider('providerForTestGetList')]
+    public function testGetList(string $currentDbName, string $dbName): void
     {
         $dbi = $this->createDatabaseInterface();
         $config = new Config();
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['only_db'] = ['single\\_db'];
-        $arr = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
+        $object = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
 
-        Current::$database = 'db';
+        Current::$database = $currentDbName;
         self::assertSame(
-            [['name' => 'single_db', 'is_selected' => false]],
-            $arr->getList(),
+            [['name' => $dbName, 'is_selected' => $currentDbName === $dbName]],
+            $object->getList(),
         );
+    }
 
-        Current::$database = 'single_db';
-        self::assertSame(
-            [['name' => 'single_db', 'is_selected' => true]],
-            $arr->getList(),
-        );
+    /** @return list<list{string,string}> */
+    public static function providerForTestGetList(): array
+    {
+        return [
+            ['db', 'single_db'],
+            ['single_db', 'single_db'],
+        ];
     }
 
     /**
@@ -71,15 +58,13 @@ class ListDatabaseTest extends AbstractTestCase
      */
     public function testCheckHideDatabase(): void
     {
-        Config::getInstance()->selectedServer['hide_db'] = 'single\\_db';
-        self::assertEquals(
-            $this->callFunction(
-                $this->object,
-                ListDatabase::class,
-                'checkHideDatabase',
-                [],
-            ),
-            '',
-        );
+        $dbi = $this->createDatabaseInterface();
+        $config = new Config();
+        $config->selectedServer['DisableIS'] = false;
+        $config->selectedServer['only_db'] = ['single\\_db'];
+        $config->selectedServer['hide_db'] = 'single\\_db';
+        $object = new ListDatabase($dbi, $config, new UserPrivilegesFactory($dbi));
+
+        self::assertSame([], (array) $object);
     }
 }

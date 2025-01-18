@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\ConfigStorage\Features\BookmarkFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
@@ -24,6 +24,7 @@ use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
@@ -50,6 +51,10 @@ use function ucwords;
  */
 class Sql
 {
+    private float $queryTime = 0;
+    public static bool|null $showAsPhp = null;
+    public static Message|null $usingBookmarkMessage = null;
+
     public function __construct(
         private DatabaseInterface $dbi,
         private Relation $relation,
@@ -82,7 +87,7 @@ class Sql
 
         if (! $statementInfo->flags->order) {
             // Retrieving the name of the column we should sort after.
-            $sortCol = $tableObject->getUiProp(Table::PROP_SORTED_COLUMN);
+            $sortCol = $tableObject->getUiProp(UiProperty::SortedColumn);
             if (empty($sortCol)) {
                 return $statementInfo;
             }
@@ -106,7 +111,7 @@ class Sql
         } else {
             // Store the remembered table into session.
             $tableObject->setUiProp(
-                Table::PROP_SORTED_COLUMN,
+                UiProperty::SortedColumn,
                 Query::getClause(
                     $statementInfo->statement,
                     $statementInfo->parser->list,
@@ -171,6 +176,10 @@ class Sql
      */
     private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta): bool
     {
+        if ($table === '') {
+            return false;
+        }
+
         $columns = $this->dbi->getColumns($db, $table);
         $resultSetColumnNames = [];
         foreach ($fieldsMeta as $oneMeta) {
@@ -222,11 +231,15 @@ class Sql
         string $column,
         string $currentValue,
     ): string {
-        $foreigners = $this->relation->getForeigners($db, $table, $column);
+        $foreignData = $this->relation->getForeignData(
+            $this->relation->getForeigners($db, $table, $column),
+            $column,
+            false,
+            '',
+            '',
+        );
 
-        $foreignData = $this->relation->getForeignData($foreigners, $column, false, '', '');
-
-        if ($foreignData['disp_row'] == null) {
+        if ($foreignData->dispRow === null) {
             //Handle the case when number of values
             //is more than $cfg['ForeignKeyMaxLimit']
             $urlParams = ['db' => $db, 'table' => $table, 'field' => $column];
@@ -238,9 +251,9 @@ class Sql
         }
 
         $dropdown = $this->relation->foreignDropdown(
-            $foreignData['disp_row'],
-            $foreignData['foreign_field'],
-            $foreignData['foreign_display'],
+            $foreignData->dispRow,
+            $foreignData->foreignField,
+            $foreignData->foreignDisplay,
             $currentValue,
             $this->config->settings['ForeignKeyMaxLimit'],
         );
@@ -306,7 +319,7 @@ class Sql
             $whereClause,
         ));
 
-        if ($row === null) {
+        if ($row === []) {
             return '';
         }
 
@@ -427,13 +440,9 @@ class Sql
         );
 
         if ($bookmark !== null && $bookmark->getQuery() !== '') {
-            $GLOBALS['using_bookmark_message'] = Message::notice(
-                __('Using bookmark "%s" as default browse query.'),
-            );
-            $GLOBALS['using_bookmark_message']->addParam($table);
-            $GLOBALS['using_bookmark_message']->addHtml(
-                MySQLDocumentation::showDocumentation('faq', 'faq6-22'),
-            );
+            self::$usingBookmarkMessage = Message::notice(__('Using bookmark "%s" as default browse query.'));
+            self::$usingBookmarkMessage->addParam($table);
+            self::$usingBookmarkMessage->addHtml(MySQLDocumentation::showDocumentation('faq', 'faq6-22'));
 
             return $bookmark->getQuery();
         }
@@ -498,15 +507,13 @@ class Sql
      * @param bool   $bookmarkReplace     whether to replace existing bookmarks
      */
     public function storeTheQueryAsBookmark(
-        BookmarkFeature|null $bookmarkFeature,
         string $db,
         string $bookmarkUser,
         string $sqlQueryForBookmark,
         string $bookmarkLabel,
         bool $bookmarkReplace,
     ): void {
-        // Should we replace bookmark?
-        if ($bookmarkReplace && $bookmarkFeature !== null) {
+        if ($bookmarkReplace) {
             $bookmarks = $this->bookmarkRepository->getList($this->config->selectedServer['user'], $db);
             foreach ($bookmarks as $bookmark) {
                 if ($bookmark->getLabel() !== $bookmarkLabel) {
@@ -577,19 +584,19 @@ class Sql
     /**
      * If a table, database or column gets dropped, clean comments.
      *
-     * @param string      $db     current database
-     * @param string      $table  current table
-     * @param string|null $column current column
-     * @param bool        $purge  whether purge set or not
+     * @param string $db     current database
+     * @param string $table  current table
+     * @param string $column current column
+     * @param bool   $purge  whether purge set or not
      */
-    private function cleanupRelations(string $db, string $table, string|null $column, bool $purge): void
+    private function cleanupRelations(string $db, string $table, string $column, bool $purge): void
     {
         if (! $purge || $db === '') {
             return;
         }
 
         if ($table !== '') {
-            if ($column !== null && $column !== '') {
+            if ($column !== '') {
                 $this->relationCleanup->column($db, $table, $column);
             } else {
                 $this->relationCleanup->table($db, $table);
@@ -659,24 +666,25 @@ class Sql
                     $unlimNumRows = $this->dbi->getTable($db, $table)->countRecords(true);
                 }
             } else {
+                /** @var SelectStatement $statement */
                 $statement = $statementInfo->statement;
 
-                // Remove ORDER BY to decrease unnecessary sorting time
-                if ($statementInfo->flags->order) {
-                    $statement->order = null;
-                }
-
-                // Removes LIMIT clause that might have been added
-                if ($statementInfo->flags->limit) {
-                    $statement->limit = false;
-                }
-
-                if (
-                    ! $statementInfo->flags->isGroup
+                $changeExpression = ! $statementInfo->flags->isGroup
                     && ! $statementInfo->flags->distinct
                     && ! $statementInfo->flags->union
-                    && count($statement->expr) === 1
-                ) {
+                    && count($statement->expr) === 1;
+
+                if ($statementInfo->flags->order || $statementInfo->flags->limit || $changeExpression) {
+                    $statement = clone $statement;
+                }
+
+                // Remove ORDER BY to decrease unnecessary sorting time
+                $statement->order = null;
+
+                // Removes LIMIT clause that might have been added
+                $statement->limit = null;
+
+                if ($changeExpression) {
                     $statement->expr[0] = new Expression();
                     $statement->expr[0]->expr = '1';
                 }
@@ -695,11 +703,11 @@ class Sql
     /**
      * Function to handle all aspects relating to executing the query
      *
-     * @param string      $fullSqlQuery        full sql query
-     * @param bool        $isGotoFile          whether to go to a file
-     * @param string      $db                  current database
-     * @param string|null $table               current table
-     * @param string|null $sqlQueryForBookmark sql query to be stored as bookmark
+     * @param string $fullSqlQuery        full sql query
+     * @param bool   $isGotoFile          whether to go to a file
+     * @param string $db                  current database
+     * @param string $table               current table
+     * @param string $sqlQueryForBookmark sql query to be stored as bookmark
      *
      * @psalm-return array{
      *  ResultInterface|false,
@@ -714,11 +722,11 @@ class Sql
         string $fullSqlQuery,
         bool $isGotoFile,
         string $db,
-        string|null $table,
-        string|null $sqlQueryForBookmark,
+        string $table,
+        string $sqlQueryForBookmark,
     ): array {
         $response = ResponseRenderer::getInstance();
-        $response->getHeader()->getMenu()->setTable($table ?? '');
+        $response->getHeader()->getMenu()->setTable($table);
 
         Profiling::enable($this->dbi);
 
@@ -728,7 +736,7 @@ class Sql
         }
 
         $result = $this->dbi->tryQuery($fullSqlQuery);
-        $GLOBALS['querytime'] = $this->dbi->lastQueryExecutionTime;
+        $this->queryTime = $this->dbi->lastQueryExecutionTime;
 
         if (! defined('TESTSUITE')) {
             // reopen session
@@ -748,11 +756,9 @@ class Sql
         // If there are no errors and bookmarklabel was given,
         // store the query as a bookmark
         if (! empty($_POST['bkm_label']) && $sqlQueryForBookmark) {
-            $bookmarkFeature = $this->relation->getRelationParameters()->bookmarkFeature;
             $this->storeTheQueryAsBookmark(
-                $bookmarkFeature,
                 $db,
-                $bookmarkFeature !== null ? $this->config->selectedServer['user'] : '',
+                $this->config->selectedServer['user'],
                 $sqlQueryForBookmark,
                 $_POST['bkm_label'],
                 isset($_POST['bkm_replace']),
@@ -768,9 +774,9 @@ class Sql
 
         $justBrowsing = self::isJustBrowsing($statementInfo);
 
-        $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table ?? '', $statementInfo);
+        $unlimNumRows = $this->countQueryResults($numRows, $justBrowsing, $db, $table, $statementInfo);
 
-        $this->cleanupRelations($db, $table ?? '', $_POST['dropped_column'] ?? null, ! empty($_POST['purge']));
+        $this->cleanupRelations($db, $table, $_POST['dropped_column'] ?? '', ! empty($_POST['purge']));
 
         return [$result, $numRows, $unlimNumRows, $profilingResults, $errorMessage];
     }
@@ -804,11 +810,11 @@ class Sql
     /**
      * Function to get the message for the no rows returned case
      *
-     * @param string|null $messageToShow message to show
-     * @param int|string  $numRows       number of rows
+     * @param string     $messageToShow message to show
+     * @param int|string $numRows       number of rows
      */
     private function getMessageForNoRowsReturned(
-        string|null $messageToShow,
+        string $messageToShow,
         StatementInfo $statementInfo,
         int|string $numRows,
     ): Message {
@@ -845,11 +851,11 @@ class Sql
             // fact that $message_to_show is sent for every case.
             // The $message_to_show containing a success message and sent with
             // the form should not have priority over errors
-        } elseif ($messageToShow && $statementInfo->flags->queryType !== StatementType::Select) {
+        } elseif ($messageToShow !== '' && $statementInfo->flags->queryType !== StatementType::Select) {
             $message = Message::rawSuccess(htmlspecialchars($messageToShow));
-        } elseif (! empty($GLOBALS['show_as_php'])) {
+        } elseif (! empty(self::$showAsPhp)) {
             $message = Message::success(__('Showing as PHP code'));
-        } elseif (isset($GLOBALS['show_as_php'])) {
+        } elseif (isset(self::$showAsPhp)) {
             /* User disable showing as PHP, query is only displayed */
             $message = Message::notice(__('Showing SQL query'));
         } else {
@@ -858,11 +864,11 @@ class Sql
             );
         }
 
-        if (isset($GLOBALS['querytime'])) {
+        if ($this->queryTime > 0) {
             $queryTime = Message::notice(
                 '(' . __('Query took %01.4f seconds.') . ')',
             );
-            $queryTime->addParam($GLOBALS['querytime']);
+            $queryTime->addParam($this->queryTime);
             $message->addMessage($queryTime);
         }
 
@@ -887,13 +893,13 @@ class Sql
      *
      * @param string                $db                   current database
      * @param string|null           $table                current table
-     * @param string|null           $messageToShow        message to show
+     * @param string                $messageToShow        message to show
      * @param int|string            $numRows              number of rows
      * @param DisplayResults        $displayResultsObject DisplayResult instance
      * @param string                $errorMessage         error message from tryQuery
      * @param ResultInterface|false $result               executed query results
      * @param string                $sqlQuery             sql query
-     * @param string|null           $completeQuery        complete sql query
+     * @param string                $completeQuery        complete sql query
      * @psalm-param int|numeric-string $numRows
      * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
      *
@@ -903,14 +909,14 @@ class Sql
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
-        string|null $messageToShow,
+        string $messageToShow,
         int|string $numRows,
         DisplayResults $displayResultsObject,
         string $errorMessage,
         array $profilingResults,
         ResultInterface|false $result,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         if ($this->isDeleteTransformationInfo($statementInfo)) {
             $this->deleteTransformationInfo($db, $table ?? '', $statementInfo);
@@ -922,14 +928,14 @@ class Sql
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, $numRows);
         }
 
-        $queryMessage = Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
+        $queryMessage = Generator::getMessage($message, $sqlQuery, MessageType::Success);
 
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(self::$showAsPhp)) {
             return $queryMessage;
         }
 
         $extraData = [];
-        if (! empty($GLOBALS['reload'])) {
+        if (ResponseRenderer::$reload) {
             $extraData['reload'] = 1;
             $extraData['db'] = Current::$database;
         }
@@ -1000,7 +1006,7 @@ class Sql
                     'id_bookmark' => 1,
                 ]),
                 'user' => $this->config->selectedServer['user'],
-                'sql_query' => $completeQuery ?? $sqlQuery,
+                'sql_query' => $completeQuery,
                 'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
             ]);
         }
@@ -1098,8 +1104,7 @@ class Sql
             $statementInfo->flags->isFunc,
             $statementInfo->flags->isAnalyse,
             $numRows,
-            $GLOBALS['querytime'],
-            LanguageManager::$textDir,
+            $this->queryTime,
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1134,8 +1139,7 @@ class Sql
                     $statementInfo->flags->isFunc,
                     $statementInfo->flags->isAnalyse,
                     $numRows,
-                    $GLOBALS['querytime'],
-                    LanguageManager::$textDir,
+                    $this->queryTime,
                     $statementInfo->flags->isMaint,
                     $statementInfo->flags->queryType === StatementType::Explain,
                     $statementInfo->flags->queryType === StatementType::Show,
@@ -1173,17 +1177,15 @@ class Sql
      *
      * @param string|null    $displayQuery   display query
      * @param bool           $showSql        whether to show sql
-     * @param mixed[]        $sqlData        sql data
      * @param Message|string $displayMessage display message
      */
     private function getHtmlForPreviousUpdateQuery(
         string|null $displayQuery,
         bool $showSql,
-        array $sqlData,
         Message|string $displayMessage,
     ): string {
-        if ($displayQuery !== null && $showSql && $sqlData === []) {
-            return Generator::getMessage($displayMessage, $displayQuery, 'success');
+        if ($displayQuery !== null && $showSql) {
+            return Generator::getMessage($displayMessage, $displayQuery, MessageType::Success);
         }
 
         return '';
@@ -1192,21 +1194,15 @@ class Sql
     /**
      * To get the message if a column index is missing. If not will return null
      *
-     * @param string|null $table        current table
-     * @param string      $database     current database
-     * @param bool        $editable     whether the results table can be editable or not
-     * @param bool        $hasUniqueKey whether there is a unique key
+     * @param string $database     current database
+     * @param bool   $editable     whether the results table can be editable or not
+     * @param bool   $hasUniqueKey whether there is a unique key
      */
     private function getMessageIfMissingColumnIndex(
-        string|null $table,
         string $database,
         bool $editable,
         bool $hasUniqueKey,
     ): string {
-        if ($table === null) {
-            return '';
-        }
-
         $output = '';
         if (Utilities::isSystemSchema($database) || ! $editable) {
             $output = Message::notice(
@@ -1244,17 +1240,16 @@ class Sql
     /**
      * Function to display results when the executed query returns non empty results
      *
-     * @param ResultInterface     $result               executed query results
-     * @param string              $db                   current database
-     * @param string|null         $table                current table
-     * @param mixed[]|null        $sqlData              sql data
-     * @param DisplayResults      $displayResultsObject Instance of DisplayResults
-     * @param int|string          $unlimNumRows         unlimited number of rows
-     * @param int|string          $numRows              number of rows
-     * @param string|null         $dispQuery            display query
-     * @param Message|string|null $dispMessage          display message
-     * @param string              $sqlQuery             sql query
-     * @param string|null         $completeQuery        complete sql query
+     * @param ResultInterface $result               executed query results
+     * @param string          $db                   current database
+     * @param string|null     $table                current table
+     * @param DisplayResults  $displayResultsObject Instance of DisplayResults
+     * @param int|string      $unlimNumRows         unlimited number of rows
+     * @param int|string      $numRows              number of rows
+     * @param string|null     $dispQuery            display query
+     * @param Message|string  $dispMessage          display message
+     * @param string          $sqlQuery             sql query
+     * @param string          $completeQuery        complete sql query
      * @psalm-param int|numeric-string $unlimNumRows
      * @psalm-param int|numeric-string $numRows
      * @psalm-param list<array{Status: non-empty-string, Duration: numeric-string}> $profilingResults
@@ -1266,15 +1261,14 @@ class Sql
         StatementInfo $statementInfo,
         string $db,
         string|null $table,
-        array|null $sqlData,
         DisplayResults $displayResultsObject,
         int|string $unlimNumRows,
         int|string $numRows,
         string|null $dispQuery,
-        Message|string|null $dispMessage,
+        Message|string $dispMessage,
         array $profilingResults,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         // If we are retrieving the full value of a truncated field or the original
         // value of a transformed field, show it here
@@ -1363,22 +1357,20 @@ class Sql
         if (! isset($_POST['printview']) || $_POST['printview'] != '1') {
             $scripts->addFile('makegrid.js');
             $scripts->addFile('sql.js');
-            unset($GLOBALS['message']);
-            //we don't need to buffer the output in getMessage here.
-            //set a global variable and check against it in the function
-            $GLOBALS['buffer_message'] = false;
+            Current::$message = null;
         }
 
         $previousUpdateQueryHtml = $this->getHtmlForPreviousUpdateQuery(
             $dispQuery,
             $this->config->settings['ShowSQL'],
-            $sqlData ?? [],
-            $dispMessage ?? '',
+            $dispMessage,
         );
 
         $profilingChartHtml = $this->getProfilingChart($profilingResults);
 
-        $missingUniqueColumnMessage = $this->getMessageIfMissingColumnIndex($table, $db, $editable, $hasUnique);
+        $missingUniqueColumnMessage = $table !== null
+            ? $this->getMessageIfMissingColumnIndex($db, $editable, $hasUnique)
+            : '';
 
         $bookmarkCreatedMessage = $this->getBookmarkCreatedMessage();
 
@@ -1409,7 +1401,7 @@ class Sql
                     'id_bookmark' => 1,
                 ]),
                 'user' => $this->config->selectedServer['user'],
-                'sql_query' => $completeQuery ?? $sqlQuery,
+                'sql_query' => $completeQuery,
             ]);
         }
 
@@ -1426,31 +1418,29 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool                $isGotoFile          whether goto file or not
-     * @param string              $db                  current database
-     * @param string|null         $table               current table
-     * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string|null         $messageToShow       message to show
-     * @param mixed[]|null        $sqlData             sql data
-     * @param string              $goto                goto page url
-     * @param string|null         $dispQuery           display query
-     * @param Message|string|null $dispMessage         display message
-     * @param string              $sqlQuery            sql query
-     * @param string|null         $completeQuery       complete query
+     * @param bool           $isGotoFile          whether goto file or not
+     * @param string         $db                  current database
+     * @param string|null    $table               current table
+     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string         $messageToShow       message to show
+     * @param string         $goto                goto page url
+     * @param string|null    $dispQuery           display query
+     * @param Message|string $dispMessage         display message
+     * @param string         $sqlQuery            sql query
+     * @param string         $completeQuery       complete query
      */
     public function executeQueryAndSendQueryResponse(
         StatementInfo|null $statementInfo,
         bool $isGotoFile,
         string $db,
         string|null $table,
-        string|null $sqlQueryForBookmark,
-        string|null $messageToShow,
-        array|null $sqlData,
+        string $sqlQueryForBookmark,
+        string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string|null $dispMessage,
+        Message|string $dispMessage,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         if ($statementInfo === null) {
             // Parse and analyze the query
@@ -1466,7 +1456,6 @@ class Sql
             $table, // table
             $sqlQueryForBookmark, // sql_query_for_bookmark
             $messageToShow, // message_to_show
-            $sqlData, // sql_data
             $goto, // goto
             $dispQuery, // disp_query
             $dispMessage, // disp_message
@@ -1478,17 +1467,16 @@ class Sql
     /**
      * Function to execute the query and send the response
      *
-     * @param bool                $isGotoFile          whether goto file or not
-     * @param string              $db                  current database
-     * @param string|null         $table               current table
-     * @param string|null         $sqlQueryForBookmark the sql query to be stored as bookmark
-     * @param string|null         $messageToShow       message to show
-     * @param mixed[]|null        $sqlData             sql data
-     * @param string              $goto                goto page url
-     * @param string|null         $dispQuery           display query
-     * @param Message|string|null $dispMessage         display message
-     * @param string              $sqlQuery            sql query
-     * @param string|null         $completeQuery       complete query
+     * @param bool           $isGotoFile          whether goto file or not
+     * @param string         $db                  current database
+     * @param string|null    $table               current table
+     * @param string         $sqlQueryForBookmark the sql query to be stored as bookmark
+     * @param string         $messageToShow       message to show
+     * @param string         $goto                goto page url
+     * @param string|null    $dispQuery           display query
+     * @param Message|string $dispMessage         display message
+     * @param string         $sqlQuery            sql query
+     * @param string         $completeQuery       complete query
      *
      * @return string html
      */
@@ -1497,14 +1485,13 @@ class Sql
         bool $isGotoFile,
         string $db,
         string|null $table,
-        string|null $sqlQueryForBookmark,
-        string|null $messageToShow,
-        array|null $sqlData,
+        string $sqlQueryForBookmark,
+        string $messageToShow,
         string $goto,
         string|null $dispQuery,
-        Message|string|null $dispMessage,
+        Message|string $dispMessage,
         string $sqlQuery,
-        string|null $completeQuery,
+        string $completeQuery,
     ): string {
         // Handle remembered sorting order, only for single table query.
         // Handling is not required when it's a union query
@@ -1517,7 +1504,7 @@ class Sql
             && ! isset($_POST['sort_by_key'])
         ) {
             if (! isset($_SESSION['sql_from_query_box'])) {
-                $statementInfo = $this->handleSortOrder($db, $table, $statementInfo, $sqlQuery);
+                $statementInfo = $this->handleSortOrder($db, $table ?? '', $statementInfo, $sqlQuery);
             } else {
                 unset($_SESSION['sql_from_query_box']);
             }
@@ -1542,10 +1529,10 @@ class Sql
             $fullSqlQuery = $this->getSqlWithLimitClause($statementInfo);
         }
 
-        $GLOBALS['reload'] = $this->hasCurrentDbChanged($db);
+        ResponseRenderer::$reload = $this->hasCurrentDbChanged($db);
         $this->dbi->selectDb($db);
 
-        if (isset($GLOBALS['show_as_php'])) {
+        if (isset(self::$showAsPhp)) {
             // Only if we ask to see the php code
             // The following was copied from getQueryResponseForNoResultsReturned()
             // Delete if it's not needed in this context
@@ -1555,7 +1542,7 @@ class Sql
 
             $message = $this->getMessageForNoRowsReturned($messageToShow, $statementInfo, 0);
 
-            return Generator::getMessage($message, $GLOBALS['sql_query'], 'success');
+            return Generator::getMessage($message, Current::$sqlQuery, MessageType::Success);
         }
 
         // Handle disable/enable foreign key checks
@@ -1566,7 +1553,7 @@ class Sql
             $fullSqlQuery,
             $isGotoFile,
             $db,
-            $table,
+            $table ?? '',
             $sqlQueryForBookmark,
         );
 
@@ -1594,7 +1581,6 @@ class Sql
                 $statementInfo,
                 $db,
                 $table,
-                $sqlData,
                 $displayResultsObject,
                 $unlimNumRows,
                 $numRows,
@@ -1664,7 +1650,7 @@ class Sql
         $template = new Template();
 
         return $template->render('indexes', [
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'indexes' => $indexes,
             'indexes_duplicates' => $indexesDuplicates,
         ]);

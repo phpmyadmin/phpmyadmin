@@ -7,9 +7,10 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Twig\AssetExtension;
 use PhpMyAdmin\Twig\CoreExtension;
-use PhpMyAdmin\Twig\FlashMessagesExtension;
+use PhpMyAdmin\Twig\FlashMessengerExtension;
 use PhpMyAdmin\Twig\I18nExtension;
 use PhpMyAdmin\Twig\MessageExtension;
+use PhpMyAdmin\Twig\PmaGlobalVariable;
 use PhpMyAdmin\Twig\SanitizeExtension;
 use PhpMyAdmin\Twig\TransformationsExtension;
 use PhpMyAdmin\Twig\UrlExtension;
@@ -65,9 +66,10 @@ class Template
             $twig->disableStrictVariables();
         }
 
+        $twig->addGlobal('pma', new PmaGlobalVariable());
         $twig->addExtension(new AssetExtension());
         $twig->addExtension(new CoreExtension());
-        $twig->addExtension(new FlashMessagesExtension());
+        $twig->addExtension(new FlashMessengerExtension());
         $twig->addExtension(new I18nExtension());
         $twig->addExtension(new MessageExtension());
         $twig->addExtension(new SanitizeExtension());

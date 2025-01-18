@@ -8,12 +8,15 @@ use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportOdt;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -64,14 +67,13 @@ class ExportOdtTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportOdt(
             new Relation($this->dbi),
@@ -93,8 +95,8 @@ class ExportOdtTest extends AbstractTestCase
 
     public function testSetProperties(): void
     {
-        $GLOBALS['plugin_param']['export_type'] = '';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Raw;
+        ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
@@ -294,8 +296,8 @@ class ExportOdtTest extends AbstractTestCase
         );
 
         // case 2
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $method->invoke($this->object, null);
 
@@ -310,34 +312,34 @@ class ExportOdtTest extends AbstractTestCase
             $this->object->exportHeader(),
         );
 
-        self::assertStringContainsString('<office:document-content', $GLOBALS['odt_buffer']);
-        self::assertStringContainsString('office:version', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('<office:document-content', $this->object->buffer);
+        self::assertStringContainsString('office:version', $this->object->buffer);
     }
 
     public function testExportFooter(): void
     {
-        $GLOBALS['odt_buffer'] = 'header';
+        $this->object->buffer = 'header';
         self::assertTrue($this->object->exportFooter());
         $output = $this->getActualOutputForAssertion();
         self::assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
-        self::assertStringContainsString('header', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('header', $this->object->buffer);
         self::assertStringContainsString(
             '</office:text></office:body></office:document-content>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
     }
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['odt_buffer'] = 'header';
+        $this->object->buffer = 'header';
 
         self::assertTrue(
             $this->object->exportDBHeader('d&b'),
         );
 
-        self::assertStringContainsString('header', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('header', $this->object->buffer);
 
-        self::assertStringContainsString('Database d&amp;b</text:h>', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('Database d&amp;b</text:h>', $this->object->buffer);
     }
 
     public function testExportDBFooter(): void
@@ -350,7 +352,7 @@ class ExportOdtTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -391,15 +393,16 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([null, 'a<b', 'a>b', 'a&b'], []);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        unset($GLOBALS['foo_columns']);
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_null' => '&']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
                 'db',
                 'ta<ble',
-                'example.com',
                 'SELECT',
             ),
         );
@@ -416,7 +419,7 @@ class ExportOdtTest extends AbstractTestCase
             '</table:table-cell><table:table-cell office:value-type="string">' .
             '<text:p>a&amp;b</text:p></table:table-cell></table:table-row>' .
             '</table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
     }
 
@@ -460,15 +463,16 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        $GLOBALS['foo_columns'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
-                'example.com',
                 'SELECT',
             ),
         );
@@ -481,7 +485,7 @@ class ExportOdtTest extends AbstractTestCase
             'value-type="string"><text:p>fna\&quot;me</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>fnam/&lt;e2' .
             '</text:p></table:table-cell></table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         // with no row count
@@ -512,17 +516,12 @@ class ExportOdtTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        $GLOBALS['odt_buffer'] = '';
+        $this->object->buffer = '';
 
         self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
-                'example.com',
                 'SELECT',
             ),
         );
@@ -533,7 +532,7 @@ class ExportOdtTest extends AbstractTestCase
             '<table:table table:name="table_structure"><table:table-column ' .
             'table:number-columns-repeated="0"/><table:table-row>' .
             '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
     }
 
@@ -569,7 +568,7 @@ class ExportOdtTest extends AbstractTestCase
             . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
             . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
             . '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
     }
 
@@ -631,29 +630,26 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue(
-            $this->object->getTableDef(
-                'database',
-                '',
-                true,
-                true,
-                true,
-            ),
-        );
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['odt_relation' => 'On', 'odt_mime' => 'On', 'odt_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
+        self::assertTrue($this->object->getTableDef('database', ''));
 
         self::assertStringContainsString(
             '<table:table table:name="_structure"><table:table-column table:number-columns-repeated="6"/>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         self::assertStringContainsString(
             '<table:table-cell office:value-type="string"><text:p>Comments</text:p></table:table-cell>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         self::assertStringContainsString(
             '<table:table-cell office:value-type="string"><text:p>Media type</text:p></table:table-cell>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         self::assertStringContainsString(
@@ -661,7 +657,7 @@ class ExportOdtTest extends AbstractTestCase
             '<text:p></text:p></table:table-cell><table:table-cell office:value-' .
             'type="string"><text:p>Test&lt;</text:p></table:table-cell>' .
             '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         // case 2
@@ -699,7 +695,7 @@ class ExportOdtTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
-        $GLOBALS['odt_buffer'] = '';
+        $this->object->buffer = '';
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
             'commwork' => true,
@@ -710,17 +706,9 @@ class ExportOdtTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        self::assertTrue(
-            $this->object->getTableDef(
-                'database',
-                '',
-                true,
-                true,
-                true,
-            ),
-        );
+        self::assertTrue($this->object->getTableDef('database', ''));
 
-        self::assertStringContainsString('<text:p>ftable (ffield)</text:p>', $GLOBALS['odt_buffer']);
+        self::assertStringContainsString('<text:p>ftable (ffield)</text:p>', $this->object->buffer);
     }
 
     public function testGetTriggers(): void
@@ -739,7 +727,7 @@ class ExportOdtTest extends AbstractTestCase
         $method = new ReflectionMethod(ExportOdt::class, 'getTriggers');
         $result = $method->invoke($this->object, 'ta<ble', $triggers);
 
-        self::assertSame($result, $GLOBALS['odt_buffer']);
+        self::assertSame($result, $this->object->buffer);
 
         self::assertStringContainsString('<table:table table:name="ta&lt;ble_triggers">', $result);
 
@@ -756,14 +744,7 @@ class ExportOdtTest extends AbstractTestCase
     {
         // case 1
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_table',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -790,20 +771,13 @@ class ExportOdtTest extends AbstractTestCase
             . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
             . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
             . '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         // case 2
-        $GLOBALS['odt_buffer'] = '';
+        $this->object->buffer = '';
 
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'triggers',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
 
         self::assertSame(
             '<text:h text:outline-level="2" text:style-name="Heading_2" text:is-list-header="true">'
@@ -819,21 +793,14 @@ class ExportOdtTest extends AbstractTestCase
             . '<table:table-cell office:value-type="string"><text:p>INSERT</text:p></table:table-cell>'
             . '<table:table-cell office:value-type="string"><text:p>BEGIN END</text:p></table:table-cell>'
             . '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         // case 3
-        $GLOBALS['odt_buffer'] = '';
+        $this->object->buffer = '';
 
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -860,20 +827,13 @@ class ExportOdtTest extends AbstractTestCase
             . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
             . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
             . '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
 
         // case 4
         $this->dummyDbi->addSelectDb('test_db');
-        $GLOBALS['odt_buffer'] = '';
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'stand_in',
-                'test',
-            ),
-        );
+        $this->object->buffer = '';
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
         $this->dummyDbi->assertAllSelectsConsumed();
 
         self::assertSame(
@@ -900,7 +860,7 @@ class ExportOdtTest extends AbstractTestCase
             . '<table:table-cell office:value-type="string"><text:p>No</text:p></table:table-cell>'
             . '<table:table-cell office:value-type="string"><text:p>NULL</text:p></table:table-cell>'
             . '</table:table-row></table:table>',
-            $GLOBALS['odt_buffer'],
+            $this->object->buffer,
         );
     }
 

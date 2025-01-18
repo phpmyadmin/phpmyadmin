@@ -251,7 +251,7 @@ class GisLineStringTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
-                . 'name="svg" id="svg1234567890" class="linestring vector" fill="none" '
+                . 'data-label="svg" id="svg1234567890" class="linestring vector" fill="none" '
                 . 'stroke="#b02ee0" stroke-width="2"/>',
             ],
         ];
@@ -260,11 +260,11 @@ class GisLineStringTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS LINESTRING object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS LINESTRING object
-     * @param int[]  $color   color for the GIS LINESTRING object
-     * @param string $output  expected output
+     * @param string  $spatial  GIS LINESTRING object
+     * @param int     $srid     spatial reference ID
+     * @param string  $label    label for the GIS LINESTRING object
+     * @param int[]   $color    color for the GIS LINESTRING object
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -272,17 +272,16 @@ class GisLineStringTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisLineString::singleton();
-        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertSame($output, $ol);
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -292,10 +291,21 @@ class GisLineStringTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.LineString([[12,35],[48,75],[69,23],[25,4'
-                . '5],[14,53],[35,78]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.setStyle(n'
-                . 'ew ol.style.Style({stroke: new ol.style.Stroke({"color":[176,46,224],"width":2})'
-                . ', text: new ol.style.Text({"text":"Ol"})}));vectorSource.addFeature(feature);',
+                [
+                    'geometry' => [
+                        'type' => 'LineString',
+                        'coordinates' => [
+                            [12.0, 35.0],
+                            [48.0, 75.0],
+                            [69.0, 23.0],
+                            [25.0, 45.0],
+                            [14.0, 53.0],
+                            [35.0, 78.0],
+                        ],
+                        'srid' => 4326,
+                    ],
+                    'style' => ['stroke' => ['color' => [176, 46, 224], 'width' => 2], 'text' => ['text' => 'Ol']],
+                ],
             ],
         ];
     }

@@ -84,9 +84,9 @@ class Form
      *
      * @param string $optionName path or field name
      *
-     * @return string|null one of: boolean, integer, double, string, select, array
+     * @return string one of: boolean, integer, double, string, select, array
      */
-    public function getOptionType(string $optionName): string|null
+    public function getOptionType(string $optionName): string
     {
         $key = ltrim(
             mb_substr(
@@ -96,7 +96,7 @@ class Form
             '/',
         );
 
-        return $this->fieldsTypes[$key] ?? null;
+        return $this->fieldsTypes[$key] ?? '';
     }
 
     /**

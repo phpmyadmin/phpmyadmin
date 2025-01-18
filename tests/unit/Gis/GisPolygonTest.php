@@ -254,7 +254,8 @@ class GisPolygonTest extends GisGeomTestCase
                 'svg',
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
-                '<path d=" M 222, 288 L 22, 228 L 10, 162 Z  M 174, 264 L 36, 218 L 26, 178 Z " name="svg" id="svg12'
+                '<path d=" M 222, 288 L 22, 228 L 10, 162 Z  M 174, 264 L 36, 218 L 26, 178 Z " data-label="svg"'
+                . ' id="svg12'
                 . '34567890" class="polygon vector" stroke="black" stroke-width="0.5" fill="#b02ee0" fill-rule="evenod'
                 . 'd" fill-opacity="0.8"/>',
             ],
@@ -264,11 +265,11 @@ class GisPolygonTest extends GisGeomTestCase
     /**
      * test case for prepareRowAsOl() method
      *
-     * @param string $spatial GIS POLYGON object
-     * @param int    $srid    spatial reference ID
-     * @param string $label   label for the GIS POLYGON object
-     * @param int[]  $color   color for the GIS POLYGON object
-     * @param string $output  expected output
+     * @param string  $spatial  GIS POLYGON object
+     * @param int     $srid     spatial reference ID
+     * @param string  $label    label for the GIS POLYGON object
+     * @param int[]   $color    color for the GIS POLYGON object
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -276,17 +277,16 @@ class GisPolygonTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisPolygon::singleton();
-        $ol = $object->prepareRowAsOl($spatial, $srid, $label, $color);
-        self::assertSame($output, $ol);
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -296,11 +296,18 @@ class GisPolygonTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.Polygon([[[123,0],[23,30],[17,63],[123,0'
-                . ']]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feature.setStyle(new ol.style.Sty'
-                . 'le({fill: new ol.style.Fill({"color":[176,46,224,0.8]}),stroke: new ol.style.St'
-                . 'roke({"color":[0,0,0],"width":0.5}),text: new ol.style.Text({"text":"Ol"})}));v'
-                . 'ectorSource.addFeature(feature);',
+                [
+                    'geometry' => [
+                        'type' => 'Polygon',
+                        'coordinates' => [[[123.0, 0.0], [23.0, 30.0], [17.0, 63.0], [123.0, 0.0]]],
+                        'srid' => 4326,
+                    ],
+                    'style' => [
+                        'fill' => ['color' => [176, 46, 224, 0.8]],
+                        'stroke' => ['color' => [0, 0, 0], 'width' => 0.5],
+                        'text' => ['text' => 'Ol'],
+                    ],
+                ],
             ],
         ];
     }

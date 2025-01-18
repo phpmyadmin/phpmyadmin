@@ -70,7 +70,7 @@ class OperationsTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('cssSelector', 'table.table_results');
 
-        self::assertEquals(
+        self::assertSame(
             '2',
             $this->getCellByTableClass('table_results', 1, 5),
         );
@@ -99,7 +99,7 @@ class OperationsTest extends TestBase
             . 'SHOW TABLES LIKE \'test_table2\'',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('test_table2', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
     }
@@ -127,7 +127,7 @@ class OperationsTest extends TestBase
             . 'SHOW TABLES LIKE \'test_table2\'',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('test_table2', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
     }
@@ -155,7 +155,7 @@ class OperationsTest extends TestBase
             'SELECT COUNT(*) as c FROM `' . $this->databaseName . '`.test_table2',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('2', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
     }
@@ -178,7 +178,7 @@ class OperationsTest extends TestBase
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.test_table',
             function (): void {
                 self::assertTrue($this->isElementPresent('className', 'table_results'));
-                self::assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertSame('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
             },
         );
     }

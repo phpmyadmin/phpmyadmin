@@ -17,11 +17,11 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\InsertEdit;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_fill;
@@ -38,6 +38,9 @@ use function trim;
  */
 class ChangeController implements InvocableController
 {
+    /** @var array<mixed> */
+    public static array $unsavedValues = [];
+
     public function __construct(
         private readonly ResponseRenderer $response,
         private readonly Template $template,
@@ -49,15 +52,8 @@ class ChangeController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['where_clause'] ??= null;
-        $GLOBALS['unsaved_values'] ??= null;
-        $GLOBALS['current_result'] ??= null;
-
         $this->pageSettings->init('Edit');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -68,12 +64,12 @@ class ChangeController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -82,12 +78,12 @@ class ChangeController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->setInsertRowsParam($request->getParsedBodyParam('insert_rows'));
@@ -95,7 +91,7 @@ class ChangeController implements InvocableController
         if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
             $whereClause = $request->getQueryParam('where_clause');
             if (Core::checkSqlQuerySignature($whereClause, $request->getQueryParam('where_clause_signature'))) {
-                $GLOBALS['where_clause'] = $whereClause;
+                Current::$whereClause = $whereClause;
             }
         }
 
@@ -104,49 +100,45 @@ class ChangeController implements InvocableController
          */
         [
             $insertMode,
-            $GLOBALS['where_clause'],
+            Current::$whereClause,
             $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
-        ] = $this->insertEdit->determineInsertOrEdit(
-            $GLOBALS['where_clause'] ?? null,
-            Current::$database,
-            Current::$table,
-        );
+        ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
         // Increase number of rows if unsaved rows are more
-        if (! empty($GLOBALS['unsaved_values']) && count($rows) < count($GLOBALS['unsaved_values'])) {
-            $rows = array_fill(0, count($GLOBALS['unsaved_values']), false);
+        if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
+            $rows = array_fill(0, count(self::$unsavedValues), false);
         }
 
         /**
          * Defines the url to return to in case of error in a sql statement
-         * (at this point, $GLOBALS['goto'] will be set but could be empty)
+         * (at this point, UrlParams::$goto will be set but could be empty)
          */
-        if (empty($GLOBALS['goto'])) {
+        if (UrlParams::$goto === '') {
             if (Current::$table !== '') {
                 // avoid a problem (see bug #2202709)
-                $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
+                UrlParams::$goto = Url::getFromRoute('/table/sql');
             } else {
-                $GLOBALS['goto'] = Url::getFromRoute('/database/sql');
+                UrlParams::$goto = Url::getFromRoute('/database/sql');
             }
         }
 
         /** @var mixed $sqlQuery */
         $sqlQuery = $request->getParsedBodyParam('sql_query');
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
+        UrlParams::$params = ['db' => Current::$database, 'sql_query' => is_string($sqlQuery) ? $sqlQuery : ''];
 
-        if (str_starts_with($GLOBALS['goto'] ?? '', 'index.php?route=/table')) {
-            $GLOBALS['urlParams']['table'] = Current::$table;
+        if (str_starts_with(UrlParams::$goto, 'index.php?route=/table')) {
+            UrlParams::$params['table'] = Current::$table;
         }
 
-        $GLOBALS['errorUrl'] = $GLOBALS['goto'] . Url::getCommon(
-            $GLOBALS['urlParams'],
-            ! str_contains($GLOBALS['goto'], '?') ? '?' : '&',
+        $errorUrl = UrlParams::$goto . Url::getCommon(
+            UrlParams::$params,
+            ! str_contains(UrlParams::$goto, '?') ? '?' : '&',
         );
-        unset($GLOBALS['urlParams']);
+        UrlParams::$params = [];
 
         $commentsMap = $this->insertEdit->getCommentsMap(Current::$database, Current::$table);
 
@@ -167,8 +159,8 @@ class ChangeController implements InvocableController
          *
          * $disp_message come from /table/replace
          */
-        if (! empty($GLOBALS['disp_message'])) {
-            $this->response->addHTML(Generator::getMessage($GLOBALS['disp_message']));
+        if (! empty(Current::$displayMessage)) {
+            $this->response->addHTML(Generator::getMessage(Current::$displayMessage));
         }
 
         $tableColumns = $this->insertEdit->getTableColumns(Current::$database, Current::$table);
@@ -182,7 +174,7 @@ class ChangeController implements InvocableController
             Current::$table,
             $whereClauses,
             $whereClauseArray,
-            $GLOBALS['errorUrl'],
+            $errorUrl,
         );
 
         /**
@@ -193,9 +185,9 @@ class ChangeController implements InvocableController
 
         $htmlOutput = '';
 
-        $GLOBALS['urlParams']['db'] = Current::$database;
-        $GLOBALS['urlParams']['table'] = Current::$table;
-        $GLOBALS['urlParams'] = $this->urlParamsInEditMode($GLOBALS['urlParams'], $whereClauseArray);
+        UrlParams::$params['db'] = Current::$database;
+        UrlParams::$params['table'] = Current::$table;
+        UrlParams::$params = $this->urlParamsInEditMode($request, UrlParams::$params, $whereClauseArray);
 
         $hasBlobField = false;
         foreach ($tableColumns as $tableColumn) {
@@ -221,22 +213,20 @@ class ChangeController implements InvocableController
         }
 
         if (! $this->config->settings['ShowFunctionFields']) {
-            $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', $GLOBALS['urlParams'], false);
+            $htmlOutput .= $this->insertEdit->showTypeOrFunction('function', UrlParams::$params, false);
         }
 
         if (! $this->config->settings['ShowFieldTypesInDataEditView']) {
-            $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', $GLOBALS['urlParams'], false);
+            $htmlOutput .= $this->insertEdit->showTypeOrFunction('type', UrlParams::$params, false);
         }
 
-        $GLOBALS['plugin_scripts'] = [];
+        InsertEdit::$pluginScripts = [];
         foreach ($rows as $rowId => $currentRow) {
-            $GLOBALS['current_result'] = is_array($result) && isset($result[$rowId])
-                ? $result[$rowId]
-                : $result;
+            $currentResult = is_array($result) && isset($result[$rowId]) ? $result[$rowId] : $result;
             $repopulate = [];
             $checked = true;
-            if (isset($GLOBALS['unsaved_values'][$rowId])) {
-                $repopulate = $GLOBALS['unsaved_values'][$rowId];
+            if (isset(self::$unsavedValues[$rowId])) {
+                $repopulate = self::$unsavedValues[$rowId];
                 $checked = false;
             }
 
@@ -245,10 +235,10 @@ class ChangeController implements InvocableController
             }
 
             $htmlOutput .= $this->insertEdit->getHtmlForInsertEditRow(
-                $GLOBALS['urlParams'],
+                UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
-                $GLOBALS['current_result'],
+                $currentResult,
                 $insertMode,
                 $currentRow ?: [],
                 $isUpload,
@@ -256,19 +246,18 @@ class ChangeController implements InvocableController
                 Current::$table,
                 Current::$database,
                 $rowId,
-                LanguageManager::$textDir,
                 $repopulate,
                 $whereClauseArray,
             );
         }
 
-        $this->response->addScriptFiles($GLOBALS['plugin_scripts']);
+        $this->response->addScriptFiles(InsertEdit::$pluginScripts);
+        InsertEdit::$pluginScripts = [];
+        self::$unsavedValues = [];
 
-        unset($GLOBALS['unsaved_values'], $GLOBALS['plugin_scripts']);
-
-        $isNumeric = InsertEdit::isWhereClauseNumeric($GLOBALS['where_clause']);
+        $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [
-            'where_clause' => $GLOBALS['where_clause'],
+            'where_clause' => Current::$whereClause,
             'after_insert' => $afterInsert ?? 'back',
             'found_unique_key' => $foundUniqueIndex,
             'is_numeric' => $isNumeric,
@@ -276,7 +265,7 @@ class ChangeController implements InvocableController
 
         $htmlOutput .= '</form>';
 
-        $htmlOutput .= $this->insertEdit->getHtmlForGisEditor();
+        $htmlOutput .= $this->template->render('modals/gis_editor');
         // end Insert/Edit form
 
         if ($insertMode) {
@@ -285,24 +274,25 @@ class ChangeController implements InvocableController
                 Current::$table,
                 Current::$database,
                 $whereClauseArray,
-                $GLOBALS['errorUrl'],
+                $errorUrl,
             );
         }
 
         $this->response->addHTML($htmlOutput);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
      * Add some url parameters
      *
-     * @param mixed[] $urlParams        containing $db and $table as url parameters
-     * @param mixed[] $whereClauseArray where clauses array
+     * @param array<string, bool|int|string> $urlParams        containing $db and $table as url parameters
+     * @param string[]                       $whereClauseArray where clauses array
      *
-     * @return mixed[] Add some url parameters to $url_params array and return it
+     * @return array<string, bool|int|string> Add some url parameters to $url_params array and return it
      */
     public function urlParamsInEditMode(
+        ServerRequest $request,
         array $urlParams,
         array $whereClauseArray,
     ): array {
@@ -310,8 +300,9 @@ class ChangeController implements InvocableController
             $urlParams['where_clause'] = trim($whereClause);
         }
 
-        if (! empty($_POST['sql_query'])) {
-            $urlParams['sql_query'] = $_POST['sql_query'];
+        $sqlQuery = $request->getParsedBodyParamAsString('sql_query', '');
+        if ($sqlQuery !== '') {
+            $urlParams['sql_query'] = $sqlQuery;
         }
 
         return $urlParams;

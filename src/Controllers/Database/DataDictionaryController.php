@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
@@ -28,10 +28,10 @@ final class DataDictionaryController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db'], true)) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $relationParameters = $this->relation->getRelationParameters();
@@ -50,11 +50,9 @@ final class DataDictionaryController implements InvocableController
                 $this->dbi->getTableIndexes(Current::$database, $tableName),
             );
 
-            $foreigners = $this->relation->getRelationsAndStatus(
-                $relationParameters->relationFeature !== null,
-                Current::$database,
-                $tableName,
-            );
+            $foreigners = $relationParameters->relationFeature !== null
+                ? $this->relation->getForeigners(Current::$database, $tableName)
+                : [];
 
             $columnsComments = $this->relation->getComments(Current::$database, $tableName);
 
@@ -110,6 +108,6 @@ final class DataDictionaryController implements InvocableController
             'tables' => $tables,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

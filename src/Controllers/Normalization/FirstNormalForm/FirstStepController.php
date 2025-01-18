@@ -21,12 +21,12 @@ final class FirstStepController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addScriptFiles(['normalization.js', 'vendor/jquery/jquery.uitablefilter.js']);
 
         $normalForm = '1nf';
-        $normalizeTo = $request->getParsedBodyParam('normalizeTo');
+        $normalizeTo = $request->getParsedBodyParamAsString('normalizeTo', '');
         if (in_array($normalizeTo, ['1nf', '2nf', '3nf'], true)) {
             $normalForm = $normalizeTo;
         }
@@ -34,6 +34,6 @@ final class FirstStepController implements InvocableController
         $html = $this->normalization->getHtmlFor1NFStep1(Current::$database, Current::$table, $normalForm);
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 }

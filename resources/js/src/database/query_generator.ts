@@ -8,6 +8,13 @@ import { escapeBacktick, escapeSingleQuote } from '../modules/functions/escape.t
  * @requires    jQueryUI
  */
 
+$(document).on('change', '.criteria_op', function () {
+    const op = $(this).val();
+    const criteria = $(this).closest('.table').find('.rhs_text_val');
+
+    isOpWithoutArg(op) ? criteria.hide().val('') : criteria.show();
+});
+
 function getFormatsText () {
     return {
         '=': ' = \'%s\'',
@@ -20,29 +27,95 @@ function getFormatsText () {
         'LIKE %...%': ' LIKE \'%%%s%%\'',
         'NOT LIKE': ' NOT LIKE \'%s\'',
         'NOT LIKE %...%': ' NOT LIKE \'%%%s%%\'',
-        'BETWEEN': ' BETWEEN \'%s\'',
-        'NOT BETWEEN': ' NOT BETWEEN \'%s\'',
-        'IS NULL': ' \'%s\' IS NULL',
-        'IS NOT NULL': ' \'%s\' IS NOT NULL',
+        'IN (...)': ' IN (%s)',
+        'NOT IN (...)': ' NOT IN (%s)',
+        'BETWEEN': ' BETWEEN \'%s\' AND \'%s\'',
+        'NOT BETWEEN': ' NOT BETWEEN \'%s\' AND \'%s\'',
         'REGEXP': ' REGEXP \'%s\'',
         'REGEXP ^...$': ' REGEXP \'^%s$\'',
         'NOT REGEXP': ' NOT REGEXP \'%s\''
     };
 }
 
+function opsWithoutArg () {
+    return ['IS NULL', 'IS NOT NULL'];
+}
+
+function opsWithMultipleArgs (): string[] {
+    return ['IN (...)', 'NOT IN (...)'];
+}
+
+function opsWithTwoArgs (): string[] {
+    return ['BETWEEN', 'NOT BETWEEN'];
+}
+
+function isOpWithoutArg (op) {
+    return opsWithoutArg().includes(op);
+}
+
+function acceptsMultipleValues (op: string): boolean {
+    return opsWithMultipleArgs().includes(op);
+}
+
+function acceptsTwoValues (op: string): boolean {
+    return opsWithTwoArgs().includes(op);
+}
+
+function joinWrappingElementsWith (array: string[], char: string, separator: string = ','): string {
+    let string: string = '';
+
+    array.forEach(function (option: string, index: number) {
+        string += `${char}${option}${char}`;
+
+        if (index !== array.length - 1) {
+            string += separator;
+        }
+    });
+
+    return string;
+}
+
 function generateCondition (criteriaDiv, table) {
     const tableName = table.val();
     const tableAlias = table.siblings('.table_alias').val();
+    const criteriaOp = criteriaDiv.find('.criteria_op').first().val();
+    let criteriaText = criteriaDiv.find('.rhs_text_val').first().val();
 
-    var query = '`' + escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
-    query += '`' + escapeBacktick(table.siblings('.columnNameSelect').first().val()) + '`';
+    let query = '`' + escapeBacktick(tableAlias === '' ? tableName : tableAlias) + '`.';
+    query += '`' + escapeBacktick(table.parent().find('.opColumn').first().val()) + '`';
     if (criteriaDiv.find('.criteria_rhs').first().val() === 'text') {
-        var formatsText = getFormatsText();
-        query += window.sprintf(formatsText[criteriaDiv.find('.criteria_op').first().val()], escapeSingleQuote(criteriaDiv.find('.rhs_text_val').first().val()));
+        if (isOpWithoutArg(criteriaOp)) {
+            query += ' ' + criteriaOp;
+        } else if (acceptsMultipleValues(criteriaOp)) {
+            const formatsText = getFormatsText();
+            const valuesInputs = criteriaDiv.find('input.val');
+            let critertiaTextArray = [];
+
+            valuesInputs.each(function () {
+                let value: string = escapeSingleQuote($(this).val());
+
+                if (! critertiaTextArray.includes(value)) {
+                    critertiaTextArray.push(value);
+                }
+            });
+
+            criteriaText = joinWrappingElementsWith(critertiaTextArray, '\'');
+
+            query += window.sprintf(formatsText[criteriaOp], criteriaText);
+        } else if (acceptsTwoValues(criteriaOp)) {
+            const formatsText = getFormatsText();
+            const valuesInputs = criteriaDiv.find('input.val');
+
+            query += window.sprintf(formatsText[criteriaOp], valuesInputs[0].value, valuesInputs[1].value);
+        } else {
+            const formatsText = getFormatsText();
+
+            query += window.sprintf(formatsText[criteriaOp], criteriaText);
+        }
     } else {
-        query += ' ' + criteriaDiv.find('.criteria_op').first().val();
+        query += ' ' + criteriaOp;
         query += ' `' + escapeBacktick(criteriaDiv.find('.tableNameSelect').first().val()) + '`.';
-        query += '`' + escapeBacktick(criteriaDiv.find('.columnNameSelect').first().val()) + '`';
+        query += '`' + escapeBacktick(criteriaDiv.find('.opColumn').first().val()) + '`';
     }
 
     return query;

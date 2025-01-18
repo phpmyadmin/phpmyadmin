@@ -8,8 +8,8 @@ declare(strict_types=1);
 namespace PhpMyAdmin\ConfigStorage;
 
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
@@ -266,7 +266,7 @@ class UserGroups
         $tabDetails = [];
         foreach ($tabs as $tab => $tabName) {
             $tabDetail = [];
-            $tabDetail['in_array'] = in_array($tab, $selected) ? ' checked="checked"' : '';
+            $tabDetail['in_array'] = in_array($tab, $selected) ? ' checked' : '';
             $tabDetail['tab'] = $tab;
             $tabDetail['tab_name'] = $tabName;
             $tabDetails[] = $tabDetail;

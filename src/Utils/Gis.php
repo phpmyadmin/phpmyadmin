@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Utils;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 
 use function array_map;
 use function bin2hex;
@@ -101,11 +101,11 @@ final class Gis
         $geomFromText = $mysqlVersion >= 50600 ? 'ST_GeomFromText' : 'GeomFromText';
         $gisString = trim($gisString);
         $geomTypes = '(POINT|MULTIPOINT|LINESTRING|MULTILINESTRING|POLYGON|MULTIPOLYGON|GEOMETRYCOLLECTION)';
-        if (preg_match("/^'" . $geomTypes . "\(.*\)',[0-9]*$/i", $gisString)) {
+        if (preg_match("/^'" . $geomTypes . "\(.*\)',[0-9]*$/i", $gisString) === 1) {
             return $geomFromText . '(' . $gisString . ')';
         }
 
-        if (preg_match('/^' . $geomTypes . '\(.*\)$/i', $gisString)) {
+        if (preg_match('/^' . $geomTypes . '\(.*\)$/i', $gisString) === 1) {
             return $geomFromText . "('" . $gisString . "')";
         }
 

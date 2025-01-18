@@ -10,18 +10,20 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
+use function is_string;
 use function mb_strpos;
 use function str_contains;
 use function urlencode;
@@ -37,20 +39,8 @@ class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['display_query'] ??= null;
-        $GLOBALS['ajax_reload'] ??= null;
-        $GLOBALS['goto'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['import_text'] ??= null;
-        $GLOBALS['disp_query'] ??= null;
-        $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['back'] ??= null;
-
         $this->pageSettings->init('Browse');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -63,53 +53,47 @@ class SqlController implements InvocableController
         ]);
 
         /**
-         * Set ajax_reload in the response if it was already set
-         */
-        if (isset($GLOBALS['ajax_reload']) && $GLOBALS['ajax_reload']['reload'] === true) {
-            $this->response->addJSON('ajax_reload', $GLOBALS['ajax_reload']);
-        }
-
-        /**
          * Defines the url to return to in case of error in a sql statement
          */
         $isGotofile = true;
         $config = Config::getInstance();
-        if (empty($GLOBALS['goto'])) {
+        if (UrlParams::$goto === '') {
             if (Current::$table === '') {
-                $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+                UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabDatabase']);
             } else {
-                $GLOBALS['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+                UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
             }
         }
 
-        if (! isset($GLOBALS['errorUrl'])) {
-            $GLOBALS['errorUrl'] = ! empty($GLOBALS['back']) ? $GLOBALS['back'] : $GLOBALS['goto'];
-            $GLOBALS['errorUrl'] .= Url::getCommon(
-                ['db' => Current::$database],
-                ! str_contains($GLOBALS['errorUrl'], '?') ? '?' : '&',
-            );
-            if (
-                (mb_strpos(' ' . $GLOBALS['errorUrl'], 'db_') !== 1
-                    || ! str_contains($GLOBALS['errorUrl'], '?route=/database/'))
-                && Current::$table !== ''
-            ) {
-                $GLOBALS['errorUrl'] .= '&amp;table=' . urlencode(Current::$table);
-            }
+        $errorUrl = UrlParams::$back !== '' ? UrlParams::$back : UrlParams::$goto;
+        $errorUrl .= Url::getCommon(
+            ['db' => Current::$database],
+            ! str_contains($errorUrl, '?') ? '?' : '&',
+        );
+        if (
+            (mb_strpos(' ' . $errorUrl, 'db_') !== 1
+                || ! str_contains($errorUrl, '?route=/database/'))
+            && Current::$table !== ''
+        ) {
+            $errorUrl .= '&amp;table=' . urlencode(Current::$table);
         }
 
         /** @var array<string>|null $bkmFields */
         $bkmFields = $request->getParsedBodyParam('bkm_fields');
-        $sqlQuery = $request->getParsedBodyParam('sql_query');
+        $sqlQuery = $request->getParsedBodyParamAsStringOrNull('sql_query');
 
         // Coming from a bookmark dialog
         if ($bkmFields !== null && $bkmFields['bkm_sql_query'] != null) {
-            $GLOBALS['sql_query'] = $bkmFields['bkm_sql_query'];
+            Current::$sqlQuery = $bkmFields['bkm_sql_query'];
         } elseif ($sqlQuery !== null) {
-            $GLOBALS['sql_query'] = $sqlQuery;
+            Current::$sqlQuery = $sqlQuery;
         } elseif ($request->hasQueryParam('sql_query') && $request->hasQueryParam('sql_signature')) {
             $sqlQuery = $request->getQueryParam('sql_query');
-            if (Core::checkSqlQuerySignature($sqlQuery, $request->getQueryParam('sql_signature'))) {
-                $GLOBALS['sql_query'] = $sqlQuery;
+            if (
+                is_string($sqlQuery)
+                && Core::checkSqlQuerySignature($sqlQuery, $request->getQueryParam('sql_signature'))
+            ) {
+                Current::$sqlQuery = $sqlQuery;
             }
         }
 
@@ -120,20 +104,20 @@ class SqlController implements InvocableController
 
         // Default to browse if no query set and we have table
         // (needed for browsing from DefaultTabTable)
-        if (empty($GLOBALS['sql_query']) && Current::$table !== '' && Current::$database !== '') {
-            $GLOBALS['sql_query'] = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
+        if (Current::$sqlQuery === '' && Current::$table !== '' && Current::$database !== '') {
+            Current::$sqlQuery = $this->sql->getDefaultSqlQueryForBrowse(Current::$database, Current::$table);
 
             // set $goto to what will be displayed if query returns 0 rows
-            $GLOBALS['goto'] = '';
-        } elseif (! $this->response->checkParameters(['sql_query'])) {
-            return null;
+            UrlParams::$goto = '';
+        } elseif (Current::$sqlQuery === '') {
+            return $this->response->missingParameterError('sql_query');
         }
 
         /**
          * Parse and analyze the query
          */
         [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
             Current::$database,
         );
 
@@ -159,7 +143,7 @@ class SqlController implements InvocableController
                 __('"DROP DATABASE" statements are disabled.'),
                 '',
                 false,
-                $GLOBALS['errorUrl'],
+                $errorUrl,
             );
         }
 
@@ -169,20 +153,20 @@ class SqlController implements InvocableController
         $storeBkm = $request->hasBodyParam('store_bkm');
         $bkmAllUsers = $request->getParsedBodyParam('bkm_all_users'); // Should this be hasBodyParam?
         if ($storeBkm && $bkmFields !== null) {
-            $this->addBookmark($GLOBALS['goto'], $bkmFields, (bool) $bkmAllUsers);
+            $this->addBookmark(UrlParams::$goto, $bkmFields, (bool) $bkmAllUsers);
 
-            return null;
+            return $this->response->response();
         }
 
         /**
          * Sets or modifies the $goto variable if required
          */
-        if ($GLOBALS['goto'] === Url::getFromRoute('/sql')) {
+        if (UrlParams::$goto === Url::getFromRoute('/sql')) {
             $isGotofile = false;
-            $GLOBALS['goto'] = Url::getFromRoute('/sql', [
+            UrlParams::$goto = Url::getFromRoute('/sql', [
                 'db' => Current::$database,
                 'table' => Current::$table,
-                'sql_query' => $GLOBALS['sql_query'],
+                'sql_query' => Current::$sqlQuery,
             ]);
         }
 
@@ -191,17 +175,16 @@ class SqlController implements InvocableController
             $isGotofile,
             Current::$database,
             Current::$table,
-            $GLOBALS['import_text'] ?? null,
-            $GLOBALS['message_to_show'] ?? null,
-            null,
-            $GLOBALS['goto'],
-            isset($GLOBALS['disp_query']) ? $GLOBALS['display_query'] : null,
-            $GLOBALS['disp_message'] ?? null,
-            $GLOBALS['sql_query'],
-            $GLOBALS['complete_query'] ?? null,
+            Import::$importText,
+            Current::$messageToShow ?? '',
+            UrlParams::$goto,
+            isset(Current::$dispQuery) ? Current::$displayQuery : null,
+            Current::$displayMessage ?? '',
+            Current::$sqlQuery,
+            Current::$completeQuery ?? Current::$sqlQuery,
         ));
 
-        return null;
+        return $this->response->response();
     }
 
     /** @param array<string> $bkmFields */

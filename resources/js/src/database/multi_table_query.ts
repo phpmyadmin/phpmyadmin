@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeBacktick } from '../modules/functions/escape.ts';
@@ -25,17 +25,35 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
         $(this).off('change');
     });
 
+    $('.columnNameSelect').each(function () {
+        $(this).off('change');
+    });
+
+    $('.criteria_op').each(function () {
+        $(this).off('change');
+    });
+
     $('#update_query_button').off('click');
     $('#add_column_button').off('click');
+    $('body').off('click', 'input.add-option');
+    $('body').off('click', 'input.remove-option');
 });
 
 AJAX.registerOnload('database/multi_table_query.js', function () {
-    var editor = Functions.getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
+    var editor = getSqlEditor($('#MultiSqlquery'), {}, 'vertical');
     $('.CodeMirror-line').css('text-align', 'left');
-    editor.setSize(-1, 50);
+    editor.setSize(-1, -1);
 
     var columnCount = 3;
     addNewColumnCallbacks();
+
+    function opsWithMultipleArgs (): string[] {
+        return ['IN (...)', 'NOT IN (...)'];
+    }
+
+    function opsWithTwoArgs (): string[] {
+        return ['BETWEEN', 'NOT BETWEEN'];
+    }
 
     $('#update_query_button').on('click', function () {
         var columns = [];
@@ -176,15 +194,98 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         addNewColumnCallbacks();
     });
 
+    $('.columnNameSelect').each(function () {
+        $(this).on('change', function () {
+            const colIsStar = $(this).val() === '*';
+
+            colIsStar && $(this).siblings('.col_alias').val('');
+            $(this).siblings('.col_alias').prop('disabled', colIsStar);
+        });
+    });
+
+    const acceptsMultipleArgs: string[] = opsWithMultipleArgs();
+    const acceptsTwoArgs: string[] = opsWithTwoArgs();
+    $('.criteria_op').each(function () {
+        $(this).on('change', function () {
+            if (acceptsMultipleArgs.includes($(this).val().toString())) {
+                showMultiFields($(this));
+            } else if (acceptsTwoArgs.includes($(this).val().toString())) {
+                showTwoFields($(this));
+            } else {
+                const options: JQuery<HTMLElement> = $(this).closest('table').find('.options');
+                options.parent().prepend('<input type="text" class="rhs_text_val query-form__input--wide" placeholder="Enter criteria as free text"></input>');
+                options.remove();
+            }
+        });
+    });
+
+    function showTwoFields (opSelect: JQuery<HTMLElement>) {
+        const critetiaRow: JQuery<HTMLElement> = opSelect.closest('table').find('.rhs_text');
+        const critetiaCol: JQuery<HTMLElement> = critetiaRow.find('td').last();
+        const criteriaInput: JQuery<HTMLElement> = critetiaCol.find('input').first();
+
+        if (critetiaCol.find('.binary').length === 0) {
+            critetiaCol.empty();
+
+            critetiaCol.append(`
+                <div class="options binary">
+                    <input type="text" class="val" placeholder="${window.Messages.strFirstValuePlaceholder}" value="${criteriaInput.val()}" />
+                    <input type="text" class="val" placeholder="${window.Messages.strSecondValuePlaceholder}" />
+                </div>
+            `);
+        }
+    }
+
+    function showMultiFields (opSelect: JQuery<HTMLElement>) {
+        const critetiaRow: JQuery<HTMLElement> = opSelect.closest('table').find('.rhs_text');
+        const critetiaCol: JQuery<HTMLElement> = critetiaRow.find('td').last();
+        const criteriaInput: JQuery<HTMLElement> = critetiaCol.find('input').first();
+
+        if (critetiaCol.find('.multi').length === 0) {
+            critetiaCol.empty();
+
+            critetiaCol.append(`
+                <div class="options multi">
+                    <div class="option">
+                        <input type="text" class="val" placeholder="Enter an option" value="${criteriaInput.val()}" />
+                        <input type="button" class="btn btn-secondary add-option" value="+" />
+                    </div>
+                </div>
+            `);
+        }
+    }
+
+    $('body').on('click', 'input.add-option', function () {
+        const options: JQuery<HTMLElement> = $(this).closest('.options');
+
+        options.find('.option').first().clone().appendTo(options);
+
+        const newAdded: JQuery<HTMLElement> = options.find('.option').last();
+
+        newAdded.find('input.val').val('');
+        newAdded.append('<input type="button" class="btn btn-secondary remove-option" value="-" />');
+    });
+
+    $('body').on('click', 'input.remove-option', function () {
+        $(this).closest('.option').remove();
+    });
+
     function addNewColumnCallbacks () {
         $('.tableNameSelect').each(function () {
             $(this).on('change', function () {
-                var $sibs = $(this).siblings('.columnNameSelect');
-                if ($sibs.length === 0) {
-                    $sibs = $(this).parent().parent().find('.columnNameSelect');
-                }
+                const $table = $(this);
+                const $alias = $table.siblings('.col_alias');
+                const $colsSelect = $table.parent().find('.columnNameSelect');
 
-                $sibs.first().html($('#' + $(this).find(':selected').data('hash')).html());
+                $alias.prop('disabled', true);
+
+                $colsSelect.each(function () {
+                    $(this).show();
+                    $(this).first().html($('#' + $table.find(':selected').data('hash')).html());
+                    if ($(this).hasClass('opColumn')) {
+                        $(this).find('option[value="*"]').remove();
+                    }
+                });
             });
         });
 

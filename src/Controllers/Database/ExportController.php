@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -16,9 +15,10 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_merge;
@@ -36,28 +36,17 @@ final class ExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['table_select'] ??= null;
-        $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->pageSettings->init('Export');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
         $this->response->addScriptFiles(['export.js']);
 
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
-
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -65,53 +54,49 @@ final class ExportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/database/export');
+        UrlParams::$params['goto'] = Url::getFromRoute('/database/export');
 
         $tableNames = $this->export->getTableNames(Current::$database);
-        $GLOBALS['num_tables'] = count($tableNames);
+        Current::$numTables = count($tableNames);
 
         // exit if no tables in db found
-        if ($GLOBALS['num_tables'] < 1) {
+        if (Current::$numTables < 1) {
             $this->response->addHTML(
                 Message::error(__('No tables found in database.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $selectedTable = $request->getParsedBodyParam('selected_tbl');
-        if (! empty($selectedTable) && empty($GLOBALS['table_select'])) {
-            $GLOBALS['table_select'] = $selectedTable;
-        }
-
+        $tableSelect = $request->getParsedBodyParam('table_select');
+        $tableStructure = $request->getParsedBodyParam('table_structure');
+        $tableData = $request->getParsedBodyParam('table_data');
         $tablesForMultiValues = [];
 
         foreach ($tableNames as $tableName) {
-            $tableSelect = $request->getParsedBodyParam('table_select');
             if (is_array($tableSelect)) {
                 $isChecked = $this->export->getCheckedClause($tableName, $tableSelect);
-            } elseif (isset($GLOBALS['table_select'])) {
-                $isChecked = $this->export->getCheckedClause($tableName, $GLOBALS['table_select']);
+            } elseif (is_array($selectedTable)) {
+                $isChecked = $this->export->getCheckedClause($tableName, $selectedTable);
             } else {
                 $isChecked = true;
             }
 
-            $tableStructure = $request->getParsedBodyParam('table_structure');
             if (is_array($tableStructure)) {
                 $structureChecked = $this->export->getCheckedClause($tableName, $tableStructure);
             } else {
                 $structureChecked = $isChecked;
             }
 
-            $tableData = $request->getParsedBodyParam('table_data');
             if (is_array($tableData)) {
                 $dataChecked = $this->export->getCheckedClause($tableName, $tableData);
             } else {
@@ -126,41 +111,37 @@ final class ExportController implements InvocableController
             ];
         }
 
-        if (! isset($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] = '';
-        }
-
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
         $isReturnBackFromRawExport = $request->getParsedBodyParam('export_type') === 'raw';
         if ($request->hasBodyParam('raw_query') || $isReturnBackFromRawExport) {
-            $exportType = 'raw';
+            $exportType = ExportType::Raw;
         } else {
-            $exportType = 'database';
+            $exportType = ExportType::Database;
         }
 
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
+        }
 
-        $exportList = Plugins::getExport($exportType, isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport($exportType, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $options = $this->exportOptions->getOptions(
             $exportType,
             Current::$database,
             Current::$table,
-            $GLOBALS['sql_query'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            Current::$sqlQuery,
+            Current::$numTables,
+            0,
             $exportList,
+            $request->getParam('format'),
+            $request->getParam('what'),
         );
 
         $this->response->render('database/export/index', array_merge($options, [
@@ -170,6 +151,6 @@ final class ExportController implements InvocableController
             'tables' => $tablesForMultiValues,
         ]));
 
-        return null;
+        return $this->response->response();
     }
 }

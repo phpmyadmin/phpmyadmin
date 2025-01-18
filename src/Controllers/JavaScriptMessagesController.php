@@ -143,6 +143,11 @@ final class JavaScriptMessagesController implements InvocableController
             'strUserEmpty' => __('The user name is empty!'),
             'strPasswordEmpty' => __('The password is empty!'),
             'strPasswordNotSame' => __('The passwords aren\'t the same!'),
+            'strPasswordEmptyWhenAllowNoPasswordIsEnabled' => __(
+                'You are trying to set this account to log in with no password, but the configuration directive ' .
+                '<code>AllowNoPassword</code> is false. If you proceed, the account will not be able to log in ' .
+                'through phpMyAdmin.',
+            ),
             'strRemovingSelectedUsers' => __('Removing Selected Users'),
             'strClose' => __('Close'),
             'strLock' => _pgettext('Lock the account.', 'Lock'),
@@ -359,6 +364,7 @@ final class JavaScriptMessagesController implements InvocableController
             'strAddingPrimaryKey' => __('Adding primary key'),
             'strOK' => __('OK'),
             'strDismiss' => __('Click to dismiss this notification'),
+            'strConfirm' => __('Confirm'),
 
             /* For database/operations.js */
             'strRenamingDatabases' => __('Renaming databases'),
@@ -398,13 +404,10 @@ final class JavaScriptMessagesController implements InvocableController
             'strHideQueryBox' => __('Hide query box'),
             'strShowQueryBox' => __('Show query box'),
             'strEdit' => __('Edit'),
+            'strEditQuery' => __('Edit query'),
             'strDelete' => __('Delete'),
             'strNotValidRowNumber' => __('%d is not valid row number.'),
             'strBrowseForeignValues' => __('Browse foreign values'),
-            'strNoAutoSavedQuery' => __('No previously auto-saved query is available. Loading default query.'),
-            'strPreviousSaveQuery' => __(
-                'You have a previously saved query. Click Get auto-saved query to load the query.',
-            ),
             'strBookmarkVariable' => __('Variable %d:'),
 
             /* For Central list of columns */
@@ -448,6 +451,8 @@ final class JavaScriptMessagesController implements InvocableController
             'strConfirmTd' => __('Confirm transitive dependencies'),
             'strSelectedTd' => __('Selected dependencies are as follows:'),
             'strNoTdSelected' => __('No dependencies selected!'),
+            'strFirstValuePlaceholder' => __('Enter first value'),
+            'strSecondValuePlaceholder' => __('Enter second value'),
 
             /* For server/variables.js */
             'strSave' => __('Save'),
@@ -462,7 +467,7 @@ final class JavaScriptMessagesController implements InvocableController
             'strHideFindNReplaceCriteria' => __('Hide find and replace criteria'),
             'strShowFindNReplaceCriteria' => __('Show find and replace criteria'),
 
-            /* For table/zoom_plot_jqplot.js */
+            /* For table/zoom_search.js */
             'strDisplayHelp' => '<ul><li>'
                 . __('Each point represents a data row.')
                 . '</li><li>'
@@ -485,6 +490,7 @@ final class JavaScriptMessagesController implements InvocableController
 
             /* For table/change.js */
             'strIgnore' => __('Ignore'),
+            'strCopyToClipboard' => __('Copy to clipboard'),
             'strCopy' => __('Copy'),
             'strX' => __('X'),
             'strY' => __('Y'),

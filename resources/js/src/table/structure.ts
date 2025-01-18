@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { checkReservedWordColumns, checkTableEditForm, prepareForAjaxRequest } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
@@ -148,15 +148,15 @@ AJAX.registerOnload('table/structure.js', function () {
         /*
          * First validate the form; if there is a problem, avoid submitting it
          *
-         * Functions.checkTableEditForm() needs a pure element and not a jQuery object,
+         * checkTableEditForm() needs a pure element and not a jQuery object,
          * this is why we pass $form[0] as a parameter (the jQuery object
          * is actually an array of DOM elements)
          */
-        if (Functions.checkTableEditForm($form[0], fieldCnt)) {
+        if (checkTableEditForm($form[0], fieldCnt)) {
             // OK, form passed validation step
 
-            Functions.prepareForAjaxRequest($form);
-            if (Functions.checkReservedWordColumns($form)) {
+            prepareForAjaxRequest($form);
+            if (checkReservedWordColumns($form)) {
                 // User wants to submit the form
 
                 // If Collation is changed, Warn and Confirm
@@ -338,9 +338,16 @@ AJAX.registerOnload('table/structure.js', function () {
         designerModalPreviewModal.addEventListener('shown.bs.modal', () => {
             const modalBody = designerModalPreviewModal.querySelector('.modal-body');
             const $form = $('#move_column_form');
+            const serialized = $form.serialize();
+            if (serialized === $form.data('serialized-unmoved')) {
+                modalBody.innerHTML = '';
+
+                return;
+            }
+
             const formUrl = $form.attr('action');
             const sep = CommonParams.get('arg_separator');
-            const formData = $form.serialize() +
+            const formData = serialized +
                 sep + 'preview_sql=1' +
                 sep + 'ajax_request=1';
             $.post({

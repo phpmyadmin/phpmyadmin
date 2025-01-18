@@ -7,14 +7,15 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 
 use function __;
 use function array_merge;
@@ -29,13 +30,8 @@ final class ExportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['unlim_num_rows'] ??= null;
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-        $GLOBALS['tmp_select'] ??= null;
-        $GLOBALS['select_item'] ??= null;
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
@@ -46,41 +42,32 @@ final class ExportController implements InvocableController
 
         $this->response->addScriptFiles(['export.js']);
 
-        $GLOBALS['select_item'] = $GLOBALS['tmp_select'] ?? '';
-        $databases = $this->export->getDatabasesForSelectOptions($GLOBALS['select_item']);
+        $databases = $this->export->getDatabasesForSelectOptions();
 
-        if (! isset($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] = '';
+        if ($request->has('single_table')) {
+            Export::$singleTable = (bool) $request->getParam('single_table');
         }
 
-        if (! isset($GLOBALS['num_tables'])) {
-            $GLOBALS['num_tables'] = 0;
-        }
-
-        if (! isset($GLOBALS['unlim_num_rows'])) {
-            $GLOBALS['unlim_num_rows'] = 0;
-        }
-
-        $GLOBALS['single_table'] = $request->getParam('single_table') ?? $GLOBALS['single_table'] ?? null;
-
-        $exportList = Plugins::getExport('server', isset($GLOBALS['single_table']));
+        $exportList = Plugins::getExport(ExportType::Server, Export::$singleTable);
 
         if ($exportList === []) {
             $this->response->addHTML(Message::error(
                 __('Could not load export plugins, please check your installation!'),
             )->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $options = $this->export->getOptions(
-            'server',
+            ExportType::Server,
             Current::$database,
             Current::$table,
-            $GLOBALS['sql_query'],
-            $GLOBALS['num_tables'],
-            $GLOBALS['unlim_num_rows'],
+            Current::$sqlQuery,
+            Current::$numTables,
+            0,
             $exportList,
+            $request->getParam('format'),
+            $request->getParam('what'),
         );
 
         $this->response->render('server/export/index', array_merge($options, [
@@ -89,6 +76,6 @@ final class ExportController implements InvocableController
             'databases' => $databases,
         ]));
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\RoutinesController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -24,7 +24,6 @@ final class RoutinesControllerTest extends AbstractTestCase
     public function testWithRoutines(): void
     {
         Current::$server = 2;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
@@ -246,7 +245,6 @@ HTML;
     public function testWithoutRoutines(): void
     {
         Current::$server = 2;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 

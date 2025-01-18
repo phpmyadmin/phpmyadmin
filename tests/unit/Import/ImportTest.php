@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Import\ColumnType;
 use PhpMyAdmin\Import\DecimalSize;
 use PhpMyAdmin\Import\Import;
@@ -33,8 +33,8 @@ class ImportTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Config::getInstance()->settings['ServerDefault'] = '';
-        $GLOBALS['complete_query'] = null;
-        $GLOBALS['display_query'] = null;
+        Current::$completeQuery = null;
+        Current::$displayQuery = null;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
         ImportSettings::$sqlQueryDisabled = false;
@@ -222,9 +222,8 @@ class ImportTest extends AbstractTestCase
      * Test for checkIfRollbackPossible
      *
      * @param string $sqlQuery SQL Query for which rollback is possible
-     *
-     * @dataProvider provPMACheckIfRollbackPossiblePositive
      */
+    #[DataProvider('provPMACheckIfRollbackPossiblePositive')]
     public function testCheckIfRollbackPossiblePositive(string $sqlQuery): void
     {
         Current::$database = 'PMA';
@@ -258,9 +257,8 @@ class ImportTest extends AbstractTestCase
      * Negative test for checkIfRollbackPossible
      *
      * @param string $sqlQuery SQL Query for which rollback is possible
-     *
-     * @dataProvider provPMACheckIfRollbackPossibleNegative
      */
+    #[DataProvider('provPMACheckIfRollbackPossibleNegative')]
     public function testCheckIfRollbackPossibleNegative(string $sqlQuery): void
     {
         Current::$database = 'PMA';
@@ -334,23 +332,23 @@ class ImportTest extends AbstractTestCase
         $this->import->runQuery('SELECT 1', $sqlData);
 
         self::assertSame([], $sqlData);
-        self::assertSame('', $GLOBALS['sql_query']);
-        self::assertNull($GLOBALS['complete_query']);
-        self::assertNull($GLOBALS['display_query']);
+        self::assertSame('', Current::$sqlQuery);
+        self::assertNull(Current::$completeQuery);
+        self::assertNull(Current::$displayQuery);
 
         $this->import->runQuery('SELECT 2', $sqlData);
 
         self::assertSame(['SELECT 1;'], $sqlData);
-        self::assertSame('SELECT 1;', $GLOBALS['sql_query']);
-        self::assertSame('SELECT 1;', $GLOBALS['complete_query']);
-        self::assertSame('SELECT 1;', $GLOBALS['display_query']);
+        self::assertSame('SELECT 1;', Current::$sqlQuery);
+        self::assertSame('SELECT 1;', Current::$completeQuery);
+        self::assertSame('SELECT 1;', Current::$displayQuery);
 
         $this->import->runQuery('', $sqlData);
 
         self::assertSame(['SELECT 1;', 'SELECT 2;'], $sqlData);
 
-        self::assertSame('SELECT 2;', $GLOBALS['sql_query']);
-        self::assertSame('SELECT 1;SELECT 2;', $GLOBALS['complete_query']);
-        self::assertSame('SELECT 1;SELECT 2;', $GLOBALS['display_query']);
+        self::assertSame('SELECT 2;', Current::$sqlQuery);
+        self::assertSame('SELECT 1;SELECT 2;', Current::$completeQuery);
+        self::assertSame('SELECT 1;SELECT 2;', Current::$displayQuery);
     }
 }

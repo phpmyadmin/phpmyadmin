@@ -7,11 +7,15 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Triggers\Triggers;
 
 use function __;
@@ -31,8 +35,13 @@ use function urldecode;
  */
 class Operations
 {
-    public function __construct(private DatabaseInterface $dbi, private Relation $relation)
-    {
+    public static string $autoIncrement = '';
+
+    public function __construct(
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly TableMover $tableMover,
+    ) {
     }
 
     /**
@@ -54,7 +63,7 @@ class Operations
             }
 
             // collect for later display
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($query);
         }
@@ -67,7 +76,7 @@ class Operations
             }
 
             // collect for later display
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($query);
         }
@@ -86,7 +95,7 @@ class Operations
         }
 
         $localQuery .= ';';
-        $GLOBALS['sql_query'] .= $localQuery;
+        Current::$sqlQuery .= $localQuery;
 
         // save the original db name because Tracker.php which
         // may be called under $this->dbi->query() changes \PhpMyAdmin\Current::$database
@@ -136,7 +145,7 @@ class Operations
                     . Util::backquote($table);
                 $this->dbi->query($dropQuery);
 
-                $GLOBALS['sql_query'] .= "\n" . $dropQuery . ';';
+                Current::$sqlQuery .= "\n" . $dropQuery . ';';
             }
 
             $views[] = $table;
@@ -144,7 +153,7 @@ class Operations
             $sqlViewStandin = $exportSqlPlugin->getTableDefStandIn($db, $table);
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($sqlViewStandin);
-            $GLOBALS['sql_query'] .= "\n" . $sqlViewStandin;
+            Current::$sqlQuery .= "\n" . $sqlViewStandin;
         }
 
         return $views;
@@ -192,19 +201,18 @@ class Operations
             //  for importing via the mysql client or our Import feature)
             $triggers = Triggers::getDetails($this->dbi, $db, $table);
 
+            $moveScope = MoveScope::tryFrom($copyMode) ?? MoveScope::StructureAndData;
             if (
-                ! Table::moveCopy(
+                ! $this->tableMover->moveCopy(
                     $db,
                     $table,
                     $newDatabaseName->getName(),
                     $table,
-                    $copyMode ?? 'data',
-                    $move,
-                    'db_copy',
+                    $move ? MoveScope::Move : $moveScope,
+                    MoveMode::WholeDatabase,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 )
             ) {
-                $GLOBALS['_error'] = true;
                 break;
             }
 
@@ -214,17 +222,17 @@ class Operations
                 foreach ($triggers as $trigger) {
                     $createSqlQuery = $trigger->getCreateSql('');
                     $this->dbi->query($createSqlQuery);
-                    $GLOBALS['sql_query'] .= "\n" . $createSqlQuery . ';';
+                    Current::$sqlQuery .= "\n" . $createSqlQuery . ';';
                 }
             }
 
             // this does not apply to a rename operation
-            if (! isset($_POST['add_constraints']) || empty($GLOBALS['sql_constraints_query'])) {
+            if (! isset($_POST['add_constraints']) || $this->tableMover->sqlConstraintsQuery === '') {
                 continue;
             }
 
-            $sqlContraints[] = $GLOBALS['sql_constraints_query'];
-            unset($GLOBALS['sql_constraints_query']);
+            $sqlContraints[] = $this->tableMover->sqlConstraintsQuery;
+            $this->tableMover->sqlConstraintsQuery = '';
         }
 
         return $sqlContraints;
@@ -242,7 +250,7 @@ class Operations
     public function runEventDefinitionsForDb(string $db, DatabaseName $newDatabaseName): void
     {
         /** @var string[] $eventNames */
-        $eventNames = $this->dbi->fetchResult(
+        $eventNames = $this->dbi->fetchSingleColumn(
             'SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= '
             . $this->dbi->quoteString($db) . ';',
         );
@@ -251,7 +259,7 @@ class Operations
             $this->dbi->selectDb($db);
             $query = Events::getDefinition($this->dbi, $db, $eventName);
             // collect for later display
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
             $this->dbi->selectDb($newDatabaseName);
             $this->dbi->query($query);
         }
@@ -268,18 +276,16 @@ class Operations
     {
         // Add DROP IF EXIST to CREATE VIEW query, to remove stand-in VIEW that was created earlier.
         foreach ($views as $view) {
-            $copyingSucceeded = Table::moveCopy(
+            $copyingSucceeded = $this->tableMover->moveCopy(
                 $db,
                 $view,
                 $newDatabaseName->getName(),
                 $view,
-                'structure',
-                $move,
-                'db_copy',
+                $move ? MoveScope::Move : MoveScope::StructureOnly,
+                MoveMode::WholeDatabase,
                 true,
             );
             if (! $copyingSucceeded) {
-                $GLOBALS['_error'] = true;
                 break;
             }
         }
@@ -328,7 +334,7 @@ class Operations
             . ' where Db = ' . $this->dbi->quoteString($oldDb) . ';');
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -426,7 +432,7 @@ class Operations
         }
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -440,7 +446,7 @@ class Operations
         foreach ($sqlConstraints as $query) {
             $this->dbi->query($query);
             // and prepare to display them
-            $GLOBALS['sql_query'] .= "\n" . $query;
+            Current::$sqlQuery .= "\n" . $query;
         }
     }
 
@@ -459,7 +465,7 @@ class Operations
         $getFields = ['user', 'label', 'query'];
         $whereFields = ['dbase' => $db];
         $newFields = ['dbase' => $newDatabaseName->getName()];
-        Table::duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
+        $this->tableMover->duplicateInfo('bookmarkwork', 'bookmark', $getFields, $whereFields, $newFields);
     }
 
     /**
@@ -550,7 +556,7 @@ class Operations
 
         $foreigners = [];
         $this->dbi->selectDb(Current::$database);
-        $foreign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
+        $foreign = $this->relation->getForeignersInternal(Current::$database, Current::$table);
 
         foreach ($foreign as $master => $arr) {
             $joinQuery = 'SELECT '
@@ -629,8 +635,6 @@ class Operations
         string $tableCollation,
         string $tableStorageEngine,
     ): array {
-        $GLOBALS['auto_increment'] ??= null;
-
         $tableAlters = [];
 
         if (isset($_POST['comment']) && urldecode($_POST['prev_comment']) !== $_POST['comment']) {
@@ -680,8 +684,7 @@ class Operations
         if (
             $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB'])
             && ! empty($_POST['new_auto_increment'])
-            && (! isset($GLOBALS['auto_increment'])
-            || $_POST['new_auto_increment'] !== $GLOBALS['auto_increment'])
+            && $_POST['new_auto_increment'] !== self::$autoIncrement
             && $_POST['new_auto_increment'] !== $_POST['hidden_auto_increment']
         ) {
             $tableAlters[] = 'auto_increment = ' . (int) $_POST['new_auto_increment'];
@@ -769,7 +772,7 @@ class Operations
             . ';');
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -828,7 +831,7 @@ class Operations
         }
 
         // Finally FLUSH the new privileges
-        $this->dbi->query('FLUSH PRIVILEGES;');
+        $this->dbi->tryQuery('FLUSH PRIVILEGES;');
     }
 
     /**
@@ -887,14 +890,14 @@ class Operations
                     $message = Message::error(__('Can\'t copy table to same one!'));
                 }
             } else {
-                Table::moveCopy(
+                $move = isset($_POST['submit_move']);
+                $this->tableMover->moveCopy(
                     $db,
                     $table,
                     $targetDb,
                     (string) $_POST['new_name'],
-                    $_POST['what'],
-                    isset($_POST['submit_move']),
-                    'one_table',
+                    $move ? MoveScope::Move : MoveScope::from($_POST['what']),
+                    MoveMode::SingleTable,
                     isset($_POST['drop_if_exists']) && $_POST['drop_if_exists'] === 'true',
                 );
 

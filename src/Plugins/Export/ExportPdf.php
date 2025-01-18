@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -31,6 +33,10 @@ class ExportPdf extends ExportPlugin
      * PDF Report Title
      */
     private string $pdfReportTitle = '';
+
+    private bool $doRelation = false;
+
+    private bool $doMime = false;
 
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
@@ -144,11 +150,10 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -158,14 +163,12 @@ class ExportPdf extends ExportPlugin
      *
      * @param string  $db       database name
      * @param string  $table    table name
-     * @param string  $errorUrl the url to go back in case of error
      * @param string  $sqlQuery SQL query for obtaining data
      * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
         string $table,
-        string $errorUrl,
         string $sqlQuery,
         array $aliases = [],
     ): bool {
@@ -187,11 +190,10 @@ class ExportPdf extends ExportPlugin
     /**
      * Outputs result of raw query in PDF format
      *
-     * @param string      $errorUrl the url to go back in case of error
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
         $pdf = $this->getPdf();
         $pdf->setDbAlias('----');
@@ -214,29 +216,10 @@ class ExportPdf extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             PMA_exportStructure() also for other
-     *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    aliases for db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        string $exportType,
-        bool $doRelation = false,
-        bool $doComments = false,
-        bool $doMime = false,
-        bool $dates = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $purpose = '';
@@ -265,7 +248,7 @@ class ExportPdf extends ExportPlugin
         $pdf->setPurpose($purpose);
 
         match ($exportMode) {
-            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $doRelation, true, $doMime),
+            'create_table', 'create_view' => $pdf->getTableDef($db, $table, $this->doRelation, true, $this->doMime),
             'triggers' => $pdf->getTriggers($db, $table),
             default => true,
         };
@@ -296,5 +279,18 @@ class ExportPdf extends ExportPlugin
     public static function isAvailable(): bool
     {
         return class_exists(TCPDF::class);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('pdf_structure_or_data'),
+            $exportConfig['pdf_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
+        $this->doRelation = (bool) ($request->getParsedBodyParam('pdf_relation')
+            ?? $exportConfig['pdf_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('pdf_mime') ?? $exportConfig['pdf_mime'] ?? false);
     }
 }

@@ -21,12 +21,12 @@ final class CreateNewTablesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $newtables = json_decode($request->getParsedBodyParam('newTables'), true);
+        $newtables = json_decode($request->getParsedBodyParamAsString('newTables'), true);
         $res = $this->normalization->createNewTablesFor3NF($newtables, Current::$database);
         $this->response->addJSON($res);
 
-        return null;
+        return $this->response->response();
     }
 }

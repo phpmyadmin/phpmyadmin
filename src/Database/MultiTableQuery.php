@@ -11,7 +11,7 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -91,14 +91,13 @@ class MultiTableQuery
             false, // is_gotofile
             $db, // db
             null, // table
-            null, // sql_query_for_bookmark - see below
-            null, // message_to_show
-            null, // sql_data
+            '', // sql_query_for_bookmark - see below
+            '', // message_to_show
             $goto, // goto
             null, // disp_query
-            null, // disp_message
+            '', // disp_message
             $sqlQuery, // sql_query
-            null, // complete_query
+            $sqlQuery, // complete_query
         );
     }
 }

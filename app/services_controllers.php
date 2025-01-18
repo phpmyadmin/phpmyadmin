@@ -29,6 +29,7 @@ use PhpMyAdmin\Controllers\PhpInfoController;
 use PhpMyAdmin\Controllers\Preferences;
 use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
+use PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Controllers\Sql;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
@@ -40,6 +41,7 @@ use PhpMyAdmin\Controllers\UserPasswordController;
 use PhpMyAdmin\Controllers\VersionCheckController;
 use PhpMyAdmin\Controllers\View;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -57,7 +59,7 @@ return [
         ],
         ChangeLogController::class => [
             'class' => ChangeLogController::class,
-            'arguments' => ['$response' => '@response', '$config' => '@config'],
+            'arguments' => ['@response', '@config', '@' . ResponseFactory::class, '@template'],
         ],
         CheckRelationsController::class => [
             'class' => CheckRelationsController::class,
@@ -219,7 +221,7 @@ return [
         ],
         Database\Structure\AddPrefixController::class => [
             'class' => Database\Structure\AddPrefixController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
         ],
         Database\Structure\AddPrefixTableController::class => [
             'class' => Database\Structure\AddPrefixTableController::class,
@@ -251,11 +253,11 @@ return [
         ],
         Database\Structure\ChangePrefixFormController::class => [
             'class' => Database\Structure\ChangePrefixFormController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
         ],
         Database\Structure\CopyFormController::class => [
             'class' => Database\Structure\CopyFormController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@template'],
         ],
         Database\Structure\CopyTableController::class => [
             'class' => Database\Structure\CopyTableController::class,
@@ -263,11 +265,15 @@ return [
                 '$operations' => '@operations',
                 '$structureController' => '@' . Database\StructureController::class,
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
+                '$tableMover' => '@table_mover',
             ],
         ],
         Database\Structure\CopyTableWithPrefixController::class => [
             'class' => Database\Structure\CopyTableWithPrefixController::class,
-            'arguments' => ['$structureController' => '@' . Database\StructureController::class],
+            'arguments' => [
+                '$structureController' => '@' . Database\StructureController::class,
+                '$tableMover' => '@table_mover',
+            ],
         ],
         Database\Structure\DropFormController::class => [
             'class' => Database\Structure\DropFormController::class,
@@ -293,7 +299,7 @@ return [
                 '$dbi' => '@dbi',
                 '$relation' => '@relation',
                 '$relationCleanup' => '@relation_cleanup',
-                '$flash' => '@flash',
+                '$flashMessenger' => '@' . FlashMessenger::class,
                 '$structureController' => '@' . Database\StructureController::class,
             ],
         ],
@@ -316,7 +322,7 @@ return [
         ],
         Database\Structure\ReplacePrefixController::class => [
             'class' => Database\Structure\ReplacePrefixController::class,
-            'arguments' => ['$dbi' => '@dbi', '$structureController' => '@' . Database\StructureController::class],
+            'arguments' => ['@dbi', '@' . ResponseFactory::class, '@' . FlashMessenger::class],
         ],
         Database\Structure\ShowCreateController::class => [
             'class' => Database\Structure\ShowCreateController::class,
@@ -364,7 +370,7 @@ return [
         ],
         Export\ExportController::class => [
             'class' => Export\ExportController::class,
-            'arguments' => ['$response' => '@response', '$export' => '@export'],
+            'arguments' => ['@response', '@export', '@' . ResponseFactory::class],
         ],
         Export\TablesController::class => [
             'class' => Export\TablesController::class,
@@ -448,12 +454,9 @@ return [
         ],
         LicenseController::class => [
             'class' => LicenseController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class],
         ],
-        LintController::class => [
-            'class' => LintController::class,
-            'arguments' => ['$response' => '@response'],
-        ],
+        LintController::class => ['class' => LintController::class, 'arguments' => ['@' . ResponseFactory::class]],
         LogoutController::class => [
             'class' => LogoutController::class,
             'arguments' => ['@' . AuthenticationPluginFactory::class],
@@ -541,7 +544,7 @@ return [
         ],
         PhpInfoController::class => [
             'class' => PhpInfoController::class,
-            'arguments' => ['$response' => '@response'],
+            'arguments' => ['@response', '@' . ResponseFactory::class, '@config'],
         ],
         Preferences\ExportController::class => [
             'class' => Preferences\ExportController::class,
@@ -591,6 +594,7 @@ return [
                 '$relation' => '@relation',
                 '$config' => '@config',
                 '$themeManager' => '@' . PhpMyAdmin\Theme\ThemeManager::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Preferences\NavigationController::class => [
@@ -619,7 +623,7 @@ return [
         ],
         SchemaExportController::class => [
             'class' => SchemaExportController::class,
-            'arguments' => ['$export' => '@export', '$response' => '@response'],
+            'arguments' => ['@export', '@response', '@' . ResponseFactory::class],
         ],
         Server\BinlogController::class => [
             'class' => Server\BinlogController::class,
@@ -696,6 +700,7 @@ return [
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
                 '$userPrivilegesFactory' => '@' . UserPrivilegesFactory::class,
+                '$config' => '@config',
             ],
         ],
         Server\ReplicationController::class => [
@@ -864,6 +869,18 @@ return [
             'class' => Server\VariablesController::class,
             'arguments' => ['$response' => '@response', '$template' => '@template', '$dbi' => '@dbi'],
         ],
+        Setup\MainController::class => [
+            'class' => Setup\MainController::class,
+            'arguments' => ['@' . ResponseFactory::class, '@response', '@template', '@config'],
+        ],
+        Setup\ShowConfigController::class => [
+            'class' => Setup\ShowConfigController::class,
+            'arguments' => ['@' . ResponseFactory::class, '@template', '@config'],
+        ],
+        Setup\ValidateController::class => [
+            'class' => Setup\ValidateController::class,
+            'arguments' => ['@' . ResponseFactory::class, '@template', '@config'],
+        ],
         Sql\ColumnPreferencesController::class => [
             'class' => Sql\ColumnPreferencesController::class,
             'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
@@ -961,7 +978,7 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$dbi' => '@dbi',
-                '$flash' => '@flash',
+                '$flashMessenger' => '@' . FlashMessenger::class,
                 '$relationCleanup' => '@relation_cleanup',
             ],
         ],
@@ -988,7 +1005,7 @@ return [
         ],
         Table\GetFieldController::class => [
             'class' => Table\GetFieldController::class,
-            'arguments' => ['$response' => '@response', '$dbi' => '@dbi'],
+            'arguments' => ['@response', '@dbi', '@' . ResponseFactory::class],
         ],
         Table\GisVisualizationController::class => [
             'class' => Table\GisVisualizationController::class,
@@ -997,6 +1014,7 @@ return [
                 '$template' => '@template',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Table\ImportController::class => [
@@ -1148,10 +1166,7 @@ return [
         ],
         Table\Structure\AddKeyController::class => [
             'class' => Table\Structure\AddKeyController::class,
-            'arguments' => [
-                '$sqlController' => '@' . Sql\SqlController::class,
-                '$structureController' => '@' . Table\StructureController::class,
-            ],
+            'arguments' => ['@response', '@' . Table\StructureController::class, '@table_indexes'],
         ],
         Table\Structure\BrowseController::class => [
             'class' => Table\Structure\BrowseController::class,
@@ -1263,6 +1278,7 @@ return [
                 '$tracking' => '@tracking',
                 '$trackingChecker' => '@tracking_checker',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         Triggers\IndexController::class => [
@@ -1318,6 +1334,7 @@ return [
                 '$relation' => '@relation',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
+                '$responseFactory' => '@' . ResponseFactory::class,
             ],
         ],
         UserPasswordController::class => [
@@ -1326,7 +1343,7 @@ return [
         ],
         VersionCheckController::class => [
             'class' => VersionCheckController::class,
-            'arguments' => ['$response' => '@response', '$versionInformation' => '@version_information'],
+            'arguments' => ['@version_information', '@' . ResponseFactory::class],
         ],
         View\CreateController::class => [
             'class' => View\CreateController::class,

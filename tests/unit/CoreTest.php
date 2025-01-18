@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
@@ -111,9 +111,8 @@ class CoreTest extends AbstractTestCase
             $arr['sarr'][0][1][2],
         );
 
-        self::assertSame(
+        self::assertNull(
             Core::arrayRead('sarr/not_exiting/1', $arr),
-            null,
         );
 
         self::assertSame(

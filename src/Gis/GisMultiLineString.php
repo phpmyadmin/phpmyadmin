@@ -15,7 +15,6 @@ use TCPDF;
 use function count;
 use function explode;
 use function implode;
-use function json_encode;
 use function max;
 use function mb_substr;
 use function round;
@@ -189,7 +188,7 @@ class GisMultiLineString extends GisGeometry
     public function prepareRowAsSvg(string $spatial, string $label, array $color, ScaleData $scaleData): string
     {
         $lineOptions = [
-            'name' => $label,
+            'data-label' => $label,
             'class' => 'linestring vector',
             'fill' => 'none',
             'stroke' => sprintf('#%02x%02x%02x', ...$color),
@@ -223,38 +222,32 @@ class GisMultiLineString extends GisGeometry
     }
 
     /**
-     * Prepares JavaScript related to a row in the GIS dataset
-     * to visualize it with OpenLayers.
+     * Prepares data related to a row in the GIS dataset to visualize it with OpenLayers.
      *
      * @param string $spatial GIS MULTILINESTRING object
      * @param int    $srid    Spatial reference ID
      * @param string $label   Label for the GIS MULTILINESTRING object
      * @param int[]  $color   Color for the GIS MULTILINESTRING object
      *
-     * @return string JavaScript related to a row in the GIS dataset
+     * @return mixed[]
      */
-    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): string
+    public function prepareRowAsOl(string $spatial, int $srid, string $label, array $color): array
     {
         $strokeStyle = ['color' => $color, 'width' => 2];
-
-        $style = 'new ol.style.Style({'
-            . 'stroke: new ol.style.Stroke(' . json_encode($strokeStyle) . ')';
+        $style = ['stroke' => $strokeStyle];
         if ($label !== '') {
-            $textStyle = ['text' => $label];
-            $style .= ', text: new ol.style.Text(' . json_encode($textStyle) . ')';
+            $style['text'] = ['text' => $label];
         }
-
-        $style .= '})';
 
         // Trim to remove leading 'MULTILINESTRING((' and trailing '))'
         $wktCoordinates = mb_substr($spatial, 17, -2);
-        $olGeometry = $this->toOpenLayersObject(
-            'ol.geom.MultiLineString',
-            $this->extractPoints2d($wktCoordinates, null),
-            $srid,
-        );
+        $geometry = [
+            'type' => 'MultiLineString',
+            'coordinates' => $this->extractPoints2d($wktCoordinates, null),
+            'srid' => $srid,
+        ];
 
-        return $this->addGeometryToLayer($olGeometry, $style);
+        return ['geometry' => $geometry, 'style' => $style];
     }
 
     /**

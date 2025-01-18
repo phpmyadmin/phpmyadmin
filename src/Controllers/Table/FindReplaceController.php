@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -15,9 +15,11 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -51,20 +53,17 @@ final class FindReplaceController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -72,12 +71,12 @@ final class FindReplaceController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -86,39 +85,39 @@ final class FindReplaceController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->loadTableInfo();
         $connectionCharSet = (string) $this->dbi->fetchValue('SELECT @@character_set_connection');
 
-        $useRegex = (bool) $request->getParsedBodyParam('useRegex');
-        $replaceWith = (string) $request->getParsedBodyParam('replaceWith');
-        $columnIndex = (int) $request->getParsedBodyParam('columnIndex');
+        $useRegex = (bool) $request->getParsedBodyParamAsStringOrNull('useRegex');
+        $replaceWith = $request->getParsedBodyParamAsString('replaceWith', '');
+        $columnIndex = (int) $request->getParsedBodyParamAsStringOrNull('columnIndex');
 
         if ($request->hasBodyParam('find')) {
-            $find = (string) $request->getParsedBodyParam('find');
+            $find = $request->getParsedBodyParamAsString('find', '');
             $preview = $this->getReplacePreview($columnIndex, $find, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addJSON('preview', $preview);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['table/find_replace.js']);
 
         if ($request->hasBodyParam('replace')) {
-            $findString = (string) $request->getParsedBodyParam('findString');
+            $findString = $request->getParsedBodyParamAsString('findString', '');
             $this->replace($columnIndex, $findString, $replaceWith, $useRegex, $connectionCharSet);
             $this->response->addHTML(
                 Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),
                     null,
-                    'success',
+                    MessageType::Success,
                 ),
             );
         }
@@ -126,7 +125,7 @@ final class FindReplaceController implements InvocableController
         // Displays the find and replace form
         $this->displaySelectionFormAction();
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -148,7 +147,7 @@ final class FindReplaceController implements InvocableController
             } else {
                 // strip the "BINARY" attribute, except if we find "BINARY(" because
                 // this would be a BINARY or VARBINARY column type
-                if (! preg_match('@BINARY[\(]@i', $type)) {
+                if (preg_match('@BINARY[\(]@i', $type) !== 1) {
                     $type = str_ireplace('BINARY', '', $type);
                 }
 
@@ -170,11 +169,8 @@ final class FindReplaceController implements InvocableController
      */
     private function displaySelectionFormAction(): void
     {
-        if (! isset($GLOBALS['goto'])) {
-            $GLOBALS['goto'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
+        if (UrlParams::$goto === '') {
+            UrlParams::$goto = Url::getFromRoute(Config::getInstance()->settings['DefaultTabTable']);
         }
 
         $types = [];
@@ -185,7 +181,7 @@ final class FindReplaceController implements InvocableController
         $this->response->render('table/find_replace/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'goto' => $GLOBALS['goto'],
+            'goto' => UrlParams::$goto,
             'column_names' => $this->columnNames,
             'types' => $types,
             'sql_types' => $this->dbi->types,
@@ -352,6 +348,6 @@ final class FindReplaceController implements InvocableController
         }
 
         $this->dbi->query($sqlQuery);
-        $GLOBALS['sql_query'] = $sqlQuery;
+        Current::$sqlQuery = $sqlQuery;
     }
 }

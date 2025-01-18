@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Operations;
+use PhpMyAdmin\Table\TableMover;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -31,7 +32,8 @@ class OperationsTest extends AbstractTestCase
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
 
-        $this->object = new Operations($this->dbi, new Relation($this->dbi));
+        $relation = new Relation($this->dbi);
+        $this->object = new Operations($this->dbi, $relation, new TableMover($this->dbi, $relation));
     }
 
     /** @param mixed[] $extraChoice */

@@ -8,14 +8,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 use function in_array;
@@ -33,15 +32,12 @@ final class VariablesController extends AbstractController implements InvocableC
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $filterAlert = $request->getParsedBodyParam('filterAlert');
         $filterText = $request->getParsedBodyParam('filterText');
         $filterCategory = $request->getParsedBodyParam('filterCategory');
         $dontFormat = $request->getParsedBodyParam('dontFormat');
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -130,7 +126,7 @@ final class VariablesController extends AbstractController implements InvocableC
             'variables' => $variables ?? [],
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

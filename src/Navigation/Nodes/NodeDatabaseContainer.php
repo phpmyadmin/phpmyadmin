@@ -8,7 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Navigation\Nodes;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Navigation\NodeType;
 use PhpMyAdmin\UserPrivilegesFactory;
 
@@ -24,10 +24,22 @@ class NodeDatabaseContainer extends Node
     {
         parent::__construct($config, $name, NodeType::Container);
 
+        if (
+            $config->settings['NavigationTreeEnableGrouping']
+            && $config->settings['ShowDatabasesNavigationAsTree']
+        ) {
+            $separator = $config->settings['NavigationTreeDbSeparator'];
+            if ($separator !== '') {
+                $this->separators = [$separator];
+            }
+
+            $this->separatorDepth = 10000;
+        }
+
         $userPrivilegesFactory = new UserPrivilegesFactory(DatabaseInterface::getInstance());
         $userPrivileges = $userPrivilegesFactory->getPrivileges();
 
-        if (! $userPrivileges->isCreateDatabase || $this->config->settings['ShowCreateDb'] === false) {
+        if (! $userPrivileges->isCreateDatabase || $config->settings['ShowCreateDb'] === false) {
             return;
         }
 

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { addDatepicker, prepareForAjaxRequest } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -52,7 +52,6 @@ AJAX.registerTeardown('table/select.js', function () {
     $('#togglesearchformlink').off('click');
     $(document).off('submit', '#tbl_search_form.ajax');
     $('select.geom_func').off('change');
-    $(document).off('click', 'span.open_search_gis_editor');
     $('body').off('change', 'select[name*="criteriaColumnOperators"]'); // Fix for bug #13778, changed 'click' to 'change'
 });
 
@@ -115,7 +114,7 @@ AJAX.registerOnload('table/select.js', function () {
         $('#sqlqueryresultsouter').empty();
         var $msgbox = ajaxShowMessage(window.Messages.strSearching, false);
 
-        Functions.prepareForAjaxRequest($searchForm);
+        prepareForAjaxRequest($searchForm);
 
         var values: { [k: string]: any } = {};
         ($searchForm.find(':input') as JQuery<HTMLInputElement>).each(function () {
@@ -167,7 +166,7 @@ AJAX.registerOnload('table/select.js', function () {
                     $('#sqlqueryresultsouter').html(data.sql_query);
                 } else { // results found
                     $('#sqlqueryresultsouter').html(data.message);
-                    $('.sqlqueryresults').trigger('makegrid');
+                    $('.sqlqueryresults').trigger('makeGrid');
                 }
 
                 $('#tbl_search_form')
@@ -194,7 +193,7 @@ AJAX.registerOnload('table/select.js', function () {
 
     // Following section is related to the 'function based search' for geometry data types.
     // Initially hide all the open_search_gis_editor spans
-    $('span.open_search_gis_editor').hide();
+    $('.open_search_gis_editor').hide();
 
     $('select.geom_func').on('change', function () {
         var $geomFuncSelector = $(this);
@@ -244,7 +243,7 @@ AJAX.registerOnload('table/select.js', function () {
         }
 
         // if the chosen function's output is a geometry, enable GIS editor
-        var $editorSpan = $geomFuncSelector.parents('tr').find('span.open_search_gis_editor');
+        var $editorSpan = $geomFuncSelector.parents('tr').find('.open_search_gis_editor');
         if ($.inArray($geomFuncSelector.val(), outputGeomFunctions) >= 0) {
             $editorSpan.show();
         } else {
@@ -252,17 +251,17 @@ AJAX.registerOnload('table/select.js', function () {
         }
     });
 
-    $(document).on('click', 'span.open_search_gis_editor', function (event) {
-        event.preventDefault();
-
-        var $span = $(this);
+    const gisEditorModal = document.getElementById('gisEditorModal');
+    gisEditorModal?.addEventListener('show.bs.modal', event => {
+        // @ts-ignore
+        const button = $(event.relatedTarget as HTMLButtonElement);
         // Current value
-        var value = $span.parent('td').children('input[type=\'text\']').val();
+        let value = button.parent('td').children('input[type=\'text\']').val();
         // Field name
-        var field = 'Parameter';
+        const field = 'Parameter';
         // Column type
-        var geomFunc = $span.parents('tr').find('.geom_func').val();
-        var type = 'GEOMETRY';
+        const geomFunc = button.parents('tr').find('.geom_func').val();
+        const type = 'GEOMETRY';
         if (!value) {
             if (geomFunc === 'Envelope') {
                 value = 'POLYGON()';
@@ -274,7 +273,7 @@ AJAX.registerOnload('table/select.js', function () {
         }
 
         // Names of input field and null checkbox
-        var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
+        const inputName = button.parent('td').children('input[type=\'text\']').attr('name');
 
         window.openGISEditor(value, field, type, inputName);
     });
@@ -335,8 +334,8 @@ AJAX.registerOnload('table/select.js', function () {
                         $('#min_value').first().val('');
                         $('#max_value').first().val('');
                         // Add datepicker wherever required.
-                        Functions.addDatepicker($('#min_value'), dataType);
-                        Functions.addDatepicker($('#max_value'), dataType);
+                        addDatepicker($('#min_value'), dataType);
+                        addDatepicker($('#max_value'), dataType);
                         $('#rangeSearchModalGo').on('click', function () {
                             var minValue = ($('#min_value').val() as string);
                             var maxValue = ($('#max_value').val() as string);

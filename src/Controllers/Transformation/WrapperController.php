@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Controllers\Transformation;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -24,6 +25,8 @@ use function __;
 use function htmlspecialchars;
 use function is_numeric;
 use function is_string;
+use function ob_get_clean;
+use function ob_start;
 use function round;
 use function sprintf;
 use function str_contains;
@@ -42,10 +45,11 @@ final class WrapperController implements InvocableController
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->getHeader()->setIsTransformationWrapper(true);
 
@@ -53,15 +57,15 @@ final class WrapperController implements InvocableController
             $db = DatabaseName::from($request->getParam('db'));
             $table = TableName::from($request->getParam('table'));
         } catch (InvalidIdentifier) {
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->dbi->selectDb($db)) {
-            return null;
+            return $this->response->response();
         }
 
         if (! $this->dbTableExists->hasTable($db, $table)) {
-            return null;
+            return $this->response->response();
         }
 
         $query = $this->getQuery($table, $request->getParam('where_clause'), $request->getParam('where_clause_sign'));
@@ -70,12 +74,12 @@ final class WrapperController implements InvocableController
             /* l10n: In case a SQL query did not pass a security check  */
             $this->response->addHTML(Message::error(__('There is an issue with your request.'))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $row = $this->dbi->query($query)->fetchAssoc();
         if ($row === []) {
-            return null;
+            return $this->response->response();
         }
 
         $transformKey = $request->getParam('transform_key');
@@ -83,7 +87,7 @@ final class WrapperController implements InvocableController
             ! is_string($transformKey) || $transformKey === ''
             || ! isset($row[$transformKey]) || $row[$transformKey] === ''
         ) {
-            return null;
+            return $this->response->response();
         }
 
         $mediaTypeMap = [];
@@ -107,7 +111,10 @@ final class WrapperController implements InvocableController
             }
         }
 
-        $this->response->getHeader()->sendHttpHeaders();
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->response->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
 
         /** @psalm-suppress MixedAssignment */
         $contentType = $request->getParam('ct');
@@ -131,19 +138,15 @@ final class WrapperController implements InvocableController
         $resize = $request->getParam('resize');
         if ($resize !== 'jpeg' && $resize !== 'png') {
             if (str_contains(strtolower($contentMediaType), 'html')) {
-                echo htmlspecialchars($row[$transformKey]);
-
-                return null;
+                return $response->write(htmlspecialchars($row[$transformKey]));
             }
 
-            echo $row[$transformKey];
-
-            return null;
+            return $response->write($row[$transformKey]);
         }
 
         $srcImage = ImageWrapper::fromString($row[$transformKey]);
         if ($srcImage === null) {
-            return null;
+            return $response;
         }
 
         $newHeight = $this->formatSize($request->getParam('newHeight'));
@@ -170,18 +173,21 @@ final class WrapperController implements InvocableController
 
         $destImage = ImageWrapper::create($destWidth, $destHeight);
         if ($destImage === null) {
-            return null;
+            return $response;
         }
 
         $destImage->copyResampled($srcImage, 0, 0, 0, 0, $destWidth, $destHeight, $srcWidth, $srcHeight);
 
+        ob_start();
         if ($resize === 'jpeg') {
             $destImage->jpeg(null, 75);
         } else {
             $destImage->png();
         }
 
-        return null;
+        $output = ob_get_clean();
+
+        return $response->write((string) $output);
     }
 
     private function formatSize(mixed $size): int

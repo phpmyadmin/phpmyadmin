@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;

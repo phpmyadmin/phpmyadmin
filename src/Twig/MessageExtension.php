@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig;
 
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
+use Twig\TwigFunction;
 
 class MessageExtension extends AbstractExtension
 {
@@ -31,6 +34,26 @@ class MessageExtension extends AbstractExtension
             new TwigFilter(
                 'raw_success',
                 static fn (string $string): string => Message::rawSuccess($string)->getDisplay(),
+                ['is_safe' => ['html']],
+            ),
+        ];
+    }
+
+    /** @inheritDoc */
+    public function getFunctions(): array
+    {
+        return [
+            new TwigFunction(
+                'statement_message',
+                static function (string $message, string $statement, string $context): string {
+                    $type = match ($context) {
+                        'success' => MessageType::Success,
+                        'error', 'danger' => MessageType::Error,
+                        default => MessageType::Notice,
+                    };
+
+                    return Generator::getMessage($message, $statement, $type);
+                },
                 ['is_safe' => ['html']],
             ),
         ];

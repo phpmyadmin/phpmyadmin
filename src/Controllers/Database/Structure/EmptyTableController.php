@@ -11,8 +11,8 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -34,27 +34,27 @@ final class EmptyTableController implements InvocableController
         private readonly DatabaseInterface $dbi,
         private readonly Relation $relation,
         private readonly RelationCleanup $relationCleanup,
-        private readonly FlashMessages $flash,
+        private readonly FlashMessenger $flashMessenger,
         private readonly StructureController $structureController,
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $multBtn = $_POST['mult_btn'] ?? '';
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
 
         if ($multBtn !== __('Yes')) {
-            $this->flash->addMessage('success', __('No change'));
+            $this->flashMessenger->addMessage('success', __('No change'));
             $this->response->redirectToRoute('/database/structure', ['db' => Current::$database]);
 
-            return null;
+            return $this->response->response();
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         $this->dbi->selectDb(Current::$database);
 
@@ -66,7 +66,7 @@ final class EmptyTableController implements InvocableController
             $aQuery = 'TRUNCATE ';
             $aQuery .= Util::backquote($selectedValue);
 
-            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
         }
 
@@ -86,12 +86,10 @@ final class EmptyTableController implements InvocableController
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
         unset($_POST['mult_btn']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

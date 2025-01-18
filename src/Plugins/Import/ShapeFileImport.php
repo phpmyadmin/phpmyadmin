@@ -30,8 +30,6 @@ class ShapeFileImport extends ShapeFile
      */
     public function eofSHP(): bool
     {
-        $GLOBALS['eof'] ??= null;
-
-        return (bool) $GLOBALS['eof'];
+        return ImportShp::$eof;
     }
 }

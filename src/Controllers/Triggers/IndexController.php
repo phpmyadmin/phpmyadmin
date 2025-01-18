@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Triggers;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -19,11 +18,10 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Triggers\Triggers;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
-use function count;
 use function htmlspecialchars;
 use function in_array;
 use function mb_strtoupper;
@@ -44,27 +42,20 @@ final class IndexController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errors'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['triggers.js', 'sql.js']);
 
         if (! $request->isAjax()) {
-            $config = Config::getInstance();
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
             /**
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->response->checkParameters(['db', 'table'])) {
-                    return null;
-                }
-
-                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-                $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+                UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -73,27 +64,17 @@ final class IndexController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
                     $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 Current::$table = '';
-
-                if (! $this->response->checkParameters(['db'])) {
-                    return null;
-                }
-
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                    $config->settings['DefaultTabDatabase'],
-                    'database',
-                );
-                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -102,25 +83,18 @@ final class IndexController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
         }
 
-        /**
-         * Keep a list of errors that occurred while
-         * processing an 'Add' or 'Edit' operation.
-         */
-        $GLOBALS['errors'] = [];
-        $GLOBALS['message'] ??= null;
-
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->triggers->handleEditor();
 
             if ($request->isAjax()) {
-                if ($GLOBALS['message']->isSuccess()) {
+                if (Current::$message instanceof Message && Current::$message->isSuccess()) {
                     $trigger = $this->triggers->getTriggerByName(
                         Current::$database,
                         Current::$table,
@@ -162,13 +136,13 @@ final class IndexController implements InvocableController
                     $this->response->addJSON('insert', $insert);
                     $this->response->addJSON('message', $output);
                 } else {
-                    $this->response->addJSON('message', $GLOBALS['message']);
+                    $this->response->addJSON('message', Current::$message);
                     $this->response->setRequestStatus(false);
                 }
 
                 $this->response->addJSON('tableType', 'triggers');
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -176,7 +150,7 @@ final class IndexController implements InvocableController
          * Display a form used to add/edit a trigger, if necessary
          */
         if (
-            count($GLOBALS['errors'])
+            $this->triggers->getErrorCount() > 0
             || empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
             && (! empty($_REQUEST['add_item']) || ! empty($_REQUEST['edit_item'])) // FIXME: must be simpler than that
@@ -222,12 +196,12 @@ final class IndexController implements InvocableController
                     $this->response->addJSON('message', $editor);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -241,7 +215,7 @@ final class IndexController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -260,7 +234,7 @@ final class IndexController implements InvocableController
                 $this->response->addJSON('title', $title);
                 $this->response->addJSON('message', htmlspecialchars(trim($exportData)));
 
-                return null;
+                return $this->response->response();
             }
 
             if ($exportData !== null) {
@@ -269,7 +243,7 @@ final class IndexController implements InvocableController
                     'item_name' => $triggerName->getName(),
                 ]);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = Message::error(sprintf(
@@ -281,7 +255,7 @@ final class IndexController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -298,7 +272,7 @@ final class IndexController implements InvocableController
             'error_message' => $message?->getDisplay() ?? '',
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

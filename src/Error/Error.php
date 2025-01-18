@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Error;
 
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Template;
 use Throwable;
 
@@ -39,7 +40,6 @@ use const E_ERROR;
 use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
-use const E_STRICT;
 use const E_USER_DEPRECATED;
 use const E_USER_ERROR;
 use const E_USER_NOTICE;
@@ -270,37 +270,22 @@ class Error extends Message
             E_USER_ERROR => 'User Error',
             E_USER_WARNING => 'User Warning',
             E_USER_NOTICE => 'User Notice',
-            E_STRICT => 'Runtime Notice',
+            2048 => 'Runtime Notice', // E_STRICT
             E_DEPRECATED => 'Deprecation Notice',
             E_USER_DEPRECATED => 'Deprecation Notice',
             E_RECOVERABLE_ERROR => 'Catchable Fatal Error',
         };
     }
 
-    /**
-     * returns level of error
-     *
-     * @return string level of error
-     */
-    public function getLevel(): string
+    protected function getLevel(): MessageType
     {
         return match ($this->errorNumber) {
-            default => 'error',
-            E_ERROR => 'error',
-            E_WARNING => 'error',
-            E_PARSE => 'error',
-            E_NOTICE => 'notice',
-            E_CORE_ERROR => 'error',
-            E_CORE_WARNING => 'error',
-            E_COMPILE_ERROR => 'error',
-            E_COMPILE_WARNING => 'error',
-            E_USER_ERROR => 'error',
-            E_USER_WARNING => 'error',
-            E_USER_NOTICE => 'notice',
-            E_STRICT => 'notice',
-            E_DEPRECATED => 'notice',
-            E_USER_DEPRECATED => 'notice',
-            E_RECOVERABLE_ERROR => 'error',
+            default => MessageType::Error,
+            E_NOTICE,
+            E_USER_NOTICE,
+            2048, // E_STRICT
+            E_DEPRECATED,
+            E_USER_DEPRECATED => MessageType::Notice,
         };
     }
 
@@ -410,7 +395,7 @@ class Error extends Message
             '_realConnect',
         ];
 
-        if (in_array($function, $includeFunctions, true)) {
+        if (in_array($function, $includeFunctions, true) && is_string($arg)) {
             $retval .= self::relPath($arg);
         } elseif (in_array($function, $connectFunctions, true) && is_string($arg)) {
             $retval .= gettype($arg) . ' ********';
@@ -433,16 +418,10 @@ class Error extends Message
     {
         $this->isDisplayed(true);
 
-        $context = 'primary';
-        $level = $this->getLevel();
-        if ($level === 'error') {
-            $context = 'danger';
-        }
-
         $template = new Template();
 
         return $template->render('error/get_display', [
-            'context' => $context,
+            'context' => $this->getLevel() === MessageType::Error ? 'danger' : 'primary',
             'is_user_error' => $this->isUserError(),
             'type' => $this->getType(),
             'file' => $this->getFile(),

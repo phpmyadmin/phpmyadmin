@@ -10,14 +10,16 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivileges;
@@ -48,7 +50,7 @@ final class SaveController implements InvocableController
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -58,9 +60,7 @@ final class SaveController implements InvocableController
             unset($_POST['selected']);
         }
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 
     /**
@@ -102,11 +102,11 @@ final class SaveController implements InvocableController
             );
 
             // find the remembered sort expression
-            $sortedCol = $this->tableObj->getUiProp(Table::PROP_SORTED_COLUMN);
+            $sortedCol = $this->tableObj->getUiProp(UiProperty::SortedColumn);
             // if the old column name is part of the remembered sort expression
             if (str_contains((string) $sortedCol, Util::backquote($_POST['field_orig'][$i]))) {
                 // delete the whole remembered sort expression
-                $this->tableObj->removeUiProp(Table::PROP_SORTED_COLUMN);
+                $this->tableObj->removeUiProp(UiProperty::SortedColumn);
             }
 
             if (
@@ -218,7 +218,7 @@ final class SaveController implements InvocableController
                 $message->addParam(Current::$table);
 
                 $this->response->addHTML(
-                    Generator::getMessage($message, $sqlQuery, 'success'),
+                    Generator::getMessage($message, $sqlQuery, MessageType::Success),
                 );
             } else {
                 // An error happened while inserting/updating a table definition
@@ -264,7 +264,7 @@ final class SaveController implements InvocableController
                     __('Query error') . ':<br>' . $origError,
                 );
                 $this->response->addHTML(
-                    Generator::getMessage($message, $sqlQuery, 'error'),
+                    Generator::getMessage($message, $sqlQuery, MessageType::Error),
                 );
                 $regenerate = true;
             }
@@ -345,6 +345,7 @@ final class SaveController implements InvocableController
             'field_length',
             'field_null',
             'field_type',
+            'field_virtuality',
         ];
         foreach ($fields as $field) {
             if ($_POST[$field][$i] != $_POST[$field . '_orig'][$i]) {
@@ -390,7 +391,7 @@ final class SaveController implements InvocableController
 
             if ($changed) {
                 // Finally FLUSH the new privileges
-                $this->dbi->query('FLUSH PRIVILEGES;');
+                $this->dbi->tryQuery('FLUSH PRIVILEGES;');
             }
         }
 

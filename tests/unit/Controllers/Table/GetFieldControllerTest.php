@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\Table\GetFieldController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -51,7 +53,9 @@ class GetFieldControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
-        (new GetFieldController(new ResponseRenderer(), $dbi))($request);
-        $this->expectOutputString('46494c45');
+        $response = (new GetFieldController(new ResponseRenderer(), $dbi, ResponseFactory::create()))($request);
+
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertSame('46494c45', (string) $response->getBody());
     }
 }

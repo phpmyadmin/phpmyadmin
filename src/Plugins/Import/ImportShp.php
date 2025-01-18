@@ -24,6 +24,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\ImportPlugin;
 use PhpMyAdmin\Properties\Plugins\ImportPluginProperties;
 use PhpMyAdmin\Sanitize;
+use PhpMyAdmin\ShapeFile\ShapeType;
 use PhpMyAdmin\ZipExtension;
 use ZipArchive;
 
@@ -49,6 +50,9 @@ use const PATHINFO_FILENAME;
 class ImportShp extends ImportPlugin
 {
     private ZipExtension|null $zipExtension = null;
+    private static File|null $importHandle = null;
+    private static string $buffer = '';
+    public static bool $eof = false;
 
     protected function init(): void
     {
@@ -86,20 +90,17 @@ class ImportShp extends ImportPlugin
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
-        $GLOBALS['message'] ??= null;
         ImportSettings::$finished = false;
 
         if ($importHandle === null || $this->zipExtension === null) {
             return [];
         }
 
-        /** @see ImportShp::readFromBuffer() */
-        $GLOBALS['importHandle'] = $importHandle;
+        self::$importHandle = $importHandle;
 
         $compression = $importHandle->getCompression();
 
-        $shp = new ShapeFileImport(1);
+        $shp = new ShapeFileImport(ShapeType::Point);
         // If the zip archive has more than one file,
         // get the correct content to the buffer from .shp file.
         if (
@@ -107,10 +108,10 @@ class ImportShp extends ImportPlugin
             && $this->zipExtension->getNumberOfFiles(ImportSettings::$importFile) > 1
         ) {
             if ($importHandle->openZip('/^.*\.shp$/i') === false) {
-                $GLOBALS['message'] = Message::error(
+                Current::$message = Message::error(
                     __('There was an error importing the ESRI shape file: "%s".'),
                 );
-                $GLOBALS['message']->addParam($importHandle->getError());
+                Current::$message->addParam($importHandle->getError());
 
                 return [];
             }
@@ -173,41 +174,36 @@ class ImportShp extends ImportPlugin
         }
 
         if ($shp->lastError != '') {
-            $GLOBALS['error'] = true;
-            $GLOBALS['message'] = Message::error(
+            Import::$hasError = true;
+            Current::$message = Message::error(
                 __('There was an error importing the ESRI shape file: "%s".'),
             );
-            $GLOBALS['message']->addParam($shp->lastError);
+            Current::$message->addParam($shp->lastError);
 
             return [];
         }
 
         switch ($shp->shapeType) {
-            // ESRI Null Shape
-            case 0:
+            case ShapeType::Null:
                 break;
-            // ESRI Point
-            case 1:
+            case ShapeType::Point:
                 $gisType = 'point';
                 break;
-            // ESRI PolyLine
-            case 3:
+            case ShapeType::PolyLine:
                 $gisType = 'multilinestring';
                 break;
-            // ESRI Polygon
-            case 5:
+            case ShapeType::Polygon:
                 $gisType = 'multipolygon';
                 break;
-            // ESRI MultiPoint
-            case 8:
+            case ShapeType::MultiPoint:
                 $gisType = 'multipoint';
                 break;
             default:
-                $GLOBALS['error'] = true;
-                $GLOBALS['message'] = Message::error(
+                Import::$hasError = true;
+                Current::$message = Message::error(
                     __('MySQL Spatial Extension does not support ESRI type "%s".'),
                 );
-                $GLOBALS['message']->addParam($shp->getShapeName());
+                Current::$message->addParam($shp->getShapeName());
 
                 return [];
         }
@@ -248,8 +244,8 @@ class ImportShp extends ImportPlugin
         }
 
         if ($rows === []) {
-            $GLOBALS['error'] = true;
-            $GLOBALS['message'] = Message::error(
+            Import::$hasError = true;
+            Current::$message = Message::error(
                 __('The imported file does not contain any data!'),
             );
 
@@ -301,7 +297,7 @@ class ImportShp extends ImportPlugin
         $this->import->buildSql($dbName, [$table], [$analysis], sqlData: $sqlStatements);
 
         ImportSettings::$finished = true;
-        $GLOBALS['error'] = false;
+        Import::$hasError = false;
 
         // Commit any possible data in buffers
         $this->import->runQuery('', $sqlStatements);
@@ -319,22 +315,18 @@ class ImportShp extends ImportPlugin
      */
     public static function readFromBuffer(int $length): string
     {
-        $GLOBALS['buffer'] ??= null;
-        $GLOBALS['eof'] ??= null;
-        $GLOBALS['importHandle'] ??= null;
-
         $import = new Import();
 
-        if (strlen((string) $GLOBALS['buffer']) < $length) {
+        if (strlen(self::$buffer) < $length) {
             if (ImportSettings::$finished) {
-                $GLOBALS['eof'] = true;
+                self::$eof = true;
             } else {
-                $GLOBALS['buffer'] .= $import->getNextChunk($GLOBALS['importHandle']);
+                self::$buffer .= $import->getNextChunk(self::$importHandle);
             }
         }
 
-        $result = substr($GLOBALS['buffer'], 0, $length);
-        $GLOBALS['buffer'] = substr($GLOBALS['buffer'], $length);
+        $result = substr(self::$buffer, 0, $length);
+        self::$buffer = substr(self::$buffer, $length);
 
         return $result;
     }

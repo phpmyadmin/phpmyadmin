@@ -12,6 +12,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Partitioning\Maintenance;
 use PhpMyAdmin\ResponseRenderer;
 use Webmozart\Assert\Assert;
@@ -25,7 +26,7 @@ final class TruncateController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $partitionName = $request->getParsedBodyParam('partition_name');
 
@@ -37,7 +38,7 @@ final class TruncateController implements InvocableController
             $message = Message::error($exception->getMessage());
             $this->response->addHTML($message->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         [$result, $query] = $this->model->truncate($database, $table, $partitionName);
@@ -46,13 +47,13 @@ final class TruncateController implements InvocableController
             $message = Generator::getMessage(
                 __('Your SQL query has been executed successfully.'),
                 $query,
-                'success',
+                MessageType::Success,
             );
         } else {
             $message = Generator::getMessage(
                 __('Error'),
                 $query,
-                'error',
+                MessageType::Error,
             );
         }
 
@@ -61,6 +62,6 @@ final class TruncateController implements InvocableController
             'message' => $message,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

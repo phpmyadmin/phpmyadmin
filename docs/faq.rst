@@ -436,7 +436,7 @@ HHVM is supported up to phpMyAdmin 4.8.
 
 Since release 5.0, phpMyAdmin supports only PHP 7.1 and newer.
 Since release 5.2, phpMyAdmin supports only PHP 7.2 and newer.
-Since release 6.0, phpMyAdmin supports only PHP 8.1 and newer.
+Since release 6.0, phpMyAdmin supports only PHP 8.2 and newer.
 
 .. _faq1_32:
 
@@ -2235,9 +2235,10 @@ logs. Currently there are two variables available:
     User name of currently active user (they do not have to be logged in).
 ``userStatus``
     Status of currently active user, one of ``ok`` (user is logged in),
-    ``mysql-denied`` (MySQL denied user login), ``allow-denied`` (user denied
+    ``server-denied`` (database server denied user login), ``allow-denied`` (user denied
     by allow/deny rules), ``root-denied`` (root is denied in configuration),
-    ``empty-denied`` (empty password is denied).
+    ``empty-denied`` (empty password is denied),
+    ``no-activity`` (automatically logged out due to inactivity).
 
 ``LogFormat`` directive for Apache can look like following:
 

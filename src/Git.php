@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use DateTimeImmutable;
 use DateTimeZone;
 use DirectoryIterator;
+use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 use stdClass;
 
@@ -27,6 +28,7 @@ use function gzuncompress;
 use function implode;
 use function in_array;
 use function intval;
+use function is_array;
 use function is_bool;
 use function is_dir;
 use function is_file;
@@ -92,7 +94,9 @@ class Git
         // find out if there is a .git folder
         // or a .git file (--separate-git-dir)
         $git = $this->baseDir . '.git';
-        if (is_dir($git)) {
+        if (file_exists($this->baseDir . 'revision-info.php')) {
+            $gitLocation = 'revision-info.php';
+        } elseif (is_dir($git)) {
             if (! @is_file($git . '/config')) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
@@ -105,7 +109,7 @@ class Git
             $contents = (string) file_get_contents($git);
             $gitmatch = [];
             // Matches expected format
-            if (! preg_match('/^gitdir: (.*)$/', $contents, $gitmatch)) {
+            if (preg_match('/^gitdir: (.*)$/', $contents, $gitmatch) !== 1) {
                 $_SESSION['git_location'] = null;
                 $_SESSION['is_git_revision'] = false;
 
@@ -349,7 +353,7 @@ class Git
     /**
      * Extract committer, author and message from commit body
      *
-     * @param mixed[] $commit The commit body
+     * @param string[] $commit The commit body
      *
      * @return array{
      *     array{name: string, email: string, date: string},
@@ -357,7 +361,7 @@ class Git
      *     string
      * }
      */
-    private function extractDataFormTextBody(array $commit): array
+    public static function extractDataFormTextBody(array $commit): array
     {
         $author = ['name' => '', 'email' => '', 'date' => ''];
         $committer = ['name' => '', 'email' => '', 'date' => ''];
@@ -410,7 +414,7 @@ class Git
         }
 
         $link = 'https://www.phpmyadmin.net/api/commit/' . $hash . '/';
-        $isFound = $httpRequest->create($link, 'GET');
+        $isFound = $httpRequest->create($link, RequestMethod::Get);
         if ($isFound === false) {
             $isRemoteCommit = false;
             $_SESSION['PMA_VERSION_REMOTECOMMIT_' . $hash] = false;
@@ -519,6 +523,44 @@ class Git
     }
 
     /**
+     * @return array<string, string|array<string, string>>|null
+     * @psalm-return array{
+     *        revision: string,
+     *        revisionHash: string,
+     *        revisionUrl: string,
+     *        branch: string,
+     *        branchUrl: string,
+     *        message: string,
+     *        author: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        },
+     *        committer: array{
+     *            name: string,
+     *            email: string,
+     *            date: string
+     *        }
+     * }|null
+     */
+    public function getGitRevisionInfo(): array|null
+    {
+        if (@file_exists($this->baseDir . 'revision-info.php')) {
+            /** @var array{ revision: string, revisionHash: string, revisionUrl: string, branch: string, branchUrl: string, message: string, author: array{ name: string, email: string, date: string }, committer: array{ name: string, email: string, date: string }}|null $info */
+            /** @psalm-suppress MissingFile,UnresolvableInclude */
+            $info = include $this->baseDir . 'revision-info.php';
+
+            if (! is_array($info)) {
+                return null;
+            }
+
+            return $info;
+        }
+
+        return null;
+    }
+
+    /**
      * detects Git revision, if running inside repo
      *
      * @return array{
@@ -541,6 +583,37 @@ class Git
             return null;
         }
 
+        // Special name to indicate the use of the config file
+        if ($gitFolder === 'revision-info.php') {
+            $info = $this->getGitRevisionInfo();
+
+            if ($info === null) {
+                return null;
+            }
+
+            $this->hasGit = true;
+
+            return [
+                'hash' => $info['revisionHash'],
+                'branch' => $info['branch'],
+                'message' => $info['message'],
+                'author' => [
+                    'name' => $info['author']['name'],
+                    'email' => $info['author']['email'],
+                    'date' => $info['author']['date'],
+                ],
+                'committer' => [
+                    'name' => $info['committer']['name'],
+                    'email' => $info['committer']['email'],
+                    'date' => $info['committer']['date'],
+                ],
+                // Let's make the guess that the data is remote
+                // The write script builds a remote commit url without checking that it exists
+                'is_remote_commit' => true,
+                'is_remote_branch' => true,
+            ];
+        }
+
         $refHead = @file_get_contents($gitFolder . '/HEAD');
 
         if ($refHead === '' || $refHead === false) {
@@ -560,7 +633,7 @@ class Git
         }
 
         $commit = false;
-        if (! preg_match('/^[0-9a-f]{40}$/i', $hash)) {
+        if (preg_match('/^[0-9a-f]{40}$/i', $hash) !== 1) {
             $commit = false;
         } elseif (isset($_SESSION['PMA_VERSION_COMMITDATA_' . $hash])) {
             $commit = $_SESSION['PMA_VERSION_COMMITDATA_' . $hash];
@@ -586,7 +659,7 @@ class Git
             } else {
                 $httpRequest = new HttpRequest();
                 $link = 'https://www.phpmyadmin.net/api/tree/' . $branch . '/';
-                $isFound = $httpRequest->create($link, 'GET', true);
+                $isFound = $httpRequest->create($link, RequestMethod::Get, true);
                 if (is_bool($isFound)) {
                     $isRemoteBranch = $isFound;
                     $_SESSION['PMA_VERSION_REMOTEBRANCH_' . $hash] = $isFound;
@@ -600,7 +673,7 @@ class Git
         }
 
         if ($commit !== false) {
-            [$author, $committer, $message] = $this->extractDataFormTextBody($commit);
+            [$author, $committer, $message] = self::extractDataFormTextBody($commit);
         } elseif (isset($commitJson->author, $commitJson->committer, $commitJson->message)) {
             $author = [
                 'name' => (string) $commitJson->author->name,

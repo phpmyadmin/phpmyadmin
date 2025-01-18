@@ -21,7 +21,7 @@ class TablePropertyTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $row = [' name ', 'int ', true, ' PRI', '0', 'mysql'];
+        $row = [' name ', 'int ', 'YES', ' PRI', '0', 'mysql'];
         $this->object = new TableProperty($row);
     }
 
@@ -41,7 +41,7 @@ class TablePropertyTest extends AbstractTestCase
 
         self::assertSame('int', $this->object->type);
 
-        self::assertEquals(1, $this->object->nullable);
+        self::assertSame('YES', $this->object->nullable);
 
         self::assertSame('PRI', $this->object->key);
 

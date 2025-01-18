@@ -1,11 +1,11 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { checkFormElementInRange, checkSqlQuery, prepareForAjaxRequest } from './modules/functions.ts';
 import { Navigation } from './modules/navigation.ts';
 import { CommonParams } from './modules/common.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './modules/ajax-message.ts';
-import { escapeHtml } from './modules/functions/escape.ts';
+import { escapeBacktick, escapeHtml } from './modules/functions/escape.ts';
 import refreshMainContent from './modules/functions/refreshMainContent.ts';
 import isStorageSupported from './modules/functions/isStorageSupported.ts';
 
@@ -52,6 +52,8 @@ function autoSave (query): void {
         } else {
             window.Cookies.set(key, query, { path: CommonParams.get('rootPath') });
         }
+
+        checkSavedQuery();
     }
 }
 
@@ -263,7 +265,7 @@ const insertQuery = function (queryType) {
         setQuery('');
 
         return;
-    } else if (queryType === 'format') {
+    } else if (queryType === 'format' || queryType === 'formatSingleLine') {
         if (window.codeMirrorEditor) {
             $('#querymessage').html(window.Messages.strFormatting +
                 '&nbsp;<img class="ajaxIcon" src="' +
@@ -272,7 +274,8 @@ const insertQuery = function (queryType) {
             var params = {
                 'ajax_request': true,
                 'sql': window.codeMirrorEditor.getValue(),
-                'server': CommonParams.get('server')
+                'server': CommonParams.get('server'),
+                'formatSingleLine': queryType === 'formatSingleLine'
             };
             $.ajax({
                 type: 'POST',
@@ -308,8 +311,6 @@ const insertQuery = function (queryType) {
         } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
             // @ts-ignore
             setQuery(window.Cookies.get(key, { path: CommonParams.get('rootPath') }));
-        } else {
-            ajaxShowMessage(window.Messages.strNoAutoSavedQuery);
         }
 
         return;
@@ -319,7 +320,7 @@ const insertQuery = function (queryType) {
     // @ts-ignore
     var myListBox = document.sqlform.dummy;
     // @ts-ignore
-    table = document.sqlform.table.value;
+    table = escapeBacktick(document.sqlform.table.value);
 
     if (myListBox.options.length > 0) {
         sqlBoxLocked = true;
@@ -421,7 +422,7 @@ AJAX.registerTeardown('sql.js', function () {
     $(document).off('click', 'a.delete_row.ajax');
     $(document).off('submit', '.bookmarkQueryForm');
     $('input#bkm_label').off('input');
-    $(document).off('makegrid', '.sqlqueryresults');
+    $(document).off('makeGrid', '.sqlqueryresults');
     $('#togglequerybox').off('click');
     $(document).off('click', '#button_submit_query');
     $(document).off('change', '#id_bookmark');
@@ -623,6 +624,10 @@ AJAX.registerOnload('sql.js', function () {
 
         textArea.value += '\n';
         $('.table_results tbody tr').each(function () {
+            if ($(this).hasClass('repeating_header_row')) {
+                return;
+            }
+
             $(this).find('.data span').each(function () {
                 // Extract <em> tag for NULL values before converting to string to not mess up formatting
                 var data = $(this).find('em').length !== 0 ? $(this).find('em')[0] : this;
@@ -648,11 +653,11 @@ AJAX.registerOnload('sql.js', function () {
     }); // end of Copy to Clipboard action
 
     /**
-     * Attach the {@link makegrid} function to a custom event, which will be
+     * Attach the {@link makeGrid} function to a custom event, which will be
      * triggered manually everytime the table of results is reloaded
      * @memberOf    jQuery
      */
-    $(document).on('makegrid', '.sqlqueryresults', function () {
+    $(document).on('makeGrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
             window.makeGrid(this);
         });
@@ -792,7 +797,7 @@ AJAX.registerOnload('sql.js', function () {
             $form[0].elements.sql_query.value = window.codeMirrorEditor.getValue();
         }
 
-        if (! Functions.checkSqlQuery($form[0])) {
+        if (! checkSqlQuery($form[0])) {
             return false;
         }
 
@@ -802,7 +807,7 @@ AJAX.registerOnload('sql.js', function () {
         var $msgbox = ajaxShowMessage();
         var $sqlqueryresultsouter = $('#sqlqueryresultsouter');
 
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
 
         var argsep = CommonParams.get('arg_separator');
         $.post($form.attr('action'), $form.serialize() + argsep + 'ajax_page_request=true', function (data) {
@@ -886,7 +891,7 @@ AJAX.registerOnload('sql.js', function () {
                     };
                 }
 
-                $('.sqlqueryresults').trigger('makegrid');
+                $('.sqlqueryresults').trigger('makeGrid');
                 $('#togglequerybox').show();
 
                 if (typeof data.action_bookmark === 'undefined') {
@@ -926,7 +931,7 @@ AJAX.registerOnload('sql.js', function () {
             var $sqlqueryresults = $form.parents('.sqlqueryresults');
             $sqlqueryresults
                 .html(data.message)
-                .trigger('makegrid');
+                .trigger('makeGrid');
 
             highlightSql($sqlqueryresults);
         }); // end $.post()
@@ -1093,13 +1098,13 @@ AJAX.registerOnload('sql.js', function () {
     $(document).on('submit', '.maxRowsForm', function () {
         var unlimNumRows = Number($(this).find('input[name="unlim_num_rows"]').val());
 
-        var maxRowsCheck = Functions.checkFormElementInRange(
+        var maxRowsCheck = checkFormElementInRange(
             this,
             'session_max_rows',
             window.Messages.strNotValidRowNumber,
             1
         );
-        var posCheck = Functions.checkFormElementInRange(
+        var posCheck = checkFormElementInRange(
             this,
             'pos',
             window.Messages.strNotValidRowNumber,
@@ -1268,15 +1273,20 @@ function getAutoSavedKey () {
 }
 
 function checkSavedQuery () {
-    var key = Sql.getAutoSavedKey();
+    let key = Sql.getAutoSavedKey();
+    let buttonGetAutoSavedQuery = $('#saved');
 
-    if (isStorageSupported('localStorage') &&
-        typeof window.localStorage.getItem(key) === 'string') {
-        ajaxShowMessage(window.Messages.strPreviousSaveQuery);
-        // @ts-ignore
-    } else if (window.Cookies.get(key, { path: CommonParams.get('rootPath') })) {
-        ajaxShowMessage(window.Messages.strPreviousSaveQuery);
+    let isAutoSavedInLocalStorage = isStorageSupported('localStorage') && (typeof window.localStorage.getItem(key) === 'string');
+    // @ts-ignore
+    let isAutoSavedInCookie = window.Cookies.get(key, { path: CommonParams.get('rootPath') });
+
+    if (isAutoSavedInLocalStorage || isAutoSavedInCookie) {
+        buttonGetAutoSavedQuery.prop('disabled', false);
+
+        return;
     }
+
+    buttonGetAutoSavedQuery.prop('disabled', true);
 }
 
 AJAX.registerOnload('sql.js', function () {
@@ -1306,7 +1316,7 @@ AJAX.registerOnload('sql.js', function () {
     /**
      * create resizable table
      */
-    $('.sqlqueryresults').trigger('makegrid');
+    $('.sqlqueryresults').trigger('makeGrid');
 
     /**
      * Check if there is any saved query

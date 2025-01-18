@@ -8,13 +8,14 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Display\DeleteLinkEnum;
 use PhpMyAdmin\Display\DisplayParts;
 use PhpMyAdmin\Display\Results as DisplayResults;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
@@ -819,7 +820,7 @@ class ResultsTest extends AbstractTestCase
             'The add query should be found',
         );
 
-        $firstLine = explode("\n", $out)[0] ?? '';
+        $firstLine = explode("\n", $out)[0];
         self::assertStringContainsString(
             'url-remove-order',
             $firstLine,
@@ -1182,7 +1183,6 @@ class ResultsTest extends AbstractTestCase
             $statementInfo->flags->isAnalyse,
             3,
             1.234,
-            'ltr',
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1226,14 +1226,14 @@ class ResultsTest extends AbstractTestCase
             'columns' => [
                 [
                     'column_name' => 'id',
-                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=8e37a2f4521e45af28e26a01518e63de65737b7028e73c9536a86e83046ac1be'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en" class="sortlink">id'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=8e37a2f4521e45af28e26a01518e63de65737b7028e73c9536a86e83046ac1be'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1242,8 +1242,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0AORDER+BY+%60id%60+ASC'
+                        . '&sql_signature=8e37a2f4521e45af28e26a01518e63de65737b7028e73c9536a86e83046ac1be'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1253,14 +1253,14 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'name',
-                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=aec7d5c52573ac9d51c318d643fc62a8578baab162d902ce6d10318d6c5e0674'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en" class="sortlink">name'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=aec7d5c52573ac9d51c318d643fc62a8578baab162d902ce6d10318d6c5e0674'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1269,8 +1269,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0AORDER+BY+%60name%60+ASC'
+                        . '&sql_signature=aec7d5c52573ac9d51c318d643fc62a8578baab162d902ce6d10318d6c5e0674'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1280,16 +1280,16 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'datetimefield',
-                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0A'
                         . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_signature=6c53a00ab0e73234883b7190dab079c6e9b9b0f96eca2ee78453305599d66fc1'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en" class="sortlink">datetimefield'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0A'
                         . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_signature=6c53a00ab0e73234883b7190dab079c6e9b9b0f96eca2ee78453305599d66fc1'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1298,9 +1298,9 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60%0A'
                         . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_signature=6c53a00ab0e73234883b7190dab079c6e9b9b0f96eca2ee78453305599d66fc1'
                         . '&session_max_rows=25&is_browse_distinct=0&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1315,7 +1315,7 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  2 (3 total, Query took 1.2340 seconds.)'),
                 $query,
-                'success',
+                MessageType::Success,
             ),
             'navigation' => [
                 'page_selector' => '',
@@ -1343,17 +1343,17 @@ class ResultsTest extends AbstractTestCase
                     ],
                     'options' => [
                         [
-                            'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` ASC',
+                            'value' => 'SELECT * FROM `test_db`.`test_table` ORDER BY `id` ASC',
                             'content' => 'PRIMARY (ASC)',
                             'is_selected' => false,
                         ],
                         [
-                            'value' => 'SELECT * FROM `test_db`.`test_table`   ORDER BY `id` DESC',
+                            'value' => 'SELECT * FROM `test_db`.`test_table` ORDER BY `id` DESC',
                             'content' => 'PRIMARY (DESC)',
                             'is_selected' => false,
                         ],
                         [
-                            'value' => 'SELECT * FROM `test_db`.`test_table`  ',
+                            'value' => 'SELECT * FROM `test_db`.`test_table`',
                             'content' => 'None',
                             'is_selected' => true,
                         ],
@@ -1428,7 +1428,6 @@ class ResultsTest extends AbstractTestCase
             'relwork' => false,
             'save_cells_at_once' => false,
             'default_sliders_state' => 'closed',
-            'text_dir' => 'ltr',
         ]);
 
         self::assertSame($tableTemplate, $actual);
@@ -1476,7 +1475,6 @@ class ResultsTest extends AbstractTestCase
             $statementInfo->flags->isAnalyse,
             2,
             1.234,
-            'ltr',
             $statementInfo->flags->isMaint,
             $statementInfo->flags->queryType === StatementType::Explain,
             $statementInfo->flags->queryType === StatementType::Show,
@@ -1520,15 +1518,15 @@ class ResultsTest extends AbstractTestCase
             'columns' => [
                 [
                     'column_name' => 'Rows',
-                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
                         . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
-                        . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60Rows%60+ASC&sql_signature='
-                        . '8412b2f6bb4473905c68b2612d95d0020dda32282b3f5bf7a63fbaa98163016e&session_max_rows=25'
+                        . '%60+GROUP+BY+%60name%60%0AORDER+BY+%60Rows%60+ASC&sql_signature='
+                        . '9711b509280946a71dcad03bf3c85b2d4b3062cab1ffd59119b299d80c07b577&session_max_rows=25'
                         . '&is_browse_distinct=1&server=2&lang=en" class="sortlink">Rows<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table&sql_query='
+                        . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
-                        . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
-                        . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
+                        . '%60name%60%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
+                        . 'faa662252a63157194e38f4b46b9cb425807cd110147664855decc2899d4ccc0&session_max_rows=25'
                         . '&is_browse_distinct=1&server=2&lang=en"></a><input type="hidden" name="url-remove-order"'
                         . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+%60name'
@@ -1538,8 +1536,8 @@ class ResultsTest extends AbstractTestCase
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
-                        . '%60name%60++%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
-                        . '6077a1df2401b3fa1ca67a940e3bb3cf6ff126ee5245137b07d68b1e7fe4075a&session_max_rows=25'
+                        . '%60name%60%0AORDER+BY+%60name%60+ASC%2C+%60Rows%60+ASC&sql_signature='
+                        . 'faa662252a63157194e38f4b46b9cb425807cd110147664855decc2899d4ccc0&session_max_rows=25'
                         . '&is_browse_distinct=1&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1549,17 +1547,17 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'name',
-                    'order_link' => '<a href="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
                         . '&sql_query=SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table'
-                        . '%60+GROUP+BY+%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
-                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '%60+GROUP+BY+%60name%60%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . '5a8c171115c591960b9da8efe375a2f7f4faf44030b33230ad82053648f860ae&session_max_rows=25'
                         . '&is_browse_distinct=1&server=2&lang=en" class="sortlink">name <img src="themes/dot.gif"'
                         . ' title="" alt="Ascending" class="icon ic_s_asc soimg"> <img src="themes/dot.gif" title=""'
                         . ' alt="Descending" class="icon ic_s_desc soimg hide"> <small>1</small><input type="hidden"'
-                        . ' value="index.php?route=/sql&server=2&lang=en&db=test_db&table=test_table&sql_query='
+                        . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
-                        . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
-                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '%60name%60%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . '5a8c171115c591960b9da8efe375a2f7f4faf44030b33230ad82053648f860ae&session_max_rows=25'
                         . '&is_browse_distinct=1&server=2&lang=en"></a><input type="hidden" name="url-remove-order"'
                         . ' value="index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
@@ -1568,8 +1566,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n" . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table&sql_query='
                         . 'SELECT+COUNT%28%2A%29+AS+%60Rows%60%2C+%60name%60+FROM+%60test_table%60+GROUP+BY+'
-                        . '%60name%60++%0AORDER+BY+%60name%60+DESC&sql_signature='
-                        . 'de2cda64ffdeae7d1181feb386c1c47acea4de444235f1cdc29cf4556d4bae4c&session_max_rows=25'
+                        . '%60name%60%0AORDER+BY+%60name%60+DESC&sql_signature='
+                        . '5a8c171115c591960b9da8efe375a2f7f4faf44030b33230ad82053648f860ae&session_max_rows=25'
                         . '&is_browse_distinct=1&server=2&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1584,7 +1582,7 @@ class ResultsTest extends AbstractTestCase
             'sql_query_message' => Generator::getMessage(
                 Message::success('Showing rows 0 -  1 (2 total, Query took 1.2340 seconds.)'),
                 $query,
-                'success',
+                MessageType::Success,
             ),
             'navigation' => [
                 'page_selector' => '',
@@ -1624,7 +1622,7 @@ class ResultsTest extends AbstractTestCase
             'body' => '<tr><td data-decimals="0" data-type="int" class="'
                 . 'text-end data not_null text-nowrap">2</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="4" class="'
-                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=2&lang=en'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql'
                 . '&db=test_db&table=test_table&pos=0&sql_signature='
                 . '435bef10ad40031af7da88ea735cdc55ee91ac589b93adf10a10101b00e4d7ac&sql_query='
                 . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27abcd%27&server=2&lang=en'
@@ -1633,7 +1631,7 @@ class ResultsTest extends AbstractTestCase
                 . '<tr><td data-decimals="0" data-type="int" class="'
                 . 'text-end data not_null text-nowrap">1</td>' . "\n"
                 . '<td data-decimals="0" data-type="string" data-originallength="3" class="'
-                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&server=2&lang=en&db=test_db'
+                . 'data not_null relation text pre_wrap"><a href="index.php?route=/sql&db=test_db'
                 . '&table=test_table&pos=0&sql_signature='
                 . '8b25f948acdbde1631297c34c6fe773c1751dfed5e59a30e3ee909773512e297&sql_query='
                 . 'SELECT+%2A+FROM+%60test_db%60.%60test_table%60+WHERE+%60name%60+%3D+%27foo%27&server=2&lang=en"'
@@ -1664,7 +1662,6 @@ class ResultsTest extends AbstractTestCase
             'relwork' => false,
             'save_cells_at_once' => false,
             'default_sliders_state' => 'closed',
-            'text_dir' => 'ltr',
         ]);
 
         self::assertSame($tableTemplate, $actual);

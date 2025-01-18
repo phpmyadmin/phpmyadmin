@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Export\Template;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Export\Template\UpdateController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -37,10 +37,6 @@ class UpdateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
         $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['templateId', null, '1'],
-            ['templateData', '', 'data'],
-        ]);
 
         (new UpdateController(
             $response,

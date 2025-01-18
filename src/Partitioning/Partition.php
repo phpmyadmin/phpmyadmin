@@ -7,12 +7,15 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Partitioning;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 
 use function array_values;
 
 class Partition extends SubPartition
 {
+    private static bool $havePartitioning = false;
+    private static bool $alreadyChecked = false;
+
     protected string|null $description = null;
     /** @var SubPartition[] */
     protected array $subPartitions = [];
@@ -140,14 +143,13 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $result = $dbi->fetchResult(
+            $result = $dbi->fetchResultSimple(
                 'SELECT * FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
             );
             if ($result !== []) {
                 $partitionMap = [];
-                /** @var array $row */
                 foreach ($result as $row) {
                     if (isset($partitionMap[$row['PARTITION_NAME']])) {
                         $partition = $partitionMap[$row['PARTITION_NAME']];
@@ -176,14 +178,14 @@ class Partition extends SubPartition
      * @param string $db    database name
      * @param string $table table name
      *
-     * @return mixed[]   of partition names
+     * @return list<string|null>   of partition names
      */
     public static function getPartitionNames(string $db, string $table): array
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
 
-            return $dbi->fetchResult(
+            return $dbi->fetchSingleColumn(
                 'SELECT DISTINCT `PARTITION_NAME` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table),
@@ -205,14 +207,14 @@ class Partition extends SubPartition
     {
         if (self::havePartitioning()) {
             $dbi = DatabaseInterface::getInstance();
-            $partitionMethod = $dbi->fetchResult(
+            $partitionMethod = $dbi->fetchValue(
                 'SELECT `PARTITION_METHOD` FROM `information_schema`.`PARTITIONS`'
                 . ' WHERE `TABLE_SCHEMA` = ' . $dbi->quoteString($db)
                 . ' AND `TABLE_NAME` = ' . $dbi->quoteString($table)
                 . ' LIMIT 1',
             );
-            if ($partitionMethod !== []) {
-                return $partitionMethod[0];
+            if ($partitionMethod !== false) {
+                return $partitionMethod;
             }
         }
 
@@ -221,37 +223,31 @@ class Partition extends SubPartition
 
     /**
      * checks if MySQL server supports partitioning
-     *
-     * @staticvar bool $have_partitioning
-     * @staticvar bool $already_checked
      */
     public static function havePartitioning(): bool
     {
-        static $havePartitioning = false;
-        static $alreadyChecked = false;
-
-        if (! $alreadyChecked) {
+        if (! self::$alreadyChecked) {
             $dbi = DatabaseInterface::getInstance();
             if ($dbi->getVersion() < 50600) {
                 if ($dbi->fetchValue('SELECT @@have_partitioning;')) {
-                    $havePartitioning = true;
+                    self::$havePartitioning = true;
                 }
             } elseif ($dbi->getVersion() >= 80000) {
-                $havePartitioning = true;
+                self::$havePartitioning = true;
             } else {
                 // see https://dev.mysql.com/doc/refman/5.6/en/partitioning.html
-                $plugins = $dbi->fetchResult('SHOW PLUGINS');
+                $plugins = $dbi->fetchResultSimple('SHOW PLUGINS');
                 foreach ($plugins as $value) {
                     if ($value['Name'] === 'partition') {
-                        $havePartitioning = true;
+                        self::$havePartitioning = true;
                         break;
                     }
                 }
             }
 
-            $alreadyChecked = true;
+            self::$alreadyChecked = true;
         }
 
-        return $havePartitioning;
+        return self::$havePartitioning;
     }
 }

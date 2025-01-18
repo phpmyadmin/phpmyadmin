@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database;
 
+use DateTimeImmutable;
 use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Favorites\RecentFavoriteTable;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
@@ -20,7 +21,6 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Replication\Replication;
@@ -34,6 +34,7 @@ use PhpMyAdmin\Tracking\Tracker;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
+use Throwable;
 
 use function __;
 use function array_search;
@@ -50,7 +51,6 @@ use function preg_match;
 use function preg_quote;
 use function sprintf;
 use function str_replace;
-use function strtotime;
 use function urlencode;
 
 /**
@@ -121,19 +121,15 @@ final class StructureController implements InvocableController
         $this->dbIsSystemSchema = true;
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $parameters = ['sort' => $_REQUEST['sort'] ?? null, 'sort_order' => $_REQUEST['sort_order'] ?? null];
 
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -141,12 +137,12 @@ final class StructureController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['database/structure.js', 'table/change.js']);
@@ -165,7 +161,7 @@ final class StructureController implements InvocableController
             ]);
         }
 
-        $this->replicationInfo->load($request->getParsedBodyParam('primary_connection'));
+        $this->replicationInfo->load($request->getParsedBodyParamAsStringOrNull('primary_connection'));
         $replicaInfo = $this->replicationInfo->getReplicaInfo();
 
         $this->pageSettings->init('DbStructure');
@@ -208,7 +204,7 @@ final class StructureController implements InvocableController
             'create_table_html' => $createTable,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /** @param mixed[] $replicaInfo */
@@ -221,9 +217,9 @@ final class StructureController implements InvocableController
 
         $i = $sumEntries = 0;
         $overheadCheck = false;
-        $createTimeAll = '';
-        $updateTimeAll = '';
-        $checkTimeAll = '';
+        $createTimeAll = null;
+        $updateTimeAll = null;
+        $checkTimeAll = null;
         $config = Config::getInstance();
         $numColumns = $config->settings['PropertiesNumColumns'] > 1
             ? ceil($this->numTables / $config->settings['PropertiesNumColumns']) + 1
@@ -237,6 +233,7 @@ final class StructureController implements InvocableController
         $structureTableRows = [];
         $trackedTables = $this->trackingChecker->getTrackedTables(Current::$database);
         $recentFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite);
+        /** @var mixed[] $currentTable */
         foreach ($this->tables as $currentTable) {
             // Get valid statistics whatever is the table type
 
@@ -301,23 +298,26 @@ final class StructureController implements InvocableController
                 }
             }
 
-            if ($config->settings['ShowDbStructureCreation']) {
-                $createTime = $currentTable['Create_time'] ?? '';
-                if ($createTime && (! $createTimeAll || $createTime < $createTimeAll)) {
+            $createTime = null;
+            if ($config->settings['ShowDbStructureCreation'] && isset($currentTable['Create_time'])) {
+                $createTime = $this->createDateTime($currentTable['Create_time']);
+                if ($createTime !== null && ($createTimeAll === null || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
                 }
             }
 
-            if ($config->settings['ShowDbStructureLastUpdate']) {
-                $updateTime = $currentTable['Update_time'] ?? '';
-                if ($updateTime && (! $updateTimeAll || $updateTime < $updateTimeAll)) {
+            $updateTime = null;
+            if ($config->settings['ShowDbStructureLastUpdate'] && isset($currentTable['Update_time'])) {
+                $updateTime = $this->createDateTime($currentTable['Update_time']);
+                if ($updateTime !== null && ($updateTimeAll === null || $updateTime < $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
                 }
             }
 
-            if ($config->settings['ShowDbStructureLastCheck']) {
-                $checkTime = $currentTable['Check_time'] ?? '';
-                if ($checkTime && (! $checkTimeAll || $checkTime < $checkTimeAll)) {
+            $checkTime = null;
+            if ($config->settings['ShowDbStructureLastCheck'] && isset($currentTable['Check_time'])) {
+                $checkTime = $this->createDateTime($currentTable['Check_time']);
+                if ($checkTime !== null && ($checkTimeAll === null || $checkTime < $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
                 }
             }
@@ -347,16 +347,13 @@ final class StructureController implements InvocableController
             if (! $this->dbIsSystemSchema) {
                 $dropQuery = sprintf(
                     'DROP %s %s',
-                    $tableIsView || $currentTable['ENGINE'] == null ? 'VIEW'
-                    : 'TABLE',
+                    $tableIsView ? 'VIEW' : 'TABLE',
                     Util::backquote(
                         $currentTable['TABLE_NAME'],
                     ),
                 );
                 $dropMessage = sprintf(
-                    ($tableIsView || $currentTable['ENGINE'] == null
-                        ? __('View %s has been dropped.')
-                        : __('Table %s has been dropped.')),
+                    ($tableIsView ? __('View %s has been dropped.') : __('Table %s has been dropped.')),
                     str_replace(
                         ' ',
                         '&nbsp;',
@@ -419,12 +416,9 @@ final class StructureController implements InvocableController
                 'formatted_size' => $formattedSize,
                 'unit' => $unit,
                 'overhead' => $overhead,
-                'create_time' => isset($createTime) && $createTime
-                        ? Util::localisedDate(strtotime($createTime)) : '-',
-                'update_time' => isset($updateTime) && $updateTime
-                        ? Util::localisedDate(strtotime($updateTime)) : '-',
-                'check_time' => isset($checkTime) && $checkTime
-                        ? Util::localisedDate(strtotime($checkTime)) : '-',
+                'create_time' => $createTime !== null ? Util::localisedDate($createTime) : '-',
+                'update_time' => $updateTime !== null ? Util::localisedDate($updateTime) : '-',
+                'check_time' => $checkTime !== null ? Util::localisedDate($checkTime) : '-',
                 'charset' => $charset ?? '',
                 'is_show_stats' => $this->isShowStats,
                 'ignored' => $ignored,
@@ -497,9 +491,9 @@ final class StructureController implements InvocableController
                 'database_charset' => $databaseCharset,
                 'sum_size' => $sumSize,
                 'overhead_size' => $overheadSize,
-                'create_time_all' => $createTimeAll ? Util::localisedDate(strtotime($createTimeAll)) : '-',
-                'update_time_all' => $updateTimeAll ? Util::localisedDate(strtotime($updateTimeAll)) : '-',
-                'check_time_all' => $checkTimeAll ? Util::localisedDate(strtotime($checkTimeAll)) : '-',
+                'create_time_all' => $createTimeAll !== null ? Util::localisedDate($createTimeAll) : '-',
+                'update_time_all' => $updateTimeAll !== null ? Util::localisedDate($updateTimeAll) : '-',
+                'check_time_all' => $checkTimeAll !== null ? Util::localisedDate($checkTimeAll) : '-',
                 'approx_rows' => $overallApproxRows,
                 'num_favorite_tables' => $config->settings['NumFavoriteTables'],
                 'db' => Current::$database,
@@ -512,7 +506,6 @@ final class StructureController implements InvocableController
                 'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
             ],
             'check_all_tables' => [
-                'text_dir' => LanguageManager::$textDir,
                 'overhead_check' => $overheadCheck,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,
@@ -633,7 +626,7 @@ final class StructureController implements InvocableController
                     '@^' .
                     preg_quote(mb_substr($this->replication->extractDbOrTable($dbTable, 'table'), 0, -1), '@') . '@',
                     $truename,
-                )
+                ) === 1
             ) {
                 return true;
             }
@@ -651,7 +644,7 @@ final class StructureController implements InvocableController
      * @param int     $sumSize      total table size
      * @param int     $overheadSize overhead size
      *
-     * @return mixed[]
+     * @psalm-return list{mixed[], string, string, string, string, int, bool, int}
      */
     private function getStuffForEngineTypeTable(
         array $currentTable,
@@ -865,5 +858,18 @@ final class StructureController implements InvocableController
         }
 
         return [$currentTable, $formattedSize, $unit, $sumSize];
+    }
+
+    private function createDateTime(mixed $dateTime): DateTimeImmutable|null
+    {
+        if (! is_string($dateTime) || $dateTime === '') {
+            return null;
+        }
+
+        try {
+            return new DateTimeImmutable($dateTime);
+        } catch (Throwable) {
+            return null;
+        }
     }
 }

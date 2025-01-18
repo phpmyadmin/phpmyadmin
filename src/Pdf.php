@@ -7,7 +7,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
 use Exception;
+use PhpMyAdmin\I18n\LanguageManager;
 use TCPDF;
 use TCPDF_FONTS;
 
@@ -62,6 +64,12 @@ class Pdf extends TCPDF
         $this->AddFont('DejaVuSans', 'B', 'dejavusansb.php');
         $this->setFont(self::PMA_PDF_FONT, '', 14);
         $this->setFooterFont([self::PMA_PDF_FONT, '', 14]);
+        $this->setLanguageArray([
+            'a_meta_charset' => 'UTF-8',
+            'a_meta_dir' => LanguageManager::$textDirection->value,
+            'a_meta_language' => Current::$lang,
+            'w_page' => __('Page number:'),
+        ]);
     }
 
     /**
@@ -86,7 +94,7 @@ class Pdf extends TCPDF
             0,
             'C',
         );
-        $this->Cell(0, 6, Util::localisedDate(), 0, 1, 'R');
+        $this->Cell(0, 6, Util::localisedDate(new DateTimeImmutable()), 0, 1, 'R');
         $this->setY(20);
 
         // set footerset

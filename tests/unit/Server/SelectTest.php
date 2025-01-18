@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Tests\AbstractTestCase;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -28,7 +28,6 @@ class SelectTest extends AbstractTestCase
         $_REQUEST['log'] = 'index1';
         $_REQUEST['pos'] = 3;
 
-        //$GLOBALS
         $config = Config::getInstance();
         $config->settings['MaxRows'] = 10;
         $config->settings['ServerDefault'] = 'server';
@@ -41,7 +40,7 @@ class SelectTest extends AbstractTestCase
 
         Current::$table = 'table';
 
-        $config->settings['DefaultTabServer'] = 'welcome';
+        $config->settings['DefaultTabServer'] = '/';
 
         $config->settings['Servers'] = [
             '0' => [
@@ -78,10 +77,7 @@ class SelectTest extends AbstractTestCase
 
         if ($notOnlyOptions) {
             self::assertStringContainsString(
-                Util::getScriptNameForOption(
-                    $config->settings['DefaultTabServer'],
-                    'server',
-                ),
+                Url::getFromRoute($config->settings['DefaultTabServer']),
                 $html,
             );
 

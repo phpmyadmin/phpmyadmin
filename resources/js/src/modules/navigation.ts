@@ -1221,7 +1221,7 @@ const FastFilter = {
                 filter.restore();
             }
 
-            var value = $(this).prev()[0].defaultValue;
+            var value = ($(this).prev()[0] as HTMLInputElement).defaultValue;
             $(this).prev().val(value).trigger('keyup');
         }
     }

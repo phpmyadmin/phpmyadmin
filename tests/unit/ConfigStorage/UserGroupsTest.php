@@ -8,7 +8,7 @@ use Generator;
 use PhpMyAdmin\ConfigStorage\Features\ConfigurableMenusFeature;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -16,9 +16,10 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 #[CoversClass(UserGroups::class)]
+#[Medium]
 class UserGroupsTest extends AbstractTestCase
 {
     private ConfigurableMenusFeature $configurableMenusFeature;
@@ -44,7 +45,6 @@ class UserGroupsTest extends AbstractTestCase
     /**
      * Tests UserGroups::getHtmlForUserGroupsTable() function when there are no user groups
      */
-    #[Group('medium')]
     public function testGetHtmlForUserGroupsTableWithNoUserGroups(): void
     {
         $expectedQuery = 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC';
@@ -147,7 +147,7 @@ class UserGroupsTest extends AbstractTestCase
         self::assertStringContainsString('<input type="hidden" name="editUserGroupSubmit" value="1"', $html);
         self::assertStringContainsString(
             '<input class="form-check-input checkall" type="checkbox"'
-            . ' checked="checked" name="server_sql" id="server_sql" value="Y">',
+            . ' checked name="server_sql" id="server_sql" value="Y">',
             $html,
         );
         self::assertStringContainsString(

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -21,27 +21,25 @@ final class AddPrefixTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected', []);
 
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
 
         $this->dbi->selectDb(Current::$database);
 
         foreach ($selected as $selectedValue) {
-            $newTableName = $request->getParsedBodyParam('add_prefix', '') . $selectedValue;
+            $newTableName = $request->getParsedBodyParamAsString('add_prefix', '') . $selectedValue;
             $aQuery = 'ALTER TABLE ' . Util::backquote($selectedValue) . ' RENAME ' . Util::backquote($newTableName);
 
-            $GLOBALS['sql_query'] .= $aQuery . ';' . "\n";
+            Current::$sqlQuery .= $aQuery . ';' . "\n";
             $this->dbi->query($aQuery);
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

@@ -8,10 +8,11 @@ use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -26,25 +27,27 @@ final class DropTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['reload'] = $_POST['reload'] ?? $GLOBALS['reload'] ?? null;
+        if ($request->hasBodyParam('reload')) {
+            $reload = $request->getParsedBodyParamAsString('reload');
+            ResponseRenderer::$reload = $reload === '1' || $reload === 'true';
+        }
+
         $multBtn = $_POST['mult_btn'] ?? '';
         /** @var string[] $selected */
         $selected = $_POST['selected'] ?? [];
 
         if ($multBtn !== __('Yes')) {
-            $GLOBALS['message'] = Message::success(__('No change'));
+            Current::$message = Message::success(__('No change'));
 
             unset($_POST['mult_btn']);
 
-            ($this->structureController)($request);
-
-            return null;
+            return ($this->structureController)($request);
         }
 
         $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         $sqlQueryViews = '';
 
         foreach ($selected as $selectedValue) {
@@ -53,17 +56,17 @@ final class DropTableController implements InvocableController
             if ($this->dbi->getTable(Current::$database, $selectedValue)->isView()) {
                 $sqlQueryViews .= ($sqlQueryViews === '' ? 'DROP VIEW ' : ', ') . Util::backquote($selectedValue);
             } else {
-                $GLOBALS['sql_query'] .= (empty($GLOBALS['sql_query']) ? 'DROP TABLE ' : ', ')
+                Current::$sqlQuery .= (Current::$sqlQuery === '' ? 'DROP TABLE ' : ', ')
                     . Util::backquote($selectedValue);
             }
 
-            $GLOBALS['reload'] = 1;
+            ResponseRenderer::$reload = true;
         }
 
-        if (! empty($GLOBALS['sql_query'])) {
-            $GLOBALS['sql_query'] .= ';';
+        if (Current::$sqlQuery !== '') {
+            Current::$sqlQuery .= ';';
         } elseif ($sqlQueryViews !== '') {
-            $GLOBALS['sql_query'] = $sqlQueryViews . ';';
+            Current::$sqlQuery = $sqlQueryViews . ';';
             $sqlQueryViews = '';
         }
 
@@ -78,31 +81,29 @@ final class DropTableController implements InvocableController
             }
         }
 
-        $GLOBALS['message'] = Message::success();
+        Current::$message = Message::success();
 
         $this->dbi->selectDb(Current::$database);
-        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+        $result = $this->dbi->tryQuery(Current::$sqlQuery);
 
         if (! $result) {
-            $GLOBALS['message'] = Message::error($this->dbi->getError());
+            Current::$message = Message::error($this->dbi->getError());
         }
 
         if ($result && $sqlQueryViews !== '') {
-            $GLOBALS['sql_query'] .= ' ' . $sqlQueryViews . ';';
+            Current::$sqlQuery .= ' ' . $sqlQueryViews . ';';
             $result = $this->dbi->tryQuery($sqlQueryViews);
             unset($sqlQueryViews);
         }
 
         if (! $result) {
-            $GLOBALS['message'] = Message::error($this->dbi->getError());
+            Current::$message = Message::error($this->dbi->getError());
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
         unset($_POST['mult_btn']);
 
-        ($this->structureController)($request);
-
-        return null;
+        return ($this->structureController)($request);
     }
 }

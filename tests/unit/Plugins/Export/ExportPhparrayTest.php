@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportPhparray;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -38,14 +38,14 @@ class ExportPhparrayTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $this->object = new ExportPhparray(
             new Relation($dbi),
             new Export($dbi),
@@ -162,7 +162,7 @@ class ExportPhparrayTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -173,7 +173,6 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'phpmyadmin.net/err',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );
@@ -195,7 +194,6 @@ class ExportPhparrayTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 '0`932table',
-                'phpmyadmin.net/err',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );

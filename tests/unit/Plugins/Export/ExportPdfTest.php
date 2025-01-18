@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportPdf;
 use PhpMyAdmin\Plugins\Export\Helpers\Pdf;
@@ -38,11 +38,11 @@ class ExportPdfTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         $this->object = new ExportPdf(
             new Relation($dbi),
             new Export($dbi),
@@ -212,7 +212,7 @@ class ExportPdfTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -233,7 +233,6 @@ class ExportPdfTest extends AbstractTestCase
             $this->object->exportData(
                 'db',
                 'table',
-                'phpmyadmin.net/err',
                 'SELECT',
             ),
         );

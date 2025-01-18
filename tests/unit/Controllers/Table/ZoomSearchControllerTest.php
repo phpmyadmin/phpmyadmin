@@ -14,6 +14,7 @@ use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(ZoomSearchController::class)]
@@ -25,6 +26,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Config::getInstance()->selectedServer['DisableIS'] = true;
+        UrlParams::$goto = '';
 
         $dbiDummy = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dbiDummy);

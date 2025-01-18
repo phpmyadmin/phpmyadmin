@@ -9,8 +9,10 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
+use PhpMyAdmin\Message;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -55,12 +57,50 @@ class RelationTest extends AbstractTestCase
             $relation->getDisplayField($db, $table),
         );
 
+        $dummyDbi->addResult('SHOW COLUMNS FROM `information_schema`.`PMA`', []);
+
         $db = 'information_schema';
         $table = 'PMA';
         self::assertSame(
             '',
             $relation->getDisplayField($db, $table),
         );
+
+        $relationParameters = RelationParameters::fromArray([
+            'displaywork' => true,
+            'db' => 'pmadb',
+            'table_info' => 'table_info',
+            'relation' => 'relation',
+        ]);
+        (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
+
+        $dummyDbi->addResult(
+            'SELECT `display_field` FROM `pmadb`.`table_info`'
+            . ' WHERE `db_name` = \'information_schema\' AND `table_name` = \'PMA\'',
+            [['TABLE_COMMENT']],
+            ['display_field'],
+        );
+        $db = 'information_schema';
+        $table = 'PMA';
+        self::assertSame(
+            'TABLE_COMMENT',
+            $relation->getDisplayField($db, $table),
+        );
+
+        $dummyDbi->addResult(
+            'SELECT `display_field` FROM `pmadb`.`table_info`'
+            . ' WHERE `db_name` = \'information_schema\' AND `table_name` = \'NON_EXISTING_TABLE\'',
+            [],
+        );
+        $dummyDbi->addResult('SHOW COLUMNS FROM `information_schema`.`NON_EXISTING_TABLE`', []);
+        $db = 'information_schema';
+        $table = 'NON_EXISTING_TABLE';
+        self::assertSame(
+            '',
+            $relation->getDisplayField($db, $table),
+        );
+
+        $dummyDbi->assertAllQueriesConsumed();
     }
 
     /**
@@ -148,6 +188,13 @@ class RelationTest extends AbstractTestCase
      */
     public function testPMASearchColumnInForeigners(): void
     {
+        $foreignerKey = new ForeignKey('ad', ['id', 'value']);
+        $foreignerKey->refDbName = 'GSoC14';
+        $foreignerKey->refTableName = 'table_1';
+        $foreignerKey->refIndexList = ['id', 'value'];
+        $foreignerKey->onDelete = 'CASCADE';
+        $foreignerKey->onUpdate = 'CASCADE';
+
         $foreigners = [
             'value' => [
                 'master_field' => 'value',
@@ -155,17 +202,7 @@ class RelationTest extends AbstractTestCase
                 'foreign_table' => 'test',
                 'foreign_field' => 'value',
             ],
-            'foreign_keys_data' => [
-                [
-                    'constraint' => 'ad',
-                    'index_list' => ['id', 'value'],
-                    'ref_db_name' => 'GSoC14',
-                    'ref_table_name' => 'table_1',
-                    'ref_index_list' => ['id', 'value'],
-                    'on_delete' => 'CASCADE',
-                    'on_update' => 'CASCADE',
-                ],
-            ],
+            'foreign_keys_data' => [$foreignerKey],
         ];
 
         $relation = new Relation($this->createDatabaseInterface());
@@ -515,7 +552,6 @@ class RelationTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
 
         $relation->fixPmaTables('db_pma', true);
-        self::assertArrayNotHasKey('message', $GLOBALS);
         self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -797,7 +833,6 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addSelectDb('db_pma');
         $dummyDbi->addSelectDb('db_pma');
         $relation->fixPmaTables('db_pma', true);
-        self::assertArrayNotHasKey('message', $GLOBALS);
         self::assertSame('db_pma', $config->selectedServer['pmadb']);
 
         $relationParameters = RelationParameters::fromArray([
@@ -871,8 +906,7 @@ class RelationTest extends AbstractTestCase
 
         $relation->fixPmaTables('db_pma', true);
 
-        self::assertArrayHasKey('message', $GLOBALS);
-        self::assertSame('MYSQL_ERROR', $GLOBALS['message']);
+        self::assertEquals(Message::error('MYSQL_ERROR'), Current::$message);
         self::assertSame('', $config->selectedServer['pmadb']);
 
         self::assertNull((new ReflectionProperty(Relation::class, 'cache'))->getValue());
@@ -902,13 +936,9 @@ class RelationTest extends AbstractTestCase
         );
         $dummyDbi->addSelectDb('phpmyadmin');
 
-        self::assertArrayNotHasKey('errno', $GLOBALS);
-
         self::assertTrue(
             $relation->createPmaDatabase('phpmyadmin'),
         );
-
-        self::assertArrayNotHasKey('message', $GLOBALS);
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();
@@ -926,18 +956,17 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addErrorCode('MYSQL_ERROR');
         $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `phpmyadmin`', false);
 
-        $GLOBALS['errno'] = 1044;// ER_DBACCESS_DENIED_ERROR
+        DatabaseInterface::$errorNumber = 1044;// ER_DBACCESS_DENIED_ERROR
 
         self::assertFalse(
             $relation->createPmaDatabase('phpmyadmin'),
         );
 
-        self::assertArrayHasKey('message', $GLOBALS);
-        self::assertSame(
-            'You do not have necessary privileges to create a database named'
+        self::assertEquals(
+            Message::error('You do not have necessary privileges to create a database named'
             . ' \'phpmyadmin\'. You may go to \'Operations\' tab of any'
-            . ' database to set up the phpMyAdmin configuration storage there.',
-            $GLOBALS['message'],
+            . ' database to set up the phpMyAdmin configuration storage there.'),
+            Current::$message,
         );
 
         $dummyDbi->assertAllQueriesConsumed();
@@ -955,14 +984,13 @@ class RelationTest extends AbstractTestCase
         $dummyDbi->addErrorCode('Too many connections');
         $dummyDbi->addResult('CREATE DATABASE IF NOT EXISTS `pma_1040`', false);
 
-        $GLOBALS['errno'] = 1040;
+        DatabaseInterface::$errorNumber = 1040;
 
         self::assertFalse(
             $relation->createPmaDatabase('pma_1040'),
         );
 
-        self::assertArrayHasKey('message', $GLOBALS);
-        self::assertSame('Too many connections', $GLOBALS['message']);
+        self::assertEquals(Message::error('Too many connections'), Current::$message);
 
         $dummyDbi->assertAllQueriesConsumed();
         $dummyDbi->assertAllErrorCodesConsumed();

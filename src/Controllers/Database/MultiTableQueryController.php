@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\MultiTableQuery;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -25,7 +25,7 @@ final class MultiTableQueryController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $this->response->addScriptFiles(['database/multi_table_query.js', 'database/query_generator.js']);
 
@@ -33,6 +33,6 @@ final class MultiTableQueryController implements InvocableController
 
         $this->response->addHTML($queryInstance->getFormHtml());
 
-        return null;
+        return $this->response->response();
     }
 }

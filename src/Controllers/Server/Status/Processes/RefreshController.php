@@ -24,19 +24,19 @@ final class RefreshController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->render('server/status/processes/list', $this->processes->getList(
             $request->hasBodyParam('showExecuting'),
             $request->hasBodyParam('full'),
-            (string) $request->getParsedBodyParam('order_by_field', ''),
-            (string) $request->getParsedBodyParam('sort_order', ''),
+            $request->getParsedBodyParamAsString('order_by_field', ''),
+            $request->getParsedBodyParamAsString('sort_order', ''),
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

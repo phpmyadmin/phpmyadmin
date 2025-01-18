@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Database\Structure;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -24,7 +24,7 @@ final class ShowCreateController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         /** @var string[] $selected */
         $selected = $request->getParsedBodyParam('selected_tbl', []);
@@ -33,7 +33,7 @@ final class ShowCreateController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $tables = $this->getShowCreateTables($selected);
@@ -42,7 +42,7 @@ final class ShowCreateController implements InvocableController
 
         $this->response->addJSON('message', $showCreate);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

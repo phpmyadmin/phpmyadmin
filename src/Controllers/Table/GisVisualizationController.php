@@ -8,11 +8,13 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Gis\GisVisualization;
+use PhpMyAdmin\Gis\GisVisualizationSettings;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -20,12 +22,15 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
+use function array_search;
 use function in_array;
 use function is_array;
 use function is_string;
+use function ob_get_clean;
+use function ob_start;
 
 /**
  * Handles creation of the GIS visualizations.
@@ -37,20 +42,15 @@ final class GisVisualizationController implements InvocableController
         private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
+        private readonly ResponseFactory $responseFactory,
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
-
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -58,12 +58,12 @@ final class GisVisualizationController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         // SQL query for retrieving GIS data
@@ -76,7 +76,7 @@ final class GisVisualizationController implements InvocableController
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $meta = $this->getColumnMeta($sqlQuery);
@@ -98,13 +98,15 @@ final class GisVisualizationController implements InvocableController
                 Message::error(__('No spatial column found for this SQL query.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         // Get settings if any posted
-        $visualizationSettings = $this->getVisualizationSettings($spatialCandidates, $labelCandidates);
-        $visualizationSettings['width'] = 600;
-        $visualizationSettings['height'] = 450;
+        $visualizationSettings = $this->getVisualizationSettings(
+            $spatialCandidates,
+            $labelCandidates,
+            $request->getParam('visualizationSettings'),
+        );
 
         $rows = $this->getRows();
         $pos = $this->getPos();
@@ -112,11 +114,13 @@ final class GisVisualizationController implements InvocableController
         $visualization = GisVisualization::get($sqlQuery, $visualizationSettings, $rows, $pos);
 
         if (isset($_GET['saveToFile'])) {
-            $this->response->disable();
+            $response = $this->responseFactory->createResponse();
             $filename = $visualization->getSpatialColumn();
+            ob_start();
             $visualization->toFile($filename, $_GET['fileFormat']);
+            $output = ob_get_clean();
 
-            return null;
+            return $response->write((string) $output);
         }
 
         $this->response->addScriptFiles(['vendor/openlayers/OpenLayers.js', 'table/gis_visualization.js']);
@@ -127,11 +131,8 @@ final class GisVisualizationController implements InvocableController
         /**
          * Displays the page
          */
-        $urlParams = $GLOBALS['urlParams'] ?? [];
-        $urlParams['goto'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
+        $urlParams = UrlParams::$params;
+        $urlParams['goto'] = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
         $urlParams['back'] = Url::getFromRoute('/sql');
         $urlParams['sql_query'] = $sqlQuery;
         $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
@@ -158,12 +159,12 @@ final class GisVisualizationController implements InvocableController
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
             'useBaseLayer' => $useBaseLayer,
             'visualization' => $visualization->asSVG(),
-            'draw_ol' => $visualization->asOl(),
+            'open_layers_data' => $visualization->asOl(),
         ]);
 
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -192,38 +193,34 @@ final class GisVisualizationController implements InvocableController
     /**
      * @param string[] $spatialCandidates
      * @param string[] $labelCandidates
-     * @psalm-param non-empty-list<non-empty-string> $spatialCandidates
-     * @psalm-param list<non-empty-string> $labelCandidates
-     *
-     * @return mixed[];
-     * @psalm-return array{spatialColumn:non-empty-string,labelColumn?:non-empty-string}
+     * @psalm-param non-empty-list<string> $spatialCandidates
+     * @psalm-param list<string> $labelCandidates
      */
-    private function getVisualizationSettings(array $spatialCandidates, array $labelCandidates): array
-    {
-        $settingsIn = [];
-        // Download as PNG/SVG/PDF use _GET and the normal form uses _POST
-        if (is_array($_POST['visualizationSettings'] ?? null)) {
-            /** @var mixed[] $settingsIn */
-            $settingsIn = $_POST['visualizationSettings'];
-        } elseif (is_array($_GET['visualizationSettings'] ?? null)) {
-            /** @var mixed[] $settingsIn */
-            $settingsIn = $_GET['visualizationSettings'];
+    private function getVisualizationSettings(
+        array $spatialCandidates,
+        array $labelCandidates,
+        mixed $settingsIn,
+    ): GisVisualizationSettings {
+        if (! is_array($settingsIn)) {
+            return new GisVisualizationSettings(600, 450, $spatialCandidates[0]);
         }
 
-        $settings = [];
+        $labelColumn = null;
         if (
             isset($settingsIn['labelColumn']) &&
             in_array($settingsIn['labelColumn'], $labelCandidates, true)
         ) {
-            $settings['labelColumn'] = $settingsIn['labelColumn'];
+            $labelColumn = $settingsIn['labelColumn'];
         }
 
         // If spatial column is not set, use first geometric column as spatial column
-        $spatialColumnValid = isset($settingsIn['spatialColumn']) &&
-            in_array($settingsIn['spatialColumn'], $spatialCandidates, true);
-        $settings['spatialColumn'] = $spatialColumnValid ? $settingsIn['spatialColumn'] : $spatialCandidates[0];
+        $spatialColumn = $spatialCandidates[array_search(
+            $settingsIn['spatialColumn'] ?? null,
+            $spatialCandidates,
+            true,
+        )];
 
-        return $settings;
+        return new GisVisualizationSettings(600, 450, $spatialColumn, $labelColumn);
     }
 
     private function getPos(): int

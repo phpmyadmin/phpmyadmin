@@ -15,7 +15,9 @@ use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Header;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
@@ -46,25 +48,25 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
      */
     public function __construct()
     {
-        $this->isSuccess = true;
-        $this->isAjax = false;
-        $this->isDisabled = false;
-
-        $GLOBALS['lang'] = 'en';
-        $this->template = new Template();
-        $this->config = Config::getInstance();
-        $this->config->selectedServer['pmadb'] = 'phpmyadmin';
+        Current::$lang = 'en';
+        $config = Config::getInstance();
+        $config->selectedServer['pmadb'] = 'phpmyadmin';
+        $template = new Template($config);
         $dummyDbi = new DbiDummy();
         $dummyDbi->addSelectDb('phpmyadmin');
-        $dbi = new DatabaseInterface($dummyDbi);
+        $dbi = DatabaseInterface::getInstanceForTest($dummyDbi, $config);
         $relation = new Relation($dbi);
-        $this->header = new Header(
-            $this->template,
-            new Console($relation, $this->template, new BookmarkRepository($dbi, $relation)),
-            $this->config,
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+
+        parent::__construct(
+            $config,
+            $template,
+            new Header($template, $console, $config),
+            new Footer($template, $config),
+            ErrorHandler::getInstance(),
+            $dbi,
+            ResponseFactory::create(),
         );
-        $this->footer = new Footer($this->template, $this->config);
-        $this->response = ResponseFactory::create()->createResponse();
     }
 
     /**
@@ -170,11 +172,6 @@ class ResponseRenderer extends \PhpMyAdmin\ResponseRenderer
     public function isAjax(): bool
     {
         return $this->isAjax;
-    }
-
-    public function isDisabled(): bool
-    {
-        return $this->isDisabled;
     }
 
     public function getResponse(): Response

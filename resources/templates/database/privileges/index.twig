@@ -73,7 +73,7 @@
                         <a class="edit_user_anchor" href="{{ url('/server/privileges', {
                           'username': privilege.user,
                           'hostname': privilege.host,
-                          'dbname': priv.database != '*' ? priv.database,
+                          'dbname': priv.database != '*' ? priv.database : db,
                           'tablename': '',
                           'routinename': priv.routine ?? ''
                         }) }}">
@@ -108,7 +108,7 @@
         </div>
 
         <div>
-          {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+          {{ get_image('select_all_arrow', t('With selected:'), {'dir': pma.text_dir, 'width': '38', 'height': '22'}) }}
           <input type="checkbox" id="usersForm_checkall" class="checkall_box" title="{{ t('Check all') }}">
           <label for="usersForm_checkall">{{ t('Check all') }}</label>
           <em class="with-selected">{{ t('With selected:') }}</em>

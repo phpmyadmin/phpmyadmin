@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { addDatepicker, getSqlEditor, slidingMessage } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
@@ -160,7 +160,7 @@ const DatabaseRoutines = {
              *           to the Export textarea.
              */
             var $elm = $ajaxDialog.find('textarea');
-            Functions.getSqlEditor($elm);
+            getSqlEditor($elm);
         } // end showExport()
     },  // end exportDialog()
     editorDialog: function (isNew, $this) {
@@ -235,7 +235,7 @@ const DatabaseRoutines = {
 
                     // Item created successfully
                     ajaxRemoveMessage($msg);
-                    Functions.slidingMessage(data.message);
+                    slidingMessage(data.message);
                     that.$ajaxDialog.dialog('close');
 
                     var tableId = '#' + data.tableType + 'Table';
@@ -366,11 +366,11 @@ const DatabaseRoutines = {
 
                     $(this).find('input[name=item_name]').trigger('focus');
                     $(this).find('input.datefield').each(function () {
-                        Functions.addDatepicker($(this).css('width', '95%'), 'date');
+                        addDatepicker($(this).css('width', '95%'), 'date');
                     });
 
                     $(this).find('input.datetimefield').each(function () {
-                        Functions.addDatepicker($(this).css('width', '95%'), 'datetime');
+                        addDatepicker($(this).css('width', '95%'), 'datetime');
                     });
 
                     // @ts-ignore
@@ -397,9 +397,9 @@ const DatabaseRoutines = {
              */
             var $elm = $('textarea[name=item_definition]').last();
             var linterOptions = {
-                routineEditor: true,
+                editorType: 'routine',
             };
-            that.syntaxHiglighter = Functions.getSqlEditor($elm, {}, 'vertical', linterOptions);
+            that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
             window.codeMirrorEditor = that.syntaxHiglighter;
             // Execute item-specific code
             that.postDialogShow(data);
@@ -475,7 +475,7 @@ const DatabaseRoutines = {
                 // Get rid of the "Loading" message
                 ajaxRemoveMessage($msg);
                 // Show the query that we just executed
-                Functions.slidingMessage(data.sql_query);
+                slidingMessage(data.sql_query);
                 Navigation.reload();
             }); // end $.post()
         });
@@ -847,7 +847,7 @@ const DatabaseRoutines = {
             // we just show the results of the query
             if (! data.dialog) {
                 // Routine executed successfully
-                Functions.slidingMessage(data.message);
+                slidingMessage(data.message);
 
                 return;
             }
@@ -878,7 +878,7 @@ const DatabaseRoutines = {
                     if (data.success === true) {
                         // Routine executed successfully
                         ajaxRemoveMessage($msg);
-                        Functions.slidingMessage(data.message);
+                        slidingMessage(data.message);
                         $ajaxDialog.dialog('close');
                     } else {
                         ajaxShowMessage(data.error, false);
@@ -912,7 +912,7 @@ const DatabaseRoutines = {
              * Attach the datepickers to the relevant form fields
              */
             $ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
-                Functions.addDatepicker($(this).css('width', '95%'));
+                addDatepicker($(this).css('width', '95%'));
             });
 
             /*
@@ -942,7 +942,7 @@ const DatabaseRoutines = {
 
                     // Routine executed successfully
                     ajaxRemoveMessage($msg);
-                    Functions.slidingMessage(data.message);
+                    slidingMessage(data.message);
                     $('form.rte_form').off('keyup');
                     $ajaxDialog.remove();
                 });

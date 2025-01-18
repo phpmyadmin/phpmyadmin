@@ -64,8 +64,8 @@ class Url
             $params['server'] = Current::$server;
         }
 
-        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
-            $params['lang'] = $GLOBALS['lang'];
+        if (empty($config->getCookie('pma_lang')) && Current::$lang !== '') {
+            $params['lang'] = Current::$lang;
         }
 
         if (! is_array($skip)) {
@@ -215,14 +215,14 @@ class Url
             Current::$server > 0
             && Current::$server !== $config->settings['ServerDefault']
             && ! isset($params['server'])
-            && ! $config->get('is_setup')
+            && ! $config->isSetup()
         ) {
             $params['server'] = Current::$server;
         }
 
         // Can be null when the user is missing an extension.
-        if (empty($config->getCookie('pma_lang')) && ! empty($GLOBALS['lang'])) {
-            $params['lang'] = $GLOBALS['lang'];
+        if (empty($config->getCookie('pma_lang')) && Current::$lang !== '') {
+            $params['lang'] = Current::$lang;
         }
 
         $query = self::buildHttpQuery($params, $encrypt);
@@ -339,8 +339,8 @@ class Url
      * @param string  $route                Route to use
      * @param mixed[] $additionalParameters Additional URL parameters
      */
-    public static function getFromRoute(string $route, array $additionalParameters = []): string
+    public static function getFromRoute(string $route, array $additionalParameters = [], bool $encrypt = true): string
     {
-        return 'index.php?route=' . $route . self::getCommon($additionalParameters, self::getArgSeparator());
+        return 'index.php?route=' . $route . self::getCommon($additionalParameters, self::getArgSeparator(), $encrypt);
     }
 }

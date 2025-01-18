@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\IndexRenameController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
@@ -25,7 +25,7 @@ class IndexRenameControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table_index_rename';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');

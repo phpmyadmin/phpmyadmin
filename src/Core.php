@@ -79,8 +79,8 @@ class Core
         $phpDocLanguages = ['pt_BR', 'zh_CN', 'fr', 'de', 'ja', 'ru', 'es', 'tr'];
 
         $lang = 'en';
-        if (isset($GLOBALS['lang']) && in_array($GLOBALS['lang'], $phpDocLanguages, true)) {
-            $lang = $GLOBALS['lang'] === 'zh_CN' ? 'zh' : $GLOBALS['lang'];
+        if (in_array(Current::$lang, $phpDocLanguages, true)) {
+            $lang = Current::$lang === 'zh_CN' ? 'zh' : Current::$lang;
         }
 
         return self::linkURL('https://www.php.net/manual/' . $lang . '/' . $target);
@@ -143,7 +143,7 @@ class Core
             'k' => 1024,
         ];
 
-        if (preg_match('/^([0-9]+)([KMGT])/i', (string) $size, $matches)) {
+        if (preg_match('/^([0-9]+)([KMGT])/i', (string) $size, $matches) === 1) {
             return (int) ($matches[1] * $binaryprefixes[$matches[2]]);
         }
 
@@ -396,7 +396,7 @@ class Core
      */
     public static function linkURL(string $url): string
     {
-        if (! preg_match('#^https?://#', $url)) {
+        if (preg_match('#^https?://#', $url) !== 1) {
             return $url;
         }
 
@@ -414,7 +414,7 @@ class Core
         parse_str($arr['query'] ?? '', $vars);
         $query = http_build_query(['url' => $vars['url']]);
 
-        if (Config::getInstance()->get('is_setup')) {
+        if (Config::getInstance()->isSetup()) {
             return '../index.php?route=/url&' . $query;
         }
 
@@ -490,7 +490,7 @@ class Core
     /**
      * Displays SQL query before executing.
      *
-     * @param mixed[]|string $queryData Array containing queries or query itself
+     * @param string[]|string $queryData Array containing queries or query itself
      */
     public static function previewSQL(array|string $queryData): void
     {

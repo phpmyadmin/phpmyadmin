@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Table;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
@@ -39,7 +39,7 @@ final class Maintenance
 
         $this->dbi->selectDb($db);
         /** @var array<int, array<string, string>> $result */
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {
@@ -67,7 +67,7 @@ final class Maintenance
 
         $this->dbi->selectDb($db);
         /** @var array<int, array<string, string>> $result */
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {
@@ -95,7 +95,7 @@ final class Maintenance
 
         $this->dbi->selectDb($db);
         /** @var array<int, array<string, string|null>> $rows */
-        $rows = $this->dbi->fetchResult($query);
+        $rows = $this->dbi->fetchResultSimple($query);
         $warnings = $this->dbi->getWarnings();
 
         return [$rows, $query, $warnings];
@@ -137,7 +137,7 @@ final class Maintenance
 
         $this->dbi->selectDb($db);
         /** @var array<int, array<string, string>> $result */
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {
@@ -165,7 +165,7 @@ final class Maintenance
 
         $this->dbi->selectDb($db);
         /** @var array<int, array<string, string>> $result */
-        $result = $this->dbi->fetchResult($query);
+        $result = $this->dbi->fetchResultSimple($query);
 
         $rows = [];
         foreach ($result as $row) {

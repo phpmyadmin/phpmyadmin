@@ -6,13 +6,12 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function array_key_exists;
@@ -31,15 +30,13 @@ final class BinlogController implements InvocableController
 
     public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
     {
-        $this->binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
+        $this->binaryLogs = $this->dbi->fetchResult('SHOW BINARY LOGS', 'Log_name');
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $log = $request->getParsedBodyParam('log');
-        $position = (int) $request->getParsedBodyParam('pos', 0);
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
+        $log = $request->getParsedBodyParamAsString('log');
+        $position = (int) $request->getParsedBodyParamAsString('pos', '');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -57,7 +54,7 @@ final class BinlogController implements InvocableController
         }
 
         $config = Config::getInstance();
-        $sqlQuery = $this->getSqlQuery($log ?? '', $position, $config->settings['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log, $position, $config->settings['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();
@@ -98,7 +95,7 @@ final class BinlogController implements InvocableController
             'is_full_query' => $isFullQuery,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

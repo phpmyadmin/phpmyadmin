@@ -6,8 +6,9 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportCsv;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -42,10 +43,8 @@ class ExportCsvTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = '';
-        $GLOBALS['csv_enclosed'] = null;
-        $GLOBALS['csv_separator'] = null;
-        $GLOBALS['save_filename'] = null;
+        Current::$lang = '';
+        Export::$saveFilename = '';
 
         $this->object = new ExportCsv(
             new Relation($dbi),
@@ -233,177 +232,63 @@ class ExportCsvTest extends AbstractTestCase
     public function testExportHeader(): void
     {
         // case 1
-
-        $GLOBALS['what'] = 'excel';
-        $GLOBALS['excel_edition'] = 'win';
-        $GLOBALS['excel_columns'] = true;
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
-
-        self::assertSame(';', $GLOBALS['csv_separator']);
-
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
-
-        self::assertSame('"', $GLOBALS['csv_escaped']);
-
-        self::assertTrue($GLOBALS['csv_columns']);
-
-        // case 2
-
-        $GLOBALS['excel_edition'] = 'mac_excel2003';
-        unset($GLOBALS['excel_columns']);
-        $GLOBALS['csv_columns'] = false;
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
-
-        self::assertSame(';', $GLOBALS['csv_separator']);
-
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
-
-        self::assertSame('"', $GLOBALS['csv_escaped']);
-
-        self::assertFalse($GLOBALS['csv_columns']);
-
-        // case 3
-
-        $GLOBALS['excel_edition'] = 'mac_excel2008';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame("\015\012", $GLOBALS['csv_terminated']);
-
-        self::assertSame(',', $GLOBALS['csv_separator']);
-
-        self::assertSame('"', $GLOBALS['csv_enclosed']);
-
-        self::assertSame('"', $GLOBALS['csv_escaped']);
-
-        self::assertFalse($GLOBALS['csv_columns']);
-
-        // case 4
-
-        $GLOBALS['excel_edition'] = 'testBlank';
-        $GLOBALS['csv_separator'] = '#';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame('#', $GLOBALS['csv_separator']);
-
-        // case 5
-
-        $GLOBALS['what'] = 'notExcel';
-        $GLOBALS['csv_terminated'] = '';
-        $GLOBALS['csv_separator'] = 'a\\t';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame($GLOBALS['csv_terminated'], "\n");
-
-        self::assertSame($GLOBALS['csv_separator'], "a\011");
-        // case 6
-
-        $GLOBALS['csv_terminated'] = 'AUTO';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame($GLOBALS['csv_terminated'], "\n");
-
-        // case 7
-
-        $GLOBALS['csv_terminated'] = 'a\\rb\\nc\\t';
-        $GLOBALS['csv_separator'] = 'a\\t';
-
-        self::assertTrue(
-            $this->object->exportHeader(),
-        );
-
-        self::assertSame($GLOBALS['csv_terminated'], "a\015b\012c\011");
-
-        self::assertSame($GLOBALS['csv_separator'], "a\011");
+        self::assertTrue($this->object->exportHeader());
     }
 
     public function testExportFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportFooter(),
-        );
+        self::assertTrue($this->object->exportFooter());
     }
 
     public function testExportDBHeader(): void
     {
-        self::assertTrue(
-            $this->object->exportDBHeader('testDB'),
-        );
+        self::assertTrue($this->object->exportDBHeader('testDB'));
     }
 
     public function testExportDBFooter(): void
     {
-        self::assertTrue(
-            $this->object->exportDBFooter('testDB'),
-        );
+        self::assertTrue($this->object->exportDBFooter('testDB'));
     }
 
     public function testExportDBCreate(): void
     {
-        self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB'));
     }
 
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['csv_columns'] = true;
-        $GLOBALS['csv_terminated'] = ';';
-
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = true;
-        $GLOBALS['file_handle'] = null;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = true;
+        Export::$fileHandle = null;
 
         ob_start();
         self::assertFalse($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         ob_get_clean();
 
         // case 2
-        $GLOBALS['what'] = 'UT';
-        $GLOBALS['UT_null'] = 'customNull';
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['csv_enclosed'] = '';
-        $GLOBALS['csv_separator'] = '';
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['csv_terminated' => ';', 'csv_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -414,14 +299,15 @@ class ExportCsvTest extends AbstractTestCase
         );
 
         // case 3
-        $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['csv_escaped'] = '';
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['csv_enclosed' => '"', 'csv_terminated' => ';', 'csv_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -433,16 +319,10 @@ class ExportCsvTest extends AbstractTestCase
         );
 
         // case 4
-        $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['what'] = 'excel';
-        $GLOBALS['excel_removeCRLF'] = true;
-        $GLOBALS['csv_escaped'] = '"';
-
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -454,15 +334,10 @@ class ExportCsvTest extends AbstractTestCase
         );
 
         // case 5
-        $GLOBALS['csv_enclosed'] = '"';
-        unset($GLOBALS['excel_removeCRLF']);
-        $GLOBALS['csv_escaped'] = ';';
-
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -474,14 +349,10 @@ class ExportCsvTest extends AbstractTestCase
         );
 
         // case 6
-        $GLOBALS['csv_enclosed'] = '"';
-        $GLOBALS['csv_escaped'] = '#';
-
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();

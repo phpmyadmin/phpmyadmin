@@ -9,8 +9,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportHtmlword;
@@ -61,14 +62,14 @@ class ExportHtmlwordTest extends AbstractTestCase
             new Export($this->dbi),
             new Transformations(),
         );
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = '';
+        Current::$lang = '';
         Config::getInstance()->selectedServer['DisableIS'] = true;
     }
 
@@ -231,7 +232,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         // case 2
 
-        $GLOBALS['charset'] = 'ISO-8859-1';
+        Current::$charset = 'ISO-8859-1';
         ob_start();
         $this->object->exportHeader();
         $result = ob_get_clean();
@@ -284,27 +285,28 @@ class ExportHtmlwordTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
     public function testExportData(): void
     {
         // case 1
-        $GLOBALS['htmlword_columns'] = true;
-        $GLOBALS['what'] = 'UT';
-        $GLOBALS['UT_null'] = 'customNull';
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['htmlword_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -436,7 +438,12 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', true, true, true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On', 'htmlword_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('database', '');
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .
@@ -502,7 +509,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', true, true, true);
+        $result = $this->object->getTableDef('database', '');
 
         self::assertStringContainsString('<td class="print">ftable (ffield)</td>', $result);
 
@@ -538,7 +545,12 @@ class ExportHtmlwordTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('database', '', false, false, false);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['htmlword_relation' => 'On', 'htmlword_mime' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('database', '');
 
         self::assertSame(
             '<table width="100%" cellspacing="1">' .
@@ -579,14 +591,7 @@ class ExportHtmlwordTest extends AbstractTestCase
     {
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_table',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -605,14 +610,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'triggers',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
         $result = ob_get_clean();
 
         self::assertSame(
@@ -627,14 +625,7 @@ class ExportHtmlwordTest extends AbstractTestCase
 
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -653,14 +644,7 @@ class ExportHtmlwordTest extends AbstractTestCase
         );
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'stand_in',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
         $result = ob_get_clean();
 
         self::assertSame(

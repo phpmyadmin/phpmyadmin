@@ -54,11 +54,6 @@ class ThemeManagerTest extends AbstractTestCase
         $tm->initializeTheme();
         $themes = $tm->getThemesArray();
         self::assertArrayHasKey(0, $themes);
-        self::assertIsArray($themes[0]);
-        self::assertArrayHasKey('id', $themes[0]);
-        self::assertArrayHasKey('name', $themes[0]);
-        self::assertArrayHasKey('version', $themes[0]);
-        self::assertArrayHasKey('is_active', $themes[0]);
     }
 
     /**
@@ -67,8 +62,8 @@ class ThemeManagerTest extends AbstractTestCase
     public function testSetThemeCookie(): void
     {
         $tm = new ThemeManager();
-        self::assertTrue(
-            $tm->setThemeCookie(),
-        );
+        $tm->theme->id = 'theme_id';
+        $tm->setThemeCookie();
+        self::assertNotSame('', $tm->getThemeCookie());
     }
 }

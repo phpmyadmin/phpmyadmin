@@ -8,13 +8,12 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Status;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Status\Data;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
 
 use function __;
 use function array_keys;
@@ -38,10 +37,8 @@ final class QueriesController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
@@ -102,6 +99,6 @@ final class QueriesController extends AbstractController implements InvocableCon
             'chart_data' => $chartData,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

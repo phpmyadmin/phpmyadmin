@@ -47,10 +47,6 @@ use const ENT_COMPAT;
  */
 class Message implements Stringable
 {
-    public const SUCCESS = 1; // 0001
-    public const NOTICE = 2; // 0010
-    public const ERROR = 8; // 1000
-
     /**
      * The locale string identifier
      */
@@ -92,14 +88,11 @@ class Message implements Stringable
 
     /**
      * @param string  $string The message to be displayed
-     * @param int     $type   A numeric representation of the type of message
-     * @param mixed[] $params An array of parameters to use in the message
-     *                        constant definitions above
-     * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
+     * @param mixed[] $params An array of parameters to use in the message constant definitions above
      */
     public function __construct(
         string $string = '',
-        private int $type = self::NOTICE,
+        private MessageType $type = MessageType::Notice,
         array $params = [],
     ) {
         $this->setString($string);
@@ -129,7 +122,7 @@ class Message implements Stringable
             $string = __('Your SQL query has been executed successfully.');
         }
 
-        return new Message($string, self::SUCCESS);
+        return new Message($string, MessageType::Success);
     }
 
     /**
@@ -145,7 +138,7 @@ class Message implements Stringable
             $string = __('Error');
         }
 
-        return new Message($string, self::ERROR);
+        return new Message($string, MessageType::Error);
     }
 
     /**
@@ -160,7 +153,7 @@ class Message implements Stringable
      */
     public static function notice(string $string): self
     {
-        return new Message($string, self::NOTICE);
+        return new Message($string, MessageType::Notice);
     }
 
     /**
@@ -169,10 +162,8 @@ class Message implements Stringable
      * shorthand for getting a customized message
      *
      * @param string $message A localized string
-     * @param int    $type    A numeric representation of the type of message
-     * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
      */
-    public static function raw(string $message, int $type = self::NOTICE): self
+    public static function raw(string $message, MessageType $type = MessageType::Notice): self
     {
         $r = new Message('', $type);
         $r->setMessage($message);
@@ -241,7 +232,7 @@ class Message implements Stringable
      */
     public static function rawError(string $message): self
     {
-        return self::raw($message, self::ERROR);
+        return self::raw($message, MessageType::Error);
     }
 
     /**
@@ -265,22 +256,22 @@ class Message implements Stringable
      */
     public static function rawSuccess(string $message): self
     {
-        return self::raw($message, self::SUCCESS);
+        return self::raw($message, MessageType::Success);
     }
 
     public function isSuccess(): bool
     {
-        return $this->type === self::SUCCESS;
+        return $this->type === MessageType::Success;
     }
 
     public function isNotice(): bool
     {
-        return $this->type === self::NOTICE;
+        return $this->type === MessageType::Notice;
     }
 
     public function isError(): bool
     {
-        return $this->type === self::ERROR;
+        return $this->type === MessageType::Error;
     }
 
     /**
@@ -313,13 +304,7 @@ class Message implements Stringable
         $this->string = $string;
     }
 
-    /**
-     * set message type type
-     *
-     * @param int $type message type type to set
-     * @psalm-param self::SUCCESS|self::NOTICE|self::ERROR $type
-     */
-    public function setType(int $type): void
+    public function setType(MessageType $type): void
     {
         $this->type = $type;
     }
@@ -470,7 +455,7 @@ class Message implements Stringable
     public function getHash(): string
     {
         if ($this->hash === null) {
-            $this->hash = md5($this->type . $this->string . $this->message);
+            $this->hash = md5($this->type->getNumericalValue() . $this->string . $this->message);
         }
 
         return $this->hash;
@@ -527,26 +512,17 @@ class Message implements Stringable
         return $this->string;
     }
 
-    /**
-     * returns level of message
-     *
-     * @return string level of message
-     */
-    public function getLevel(): string
+    protected function getLevel(): MessageType
     {
-        return match ($this->type) {
-            self::SUCCESS => 'success',
-            self::NOTICE => 'notice',
-            self::ERROR => 'error'
-        };
+        return $this->type;
     }
 
     public function getContext(): string
     {
         return match ($this->getLevel()) {
-            'error' => 'danger',
-            'success' => 'success',
-            default => 'primary',
+            MessageType::Error => 'danger',
+            MessageType::Success => 'success',
+            MessageType::Notice => 'primary',
         };
     }
 
@@ -559,11 +535,9 @@ class Message implements Stringable
     {
         $this->isDisplayed(true);
 
-        $context = $this->getContext();
-
         $template = new Template();
 
-        return $template->render('message', ['context' => $context, 'message' => $this->getMessage()]);
+        return $template->render('message', ['context' => $this->getContext(), 'message' => $this->getMessage()]);
     }
 
     /**
@@ -592,9 +566,9 @@ class Message implements Stringable
     public function getMessageWithIcon(string $message): string
     {
         $image = match ($this->getLevel()) {
-            'error' => 's_error',
-            'success' => 's_success',
-            default =>'s_notice',
+            MessageType::Error => 's_error',
+            MessageType::Success => 's_success',
+            MessageType::Notice =>'s_notice',
         };
 
         return self::notice(Html\Generator::getImage($image)) . ' ' . $message;

@@ -10,13 +10,14 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
-use PhpMyAdmin\Tracking\LogTypeEnum;
+use PhpMyAdmin\Tracking\LogType;
 use PhpMyAdmin\Tracking\TrackedData;
+use PhpMyAdmin\Tracking\TrackedDataType;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Tracking\TrackingChecker;
 use PhpMyAdmin\Url;
@@ -51,7 +52,7 @@ class TrackingTest extends AbstractTestCase
 
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['tracking_default_statements'] = 'DELETE';
@@ -99,7 +100,7 @@ class TrackingTest extends AbstractTestCase
 
     public function testGetHtmlForMain(): void
     {
-        $html = $this->tracking->getHtmlForMainPage('PMA_db', 'PMA_table', [], 'ltr');
+        $html = $this->tracking->getHtmlForMainPage('PMA_db', 'PMA_table', []);
 
         self::assertStringContainsString('PMA_db.PMA_table', $html);
         self::assertStringContainsString('<td>date_created</td>', $html);
@@ -119,7 +120,7 @@ class TrackingTest extends AbstractTestCase
         );
         self::assertStringContainsString(
             '<input type="checkbox" name="delete" value="true"'
-                . ' checked="checked">' . "\n" . '            DELETE<br>',
+                . ' checked>' . "\n" . '            DELETE<br>',
             $html,
         );
         self::assertStringContainsString(__('Create version'), $html);
@@ -260,7 +261,7 @@ class TrackingTest extends AbstractTestCase
         $html = $this->tracking->getHtmlForTrackingReport(
             $data,
             $urlParams,
-            'schema_and_data',
+            LogType::SchemaAndData,
             $filterUsers,
             '10',
             new DateTimeImmutable('2022-11-03 22:15:24'),
@@ -536,7 +537,7 @@ class TrackingTest extends AbstractTestCase
         $entries = $this->tracking->getEntries(
             $data,
             $filterUsers,
-            'schema',
+            LogType::Schema,
             new DateTimeImmutable('2010-01-01 12:34:56'),
             new DateTimeImmutable('2020-01-01 12:34:56'),
         );
@@ -649,7 +650,7 @@ class TrackingTest extends AbstractTestCase
                 'pma_db',
                 'pma_table',
                 '1.0',
-                LogTypeEnum::DML,
+                TrackedDataType::DML,
                 $newData,
             ),
         );

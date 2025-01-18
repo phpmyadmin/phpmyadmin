@@ -8,8 +8,8 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
@@ -31,6 +31,7 @@ use function implode;
 use function in_array;
 use function is_array;
 use function is_bool;
+use function is_string;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
@@ -100,7 +101,7 @@ class CentralColumns
      * @param int    $from starting offset of first result
      * @param int    $num  maximum number of results to return
      *
-     * @return mixed[] list of $num columns present in central columns list
+     * @return list<array<string|null>> list of $num columns present in central columns list
      * starting at offset $from for the given database
      */
     public function getColumnsList(string $db, int $from = 0, int $num = 25): array
@@ -122,10 +123,9 @@ class CentralColumns
                 . 'LIMIT ' . $from . ', ' . $num . ';';
         }
 
-        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        $this->handleColumnExtra($hasList);
+        $hasList = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
-        return $hasList;
+        return $this->handleColumnExtra($hasList);
     }
 
     /**
@@ -147,12 +147,8 @@ class CentralColumns
         $query = 'SELECT count(db_name) FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' '
             . 'WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ';';
-        $res = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        if (isset($res[0])) {
-            return (int) $res[0];
-        }
 
-        return 0;
+        return (int) $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
     }
 
     /**
@@ -180,7 +176,7 @@ class CentralColumns
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
 
-        return $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        return $this->dbi->fetchSingleColumn($query, ConnectionType::ControlUser);
     }
 
     /**
@@ -207,10 +203,9 @@ class CentralColumns
         $query = 'SELECT * FROM '
             . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable) . ' WHERE db_name = '
             . $this->dbi->quoteString($db, ConnectionType::ControlUser) . ' AND col_name IN (' . $cols . ');';
-        $hasList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        $this->handleColumnExtra($hasList);
+        $hasList = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
-        return $hasList;
+        return $this->handleColumnExtra($hasList);
     }
 
     /**
@@ -260,15 +255,13 @@ class CentralColumns
      * @param string[] $fieldSelect     if $isTable is true selected tables list otherwise selected columns list
      * @param bool     $isTable         if passed array is of tables or columns
      * @param string   $containingTable if $isTable is false, then table name to which columns belong
-     *
-     * @return true|Message
      */
     public function syncUniqueColumns(
         DatabaseName $databaseName,
         array $fieldSelect,
         bool $isTable = true,
         string $containingTable = '',
-    ): bool|Message {
+    ): true|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return $this->getStorageNotReadyMessage();
@@ -360,14 +353,12 @@ class CentralColumns
      * @param string[] $fieldSelect if $isTable selected list of tables otherwise
      *                            selected list of columns to remove from central list
      * @param bool     $isTable     if passed array is of tables or columns
-     *
-     * @return true|Message
      */
     public function deleteColumnsFromList(
         string $database,
         array $fieldSelect,
         bool $isTable = true,
-    ): bool|Message {
+    ): true|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return $this->getStorageNotReadyMessage();
@@ -441,13 +432,11 @@ class CentralColumns
      *
      * @param string   $db             current database
      * @param string[] $selectedTables list of selected tables.
-     *
-     * @return true|Message
      */
     public function makeConsistentWithList(
         string $db,
         array $selectedTables,
-    ): bool|Message {
+    ): true|Message {
         $message = true;
         $this->dbi->selectDb($db);
         foreach ($selectedTables as $table) {
@@ -519,8 +508,6 @@ class CentralColumns
      * @param string $collation    new column collation
      * @param string $colExtra     new column extra property
      * @param string $colDefault   new column default value
-     *
-     * @return true|Message
      */
     public function updateOneColumn(
         string $db,
@@ -533,7 +520,7 @@ class CentralColumns
         string $collation,
         string $colExtra,
         string $colDefault,
-    ): bool|Message {
+    ): true|Message {
         $cfgCentralColumns = $this->getParams();
         if (! is_array($cfgCentralColumns)) {
             return $this->getStorageNotReadyMessage();
@@ -579,10 +566,8 @@ class CentralColumns
      * Update Multiple column in central columns list if a change is requested
      *
      * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
      */
-    public function updateMultipleColumn(array $params): bool|Message
+    public function updateMultipleColumn(array $params): true|Message
     {
         $columnDefault = $params['field_default_type'];
         $columnIsNull = [];
@@ -677,7 +662,7 @@ class CentralColumns
      * @param string $db    selected database
      * @param string $table current table name
      *
-     * @return mixed[] encoded list of columns present in central list for the given database
+     * @return list<array<string|null>> encoded list of columns present in central list for the given database
      */
     public function getListRaw(string $db, string $table): array
     {
@@ -702,19 +687,20 @@ class CentralColumns
             $query .= ';';
         }
 
-        $columnsList = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
-        $this->handleColumnExtra($columnsList);
+        $columnsList = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
-        return $columnsList;
+        return $this->handleColumnExtra($columnsList);
     }
 
     /**
      * Column `col_extra` is used to store both extra and attributes for a column.
      * This method separates them.
      *
-     * @param mixed[] $columnsList columns list
+     * @param list<array<string|null>> $columnsList columns list
+     *
+     * @return list<array<string|null>>
      */
-    private function handleColumnExtra(array &$columnsList): void
+    private function handleColumnExtra(array $columnsList): array
     {
         foreach ($columnsList as &$row) {
             $vals = explode(',', $row['col_extra']);
@@ -733,6 +719,8 @@ class CentralColumns
 
             $row['col_extra'] = in_array('auto_increment', $vals, true) ? 'auto_increment' : '';
         }
+
+        return $columnsList;
     }
 
     /**
@@ -781,10 +769,10 @@ class CentralColumns
         $query = 'SELECT COUNT(db_name) FROM ' . Util::backquote($pmadb) . '.' . Util::backquote($centralListTable)
             . ' WHERE db_name = ' . $this->dbi->quoteString($db, ConnectionType::ControlUser)
             . ($num === 0 ? '' : 'LIMIT ' . $from . ', ' . $num) . ';';
-        $result = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $result = $this->dbi->fetchValue($query, 0, ConnectionType::ControlUser);
 
-        if (isset($result[0])) {
-            return (int) $result[0];
+        if (is_string($result)) {
+            return (int) $result;
         }
 
         return -1;
@@ -806,16 +794,11 @@ class CentralColumns
      * @param string $db        current database
      * @param int    $totalRows number of rows in central columns
      * @param int    $pos       offset of first result with complete result set
-     * @param string $textDir   table footer arrow direction
      *
-     * @return mixed[]
+     * @return array<string, mixed>
      */
-    public function getTemplateVariablesForMain(
-        string $db,
-        int $totalRows,
-        int $pos,
-        string $textDir,
-    ): array {
+    public function getTemplateVariablesForMain(string $db, int $totalRows, int $pos): array
+    {
         $maxRows = $this->maxRows;
         $attributeTypes = $this->dbi->types->getAttributes();
 
@@ -894,7 +877,6 @@ class CentralColumns
             'rows_meta' => $rowsMeta,
             'default_values' => $defaultValues,
             'types_upper' => $typesUpper,
-            'text_dir' => $textDir,
             'charsets' => $charsetsList,
         ];
     }

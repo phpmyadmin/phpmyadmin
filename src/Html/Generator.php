@@ -10,16 +10,19 @@ namespace PhpMyAdmin\Html;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Profiling;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Utils\Error as ParserError;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\TypeClass;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 use Throwable;
@@ -134,7 +137,7 @@ class Generator
             $database = Current::$database;
         }
 
-        $scriptName = Util::getScriptNameForOption(Config::getInstance()->settings['DefaultTabDatabase'], 'database');
+        $scriptName = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
 
         return '<a href="'
             . $scriptName
@@ -256,12 +259,15 @@ class Generator
         // Can we get field class based values?
         $currentClass = $dbi->types->getTypeClass($trueType);
         $config = Config::getInstance();
-        if ($currentClass !== '' && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass])) {
-            $defaultFunction = $config->settings['DefaultFunctions']['FUNC_' . $currentClass];
+        if (
+            $currentClass !== TypeClass::Unknown
+            && isset($config->settings['DefaultFunctions']['FUNC_' . $currentClass->value])
+        ) {
+            $defaultFunction = $config->settings['DefaultFunctions']['FUNC_' . $currentClass->value];
             // Change the configured default function to include the ST_ prefix with MySQL 5.6 and later.
             // It needs to match the function listed in the select html element.
             if (
-                $currentClass === 'SPATIAL' &&
+                $currentClass === TypeClass::Spatial &&
                 $dbi->getVersion() >= 50600 &&
                 stripos($defaultFunction, 'ST_') !== 0
             ) {
@@ -302,11 +308,9 @@ class Generator
     /**
      * Creates a dropdown box with MySQL functions for a particular column.
      *
-     * @param mixed[] $foreignData Foreign data
-     *
      * @return string An HTML snippet of a dropdown list with function names appropriate for the requested column.
      */
-    public static function getFunctionsForField(string $defaultFunction, array $foreignData): string
+    public static function getFunctionsForField(string $defaultFunction, mixed $foreignField = null): string
     {
         // Create the output
         $retval = '<option></option>' . "\n";
@@ -315,8 +319,8 @@ class Generator
         $functions = DatabaseInterface::getInstance()->types->getAllFunctions();
         foreach ($functions as $function) {
             $retval .= '<option';
-            if ($function === $defaultFunction && ! isset($foreignData['foreign_field'])) {
-                $retval .= ' selected="selected"';
+            if ($function === $defaultFunction && $foreignField === null) {
+                $retval .= ' selected';
             }
 
             $retval .= '>' . $function . '</option>' . "\n";
@@ -391,7 +395,6 @@ class Generator
      *
      * @param Message|string $message  the message to display
      * @param string|null    $sqlQuery the query to display
-     * @param string         $type     the type (level) of the message
      *
      * @throws Throwable
      * @throws LoaderError
@@ -401,15 +404,15 @@ class Generator
     public static function getMessage(
         Message|string $message,
         string|null $sqlQuery = null,
-        string $type = 'notice',
+        MessageType $type = MessageType::Notice,
     ): string {
         $retval = '';
 
         if ($sqlQuery === null) {
-            if (! empty($GLOBALS['display_query'])) {
-                $sqlQuery = (string) $GLOBALS['display_query'];
-            } elseif (! empty($GLOBALS['sql_query'])) {
-                $sqlQuery = (string) $GLOBALS['sql_query'];
+            if (Current::$displayQuery !== null && Current::$displayQuery !== '') {
+                $sqlQuery = Current::$displayQuery;
+            } elseif (Current::$sqlQuery !== '') {
+                $sqlQuery = Current::$sqlQuery;
             } else {
                 $sqlQuery = '';
             }
@@ -418,25 +421,13 @@ class Generator
         $config = Config::getInstance();
         $renderSql = $config->settings['ShowSQL'] == true && $sqlQuery !== '' && $sqlQuery !== ';';
 
-        if (isset($GLOBALS['using_bookmark_message'])) {
-            $retval .= $GLOBALS['using_bookmark_message']->getDisplay();
-            unset($GLOBALS['using_bookmark_message']);
+        if (isset(Sql::$usingBookmarkMessage)) {
+            $retval .= Sql::$usingBookmarkMessage->getDisplay();
+            Sql::$usingBookmarkMessage = null;
         }
 
         if (is_string($message)) {
-            $context = Message::NOTICE;
-            if ($type === 'error') {
-                $context = Message::ERROR;
-            } elseif ($type === 'success') {
-                $context = Message::SUCCESS;
-            }
-
-            $message = new Message($message, $context);
-        }
-
-        if (isset($GLOBALS['special_message'])) {
-            $message->addText($GLOBALS['special_message']);
-            unset($GLOBALS['special_message']);
+            $message = new Message($message, $type);
         }
 
         if (! $renderSql) {
@@ -445,10 +436,8 @@ class Generator
 
         $retval .= '<div class="card mb-3 result_query">' . "\n";
 
-        $context = $message->getContext();
-
         $message->isDisplayed(true);
-        $retval .= '<div class="alert alert-' . $context;
+        $retval .= '<div class="alert alert-' . $message->getContext();
         $retval .= ' border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">' . "\n";
         $retval .= '  ' . $message->getMessage() . "\n";
         $retval .= '</div>' . "\n";
@@ -457,7 +446,7 @@ class Generator
         // If we want to show some sql code it is easiest to create it here
         /* SQL-Parser-Analyzer */
 
-        if (! empty($GLOBALS['show_as_php'])) {
+        if (! empty(Sql::$showAsPhp)) {
             $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
             $queryBase = htmlspecialchars(addslashes($sqlQuery));
             $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
@@ -491,7 +480,7 @@ class Generator
         /* SQL-Parser-Analyzer */
         $explainLink = '';
         $queryTooBig = mb_strlen($sqlQuery) > $config->settings['MaxCharactersInDisplayedSQL'];
-        $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery);
+        $isSelect = preg_match('@^SELECT[[:space:]]+@i', $sqlQuery) === 1;
         if (! empty($config->settings['SQLQuery']['Explain']) && ! $queryTooBig) {
             $explainParams = $urlParams;
             if ($isSelect) {
@@ -503,7 +492,7 @@ class Generator
                         __('Explain SQL'),
                         ['class' => 'btn btn-link'],
                     ) . '</div>' . "\n";
-            } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery)) {
+            } elseif (preg_match('@^EXPLAIN[[:space:]]+SELECT[[:space:]]+@i', $sqlQuery) === 1) {
                 $explainParams['sql_query'] = mb_substr($sqlQuery, 8);
                 $explainLink = '<div class="col-auto">'
                     . self::linkOrButton(
@@ -520,7 +509,7 @@ class Generator
 
         // even if the query is big and was truncated, offer the chance
         // to edit it (unless it's enormous, see linkOrButton() )
-        if (! empty($config->settings['SQLQuery']['Edit']) && empty($GLOBALS['show_as_php'])) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && empty(Sql::$showAsPhp)) {
             $editLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     Url::getFromRoute($editLinkRoute, $urlParams),
@@ -536,7 +525,7 @@ class Generator
         // Also we would like to get the SQL formed in some nice
         // php-code
         if (! empty($config->settings['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
-            if (! empty($GLOBALS['show_as_php'])) {
+            if (! empty(Sql::$showAsPhp)) {
                 $phpLink = '<div class="col-auto">'
                     . self::linkOrButton(
                         Url::getFromRoute('/import', $urlParams),
@@ -573,8 +562,8 @@ class Generator
         // Refresh query
         if (
             ! empty($config->settings['SQLQuery']['Refresh'])
-            && ! isset($GLOBALS['show_as_php']) // 'Submit query' does the same
-            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery)
+            && ! isset(Sql::$showAsPhp) // 'Submit query' does the same
+            && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery) === 1
         ) {
             $refreshLink = Url::getFromRoute('/sql', $urlParams);
             $refreshLink = '<div class="col-auto">'
@@ -621,7 +610,7 @@ class Generator
         /**
          * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
          */
-        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && empty($GLOBALS['show_as_php'])) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && empty(Sql::$showAsPhp)) {
             $inlineEditLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     '#',
@@ -690,6 +679,8 @@ class Generator
      * @param string $backUrl       URL for the "back" link (full path is not required).
      * @param bool   $exit          Whether execution should be stopped or the error message should be returned.
      *
+     * @psalm-return ($exit is true ? never : string|null)
+     *
      * @global string $table The current table.
      * @global string $db    The current database.
      */
@@ -711,8 +702,8 @@ class Generator
         }
 
         // Finding the query that failed, if not specified.
-        if ($sqlQuery === '' && ! empty($GLOBALS['sql_query'])) {
-            $sqlQuery = $GLOBALS['sql_query'];
+        if ($sqlQuery === '' && Current::$sqlQuery !== '') {
+            $sqlQuery = Current::$sqlQuery;
         }
 
         $sqlQuery = trim($sqlQuery);
@@ -861,7 +852,8 @@ class Generator
                 . '</div></div>' . "\n\n";
         }
 
-        $response->callExit($errorMessage);
+        $response->addHTML($errorMessage);
+        $response->callExit();
     }
 
     /**
@@ -941,7 +933,7 @@ class Generator
 
         if (is_string($tagParams)) {
             $tagParams = $tagParams !== '' ?
-                ['onclick' => 'return Functions.confirmLink(this, ' . json_encode($tagParams, JSON_HEX_TAG) . ')'] :
+                ['onclick' => 'return window.pmaConfirmLink(this, ' . json_encode($tagParams, JSON_HEX_TAG) . ')'] :
                 [];
         }
 
@@ -1100,7 +1092,7 @@ class Generator
                 $retval .= '<optgroup label="' . htmlspecialchars($key) . '">';
                 foreach ($value as $subvalue) {
                     if ($subvalue === '-') {
-                        $retval .= '<option disabled="disabled">';
+                        $retval .= '<option disabled>';
                         $retval .= $subvalue;
                         $retval .= '</option>';
                         continue;
@@ -1110,7 +1102,7 @@ class Generator
                     $retval .= sprintf(
                         '<option data-length-restricted="%b" %s title="%s">%s</option>',
                         $isLengthRestricted ? 0 : 1,
-                        $selected === $subvalue ? 'selected="selected"' : '',
+                        $selected === $subvalue ? 'selected' : '',
                         $dbi->types->getTypeDescription($subvalue),
                         $subvalue,
                     );
@@ -1124,7 +1116,7 @@ class Generator
             $retval .= sprintf(
                 '<option data-length-restricted="%b" %s title="%s">%s</option>',
                 $isLengthRestricted ? 0 : 1,
-                $selected === $value ? 'selected="selected"' : '',
+                $selected === $value ? 'selected' : '',
                 $dbi->types->getTypeDescription($value),
                 $value,
             );

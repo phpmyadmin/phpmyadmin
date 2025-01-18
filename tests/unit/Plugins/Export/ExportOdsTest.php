@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportOds;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -51,11 +52,11 @@ class ExportOdsTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         $this->object = new ExportOds(
             new Relation($dbi),
             new Export($dbi),
@@ -171,23 +172,24 @@ class ExportOdsTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        self::assertArrayHasKey('ods_buffer', $GLOBALS);
-
-        self::assertTrue(
-            $this->object->exportHeader(),
+        $this->object->buffer = '';
+        self::assertTrue($this->object->exportHeader());
+        self::assertStringStartsWith(
+            '<?xml version="1.0" encoding="utf-8"?><office:document-content',
+            $this->object->buffer,
         );
     }
 
     public function testExportFooter(): void
     {
-        $GLOBALS['ods_buffer'] = 'header';
+        $this->object->buffer = 'header';
         self::assertTrue($this->object->exportFooter());
         $output = $this->getActualOutputForAssertion();
         self::assertMatchesRegularExpression('/^504b.*636f6e74656e742e786d6c/', bin2hex($output));
-        self::assertStringContainsString('header', $GLOBALS['ods_buffer']);
-        self::assertStringContainsString('</office:spreadsheet>', $GLOBALS['ods_buffer']);
-        self::assertStringContainsString('</office:body>', $GLOBALS['ods_buffer']);
-        self::assertStringContainsString('</office:document-content>', $GLOBALS['ods_buffer']);
+        self::assertStringContainsString('header', $this->object->buffer);
+        self::assertStringContainsString('</office:spreadsheet>', $this->object->buffer);
+        self::assertStringContainsString('</office:body>', $this->object->buffer);
+        self::assertStringContainsString('</office:document-content>', $this->object->buffer);
     }
 
     public function testExportDBHeader(): void
@@ -207,7 +209,7 @@ class ExportOdsTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -255,16 +257,16 @@ class ExportOdsTest extends AbstractTestCase
             );
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['ods_null' => '&']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
-                'example.com',
                 'SELECT',
             ),
         );
@@ -286,7 +288,7 @@ class ExportOdsTest extends AbstractTestCase
             'office:value="a&b" ><text:p>a&amp;b</text:p></table:table-cell>' .
             '<table:table-cell office:value-type="string"><text:p>&lt;</text:p>' .
             '</table:table-cell></table:table-row></table:table>',
-            $GLOBALS['ods_buffer'],
+            $this->object->buffer,
         );
     }
 
@@ -330,17 +332,16 @@ class ExportOdsTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        $GLOBALS['foo_columns'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['ods_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
-                'example.com',
                 'SELECT',
             ),
         );
@@ -351,7 +352,7 @@ class ExportOdsTest extends AbstractTestCase
             '-cell><table:table-cell office:value-type="string"><text:p>' .
             'fnam/&lt;e2</text:p></table:table-cell></table:table-row>' .
             '</table:table>',
-            $GLOBALS['ods_buffer'],
+            $this->object->buffer,
         );
 
         // with no row count
@@ -382,24 +383,19 @@ class ExportOdsTest extends AbstractTestCase
             ->willReturn([]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_null'] = '&';
-        $GLOBALS['ods_buffer'] = '';
+        $this->object->buffer = '';
 
         self::assertTrue(
             $this->object->exportData(
                 'db',
                 'table',
-                'example.com',
                 'SELECT',
             ),
         );
 
         self::assertSame(
             '<table:table table:name="table"><table:table-row></table:table-row></table:table>',
-            $GLOBALS['ods_buffer'],
+            $this->object->buffer,
         );
     }
 }

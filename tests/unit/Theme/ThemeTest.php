@@ -10,15 +10,15 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function filemtime;
 
 use const DIRECTORY_SEPARATOR;
 use const ROOT_PATH;
-use const TEST_PATH;
 
 #[CoversClass(Theme::class)]
+#[Medium]
 class ThemeTest extends AbstractTestCase
 {
     protected Theme $object;
@@ -39,7 +39,6 @@ class ThemeTest extends AbstractTestCase
     /**
      * Test for Theme::loadInfo
      */
-    #[Group('medium')]
     public function testCheckImgPathNotExisted(): void
     {
         $this->object->setPath('path/to/nowhere');
@@ -51,7 +50,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathIncorrect(): void
     {
-        $this->object->setPath(TEST_PATH . 'tests/unit/_data/incorrect_theme');
+        $this->object->setPath(__DIR__ . '/../_data/incorrect_theme');
         self::assertFalse(
             $this->object->loadInfo(),
             'Theme name is not properly set',
@@ -63,7 +62,7 @@ class ThemeTest extends AbstractTestCase
      */
     public function testCheckImgPathFull(): void
     {
-        $this->object->setFsPath(TEST_PATH . 'tests/unit/_data/gen_version_info/');
+        $this->object->setFsPath(__DIR__ . '/../_data/gen_version_info/');
         self::assertTrue($this->object->loadInfo());
         self::assertSame('Test Theme', $this->object->getName());
         self::assertSame('6.0', $this->object->getVersion());

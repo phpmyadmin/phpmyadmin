@@ -162,12 +162,11 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      * Outputs CREATE DATABASE statement
      *
      * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
      * @param string $dbAlias    Aliases of db
      *
      * @return bool Whether it succeeded
      */
-    public function exportDBCreate($db, $exportType, $dbAlias = '')
+    public function exportDBCreate($db, $dbAlias = '')
     {
         // implementation
         return true;
@@ -178,7 +177,6 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
      *
      * @param string $db       database name
      * @param string $table    table name
-     * @param string $errorUrl the url to go back in case of error
      * @param string $sqlQuery SQL query for obtaining data
      * @param array  $aliases  Aliases of db/table/columns
      *
@@ -187,7 +185,6 @@ class Export[Name] extends PhpMyAdmin\Plugins\ExportPlugin
     public function exportData(
         $db,
         $table,
-        $errorUrl,
         $sqlQuery,
         array $aliases = []
     ) {

@@ -328,70 +328,6 @@ class Generator
         return $sql;
     }
 
-    public static function getInformationSchemaColumnsFullRequest(
-        string|null $escapedDatabase,
-        string|null $escapedTable,
-        string|null $escapedColumn,
-    ): string {
-        $sqlWheres = [];
-
-        // get columns information from information_schema
-        if ($escapedDatabase !== null) {
-            $sqlWheres[] = '`TABLE_SCHEMA` = ' . $escapedDatabase . ' ';
-        }
-
-        if ($escapedTable !== null) {
-            $sqlWheres[] = '`TABLE_NAME` = ' . $escapedTable . ' ';
-        }
-
-        if ($escapedColumn !== null) {
-            $sqlWheres[] = '`COLUMN_NAME` = ' . $escapedColumn . ' ';
-        }
-
-        // for PMA bc:
-        // `[SCHEMA_FIELD_NAME]` AS `[SHOW_FULL_COLUMNS_FIELD_NAME]`
-        $sql = 'SELECT *,'
-                    . ' `COLUMN_NAME`       AS `Field`,'
-                    . ' `COLUMN_TYPE`       AS `Type`,'
-                    . ' `COLLATION_NAME`    AS `Collation`,'
-                    . ' `IS_NULLABLE`       AS `Null`,'
-                    . ' `COLUMN_KEY`        AS `Key`,'
-                    . ' `COLUMN_DEFAULT`    AS `Default`,'
-                    . ' `EXTRA`             AS `Extra`,'
-                    . ' `PRIVILEGES`        AS `Privileges`,'
-                    . ' `COLUMN_COMMENT`    AS `Comment`'
-               . ' FROM `information_schema`.`COLUMNS`';
-
-        if ($sqlWheres !== []) {
-            $sql .= "\n" . ' WHERE ' . implode(' AND ', $sqlWheres);
-        }
-
-        return $sql;
-    }
-
-    /** @return string[] */
-    public static function getInformationSchemaColumns(
-        string|null $database,
-        string|null $table,
-        string|null $column,
-    ): array {
-        $arrayKeys = [];
-
-        if ($database === null) {
-            $arrayKeys[] = 'TABLE_SCHEMA';
-        }
-
-        if ($table === null) {
-            $arrayKeys[] = 'TABLE_NAME';
-        }
-
-        if ($column === null) {
-            $arrayKeys[] = 'COLUMN_NAME';
-        }
-
-        return $arrayKeys;
-    }
-
     /**
      * Function to get sql query for renaming the index using SQL RENAME INDEX Syntax
      */
@@ -447,12 +383,28 @@ class Generator
         return $sqlQuery . implode(', ', $partitionNames) . ';';
     }
 
-    /** @param string[] $selectedColumns */
+    /**
+     * @param string[] $selectedColumns
+     * @psalm-param 'FULLTEXT'|'INDEX'|'SPATIAL'|'UNIQUE' $indexType
+     */
     public static function getAddIndexSql(string $indexType, string $table, array $selectedColumns): string
     {
         $columnsSql = implode(', ', array_map(Util::backquote(...), $selectedColumns));
 
         return 'ALTER TABLE ' . Util::backquote($table) . ' ADD ' . $indexType . '(' . $columnsSql . ');';
+    }
+
+    public static function getAddPrimaryKeyStatement(string $table, string $column, bool $hasDropPrimaryKey): string
+    {
+        if ($hasDropPrimaryKey) {
+            return sprintf(
+                'ALTER TABLE %s DROP PRIMARY KEY, ADD PRIMARY KEY(%s);',
+                Util::backquote($table),
+                Util::backquote($column),
+            );
+        }
+
+        return sprintf('ALTER TABLE %s ADD PRIMARY KEY(%s);', Util::backquote($table), Util::backquote($column));
     }
 
     /**

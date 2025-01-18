@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { prepareForAjaxRequest, setSelectOptions } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import highlightSql from '../modules/sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
@@ -226,7 +226,7 @@ AJAX.registerOnload('database/search.js', function () {
         // jQuery object to reuse
         var $form = $(this);
 
-        Functions.prepareForAjaxRequest($form);
+        prepareForAjaxRequest($form);
 
         var url = $form.serialize() + CommonParams.get('arg_separator') + 'submit_search=' + $('#buttonGo').val();
         $.post($form.attr('action'), url, function (data) {
@@ -267,13 +267,13 @@ AJAX.registerOnload('database/search.js', function () {
     });
 
     $('#select_all').on('click', function () {
-        Functions.setSelectOptions('db_search', 'criteriaTables[]', true);
+        setSelectOptions('db_search', 'criteriaTables[]', true);
 
         return false;
     });
 
     $('#unselect_all').on('click', function () {
-        Functions.setSelectOptions('db_search', 'criteriaTables[]', false);
+        setSelectOptions('db_search', 'criteriaTables[]', false);
 
         return false;
     });

@@ -15,12 +15,16 @@
     <file>./tests</file>
     <file>./config.sample.inc.php</file>
 
+    <!-- Make sniff report relative -->
+    <arg name="basepath" value="."/>
+
     <exclude-pattern>*/app/cache/*</exclude-pattern>
     <exclude-pattern>*/app/language_stats.inc.php</exclude-pattern>
     <exclude-pattern>*/build/*</exclude-pattern>
     <exclude-pattern>*/config.inc.php</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/tests/doctum-config.php</exclude-pattern>
+    <exclude-pattern>*/revision-info.php</exclude-pattern>
     <exclude-pattern>*/tmp/*</exclude-pattern>
     <exclude-pattern>*/twig-templates/*</exclude-pattern>
     <exclude-pattern>*/vendor/*</exclude-pattern>

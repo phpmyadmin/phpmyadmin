@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
@@ -14,8 +13,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
@@ -29,30 +27,26 @@ final class DeleteConfirmController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $selected = $_POST['rows_to_delete'] ?? null;
 
         if (! isset($selected) || ! is_array($selected)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No row selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -60,12 +54,12 @@ final class DeleteConfirmController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -74,22 +68,22 @@ final class DeleteConfirmController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->render('table/delete/confirm', [
             'db' => Current::$database,
             'table' => Current::$table,
             'selected' => $selected,
-            'sql_query' => $GLOBALS['sql_query'],
+            'sql_query' => Current::$sqlQuery,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

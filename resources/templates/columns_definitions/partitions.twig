@@ -20,7 +20,7 @@
                 {% for option in partition_options %}
                     <option value="{{ option }}"
                         {%- if partition_details['partition_by'] == option %}
-                            selected="selected"
+                            selected
                         {%- endif %}>
                         {{ option }}
                     </option>
@@ -48,7 +48,7 @@
                     {% for option in sub_partition_options %}
                     <option value="{{ option }}"
                         {%- if partition_details['subpartition_by'] == option %}
-                            selected="selected"
+                            selected
                         {%- endif %}>
                         {{ option }}
                     </option>
@@ -105,7 +105,7 @@
                             {% for option in value_type_options %}
                                 <option value="{{ option }}"
                                     {%- if partition['value_type'] == option %}
-                                        selected="selected"
+                                        selected
                                     {%- endif %}>
                                     {{ option }}
                                 </option>

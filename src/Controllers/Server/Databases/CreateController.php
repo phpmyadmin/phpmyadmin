@@ -8,11 +8,12 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
@@ -30,15 +31,15 @@ final class CreateController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $newDb = $request->getParsedBodyParam('new_db');
-        $dbCollation = $request->getParsedBodyParam('db_collation');
+        $newDb = $request->getParsedBodyParamAsString('new_db');
+        $dbCollation = $request->getParsedBodyParamAsStringOrNull('db_collation');
 
-        if (! is_string($newDb) || $newDb === '' || ! $request->isAjax()) {
+        if ($newDb === '' || ! $request->isAjax()) {
             $this->response->addJSON(['message' => Message::error()]);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($this->dbi->getLowerCaseNames() === 1) {
@@ -81,11 +82,11 @@ final class CreateController implements InvocableController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($newDb);
 
-            $scriptName = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $scriptName = Url::getFromRoute($config->settings['DefaultTabDatabase']);
 
             $json = [
                 'message' => $message,
-                'sql_query' => Generator::getMessage('', $sqlQuery, 'success'),
+                'sql_query' => Generator::getMessage('', $sqlQuery, MessageType::Success),
                 'url' => $scriptName . Url::getCommon(
                     ['db' => $newDb],
                     ! str_contains($scriptName, '?') ? '?' : '&',
@@ -95,6 +96,6 @@ final class CreateController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 }

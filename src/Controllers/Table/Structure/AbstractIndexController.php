@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Generator;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Indexes;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function is_array;
@@ -23,23 +25,31 @@ abstract class AbstractIndexController
     ) {
     }
 
-    public function handleIndexCreation(ServerRequest $request, string $indexType): void
+    /** @psalm-param 'FULLTEXT'|'INDEX'|'PRIMARY'|'SPATIAL'|'UNIQUE' $indexType */
+    public function handleIndexCreation(ServerRequest $request, string $indexType): Response
     {
-        $GLOBALS['message'] ??= null;
-
         $selected = $request->getParsedBodyParam('selected_fld', []);
-
         if (! is_array($selected) || $selected === []) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return;
+            return $this->response->response();
         }
 
-        $GLOBALS['sql_query'] = Generator::getAddIndexSql($indexType, Current::$table, $selected);
+        Assert::allString($selected);
 
-        $GLOBALS['message'] = $this->indexes->executeAddIndexSql(Current::$database, $GLOBALS['sql_query']);
+        if ($indexType === 'PRIMARY') {
+            $hasPrimaryKey = $this->indexes->hasPrimaryKey(Current::$database, Current::$table);
+            $statement = Generator::getAddPrimaryKeyStatement(Current::$table, $selected[0], $hasPrimaryKey);
+        } else {
+            $statement = Generator::getAddIndexSql($indexType, Current::$table, $selected);
+        }
 
-        ($this->structureController)($request);
+        $message = $this->indexes->executeAddIndexSql(Current::$database, $statement);
+
+        Current::$sqlQuery = $statement;
+        Current::$message = $message;
+
+        return ($this->structureController)($request);
     }
 }

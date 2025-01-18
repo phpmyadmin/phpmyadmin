@@ -8,8 +8,8 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Normalization;
 use PhpMyAdmin\Template;
@@ -94,8 +94,8 @@ class NormalizationTest extends AbstractTestCase
             ->method('tryQuery')
             ->willReturn(self::createStub(DummyResult::class));
         $dbi->expects(self::any())
-            ->method('fetchResult')
-            ->willReturn([0]);
+            ->method('fetchSingleRow')
+            ->willReturn(['`id`_cnt' => 0, '`col1`_cnt' => 0, '`col2`_cnt' => 0]);
 
         $this->normalization = new Normalization($dbi, new Relation($dbi), new Transformations(), new Template());
     }

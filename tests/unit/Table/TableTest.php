@@ -7,12 +7,17 @@ namespace PhpMyAdmin\Tests\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\SqlParser\Context;
+use PhpMyAdmin\Table\MoveMode;
+use PhpMyAdmin\Table\MoveScope;
 use PhpMyAdmin\Table\Table;
+use PhpMyAdmin\Table\TableMover;
+use PhpMyAdmin\Table\UiProperty;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
@@ -44,9 +49,6 @@ class TableTest extends AbstractTestCase
         $config->settings['MaxExactCount'] = 100;
         $config->settings['MaxExactCountViews'] = 100;
         $config->selectedServer['pmadb'] = 'pmadb';
-        $GLOBALS['sql_auto_increment'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['sql_drop_table'] = true;
         $config->selectedServer['table_uiprefs'] = 'pma__table_uiprefs';
 
         $sqlIsViewTrue = 'SELECT 1'
@@ -83,39 +85,14 @@ class TableTest extends AbstractTestCase
 
         $getUniqueColumnsSql = 'SHOW INDEXES FROM `PMA`.`PMA_BookMark`';
 
-        $fetchResult = [
+        $fetchResultSimple = [
             [
                 $sqlAnalyzeStructureTrue,
-                null,
-                null,
                 ConnectionType::User,
                 [['COLUMN_NAME' => 'COLUMN_NAME', 'DATA_TYPE' => 'DATA_TYPE']],
             ],
             [
-                $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
-                ['Key_name', null],
-                'Column_name',
-                ConnectionType::User,
-                [['index1'], ['index3'], ['index5']],
-            ],
-            [
-                $getUniqueColumnsSql,
-                'Column_name',
-                'Column_name',
-                ConnectionType::User,
-                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
-            ],
-            [
                 'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
-                'Field',
-                'Field',
-                ConnectionType::User,
-                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
-            ],
-            [
-                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
-                null,
-                null,
                 ConnectionType::User,
                 [
                     [
@@ -138,8 +115,6 @@ class TableTest extends AbstractTestCase
             ],
             [
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_BookMark\';',
-                null,
-                null,
                 ConnectionType::User,
                 [
                     [
@@ -170,8 +145,6 @@ class TableTest extends AbstractTestCase
             ],
             [
                 'SHOW TRIGGERS FROM `PMA` LIKE \'PMA_.BookMark\';',
-                null,
-                null,
                 ConnectionType::User,
                 [
                     [
@@ -199,6 +172,55 @@ class TableTest extends AbstractTestCase
                         'Definer' => 'test_user@localhost',
                     ],
                 ],
+            ],
+            [
+                'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, '
+                    . 'ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM '
+                    . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'PMA' "
+                    . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'PMA_BookMark';",
+                ConnectionType::User,
+                [
+                    [],
+                ],
+            ],
+            [
+                'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE, ACTION_TIMING, '
+                    . 'ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM '
+                    . "information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= 'aa' "
+                    . "AND EVENT_OBJECT_TABLE COLLATE utf8_bin = 'ad';",
+                ConnectionType::User,
+                [
+                    [],
+                ],
+            ],
+            [
+                'SHOW COLUMNS FROM `aa`.`ad`',
+                ConnectionType::User,
+                [],
+            ],
+        ];
+
+        $fetchResult = [
+            [
+                $getUniqueColumnsSql . ' WHERE (Non_unique = 0)',
+                ['Key_name', null],
+                'Column_name',
+                ConnectionType::User,
+                [['index1'], ['index3'], ['index5']],
+            ],
+            [
+                $getUniqueColumnsSql,
+                'Column_name',
+                'Column_name',
+                ConnectionType::User,
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
+            ],
+            [
+                'SHOW COLUMNS FROM `PMA`.`PMA_BookMark`',
+                'Field',
+                'Field',
+                ConnectionType::User,
+                ['column1', 'column3', 'column5', 'ACCESSIBLE', 'ADD', 'ALL'],
             ],
         ];
 
@@ -234,6 +256,9 @@ class TableTest extends AbstractTestCase
 
         $dbi->expects(self::any())->method('fetchResult')
             ->willReturnMap($fetchResult);
+
+            $dbi->expects(self::any())->method('fetchResultSimple')
+                ->willReturnMap($fetchResultSimple);
 
         $dbi->expects(self::any())->method('fetchValue')
             ->willReturnMap($fetchValue);
@@ -783,7 +808,7 @@ class TableTest extends AbstractTestCase
         // Add primary key for AUTO_INCREMENT if missing
         self::assertSame(
             '`ids` INT(11) PMA_attribute NULL AUTO_INCREMENT '
-            . "COMMENT 'PMA_comment' FIRST, add PRIMARY KEY (`ids`)",
+            . "COMMENT 'PMA_comment' FIRST, ADD PRIMARY KEY (`ids`)",
             $query,
         );
 
@@ -852,7 +877,7 @@ class TableTest extends AbstractTestCase
         );
         // Add it beaucause it is missing
         self::assertSame(
-            '`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST, add PRIMARY KEY (`ids`)',
+            '`ids` INT(11) PMA_attribute NULL DEF COMMENT \'PMA_comment\' FIRST, ADD PRIMARY KEY (`ids`)',
             $query,
         );
 
@@ -898,7 +923,8 @@ class TableTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $ret = Table::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
+        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+        $ret = $object->duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
         self::assertSame(-1, $ret);
     }
 
@@ -1192,10 +1218,6 @@ class TableTest extends AbstractTestCase
             '`PMA`.`PMA_BookMark`.`ALL`',
         ];
         self::assertSame($expect, $return);
-
-        $return = $table->getReservedColumnNames();
-        $expect = ['ACCESSIBLE', 'ADD', 'ALL'];
-        self::assertSame($expect, $return);
     }
 
     /**
@@ -1281,17 +1303,17 @@ class TableTest extends AbstractTestCase
 
         $table = new Table($tableName, $db, $this->mockedDbi);
 
-        $property = Table::PROP_COLUMN_ORDER;
+        $property = UiProperty::ColumnOrder;
         $value = 'UiProp_value';
         $tableCreateTime = null;
         $table->setUiProp($property, $value, $tableCreateTime);
 
         //set UI prop successfully
-        self::assertSame($value, $table->uiprefs[$property]);
+        self::assertSame($value, $table->uiprefs[$property->value]);
 
         //removeUiProp
         $table->removeUiProp($property);
-        $isDefineProperty = isset($table->uiprefs[$property]);
+        $isDefineProperty = isset($table->uiprefs[$property->value]);
         self::assertFalse($isDefineProperty);
 
         //getUiProp after removeUiProp
@@ -1308,11 +1330,6 @@ class TableTest extends AbstractTestCase
         $sourceDb = 'PMA';
         $targetTable = 'PMA_BookMark_new';
         $targetDb = 'PMA_new';
-        $what = 'dataonly';
-        $move = true;
-        $mode = 'one_table';
-
-        unset($GLOBALS['sql_drop_table']);
 
         $getTableMap = [
             [$targetDb, $targetTable, new Table($targetTable, $targetDb, $this->mockedDbi)],
@@ -1322,27 +1339,45 @@ class TableTest extends AbstractTestCase
         $this->mockedDbi->expects(self::any())->method('getTable')
             ->willReturnMap($getTableMap);
 
-        $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, $move, $mode, true);
+        $object = new TableMover($this->mockedDbi, new Relation($this->mockedDbi));
+
+        $return = $object->moveCopy(
+            $sourceDb,
+            $sourceTable,
+            $targetDb,
+            $targetTable,
+            MoveScope::Move,
+            MoveMode::SingleTable,
+            true,
+        );
 
         //successfully
         self::assertTrue($return);
         $sqlQuery = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
-        self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringContainsString($sqlQuery, Current::$sqlQuery);
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
-        self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringContainsString($sqlQuery, Current::$sqlQuery);
 
-        $return = Table::moveCopy($sourceDb, $sourceTable, $targetDb, $targetTable, $what, false, $mode, true);
+        $return = $object->moveCopy(
+            $sourceDb,
+            $sourceTable,
+            $targetDb,
+            $targetTable,
+            MoveScope::DataOnly,
+            MoveMode::SingleTable,
+            true,
+        );
 
         //successfully
         self::assertTrue($return);
         $sqlQuery = 'INSERT INTO `PMA_new`.`PMA_BookMark_new`(`COLUMN_NAME1`)'
             . ' SELECT `COLUMN_NAME1` FROM '
             . '`PMA`.`PMA_BookMark`';
-        self::assertStringContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringContainsString($sqlQuery, Current::$sqlQuery);
         $sqlQuery = 'DROP VIEW `PMA`.`PMA_BookMark`';
-        self::assertStringNotContainsString($sqlQuery, $GLOBALS['sql_query']);
+        self::assertStringNotContainsString($sqlQuery, Current::$sqlQuery);
 
         // Renaming DB with a view bug
         $resultStub = $this->createMock(DummyResult::class);
@@ -1351,18 +1386,32 @@ class TableTest extends AbstractTestCase
                 [
                     'SHOW CREATE TABLE `aa`.`ad`',
                     ConnectionType::User,
-                    DatabaseInterface::QUERY_BUFFERED,
+                    false,
                     true,
                     $resultStub,
                 ],
                 [
                     'SHOW TABLE STATUS FROM `aa` WHERE Name = \'ad\'',
                     ConnectionType::User,
-                    DatabaseInterface::QUERY_BUFFERED,
+                    false,
                     true,
                     $resultStub,
                 ],
-                ['USE `aa`', ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+                ['USE `aa`', ConnectionType::User, false, true, $resultStub],
+                [
+                    'RENAME TABLE `PMA`.`PMA_BookMark` TO `PMA`.`PMA_.BookMark`;',
+                    ConnectionType::User,
+                    false,
+                    true,
+                    false,
+                ],
+                [
+                    'RENAME TABLE `aa`.`ad` TO `bb`.`ad`;',
+                    ConnectionType::User,
+                    false,
+                    true,
+                    false,
+                ],
             ]);
         $resultStub->expects(self::any())
             ->method('fetchRow')
@@ -1374,16 +1423,16 @@ class TableTest extends AbstractTestCase
                 'utf8mb4_unicode_ci',
             ]);
 
-        $GLOBALS['sql_query'] = '';
-        $return = Table::moveCopy('aa', 'ad', 'bb', 'ad', 'structure', true, 'db_copy', true);
+        Current::$sqlQuery = '';
+        $return = $object->moveCopy('aa', 'ad', 'bb', 'ad', MoveScope::Move, MoveMode::WholeDatabase, true);
         self::assertTrue($return);
-        self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', $GLOBALS['sql_query']);
+        self::assertStringContainsString('DROP TABLE IF EXISTS `bb`.`ad`;', Current::$sqlQuery);
         self::assertStringContainsString(
             'CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost`' .
             ' SQL SECURITY DEFINER VIEW `bb`.`ad`  AS SELECT `bb`.`ac` AS `ac` FROM `bb` ;',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
-        self::assertStringContainsString('DROP VIEW `aa`.`ad`;', $GLOBALS['sql_query']);
+        self::assertStringContainsString('DROP VIEW `aa`.`ad`;', Current::$sqlQuery);
     }
 
     /**
@@ -1394,7 +1443,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'DBIDUMMY';
@@ -1410,7 +1459,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'Test comment for "table1" in \'pma_test\'';
@@ -1426,7 +1475,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'utf8mb4_general_ci';
@@ -1442,7 +1491,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = 'Redundant';
@@ -1458,7 +1507,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = '5';
@@ -1474,7 +1523,7 @@ class TableTest extends AbstractTestCase
         $targetTable = 'table1';
         $targetDb = 'pma_test';
         $extension = new DbiDummy();
-        $dbi = new DatabaseInterface($extension);
+        $dbi = DatabaseInterface::getInstanceForTest($extension);
         $tblObject = new Table($targetTable, $targetDb, $dbi);
         $tblObject->getStatusInfo(null);
         $expect = ['pack_keys' => 'DEFAULT', 'row_format' => 'REDUNDANT'];

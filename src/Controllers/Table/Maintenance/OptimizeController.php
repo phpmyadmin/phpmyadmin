@@ -13,6 +13,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\InvalidIdentifier;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Maintenance;
 use Webmozart\Assert\Assert;
@@ -30,7 +31,7 @@ final class OptimizeController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $selectedTablesParam = $request->getParsedBodyParam('selected_tbl');
 
@@ -42,7 +43,7 @@ final class OptimizeController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No table selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         try {
@@ -56,14 +57,14 @@ final class OptimizeController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $message->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         if ($this->config->get('DisableMultiTableMaintenance') && count($selectedTables) > 1) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('Maintenance operations on multiple tables are disabled.'));
 
-            return null;
+            return $this->response->response();
         }
 
         [$rows, $query] = $this->model->getOptimizeTableRows($database, $selectedTables);
@@ -71,11 +72,11 @@ final class OptimizeController implements InvocableController
         $message = Generator::getMessage(
             __('Your SQL query has been executed successfully.'),
             $query,
-            'success',
+            MessageType::Success,
         );
 
         $this->response->render('table/maintenance/optimize', ['message' => $message, 'rows' => $rows]);
 
-        return null;
+        return $this->response->response();
     }
 }

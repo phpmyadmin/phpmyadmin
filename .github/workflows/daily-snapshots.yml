@@ -21,8 +21,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { version: '5.2', branch: 'QA_5_2', php-version: '7.2', node-version: '12', python-version: '3.7' }
-          - { version: '6.0', branch: 'master', php-version: '8.1', node-version: '16', python-version: '3.7' }
+          - { version: '5.2', branch: 'QA_5_2', php-version: '7.2', node-version: '12', python-version: '3.11' }
+          - { version: '6.0', branch: 'master', php-version: '8.2', node-version: '16', python-version: '3.11' }
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Install Yarn modules
         run: yarn install --non-interactive

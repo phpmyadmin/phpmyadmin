@@ -23,7 +23,7 @@ final class OverviewController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $header = $this->response->getHeader();
         $header->disableMenuAndConsole();
@@ -51,6 +51,6 @@ final class OverviewController implements InvocableController
             'transformations' => $transformations,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

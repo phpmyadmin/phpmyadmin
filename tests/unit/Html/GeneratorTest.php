@@ -6,16 +6,17 @@ namespace PhpMyAdmin\Tests\Html;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\Utils\SessionCache;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function __;
 use function _pgettext;
@@ -23,6 +24,7 @@ use function htmlspecialchars;
 use function urlencode;
 
 #[CoversClass(Generator::class)]
+#[Medium]
 class GeneratorTest extends AbstractTestCase
 {
     /**
@@ -38,7 +40,6 @@ class GeneratorTest extends AbstractTestCase
     /**
      * Test for getDbLink
      */
-    #[Group('medium')]
     public function testGetDbLinkNull(): void
     {
         Current::$database = 'test_db';
@@ -46,10 +47,7 @@ class GeneratorTest extends AbstractTestCase
         $database = Current::$database;
         self::assertSame(
             '<a href="'
-            . Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            )
+            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
             . '&db=' . $database
             . '&server=99&lang=en" '
             . 'title="Jump to database “'
@@ -67,10 +65,7 @@ class GeneratorTest extends AbstractTestCase
         Current::$server = 99;
         $database = 'test_database';
         self::assertSame(
-            '<a href="' . Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            )
+            '<a href="' . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
             . '&db=' . $database
             . '&server=99&lang=en" title="Jump to database “'
             . htmlspecialchars($database) . '”.">'
@@ -88,10 +83,7 @@ class GeneratorTest extends AbstractTestCase
         $database = 'test&data\'base';
         self::assertSame(
             '<a href="'
-            . Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabDatabase'],
-                'database',
-            )
+            . Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase'])
             . '&db='
             . htmlspecialchars(urlencode($database))
             . '&server=99&lang=en" title="Jump to database “'
@@ -475,15 +467,14 @@ class GeneratorTest extends AbstractTestCase
     public function testGetMessage(): void
     {
         Config::getInstance()->settings['ShowSQL'] = true;
-        $GLOBALS['display_query'] = null;
-        $GLOBALS['sql_query'] = 'SELECT 1;';
-        $usingBookmarkMessage = Message::notice('Bookmark message');
-        $GLOBALS['using_bookmark_message'] = $usingBookmarkMessage;
+        Current::$displayQuery = null;
+        Current::$sqlQuery = 'SELECT 1;';
+        Sql::$usingBookmarkMessage = Message::notice('Bookmark message');
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Current::$server = 2;
-        $GLOBALS['special_message'] = 'Message [em]two[/em].';
+        Sql::$showAsPhp = null;
         SessionCache::set('profiling_supported', true);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -493,7 +484,7 @@ class GeneratorTest extends AbstractTestCase
 </div>
 <div class="card mb-3 result_query">
 <div class="alert alert-primary border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>. Message <em>two</em>.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_notice"> Message <em>one</em>.
 </div>
 <div class="card-body sqlOuter"><code class="sql" dir="ltr"><pre>
 SELECT 1;
@@ -520,8 +511,6 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage('Message [em]one[/em].'));
-        self::assertArrayNotHasKey('using_bookmark_message', $GLOBALS);
-        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 
@@ -531,21 +520,20 @@ HTML;
         $config->settings['ShowSQL'] = true;
         $config->settings['SQLQuery']['Edit'] = false;
         $config->settings['SQLQuery']['Refresh'] = true;
-        $GLOBALS['display_query'] = 'EXPLAIN SELECT 1;';
-        $GLOBALS['sql_query'] = null;
+        Current::$displayQuery = 'EXPLAIN SELECT 1;';
+        Current::$sqlQuery = '';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         Current::$database = 'test_db';
         Current::$table = 'test_table';
         Current::$server = 2;
-        $GLOBALS['show_as_php'] = true;
-        $GLOBALS['special_message'] = 'Message [em]two[/em].';
+        Sql::$showAsPhp = true;
         SessionCache::set('profiling_supported', true);
 
         // phpcs:disable Generic.Files.LineLength.TooLong
         $expected = <<<'HTML'
 <div class="card mb-3 result_query">
 <div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>. Message <em>two</em>.
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_success"> Message <em>one</em>.
 </div>
 <div class="card-body sqlOuter"><code class="php" dir="ltr"><pre>
 $sql = "EXPLAIN SELECT 1;";
@@ -565,7 +553,6 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, Generator::getMessage(Message::success('Message [em]one[/em].')));
-        self::assertArrayNotHasKey('special_message', $GLOBALS);
         SessionCache::remove('profiling_supported');
     }
 }

@@ -9,7 +9,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
@@ -28,6 +28,7 @@ final class ChangeControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
+        Current::$whereClause = null;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
@@ -123,6 +124,7 @@ final class ChangeControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
+        Current::$whereClause = null;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
@@ -201,10 +203,13 @@ final class ChangeControllerTest extends AbstractTestCase
         $whereClauseArray = ['foo=1', 'bar=2'];
         $_POST['sql_query'] = 'SELECT 1';
 
-        $result = $changeController->urlParamsInEditMode([1], $whereClauseArray);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody(['sql_query' => 'SELECT 1']);
+
+        $result = $changeController->urlParamsInEditMode($request, ['temp' => 1], $whereClauseArray);
 
         self::assertSame(
-            ['0' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
+            ['temp' => 1, 'where_clause' => 'bar=2', 'sql_query' => 'SELECT 1'],
             $result,
         );
     }

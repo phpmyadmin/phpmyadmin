@@ -45,7 +45,6 @@ final class ServerConfigurationChecking implements MiddlewareInterface
 
         return $response->write($this->template->render('error/generic', [
             'lang' => 'en',
-            'dir' => 'ltr',
             'error_message' => $message,
         ]));
     }

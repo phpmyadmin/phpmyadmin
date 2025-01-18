@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\RequestMethod;
 use PhpMyAdmin\Utils\HttpRequest;
 
 use function count;
@@ -52,7 +54,7 @@ class VersionInformation
             $save = true;
             $file = 'https://www.phpmyadmin.net/home_page/version.json';
             $httpRequest = new HttpRequest();
-            $response = $httpRequest->create($file, 'GET');
+            $response = $httpRequest->create($file, RequestMethod::Get);
         }
 
         $response = $response ?: '{}';
@@ -96,7 +98,7 @@ class VersionInformation
 
         $result = 0;
 
-        if (count($parts) >= 1 && is_numeric($parts[0])) {
+        if (is_numeric($parts[0])) {
             $result += 1000000 * (int) $parts[0];
         }
 
@@ -114,7 +116,7 @@ class VersionInformation
 
         if ($suffix !== '') {
             $matches = [];
-            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches)) {
+            if (preg_match('/^(\D+)(\d+)$/', $suffix, $matches) === 1) {
                 $suffix = $matches[1];
                 $result += (int) $matches[2];
             }

@@ -38,7 +38,7 @@ export function escapeJsString (unsafe) {
  * @return {string}
  */
 export function escapeBacktick (s) {
-    return s.replace('`', '``');
+    return s.replaceAll('`', '``');
 }
 
 /**
@@ -46,5 +46,5 @@ export function escapeBacktick (s) {
  * @return {string}
  */
 export function escapeSingleQuote (s) {
-    return s.replace('\\', '\\\\').replace('\'', '\\\'');
+    return s.replaceAll('\\', '\\\\').replaceAll('\'', '\\\'');
 }

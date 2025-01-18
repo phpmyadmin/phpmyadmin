@@ -4,37 +4,79 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Setup;
 
+use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Config;
+use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
+use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Setup\ConfigGenerator;
+use PhpMyAdmin\Setup\SetupHelper;
+use PhpMyAdmin\Template;
 
+use function __;
+use function file_exists;
 use function is_string;
 
-class ConfigController extends AbstractController
+use const CONFIG_FILE;
+
+final class ConfigController implements InvocableController
 {
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return string HTML
-     */
-    public function __invoke(array $params): string
+    private static bool $hasCheckPageRefresh = false;
+
+    public function __construct(
+        private readonly ResponseFactory $responseFactory,
+        private readonly ResponseRenderer $responseRenderer,
+        private readonly Template $template,
+        private readonly Config $config,
+    ) {
+    }
+
+    public function __invoke(ServerRequest $request): Response
     {
-        $formset = isset($params['formset']) && is_string($params['formset']) ? $params['formset'] : '';
-        $eol = isset($params['eol']) && $params['eol'] === 'win' ? 'win' : 'unix';
+        if (@file_exists(CONFIG_FILE) && ! $this->config->config->debug->demo) {
+            $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
 
-        $pages = $this->getPages();
-
-        static $hasCheckPageRefresh = false;
-        if (! $hasCheckPageRefresh) {
-            $hasCheckPageRefresh = true;
+            return $response->write($this->template->render('error/generic', [
+                'lang' => Current::$lang,
+                'error_message' => __('Configuration already exists, setup is disabled!'),
+            ]));
         }
 
-        $config = ConfigGenerator::getConfigFile($this->config);
+        $response = $this->responseFactory->createResponse();
+        foreach ($this->responseRenderer->getHeader()->getHttpHeaders() as $name => $value) {
+            $response = $response->withHeader($name, $value);
+        }
 
-        return $this->template->render('setup/config/index', [
-            'formset' => $formset,
+        $pages = SetupHelper::getPages();
+
+        if (! self::$hasCheckPageRefresh) {
+            self::$hasCheckPageRefresh = true;
+        }
+
+        $configFile = SetupHelper::createConfigFile();
+
+        $config = ConfigGenerator::getConfigFile($configFile);
+
+        return $response->write($this->template->render('setup/config/index', [
+            'formset' => $this->getFormSetParam($request->getQueryParam('formset')),
             'pages' => $pages,
-            'eol' => $eol,
+            'eol' => $this->getEolParam($request->getQueryParam('eol')),
             'config' => $config,
-            'has_check_page_refresh' => $hasCheckPageRefresh,
-        ]);
+            'has_check_page_refresh' => self::$hasCheckPageRefresh,
+        ]));
+    }
+
+    private function getFormSetParam(mixed $formSetParam): string
+    {
+        return is_string($formSetParam) ? $formSetParam : '';
+    }
+
+    /** @psalm-return 'win'|'unix' */
+    private function getEolParam(mixed $eolParam): string
+    {
+        return $eolParam === 'win' ? 'win' : 'unix';
     }
 }

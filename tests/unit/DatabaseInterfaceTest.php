@@ -9,13 +9,12 @@ use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Index;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\Utils\SessionCache;
@@ -44,7 +43,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
     {
         parent::tearDown();
 
-        unset($GLOBALS['lang']);
+        Current::$lang = '';
         unset(Config::getInstance()->selectedServer['SessionTimeZone']);
         Context::load();
     }
@@ -175,7 +174,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testPostConnectShouldNotCallSetVersionIfNoVersion(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
@@ -185,7 +184,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
 
         $mock->expects(self::once())
             ->method('fetchSingleRow')
-            ->willReturn(null);
+            ->willReturn([]);
 
         $mock->expects(self::never())->method('setVersion');
 
@@ -198,7 +197,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
      */
     public function testPostConnectShouldCallSetVersionOnce(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $versionQueryResult = [
             '@@version' => '10.20.7-MariaDB-1:10.9.3+maria~ubu2204',
             '@@version_comment' => 'mariadb.org binary distribution',
@@ -236,7 +235,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         bool $isMariaDb,
         bool $isPercona,
     ): void {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         LanguageManager::getInstance()->availableLanguages();
 
         $mock = $this->getMockBuilder(DatabaseInterface::class)
@@ -758,17 +757,17 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dummyDbi->assertAllQueriesConsumed();
     }
 
-    public function testPrepare(): void
+    public function testExecuteQuery(): void
     {
         $query = 'SELECT * FROM `mysql`.`user` WHERE `User` = ? AND `Host` = ?;';
-        $stmtStub = self::createStub(Statement::class);
+        $resultStub = self::createStub(ResultInterface::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
-        $dummyDbi->expects(self::once())->method('prepare')
-            ->with(self::isType('object'), self::equalTo($query))
-            ->willReturn($stmtStub);
+        $dummyDbi->expects(self::once())->method('executeQuery')
+            ->with(self::isType('object'), self::equalTo($query), self::equalTo(['root', 'localhost']))
+            ->willReturn($resultStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
-        $stmt = $dbi->prepare($query, ConnectionType::ControlUser);
-        self::assertSame($stmtStub, $stmt);
+        $stmt = $dbi->executeQuery($query, ['root', 'localhost'], ConnectionType::ControlUser);
+        self::assertSame($resultStub, $stmt);
     }
 
     /**

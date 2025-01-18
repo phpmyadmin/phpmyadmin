@@ -11,19 +11,20 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
-use function array_key_exists;
 use function array_keys;
 use function mb_strtoupper;
 use function md5;
@@ -50,7 +51,7 @@ final class RelationController implements InvocableController
     /**
      * Index
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $options = [
             'CASCADE' => 'CASCADE',
@@ -66,12 +67,12 @@ final class RelationController implements InvocableController
 
         $relations = [];
         if ($relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
+            $relations = $this->relation->getForeignersInternal(Current::$database, Current::$table);
         }
 
         $relationsForeign = [];
         if (ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
+            $relationsForeign = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         }
 
         // Send table of column names to populate corresponding dropdowns depending
@@ -84,7 +85,7 @@ final class RelationController implements InvocableController
                 $this->getDropdownValueForDatabase($storageEngine);
             }
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['table/relation.js']);
@@ -119,9 +120,7 @@ final class RelationController implements InvocableController
                 $_POST['destination_foreign_column'],
                 $options,
                 Current::$table,
-                array_key_exists('foreign_keys_data', $relationsForeign)
-                    ? $relationsForeign['foreign_keys_data']
-                    : [],
+                $relationsForeign,
             );
             $this->response->addHTML($html);
         }
@@ -130,16 +129,16 @@ final class RelationController implements InvocableController
         if (isset($_POST['preview_sql'])) {
             Core::previewSQL($previewSqlData);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($displayQuery !== '' && ! $seenError) {
-            $GLOBALS['display_query'] = $displayQuery;
+            Current::$displayQuery = $displayQuery;
             $this->response->addHTML(
                 Generator::getMessage(
                     __('Your SQL query has been executed successfully.'),
                     null,
-                    'success',
+                    MessageType::Success,
                 ),
             );
         }
@@ -151,11 +150,11 @@ final class RelationController implements InvocableController
 
         // If we did an update, refresh our data
         if (isset($_POST['destination_db']) && $relationParameters->relationFeature !== null) {
-            $relations = $this->relation->getForeigners(Current::$database, Current::$table, '', 'internal');
+            $relations = $this->relation->getForeignersInternal(Current::$database, Current::$table);
         }
 
         if (isset($_POST['destination_foreign_db']) && ForeignKey::isSupported($storageEngine)) {
-            $relationsForeign = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign');
+            $relationsForeign = $this->relation->getForeignKeysData(Current::$database, Current::$table);
         }
 
         /**
@@ -182,18 +181,13 @@ final class RelationController implements InvocableController
         }
 
         $foreignKeyRow = '';
-        $existrelForeign = array_key_exists('foreign_keys_data', $relationsForeign)
-            ? $relationsForeign['foreign_keys_data']
-            : [];
         $i = 0;
 
-        foreach ($existrelForeign as $oneKey) {
-            /** @var string $foreignDb */
-            $foreignDb = $oneKey['ref_db_name'] ?? Current::$database;
+        foreach ($relationsForeign as $oneKey) {
+            $foreignDb = $oneKey->refDbName ?? Current::$database;
             $foreignTable = false;
             if ($foreignDb !== '') {
-                /** @var string|false $foreignTable */
-                $foreignTable = $oneKey['ref_table_name'] ?? false;
+                $foreignTable = $oneKey->refTableName ?? false;
                 $tables = $this->relation->getTables($foreignDb, $storageEngine);
             } else {
                 $tables = $this->relation->getTables(Current::$database, $storageEngine);
@@ -213,7 +207,7 @@ final class RelationController implements InvocableController
                 'tbl_storage_engine' => $storageEngine,
                 'db' => Current::$database,
                 'table' => Current::$table,
-                'url_params' => $GLOBALS['urlParams'],
+                'url_params' => UrlParams::$params,
                 'databases' => $this->dbi->getDatabaseList(),
                 'foreign_db' => $foreignDb,
                 'foreign_table' => $foreignTable,
@@ -232,7 +226,7 @@ final class RelationController implements InvocableController
             'tbl_storage_engine' => $storageEngine,
             'db' => Current::$database,
             'table' => Current::$table,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
             'foreign_db' => false,
             'foreign_table' => false,
@@ -298,11 +292,9 @@ final class RelationController implements InvocableController
             'table' => Current::$table,
             'relation_parameters' => $relationParameters,
             'tbl_storage_engine' => $storageEngine,
-            'existrel' => $relations,
-            'existrel_foreign' => $existrelForeign,
             'options_array' => $options,
             'internal_relation_columns' => $internalRelationColumns,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
             'default_sliders_state' => $config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),
@@ -310,7 +302,7 @@ final class RelationController implements InvocableController
             'foreign_key_row' => $foreignKeyRow,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -324,7 +316,7 @@ final class RelationController implements InvocableController
             Generator::getMessage(
                 __('Display column was successfully updated.'),
                 '',
-                'success',
+                MessageType::Success,
             ),
         );
     }
@@ -358,7 +350,7 @@ final class RelationController implements InvocableController
             Generator::getMessage(
                 __('Internal relationships were successfully updated.'),
                 '',
-                'success',
+                MessageType::Success,
             ),
         );
     }

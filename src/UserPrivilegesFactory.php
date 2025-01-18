@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Utils\SessionCache;
 
@@ -169,8 +170,8 @@ class UserPrivilegesFactory
 
             // does this db exist?
             if (
-                (! preg_match('/' . $re0 . '%|_/', $showGrants->dbName)
-                || preg_match('/\\\\%|\\\\_/', $showGrants->dbName))
+                (preg_match('/' . $re0 . '%|_/', $showGrants->dbName) !== 1
+                || preg_match('/\\\\%|\\\\_/', $showGrants->dbName) === 1)
                 && ($this->dbi->tryQuery(
                     'USE ' . preg_replace(
                         '/' . $re1 . '(%|_)/',

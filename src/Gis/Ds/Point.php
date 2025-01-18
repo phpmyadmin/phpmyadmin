@@ -7,9 +7,9 @@ namespace PhpMyAdmin\Gis\Ds;
 use function max;
 use function min;
 
-final class Point
+final readonly class Point
 {
-    public function __construct(public readonly float $x, public readonly float $y)
+    public function __construct(public float $x, public float $y)
     {
     }
 

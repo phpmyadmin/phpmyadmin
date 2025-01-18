@@ -6,12 +6,11 @@ namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
-use PhpMyAdmin\Url;
 
 /**
  * Server SQL executor
@@ -26,16 +25,13 @@ final class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $this->pageSettings->init('Sql');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -43,6 +39,6 @@ final class SqlController implements InvocableController
 
         $this->response->addHTML($this->sqlQueryForm->getHtml('', ''));
 
-        return null;
+        return $this->response->response();
     }
 }

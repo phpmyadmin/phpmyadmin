@@ -6,10 +6,10 @@ namespace PhpMyAdmin\Http\Middleware;
 
 use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\SessionHandlerException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Session;
 use PhpMyAdmin\Template;
 use Psr\Http\Message\ResponseInterface;
@@ -40,8 +40,7 @@ final class SessionHandling implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
+                'lang' => Current::$lang,
                 'error_message' => $exception->getMessage(),
             ]));
         }

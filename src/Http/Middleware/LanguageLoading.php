@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\I18n\LanguageManager;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -14,8 +14,8 @@ final class LanguageLoading implements MiddlewareInterface
 {
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
-        $language = LanguageManager::getInstance()->selectLanguage();
-        $language->activate();
+        $languageManager = LanguageManager::getInstance();
+        $languageManager->activate($languageManager->selectLanguage());
 
         return $handler->handle($request);
     }

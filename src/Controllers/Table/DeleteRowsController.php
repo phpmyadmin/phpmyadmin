@@ -10,13 +10,14 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -32,12 +33,8 @@ final class DeleteRowsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['goto'] ??= null;
-        $GLOBALS['disp_message'] ??= null;
-        $GLOBALS['disp_query'] ??= null;
-
         $multBtn = $_POST['mult_btn'] ?? '';
         $selected = $_POST['selected'] ?? [];
 
@@ -54,7 +51,7 @@ final class DeleteRowsController implements InvocableController
 
         if ($multBtn === __('Yes')) {
             $defaultFkCheckValue = ForeignKey::handleDisableCheckInit();
-            $GLOBALS['sql_query'] = '';
+            Current::$sqlQuery = '';
 
             $this->dbi->selectDb(Current::$database);
 
@@ -64,7 +61,7 @@ final class DeleteRowsController implements InvocableController
                     Util::backquote(Current::$table),
                     $row,
                 );
-                $GLOBALS['sql_query'] .= $query . "\n";
+                Current::$sqlQuery .= $query . "\n";
                 $this->dbi->query($query);
             }
 
@@ -74,12 +71,12 @@ final class DeleteRowsController implements InvocableController
 
             ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);
 
-            $GLOBALS['disp_message'] = __('Your SQL query has been executed successfully.');
-            $GLOBALS['disp_query'] = $GLOBALS['sql_query'];
+            Current::$displayMessage = __('Your SQL query has been executed successfully.');
+            Current::$dispQuery = Current::$sqlQuery;
         }
 
         if ($request->hasBodyParam('original_sql_query')) {
-            $GLOBALS['sql_query'] = $request->getParsedBodyParam('original_sql_query', '');
+            Current::$sqlQuery = $request->getParsedBodyParamAsString('original_sql_query', '');
         }
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
@@ -87,16 +84,15 @@ final class DeleteRowsController implements InvocableController
             false,
             Current::$database,
             Current::$table,
-            null,
-            null,
-            null,
-            $GLOBALS['goto'] ?? '',
-            $GLOBALS['disp_query'] ?? null,
-            $GLOBALS['disp_message'] ?? null,
-            $GLOBALS['sql_query'],
-            null,
+            '',
+            '',
+            UrlParams::$goto,
+            Current::$dispQuery,
+            Current::$displayMessage ?? '',
+            Current::$sqlQuery,
+            Current::$sqlQuery,
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -1,5 +1,45 @@
 import $ from 'jquery';
-import { Functions } from '../functions.ts';
+import {
+    addDateTimePicker,
+    checkboxesChanged,
+    checkboxesSel,
+    getAddIndexEventHandler,
+    getAutoSubmitEventHandler,
+    getCheckAllBoxEventHandler,
+    getCheckAllCheckboxEventHandler,
+    getCheckAllFilterEventHandler,
+    getFilterTextEventHandler,
+    getKeyboardFormSubmitEventHandler,
+    getPageSelectorEventHandler,
+    getSslPasswordEventHandler,
+    getSubCheckAllBoxEventHandler,
+    initializeToggleButtons,
+    onloadChangePasswordEvents,
+    onloadCodeMirrorEditor,
+    onloadCreateTableEvents,
+    onloadCreateView,
+    onloadEnumSetEditor,
+    onloadEnumSetEditorMessage,
+    onloadFilterText,
+    onloadIdleEvent,
+    onloadLockPage,
+    onloadLoginForm,
+    onloadRecentFavoriteTables,
+    onloadSortLinkMouseEvent,
+    onloadSqlQueryEditEvents,
+    removeAutocompleteInfo,
+    showHints,
+    subCheckboxesChanged,
+    teardownCodeMirrorEditor,
+    teardownCreateTableEvents,
+    teardownCreateView,
+    teardownEnumSetEditor,
+    teardownEnumSetEditorMessage,
+    teardownIdleEvent,
+    teardownRecentFavoriteTables,
+    teardownSortLinkMouseEvent,
+    teardownSqlQueryEditEvents
+} from '../functions.ts';
 import handleCreateViewModal from './handleCreateViewModal.ts';
 
 /**
@@ -16,28 +56,28 @@ const PrintPage = {
  */
 export function teardownFunctions () {
     return function () {
-        Functions.teardownIdleEvent();
+        teardownIdleEvent();
         $(document).off('click', 'input:checkbox.checkall');
-        Functions.teardownSqlQueryEditEvents();
-        Functions.removeAutocompleteInfo();
-        Functions.teardownCreateTableEvents();
-        Functions.teardownEnumSetEditorMessage();
-        Functions.teardownEnumSetEditor();
+        teardownSqlQueryEditEvents();
+        removeAutocompleteInfo();
+        teardownCreateTableEvents();
+        teardownEnumSetEditorMessage();
+        teardownEnumSetEditor();
         $(document).off('click', '#index_frm input[type=submit]');
         $('div.toggle-container').off('click');
         $(document).off('change', 'select.pageselector');
-        Functions.teardownRecentFavoriteTables();
-        Functions.teardownCodeMirrorEditor();
+        teardownRecentFavoriteTables();
+        teardownCodeMirrorEditor();
         $(document).off('change', '.autosubmit');
         document.querySelectorAll('.jsPrintButton').forEach(item => {
             item.removeEventListener('click', PrintPage);
         });
 
         $(document).off('click', 'a.create_view.ajax');
-        Functions.teardownCreateView();
+        teardownCreateView();
         $(document).off('keydown', 'form input, form textarea, form select');
         $(document).off('change', 'input[type=radio][name="pw_hash"]');
-        Functions.teardownSortLinkMouseEvent();
+        teardownSortLinkMouseEvent();
     };
 }
 
@@ -46,9 +86,9 @@ export function teardownFunctions () {
  */
 export function onloadFunctions () {
     return function () {
-        Functions.onloadIdleEvent();
-        $(document).on('click', 'input:checkbox.checkall', Functions.getCheckAllCheckboxEventHandler());
-        Functions.addDateTimePicker();
+        onloadIdleEvent();
+        $(document).on('click', 'input:checkbox.checkall', getCheckAllCheckboxEventHandler());
+        addDateTimePicker();
 
         /**
          * Add attribute to text boxes for iOS devices (based on bugID: 3508912)
@@ -57,19 +97,19 @@ export function onloadFunctions () {
             $('input[type=text]').attr('autocapitalize', 'off').attr('autocorrect', 'off');
         }
 
-        Functions.onloadSqlQueryEditEvents();
-        Functions.onloadCreateTableEvents();
-        Functions.onloadChangePasswordEvents();
-        Functions.onloadEnumSetEditorMessage();
-        Functions.onloadEnumSetEditor();
-        $(document).on('click', '#index_frm input[type=submit]', Functions.getAddIndexEventHandler());
-        Functions.showHints();
-        Functions.initializeToggleButtons();
-        $(document).on('change', 'select.pageselector', Functions.getPageSelectorEventHandler());
-        Functions.onloadRecentFavoriteTables();
-        Functions.onloadCodeMirrorEditor();
-        Functions.onloadLockPage();
-        $(document).on('change', '.autosubmit', Functions.getAutoSubmitEventHandler());
+        onloadSqlQueryEditEvents();
+        onloadCreateTableEvents();
+        onloadChangePasswordEvents();
+        onloadEnumSetEditorMessage();
+        onloadEnumSetEditor();
+        $(document).on('click', '#index_frm input[type=submit]', getAddIndexEventHandler());
+        showHints();
+        initializeToggleButtons();
+        $(document).on('change', 'select.pageselector', getPageSelectorEventHandler());
+        onloadRecentFavoriteTables();
+        onloadCodeMirrorEditor();
+        onloadLockPage();
+        $(document).on('change', '.autosubmit', getAutoSubmitEventHandler());
         document.querySelectorAll('.jsPrintButton').forEach(item => {
             item.addEventListener('click', PrintPage);
         });
@@ -79,17 +119,17 @@ export function onloadFunctions () {
             handleCreateViewModal($(this));
         });
 
-        Functions.onloadCreateView();
-        $(document).on('change', Functions.checkboxesSel, Functions.checkboxesChanged);
-        $(document).on('change', 'input.checkall_box', Functions.getCheckAllBoxEventHandler());
-        $(document).on('click', '.checkall-filter', Functions.getCheckAllFilterEventHandler());
-        $(document).on('change', Functions.checkboxesSel + ', input.checkall_box:checkbox:enabled', Functions.subCheckboxesChanged);
-        $(document).on('change', 'input.sub_checkall_box', Functions.getSubCheckAllBoxEventHandler());
-        $(document).on('keyup', '#filterText', Functions.getFilterTextEventHandler());
-        Functions.onloadFilterText();
-        Functions.onloadLoginForm();
-        $('form input, form textarea, form select').on('keydown', Functions.getKeyboardFormSubmitEventHandler());
-        $(document).on('change', 'select#select_authentication_plugin_cp', Functions.getSslPasswordEventHandler());
-        Functions.onloadSortLinkMouseEvent();
+        onloadCreateView();
+        $(document).on('change', checkboxesSel, checkboxesChanged);
+        $(document).on('change', 'input.checkall_box', getCheckAllBoxEventHandler());
+        $(document).on('click', '.checkall-filter', getCheckAllFilterEventHandler());
+        $(document).on('change', checkboxesSel + ', input.checkall_box:checkbox:enabled', subCheckboxesChanged);
+        $(document).on('change', 'input.sub_checkall_box', getSubCheckAllBoxEventHandler());
+        $(document).on('keyup', '#filterText', getFilterTextEventHandler());
+        onloadFilterText();
+        onloadLoginForm();
+        $('form input, form textarea, form select').on('keydown', getKeyboardFormSubmitEventHandler());
+        $(document).on('change', 'select#select_authentication_plugin_cp', getSslPasswordEventHandler());
+        onloadSortLinkMouseEvent();
     };
 }

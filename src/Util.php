@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use DateTimeImmutable;
 use PhpMyAdmin\ConfigStorage\UserGroupLevel;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Query\Compatibility;
@@ -74,7 +76,6 @@ use function strnatcasecmp;
 use function strrev;
 use function strtolower;
 use function strtr;
-use function time;
 use function trim;
 use function uksort;
 
@@ -472,11 +473,11 @@ class Util
 
         $formattedSize = (string) $formattedSize;
 
-        if (preg_match('/^[0-9]+GB$/', $formattedSize)) {
+        if (preg_match('/^[0-9]+GB$/', $formattedSize) === 1) {
             $returnValue = (int) mb_substr($formattedSize, 0, -2) * 1024 ** 3;
-        } elseif (preg_match('/^[0-9]+MB$/', $formattedSize)) {
+        } elseif (preg_match('/^[0-9]+MB$/', $formattedSize) === 1) {
             $returnValue = (int) mb_substr($formattedSize, 0, -2) * 1024 ** 2;
-        } elseif (preg_match('/^[0-9]+K$/', $formattedSize)) {
+        } elseif (preg_match('/^[0-9]+K$/', $formattedSize) === 1) {
             $returnValue = (int) mb_substr($formattedSize, 0, -1) * 1024 ** 1;
         }
 
@@ -486,12 +487,9 @@ class Util
     /**
      * Writes localised date
      *
-     * @param int    $timestamp the current timestamp
-     * @param string $format    format
-     *
-     * @return string   the formatted date
+     * @return string the formatted date
      */
-    public static function localisedDate(int $timestamp = -1, string $format = ''): string
+    public static function localisedDate(DateTimeImmutable $dateTime, string $format = ''): string
     {
         $month = [
             _pgettext('Short month name for January', 'Jan'),
@@ -522,25 +520,11 @@ class Util
             $format = __('%B %d, %Y at %I:%M %p');
         }
 
-        if ($timestamp === -1) {
-            $timestamp = time();
-        }
-
-        $date = (string) preg_replace(
-            '@%[aA]@',
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions
-            $dayOfWeek[(int) @strftime('%w', $timestamp)],
-            $format,
-        );
-        $date = (string) preg_replace(
-            '@%[bB]@',
-            // phpcs:ignore Generic.PHP.DeprecatedFunctions
-            $month[(int) @strftime('%m', $timestamp) - 1],
-            $date,
-        );
+        $date = (string) preg_replace('@%[aA]@', $dayOfWeek[(int) $dateTime->format('w')], $format);
+        $date = (string) preg_replace('@%[bB]@', $month[(int) $dateTime->format('n') - 1], $date);
 
         /* Fill in AM/PM */
-        $hours = (int) date('H', $timestamp);
+        $hours = (int) $dateTime->format('H');
         if ($hours >= 12) {
             $amPm = _pgettext('AM/PM indication in time', 'PM');
         } else {
@@ -552,11 +536,11 @@ class Util
         // Can return false on windows for Japanese language
         // See https://github.com/phpmyadmin/phpmyadmin/issues/15830
         // phpcs:ignore Generic.PHP.DeprecatedFunctions
-        $ret = @strftime($date, $timestamp);
+        $ret = @strftime($date, $dateTime->getTimestamp());
         // Some OSes such as Win8.1 Traditional Chinese version did not produce UTF-8
         // output here. See https://github.com/phpmyadmin/phpmyadmin/issues/10598
         if ($ret === false || mb_detect_encoding($ret, 'UTF-8', true) !== 'UTF-8') {
-            return date('Y-m-d H:i:s', $timestamp);
+            return $dateTime->format('Y-m-d H:i:s');
         }
 
         return $ret;
@@ -779,7 +763,7 @@ class Util
 
         foreach ($pages as $i) {
             if ($i == $pageNow) {
-                $selected = 'selected="selected" style="font-weight: bold"';
+                $selected = 'selected style="font-weight: bold"';
             } else {
                 $selected = '';
             }
@@ -954,7 +938,7 @@ class Util
             // this would be a BINARY or VARBINARY column type;
             // by the way, a BLOB should not show the BINARY attribute
             // because this is not accepted in MySQL syntax.
-            if (str_contains($printType, 'binary') && ! preg_match('@binary[\(]@', $printType)) {
+            if (str_contains($printType, 'binary') && preg_match('@binary[\(]@', $printType) !== 1) {
                 $printType = str_replace('binary', '', $printType);
                 $binary = true;
             } else {
@@ -992,7 +976,7 @@ class Util
         }
 
         $canContainCollation = false;
-        if (! $binary && preg_match('@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@', $type)) {
+        if (! $binary && preg_match('@^(char|varchar|text|tinytext|mediumtext|longtext|set|enum)@', $type) === 1) {
             $canContainCollation = true;
         }
 
@@ -1048,126 +1032,18 @@ class Util
      * @param string $target a valid value for $cfg['NavigationTreeDefaultTabTable'],
      *                       $cfg['NavigationTreeDefaultTabTable2'],
      *                       $cfg['DefaultTabTable'] or $cfg['DefaultTabDatabase']
-     *
-     * @return string|bool Title for the $cfg value
      */
-    public static function getTitleForTarget(string $target): string|bool
+    public static function getTitleForTarget(string $target): string
     {
-        $mapping = [
-            'structure' => __('Structure'),
-            'sql' => __('SQL'),
-            'search' => __('Search'),
-            'insert' => __('Insert'),
-            'browse' => __('Browse'),
-            'operations' => __('Operations'),
-        ];
-
-        return $mapping[$target] ?? false;
-    }
-
-    /**
-     * Get the script name corresponding to a plain English config word
-     * in order to append in links on navigation and main panel
-     *
-     * @param string $target   a valid value for
-     *                         $cfg['NavigationTreeDefaultTabTable'],
-     *                         $cfg['NavigationTreeDefaultTabTable2'],
-     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                         $cfg['DefaultTabServer']
-     * @param string $location one out of 'server', 'table', 'database'
-     *
-     * @return string script name corresponding to the config word
-     */
-    public static function getScriptNameForOption(string $target, string $location): string
-    {
-        return Url::getFromRoute(self::getUrlForOption($target, $location));
-    }
-
-    /**
-     * Get the URL corresponding to a plain English config word
-     * in order to append in links on navigation and main panel
-     *
-     * @param string $target   a valid value for
-     *                         $cfg['NavigationTreeDefaultTabTable'],
-     *                         $cfg['NavigationTreeDefaultTabTable2'],
-     *                         $cfg['DefaultTabTable'], $cfg['DefaultTabDatabase'] or
-     *                         $cfg['DefaultTabServer']
-     * @param string $location one out of 'server', 'table', 'database'
-     *
-     * @return string The URL corresponding to the config word
-     */
-    public static function getUrlForOption(string $target, string $location): string
-    {
-        if ($location === 'server') {
-            // Values for $cfg['DefaultTabServer']
-            switch ($target) {
-                case 'welcome':
-                case 'index.php':
-                    return '/';
-
-                case 'databases':
-                case 'server_databases.php':
-                    return '/server/databases';
-
-                case 'status':
-                case 'server_status.php':
-                    return '/server/status';
-
-                case 'variables':
-                case 'server_variables.php':
-                    return '/server/variables';
-
-                case 'privileges':
-                case 'server_privileges.php':
-                    return '/server/privileges';
-            }
-        } elseif ($location === 'database') {
-            // Values for $cfg['DefaultTabDatabase']
-            switch ($target) {
-                case 'structure':
-                case 'db_structure.php':
-                    return '/database/structure';
-
-                case 'sql':
-                case 'db_sql.php':
-                    return '/database/sql';
-
-                case 'search':
-                case 'db_search.php':
-                    return '/database/search';
-
-                case 'operations':
-                case 'db_operations.php':
-                    return '/database/operations';
-            }
-        } elseif ($location === 'table') {
-            // Values for $cfg['DefaultTabTable'],
-            // $cfg['NavigationTreeDefaultTabTable'] and
-            // $cfg['NavigationTreeDefaultTabTable2']
-            switch ($target) {
-                case 'structure':
-                case 'tbl_structure.php':
-                    return '/table/structure';
-
-                case 'sql':
-                case 'tbl_sql.php':
-                    return '/table/sql';
-
-                case 'search':
-                case 'tbl_select.php':
-                    return '/table/search';
-
-                case 'insert':
-                case 'tbl_change.php':
-                    return '/table/change';
-
-                case 'browse':
-                case 'sql.php':
-                    return '/sql';
-            }
-        }
-
-        return '/';
+        return match ($target) {
+            '/table/structure', '/database/structure' => __('Structure'),
+            '/table/sql', '/database/sql' => __('SQL'),
+            '/table/search', '/database/search' => __('Search'),
+            '/table/change' => __('Insert'),
+            '/sql' => __('Browse'),
+            '/database/operations' => __('Operations'),
+            default => '',
+        };
     }
 
     /**
@@ -1444,7 +1320,7 @@ class Util
         // It future replace str_getcsv with $dbi->fetchSingleRow('SELECT '.$expressionInBrackets[1]);
 
         preg_match('/\((.*)\)/', $definition, $expressionInBrackets);
-        $matches = str_getcsv($expressionInBrackets[1], ',', "'");
+        $matches = str_getcsv($expressionInBrackets[1], ',', "'", '\\');
 
         $values = [];
         foreach ($matches as $value) {
@@ -1521,7 +1397,7 @@ class Util
      */
     public static function addMicroseconds(string $value): string
     {
-        if ($value === '' || $value === 'CURRENT_TIMESTAMP' || $value === 'current_timestamp()') {
+        if ($value === '' || preg_match('/^current_timestamp(\([0-6]?\))?$/i', $value) === 1) {
             return $value;
         }
 
@@ -2044,9 +1920,9 @@ class Util
             $urlParams['tbl_group'] = $_REQUEST['tbl_group'];
         }
 
-        $url = Url::getFromRoute('/database/structure');
+        $url = Url::getFromRoute('/database/structure', $urlParams, false);
 
-        return Generator::linkOrButton($url, $urlParams, $title . $orderImg, $orderLinkParams);
+        return Generator::linkOrButton($url, null, $title . $orderImg, $orderLinkParams);
     }
 
     /**

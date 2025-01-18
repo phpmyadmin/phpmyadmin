@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\RelationController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;

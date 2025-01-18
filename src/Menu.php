@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\UserGroupLevel;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Tracking\Tracker;
@@ -146,14 +147,14 @@ class Menu
             ? $this->config->selectedServer['verbose'] : $this->config->selectedServer['host'];
         $server['name'] .= empty($this->config->selectedServer['port'])
             ? '' : ':' . $this->config->selectedServer['port'];
-        $server['url'] = Util::getUrlForOption($this->config->settings['DefaultTabServer'], 'server');
+        $server['url'] = $this->config->settings['DefaultTabServer'];
 
         if ($this->db !== '') {
             $database['name'] = $this->db;
-            $database['url'] = Util::getUrlForOption($this->config->settings['DefaultTabDatabase'], 'database');
+            $database['url'] = $this->config->settings['DefaultTabDatabase'];
             if ($this->table !== '') {
                 $table['name'] = $this->table;
-                $table['url'] = Util::getUrlForOption($this->config->settings['DefaultTabTable'], 'table');
+                $table['url'] = $this->config->settings['DefaultTabTable'];
                 $tableObj = $this->dbi->getTable($this->db, $this->table);
                 $table['is_view'] = $tableObj->isView();
                 $table['comment'] = '';
@@ -424,7 +425,7 @@ class Menu
         if (SessionCache::has('binary_logs')) {
             $binaryLogs = SessionCache::get('binary_logs');
         } else {
-            $binaryLogs = $this->dbi->fetchResult('SHOW MASTER LOGS', 'Log_name');
+            $binaryLogs = $this->dbi->fetchResult('SHOW BINARY LOGS', 'Log_name');
             SessionCache::set('binary_logs', $binaryLogs);
         }
 

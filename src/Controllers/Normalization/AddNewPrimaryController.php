@@ -24,7 +24,7 @@ final class AddNewPrimaryController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -46,6 +46,6 @@ final class AddNewPrimaryController implements InvocableController
         $html .= Url::getHiddenInputs($dbName, $tableName);
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 }

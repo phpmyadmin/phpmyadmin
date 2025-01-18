@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { indexEditorDialog } from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeHtml, escapeJsString } from './modules/functions/escape.ts';
@@ -789,7 +789,7 @@ AJAX.registerOnload('normalization.js', function () {
             'ajax_request': true
         };
         var title = window.Messages.strAddPrimaryKey;
-        Functions.indexEditorDialog(url, title, function () {
+        indexEditorDialog(url, title, function () {
             // on success
             $('.sqlqueryresults').remove();
             $('.result_query').remove();

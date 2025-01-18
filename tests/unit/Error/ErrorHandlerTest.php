@@ -6,26 +6,34 @@ namespace PhpMyAdmin\Tests\Error;
 
 use Exception;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\Error;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
-use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use Throwable;
 
 use function array_keys;
 use function array_pop;
 
+use const E_COMPILE_WARNING;
+use const E_CORE_WARNING;
 use const E_ERROR;
+use const E_NOTICE;
 use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
 
 #[CoversClass(ErrorHandler::class)]
+#[Medium]
 class ErrorHandlerTest extends AbstractTestCase
 {
     protected ErrorHandler $object;
@@ -38,7 +46,7 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         DatabaseInterface::$instance = $this->createDatabaseInterface();
         $this->object = new ErrorHandler();
         $_SESSION['errors'] = [];
@@ -60,7 +68,6 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testUniqueness(): void
     {
-        ErrorHandler::$instance = null;
         $instanceOne = ErrorHandler::getInstance();
         $instanceTwo = ErrorHandler::getInstance();
         self::assertSame($instanceOne, $instanceTwo);
@@ -121,7 +128,6 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for countErrors
      */
-    #[Group('medium')]
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -131,10 +137,36 @@ class ErrorHandlerTest extends AbstractTestCase
         );
     }
 
+    #[DataProvider('addErrorProvider')]
+    public function testAddError(int $errorNumber, string $expected): void
+    {
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('[em]Error[/em]', $errorNumber, 'error.txt', 15);
+        $errors = $errorHandler->getCurrentErrors();
+        self::assertCount(1, $errors);
+        $error = array_pop($errors);
+        self::assertSame($errorNumber, $error->getErrorNumber());
+        self::assertSame($expected, $error->getMessage());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function addErrorProvider(): iterable
+    {
+        yield 'E_STRICT' => [@E_STRICT, '[em]Error[/em]'];
+        yield 'E_NOTICE' => [E_NOTICE, '[em]Error[/em]'];
+        yield 'E_WARNING' => [E_WARNING, '[em]Error[/em]'];
+        yield 'E_CORE_WARNING' => [E_CORE_WARNING, '[em]Error[/em]'];
+        yield 'E_COMPILE_WARNING' => [E_COMPILE_WARNING, '[em]Error[/em]'];
+        yield 'E_RECOVERABLE_ERROR' => [E_RECOVERABLE_ERROR, '[em]Error[/em]'];
+        yield 'E_USER_NOTICE' => [E_USER_NOTICE, '<em>Error</em>'];
+        yield 'E_USER_WARNING' => [E_USER_WARNING, '<em>Error</em>'];
+        yield 'E_USER_ERROR' => [E_USER_ERROR, '<em>Error</em>'];
+        yield 'E_USER_DEPRECATED' => [E_USER_DEPRECATED, '<em>Error</em>'];
+    }
+
     /**
      * Test for sliceErrors
      */
-    #[Group('medium')]
     public function testSliceErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
@@ -164,7 +196,6 @@ class ErrorHandlerTest extends AbstractTestCase
     /**
      * Test for sliceErrors with 10 elements as an example
      */
-    #[Group('medium')]
     public function testSliceErrorsOtherExample(): void
     {
         for ($i = 0; $i < 10; $i++) {
@@ -218,44 +249,6 @@ class ErrorHandlerTest extends AbstractTestCase
     }
 
     /**
-     * Test for hasUserErrors
-     */
-    public function testHasUserErrors(): void
-    {
-        self::assertFalse($this->object->hasUserErrors());
-    }
-
-    /**
-     * Test for hasErrors
-     */
-    public function testHasErrors(): void
-    {
-        self::assertFalse($this->object->hasErrors());
-    }
-
-    /**
-     * Test for countDisplayErrors
-     */
-    public function testCountDisplayErrorsForDisplayTrue(): void
-    {
-        self::assertSame(
-            0,
-            $this->object->countDisplayErrors(),
-        );
-    }
-
-    /**
-     * Test for countDisplayErrors
-     */
-    public function testCountDisplayErrorsForDisplayFalse(): void
-    {
-        self::assertSame(
-            0,
-            $this->object->countDisplayErrors(),
-        );
-    }
-
-    /**
      * Test for hasDisplayErrors
      */
     public function testHasDisplayErrors(): void
@@ -265,7 +258,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testHandleExceptionForDevEnv(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->set('environment', 'development');
         $errorHandler = new ErrorHandler();
         self::assertSame([], $errorHandler->getCurrentErrors());
@@ -288,7 +281,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testHandleExceptionForProdEnv(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
         self::assertSame([], $errorHandler->getCurrentErrors());
@@ -310,7 +303,7 @@ class ErrorHandlerTest extends AbstractTestCase
 
     public function testAddErrorWithFatalError(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->set('environment', 'production');
         $errorHandler = new ErrorHandler();
         try {

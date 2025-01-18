@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -26,7 +26,7 @@ final class SqlAutoCompleteController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $sqlAutocomplete = [];
         if ($this->config->settings['EnableAutocompleteForTablesAndColumns']) {
@@ -38,7 +38,7 @@ final class SqlAutoCompleteController implements InvocableController
 
         $this->response->addJSON(['tables' => $sqlAutocomplete]);
 
-        return null;
+        return $this->response->response();
     }
 
     /** @return string[][][] */

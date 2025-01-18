@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -16,22 +16,20 @@ final class ColumnController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        /** @var string|null $db */
-        $db = $request->getParsedBodyParam('db');
-        /** @var string|null $table */
-        $table = $request->getParsedBodyParam('table');
+        $db = $request->getParsedBodyParamAsStringOrNull('db');
+        $table = $request->getParsedBodyParamAsStringOrNull('table');
 
         if (! isset($db, $table)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON(['message' => Message::error()]);
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addJSON(['columns' => $this->dbi->getColumnNames($db, $table)]);
 
-        return null;
+        return $this->response->response();
     }
 }

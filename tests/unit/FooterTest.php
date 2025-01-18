@@ -7,16 +7,16 @@ namespace PhpMyAdmin\Tests;
 use ArrayIterator;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Footer;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\Group;
-use ReflectionProperty;
+use PHPUnit\Framework\Attributes\Medium;
 
 use function json_encode;
 
 #[CoversClass(Footer::class)]
+#[Medium]
 class FooterTest extends AbstractTestCase
 {
     /** @var mixed[] store private attributes of PhpMyAdmin\Footer */
@@ -44,10 +44,8 @@ class FooterTest extends AbstractTestCase
         $config->selectedServer['DisableIS'] = false;
         $config->selectedServer['verbose'] = 'verbose host';
         $_GET['reload_left_frame'] = '1';
-        $GLOBALS['focus_querywindow'] = 'main_pane_left';
         $this->object = new Footer(new Template(), $config);
-        unset($GLOBALS['error_message']);
-        unset($GLOBALS['sql_query']);
+        Current::$sqlQuery = '';
         $_POST = [];
     }
 
@@ -65,7 +63,6 @@ class FooterTest extends AbstractTestCase
     /**
      * Test for getDebugMessage
      */
-    #[Group('medium')]
     public function testGetDebugMessage(): void
     {
         $config = Config::getInstance();
@@ -101,32 +98,6 @@ class FooterTest extends AbstractTestCase
     }
 
     /**
-     * Test for disable
-     */
-    public function testDisable(): void
-    {
-        $footer = new Footer(new Template(), Config::getInstance());
-        $footer->disable();
-        self::assertSame(
-            '',
-            $footer->getDisplay(),
-        );
-    }
-
-    public function testGetDisplayWhenAjaxIsEnabled(): void
-    {
-        $template = new Template();
-        $footer = new Footer($template, Config::getInstance());
-        $footer->setAjax(true);
-        self::assertSame(
-            $template->render('modals/function_confirm') . "\n"
-            . $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings') . "\n",
-            $footer->getDisplay(),
-        );
-    }
-
-    /**
      * Test for footer get Scripts
      */
     public function testGetScripts(): void
@@ -141,14 +112,30 @@ class FooterTest extends AbstractTestCase
     /**
      * Test for displaying footer
      */
-    #[Group('medium')]
     public function testDisplay(): void
     {
         $footer = new Footer(new Template(), Config::getInstance());
-        self::assertStringContainsString(
-            'Open new phpMyAdmin window',
-            $footer->getDisplay(),
-        );
+        $scripts = <<<'HTML'
+
+            <script data-cfasync="false">
+            // <![CDATA[
+            window.Console.debugSqlInfo = 'false';
+
+            // ]]>
+            </script>
+
+            HTML;
+
+        $expected = [
+            'is_minimal' => false,
+            'self_url' => 'index.php?route=%2F&server=1&lang=en',
+            'error_messages' => '',
+            'scripts' => $scripts,
+            'is_demo' => false,
+            'git_revision_info' => [],
+            'footer' => '',
+        ];
+        self::assertSame($expected, $footer->getDisplay());
     }
 
     /**
@@ -159,24 +146,15 @@ class FooterTest extends AbstractTestCase
         $template = new Template();
         $footer = new Footer($template, Config::getInstance());
         $footer->setMinimal();
-        self::assertSame(
-            $template->render('modals/function_confirm') . "\n"
-            . $template->render('modals/add_index') . "\n"
-            . $template->render('modals/page_settings')
-            . "\n  </div>\n  </body>\n</html>\n",
-            $footer->getDisplay(),
-        );
-    }
-
-    public function testSetAjax(): void
-    {
-        $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
-        $footer = new Footer(new Template(), Config::getInstance());
-
-        self::assertFalse($isAjax->getValue($footer));
-        $footer->setAjax(true);
-        self::assertTrue($isAjax->getValue($footer));
-        $footer->setAjax(false);
-        self::assertFalse($isAjax->getValue($footer));
+        $expected = [
+            'is_minimal' => true,
+            'self_url' => null,
+            'error_messages' => '',
+            'scripts' => '',
+            'is_demo' => false,
+            'git_revision_info' => [],
+            'footer' => '',
+        ];
+        self::assertSame($expected, $footer->getDisplay());
     }
 }

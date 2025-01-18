@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
+use PhpMyAdmin\Column;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportSql;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertySubgroup;
@@ -61,18 +65,14 @@ class ExportSqlTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
-        $GLOBALS['sql_constraints'] = null;
-        $GLOBALS['sql_indexes'] = null;
-        $GLOBALS['sql_auto_increments'] = null;
+        Export::$outputKanjiConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = false;
+        Export::$saveOnServer = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $this->object = new ExportSql(
             new Relation($dbi),
@@ -96,8 +96,8 @@ class ExportSqlTest extends AbstractTestCase
     public function testSetPropertiesWithHideSql(): void
     {
         // test with hide structure and hide sql as true
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $method = new ReflectionMethod(ExportSql::class, 'setProperties');
         $properties = $method->invoke($this->object, null);
@@ -119,8 +119,8 @@ class ExportSqlTest extends AbstractTestCase
             ->willReturn(['v1', 'v2']);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['plugin_param']['export_type'] = 'server';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Server;
+        ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
@@ -302,7 +302,10 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportRoutines(): void
     {
-        $GLOBALS['sql_drop_table'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_drop_table' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         $this->expectOutputString(
             "\n" . 'DELIMITER $$' . "\n" . 'DROP PROCEDURE IF EXISTS `test_proc1`$$' . "\n" . 'CREATE PROCEDURE'
@@ -317,9 +320,12 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportComment(): void
     {
-        $method = new ReflectionMethod(ExportSql::class, 'exportComment');
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
 
-        $GLOBALS['sql_include_comments'] = true;
+        $this->object->setExportOptions($request, []);
+
+        $method = new ReflectionMethod(ExportSql::class, 'exportComment');
 
         self::assertSame(
             '--' . "\n",
@@ -331,14 +337,13 @@ class ExportSqlTest extends AbstractTestCase
             $method->invoke($this->object, 'Comment'),
         );
 
-        $GLOBALS['sql_include_comments'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, []);
 
         self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
-
-        unset($GLOBALS['sql_include_comments']);
 
         self::assertSame(
             '',
@@ -348,9 +353,12 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testPossibleCRLF(): void
     {
-        $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
 
-        $GLOBALS['sql_include_comments'] = true;
+        $this->object->setExportOptions($request, []);
+
+        $method = new ReflectionMethod(ExportSql::class, 'possibleCRLF');
 
         self::assertSame(
             "\n",
@@ -362,14 +370,13 @@ class ExportSqlTest extends AbstractTestCase
             $method->invoke($this->object, 'Comment'),
         );
 
-        $GLOBALS['sql_include_comments'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/');
+        $this->object->setExportOptions($request, []);
 
         self::assertSame(
             '',
             $method->invoke($this->object, 'Comment'),
         );
-
-        unset($GLOBALS['sql_include_comments']);
 
         self::assertSame(
             '',
@@ -379,13 +386,10 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportFooter(): void
     {
-        $GLOBALS['sql_disable_fk'] = true;
-        $GLOBALS['sql_use_transaction'] = true;
-        $GLOBALS['charset'] = 'utf-8';
-        $GLOBALS['sql_utc_time'] = true;
-        $GLOBALS['old_tz'] = 'GMT';
-        $GLOBALS['asfile'] = 'yes';
-        $GLOBALS['output_charset_conversion'] = 'utf-8';
+        Current::$charset = 'utf-8';
+        ExportSql::$oldTimezone = 'GMT';
+        Export::$asFile = true;
+        Export::$outputCharsetConversion = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -397,6 +401,11 @@ class ExportSqlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_use_transaction' => 'On', 'sql_disable_fk' => 'On', 'sql_utc_time' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         $this->expectOutputString('SET FOREIGN_KEY_CHECKS=1;' . "\n" . 'COMMIT;' . "\n");
 
         self::assertTrue(
@@ -406,20 +415,13 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['sql_compatibility'] = 'NONE';
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['port'] = 80;
-        $GLOBALS['sql_disable_fk'] = true;
-        $GLOBALS['sql_use_transaction'] = true;
-        $GLOBALS['sql_utc_time'] = true;
-        $GLOBALS['old_tz'] = 'GMT';
-        $GLOBALS['asfile'] = 'yes';
-        $GLOBALS['output_charset_conversion'] = 'utf-8';
-        $GLOBALS['sql_header_comment'] = "h1C\nh2C";
-        $GLOBALS['sql_use_transaction'] = true;
-        $GLOBALS['sql_include_comments'] = true;
-        $GLOBALS['charset'] = 'utf-8';
+        ExportSql::$oldTimezone = 'GMT';
+        Export::$asFile = true;
+        Export::$outputCharsetConversion = true;
+        Current::$charset = 'utf-8';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -439,6 +441,17 @@ class ExportSqlTest extends AbstractTestCase
             ->with('SET time_zone = "+00:00"');
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_include_comments' => 'On',
+                'sql_header_comment' => "h1C\nh2C",
+                'sql_use_transaction' => 'On',
+                'sql_disable_fk' => 'On',
+                'sql_utc_time' => 'On',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -467,12 +480,6 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDBCreate(): void
     {
-        $GLOBALS['sql_compatibility'] = 'NONE';
-        $GLOBALS['sql_drop_database'] = true;
-        $GLOBALS['sql_create_database'] = true;
-        $GLOBALS['sql_create_table'] = true;
-        $GLOBALS['sql_create_view'] = true;
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -484,11 +491,18 @@ class ExportSqlTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_structure_or_data' => 'structure_and_data',
+                'sql_backquotes' => 'true',
+                'sql_drop_database' => 'On',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', 'database'),
+            $this->object->exportDBCreate('db'),
         );
         $result = ob_get_clean();
 
@@ -504,7 +518,6 @@ class ExportSqlTest extends AbstractTestCase
         self::assertStringContainsString('USE `db`;', $result);
 
         // case2: no backquotes
-        unset($GLOBALS['sql_compatibility']);
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -522,7 +535,7 @@ class ExportSqlTest extends AbstractTestCase
 
         ob_start();
         self::assertTrue(
-            $this->object->exportDBCreate('db', 'database'),
+            $this->object->exportDBCreate('db'),
         );
         $result = ob_get_clean();
 
@@ -540,10 +553,14 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_include_comments'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_backquotes' => 'true',
+                'sql_include_comments' => 'On',
+                'sql_compatibility' => 'MSSQL',
+            ]);
 
-        $this->object->useSqlBackquotes(true);
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -556,8 +573,6 @@ class ExportSqlTest extends AbstractTestCase
         self::assertStringContainsString('&quot;testDB&quot;', $result);
 
         // case 2
-        unset($GLOBALS['sql_compatibility']);
-
         $this->object->useSqlBackquotes(false);
 
         ob_start();
@@ -573,15 +588,12 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportEvents(): void
     {
-        $GLOBALS['sql_structure_or_data'] = 'structure';
-        $GLOBALS['sql_procedure_function'] = true;
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects(self::once())
-            ->method('fetchResult')
+            ->method('fetchSingleColumn')
             ->with('SELECT EVENT_NAME FROM information_schema.EVENTS WHERE EVENT_SCHEMA= \'db\'')
             ->willReturn(['f1', 'f2']);
 
@@ -615,9 +627,7 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testExportDBFooter(): void
     {
-        $GLOBALS['sql_constraints'] = 'SqlConstraints';
-        $GLOBALS['sql_structure_or_data'] = 'structure';
-        $GLOBALS['sql_procedure_function'] = true;
+        $this->object->sqlConstraints = 'SqlConstraints';
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -636,19 +646,21 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDefStandIn(): void
     {
-        $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
 
         $dbi->expects(self::once())
-            ->method('getColumnsFull')
+            ->method('getColumns')
             ->with('db', 'view')
-            ->willReturn(['cname' => ['Type' => 'int']]);
+            ->willReturn([new Column('cname', 'int', false, '', null, '')]);
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_drop_table' => 'On', 'sql_if_not_exists' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         $result = $this->object->getTableDefStandIn('db', 'view');
 
@@ -662,9 +674,6 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDefForView(): void
     {
-        $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -689,7 +698,11 @@ class ExportSqlTest extends AbstractTestCase
             ]);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['sql_compatibility'] = 'MSSQL';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_compatibility' => 'MSSQL', 'sql_if_not_exists' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         $method = new ReflectionMethod(ExportSql::class, 'getTableDefForView');
         $result = $method->invoke($this->object, 'db', 'view');
@@ -702,8 +715,6 @@ class ExportSqlTest extends AbstractTestCase
         );
 
         // case 2
-        unset($GLOBALS['sql_compatibility']);
-
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -728,6 +739,11 @@ class ExportSqlTest extends AbstractTestCase
             ]);
         DatabaseInterface::$instance = $dbi;
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_if_not_exists' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         $result = $method->invoke($this->object, 'db', 'view');
 
         self::assertSame(
@@ -740,18 +756,9 @@ class ExportSqlTest extends AbstractTestCase
 
     public function testGetTableDef(): void
     {
-        $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_auto_increment'] = true;
-        $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['sql_include_comments'] = true;
-        if (isset($GLOBALS['sql_constraints'])) {
-            unset($GLOBALS['sql_constraints']);
-        }
+        $this->object->sqlConstraints = null;
 
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
+        ExportSql::$noConstraintsComments = false;
 
         $createTableStatement = <<<'SQL'
 CREATE TABLE `table` (
@@ -796,9 +803,19 @@ SQL;
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_relation' => 'On',
+                'sql_backquotes' => 'true',
+                'sql_dates' => 'On',
+                'sql_include_comments' => 'On',
+                'sql_compatibility' => 'MSSQL',
+                'sql_drop_table' => 'On',
+            ]);
 
-        $result = $this->object->getTableDef('db', 'table', true, true, false);
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('db', 'table', true, false);
 
         $dbiDummy->assertAllQueriesConsumed();
         self::assertStringContainsString('-- Creation: Jan 01, 2000 at 10:00 AM', $result);
@@ -806,31 +823,20 @@ SQL;
         self::assertStringContainsString('-- Last check: Jan 02, 2000 at 01:00 PM', $result);
         self::assertStringContainsString('DROP TABLE IF EXISTS `table`;', $result);
         self::assertStringContainsString('CREATE TABLE `table`', $result);
-        self::assertStringContainsString('-- Constraints for dumped tables', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('-- Constraints for table "table"', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('ADD CONSTRAINT', $GLOBALS['sql_constraints']);
-        self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_constraints_query']);
-        self::assertStringContainsString('ADD CONSTRAINT', $GLOBALS['sql_constraints_query']);
-        self::assertStringContainsString('ALTER TABLE "table"', $GLOBALS['sql_drop_foreign_keys']);
-        self::assertStringContainsString('DROP FOREIGN KEY', $GLOBALS['sql_drop_foreign_keys']);
+        self::assertIsString($this->object->sqlConstraints);
+        self::assertStringContainsString('-- Constraints for dumped tables', $this->object->sqlConstraints);
+        self::assertStringContainsString('-- Constraints for table "table"', $this->object->sqlConstraints);
+        self::assertStringContainsString('ALTER TABLE "table"', $this->object->sqlConstraints);
+        self::assertStringContainsString('ADD CONSTRAINT', $this->object->sqlConstraints);
+        self::assertStringContainsString('ALTER TABLE "table"', $this->object->sqlConstraintsQuery);
+        self::assertStringContainsString('ADD CONSTRAINT', $this->object->sqlConstraintsQuery);
     }
 
     public function testGetTableDefWithError(): void
     {
-        $GLOBALS['sql_compatibility'] = '';
-        $GLOBALS['sql_auto_increment'] = true;
-        $GLOBALS['sql_drop_table'] = true;
-        $GLOBALS['sql_if_not_exists'] = true;
-        $GLOBALS['sql_include_comments'] = true;
+        $this->object->sqlConstraints = null;
 
-        if (isset($GLOBALS['sql_constraints'])) {
-            unset($GLOBALS['sql_constraints']);
-        }
-
-        if (isset($GLOBALS['no_constraints_comments'])) {
-            unset($GLOBALS['no_constraints_comments']);
-        }
+        ExportSql::$noConstraintsComments = false;
 
         $isViewQuery = 'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'db\' AND TABLE_NAME = \'table\'';
 
@@ -845,9 +851,12 @@ SQL;
         DatabaseInterface::$instance = $this->createDatabaseInterface($dbiDummy);
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->object->useSqlBackquotes(false);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On', 'sql_drop_table' => 'On']);
 
-        $result = $this->object->getTableDef('db', 'table', true, true, false);
+        $this->object->setExportOptions($request, []);
+
+        $result = $this->object->getTableDef('db', 'table', true, false);
 
         $dbiDummy->assertAllQueriesConsumed();
         $dbiDummy->assertAllErrorCodesConsumed();
@@ -865,7 +874,6 @@ SQL;
             'column_info' => 'col',
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
-        $GLOBALS['sql_include_comments'] = true;
 
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
             ->disableOriginalConstructor()
@@ -874,15 +882,20 @@ SQL;
         $dbi->expects(self::exactly(2))
             ->method('fetchResult')
             ->willReturn(
-                ['foo' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
                 ['fieldname' => ['values' => 'test-', 'transformation' => 'testfoo', 'mimetype' => 'test<']],
+                ['foo' => ['foreign_table' => 'ftable', 'foreign_field' => 'ffield']],
             );
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_relation' => 'On', 'sql_mime' => 'On', 'sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         $method = new ReflectionMethod(ExportSql::class, 'getTableComments');
-        $result = $method->invoke($this->object, 'db', '', true, true);
+        $result = $method->invoke($this->object, 'db', '');
 
         self::assertStringContainsString(
             '-- MEDIA TYPES FOR TABLE :' . "\n"
@@ -901,21 +914,18 @@ SQL;
 
     public function testExportStructure(): void
     {
-        $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_include_comments'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_backquotes' => 'true',
+                'sql_include_comments' => 'On',
+                'sql_compatibility' => 'MSSQL',
+            ]);
 
-        $this->object->useSqlBackquotes(true);
+        $this->object->setExportOptions($request, []);
 
         // case 1
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_table',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -923,22 +933,10 @@ SQL;
         self::assertStringContainsString('CREATE TABLE `test_table`', $result);
 
         // case 2
-        unset($GLOBALS['sql_compatibility']);
-
-        $GLOBALS['sql_create_trigger'] = true;
-        $GLOBALS['sql_drop_table'] = true;
-
         $this->object->useSqlBackquotes(false);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'triggers',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -948,43 +946,30 @@ SQL;
             $result,
         );
 
-        unset($GLOBALS['sql_create_trigger']);
-        unset($GLOBALS['sql_drop_table']);
-
         // case 3
-        $GLOBALS['sql_views_as_tables'] = false;
-
         $this->object->useSqlBackquotes(false);
+        ExportPlugin::$exportType = ExportType::Raw;
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $result = ob_get_clean();
 
-        self::assertIsString($result);
-        self::assertStringContainsString('-- Structure for view test_table', $result);
-        self::assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $result);
-        self::assertStringContainsString('CREATE TABLE `test_table`', $result);
+        $sqlViews = (new ReflectionProperty(ExportSql::class, 'sqlViews'))->getValue($this->object);
+
+        self::assertSame('', $result);
+        self::assertIsString($sqlViews);
+        self::assertStringContainsString('-- Structure for view test_table', $sqlViews);
+        self::assertStringContainsString('DROP TABLE IF EXISTS `test_table`;', $sqlViews);
+        self::assertStringContainsString('CREATE TABLE `test_table`', $sqlViews);
 
         // case 4
-        $GLOBALS['sql_views_as_tables'] = true;
-        unset($GLOBALS['sql_if_not_exists']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On', 'sql_views_as_tables' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -994,14 +979,7 @@ SQL;
 
         // case 5
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'stand_in',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1084,21 +1062,22 @@ SQL;
             ->willReturn($tableObj);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_max_query_size'] = 50000;
-        $GLOBALS['sql_views_as_tables'] = true;
-        $GLOBALS['sql_type'] = 'INSERT';
-        $GLOBALS['sql_delayed'] = ' DELAYED';
-        $GLOBALS['sql_ignore'] = true;
-        $GLOBALS['sql_truncate'] = true;
-        $GLOBALS['sql_insert_syntax'] = 'both';
-        $GLOBALS['sql_hex_for_binary'] = true;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_backquotes' => 'true',
+                'sql_compatibility' => 'MSSQL',
+                'sql_truncate' => 'On',
+                'sql_delayed' => 'On',
+                'sql_ignore' => 'On',
+                'sql_hex_for_binary' => 'On',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
-        $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
+        $this->object->exportData('db', 'table', 'SELECT a FROM b WHERE 1');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1181,20 +1160,20 @@ SQL;
             ->willReturn($tableObj);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['sql_compatibility'] = 'MSSQL';
-        $GLOBALS['sql_views_as_tables'] = true;
-        $GLOBALS['sql_type'] = 'UPDATE';
-        $GLOBALS['sql_delayed'] = ' DELAYED';
-        $GLOBALS['sql_ignore'] = true;
-        $GLOBALS['sql_truncate'] = true;
-        $GLOBALS['sql_insert_syntax'] = 'both';
-        $GLOBALS['sql_hex_for_binary'] = true;
         Config::getInstance()->selectedServer['DisableIS'] = false;
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'sql_backquotes' => 'true',
+                'sql_compatibility' => 'MSSQL',
+                'sql_type' => 'UPDATE',
+                'sql_ignore' => 'On',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
-        $this->object->exportData('db', 'table', 'example.com/err', 'SELECT a FROM b WHERE 1');
+        $this->object->exportData('db', 'table', 'SELECT a FROM b WHERE 1');
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -1228,16 +1207,15 @@ SQL;
 
         DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['sql_views_as_tables'] = false;
-        $GLOBALS['sql_include_comments'] = true;
-        $oldVal = $GLOBALS['sql_compatibility'] ?? '';
-        $GLOBALS['sql_compatibility'] = 'NONE';
 
-        $this->object->useSqlBackquotes(true);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_backquotes' => 'true', 'sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
-            $this->object->exportData('db', 'tbl', 'err.com', 'SELECT'),
+            $this->object->exportData('db', 'tbl', 'SELECT'),
         );
         $result = ob_get_clean();
 
@@ -1246,9 +1224,6 @@ SQL;
         self::assertStringContainsString("-- VIEW `tbl`\n", $result);
 
         self::assertStringContainsString("-- Data: None\n", $result);
-
-        // reset
-        $GLOBALS['sql_compatibility'] = $oldVal;
     }
 
     public function testExportDataWithError(): void
@@ -1277,12 +1252,15 @@ SQL;
 
         DatabaseInterface::$instance = $dbi;
         Config::getInstance()->selectedServer['DisableIS'] = false;
-        $GLOBALS['sql_views_as_tables'] = true;
-        $GLOBALS['sql_include_comments'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_include_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
-            $this->object->exportData('db', 'table', 'err.com', 'SELECT'),
+            $this->object->exportData('db', 'table', 'SELECT'),
         );
         $result = ob_get_clean();
 

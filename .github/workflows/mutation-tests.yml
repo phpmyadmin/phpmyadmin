@@ -55,10 +55,10 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           coverage: pcov
-          tools: composer:v2, infection
+          tools: composer:v2, infection:0.27.11
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Run Infection for changed files only
         if: github.event_name == 'push' || github.event_name == 'pull_request'

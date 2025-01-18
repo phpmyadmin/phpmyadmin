@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\UserGroups;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -28,11 +28,11 @@ final class UserGroupsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $configurableMenusFeature = $this->relation->getRelationParameters()->configurableMenusFeature;
         if ($configurableMenusFeature === null) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['server/user_groups.js']);
@@ -45,7 +45,7 @@ final class UserGroupsController implements InvocableController
                 Message::error(__('No Privileges'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addHTML('<div class="container-fluid">');
@@ -64,21 +64,21 @@ final class UserGroupsController implements InvocableController
          * Add a new user group
          */
         if ($request->hasBodyParam('addUserGroupSubmit')) {
-            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'), true);
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParamAsString('userGroup'), true);
         }
 
         /**
          * Update a user group
          */
         if ($request->hasBodyParam('editUserGroupSubmit')) {
-            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParam('userGroup'));
+            UserGroups::edit($configurableMenusFeature, $request->getParsedBodyParamAsString('userGroup'));
         }
 
         if ($request->hasBodyParam('viewUsers')) {
             // Display users belonging to a user group
             $this->response->addHTML(UserGroups::getHtmlForListingUsersofAGroup(
                 $configurableMenusFeature,
-                $request->getParsedBodyParam('userGroup'),
+                $request->getParsedBodyParamAsString('userGroup'),
             ));
         }
 
@@ -89,7 +89,7 @@ final class UserGroupsController implements InvocableController
             // Display edit user group dialog
             $this->response->addHTML(UserGroups::getHtmlToEditUserGroup(
                 $configurableMenusFeature,
-                $request->getParsedBodyParam('userGroup'),
+                $request->getParsedBodyParamAsStringOrNull('userGroup'),
             ));
         } else {
             // Display user groups table
@@ -98,6 +98,6 @@ final class UserGroupsController implements InvocableController
 
         $this->response->addHTML('</div>');
 
-        return null;
+        return $this->response->response();
     }
 }

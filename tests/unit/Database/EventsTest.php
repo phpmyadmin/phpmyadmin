@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -144,8 +144,6 @@ class EventsTest extends AbstractTestCase
     #[DataProvider('providerGetQueryFromRequest')]
     public function testGetQueryFromRequest(array $request, string $query, int $numErr): void
     {
-        $GLOBALS['errors'] = [];
-
         unset($_POST);
         $_POST = $request;
 
@@ -155,7 +153,7 @@ class EventsTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
 
         self::assertSame($query, $this->events->getQueryFromRequest());
-        self::assertCount($numErr, $GLOBALS['errors']);
+        self::assertSame($numErr, $this->events->getErrorCount());
     }
 
     /**

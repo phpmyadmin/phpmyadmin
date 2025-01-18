@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Http\Response;
@@ -23,11 +23,13 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 use function is_numeric;
+use function is_string;
 
 final class ImportController implements InvocableController
 {
@@ -39,26 +41,24 @@ final class ImportController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['SESSION_KEY'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->pageSettings->init('Import');
         $pageSettingsErrorHtml = $this->pageSettings->getErrorHTML();
         $pageSettingsHtml = $this->pageSettings->getHTML();
 
         $this->response->addScriptFiles(['import.js']);
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
+
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -66,12 +66,12 @@ final class ImportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -80,18 +80,18 @@ final class ImportController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/import');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/import');
+        UrlParams::$params['goto'] = Url::getFromRoute('/table/import');
+        UrlParams::$params['back'] = Url::getFromRoute('/table/import');
 
-        [$GLOBALS['SESSION_KEY'], $uploadId] = Ajax::uploadProgressSetup();
+        [$uploadId] = Ajax::uploadProgressSetup();
 
         ImportSettings::$importType = 'table';
         $importList = Plugins::getImport();
@@ -101,7 +101,7 @@ final class ImportController implements InvocableController
                 'Could not load import plugins, please check your installation!',
             ))->getDisplay());
 
-            return null;
+            return $this->response->response();
         }
 
         $offset = null;
@@ -115,7 +115,7 @@ final class ImportController implements InvocableController
 
         $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
 
-        $idKey = $_SESSION[$GLOBALS['SESSION_KEY']]['handler']::getIdKey();
+        $idKey = $_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey();
         $hiddenInputs = [
             $idKey => $uploadId,
             'import_type' => 'table',
@@ -123,12 +123,9 @@ final class ImportController implements InvocableController
             'table' => Current::$table,
         ];
 
-        $default = $request->hasQueryParam('format')
-            ? (string) $request->getQueryParam('format')
-            : Plugins::getDefault('Import', 'format');
-        $choice = Plugins::getChoice($importList, $default);
+        $choice = Plugins::getChoice($importList, $this->getFormat($request->getParam('format')));
         $options = Plugins::getOptions('Import', $importList);
-        $skipQueriesDefault = Plugins::getDefault('Import', 'skip_queries');
+        $skipQueriesDefault = $this->getSkipQueries($request->getParam('skip_queries'));
         $isAllowInterruptChecked = Plugins::checkboxCheck('Import', 'allow_interrupt');
         $maxUploadSize = (int) $config->get('max_upload_size');
 
@@ -136,7 +133,7 @@ final class ImportController implements InvocableController
             'page_settings_error_html' => $pageSettingsErrorHtml,
             'page_settings_html' => $pageSettingsHtml,
             'upload_id' => $uploadId,
-            'handler' => $_SESSION[$GLOBALS['SESSION_KEY']]['handler'],
+            'handler' => $_SESSION[Ajax::SESSION_KEY]['handler'],
             'hidden_inputs' => $hiddenInputs,
             'db' => Current::$database,
             'table' => Current::$table,
@@ -163,6 +160,24 @@ final class ImportController implements InvocableController
             'local_files' => Import::getLocalFiles($importList),
         ]);
 
-        return null;
+        return $this->response->response();
+    }
+
+    private function getFormat(mixed $formatParam): string
+    {
+        if (is_string($formatParam) && $formatParam !== '') {
+            return $formatParam;
+        }
+
+        return Config::getInstance()->settings['Import']['format'];
+    }
+
+    private function getSkipQueries(mixed $skipQueriesParam): int
+    {
+        if (is_numeric($skipQueriesParam) && $skipQueriesParam >= 0) {
+            return (int) $skipQueriesParam;
+        }
+
+        return Config::getInstance()->settings['Import']['skip_queries'];
     }
 }

@@ -146,11 +146,11 @@ class TableStatsSvg extends TableStats
             $this->currentCell += $this->heightCell;
             $fillColor = 'none';
             if ($showColor) {
-                if (in_array($field, $this->primary)) {
+                if (in_array($field, $this->primary, true)) {
                     $fillColor = '#aea';
                 }
 
-                if ($field == $this->displayfield) {
+                if ($field === $this->displayfield) {
                     $fillColor = 'none';
                 }
             }

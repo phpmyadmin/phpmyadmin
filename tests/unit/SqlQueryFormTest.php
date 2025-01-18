@@ -9,13 +9,14 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
@@ -57,7 +58,6 @@ class SqlQueryFormTest extends AbstractTestCase
         $bookmarkRepository = new BookmarkRepository($this->dbi, $relation);
         $this->sqlQueryForm = new SqlQueryForm(new Template(), $this->dbi, $bookmarkRepository);
 
-        //$GLOBALS
         Current::$database = 'PMA_db';
         Current::$table = 'PMA_table';
 
@@ -69,10 +69,10 @@ class SqlQueryFormTest extends AbstractTestCase
         $config->settings['TextareaAutoSelect'] = true;
         $config->settings['TextareaRows'] = 100;
         $config->settings['TextareaCols'] = 11;
-        $config->settings['DefaultTabDatabase'] = 'structure';
+        $config->settings['DefaultTabDatabase'] = '/database/structure';
         $config->settings['RetainQueryBox'] = true;
         $config->settings['ActionLinksMode'] = 'both';
-        $config->settings['DefaultTabTable'] = 'browse';
+        $config->settings['DefaultTabTable'] = '/sql';
         $config->settings['CodemirrorEnable'] = true;
         $config->settings['DefaultForeignKeyChecks'] = 'default';
 
@@ -137,7 +137,7 @@ class SqlQueryFormTest extends AbstractTestCase
     public function testPMAGetHtmlForSqlQueryForm(): void
     {
         //Call the test function
-        $GLOBALS['lang'] = 'ja';
+        Current::$lang = 'ja';
         $query = 'select * from PMA';
         $html = $this->sqlQueryForm->getHtml('PMA_db', 'PMA_table', $query);
 
@@ -163,7 +163,7 @@ class SqlQueryFormTest extends AbstractTestCase
         );
 
         //validate 5: $goto
-        $goto = empty($GLOBALS['goto']) ? Url::getFromRoute('/table/sql') : $GLOBALS['goto'];
+        $goto = UrlParams::$goto === '' ? Url::getFromRoute('/table/sql') : UrlParams::$goto;
         self::assertStringContainsString(
             htmlspecialchars($goto),
             $html,
@@ -174,6 +174,6 @@ class SqlQueryFormTest extends AbstractTestCase
             Encoding::kanjiEncodingForm(),
             $html,
         );
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
     }
 }

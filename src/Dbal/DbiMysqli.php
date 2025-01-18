@@ -11,7 +11,6 @@ use mysqli;
 use mysqli_sql_exception;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Query\Utilities;
 
@@ -154,21 +153,13 @@ class DbiMysqli implements DbiExtension
 
     /**
      * runs a query and returns the result
-     *
-     * @param string $query   query to execute
-     * @param int    $options query options
      */
-    public function realQuery(string $query, Connection $connection, int $options): MysqliResult|false
+    public function realQuery(string $query, Connection $connection, bool $unbuffered = false): MysqliResult|false
     {
-        $method = MYSQLI_STORE_RESULT;
-        if ($options === ($options | DatabaseInterface::QUERY_UNBUFFERED)) {
-            $method = MYSQLI_USE_RESULT;
-        }
-
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
 
-        $result = $mysqli->query($query, $method);
+        $result = $mysqli->query($query, $unbuffered ? MYSQLI_USE_RESULT : MYSQLI_STORE_RESULT);
         if ($result === false) {
             return false;
         }
@@ -230,20 +221,6 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int version of the MySQL protocol used
-     */
-    public function getProtoInfo(Connection $connection): int
-    {
-        /** @var mysqli $mysqli */
-        $mysqli = $connection->connection;
-
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-        return $mysqli->protocol_version;
-    }
-
-    /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version
@@ -258,7 +235,7 @@ class DbiMysqli implements DbiExtension
      */
     public function getError(Connection $connection): string
     {
-        $GLOBALS['errno'] = 0;
+        DatabaseInterface::$errorNumber = 0;
 
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
@@ -272,7 +249,7 @@ class DbiMysqli implements DbiExtension
 
         // keep the error number for further check after
         // the call to getError()
-        $GLOBALS['errno'] = $errorNumber;
+        DatabaseInterface::$errorNumber = $errorNumber;
 
         return Utilities::formatError($errorNumber, $errorMessage);
     }
@@ -307,20 +284,21 @@ class DbiMysqli implements DbiExtension
     }
 
     /**
-     * Prepare an SQL statement for execution.
+     * Execute a prepared statement and return the result.
      *
-     * @param string $query The query, as a string.
+     * @param list<string> $params
      */
-    public function prepare(Connection $connection, string $query): Statement|null
+    public function executeQuery(Connection $connection, string $query, array $params): MysqliResult|null
     {
         /** @var mysqli $mysqli */
         $mysqli = $connection->connection;
-        $statement = $mysqli->prepare($query);
-        if ($statement === false) {
+        $result = $mysqli->execute_query($query, $params);
+
+        if ($result === false) {
             return null;
         }
 
-        return new MysqliStatement($statement);
+        return new MysqliResult($result);
     }
 
     /**

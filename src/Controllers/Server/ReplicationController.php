@@ -8,13 +8,13 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Replication\ReplicationGui;
 use PhpMyAdmin\Replication\ReplicationInfo;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 
 use function is_array;
 
@@ -30,24 +30,18 @@ final class ReplicationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
-        $hasReplicaClearScreen = (bool) $request->getParsedBodyParam('replica_clear_screen');
+        $hasReplicaClearScreen = (bool) $request->getParsedBodyParamAsStringOrNull('replica_clear_screen');
         $replicaConfigure = $request->getParsedBodyParam('replica_configure');
         $primaryConfigure = $request->getParsedBodyParam('primary_configure');
-
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         $replicationInfo = new ReplicationInfo($this->dbi);
-        /** @var string|null $primaryConnection */
-        $primaryConnection = $request->getParsedBodyParam('primary_connection');
+        $primaryConnection = $request->getParsedBodyParamAsStringOrNull('primary_connection');
         $replicationInfo->load($primaryConnection);
 
         $primaryInfo = $replicationInfo->getPrimaryInfo();
@@ -57,16 +51,13 @@ final class ReplicationController implements InvocableController
 
         $urlParams = $request->getParsedBodyParam('url_params');
         if (is_array($urlParams)) {
-            $GLOBALS['urlParams'] = $urlParams;
+            UrlParams::$params = $urlParams;
         }
 
         if ($this->dbi->isSuperUser()) {
-            /** @var string|null $srReplicaAction */
-            $srReplicaAction = $request->getParsedBodyParam('sr_replica_action');
-            /** @var string|int $srSkipErrorsCount */
-            $srSkipErrorsCount = $request->getParsedBodyParam('sr_skip_errors_count', 1);
-            /** @var string|null $srReplicaControlParam */
-            $srReplicaControlParam = $request->getParsedBodyParam('sr_replica_control_param');
+            $srReplicaAction = $request->getParsedBodyParamAsStringOrNull('sr_replica_action');
+            $srSkipErrorsCount = $request->getParsedBodyParamAsStringOrNull('sr_skip_errors_count', '1');
+            $srReplicaControlParam = $request->getParsedBodyParamAsStringOrNull('sr_replica_control_param');
 
             $this->replicationGui->handleControlRequest(
                 $request->getParsedBodyParam('sr_take_action') !== null,
@@ -76,22 +67,19 @@ final class ReplicationController implements InvocableController
                 $request->getParsedBodyParam('sr_replica_skip_error') !== null,
                 (int) $srSkipErrorsCount,
                 $srReplicaControlParam,
-                $request->getParsedBodyParam('username', ''),
-                $request->getParsedBodyParam('pma_pw', ''),
-                $request->getParsedBodyParam('hostname', ''),
-                (int) $request->getParsedBodyParam('text_port'),
+                $request->getParsedBodyParamAsString('username', ''),
+                $request->getParsedBodyParamAsString('pma_pw', ''),
+                $request->getParsedBodyParamAsString('hostname', ''),
+                (int) $request->getParsedBodyParamAsStringOrNull('text_port'),
             );
         }
 
         $errorMessages = $this->replicationGui->getHtmlForErrorMessage();
 
         if ($primaryInfo['status']) {
-            /** @var string|null $primaryAddUser */
-            $primaryAddUser = $request->getParsedBodyParam('primary_add_user');
-            /** @var string $username */
-            $username = $request->getParsedBodyParam('username');
-            /** @var string $hostname */
-            $hostname = $request->getParsedBodyParam('hostname');
+            $primaryAddUser = $request->getParsedBodyParamAsStringOrNull('primary_add_user');
+            $username = $request->getParsedBodyParamAsString('username');
+            $hostname = $request->getParsedBodyParamAsString('hostname');
 
             $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
                 $primaryConnection,
@@ -120,7 +108,7 @@ final class ReplicationController implements InvocableController
         }
 
         $this->response->render('server/replication/index', [
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'is_super_user' => $this->dbi->isSuperUser(),
             'error_messages' => $errorMessages,
             'is_primary' => $primaryInfo['status'],
@@ -133,6 +121,6 @@ final class ReplicationController implements InvocableController
             'change_primary_html' => $changePrimaryHtml ?? '',
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

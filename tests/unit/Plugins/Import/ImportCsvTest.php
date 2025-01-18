@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportCsv;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -30,12 +31,12 @@ class ImportCsvTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['errorUrl'] = 'index.php?route=/';
-        $GLOBALS['error'] = false;
+        Import::$errorUrl = 'index.php?route=/';
+        Import::$hasError = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['sql_query'] = '';
-        $GLOBALS['message'] = null;
+        Current::$sqlQuery = '';
+        Current::$message = null;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
@@ -65,7 +66,7 @@ class ImportCsvTest extends AbstractTestCase
             ]);
         $this->object->setImportOptions($request);
 
-        $GLOBALS['import_text'] = 'ImportCsv_Test';
+        Import::$importText = 'ImportCsv_Test';
     }
 
     /**
@@ -113,11 +114,11 @@ class ImportCsvTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
         self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -153,11 +154,11 @@ class ImportCsvTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `ImportTestDb` DEFAULT CHARACTER',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
         self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `ImportTestDb`.`ImportTestTable`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -197,12 +198,12 @@ class ImportCsvTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'CREATE DATABASE IF NOT EXISTS `CSV_DB 1` DEFAULT CHARACTER',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertStringContainsString(
             'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`' . ImportSettings::$importFileName . '`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -214,7 +215,7 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportNormal(): void
     {
         ImportSettings::$importFile = 'none';
-        $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -248,7 +249,7 @@ class ImportCsvTest extends AbstractTestCase
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`COL 1` varchar(5), `COL 2` varchar(5));'
             . 'INSERT INTO `CSV_DB 1`.`db_test`'
             . ' (`COL 1`, `COL 2`) VALUES (\'Row 1\', \'Row 2\'),' . "\n" . ' (\'123\', \'456\');',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -261,7 +262,7 @@ class ImportCsvTest extends AbstractTestCase
     public function testDoImportSkipHeaders(): void
     {
         ImportSettings::$importFile = 'none';
-        $GLOBALS['import_text'] = '"Row 1","Row 2"' . "\n" . '"123","456"';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
             ->withParsedBody([
@@ -296,7 +297,58 @@ class ImportCsvTest extends AbstractTestCase
             . 'CREATE TABLE IF NOT EXISTS `CSV_DB 1`.`db_test` (`Row 1` int(3), `Row 2` int(3));'
             . 'INSERT INTO `CSV_DB 1`.`db_test`'
             . ' (`Row 1`, `Row 2`) VALUES (123, 456);',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
+        );
+
+        self::assertTrue(ImportSettings::$finished);
+        $dummyDbi->assertAllQueriesConsumed();
+    }
+
+    /**
+     * Test for doImport skipping headers but with ignore mode
+     */
+    public function testDoImportSkipHeadersInsertIgnore(): void
+    {
+        Current::$database = 'public';
+        Current::$table = 'csv_file_table';
+        ImportSettings::$importFile = 'none';
+        Import::$importText = '"Row 1","Row 2"' . "\n" . '"123","456"';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com/')
+            ->withParsedBody([
+                'csv_terminated' => ',',
+                'csv_enclosed' => '"',
+                'csv_escaped' => '"',
+                'csv_new_line' => 'auto',
+                'csv_columns' => null,
+                'csv_ignore' => 'yes',
+                'csv_col_names' => 'yes',
+                'csv_new_tbl_name' => 'already_uploaded_file',
+            ]);
+        $this->object->setImportOptions($request);
+
+        $dummyDbi = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dummyDbi);
+        DatabaseInterface::$instance = $dbi;
+
+        $dummyDbi->addResult(
+            'SHOW DATABASES',
+            [],
+        );
+
+        $dummyDbi->addResult(
+            'SELECT 1 FROM information_schema.VIEWS'
+            . ' WHERE TABLE_SCHEMA = \'public\' AND TABLE_NAME = \'already_uploaded_file\'',
+            [],
+        );
+
+        $this->object->doImport();
+
+        self::assertSame(
+            'CREATE TABLE IF NOT EXISTS `public`.`already_uploaded_file` (`Row 1` int(3), `Row 2` int(3));'
+            . 'INSERT IGNORE INTO `public`.`already_uploaded_file`'
+            . ' (`Row 1`, `Row 2`) VALUES (123, 456);',
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);

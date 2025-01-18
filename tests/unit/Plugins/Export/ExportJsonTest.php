@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Export;
 
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Plugins\Export\ExportJson;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -35,11 +35,11 @@ class ExportJsonTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         $this->object = new ExportJson(
             new Relation($dbi),
             new Export($dbi),
@@ -78,7 +78,7 @@ class ExportJsonTest extends AbstractTestCase
         );
 
         self::assertSame(
-            'text/plain',
+            'application/json',
             $properties->getMimeType(),
         );
 
@@ -160,7 +160,7 @@ class ExportJsonTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -179,7 +179,6 @@ class ExportJsonTest extends AbstractTestCase
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
     }
@@ -202,7 +201,6 @@ class ExportJsonTest extends AbstractTestCase
             $this->object->exportData(
                 'test_db',
                 'test_table_complex',
-                'example.com',
                 'SELECT * FROM `test_db`.`test_table_complex`;',
             ),
         );
@@ -223,7 +221,6 @@ class ExportJsonTest extends AbstractTestCase
 
         self::assertTrue(
             $this->object->exportRawQuery(
-                'example.com',
                 null,
                 'SELECT * FROM `test_db`.`test_table_complex`;',
             ),

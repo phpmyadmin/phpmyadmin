@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Engines\Bdb;
 use PhpMyAdmin\Engines\Berkeleydb;
 use PhpMyAdmin\Engines\Binlog;
@@ -63,6 +64,9 @@ class StorageEngine
      */
     public int $support = self::SUPPORT_NO;
 
+    /** @psalm-var array<string, array{Engine: string, Comment: string, Support: string}>|null */
+    private static array|null $storageEngines = null;
+
     /** @param string $engine The engine ID */
     public function __construct(string $engine)
     {
@@ -86,14 +90,10 @@ class StorageEngine
      * Returns array of storage engines
      *
      * @return array<string, array{Engine: string, Comment: string, Support: string}>
-     *
-     * @staticvar array $storage_engines storage engines
      */
     public static function getStorageEngines(): array
     {
-        static $storageEngines = null;
-
-        if ($storageEngines == null) {
+        if (self::$storageEngines === null) {
             $dbi = DatabaseInterface::getInstance();
             /** @var array<string, array{Engine: string, Comment: string, Support: string}> $storageEngines */
             $storageEngines = $dbi->fetchResult('SHOW STORAGE ENGINES', 'Engine');
@@ -113,9 +113,11 @@ class StorageEngine
                     $storageEngines[$engine]['Support'] = 'DISABLED';
                 }
             }
+
+            self::$storageEngines = $storageEngines;
         }
 
-        return $storageEngines;
+        return self::$storageEngines;
     }
 
     /**
@@ -156,8 +158,8 @@ class StorageEngine
         $dbi->selectDb($dbName);// Needed for mroonga_command calls
 
         if (! Cache::has($cacheKey)) {
-            $result = $dbi->fetchSingleRow('SELECT mroonga_command(\'object_list\');', DatabaseInterface::FETCH_NUM);
-            $objectList = (array) json_decode($result[0] ?? '', true);
+            $result = $dbi->fetchValue('SELECT mroonga_command(\'object_list\');', 0);
+            $objectList = (array) json_decode((string) $result, true);
             foreach ($objectList as $mroongaName => $mroongaData) {
                 /**
                  * We only need the objects of table or column types, more info:
@@ -186,11 +188,8 @@ class StorageEngine
                 continue;
             }
 
-            $result = $dbi->fetchSingleRow(
-                'SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');',
-                DatabaseInterface::FETCH_NUM,
-            );
-            $decodedData = json_decode($result[0] ?? '', true);
+            $result = $dbi->fetchValue('SELECT mroonga_command(\'object_inspect ' . $mroongaName . '\');', 0);
+            $decodedData = json_decode((string) $result, true);
             if ($decodedData === null) {
                 // Invalid for some strange reason, maybe query failed
                 continue;

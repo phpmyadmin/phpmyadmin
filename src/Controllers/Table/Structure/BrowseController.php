@@ -11,6 +11,7 @@ use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -23,18 +24,18 @@ final class BrowseController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (empty($_POST['selected_fld'])) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
-        $this->displayTableBrowseForSelectedColumns($GLOBALS['goto']);
+        $this->displayTableBrowseForSelectedColumns(UrlParams::$goto);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -65,14 +66,13 @@ final class BrowseController implements InvocableController
                 false, // is_gotofile
                 Current::$database, // db
                 Current::$table, // table
-                null, // sql_query_for_bookmark
-                null, // message_to_show
-                null, // sql_data
+                '', // sql_query_for_bookmark
+                '', // message_to_show
                 $goto, // goto
                 null, // disp_query
-                null, // disp_message
+                '', // disp_message
                 $sqlQuery, // sql_query
-                null, // complete_query
+                $sqlQuery, // complete_query
             ),
         );
     }

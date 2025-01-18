@@ -6,10 +6,12 @@ namespace PhpMyAdmin\Tests\Plugins\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Plugins\Import\ImportLdi;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
@@ -30,9 +32,10 @@ class ImportLdiTest extends AbstractTestCase
     {
         parent::setUp();
 
+        Import::$hasError = false;
         ImportSettings::$charsetConversion = false;
         ImportSettings::$maxSqlLength = 0;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         ImportSettings::$executedQueries = 0;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$runQuery = false;
@@ -44,7 +47,7 @@ class ImportLdiTest extends AbstractTestCase
         $config = Config::getInstance();
 
         ImportSettings::$importFile = 'tests/test_data/db_test_ldi.csv';
-        $GLOBALS['import_text'] = 'ImportLdi_Test';
+        Import::$importText = 'ImportLdi_Test';
         ImportSettings::$readMultiply = 10;
 
         $config->settings['Import']['ldi_replace'] = false;
@@ -127,7 +130,7 @@ class ImportLdiTest extends AbstractTestCase
         //asset that all sql are executed
         self::assertStringContainsString(
             'LOAD DATA INFILE \'tests/test_data/db_test_ldi.csv\' INTO TABLE `phpmyadmintest`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);
@@ -144,12 +147,13 @@ class ImportLdiTest extends AbstractTestCase
         (new ImportLdi())->doImport();
 
         // We handle only some kind of data!
+        self::assertInstanceOf(Message::class, Current::$message);
         self::assertStringContainsString(
             __('This plugin does not support compressed imports!'),
-            $GLOBALS['message']->__toString(),
+            Current::$message->__toString(),
         );
 
-        self::assertTrue($GLOBALS['error']);
+        self::assertTrue(Import::$hasError);
     }
 
     /**
@@ -188,17 +192,17 @@ class ImportLdiTest extends AbstractTestCase
         //replace
         self::assertStringContainsString(
             'LOAD DATA LOCAL INFILE \'tests/test_data/db_test_ldi.csv\' REPLACE INTO TABLE `phpmyadmintest`',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         //FIELDS TERMINATED
-        self::assertStringContainsString("FIELDS TERMINATED BY ','", $GLOBALS['sql_query']);
+        self::assertStringContainsString("FIELDS TERMINATED BY ','", Current::$sqlQuery);
 
         //LINES TERMINATED
-        self::assertStringContainsString("LINES TERMINATED BY 'newline_mark'", $GLOBALS['sql_query']);
+        self::assertStringContainsString("LINES TERMINATED BY 'newline_mark'", Current::$sqlQuery);
 
         //IGNORE
-        self::assertStringContainsString('IGNORE 1 LINES', $GLOBALS['sql_query']);
+        self::assertStringContainsString('IGNORE 1 LINES', Current::$sqlQuery);
 
         self::assertTrue(ImportSettings::$finished);
     }

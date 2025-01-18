@@ -34,7 +34,7 @@
                     <option value="">{{ t('select column') }}</option>
                   </select>
                   <br>
-                  <input type="checkbox" checked="checked" class="show_col">
+                  <input type="checkbox" checked class="show_col">
                   <span>{{ t('Show') }}</span>
                   <br>
                   <input type="text" placeholder="{{ t('Table alias') }}" class="table_alias">
@@ -65,7 +65,7 @@
                                    name="logical_op[{{ id }}]"
                                    value="AND"
                                    class="logical_op"
-                                   checked="checked">
+                                   checked>
                             AND
                           </td>
                           <td>
@@ -74,6 +74,15 @@
                                    value="OR"
                                    class="logical_op">
                             OR
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td>Column</td>
+                          <td colspan="2">
+                            <select class="columnNameSelect query-form__select--inline opColumn">
+                              <option value="">{{ t('select column') }}</option>
+                            </select>
                           </td>
                         </tr>
 

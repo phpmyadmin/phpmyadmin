@@ -7,8 +7,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -28,6 +30,9 @@ use function str_repeat;
  */
 class ExportMediawiki extends ExportPlugin
 {
+    private bool $caption = false;
+    private bool $headers = false;
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -127,11 +132,10 @@ class ExportMediawiki extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -142,31 +146,12 @@ class ExportMediawiki extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure; this is
-     *                             deprecated but the parameter is left here
-     *                             because /export calls exportStructure()
-     *                             also for other export types which use this
-     *                             parameter
-     * @param bool    $doMime     whether to include mime comments
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      *
      * @infection-ignore-all
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        string $exportType,
-        bool $doRelation = false,
-        bool $doComments = false,
-        bool $doMime = false,
-        bool $dates = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -187,12 +172,12 @@ class ExportMediawiki extends ExportPlugin
                 . $this->exportCRLF();
 
             // Add the table name
-            if (isset($GLOBALS['mediawiki_caption'])) {
+            if ($this->caption) {
                 $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
             }
 
             // Add the table headers
-            if (isset($GLOBALS['mediawiki_headers'])) {
+            if ($this->headers) {
                 $output .= '|- style="background:#ffdead;"' . $this->exportCRLF();
                 $output .= '! style="background:#ffffff" | '
                     . $this->exportCRLF();
@@ -242,14 +227,12 @@ class ExportMediawiki extends ExportPlugin
      *
      * @param string  $db       database name
      * @param string  $table    table name
-     * @param string  $errorUrl the url to go back in case of error
      * @param string  $sqlQuery SQL query for obtaining data
      * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
         string $table,
-        string $errorUrl,
         string $sqlQuery,
         array $aliases = [],
     ): bool {
@@ -271,13 +254,13 @@ class ExportMediawiki extends ExportPlugin
             . $this->exportCRLF();
 
         // Add the table name
-        if (isset($GLOBALS['mediawiki_caption'])) {
+        if ($this->caption) {
             $output .= "|+'''" . $tableAlias . "'''" . $this->exportCRLF();
         }
 
         $dbi = DatabaseInterface::getInstance();
         // Add the table headers
-        if (isset($GLOBALS['mediawiki_headers'])) {
+        if ($this->headers) {
             // Get column names
             $columnNames = $dbi->getColumnNames($db, $table);
 
@@ -320,17 +303,16 @@ class ExportMediawiki extends ExportPlugin
     /**
      * Outputs result raw query in MediaWiki format
      *
-     * @param string      $errorUrl the url to go back in case of error
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
+        return $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**
@@ -360,5 +342,19 @@ class ExportMediawiki extends ExportPlugin
     {
         // The CRLF expected by the mediawiki format is "\n"
         return "\n";
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('mediawiki_structure_or_data'),
+            $exportConfig['mediawiki_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
+        $this->caption = (bool) ($request->getParsedBodyParam('mediawiki_caption')
+            ?? $exportConfig['mediawiki_caption'] ?? false);
+        $this->headers = (bool) ($request->getParsedBodyParam('mediawiki_headers')
+            ?? $exportConfig['mediawiki_headers'] ?? false);
     }
 }

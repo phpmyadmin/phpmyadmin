@@ -4,23 +4,30 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Controllers\SchemaExportController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RunTestsInSeparateProcesses;
+
+use function function_exists;
+use function xdebug_get_headers;
 
 #[CoversClass(SchemaExportController::class)]
-class SchemaExportControllerTest extends AbstractTestCase
+#[RunTestsInSeparateProcesses]
+final class SchemaExportControllerTest extends AbstractTestCase
 {
     public function testExport(): void
     {
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('getParsedBodyParam')->willReturnMap([['db', null, 'test_db'], ['export_type', null, 'svg']]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['db' => 'test_db', 'export_type' => 'svg']);
         $export = self::createStub(Export::class);
         $export->method('getExportSchemaInfo')->willReturn([
             'fileName' => 'file.svg',
@@ -28,13 +35,19 @@ class SchemaExportControllerTest extends AbstractTestCase
             'fileData' => 'file data',
         ]);
 
-        $response = new ResponseRenderer();
-        $controller = new SchemaExportController($export, $response);
-        $controller($request);
-        $output = $this->getActualOutputForAssertion();
-        self::assertSame('file data', $output);
-        self::assertTrue($response->isDisabled());
-        self::assertSame('', $response->getHTMLResult());
-        self::assertSame([], $response->getJSONResult());
+        $controller = new SchemaExportController($export, new ResponseRenderer(), ResponseFactory::create());
+        $response = $controller($request);
+
+        self::assertSame(StatusCodeInterface::STATUS_OK, $response->getStatusCode());
+        self::assertSame('file data', (string) $response->getBody());
+
+        if (! function_exists('xdebug_get_headers')) {
+            return;
+        }
+
+        $headersList = xdebug_get_headers();
+        self::assertContains('Content-Disposition: attachment; filename="file.svg"', $headersList);
+        self::assertContains('Content-Type: image/svg+xml', $headersList);
+        self::assertContains('Content-Length: 9', $headersList);
     }
 }

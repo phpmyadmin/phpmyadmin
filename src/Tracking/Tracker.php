@@ -11,8 +11,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\TrackingFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\SqlParser\Parser;
@@ -47,6 +47,13 @@ class Tracker
      * @var mixed[]
      */
     protected static array $trackingCache = [];
+
+    /**
+     * Cache of checked databases.
+     *
+     * @var bool[]
+     */
+    private static array $trackedDatabaseCache = [];
 
     /**
      * Actually enables tracking. This needs to be done after all
@@ -151,7 +158,6 @@ class Tracker
         string $trackingSet = '',
         bool $isView = false,
     ): bool {
-        $GLOBALS['export_type'] ??= null;
         $dbi = DatabaseInterface::getInstance();
         $relation = new Relation($dbi);
 
@@ -160,10 +166,7 @@ class Tracker
             $trackingSet = $config->selectedServer['tracking_default_statements'];
         }
 
-        $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-            'export_type' => (string) $GLOBALS['export_type'],
-            'single_table' => false,
-        ]);
+        $exportSqlPlugin = Plugins::getPlugin('export', 'sql');
         if (! $exportSqlPlugin instanceof ExportSql) {
             return false;
         }
@@ -316,6 +319,8 @@ class Tracker
         if ($trackingFeature === null) {
             return false;
         }
+
+        unset(self::$trackedDatabaseCache[$dbName]); // Clear cache due to the change in tracking status
 
         $sqlQuery = sprintf(
             'UPDATE %s.%s SET `tracking_active` = %d'
@@ -678,6 +683,10 @@ class Tracker
         TrackingFeature $trackingFeature,
         string $dbname,
     ): bool {
+        if (isset(self::$trackedDatabaseCache[$dbname])) {
+            return self::$trackedDatabaseCache[$dbname];
+        }
+
         $sqlQuery = sprintf(
             '/*NOTRACK*/ SELECT 1 FROM %s.%s WHERE tracking_active = 1 AND db_name = %s LIMIT 1',
             Util::backquote($trackingFeature->database),
@@ -685,6 +694,9 @@ class Tracker
             $dbi->quoteString($dbname, ConnectionType::ControlUser),
         );
 
-        return $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
+        $isTracked = $dbi->queryAsControlUser($sqlQuery)->fetchValue() !== false;
+        self::$trackedDatabaseCache[$dbname] = $isTracked;
+
+        return $isTracked;
     }
 }

@@ -1,19 +1,16 @@
 <?php
-/**
- * Abstract class for the authentication plugins
- */
 
 declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins;
 
+use Exception;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Exceptions\ExitException;
-use PhpMyAdmin\Exceptions\SessionHandlerException;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\IpAllowDeny;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
@@ -35,8 +32,7 @@ use function sprintf;
 use function time;
 
 /**
- * Provides a common interface that will have to be implemented by all of the
- * authentication plugins.
+ * Provides a common interface that will have to be implemented by all the authentication plugins.
  */
 abstract class AuthenticationPlugin
 {
@@ -63,10 +59,13 @@ abstract class AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    abstract public function showLoginForm(): void;
+    abstract public function showLoginForm(): Response|null;
 
     /**
      * Gets authentication credentials
+     *
+     * @throws AuthenticationFailure
+     * @throws Exception
      */
     abstract public function readCredentials(): bool;
 
@@ -87,18 +86,19 @@ abstract class AuthenticationPlugin
     /**
      * Stores user credentials after successful login.
      */
-    public function rememberCredentials(): void
+    public function rememberCredentials(): Response|null
     {
+        return null;
     }
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): void
+    abstract public function showFailure(AuthenticationFailure $failure): Response;
+
+    protected function logFailure(AuthenticationFailure $failure): void
     {
-        Logging::logUser(Config::getInstance(), $this->user, $failure);
+        Logging::logUser(Config::getInstance(), $this->user, $failure->failureType);
     }
 
     /**
@@ -157,38 +157,25 @@ abstract class AuthenticationPlugin
 
     /**
      * Returns error message for failed authentication.
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function getErrorMessage(string $failure): string
+    public function getErrorMessage(AuthenticationFailure $failure): string
     {
-        if ($failure === 'empty-denied') {
-            return __('Login without a password is forbidden by configuration (see AllowNoPassword)');
+        if ($failure->failureType === AuthenticationFailure::NO_ACTIVITY) {
+            return sprintf($failure->getMessage(), (int) Config::getInstance()->settings['LoginCookieValidity']);
         }
 
-        if ($failure === 'root-denied' || $failure === 'allow-denied') {
-            return __('Access denied!');
+        if ($failure->failureType === AuthenticationFailure::SERVER_DENIED) {
+            $dbiError = DatabaseInterface::getInstance()->getError();
+            if ($dbiError !== '') {
+                return htmlspecialchars($dbiError);
+            }
+
+            if (DatabaseInterface::$errorNumber !== null) {
+                return '#' . DatabaseInterface::$errorNumber . ' ' . $failure->getMessage();
+            }
         }
 
-        if ($failure === 'no-activity') {
-            return sprintf(
-                __('You have been automatically logged out due to inactivity of %s seconds.'
-                . ' Once you log in again, you should be able to resume the work where you left off.'),
-                (int) Config::getInstance()->settings['LoginCookieValidity'],
-            );
-        }
-
-        $dbiError = DatabaseInterface::getInstance()->getError();
-        if ($dbiError !== '') {
-            return htmlspecialchars($dbiError);
-        }
-
-        if (isset($GLOBALS['errno'])) {
-            return '#' . $GLOBALS['errno'] . ' '
-            . __('Cannot log in to the MySQL server');
-        }
-
-        return __('Cannot log in to the MySQL server');
+        return $failure->getMessage();
     }
 
     /**
@@ -235,28 +222,23 @@ abstract class AuthenticationPlugin
      * High level authentication interface
      *
      * Gets the credentials or shows login form if necessary
+     *
+     * @throws AuthenticationFailure
+     * @throws Exception
      */
-    public function authenticate(): void
+    public function authenticate(): Response|null
     {
         $success = $this->readCredentials();
 
         /* Show login form (this exits) */
         if (! $success) {
             /* Force generating of new session */
-            try {
-                Session::secure();
-            } catch (SessionHandlerException $exception) {
-                $responseRenderer = ResponseRenderer::getInstance();
-                $responseRenderer->addHTML((new Template())->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => LanguageManager::$textDir,
-                    'error_message' => $exception->getMessage(),
-                ]));
+            Session::secure();
 
-                $responseRenderer->callExit();
+            $response = $this->showLoginForm();
+            if ($response !== null) {
+                return $response;
             }
-
-            $this->showLoginForm();
         }
 
         /* Store credentials (eg. in cookies) */
@@ -265,10 +247,14 @@ abstract class AuthenticationPlugin
         $this->checkRules();
         /* clear user cache */
         Util::clearUserCache();
+
+        return null;
     }
 
     /**
      * Check configuration defined restrictions for authentication
+     *
+     * @throws AuthenticationFailure
      */
     public function checkRules(): void
     {
@@ -287,13 +273,13 @@ abstract class AuthenticationPlugin
 
             // Ejects the user if banished
             if ($allowDenyForbidden) {
-                $this->showFailure('allow-denied');
+                throw AuthenticationFailure::deniedByAllowDenyRules();
             }
         }
 
         // is root allowed?
         if (! $config->selectedServer['AllowRoot'] && $config->selectedServer['user'] === 'root') {
-            $this->showFailure('root-denied');
+            throw AuthenticationFailure::rootDeniedByConfiguration();
         }
 
         // is a login without password allowed?
@@ -301,39 +287,37 @@ abstract class AuthenticationPlugin
             return;
         }
 
-        $this->showFailure('empty-denied');
+        throw AuthenticationFailure::emptyPasswordDeniedByConfiguration();
     }
 
     /**
-     * Checks whether two factor authentication is active
-     * for given user and performs it.
-     *
-     * @throws ExitException
+     * Checks whether two-factor authentication is active for given user and performs it.
      */
-    public function checkTwoFactor(ServerRequest $request): void
+    public function checkTwoFactor(ServerRequest $request): Response|null
     {
         $twofactor = new TwoFactor($this->user);
 
         /* Do we need to show the form? */
         if ($twofactor->check($request)) {
-            return;
+            return null;
         }
 
-        $response = ResponseRenderer::getInstance();
-        if ($response->loginPage()) {
-            $response->callExit();
+        $responseRenderer = ResponseRenderer::getInstance();
+        if ($responseRenderer->loginPage()) {
+            return $responseRenderer->response();
         }
 
-        $response->addHTML($this->template->render('login/header', ['session_expired' => false]));
-        $response->addHTML(Message::rawNotice(
+        $responseRenderer->addHTML($this->template->render('login/header', ['session_expired' => false]));
+        $responseRenderer->addHTML(Message::rawNotice(
             __('You have enabled two factor authentication, please confirm your login.'),
         )->getDisplay());
-        $response->addHTML($this->template->render('login/twofactor', [
+        $responseRenderer->addHTML($this->template->render('login/twofactor', [
             'form' => $twofactor->render($request),
             'show_submit' => $twofactor->showSubmit(),
         ]));
-        $response->addHTML($this->template->render('login/footer'));
-        $response->addHTML(Config::renderFooter());
-        $response->callExit();
+        $responseRenderer->addHTML($this->template->render('login/footer'));
+        $responseRenderer->addHTML(Config::renderFooter());
+
+        return $responseRenderer->response();
     }
 }

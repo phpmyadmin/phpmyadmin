@@ -14,13 +14,7 @@
   </ul>
 {% endif %}
 
-{% for flash_key, flash_messages in flash() %}
-  {% for flash_message in flash_messages %}
-    <div class="alert alert-{{ flash_key }}" role="alert">
-      {{ flash_message }}
-    </div>
-  {% endfor %}
-{% endfor %}
+{{ include('components/flash_messages.twig', with_context = false) }}
 
 <div id="structure_content">
   {% block content %}{% endblock %}

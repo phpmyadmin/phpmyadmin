@@ -9,8 +9,8 @@ use PhpMyAdmin\Config\ConfigFile;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -319,7 +319,7 @@ class UserPreferencesTest extends AbstractTestCase
         $responseStub = new ResponseRendererStub();
         (new ReflectionProperty(ResponseRenderer::class, 'instance'))->setValue(null, $responseStub);
 
-        $GLOBALS['lang'] = '';
+        Current::$lang = '';
         Current::$database = 'db';
         Current::$table = 'table';
 

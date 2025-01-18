@@ -10,24 +10,18 @@ use PhpMyAdmin\ConfigStorage\Features\RelationFeature;
 use PhpMyAdmin\ConfigStorage\Features\UiPreferencesFeature;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
-use PhpMyAdmin\Plugins;
-use PhpMyAdmin\Plugins\Export\ExportSql;
 use PhpMyAdmin\Query\Compatibility;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
-use PhpMyAdmin\SqlParser\Components\Expression;
-use PhpMyAdmin\SqlParser\Components\OptionsArray;
-use PhpMyAdmin\SqlParser\Context;
 use PhpMyAdmin\SqlParser\Parser;
-use PhpMyAdmin\SqlParser\Statements\AlterStatement;
 use PhpMyAdmin\SqlParser\Statements\CreateStatement;
-use PhpMyAdmin\SqlParser\Statements\DropStatement;
+use PhpMyAdmin\SqlParser\Utils\ForeignKey;
 use PhpMyAdmin\SqlParser\Utils\Table as TableUtils;
 use PhpMyAdmin\Triggers\Triggers;
 use PhpMyAdmin\Util;
@@ -72,20 +66,13 @@ use function trim;
  */
 class Table implements Stringable
 {
-    /**
-     * UI preferences properties
-     */
-    public const PROP_SORTED_COLUMN = 'sorted_col';
-    public const PROP_COLUMN_ORDER = 'col_order';
-    public const PROP_COLUMN_VISIB = 'col_visib';
-
     /** @var mixed[] UI preferences */
     public array $uiprefs = [];
 
-    /** @var mixed[] errors occurred */
+    /** @var string[] errors occurred */
     public array $errors = [];
 
-    /** @var mixed[] messages */
+    /** @var string[] messages */
     public array $messages = [];
 
     private Relation $relation;
@@ -459,7 +446,7 @@ class Table implements Stringable
         $dbi = DatabaseInterface::getInstance();
         if (
             $length !== ''
-            && ! preg_match($pattern, $type)
+            && preg_match($pattern, $type) !== 1
             && Compatibility::isIntegersSupportLength($type, $length, $dbi)
         ) {
             // Note: The variable $length here can contain several other things
@@ -483,7 +470,7 @@ class Table implements Stringable
         // supports no extra virtual column properties except CHARACTER SET for text column types
         $isVirtualColMariaDB = $virtuality && Compatibility::isMariaDb();
 
-        $matches = preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type);
+        $matches = preg_match('@^(TINYTEXT|TEXT|MEDIUMTEXT|LONGTEXT|VARCHAR|CHAR|ENUM|SET)$@i', $type) === 1;
         if ($collation !== '' && $collation !== 'NULL' && $matches) {
             $query .= Util::getCharsetQueryPart(
                 $isVirtualColMariaDB ? (string) preg_replace('~_.+~s', '', $collation) : $collation,
@@ -513,7 +500,7 @@ class Table implements Stringable
                             $query .= ' DEFAULT 0';
                         } elseif (
                             $isTimestamp
-                            && preg_match('/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/', $defaultValue)
+                            && preg_match('/^\'\d\d\d\d-\d\d-\d\d \d\d:\d\d:\d\d(\.\d{1,6})?\'$/', $defaultValue) === 1
                         ) {
                             $query .= ' DEFAULT ' . $defaultValue;
                         } elseif ($type === 'BIT') {
@@ -521,9 +508,9 @@ class Table implements Stringable
                             . preg_replace('/[^01]/', '0', $defaultValue)
                             . '\'';
                         } elseif ($type === 'BOOLEAN') {
-                            if (preg_match('/^1|T|TRUE|YES$/i', $defaultValue)) {
+                            if (preg_match('/^1|T|TRUE|YES$/i', $defaultValue) === 1) {
                                 $query .= ' DEFAULT TRUE';
-                            } elseif (preg_match('/^0|F|FALSE|NO$/i', $defaultValue)) {
+                            } elseif (preg_match('/^0|F|FALSE|NO$/i', $defaultValue) === 1) {
                                 $query .= ' DEFAULT FALSE';
                             } else {
                                 // Invalid BOOLEAN value
@@ -591,10 +578,10 @@ class Table implements Stringable
         if ($virtuality === '' && $extra !== '') {
             if ($oldColumnName === null) {
                 if (is_array($columnsWithIndex) && ! in_array($name, $columnsWithIndex)) {
-                    $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+                    $query .= ', ADD PRIMARY KEY (' . Util::backquote($name) . ')';
                 }
             } elseif (is_array($columnsWithIndex) && ! in_array($oldColumnName, $columnsWithIndex)) {
-                $query .= ', add PRIMARY KEY (' . Util::backquote($name) . ')';
+                $query .= ', ADD PRIMARY KEY (' . Util::backquote($name) . ')';
             }
         }
 
@@ -767,504 +754,6 @@ class Table implements Stringable
     }
 
     /**
-     * Inserts existing entries in a PMA_* table by reading a value from an old
-     * entry
-     *
-     * @param string   $work        The array index, which Relation feature to check ('relwork', 'commwork', ...)
-     * @param string   $table       The array index, which PMA-table to update ('bookmark', 'relation', ...)
-     * @param string[] $getFields   Which fields will be SELECT'ed from the old entry
-     * @param mixed[]  $whereFields Which fields will be used for the WHERE query (array('FIELDNAME' => 'FIELDVALUE'))
-     * @param mixed[]  $newFields   Which fields will be used as new VALUES. These are the important keys which differ
-     *                            from the old entry (array('FIELDNAME' => 'NEW FIELDVALUE'))
-     */
-    public static function duplicateInfo(
-        string $work,
-        string $table,
-        array $getFields,
-        array $whereFields,
-        array $newFields,
-    ): int|bool {
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-        $relationParameters = $relation->getRelationParameters();
-        $relationParams = $relationParameters->toArray();
-        $lastId = -1;
-
-        if (! isset($relationParams[$work], $relationParams[$table]) || ! $relationParams[$work]) {
-            return true;
-        }
-
-        $selectParts = [];
-        $rowFields = [];
-        foreach ($getFields as $getField) {
-            $selectParts[] = Util::backquote($getField);
-            $rowFields[] = $getField;
-        }
-
-        $whereParts = [];
-        foreach ($whereFields as $where => $value) {
-            $whereParts[] = Util::backquote((string) $where) . ' = '
-                . $dbi->quoteString((string) $value, ConnectionType::ControlUser);
-        }
-
-        $newParts = [];
-        $newValueParts = [];
-        foreach ($newFields as $where => $value) {
-            $newParts[] = Util::backquote((string) $where);
-            $newValueParts[] = $dbi->quoteString((string) $value, ConnectionType::ControlUser);
-        }
-
-        $tableCopyQuery = '
-            SELECT ' . implode(', ', $selectParts) . '
-              FROM ' . Util::backquote($relationParameters->db) . '.'
-              . Util::backquote((string) $relationParams[$table]) . '
-             WHERE ' . implode(' AND ', $whereParts);
-
-        // must use DatabaseInterface::QUERY_BUFFERED here, since we execute
-        // another query inside the loop
-        $tableCopyRs = $dbi->queryAsControlUser($tableCopyQuery);
-
-        foreach ($tableCopyRs as $tableCopyRow) {
-            $valueParts = [];
-            foreach ($tableCopyRow as $key => $val) {
-                if (! in_array($key, $rowFields)) {
-                    continue;
-                }
-
-                $valueParts[] = $dbi->quoteString($val, ConnectionType::ControlUser);
-            }
-
-            $newTableQuery = 'INSERT IGNORE INTO '
-                . Util::backquote($relationParameters->db)
-                . '.' . Util::backquote((string) $relationParams[$table])
-                . ' (' . implode(', ', $selectParts) . ', '
-                . implode(', ', $newParts) . ') VALUES ('
-                . implode(', ', $valueParts) . ', '
-                . implode(', ', $newValueParts) . ')';
-
-            $dbi->queryAsControlUser($newTableQuery);
-            $lastId = $dbi->insertId();
-        }
-
-        return $lastId;
-    }
-
-    /**
-     * Copies or renames table
-     *
-     * @param string $sourceDb    source database
-     * @param string $sourceTable source table
-     * @param string $targetDb    target database
-     * @param string $targetTable target table
-     * @param string $what        what to be moved or copied (data, dataonly)
-     * @param bool   $move        whether to move
-     * @param string $mode        mode
-     */
-    public static function moveCopy(
-        string $sourceDb,
-        string $sourceTable,
-        string $targetDb,
-        string $targetTable,
-        string $what,
-        bool $move,
-        string $mode,
-        bool $addDropIfExists,
-    ): bool {
-        $GLOBALS['errorUrl'] ??= null;
-        $dbi = DatabaseInterface::getInstance();
-        $relation = new Relation($dbi);
-
-        // Try moving the tables directly, using native `RENAME` statement.
-        if ($move && $what === 'data') {
-            $tbl = new Table($sourceTable, $sourceDb, $dbi);
-            if ($tbl->rename($targetTable, $targetDb)) {
-                $GLOBALS['message'] = $tbl->getLastMessage();
-
-                return true;
-            }
-        }
-
-        // Setting required export settings.
-        $GLOBALS['asfile'] = 1;
-
-        // Ensuring the target database is valid.
-        $databaseList = $dbi->getDatabaseList();
-        if (! $databaseList->exists($sourceDb, $targetDb)) {
-            if (! $databaseList->exists($sourceDb)) {
-                $GLOBALS['message'] = Message::rawError(
-                    sprintf(
-                        __('Source database `%s` was not found!'),
-                        htmlspecialchars($sourceDb),
-                    ),
-                );
-            }
-
-            if (! $databaseList->exists($targetDb)) {
-                $GLOBALS['message'] = Message::rawError(
-                    sprintf(
-                        __('Target database `%s` was not found!'),
-                        htmlspecialchars($targetDb),
-                    ),
-                );
-            }
-
-            return false;
-        }
-
-        /**
-         * The full name of source table, quoted.
-         */
-        $source = Util::backquote($sourceDb) . '.' . Util::backquote($sourceTable);
-
-        // If the target database is not specified, the operation is taking
-        // place in the same database.
-        if ($targetDb === '') {
-            $targetDb = $sourceDb;
-        }
-
-        // Selecting the database could avoid some problems with replicated
-        // databases, when moving table from replicated one to not replicated one.
-        $dbi->selectDb($targetDb);
-
-        /**
-         * The full name of target table, quoted.
-         */
-        $target = Util::backquote($targetDb) . '.' . Util::backquote($targetTable);
-
-        // No table is created when this is a data-only operation.
-        if ($what !== 'dataonly') {
-            /**
-             * Instance used for exporting the current structure of the table.
-             *
-             * @var ExportSql $exportSqlPlugin
-             */
-            $exportSqlPlugin = Plugins::getPlugin('export', 'sql', [
-                'export_type' => 'table',
-                'single_table' => false,
-            ]);
-            // It is better that all identifiers are quoted
-            $exportSqlPlugin->useSqlBackquotes(true);
-
-            $noConstraintsComments = true;
-            $GLOBALS['sql_constraints_query'] = '';
-            // set the value of global sql_auto_increment variable
-            if (isset($_POST['sql_auto_increment'])) {
-                $GLOBALS['sql_auto_increment'] = $_POST['sql_auto_increment'];
-            }
-
-            $isView = (new Table($sourceTable, $sourceDb, $dbi))->isView();
-            /**
-             * The old structure of the table.
-             */
-            $sqlStructure = $exportSqlPlugin->getTableDef($sourceDb, $sourceTable, false, false, $isView);
-
-            unset($noConstraintsComments);
-
-            // -----------------------------------------------------------------
-            // Phase 0: Preparing structures used.
-
-            /**
-             * The destination where the table is moved or copied to.
-             */
-            $destination = new Expression($targetDb, $targetTable, '');
-
-            // Find server's SQL mode so the builder can generate correct
-            // queries.
-            // One of the options that alters the behaviour is `ANSI_QUOTES`.
-            Context::setMode((string) $dbi->fetchValue('SELECT @@sql_mode'));
-
-            // -----------------------------------------------------------------
-            // Phase 1: Dropping existent element of the same name (if exists
-            // and required).
-
-            if ($addDropIfExists) {
-                /**
-                 * Drop statement used for building the query.
-                 */
-                $statement = new DropStatement();
-
-                $tbl = new Table($targetTable, $targetDb, $dbi);
-
-                $statement->options = new OptionsArray(
-                    [$tbl->isView() ? 'VIEW' : 'TABLE', 'IF EXISTS'],
-                );
-
-                $statement->fields = [$destination];
-
-                // Building the query.
-                $dropQuery = $statement->build() . ';';
-
-                // Executing it.
-                $dbi->query($dropQuery);
-                $GLOBALS['sql_query'] .= "\n" . $dropQuery;
-
-                // If an existing table gets deleted, maintain any entries for
-                // the PMA_* tables.
-                $maintainRelations = true;
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 2: Generating the new query of this structure.
-
-            /**
-             * The parser responsible for parsing the old queries.
-             */
-            $parser = new Parser($sqlStructure);
-
-            if (! empty($parser->statements[0])) {
-
-                /**
-                 * The CREATE statement of this structure.
-                 *
-                 * @var CreateStatement $statement
-                 */
-                $statement = $parser->statements[0];
-
-                // Changing the destination.
-                $statement->name = $destination;
-
-                // Building back the query.
-                $sqlStructure = $statement->build() . ';';
-
-                // This is to avoid some issues when renaming databases with views
-                // See: https://github.com/phpmyadmin/phpmyadmin/issues/16422
-                if ($move) {
-                    $dbi->selectDb($targetDb);
-                }
-
-                // Executing it
-                $dbi->query($sqlStructure);
-                $GLOBALS['sql_query'] .= "\n" . $sqlStructure;
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 3: Adding constraints.
-            // All constraint names are removed because they must be unique.
-
-            if (($move || isset($GLOBALS['add_constraints'])) && ! empty($GLOBALS['sql_constraints_query'])) {
-                $parser = new Parser($GLOBALS['sql_constraints_query']);
-
-                /**
-                 * The ALTER statement that generates the constraints.
-                 *
-                 * @var AlterStatement $statement
-                 */
-                $statement = $parser->statements[0];
-
-                // Changing the altered table to the destination.
-                $statement->table = $destination;
-
-                // Removing the name of the constraints.
-                foreach ($statement->altered as $altered) {
-                    // All constraint names are removed because they must be unique.
-                    if (! $altered->options->has('CONSTRAINT')) {
-                        continue;
-                    }
-
-                    $altered->field = null;
-                }
-
-                // Building back the query.
-                $GLOBALS['sql_constraints_query'] = $statement->build() . ';';
-
-                // Executing it.
-                if ($mode === 'one_table') {
-                    $dbi->query($GLOBALS['sql_constraints_query']);
-                }
-
-                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_constraints_query'];
-                if ($mode === 'one_table') {
-                    unset($GLOBALS['sql_constraints_query']);
-                }
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 4: Adding indexes.
-            // View phase 3.
-
-            if (! empty($GLOBALS['sql_indexes'])) {
-                $parser = new Parser($GLOBALS['sql_indexes']);
-
-                $GLOBALS['sql_indexes'] = '';
-                /**
-                 * The ALTER statement that generates the indexes.
-                 *
-                 * @var AlterStatement $statement
-                 */
-                foreach ($parser->statements as $statement) {
-                    // Changing the altered table to the destination.
-                    $statement->table = $destination;
-
-                    // Removing the name of the constraints.
-                    foreach ($statement->altered as $altered) {
-                        // All constraint names are removed because they must be unique.
-                        if (! $altered->options->has('CONSTRAINT')) {
-                            continue;
-                        }
-
-                        $altered->field = null;
-                    }
-
-                    // Building back the query.
-                    $sqlIndex = $statement->build() . ';';
-
-                    // Executing it.
-                    if ($mode === 'one_table' || $mode === 'db_copy') {
-                        $dbi->query($sqlIndex);
-                    }
-
-                    $GLOBALS['sql_indexes'] .= $sqlIndex;
-                }
-
-                $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_indexes'];
-                if ($mode === 'one_table' || $mode === 'db_copy') {
-                    unset($GLOBALS['sql_indexes']);
-                }
-            }
-
-            // -----------------------------------------------------------------
-            // Phase 5: Adding AUTO_INCREMENT.
-
-            if (! empty($GLOBALS['sql_auto_increments']) && ($mode === 'one_table' || $mode === 'db_copy')) {
-                $parser = new Parser($GLOBALS['sql_auto_increments']);
-
-                /**
-                 * The ALTER statement that alters the AUTO_INCREMENT value.
-                 */
-                $statement = $parser->statements[0];
-                if ($statement instanceof AlterStatement) {
-                    // Changing the altered table to the destination.
-                    $statement->table = $destination;
-
-                    // Building back the query.
-                    $GLOBALS['sql_auto_increments'] = $statement->build() . ';';
-
-                    // Executing it.
-                    $dbi->query($GLOBALS['sql_auto_increments']);
-                    $GLOBALS['sql_query'] .= "\n" . $GLOBALS['sql_auto_increments'];
-                }
-
-                unset($GLOBALS['sql_auto_increments']);
-            }
-        } else {
-            $GLOBALS['sql_query'] = '';
-        }
-
-        $table = new Table($targetTable, $targetDb, $dbi);
-        // Copy the data unless this is a VIEW
-        if (($what === 'data' || $what === 'dataonly') && ! $table->isView()) {
-            $sqlSetMode = "SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO'";
-            $dbi->query($sqlSetMode);
-            $GLOBALS['sql_query'] .= "\n\n" . $sqlSetMode . ';';
-
-            $oldTable = new Table($sourceTable, $sourceDb, $dbi);
-            $nonGeneratedCols = $oldTable->getNonGeneratedColumns();
-            if ($nonGeneratedCols !== []) {
-                $sqlInsertData = 'INSERT INTO ' . $target . '('
-                    . implode(', ', $nonGeneratedCols)
-                    . ') SELECT ' . implode(', ', $nonGeneratedCols)
-                    . ' FROM ' . $source;
-
-                $dbi->query($sqlInsertData);
-                $GLOBALS['sql_query'] .= "\n\n" . $sqlInsertData . ';';
-            }
-        }
-
-        $relationParameters = $relation->getRelationParameters();
-
-        // Drops old table if the user has requested to move it
-        if ($move) {
-            // This could avoid some problems with replicated databases, when
-            // moving table from replicated one to not replicated one
-            $dbi->selectDb($sourceDb);
-
-            $sourceTableObj = new Table($sourceTable, $sourceDb, $dbi);
-            $sqlDropQuery = $sourceTableObj->isView() ? 'DROP VIEW' : 'DROP TABLE';
-
-            $sqlDropQuery .= ' ' . $source;
-            $dbi->query($sqlDropQuery);
-
-            // Rename table in configuration storage
-            $relation->renameTable($sourceDb, $targetDb, $sourceTable, $targetTable);
-
-            $GLOBALS['sql_query'] .= "\n\n" . $sqlDropQuery . ';';
-
-            return true;
-        }
-
-        // we are copying
-        // Create new entries as duplicates from old PMA DBs
-        if ($what === 'dataonly' || isset($maintainRelations)) {
-            return true;
-        }
-
-        if ($relationParameters->columnCommentsFeature !== null) {
-            // Get all comments and MIME-Types for current table
-            $commentsCopyRs = $dbi->queryAsControlUser(
-                'SELECT column_name, comment'
-                . ($relationParameters->browserTransformationFeature !== null
-                ? ', mimetype, transformation, transformation_options'
-                : '')
-                . ' FROM '
-                . Util::backquote($relationParameters->columnCommentsFeature->database)
-                . '.'
-                . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
-                . ' WHERE '
-                . ' db_name = ' . $dbi->quoteString($sourceDb, ConnectionType::ControlUser)
-                . ' AND '
-                . ' table_name = ' . $dbi->quoteString($sourceTable, ConnectionType::ControlUser),
-            );
-
-            // Write every comment as new copied entry. [MIME]
-            foreach ($commentsCopyRs as $commentsCopyRow) {
-                $newCommentQuery = 'REPLACE INTO '
-                    . Util::backquote($relationParameters->columnCommentsFeature->database)
-                    . '.' . Util::backquote($relationParameters->columnCommentsFeature->columnInfo)
-                    . ' (db_name, table_name, column_name, comment'
-                    . ($relationParameters->browserTransformationFeature !== null
-                        ? ', mimetype, transformation, transformation_options'
-                        : '')
-                    . ') VALUES(' . $dbi->quoteString($targetDb, ConnectionType::ControlUser)
-                    . ',' . $dbi->quoteString($targetTable, ConnectionType::ControlUser) . ','
-                    . $dbi->quoteString($commentsCopyRow['column_name'], ConnectionType::ControlUser)
-                    . ','
-                    . $dbi->quoteString($commentsCopyRow['comment'], ConnectionType::ControlUser)
-                    . ($relationParameters->browserTransformationFeature !== null
-                        ? ',' . $dbi->quoteString($commentsCopyRow['mimetype'], ConnectionType::ControlUser)
-                        . ',' . $dbi->quoteString($commentsCopyRow['transformation'], ConnectionType::ControlUser)
-                        . ','
-                        . $dbi->quoteString($commentsCopyRow['transformation_options'], ConnectionType::ControlUser)
-                        : '')
-                    . ')';
-                $dbi->queryAsControlUser($newCommentQuery);
-            }
-
-            unset($commentsCopyRs);
-        }
-
-        // duplicating the bookmarks must not be done here, but
-        // just once per db
-
-        $getFields = ['display_field'];
-        $whereFields = ['db_name' => $sourceDb, 'table_name' => $sourceTable];
-        $newFields = ['db_name' => $targetDb, 'table_name' => $targetTable];
-        self::duplicateInfo('displaywork', 'table_info', $getFields, $whereFields, $newFields);
-
-        /** @todo revise this code when we support cross-db relations */
-        $getFields = ['master_field', 'foreign_table', 'foreign_field'];
-        $whereFields = ['master_db' => $sourceDb, 'master_table' => $sourceTable];
-        $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'master_table' => $targetTable];
-        self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
-
-        $getFields = ['foreign_field', 'master_table', 'master_field'];
-        $whereFields = ['foreign_db' => $sourceDb, 'foreign_table' => $sourceTable];
-        $newFields = ['master_db' => $targetDb, 'foreign_db' => $targetDb, 'foreign_table' => $targetTable];
-        self::duplicateInfo('relwork', 'relation', $getFields, $whereFields, $newFields);
-
-        return true;
-    }
-
-    /**
      * checks if given name is a valid table name,
      * currently if not empty, trailing spaces, '.', '/' and '\'
      *
@@ -1292,7 +781,7 @@ class Table implements Stringable
             return false;
         }
 
-        if (! $isBackquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $tableName)) {
+        if (! $isBackquoted && preg_match('/^[a-zA-Z0-9_$]+$/', $tableName) === 1) {
             // only allow the above regex in unquoted identifiers
             // see : https://dev.mysql.com/doc/refman/5.7/en/identifiers.html
             return true;
@@ -1354,11 +843,10 @@ class Table implements Stringable
         }
 
         // tested also for a view, in MySQL 5.0.92, 5.1.55 and 5.5.13
-        $GLOBALS['sql_query'] = '
-            RENAME TABLE ' . $this->getFullName(true) . '
-                  TO ' . $newTable->getFullName(true) . ';';
+        Current::$sqlQuery = 'RENAME TABLE ' . $this->getFullName(true) . ' TO '
+            . $newTable->getFullName(true) . ';';
         // I don't think a specific error message for views is necessary
-        if ($this->dbi->tryQuery($GLOBALS['sql_query']) === false) {
+        if ($this->dbi->tryQuery(Current::$sqlQuery) === false) {
             $this->errors[] = $this->dbi->getError();
 
             // Restore triggers in the old database
@@ -1451,9 +939,9 @@ class Table implements Stringable
      *
      * e.g. index(col1, col2) would return col1, col2
      *
-     * @param mixed[] $indexed    column data
-     * @param bool    $backquoted whether to quote name with backticks ``
-     * @param bool    $fullName   whether to include full name of the table as a prefix
+     * @param string[] $indexed    column data
+     * @param bool     $backquoted whether to quote name with backticks ``
+     * @param bool     $fullName   whether to include full name of the table as a prefix
      *
      * @return string[]
      */
@@ -1542,9 +1030,10 @@ class Table implements Stringable
         $columnsMetaQuery = 'SHOW COLUMNS FROM ' . $this->getFullName(true);
         $ret = [];
 
-        $columnsMetaQueryResult = $this->dbi->fetchResult($columnsMetaQuery);
+        $columnsMetaQueryResult = $this->dbi->fetchResultSimple($columnsMetaQuery);
 
         foreach ($columnsMetaQueryResult as $column) {
+            /** @var string $value */
             $value = $column['Field'];
             if ($backquoted) {
                 $value = Util::backquote($value);
@@ -1597,10 +1086,8 @@ class Table implements Stringable
 
     /**
      * Save this table's UI preferences into phpMyAdmin database.
-     *
-     * @return true|Message
      */
-    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature): bool|Message
+    protected function saveUiPrefsToDb(UiPreferencesFeature $uiPreferencesFeature): true|Message
     {
         $table = Util::backquote($uiPreferencesFeature->database) . '.'
             . Util::backquote($uiPreferencesFeature->tableUiPrefs);
@@ -1677,28 +1164,22 @@ class Table implements Stringable
     /**
      * Get a property from UI preferences.
      * Return false if the property is not found.
-     * Available property:
-     * - PROP_SORTED_COLUMN
-     * - PROP_COLUMN_ORDER
-     * - PROP_COLUMN_VISIB
-     *
-     * @param string $property property
      */
-    public function getUiProp(string $property): mixed
+    public function getUiProp(UiProperty $property): mixed
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
         // do checking based on property
-        if ($property === self::PROP_SORTED_COLUMN) {
-            if (! isset($this->uiprefs[$property])) {
+        if ($property === UiProperty::SortedColumn) {
+            if (! isset($this->uiprefs[$property->value])) {
                 return false;
             }
 
             if (! isset($_POST['discard_remembered_sort'])) {
                 // check if the column name exists in this table
-                $tmp = explode(' ', $this->uiprefs[$property]);
+                $tmp = explode(' ', $this->uiprefs[$property->value]);
                 $colname = $tmp[0];
                 //remove backquoting from colname
                 $colname = str_replace('`', '', $colname);
@@ -1708,7 +1189,7 @@ class Table implements Stringable
                 foreach ($availColumns as $eachCol) {
                     // check if $each_col ends with $colname
                     if (substr_compare($eachCol, $colname, mb_strlen($eachCol) - mb_strlen($colname)) === 0) {
-                        return $this->uiprefs[$property];
+                        return $this->uiprefs[$property->value];
                     }
                 }
             }
@@ -1719,47 +1200,43 @@ class Table implements Stringable
             return false;
         }
 
-        if ($property === self::PROP_COLUMN_ORDER || $property === self::PROP_COLUMN_VISIB) {
-            if ($this->isView() || ! isset($this->uiprefs[$property])) {
-                return false;
-            }
-
-            // check if the table has not been modified
-            if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
-                return array_map(intval(...), $this->uiprefs[$property]);
-            }
-
-            // remove the property, since the table has been modified
-            $this->removeUiProp($property);
-
+        if ($this->isView() || ! isset($this->uiprefs[$property->value])) {
             return false;
         }
 
-        // default behaviour for other property:
-        return $this->uiprefs[$property] ?? false;
+        // check if the table has not been modified
+        if ($this->getStatusInfo('Create_time') == $this->uiprefs['CREATE_TIME']) {
+            return array_map(intval(...), $this->uiprefs[$property->value]);
+        }
+
+        // remove the property, since the table has been modified
+        $this->removeUiProp($property);
+
+        return false;
     }
 
     /**
      * Set a property from UI preferences.
      * If pmadb and table_uiprefs is set, it will save the UI preferences to
      * phpMyAdmin database.
-     * Available property:
-     * - PROP_SORTED_COLUMN
-     * - PROP_COLUMN_ORDER
-     * - PROP_COLUMN_VISIB
      *
-     * @param string      $property        Property
-     * @param mixed       $value           Value for the property
-     * @param string|null $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
+     * @param int[]|string $value           Value for the property
+     * @param string|null  $tableCreateTime Needed for PROP_COLUMN_ORDER and PROP_COLUMN_VISIB
      */
-    public function setUiProp(string $property, mixed $value, string|null $tableCreateTime = null): bool|Message
-    {
+    public function setUiProp(
+        UiProperty $property,
+        array|string $value,
+        string|null $tableCreateTime = null,
+    ): bool|Message {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
         // we want to save the create time if the property is PROP_COLUMN_ORDER
-        if (! $this->isView() && ($property === self::PROP_COLUMN_ORDER || $property === self::PROP_COLUMN_VISIB)) {
+        if (
+            ! $this->isView()
+            && ($property === UiProperty::ColumnOrder || $property === UiProperty::ColumnVisibility)
+        ) {
             $currCreateTime = $this->getStatusInfo('CREATE_TIME');
             if ($tableCreateTime === null || $tableCreateTime != $currCreateTime) {
                 // there is no $table_create_time, or
@@ -1772,7 +1249,7 @@ class Table implements Stringable
                             'not be persistent after you refresh this page. ' .
                             'Please check if the table structure has been changed.',
                         ),
-                        $property,
+                        $property->value,
                     ),
                 );
             }
@@ -1781,7 +1258,7 @@ class Table implements Stringable
         }
 
         // save the value
-        $this->uiprefs[$property] = $value;
+        $this->uiprefs[$property->value] = $value;
 
         // check if pmadb is set
         $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
@@ -1794,19 +1271,15 @@ class Table implements Stringable
 
     /**
      * Remove a property from UI preferences.
-     *
-     * @param string $property the property
-     *
-     * @return true|Message
      */
-    public function removeUiProp(string $property): bool|Message
+    public function removeUiProp(UiProperty $property): true|Message
     {
         if ($this->uiprefs === []) {
             $this->loadUiPrefs();
         }
 
-        if (isset($this->uiprefs[$property])) {
-            unset($this->uiprefs[$property]);
+        if (isset($this->uiprefs[$property->value])) {
+            unset($this->uiprefs[$property->value]);
 
             // check if pmadb is set
             $uiPreferencesFeature = $this->relation->getRelationParameters()->uiPreferencesFeature;
@@ -1819,28 +1292,6 @@ class Table implements Stringable
     }
 
     /**
-     * Get all column names which are MySQL reserved words
-     *
-     * @return string[]
-     */
-    public function getReservedColumnNames(): array
-    {
-        $columns = $this->getColumns(false);
-        $return = [];
-        foreach ($columns as $column) {
-            $temp = explode('.', $column);
-            $columnName = $temp[2];
-            if (! Context::isKeyword($columnName, true)) {
-                continue;
-            }
-
-            $return[] = $columnName;
-        }
-
-        return $return;
-    }
-
-    /**
      * Function to get the name and type of the columns of a table
      *
      * @return array<string, string>
@@ -1848,18 +1299,15 @@ class Table implements Stringable
     public function getNameAndTypeOfTheColumns(): array
     {
         $columns = [];
-        foreach (
-            $this->dbi->getColumnsFull($this->dbName, $this->name) as $row
-        ) {
-            if (preg_match('@^(set|enum)\((.+)\)$@i', $row['Type'], $tmp)) {
+        foreach ($this->dbi->getColumns($this->dbName, $this->name) as $row) {
+            if (preg_match('@^(set|enum)\((.+)\)$@i', $row->type, $tmp) === 1) {
                 $tmp[2] = mb_substr(
                     (string) preg_replace('@([^,])\'\'@', '\\1\\\'', ',' . $tmp[2]),
                     1,
                 );
-                $columns[$row['Field']] = $tmp[1] . '('
-                    . str_replace(',', ', ', $tmp[2]) . ')';
+                $columns[$row->field] = $tmp[1] . '(' . str_replace(',', ', ', $tmp[2]) . ')';
             } else {
-                $columns[$row['Field']] = $row['Type'];
+                $columns[$row->field] = $row->type;
             }
         }
 
@@ -1905,11 +1353,11 @@ class Table implements Stringable
     /**
      * Function to get update query for updating internal relations
      *
-     * @param mixed[]      $multiEditColumnsName multi edit column names
-     * @param mixed[]      $destinationDb        destination tables
-     * @param mixed[]      $destinationTable     destination tables
-     * @param mixed[]      $destinationColumn    destination columns
-     * @param mixed[]|null $existrel             db, table, column
+     * @param string[]        $multiEditColumnsName multi edit column names
+     * @param string[]        $destinationDb        destination tables
+     * @param (string|null)[] $destinationTable     destination tables
+     * @param (string|null)[] $destinationColumn    destination columns
+     * @param mixed[]|null    $existrel             db, table, column
      */
     public function updateInternalRelations(
         array $multiEditColumnsName,
@@ -1987,13 +1435,13 @@ class Table implements Stringable
     /**
      * Function to handle foreign key updates
      *
-     * @param mixed[]  $destinationForeignDb     destination foreign database
-     * @param mixed[]  $multiEditColumnsName     multi edit column names
-     * @param mixed[]  $destinationForeignTable  destination foreign table
-     * @param mixed[]  $destinationForeignColumn destination foreign column
-     * @param string[] $optionsArray             options array
-     * @param string   $table                    current table
-     * @param mixed[]  $existrelForeign          db, table, column
+     * @param string[]     $destinationForeignDb     destination foreign database
+     * @param string[][]   $multiEditColumnsName     multi edit column names
+     * @param string[]     $destinationForeignTable  destination foreign table
+     * @param string[][]   $destinationForeignColumn destination foreign column
+     * @param string[]     $optionsArray             options array
+     * @param string       $table                    current table
+     * @param ForeignKey[] $existrelForeign          db, table, column
      *
      * @return array{string, string, string, bool}
      */
@@ -2021,7 +1469,7 @@ class Table implements Stringable
             $foreignTable = $destinationForeignTable[$masterFieldMd5];
             $foreignField = $destinationForeignColumn[$masterFieldMd5];
 
-            $refDbName = $existrelForeign[$masterFieldMd5]['ref_db_name'] ?? Current::$database;
+            $refDbName = $existrelForeign[$masterFieldMd5]->refDbName ?? Current::$database;
 
             $emptyFields = false;
             foreach ($masterField as $key => $oneField) {
@@ -2041,23 +1489,19 @@ class Table implements Stringable
 
             if (! empty($foreignDb) && ! empty($foreignTable) && ! $emptyFields) {
                 if (isset($existrelForeign[$masterFieldMd5])) {
-                    $constraintName = $existrelForeign[$masterFieldMd5]['constraint'];
-                    $onDelete = ! empty(
-                        $existrelForeign[$masterFieldMd5]['on_delete']
-                    )
-                        ? $existrelForeign[$masterFieldMd5]['on_delete']
+                    $constraintName = $existrelForeign[$masterFieldMd5]->constraint;
+                    $onDelete = ! empty($existrelForeign[$masterFieldMd5]->onDelete)
+                        ? $existrelForeign[$masterFieldMd5]->onDelete
                         : 'RESTRICT';
-                    $onUpdate = ! empty(
-                        $existrelForeign[$masterFieldMd5]['on_update']
-                    )
-                        ? $existrelForeign[$masterFieldMd5]['on_update']
+                    $onUpdate = ! empty($existrelForeign[$masterFieldMd5]->onUpdate)
+                        ? $existrelForeign[$masterFieldMd5]->onUpdate
                         : 'RESTRICT';
 
                     if (
                         $refDbName != $foreignDb
-                        || $existrelForeign[$masterFieldMd5]['ref_table_name'] != $foreignTable
-                        || $existrelForeign[$masterFieldMd5]['ref_index_list'] != $foreignField
-                        || $existrelForeign[$masterFieldMd5]['index_list'] != $masterField
+                        || $existrelForeign[$masterFieldMd5]->refTableName != $foreignTable
+                        || $existrelForeign[$masterFieldMd5]->refIndexList != $foreignField
+                        || $existrelForeign[$masterFieldMd5]->indexList != $masterField
                         || $_POST['constraint_name'][$masterFieldMd5] != $constraintName
                         || ($_POST['on_delete'][$masterFieldMd5] != $onDelete)
                         || ($_POST['on_update'][$masterFieldMd5] != $onUpdate)
@@ -2078,7 +1522,7 @@ class Table implements Stringable
             if ($drop) {
                 $dropQuery = 'ALTER TABLE ' . Util::backquote($table)
                     . ' DROP FOREIGN KEY '
-                    . Util::backquote($existrelForeign[$masterFieldMd5]['constraint'])
+                    . Util::backquote($existrelForeign[$masterFieldMd5]->constraint)
                     . ';';
 
                 if (! isset($_POST['preview_sql'])) {
@@ -2148,12 +1592,12 @@ class Table implements Stringable
             $sqlQueryRecreate .= $this->getSQLToCreateForeignKey(
                 $table,
                 $masterField,
-                $existrelForeign[$masterFieldMd5]['ref_db_name'],
-                $existrelForeign[$masterFieldMd5]['ref_table_name'],
-                $existrelForeign[$masterFieldMd5]['ref_index_list'],
-                $existrelForeign[$masterFieldMd5]['constraint'],
-                $optionsArray[$existrelForeign[$masterFieldMd5]['on_delete'] ?? ''] ?? null,
-                $optionsArray[$existrelForeign[$masterFieldMd5]['on_update'] ?? ''] ?? null,
+                $existrelForeign[$masterFieldMd5]->refDbName,
+                $existrelForeign[$masterFieldMd5]->refTableName,
+                $existrelForeign[$masterFieldMd5]->refIndexList,
+                $existrelForeign[$masterFieldMd5]->constraint,
+                $optionsArray[$existrelForeign[$masterFieldMd5]->onDelete ?? ''] ?? null,
+                $optionsArray[$existrelForeign[$masterFieldMd5]->onUpdate ?? ''] ?? null,
             );
             if (! isset($_POST['preview_sql'])) {
                 $displayQuery .= $sqlQueryRecreate . "\n";
@@ -2170,10 +1614,10 @@ class Table implements Stringable
      * Returns the SQL query for foreign key constraint creation
      *
      * @param string      $table        table name
-     * @param mixed[]     $field        field names
+     * @param string[]    $field        field names
      * @param string      $foreignDb    foreign database name
      * @param string      $foreignTable foreign table name
-     * @param mixed[]     $foreignField foreign field names
+     * @param string[]    $foreignField foreign field names
      * @param string|null $name         name of the constraint
      * @param string|null $onDelete     on delete action
      * @param string|null $onUpdate     on update action
@@ -2310,7 +1754,7 @@ class Table implements Stringable
             ),
         );
 
-        if (! is_array($result)) {
+        if ($result === []) {
             return null;
         }
 

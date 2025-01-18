@@ -7,11 +7,16 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Auth;
 
+use Fig\Http\Message\StatusCodeInterface;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\LanguageManager;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
+use PhpMyAdmin\Http\Factory\ResponseFactory;
+use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
+use RuntimeException;
 
 use function __;
 use function array_merge;
@@ -24,6 +29,7 @@ use function session_name;
 use function session_set_cookie_params;
 use function session_start;
 use function session_write_close;
+use function sprintf;
 
 /**
  * Handles the SignOn authentication method
@@ -33,25 +39,24 @@ class AuthenticationSignon extends AuthenticationPlugin
     /**
      * Displays authentication form
      */
-    public function showLoginForm(): never
+    public function showLoginForm(): Response
     {
-        $response = ResponseRenderer::getInstance();
-        $response->disable();
+        $responseRenderer = ResponseRenderer::getInstance();
         unset($_SESSION['LAST_SIGNON_URL']);
         $config = Config::getInstance();
         if (empty($config->selectedServer['SignonURL'])) {
-            echo $this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
+            $responseRenderer->addHTML($this->template->render('error/generic', [
+                'lang' => Current::$lang,
                 'error_message' => 'You must set SignonURL!',
-            ]);
+            ]));
 
-            $response->callExit();
-        } else {
-            $response->redirect($config->selectedServer['SignonURL']);
+            return $responseRenderer->response();
         }
 
-        $response->callExit();
+        return ResponseFactory::create()->createResponse(StatusCodeInterface::STATUS_FOUND)->withHeader(
+            'Location',
+            $responseRenderer->fixRelativeUrlForRedirect($config->selectedServer['SignonURL']),
+        );
     }
 
     /**
@@ -90,6 +95,8 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * Gets authentication credentials
+     *
+     * @throws RuntimeException
      */
     public function readCredentials(): bool
     {
@@ -118,13 +125,10 @@ class AuthenticationSignon extends AuthenticationPlugin
         /* Handle script based auth */
         if ($scriptName !== '') {
             if (! @file_exists($scriptName)) {
-                echo $this->template->render('error/generic', [
-                    'lang' => $GLOBALS['lang'] ?? 'en',
-                    'dir' => LanguageManager::$textDir,
-                    'error_message' => __('Can not find signon authentication script:') . ' ' . $scriptName,
-                ]);
-
-                ResponseRenderer::getInstance()->callExit();
+                throw new RuntimeException(sprintf(
+                    __('Can not find signon authentication script: %s'),
+                    '$cfg[\'Servers\'][$i][\'SignonScript\']',
+                ));
             }
 
             include $scriptName;
@@ -233,12 +237,10 @@ class AuthenticationSignon extends AuthenticationPlugin
 
     /**
      * User is not allowed to login to MySQL -> authentication failed
-     *
-     * @param string $failure String describing why authentication has failed
      */
-    public function showFailure(string $failure): never
+    public function showFailure(AuthenticationFailure $failure): Response
     {
-        parent::showFailure($failure);
+        $this->logFailure($failure);
 
         /* Session name */
         $sessionName = Config::getInstance()->selectedServer['SignonSession'];
@@ -260,7 +262,7 @@ class AuthenticationSignon extends AuthenticationPlugin
             $_SESSION['PMA_single_signon_error_message'] = $this->getErrorMessage($failure);
         }
 
-        $this->showLoginForm();
+        return $this->showLoginForm();
     }
 
     /**

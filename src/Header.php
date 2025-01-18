@@ -9,20 +9,19 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Navigation\Navigation;
 use PhpMyAdmin\Theme\ThemeManager;
 
 use function array_merge;
 use function defined;
-use function gmdate;
-use function header;
 use function htmlspecialchars;
 use function ini_get;
 use function json_encode;
 use function sprintf;
 use function strtolower;
-use function urlencode;
 
 use const JSON_HEX_TAG;
 
@@ -55,19 +54,6 @@ class Header
      * Whether to show the warnings
      */
     private bool $warningsEnabled = true;
-    /**
-     * Whether we are servicing an ajax request.
-     */
-    private bool $isAjax = false;
-    /**
-     * Whether to display anything
-     */
-    private bool $isEnabled = true;
-    /**
-     * Whether the HTTP headers (and possibly some HTML)
-     * have already been sent to the browser
-     */
-    private bool $headerIsSent = false;
 
     private UserPreferences $userPreferences;
 
@@ -103,7 +89,7 @@ class Header
         $this->scripts->addFile('vendor/js.cookie.min.js');
         $this->scripts->addFile('vendor/jquery/jquery.validate.min.js');
         $this->scripts->addFile('vendor/jquery/jquery-ui-timepicker-addon.js');
-        $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => $GLOBALS['lang']]);
+        $this->scripts->addFile('index.php', ['route' => '/messages', 'l' => Current::$lang]);
         $this->scripts->addFile('shared.js');
         $this->scripts->addFile('menu_resizer.js');
         $this->scripts->addFile('main.js');
@@ -124,13 +110,13 @@ class Header
         $params = [
             // Do not add any separator, JS code will decide
             'common_query' => Url::getCommonRaw([], ''),
-            'opendb_url' => Util::getScriptNameForOption($this->config->settings['DefaultTabDatabase'], 'database'),
-            'lang' => $GLOBALS['lang'],
+            'opendb_url' => Url::getFromRoute($this->config->settings['DefaultTabDatabase']),
+            'lang' => Current::$lang,
             'server' => Current::$server,
             'table' => Current::$table,
             'db' => Current::$database,
             'token' => $_SESSION[' PMA_token '],
-            'text_dir' => LanguageManager::$textDir,
+            'text_dir' => LanguageManager::$textDirection->value,
             'LimitChars' => $this->config->settings['LimitChars'],
             'pftext' => $pftext,
             'confirm' => $this->config->settings['Confirm'],
@@ -161,26 +147,6 @@ class Header
         $params = $this->getJsParams();
 
         return 'window.Navigation.update(window.CommonParams.setAll(' . json_encode($params, JSON_HEX_TAG) . '));';
-    }
-
-    /**
-     * Disables the rendering of the header
-     */
-    public function disable(): void
-    {
-        $this->isEnabled = false;
-    }
-
-    /**
-     * Set the ajax flag to indicate whether
-     * we are servicing an ajax request
-     *
-     * @param bool $isAjax Whether we are servicing an ajax request
-     */
-    public function setAjax(bool $isAjax): void
-    {
-        $this->isAjax = $isAjax;
-        $this->console->setAjax($isAjax);
     }
 
     /**
@@ -240,26 +206,14 @@ class Header
         $this->warningsEnabled = false;
     }
 
-    /**
-     * Generates the header
-     *
-     * @return string The header
-     */
-    public function getDisplay(): string
+    /** @return mixed[] */
+    public function getDisplay(): array
     {
-        if ($this->headerIsSent || ! $this->isEnabled || $this->isAjax) {
-            return '';
-        }
-
-        $this->sendHttpHeaders();
-
         $baseDir = defined('PMA_PATH_TO_BASEDIR') ? PMA_PATH_TO_BASEDIR : '';
 
         /** @var ThemeManager $themeManager */
         $themeManager = ContainerBuilder::getContainer()->get(ThemeManager::class);
         $theme = $themeManager->theme;
-
-        $version = self::getVersionParameter();
 
         // The user preferences have been merged at this point
         // so we can conditionally add CodeMirror, other scripts and settings
@@ -321,13 +275,11 @@ class Header
         $this->scripts->addFile('datetimepicker.js');
         $this->scripts->addFile('validator-messages.js');
 
-        return $this->template->render('header', [
-            'lang' => $GLOBALS['lang'],
+        return [
+            'lang' => Current::$lang,
             'allow_third_party_framing' => $this->config->settings['AllowThirdPartyFraming'],
             'base_dir' => $baseDir,
             'theme_path' => $theme->getPath(),
-            'version' => $version,
-            'text_dir' => LanguageManager::$textDir,
             'server' => Current::$server,
             'title' => $this->getPageTitle(),
             'scripts' => $this->scripts->getDisplay(),
@@ -347,7 +299,7 @@ class Header
             'theme_id' => $theme->getId(),
             'current_user' => $dbi->getCurrentUserAndHost(),
             'is_mariadb' => $dbi->isMariaDB(),
-        ]);
+        ];
     }
 
     /**
@@ -358,48 +310,18 @@ class Header
     {
         $retval = '';
         $message = '';
-        if (! empty($GLOBALS['message'])) {
-            $message = $GLOBALS['message'];
-            unset($GLOBALS['message']);
+        if (Current::$message !== null) {
+            $message = Current::$message;
+            Current::$message = null;
         } elseif (! empty($_REQUEST['message'])) {
             $message = $_REQUEST['message'];
         }
 
         if ($message !== '') {
-            if (isset($GLOBALS['buffer_message'])) {
-                $bufferMessage = $GLOBALS['buffer_message'];
-            }
-
             $retval .= Generator::getMessage($message);
-            if (isset($bufferMessage)) {
-                $GLOBALS['buffer_message'] = $bufferMessage;
-            }
         }
 
         return $retval;
-    }
-
-    /**
-     * Sends out the HTTP headers
-     */
-    public function sendHttpHeaders(): void
-    {
-        if (defined('TESTSUITE')) {
-            return;
-        }
-
-        /**
-         * Sends http headers
-         */
-        $GLOBALS['now'] = gmdate('D, d M Y H:i:s') . ' GMT';
-
-        $headers = $this->getHttpHeaders();
-
-        foreach ($headers as $name => $value) {
-            header(sprintf('%s: %s', $name, $value));
-        }
-
-        $this->headerIsSent = true;
     }
 
     /** @return array<string, string> */
@@ -562,17 +484,6 @@ class Header
         return $headers;
     }
 
-    /**
-     * Returns the phpMyAdmin version to be appended to the url to avoid caching
-     * between versions
-     *
-     * @return string urlencoded pma version as a parameter
-     */
-    public static function getVersionParameter(): string
-    {
-        return 'v=' . urlencode(Version::VERSION);
-    }
-
     private function getVariablesForJavaScript(): string
     {
         $maxInputVars = ini_get('max_input_vars');
@@ -587,5 +498,10 @@ class Header
     public function setIsTransformationWrapper(bool $isTransformationWrapper): void
     {
         $this->isTransformationWrapper = $isTransformationWrapper;
+    }
+
+    public function getConsole(): Console
+    {
+        return $this->console;
     }
 }

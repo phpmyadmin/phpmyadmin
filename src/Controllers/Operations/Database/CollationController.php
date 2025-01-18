@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Operations\Database;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -15,7 +14,6 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\ResponseRenderer;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -30,38 +28,30 @@ final class CollationController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
-        $dbCollation = $request->getParsedBodyParam('db_collation') ?? '';
-        if (empty($dbCollation)) {
+        $dbCollation = $request->getParsedBodyParamAsString('db_collation', '');
+        if ($dbCollation === '') {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No collation provided.')));
 
-            return null;
+            return $this->response->response();
         }
 
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
-
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabDatabase'],
-            'database',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return null;
+            return $this->response->response();
         }
 
         $sqlQuery = 'ALTER DATABASE ' . Util::backquote(Current::$database)
@@ -102,6 +92,6 @@ final class CollationController implements InvocableController
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON('message', $message);
 
-        return null;
+        return $this->response->response();
     }
 }

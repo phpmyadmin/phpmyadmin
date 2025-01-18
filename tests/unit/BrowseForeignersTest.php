@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\BrowseForeigners;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\ForeignData;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Theme\ThemeManager;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -30,20 +31,19 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetForeignLimit(): void
     {
-        self::assertNull(
-            $this->browseForeigners->getForeignLimit('Show all'),
+        self::assertSame(
+            '',
+            $this->browseForeigners->getForeignLimit('Show all', 0),
         );
 
         self::assertSame(
             'LIMIT 0, 25 ',
-            $this->browseForeigners->getForeignLimit(null),
+            $this->browseForeigners->getForeignLimit(null, 0),
         );
-
-        $_POST['pos'] = 10;
 
         self::assertSame(
             'LIMIT 10, 25 ',
-            $this->browseForeigners->getForeignLimit(null),
+            $this->browseForeigners->getForeignLimit(null, 10),
         );
 
         $config = new Config();
@@ -52,12 +52,12 @@ class BrowseForeignersTest extends AbstractTestCase
 
         self::assertSame(
             'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit(null),
+            $browseForeigners->getForeignLimit(null, 10),
         );
 
         self::assertSame(
             'LIMIT 10, 50 ',
-            $browseForeigners->getForeignLimit('xyz'),
+            $browseForeigners->getForeignLimit('xyz', 10),
         );
     }
 
@@ -66,20 +66,18 @@ class BrowseForeignersTest extends AbstractTestCase
      */
     public function testGetHtmlForGotoPage(): void
     {
+        $foreignData = new ForeignData(false, 5, '', null, '');
         self::assertSame(
             '',
             $this->callFunction(
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [null],
+                [$foreignData, 0],
             ),
         );
 
-        $_POST['pos'] = 15;
-        $foreignData = [];
-        $foreignData['disp_row'] = [];
-        $foreignData['the_total'] = 5;
+        $foreignData = new ForeignData(false, 5, '', [], '');
 
         self::assertSame(
             '',
@@ -87,16 +85,16 @@ class BrowseForeignersTest extends AbstractTestCase
                 $this->browseForeigners,
                 BrowseForeigners::class,
                 'getHtmlForGotoPage',
-                [$foreignData],
+                [$foreignData, 15],
             ),
         );
 
-        $foreignData['the_total'] = 30;
+        $foreignData = new ForeignData(false, 30, '', [], '');
         $result = $this->callFunction(
             $this->browseForeigners,
             BrowseForeigners::class,
             'getHtmlForGotoPage',
-            [$foreignData],
+            [$foreignData, 15],
         );
 
         self::assertStringStartsWith('Page number:', $result);
@@ -105,7 +103,7 @@ class BrowseForeignersTest extends AbstractTestCase
 
         self::assertStringContainsString('<select class="pageselector ajax" name="pos"', $result);
 
-        self::assertStringContainsString('<option selected="selected" style="font-weight: bold" value="0">', $result);
+        self::assertStringContainsString('<option selected style="font-weight: bold" value="0">', $result);
 
         self::assertStringContainsString('<option  value="25"', $result);
     }
@@ -150,12 +148,11 @@ class BrowseForeignersTest extends AbstractTestCase
         $db = '';
         $table = '';
         $field = 'foo';
-        $foreignData = [];
-        $foreignData['disp_row'] = '';
+        $foreignData = new ForeignData(false, 0, '', null, '');
         $fieldkey = 'bar';
         $currentValue = '';
-        $_POST['rownumber'] = 1;
-        $_POST['foreign_filter'] = '5';
+        $rownumber = '1';
+        $foreignFilter = '5';
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,
@@ -163,6 +160,9 @@ class BrowseForeignersTest extends AbstractTestCase
             $foreignData,
             $fieldkey,
             $currentValue,
+            0,
+            $foreignFilter,
+            $rownumber,
         );
 
         self::assertStringContainsString(
@@ -199,8 +199,7 @@ class BrowseForeignersTest extends AbstractTestCase
             $result,
         );
 
-        $foreignData['disp_row'] = [];
-        $foreignData['the_total'] = 5;
+        $foreignData = new ForeignData(false, 5, '', [], '');
         $result = $this->browseForeigners->getHtmlForRelationalFieldSelection(
             $db,
             $table,
@@ -208,6 +207,9 @@ class BrowseForeignersTest extends AbstractTestCase
             $foreignData,
             $fieldkey,
             $currentValue,
+            0,
+            $foreignFilter,
+            $rownumber,
         );
 
         self::assertStringContainsString(

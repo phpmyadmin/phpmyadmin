@@ -1,6 +1,14 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import {
+    addDatepicker,
+    confirmLink,
+    copyToClipboard,
+    getCellValue,
+    stringifyJSON,
+    toggleDatepickerIfInvalid,
+    updateCode
+} from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
 import tooltip from './modules/tooltip.ts';
 import highlightSql from './modules/sql-highlight.ts';
@@ -667,9 +675,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         });
 
                     // fill the cell edit with text from <td>
-                    var value = Functions.getCellValue(cell);
+                    var value = getCellValue(cell);
                     if ($cell.attr('data-type') === 'json' && $cell.is('.truncated') === false) {
-                        value = Functions.stringifyJSON(value, null, 4);
+                        value = stringifyJSON(value, null, 4);
                     }
 
                     $(g.cEdit).find('.edit_box').val(value);
@@ -763,7 +771,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                         // Updates the code keeping highlighting (if any).
                         var $target = $thisField.find(selector);
-                        if (! Functions.updateCode($target, newHtml, value)) {
+                        if (! updateCode($target, newHtml, value)) {
                             $target.html(newHtml);
                         }
                     }
@@ -1110,7 +1118,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             $editArea.removeClass('edit_area_loading');
                             if (typeof data !== 'undefined' && data.success === true) {
                                 if ($td.attr('data-type') === 'json') {
-                                    data.value = Functions.stringifyJSON(data.value, null, 4);
+                                    data.value = stringifyJSON(data.value, null, 4);
                                 }
 
                                 $td.data('original_data', data.value);
@@ -1160,7 +1168,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     }
 
                     // add datetime picker
-                    Functions.addDatepicker($inputField, $td.attr('data-type'), {
+                    addDatepicker($inputField, $td.attr('data-type'), {
                         showMillisec: showMillisec,
                         showMicrosec: showMicrosec,
                         timeFormat: timeFormat,
@@ -1174,12 +1182,12 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                             e.stopPropagation();
                             g.saveOrPostEditedCell();
                         } else if (e.which !== 27) {
-                            Functions.toggleDatepickerIfInvalid($td, $inputField);
+                            toggleDatepickerIfInvalid($td, $inputField);
                         }
                     });
 
                     $inputField.datepicker('show');
-                    Functions.toggleDatepickerIfInvalid($td, $inputField);
+                    toggleDatepickerIfInvalid($td, $inputField);
 
                     // unbind the mousedown event to prevent the problem of
                     // datepicker getting closed, needs to be checked for any
@@ -1344,7 +1352,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                         if ($thisField.attr('data-type') !== 'json') {
                             fields.push($thisField.data('value'));
                         } else {
-                            const JSONString = Functions.stringifyJSON($thisField.data('value'));
+                            const JSONString = stringifyJSON($thisField.data('value'));
                             fields.push(JSONString);
                         }
 
@@ -1461,7 +1469,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                                         $(this).removeAttr('onclick')
                                             .off('click')
                                             .on('click', function () {
-                                                return Functions.confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
+                                                return confirmLink(this, 'DELETE FROM `' + g.db + '`.`' + g.table + '` WHERE ' +
                                                     decodedNewClause + (isUnique ? '' : ' LIMIT 1'));
                                             });
                                     }
@@ -1585,7 +1593,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     } else {
                         var hexError = '<div class="alert alert-danger" role="alert">' + window.Messages.strEnterValidHex + '</div>';
                         ajaxShowMessage(hexError, false);
-                        thisFieldParams[fieldName] = Functions.getCellValue(g.currentEditCell);
+                        thisFieldParams[fieldName] = getCellValue(g.currentEditCell);
                     }
                 } else {
                     thisFieldParams[fieldName] = $(g.cEdit).find('.edit_box').val();
@@ -1593,10 +1601,10 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
                 let isValueUpdated;
                 if ($thisField.attr('data-type') !== 'json') {
-                    isValueUpdated = thisFieldParams[fieldName] !== Functions.getCellValue(g.currentEditCell);
+                    isValueUpdated = thisFieldParams[fieldName] !== getCellValue(g.currentEditCell);
                 } else {
-                    const JSONString = Functions.stringifyJSON(thisFieldParams[fieldName]);
-                    isValueUpdated = JSONString !== JSON.stringify(JSON.parse(Functions.getCellValue(g.currentEditCell)));
+                    const JSONString = stringifyJSON(thisFieldParams[fieldName]);
+                    isValueUpdated = JSONString !== stringifyJSON(getCellValue(g.currentEditCell));
                 }
 
                 if (g.wasEditedCellNull || isValueUpdated) {
@@ -1759,7 +1767,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 })
                 .on('dblclick', function (e) {
                     e.preventDefault();
-                    var res = Functions.copyToClipboard($(this).data('column'));
+                    var res = copyToClipboard($(this).data('column'));
                     if (res) {
                         ajaxShowMessage(window.Messages.strCopyColumnSuccess, false, 'success');
                     } else {
@@ -1859,7 +1867,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                     var currHeader = $firstRowCols[i];
                     var listElmt = document.createElement('div');
                     $(listElmt).text($(currHeader).text())
-                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked="checked" ' : '') + '>');
+                        .prepend('<input type="checkbox" ' + (g.colVisib[i] ? 'checked ' : '') + '>');
 
                     $listDiv.append(listElmt);
                     // add event on click
@@ -2283,7 +2291,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
     // wrap all truncated data cells with span indicating the original length
     // todo update the original length after a grid edit
-    $(t).find('td.data.truncated:not(:has(span))')
+    $(t).find('td.data.truncated:not(:has(>span))')
         .filter(function () {
             return $(this).data('originallength') !== undefined;
         })
@@ -2293,7 +2301,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
         });
 
     // wrap remaining cells, except actions cell, with span
-    $(t).find('th, td:not(:has(span))')
+    $(t).find('th, td:not(:has(>span))')
         .wrapInner('<span></span>');
 
     // create grid elements

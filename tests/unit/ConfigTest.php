@@ -7,12 +7,13 @@ namespace PhpMyAdmin\Tests;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use ReflectionProperty;
 
 use function define;
@@ -39,9 +40,9 @@ use const CONFIG_FILE;
 use const DIRECTORY_SEPARATOR;
 use const INFO_MODULES;
 use const PHP_OS;
-use const TEST_PATH;
 
 #[CoversClass(Config::class)]
+#[Medium]
 class ConfigTest extends AbstractTestCase
 {
     protected Config $object;
@@ -127,7 +128,6 @@ PHP;
     /**
      * Test for CheckSystem
      */
-    #[Group('medium')]
     public function testCheckSystem(): void
     {
         $this->object->checkSystem();
@@ -178,7 +178,7 @@ PHP;
             return;
         }
 
-        self::assertEquals(
+        self::assertSame(
             $version,
             $this->object->get('PMA_USR_BROWSER_VER'),
         );
@@ -214,7 +214,7 @@ PHP;
                 . '.NET CLR 3.0.30729; InfoPath.3; rv:11.0) like Gecko',
                 'Win',
                 'IE',
-                '11.0',
+                '11',
             ],
             [
                 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, '
@@ -296,7 +296,7 @@ PHP;
         phpinfo(INFO_MODULES); /* Only modules */
         $a = strip_tags((string) ob_get_clean());
 
-        if (! preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v)) {
+        if (preg_match('@GD Version[[:space:]]*\(.*\)@', $a, $v) !== 1) {
             return;
         }
 
@@ -364,7 +364,7 @@ PHP;
         self::assertFalse($this->object->checkConfigSource());
         self::assertSame(0, $this->object->sourceMtime);
 
-        $this->object->setSource(TEST_PATH . 'tests/test_data/config.inc.php');
+        $this->object->setSource(__DIR__ . '/../test_data/config.inc.php');
 
         self::assertNotEmpty($this->object->getSource());
         self::assertTrue($this->object->checkConfigSource());
@@ -545,8 +545,8 @@ PHP;
     public static function configPaths(): array
     {
         return [
-            [TEST_PATH . 'tests/test_data/config.inc.php', true],
-            [TEST_PATH . 'tests/test_data/config-nonexisting.inc.php', false],
+            [__DIR__ . '/../test_data/config.inc.php', true],
+            [__DIR__ . '/../test_data/config-nonexisting.inc.php', false],
         ];
     }
 

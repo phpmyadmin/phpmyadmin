@@ -49,20 +49,4 @@ final class ApplicationHandlerTest extends TestCase
         self::assertSame($response, $responseStub);
         $reflectionProperty->setValue(null, null);
     }
-
-    public function testHandleReturnsNull(): void
-    {
-        $responseStub = new Response(self::createStub(ResponseInterface::class));
-        $responseRendererMock = self::createMock(ResponseRenderer::class);
-        $responseRendererMock->expects(self::once())->method('response')->willReturn($responseStub);
-        $reflectionProperty = new ReflectionProperty(ResponseRenderer::class, 'instance');
-        $reflectionProperty->setValue(null, $responseRendererMock);
-        $request = self::createStub(ServerRequest::class);
-        $appMock = self::createMock(Application::class);
-        $appMock->expects(self::once())->method('handle')->with($request)->willReturn(null);
-        $handler = new ApplicationHandler($appMock);
-        $response = $handler->handle($request);
-        self::assertSame($response, $responseStub);
-        $reflectionProperty->setValue(null, null);
-    }
 }

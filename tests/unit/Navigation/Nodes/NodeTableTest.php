@@ -19,8 +19,8 @@ class NodeTableTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $config = Config::getInstance();
-        $config->settings['NavigationTreeDefaultTabTable'] = 'search';
-        $config->settings['NavigationTreeDefaultTabTable2'] = 'insert';
+        $config->settings['NavigationTreeDefaultTabTable'] = '/table/search';
+        $config->settings['NavigationTreeDefaultTabTable2'] = '/table/change';
 
         $parent = new NodeTable($config, 'default');
         self::assertSame(
@@ -38,8 +38,7 @@ class NodeTableTest extends AbstractTestCase
     /**
      * Tests whether the node icon is properly set based on the icon target.
      *
-     * @param string $target    target of the icon
-     * @param string $imageName name of the image that should be set
+     * @param '/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure' $target
      */
     #[DataProvider('providerForTestIcon')]
     public function testIcon(string $target, string $imageName, string $imageTitle): void
@@ -54,16 +53,16 @@ class NodeTableTest extends AbstractTestCase
     /**
      * Data provider for testIcon().
      *
-     * @return mixed[] data for testIcon()
+     * @return array<array{'/table/sql'|'/table/search'|'/table/change'|'/sql'|'/table/structure', string, string}>
      */
     public static function providerForTestIcon(): array
     {
         return [
-            ['structure', 'b_props', 'Structure'],
-            ['search', 'b_search', 'Search'],
-            ['insert', 'b_insrow', 'Insert'],
-            ['sql', 'b_sql', 'SQL'],
-            ['browse', 'b_browse', 'Browse'],
+            ['/table/structure', 'b_props', 'Structure'],
+            ['/table/search', 'b_search', 'Search'],
+            ['/table/change', 'b_insrow', 'Insert'],
+            ['/table/sql', 'b_sql', 'SQL'],
+            ['/sql', 'b_browse', 'Browse'],
         ];
     }
 }

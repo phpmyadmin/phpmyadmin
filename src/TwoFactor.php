@@ -10,6 +10,7 @@ namespace PhpMyAdmin;
 use BaconQrCode\Renderer\ImageRenderer;
 use CodeLts\U2F\U2FServer\U2FServer;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\TwoFactor\Application;
 use PhpMyAdmin\Plugins\TwoFactor\Invalid;
@@ -204,7 +205,11 @@ class TwoFactor
             return $this->backend->check($request);
         }
 
-        if (! isset($_SESSION['two_factor_check']) || ! is_bool($_SESSION['two_factor_check'])) {
+        if (
+            ! isset($_SESSION['two_factor_check'])
+            || ! is_bool($_SESSION['two_factor_check'])
+            || ! $_SESSION['two_factor_check']
+        ) {
             $_SESSION['two_factor_check'] = $this->backend->check($request);
         }
 
@@ -233,10 +238,8 @@ class TwoFactor
 
     /**
      * Saves current configuration.
-     *
-     * @return true|Message
      */
-    public function save(): bool|Message
+    public function save(): true|Message
     {
         return $this->userPreferences->persistOption('2fa', $this->config, null);
     }

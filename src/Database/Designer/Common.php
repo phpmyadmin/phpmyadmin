@@ -7,9 +7,10 @@ namespace PhpMyAdmin\Database\Designer;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
@@ -21,7 +22,6 @@ use function array_keys;
 use function count;
 use function explode;
 use function in_array;
-use function is_array;
 use function is_string;
 use function json_decode;
 use function json_encode;
@@ -117,7 +117,7 @@ class Common
         while ($val = $allTabRs->fetchRow()) {
             $val = (string) $val[0];
 
-            $row = $this->relation->getForeigners(Current::$database, $val, '', 'internal');
+            $row = $this->relation->getForeignersInternal(Current::$database, $val);
 
             foreach ($row as $field => $value) {
                 $con['C_NAME'][$i] = '';
@@ -128,23 +128,16 @@ class Common
                 $i++;
             }
 
-            $row = $this->relation->getForeigners(Current::$database, $val, '', 'foreign');
-
-            // We do not have access to the foreign keys if the user has partial access to the columns
-            if (! isset($row['foreign_keys_data'])) {
-                continue;
-            }
-
-            foreach ($row['foreign_keys_data'] as $oneKey) {
-                foreach ($oneKey['index_list'] as $index => $oneField) {
-                    $con['C_NAME'][$i] = rawurlencode($oneKey['constraint']);
+            foreach ($this->relation->getForeignKeysData(Current::$database, $val) as $oneKey) {
+                foreach ($oneKey->indexList as $index => $oneField) {
+                    $con['C_NAME'][$i] = rawurlencode($oneKey->constraint);
                     $con['DTN'][$i] = rawurlencode(Current::$database . '.' . $val);
                     $con['DCN'][$i] = rawurlencode($oneField);
                     $con['STN'][$i] = rawurlencode(
-                        ($oneKey['ref_db_name'] ?? Current::$database)
-                        . '.' . $oneKey['ref_table_name'],
+                        ($oneKey->refDbName ?? Current::$database)
+                        . '.' . $oneKey->refTableName,
                     );
-                    $con['SCN'][$i] = rawurlencode($oneKey['ref_index_list'][$index]);
+                    $con['SCN'][$i] = rawurlencode($oneKey->refIndexList[$index]);
                     $i++;
                 }
             }
@@ -338,7 +331,7 @@ class Common
             . ' FROM ' . Util::backquote($pdfFeature->database)
             . '.' . Util::backquote($pdfFeature->pdfPages)
             . ' WHERE `page_descr` = ' . $this->dbi->quoteString($pg, ConnectionType::ControlUser);
-        $pageNos = $this->dbi->fetchResult($query, null, null, ConnectionType::ControlUser);
+        $pageNos = $this->dbi->fetchResultSimple($query, ConnectionType::ControlUser);
 
         return $pageNos !== [];
     }
@@ -440,28 +433,24 @@ class Common
      * @param string $db    database name
      * @param string $table table name
      * @param string $field display field name
-     *
-     * @return array<int,string|bool|null>
-     * @psalm-return array{0: bool, 1: string|null}
      */
-    public function saveDisplayField(string $db, string $table, string $field): array
+    public function saveDisplayField(string $db, string $table, string $field): Message
     {
         $displayFeature = $this->relation->getRelationParameters()->displayFeature;
         if ($displayFeature === null) {
-            return [
-                false,
+            return Message::error(
                 _pgettext(
                     'phpMyAdmin configuration storage is not configured for'
-                        . ' "Display Features" on designer when user tries to set a display field.',
+                    . ' "Display Features" on designer when user tries to set a display field.',
                     'phpMyAdmin configuration storage is not configured for "Display Features".',
                 ),
-            ];
+            );
         }
 
         $updQuery = new Table($table, $db, $this->dbi);
         $updQuery->updateDisplayField($field, $displayFeature);
 
-        return [true, null];
+        return Message::success();
     }
 
     /**
@@ -475,9 +464,6 @@ class Common
      * @param string $onUpdate on update action
      * @param string $db1      database
      * @param string $db2      database
-     *
-     * @return array<int,string|bool> array of success/failure and message
-     * @psalm-return array{0: bool, 1: string}
      */
     public function addNewRelation(
         string $t1,
@@ -488,17 +474,17 @@ class Common
         string $onUpdate,
         string $db1,
         string $db2,
-    ): array {
+    ): Message {
         $typeT1 = Table::get($t1, $db1, $this->dbi)->getStorageEngine();
         $typeT2 = Table::get($t2, $db2, $this->dbi)->getStorageEngine();
 
         // native foreign key
         if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // relation exists?
-            $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
-            $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);
-            if ($foreigner && isset($foreigner['constraint'])) {
-                return [false, __('Error: relationship already exists.')];
+            $existRelForeign = $this->relation->getForeignKeysData($db2, $t2);
+            $foreigner = $this->relation->getColumnFromForeignKeysData($existRelForeign, $f2);
+            if ($foreigner !== false && isset($foreigner['constraint'])) {
+                return Message::error(__('Error: relationship already exists.'));
             }
 
             // note: in InnoDB, the index does not requires to be on a PRIMARY
@@ -547,20 +533,20 @@ class Common
 
                 $updQuery .= ';';
                 if ($this->dbi->tryQuery($updQuery)) {
-                    return [true, __('FOREIGN KEY relationship has been added.')];
+                    return Message::success(__('FOREIGN KEY relationship has been added.'));
                 }
 
                 $error = $this->dbi->getError();
 
-                return [false, __('Error: FOREIGN KEY relationship could not be added!') . '<br>' . $error];
+                return Message::error(__('Error: FOREIGN KEY relationship could not be added!') . '<br>' . $error);
             }
 
-            return [false, __('Error: Missing index on column(s).')];
+            return Message::error(__('Error: Missing index on column(s).'));
         }
 
         $relationFeature = $this->relation->getRelationParameters()->relationFeature;
         if ($relationFeature === null) {
-            return [false, __('Error: Relational features are disabled!')];
+            return Message::error(__('Error: Relational features are disabled!'));
         }
 
         // no need to recheck if the keys are primary or unique at this point,
@@ -581,12 +567,12 @@ class Common
             . $this->dbi->quoteString($f1, ConnectionType::ControlUser) . ')';
 
         if ($this->dbi->tryQueryAsControlUser($q)) {
-            return [true, __('Internal relationship has been added.')];
+            return Message::success(__('Internal relationship has been added.'));
         }
 
         $error = $this->dbi->getError(ConnectionType::ControlUser);
 
-        return [false, __('Error: Internal relationship could not be added!') . '<br>' . $error];
+        return Message::error(__('Error: Internal relationship could not be added!') . '<br>' . $error);
     }
 
     /**
@@ -596,10 +582,8 @@ class Common
      * @param string $f1 foreign field
      * @param string $t2 master db.table
      * @param string $f2 master field
-     *
-     * @return array{bool, string} array of success/failure and message
      */
-    public function removeRelation(string $t1, string $f1, string $t2, string $f2): array
+    public function removeRelation(string $t1, string $f1, string $t2, string $f2): Message
     {
         [$db1, $t1] = explode('.', $t1);
         [$db2, $t2] = explode('.', $t2);
@@ -609,22 +593,22 @@ class Common
 
         if (ForeignKey::isSupported($typeT1) && $typeT1 === $typeT2) {
             // InnoDB
-            $existRelForeign = $this->relation->getForeigners($db2, $t2, '', 'foreign');
-            $foreigner = $this->relation->searchColumnInForeigners($existRelForeign, $f2);
+            $existRelForeign = $this->relation->getForeignKeysData($db2, $t2);
+            $foreigner = $this->relation->getColumnFromForeignKeysData($existRelForeign, $f2);
 
-            if (is_array($foreigner) && isset($foreigner['constraint'])) {
+            if ($foreigner !== false && isset($foreigner['constraint'])) {
                 $updQuery = 'ALTER TABLE ' . Util::backquote($db2)
                     . '.' . Util::backquote($t2) . ' DROP FOREIGN KEY '
                     . Util::backquote($foreigner['constraint']) . ';';
                 $this->dbi->query($updQuery);
 
-                return [true, __('FOREIGN KEY relationship has been removed.')];
+                return Message::success(__('FOREIGN KEY relationship has been removed.'));
             }
         }
 
         $relationFeature = $this->relation->getRelationParameters()->relationFeature;
         if ($relationFeature === null) {
-            return [false, __('Error: Relational features are disabled!')];
+            return Message::error(__('Error: Relational features are disabled!'));
         }
 
         // internal relations
@@ -643,10 +627,10 @@ class Common
         if (! $result) {
             $error = $this->dbi->getError(ConnectionType::ControlUser);
 
-            return [false, __('Error: Internal relationship could not be removed!') . '<br>' . $error];
+            return Message::error(__('Error: Internal relationship could not be removed!') . '<br>' . $error);
         }
 
-        return [true, __('Internal relationship has been removed.')];
+        return Message::success(__('Internal relationship has been removed.'));
     }
 
     /**
@@ -677,7 +661,7 @@ class Common
                 ConnectionType::ControlUser,
             );
 
-            if ($origData !== null && $origData !== []) {
+            if ($origData !== []) {
                 $origData = json_decode($origData['settings_data'], true);
                 $origData[$index] = $value;
                 $origData = json_encode($origData);

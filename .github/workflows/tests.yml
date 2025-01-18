@@ -20,12 +20,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '81', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '81', experimental: false, arch: 'arm64v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '81', experimental: false, arch: 'arm32v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '81', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '81', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '81', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '82', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 'arm64/v8', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 'arm/v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '82', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '82', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -42,7 +42,7 @@ jobs:
           apk add --update --no-cache \
           php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype php\$V-sodium \
           php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
-          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
+          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip php\$V-bcmath \
           musl-locales musl-locales-lang \
           gettext composer git && \
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
@@ -55,23 +55,23 @@ jobs:
         run: docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
 
       - name: Print arch
-        run: docker run --rm ${{ matrix.arch }}/alpine:3.17 uname -a
+        run: docker run --rm --platform linux/${{ matrix.arch }} alpine:3.19 uname -a
 
       - name: Run tests on php ${{ matrix.php-version }}
-        run: docker run -v $PWD:/app --workdir /app --rm ${{ matrix.arch }}/alpine:3.17 sh /app/do-tests.sh
+        run: docker run -v $PWD:/app --workdir /app --rm --platform linux/${{ matrix.arch }} alpine:3.19 sh /app/do-tests.sh
 
   test-php:
     name: Test on PHP ${{ matrix.php-version }}, ${{ matrix.composer-dependency }} and ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    continue-on-error: ${{ matrix.php-version == '8.4' }}
+    continue-on-error: ${{ matrix.php-version == '8.5' }}
     strategy:
       matrix:
-        php-version: ['8.1', '8.2', '8.3']
+        php-version: ['8.2', '8.3', '8.4']
         os: [ubuntu-latest]
         composer-dependency: [locked, highest]
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
-          - php-version: '8.4'
+          - php-version: '8.5'
             os: ubuntu-latest
             composer-dependency: locked
             composer-options: '--ignore-platform-req=php+'
@@ -97,7 +97,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: ${{ matrix.composer-dependency }}
           composer-options: ${{ matrix.composer-options }}
@@ -133,7 +133,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        php-version: ["8.1"]
+        php-version: ["8.2"]
         os: [ubuntu-latest]
         extension: ["dbase"]
     steps:
@@ -157,7 +157,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Run PHP tests
         run: composer run phpunit -- --testsuite unit

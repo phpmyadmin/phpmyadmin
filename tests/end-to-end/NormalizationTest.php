@@ -44,7 +44,7 @@ class NormalizationTest extends TestBase
      */
     public function testNormalizationTo1NF(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'First step of normalization (1NF)',
             $this->byCssSelector('label[for=normalizeToRadio1]')->getText(),
         );
@@ -64,7 +64,7 @@ class NormalizationTest extends TestBase
      */
     private function assert1NFSteps(): void
     {
-        self::assertEquals(
+        self::assertSame(
             'First step of normalization (1NF)',
             $this->byCssSelector('#page_content h3')->getText(),
         );

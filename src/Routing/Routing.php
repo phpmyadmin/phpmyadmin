@@ -10,21 +10,17 @@ use FastRoute\Dispatcher\GroupCountBased as DispatcherGroupCountBased;
 use FastRoute\RouteCollector;
 use FastRoute\RouteParser\Std as RouteParserStd;
 use Fig\Http\Message\StatusCodeInterface;
-use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\Console;
-use PhpMyAdmin\Controllers\HomeController;
+use PhpMyAdmin\Container\ContainerBuilder;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Controllers\Setup\MainController;
 use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Template;
@@ -38,7 +34,6 @@ use function file_exists;
 use function file_put_contents;
 use function htmlspecialchars;
 use function implode;
-use function is_array;
 use function is_readable;
 use function is_writable;
 use function mb_strlen;
@@ -95,12 +90,16 @@ class Routing
 
         // If skip cache is enabled, do not try to read the file
         // If no cache skipping then read it and use it
-        if (! $skipCache && file_exists(self::ROUTES_CACHE_FILE)) {
+        if (
+            ! $skipCache
+            && file_exists(self::ROUTES_CACHE_FILE)
+            && isset($_SESSION['isRoutesCacheFileValid'])
+            && $_SESSION['isRoutesCacheFileValid']
+        ) {
             /** @psalm-suppress MissingFile, UnresolvableInclude, MixedAssignment */
             $dispatchData = require self::ROUTES_CACHE_FILE;
-            if (self::isRoutesCacheFileValid($dispatchData)) {
-                return new DispatcherGroupCountBased($dispatchData);
-            }
+
+            return new DispatcherGroupCountBased($dispatchData);
         }
 
         $routeCollector = new RouteCollector(new RouteParserStd(), new DataGeneratorGroupCountBased());
@@ -112,10 +111,14 @@ class Routing
         // If skip cache is enabled, do not try to write it
         // If no skip cache then try to write if write is possible
         if (! $skipCache && $canWriteCache) {
-            $writeWorks = self::writeCache(
-                '<?php return ' . var_export($dispatchData, true) . ';',
-            );
-            if (! $writeWorks) {
+            /** @psalm-suppress MissingFile, UnresolvableInclude, MixedAssignment */
+            $cachedDispatchData = file_exists(self::ROUTES_CACHE_FILE) ? require self::ROUTES_CACHE_FILE : [];
+            $_SESSION['isRoutesCacheFileValid'] = $dispatchData === $cachedDispatchData;
+            if (
+                ! $_SESSION['isRoutesCacheFileValid']
+                && ! self::writeCache(sprintf('<?php return %s;', var_export($dispatchData, true)))
+            ) {
+                $_SESSION['isRoutesCacheFileValid'] = false;
                 trigger_error(
                     sprintf(
                         __(
@@ -145,7 +148,7 @@ class Routing
         Dispatcher $dispatcher,
         ContainerInterface $container,
         ResponseFactory $responseFactory,
-    ): Response|null {
+    ): Response {
         $route = $request->getRoute();
         $routeInfo = $dispatcher->dispatch($request->getMethod(), rawurldecode($route));
 
@@ -177,46 +180,35 @@ class Routing
         return $controller($request->withAttribute('routeVars', $routeInfo[2]));
     }
 
-    /** @psalm-assert-if-true array[] $dispatchData */
-    private static function isRoutesCacheFileValid(mixed $dispatchData): bool
-    {
-        return is_array($dispatchData)
-            && isset($dispatchData[1])
-            && is_array($dispatchData[1])
-            && isset($dispatchData[0]['GET']['/'])
-            && $dispatchData[0]['GET']['/'] === HomeController::class;
-    }
-
     public static function callSetupController(ServerRequest $request, ResponseFactory $responseFactory): Response
     {
         $route = $request->getRoute();
-        $template = new Template();
-        if ($route === '/setup' || $route === '/') {
-            $dbi = DatabaseInterface::getInstance();
-            $relation = new Relation($dbi);
-            $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+        $controllerName = match ($route) {
+            '/', '/setup' => MainController::class,
+            '/setup/show-config' => ShowConfigController::class,
+            '/setup/validate' => ValidateController::class,
+            default => null,
+        };
 
-            return (new MainController($responseFactory, $template, $console))($request);
+        $container = ContainerBuilder::getContainer();
+        if ($controllerName === null) {
+            $template = $container->get('template');
+            assert($template instanceof Template);
+            $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
+
+            return $response->write($template->render('error/generic', [
+                'lang' => Current::$lang,
+                'error_message' => Sanitize::convertBBCode(sprintf(
+                    __('Error 404! The page %s was not found.'),
+                    '[code]' . htmlspecialchars($route) . '[/code]',
+                )),
+            ]));
         }
 
-        if ($route === '/setup/show-config') {
-            return (new ShowConfigController())($request);
-        }
+        $controller = $container->get($controllerName);
+        assert($controller instanceof InvocableController);
 
-        if ($route === '/setup/validate') {
-            return (new ValidateController($responseFactory))($request);
-        }
-
-        $response = $responseFactory->createResponse(StatusCodeInterface::STATUS_NOT_FOUND);
-
-        return $response->write($template->render('error/generic', [
-            'lang' => $GLOBALS['lang'] ?? 'en',
-            'dir' => LanguageManager::$textDir,
-            'error_message' => Sanitize::convertBBCode(sprintf(
-                __('Error 404! The page %s was not found.'),
-                '[code]' . htmlspecialchars($route) . '[/code]',
-            )),
-        ]));
+        return $controller($request);
     }
 
     /**

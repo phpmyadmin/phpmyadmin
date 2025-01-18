@@ -7,8 +7,9 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\Column;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportMediawiki;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -42,14 +43,14 @@ class ExportMediawikiTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $this->object = new ExportMediawiki(
             new Relation($dbi),
             new Export($dbi),
@@ -214,7 +215,7 @@ class ExportMediawikiTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
@@ -238,18 +239,14 @@ class ExportMediawikiTest extends AbstractTestCase
             ->willReturn($columns);
 
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['mediawiki_headers' => 'On', 'mediawiki_caption' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'db',
-                'table',
-                'create_table',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('db', 'table', 'create_table'));
         $result = ob_get_clean();
 
         self::assertSame(
@@ -286,15 +283,16 @@ class ExportMediawikiTest extends AbstractTestCase
 
     public function testExportData(): void
     {
-        $GLOBALS['mediawiki_caption'] = true;
-        $GLOBALS['mediawiki_headers'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['mediawiki_headers' => 'On', 'mediawiki_caption' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'localhost',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );

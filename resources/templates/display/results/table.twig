@@ -120,10 +120,13 @@
 
             <label for="sessionMaxRowsSelect">{{ t('Number of rows:') }}</label>
             <select class="autosubmit" name="session_max_rows" id="sessionMaxRowsSelect">
+              {% set rows_options = [25, 50, 100, 250, 500] %}
               {% if navigation.is_showing_all %}
                 <option value="" disabled selected>{{ t('All') }}</option>
+              {% elseif navigation.max_rows not in rows_options %}
+                {% set rows_options = rows_options|merge([navigation.max_rows])|sort((a, b) => a <=> b) %}
               {% endif %}
-              {% for option in ['25', '50', '100', '250', '500'] %}
+              {% for option in rows_options %}
                 <option value="{{ option }}"{{ navigation.max_rows == option ? ' selected' }}>{{ option }}</option>
               {% endfor %}
             </select>
@@ -308,7 +311,7 @@
 
 {% if has_bulk_links is defined and has_bulk_links %}
     <div class="d-print-none">
-      {{ get_image('select_all_arrow', t('With selected:'), {'dir': text_dir, 'width': '38', 'height': '22'}) }}
+      {{ get_image('select_all_arrow', t('With selected:'), {'dir': pma.text_dir, 'width': '38', 'height': '22'}) }}
       <input type="checkbox" id="resultsForm_{{ unique_id }}_checkall" class="checkall_box" title="{{ t('Check all') }}">
       <label for="resultsForm_{{ unique_id }}_checkall">{{ t('Check all') }}</label>
       <em class="with-selected">{{ t('With selected:') }}</em>

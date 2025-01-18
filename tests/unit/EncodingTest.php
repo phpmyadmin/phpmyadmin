@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Encoding;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\Group;
+use PHPUnit\Framework\Attributes\Medium;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
 
 use function _setlocale;
@@ -23,6 +24,7 @@ use const LC_ALL;
 use const PHP_INT_SIZE;
 
 #[CoversClass(Encoding::class)]
+#[Medium]
 class EncodingTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -42,7 +44,6 @@ class EncodingTest extends AbstractTestCase
     /**
      * Test for Encoding::convertString
      */
-    #[Group('medium')]
     public function testNoConversion(): void
     {
         self::assertSame(
@@ -142,8 +143,6 @@ class EncodingTest extends AbstractTestCase
             Encoding::kanjiStrConv('test', '', ''),
         );
 
-        $GLOBALS['kanji_encoding_list'] = 'ASCII,SJIS,EUC-JP,JIS';
-
         self::assertSame(
             'test è',
             Encoding::kanjiStrConv('test è', '', ''),
@@ -168,7 +167,6 @@ class EncodingTest extends AbstractTestCase
         $fileStr = '教育漢字常用漢字';
         $filename = 'test.kanji';
         self::assertNotFalse(file_put_contents($filename, $fileStr));
-        $GLOBALS['kanji_encoding_list'] = 'ASCII,EUC-JP,SJIS,JIS';
 
         $result = Encoding::kanjiFileConv($filename, 'JIS', 'kana');
 

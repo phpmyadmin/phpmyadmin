@@ -9,9 +9,24 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
-use function preg_match;
+use function str_replace;
 
 use const DIRECTORY_SEPARATOR;
+use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
+use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_DEPRECATED;
+use const E_ERROR;
+use const E_NOTICE;
+use const E_PARSE;
+use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
 
 #[CoversClass(Error::class)]
 class ErrorTest extends AbstractTestCase
@@ -60,34 +75,46 @@ class ErrorTest extends AbstractTestCase
         self::assertSame(15, $this->object->getLine());
     }
 
-    /**
-     * Test for setFile
-     *
-     * @param string $file     actual
-     * @param string $expected expected
-     */
-    #[DataProvider('filePathProvider')]
-    public function testSetFile(string $file, string $expected): void
+    /** @psalm-param non-empty-string $expected */
+    #[DataProvider('validFilePathsProvider')]
+    public function testSetFileWithValidFiles(string $file, string $expected): void
     {
         $this->object->setFile($file);
-        self::assertSame($expected, $this->object->getFile());
+        $filePath = $this->object->getFile();
+        self::assertStringStartsWith('.' . DIRECTORY_SEPARATOR, $filePath);
+        /** @psalm-var non-empty-string $expected */
+        $expected = str_replace('/', DIRECTORY_SEPARATOR, $expected);
+        self::assertStringEndsWith($expected, $filePath);
     }
 
-    /**
-     * Data provider for setFile
-     *
-     * @return mixed[]
-     */
-    public static function filePathProvider(): array
+    /** @psalm-return non-empty-string[][] */
+    public static function validFilePathsProvider(): array
     {
         return [
-            ['./ChangeLog', '.' . DIRECTORY_SEPARATOR . 'ChangeLog'],
-            [
-                __FILE__,
-                '.' . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR
-                    . 'unit' . DIRECTORY_SEPARATOR . 'Error' . DIRECTORY_SEPARATOR . 'ErrorTest.php',
-            ],
+            ['./ChangeLog', '/ChangeLog'],
+            [__FILE__, '/tests/unit/Error/ErrorTest.php'],
+            [__DIR__ . '/ErrorTest.php', '/tests/unit/Error/ErrorTest.php'],
+            [__DIR__ . '/../Error/ErrorTest.php', '/tests/unit/Error/ErrorTest.php'],
+        ];
+    }
+
+    #[DataProvider('invalidFilePathsProvider')]
+    public function testSetFileWithInvalidFiles(string $file, string $expected): void
+    {
+        $this->object->setFile($file);
+        $filePath = $this->object->getFile();
+        self::assertStringStartsNotWith('./', $filePath);
+        self::assertSame($expected, $filePath);
+    }
+
+    /** @psalm-return non-empty-string[][] */
+    public static function invalidFilePathsProvider(): array
+    {
+        return [
             ['./NONEXISTING', 'NONEXISTING'],
+            [__FILE__ . '.invalid', 'ErrorTest.php.invalid'],
+            [__DIR__ . '/NONEXISTING', 'NONEXISTING'],
+            [__DIR__ . '/../Error/NONEXISTING', 'NONEXISTING'],
         ];
     }
 
@@ -96,9 +123,9 @@ class ErrorTest extends AbstractTestCase
      */
     public function testGetHash(): void
     {
-        self::assertSame(
-            1,
-            preg_match('/^([a-z0-9]*)$/', $this->object->getHash()),
+        self::assertMatchesRegularExpression(
+            '/^([a-z0-9]*)$/',
+            $this->object->getHash(),
         );
     }
 
@@ -131,6 +158,60 @@ class ErrorTest extends AbstractTestCase
             $actual,
         );
         self::assertStringEndsWith('</li></ol></div>' . "\n", $actual);
+    }
+
+    #[DataProvider('errorLevelProvider')]
+    public function testGetLevel(int $errorNumber, string $expected): void
+    {
+        self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getContext());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function errorLevelProvider(): iterable
+    {
+        yield 'internal error' => [0, 'danger'];
+        yield 'E_ERROR error' => [E_ERROR, 'danger'];
+        yield 'E_WARNING error' => [E_WARNING, 'danger'];
+        yield 'E_PARSE error' => [E_PARSE, 'danger'];
+        yield 'E_NOTICE notice' => [E_NOTICE, 'primary'];
+        yield 'E_CORE_ERROR error' => [E_CORE_ERROR, 'danger'];
+        yield 'E_CORE_WARNING error' => [E_CORE_WARNING, 'danger'];
+        yield 'E_COMPILE_ERROR error' => [E_COMPILE_ERROR, 'danger'];
+        yield 'E_COMPILE_WARNING error' => [E_COMPILE_WARNING, 'danger'];
+        yield 'E_USER_ERROR error' => [E_USER_ERROR, 'danger'];
+        yield 'E_USER_WARNING error' => [E_USER_WARNING, 'danger'];
+        yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'primary'];
+        yield 'E_STRICT notice' => [@E_STRICT, 'primary'];
+        yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'primary'];
+        yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'primary'];
+        yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'danger'];
+    }
+
+    #[DataProvider('errorTypeProvider')]
+    public function testGetType(int $errorNumber, string $expected): void
+    {
+        self::assertSame($expected, (new Error($errorNumber, 'Error', 'error.txt', 15))->getType());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function errorTypeProvider(): iterable
+    {
+        yield 'internal error' => [0, 'Internal error'];
+        yield 'E_ERROR error' => [E_ERROR, 'Error'];
+        yield 'E_WARNING warning' => [E_WARNING, 'Warning'];
+        yield 'E_PARSE error' => [E_PARSE, 'Parsing Error'];
+        yield 'E_NOTICE notice' => [E_NOTICE, 'Notice'];
+        yield 'E_CORE_ERROR error' => [E_CORE_ERROR, 'Core Error'];
+        yield 'E_CORE_WARNING warning' => [E_CORE_WARNING, 'Core Warning'];
+        yield 'E_COMPILE_ERROR error' => [E_COMPILE_ERROR, 'Compile Error'];
+        yield 'E_COMPILE_WARNING warning' => [E_COMPILE_WARNING, 'Compile Warning'];
+        yield 'E_USER_ERROR error' => [E_USER_ERROR, 'User Error'];
+        yield 'E_USER_WARNING warning' => [E_USER_WARNING, 'User Warning'];
+        yield 'E_USER_NOTICE notice' => [E_USER_NOTICE, 'User Notice'];
+        yield 'E_STRICT notice' => [@E_STRICT, 'Runtime Notice'];
+        yield 'E_DEPRECATED notice' => [E_DEPRECATED, 'Deprecation Notice'];
+        yield 'E_USER_DEPRECATED notice' => [E_USER_DEPRECATED, 'Deprecation Notice'];
+        yield 'E_RECOVERABLE_ERROR error' => [E_RECOVERABLE_ERROR, 'Catchable Fatal Error'];
     }
 
     /**

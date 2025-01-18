@@ -9,7 +9,7 @@ use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\CreateAddField;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -42,25 +42,15 @@ final class CreateController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $cfg = $this->config->settings;
-
-        /* Check if database name is empty */
-        if (Current::$database === '') {
-            Generator::mysqlDie(
-                __('The database name is empty!'),
-                '',
-                false,
-                'index.php',
-            );
-        }
 
         /**
          * Selects the database to work with
@@ -97,17 +87,17 @@ final class CreateController implements InvocableController
                 Current::$table = mb_strtolower(Current::$table);
             }
 
-            $GLOBALS['sql_query'] = $createAddField->getTableCreationQuery(Current::$database, Current::$table);
+            Current::$sqlQuery = $createAddField->getTableCreationQuery(Current::$database, Current::$table);
 
             // If there is a request for SQL previewing.
             if (isset($_POST['preview_sql'])) {
-                Core::previewSQL($GLOBALS['sql_query']);
+                Core::previewSQL(Current::$sqlQuery);
 
-                return null;
+                return $this->response->response();
             }
 
             // Executes the query
-            $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+            $result = $this->dbi->tryQuery(Current::$sqlQuery);
 
             if ($result !== false) {
                 // Update comment table for mime types [MIME]
@@ -137,7 +127,7 @@ final class CreateController implements InvocableController
                 $this->response->addJSON('message', $this->dbi->getError());
             }
 
-            return null;
+            return $this->response->response();
         }
 
         // Do not display the table in the header since it hasn't been created yet
@@ -145,15 +135,15 @@ final class CreateController implements InvocableController
 
         $this->response->addScriptFiles(['vendor/jquery/jquery.uitablefilter.js']);
 
-        if (! $this->response->checkParameters(['server', 'db'])) {
-            return null;
+        if (Current::$server === 0) {
+            return $this->response->missingParameterError('server');
         }
 
         $templateData = $this->columnsDefinition->displayForm($userPrivileges, '/table/create', $numFields);
 
         $this->response->render('columns_definitions/column_definitions_form', $templateData);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -161,11 +151,11 @@ final class CreateController implements InvocableController
      */
     private function getNumberOfFieldsFromRequest(ServerRequest $request): int
     {
-        $origNumFields = $request->getParsedBodyParam('orig_num_fields');
-        $numFields = $request->getParsedBodyParam('num_fields');
+        $origNumFields = $request->getParsedBodyParamAsStringOrNull('orig_num_fields');
+        $numFields = $request->getParsedBodyParamAsStringOrNull('num_fields');
 
         if ($request->hasBodyParam('submit_num_fields')) { // adding new fields
-            $numberOfFields = (int) $origNumFields + (int) $request->getParsedBodyParam('added_fields');
+            $numberOfFields = (int) $origNumFields + (int) $request->getParsedBodyParamAsStringOrNull('added_fields');
         } elseif ($origNumFields !== null) { // retaining existing fields
             $numberOfFields = (int) $origNumFields;
         } elseif ($numFields !== null && (int) $numFields > 0) { // new table with specified number of fields

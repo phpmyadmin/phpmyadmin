@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Triggers;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Triggers\IndexController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Http\ServerRequest;
@@ -26,7 +26,6 @@ final class IndexControllerTest extends AbstractTestCase
     public function testWithTriggers(): void
     {
         Current::$server = 2;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
@@ -161,7 +160,6 @@ HTML;
     public function testWithoutTriggers(): void
     {
         Current::$server = 2;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 

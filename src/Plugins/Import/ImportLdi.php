@@ -6,9 +6,10 @@ namespace PhpMyAdmin\Plugins\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -99,11 +100,11 @@ class ImportLdi extends AbstractImportCsv
         $this->localOption = $request->getParsedBodyParam('ldi_local_option') !== null;
         $this->replace = $request->getParsedBodyParam('ldi_replace') !== null;
         $this->ignore = $request->getParsedBodyParam('ldi_ignore') !== null;
-        $this->terminated = (string) $request->getParsedBodyParam('ldi_terminated');
-        $this->enclosed = (string) $request->getParsedBodyParam('ldi_enclosed');
-        $this->escaped = (string) $request->getParsedBodyParam('ldi_escaped');
-        $this->newLine = (string) $request->getParsedBodyParam('ldi_new_line');
-        $this->columns = (string) $request->getParsedBodyParam('ldi_columns');
+        $this->terminated = $request->getParsedBodyParamAsString('ldi_terminated', '');
+        $this->enclosed = $request->getParsedBodyParamAsString('ldi_enclosed', '');
+        $this->escaped = $request->getParsedBodyParamAsString('ldi_escaped', '');
+        $this->newLine = $request->getParsedBodyParamAsString('ldi_new_line', '');
+        $this->columns = $request->getParsedBodyParamAsString('ldi_columns', '');
     }
 
     /**
@@ -121,10 +122,10 @@ class ImportLdi extends AbstractImportCsv
 
         if (ImportSettings::$importFile === 'none' || $compression !== 'none' || ImportSettings::$charsetConversion) {
             // We handle only some kind of data!
-            $GLOBALS['message'] = Message::error(
+            Current::$message = Message::error(
                 __('This plugin does not support compressed imports!'),
             );
-            $GLOBALS['error'] = true;
+            Import::$hasError = true;
 
             return [];
         }

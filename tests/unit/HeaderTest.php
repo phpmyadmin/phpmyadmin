@@ -9,8 +9,9 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Console;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Header;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -36,7 +37,7 @@ class HeaderTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $this->createDatabaseInterface();
 
-        $GLOBALS['message'] = 'phpmyadminmessage';
+        Current::$message = Message::success('phpmyadminmessage');
         Current::$database = 'db';
         Current::$table = '';
 
@@ -64,43 +65,50 @@ class HeaderTest extends AbstractTestCase
         );
     }
 
-    /**
-     * Test for disable
-     */
-    public function testDisable(): void
-    {
-        $header = $this->getNewHeaderInstance();
-        $header->disable();
-        self::assertSame(
-            '',
-            $header->getDisplay(),
-        );
-    }
-
-    /**
-     * Test for enable
-     */
     public function testEnable(): void
     {
         Current::$server = 0;
-        $header = $this->getNewHeaderInstance();
-        self::assertStringContainsString(
-            '<title>phpMyAdmin</title>',
-            $header->getDisplay(),
-        );
-    }
+        Current::$message = null;
+        $config = Config::getInstance();
+        $config->settings['CodemirrorEnable'] = false;
+        $config->settings['SendErrorReports'] = 'never';
+        $config->settings['enable_drag_drop_import'] = false;
+        $config->settings['DisableShortcutKeys'] = true;
+        $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
+        $relation = new Relation($dbi);
+        $template = new Template($config);
+        $console = new Console($relation, $template, new BookmarkRepository($dbi, $relation));
+        $header = new Header($template, $console, $config);
 
-    /**
-     * Test for Set BodyId
-     */
-    public function testSetBodyId(): void
-    {
-        $header = $this->getNewHeaderInstance();
         $header->setBodyId('PMA_header_id');
-        self::assertStringContainsString(
-            'PMA_header_id',
-            $header->getDisplay(),
-        );
+        $actual = $header->getDisplay();
+        $expected = [
+            'lang' => 'en',
+            'allow_third_party_framing' => false,
+            'base_dir' => '',
+            'theme_path' => '',
+            'server' => 0,
+            'title' => 'phpMyAdmin',
+            'scripts' => $header->getScripts()->getDisplay(),
+            'body_id' => 'PMA_header_id',
+            'navigation' => '',
+            'custom_header' => '',
+            'load_user_preferences' => '',
+            'show_hint' => true,
+            'is_warnings_enabled' => true,
+            'is_menu_enabled' => true,
+            'is_logged_in' => true,
+            'menu' => '',
+            'console' => $console->getDisplay(),
+            'messages' => '',
+            'theme_color_mode' => 'light',
+            'theme_color_modes' => ['light'],
+            'theme_id' => '',
+            'current_user' => ['pma_test', 'localhost'],
+            'is_mariadb' => false,
+        ];
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -281,23 +289,5 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'main.js', 'fire' => 1],
         ];
         self::assertSame($expected, $scripts->getFiles());
-    }
-
-    public function testSetAjax(): void
-    {
-        $header = $this->getNewHeaderInstance();
-        $console = (new ReflectionProperty(Header::class, 'console'))->getValue($header);
-        self::assertInstanceOf(Console::class, $console);
-        $isAjax = new ReflectionProperty(Header::class, 'isAjax');
-        $consoleIsAjax = new ReflectionProperty(Console::class, 'isAjax');
-
-        self::assertFalse($isAjax->getValue($header));
-        self::assertFalse($consoleIsAjax->getValue($console));
-        $header->setAjax(true);
-        self::assertTrue($isAjax->getValue($header));
-        self::assertTrue($consoleIsAjax->getValue($console));
-        $header->setAjax(false);
-        self::assertFalse($isAjax->getValue($header));
-        self::assertFalse($consoleIsAjax->getValue($console));
     }
 }

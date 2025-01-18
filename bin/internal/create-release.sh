@@ -33,6 +33,7 @@ do_ci=0
 do_sign=1
 do_pull=0
 do_daily=0
+do_revision=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -44,6 +45,9 @@ while [ $# -gt 0 ] ; do
             ;;
         --test)
             do_test=1
+            ;;
+        --revision-info)
+            do_revision=1
             ;;
         --daily)
             do_sign=0
@@ -59,18 +63,36 @@ while [ $# -gt 0 ] ; do
                 branch="ci"
             fi
             ;;
+        --no-sign)
+            do_sign=0
+            ;;
+        --kits)
+            KITS="$2"
+            # Skip one position, the value
+            shift
+            ;;
+        --compressions)
+            COMPRESSIONS="$2"
+            # Skip one position, the value
+            shift
+            ;;
         --help)
             echo "Usages:"
-            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci]"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--daily] [--revision-info] [--compressions] [--kits] [--no-sign]"
             echo ""
             echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
             echo "If --ci is specified, the testsuite is executed and no actual release is created"
+            echo "If --no-sign is specified, the ouput files will not be signed"
+            echo "If --daily is specified, the ouput files will have snapshot information"
+            echo "If --revision-info is specified, the output files will contain git revision info"
+            echo "If --compressions is specified, it changes the compressions available. Space separated values. Valid values: $COMPRESSIONS"
+            echo "If --kits is specified, it changes the kits to be built. Space separated values. Valid values: $KITS"
             echo ""
             echo "Examples:"
-            echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-            echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
+            echo "  create-release.sh 5.2.2-dev QA_5_2"
+            echo "  create-release.sh 5.2.2 QA_5_2 --tag --stable"
             exit 65
             ;;
         *)
@@ -89,19 +111,20 @@ while [ $# -gt 0 ] ; do
                 fi
             else
                 echo "Unknown parameter: $1!"
+                echo "Use --help to check the syntax."
                 exit 1
             fi
     esac
     shift
 done
 
-if [ -z "$branch" ]; then
-    echo "Branch must be specified!"
+if [ -z "$version" ] && [ $do_ci -eq 0 ]; then
+    echo "Version must be specified!"
     exit 1
 fi
 
-if [ -z "$version" ] && [ $do_ci -eq 0 ]; then
-    echo "Version must be specified!"
+if [ -z "$branch" ]; then
+    echo "Branch must be specified!"
     exit 1
 fi
 
@@ -148,12 +171,6 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/twig-i18n-extension/README.rst \
         vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
         vendor/phpmyadmin/twig-i18n-extension/test/ \
-        vendor/phpseclib/phpseclib/phpseclib/File/ \
-        vendor/phpseclib/phpseclib/phpseclib/Math/ \
-        vendor/phpseclib/phpseclib/phpseclib/Net/ \
-        vendor/phpseclib/phpseclib/phpseclib/System/ \
-        vendor/phpseclib/phpseclib/appveyor.yml \
-        vendor/phpseclib/phpseclib/.github \
         vendor/symfony/cache/Tests/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Tests/ \
@@ -209,6 +226,7 @@ cleanup_composer_vendors() {
         vendor/paragonie/constant_time_encoding/psalm.xml \
         vendor/paragonie/constant_time_encoding/phpunit.xml.dist \
         vendor/paragonie/constant_time_encoding/.travis.yml \
+        vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
@@ -243,7 +261,18 @@ cleanup_composer_vendors() {
         vendor/spomky-labs/cbor-php/infection.json.dist \
         vendor/spomky-labs/cbor-php/phpstan.neon \
         vendor/thecodingmachine/safe/generated/Exceptions/.gitkeep \
-        vendor/thecodingmachine/safe/rector-migrate-0.7.php
+        vendor/thecodingmachine/safe/rector-migrate-0.7.php \
+        vendor/phpmyadmin/motranslator/psalm-baseline.xml \
+        vendor/phpmyadmin/motranslator/psalm.xml \
+        vendor/slim/psr7/phpunit.xml.dist \
+        vendor/slim/psr7/tests/ \
+        vendor/psr/event-dispatcher/.editorconfig \
+        vendor/spomky-labs/cbor-php/SECURITY.md \
+        vendor/spomky-labs/pki-framework/SECURITY.md \
+        vendor/web-auth/cose-lib/SECURITY.md \
+        vendor/laminas/laminas-httphandlerrunner/.laminas-ci.json \
+        vendor/twig/twig/phpstan-baseline.neon \
+        vendor/twig/twig/phpstan.neon.dist
     find vendor/tecnickcom/tcpdf/fonts/ -maxdepth 1 -type f \
         -not -name 'dejavusans.*' \
         -not -name 'dejavusansb.*' \
@@ -291,7 +320,7 @@ security_checkup() {
         echo 'TCPDF should be installed, detection failed !'
         exit 1;
     fi
-    if [ ! -f vendor/web-auth/webauthn-lib/src/Server.php ]; then
+    if [ ! -f vendor/web-auth/webauthn-lib/src/PublicKeyCredential.php ]; then
         echo 'Webauthn-lib should be installed, detection failed !'
         exit 1;
     fi
@@ -498,6 +527,9 @@ if [ -f ./bin/console ]; then
     composer install --no-interaction
     # Warm up the routing cache for 5.1+ releases
     ./bin/console cache:warmup --routing
+    if [ $do_revision -eq 1 ] ; then
+        ./bin/console write-revision-info
+    fi
 fi
 
 echo "* Writing the version to composer.json (version: $version)"
@@ -525,7 +557,7 @@ echo "* Installing composer packages '$PACKAGES_VERSIONS'"
 
 # Allows word splitting
 # shellcheck disable=SC2086
-composer require --no-interaction $PACKAGES_VERSIONS
+composer require --no-interaction --update-no-dev $PACKAGES_VERSIONS
 
 echo "* Running a security checkup"
 security_checkup
@@ -591,6 +623,8 @@ security_checkup
 
 cd ..
 
+SIGN_FILES=""
+
 # Prepare all kits
 for kit in $KITS ; do
     echo "* Building kit: $kit"
@@ -616,9 +650,9 @@ for kit in $KITS ; do
         # Documentation source code
         mv docs/html htmldoc
         rm -r docs
-        mkdir docs
-        mv htmldoc docs/html
-        rm docs/html/.buildinfo docs/html/objects.inv
+        mkdir public/docs
+        mv htmldoc public/docs/html
+        rm public/docs/html/.buildinfo public/docs/html/objects.inv
         rm -r node_modules
         # Remove bin files for non source version
         # https://github.com/phpmyadmin/phpmyadmin/issues/16033
@@ -647,15 +681,18 @@ for kit in $KITS ; do
                 if [ "$comp" = txz ] ; then
                     echo "* Creating $name.tar.xz"
                     xz -9k "$name".tar
+                    SIGN_FILES="$SIGN_FILES $name.tar.xz"
                 fi
                 if [ "$comp" = tgz ] ; then
                     echo "* Creating $name.tar.gz"
                     gzip -9c "$name".tar > "$name".tar.gz
+                    SIGN_FILES="$SIGN_FILES $name.tar.gz"
                 fi
                 ;;
             zip-7z)
                 echo "* Creating $name.zip"
                 7za a -bd -tzip "$name".zip "$name" > /dev/null
+                SIGN_FILES="$SIGN_FILES $name.zip"
                 ;;
             *)
                 echo "WARNING: ignoring compression '$comp', not known!"
@@ -675,8 +712,13 @@ rm -r "$workdir_name"
 git worktree prune
 
 # Signing of files with default GPG key
-echo "* Signing files"
-for file in "$kit_prefix"-*.gz "$kit_prefix"-*.zip "$kit_prefix"-*.xz ; do
+if [ $do_sign -eq 1 ] ; then
+    echo "* Signing and making .sha{1,256} files"
+else
+    echo "* Making .sha{1,256} files"
+fi
+
+for file in $SIGN_FILES; do
     if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor "$file"
     fi
@@ -701,7 +743,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la -- *.gz *.zip *.xz
+ls -la $SIGN_FILES
 
 cd ..
 

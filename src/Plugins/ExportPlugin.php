@@ -9,10 +9,13 @@ namespace PhpMyAdmin\Plugins;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
 use PhpMyAdmin\Properties\Plugins\PluginPropertyItem;
 use PhpMyAdmin\Transformations;
 
+use function is_string;
 use function stripos;
 
 /**
@@ -27,6 +30,11 @@ abstract class ExportPlugin implements Plugin
      * Object containing the specific export plugin type properties.
      */
     protected ExportPluginProperties $properties;
+
+    public static ExportType $exportType = ExportType::Raw;
+    public static bool $singleTable = false;
+
+    protected StructureOrData $structureOrData = StructureOrData::Data;
 
     final public function __construct(
         public Relation $relation,
@@ -65,25 +73,22 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    abstract public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool;
+    abstract public function exportDBCreate(string $db, string $dbAlias = ''): bool;
 
     /**
      * Outputs the content of a table
      *
      * @param string  $db       database name
      * @param string  $table    table name
-     * @param string  $errorUrl the url to go back in case of error
      * @param string  $sqlQuery SQL query for obtaining data
      * @param mixed[] $aliases  Aliases of db/table/columns
      */
     abstract public function exportData(
         string $db,
         string $table,
-        string $errorUrl,
         string $sqlQuery,
         array $aliases = [],
     ): bool;
@@ -117,11 +122,10 @@ abstract class ExportPlugin implements Plugin
     /**
      * Outputs for raw query
      *
-     * @param string      $errorUrl the url to go back in case of error
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
         return false;
     }
@@ -132,28 +136,10 @@ abstract class ExportPlugin implements Plugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column comments
-     *                            as comments in the structure; this is deprecated
-     *                            but the parameter is left here because /export
-     *                            calls exportStructure() also for other export
-     *                            types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        string $exportType,
-        bool $doRelation = false,
-        bool $doComments = false,
-        bool $doMime = false,
-        bool $dates = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         return true;
     }
 
@@ -337,5 +323,28 @@ abstract class ExportPlugin implements Plugin
     public static function isAvailable(): bool
     {
         return true;
+    }
+
+    /** @param array<mixed> $exportConfig */
+    abstract public function setExportOptions(ServerRequest $request, array $exportConfig): void;
+
+    public function getStructureOrData(): StructureOrData
+    {
+        return $this->structureOrData;
+    }
+
+    protected function setStructureOrData(
+        mixed $valueFromRequest,
+        mixed $valueFromConfig,
+        StructureOrData $defaultValue,
+    ): StructureOrData {
+        return StructureOrData::tryFrom(is_string($valueFromRequest) ? $valueFromRequest : '')
+            ?? StructureOrData::tryFrom(is_string($valueFromConfig) ? $valueFromConfig : '')
+            ?? $defaultValue;
+    }
+
+    public function getTranslatedText(string $text): string
+    {
+        return $text;
     }
 }

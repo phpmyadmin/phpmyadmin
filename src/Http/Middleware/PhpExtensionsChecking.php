@@ -15,6 +15,7 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
 use function __;
+use function defined;
 use function function_exists;
 use function sprintf;
 
@@ -33,7 +34,6 @@ final class PhpExtensionsChecking implements MiddlewareInterface
             $this->template->disableCache();
             $output = $this->template->render('error/generic', [
                 'lang' => 'en',
-                'dir' => 'ltr',
                 'error_message' => $exception->getMessage(),
             ]);
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
@@ -85,6 +85,10 @@ final class PhpExtensionsChecking implements MiddlewareInterface
 
         if (! function_exists('session_name')) {
             Core::warnMissingExtension('session', true);
+        }
+
+        if (! defined('SODIUM_CRYPTO_SECRETBOX_KEYBYTES')) {
+            Core::warnMissingExtension('sodium', true);
         }
 
         /**

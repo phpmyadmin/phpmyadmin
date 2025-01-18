@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
@@ -18,6 +18,7 @@ use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Index;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Operations;
 use PhpMyAdmin\Partitioning\Partition;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
@@ -25,6 +26,7 @@ use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
 use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -51,13 +53,8 @@ final class TableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['auto_increment'] ??= null;
-        $GLOBALS['message_to_show'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         if ($this->dbi->getLowerCaseNames() === 1) {
@@ -68,15 +65,17 @@ final class TableController implements InvocableController
 
         $this->response->addScriptFiles(['table/operations.js']);
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
         }
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
-        $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
+        UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-        $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -84,12 +83,12 @@ final class TableController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -98,15 +97,15 @@ final class TableController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
+        UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');
 
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -127,7 +126,7 @@ final class TableController implements InvocableController
         }
 
         $tableCollation = $pmaTable->getCollation();
-        $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
+        Operations::$autoIncrement = $pmaTable->getAutoIncrement();
         $createOptions = $pmaTable->getCreateOptions();
 
         // set initial value of these variables, based on the current table engine
@@ -153,7 +152,7 @@ final class TableController implements InvocableController
             $message = $this->operations->moveOrCopyTable($userPrivileges, Current::$database, Current::$table);
 
             if (! $request->isAjax()) {
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addJSON('message', $message);
@@ -167,12 +166,12 @@ final class TableController implements InvocableController
 
                 $this->response->addJSON('db', Current::$database);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->setRequestStatus(false);
 
-            return null;
+            return $this->response->response();
         }
 
         $newMessage = '';
@@ -212,7 +211,7 @@ final class TableController implements InvocableController
                     $result = true;
                     Current::$table = $pmaTable->getName();
                     $rereadInfo = true;
-                    $GLOBALS['reload'] = true;
+                    ResponseRenderer::$reload = true;
                 } else {
                     $newMessage .= $pmaTable->getLastError();
                     $result = false;
@@ -249,11 +248,11 @@ final class TableController implements InvocableController
             );
 
             if ($tableAlters !== []) {
-                $GLOBALS['sql_query'] = 'ALTER TABLE '
+                Current::$sqlQuery = 'ALTER TABLE '
                     . Util::backquote(Current::$table);
-                $GLOBALS['sql_query'] .= "\r\n" . implode("\r\n", $tableAlters);
-                $GLOBALS['sql_query'] .= ';';
-                $this->dbi->query($GLOBALS['sql_query']);
+                Current::$sqlQuery .= "\r\n" . implode("\r\n", $tableAlters);
+                Current::$sqlQuery .= ';';
+                $this->dbi->query(Current::$sqlQuery);
                 $result = true;
                 $rereadInfo = true;
                 $warningMessages = $this->operations->getWarningMessagesArray($newTableStorageEngine);
@@ -276,7 +275,7 @@ final class TableController implements InvocableController
                         Message::error(__('No collation provided.')),
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
             }
         }
@@ -290,12 +289,12 @@ final class TableController implements InvocableController
         if ($request->hasBodyParam('submitorderby') && is_string($orderField) && $orderField !== '') {
             /** @var mixed $orderOrder */
             $orderOrder = $request->getParsedBodyParam('order_order');
-            $GLOBALS['sql_query'] = QueryGenerator::getQueryForReorderingTable(
+            Current::$sqlQuery = QueryGenerator::getQueryForReorderingTable(
                 Current::$table,
                 urldecode($orderField),
                 is_string($orderOrder) ? $orderOrder : '',
             );
-            $this->dbi->query($GLOBALS['sql_query']);
+            $this->dbi->query(Current::$sqlQuery);
             $result = true;
         }
 
@@ -310,12 +309,12 @@ final class TableController implements InvocableController
         ) {
             /** @var mixed $partitionNames */
             $partitionNames = $request->getParsedBodyParam('partition_name');
-            $GLOBALS['sql_query'] = QueryGenerator::getQueryForPartitioningTable(
+            Current::$sqlQuery = QueryGenerator::getQueryForPartitioningTable(
                 Current::$table,
                 $partitionOperation,
                 is_array($partitionNames) ? $partitionNames : [],
             );
-            $this->dbi->query($GLOBALS['sql_query']);
+            $this->dbi->query(Current::$sqlQuery);
             $result = true;
         }
 
@@ -336,13 +335,13 @@ final class TableController implements InvocableController
             }
 
             $tableCollation = $pmaTable->getCollation();
-            $GLOBALS['auto_increment'] = $pmaTable->getAutoIncrement();
+            Operations::$autoIncrement = $pmaTable->getAutoIncrement();
             $createOptions = $pmaTable->getCreateOptions();
         }
 
-        if (isset($result) && empty($GLOBALS['message_to_show'])) {
+        if (isset($result) && empty(Current::$messageToShow)) {
             if ($newMessage === '') {
-                if (empty($GLOBALS['sql_query'])) {
+                if (Current::$sqlQuery === '') {
                     $newMessage = Message::success(__('No change'));
                 } else {
                     $newMessage = $result
@@ -353,14 +352,14 @@ final class TableController implements InvocableController
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus($newMessage->isSuccess());
                     $this->response->addJSON('message', $newMessage);
-                    if (! empty($GLOBALS['sql_query'])) {
+                    if (Current::$sqlQuery !== '') {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', $GLOBALS['sql_query']),
+                            Generator::getMessage('', Current::$sqlQuery),
                         );
                     }
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 $newMessage = $result
@@ -371,35 +370,35 @@ final class TableController implements InvocableController
             if ($warningMessages !== []) {
                 $newMessage = new Message();
                 $newMessage->addMessagesString($warningMessages);
-                $newMessage->setType(Message::ERROR);
+                $newMessage->setType(MessageType::Error);
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $newMessage);
-                    if (! empty($GLOBALS['sql_query'])) {
+                    if (Current::$sqlQuery !== '') {
                         $this->response->addJSON(
                             'sql_query',
-                            Generator::getMessage('', $GLOBALS['sql_query']),
+                            Generator::getMessage('', Current::$sqlQuery),
                         );
                     }
 
-                    return null;
+                    return $this->response->response();
                 }
             }
 
-            if (empty($GLOBALS['sql_query'])) {
+            if (Current::$sqlQuery === '') {
                 $this->response->addHTML(
                     $newMessage->getDisplay(),
                 );
             } else {
                 $this->response->addHTML(
-                    Generator::getMessage($newMessage, $GLOBALS['sql_query']),
+                    Generator::getMessage($newMessage, Current::$sqlQuery),
                 );
             }
 
             unset($newMessage);
         }
 
-        $GLOBALS['urlParams']['goto'] = $GLOBALS['urlParams']['back'] = Url::getFromRoute('/table/operations');
+        UrlParams::$params['goto'] = UrlParams::$params['back'] = Url::getFromRoute('/table/operations');
 
         $columns = $this->dbi->getColumns(Current::$database, Current::$table);
 
@@ -454,7 +453,7 @@ final class TableController implements InvocableController
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);
         $hasChecksumAndDelayKeyWrite = $pmaTable->isEngine(['MYISAM', 'ARIA']);
         $hasTransactionalAndPageChecksum = $pmaTable->isEngine('ARIA');
-        $hasAutoIncrement = $GLOBALS['auto_increment'] != ''
+        $hasAutoIncrement = Operations::$autoIncrement !== ''
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'INNODB', 'PBXT', 'ROCKSDB']);
 
         $possibleRowFormats = $this->operations->getPossibleRowFormat();
@@ -465,7 +464,7 @@ final class TableController implements InvocableController
             $databaseList = $listDatabase->getList();
         }
 
-        $hasForeignKeys = $this->relation->getForeigners(Current::$database, Current::$table, '', 'foreign') !== [];
+        $hasForeignKeys = $this->relation->getForeignKeysData(Current::$database, Current::$table) !== [];
         $hasPrivileges = $userPrivileges->table && $userPrivileges->column && $userPrivileges->isReload;
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
@@ -481,14 +480,14 @@ final class TableController implements InvocableController
         }
 
         $foreigners = $this->operations->getForeignersForReferentialIntegrityCheck(
-            $GLOBALS['urlParams'],
+            UrlParams::$params,
             $relationParameters->relationFeature !== null,
         );
 
         $this->response->render('table/operations/index', [
             'db' => Current::$database,
             'table' => Current::$table,
-            'url_params' => $GLOBALS['urlParams'],
+            'url_params' => UrlParams::$params,
             'columns' => $columns,
             'hide_order_table' => $hideOrderTable,
             'table_comment' => $comment,
@@ -500,7 +499,7 @@ final class TableController implements InvocableController
             'row_formats' => $possibleRowFormats[$tableStorageEngine] ?? [],
             'row_format_current' => $rowFormat,
             'has_auto_increment' => $hasAutoIncrement,
-            'auto_increment' => $GLOBALS['auto_increment'],
+            'auto_increment' => Operations::$autoIncrement,
             'has_pack_keys' => $hasPackKeys,
             'pack_keys' => $createOptions['pack_keys'] ?? '',
             'has_transactional_and_page_checksum' => $hasTransactionalAndPageChecksum,
@@ -520,6 +519,6 @@ final class TableController implements InvocableController
             'foreigners' => $foreigners,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

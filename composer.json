@@ -47,7 +47,7 @@
         }
     ],
     "require": {
-        "php": "^8.1.2",
+        "php": "^8.2",
         "ext-hash": "*",
         "ext-iconv": "*",
         "ext-json": "*",
@@ -70,12 +70,11 @@
         "psr/http-server-handler": "^1.0",
         "psr/http-server-middleware": "^1.0",
         "slim/psr7": "^1.6.1",
-        "symfony/config": "^6.2",
-        "symfony/dependency-injection": "^6.2",
-        "symfony/expression-language": "^6.2",
+        "symfony/config": "^7.1",
+        "symfony/dependency-injection": "^7.1",
+        "symfony/expression-language": "^7.1",
         "symfony/polyfill-ctype": "^1.24",
         "symfony/polyfill-mbstring": "^1.24",
-        "symfony/polyfill-php82": "^1.29",
         "twig/twig": "^3.9",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
@@ -108,19 +107,20 @@
         "nyholm/psr7": "^1.8",
         "php-webdriver/webdriver": "^1.14",
         "phpmyadmin/coding-standard": "^4.0",
-        "phpstan/extension-installer": "^1.3",
-        "phpstan/phpstan": "^1.10.15",
-        "phpstan/phpstan-phpunit": "^1.3",
-        "phpstan/phpstan-strict-rules": "^1.5",
-        "phpstan/phpstan-webmozart-assert": "^1.2",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0",
+        "phpstan/phpstan-strict-rules": "^2.0",
+        "phpstan/phpstan-webmozart-assert": "^2.0",
         "phpunit/phpunit": "^10.4",
         "pragmarx/google2fa-qrcode": "^3.0",
         "psalm/plugin-phpunit": "^0.18.4",
         "roave/security-advisories": "dev-latest",
-        "symfony/console": "^6.2",
+        "symfony/console": "^7.1",
         "tecnickcom/tcpdf": "^6.4.4",
         "vimeo/psalm": "^5.14",
-        "web-auth/webauthn-lib": "^3.3.12"
+        "web-auth/webauthn-lib": "^4.9"
     },
     "extra": {
         "branch-alias": {
@@ -154,7 +154,7 @@
             "composer/package-versions-deprecated": true
         },
         "platform": {
-            "php": "8.1.99"
+            "php": "8.2.99"
         }
     }
 }

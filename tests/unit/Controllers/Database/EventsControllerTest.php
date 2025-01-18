@@ -8,7 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Database\EventsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -23,7 +23,6 @@ final class EventsControllerTest extends AbstractTestCase
     public function testWithEvents(): void
     {
         Current::$server = 2;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
@@ -174,7 +173,7 @@ final class EventsControllerTest extends AbstractTestCase
                 </tr>
                 </tbody>
               </table>
-              <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+              <span class="hide callback">window.pmaSlidingMessage(data.sql_query);</span>
               <span class="hide text_direction">ltr</span>
             </div>
           </div>
@@ -193,7 +192,6 @@ HTML;
     public function testWithoutEvents(): void
     {
         Current::$server = 2;
-        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         Current::$database = 'test_db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
 
@@ -301,7 +299,7 @@ HTML;
                 </tr>
                 </tbody>
               </table>
-              <span class="hide callback">Functions.slidingMessage(data.sql_query);</span>
+              <span class="hide callback">window.pmaSlidingMessage(data.sql_query);</span>
               <span class="hide text_direction">ltr</span>
             </div>
           </div>

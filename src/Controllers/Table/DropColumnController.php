@@ -7,8 +7,8 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\FlashMessages;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\FlashMessenger;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
@@ -24,12 +24,12 @@ final class DropColumnController implements InvocableController
     public function __construct(
         private readonly ResponseRenderer $response,
         private readonly DatabaseInterface $dbi,
-        private readonly FlashMessages $flash,
+        private readonly FlashMessenger $flashMessenger,
         private readonly RelationCleanup $relationCleanup,
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $selected = $_POST['selected'] ?? [];
 
@@ -37,7 +37,7 @@ final class DropColumnController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $selectedCount = count($selected);
@@ -72,9 +72,9 @@ final class DropColumnController implements InvocableController
             $message->addParam($selectedCount);
         }
 
-        $this->flash->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
+        $this->flashMessenger->addMessage($message->isError() ? 'danger' : 'success', $message->getMessage());
         $this->response->redirectToRoute('/table/structure', ['db' => Current::$database, 'table' => Current::$table]);
 
-        return null;
+        return $this->response->response();
     }
 }

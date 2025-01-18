@@ -19,6 +19,7 @@ namespace PhpMyAdmin;
 
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 
 use function array_shift;
@@ -48,6 +49,9 @@ use function ucwords;
  */
 class Transformations
 {
+    /** @var string[][]|null */
+    private static array|null $availableMimeTypesStack = null;
+
     /**
      * Returns array of options from string with options separated by comma,
      * removes quotes
@@ -109,15 +113,11 @@ class Transformations
      * Gets all available MIME-types
      *
      * @return string[][]    array[mimetype], array[transformation]
-     *
-     * @staticvar array $stack
      */
     public function getAvailableMimeTypes(): array
     {
-        static $stack = null;
-
-        if ($stack !== null) {
-            return $stack;
+        if (self::$availableMimeTypesStack !== null) {
+            return self::$availableMimeTypesStack;
         }
 
         $stack = [];
@@ -151,7 +151,7 @@ class Transformations
             sort($filestack);
 
             foreach ($filestack as $file) {
-                if (preg_match('|^[^.].*_.*_.*\.php$|', $file)) {
+                if (preg_match('|^[^.].*_.*_.*\.php$|', $file) === 1) {
                     // File contains transformation functions.
                     $parts = explode('_', str_replace('.php', '', $file));
                     $mimetype = $parts[0] . '/' . $parts[1];
@@ -163,7 +163,7 @@ class Transformations
                         $stack['input_transformation'][] = $mimetype . ': ' . $parts[2];
                         $stack['input_transformation_file'][] = $sd . $file;
                     }
-                } elseif (preg_match('|^[^.].*\.php$|', $file)) {
+                } elseif (preg_match('|^[^.].*\.php$|', $file) === 1) {
                     // File is a plain mimetype, no functions.
                     $base = str_replace('.php', '', $file);
 
@@ -176,7 +176,9 @@ class Transformations
             }
         }
 
-        return $stack;
+        self::$availableMimeTypesStack = $stack;
+
+        return self::$availableMimeTypesStack;
     }
 
     /**

@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { Functions } from '../modules/functions.ts';
+import { addDateTimePicker } from '../modules/functions.ts';
 
 /**
  * @fileoverview    function used in table data manipulation pages
@@ -432,7 +432,7 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
         // call validate before adding rules
         $($thisInput[0].form).validate();
         // validate for date time
-        if (theType === 'datetime' || theType === 'time' || theType === 'date' || theType === 'timestamp') {
+        if (theType.startsWith('time') || theType.startsWith('date')) {
             $thisInput.rules('add', {
                 validationFunctionForDateTime: {
                     param: theType,
@@ -496,7 +496,6 @@ function verificationsAfterFieldChange (urlField, multiEdit, theType) {
  * Unbind all event handlers before tearing down a page
  */
 AJAX.registerTeardown('table/change.js', function () {
-    $(document).off('click', 'span.open_gis_editor');
     $(document).off('click', 'input[name^=\'insert_ignore_\']');
     $(document).off('click', 'button.gis-copy-data');
     $(document).off('click', 'input.checkbox_null');
@@ -596,18 +595,18 @@ AJAX.registerOnload('table/change.js', function () {
     // @ts-ignore
     $.datepicker.initialized = false;
 
-    $(document).on('click', 'span.open_gis_editor', function (event) {
-        event.preventDefault();
-
-        var $span = $(this);
+    const gisEditorModal = document.getElementById('gisEditorModal');
+    gisEditorModal?.addEventListener('show.bs.modal', event => {
+        // @ts-ignore
+        const button = $(event.relatedTarget as HTMLButtonElement);
         // Current value
-        var value = $span.parent('td').children('input[type=\'text\']').val();
+        const value = button.parent('td').children('input[type=\'text\']').val();
         // Field name
-        var field = $span.parents('tr').children('td').first().find('input[type=\'hidden\']').val();
+        const field = button.parents('tr').children('td').first().find('input[type=\'hidden\']').val();
         // Column type
-        var type = $span.parents('tr').find('span.column_type').text();
+        const type = button.parents('tr').find('span.column_type').text();
         // Names of input field and null checkbox
-        var inputName = $span.parent('td').children('input[type=\'text\']').attr('name');
+        const inputName = button.parent('td').children('input[type=\'text\']').attr('name');
 
         window.openGISEditor(value, field, type, inputName);
     });
@@ -869,7 +868,7 @@ function addNewContinueInsertionFields (event) {
 
             // Insert/Clone the ignore checkboxes
             if (currRows === 1) {
-                $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked="checked">')
+                $('<input id="insert_ignore_1" type="checkbox" name="insert_ignore_1" checked>')
                     .insertBefore($('table.insertRowTable').last())
                     .after('<label for="insert_ignore_1">' + window.Messages.strIgnore + '</label>');
             } else {
@@ -945,7 +944,7 @@ function addNewContinueInsertionFields (event) {
     }
 
     // Add all the required datepickers back
-    Functions.addDateTimePicker();
+    addDateTimePicker();
 }
 
 function changeValueFieldType (elem, searchIndex) {

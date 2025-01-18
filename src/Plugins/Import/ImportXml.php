@@ -12,6 +12,7 @@ namespace PhpMyAdmin\Plugins\Import;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\File;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Import\ImportTable;
 use PhpMyAdmin\Message;
@@ -63,8 +64,6 @@ class ImportXml extends ImportPlugin
      */
     public function doImport(File|null $importHandle = null): array
     {
-        $GLOBALS['error'] ??= null;
-
         $xml = $this->getFileAsSimpleXmlElement($importHandle);
 
         /**
@@ -244,7 +243,7 @@ class ImportXml extends ImportPlugin
          * it can process compressed files
          */
         /** @infection-ignore-all */
-        while (! ImportSettings::$finished && ! $GLOBALS['error'] && ! ImportSettings::$timeoutPassed) {
+        while (! ImportSettings::$finished && ! Import::$hasError && ! ImportSettings::$timeoutPassed) {
             $data = $this->import->getNextChunk($importHandle);
             if ($data === false) {
                 /* subtract data we didn't handle yet and stop processing */

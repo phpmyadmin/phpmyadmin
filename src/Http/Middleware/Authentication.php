@@ -9,15 +9,15 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Container\ContainerBuilder;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\AuthenticationFailure;
 use PhpMyAdmin\Exceptions\AuthenticationPluginException;
 use PhpMyAdmin\Exceptions\ExitException;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\ServerRequest;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Logging;
-use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\Plugins\AuthenticationPluginFactory;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
@@ -26,6 +26,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
+use Throwable;
 
 use function assert;
 use function define;
@@ -53,14 +54,28 @@ final class Authentication implements MiddlewareInterface
             $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
 
             return $response->write($this->template->render('error/generic', [
-                'lang' => $GLOBALS['lang'] ?? 'en',
-                'dir' => LanguageManager::$textDir,
+                'lang' => Current::$lang,
                 'error_message' => $exception->getMessage(),
             ]));
         }
 
         try {
-            $authPlugin->authenticate();
+            try {
+                $response = $authPlugin->authenticate();
+                if ($response !== null) {
+                    return $response;
+                }
+            } catch (AuthenticationFailure $exception) {
+                return $authPlugin->showFailure($exception);
+            } catch (Throwable $exception) {
+                $response = $this->responseFactory->createResponse(StatusCodeInterface::STATUS_INTERNAL_SERVER_ERROR);
+
+                return $response->write($this->template->render('error/generic', [
+                    'lang' => Current::$lang,
+                    'error_message' => $exception->getMessage(),
+                ]));
+            }
+
             $currentServer = new Server(Config::getInstance()->selectedServer);
 
             /* Enable LOAD DATA LOCAL INFILE for LDI plugin */
@@ -71,7 +86,11 @@ final class Authentication implements MiddlewareInterface
                 // phpcs:enable
             }
 
-            $this->connectToDatabaseServer(DatabaseInterface::getInstance(), $authPlugin, $currentServer);
+            try {
+                $this->connectToDatabaseServer(DatabaseInterface::getInstance(), $currentServer);
+            } catch (AuthenticationFailure $exception) {
+                return $authPlugin->showFailure($exception);
+            }
 
             // Relation should only be initialized after the connection is successful
             /** @var Relation $relation */
@@ -81,9 +100,16 @@ final class Authentication implements MiddlewareInterface
             // Tracker can only be activated after the relation has been initialized
             Tracker::enable();
 
-            $authPlugin->rememberCredentials();
+            $response = $authPlugin->rememberCredentials();
+            if ($response !== null) {
+                return $response;
+            }
+
             assert($request instanceof ServerRequest);
-            $authPlugin->checkTwoFactor($request);
+            $response = $authPlugin->checkTwoFactor($request);
+            if ($response !== null) {
+                return $response;
+            }
         } catch (ExitException) {
             return ResponseRenderer::getInstance()->response();
         }
@@ -94,11 +120,9 @@ final class Authentication implements MiddlewareInterface
         return $handler->handle($request);
     }
 
-    private function connectToDatabaseServer(
-        DatabaseInterface $dbi,
-        AuthenticationPlugin $auth,
-        Server $currentServer,
-    ): void {
+    /** @throws AuthenticationFailure */
+    private function connectToDatabaseServer(DatabaseInterface $dbi, Server $currentServer): void
+    {
         /**
          * Try to connect MySQL with the control user profile (will be used to get the privileges list for the current
          * user but the true user link must be open after this one, so it would be default one for all the scripts).
@@ -111,7 +135,7 @@ final class Authentication implements MiddlewareInterface
         // Connects to the server (validates user's login)
         $userConnection = $dbi->connect($currentServer, ConnectionType::User);
         if ($userConnection === null) {
-            $auth->showFailure('mysql-denied');
+            throw AuthenticationFailure::deniedByDatabaseServer();
         }
 
         if ($controlConnection !== null) {

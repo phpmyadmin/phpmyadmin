@@ -9,11 +9,11 @@ namespace PhpMyAdmin\Controllers\Database;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\CentralColumns;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use Webmozart\Assert\Assert;
@@ -32,40 +32,40 @@ final class CentralColumnsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['message'] ??= null;
         $db = DatabaseName::from($request->getParam('db'));
 
         if ($request->hasBodyParam('edit_save')) {
             $this->response->addHTML((string) $this->editSave(
-                $request->getParsedBodyParam('col_name'),
-                $request->getParsedBodyParam('orig_col_name'),
-                $request->getParsedBodyParam('col_default'),
-                $request->getParsedBodyParam('col_default_sel'),
-                $request->getParsedBodyParam('col_extra'),
-                $request->getParsedBodyParam('col_isNull'),
-                $request->getParsedBodyParam('col_length'),
-                $request->getParsedBodyParam('col_attribute'),
-                $request->getParsedBodyParam('col_type'),
-                $request->getParsedBodyParam('collation'),
+                $request->getParsedBodyParamAsString('col_name'),
+                $request->getParsedBodyParamAsString('orig_col_name'),
+                $request->getParsedBodyParamAsString('col_default'),
+                $request->getParsedBodyParamAsString('col_default_sel'),
+                $request->getParsedBodyParamAsString('col_extra', ''),
+                $request->getParsedBodyParamAsStringOrNull('col_isNull'),
+                $request->getParsedBodyParamAsString('col_length'),
+                $request->getParsedBodyParamAsString('col_attribute'),
+                $request->getParsedBodyParamAsString('col_type'),
+                $request->getParsedBodyParamAsString('collation'),
                 $db,
             ));
 
-            return null;
+            return $this->response->response();
         }
 
+        $tmpMsg = null;
         if ($request->hasBodyParam('add_new_column')) {
             $tmpMsg = $this->addNewColumn(
-                $request->getParsedBodyParam('col_name'),
-                $request->getParsedBodyParam('col_default'),
-                $request->getParsedBodyParam('col_default_sel'),
-                $request->getParsedBodyParam('col_extra'),
-                $request->getParsedBodyParam('col_isNull'),
-                $request->getParsedBodyParam('col_length'),
-                $request->getParsedBodyParam('col_attribute'),
-                $request->getParsedBodyParam('col_type'),
-                $request->getParsedBodyParam('collation'),
+                $request->getParsedBodyParamAsString('col_name'),
+                $request->getParsedBodyParamAsString('col_default'),
+                $request->getParsedBodyParamAsString('col_default_sel'),
+                $request->getParsedBodyParamAsString('col_extra', ''),
+                $request->getParsedBodyParamAsStringOrNull('col_isNull'),
+                $request->getParsedBodyParamAsString('col_length'),
+                $request->getParsedBodyParamAsString('col_attribute'),
+                $request->getParsedBodyParamAsString('col_type'),
+                $request->getParsedBodyParamAsString('collation'),
                 $db,
             );
         }
@@ -73,18 +73,18 @@ final class CentralColumnsController implements InvocableController
         if ($request->hasBodyParam('getColumnList')) {
             $this->response->addJSON('message', $this->centralColumns->getListRaw(
                 $db->getName(),
-                $request->getParsedBodyParam('cur_table', ''),
+                $request->getParsedBodyParamAsString('cur_table', ''),
             ));
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('add_column')) {
             $tmpMsg = $this->centralColumns->syncUniqueColumns(
-                DatabaseName::from($request->getParsedBodyParam('db')),
-                [$request->getParsedBodyParam('column-select')],
+                $db,
+                [$request->getParsedBodyParamAsString('column-select')],
                 false,
-                $request->getParsedBodyParam('table-select'),
+                $request->getParsedBodyParamAsString('table-select'),
             );
         }
 
@@ -95,16 +95,13 @@ final class CentralColumnsController implements InvocableController
         ]);
 
         if ($request->hasBodyParam('edit_central_columns_page')) {
-            $this->editPage([
-                'selected_fld' => $request->getParsedBodyParam('selected_fld'),
-                'db' => $request->getParsedBodyParam('db'),
-            ]);
+            $this->editPage($request, $db);
 
-            return null;
+            return $this->response->response();
         }
 
         if ($request->hasBodyParam('multi_edit_central_column_save')) {
-            $GLOBALS['message'] = $this->centralColumns->updateMultipleColumn([
+            $message = $this->centralColumns->updateMultipleColumn([
                 'db' => $request->getParsedBodyParam('db'),
                 'orig_col_name' => $request->getParsedBodyParam('orig_col_name'),
                 'field_name' => $request->getParsedBodyParam('field_name'),
@@ -117,22 +114,20 @@ final class CentralColumnsController implements InvocableController
                 'field_null' => $request->getParsedBodyParam('field_null'),
                 'col_extra' => $request->getParsedBodyParam('col_extra'),
             ]);
-            if (! is_bool($GLOBALS['message'])) {
+            if (! is_bool($message)) {
+                Current::$message = $message;
                 $this->response->setRequestStatus(false);
-                $this->response->addJSON('message', $GLOBALS['message']);
+                $this->response->addJSON('message', Current::$message);
             }
         }
 
         if ($request->hasBodyParam('delete_save')) {
-            $tmpMsg = $this->deleteSave([
-                'db' => $request->getParsedBodyParam('db'),
-                'col_name' => $request->getParsedBodyParam('col_name'),
-            ]);
+            $tmpMsg = $this->deleteSave($request, $db);
         }
 
         $this->main(
-            $request->getParsedBodyParam('pos', ''),
-            $request->getParsedBodyParam('total_rows', ''),
+            $request->getParsedBodyParamAsString('pos', ''),
+            $request->getParsedBodyParamAsString('total_rows', ''),
             $db,
         );
 
@@ -146,16 +141,16 @@ final class CentralColumnsController implements InvocableController
             $pos,
             Config::getInstance()->settings['MaxRows'],
         );
-        $GLOBALS['message'] = Message::success(
+        Current::$message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),
         );
-        if (! isset($tmpMsg) || $tmpMsg === true) {
-            return null;
+        if (! ($tmpMsg instanceof Message)) {
+            return $this->response->response();
         }
 
-        $GLOBALS['message'] = $tmpMsg;
+        Current::$message = $tmpMsg;
 
-        return null;
+        return $this->response->response();
     }
 
     public function main(string $totalRows, string $position, DatabaseName $db): void
@@ -171,30 +166,24 @@ final class CentralColumnsController implements InvocableController
             $pos = (int) $position;
         }
 
-        $variables = $this->centralColumns->getTemplateVariablesForMain(
-            $db->getName(),
-            $totalRows,
-            $pos,
-            LanguageManager::$textDir,
-        );
+        $variables = $this->centralColumns->getTemplateVariablesForMain($db->getName(), $totalRows, $pos);
 
         $this->response->render('database/central_columns/main', $variables);
     }
 
-    /** @return true|Message */
     public function editSave(
         string $colName,
         string $origColName,
         string $colDefault,
         string $colDefaultSel,
-        string|null $colExtra,
+        string $colExtra,
         string|null $colIsNull,
         string $colLength,
         string $colAttribute,
         string $colType,
         string $collation,
         DatabaseName $db,
-    ): bool|Message {
+    ): true|Message {
         $columnDefault = $colDefault;
         if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
             $columnDefault = '';
@@ -209,29 +198,23 @@ final class CentralColumnsController implements InvocableController
             $colLength,
             $colIsNull !== null,
             $collation,
-            $colExtra ?? '',
+            $colExtra,
             $columnDefault,
         );
     }
 
-    /** @return true|Message */
     public function addNewColumn(
         string $colName,
         string $colDefault,
         string $colDefaultSel,
-        string|null $colExtra,
+        string $colExtra,
         string|null $colIsNull,
         string $colLength,
         string $colAttribute,
         string $colType,
         string $collation,
         DatabaseName $db,
-    ): bool|Message {
-        $columnDefault = $colDefault;
-        if ($columnDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED') {
-            $columnDefault = '';
-        }
-
+    ): true|Message {
         return $this->centralColumns->updateOneColumn(
             $db->getName(),
             '',
@@ -241,34 +224,28 @@ final class CentralColumnsController implements InvocableController
             $colLength,
             $colIsNull !== null,
             $collation,
-            $colExtra ?? '',
-            $columnDefault,
+            $colExtra,
+            $colDefault === 'NONE' && $colDefaultSel !== 'USER_DEFINED' ? '' : $colDefault,
         );
     }
 
-    /** @param mixed[] $params Request parameters */
-    public function editPage(array $params): void
+    public function editPage(ServerRequest $request, DatabaseName $db): void
     {
-        Assert::isArray($params['selected_fld']);
-        Assert::allString($params['selected_fld']);
-        $rows = $this->centralColumns->getHtmlForEditingPage($params['selected_fld'], $params['db']);
-
-        $this->response->render('database/central_columns/edit', ['rows' => $rows]);
+        $selectedFields = $request->getParsedBodyParam('selected_fld');
+        Assert::isArray($selectedFields);
+        Assert::allString($selectedFields);
+        $this->response->render('database/central_columns/edit', [
+            'rows' => $this->centralColumns->getHtmlForEditingPage($selectedFields, $db->getName()),
+        ]);
     }
 
-    /**
-     * @param mixed[] $params Request parameters
-     *
-     * @return true|Message
-     */
-    public function deleteSave(array $params): bool|Message
+    public function deleteSave(ServerRequest $request, DatabaseName $db): true|Message
     {
-        $name = [];
-        parse_str($params['col_name'], $name);
+        parse_str($request->getParsedBodyParamAsString('col_name'), $name);
 
         Assert::isArray($name['selected_fld']);
         Assert::allString($name['selected_fld']);
 
-        return $this->centralColumns->deleteColumnsFromList($params['db'], $name['selected_fld'], false);
+        return $this->centralColumns->deleteColumnsFromList($db->getName(), $name['selected_fld'], false);
     }
 }

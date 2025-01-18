@@ -40,6 +40,20 @@ use function class_exists;
 #[Medium]
 final class ServerRequestFactoryTest extends TestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Clear _SERVER global
+        $_SERVER = [
+            'SCRIPT_NAME' => $_SERVER['SCRIPT_NAME'],
+            'REQUEST_TIME' => $_SERVER['REQUEST_TIME'],
+            'REQUEST_TIME_FLOAT' => $_SERVER['REQUEST_TIME_FLOAT'],
+            'PHP_SELF' => $_SERVER['PHP_SELF'],
+            'argv' => $_SERVER['argv'],
+        ];
+    }
+
     /**
      * @psalm-param class-string<ServerRequestFactoryInterface> $provider
      * @psalm-param class-string<ServerRequestInterface> $expectedServerRequest
@@ -123,6 +137,8 @@ final class ServerRequestFactoryTest extends TestCase
         $_SERVER['REQUEST_URI'] = '/test-page.php';
         $_SERVER['REQUEST_METHOD'] = 'GET';
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
+        $_SERVER['SERVER_PORT'] = '80';
+        $_SERVER['HTTPS'] = 'off';
 
         (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue(null, null);
 
@@ -165,6 +181,8 @@ final class ServerRequestFactoryTest extends TestCase
         $_SERVER['REQUEST_URI'] = '/test-page.php';
         $_SERVER['REQUEST_METHOD'] = 'POST';
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
+        $_SERVER['SERVER_PORT'] = '443';
+        $_SERVER['HTTPS'] = 'on';
 
         $getAllHeaders = static fn (): array => ['Content-Type' => 'application/x-www-form-urlencoded'];
         (new ReflectionProperty(ServerRequestFactory::class, 'getAllHeaders'))->setValue(null, $getAllHeaders);
@@ -175,7 +193,7 @@ final class ServerRequestFactoryTest extends TestCase
         self::assertSame(['application/x-www-form-urlencoded'], $serverRequest->getHeader('Content-Type'));
         self::assertSame('POST', $serverRequest->getMethod());
         self::assertSame(
-            'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
+            'https://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
             $serverRequest->getUri()->__toString(),
         );
         self::assertTrue($serverRequest->isPost());

@@ -10,12 +10,15 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Identifiers\TriggerName;
 use PhpMyAdmin\Plugins\Export\ExportTexytext;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -56,16 +59,15 @@ class ExportTexytextTest extends AbstractTestCase
         $this->dummyDbi = $this->createDbiDummy();
         $this->dbi = $this->createDatabaseInterface($this->dummyDbi);
         DatabaseInterface::$instance = $this->dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = false;
+        Export::$saveOnServer = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
         Current::$database = '';
         Current::$table = '';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportTexytext(
             new Relation($this->dbi),
@@ -205,22 +207,22 @@ class ExportTexytextTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
     public function testExportData(): void
     {
-        $GLOBALS['what'] = 'foo';
-        $GLOBALS['foo_columns'] = '&';
-        $GLOBALS['foo_null'] = '>';
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['texytext_columns' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'localhost',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );
@@ -300,6 +302,11 @@ class ExportTexytextTest extends AbstractTestCase
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['texytext_relation' => 'On', 'texytext_mime' => 'On', 'texytext_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         $this->object->expects(self::exactly(1))
             ->method('formatOneColumnDefinition')
             ->with($column, ['cname'])
@@ -315,7 +322,7 @@ class ExportTexytextTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        $result = $this->object->getTableDef('db', 'table', true, true, true);
+        $result = $this->object->getTableDef('db', 'table');
 
         self::assertStringContainsString('1|&lt;ftable (ffield&gt;)|comm|Test&lt;', $result);
     }
@@ -345,14 +352,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 1
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_table',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_table'));
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -370,14 +370,7 @@ class ExportTexytextTest extends AbstractTestCase
 
         // case 2
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'triggers',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'triggers'));
         $result = ob_get_clean();
 
         self::assertSame(
@@ -392,14 +385,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 3
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'create_view',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'create_view'));
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 
@@ -417,14 +403,7 @@ class ExportTexytextTest extends AbstractTestCase
         // case 4
         ob_start();
         $this->dummyDbi->addSelectDb('test_db');
-        self::assertTrue(
-            $this->object->exportStructure(
-                'test_db',
-                'test_table',
-                'stand_in',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('test_db', 'test_table', 'stand_in'));
         $this->dummyDbi->assertAllSelectsConsumed();
         $result = ob_get_clean();
 

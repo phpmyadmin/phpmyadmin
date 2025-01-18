@@ -12,7 +12,6 @@ use PhpMyAdmin\Exceptions\MissingTheme;
 use function __;
 use function array_key_exists;
 use function htmlspecialchars;
-use function is_string;
 use function ksort;
 use function sprintf;
 
@@ -30,7 +29,7 @@ class ThemeManager
     private string $themesPathUrl;
 
     /** @var array<string,Theme> available themes */
-    public array $themes = [];
+    private array $themes = [];
 
     /** @var string  cookie name */
     public string $cookieName = 'pma_theme';
@@ -62,8 +61,7 @@ class ThemeManager
 
         $this->loadThemes();
 
-        $configThemeExists = $this->checkTheme($config->settings['ThemeDefault']);
-        if (! $configThemeExists) {
+        if (! $this->themeExists($config->settings['ThemeDefault'])) {
             throw new MissingTheme(sprintf(
                 __('Default theme %s not found!'),
                 htmlspecialchars($config->settings['ThemeDefault']),
@@ -74,19 +72,18 @@ class ThemeManager
 
         // check if user have a theme cookie
         $cookieTheme = $this->getThemeCookie();
-        if (
-            $cookieTheme && $this->setActiveTheme($cookieTheme)
-            || $configThemeExists && $this->setActiveTheme($this->themeDefault)
-        ) {
-            $colorMode = $this->getColorModeCookie();
-            if (is_string($colorMode) && $colorMode !== '') {
-                $this->theme->setColorMode($colorMode);
-            }
+        if ($cookieTheme !== '') {
+            $this->setActiveTheme($cookieTheme);
+        } else {
+            $this->setActiveTheme($this->themeDefault);
+        }
 
+        $colorMode = $this->getColorModeCookie();
+        if ($colorMode === '') {
             return;
         }
 
-        $this->setActiveTheme(self::FALLBACK_THEME);
+        $this->theme->setColorMode($colorMode);
     }
 
     /**
@@ -102,24 +99,19 @@ class ThemeManager
     /**
      * Sets active theme
      *
-     * @param string|null $theme theme name
+     * @param string $theme theme name
      */
-    public function setActiveTheme(string|null $theme): bool
+    public function setActiveTheme(string $theme): void
     {
-        if (! $this->checkTheme($theme)) {
+        if (! $this->themeExists($theme)) {
             throw new MissingTheme(sprintf(
                 __('Theme %s not found!'),
-                htmlspecialchars((string) $theme),
+                htmlspecialchars($theme),
             ));
         }
 
         $this->activeTheme = $theme;
         $this->theme = $this->themes[$theme];
-
-        // need to set later
-        //$this->setThemeCookie();
-
-        return true;
     }
 
     /**
@@ -144,42 +136,33 @@ class ThemeManager
 
     /**
      * returns name of theme stored in the cookie
-     *
-     * @return string|false theme name from cookie or false
      */
-    public function getThemeCookie(): string|false
+    public function getThemeCookie(): string
     {
         $name = $this->getThemeCookieName();
         $config = Config::getInstance();
         if ($config->issetCookie($name)) {
-            return $config->getCookie($name);
+            return (string) $config->getCookie($name);
         }
 
-        return false;
+        return '';
     }
 
     /**
      * returns name of theme stored in the cookie
-     *
-     * @return string|false theme name from cookie or false
      */
-    public function getColorModeCookie(): string|false
+    private function getColorModeCookie(): string
     {
         $name = $this->getColorModeCookieName();
         $config = Config::getInstance();
         if ($config->issetCookie($name)) {
-            return $config->getCookie($name);
+            return (string) $config->getCookie($name);
         }
 
-        return false;
+        return '';
     }
 
-    /**
-     * save theme in cookie
-     *
-     * @return true
-     */
-    public function setThemeCookie(): bool
+    public function setThemeCookie(): void
     {
         $config = Config::getInstance();
         $config->setCookie(
@@ -195,8 +178,6 @@ class ThemeManager
         // force a change of a dummy session variable to avoid problems
         // with the caching of phpmyadmin.css.php
         $config->set('theme-update', $this->theme->id);
-
-        return true;
     }
 
     public function loadThemes(): void
@@ -230,14 +211,21 @@ class ThemeManager
     /**
      * checks if given theme name is a known theme
      *
-     * @param string|null $theme name fo theme to check for
+     * @param string $theme name fo theme to check for
      */
-    public function checkTheme(string|null $theme): bool
+    public function themeExists(string $theme): bool
     {
-        return array_key_exists($theme ?? '', $this->themes);
+        return array_key_exists($theme, $this->themes);
     }
 
-    /** @return mixed[] */
+    /** @return array{
+     *   id: string,
+     *   name: string,
+     *   version: string,
+     *   is_active: bool,
+     *   color_mode: string,
+     *   color_modes: array<string|int, string>
+     * }[] $themes */
     public function getThemesArray(): array
     {
         $themes = [];

@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
@@ -21,7 +21,7 @@ use PhpMyAdmin\SqlParser\Components\Limit;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function array_keys;
@@ -41,46 +41,28 @@ final class ChartController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         if (isset($_REQUEST['pos'], $_REQUEST['session_max_rows']) && $request->isAjax()) {
-            if (
-                Current::$table !== '' && Current::$database !== ''
-                && ! $this->response->checkParameters(['db', 'table'])
-            ) {
-                return null;
-            }
-
             $this->ajax($request);
 
-            return null;
+            return $this->response->response();
         }
 
         // Throw error if no sql query is set
-        if (! isset($GLOBALS['sql_query']) || $GLOBALS['sql_query'] == '') {
+        if (Current::$sqlQuery === '') {
             $this->response->setRequestStatus(false);
             $this->response->addHTML(
                 Message::error(__('No SQL query was set to fetch data.'))->getDisplay(),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles([
-            'chart.js',
+            'vendor/chart.umd.js',
+            'vendor/chartjs-adapter-date-fns.bundle.js',
             'table/chart.js',
-            'vendor/jqplot/jquery.jqplot.js',
-            'vendor/jqplot/plugins/jqplot.barRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasAxisLabelRenderer.js',
-            'vendor/jqplot/plugins/jqplot.canvasTextRenderer.js',
-            'vendor/jqplot/plugins/jqplot.categoryAxisRenderer.js',
-            'vendor/jqplot/plugins/jqplot.dateAxisRenderer.js',
-            'vendor/jqplot/plugins/jqplot.pointLabels.js',
-            'vendor/jqplot/plugins/jqplot.pieRenderer.js',
-            'vendor/jqplot/plugins/jqplot.enhancedPieLegendRenderer.js',
-            'vendor/jqplot/plugins/jqplot.highlighter.js',
         ]);
 
         $urlParams = [];
@@ -90,13 +72,11 @@ final class ChartController implements InvocableController
          * Runs common work
          */
         if (Current::$table !== '') {
-            if (! $this->response->checkParameters(['db', 'table'])) {
-                return null;
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
             }
 
             $urlParams = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-            $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -104,12 +84,12 @@ final class ChartController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return null;
+                return $this->response->response();
             }
 
             $tableName = TableName::tryFrom($request->getParam('table'));
@@ -118,27 +98,20 @@ final class ChartController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                return null;
+                return $this->response->response();
             }
 
-            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
+            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabTable']);
             $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb(Current::$database);
         } elseif (Current::$database !== '') {
-            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
+            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabDatabase']);
             $urlParams['back'] = Url::getFromRoute('/sql');
-
-            if (! $this->response->checkParameters(['db'])) {
-                return null;
-            }
-
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-            $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -146,24 +119,23 @@ final class ChartController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-                return null;
+                return $this->response->response();
             }
         } else {
-            $urlParams['goto'] = Util::getScriptNameForOption($config->settings['DefaultTabServer'], 'server');
+            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabServer']);
             $urlParams['back'] = Url::getFromRoute('/sql');
-            $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
             if ($this->dbi->isSuperUser()) {
                 $this->dbi->selectDb('mysql');
             }
         }
 
-        $result = $this->dbi->tryQuery($GLOBALS['sql_query']);
+        $result = $this->dbi->tryQuery(Current::$sqlQuery);
         $fieldsMeta = $row = [];
         if ($result !== false) {
             $fieldsMeta = $this->dbi->getFieldsMeta($result);
@@ -191,13 +163,13 @@ final class ChartController implements InvocableController
                 __('No numeric columns present in the table to plot.'),
             );
 
-            return null;
+            return $this->response->response();
         }
 
         $urlParams['db'] = Current::$database;
         $urlParams['reload'] = 1;
 
-        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData($GLOBALS['sql_query']);
+        $startAndNumberOfRowsFieldset = Generator::getStartAndNumberOfRowsFieldsetData(Current::$sqlQuery);
 
         /**
          * Displays the page
@@ -210,7 +182,7 @@ final class ChartController implements InvocableController
             'start_and_number_of_rows_fieldset' => $startAndNumberOfRowsFieldset,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     /**
@@ -218,15 +190,8 @@ final class ChartController implements InvocableController
      */
     public function ajax(ServerRequest $request): void
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
         if (Current::$table !== '' && Current::$database !== '') {
-            $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-            $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                Config::getInstance()->settings['DefaultTabTable'],
-                'table',
-            );
-            $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+            UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
             if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -245,7 +210,7 @@ final class ChartController implements InvocableController
             }
         }
 
-        $parser = new Parser($GLOBALS['sql_query']);
+        $parser = new Parser(Current::$sqlQuery);
         /** @var SelectStatement $statement */
         $statement = $parser->statements[0];
         if (empty($statement->limit)) {

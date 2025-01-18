@@ -15,7 +15,6 @@ use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Dbal\Connection;
 use PhpMyAdmin\Dbal\DbiExtension;
 use PhpMyAdmin\Dbal\ResultInterface;
-use PhpMyAdmin\Dbal\Statement;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Tests\FieldHelper;
@@ -84,6 +83,9 @@ class DbiDummy implements DbiExtension
      * @psalm-var non-empty-string[]
      */
     private array $fifoErrorCodes = [];
+
+    /** @var int|numeric-string */
+    public int|string $cachedAffectedRows = 0;
 
     public function __construct()
     {
@@ -168,11 +170,8 @@ class DbiDummy implements DbiExtension
 
     /**
      * runs a query and returns the result
-     *
-     * @param string $query   query to run
-     * @param int    $options query options
      */
-    public function realQuery(string $query, Connection $connection, int $options): DummyResult|false
+    public function realQuery(string $query, Connection $connection, bool $unbuffered = false): DummyResult|false
     {
         $query = trim((string) preg_replace('/  */', ' ', str_replace("\n", ' ', $query)));
         $found = $this->findFifoQuery($query) ?? $this->findDummyQuery($query);
@@ -237,16 +236,6 @@ class DbiDummy implements DbiExtension
     }
 
     /**
-     * Returns the version of the MySQL protocol used
-     *
-     * @return int version of the MySQL protocol used
-     */
-    public function getProtoInfo(Connection $connection): int
-    {
-        return -1;
-    }
-
-    /**
      * returns a string that represents the client library version
      *
      * @return string MySQL client library version
@@ -271,7 +260,7 @@ class DbiDummy implements DbiExtension
      */
     public function affectedRows(Connection $connection): int|string
     {
-        return $GLOBALS['cached_affected_rows'] ?? 0;
+        return $this->cachedAffectedRows;
     }
 
     /**
@@ -327,7 +316,12 @@ class DbiDummy implements DbiExtension
         $this->dummyQueries = [];
     }
 
-    public function prepare(Connection $connection, string $query): Statement|null
+    /**
+     * Execute a prepared statement and return the result.
+     *
+     * @param list<string> $params
+     */
+    public function executeQuery(Connection $connection, string $query, array $params): ResultInterface|null
     {
         return null;
     }
@@ -384,7 +378,7 @@ class DbiDummy implements DbiExtension
                 'result' => [['1']],
             ],
             [
-                'query' => 'SHOW MASTER LOGS',
+                'query' => 'SHOW BINARY LOGS',
                 'columns' => ['Log_name', 'File_size'],
                 'result' => [['index1', 100], ['index2', 200]],
             ],
@@ -1434,20 +1428,20 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'INSERT INTO `db`.`table` (`username`, `export_type`, `template_name`, `template_data`)'
-                    . ' VALUES (\'user\', \'type\', \'name\', \'data\');',
+                    . ' VALUES (\'user\', \'raw\', \'name\', \'data\');',
                 'result' => true,
             ],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `username` = \'user\''
-                    . ' AND `export_type` = \'type\' ORDER BY `template_name`;',
+                    . ' AND `export_type` = \'raw\' ORDER BY `template_name`;',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
-                'result' => [['1', 'user1', 'type1', 'name1', 'data1'], ['2', 'user2', 'type2', 'name2', 'data2']],
+                'result' => [['1', 'user1', 'raw', 'name1', 'data1'], ['2', 'user2', 'raw', 'name2', 'data2']],
             ],
             ['query' => 'DELETE FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';', 'result' => true],
             [
                 'query' => 'SELECT * FROM `db`.`table` WHERE `id` = 1 AND `username` = \'user\';',
                 'columns' => ['id', 'username', 'export_type', 'template_name', 'template_data'],
-                'result' => [['1', 'user1', 'type1', 'name1', 'data1']],
+                'result' => [['1', 'user1', 'raw', 'name1', 'data1']],
             ],
             [
                 'query' => 'UPDATE `db`.`table` SET `template_data` = \'data\''
@@ -1784,15 +1778,6 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC',
                 'columns' => ['usergroup', 'tab', 'allowed'],
                 'result' => [['user<br>group', 'server_sql', 'Y']],
-            ],
-            [
-                'query' => 'DESCRIBE `test_table`',
-                'columns' => ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
-                'result' => [
-                    ['id', 'int(11)', 'NO', 'PRI', 'NULL', 'auto_increment'],
-                    ['name', 'varchar(20)', 'NO', '', 'NULL', ''],
-                    ['datetimefield', 'datetime', 'NO', '', 'NULL', ''],
-                ],
             ],
             [
                 'query' => 'SELECT `name` FROM `test_table` WHERE `id` = 4',

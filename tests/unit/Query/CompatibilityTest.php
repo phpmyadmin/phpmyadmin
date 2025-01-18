@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Query;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Query\Compatibility;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -58,5 +58,25 @@ class CompatibilityTest extends TestCase
             'MariaDB 10.6.0' => [false, true, 100600],
             'MariaDB 10.7.0' => [true, true, 100700],
         ];
+    }
+
+    #[DataProvider('showBinLogStatusProvider')]
+    public function testGetShowBinLogStatusStmt(string $serverName, int $version, string $expected): void
+    {
+        $dbi = self::createStub(DatabaseInterface::class);
+        $dbi->method('isMySql')->willReturn($serverName === 'MySQL');
+        $dbi->method('isMariaDB')->willReturn($serverName === 'MariaDB');
+        $dbi->method('getVersion')->willReturn($version);
+        self::assertSame($expected, Compatibility::getShowBinLogStatusStmt($dbi));
+    }
+
+    /** @return iterable<int, array{string, int, string}> */
+    public static function showBinLogStatusProvider(): iterable
+    {
+        yield ['MySQL', 80200, 'SHOW BINARY LOG STATUS'];
+        yield ['MariaDB', 100502, 'SHOW BINLOG STATUS'];
+        yield ['MySQL', 80199, 'SHOW MASTER STATUS'];
+        yield ['MariaDB', 100501, 'SHOW MASTER STATUS'];
+        yield ['MySQL', 100502, 'SHOW BINARY LOG STATUS'];
     }
 }

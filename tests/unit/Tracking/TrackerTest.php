@@ -9,8 +9,8 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Tracking\Tracker;
@@ -42,7 +42,6 @@ class TrackerTest extends AbstractTestCase
         $config->selectedServer['tracking_default_statements'] = '';
         $config->selectedServer['tracking_version_auto_create'] = '';
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['export_type'] = null;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'pmadb',
@@ -185,9 +184,9 @@ class TrackerTest extends AbstractTestCase
         $useStatement = 'USE `pma_test`';
         $showCreateTableQuery = 'SHOW CREATE TABLE `pma_test`.`pma_tbl`';
         $dbi->expects(self::exactly(3))->method('tryQuery')->willReturnMap([
-            [$showTableStatusQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            [$useStatement, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
-            [$showCreateTableQuery, ConnectionType::User, DatabaseInterface::QUERY_BUFFERED, true, $resultStub],
+            [$showTableStatusQuery, ConnectionType::User, false, true, $resultStub],
+            [$useStatement, ConnectionType::User, false, true, $resultStub],
+            [$showCreateTableQuery, ConnectionType::User, false, true, $resultStub],
         ]);
 
         $dbi->expects(self::any())->method('query')

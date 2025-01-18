@@ -26,7 +26,7 @@ final class AdvisorController extends AbstractController implements InvocableCon
         parent::__construct($response, $template, $data);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $data = [];
         if ($this->data->dataLoaded) {
@@ -35,6 +35,6 @@ final class AdvisorController extends AbstractController implements InvocableCon
 
         $this->response->render('server/status/advisor/index', ['data' => $data]);
 
-        return null;
+        return $this->response->response();
     }
 }

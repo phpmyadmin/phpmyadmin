@@ -7,11 +7,12 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\DeleteRowsController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
-use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(DeleteRowsController::class)]
@@ -19,10 +20,10 @@ class DeleteRowsControllerTest extends AbstractTestCase
 {
     public function testDeleteRowsController(): void
     {
-        $GLOBALS['goto'] = null;
+        UrlParams::$goto = '';
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;
@@ -52,11 +53,8 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;
 
-        $request = self::createStub(ServerRequest::class);
-        $request->method('hasBodyParam')->willReturnMap([['original_sql_query', true]]);
-        $request->method('getParsedBodyParam')->willReturnMap([
-            ['original_sql_query', '', 'SELECT * FROM `test_db`.`test_table`'],
-        ]);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['original_sql_query' => 'SELECT * FROM `test_db`.`test_table`']);
 
         $response = new ResponseRenderer();
         (new DeleteRowsController($response, new Template(), $dbi))($request);

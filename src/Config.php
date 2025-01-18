@@ -8,7 +8,9 @@ use PhpMyAdmin\Config\Settings;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ConfigException;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Routing\Routing;
 use PhpMyAdmin\Theme\ThemeManager;
 use Throwable;
@@ -106,6 +108,8 @@ class Config
     /** @psalm-var ServerSettingsType */
     public array $selectedServer;
 
+    private bool $isSetup = false;
+
     public function __construct()
     {
         $this->config = new Settings([]);
@@ -126,6 +130,16 @@ class Config
         return self::$instance;
     }
 
+    public function setSetup(bool $isSetup): void
+    {
+        $this->isSetup = $isSetup;
+    }
+
+    public function isSetup(): bool
+    {
+        return $this->isSetup;
+    }
+
     /**
      * @param string|null $source source to read config from
      *
@@ -133,8 +147,6 @@ class Config
      */
     public function loadAndCheck(string|null $source = null): void
     {
-        $this->settings['is_setup'] = false;
-
         // functions need to refresh in case of config file changed goes in PhpMyAdmin\Config::load()
         $this->load($source);
 
@@ -218,45 +230,45 @@ class Config
         // 2. browser and version
         // (must check everything else before Mozilla)
 
-        $isMozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $httpUserAgent, $mozillaVersion);
+        $isMozilla = preg_match('@Mozilla/([0-9]\.[0-9]{1,2})@', $httpUserAgent, $mozillaVersion) === 1;
 
-        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $httpUserAgent, $logVersion)) {
+        if (preg_match('@Opera(/| )([0-9]\.[0-9]{1,2})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OPERA');
-        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@(MS)?IE ([0-9]{1,2}\.[0-9]{1,2})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion)) {
-            $this->set('PMA_USR_BROWSER_VER', (int) $logVersion[1] + 4);
+        } elseif (preg_match('@Trident/(7)\.0@', $httpUserAgent, $logVersion) === 1) {
+            $this->set('PMA_USR_BROWSER_VER', (string) ((int) $logVersion[1] + 4));
             $this->set('PMA_USR_BROWSER_AGENT', 'IE');
-        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@OmniWeb/([0-9]{1,3})@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'OMNIWEB');
             // Konqueror 2.2.2 says Konqueror/2.2.2
             // Konqueror 3.0.3 says Konqueror/3
-        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $httpUserAgent, $logVersion)) {
+        } elseif (preg_match('@(Konqueror/)(.*)(;)@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[2]);
             $this->set('PMA_USR_BROWSER_AGENT', 'KONQUEROR');
             // must check Chrome before Safari
-        } elseif ($isMozilla && preg_match('@Chrome/([0-9.]*)@', $httpUserAgent, $logVersion)) {
+        } elseif ($isMozilla && preg_match('@Chrome/([0-9.]*)@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'CHROME');
             // newer Safari
-        } elseif ($isMozilla && preg_match('@Version/(.*) Safari@', $httpUserAgent, $logVersion)) {
+        } elseif ($isMozilla && preg_match('@Version/(.*) Safari@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // older Safari
-        } elseif ($isMozilla && preg_match('@Safari/([0-9]*)@', $httpUserAgent, $logVersion)) {
+        } elseif ($isMozilla && preg_match('@Safari/([0-9]*)@', $httpUserAgent, $logVersion) === 1) {
             $this->set('PMA_USR_BROWSER_VER', $mozillaVersion[1] . '.' . $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'SAFARI');
             // Firefox
         } elseif (
             ! str_contains($httpUserAgent, 'compatible')
-            && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion)
+            && preg_match('@Firefox/([\w.]+)@', $httpUserAgent, $logVersion) === 1
         ) {
             $this->set('PMA_USR_BROWSER_VER', $logVersion[1]);
             $this->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
-        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $httpUserAgent)) {
+        } elseif (preg_match('@rv:1\.9(.*)Gecko@', $httpUserAgent) === 1) {
             $this->set('PMA_USR_BROWSER_VER', '1.9');
             $this->set('PMA_USR_BROWSER_AGENT', 'GECKO');
         } elseif ($isMozilla) {
@@ -449,7 +461,7 @@ class Config
         // in frames
 
         // save theme
-        if ($themeManager->getThemeCookie() || isset($_REQUEST['set_theme'])) {
+        if ($themeManager->getThemeCookie() !== '' || isset($_REQUEST['set_theme'])) {
             if (
                 (! isset($configData['ThemeDefault'])
                 && $themeManager->theme->getId() !== 'original')
@@ -465,7 +477,7 @@ class Config
             }
         } elseif (
             $this->settings['ThemeDefault'] != $themeManager->theme->getId()
-            && $themeManager->checkTheme($this->settings['ThemeDefault'])
+            && $themeManager->themeExists($this->settings['ThemeDefault'])
         ) {
             // no cookie - read default from settings
             $themeManager->setActiveTheme($this->settings['ThemeDefault']);
@@ -476,17 +488,18 @@ class Config
         if ($this->issetCookie('pma_lang') || isset($_POST['lang'])) {
             if (
                 (! isset($configData['lang'])
-                && $GLOBALS['lang'] !== 'en')
+                && Current::$lang !== 'en')
                 || isset($configData['lang'])
-                && $GLOBALS['lang'] != $configData['lang']
+                && Current::$lang !== $configData['lang']
             ) {
-                $this->setUserValue(null, 'lang', $GLOBALS['lang'], 'en');
+                $this->setUserValue(null, 'lang', Current::$lang, 'en');
             }
         } elseif (isset($configData['lang'])) {
+            $languageManager = LanguageManager::getInstance();
             // read language from settings
-            $language = LanguageManager::getInstance()->getLanguage($configData['lang']);
+            $language = $languageManager->getLanguage($configData['lang']);
             if ($language !== false) {
-                $language->activate();
+                $languageManager->activate($language);
                 $this->setCookie('pma_lang', $language->getCode());
             }
         }
@@ -507,15 +520,13 @@ class Config
      * @param string      $cfgPath      configuration path
      * @param mixed       $newCfgValue  new value
      * @param string|null $defaultValue default value
-     *
-     * @return true|Message
      */
     public function setUserValue(
         string|null $cookieName,
         string $cfgPath,
         mixed $newCfgValue,
         string|null $defaultValue = null,
-    ): bool|Message {
+    ): true|Message {
         $dbi = DatabaseInterface::getInstance();
         $userPreferences = new UserPreferences($dbi, new Relation($dbi), new Template());
         $result = true;
@@ -936,7 +947,7 @@ class Config
      *
      * @param string $cookieName The name of the cookie to get
      *
-     * @return mixed|null result of getCookie()
+     * @return mixed result of getCookie()
      */
     public function getCookie(string $cookieName): mixed
     {
@@ -950,7 +961,7 @@ class Config
      */
     public function getCookieName(string $cookieName): string
     {
-        return $cookieName . ( $this->isHttps ? '_https' : '' );
+        return ($this->isHttps ? '__Secure-' : '') . $cookieName . ($this->isHttps ? '_https' : '');
     }
 
     /**

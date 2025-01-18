@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Plugins\Import;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\File;
+use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Import\ImportSettings;
 use PhpMyAdmin\Plugins\Import\ImportSql;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -26,13 +28,13 @@ class ImportSqlTest extends AbstractTestCase
     {
         parent::setUp();
 
-        $GLOBALS['error'] = null;
+        Import::$hasError = false;
         ImportSettings::$timeoutPassed = false;
         ImportSettings::$maximumTime = 0;
         ImportSettings::$charsetConversion = false;
         ImportSettings::$skipQueries = 0;
         ImportSettings::$maxSqlLength = 0;
-        $GLOBALS['sql_query'] = '';
+        Current::$sqlQuery = '';
         ImportSettings::$executedQueries = 0;
         ImportSettings::$runQuery = false;
         ImportSettings::$goSql = false;
@@ -40,7 +42,7 @@ class ImportSqlTest extends AbstractTestCase
         ImportSettings::$readLimit = 100000000;
         ImportSettings::$offset = 0;
         ImportSettings::$importFile = 'tests/test_data/pma_bookmark.sql';
-        $GLOBALS['import_text'] = 'ImportSql_Test';
+        Import::$importText = 'ImportSql_Test';
         ImportSettings::$readMultiply = 10;
 
         $this->object = new ImportSql();
@@ -74,11 +76,11 @@ class ImportSqlTest extends AbstractTestCase
 
         $this->object->doImport($importHandle);
 
-        self::assertStringContainsString('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"', $GLOBALS['sql_query']);
-        self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `pma_bookmark`', $GLOBALS['sql_query']);
+        self::assertStringContainsString('SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO"', Current::$sqlQuery);
+        self::assertStringContainsString('CREATE TABLE IF NOT EXISTS `pma_bookmark`', Current::$sqlQuery);
         self::assertStringContainsString(
             'INSERT INTO `pma_bookmark` (`id`, `dbase`, `user`, `label`, `query`) VALUES',
-            $GLOBALS['sql_query'],
+            Current::$sqlQuery,
         );
 
         self::assertTrue(ImportSettings::$finished);

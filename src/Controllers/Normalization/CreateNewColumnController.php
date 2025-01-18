@@ -24,11 +24,11 @@ final class CreateNewColumnController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $numFields = min(4096, (int) $request->getParsedBodyParam('numFields'));
+        $numFields = min(4096, (int) $request->getParsedBodyParamAsStringOrNull('numFields'));
         $html = $this->normalization->getHtmlForCreateNewColumn(
             $userPrivileges,
             $numFields,
@@ -38,6 +38,6 @@ final class CreateNewColumnController implements InvocableController
         $html .= Url::getHiddenInputs(Current::$database, Current::$table);
         $this->response->addHTML($html);
 
-        return null;
+        return $this->response->response();
     }
 }

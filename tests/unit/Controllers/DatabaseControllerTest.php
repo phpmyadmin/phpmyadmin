@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\DatabaseController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Tests\AbstractTestCase;

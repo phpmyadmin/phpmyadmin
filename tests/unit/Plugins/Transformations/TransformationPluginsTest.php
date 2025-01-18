@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Plugins\Transformations;
 
 use PhpMyAdmin\Config;
+use PhpMyAdmin\Display\Results;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 use PhpMyAdmin\Plugins\Transformations\Abs\DateFormatTransformationsPlugin;
@@ -51,7 +52,6 @@ use ReflectionMethod;
 
 use function date_default_timezone_set;
 use function function_exists;
-use function method_exists;
 
 use const MYSQLI_TYPE_STRING;
 use const MYSQLI_TYPE_TINY;
@@ -110,8 +110,7 @@ class TransformationPluginsTest extends AbstractTestCase
 
         // For Application Octetstream Download plugin
 
-        $GLOBALS['fields_meta'] = [];
-        $GLOBALS['row'] = ['pma' => 'aaa', 'pca' => 'bbb'];
+        Results::$row = ['pma' => 'aaa', 'pca' => 'bbb'];
 
         // For Image_*_Inline plugin
         $this->setGlobalConfig();
@@ -144,7 +143,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 '<img src="" width="150" height="100" '
                 . 'alt="Image preview here"><br><input type="file" '
                 . 'name="fields_uploadtest" accept="image/*" class="image-upload">',
-                ['test', ['150'], '', 'ltr', 0, 0],
+                ['test', ['150'], '', 0, 0],
             ],
             [
                 new Image_JPEG_Upload(),
@@ -160,7 +159,6 @@ class TransformationPluginsTest extends AbstractTestCase
                     '2ndtest',
                     ['wrapper_link' => '?table=a', 'wrapper_params' => ['key' => 'value']],
                     'something',
-                    'ltr',
                     0,
                     0,
                 ],
@@ -179,7 +177,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 new Text_Plain_FileUpload(),
                 'getInputHtml',
                 '<input type="file" name="fields_uploadtest">',
-                ['test', [], '', 'ltr', 0, 0],
+                ['test', [], '', 0, 0],
             ],
             [
                 new Text_Plain_FileUpload(),
@@ -188,7 +186,7 @@ class TransformationPluginsTest extends AbstractTestCase
                 . 'value="something"><input type="hidden" name="fields2ndtest" '
                 . 'value="something"><input type="file" '
                 . 'name="fields_upload2ndtest">',
-                ['2ndtest', [], 'something', 'ltr', 0, 0],
+                ['2ndtest', [], 'something', 0, 0],
             ],
             // Test data for Text_Plain_Regexvalidation plugin
             [new Text_Plain_RegexValidation(), 'getName', 'Regex Validation'],
@@ -201,17 +199,14 @@ class TransformationPluginsTest extends AbstractTestCase
             ],
             [new Text_Plain_RegexValidation(), 'getMIMEType', 'Text'],
             [new Text_Plain_RegexValidation(), 'getMIMESubtype', 'Plain'],
-            [new Text_Plain_RegexValidation(), 'getInputHtml', '', ['', [], '', 'ltr', 0, 0]],
+            [new Text_Plain_RegexValidation(), 'getInputHtml', '', ['', [], '', 0, 0]],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download plugin
             [new Application_Octetstream_Download(), 'getName', 'Download'],
             [
                 new Application_Octetstream_Download(),
                 'getInfo',
-                'Displays a link to download the binary data of the column. You can'
-                . ' use the first option to specify the filename, or use the second'
-                . ' option as the name of a column which contains the filename. If'
-                . ' you use the second option, you need to set the first option to'
-                . ' the empty string.',
+                'Displays a link to download the binary data of the column.'
+                . ' You can use the option to specify the filename.',
             ],
             [new Application_Octetstream_Download(), 'getMIMEType', 'Application'],
             [new Application_Octetstream_Download(), 'getMIMESubtype', 'OctetStream'],
@@ -241,7 +236,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [new Image_JPEG_Link(), 'getInfo', 'Displays a link to download this image.'],
             [new Image_JPEG_Link(), 'getMIMEType', 'Image'],
             [new Image_JPEG_Link(), 'getMIMESubtype', 'JPEG'],
-            [new Image_JPEG_Link(), 'applyTransformationNoWrap', null],
+            [new Image_JPEG_Link(), 'applyTransformationNoWrap', false],
             // Test data for PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline plugin
             [new Image_PNG_Inline(), 'getName', 'Inline'],
             [
@@ -412,12 +407,8 @@ class TransformationPluginsTest extends AbstractTestCase
     #[DataProvider('multiDataProvider')]
     public function testGetMulti(object $object, string $method, mixed $expected, array $args = []): void
     {
-        if (! method_exists($object, $method)) {
-            return;
-        }
-
         $reflectionMethod = new ReflectionMethod($object, $method);
-        self::assertEquals(
+        self::assertSame(
             $expected,
             $reflectionMethod->invokeArgs($object, $args),
         );
@@ -603,7 +594,7 @@ class TransformationPluginsTest extends AbstractTestCase
             [new Text_Plain_Longtoipv4(), ['168496141'], '10.11.12.13'],
             [new Text_Plain_Longtoipv4(), ['my ip'], 'my ip'],
             [new Text_Plain_Longtoipv4(), ['<my ip>'], '&lt;my ip&gt;'],
-            [new Text_Plain_Iptolong(), ['10.11.12.13'], 168496141],
+            [new Text_Plain_Iptolong(), ['10.11.12.13'], '168496141'],
             [new Text_Plain_Iptolong(), ['10.11.12.913'], '10.11.12.913'],
             [new Text_Plain_Iptolong(), ['my ip'], 'my ip'],
             [new Text_Plain_Iptolong(), ['<my ip>'], '<my ip>'],
@@ -652,7 +643,7 @@ class TransformationPluginsTest extends AbstractTestCase
      *
      * @param TransformationsPlugin $object      instance of the plugin
      * @param array                 $applyArgs   arguments for applyTransformation
-     * @param string|int            $transformed the expected output of applyTransformation
+     * @param string                $transformed the expected output of applyTransformation
      * @param bool                  $success     the expected output of isSuccess
      * @param string                $error       the expected output of getError
      * @psalm-param array{string, array, FieldMetadata|null} $applyArgs
@@ -661,25 +652,21 @@ class TransformationPluginsTest extends AbstractTestCase
     public function testTransformation(
         TransformationsPlugin $object,
         array $applyArgs,
-        string|int $transformed,
+        string $transformed,
         bool $success = true,
         string $error = '',
     ): void {
         $actual = $object->applyTransformation(...$applyArgs);
-        self::assertEquals($transformed, $actual);
+        self::assertSame($transformed, $actual);
 
-        // For output transformation plugins, this method may not exist
-        if (method_exists($object, 'isSuccess')) {
-            self::assertSame(
-                $success,
-                $object->isSuccess(),
-            );
-        }
-
-        // For output transformation plugins, this method may not exist
-        if (! method_exists($object, 'getError')) {
+        if (! ($object instanceof IOTransformationsPlugin)) {
             return;
         }
+
+        self::assertSame(
+            $success,
+            $object->isSuccess(),
+        );
 
         self::assertSame(
             $error,

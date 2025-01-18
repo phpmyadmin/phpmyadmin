@@ -16,7 +16,7 @@ use PhpMyAdmin\Controllers\Table\ChangeController;
 use PhpMyAdmin\Controllers\Table\ReplaceController;
 use PhpMyAdmin\Controllers\Table\SqlController as TableSqlController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\FileListing;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\InsertEdit;
@@ -26,6 +26,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\Transformations;
+use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 use ReflectionProperty;
 
@@ -71,12 +72,11 @@ class ReplaceControllerTest extends AbstractTestCase
 
     public function testReplace(): void
     {
-        $GLOBALS['urlParams'] = [];
+        UrlParams::$params = [];
         $_POST['db'] = Current::$database;
         $_POST['table'] = Current::$table;
         $_POST['ajax_request'] = 'true';
         $_POST['relational_display'] = 'K';
-        $_POST['goto'] = 'index.php?route=/sql';
 
         $request = self::createStub(ServerRequest::class);
         $request->method('getParsedBodyParam')->willReturnMap([
@@ -129,9 +129,14 @@ class ReplaceControllerTest extends AbstractTestCase
             self::createStub(TableSqlController::class),
         );
 
-        $GLOBALS['goto'] = 'index.php?route=/sql';
+        UrlParams::$goto = 'index.php?route=/sql';
         $dummyDbi->addSelectDb('my_db');
         $dummyDbi->addSelectDb('my_db');
+        $dummyDbi->addResult(
+            'SELECT COLUMN_NAME, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS '
+                . "WHERE TABLE_NAME = 'test_tbl' AND TABLE_SCHEMA = 'my_db'",
+            [],
+        );
         $replaceController($request);
         $output = $response->getHTMLResult();
         $this->dummyDbi->assertAllSelectsConsumed();

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server\Variables;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Providers\ServerVariables\ServerVariablesProvider;
@@ -35,13 +35,13 @@ final class SetVariableController implements InvocableController
     /**
      * Handle the AJAX request for setting value for a single variable
      */
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
-        $value = (string) $request->getParsedBodyParam('varValue');
+        $value = $request->getParsedBodyParamAsString('varValue', '');
         $variableName = $this->getName($request->getAttribute('routeVars'));
         $matches = [];
         $variableType = ServerVariablesProvider::getImplementation()->getVariableType($variableName);
@@ -51,7 +51,7 @@ final class SetVariableController implements InvocableController
                 '/^\s*(\d+(\.\d+)?)\s*(mb|kb|mib|kib|gb|gib)\s*$/i',
                 $value,
                 $matches,
-            )
+            ) === 1
         ) {
             $exp = ['kb' => 1, 'kib' => 1, 'mb' => 2, 'mib' => 2, 'gb' => 3, 'gib' => 3];
             $value = (float) $matches[1] * 1024 ** $exp[mb_strtolower($matches[3])];
@@ -64,7 +64,7 @@ final class SetVariableController implements InvocableController
         }
 
         $json = [];
-        if (! preg_match('/[^a-zA-Z0-9_]+/', $variableName)) {
+        if (preg_match('/[^a-zA-Z0-9_]+/', $variableName) !== 1) {
             $this->dbi->query('SET GLOBAL ' . $variableName . ' = ' . $value);
             // Some values are rounded down etc.
             $varValue = $this->dbi->fetchSingleRow(
@@ -83,7 +83,7 @@ final class SetVariableController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

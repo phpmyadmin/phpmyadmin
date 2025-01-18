@@ -19,14 +19,14 @@ final class PopulateColumnsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $columns = $this->centralColumns->getColumnsNotInCentralList(
             Current::$database,
-            $request->getParsedBodyParam('selectedTable'),
+            $request->getParsedBodyParamAsString('selectedTable'),
         );
         $this->response->render('database/central_columns/populate_columns', ['columns' => $columns]);
 
-        return null;
+        return $this->response->response();
     }
 }

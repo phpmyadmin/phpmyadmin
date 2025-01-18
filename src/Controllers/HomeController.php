@@ -10,7 +10,7 @@ use PhpMyAdmin\Charsets;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Git;
@@ -18,10 +18,11 @@ use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\MessageType;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Select;
 use PhpMyAdmin\Theme\ThemeManager;
@@ -34,6 +35,7 @@ use function count;
 use function extension_loaded;
 use function file_exists;
 use function ini_get;
+use function is_array;
 use function mb_strlen;
 use function preg_match;
 use function sprintf;
@@ -58,18 +60,14 @@ final class HomeController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         if ($this->shouldRedirectToDatabaseOrTablePage($request)) {
             return $this->redirectToDatabaseOrTablePage($request);
         }
 
-        $GLOBALS['message'] ??= null;
-        $GLOBALS['show_query'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         if ($request->isAjax() && ! empty($_REQUEST['access_time'])) {
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addScriptFiles(['home.js']);
@@ -77,10 +75,8 @@ final class HomeController implements InvocableController
         // This is for $cfg['ShowDatabasesNavigationAsTree'] = false;
         // See: https://github.com/phpmyadmin/phpmyadmin/issues/16520
         // The DB is defined here and sent to the JS front-end to refresh the DB tree
-        Current::$database = $request->getParsedBodyParam('db', '');
+        Current::$database = $request->getParsedBodyParamAsString('db', '');
         Current::$table = '';
-        $GLOBALS['show_query'] = '1';
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
 
         if (Current::$server > 0 && $this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
@@ -88,9 +84,9 @@ final class HomeController implements InvocableController
 
         $languageManager = LanguageManager::getInstance();
 
-        if (! empty($GLOBALS['message'])) {
-            $displayMessage = Generator::getMessage($GLOBALS['message']);
-            unset($GLOBALS['message']);
+        if (Current::$message !== null) {
+            $displayMessage = Generator::getMessage(Current::$message);
+            Current::$message = null;
         }
 
         if (isset($_SESSION['partial_logout'])) {
@@ -108,9 +104,13 @@ final class HomeController implements InvocableController
         $hasServer = Current::$server > 0 || count($config->settings['Servers']) > 1;
         if ($hasServer) {
             $hasServerSelection = $config->settings['ServerDefault'] == 0
-                || (! $config->settings['NavigationDisplayServers']
-                && (count($config->settings['Servers']) > 1
-                || (Current::$server === 0 && count($config->settings['Servers']) === 1)));
+                || (
+                    $config->settings['NavigationDisplayServers']
+                    && (
+                        count($config->settings['Servers']) > 1
+                        || (Current::$server === 0 && count($config->settings['Servers']) === 1)
+                    )
+                );
             if ($hasServerSelection) {
                 $serverSelection = Select::render(true);
             }
@@ -162,7 +162,6 @@ final class HomeController implements InvocableController
                 'type' => Util::getServerType(),
                 'connection' => Generator::getServerSSL(),
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
-                'protocol' => $this->dbi->getProtoInfo(),
                 'user' => $this->dbi->fetchValue('SELECT USER();'),
                 'charset' => $serverCharset->getDescription() . ' (' . $serverCharset->getName() . ')',
             ];
@@ -174,7 +173,7 @@ final class HomeController implements InvocableController
 
             if (Current::$server > 0) {
                 $clientVersion = $this->dbi->getClientInfo();
-                if (preg_match('#\d+\.\d+\.\d+#', $clientVersion)) {
+                if (preg_match('#\d+\.\d+\.\d+#', $clientVersion) === 1) {
                     $clientVersion = 'libmysql - ' . $clientVersion;
                 }
 
@@ -206,7 +205,7 @@ final class HomeController implements InvocableController
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
                 if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
-                    $messageInstance->setType(Message::ERROR);
+                    $messageInstance->setType(MessageType::Error);
                 }
 
                 $configStorageMessage = $messageInstance->getDisplay();
@@ -237,7 +236,6 @@ final class HomeController implements InvocableController
             'web_server' => $webServer,
             'show_php_info' => $config->settings['ShowPhpInfo'],
             'is_version_checked' => $config->settings['VersionCheck'],
-            'phpmyadmin_version' => Version::VERSION,
             'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
             'has_theme_manager' => $config->settings['ThemeManager'],
@@ -245,7 +243,7 @@ final class HomeController implements InvocableController
             'errors' => $this->errors,
         ]);
 
-        return null;
+        return $this->response->response();
     }
 
     private function checkRequirements(): void
@@ -397,8 +395,6 @@ final class HomeController implements InvocableController
 
     private function checkLanguageStats(): void
     {
-        $GLOBALS['lang'] ??= null;
-
         /**
          * Warning about incomplete translations.
          *
@@ -408,12 +404,13 @@ final class HomeController implements InvocableController
             return;
         }
 
-        /** @psalm-suppress MissingFile */
-        include ROOT_PATH . 'app/language_stats.inc.php';
         $config = Config::getInstance();
+        /** @psalm-suppress MissingFile */
+        $languageStats = include ROOT_PATH . 'app/language_stats.inc.php';
         if (
-            ! isset($GLOBALS['language_stats'][$GLOBALS['lang']])
-            || $GLOBALS['language_stats'][$GLOBALS['lang']] >= $config->settings['TranslationWarningThreshold']
+            ! is_array($languageStats)
+            || ! isset($languageStats[Current::$lang])
+            || $languageStats[Current::$lang] >= $config->settings['TranslationWarningThreshold']
         ) {
             return;
         }

@@ -10,7 +10,7 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Index;
@@ -44,7 +44,7 @@ class StructureControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;
@@ -141,7 +141,6 @@ class StructureControllerTest extends AbstractTestCase
             'show_stats' => false,
             'mysql_int_version' => $this->dbi->getVersion(),
             'is_mariadb' => $this->dbi->isMariaDB(),
-            'text_dir' => 'ltr',
             'is_active' => false,
             'have_partitioning' => true,
             'partitions' => [],

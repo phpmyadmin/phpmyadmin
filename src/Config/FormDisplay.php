@@ -17,7 +17,6 @@ namespace PhpMyAdmin\Config;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
 use PhpMyAdmin\Html\MySQLDocumentation;
-use PhpMyAdmin\Sanitize;
 use PhpMyAdmin\Util;
 
 use function __;
@@ -100,10 +99,13 @@ class FormDisplay
 
     private bool $isSetupScript;
 
+    private static bool $hasCheckPageRefresh = false;
+
     public function __construct(private ConfigFile $configFile)
     {
-        $this->formDisplayTemplate = new FormDisplayTemplate(Config::getInstance());
-        $this->isSetupScript = Sanitize::isSetup();
+        $config = Config::getInstance();
+        $this->formDisplayTemplate = new FormDisplayTemplate($config);
+        $this->isSetupScript = $config->isSetup();
         // initialize validators
         Validator::getValidators($this->configFile);
     }
@@ -202,28 +204,27 @@ class FormDisplay
     /**
      * Outputs HTML for forms
      *
-     * @param bool         $showButtons  whether show submit and reset button
-     * @param string|null  $formAction   action attribute for the form
-     * @param mixed[]|null $hiddenFields array of form hidden fields (key: field
+     * @param bool    $showButtons  whether show submit and reset button
+     * @param string  $formAction   action attribute for the form
+     * @param mixed[] $hiddenFields array of form hidden fields (key: field
      *                                 name)
      *
      * @return string HTML for forms
      */
     public function getDisplay(
         bool $showButtons = true,
-        string|null $formAction = null,
-        array|null $hiddenFields = null,
+        string $formAction = '',
+        array $hiddenFields = [],
     ): string {
-        $js = [];
-        $jsDefault = [];
+        $fieldValidators = [];
+        $defaultValues = [];
 
         /**
          * We do validation on page refresh when browser remembers field values,
          * add a field with known value which will be used for checks.
          */
-        static $hasCheckPageRefresh = false;
-        if (! $hasCheckPageRefresh) {
-            $hasCheckPageRefresh = true;
+        if (! self::$hasCheckPageRefresh) {
+            self::$hasCheckPageRefresh = true;
         }
 
         $tabs = [];
@@ -278,26 +279,26 @@ class FormDisplay
                     $workPath,
                     $translatedPath,
                     $userPrefsAllow,
-                    $jsDefault,
+                    $defaultValues,
                 );
                 // register JS validators for this field
                 if (! isset($validators[$path])) {
                     continue;
                 }
 
-                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $js);
+                $this->formDisplayTemplate->addJsValidate($translatedPath, $validators[$path], $fieldValidators);
             }
         }
 
         return $this->formDisplayTemplate->display([
             'action' => $formAction,
-            'has_check_page_refresh' => $hasCheckPageRefresh,
-            'hidden_fields' => (array) $hiddenFields,
+            'has_check_page_refresh' => self::$hasCheckPageRefresh,
+            'hidden_fields' => $hiddenFields,
             'tabs' => $tabs,
             'forms' => $forms,
             'show_buttons' => $showButtons,
-            'js_array' => $js,
-            'js_default' => $jsDefault,
+            'default_values' => $defaultValues,
+            'field_validators' => $fieldValidators,
         ]);
     }
 
@@ -408,7 +409,7 @@ class FormDisplay
         // TrustedProxies requires changes before displaying
         if ($systemPath === 'TrustedProxies') {
             foreach ($value as $ip => &$v) {
-                if (preg_match('/^-\d+$/', $ip)) {
+                if (preg_match('/^-\d+$/', $ip) === 1) {
                     continue;
                 }
 
@@ -545,7 +546,7 @@ class FormDisplay
         $result = true;
         $values = [];
         $toSave = [];
-        $isSetupScript = Config::getInstance()->get('is_setup');
+        $isSetupScript = Config::getInstance()->isSetup();
         if ($isSetupScript) {
             $this->loadUserprefsInfo();
         }
@@ -565,7 +566,7 @@ class FormDisplay
             foreach ($form->fields as $field => $systemPath) {
                 $workPath = array_search($systemPath, $this->systemPaths);
                 $key = $this->translatedPaths[$workPath];
-                $type = (string) $form->getOptionType($field);
+                $type = $form->getOptionType($field);
 
                 // skip groups
                 if ($type === 'group') {
@@ -667,8 +668,7 @@ class FormDisplay
                 $i = 0;
                 foreach ($values[$path] as $value) {
                     $matches = [];
-                    $match = preg_match('/^(.+):(?:[ ]?)(\\w+)$/', $value, $matches);
-                    if ($match) {
+                    if (preg_match('/^(.+):(?:[ ]?)(\\w+)$/', $value, $matches) === 1) {
                         // correct 'IP: HTTP header' pair
                         $ip = trim($matches[1]);
                         $proxies[$ip] = trim($matches[2]);
@@ -746,7 +746,7 @@ class FormDisplay
         $this->userprefsKeys = array_flip(UserFormList::getFields());
         // read real config for user preferences display
         $config = Config::getInstance();
-        $userPrefsDisallow = $config->get('is_setup')
+        $userPrefsDisallow = $config->isSetup()
             ? $this->configFile->get('UserprefsDisallow', [])
             : $config->settings['UserprefsDisallow'];
         $this->userprefsDisallow = array_flip($userPrefsDisallow ?? []);
@@ -808,7 +808,7 @@ class FormDisplay
         }
 
         $config = Config::getInstance();
-        if ($config->get('is_setup')) {
+        if ($config->isSetup()) {
             return;
         }
 

@@ -7,19 +7,18 @@ namespace PhpMyAdmin\Controllers\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\LanguageManager;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Tracking\Tracking;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function htmlspecialchars;
@@ -38,20 +37,15 @@ final class TrackingController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['urlParams'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $this->response->addScriptFiles(['vendor/jquery/jquery.tablesorter.js', 'database/tracking.js']);
 
-        if (! $this->response->checkParameters(['db'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -59,21 +53,21 @@ final class TrackingController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['urlParams']['goto'] = Url::getFromRoute('/table/tracking');
-        $GLOBALS['urlParams']['back'] = Url::getFromRoute('/database/tracking');
+        UrlParams::$params['goto'] = Url::getFromRoute('/table/tracking');
+        UrlParams::$params['back'] = Url::getFromRoute('/database/tracking');
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
 
         if ($request->hasBodyParam('delete_tracking') && $request->hasBodyParam('table')) {
-            $this->tracking->deleteTracking(Current::$database, $request->getParsedBodyParam('table'));
+            $this->tracking->deleteTracking(Current::$database, $request->getParsedBodyParamAsString('table'));
             $this->response->addHTML(Message::success(
                 __('Tracking data deleted successfully.'),
             )->getDisplay());
@@ -81,14 +75,14 @@ final class TrackingController implements InvocableController
             $this->tracking->createTrackingForMultipleTables(
                 Current::$database,
                 $request->getParsedBodyParam('selected'),
-                $request->getParsedBodyParam('version'),
+                $request->getParsedBodyParamAsString('version'),
             );
             $this->response->addHTML(Message::success(
                 sprintf(
                     __(
                         'Version %1$s was created for selected tables, tracking is active for them.',
                     ),
-                    htmlspecialchars($request->getParsedBodyParam('version')),
+                    htmlspecialchars($request->getParsedBodyParamAsString('version')),
                 ),
             )->getDisplay());
         } elseif ($request->hasBodyParam('submit_mult')) {
@@ -106,7 +100,7 @@ final class TrackingController implements InvocableController
                 } elseif ($request->getParsedBodyParam('submit_mult') === 'track') {
                     $this->response->render('create_tracking_version', [
                         'route' => '/database/tracking',
-                        'url_params' => $GLOBALS['urlParams'],
+                        'url_params' => UrlParams::$params,
                         'last_version' => 0,
                         'db' => Current::$database,
                         'selected' => $selectedTable,
@@ -114,7 +108,7 @@ final class TrackingController implements InvocableController
                         'default_statements' => $config->selectedServer['tracking_default_statements'],
                     ]);
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 $this->response->addHTML(Message::notice(
@@ -134,18 +128,17 @@ final class TrackingController implements InvocableController
                 $this->response->render('database/create_table', ['db' => Current::$database]);
             }
 
-            return null;
+            return $this->response->response();
         }
 
         $this->response->addHTML($this->tracking->getHtmlForDbTrackingTables(
             Current::$database,
-            $GLOBALS['urlParams'],
-            LanguageManager::$textDir,
+            UrlParams::$params,
         ));
 
         // If available print out database log
         if ($trackedData->ddlog === []) {
-            return null;
+            return $this->response->response();
         }
 
         $log = '';
@@ -156,6 +149,6 @@ final class TrackingController implements InvocableController
 
         $this->response->addHTML(Generator::getMessage(__('Database Log'), $log));
 
-        return null;
+        return $this->response->response();
     }
 }

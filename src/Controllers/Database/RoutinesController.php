@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -18,7 +18,7 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
+use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -47,12 +47,8 @@ final class RoutinesController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errors'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['urlParams'] ??= null;
-
         $this->response->addScriptFiles(['database/routines.js', 'sql.js']);
 
         $type = $_REQUEST['type'] ?? null;
@@ -61,17 +57,15 @@ final class RoutinesController implements InvocableController
 
         $config = Config::getInstance();
         if (! $request->isAjax()) {
+            if (Current::$database === '') {
+                return $this->response->missingParameterError('db');
+            }
+
             /**
              * Displays the header and tabs
              */
             if (Current::$table !== '' && in_array(Current::$table, $this->dbi->getTables(Current::$database), true)) {
-                if (! $this->response->checkParameters(['db', 'table'])) {
-                    return null;
-                }
-
-                $GLOBALS['urlParams'] = ['db' => Current::$database, 'table' => Current::$table];
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabTable'], 'table');
-                $GLOBALS['errorUrl'] .= Url::getCommon($GLOBALS['urlParams'], '&');
+                UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -80,27 +74,17 @@ final class RoutinesController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $tableName = TableName::tryFrom($request->getParam('table'));
                 if ($tableName === null || ! $this->dbTableExists->hasTable($databaseName, $tableName)) {
                     $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-                    return null;
+                    return $this->response->response();
                 }
             } else {
                 Current::$table = '';
-
-                if (! $this->response->checkParameters(['db'])) {
-                    return null;
-                }
-
-                $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-                    $config->settings['DefaultTabDatabase'],
-                    'database',
-                );
-                $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
                 $databaseName = DatabaseName::tryFrom($request->getParam('db'));
                 if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -109,28 +93,21 @@ final class RoutinesController implements InvocableController
                         ['reload' => true, 'message' => __('No databases selected.')],
                     );
 
-                    return null;
+                    return $this->response->response();
                 }
             }
         } elseif (Current::$database !== '') {
             $this->dbi->selectDb(Current::$database);
         }
 
-        /**
-         * Keep a list of errors that occurred while
-         * processing an 'Add' or 'Edit' operation.
-         */
-        $GLOBALS['errors'] = [];
-        $GLOBALS['message'] ??= null;
-
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
             $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database);
             if ($request->isAjax()) {
-                if (! $GLOBALS['message']->isSuccess()) {
+                if (! (Current::$message instanceof Message && Current::$message->isSuccess())) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $output);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $routines = Routines::getDetails(
@@ -154,7 +131,7 @@ final class RoutinesController implements InvocableController
                 $this->response->addJSON('message', $output);
                 $this->response->addJSON('tableType', 'routines');
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -163,7 +140,7 @@ final class RoutinesController implements InvocableController
          */
         // FIXME: this must be simpler than that
         if (
-            $GLOBALS['errors'] !== []
+            $this->routines->getErrorCount() > 0
             || empty($_POST['editor_process_add'])
             && empty($_POST['editor_process_edit'])
             && (
@@ -226,7 +203,7 @@ final class RoutinesController implements InvocableController
                     }
                 } elseif (
                     $operation === 'add'
-                    || ($routine['item_num_params'] == 0 && $mode === 'add' && ! $GLOBALS['errors'])
+                    || ($routine['item_num_params'] == 0 && $mode === 'add' && $this->routines->getErrorCount() === 0)
                 ) {
                     $routine['item_param_dir'][] = '';
                     $routine['item_param_name'][] = '';
@@ -282,12 +259,12 @@ final class RoutinesController implements InvocableController
                     );
                     $this->response->addJSON('type', $routine['item_type']);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . $title . "</h2>\n\n" . $editor);
 
-                return null;
+                return $this->response->response();
             }
 
             $message = __('Error in processing request:') . ' ';
@@ -307,7 +284,7 @@ final class RoutinesController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay());
@@ -331,12 +308,12 @@ final class RoutinesController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML($message->getDisplay());
 
-                return null;
+                return $this->response->response();
             }
 
             [$output, $message] = $this->routines->handleExecuteRoutine($routine);
@@ -347,14 +324,14 @@ final class RoutinesController implements InvocableController
                 $this->response->addJSON('message', $message->getDisplay() . $output);
                 $this->response->addJSON('dialog', false);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML($message->getDisplay() . $output);
             if ($message->isError()) {
                 // At least one query has failed, so shouldn't
                 // execute any more queries, so we quit.
-                return null;
+                return $this->response->response();
             }
         } elseif (! empty($_GET['execute_dialog']) && ! empty($_GET['item_name'])) {
             /**
@@ -378,13 +355,13 @@ final class RoutinesController implements InvocableController
                     $this->response->addJSON('title', $title);
                     $this->response->addJSON('dialog', true);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML("\n\n<h2>" . __('Execute routine') . "</h2>\n\n");
                 $this->response->addHTML($form);
 
-                return null;
+                return $this->response->response();
             }
 
             if ($request->isAjax()) {
@@ -399,7 +376,7 @@ final class RoutinesController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', $message);
 
-                return null;
+                return $this->response->response();
             }
         }
 
@@ -439,7 +416,7 @@ final class RoutinesController implements InvocableController
                     $this->response->addJSON('message', $exportData);
                     $this->response->addJSON('title', $title);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $output = '<div class="container">';
@@ -464,7 +441,7 @@ final class RoutinesController implements InvocableController
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON('message', $message);
 
-                    return null;
+                    return $this->response->response();
                 }
 
                 $this->response->addHTML($message->getDisplay());
@@ -494,6 +471,6 @@ final class RoutinesController implements InvocableController
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, Current::$table),
         ]);
 
-        return null;
+        return $this->response->response();
     }
 }

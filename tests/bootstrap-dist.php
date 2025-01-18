@@ -3,18 +3,10 @@
 declare(strict_types=1);
 
 // phpcs:disable PSR1.Files.SideEffects
-
-define('PHPMYADMIN', true);
 define('TESTSUITE', true);
 
 if (! defined('ROOT_PATH')) {
     define('ROOT_PATH', dirname(__DIR__) . DIRECTORY_SEPARATOR);
-}
-
-if (! defined('TEST_PATH')) {
-    // This is used at Debian because tests
-    // can be in a different place than the source code
-    define('TEST_PATH', ROOT_PATH);
 }
 
 /**

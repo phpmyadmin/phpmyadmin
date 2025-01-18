@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\StorageEngine;
-use PhpMyAdmin\Url;
 
 /**
  * Handles viewing storage engine details
@@ -21,16 +20,14 @@ final class EnginesController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
 
         $this->response->render('server/engines/index', ['engines' => StorageEngine::getStorageEngines()]);
 
-        return null;
+        return $this->response->response();
     }
 }

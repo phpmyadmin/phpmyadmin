@@ -7,9 +7,11 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Plugins\Export;
 
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\OpenDocument;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
@@ -23,6 +25,7 @@ use function __;
 use function bin2hex;
 use function date;
 use function htmlspecialchars;
+use function is_string;
 use function strtotime;
 
 /**
@@ -30,9 +33,13 @@ use function strtotime;
  */
 class ExportOds extends ExportPlugin
 {
+    public string $buffer = '';
+    private bool $columns = false;
+    private string $null = '';
+
     protected function init(): void
     {
-        $GLOBALS['ods_buffer'] = '';
+        $this->buffer = '';
     }
 
     /** @psalm-return non-empty-lowercase-string */
@@ -84,7 +91,7 @@ class ExportOds extends ExportPlugin
      */
     public function exportHeader(): bool
     {
-        $GLOBALS['ods_buffer'] .= '<?xml version="1.0" encoding="utf-8"?' . '>'
+        $this->buffer .= '<?xml version="1.0" encoding="utf-8"?>'
             . '<office:document-content '
             . OpenDocument::NS . ' office:version="1.0">'
             . '<office:automatic-styles>'
@@ -138,12 +145,12 @@ class ExportOds extends ExportPlugin
      */
     public function exportFooter(): bool
     {
-        $GLOBALS['ods_buffer'] .= '</office:spreadsheet></office:body></office:document-content>';
+        $this->buffer .= '</office:spreadsheet></office:body></office:document-content>';
 
         return $this->export->outputHandler(
             OpenDocument::create(
                 'application/vnd.oasis.opendocument.spreadsheet',
-                $GLOBALS['ods_buffer'],
+                $this->buffer,
             ),
         );
     }
@@ -172,11 +179,10 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -186,19 +192,15 @@ class ExportOds extends ExportPlugin
      *
      * @param string  $db       database name
      * @param string  $table    table name
-     * @param string  $errorUrl the url to go back in case of error
      * @param string  $sqlQuery SQL query for obtaining data
      * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
         string $table,
-        string $errorUrl,
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -208,30 +210,30 @@ class ExportOds extends ExportPlugin
         $fieldsCnt = $result->numFields();
         $fieldsMeta = $dbi->getFieldsMeta($result);
 
-        $GLOBALS['ods_buffer'] .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
+        $this->buffer .= '<table:table table:name="' . htmlspecialchars($tableAlias) . '">';
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
-            $GLOBALS['ods_buffer'] .= '<table:table-row>';
+        if ($this->columns) {
+            $this->buffer .= '<table:table-row>';
             foreach ($fieldsMeta as $field) {
                 $colAs = $field->name;
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
                     $colAs = $aliases[$db]['tables'][$table]['columns'][$colAs];
                 }
 
-                $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                $this->buffer .= '<table:table-cell office:value-type="string">'
                     . '<text:p>'
                     . htmlspecialchars($colAs)
                     . '</text:p>'
                     . '</table:table-cell>';
             }
 
-            $GLOBALS['ods_buffer'] .= '</table:table-row>';
+            $this->buffer .= '</table:table-row>';
         }
 
         // Format the data
         while ($row = $result->fetchRow()) {
-            $GLOBALS['ods_buffer'] .= '<table:table-row>';
+            $this->buffer .= '<table:table-row>';
             /** @infection-ignore-all */
             for ($j = 0; $j < $fieldsCnt; $j++) {
                 if ($fieldsMeta[$j]->isMappedTypeGeometry) {
@@ -240,18 +242,18 @@ class ExportOds extends ExportPlugin
                 }
 
                 if (! isset($row[$j])) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
-                        . htmlspecialchars($GLOBALS[$GLOBALS['what'] . '_null'])
+                        . htmlspecialchars($this->null)
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isBinary && $fieldsMeta[$j]->isBlob) {
                     // ignore BLOB
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p></text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_DATE)) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date"'
+                    $this->buffer .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
                         . date('Y-m-d', strtotime($row[$j]))
                         . '" table:style-name="DateCell">'
@@ -260,7 +262,7 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_TIME)) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="time"'
+                    $this->buffer .= '<table:table-cell office:value-type="time"'
                         . ' office:time-value="'
                         . date('\P\TH\Hi\Ms\S', strtotime($row[$j]))
                         . '" table:style-name="TimeCell">'
@@ -269,7 +271,7 @@ class ExportOds extends ExportPlugin
                         . '</text:p>'
                         . '</table:table-cell>';
                 } elseif ($fieldsMeta[$j]->isType(FieldMetadata::TYPE_DATETIME)) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="date"'
+                    $this->buffer .= '<table:table-cell office:value-type="date"'
                         . ' office:date-value="'
                         . date('Y-m-d\TH:i:s', strtotime($row[$j]))
                         . '" table:style-name="DateTimeCell">'
@@ -280,14 +282,14 @@ class ExportOds extends ExportPlugin
                 } elseif (
                     $fieldsMeta[$j]->isNumeric
                 ) {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="float"'
+                    $this->buffer .= '<table:table-cell office:value-type="float"'
                         . ' office:value="' . $row[$j] . '" >'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
                         . '</table:table-cell>';
                 } else {
-                    $GLOBALS['ods_buffer'] .= '<table:table-cell office:value-type="string">'
+                    $this->buffer .= '<table:table-cell office:value-type="string">'
                         . '<text:p>'
                         . htmlspecialchars($row[$j])
                         . '</text:p>'
@@ -295,10 +297,10 @@ class ExportOds extends ExportPlugin
                 }
             }
 
-            $GLOBALS['ods_buffer'] .= '</table:table-row>';
+            $this->buffer .= '</table:table-row>';
         }
 
-        $GLOBALS['ods_buffer'] .= '</table:table>';
+        $this->buffer .= '</table:table>';
 
         return true;
     }
@@ -306,16 +308,44 @@ class ExportOds extends ExportPlugin
     /**
      * Outputs result raw query in ODS format
      *
-     * @param string      $errorUrl the url to go back in case of error
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
+        return $this->exportData($db ?? '', '', $sqlQuery);
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('ods_structure_or_data'),
+            $exportConfig['ods_structure_or_data'] ?? null,
+            StructureOrData::Data,
+        );
+        $this->columns = (bool) ($request->getParsedBodyParam('ods_columns')
+            ?? $exportConfig['ods_columns'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('ods_null'),
+            $exportConfig['ods_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }

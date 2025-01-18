@@ -380,7 +380,7 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 [176, 46, 224],
                 new ScaleData(offsetX: 12, offsetY: 69, scale: 2, height: 150),
                 '<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
-                . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg1234567890'
+                . ' 228 L 46, 224 L 36, 248 Z " data-label="svg" id="svg1234567890'
                 . '" class="polygon vector" stroke="black" stroke-width="0.5"'
                 . ' fill="#b02ee0" fill-rule="evenodd" fill-opacity="0.8"/>',
             ],
@@ -390,11 +390,11 @@ class GisGeometryCollectionTest extends GisGeomTestCase
     /**
      * Test for prepareRowAsOl
      *
-     * @param string $spatial string to parse
-     * @param int    $srid    SRID
-     * @param string $label   field label
-     * @param int[]  $color   line color
-     * @param string $output  expected output
+     * @param string  $spatial  string to parse
+     * @param int     $srid     SRID
+     * @param string  $label    field label
+     * @param int[]   $color    line color
+     * @param mixed[] $expected
      */
     #[DataProvider('providerForPrepareRowAsOl')]
     public function testPrepareRowAsOl(
@@ -402,24 +402,16 @@ class GisGeometryCollectionTest extends GisGeomTestCase
         int $srid,
         string $label,
         array $color,
-        string $output,
+        array $expected,
     ): void {
         $object = GisGeometryCollection::singleton();
-        self::assertSame(
-            $output,
-            $object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $color,
-            ),
-        );
+        self::assertSame($expected, $object->prepareRowAsOl($spatial, $srid, $label, $color));
     }
 
     /**
      * Data provider for testPrepareRowAsOl() test case
      *
-     * @return array<array{string, int, string, int[], string}>
+     * @return array<array{string, int, string, int[], mixed[]}>
      */
     public static function providerForPrepareRowAsOl(): array
     {
@@ -429,13 +421,26 @@ class GisGeometryCollectionTest extends GisGeomTestCase
                 4326,
                 'Ol',
                 [176, 46, 224],
-                'var feature = new ol.Feature(new ol.geom.Polygon([[[35,10],'
-                . '[10,20],[15,40],[45,45],[35,10]],[[20,30],[35,32],[30,20]'
-                . ',[20,30]]]).transform(\'EPSG:4326\', \'EPSG:3857\'));feat'
-                . 'ure.setStyle(new ol.style.Style({fill: new ol.style.Fill('
-                . '{"color":[176,46,224,0.8]}),stroke: new ol.style.Stroke({'
-                . '"color":[0,0,0],"width":0.5}),text: new ol.style.Text({"t'
-                . 'ext":"Ol"})}));vectorSource.addFeature(feature);',
+                [
+                    'isCollection' => true,
+                    'geometries' => [
+                        [
+                            'geometry' => [
+                                'type' => 'Polygon',
+                                'coordinates' => [
+                                    [[35.0, 10.0], [10.0, 20.0], [15.0, 40.0], [45.0, 45.0], [35.0, 10.0]],
+                                    [[20.0, 30.0], [35.0, 32.0], [30.0, 20.0], [20.0, 30.0]],
+                                ],
+                                'srid' => 4326,
+                            ],
+                            'style' => [
+                                'fill' => ['color' => [176, 46, 224, 0.8]],
+                                'stroke' => ['color' => [0, 0, 0], 'width' => 0.5],
+                                'text' => ['text' => 'Ol'],
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ];
     }

@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["8.1"]
+        php-version: ["8.2"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
       - name: Install Composer dependencies
         # Allow the previous check to fail but not abort
         if: always()
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           # Ignore zip for php-webdriver/webdriver
           composer-options: "--ignore-platform-req=ext-zip"
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-version: ["8.1"]
+        php-version: ["8.2"]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -76,7 +76,7 @@ jobs:
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
 
       - name: Analyse files with PHPStan
         run: composer phpstan -- --memory-limit 2G

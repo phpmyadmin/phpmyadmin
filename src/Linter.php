@@ -27,7 +27,8 @@ class Linter
      *
      * @param string|UtfString $str String to be analyzed.
      *
-     * @return int[]
+     * @return array<int,int>
+     * @psalm-return list<int>
      */
     public static function getLines(string|UtfString $str): array
     {
@@ -93,6 +94,14 @@ class Linter
      * @param string $query The query to be checked.
      *
      * @return (string|int)[][]
+     * @psalm-return list<array{
+     *   message: string,
+     *   fromLine: int,
+     *   fromColumn: int,
+     *   toLine: int,
+     *   toColumn: int,
+     *   severity: string,
+     * }>
      */
     public static function lint(string $query): array
     {

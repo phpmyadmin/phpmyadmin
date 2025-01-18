@@ -108,31 +108,31 @@ class CreateTest extends TestBase
             $this->byCssSelector('label[for=checkbox_row_1]')->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'int(14)',
             $this->getCellByTableId('tablestructure', 1, 4),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'UNSIGNED',
             $this->getCellByTableId('tablestructure', 1, 6),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'No',
             $this->getCellByTableId('tablestructure', 1, 7),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'None',
             $this->getCellByTableId('tablestructure', 1, 8),
         );
-        self::assertEquals(
+        self::assertSame(
             'comm1',
             $this->getCellByTableId('tablestructure', 1, 9),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'AUTO_INCREMENT',
             $this->getCellByTableId('tablestructure', 1, 10),
         );
@@ -148,22 +148,22 @@ class CreateTest extends TestBase
             $this->byCssSelector('label[for=checkbox_row_2]')->getText(),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'varchar(10)',
             $this->getCellByTableId('tablestructure', 2, 4),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'utf8mb4_general_ci',
             $this->getCellByTableId('tablestructure', 2, 5),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'Yes',
             $this->getCellByTableId('tablestructure', 2, 7),
         );
 
-        self::assertEquals(
+        self::assertSame(
             'def',
             $this->getCellByTableId('tablestructure', 2, 8),
         );

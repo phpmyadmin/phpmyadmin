@@ -7,7 +7,7 @@ namespace PhpMyAdmin\Controllers\Table\Structure;
 use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
@@ -32,16 +32,24 @@ final class ChangeController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        if (! $this->response->checkParameters(['server', 'db', 'table'])) {
-            return null;
+        if (Current::$server === 0) {
+            return $this->response->missingParameterError('server');
+        }
+
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
+        }
+
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
         }
 
         if ($request->getParam('change_column') !== null) {
             $this->displayHtmlForColumnChange([$request->getParam('field')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $selected = $request->getParsedBodyParam('selected_fld', []);
@@ -50,12 +58,12 @@ final class ChangeController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', __('No column selected.'));
 
-            return null;
+            return $this->response->response();
         }
 
         $this->displayHtmlForColumnChange($selected);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

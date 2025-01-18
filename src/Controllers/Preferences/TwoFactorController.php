@@ -23,7 +23,7 @@ final class TwoFactorController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         $relationParameters = $this->relation->getRelationParameters();
 
@@ -39,7 +39,7 @@ final class TwoFactorController implements InvocableController
             if (! $twoFactor->check($request, true)) {
                 $this->response->render('preferences/two_factor/confirm', ['form' => $twoFactor->render($request)]);
 
-                return null;
+                return $this->response->response();
             }
 
             $twoFactor->configure($request, '');
@@ -47,13 +47,13 @@ final class TwoFactorController implements InvocableController
                 Message::rawNotice(__('Two-factor authentication has been removed.'))->getDisplay(),
             );
         } elseif ($request->hasBodyParam('2fa_configure')) {
-            if (! $twoFactor->configure($request, $request->getParsedBodyParam('2fa_configure'))) {
+            if (! $twoFactor->configure($request, $request->getParsedBodyParamAsString('2fa_configure'))) {
                 $this->response->render('preferences/two_factor/configure', [
                     'form' => $twoFactor->setup($request),
                     'configure' => $request->getParsedBodyParam('2fa_configure'),
                 ]);
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->addHTML(
@@ -78,6 +78,6 @@ final class TwoFactorController implements InvocableController
             define('PMA_DISABLE_NAVI_SETTINGS', true);
         }
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Transformation;
 
 use PhpMyAdmin\Controllers\Transformation\OverviewController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;

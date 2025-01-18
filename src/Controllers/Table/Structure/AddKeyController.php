@@ -5,27 +5,33 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\Controllers\Sql\SqlController;
-use PhpMyAdmin\Controllers\Table\StructureController;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
+use PhpMyAdmin\ResponseRenderer;
 
-final class AddKeyController implements InvocableController
+use function __;
+use function in_array;
+
+final class AddKeyController extends AbstractIndexController implements InvocableController
 {
-    public function __construct(
-        private readonly SqlController $sqlController,
-        private readonly StructureController $structureController,
-    ) {
+    public function __invoke(ServerRequest $request): Response
+    {
+        ResponseRenderer::$reload = true;
+
+        $keyType = $this->getKeyType($request->getParsedBodyParamAsStringOrNull('key_type'));
+        if ($keyType === '') {
+            $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', __('Invalid request parameter.'));
+
+            return $this->response->response();
+        }
+
+        return $this->handleIndexCreation($request, $keyType);
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    /** @psalm-return  'FULLTEXT'|'INDEX'|'PRIMARY'|'SPATIAL'|'UNIQUE'|'' */
+    private function getKeyType(string|null $keyType): string
     {
-        ($this->sqlController)($request);
-
-        $GLOBALS['reload'] = true;
-
-        ($this->structureController)($request);
-
-        return null;
+        return in_array($keyType, ['FULLTEXT', 'INDEX', 'PRIMARY', 'SPATIAL', 'UNIQUE'], true) ? $keyType : '';
     }
 }

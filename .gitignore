@@ -61,7 +61,6 @@ cache.properties
 phpstan.neon
 # Infection
 infection.json5
-/public/build/
 /js/
 /setup/
 /themes/

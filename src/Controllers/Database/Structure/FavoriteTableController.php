@@ -19,11 +19,10 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
 
 use function __;
 use function count;
+use function is_array;
 use function json_decode;
 use function json_encode;
 use function md5;
@@ -39,26 +38,26 @@ final class FavoriteTableController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-
         if (Current::$database === '') {
-            return null;
+            return $this->response->response();
         }
 
         $config = Config::getInstance();
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption($config->settings['DefaultTabDatabase'], 'database');
-        $GLOBALS['errorUrl'] .= Url::getCommon(['db' => Current::$database], '&');
 
         if (! $request->isAjax()) {
-            return null;
+            return $this->response->response();
         }
 
         $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
 
         $favoriteTables = $request->getParam('favoriteTables');
         $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
+
+        if (! is_array($favoriteTables)) {
+            $favoriteTables = [];
+        }
 
         // Required to keep each user's preferences separate.
         $user = sha1($config->selectedServer['user']);
@@ -74,7 +73,7 @@ final class FavoriteTableController implements InvocableController
                 ));
             }
 
-            return null;
+            return $this->response->response();
         }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -82,7 +81,7 @@ final class FavoriteTableController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-            return null;
+            return $this->response->response();
         }
 
         $changes = true;
@@ -120,7 +119,7 @@ final class FavoriteTableController implements InvocableController
             ]);
             $this->response->addJSON($json);
 
-            return null;
+            return $this->response->response();
         }
 
         // Check if current table is already in favorite list.
@@ -143,7 +142,7 @@ final class FavoriteTableController implements InvocableController
 
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 
     /**

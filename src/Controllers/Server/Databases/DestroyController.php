@@ -7,13 +7,12 @@ namespace PhpMyAdmin\Controllers\Server\Databases;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Transformations;
-use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
@@ -33,11 +32,8 @@ final class DestroyController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['selected'] ??= null;
-        $GLOBALS['errorUrl'] ??= null;
-
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
@@ -51,7 +47,7 @@ final class DestroyController implements InvocableController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return null;
+            return $this->response->response();
         }
 
         if (
@@ -63,17 +59,15 @@ final class DestroyController implements InvocableController
             $this->response->setRequestStatus($message->isSuccess());
             $this->response->addJSON($json);
 
-            return null;
+            return $this->response->response();
         }
 
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/server/databases');
-        $GLOBALS['selected'] = $selectedDbs;
         $numberOfDatabases = count($selectedDbs);
 
         foreach ($selectedDbs as $database) {
             $this->relationCleanup->database($database);
             $aQuery = 'DROP DATABASE ' . Util::backquote($database);
-            $GLOBALS['reload'] = true;
+            ResponseRenderer::$reload = true;
 
             $this->dbi->query($aQuery);
             $this->transformations->clear($database);
@@ -93,6 +87,6 @@ final class DestroyController implements InvocableController
         $this->response->setRequestStatus($message->isSuccess());
         $this->response->addJSON($json);
 
-        return null;
+        return $this->response->response();
     }
 }

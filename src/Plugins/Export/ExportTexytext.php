@@ -8,8 +8,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Export;
 
 use PhpMyAdmin\Column;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Export\StructureOrData;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins\ExportPlugin;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
@@ -24,6 +26,7 @@ use PhpMyAdmin\Util;
 use function __;
 use function htmlspecialchars;
 use function in_array;
+use function is_string;
 use function str_replace;
 
 /**
@@ -31,6 +34,12 @@ use function str_replace;
  */
 class ExportTexytext extends ExportPlugin
 {
+    private bool $columns = false;
+    private bool $doComments = false;
+    private bool $doMime = false;
+    private bool $doRelation = false;
+    private string $null = '';
+
     /** @psalm-return non-empty-lowercase-string */
     public function getName(): string
     {
@@ -136,11 +145,10 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs CREATE DATABASE statement
      *
-     * @param string $db         Database name
-     * @param string $exportType 'server', 'database', 'table'
-     * @param string $dbAlias    Aliases of db
+     * @param string $db      Database name
+     * @param string $dbAlias Aliases of db
      */
-    public function exportDBCreate(string $db, string $exportType, string $dbAlias = ''): bool
+    public function exportDBCreate(string $db, string $dbAlias = ''): bool
     {
         return true;
     }
@@ -150,19 +158,15 @@ class ExportTexytext extends ExportPlugin
      *
      * @param string  $db       database name
      * @param string  $table    table name
-     * @param string  $errorUrl the url to go back in case of error
      * @param string  $sqlQuery SQL query for obtaining data
      * @param mixed[] $aliases  Aliases of db/table/columns
      */
     public function exportData(
         string $db,
         string $table,
-        string $errorUrl,
         string $sqlQuery,
         array $aliases = [],
     ): bool {
-        $GLOBALS['what'] ??= null;
-
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -184,7 +188,7 @@ class ExportTexytext extends ExportPlugin
         $result = $dbi->query($sqlQuery, ConnectionType::User, DatabaseInterface::QUERY_UNBUFFERED);
 
         // If required, get fields name at the first line
-        if (isset($GLOBALS[$GLOBALS['what'] . '_columns'])) {
+        if ($this->columns) {
             $textOutput = "|------\n";
             foreach ($result->getFieldNames() as $colAs) {
                 if (! empty($aliases[$db]['tables'][$table]['columns'][$colAs])) {
@@ -205,7 +209,7 @@ class ExportTexytext extends ExportPlugin
             $textOutput = '';
             foreach ($row as $field) {
                 if ($field === null) {
-                    $value = $GLOBALS[$GLOBALS['what'] . '_null'];
+                    $value = $this->null;
                 } elseif ($field !== '') {
                     $value = $field;
                 } else {
@@ -232,17 +236,16 @@ class ExportTexytext extends ExportPlugin
     /**
      * Outputs result raw query in TexyText format
      *
-     * @param string      $errorUrl the url to go back in case of error
      * @param string|null $db       the database where the query is executed
      * @param string      $sqlQuery the rawquery to output
      */
-    public function exportRawQuery(string $errorUrl, string|null $db, string $sqlQuery): bool
+    public function exportRawQuery(string|null $db, string $sqlQuery): bool
     {
         if ($db !== null) {
             DatabaseInterface::getInstance()->selectDb($db);
         }
 
-        return $this->exportData($db ?? '', '', $errorUrl, $sqlQuery);
+        return $this->exportData($db ?? '', '', $sqlQuery);
     }
 
     /**
@@ -305,29 +308,14 @@ class ExportTexytext extends ExportPlugin
     /**
      * Returns $table's CREATE definition
      *
-     * @param string  $db         the database name
-     * @param string  $table      the table name
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             $this->exportStructure() also for other
-     *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     *                             at the end
-     * @param mixed[] $aliases    Aliases of db/table/columns
+     * @param string  $db      the database name
+     * @param string  $table   the table name
+     * @param mixed[] $aliases Aliases of db/table/columns
      *
      * @return string resulting schema
      */
-    public function getTableDef(
-        string $db,
-        string $table,
-        bool $doRelation,
-        bool $doComments,
-        bool $doMime,
-        array $aliases = [],
-    ): string {
+    public function getTableDef(string $db, string $table, array $aliases = []): string
+    {
         $relationParameters = $this->relation->getRelationParameters();
 
         $textOutput = '';
@@ -352,11 +340,9 @@ class ExportTexytext extends ExportPlugin
         $dbi->selectDb($db);
 
         // Check if we can use Relations
-        $foreigners = $this->relation->getRelationsAndStatus(
-            $doRelation && $relationParameters->relationFeature !== null,
-            $db,
-            $table,
-        );
+        $foreigners = $this->doRelation && $relationParameters->relationFeature !== null ?
+            $this->relation->getForeigners($db, $table)
+            : [];
 
         /**
          * Displays the table structure
@@ -367,16 +353,16 @@ class ExportTexytext extends ExportPlugin
         $textOutput .= '|' . __('Type');
         $textOutput .= '|' . __('Null');
         $textOutput .= '|' . __('Default');
-        if ($doRelation && $foreigners !== []) {
+        if ($this->doRelation && $foreigners !== []) {
             $textOutput .= '|' . __('Links to');
         }
 
-        if ($doComments) {
+        if ($this->doComments) {
             $textOutput .= '|' . __('Comments');
             $comments = $this->relation->getComments($db, $table);
         }
 
-        if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+        if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
             $textOutput .= '|' . __('Media type');
             $mimeMap = $this->transformations->getMime($db, $table, true);
         }
@@ -392,7 +378,7 @@ class ExportTexytext extends ExportPlugin
 
             $textOutput .= $this->formatOneColumnDefinition($column, $uniqueKeys, $colAs);
             $fieldName = $column->field;
-            if ($doRelation && $foreigners !== []) {
+            if ($this->doRelation && $foreigners !== []) {
                 $textOutput .= '|' . htmlspecialchars(
                     $this->getRelationString(
                         $foreigners,
@@ -403,14 +389,14 @@ class ExportTexytext extends ExportPlugin
                 );
             }
 
-            if ($doComments && $relationParameters->columnCommentsFeature !== null) {
+            if ($this->doComments && $relationParameters->columnCommentsFeature !== null) {
                 $textOutput .= '|'
                     . (isset($comments[$fieldName])
                         ? htmlspecialchars($comments[$fieldName])
                         : '');
             }
 
-            if ($doMime && $relationParameters->browserTransformationFeature !== null) {
+            if ($this->doMime && $relationParameters->browserTransformationFeature !== null) {
                 $textOutput .= '|'
                     . (isset($mimeMap[$fieldName])
                         ? htmlspecialchars(
@@ -458,29 +444,10 @@ class ExportTexytext extends ExportPlugin
      * @param string  $db         database name
      * @param string  $table      table name
      * @param string  $exportMode 'create_table', 'triggers', 'create_view', 'stand_in'
-     * @param string  $exportType 'server', 'database', 'table'
-     * @param bool    $doRelation whether to include relation comments
-     * @param bool    $doComments whether to include the pmadb-style column
-     *                             comments as comments in the structure;
-     *                             this is deprecated but the parameter is
-     *                             left here because /export calls
-     *                             $this->exportStructure() also for other
-     *                             export types which use this parameter
-     * @param bool    $doMime     whether to include mime comments
-     * @param bool    $dates      whether to include creation/update/check dates
      * @param mixed[] $aliases    Aliases of db/table/columns
      */
-    public function exportStructure(
-        string $db,
-        string $table,
-        string $exportMode,
-        string $exportType,
-        bool $doRelation = false,
-        bool $doComments = false,
-        bool $doMime = false,
-        bool $dates = false,
-        array $aliases = [],
-    ): bool {
+    public function exportStructure(string $db, string $table, string $exportMode, array $aliases = []): bool
+    {
         $dbAlias = $db;
         $tableAlias = $table;
         $this->initAlias($aliases, $dbAlias, $tableAlias);
@@ -490,7 +457,7 @@ class ExportTexytext extends ExportPlugin
             case 'create_table':
                 $dump .= '== ' . __('Table structure for table') . ' '
                 . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $aliases);
                 break;
             case 'triggers':
                 $triggers = Triggers::getDetails(DatabaseInterface::getInstance(), $db, $table);
@@ -502,7 +469,7 @@ class ExportTexytext extends ExportPlugin
                 break;
             case 'create_view':
                 $dump .= '== ' . __('Structure for view') . ' ' . $tableAlias . "\n\n";
-                $dump .= $this->getTableDef($db, $table, $doRelation, $doComments, $doMime, $aliases);
+                $dump .= $this->getTableDef($db, $table, $aliases);
                 break;
             case 'stand_in':
                 $dump .= '== ' . __('Stand-in structure for view')
@@ -556,5 +523,40 @@ class ExportTexytext extends ExportPlugin
         $definition .= '|' . htmlspecialchars($column->default ?? ($column->isNull ? 'NULL' : ''));
 
         return $definition;
+    }
+
+    /** @inheritDoc */
+    public function setExportOptions(ServerRequest $request, array $exportConfig): void
+    {
+        $this->structureOrData = $this->setStructureOrData(
+            $request->getParsedBodyParam('texytext_structure_or_data'),
+            $exportConfig['texytext_structure_or_data'] ?? null,
+            StructureOrData::StructureAndData,
+        );
+        $this->columns = (bool) ($request->getParsedBodyParam('texytext_columns')
+            ?? $exportConfig['texytext_columns'] ?? false);
+        $this->doRelation = (bool) ($request->getParsedBodyParam('texytext_relation')
+            ?? $exportConfig['texytext_relation'] ?? false);
+        $this->doMime = (bool) ($request->getParsedBodyParam('texytext_mime')
+            ?? $exportConfig['texytext_mime'] ?? false);
+        $this->doComments = (bool) ($request->getParsedBodyParam('texytext_comments')
+            ?? $exportConfig['texytext_comments'] ?? false);
+        $this->null = $this->setStringValue(
+            $request->getParsedBodyParam('texytext_null'),
+            $exportConfig['texytext_null'] ?? null,
+        );
+    }
+
+    private function setStringValue(mixed $fromRequest, mixed $fromConfig): string
+    {
+        if (is_string($fromRequest) && $fromRequest !== '') {
+            return $fromRequest;
+        }
+
+        if (is_string($fromConfig) && $fromConfig !== '') {
+            return $fromConfig;
+        }
+
+        return '';
     }
 }

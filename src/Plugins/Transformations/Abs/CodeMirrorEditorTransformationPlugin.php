@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Plugins\Transformations\Abs;
 
 use PhpMyAdmin\FieldMetadata;
+use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Plugins\IOTransformationsPlugin;
 
 use function htmlspecialchars;
@@ -37,7 +38,6 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
      * @param string  $columnNameAppendix the name attribute
      * @param mixed[] $options            transformation options
      * @param string  $value              Current field value
-     * @param string  $textDir            text direction
      * @param int     $fieldIndex         field index
      *
      * @return string the html for input field
@@ -46,7 +46,6 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
         string $columnNameAppendix,
         array $options,
         string $value,
-        string $textDir,
         int $fieldIndex,
     ): string {
         $html = '';
@@ -58,7 +57,7 @@ abstract class CodeMirrorEditorTransformationPlugin extends IOTransformationsPlu
         $class = 'transform_' . strtolower(static::getName()) . '_editor';
 
         return $html . '<textarea name="fields' . $columnNameAppendix . '"'
-            . ' dir="' . $textDir . '" class="' . $class . '">'
+            . ' dir="' . LanguageManager::$textDirection->value . '" class="' . $class . '">'
             . htmlspecialchars($value) . '</textarea>';
     }
 }

@@ -6,7 +6,8 @@ namespace PhpMyAdmin\Import;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\File;
 use PhpMyAdmin\FileListing;
@@ -61,6 +62,10 @@ use function trim;
 class Import
 {
     private string|null $importRunBuffer = null;
+    public static bool $hasError = false;
+    public static string $importText = '';
+    public static ResultInterface|false $result = false;
+    public static string $errorUrl = '';
 
     public function __construct()
     {
@@ -100,27 +105,26 @@ class Import
      */
     public function executeQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['error'] ??= null;
         $dbi = DatabaseInterface::getInstance();
-        $GLOBALS['result'] = $dbi->tryQuery($sql);
+        self::$result = $dbi->tryQuery($sql);
 
         // USE query changes the database, son need to track
         // while running multiple queries
         $isUseQuery = mb_stripos($sql, 'use ') !== false;
 
         ImportSettings::$message = '# ';
-        if ($GLOBALS['result'] === false) {
+        if (self::$result === false) {
             ImportSettings::$failedQueries[] = ['sql' => $sql, 'error' => $dbi->getError()];
 
             ImportSettings::$message .= __('Error');
 
             if (! Config::getInstance()->settings['IgnoreMultiSubmitErrors']) {
-                $GLOBALS['error'] = true;
+                self::$hasError = true;
 
                 return;
             }
         } else {
-            $aNumRows = (int) $GLOBALS['result']->numRows();
+            $aNumRows = (int) self::$result->numRows();
             $aAffectedRows = (int) @$dbi->affectedRows();
             if ($aNumRows > 0) {
                 ImportSettings::$message .= __('Rows') . ': ' . $aNumRows;
@@ -137,25 +141,25 @@ class Import
         }
 
         if (! ImportSettings::$sqlQueryDisabled) {
-            $GLOBALS['sql_query'] .= ImportSettings::$message . "\n";
+            Current::$sqlQuery .= ImportSettings::$message . "\n";
         }
 
         // If a 'USE <db>' SQL-clause was found and the query
         // succeeded, set our current $db to the new one
-        if ($GLOBALS['result'] != false) {
+        if (self::$result !== false) {
             $dbNameInsideUse = $this->lookForUse($sql);
             if ($dbNameInsideUse !== '') {
                 Current::$database = $dbNameInsideUse;
-                $GLOBALS['reload'] = true;
+                ResponseRenderer::$reload = true;
             }
         }
 
         $pattern = '@^[\s]*(DROP|CREATE)[\s]+(IF EXISTS[[:space:]]+)?(TABLE|DATABASE)[[:space:]]+(.+)@im';
-        if ($GLOBALS['result'] == false || ! preg_match($pattern, $sql)) {
+        if (self::$result === false || preg_match($pattern, $sql) !== 1) {
             return;
         }
 
-        $GLOBALS['reload'] = true;
+        ResponseRenderer::$reload = true;
     }
 
     /**
@@ -167,9 +171,6 @@ class Import
      */
     public function runQuery(string $sql, array &$sqlData): void
     {
-        $GLOBALS['complete_query'] ??= null;
-        $GLOBALS['display_query'] ??= null;
-
         ImportSettings::$readMultiply = 1;
         if ($this->importRunBuffer === null) {
             // Do we have something to push into buffer?
@@ -192,7 +193,7 @@ class Import
             mb_strlen($this->importRunBuffer),
         );
         if (! ImportSettings::$sqlQueryDisabled) {
-            $GLOBALS['sql_query'] .= $this->importRunBuffer;
+            Current::$sqlQuery .= $this->importRunBuffer;
         }
 
         ImportSettings::$executedQueries++;
@@ -201,14 +202,14 @@ class Import
             ImportSettings::$goSql = true;
 
             if (! ImportSettings::$sqlQueryDisabled) {
-                $GLOBALS['complete_query'] = $GLOBALS['sql_query'];
-                $GLOBALS['display_query'] = $GLOBALS['sql_query'];
+                Current::$completeQuery = Current::$sqlQuery;
+                Current::$displayQuery = Current::$sqlQuery;
             } else {
-                $GLOBALS['complete_query'] = '';
-                $GLOBALS['display_query'] = '';
+                Current::$completeQuery = '';
+                Current::$displayQuery = '';
             }
 
-            $GLOBALS['sql_query'] = $this->importRunBuffer;
+            Current::$sqlQuery = $this->importRunBuffer;
             $sqlData[] = $this->importRunBuffer;
         } elseif (ImportSettings::$runQuery) {
             /* Handle rollback from go_sql */
@@ -219,22 +220,27 @@ class Import
 
                 foreach ($queries as $query) {
                     $this->executeQuery($query, $sqlData);
+                    if (self::$hasError) {
+                        break;
+                    }
                 }
             }
 
-            $this->executeQuery($this->importRunBuffer, $sqlData);
+            if (! self::$hasError) {
+                $this->executeQuery($this->importRunBuffer, $sqlData);
+            }
         }
 
         // check length of query unless we decided to pass it to /sql
         // (if $run_query is false, we are just displaying so show
         // the complete query in the textarea)
-        if (! ImportSettings::$goSql && ImportSettings::$runQuery && ! empty($GLOBALS['sql_query'])) {
+        if (! ImportSettings::$goSql && ImportSettings::$runQuery && Current::$sqlQuery !== '') {
             if (
-                mb_strlen($GLOBALS['sql_query']) > 50000
+                mb_strlen(Current::$sqlQuery) > 50000
                 || ImportSettings::$executedQueries > 50
                 || ImportSettings::$maxSqlLength > 1000
             ) {
-                $GLOBALS['sql_query'] = '';
+                Current::$sqlQuery = '';
                 ImportSettings::$sqlQueryDisabled = true;
             }
         }
@@ -248,7 +254,7 @@ class Import
      */
     public function lookForUse(string $buffer): string
     {
-        if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match)) {
+        if (preg_match('@^[\s]*USE[[:space:]]+([\S]+)@i', $buffer, $match) === 1) {
             $db = trim($match[1]);
             $db = trim($db, ';'); // for example, USE abc;
 
@@ -295,15 +301,15 @@ class Import
         if (ImportSettings::$importFile === 'none') {
             // Well this is not yet supported and tested,
             // but should return content of textarea
-            if (mb_strlen($GLOBALS['import_text']) < $size) {
+            if (mb_strlen(self::$importText) < $size) {
                 ImportSettings::$finished = true;
 
-                return $GLOBALS['import_text'];
+                return self::$importText;
             }
 
-            $r = mb_substr($GLOBALS['import_text'], 0, $size);
+            $r = mb_substr(self::$importText, 0, $size);
             ImportSettings::$offset += $size;
-            $GLOBALS['import_text'] = mb_substr($GLOBALS['import_text'], $size);
+            self::$importText = mb_substr(self::$importText, $size);
 
             return $r;
         }
@@ -723,6 +729,8 @@ class Import
      * @param AnalysedColumn[][]|null $analyses      Analyses of the tables
      * @param string[]|null           $additionalSql Additional SQL to be executed
      * @param string[]                $sqlData       List of SQL to be executed
+     * @param string                  $insertMode    The insert mode you can use
+     * @phpstan-param 'INSERT'|'REPLACE'|'INSERT IGNORE' $insertMode
      */
     public function buildSql(
         string $dbName,
@@ -730,6 +738,7 @@ class Import
         array|null $analyses = null,
         array|null $additionalSql = null,
         array &$sqlData = [],
+        string $insertMode = 'INSERT',
     ): void {
         /* Needed to quell the beast that is Message */
         ImportSettings::$importNotice = '';
@@ -822,7 +831,7 @@ class Import
                 break;
             }
 
-            $tempSQLStr = 'INSERT INTO ' . Util::backquote($dbName) . '.'
+            $tempSQLStr = $insertMode . ' INTO ' . Util::backquote($dbName) . '.'
                 . Util::backquote($table->tableName) . ' (';
 
             $tempSQLStr .= implode(', ', array_map(Util::backquote(...), $table->columns));

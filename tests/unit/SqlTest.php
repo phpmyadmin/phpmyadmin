@@ -9,7 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
@@ -51,10 +51,10 @@ class SqlTest extends AbstractTestCase
         $config->settings['AllowThirdPartyFraming'] = false;
         $config->settings['SendErrorReports'] = 'ask';
         $config->settings['ServerDefault'] = 1;
-        $config->settings['DefaultTabDatabase'] = 'structure';
-        $config->settings['DefaultTabTable'] = 'browse';
+        $config->settings['DefaultTabDatabase'] = '/database/structure';
+        $config->settings['DefaultTabTable'] = '/sql';
         $config->settings['ShowDatabasesNavigationAsTree'] = true;
-        $config->settings['NavigationTreeDefaultTabTable'] = 'structure';
+        $config->settings['NavigationTreeDefaultTabTable'] = '/table/structure';
         $config->settings['NavigationTreeDefaultTabTable2'] = '';
         $config->settings['LimitChars'] = 50;
         $config->settings['Confirm'] = true;
@@ -79,10 +79,10 @@ class SqlTest extends AbstractTestCase
     public function testGetSqlWithLimitClause(): void
     {
         // Test environment.
-        $GLOBALS['_SESSION']['tmpval']['pos'] = 1;
-        $GLOBALS['_SESSION']['tmpval']['max_rows'] = 2;
+        $_SESSION['tmpval']['pos'] = 1;
+        $_SESSION['tmpval']['max_rows'] = 2;
 
-        self::assertSame('SELECT * FROM test LIMIT 1, 2 ', $this->callFunction(
+        self::assertSame('SELECT * FROM test LIMIT 1, 2', $this->callFunction(
             $this->sql,
             Sql::class,
             'getSqlWithLimitClause',
@@ -135,7 +135,7 @@ class SqlTest extends AbstractTestCase
     public function testIsAppendLimitClause(): void
     {
         // Test environment.
-        $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
+        $_SESSION['tmpval']['max_rows'] = 10;
 
         self::assertTrue(
             $this->callFunction($this->sql, Sql::class, 'isAppendLimitClause', [
@@ -153,7 +153,7 @@ class SqlTest extends AbstractTestCase
     public function testIsJustBrowsing(): void
     {
         // Test environment.
-        $GLOBALS['_SESSION']['tmpval']['max_rows'] = 10;
+        $_SESSION['tmpval']['max_rows'] = 10;
 
         self::assertTrue(Sql::isJustBrowsing(
             ParseAnalyze::sqlQuery('SELECT * FROM db.tbl', Current::$database)[0],
@@ -598,7 +598,7 @@ class SqlTest extends AbstractTestCase
         $_SESSION['sql_from_query_box'] = true;
         Current::$database = 'sakila';
         Current::$table = 'country';
-        $GLOBALS['sql_query'] = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
+        Current::$sqlQuery = 'SELECT * FROM `sakila`.`country` LIMIT 0, 3;';
         $config = Config::getInstance();
         $config->selectedServer['DisableIS'] = true;
         $config->selectedServer['user'] = 'user';
@@ -607,14 +607,13 @@ class SqlTest extends AbstractTestCase
             false,
             'sakila',
             'different_table',
-            null,
-            null,
-            null,
+            '',
+            '',
             'index.php?route=/sql',
             null,
-            null,
+            '',
             'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
-            null,
+            'SELECT * FROM `sakila`.`country` LIMIT 0, 3;',
         );
         self::assertStringContainsString('Showing rows 0 -  2 (3 total', $actual);
         self::assertStringContainsString('SELECT * FROM `sakila`.`country` LIMIT 0, 3;', $actual);

@@ -7,10 +7,11 @@ namespace PhpMyAdmin\Export;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Core;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
 use PhpMyAdmin\Plugins;
 use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Util;
@@ -20,7 +21,6 @@ use function function_exists;
 use function in_array;
 use function is_array;
 use function is_string;
-use function str_contains;
 use function urldecode;
 
 final class Options
@@ -45,11 +45,9 @@ final class Options
     /**
      * Prints Html For Export Selection Options
      *
-     * @param string $tmpSelect Tmp selected method of export
-     *
      * @return array<int, array{name: string, is_selected: bool}>
      */
-    public function getDatabasesForSelectOptions(string $tmpSelect = ''): array
+    public function getDatabasesForSelectOptions(): array
     {
         /** @var array|string|null $dbSelect */
         $dbSelect = $_POST['db_select'] ?? null;
@@ -72,10 +70,6 @@ final class Options
                 if (in_array($currentDb, $dbSelect)) {
                     $isSelected = true;
                 }
-            } elseif ($tmpSelect !== '') {
-                if (str_contains(' ' . $tmpSelect, '|' . $currentDb . '|')) {
-                    $isSelected = true;
-                }
             } else {
                 $isSelected = true;
             }
@@ -87,7 +81,7 @@ final class Options
     }
 
     /**
-     * @param string         $exportType   export type: server|database|table
+     * @param ExportType     $exportType   export type: server|database|table
      * @param string         $db           selected DB
      * @param string         $table        selected table
      * @param string         $sqlQuery     SQL query
@@ -98,13 +92,15 @@ final class Options
      * @return array<string, mixed>
      */
     public function getOptions(
-        string $exportType,
+        ExportType $exportType,
         string $db,
         string $table,
         string $sqlQuery,
         int|string $numTables,
         int|string $unlimNumRows,
         array $exportList,
+        mixed $formatParam,
+        mixed $whatParam,
     ): array {
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
 
@@ -122,12 +118,11 @@ final class Options
             $templates = is_array($templates) ? $templates : [];
         }
 
-        $default = isset($_GET['what']) ? (string) $_GET['what'] : Plugins::getDefault('Export', 'format');
-        $dropdown = Plugins::getChoice($exportList, $default);
+        $dropdown = Plugins::getChoice($exportList, $this->getFormat($formatParam, $whatParam));
         $tableObject = new Table($table, $db, DatabaseInterface::getInstance());
         $rows = [];
 
-        if ($table !== '' && $numTables === 0 && ! $tableObject->isMerge() && $exportType !== 'raw') {
+        if ($table !== '' && $numTables === 0 && ! $tableObject->isMerge() && $exportType !== ExportType::Raw) {
             $rows = [
                 'allrows' => $_POST['allrows'] ?? null,
                 'limit_to' => $_POST['limit_to'] ?? null,
@@ -153,12 +148,12 @@ final class Options
         $hiddenInputs = [
             'db' => $db,
             'table' => $table,
-            'export_type' => $exportType,
+            'export_type' => $exportType->value,
             'export_method' => $_POST['export_method'] ?? $config->settings['Export']['method'] ?? 'quick',
             'template_id' => $_POST['template_id'] ?? '',
         ];
 
-        if (! empty($GLOBALS['single_table'])) {
+        if (Export::$singleTable) {
             $hiddenInputs['single_table'] = true;
         }
 
@@ -167,7 +162,7 @@ final class Options
         }
 
         return [
-            'export_type' => $exportType,
+            'export_type' => $exportType->value,
             'db' => $db,
             'table' => $table,
             'templates' => [
@@ -208,21 +203,34 @@ final class Options
         ];
     }
 
-    private function getFileNameTemplate(string $exportType, string|null $filename = null): string
+    private function getFormat(mixed $formatParam, mixed $whatParam): string
+    {
+        if (is_string($whatParam) && $whatParam !== '') {
+            return $whatParam;
+        }
+
+        if (is_string($formatParam) && $formatParam !== '') {
+            return $formatParam;
+        }
+
+        return Config::getInstance()->settings['Export']['format'];
+    }
+
+    private function getFileNameTemplate(ExportType $exportType, string|null $filename = null): string
     {
         if ($filename !== null) {
             return $filename;
         }
 
         $config = Config::getInstance();
-        if ($exportType === 'database') {
+        if ($exportType === ExportType::Database) {
             return (string) $config->getUserValue(
                 'pma_db_filename_template',
                 $config->settings['Export']['file_template_database'],
             );
         }
 
-        if ($exportType === 'table') {
+        if ($exportType === ExportType::Table) {
             return (string) $config->getUserValue(
                 'pma_table_filename_template',
                 $config->settings['Export']['file_template_table'],

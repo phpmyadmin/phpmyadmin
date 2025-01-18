@@ -26,20 +26,16 @@ final class CreateController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        /** @var string $exportType */
-        $exportType = $request->getParsedBodyParam('exportType', '');
-        /** @var string $templateName */
-        $templateName = $request->getParsedBodyParam('templateName', '');
-        /** @var string $templateData */
-        $templateData = $request->getParsedBodyParam('templateData', '');
-        /** @var string|null $templateId */
-        $templateId = $request->getParsedBodyParam('template_id');
+        $exportType = $request->getParsedBodyParamAsString('exportType', '');
+        $templateName = $request->getParsedBodyParamAsString('templateName', '');
+        $templateData = $request->getParsedBodyParamAsString('templateData', '');
+        $templateId = $request->getParsedBodyParamAsStringOrNull('template_id');
 
         $exportTemplatesFeature = $this->relation->getRelationParameters()->exportTemplatesFeature;
         if ($exportTemplatesFeature === null) {
-            return null;
+            return $this->response->response();
         }
 
         $template = ExportTemplate::fromArray([
@@ -58,7 +54,7 @@ final class CreateController implements InvocableController
             $this->response->setRequestStatus(false);
             $this->response->addJSON('message', $result);
 
-            return null;
+            return $this->response->response();
         }
 
         $templates = $this->model->getAll(
@@ -77,6 +73,6 @@ final class CreateController implements InvocableController
             ]),
         );
 
-        return null;
+        return $this->response->response();
     }
 }

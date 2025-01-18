@@ -9,9 +9,12 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportLatex;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
@@ -22,6 +25,7 @@ use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DummyResult;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Medium;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -45,14 +49,13 @@ class ExportLatexTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['output_charset_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$outputCharsetConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = true;
+        Export::$saveOnServer = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Current::$table = 'table';
         $this->object = new ExportLatex(
@@ -75,8 +78,8 @@ class ExportLatexTest extends AbstractTestCase
 
     public function testSetProperties(): void
     {
-        $GLOBALS['plugin_param']['export_type'] = '';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Raw;
+        ExportPlugin::$singleTable = false;
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'db',
@@ -419,8 +422,8 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // case 2
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
 
         $method->invoke($this->object, null);
 
@@ -472,27 +475,32 @@ class ExportLatexTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
     public function testExportData(): void
     {
-        $GLOBALS['latex_caption'] = true;
-        $GLOBALS['latex_data_caption'] = 'latex data caption';
-        $GLOBALS['latex_data_continued_caption'] = 'continued caption';
-        $GLOBALS['latex_columns'] = true;
-        $GLOBALS['latex_data_label'] = 'datalabel';
-        $GLOBALS['latex_null'] = 'null';
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['verbose'] = 'verb';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'latex_caption' => 'On',
+                'latex_columns' => 'On',
+                'latex_data_caption' => 'latex data caption',
+                'latex_data_continued_caption' => 'continued caption',
+                'latex_data_label' => 'datalabel',
+                'latex_null' => 'null',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -517,13 +525,21 @@ class ExportLatexTest extends AbstractTestCase
         );
 
         // case 2
-        unset($GLOBALS['latex_columns']);
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'latex_caption' => 'On',
+                'latex_data_caption' => 'latex data caption',
+                'latex_data_continued_caption' => 'continued caption',
+                'latex_data_label' => 'datalabel',
+                'latex_null' => 'null',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
-            'localhost',
             'SELECT * FROM `test_db`.`test_table`;',
         ));
         $result = ob_get_clean();
@@ -591,9 +607,6 @@ class ExportLatexTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
         $this->object->relation = new Relation($dbi);
-        if (isset($GLOBALS['latex_caption'])) {
-            unset($GLOBALS['latex_caption']);
-        }
 
         $relationParameters = RelationParameters::fromArray([
             'relwork' => true,
@@ -605,18 +618,13 @@ class ExportLatexTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['latex_relation' => 'On', 'latex_mime' => 'On', 'latex_comments' => 'On']);
+
+        $this->object->setExportOptions($request, []);
+
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'test',
-                'test',
-                true,
-                true,
-                true,
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'test'));
         $result = ob_get_clean();
 
         //echo $result; die;
@@ -694,17 +702,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'test',
-                'test',
-                true,
-                true,
-                true,
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'test'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -736,13 +734,19 @@ class ExportLatexTest extends AbstractTestCase
 
         DatabaseInterface::$instance = $dbi;
 
-        $GLOBALS['latex_caption'] = true;
-        $GLOBALS['latex_structure_caption'] = 'latexstructure';
-        $GLOBALS['latex_structure_label'] = 'latexlabel';
-        $GLOBALS['latex_structure_continued_caption'] = 'latexcontinued';
         $config = Config::getInstance();
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['verbose'] = 'verb';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'latex_caption' => 'On',
+                'latex_structure_caption' => 'latexstructure',
+                'latex_structure_continued_caption' => 'latexcontinued',
+                'latex_structure_label' => 'latexlabel',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         $relationParameters = RelationParameters::fromArray([
             'db' => 'database',
@@ -752,14 +756,7 @@ class ExportLatexTest extends AbstractTestCase
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
         ob_start();
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'test',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'test'));
         $result = ob_get_clean();
 
         self::assertIsString($result);
@@ -769,14 +766,7 @@ class ExportLatexTest extends AbstractTestCase
         self::assertStringContainsString('caption{latexcontinued}', $result);
 
         // case 4
-        self::assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                'triggers',
-                'test',
-            ),
-        );
+        self::assertTrue($this->object->exportStructure('database', '', 'triggers'));
     }
 
     public function testTexEscape(): void
@@ -785,5 +775,26 @@ class ExportLatexTest extends AbstractTestCase
             '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',
             ExportLatex::texEscape('$%{foo&bar}#_^'),
         );
+    }
+
+    #[DataProvider('providerForGetTranslatedText')]
+    public function testGetTranslatedText(string $text, string $expected): void
+    {
+        self::assertSame($expected, $this->object->getTranslatedText($text));
+    }
+
+    /** @return iterable<array{string, string}> */
+    public static function providerForGetTranslatedText(): iterable
+    {
+        return [
+            ['strTest strTest strTest', 'strTest strTest strTest'],
+            ['strTest strLatexContent strTest', 'strTest Content of table @TABLE@ strTest'],
+            ['strTest strLatexContinued strTest', 'strTest (continued) strTest'],
+            ['strTest strLatexStructure strTest', 'strTest Structure of table @TABLE@ strTest'],
+            [
+                'strTest strLatexStructure strLatexContent strLatexContinued strTest',
+                'strTest Structure of table @TABLE@ Content of table @TABLE@ (continued) strTest',
+            ],
+        ];
     }
 }

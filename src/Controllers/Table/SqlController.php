@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -17,7 +16,7 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\SqlQueryForm;
 use PhpMyAdmin\Url;
-use PhpMyAdmin\Util;
+use PhpMyAdmin\UrlParams;
 
 use function __;
 use function htmlspecialchars;
@@ -35,28 +34,21 @@ class SqlController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] ??= null;
-        $GLOBALS['goto'] ??= null;
-        $GLOBALS['back'] ??= null;
-
         $this->response->addScriptFiles(['makegrid.js', 'vendor/jquery/jquery.uitablefilter.js', 'sql.js']);
 
         $this->pageSettings->init('Sql');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
 
-        if (! $this->response->checkParameters(['db', 'table'])) {
-            return null;
+        if (Current::$database === '') {
+            return $this->response->missingParameterError('db');
         }
 
-        $urlParams = ['db' => Current::$database, 'table' => Current::$table];
-        $GLOBALS['errorUrl'] = Util::getScriptNameForOption(
-            Config::getInstance()->settings['DefaultTabTable'],
-            'table',
-        );
-        $GLOBALS['errorUrl'] .= Url::getCommon($urlParams, '&');
+        if (Current::$table === '') {
+            return $this->response->missingParameterError('table');
+        }
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -64,12 +56,12 @@ class SqlController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No databases selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No databases selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $tableName = TableName::tryFrom($request->getParam('table'));
@@ -78,21 +70,21 @@ class SqlController implements InvocableController
                 $this->response->setRequestStatus(false);
                 $this->response->addJSON('message', Message::error(__('No table selected.')));
 
-                return null;
+                return $this->response->response();
             }
 
             $this->response->redirectToRoute('/', ['reload' => true, 'message' => __('No table selected.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         /**
          * After a syntax error, we return to this script
          * with the typed query in the textarea.
          */
-        $GLOBALS['goto'] = Url::getFromRoute('/table/sql');
-        $GLOBALS['back'] = Url::getFromRoute('/table/sql');
-        $delimiter = $request->getParsedBodyParam('delimiter', ';');
+        UrlParams::$goto = Url::getFromRoute('/table/sql');
+        UrlParams::$back = Url::getFromRoute('/table/sql');
+        $delimiter = $request->getParsedBodyParamAsString('delimiter', ';');
 
         $this->response->addHTML($this->sqlQueryForm->getHtml(
             Current::$database,
@@ -102,6 +94,6 @@ class SqlController implements InvocableController
             htmlspecialchars($delimiter),
         ));
 
-        return null;
+        return $this->response->response();
     }
 }

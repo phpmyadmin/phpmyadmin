@@ -1,5 +1,5 @@
 <form action="{{ url('/sql') }}" method="post" class="card bookmarkQueryForm d-print-none"
-  onsubmit="return ! Functions.emptyCheckTheField(this, 'bkm_fields[bkm_label]');">
+  onsubmit="return ! window.pmaEmptyCheckTheField(this, 'bkm_fields[bkm_label]');">
   {{ get_hidden_inputs() }}
   <input type="hidden" name="db" value="{{ db }}">
   <input type="hidden" name="goto" value="{{ goto }}">

@@ -7,15 +7,17 @@ namespace PhpMyAdmin\Tests\Plugins\Export;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportXml;
+use PhpMyAdmin\Plugins\ExportPlugin;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyMainGroup;
 use PhpMyAdmin\Properties\Options\Groups\OptionsPropertyRootGroup;
 use PhpMyAdmin\Properties\Options\Items\BoolPropertyItem;
 use PhpMyAdmin\Properties\Options\Items\HiddenPropertyItem;
 use PhpMyAdmin\Properties\Plugins\ExportPluginProperties;
-use PhpMyAdmin\Table\Table;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -41,13 +43,12 @@ class ExportXmlTest extends AbstractTestCase
 
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
-        $GLOBALS['output_kanji_conversion'] = false;
-        $GLOBALS['buffer_needed'] = false;
-        $GLOBALS['asfile'] = false;
-        $GLOBALS['save_on_server'] = false;
-        $GLOBALS['plugin_param'] = [];
-        $GLOBALS['plugin_param']['export_type'] = 'table';
-        $GLOBALS['plugin_param']['single_table'] = false;
+        Export::$outputKanjiConversion = false;
+        Export::$bufferNeeded = false;
+        Export::$asFile = false;
+        Export::$saveOnServer = false;
+        ExportPlugin::$exportType = ExportType::Table;
+        ExportPlugin::$singleTable = false;
         Current::$database = 'db';
         Config::getInstance()->selectedServer['DisableIS'] = true;
         $this->object = new ExportXml(
@@ -170,56 +171,76 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportHeader(): void
     {
-        $GLOBALS['xml_export_functions'] = 1;
-        $GLOBALS['xml_export_contents'] = 1;
-        $GLOBALS['output_charset_conversion'] = 1;
-        $GLOBALS['charset'] = 'iso-8859-1';
+        Export::$outputCharsetConversion = true;
+        Current::$charset = 'iso-8859-1';
         $config = Config::getInstance();
         $config->selectedServer['port'] = 80;
         $config->selectedServer['host'] = 'localhost';
         $config->selectedServer['DisableIS'] = false;
-        $GLOBALS['xml_export_tables'] = 1;
-        $GLOBALS['xml_export_triggers'] = 1;
-        $GLOBALS['xml_export_procedures'] = 1;
-        $GLOBALS['xml_export_functions'] = 1;
         Current::$database = 'd<"b';
 
-        $result = [
-            0 => ['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8'],
-            'table' => [null, '"tbl"'],
-        ];
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
+        $functions = [['d<"b', 'fn', 'FUNCTION']];
+        $procedures = [['d<"b', 'pr', 'PROCEDURE']];
 
-        $triggers = [
+        $dbiDummy = $this->createDbiDummy();
+        $dbi = $this->createDatabaseInterface($dbiDummy);
+
+        $dbiDummy->addResult(
+            'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
+            . " FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = 'd<\\\"b' LIMIT 1",
+            [['utf-8', 'utf8_general_ci']],
+            ['DEFAULT_CHARACTER_SET_NAME', 'DEFAULT_COLLATION_NAME'],
+        );
+        $dbiDummy->addResult('SHOW FUNCTION STATUS;', $functions, ['Db', 'Name', 'Type']);
+        $dbiDummy->addResult('SHOW PROCEDURE STATUS;', $procedures, ['Db', 'Name', 'Type']);
+        $dbiDummy->addResult('SHOW CREATE TABLE `d<"b`.`table`', [['table', '"tbl"']]);
+        $dbiDummy->addResult(
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'d<\"b\' AND TABLE_NAME = \'table\'',
+            [],
+        );
+        $dbiDummy->addResult(
+            'SELECT TRIGGER_SCHEMA, TRIGGER_NAME, EVENT_MANIPULATION, EVENT_OBJECT_TABLE,'
+            . ' ACTION_TIMING, ACTION_STATEMENT, EVENT_OBJECT_SCHEMA, EVENT_OBJECT_TABLE, DEFINER FROM'
+            . ' information_schema.TRIGGERS WHERE EVENT_OBJECT_SCHEMA COLLATE utf8_bin= \'d<\"b\' AND'
+            . ' EVENT_OBJECT_TABLE COLLATE utf8_bin = \'table\';',
             [
-                'TRIGGER_SCHEMA' => 'd<"b',
-                'TRIGGER_NAME' => 'trname',
-                'EVENT_MANIPULATION' => 'INSERT',
-                'EVENT_OBJECT_TABLE' => 'table',
-                'ACTION_TIMING' => 'AFTER',
-                'ACTION_STATEMENT' => 'BEGIN END',
-                'EVENT_OBJECT_SCHEMA' => 'd<"b',
-                'DEFINER' => 'test_user@localhost',
+                [
+                    'd<"b',
+                    'trname',
+                    'INSERT',
+                    'table',
+                    'AFTER',
+                    'BEGIN END',
+                    'd<"b',
+                    'test_user@localhost',
+                ],
             ],
-        ];
-        $functions = [['Db' => 'd<"b', 'Name' => 'fn', 'Type' => 'FUNCTION']];
-        $procedures = [['Db' => 'd<"b', 'Name' => 'pr', 'Type' => 'PROCEDURE']];
-
-        $dbi->expects(self::exactly(5))
-            ->method('fetchResult')
-            ->willReturn($result, $result, $triggers, $functions, $procedures);
-
-        $dbi->expects(self::exactly(3))
-            ->method('fetchValue')
-            ->willReturn(false, 'fndef', 'prdef');
-
-        $dbi->expects(self::once())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'd<"b', $dbi));
+            [
+                'TRIGGER_SCHEMA',
+                'TRIGGER_NAME',
+                'EVENT_MANIPULATION',
+                'EVENT_OBJECT_TABLE',
+                'ACTION_TIMING',
+                'ACTION_STATEMENT',
+                'EVENT_OBJECT_SCHEMA',
+                'DEFINER',
+            ],
+        );
+        $dbiDummy->addResult('SHOW CREATE FUNCTION `d<"b`.`fn`', [['fn', 'fndef']], ['name', 'Create Function']);
+        $dbiDummy->addResult('SHOW CREATE PROCEDURE `d<"b`.`pr`', [['pr', 'prdef']], ['name', 'Create Procedure']);
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([
+                'xml_export_contents' => 'On',
+                'xml_export_functions' => 'On',
+                'xml_export_procedures' => 'On',
+                'xml_export_tables' => 'On',
+                'xml_export_triggers' => 'On',
+            ]);
+
+        $this->object->setExportOptions($request, []);
 
         $this->object->setTables([]);
         Current::$table = 'table';
@@ -262,35 +283,31 @@ class ExportXmlTest extends AbstractTestCase
 
         // case 2 with isView as true and false
 
-        unset($GLOBALS['xml_export_contents']);
-        unset($GLOBALS['xml_export_views']);
-        unset($GLOBALS['xml_export_tables']);
-        unset($GLOBALS['xml_export_functions']);
-        unset($GLOBALS['xml_export_procedures']);
-        $GLOBALS['output_charset_conversion'] = 0;
+        Export::$outputCharsetConversion = false;
 
-        $dbi = $this->getMockBuilder(DatabaseInterface::class)
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $result1 = [['DEFAULT_COLLATION_NAME' => 'utf8_general_ci', 'DEFAULT_CHARACTER_SET_NAME' => 'utf-8']];
-        $result2 = ['t1' => [null, '"tbl"']];
-
-        $result3 = ['t2' => [null, '"tbl"']];
-
-        $dbi->expects(self::exactly(3))
-            ->method('fetchResult')
-            ->willReturn($result1, $result2, $result3);
-
-        $dbi->expects(self::exactly(2))
-            ->method('fetchValue')
-            ->willReturn('table', false);
-
-        $dbi->expects(self::any())
-            ->method('getTable')
-            ->willReturn(new Table('table', 'd<"b', $dbi));
+        $dbiDummy->addResult(
+            'SELECT `DEFAULT_CHARACTER_SET_NAME`, `DEFAULT_COLLATION_NAME`'
+            . " FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME` = 'd<\\\"b' LIMIT 1",
+            [['utf-8', 'utf8_general_ci']],
+            ['DEFAULT_CHARACTER_SET_NAME', 'DEFAULT_COLLATION_NAME'],
+        );
+        $dbiDummy->addResult('SHOW CREATE TABLE `d<"b`.`t1`', [['t1', '"tbl"']]);
+        $dbiDummy->addResult(
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'d<\"b\' AND TABLE_NAME = \'t1\'',
+            [],
+        );
+        $dbiDummy->addResult('SHOW CREATE TABLE `d<"b`.`t2`', [['t2', '"tbl"']]);
+        $dbiDummy->addResult(
+            'SELECT 1 FROM information_schema.VIEWS WHERE TABLE_SCHEMA = \'d<\"b\' AND TABLE_NAME = \'t2\'',
+            [],
+        );
 
         DatabaseInterface::$instance = $dbi;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_triggers' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         $this->object->setTables(['t1', 't2']);
 
@@ -322,7 +339,10 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportDBHeader(): void
     {
-        $GLOBALS['xml_export_contents'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_contents' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -334,7 +354,10 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertStringContainsString('&lt;database name=&quot;&amp;amp;db&quot;&gt;', $result);
 
-        $GLOBALS['xml_export_contents'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([]);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportDBHeader('&db'),
@@ -343,7 +366,10 @@ class ExportXmlTest extends AbstractTestCase
 
     public function testExportDBFooter(): void
     {
-        $GLOBALS['xml_export_contents'] = true;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_contents' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
@@ -355,7 +381,10 @@ class ExportXmlTest extends AbstractTestCase
 
         self::assertStringContainsString('&lt;/database&gt;', $result);
 
-        $GLOBALS['xml_export_contents'] = false;
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody([]);
+
+        $this->object->setExportOptions($request, []);
 
         self::assertTrue(
             $this->object->exportDBFooter('&db'),
@@ -365,22 +394,25 @@ class ExportXmlTest extends AbstractTestCase
     public function testExportDBCreate(): void
     {
         self::assertTrue(
-            $this->object->exportDBCreate('testDB', 'database'),
+            $this->object->exportDBCreate('testDB'),
         );
     }
 
     public function testExportData(): void
     {
-        $GLOBALS['xml_export_contents'] = true;
-        $GLOBALS['asfile'] = true;
-        $GLOBALS['output_charset_conversion'] = false;
+        Export::$asFile = true;
+        Export::$outputCharsetConversion = false;
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['xml_export_contents' => 'On']);
+
+        $this->object->setExportOptions($request, []);
 
         ob_start();
         self::assertTrue(
             $this->object->exportData(
                 'test_db',
                 'test_table',
-                'localhost',
                 'SELECT * FROM `test_db`.`test_table`;',
             ),
         );

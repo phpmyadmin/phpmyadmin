@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Server;
 
 use PhpMyAdmin\Controllers\InvocableController;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Server\Plugins;
-use PhpMyAdmin\Url;
 
 use function array_keys;
 use function ksort;
@@ -29,10 +28,8 @@ final class PluginsController implements InvocableController
     ) {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
-        $GLOBALS['errorUrl'] = Url::getFromRoute('/');
-
         if ($this->dbi->isSuperUser()) {
             $this->dbi->selectDb('mysql');
         }
@@ -58,6 +55,6 @@ final class PluginsController implements InvocableController
 
         $this->response->render('server/plugins/index', ['plugins' => $plugins, 'clean_types' => $cleanTypes]);
 
-        return null;
+        return $this->response->response();
     }
 }

@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests;
 
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\ParseAnalyze;
 use PhpMyAdmin\ResponseRenderer;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -21,7 +22,7 @@ class ParseAnalyzeTest extends AbstractTestCase
 
     public function testSqlQuery(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         ResponseRenderer::getInstance()->setAjax(false);
 
         $actual = ParseAnalyze::sqlQuery('SELECT * FROM `sakila`.`actor`', 'sakila_test');
@@ -37,7 +38,7 @@ class ParseAnalyzeTest extends AbstractTestCase
 
     public function testSqlQuery2(): void
     {
-        $GLOBALS['lang'] = 'en';
+        Current::$lang = 'en';
         ResponseRenderer::getInstance()->setAjax(false);
 
         $actual = ParseAnalyze::sqlQuery('SELECT `first_name`, `title` FROM `actor`, `film`', 'sakila');

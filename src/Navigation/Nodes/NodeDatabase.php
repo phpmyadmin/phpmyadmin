@@ -10,8 +10,8 @@ namespace PhpMyAdmin\Navigation\Nodes;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Features\NavigationItemsHidingFeature;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
-use PhpMyAdmin\DatabaseInterface;
 use PhpMyAdmin\Dbal\ConnectionType;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Url;
@@ -52,7 +52,7 @@ class NodeDatabase extends Node
 
         $this->links = [
             'text' => [
-                'route' => Util::getUrlForOption($this->config->settings['DefaultTabDatabase'], 'database'),
+                'route' => $this->config->settings['DefaultTabDatabase'],
                 'params' => ['db' => null],
             ],
             'icon' => ['route' => '/database/operations', 'params' => ['db' => null]],

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Http\Middleware;
 
+use PhpMyAdmin\Current;
 use PhpMyAdmin\Http\ServerRequest;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -34,6 +35,6 @@ final class SqlQueryGlobalSetting implements MiddlewareInterface
             }
         }
 
-        $GLOBALS['sql_query'] = $sqlQuery;
+        Current::$sqlQuery = $sqlQuery;
     }
 }

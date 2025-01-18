@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Twig\Node\Expression;
 
+use Twig\Attribute\FirstClassTwigCallableReady;
 use Twig\Compiler;
 use Twig\Error\SyntaxError;
 use Twig\Node\Expression\AbstractExpression;
@@ -18,6 +19,7 @@ use function trim;
 
 final class TransExpression extends AbstractExpression
 {
+    #[FirstClassTwigCallableReady]
     public function __construct(string $name, Node $arguments, int $lineno)
     {
         parent::__construct(['arguments' => $arguments], ['name' => $name, 'is_defined_test' => false], $lineno);
@@ -62,10 +64,6 @@ final class TransExpression extends AbstractExpression
     {
         $parameters = [];
 
-        /**
-         * @var int|string $name
-         * @var Node $argument
-         */
         foreach ($this->getNode('arguments') as $name => $argument) {
             if (! in_array($name, [0, 1, 2, 'message', 'singular', 'plural', 'count', 'context', 'notes'], true)) {
                 throw $this->unknownArgumentSyntaxError($name);

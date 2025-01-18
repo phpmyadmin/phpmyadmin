@@ -9,12 +9,14 @@ use PhpMyAdmin\Config\PageSettings;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ExportController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Encoding;
+use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\Options;
 use PhpMyAdmin\Export\TemplateModel;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Plugins;
+use PhpMyAdmin\Plugins\ExportType;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
@@ -45,7 +47,7 @@ class ExportControllerTest extends AbstractTestCase
         $config = Config::getInstance();
         $config->selectedServer = $config->getSettings()->Servers[1]->asArray();
         $config->selectedServer['DisableIS'] = true;
-        $GLOBALS['single_table'] = '1';
+        Export::$singleTable = true;
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addResult('SELECT COUNT(*) FROM `test_db`.`test_table`', [['3']]);
@@ -58,7 +60,7 @@ class ExportControllerTest extends AbstractTestCase
         );
         $pageSettings->init('Export');
         $template = new Template();
-        $exportList = Plugins::getExport('table', true);
+        $exportList = Plugins::getExport(ExportType::Table, true);
 
         $expected = $template->render('table/export/index', [
             'export_type' => 'table',

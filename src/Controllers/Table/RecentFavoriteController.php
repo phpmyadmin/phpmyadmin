@@ -26,7 +26,7 @@ final class RecentFavoriteController implements InvocableController
     {
     }
 
-    public function __invoke(ServerRequest $request): Response|null
+    public function __invoke(ServerRequest $request): Response
     {
         try {
             $db = DatabaseName::from($request->getParam('db'));
@@ -34,7 +34,7 @@ final class RecentFavoriteController implements InvocableController
         } catch (InvalidIdentifier) {
             $this->response->redirectToRoute('/', ['message' => __('Invalid database or table name.')]);
 
-            return null;
+            return $this->response->response();
         }
 
         $favoriteTable = new RecentFavoriteTable($db, $table);
@@ -43,6 +43,6 @@ final class RecentFavoriteController implements InvocableController
 
         $this->response->redirectToRoute('/sql', ['db' => $db->getName(), 'table' => $table->getName()]);
 
-        return null;
+        return $this->response->response();
     }
 }

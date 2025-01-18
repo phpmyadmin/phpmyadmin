@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from './modules/ajax.ts';
-import { Functions } from './modules/functions.ts';
+import { suggestPassword } from './modules/functions.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import getJsConfirmCommonParam from './modules/functions/getJsConfirmCommonParam.ts';
 
@@ -108,7 +108,7 @@ AJAX.registerOnload('replication.js', function () {
     });
 
     ($('#button_generate_password') as JQuery<HTMLInputElement>).on('click', function () {
-        Functions.suggestPassword(this.form);
+        suggestPassword(this.form);
     });
 
     ($('#nopass_1') as JQuery<HTMLInputElement>).on('click', function () {

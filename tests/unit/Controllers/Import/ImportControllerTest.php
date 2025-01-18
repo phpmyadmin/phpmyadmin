@@ -10,7 +10,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Import\ImportController;
 use PhpMyAdmin\Current;
-use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Import\Import;
 use PhpMyAdmin\Sql;
@@ -44,9 +44,10 @@ class ImportControllerTest extends AbstractTestCase
         Config::getInstance()->selectedServer['user'] = 'user';
 
         // Some params were not added as they are not required for this test
+        Sql::$showAsPhp = null;
         Current::$database = 'pma_test';
         Current::$table = 'table1';
-        $GLOBALS['sql_query'] = 'SELECT A.*' . "\n"
+        Current::$sqlQuery = 'SELECT A.*' . "\n"
             . 'FROM table1 A' . "\n"
             . 'WHERE A.nomEtablissement = :nomEta AND foo = :1 AND `:a` IS NULL';
 
@@ -55,13 +56,14 @@ class ImportControllerTest extends AbstractTestCase
             ['db', null, Current::$database],
             ['table', null, Current::$table],
             ['parameters', null, [':nomEta' => 'Saint-Louis - Châteaulin', ':1' => '4']],
-            ['sql_query', null, $GLOBALS['sql_query']],
+            ['sql_query', null, Current::$sqlQuery],
         ]);
         $request->method('hasBodyParam')->willReturnMap([
             ['parameterized', true],
             ['rollback_query', false],
             ['allow_interrupt', false],
             ['skip', false],
+            ['show_as_php', false],
         ]);
 
         $this->dummyDbi->addResult(
