@@ -12,7 +12,7 @@ use PhpMyAdmin\Url;
 
 class SpecialSchemaLinks
 {
-    /** @var array<string,
+    /** @var array<'mysql'|'information_schema',
      *   array<string,
      *    array<string,
      *     array{
@@ -33,6 +33,8 @@ class SpecialSchemaLinks
      * special schemas like mysql, information_schema etc.
      * Major element represent a schema.
      * All the strings in this array represented in lower case
+     *
+     * @param 'mysql'|'information_schema' $database
      *
      * @return array{
      *   'link_param': string,
