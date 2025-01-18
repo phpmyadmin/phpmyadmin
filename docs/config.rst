@@ -3358,6 +3358,13 @@ SQL query box settings
 
     Whether to display a link to refresh a query in any SQL Query box.
 
+.. config:option:: $cfg['hideSQLEditorControls']
+
+    :type: boolean
+    :default: true
+
+    Whether to hide SQL Editor buttons in any SQL Query box.
+
 .. _web-dirs:
 
 Web server upload/save/import directories
