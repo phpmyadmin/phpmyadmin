@@ -157,6 +157,12 @@ final class Search
         $backquoted_name = Util::backquote($names);
         $where = '';
         if ($unaryFlag) {
+            if ($func_type === 'EMPTY') {
+                $func_type = "= ''";
+            } elseif ($func_type === 'NOT EMPTY') {
+                $func_type = "!= ''";
+            }
+
             $where = $backquoted_name . ' ' . $func_type;
         } elseif (strncasecmp($types, 'enum', 4) == 0 && ! empty($criteriaValues)) {
             $where = $backquoted_name;
