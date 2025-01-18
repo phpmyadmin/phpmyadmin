@@ -70,7 +70,7 @@ final class RealRowCountController implements InvocableController
         $realRowCountAll = [];
         // Iterate over each table and fetch real row count.
         foreach ($this->dbi->getTables(Current::$database) as $table) {
-            $rowCount = $this->dbi
+            $rowCount = (int) $this->dbi
                 ->getTable(Current::$database, $table)
                 ->getRealRowCountTable();
             $realRowCountAll[] = ['table' => $table, 'row_count' => Util::formatNumber($rowCount, 0)];
