@@ -290,7 +290,6 @@ AJAX.registerOnload('table/select.js', function () {
      * Ajax event handler for Range-Search.
      */
     $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
-        var $sourceSelect = $(this);
         // Get the column name.
         var columnName = $(this)
             .closest('tr')
