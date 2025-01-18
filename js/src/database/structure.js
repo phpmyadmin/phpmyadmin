@@ -161,7 +161,7 @@ DatabaseStructure.fetchRealRowCount = function ($target) {
                     $.each(response.real_row_count_all,
                         function (index, table) {
                             // Update each table row count.
-                            $('table.data td[data-table*="' + table.table + '"]')
+                            $('table.data td[data-table*="' + Functions.escapeJsString(table.table) + '"]')
                                 .text(table.row_count);
                         }
                     );
