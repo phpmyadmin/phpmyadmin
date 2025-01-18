@@ -2084,8 +2084,6 @@ class Results
 
         $rowInfo = $this->getRowInfoForSpecialLinks($row);
 
-        // Load SpecialSchemaLinks for all rows
-        $specialSchemaLinks = SpecialSchemaLinks::get();
         $relationParameters = $this->relation->getRelationParameters();
 
         $columnCount = count($this->fieldsMeta);
@@ -2170,9 +2168,10 @@ class Results
             }
 
             // Check for the predefined fields need to show as link in schemas
-            if (isset($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
+            $specialSchemaLink = SpecialSchemaLinks::get($dbLower, $tblLower, $nameLower);
+            if ($specialSchemaLink !== null) {
                 $linkingUrl = $this->getSpecialLinkUrl(
-                    $specialSchemaLinks[$dbLower][$tblLower][$nameLower],
+                    $specialSchemaLink,
                     $row[$i],
                     $rowInfo,
                 );
