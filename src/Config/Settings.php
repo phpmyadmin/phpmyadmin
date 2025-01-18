@@ -233,6 +233,7 @@ use const VERSION_CHECK_DEFAULT;
  *     Console: ConsoleSettingsType,
  *     DefaultTransformations: TransformationsSettingsType,
  *     FirstDayOfCalendar: int<0, max>,
+ *     hideSQLEditorControls: bool
  * }
  */
 final class Settings
@@ -905,7 +906,6 @@ final class Settings
      * ```php
      * $cfg['hideSQLEditorControls'] = true;
      * ```
-     *
      */
     public bool $hideSQLEditorControls;
 

@@ -3362,8 +3362,7 @@ SQL query box settings
 
     :type: boolean
     :default: false
-    
-     .. versionadded:: 6.0.0
+    .. versionadded:: 6.0.0
 
     Whether to hide SQL Editor buttons in any SQL Query box.
 
