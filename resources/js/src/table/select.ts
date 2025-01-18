@@ -44,6 +44,14 @@ const checkIfDataTypeNumericOrDate = function (dataType) {
 const TableSelect = {
     checkIfDataTypeNumericOrDate: checkIfDataTypeNumericOrDate,
 };
+const UNARY_OPERATORS = [
+    'IS NULL',
+    'IS NOT NULL',
+    '= \'\'',
+    '!= \'\''
+];
+
+const opIsUnary = (op) => UNARY_OPERATORS.includes(op);
 
 /**
  * Unbind all event handlers before tearing down a page
@@ -298,7 +306,15 @@ AJAX.registerOnload('table/select.js', function () {
         dataType = TableSelect.checkIfDataTypeNumericOrDate(dataType);
 
         // Get the operator.
-        var operator = ($(this).val() as string);
+        const operator = ($(this).val() as string);
+        const $targetField = $(this).closest('tr').find('[name*="criteriaValues"]')
+
+        $targetField.prop('disabled', opIsUnary(operator));
+        if (opIsUnary(operator)) {
+            $targetField.siblings('.ui-datepicker-trigger').eq(0).hide();
+        } else {
+            $targetField.siblings('.ui-datepicker-trigger').eq(0).show();
+        }
 
         if ((operator === 'BETWEEN' || operator === 'NOT BETWEEN') && dataType) {
             var $msgbox = ajaxShowMessage();
@@ -344,9 +360,6 @@ AJAX.registerOnload('table/select.js', function () {
                                 finalValue = minValue + ', ' +
                                     maxValue;
                             }
-
-                            var $targetField = $sourceSelect.closest('tr')
-                                .find('[name*="criteriaValues"]');
 
                             // If target field is a select list.
                             if ($targetField.is('select')) {
