@@ -3361,7 +3361,9 @@ SQL query box settings
 .. config:option:: $cfg['hideSQLEditorControls']
 
     :type: boolean
-    :default: true
+    :default: false
+    
+     .. versionadded:: 6.0.0
 
     Whether to hide SQL Editor buttons in any SQL Query box.
 
