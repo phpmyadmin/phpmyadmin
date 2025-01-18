@@ -893,11 +893,6 @@ class StructureController extends AbstractController
      * Get values for CSV table
      *
      * https://bugs.mysql.com/bug.php?id=53929
-     *
-     * @param array $currentTable current table
-     * @param int   $sumSize      sum size
-     *
-     * @return array
      */
     protected function getValuesForCsvTable(
         array $currentTable,
@@ -906,7 +901,7 @@ class StructureController extends AbstractController
         $formattedSize = $unit = '';
 
         if (
-            (in_array($currentTable['ENGINE'], ['CSV'], true)
+            ($currentTable['ENGINE'] === 'CSV'
             && $currentTable['TABLE_ROWS'] < $GLOBALS['cfg']['MaxExactCount'])
             || ! isset($currentTable['TABLE_ROWS'])
         ) {
