@@ -46,6 +46,7 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
             'CaptchaLoginPublicKey',
             'CaptchaLoginPrivateKey',
             'CaptchaSiteVerifyURL',
+            'CaptchaExpectedHostname',
         ];
         $result['Developer'] = ['UserprefsDeveloperTab', 'DBG/sql'];
         $result['Other_core_settings'] = [
