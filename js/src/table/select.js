@@ -286,7 +286,6 @@ AJAX.registerOnload('table/select.js', function () {
      * Ajax event handler for Range-Search.
      */
     $('body').on('change', 'select[name*="criteriaColumnOperators"]', function () { // Fix for bug #13778, changed 'click' to 'change'
-        var $sourceSelect = $(this);
         // Get the column name.
         var columnName = $(this)
             .closest('tr')
@@ -303,7 +302,7 @@ AJAX.registerOnload('table/select.js', function () {
 
         // Get the operator.
         const operator = $(this).val();
-        const $targetField = $(this).closest('tr').find('[name*="criteriaValues"]')
+        const $targetField = $(this).closest('tr').find('[name*="criteriaValues"]');
 
         $targetField.prop('disabled', opIsUnary(operator));
         $targetField.siblings('.ui-datepicker-trigger').eq(0).toggle(!opIsUnary(operator));
