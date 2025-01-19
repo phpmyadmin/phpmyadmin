@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2024-10-13 10:46+0000\n"
+"PO-Revision-Date: 2025-01-19 08:50+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -573,7 +573,7 @@ msgstr "Yapı"
 #: src/Plugins/Export/ExportTexytext.php:424
 #: src/Plugins/Export/Helpers/Pdf.php:330
 msgid "Name"
-msgstr "Adı"
+msgstr "Ad"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:12
 #: resources/templates/database/central_columns/edit.twig:9
@@ -13350,16 +13350,12 @@ msgid "No dependencies selected!"
 msgstr "Seçilen bağımlılıklar yok!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Bu değeri kullan"
+msgstr "İlk değeri girin"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Oturum değeri"
+msgstr "İkinci değeri girin"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
@@ -17618,6 +17614,8 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Sütunun ikili verilerini indirmek için bir bağlantı görüntüler. Dosya adını "
+"belirtmek için seçeneği kullanabilirsiniz."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
