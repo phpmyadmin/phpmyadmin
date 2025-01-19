@@ -55,7 +55,7 @@ final class RealRowCountController implements InvocableController
         // If there is a request to update all table's row count.
         if (! isset($parameters['real_row_count_all'])) {
             // Get the real row count for the table.
-            $realRowCount = (int) $this->dbi
+            $realRowCount = $this->dbi
                 ->getTable(Current::$database, (string) $parameters['table'])
                 ->getRealRowCountTable();
             // Format the number.
