@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2024-11-02 14:53+0000\n"
+"PO-Revision-Date: 2025-01-20 13:00+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13224,16 +13224,12 @@ msgid "No dependencies selected!"
 msgstr "No dependencies selected!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Use this value"
+msgstr "Enter first value"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Session value"
+msgstr "Enter second value"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
@@ -17457,6 +17453,8 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Displays a link to download the binary data of the column. You can use the "
+"option to specify the filename."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
