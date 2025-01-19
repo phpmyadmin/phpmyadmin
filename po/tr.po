@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-09-23 01:33+0000\n"
+"PO-Revision-Date: 2025-01-19 08:50+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -3228,7 +3228,7 @@ msgstr "Eylem"
 #: templates/table/structure/table_structure_header.twig:5
 #: templates/columns_definitions/table_fields_definitions.twig:9
 msgid "Name"
-msgstr "Adı"
+msgstr "Ad"
 
 #: libraries/classes/CentralColumns.php:746
 #: libraries/classes/CentralColumns.php:1428
