@@ -6535,18 +6535,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Binary operation "\." between non\-empty\-string and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Binary operation "\." between string and \(list\<string\>\|string\) results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Binary operation "/" between int and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -6561,7 +6549,7 @@ parameters:
 		-
 			message: '#^Call to function array_filter\(\) requires parameter \#2 to be passed to avoid loose comparison semantics\.$#'
 			identifier: arrayFilter.strict
-			count: 3
+			count: 2
 			path: src/Display/Results.php
 
 		-
@@ -6669,7 +6657,7 @@ parameters:
 		-
 			message: '#^Cannot access property \$expr on PhpMyAdmin\\SqlParser\\Components\\Expression\|null\.$#'
 			identifier: property.nonObject
-			count: 2
+			count: 3
 			path: src/Display/Results.php
 
 		-
@@ -6697,6 +6685,18 @@ parameters:
 			path: src/Display/Results.php
 
 		-
+			message: '#^Cannot access property \$type on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
+			identifier: property.nonObject
+			count: 10
+			path: src/Display/Results.php
+
+		-
+			message: '#^Cannot access property \$value on PhpMyAdmin\\SqlParser\\Token\|null\.$#'
+			identifier: property.nonObject
+			count: 10
+			path: src/Display/Results.php
+
+		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 6
@@ -6711,7 +6711,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 24
+			count: 23
 			path: src/Display/Results.php
 
 		-
@@ -6723,7 +6723,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 8
+			count: 4
 			path: src/Display/Results.php
 
 		-
@@ -6829,12 +6829,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#1 \$offset of method PhpMyAdmin\\Dbal\\ResultInterface\:\:seek\(\) expects int, float\|int given\.$#'
 			identifier: argument.type
 			count: 2
@@ -6907,12 +6901,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#2 \$string2 of function strcasecmp expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6943,25 +6931,13 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 3
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#4 \$database of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#4 \$sortExpressionNoDirection of method PhpMyAdmin\\Display\\Results\:\:getTableHeaders\(\) expects array\<int, string\>, list\<string\|null\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#5 \$sortDirection of method PhpMyAdmin\\Display\\Results\:\:getSingleAndMultiSortUrls\(\) expects array\<string\>, array\<mixed\> given\.$#'
+			message: '#^Parameter \#6 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects array\<mixed\>\|bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
@@ -6973,13 +6949,7 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#8 \$colVisib of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects array\<mixed\>\|bool, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Parameter \#9 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
+			message: '#^Parameter \#7 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Display/Results.php
