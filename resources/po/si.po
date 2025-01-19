@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-12 00:25+0000\n"
+"POT-Creation-Date: 2025-01-19 00:24+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -67,7 +67,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
-#: src/Util.php:1457
+#: src/Util.php:1349
 msgid "Settings"
 msgstr "සිටුවම්"
 
@@ -361,7 +361,7 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:460
+#: src/Controllers/JavaScriptMessagesController.php:458
 msgid "Save"
 msgstr "සුරකින්න"
 
@@ -477,7 +477,7 @@ msgstr "අන්‍ය මූලය තෝරන්න"
 #: src/Navigation/Nodes/NodeColumn.php:30
 #: src/Plugins/Export/ExportHtmlword.php:260
 #: src/Plugins/Export/ExportHtmlword.php:336
-#: src/Plugins/Export/ExportLatex.php:496 src/Plugins/Export/ExportOdt.php:364
+#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:364
 #: src/Plugins/Export/ExportOdt.php:441
 #: src/Plugins/Export/ExportTexytext.php:288
 #: src/Plugins/Export/ExportTexytext.php:352
@@ -611,12 +611,12 @@ msgstr "භාවිතා කරන්නන් කණ්ඩායම"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:723
-#: src/Import/Import.php:1166 src/Menu.php:214 src/Menu.php:318
+#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:284 src/Util.php:1041 src/Util.php:1466
-#: src/Util.php:1483
+#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1039 src/Util.php:1358
+#: src/Util.php:1375
 msgid "Structure"
 msgstr "සැකිල්ල"
 
@@ -661,7 +661,7 @@ msgstr "නම"
 #: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:291
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:339
-#: src/Plugins/Export/ExportLatex.php:497 src/Plugins/Export/ExportOdt.php:367
+#: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
 #: src/Plugins/Export/ExportOdt.php:444
 #: src/Plugins/Export/ExportTexytext.php:289
 #: src/Plugins/Export/ExportTexytext.php:353
@@ -706,7 +706,7 @@ msgstr ""
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:10
 #: src/Plugins/Export/ExportHtmlword.php:269
 #: src/Plugins/Export/ExportHtmlword.php:345
-#: src/Plugins/Export/ExportLatex.php:499 src/Plugins/Export/ExportOdt.php:373
+#: src/Plugins/Export/ExportLatex.php:502 src/Plugins/Export/ExportOdt.php:373
 #: src/Plugins/Export/ExportOdt.php:450
 #: src/Plugins/Export/ExportTexytext.php:291
 #: src/Plugins/Export/ExportTexytext.php:355
@@ -768,7 +768,7 @@ msgstr "ගුණාංග"
 #: resources/templates/table/zoom_search/result_form.twig:34
 #: src/Plugins/Export/ExportHtmlword.php:266
 #: src/Plugins/Export/ExportHtmlword.php:342
-#: src/Plugins/Export/ExportLatex.php:498 src/Plugins/Export/ExportOdt.php:370
+#: src/Plugins/Export/ExportLatex.php:501 src/Plugins/Export/ExportOdt.php:370
 #: src/Plugins/Export/ExportOdt.php:447
 #: src/Plugins/Export/ExportTexytext.php:290
 #: src/Plugins/Export/ExportTexytext.php:354
@@ -796,7 +796,7 @@ msgstr "වරප්‍රසාද හැඩ ගස්වන්න"
 #: resources/templates/table/structure/display_structure.twig:28
 #: src/Config/Descriptions.php:660 src/Config/Descriptions.php:675
 #: src/Config/Descriptions.php:711 src/Plugins/Export/ExportHtmlword.php:355
-#: src/Plugins/Export/ExportLatex.php:505 src/Plugins/Export/ExportOdt.php:460
+#: src/Plugins/Export/ExportLatex.php:508 src/Plugins/Export/ExportOdt.php:460
 #: src/Plugins/Export/ExportTexytext.php:361
 #: src/Plugins/Export/Helpers/Pdf.php:509
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:617
@@ -954,13 +954,13 @@ msgstr "අක්‍රිය"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:508
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/IndexColumn.php:148 src/Index.php:471
 #: src/Plugins/Export/ExportHtmlword.php:562
-#: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
+#: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "Yes"
@@ -996,7 +996,7 @@ msgstr "ඔව්"
 #: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
 #: src/Index.php:445 src/Index.php:471
 #: src/Plugins/Export/ExportHtmlword.php:562
-#: src/Plugins/Export/ExportLatex.php:564 src/Plugins/Export/ExportOdt.php:685
+#: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
 msgid "No"
@@ -1136,11 +1136,11 @@ msgstr "SQL ඉතිහාසය"
 #: resources/templates/database/designer/database_tables.twig:116
 #: resources/templates/database/routines/editor_form.twig:58
 #: resources/templates/table/structure/display_table_stats.twig:97
-#: src/Import/Import.php:1167 src/Import/Import.php:1225
+#: src/Import/Import.php:1170 src/Import/Import.php:1228
 #: src/Plugins/Export/ExportCodegen.php:58 src/Plugins/Export/ExportCsv.php:53
 #: src/Plugins/Export/ExportExcel.php:57
 #: src/Plugins/Export/ExportHtmlword.php:57
-#: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:84
+#: src/Plugins/Export/ExportJson.php:71 src/Plugins/Export/ExportLatex.php:87
 #: src/Plugins/Export/ExportMediawiki.php:48
 #: src/Plugins/Export/ExportOds.php:58 src/Plugins/Export/ExportOdt.php:69
 #: src/Plugins/Export/ExportPdf.php:66 src/Plugins/Export/ExportPhparray.php:45
@@ -1291,7 +1291,7 @@ msgid "Count:"
 msgstr "තීර"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:671
 msgid "Time taken:"
 msgstr ""
 
@@ -1547,7 +1547,7 @@ msgstr "මුද්‍රණය කරන්න"
 
 #: resources/templates/database/data_dictionary/index.twig:27
 #: src/Plugins/Export/ExportHtmlword.php:349
-#: src/Plugins/Export/ExportLatex.php:501 src/Plugins/Export/ExportOdt.php:454
+#: src/Plugins/Export/ExportLatex.php:504 src/Plugins/Export/ExportOdt.php:454
 #: src/Plugins/Export/ExportTexytext.php:357
 #: src/Plugins/Export/Helpers/Pdf.php:501
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:607
@@ -1559,7 +1559,7 @@ msgstr "සම්බන්ද වන්නේ"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:450
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:261
+#: src/Controllers/Server/DatabasesController.php:260
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1643,7 +1643,7 @@ msgid "Page to delete"
 msgstr "සම්බන්දතාවය ඉවත් කරන ලදී"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:552
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
@@ -1668,7 +1668,7 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:544
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
@@ -1683,7 +1683,7 @@ msgstr "නව නාමය"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:550
+#: src/Controllers/JavaScriptMessagesController.php:548
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -1691,7 +1691,7 @@ msgstr "නිදහස් පිටු"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:546
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page"
@@ -1699,7 +1699,7 @@ msgstr "පිටුව තෝරන්න"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:547
 #, fuzzy
 #| msgid "Select page"
 msgid "Save page as"
@@ -1728,7 +1728,7 @@ msgstr "සම්බන්දතාවයක් සාදන්න"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:538
 msgid "Choose column to display"
 msgstr "පෙන්වීම සඳහා තීරය ‍තෝරාගන්න"
 
@@ -1885,7 +1885,7 @@ msgstr "සක්‍රිය විකල්ප"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:565
+#: src/Controllers/JavaScriptMessagesController.php:563
 msgid "Submit"
 msgstr "ඉදිරිපත් කරන්න"
 
@@ -1934,7 +1934,7 @@ msgstr "සිද්ධියේ නම"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:577
 #: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1453
+#: src/Server/Status/Processes.php:96 src/Util.php:1345
 msgid "Status"
 msgstr "තත්වය"
 
@@ -2002,7 +2002,7 @@ msgstr "අර්ථ දක්වන්නා"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1475
+#: src/Util.php:1367
 msgid "Events"
 msgstr "සිද්ධි"
 
@@ -2064,7 +2064,7 @@ msgstr "සියල්ල තෝරාගන්න"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1455 src/Util.php:1470 src/Util.php:1487
+#: src/Util.php:1347 src/Util.php:1362 src/Util.php:1379
 msgid "Export"
 msgstr "අපනයනය"
 
@@ -2154,7 +2154,7 @@ msgstr "වගු"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:258
+#: src/Controllers/Server/DatabasesController.php:257
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
@@ -2168,7 +2168,7 @@ msgstr "වගු"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:260
+#: src/Controllers/Server/DatabasesController.php:259
 msgid "Data"
 msgstr "දත්ත"
 
@@ -2211,7 +2211,7 @@ msgstr "තීර දෙකක් තෝරන්න"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:722
+#: src/Controllers/JavaScriptMessagesController.php:720
 #: src/Controllers/Table/ChangeController.php:212
 msgid "Show"
 msgstr "පෙන්වන්න"
@@ -2241,7 +2241,7 @@ msgid "criteria"
 msgstr "නිර්ණායක:"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1976
+#: src/Util.php:1868
 msgid "Sort"
 msgstr "සුබෙදන්න"
 
@@ -2253,7 +2253,7 @@ msgstr "සුබෙදන්න"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1984 src/Util.php:2001
+#: src/Display/Results.php:1464 src/Util.php:1876 src/Util.php:1893
 msgid "Ascending"
 msgstr "ආරෝහන"
 
@@ -2265,7 +2265,7 @@ msgstr "ආරෝහන"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1989 src/Util.php:2006
+#: src/Display/Results.php:1469 src/Util.php:1881 src/Util.php:1898
 msgid "Descending"
 msgstr "අවරෝහන"
 
@@ -2466,7 +2466,7 @@ msgstr "දාරක නාමය"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:581
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1473 src/Util.php:1489
+#: src/Menu.php:365 src/Util.php:1365 src/Util.php:1381
 msgid "Privileges"
 msgstr "වරප්‍රසාද"
 
@@ -2620,7 +2620,7 @@ msgid "Function"
 msgstr "ශ්‍රිතය"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1474
+#: src/Util.php:1366
 msgid "Routines"
 msgstr "නෛත්‍යක"
 
@@ -2632,8 +2632,8 @@ msgstr "නෛත්‍යක"
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
 #: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:285 src/Util.php:1043
-#: src/Util.php:1468 src/Util.php:1485
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1041
+#: src/Util.php:1360 src/Util.php:1377
 msgid "Search"
 msgstr "සෙවීම"
 
@@ -2745,7 +2745,7 @@ msgstr[1] "<strong>%2$s</strong> තුල ගැලපීම් %1$s කි"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
 #: src/Config/ConfigFile.php:603 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:288 src/Util.php:1045 src/Util.php:1482
+#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1043 src/Util.php:1374
 msgid "Browse"
 msgstr "පිරික්සන්න"
 
@@ -2772,7 +2772,7 @@ msgstr[1] "%s වගු"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1459
+#: src/Server/Status/Data.php:124 src/Util.php:1351
 msgid "Replication"
 msgstr "අනුරූකරණය"
 
@@ -2881,12 +2881,12 @@ msgid "Replace table prefix"
 msgstr "වගු නාම මූලය ප්‍රතිස්ථාපනය කරන්න"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:685
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Copy table with prefix"
 msgstr "නාම මූලය සහිත වගු පිටපත් කරන්න"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1479
+#: src/Menu.php:405 src/Util.php:1371
 msgid "Central columns"
 msgstr "මධ්‍යම තීර"
 
@@ -2917,7 +2917,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
-#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:257
+#: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
 #: src/Plugins/Export/ExportSql.php:928 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
@@ -3043,7 +3043,7 @@ msgstr "අනුරූ කරන ලද"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:523
 #: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:286 src/Util.php:1044 src/Util.php:1486
+#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1042 src/Util.php:1378
 msgid "Insert"
 msgstr "ඇතුල් කරන්න"
 
@@ -3055,7 +3055,7 @@ msgstr "භාවිතා වෙමින් පවතී"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:259 src/Import/Import.php:130
+#: src/Controllers/Server/DatabasesController.php:258 src/Import/Import.php:130
 msgid "Rows"
 msgstr "පේළි"
 
@@ -3074,7 +3074,7 @@ msgstr "ප්‍රමාණය"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:32
-#: src/Controllers/Server/DatabasesController.php:263
+#: src/Controllers/Server/DatabasesController.php:262
 msgid "Overhead"
 msgstr "පිරිවැය"
 
@@ -3222,7 +3222,7 @@ msgstr "අවසන"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:581
 msgid "Show all"
 msgstr "සියල්ල පෙන්වන්න"
 
@@ -3290,7 +3290,7 @@ msgid "Hide browser transformation"
 msgstr "බ්‍රව්සර රූපාන්තරනය සඟවන්න"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Geometry"
 msgstr "ජ්‍යාමිතිය"
 
@@ -3305,7 +3305,7 @@ msgstr "Well Known Binary"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Display/Results.php:2473 src/Html/Generator.php:80
 msgid "Copy"
 msgstr "පිටපත් කරන්න"
@@ -3316,7 +3316,7 @@ msgid "Query results operations"
 msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙයුම්"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:493
 #: src/Export/Export.php:1099
 msgid "Copy to clipboard"
 msgstr ""
@@ -3796,7 +3796,7 @@ msgid "Server connection:"
 msgstr "සේවාදායකයේ සම්බන්ධතාවය:"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:230 src/Plugins/Export/ExportSql.php:766
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:766
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "සේවාදායකයේ අනුවාදය:"
@@ -3898,7 +3898,7 @@ msgstr "ලබාගන්න"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:438
 #: src/Export/Export.php:1122 src/Html/Generator.php:851
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3910,8 +3910,8 @@ msgstr "ආපසු"
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1456 src/Util.php:1471
-#: src/Util.php:1488
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1348 src/Util.php:1363
+#: src/Util.php:1380
 msgid "Import"
 msgstr "ආනයනය"
 
@@ -4047,7 +4047,7 @@ msgid "Taking you to the target site."
 msgstr "අවධානය පිළිබඳ වාර්තාව"
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
-#: src/I18n/LanguageManager.php:998 src/Pdf.php:84
+#: src/Pdf.php:71 src/Pdf.php:91
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:458
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:483
 msgid "Page number:"
@@ -4264,7 +4264,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:600
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Drop files here"
 msgstr ""
 
@@ -4280,7 +4280,7 @@ msgstr "SQL ප්‍රතිළුල"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1451
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1343
 msgid "Databases"
 msgstr "දත්තගබඩා"
 
@@ -4787,7 +4787,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr "යාවත්කාලීන කරන ලද වින්‍යාස ගොනුව පූරණය සඳහා phpMyAdmin වෙත නැවත වරක් ඇතුල් වන්න."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1458
+#: src/Server/Status/Data.php:119 src/Util.php:1350
 msgid "Binary log"
 msgstr "ද්වීමය ලොගය"
 
@@ -4946,7 +4946,7 @@ msgstr "විස්තරය"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:579
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1460
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1352
 msgid "Variables"
 msgstr "විචල්‍යනයන්"
 
@@ -4971,7 +4971,7 @@ msgid "Importing into the current server"
 msgstr "වත්මන් සේවාදායකය තුළට ආනයනය කිරීම"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1462
+#: src/Util.php:1354
 msgid "Plugins"
 msgstr "පේණු"
 
@@ -5737,7 +5737,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:222 src/Plugins/Export/ExportSql.php:755
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:755
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr "දායකයා:"
@@ -5791,7 +5791,7 @@ msgid "Generate password:"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:607
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Generate"
 msgstr "උත්පාදනය කරන්න"
 
@@ -6784,7 +6784,7 @@ msgstr "විමසුම් ප්‍රථිඵල සඳහා මෙහෙ
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
 #: src/Controllers/Table/DeleteRowsController.php:74
-#: src/Controllers/Table/FindReplaceController.php:117
+#: src/Controllers/Table/FindReplaceController.php:118
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
 #: src/Controllers/Table/Maintenance/ChecksumController.php:73
@@ -7140,8 +7140,8 @@ msgstr "අනුපිලිවෙල නැවත සකස් කිරීම
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:494
-#: src/Controllers/JavaScriptMessagesController.php:646
+#: src/Controllers/JavaScriptMessagesController.php:492
+#: src/Controllers/JavaScriptMessagesController.php:644
 #: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1519
 msgid "Ignore"
 msgstr "නොසලකන්න"
@@ -7363,7 +7363,7 @@ msgstr ""
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:591 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1046 src/Util.php:1472 src/Util.php:1490
+#: src/Menu.php:358 src/Util.php:1044 src/Util.php:1364 src/Util.php:1382
 msgid "Operations"
 msgstr "මෙහෙයුම්"
 
@@ -7659,7 +7659,7 @@ msgid "Column %s has been dropped."
 msgstr "%s තීරුව හලන ලදි."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:610
+#: src/Controllers/JavaScriptMessagesController.php:608
 msgid "More"
 msgstr "තවත්"
 
@@ -7730,7 +7730,7 @@ msgid "Effective"
 msgstr "එලදායී"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
-#: src/Controllers/Server/DatabasesController.php:262
+#: src/Controllers/Server/DatabasesController.php:261
 #: src/Controllers/Server/Status/StatusController.php:139
 #: src/Controllers/Server/Status/StatusController.php:189
 msgid "Total"
@@ -7894,7 +7894,7 @@ msgstr "%s ප්‍රේරකයේ අපනයන"
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
 #: src/Plugins/Export/ExportSql.php:1909
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1476 src/Util.php:1492
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1368 src/Util.php:1384
 msgid "Triggers"
 msgstr "ප්‍රේරක"
 
@@ -9486,8 +9486,8 @@ msgstr "වියට්නාම්"
 #: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
 #: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:287 src/Util.php:1042
-#: src/Util.php:1452 src/Util.php:1467 src/Util.php:1484
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1040
+#: src/Util.php:1344 src/Util.php:1359 src/Util.php:1376
 msgid "SQL"
 msgstr "SQL"
 
@@ -9546,7 +9546,7 @@ msgid "Closed"
 msgstr "වසන ලද"
 
 #: src/Config/ConfigFile.php:607
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -9554,7 +9554,7 @@ msgid "Monday"
 msgstr "සඳුදා"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -9562,7 +9562,7 @@ msgid "Tuesday"
 msgstr "අඟහරු‍වදා"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -9570,7 +9570,7 @@ msgid "Wednesday"
 msgstr "බදාදා"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -9578,7 +9578,7 @@ msgid "Thursday"
 msgstr "බ්‍රහස්පතින්දා"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:754
+#: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -9586,7 +9586,7 @@ msgid "Friday"
 msgstr "සිකුරාදා"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:755
+#: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -9594,7 +9594,7 @@ msgid "Saturday"
 msgstr "සෙනසුරාදා"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -9634,7 +9634,7 @@ msgstr "අක්‍රිය"
 #: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
 #: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
 #: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
-#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
 #: src/Plugins/Export/ExportSql.php:267
@@ -9645,7 +9645,7 @@ msgstr "සැකිල්ල"
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
 #: src/Config/ConfigFile.php:742 src/Plugins/Export/ExportHtmlword.php:72
-#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
 #: src/Plugins/Export/ExportSql.php:267
@@ -9656,7 +9656,7 @@ msgstr "දත්ත"
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
 #: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
-#: src/Plugins/Export/ExportLatex.php:110
+#: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
 #: src/Plugins/Export/ExportSql.php:267
@@ -11289,12 +11289,12 @@ msgid "Put columns names in the first row"
 msgstr "තීර නම් පළමු පේළියේ යොදන්න"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
-#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:647
+#: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
 msgid "Columns enclosed with"
 msgstr "තීර ඇවුරුම් සළකුණ"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
-#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:658
+#: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
 msgid "Columns escaped with"
 msgstr "තීර මගහැරීමේ සළකුණ"
 
@@ -11310,12 +11310,12 @@ msgid "Remove CRLF characters within columns"
 msgstr "තීර තුල ඇති CRLF අනුලකුණු ඉවත් කරන්න"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
-#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:632
+#: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
 msgid "Columns terminated with"
 msgstr "තීර වෙන් කිරීමේ සළකුණ"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
-#: src/Plugins/Import/ImportCsv.php:665
+#: src/Plugins/Import/ImportCsv.php:671
 msgid "Lines terminated with"
 msgstr "පේළි අවසන් කිරීමේ සළකුණ"
 
@@ -11338,7 +11338,7 @@ msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
 #: src/Config/Descriptions.php:723 src/Plugins/Export/ExportHtmlword.php:67
-#: src/Plugins/Export/ExportLatex.php:105
+#: src/Plugins/Export/ExportLatex.php:108
 #: src/Plugins/Export/ExportMediawiki.php:58
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:87
@@ -11347,7 +11347,7 @@ msgstr "ගොනු නාම ටෙම්ප්ලේටය"
 msgid "Dump table"
 msgstr "වගු නික්ෂේපනය"
 
-#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:96
+#: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:99
 msgid "Include table caption"
 msgstr "වගු ශිර්ෂ පාඨ ඇතුලත් කරන්න"
 
@@ -11739,8 +11739,8 @@ msgid "Navigation panel width"
 msgstr "යාත්‍රණ පැනලය"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:615
-#: src/Navigation/NavigationTree.php:1296
+#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Navigation/NavigationTree.php:1295
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Link with main panel"
@@ -12361,7 +12361,7 @@ msgid "Missing data for %s"
 msgstr "%s සඳහා දත්ත නොමැත"
 
 #: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:833
+#: src/Controllers/JavaScriptMessagesController.php:831
 msgid "Incorrect value!"
 msgstr "වැරදි අගයකි!"
 
@@ -12673,22 +12673,22 @@ msgid "Incorrect IP address: %s"
 msgstr "වැරදි IP යොමුව: %s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:832
+#: src/Controllers/JavaScriptMessagesController.php:830
 msgid "Not a valid port number!"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ!"
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:830
+#: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Not a positive number!"
 msgstr "ධන සංඛ්‍යාවක් නොවේ!"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:831
+#: src/Controllers/JavaScriptMessagesController.php:829
 msgid "Not a non-negative number!"
 msgstr "ඍණ නොවන සංඛ්‍යාවක් නොවේ!"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:834
+#: src/Controllers/JavaScriptMessagesController.php:832
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "අගය %s ට සමාන හෝ අඩු විය යුතුය!"
@@ -12715,7 +12715,7 @@ msgid ""
 msgstr "%s ගොනුව මෙම පද්ධතියේ නොමැත. වැඩි විස්තර සඳහා %s වෙත යන්න."
 
 #: src/Controllers/Console/Bookmark/AddController.php:39
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:595
 msgid "Failed"
 msgstr "අසාර්ථකයි"
 
@@ -12743,28 +12743,28 @@ msgid "Showing rows %1$s - %2$s."
 msgstr "%1$s - %2$s පේළි පෙන්වමින්."
 
 #. l10n: The user tries to save a page with an existing name in Designer
-#: src/Controllers/Database/DesignerController.php:101
+#: src/Controllers/Database/DesignerController.php:103
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
-#: src/Controllers/Database/DesignerController.php:167
-#: src/Controllers/Database/DesignerController.php:172
+#: src/Controllers/Database/DesignerController.php:169
+#: src/Controllers/Database/DesignerController.php:174
 #: src/Controllers/Database/EventsController.php:48
 #: src/Controllers/Database/ExportController.php:55
 #: src/Controllers/Database/ExportController.php:60
-#: src/Controllers/Database/ImportController.php:58
-#: src/Controllers/Database/ImportController.php:63
+#: src/Controllers/Database/ImportController.php:59
+#: src/Controllers/Database/ImportController.php:64
 #: src/Controllers/Database/RoutinesController.php:74
 #: src/Controllers/Database/RoutinesController.php:93
-#: src/Controllers/Database/SearchController.php:52
-#: src/Controllers/Database/SearchController.php:57
+#: src/Controllers/Database/SearchController.php:51
+#: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
 #: src/Controllers/Database/SqlController.php:57
 #: src/Controllers/Database/StructureController.php:138
 #: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/Structure/FavoriteTableController.php:77
+#: src/Controllers/Database/Structure/FavoriteTableController.php:82
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
 #: src/Controllers/Database/TrackingController.php:54
 #: src/Controllers/Database/TrackingController.php:59
@@ -12781,27 +12781,27 @@ msgstr ""
 #: src/Controllers/Table/AddFieldController.php:164
 #: src/Controllers/Table/ChangeController.php:65
 #: src/Controllers/Table/ChangeController.php:70
-#: src/Controllers/Table/ChartController.php:86
-#: src/Controllers/Table/ChartController.php:91
-#: src/Controllers/Table/ChartController.php:121
-#: src/Controllers/Table/ChartController.php:126
-#: src/Controllers/Table/ChartController.php:200
+#: src/Controllers/Table/ChartController.php:85
+#: src/Controllers/Table/ChartController.php:90
+#: src/Controllers/Table/ChartController.php:120
+#: src/Controllers/Table/ChartController.php:125
+#: src/Controllers/Table/ChartController.php:199
 #: src/Controllers/Table/DeleteConfirmController.php:55
 #: src/Controllers/Table/DeleteConfirmController.php:60
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:71
-#: src/Controllers/Table/FindReplaceController.php:76
-#: src/Controllers/Table/GisVisualizationController.php:60
-#: src/Controllers/Table/GisVisualizationController.php:65
-#: src/Controllers/Table/ImportController.php:66
-#: src/Controllers/Table/ImportController.php:71
+#: src/Controllers/Table/FindReplaceController.php:72
+#: src/Controllers/Table/FindReplaceController.php:77
+#: src/Controllers/Table/GisVisualizationController.php:59
+#: src/Controllers/Table/GisVisualizationController.php:64
+#: src/Controllers/Table/ImportController.php:67
+#: src/Controllers/Table/ImportController.php:72
 #: src/Controllers/Table/IndexesController.php:64
 #: src/Controllers/Table/IndexesController.php:69
 #: src/Controllers/Table/IndexRenameController.php:53
 #: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/SearchController.php:172
-#: src/Controllers/Table/SearchController.php:177
+#: src/Controllers/Table/SearchController.php:173
+#: src/Controllers/Table/SearchController.php:178
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
 #: src/Controllers/Table/StructureController.php:89
@@ -12810,8 +12810,8 @@ msgstr ""
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
 #: src/Controllers/Table/TrackingController.php:71
-#: src/Controllers/Table/ZoomSearchController.php:99
-#: src/Controllers/Table/ZoomSearchController.php:104
+#: src/Controllers/Table/ZoomSearchController.php:100
+#: src/Controllers/Table/ZoomSearchController.php:105
 #: src/Controllers/Triggers/IndexController.php:64
 #: src/Controllers/Triggers/IndexController.php:83
 #: src/Controllers/View/CreateController.php:65
@@ -12859,9 +12859,9 @@ msgstr "%2$s දත්තගබඩාවේ %1$s නමින් සිද්ධ
 msgid "Could not load export plugins, please check your installation!"
 msgstr "අපනයන පේණු පූරණය කල නොහැකි විය, ඔබගේ ස්ථාපනය පරීක්ෂා කර බලන්න!"
 
-#: src/Controllers/Database/ImportController.php:75
-#: src/Controllers/Server/ImportController.php:56
-#: src/Controllers/Table/ImportController.php:100
+#: src/Controllers/Database/ImportController.php:76
+#: src/Controllers/Server/ImportController.php:57
+#: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ආනයනය පේනු පූරණය අසමත් විය. ඔබගේ ස්ථාපිතය පරීක්ෂා කරන්න!"
 
@@ -12900,17 +12900,17 @@ msgstr "ප්‍රේරකයක් සැදීම සඳහා ඔබට �
 #: src/Controllers/Table/AddFieldController.php:178
 #: src/Controllers/Table/ChangeController.php:79
 #: src/Controllers/Table/ChangeController.php:84
-#: src/Controllers/Table/ChartController.php:100
-#: src/Controllers/Table/ChartController.php:105
-#: src/Controllers/Table/ChartController.php:208
+#: src/Controllers/Table/ChartController.php:99
+#: src/Controllers/Table/ChartController.php:104
+#: src/Controllers/Table/ChartController.php:207
 #: src/Controllers/Table/DeleteConfirmController.php:69
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:85
-#: src/Controllers/Table/FindReplaceController.php:90
-#: src/Controllers/Table/ImportController.php:80
-#: src/Controllers/Table/ImportController.php:85
+#: src/Controllers/Table/FindReplaceController.php:86
+#: src/Controllers/Table/FindReplaceController.php:91
+#: src/Controllers/Table/ImportController.php:81
+#: src/Controllers/Table/ImportController.php:86
 #: src/Controllers/Table/IndexesController.php:78
 #: src/Controllers/Table/IndexesController.php:83
 #: src/Controllers/Table/IndexRenameController.php:67
@@ -12920,16 +12920,16 @@ msgstr "ප්‍රේරකයක් සැදීම සඳහා ඔබට �
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:186
-#: src/Controllers/Table/SearchController.php:191
+#: src/Controllers/Table/SearchController.php:187
+#: src/Controllers/Table/SearchController.php:192
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
 #: src/Controllers/Table/StructureController.php:103
 #: src/Controllers/Table/StructureController.php:108
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/Structure/PrimaryController.php:86
-#: src/Controllers/Table/ZoomSearchController.php:113
-#: src/Controllers/Table/ZoomSearchController.php:118
+#: src/Controllers/Table/ZoomSearchController.php:114
+#: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:72
 #, fuzzy
 #| msgid "No tables selected."
@@ -12976,7 +12976,7 @@ msgid ""
 "routine."
 msgstr ""
 
-#: src/Controllers/Database/SearchController.php:64
+#: src/Controllers/Database/SearchController.php:63
 msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
@@ -13001,7 +13001,7 @@ msgstr ""
 msgid "unknown"
 msgstr "නොදන්නා"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:113
+#: src/Controllers/Database/Structure/FavoriteTableController.php:118
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -13058,13 +13058,13 @@ msgstr "වැරදි වර්ගය!"
 msgid "Value for the column \"%s\""
 msgstr "\"%s\" තීරය සඳහා අගයන්"
 
-#: src/Controllers/HomeController.php:93
+#: src/Controllers/HomeController.php:94
 msgid ""
 "You were logged out from one server, to logout completely from phpMyAdmin, "
 "you need to logout from all servers."
 msgstr ""
 
-#: src/Controllers/HomeController.php:190
+#: src/Controllers/HomeController.php:191
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -13073,12 +13073,12 @@ msgstr ""
 "phpMyAdmin හි configuration storage සම්පූර්ණයෙන් සකසා නැති බැවින් යම් විස්තෘත විශේෂාංග "
 "අක්‍රිය වී ඇත. %sඇයිදැයි සොයා බලන්න%s. "
 
-#: src/Controllers/HomeController.php:196
+#: src/Controllers/HomeController.php:197
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 
-#: src/Controllers/HomeController.php:261
+#: src/Controllers/HomeController.php:262
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -13090,7 +13090,7 @@ msgstr ""
 "සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා "
 "ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
-#: src/Controllers/HomeController.php:281
+#: src/Controllers/HomeController.php:282
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -13098,21 +13098,21 @@ msgstr ""
 "ඇතුල් වීමේ කුකියේ වලංගු කාලය phpMyAdmin හි සිටුවා ඇති කුකී වලංගු කාලය ට වඩා අඩු අගයක් ගනී. "
 "මේ හේතුවෙන් ඔබගේ සැසිය phpMyAdmin හි සිටුවා ඇති කාලයට පෙර කල් ඉකුත් විය හැක."
 
-#: src/Controllers/HomeController.php:300
+#: src/Controllers/HomeController.php:301
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:319
+#: src/Controllers/HomeController.php:320
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:329
+#: src/Controllers/HomeController.php:330
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -13120,7 +13120,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:347
+#: src/Controllers/HomeController.php:348
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13132,7 +13132,7 @@ msgstr ""
 "නිර්දේශිතයි. නැතහොත් ඔබගේ සේවාදායකයේ ආරක්ෂාව මෙම වින්‍යස අනවසරයෙන් බාගත කරගන්නන් විසින් "
 "තර්ජනයට ලක්කල හැකිය."
 
-#: src/Controllers/HomeController.php:368
+#: src/Controllers/HomeController.php:369
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13141,14 +13141,14 @@ msgstr ""
 "සේවාදායකය Suhosin සමග ක්‍රියාත්මකයි. මෙමගින් ඇති විය හැකි ගැටළු සම්බන්ධයෙන් %sලියකියවිලි%s "
 "බලන්න."
 
-#: src/Controllers/HomeController.php:382
+#: src/Controllers/HomeController.php:383
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
 
-#: src/Controllers/HomeController.php:437
+#: src/Controllers/HomeController.php:439
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13158,7 +13158,7 @@ msgstr ""
 "mbstring දිගුව නොමැති ව phpMyAdmin හට නිවැරදිව පෙළ බෙදීමට නොහැකි අතර මෙය බලාපොරොත්තු "
 "නොවන ප්‍රතිඵල ගෙන දිය හැක."
 
-#: src/Controllers/HomeController.php:455
+#: src/Controllers/HomeController.php:457
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13224,7 +13224,7 @@ msgstr ""
 "සීමාව වැඩි කිරීමකින් තොරව phpMyAdmin හට මෙම ආනයනය සම්පූර්ණ කිරීමට හැකි නොවන බවය."
 
 #: src/Controllers/Import/ImportController.php:627
-#: src/Controllers/Sql/SqlController.php:144
+#: src/Controllers/Sql/SqlController.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇත."
 
@@ -14149,74 +14149,64 @@ msgid "%d is not valid row number."
 msgstr "%d වලංගු පේළි අංකයක් නොවේ."
 
 #: src/Controllers/JavaScriptMessagesController.php:411
-msgid "No previously auto-saved query is available. Loading default query."
-msgstr ""
-
-#: src/Controllers/JavaScriptMessagesController.php:413
-msgid ""
-"You have a previously saved query. Click Get auto-saved query to load the "
-"query."
-msgstr ""
-
-#: src/Controllers/JavaScriptMessagesController.php:415
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "විචල්‍යය"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:414
 #: src/Normalization.php:949
 msgid "Pick"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:419
+#: src/Controllers/JavaScriptMessagesController.php:415
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "පේළි කිසිවක් තෝරගෙන නැත"
 
-#: src/Controllers/JavaScriptMessagesController.php:420
+#: src/Controllers/JavaScriptMessagesController.php:416
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "දත්තගබඩාවේ සොයන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:422
+#: src/Controllers/JavaScriptMessagesController.php:418
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:421
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "නිදහස් මතකය"
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:424
 msgid "Add primary key"
 msgstr "ප්‍රාථමික මූලය එක් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:425
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "%s ට ප්‍රාථමික මූලයක් එක් කරන ලදි"
 
-#: src/Controllers/JavaScriptMessagesController.php:430
+#: src/Controllers/JavaScriptMessagesController.php:426
 #: src/Normalization.php:256
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "අවධානය පිළිබඳ වාර්තාව"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:427
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:428
 #: src/Normalization.php:512 src/Normalization.php:571
 #: src/Normalization.php:658 src/Normalization.php:731
 #, fuzzy
@@ -14224,257 +14214,269 @@ msgstr ""
 msgid "End of step"
 msgstr "පේළියේ අවසානය"
 
-#: src/Controllers/JavaScriptMessagesController.php:433
+#: src/Controllers/JavaScriptMessagesController.php:429
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:434
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:430
+#: src/Controllers/JavaScriptMessagesController.php:780
 #: src/Normalization.php:344
 msgid "Done"
 msgstr "තෝරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:435
+#: src/Controllers/JavaScriptMessagesController.php:431
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:436
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:434
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:441
+#: src/Controllers/JavaScriptMessagesController.php:437
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
-#: src/Controllers/JavaScriptMessagesController.php:443
+#: src/Controllers/JavaScriptMessagesController.php:439
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:440
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:442
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:448
+#: src/Controllers/JavaScriptMessagesController.php:444
 msgid "Step"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:449
+#: src/Controllers/JavaScriptMessagesController.php:445
 #, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "පහත විමසුම් ක්‍රියාත්මක කරන ලදි:"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:446
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:447
 #, fuzzy
 #| msgid "Add privileges on the following table:"
 msgid "Create the following table"
 msgstr "පහත වගුවට වරප්‍රසාද එක් කරන්න:"
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:450
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:456
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:457
+#: src/Controllers/JavaScriptMessagesController.php:453
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "දත්තගබඩාවක් තෝරාගෙන නොමැත."
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:454
+#, fuzzy
+#| msgid "Use this value"
+msgid "Enter first value"
+msgstr "මෙම අගය භාවිතා කරන්න"
+
+#: src/Controllers/JavaScriptMessagesController.php:455
+#, fuzzy
+#| msgid "Session value"
+msgid "Enter second value"
+msgstr "සැසි අගය"
+
+#: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
 msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Show search criteria"
 msgstr "සෙවුම් නිර්ණායක පෙන්වන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:465
+#: src/Controllers/JavaScriptMessagesController.php:463
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column maximum:"
 msgstr "තීර නම්: "
 
-#: src/Controllers/JavaScriptMessagesController.php:466
+#: src/Controllers/JavaScriptMessagesController.php:464
 #, fuzzy
 #| msgid "Column names: "
 msgid "Column minimum:"
 msgstr "තීර නම්: "
 
-#: src/Controllers/JavaScriptMessagesController.php:469
+#: src/Controllers/JavaScriptMessagesController.php:467
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "සෙවුම් නිර්ණායක සඟවන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:470
+#: src/Controllers/JavaScriptMessagesController.php:468
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "සෙවුම් නිර්ණායක පෙන්වන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:472
 msgid "Each point represents a data row."
 msgstr "එක් ලක්ෂ්‍යයකින් දත්ත පේළියක් නියෝජනය කෙරේ."
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:474
 msgid "Hovering over a point will show its label."
 msgstr "ලක්ෂ්‍යයක් මතින් ගමන් කරන විට එහි ලේබලය පෙන්නුම් කරයි."
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:476
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "තුළු සූමකරණය සඳහා ප්‍රස්ථාරයේ කොටසක් මූසිකය ආධාරයෙන් තෝරන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:478
 msgid "Click reset zoom button to come back to original state."
 msgstr "පෙර තත්ත්වයට පැමිණීම සඳහා සූමකරණය ප්‍රතිසකසන බොත්තම ක්ලික් කරන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:480
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "පේළියක දත්ත පරීකෂා කිරීමට හා සමහරක් දත්ත වෙනස් කිරීමට ලක්ෂ්‍යයක් මත ක්ලික් කරන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:484
+#: src/Controllers/JavaScriptMessagesController.php:482
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "ප්‍රස්තාරයෙහි විශාලත්වය පහළ දකුණු කොණෙන් ඇදීමෙන් වෙනස් කල හැක."
 
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:485
 msgid "Select two columns"
 msgstr "තීර දෙකක් තෝරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:487
 msgid "Select two different columns"
 msgstr "එකිනෙකට වෙනස් තීර දෙකක් තෝරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:491
+#: src/Controllers/JavaScriptMessagesController.php:489
 msgid "Data point content"
 msgstr "ලක්ෂයට අදාල දත්ත"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:495
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Point"
 msgstr "ලක්ෂ්‍යය"
 
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Linestring"
 msgstr "රේඛාව"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Polygon"
 msgstr "බහු අස්‍රය"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:501
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "ඇතුලත කවය"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:502
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "පිටත කවය:"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Add a point"
 msgstr "ලක්ෂ්‍යයක් එක් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Add a linestring"
 msgstr "රේඛාවක් එක් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:505
 msgid "Add an inner ring"
 msgstr "ඇතුල් කවයක් එක් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Add a polygon"
 msgstr "බහු අස්‍රයක් එක් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Add geometry"
 msgstr "ජ්‍යාමිතියක් එක් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:511
+#: src/Controllers/JavaScriptMessagesController.php:509
 msgid "Do you want to copy encryption key?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:512
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Encryption key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:515
+#: src/Controllers/JavaScriptMessagesController.php:513
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:520
+#: src/Controllers/JavaScriptMessagesController.php:518
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:526
+#: src/Controllers/JavaScriptMessagesController.php:524
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:532
+#: src/Controllers/JavaScriptMessagesController.php:530
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:535
 msgid "Select referenced key"
 msgstr "සම්බන්දිත මූලය තෝරන්න"
 
 # ප්‍රාථමික මූලය = Primary key. Source: Glossary of Information Technology
 # Terms - ICTA
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid "Select Foreign Key"
 msgstr "අන්‍ය මූලය තෝරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:539
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Please select the primary key or a unique key!"
 msgstr "කරුණාකර ප්‍රාථමික මූලය හෝ අනුපම මූලයක් තෝරන්න!"
 
-#: src/Controllers/JavaScriptMessagesController.php:542
+#: src/Controllers/JavaScriptMessagesController.php:540
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -14482,106 +14484,106 @@ msgstr ""
 "සැලැස්මේ සිදුකල වෙනස්කම් සුරැකීම සිදුකර නැත. සුරැකීම සිදු නොකළහොත් ඒවා අහිමි වනු ඇත. ඉදිරියට "
 "යන්න?"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:543
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Page name"
 msgstr "පිටුවේ නම"
 
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:549
 #, fuzzy
 #| msgid "Select page"
 msgid "Delete page"
 msgstr "පිටුව තෝරන්න"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:551
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:553
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "සංස්කරණය සඳහා පිටුවක් තෝරාගන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:554
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:559
+#: src/Controllers/JavaScriptMessagesController.php:557
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "ක්‍රමානුරූපය සංස්කරණය හෝ අපනයනය කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:560
+#: src/Controllers/JavaScriptMessagesController.php:558
 msgid "Modifications have been saved"
 msgstr "වෙනස් කිරීම් සුරකින ලදි"
 
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:561
 #, php-format
 msgid "%d object(s) created."
 msgstr "වස්තූන් %d ක් නිමැවිණි."
 
-#: src/Controllers/JavaScriptMessagesController.php:564
+#: src/Controllers/JavaScriptMessagesController.php:562
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "තීර නම්"
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:566
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "සංස්කරණය අවලංගු කිරීමට escape ඔබන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:570
+#: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
 msgstr "ඔබ සංස්කරණය කල දත්ත සුරැකී නැත. දත්ත සුරැකීමෙන් තොරව මෙම පිටුවෙන් ඉවත් වීමට අවශ්‍යද?"
 
-#: src/Controllers/JavaScriptMessagesController.php:573
+#: src/Controllers/JavaScriptMessagesController.php:571
 msgid "Drag to reorder."
 msgstr "අනුපිලිවෙල නැවත සකස් කිරීමට අදින්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:576
+#: src/Controllers/JavaScriptMessagesController.php:574
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:578
 msgid "Click to mark/unmark."
 msgstr "සලකුණු කිරීමට/ ඉවත් කිරීමට ක්ලික් කරන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "Double-click to copy column name."
 msgstr "තීර නාමය පිටපත් කිරීම සඳහා ද්වි ක්ලික් කරන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:582
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgstr "තීර පෙන්වීමට/සැඟවීමට<br>ඊතලය ක්ලික් කරන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:585
+#: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -14589,79 +14591,79 @@ msgstr ""
 "මෙම වගුවෙහි අනුපම තීරුවක් නැත. සුරැකීමෙන් අනතුරුව වෙනස් කිරීමට, පිටපත් කිරීමට, මකා දැමීමට අදාළ "
 "ඇඳීම් ක්‍රියා විරහිත වනු ඇත."
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:586
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:588
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:592
+#: src/Controllers/JavaScriptMessagesController.php:590
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "මුල් පිහිටුම"
 
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:593
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "අවලංගු කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:594
 #: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "අත්හැර දමන ලදි"
 
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Success"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:597
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "ආනයන පෙරනිමි"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:599
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "වගු තෝරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:603
+#: src/Controllers/JavaScriptMessagesController.php:601
 #, fuzzy
 #| msgid "Go to link."
 msgid "Go to link:"
 msgstr "සබැඳීම වෙත යන්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:606
+#: src/Controllers/JavaScriptMessagesController.php:604
 msgid "Generate password"
 msgstr "මුරපදය උත්පාදනය කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:611
 #, fuzzy
 #| msgid "Show Panel"
 msgid "Show panel"
 msgstr "පැනලය පෙන්වන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:612
 #, fuzzy
 #| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "පැනලය සඟවන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:616
-#: src/Navigation/NavigationTree.php:1299
+#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Navigation/NavigationTree.php:1298
 #, fuzzy
 #| msgid "Customize main panel"
 msgid "Unlink from main panel"
 msgstr "ප්‍රධාන පැනලය රිසි සේ සකසන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:620 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:618 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -14671,130 +14673,130 @@ msgstr ""
 "අනුවාදය %s අනුවාදයයි (%s දින නිකුත් කරන ලද)."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:622
 msgid ", latest stable version:"
 msgstr ", නවතම ස්ථායි අනුවාදය:"
 
-#: src/Controllers/JavaScriptMessagesController.php:625
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid "up to date"
 msgstr "යාවත්කාලීන"
 
-#: src/Controllers/JavaScriptMessagesController.php:626
+#: src/Controllers/JavaScriptMessagesController.php:624
 #, fuzzy
 #| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "\"%s\" ESRI shape ගොනුව ආනයනය කිරීමේදී දෝෂයක් ඇති විය."
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:627
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:628
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "සිටුවම් වෙනස් කිරීම"
 
-#: src/Controllers/JavaScriptMessagesController.php:631
+#: src/Controllers/JavaScriptMessagesController.php:629
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "විවෘත වගු පෙන්වන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:632
+#: src/Controllers/JavaScriptMessagesController.php:630
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:635
+#: src/Controllers/JavaScriptMessagesController.php:633
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:641
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:639
+#: src/Controllers/JavaScriptMessagesController.php:652
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:643
+#: src/Controllers/JavaScriptMessagesController.php:641
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:649
+#: src/Controllers/JavaScriptMessagesController.php:647
 #: src/Error/ErrorHandler.php:413
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "නොසලකන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:656
+#: src/Controllers/JavaScriptMessagesController.php:654
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:662
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Successfully copied!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:663
+#: src/Controllers/JavaScriptMessagesController.php:661
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "දත්තගබඩාව පිටපත් කෙරෙමින්"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:664
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "මෙම විමසුම මෙහි නැවත පෙන්වන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:665
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "\"%s\" ක්‍රියාත්මක කිරීමට ඔබට ඇත්තෙන්ම අවශ්‍යද?"
 
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:667
 #, fuzzy, php-format
 #| msgid "Executed queries"
 msgid "%s queries executed %s times in %s seconds."
 msgstr "ක්‍රියාත්මක කරන ලද විමසුම්"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:668
 #, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:669
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "වගු විස්තර"
 
-#: src/Controllers/JavaScriptMessagesController.php:672
+#: src/Controllers/JavaScriptMessagesController.php:670
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "සෙවුම් ප්‍රතිඵල සඟවන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:675
+#: src/Controllers/JavaScriptMessagesController.php:673
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -14803,58 +14805,58 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:680
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "වෙත දත්තගබඩාව පිටවත් කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:681
 #, fuzzy
 #| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "වගු නාම මූලයක් එක් කරන්න:"
 
-#: src/Controllers/JavaScriptMessagesController.php:684
+#: src/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "වගු නාම මූලය ප්‍රතිස්ථාපනය කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:686
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:691
+#: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:692
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:694
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:698
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -14862,39 +14864,39 @@ msgid "Unknown security key error."
 msgstr "හඳුනා නොගත් දෝෂය"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:700
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:702
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:706
+#: src/Controllers/JavaScriptMessagesController.php:704
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "වැරදි අපනයන වර්ගයකි"
 
-#: src/Controllers/JavaScriptMessagesController.php:709
+#: src/Controllers/JavaScriptMessagesController.php:707
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:714
+#: src/Controllers/JavaScriptMessagesController.php:712
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:719
+#: src/Controllers/JavaScriptMessagesController.php:717
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -14902,278 +14904,278 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "%s වගුව දැනටමත් පවතී!"
 
-#: src/Controllers/JavaScriptMessagesController.php:721 src/InsertEdit.php:275
+#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:275
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "සඟවන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:723
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "ජනවාරි"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "පෙබරවාරි"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "මාර්තු"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "අ‍ප්‍රේල්"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "මැයි"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "ජුනි"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "ජූලි"
 
-#: src/Controllers/JavaScriptMessagesController.php:732
+#: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "අගෝස්තු"
 
-#: src/Controllers/JavaScriptMessagesController.php:733
+#: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "සැප්තැම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:734
+#: src/Controllers/JavaScriptMessagesController.php:732
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "ඔක්තෝම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:735
+#: src/Controllers/JavaScriptMessagesController.php:733
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "නොවැම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:736
+#: src/Controllers/JavaScriptMessagesController.php:734
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "දෙසැම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:495
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:495
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "ජනවාරි"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:496
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:496
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "පෙබරවාරි"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:497
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "මාර්තු"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:498
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "අ‍ප්‍රේල්"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:499
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "මැයි"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:500
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "ජුනි"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:501
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "ජූලි"
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:502
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "අගෝස්තු"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:503
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "සැප්තැම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:504
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "ඔක්තෝම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:505
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "නොවැම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:748 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:506
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "දෙසැම්බර්"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:509
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "ඉරිදා"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:510
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "සඳුදා"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:511
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "අඟහ"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:512
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "බදාදා"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:513
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "බ්‍රහස්"
 
-#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:514
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "සිකුරා"
 
-#: src/Controllers/JavaScriptMessagesController.php:762 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:515
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "සෙනසු"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:761
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "ඉරි"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "සඳු"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "අඟ"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "බදා"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "බ්‍රහ"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "සිකු"
 
-#: src/Controllers/JavaScriptMessagesController.php:769
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "සෙන"
 
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -15181,13 +15183,13 @@ msgid "Wk"
 msgstr "සති"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:770
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -15195,49 +15197,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "කිසිවක් නැත"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "කාලය"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "පැය"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "මිනිත්තු"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "තත්පර"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "තත්පර"
 
-#: src/Controllers/JavaScriptMessagesController.php:779
+#: src/Controllers/JavaScriptMessagesController.php:777
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "තප්පරයකට"
 
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgctxt "Chart type"
 #| msgid "Timeline"
@@ -15246,7 +15248,7 @@ msgid "Time zone"
 msgstr "කාලරාමු"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:782
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -15255,130 +15257,130 @@ msgid "Prev"
 msgstr "පෙර"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:784
 msgctxt "Next month"
 msgid "Next"
 msgstr "මීලඟ"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:788
+#: src/Controllers/JavaScriptMessagesController.php:786
 msgid "Today"
 msgstr "අද දින"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:789
 msgid "This field is required"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:790
 #, fuzzy
 #| msgid "Use text field"
 msgid "Please fix this field"
 msgstr "පෙළ ක්ෂේත්‍ර භාවිතා කරන්න"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:791
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:792
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:793
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:795
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:798
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:800
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:802
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:804
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:807
+#: src/Controllers/JavaScriptMessagesController.php:805
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:806
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "වලංගු පොර්ට් අංකයක් නොවේ"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:810
+#: src/Controllers/JavaScriptMessagesController.php:808
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:813
+#: src/Controllers/JavaScriptMessagesController.php:811
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:816
 #, fuzzy
 #| msgid ""
 #| "The file being uploaded is probably larger than the maximum allowed size "
@@ -15390,35 +15392,35 @@ msgstr ""
 "මෙය ඔබ උඩුගත කරන ගොනුව අවසරැති ප්‍රමාණයට වඩා විශාල වීම හෝ webkit මූලික කරගත් බ්‍රව්සර වල "
 "(Safari, Google Chrome, Arora etc.) හඳුනාගත් දෝෂයක් විය හැක."
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:818
 #, php-format
 msgid "%s of %s"
 msgstr "%s/%s"
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:819
 #, php-format
 msgid "%s/sec."
 msgstr "%s/තත්පර."
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:820
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "තවත් මිනිත්තු %MIN තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
 
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:821
 msgid "About %SEC sec. remaining."
 msgstr "තවත් තත්පර %SEC ක් පමණ ඉතිරිව ඇත."
 
-#: src/Controllers/JavaScriptMessagesController.php:824
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "The file is being processed, please be patient."
 msgstr "ඔබගේ ගොනුව සැකසෙමින් පවතී. කරුණාකර ඉවසා සිටින්න."
 
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:823
 #, fuzzy
 #| msgid "Uploading your import file…"
 msgid "Uploading your import file…"
 msgstr "ඔබගේ ආනයන ගොනුව උඩුගත කෙරෙමින්…"
 
-#: src/Controllers/JavaScriptMessagesController.php:827
+#: src/Controllers/JavaScriptMessagesController.php:825
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -16203,12 +16205,12 @@ msgstr "වැරදි දත්ත"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:214 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "%s පොත් සලකුණ සාදන ලදි."
 
-#: src/Controllers/Sql/SqlController.php:221
+#: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
 msgstr "පොත් සලකුණ නොසාදන ලදි!"
 
@@ -16229,16 +16231,16 @@ msgstr "%1$s වගුව සාර්ථකව වෙනස් කරන ලද
 msgid "No row selected."
 msgstr "පේළි කිසිවක් තෝරගෙන නැත"
 
-#: src/Controllers/Table/ChartController.php:57
-#: src/Controllers/Table/GisVisualizationController.php:77
+#: src/Controllers/Table/ChartController.php:56
+#: src/Controllers/Table/GisVisualizationController.php:76
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:164
+#: src/Controllers/Table/ChartController.php:163
 msgid "No numeric columns present in the table to plot."
 msgstr ""
 
-#: src/Controllers/Table/ChartController.php:235
+#: src/Controllers/Table/ChartController.php:234
 msgid "No data to display"
 msgstr "පෙන්වීම සඳහා දත්ත නොමැත"
 
@@ -16293,7 +16295,7 @@ msgstr "උඩුගත කිරීම සඳහා ගොනු නොමැ�
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL හිස් ප්‍රතිඵල කුලකයක් (පේළි කිසිවක් අඩංගු නොවන) සපයන ලදි."
 
-#: src/Controllers/Table/GisVisualizationController.php:99
+#: src/Controllers/Table/GisVisualizationController.php:98
 #, fuzzy
 #| msgid "%s has been disabled for this MySQL server."
 msgid "No spatial column found for this SQL query."
@@ -16521,7 +16523,7 @@ msgstr "ගොනුව කියවිය නොහැක!"
 msgid "Internal relationship has been removed."
 msgstr "අභ්‍යන්තර සබඳතා එක් කරන ලදි"
 
-#: src/Database/Designer.php:111
+#: src/Database/Designer.php:112
 #, fuzzy
 #| msgid "Could not load import plugins, please check your installation!"
 msgid "Could not load schema plugins, please check your installation!"
@@ -17308,44 +17310,44 @@ msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැන�
 msgid "The trigger name cannot end with a space character."
 msgstr "වචන වෙන් කෙරෙන්නේ හිස් තැනකිනි(\" \")."
 
-#: src/Import/Import.php:948
+#: src/Import/Import.php:951
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
 
-#: src/Import/Import.php:1170
+#: src/Import/Import.php:1173
 #, php-format
 msgid "Go to table: %s"
 msgstr "%s වගුව වෙත යන්න"
 
-#: src/Import/Import.php:1178
+#: src/Import/Import.php:1181
 #, php-format
 msgid "Structure of %s"
 msgstr "%s හි සැකිල්ල"
 
-#: src/Import/Import.php:1185 src/Import/Import.php:1234
+#: src/Import/Import.php:1188 src/Import/Import.php:1237
 #, php-format
 msgid "Edit settings for %s"
 msgstr "%s සඳහා සිටුවම් සංස්කරණය කරන්න"
 
-#: src/Import/Import.php:1196
+#: src/Import/Import.php:1199
 #, php-format
 msgid "Go to view: %s"
 msgstr "%s දසුන වෙත යන්න"
 
-#: src/Import/Import.php:1217
+#: src/Import/Import.php:1220
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "පහත සැකිලි අලුතින් සාදා හෝ වෙනස් කර ඇත. මෙහිදී ඔබට:"
 
-#: src/Import/Import.php:1219
+#: src/Import/Import.php:1222
 #, fuzzy
 #| msgid "View a structure's contents by clicking on its name"
 msgid "View a structure's contents by clicking on its name."
 msgstr "සැකිල්ලක අන්තර්ගතය එහි නම මත ක්ලික් කිරීමෙන් බලන්න"
 
-#: src/Import/Import.php:1220
+#: src/Import/Import.php:1223
 #, fuzzy
 #| msgid ""
 #| "Change any of its settings by clicking the corresponding \"Options\" link"
@@ -17353,13 +17355,13 @@ msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr "අදාල \"විකල්ප\" සබැඳිය මත ක්ලික් කිරීමෙන් එහි ඕනෑම සිටුවමක් වෙනස් කරන්න"
 
-#: src/Import/Import.php:1221
+#: src/Import/Import.php:1224
 #, fuzzy
 #| msgid "Edit structure by following the \"Structure\" link"
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "\"සැකිල්ල\" සබැඳිය ඔස්සේ යාමෙන් සැකිල්ල සංස්කරණය කරන්න"
 
-#: src/Import/Import.php:1228
+#: src/Import/Import.php:1231
 #, php-format
 msgid "Go to database: %s"
 msgstr "%s දත්තගබඩාව වෙත යන්න"
@@ -17394,7 +17396,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1477 src/Util.php:1491
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1369 src/Util.php:1383
 msgid "Tracking"
 msgstr "අවධානය"
 
@@ -17402,11 +17404,11 @@ msgstr "අවධානය"
 msgid "Database seems to be empty!"
 msgstr "දත්තගබඩාව හිස්ය!"
 
-#: src/Menu.php:335 src/Util.php:1469
+#: src/Menu.php:335 src/Util.php:1361
 msgid "Query"
 msgstr "විමසුම"
 
-#: src/Menu.php:398 src/Util.php:1478
+#: src/Menu.php:398 src/Util.php:1370
 msgid "Designer"
 msgstr "සැලසුම්කරණය"
 
@@ -17414,11 +17416,11 @@ msgstr "සැලසුම්කරණය"
 msgid "User accounts"
 msgstr "භාවිත ගිණුම්"
 
-#: src/Menu.php:508 src/Util.php:1461
+#: src/Menu.php:508 src/Util.php:1353
 msgid "Charsets"
 msgstr "අක්ෂර කට්ටලය"
 
-#: src/Menu.php:513 src/Util.php:1463
+#: src/Menu.php:513 src/Util.php:1355
 msgid "Engines"
 msgstr "යන්ත්‍රයන්"
 
@@ -17473,26 +17475,26 @@ msgstr "ක්‍රියාපටිපාටි"
 msgid "Views:"
 msgstr "දසුන්"
 
-#: src/Navigation/NavigationTree.php:745
+#: src/Navigation/NavigationTree.php:744
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: src/Navigation/NavigationTree.php:809
+#: src/Navigation/NavigationTree.php:808
 #, fuzzy
 #| msgid "Column names: "
 msgid "Groups"
 msgstr "තීර නම්: "
 
-#: src/Navigation/NavigationTree.php:916
+#: src/Navigation/NavigationTree.php:915
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Navigation/NavigationTree.php:1291
+#: src/Navigation/NavigationTree.php:1290
 msgid "Collapse all"
 msgstr ""
 
@@ -17867,7 +17869,7 @@ msgstr "වගුවෙහි නම හිස්ව ඇත!"
 msgid "This table is a view, it can not be truncated."
 msgstr ""
 
-#: src/Pdf.php:139
+#: src/Pdf.php:146
 msgid "Error while creating PDF:"
 msgstr "PDF සැදීමේදී දෝෂ:"
 
@@ -17969,7 +17971,7 @@ msgstr "පේළි අවසන් කිරීමේ සළකුණ:"
 
 #: src/Plugins/Export/ExportCsv.php:85 src/Plugins/Export/ExportExcel.php:69
 #: src/Plugins/Export/ExportHtmlword.php:87
-#: src/Plugins/Export/ExportLatex.php:200 src/Plugins/Export/ExportOds.php:70
+#: src/Plugins/Export/ExportLatex.php:203 src/Plugins/Export/ExportOds.php:70
 #: src/Plugins/Export/ExportOdt.php:138
 #: src/Plugins/Export/ExportTexytext.php:90
 msgid "Replace NULL with:"
@@ -17984,7 +17986,7 @@ msgid "Excel edition:"
 msgstr "එක්සෙල් සංස්කරණය:"
 
 #: src/Plugins/Export/ExportHtmlword.php:81
-#: src/Plugins/Export/ExportLatex.php:171 src/Plugins/Export/ExportOdt.php:127
+#: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:127
 #: src/Plugins/Export/ExportTexytext.php:79
 #: src/Plugins/Export/ExportXml.php:129
 msgid "Data dump options"
@@ -18034,61 +18036,61 @@ msgstr "(ඉදිරියට)"
 msgid "Structure of table @TABLE@"
 msgstr "වගුවේ සැකිල්ල @TABLE@"
 
-#: src/Plugins/Export/ExportLatex.php:120 src/Plugins/Export/ExportOdt.php:94
+#: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:94
 #: src/Plugins/Export/ExportSql.php:279
 msgid "Object creation options"
 msgstr "වස්තු නිර්මාණය කිරීමේ විකල්ප"
 
-#: src/Plugins/Export/ExportLatex.php:126
-#: src/Plugins/Export/ExportLatex.php:182
+#: src/Plugins/Export/ExportLatex.php:129
+#: src/Plugins/Export/ExportLatex.php:185
 msgid "Table caption:"
 msgstr "වගු සිරස් තලය:"
 
-#: src/Plugins/Export/ExportLatex.php:132
-#: src/Plugins/Export/ExportLatex.php:188
+#: src/Plugins/Export/ExportLatex.php:135
+#: src/Plugins/Export/ExportLatex.php:191
 msgid "Table caption (continued):"
 msgstr "වගු සිරස්තලය (සබැඳි):"
 
-#: src/Plugins/Export/ExportLatex.php:138
-#: src/Plugins/Export/ExportLatex.php:194
+#: src/Plugins/Export/ExportLatex.php:141
+#: src/Plugins/Export/ExportLatex.php:197
 msgid "Label key:"
 msgstr "ලේබල යතුර:"
 
-#: src/Plugins/Export/ExportLatex.php:146 src/Plugins/Export/ExportOdt.php:102
+#: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:102
 #: src/Plugins/Export/ExportSql.php:204
 msgid "Display foreign key relationships"
 msgstr "අන්‍ය යතුරු සබඳතා පෙන්වන්න"
 
-#: src/Plugins/Export/ExportLatex.php:153 src/Plugins/Export/ExportOdt.php:109
+#: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:109
 msgid "Display comments"
 msgstr "විස්තර පෙන්වන්න"
 
-#: src/Plugins/Export/ExportLatex.php:159 src/Plugins/Export/ExportOdt.php:115
+#: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:115
 #: src/Plugins/Export/ExportSql.php:212
 #, fuzzy
 #| msgid "Display MIME types"
 msgid "Display media types"
 msgstr "MIME වර්ග පෙන්වන්න"
 
-#: src/Plugins/Export/ExportLatex.php:177
+#: src/Plugins/Export/ExportLatex.php:180
 msgid "Put columns names in the first row:"
 msgstr "තීර නම් පළමු පේළියේ යොදන්න:"
 
-#: src/Plugins/Export/ExportLatex.php:228 src/Plugins/Export/ExportSql.php:762
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:762
 #: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr "උත්පාදන වේලාව:"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:768
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:768
 #: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr "PHP අනුවාදය:"
 
-#: src/Plugins/Export/ExportLatex.php:317 src/Plugins/Export/ExportSql.php:2040
+#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2040
 msgid "Data:"
 msgstr "දත්ත:"
 
-#: src/Plugins/Export/ExportLatex.php:474
+#: src/Plugins/Export/ExportLatex.php:477
 msgid "Structure:"
 msgstr "සැකිල්ල:"
 
@@ -18446,7 +18448,7 @@ msgstr ""
 msgid "Column names:"
 msgstr "තීර නම්: "
 
-#: src/Plugins/Import/ImportCsv.php:287 src/Plugins/Import/ImportCsv.php:611
+#: src/Plugins/Import/ImportCsv.php:287 src/Plugins/Import/ImportCsv.php:617
 #, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘතියක්."
@@ -18456,13 +18458,13 @@ msgstr "CSV ආනයනයේ %d පේළියේ වැරදි ආකෘ�
 msgid "Invalid column count in CSV input on line %d."
 msgstr "CSV අදානයේ %d පේළියේ වැරදි තීර ගණනකි."
 
-#: src/Plugins/Import/ImportCsv.php:630 src/Plugins/Import/ImportCsv.php:645
-#: src/Plugins/Import/ImportCsv.php:656 src/Plugins/Import/ImportCsv.php:663
+#: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
+#: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr "CSV ආනයනය සඳහා වැරදි පරාමිතියක්: %s"
 
-#: src/Plugins/Import/ImportCsv.php:758
+#: src/Plugins/Import/ImportCsv.php:764
 #, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
@@ -18540,7 +18542,7 @@ msgstr "ශුන්‍ය අගයන් සඳහා <code>AUTO_INCREMENT</co
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:598
+#: src/Plugins.php:576
 msgid "This format has no options"
 msgstr "මෙම ආකෘතියේ ආකෘති-විශේෂී තෝරා ගැනීම් කිසිවක් නැත"
 
@@ -18660,13 +18662,8 @@ msgstr "%B %d, %Y දින %I:%M %p ට"
 #: src/Plugins/Transformations/Abs/DownloadTransformationsPlugin.php:30
 msgid ""
 "Displays a link to download the binary data of the column. You can use the "
-"first option to specify the filename, or use the second option as the name "
-"of a column which contains the filename. If you use the second option, you "
-"need to set the first option to the empty string."
+"option to specify the filename."
 msgstr ""
-"තීරයේ ද්වීමය දත්ත බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි. පළමු විකල්පය ගොනුව සඳහා නාමයක් සඳහන් "
-"කිරීමට භාවිතා කල හැකි අතර දෙවන විකල්පය ගොනුව සඳහා නාමයක් ලබාගත යුතු තීරය සඳහන් කිරීමට "
-"භාවිතා කල හැක. ඔබ දෙවන විකල්පය භාවිතා කරන්නේ නම් පළමු විකල්පය හිස්ව තැබිය යුතුය."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 #, fuzzy
@@ -19872,7 +19869,7 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "දින %s, පැය %s, මිනිත්තු %s සහ තප්පර %s"
 
-#: src/Util.php:1454
+#: src/Util.php:1346
 msgid "Users"
 msgstr "භාවිතා කරන්නන්"
 
@@ -19883,6 +19880,16 @@ msgstr "ZIP ආරක්ෂණයේ දෝෂයක් ඇත:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid ""
+#~ "Displays a link to download the binary data of the column. You can use "
+#~ "the first option to specify the filename, or use the second option as the "
+#~ "name of a column which contains the filename. If you use the second "
+#~ "option, you need to set the first option to the empty string."
+#~ msgstr ""
+#~ "තීරයේ ද්වීමය දත්ත බාගත කිරීම සඳහා සබැඳියක් පෙන්වයි. පළමු විකල්පය ගොනුව සඳහා නාමයක් සඳහන් "
+#~ "කිරීමට භාවිතා කල හැකි අතර දෙවන විකල්පය ගොනුව සඳහා නාමයක් ලබාගත යුතු තීරය සඳහන් කිරීමට "
+#~ "භාවිතා කල හැක. ඔබ දෙවන විකල්පය භාවිතා කරන්නේ නම් පළමු විකල්පය හිස්ව තැබිය යුතුය."
 
 #~ msgid "Bad parameters!"
 #~ msgstr "වැරදි පරාමිතියන්!"
