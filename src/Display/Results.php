@@ -2084,8 +2084,6 @@ class Results
 
         $rowInfo = $this->getRowInfoForSpecialLinks($row);
 
-        // Load SpecialSchemaLinks for all rows
-        $specialSchemaLinks = SpecialSchemaLinks::get();
         $relationParameters = $this->relation->getRelationParameters();
 
         $columnCount = count($this->fieldsMeta);
@@ -2169,18 +2167,17 @@ class Results
                     . '_' . $this->transformationInfo[$dbLower][$orgTable][$orgName]::getMIMESubtype();
             }
 
-            // Check for the predefined fields need to show as link in schemas
-            if (isset($specialSchemaLinks[$dbLower][$tblLower][$nameLower])) {
-                $linkingUrl = $this->getSpecialLinkUrl(
-                    $specialSchemaLinks[$dbLower][$tblLower][$nameLower],
-                    $row[$i],
-                    $rowInfo,
-                );
-                $transformationPlugin = new Text_Plain_Link();
+            if ($dbLower === 'mysql' || $dbLower === 'information_schema') {
+                // Check for the predefined fields need to show as link in schemas
+                $specialSchemaLink = SpecialSchemaLinks::get($dbLower, $tblLower, $nameLower);
+                if ($specialSchemaLink !== null) {
+                    $linkingUrl = $this->getSpecialLinkUrl($specialSchemaLink, $row[$i], $rowInfo);
+                    $transformationPlugin = new Text_Plain_Link();
 
-                $transformOptions = [0 => $linkingUrl, 2 => true];
+                    $transformOptions = [0 => $linkingUrl, 2 => true];
 
-                $meta->internalMediaType = 'Text_Plain';
+                    $meta->internalMediaType = 'Text_Plain';
+                }
             }
 
             $expressions = [];
