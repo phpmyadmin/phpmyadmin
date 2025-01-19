@@ -47,8 +47,8 @@ class Types
         return [
             'IS NULL',
             'IS NOT NULL',
-            "EMPTY",
-            "NOT EMPTY",
+            'EMPTY',
+            'NOT EMPTY',
         ];
     }
 
@@ -105,8 +105,8 @@ class Types
             'REGEXP',
             'REGEXP ^...$',
             'NOT REGEXP',
-            "EMPTY",
-            "NOT EMPTY",
+            'EMPTY',
+            'NOT EMPTY',
             'IN (...)',
             'NOT IN (...)',
             'BETWEEN',

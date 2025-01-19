@@ -139,10 +139,10 @@ class SearchTest extends AbstractTestCase
             'int(11)',
         ];
 
-        self::assertSame(
-            'SELECT * FROM `PMA` WHERE `b` <= 10 AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL AND `e` = \'\' AND `f` != \'\'',
-            $this->search->buildSqlQuery()
-        );
+        $expected = 'SELECT * FROM `PMA` WHERE `b` <= 10'
+            . ' AND `a` = 2 AND `c` IS NULL AND `d` IS NOT NULL AND `e` = \'\' AND `f` != \'\'';
+
+        self::assertSame($expected, $this->search->buildSqlQuery());
     }
 
     public function testBuildSqlQueryWithWhereClauseGeom(): void
