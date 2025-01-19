@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2024-09-09 15:09+0000\n"
+"PO-Revision-Date: 2025-01-19 08:50+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13377,16 +13377,12 @@ msgid "No dependencies selected!"
 msgstr "לא נבחרו תלויות!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "שימוש בערך זה"
+msgstr "נא למלא את הערך הראשון"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "ערך זמן חיבור (Session)"
+msgstr "נא למלא את הערך השני"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
