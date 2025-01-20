@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2024-10-14 12:18+0000\n"
+"PO-Revision-Date: 2025-01-20 13:00+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/it/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13520,16 +13520,14 @@ msgid "No dependencies selected!"
 msgstr "Nessuna dipendenza selezionata!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Usa questo valore"
+msgstr "Primo valore"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
-msgstr "Valore sessione"
+msgstr "Secondo valore"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
@@ -13541,11 +13539,11 @@ msgstr "Mostra criteri di ricerca"
 
 #: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Column maximum:"
-msgstr "Numero massimo dei campi:"
+msgstr "Numero massimo di campi:"
 
 #: src/Controllers/JavaScriptMessagesController.php:464
 msgid "Column minimum:"
-msgstr "Numero minimo dei campi:"
+msgstr "Numero minimo di campi:"
 
 #: src/Controllers/JavaScriptMessagesController.php:467
 msgid "Hide find and replace criteria"
