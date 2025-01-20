@@ -53,7 +53,7 @@
     "sass": "^1.60.0 <=1.77.6",
     "sass-loader": "^13.2.2",
     "tablesorter": "^2.31.3",
-    "tracekit": "0.4.6",
+    "tracekit": "0.4.7",
     "ts-loader": "^9.4.2",
     "typescript": "~5.3.2",
     "u2f-api-polyfill": "0.4.4",

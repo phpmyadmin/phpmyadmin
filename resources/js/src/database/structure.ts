@@ -6,7 +6,7 @@ import { CommonParams } from '../modules/common.ts';
 import tooltip from '../modules/tooltip.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
-import { escapeHtml } from '../modules/functions/escape.ts';
+import { escapeHtml, escapeJsString } from '../modules/functions/escape.ts';
 import adjustTotals from '../modules/functions/adjustTotals.ts';
 
 /**
@@ -61,7 +61,7 @@ function fetchRealRowCount ($target) {
                     $.each(response.real_row_count_all,
                         function (index, table) {
                             // Update each table row count.
-                            $('table.data td[data-table*="' + table.table + '"]')
+                            $('table.data td[data-table*="' + escapeJsString(table.table) + '"]')
                                 .text(table.row_count);
                         },
                     );
