@@ -1396,12 +1396,6 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: '#^Cannot access offset mixed on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Config/Validator.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 21
@@ -1420,7 +1414,7 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Config\\Validator\:\:getValidators\(\) should return array\<mixed\> but returns mixed\.$#'
+			message: '#^Method PhpMyAdmin\\Config\\Validator\:\:getValidators\(\) should return array\<mixed\> but returns array\|null\.$#'
 			identifier: return.type
 			count: 2
 			path: src/Config/Validator.php
@@ -2865,12 +2859,6 @@ parameters:
 		-
 			message: '#^Negated boolean expression is always true\.$#'
 			identifier: booleanNot.alwaysTrue
-			count: 1
-			path: src/Controllers/Import/ImportController.php
-
-		-
-			message: '#^Parameter \#2 \$size of method PhpMyAdmin\\Import\\Import\:\:getNextChunk\(\) expects int, float\|int\<min, \-1\>\|int\<1, max\> given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Import/ImportController.php
 
@@ -6370,12 +6358,6 @@ parameters:
 			path: src/Dbal/DatabaseInterface.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/Dbal/DatabaseInterface.php
-
-		-
 			message: '#^Parameter \#1 \$path of function basename expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6383,18 +6365,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$string of function strtolower expects string, int\|string given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Parameter \#1 \$version of static method PhpMyAdmin\\Query\\Utilities\:\:versionToInt\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Dbal/DatabaseInterface.php
-
-		-
-			message: '#^Parameter \#2 \$arrays of function array_diff expects an array of values castable to string, array\<string, PhpMyAdmin\\Config\|PhpMyAdmin\\Dbal\\DatabaseInterface\|PhpMyAdmin\\UserPrivilegesFactory\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Dbal/DatabaseInterface.php
@@ -10801,7 +10771,7 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: '#^Parameter \#1 \$options of function session_set_cookie_params expects array\{lifetime\?\: int, path\?\: string, domain\?\: string\|null, secure\?\: bool, httponly\?\: bool, samesite\?\: string\}, array given\.$#'
+			message: '#^Parameter \#1 \$options of function session_set_cookie_params expects array\{lifetime\?\: int, path\?\: string, domain\?\: string\|null, secure\?\: bool, httponly\?\: bool, samesite\?\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\}, array given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Auth/AuthenticationSignon.php
@@ -12439,12 +12409,6 @@ parameters:
 			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, non\-empty\-array\<int\<0, max\>, array\> given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Variable property access on SimpleXMLElement\.$#'
-			identifier: property.dynamicName
-			count: 2
 			path: src/Plugins/Import/ImportOds.php
 
 		-
@@ -16579,12 +16543,6 @@ parameters:
 			path: src/UserPrivilegesFactory.php
 
 		-
-			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/UserPrivilegesFactory.php
-
-		-
 			message: '#^Parameter \#4 \$routines of class PhpMyAdmin\\UserPrivileges constructor expects bool, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -17479,6 +17437,12 @@ parameters:
 			path: tests/end-to-end/TestBase.php
 
 		-
+			message: '#^Only booleans are allowed in an if condition, string\|null given\.$#'
+			identifier: if.condNotBoolean
+			count: 1
+			path: tests/end-to-end/TestBase.php
+
+		-
 			message: '#^Parameter \#1 \$by of method Facebook\\WebDriver\\Remote\\RemoteWebDriver\:\:findElement\(\) expects Facebook\\WebDriver\\WebDriverBy, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -17523,7 +17487,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$handle of method Facebook\\WebDriver\\Remote\\RemoteTargetLocator\:\:window\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 2
 			path: tests/end-to-end/TestBase.php
 
 		-
@@ -19777,12 +19741,6 @@ parameters:
 			path: tests/unit/IpAllowDenyTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{\} and array\{\000PhpMyAdmin\\ListDatabase\000dbi\: PhpMyAdmin\\Dbal\\DatabaseInterface, \000PhpMyAdmin\\ListDatabase\000config\: PhpMyAdmin\\Config, \000PhpMyAdmin\\ListDatabase\000userPrivilegesFactory\: PhpMyAdmin\\UserPrivilegesFactory\} will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
-			path: tests/unit/ListDatabaseTest.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -20182,6 +20140,12 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 13
+			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{lifetime\: 0, path\: ''/'', domain\: '''', secure\: false, httponly\: false, samesite\: ''''\} and array\{lifetime\: int\<0, max\>, path\: non\-falsy\-string, domain\: string, secure\: bool, httponly\: bool, samesite\: ''Lax''\|''lax''\|''None''\|''none''\|''Strict''\|''strict''\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
