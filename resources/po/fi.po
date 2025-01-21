@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:28+0000\n"
+"PO-Revision-Date: 2025-01-21 12:29+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -8235,10 +8235,8 @@ msgstr ""
 "tunnissa."
 
 #: src/Advisory/Rules.php:90
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL-kyselyt"
+msgstr "Pitkä kyselyaika"
 
 #: src/Advisory/Rules.php:94
 msgid ""
