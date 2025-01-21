@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:19+0000\n"
+"PO-Revision-Date: 2025-01-21 12:25+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -8212,7 +8212,7 @@ msgstr ""
 #: src/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr "Hitaan kyselynopeuden tulisi olla alle 5 %%, arvosi on %s %%."
+msgstr "Hitaan kyselysuhteen tulisi olla alle 5 %%, arvosi on %s %%."
 
 #: src/Advisory/Rules.php:75
 #, fuzzy
@@ -9228,7 +9228,7 @@ msgstr ""
 #: src/Advisory/Rules.php:792
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Nykyinen kyselyn välimuistin osumaosuus %s %% on alle 20 %%"
+msgstr "Nykyinen kyselyn välimuistin osumasuhde %s %% on alle 20 %%"
 
 #: src/Advisory/Rules.php:797
 #, fuzzy
@@ -9317,6 +9317,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Poistettujen kyselyjen suhde lisättyihin kyselyihin on %s %%. Mitä pienempi "
+"tämä arvo on, sitä parempi (Tämä säätelee laukaisurajaa: 0,1 %%)"
 
 #: src/Advisory/Rules.php:854
 #, fuzzy
