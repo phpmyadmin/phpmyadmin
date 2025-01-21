@@ -577,7 +577,7 @@ final class JavaScriptMessagesController implements InvocableController
             ),
             'strColMarkHint' => __('Click to mark/unmark.'),
             'strColNameCopyHint' => __('Double-click to copy column name.'),
-            'strColVisibHint' => __('Click the drop-down arrow<br>to toggle column\'s visibility.'),
+            'strColVisibHint' => __('Click the drop-down arrow to toggle column\'s visibility.'),
             'strShowAllCol' => __('Show all'),
             'strAlertNonUnique' => __(
                 'This table does not contain a unique column. Features related to the grid '
