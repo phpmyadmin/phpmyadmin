@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:26+0000\n"
+"PO-Revision-Date: 2025-01-21 12:28+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -8222,6 +8222,8 @@ msgstr "Hidas kyselysuhde"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Hitaiden kyselyjen prosenttiosuus on suuri verrattuna palvelimen "
+"käyttöaikaan."
 
 #: src/Advisory/Rules.php:84
 #, php-format
@@ -8229,7 +8231,7 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
-"Sinulla on hidas kyselynopeus %s tunnissa, sinun pitäisi olla alle 1 %% "
+"Sinulla on hidas kyselysuhde %s tunnissa, sinun pitäisi olla alle 1 %% "
 "tunnissa."
 
 #: src/Advisory/Rules.php:90
