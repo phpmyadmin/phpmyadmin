@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-21 12:32+0000\n"
+"PO-Revision-Date: 2025-01-21 12:33+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fi/>\n"
@@ -133,10 +133,8 @@ msgstr "long_query_time on asetettu %d sekuntiin."
 
 #: libraries/advisory_rules_generic.php:81
 #: libraries/advisory_rules_generic.php:94
-#, fuzzy
-#| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Näytä kyselykenttä"
+msgstr "Hidas kyselyloki"
 
 #: libraries/advisory_rules_generic.php:85
 #: libraries/advisory_rules_generic.php:98
