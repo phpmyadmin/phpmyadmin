@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-21 12:30+0000\n"
+"PO-Revision-Date: 2025-01-21 12:31+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fi/>\n"
@@ -123,6 +123,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"On suositeltavaa asettaa {long_query_time} pienemmälle arvolle "
+"ympäristöstäsi riippuen. Yleensä arvoksi ehdotetaan 1-5 sekuntia."
 
 #: libraries/advisory_rules_generic.php:76
 #, fuzzy, php-format
