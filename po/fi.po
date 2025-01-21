@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-21 12:19+0000\n"
+"PO-Revision-Date: 2025-01-21 15:28+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fi/>\n"
@@ -17365,18 +17365,18 @@ msgstr ""
 #: libraries/advisory_rules_generic.txt:68
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Hitaan kyselysuhteen tulisi olla alle 5 %%, arvosi on %s %%."
 
 #: libraries/advisory_rules_generic.txt:70
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Tyhjennä kyselymuisti"
+msgstr "Hidas kyselysuhde"
 
 #: libraries/advisory_rules_generic.txt:73
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"Hitaiden kyselyjen prosenttiosuus on suuri verrattuna palvelimen "
+"käyttöaikaan."
 
 #: libraries/advisory_rules_generic.txt:75
 #, php-format
@@ -17384,44 +17384,43 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Sinulla on hidas kyselysuhde %s tunnissa, sinun pitäisi olla alle 1 %% "
+"tunnissa."
 
 #: libraries/advisory_rules_generic.txt:77
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL-kyselyt"
+msgstr "Pitkä kyselyaika"
 
 #: libraries/advisory_rules_generic.txt:80
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} on 10 sekuntia tai enemmän, joten vain hitaat kyselyt, "
+"jotka kestävät yli 10 sekuntia, kirjataan lokiin."
 
 #: libraries/advisory_rules_generic.txt:81
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"On suositeltavaa asettaa {long_query_time} pienemmälle arvolle "
+"ympäristöstäsi riippuen. Yleensä arvoksi ehdotetaan 1-5 sekuntia."
 
 #: libraries/advisory_rules_generic.txt:82
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time on asetettu %d sekuntiin."
 
 #: libraries/advisory_rules_generic.txt:84
 #: libraries/advisory_rules_generic.txt:91
-#, fuzzy
-#| msgid "Show query box"
 msgid "Slow query logging"
-msgstr "Näytä kyselykenttä"
+msgstr "Hidas kyselyloki"
 
 #: libraries/advisory_rules_generic.txt:87
 #: libraries/advisory_rules_generic.txt:94
-#, fuzzy
-#| msgid "slow_query_log is enabled."
 msgid "The slow query log is disabled."
-msgstr "slow_query_log on käytössä."
+msgstr "Hidas kyselyloki on poistettu käytöstä."
 
 #: libraries/advisory_rules_generic.txt:88
 msgid ""
@@ -18390,7 +18389,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.txt:22
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Nykyinen kyselyn välimuistin osumaosuus %s %% on alle 20 %%"
+msgstr "Nykyinen kyselyn välimuistin osumasuhde %s %% on alle 20 %%"
 
 #: libraries/advisory_rules_mysql_before80003.txt:24
 #, fuzzy
@@ -18479,6 +18478,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Poistettujen kyselyjen suhde lisättyihin kyselyihin on %s %%. Mitä pienempi "
+"tämä arvo on, sitä parempi (Tämä säätelee laukaisurajaa: 0,1 %%)"
 
 #: libraries/advisory_rules_mysql_before80003.txt:45
 #, fuzzy
