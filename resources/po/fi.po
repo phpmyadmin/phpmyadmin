@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:25+0000\n"
+"PO-Revision-Date: 2025-01-21 12:26+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -8215,10 +8215,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Hitaan kyselysuhteen tulisi olla alle 5 %%, arvosi on %s %%."
 
 #: src/Advisory/Rules.php:75
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Tyhjennä kyselymuisti"
+msgstr "Hidas kyselysuhde"
 
 #: src/Advisory/Rules.php:79
 msgid ""
