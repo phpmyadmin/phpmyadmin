@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-21 12:17+0000\n"
+"PO-Revision-Date: 2025-01-21 12:19+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fi/>\n"
@@ -18448,6 +18448,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Välimuisti on tällä hetkellä pirstoutunut %s %%:lla, 100 %%:n "
+"pirstoutuneisuus tarkoittaa, että kyselyvälimuisti on vuorotellen ilmaisia "
+"ja käytettyjä lohkoja. Tämän arvon tulisi olla alle 20 %%."
 
 #: libraries/advisory_rules_mysql_before80003.txt:38
 #, fuzzy
