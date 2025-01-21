@@ -8889,10 +8889,10 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: src/Advisory/Rules.php:527
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Säikeen välimuistin osumanopeus: %s %%, tämän arvon tulee olla yli 80 %%"
 
 #: src/Advisory/Rules.php:532
 #, fuzzy
