@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:14+0000\n"
+"PO-Revision-Date: 2025-01-21 12:16+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -9226,10 +9226,9 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: src/Advisory/Rules.php:792
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Lajittelupuskurin koko"
+msgstr "Nykyinen kyselyn välimuistin osumaosuus %s %% on alle 20 %%"
 
 #: src/Advisory/Rules.php:797
 #, fuzzy
