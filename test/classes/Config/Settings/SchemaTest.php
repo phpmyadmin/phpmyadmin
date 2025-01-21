@@ -59,7 +59,7 @@ class SchemaTest extends TestCase
         $settings = new Schema($actualValues);
 
         foreach (array_keys($expectedValues) as $key) {
-            $this->assertSame($expected[$key], $settings->$key);
+            self::assertSame($expected[$key], $settings->$key);
         }
     }
 
@@ -69,7 +69,7 @@ class SchemaTest extends TestCase
      * @return mixed[][][][]
      * @psalm-return (array{0: string, 1: mixed, 2: mixed})[][][]
      */
-    public function providerForTestConstructor(): array
+    public static function providerForTestConstructor(): array
     {
         return [
             'null values' => [

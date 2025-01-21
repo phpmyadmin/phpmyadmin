@@ -35,35 +35,29 @@ class IndexTest extends AbstractTestCase
 
         SetupIndex::messagesBegin();
 
-        $this->assertEquals(
+        self::assertSame([
             [
                 [
-                    [
-                        0 => 'foo',
-                        'fresh' => false,
-                        'active' => false,
-                    ],
-                    [
-                        0 => 'bar',
-                        'fresh' => false,
-                        'active' => false,
-                    ],
+                    0 => 'foo',
+                    'fresh' => false,
+                    'active' => false,
+                ],
+                [
+                    0 => 'bar',
+                    'fresh' => false,
+                    'active' => false,
                 ],
             ],
-            $_SESSION['messages']
-        );
+        ], $_SESSION['messages']);
 
         // case 2
 
         unset($_SESSION['messages']);
         SetupIndex::messagesBegin();
-        $this->assertEquals(
-            [
-                'error' => [],
-                'notice' => [],
-            ],
-            $_SESSION['messages']
-        );
+        self::assertSame([
+            'error' => [],
+            'notice' => [],
+        ], $_SESSION['messages']);
     }
 
     /**
@@ -73,15 +67,12 @@ class IndexTest extends AbstractTestCase
     {
         SetupIndex::messagesSet('type', '123', 'testTitle', 'msg');
 
-        $this->assertEquals(
-            [
-                'fresh' => true,
-                'active' => true,
-                'title' => 'testTitle',
-                'message' => 'msg',
-            ],
-            $_SESSION['messages']['type']['123']
-        );
+        self::assertSame([
+            'fresh' => true,
+            'active' => true,
+            'title' => 'testTitle',
+            'message' => 'msg',
+        ], $_SESSION['messages']['type']['123']);
     }
 
     /**
@@ -104,17 +95,14 @@ class IndexTest extends AbstractTestCase
 
         SetupIndex::messagesEnd();
 
-        $this->assertEquals(
+        self::assertEquals([
             [
-                [
-                    '1' => [
-                        'msg' => 'bar',
-                        'active' => 1,
-                    ],
+                '1' => [
+                    'msg' => 'bar',
+                    'active' => 1,
                 ],
             ],
-            $_SESSION['messages']
-        );
+        ], $_SESSION['messages']);
     }
 
     /**
@@ -154,6 +142,6 @@ class IndexTest extends AbstractTestCase
             ],
         ];
 
-        $this->assertEquals($expected, SetupIndex::messagesShowHtml());
+        self::assertSame($expected, SetupIndex::messagesShowHtml());
     }
 }

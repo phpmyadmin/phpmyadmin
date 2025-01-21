@@ -69,15 +69,12 @@ class UtilTest extends AbstractTestCase
      */
     public function testListPHPExtensions(): void
     {
-        $this->assertSame(
-            [
-                'mysqli',
-                'curl',
-                'mbstring',
-                'sodium',
-            ],
-            Util::listPHPExtensions()
-        );
+        self::assertSame([
+            'mysqli',
+            'curl',
+            'mbstring',
+            'sodium',
+        ], Util::listPHPExtensions());
     }
 
     public function testGetUniqueCondition(): void
@@ -86,10 +83,10 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['DisableIS'] = false;
 
         $actual = Util::getUniqueCondition(0, [], []);
-        $this->assertEquals(['', false, []], $actual);
+        self::assertSame(['', false, []], $actual);
 
         $actual = Util::getUniqueCondition(0, [], [], true);
-        $this->assertEquals(['', true, []], $actual);
+        self::assertSame(['', true, []], $actual);
     }
 
     public function testGetUniqueConditionWithMultipleFields(): void
@@ -183,30 +180,27 @@ class UtilTest extends AbstractTestCase
             'value',
             0x1,
         ], false, 'table');
-        $this->assertEquals(
+        self::assertSame([
+            '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = 123456'
+            . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
+            . ' AND `table`.`field7` = \'value\' AND `table`.`field8` = \'value\''
+            . ' AND `table`.`field9` = CAST(0x76616c7565 AS BINARY)'
+            . ' AND `table`.`field10` = CAST(0x76616c7565 AS BINARY)'
+            . ' AND `table`.`field12` = b\'0001\'',
+            false,
             [
-                '`table`.`field1` IS NULL AND `table`.`field2` = \'value\\\'s\' AND `table`.`field3` = 123456'
-                . ' AND `table`.`field4` = 123.456 AND `table`.`field5` = CAST(0x76616c7565 AS BINARY)'
-                . ' AND `table`.`field7` = \'value\' AND `table`.`field8` = \'value\''
-                . ' AND `table`.`field9` = CAST(0x76616c7565 AS BINARY)'
-                . ' AND `table`.`field10` = CAST(0x76616c7565 AS BINARY)'
-                . ' AND `table`.`field12` = b\'0001\'',
-                false,
-                [
-                    '`table`.`field1`' => 'IS NULL',
-                    '`table`.`field2`' => '= \'value\\\'s\'',
-                    '`table`.`field3`' => '= 123456',
-                    '`table`.`field4`' => '= 123.456',
-                    '`table`.`field5`' => '= CAST(0x76616c7565 AS BINARY)',
-                    '`table`.`field7`' => '= \'value\'',
-                    '`table`.`field8`' => '= \'value\'',
-                    '`table`.`field9`' => '= CAST(0x76616c7565 AS BINARY)',
-                    '`table`.`field10`' => '',
-                    '`table`.`field12`' => '= b\'0001\'',
-                ],
+                '`table`.`field1`' => 'IS NULL',
+                '`table`.`field2`' => '= \'value\\\'s\'',
+                '`table`.`field3`' => '= 123456',
+                '`table`.`field4`' => '= 123.456',
+                '`table`.`field5`' => '= CAST(0x76616c7565 AS BINARY)',
+                '`table`.`field7`' => '= \'value\'',
+                '`table`.`field8`' => '= \'value\'',
+                '`table`.`field9`' => '= CAST(0x76616c7565 AS BINARY)',
+                '`table`.`field10`' => '',
+                '`table`.`field12`' => '= b\'0001\'',
             ],
-            $actual
-        );
+        ], $actual);
     }
 
     public function testGetUniqueConditionWithSingleBigBinaryField(): void
@@ -221,10 +215,7 @@ class UtilTest extends AbstractTestCase
         ];
 
         $actual = Util::getUniqueCondition(1, $meta, [str_repeat('*', 1001)]);
-        $this->assertEquals(
-            ['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']],
-            $actual
-        );
+        self::assertSame(['CHAR_LENGTH(`table`.`field`)  = 1001', false, ['`table`.`field`' => ' = 1001']], $actual);
     }
 
     public function testGetUniqueConditionWithPrimaryKey(): void
@@ -243,7 +234,7 @@ class UtilTest extends AbstractTestCase
         ];
 
         $actual = Util::getUniqueCondition(count($meta), $meta, [1, 'value']);
-        $this->assertEquals(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
+        self::assertSame(['`table`.`id` = 1', true, ['`table`.`id`' => '= 1']], $actual);
     }
 
     public function testGetUniqueConditionWithUniqueKey(): void
@@ -262,7 +253,7 @@ class UtilTest extends AbstractTestCase
         ];
 
         $actual = Util::getUniqueCondition(count($meta), $meta, ['unique', 'value']);
-        $this->assertEquals(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
+        self::assertSame(['`table`.`id` = \'unique\'', true, ['`table`.`id`' => '= \'unique\'']], $actual);
     }
 
     /**
@@ -282,7 +273,7 @@ class UtilTest extends AbstractTestCase
         $fieldsCount = count($meta);
         $actual = Util::getUniqueCondition($fieldsCount, $meta, $row);
 
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -290,7 +281,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array<string, array{FieldMetadata[], array<int, mixed>, array{string, bool, array<string, string>}}>
      */
-    public function providerGetUniqueConditionForGroupFlag(): array
+    public static function providerGetUniqueConditionForGroupFlag(): array
     {
         return [
             'field type is integer, value is number - not escape string' => [
@@ -399,13 +390,13 @@ class UtilTest extends AbstractTestCase
      */
     public function testPageSelector(): void
     {
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<select class="pageselector ajax" name="pma" >',
             Util::pageselector('pma', 3)
         );
 
         // If pageNow > nbTotalPage, show the pageNow number to avoid confusion
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<option selected="selected" style="font-weight: bold" value="297">100</option>',
             Util::pageselector('pma', 3, 100, 50)
         );
@@ -421,10 +412,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testGenerateCharsetQueryPart(string $collation, string $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            Util::getCharsetQueryPart($collation)
-        );
+        self::assertSame($expected, Util::getCharsetQueryPart($collation));
     }
 
     /**
@@ -432,7 +420,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array test data
      */
-    public function charsetQueryData(): array
+    public static function charsetQueryData(): array
     {
         return [
             [
@@ -455,28 +443,22 @@ class UtilTest extends AbstractTestCase
      */
     public function testGenerateRandom(): void
     {
-        $this->assertEquals(32, strlen(Util::generateRandom(32)));
-        $this->assertEquals(16, strlen(Util::generateRandom(16)));
+        self::assertSame(32, strlen(Util::generateRandom(32)));
+        self::assertSame(16, strlen(Util::generateRandom(16)));
     }
 
     public function testClearUserCache(): void
     {
         $GLOBALS['server'] = 'server';
         SessionCache::set('is_superuser', 'yes');
-        $this->assertEquals('yes', $_SESSION['cache']['server_server']['is_superuser']);
+        self::assertSame('yes', $_SESSION['cache']['server_server']['is_superuser']);
 
         SessionCache::set('mysql_cur_user', 'mysql');
-        $this->assertEquals(
-            'mysql',
-            $_SESSION['cache']['server_server']['mysql_cur_user']
-        );
+        self::assertSame('mysql', $_SESSION['cache']['server_server']['mysql_cur_user']);
 
         Util::clearUserCache();
-        $this->assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
-        $this->assertArrayNotHasKey(
-            'mysql_cur_user',
-            $_SESSION['cache']['server_server']
-        );
+        self::assertArrayNotHasKey('is_superuser', $_SESSION['cache']['server_server']);
+        self::assertArrayNotHasKey('mysql_cur_user', $_SESSION['cache']['server_server']);
     }
 
     public function testCheckParameterMissing(): void
@@ -535,10 +517,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testConvertBitDefaultValue(?string $bit, string $val): void
     {
-        $this->assertEquals(
-            $val,
-            Util::convertBitDefaultValue($bit)
-        );
+        self::assertSame($val, Util::convertBitDefaultValue($bit));
     }
 
     /**
@@ -546,7 +525,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerConvertBitDefaultValue(): array
+    public static function providerConvertBitDefaultValue(): array
     {
         return [
             [
@@ -589,7 +568,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnEscapeMysqlWildcards(): array
+    public static function providerUnEscapeMysqlWildcards(): array
     {
         return [
             [
@@ -637,10 +616,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testEscapeMysqlWildcards(string $a, string $b): void
     {
-        $this->assertEquals(
-            $a,
-            Util::escapeMysqlWildcards($b)
-        );
+        self::assertSame($a, Util::escapeMysqlWildcards($b));
     }
 
     /**
@@ -653,10 +629,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testUnescapeMysqlWildcards(string $a, string $b): void
     {
-        $this->assertEquals(
-            $b,
-            Util::unescapeMysqlWildcards($a)
-        );
+        self::assertSame($b, Util::unescapeMysqlWildcards($a));
     }
 
     /**
@@ -679,18 +652,12 @@ class UtilTest extends AbstractTestCase
         $GLOBALS['db'] = 'database';
         $GLOBALS['table'] = 'table';
 
-        $this->assertEquals(
-            $out,
-            Util::expandUserString($in)
-        );
+        self::assertSame($out, Util::expandUserString($in));
 
-        $this->assertEquals(
-            htmlspecialchars($out),
-            Util::expandUserString(
-                $in,
-                'htmlspecialchars'
-            )
-        );
+        self::assertSame(htmlspecialchars($out), Util::expandUserString(
+            $in,
+            'htmlspecialchars'
+        ));
     }
 
     /**
@@ -698,7 +665,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExpandUserString(): array
+    public static function providerExpandUserString(): array
     {
         return [
             [
@@ -740,10 +707,7 @@ class UtilTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['LimitChars'] = 1000;
 
-        $this->assertEquals(
-            $out,
-            Util::extractColumnSpec($in)
-        );
+        self::assertEquals($out, Util::extractColumnSpec($in));
     }
 
     /**
@@ -751,7 +715,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExtractColumnSpec(): array
+    public static function providerExtractColumnSpec(): array
     {
         return [
             [
@@ -782,7 +746,7 @@ class UtilTest extends AbstractTestCase
                     'zerofill' => false,
                     'spec_in_brackets' => "'\'a','b'",
                     'enum_set_values' => [
-                        "'a",
+                        "\'a",
                         'b',
                     ],
                     'attribute' => ' ',
@@ -809,17 +773,17 @@ class UtilTest extends AbstractTestCase
                 ],
             ],
             [
-                "ENUM('a&b', 'b''c\\'d', 'e\\\\f')",
+                "ENUM('a&b','b''c\\'d','e\\\\f')",
                 [
                     'type' => 'enum',
                     'print_type' => "enum('a&b', 'b''c\\'d', 'e\\\\f')",
                     'binary' => false,
                     'unsigned' => false,
                     'zerofill' => false,
-                    'spec_in_brackets' => "'a&b', 'b''c\\'d', 'e\\\\f'",
+                    'spec_in_brackets' => "'a&b','b''c\\'d','e\\\\f'",
                     'enum_set_values' => [
                         'a&b',
-                        'b\'c\'d',
+                        'b\'c\\\'d',
                         'e\\f',
                     ],
                     'attribute' => ' ',
@@ -891,6 +855,123 @@ class UtilTest extends AbstractTestCase
     }
 
     /**
+     * Test case for parsing ENUM values
+     *
+     * @param string[] $out
+     *
+     * @dataProvider providerParseEnumSetValues
+     */
+    public function testParseEnumSetValues(string $in, bool $escapeHTML, array $out): void
+    {
+        self::assertSame($out, Util::parseEnumSetValues($in, $escapeHTML));
+    }
+
+    /**
+     * Data provider for testParseEnumSetValues
+     *
+     * @return iterable<int, array{string, bool, string[]}>
+     */
+    public static function providerParseEnumSetValues(): iterable
+    {
+        $enumSpec = "enum('a&b','b''c''d','e\\f')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                'a&b',
+                'b\'c\'d',
+                'e\\f',
+            ],
+        ];
+
+        yield [
+            $enumSpec,
+            true,
+            [
+                'a&amp;b',
+                'b&#039;c&#039;d',
+                'e\\f',
+            ],
+        ];
+
+        $enumSpec = "set('<script>alert(\"ok\")</script>','a&b','b&c','vrai&amp','','漢字','''','\\\\','\"\\\\''')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                '<script>alert("ok")</script>',
+                'a&b',
+                'b&c',
+                'vrai&amp',
+                '',
+                '漢字',
+                "'",
+                '\\',
+                '"\\\'',
+            ],
+        ];
+
+        yield [
+            $enumSpec,
+            true,
+            [
+                '&lt;script&gt;alert(&quot;ok&quot;)&lt;/script&gt;',
+                'a&amp;b',
+                'b&amp;c',
+                'vrai&amp;amp',
+                '',
+                '漢字',
+                '&#039;',
+                '\\',
+                '&quot;\&#039;',
+            ],
+        ];
+
+        $enumSpec = "enum('1','2,','3''','''4')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                '1',
+                '2,',
+                '3\'',
+                '\'4',
+            ],
+        ];
+
+        yield [
+            $enumSpec,
+            true,
+            [
+                '1',
+                '2,',
+                '3&#039;',
+                '&#039;4',
+            ],
+        ];
+
+        $enumSpec = "enum('''','''''','\"','\\\\','\\\\''','\\\\\"',',','()')";
+
+        yield [
+            $enumSpec,
+            false,
+            [
+                "'",
+                "''",
+                '"',
+                '\\',
+                "\\'",
+                '\\"',
+                ',',
+                '()',
+            ],
+        ];
+    }
+
+    /**
      * Test for Util::extractValueFromFormattedSize
      *
      * @param int|string $size     Size
@@ -900,10 +981,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testExtractValueFromFormattedSize($size, $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            Util::extractValueFromFormattedSize($size)
-        );
+        self::assertSame($expected, Util::extractValueFromFormattedSize($size));
     }
 
     /**
@@ -911,7 +989,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerExtractValueFromFormattedSize(): array
+    public static function providerExtractValueFromFormattedSize(): array
     {
         return [
             [
@@ -946,9 +1024,9 @@ class UtilTest extends AbstractTestCase
     public function testFormatByteDown($a, int $b, int $c, array $e): void
     {
         $result = Util::formatByteDown($a, $b, $c);
-        $this->assertIsArray($result);
+        self::assertIsArray($result);
         $result[0] = trim($result[0]);
-        $this->assertSame($e, $result);
+        self::assertSame($e, $result);
     }
 
     /**
@@ -956,7 +1034,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFormatByteDown(): array
+    public static function providerFormatByteDown(): array
     {
         return [
             [
@@ -1134,15 +1212,12 @@ class UtilTest extends AbstractTestCase
      */
     private function assertFormatNumber($a, int $b, int $c, string $d): void
     {
-        $this->assertEquals(
-            $d,
-            (string) Util::formatNumber(
-                $a,
-                $b,
-                $c,
-                false
-            )
-        );
+        self::assertSame($d, (string) Util::formatNumber(
+            $a,
+            $b,
+            $c,
+            false
+        ));
     }
 
     /**
@@ -1203,7 +1278,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerFormatNumber(): array
+    public static function providerFormatNumber(): array
     {
         return [
             [
@@ -1328,10 +1403,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testGetFormattedMaximumUploadSize($size, string $unit, string $res): void
     {
-        $this->assertEquals(
-            '(' . __('Max: ') . $res . $unit . ')',
-            Util::getFormattedMaximumUploadSize($size)
-        );
+        self::assertSame('(' . __('Max: ') . $res . $unit . ')', Util::getFormattedMaximumUploadSize($size));
     }
 
     /**
@@ -1339,7 +1411,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetFormattedMaximumUploadSize(): array
+    public static function providerGetFormattedMaximumUploadSize(): array
     {
         return [
             [
@@ -1407,10 +1479,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testGetTitleForTarget(string $target, string $result): void
     {
-        $this->assertEquals(
-            $result,
-            Util::getTitleForTarget($target)
-        );
+        self::assertSame($result, Util::getTitleForTarget($target));
     }
 
     /**
@@ -1418,7 +1487,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetTitleForTarget(): array
+    public static function providerGetTitleForTarget(): array
     {
         return [
             [
@@ -1467,10 +1536,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set($tz);
 
-        $this->assertEquals(
-            $e,
-            Util::localisedDate($a, $b)
-        );
+        self::assertSame($e, Util::localisedDate($a, $b));
 
         date_default_timezone_set($tmpTimezone);
         _setlocale(LC_ALL, 'en');
@@ -1481,7 +1547,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerLocalisedDate(): array
+    public static function providerLocalisedDate(): array
     {
         $hasJaTranslations = file_exists(LOCALE_PATH . '/cs/LC_MESSAGES/phpmyadmin.mo');
 
@@ -1601,10 +1667,7 @@ class UtilTest extends AbstractTestCase
         $tmpTimezone = date_default_timezone_get();
         date_default_timezone_set('Europe/London');
 
-        $this->assertEquals(
-            $e,
-            Util::timespanFormat($a)
-        );
+        self::assertSame($e, Util::timespanFormat($a));
 
         date_default_timezone_set($tmpTimezone);
     }
@@ -1614,7 +1677,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerTimespanFormat(): array
+    public static function providerTimespanFormat(): array
     {
         return [
             [
@@ -1639,10 +1702,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testPrintableBitValue(int $a, int $b, string $e): void
     {
-        $this->assertEquals(
-            $e,
-            Util::printableBitValue($a, $b)
-        );
+        self::assertSame($e, Util::printableBitValue($a, $b));
     }
 
     /**
@@ -1650,7 +1710,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerPrintableBitValue(): array
+    public static function providerPrintableBitValue(): array
     {
         return [
             [
@@ -1676,10 +1736,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testUnQuote(string $param, string $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            Util::unQuote($param)
-        );
+        self::assertSame($expected, Util::unQuote($param));
     }
 
     /**
@@ -1687,7 +1744,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnQuote(): array
+    public static function providerUnQuote(): array
     {
         return [
             [
@@ -1719,10 +1776,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testUnQuoteSelectedChar(string $param, string $expected): void
     {
-        $this->assertEquals(
-            $expected,
-            Util::unQuote($param, '"')
-        );
+        self::assertSame($expected, Util::unQuote($param, '"'));
     }
 
     /**
@@ -1730,7 +1784,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUnQuoteSelectedChar(): array
+    public static function providerUnQuoteSelectedChar(): array
     {
         return [
             [
@@ -1757,17 +1811,17 @@ class UtilTest extends AbstractTestCase
      */
     public function testBackquote(?string $entry, string $expectedNoneOutput, string $expectedMssqlOutput): void
     {
-        $this->assertSame($expectedNoneOutput, Util::backquote($entry));
-        $this->assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
-        $this->assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
-        $this->assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
-        $this->assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
+        self::assertSame($expectedNoneOutput, Util::backquote($entry));
+        self::assertEquals($entry, Util::backquoteCompat($entry, 'NONE', false));
+        self::assertEquals($entry, Util::backquoteCompat($entry, 'MSSQL', false));
+        self::assertSame($expectedNoneOutput, Util::backquoteCompat($entry, 'NONE'));
+        self::assertSame($expectedMssqlOutput, Util::backquoteCompat($entry, 'MSSQL'));
     }
 
     /**
      * @return array<int|string, string|null>[]
      */
-    public function providerForTestBackquote(): array
+    public static function providerForTestBackquote(): array
     {
         return [
             [
@@ -1815,15 +1869,9 @@ class UtilTest extends AbstractTestCase
     {
         foreach (Context::$KEYWORDS as $keyword => $type) {
             if ($type & Token::FLAG_KEYWORD_RESERVED) {
-                $this->assertEquals(
-                    '`' . $keyword . '`',
-                    Util::backquoteCompat($keyword, 'NONE', false)
-                );
+                self::assertSame('`' . $keyword . '`', Util::backquoteCompat($keyword, 'NONE', false));
             } else {
-                $this->assertEquals(
-                    $keyword,
-                    Util::backquoteCompat($keyword, 'NONE', false)
-                );
+                self::assertSame($keyword, Util::backquoteCompat($keyword, 'NONE', false));
             }
         }
     }
@@ -1840,7 +1888,7 @@ class UtilTest extends AbstractTestCase
     {
         $GLOBALS['cfg']['Server']['user'] = 'root';
 
-        $this->assertEquals($e, Util::userDir($a));
+        self::assertSame($e, Util::userDir($a));
     }
 
     /**
@@ -1848,7 +1896,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerUserDir(): array
+    public static function providerUserDir(): array
     {
         return [
             [
@@ -1872,10 +1920,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testDuplicateFirstNewline(string $a, string $e): void
     {
-        $this->assertEquals(
-            $e,
-            Util::duplicateFirstNewline($a)
-        );
+        self::assertSame($e, Util::duplicateFirstNewline($a));
     }
 
     /**
@@ -1883,7 +1928,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerDuplicateFirstNewline(): array
+    public static function providerDuplicateFirstNewline(): array
     {
         return [
             [
@@ -1908,18 +1953,15 @@ class UtilTest extends AbstractTestCase
     public function testUnsupportedDatatypes(): void
     {
         $no_support_types = [];
-        $this->assertEquals(
-            $no_support_types,
-            Util::unsupportedDatatypes()
-        );
+        self::assertSame($no_support_types, Util::unsupportedDatatypes());
     }
 
     public function testGetPageFromPosition(): void
     {
-        $this->assertEquals(Util::getPageFromPosition(0, 1), 1);
-        $this->assertEquals(Util::getPageFromPosition(1, 1), 2);
-        $this->assertEquals(Util::getPageFromPosition(1, 2), 1);
-        $this->assertEquals(Util::getPageFromPosition(1, 6), 1);
+        self::assertSame(Util::getPageFromPosition(0, 1), 1);
+        self::assertSame(Util::getPageFromPosition(1, 1), 2);
+        self::assertSame(Util::getPageFromPosition(1, 2), 1);
+        self::assertSame(Util::getPageFromPosition(1, 6), 1);
     }
 
     /**
@@ -1933,7 +1975,7 @@ class UtilTest extends AbstractTestCase
     public function testIsInteger(bool $expected, $input): void
     {
         $isInteger = Util::isInteger($input);
-        $this->assertEquals($expected, $isInteger);
+        self::assertSame($expected, $isInteger);
     }
 
     /**
@@ -1941,7 +1983,7 @@ class UtilTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIsInteger(): array
+    public static function providerIsInteger(): array
     {
         return [
             [
@@ -1978,7 +2020,7 @@ class UtilTest extends AbstractTestCase
     public function testGetProtoFromForwardedHeader(string $header, string $proto): void
     {
         $protocolDetected = Util::getProtoFromForwardedHeader($header);
-        $this->assertEquals($proto, $protocolDetected);
+        self::assertSame($proto, $protocolDetected);
     }
 
     /**
@@ -1989,7 +2031,7 @@ class UtilTest extends AbstractTestCase
      * @source https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Forwarded MDN docs
      * @source https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/ Nginx docs
      */
-    public function providerForwardedHeaders(): array
+    public static function providerForwardedHeaders(): array
     {
         return [
             [
@@ -2094,7 +2136,7 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
@@ -2116,7 +2158,7 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
@@ -2138,10 +2180,13 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertFalse(Util::currentUserHasPrivilege('EVENT'));
+        self::assertFalse(Util::currentUserHasPrivilege('EVENT'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeButDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2169,10 +2214,13 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2200,10 +2248,13 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
+        self::assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeButTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2236,10 +2287,13 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        self::assertTrue(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCurrentUserHasNotUserPrivilegeAndNotDbPrivilegeAndNotTablePrivilege(): void
     {
         $dbi = $this->getMockBuilder(DatabaseInterface::class)
@@ -2272,14 +2326,14 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
+        self::assertFalse(Util::currentUserHasPrivilege('EVENT', 'my_data_base', 'my_data_table'));
         $GLOBALS['dbi'] = $oldDbi;
     }
 
     /**
      * @return array[]
      */
-    public function dataProviderScriptNames(): array
+    public static function dataProviderScriptNames(): array
     {
         // target
         // location
@@ -2443,10 +2497,7 @@ class UtilTest extends AbstractTestCase
      */
     public function testGetScriptNameForOption(string $target, string $location, string $finalLink): void
     {
-        $this->assertSame(
-            $finalLink,
-            Util::getScriptNameForOption($target, $location)
-        );
+        self::assertSame($finalLink, Util::getScriptNameForOption($target, $location));
     }
 
     /**
@@ -2474,7 +2525,7 @@ class UtilTest extends AbstractTestCase
 
         $oldDbi = $GLOBALS['dbi'];
         $GLOBALS['dbi'] = $dbi;
-        $this->assertEquals(Util::isUUIDSupported(), $expected);
+        self::assertSame(Util::isUUIDSupported(), $expected);
         $GLOBALS['dbi'] = $oldDbi;
     }
 
@@ -2484,7 +2535,7 @@ class UtilTest extends AbstractTestCase
      * @return array
      * @psalm-return array<int, array{bool, int, bool}>
      */
-    public function provideForTestIsUUIDSupported(): array
+    public static function provideForTestIsUUIDSupported(): array
     {
         return [
             [

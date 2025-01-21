@@ -79,325 +79,187 @@ class ExportLatexTest extends AbstractTestCase
         $method->setAccessible(true);
         $properties = $method->invoke($this->object, null);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'LaTeX',
-            $properties->getText()
-        );
+        self::assertSame('LaTeX', $properties->getText());
 
-        $this->assertEquals(
-            'tex',
-            $properties->getExtension()
-        );
+        self::assertSame('tex', $properties->getExtension());
 
-        $this->assertEquals(
-            'application/x-tex',
-            $properties->getMimeType()
-        );
+        self::assertSame('application/x-tex', $properties->getMimeType());
 
-        $this->assertEquals(
-            'Options',
-            $properties->getOptionsText()
-        );
+        self::assertSame('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'general_opts',
-            $generalOptions->getName()
-        );
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'caption',
-            $property->getName()
-        );
+        self::assertSame('caption', $property->getName());
 
-        $this->assertEquals(
-            'Include table caption',
-            $property->getText()
-        );
+        self::assertSame('Include table caption', $property->getText());
 
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'dump_what',
-            $generalOptions->getName()
-        );
+        self::assertSame('dump_what', $generalOptions->getName());
 
-        $this->assertEquals(
-            'Dump table',
-            $generalOptions->getText()
-        );
+        self::assertSame('Dump table', $generalOptions->getText());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(RadioPropertyItem::class, $property);
+        self::assertInstanceOf(RadioPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_or_data',
-            $property->getName()
-        );
+        self::assertSame('structure_or_data', $property->getName());
 
-        $this->assertEquals(
-            [
-                'structure' => __('structure'),
-                'data' => __('data'),
-                'structure_and_data' => __('structure and data'),
-            ],
-            $property->getValues()
-        );
+        self::assertSame([
+            'structure' => __('structure'),
+            'data' => __('data'),
+            'structure_and_data' => __('structure and data'),
+        ], $property->getValues());
 
         // hide structure
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'structure',
-            $generalOptions->getName()
-        );
+        self::assertSame('structure', $generalOptions->getName());
 
-        $this->assertEquals(
-            'Object creation options',
-            $generalOptions->getText()
-        );
+        self::assertSame('Object creation options', $generalOptions->getText());
 
-        $this->assertEquals(
-            'data',
-            $generalOptions->getForce()
-        );
+        self::assertSame('data', $generalOptions->getForce());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_caption',
-            $property->getName()
-        );
+        self::assertSame('structure_caption', $property->getName());
 
-        $this->assertEquals(
-            'Table caption:',
-            $property->getText()
-        );
+        self::assertSame('Table caption:', $property->getText());
 
-        $this->assertEquals(
-            'faq6-27',
-            $property->getDoc()
-        );
+        self::assertSame('faq6-27', $property->getDoc());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_continued_caption',
-            $property->getName()
-        );
+        self::assertSame('structure_continued_caption', $property->getName());
 
-        $this->assertEquals(
-            'Table caption (continued):',
-            $property->getText()
-        );
+        self::assertSame('Table caption (continued):', $property->getText());
 
-        $this->assertEquals(
-            'faq6-27',
-            $property->getDoc()
-        );
+        self::assertSame('faq6-27', $property->getDoc());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_label',
-            $property->getName()
-        );
+        self::assertSame('structure_label', $property->getName());
 
-        $this->assertEquals(
-            'Label key:',
-            $property->getText()
-        );
+        self::assertSame('Label key:', $property->getText());
 
-        $this->assertEquals(
-            'faq6-27',
-            $property->getDoc()
-        );
+        self::assertSame('faq6-27', $property->getDoc());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'relation',
-            $property->getName()
-        );
+        self::assertSame('relation', $property->getName());
 
-        $this->assertEquals(
-            'Display foreign key relationships',
-            $property->getText()
-        );
+        self::assertSame('Display foreign key relationships', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'comments',
-            $property->getName()
-        );
+        self::assertSame('comments', $property->getName());
 
-        $this->assertEquals(
-            'Display comments',
-            $property->getText()
-        );
+        self::assertSame('Display comments', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'mime',
-            $property->getName()
-        );
+        self::assertSame('mime', $property->getName());
 
-        $this->assertEquals(
-            'Display media types',
-            $property->getText()
-        );
+        self::assertSame('Display media types', $property->getText());
 
         // data options
         $generalOptions = array_shift($generalOptionsArray);
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'data',
-            $generalOptions->getName()
-        );
+        self::assertSame('data', $generalOptions->getName());
 
-        $this->assertEquals(
-            'Data dump options',
-            $generalOptions->getText()
-        );
+        self::assertSame('Data dump options', $generalOptions->getText());
 
-        $this->assertEquals(
-            'structure',
-            $generalOptions->getForce()
-        );
+        self::assertSame('structure', $generalOptions->getForce());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(BoolPropertyItem::class, $property);
+        self::assertInstanceOf(BoolPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'columns',
-            $property->getName()
-        );
+        self::assertSame('columns', $property->getName());
 
-        $this->assertEquals(
-            'Put columns names in the first row:',
-            $property->getText()
-        );
+        self::assertSame('Put columns names in the first row:', $property->getText());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'data_caption',
-            $property->getName()
-        );
+        self::assertSame('data_caption', $property->getName());
 
-        $this->assertEquals(
-            'Table caption:',
-            $property->getText()
-        );
+        self::assertSame('Table caption:', $property->getText());
 
-        $this->assertEquals(
-            'faq6-27',
-            $property->getDoc()
-        );
+        self::assertSame('faq6-27', $property->getDoc());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'data_continued_caption',
-            $property->getName()
-        );
+        self::assertSame('data_continued_caption', $property->getName());
 
-        $this->assertEquals(
-            'Table caption (continued):',
-            $property->getText()
-        );
+        self::assertSame('Table caption (continued):', $property->getText());
 
-        $this->assertEquals(
-            'faq6-27',
-            $property->getDoc()
-        );
+        self::assertSame('faq6-27', $property->getDoc());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'data_label',
-            $property->getName()
-        );
+        self::assertSame('data_label', $property->getName());
 
-        $this->assertEquals(
-            'Label key:',
-            $property->getText()
-        );
+        self::assertSame('Label key:', $property->getText());
 
-        $this->assertEquals(
-            'faq6-27',
-            $property->getDoc()
-        );
+        self::assertSame('faq6-27', $property->getDoc());
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(TextPropertyItem::class, $property);
+        self::assertInstanceOf(TextPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'null',
-            $property->getName()
-        );
+        self::assertSame('null', $property->getName());
 
-        $this->assertEquals(
-            'Replace NULL with:',
-            $property->getText()
-        );
+        self::assertSame('Replace NULL with:', $property->getText());
 
         // case 2
         $GLOBALS['plugin_param']['export_type'] = 'table';
@@ -407,7 +269,7 @@ class ExportLatexTest extends AbstractTestCase
 
         $generalOptionsArray = $options->getProperties();
 
-        $this->assertCount(4, $generalOptionsArray);
+        self::assertCount(4, $generalOptionsArray);
     }
 
     public function testExportHeader(): void
@@ -417,21 +279,17 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['host'] = 'localhost';
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
+        self::assertTrue($this->object->exportHeader());
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString("\n% Host: localhost:80", $result);
+        self::assertStringContainsString("\n% Host: localhost:80", $result);
     }
 
     public function testExportFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
+        self::assertTrue($this->object->exportFooter());
     }
 
     public function testExportDBHeader(): void
@@ -440,23 +298,17 @@ class ExportLatexTest extends AbstractTestCase
 
         $this->expectOutputString("% \n% Database: 'testDB'\n% \n");
 
-        $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
-        );
+        self::assertTrue($this->object->exportDBHeader('testDB'));
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
-        );
+        self::assertTrue($this->object->exportDBFooter('testDB'));
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB', 'database'));
     }
 
     public function testExportData(): void
@@ -471,7 +323,7 @@ class ExportLatexTest extends AbstractTestCase
         $GLOBALS['cfg']['Server']['verbose'] = 'verb';
 
         ob_start();
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             "\n",
@@ -480,30 +332,27 @@ class ExportLatexTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        $this->assertEquals(
-            "\n" . '%' . "\n" .
-            '% Data: test_table' . "\n" .
-            '%' . "\n" .
-            ' \begin{longtable}{|l|l|l|} ' . "\n" .
-            ' \hline \endhead \hline \endfoot \hline ' . "\n" .
-            ' \caption{latex data caption} \label{datalabel} \\\\\hline \multicolumn{1}{|c|}' .
-            '{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}' .
-            '{\textbf{datetimefield}} \\\ \hline \hline  \endfirsthead ' . "\n" .
-            '\caption{continued caption} \\\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}' .
-            '{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{datetimefield}}' .
-            ' \\\ \hline \hline \endhead \endfoot' . "\n" .
-            '1 & abcd & 2011-01-20 02:00:02 \\\\ \hline ' . "\n" .
-            '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
-            '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
-            ' \end{longtable}' . "\n",
-            $result
-        );
+        self::assertSame("\n" . '%' . "\n" .
+        '% Data: test_table' . "\n" .
+        '%' . "\n" .
+        ' \begin{longtable}{|l|l|l|} ' . "\n" .
+        ' \hline \endhead \hline \endfoot \hline ' . "\n" .
+        ' \caption{latex data caption} \label{datalabel} \\\\\hline \multicolumn{1}{|c|}' .
+        '{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}' .
+        '{\textbf{datetimefield}} \\\ \hline \hline  \endfirsthead ' . "\n" .
+        '\caption{continued caption} \\\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}' .
+        '{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{datetimefield}}' .
+        ' \\\ \hline \hline \endhead \endfoot' . "\n" .
+        '1 & abcd & 2011-01-20 02:00:02 \\\\ \hline ' . "\n" .
+        '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
+        '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
+        ' \end{longtable}' . "\n", $result);
 
         // case 2
         unset($GLOBALS['latex_columns']);
 
         ob_start();
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             "\n",
@@ -512,20 +361,17 @@ class ExportLatexTest extends AbstractTestCase
         ));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
-        $this->assertEquals(
-            "\n" . '%' . "\n" .
-            '% Data: test_table' . "\n" .
-            '%' . "\n" .
-            ' \begin{longtable}{|l|l|l|} ' . "\n" .
-            ' \hline \endhead \hline \endfoot \hline ' . "\n" .
-            ' \caption{latex data caption} \label{datalabel} \\\\\\\\ \hline' .
-            '1 & abcd & 2011-01-20 02:00:02 \\\\ \hline ' . "\n" .
-            '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
-            '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
-            ' \end{longtable}' . "\n",
-            $result
-        );
+        self::assertIsString($result);
+        self::assertSame("\n" . '%' . "\n" .
+        '% Data: test_table' . "\n" .
+        '%' . "\n" .
+        ' \begin{longtable}{|l|l|l|} ' . "\n" .
+        ' \hline \endhead \hline \endfoot \hline ' . "\n" .
+        ' \caption{latex data caption} \label{datalabel} \\\\\\\\ \hline' .
+        '1 & abcd & 2011-01-20 02:00:02 \\\\ \hline ' . "\n" .
+        '2 & foo & 2010-01-20 02:00:02 \\\\ \hline ' . "\n" .
+        '3 & Abcd & 2012-01-20 02:00:02 \\\\ \hline ' . "\n" .
+        ' \end{longtable}' . "\n", $result);
     }
 
     public function testExportStructure(): void
@@ -616,44 +462,39 @@ class ExportLatexTest extends AbstractTestCase
         ])->toArray();
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                "\n",
-                'example.com',
-                'test',
-                'test',
-                true,
-                true,
-                true
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'database',
+            '',
+            "\n",
+            'example.com',
+            'test',
+            'test',
+            true,
+            true,
+            true
+        ));
         $result = ob_get_clean();
 
         //echo $result; die;
-        $this->assertEquals(
-            "\n" . '%' . "\n" .
-            '% Structure: ' . "\n" .
-            '%' . "\n" .
-            ' \\begin{longtable}{|l|c|c|c|l|l|} ' . "\n" .
-            ' \\hline \\multicolumn{1}{|c|}{\\textbf{Column}} & ' .
-            '\\multicolumn{1}{|c|}{\\textbf{Type}} & \\multicolumn{1}{|c|}' .
-            '{\\textbf{Null}} & \\multicolumn{1}{|c|}{\\textbf{Default}} &' .
-            ' \\multicolumn{1}{|c|}{\\textbf{Comments}} & \\multicolumn{1}' .
-            '{|c|}{\\textbf{MIME}} \\\\ \\hline \\hline' . "\n" .
-            '\\endfirsthead' . "\n" . ' \\hline \\multicolumn{1}{|c|}' .
-            '{\\textbf{Column}} & \\multicolumn{1}{|c|}{\\textbf{Type}}' .
-            ' & \\multicolumn{1}{|c|}{\\textbf{Null}} & \\multicolumn' .
-            '{1}{|c|}{\\textbf{Default}} & \\multicolumn{1}{|c|}{\\textbf' .
-            '{Comments}} & \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .
-            '\\hline \\hline \\endhead \\endfoot ' . "\n" . '\\textbf{\\textit' .
-            '{name1}} & set(abc) & Yes & NULL &  ' .
-            '& Testmimetype/ \\\\ \\hline ' . "\n" .
-            'fields &   & No & def &  &  \\\\ \\hline ' . "\n" .
-            ' \\end{longtable}' . "\n",
-            $result
-        );
+        self::assertSame("\n" . '%' . "\n" .
+        '% Structure: ' . "\n" .
+        '%' . "\n" .
+        ' \\begin{longtable}{|l|c|c|c|l|l|} ' . "\n" .
+        ' \\hline \\multicolumn{1}{|c|}{\\textbf{Column}} & ' .
+        '\\multicolumn{1}{|c|}{\\textbf{Type}} & \\multicolumn{1}{|c|}' .
+        '{\\textbf{Null}} & \\multicolumn{1}{|c|}{\\textbf{Default}} &' .
+        ' \\multicolumn{1}{|c|}{\\textbf{Comments}} & \\multicolumn{1}' .
+        '{|c|}{\\textbf{MIME}} \\\\ \\hline \\hline' . "\n" .
+        '\\endfirsthead' . "\n" . ' \\hline \\multicolumn{1}{|c|}' .
+        '{\\textbf{Column}} & \\multicolumn{1}{|c|}{\\textbf{Type}}' .
+        ' & \\multicolumn{1}{|c|}{\\textbf{Null}} & \\multicolumn' .
+        '{1}{|c|}{\\textbf{Default}} & \\multicolumn{1}{|c|}{\\textbf' .
+        '{Comments}} & \\multicolumn{1}{|c|}{\\textbf{MIME}} \\\\ ' .
+        '\\hline \\hline \\endhead \\endfoot ' . "\n" . '\\textbf{\\textit' .
+        '{name1}} & set(abc) & Yes & NULL &  ' .
+        '& Testmimetype/ \\\\ \\hline ' . "\n" .
+        'fields &   & No & def &  &  \\\\ \\hline ' . "\n" .
+        ' \\end{longtable}' . "\n", $result);
 
         // case 2
 
@@ -718,28 +559,23 @@ class ExportLatexTest extends AbstractTestCase
         ])->toArray();
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                "\n",
-                'example.com',
-                'test',
-                'test',
-                true,
-                true,
-                true
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'database',
+            '',
+            "\n",
+            'example.com',
+            'test',
+            'test',
+            true,
+            true,
+            true
+        ));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString(
-            '\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
-            'ftable (ffield) &  &  \\\\ \\hline',
-            $result
-        );
+        self::assertStringContainsString('\\textbf{\\textit{name1}} & set(abc) & Yes & NULL & ' .
+        'ftable (ffield) &  &  \\\\ \\hline', $result);
 
         // case 3
 
@@ -777,42 +613,35 @@ class ExportLatexTest extends AbstractTestCase
         ])->toArray();
 
         ob_start();
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                "\n",
-                'example.com',
-                'test',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'database',
+            '',
+            "\n",
+            'example.com',
+            'test',
+            'test'
+        ));
         $result = ob_get_clean();
 
-        $this->assertIsString($result);
+        self::assertIsString($result);
 
-        $this->assertStringContainsString('\\caption{latexstructure} \\label{latexlabel}', $result);
+        self::assertStringContainsString('\\caption{latexstructure} \\label{latexlabel}', $result);
 
-        $this->assertStringContainsString('caption{latexcontinued}', $result);
+        self::assertStringContainsString('caption{latexcontinued}', $result);
 
         // case 4
-        $this->assertTrue(
-            $this->object->exportStructure(
-                'database',
-                '',
-                "\n",
-                'example.com',
-                'triggers',
-                'test'
-            )
-        );
+        self::assertTrue($this->object->exportStructure(
+            'database',
+            '',
+            "\n",
+            'example.com',
+            'triggers',
+            'test'
+        ));
     }
 
     public function testTexEscape(): void
     {
-        $this->assertEquals(
-            '\\$\\%\\{foo\\&bar\\}\\#\\_\\^',
-            ExportLatex::texEscape('$%{foo&bar}#_^')
-        );
+        self::assertSame('\\$\\%\\{foo\\&bar\\}\\#\\_\\^', ExportLatex::texEscape('$%{foo&bar}#_^'));
     }
 }

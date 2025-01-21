@@ -14,9 +14,9 @@ use function class_exists;
 use function sort;
 
 use const DIRECTORY_SEPARATOR;
-use const ROOT_PATH;
 use const SORT_NATURAL;
 use const SORT_REGULAR;
+use const TEST_PATH;
 
 /**
  * @covers \PhpMyAdmin\Command\TwigLintCommand
@@ -44,21 +44,21 @@ class TwigLintCommandTest extends AbstractTestCase
     public function testGetTemplateContents(): void
     {
         $contents = $this->callFunction($this->command, TwigLintCommand::class, 'getTemplateContents', [
-            ROOT_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
+            TEST_PATH . 'test/classes/_data/file_listing/subfolder/one.ini',
         ]);
 
-        $this->assertSame('key=value' . "\n", $contents);
+        self::assertSame('key=value' . "\n", $contents);
     }
 
     public function testFindFiles(): void
     {
-        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'test/classes/_data/file_listing';
         $filesFound = $this->callFunction($this->command, TwigLintCommand::class, 'findFiles', [$path]);
 
         // Sort results to avoid file system test specific failures
         sort($filesFound, SORT_NATURAL);
 
-        $this->assertEquals([
+        self::assertSame([
             $path . DIRECTORY_SEPARATOR . 'one.txt',
             $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'one.ini',
             $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'zero.txt',
@@ -68,13 +68,13 @@ class TwigLintCommandTest extends AbstractTestCase
 
     public function testGetFilesInfo(): void
     {
-        $path = ROOT_PATH . 'test/classes/_data/file_listing';
+        $path = TEST_PATH . 'test/classes/_data/file_listing';
         $filesInfos = $this->callFunction($this->command, TwigLintCommand::class, 'getFilesInfo', [$path]);
 
         // Sort results to avoid file system test specific failures
         sort($filesInfos, SORT_REGULAR);
 
-        $this->assertEquals([
+        self::assertSame([
             [
                 'template' => '',
                 'file' => $path . DIRECTORY_SEPARATOR . 'one.txt',
@@ -98,6 +98,9 @@ class TwigLintCommandTest extends AbstractTestCase
         ], $filesInfos);
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testGetFilesInfoInvalidFile(): void
     {
         $command = $this->getMockBuilder(TwigLintCommand::class)
@@ -122,10 +125,10 @@ class TwigLintCommandTest extends AbstractTestCase
             ->willReturnOnConsecutiveCalls('{{ file }}', '{{ file }');
 
         $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
-            ROOT_PATH . 'test/classes/_data/file_listing',
+            TEST_PATH . 'test/classes/_data/file_listing',
         ]);
 
-        $this->assertEquals([
+        self::assertEquals([
             [
                 'template' => '{{ file }}',
                 'file' => 'foo.twig',
@@ -151,20 +154,20 @@ class TwigLintCommandTest extends AbstractTestCase
             0,
         ]);
 
-        $this->assertEquals([1 => '{{ file }'], $context);
+        self::assertSame([1 => '{{ file }'], $context);
 
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', [
             '{{ file }',
             3,
         ]);
 
-        $this->assertEquals([1 => '{{ file }'], $context);
+        self::assertSame([1 => '{{ file }'], $context);
 
         $context = $this->callFunction($this->command, TwigLintCommand::class, 'getContext', [
             '{{ file }',
             5,
         ]);
 
-        $this->assertEquals([], $context);
+        self::assertSame([], $context);
     }
 }

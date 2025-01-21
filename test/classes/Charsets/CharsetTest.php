@@ -23,10 +23,10 @@ class CharsetTest extends AbstractTestCase
 
         $charset = Charset::fromServer($serverCharset);
 
-        $this->assertInstanceOf(Charset::class, $charset);
-        $this->assertSame('utf8', $charset->getName());
-        $this->assertSame('utf8_general_ci', $charset->getDefaultCollation());
-        $this->assertSame('UTF-8 Unicode', $charset->getDescription());
-        $this->assertSame(3, $charset->getMaxLength());
+        self::assertInstanceOf(Charset::class, $charset);
+        self::assertSame('utf8', $charset->getName());
+        self::assertSame('utf8_general_ci', $charset->getDefaultCollation());
+        self::assertSame('UTF-8 Unicode', $charset->getDescription());
+        self::assertSame(3, $charset->getMaxLength());
     }
 }

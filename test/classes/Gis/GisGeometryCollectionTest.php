@@ -9,7 +9,6 @@ use PhpMyAdmin\Image\ImageWrapper;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use TCPDF;
 
-use function method_exists;
 use function preg_match;
 
 /**
@@ -50,7 +49,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     public function testScaleRow(string $spatial, array $output): void
     {
-        $this->assertEquals($output, $this->object->scaleRow($spatial));
+        self::assertEquals($output, $this->object->scaleRow($spatial));
     }
 
     /**
@@ -58,7 +57,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testScaleRow() test case
      */
-    public function providerForScaleRow(): array
+    public static function providerForScaleRow(): array
     {
         return [
             [
@@ -85,10 +84,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     public function testGenerateWkt(array $gis_data, int $index, ?string $empty, string $output): void
     {
-        $this->assertEquals(
-            $output,
-            $this->object->generateWkt($gis_data, $index, $empty)
-        );
+        self::assertSame($output, $this->object->generateWkt($gis_data, $index, $empty));
     }
 
     /**
@@ -96,7 +92,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testGenerateWkt() test case
      */
-    public function providerForGenerateWkt(): array
+    public static function providerForGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -117,6 +113,72 @@ class GisGeometryCollectionTest extends AbstractTestCase
 
         return [
             [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'POINT'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(POINT( ))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'LINESTRING'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(LINESTRING( , ))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'POLYGON'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(POLYGON(( , , , )))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'MULTIPOINT'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(MULTIPOINT( ))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'MULTILINESTRING'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(MULTILINESTRING(( , )))',
+            ],
+            [
+                [
+                    'gis_type' => 'GEOMETRYCOLLECTION',
+                    'srid' => '0',
+                    'GEOMETRYCOLLECTION' => ['geom_count' => '1'],
+                    0 => ['gis_type' => 'MULTIPOLYGON'],
+                ],
+                0,
+                null,
+                'GEOMETRYCOLLECTION(MULTIPOLYGON((( , , , ))))',
+            ],
+            [
                 $temp1,
                 0,
                 null,
@@ -135,7 +197,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      */
     public function testGenerateParams(string $value, array $output): void
     {
-        $this->assertEquals($output, $this->object->generateParams($value));
+        self::assertSame($output, $this->object->generateParams($value));
     }
 
     /**
@@ -143,7 +205,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testGenerateParams() test case
      */
-    public function providerForGenerateParams(): array
+    public static function providerForGenerateParams(): array
     {
         return [
             [
@@ -176,7 +238,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'GEOMETRYCOLLECTION(POLYGON((35 10,10 20,15 40,45 45,35 10),(20 30,35 32,30 20,20 30)))',
             'image',
@@ -184,8 +246,8 @@ class GisGeometryCollectionTest extends AbstractTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -207,7 +269,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        self::assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -215,7 +277,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -252,20 +314,12 @@ class GisGeometryCollectionTest extends AbstractTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
 
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression(
-                $output,
-                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
-            );
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp(
-                $output,
-                $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
-            );
-        }
+        self::assertMatchesRegularExpressionCompat(
+            $output,
+            $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData)
+        );
     }
 
     /**
@@ -273,7 +327,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -287,7 +341,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
                     'height' => 150,
                 ],
                 '/^(<path d=" M 46, 268 L -4, 248 L 6, 208 L 66, 198 Z  M 16,'
-                    . ' 228 L 46, 224 L 36, 248 Z " name="svg" id="svg)(\d+)'
+                    . ' 228 L 46, 224 L 36, 248 Z " data-label="svg" id="svg)(\d+)'
                     . '(" class="polygon vector" stroke="black" stroke-width="0.5"'
                     . ' fill="#B02EE0" fill-rule="evenodd" fill-opacity="0.8"\/>)$/',
             ],
@@ -314,16 +368,13 @@ class GisGeometryCollectionTest extends AbstractTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $line_color,
-                $scale_data
-            )
-        );
+        self::assertSame($output, $this->object->prepareRowAsOl(
+            $spatial,
+            $srid,
+            $label,
+            $line_color,
+            $scale_data
+        ));
     }
 
     /**
@@ -331,7 +382,7 @@ class GisGeometryCollectionTest extends AbstractTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

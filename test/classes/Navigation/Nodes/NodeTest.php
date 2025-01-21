@@ -34,14 +34,8 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            $child
-        );
-        $this->assertEquals(
-            $parent->getChild($child->realName, true),
-            $child
-        );
+        self::assertSame($parent->getChild($child->name), $child);
+        self::assertSame($parent->getChild($child->realName, true), $child);
     }
 
     /**
@@ -50,12 +44,8 @@ class NodeTest extends AbstractTestCase
     public function testGetChildError(): void
     {
         $parent = NodeFactory::getInstance('Node', 'parent');
-        $this->assertNull(
-            $parent->getChild('foo')
-        );
-        $this->assertNull(
-            $parent->getChild('foo', true)
-        );
+        self::assertNull($parent->getChild('foo'));
+        self::assertNull($parent->getChild('foo', true));
     }
 
     /**
@@ -66,14 +56,22 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance('Node', 'parent');
         $child = NodeFactory::getInstance('Node', 'child');
         $parent->addChild($child);
-        $this->assertEquals(
-            $parent->getChild($child->name),
-            $child
-        );
+        self::assertSame($parent->getChild($child->name), $child);
         $parent->removeChild($child->name);
-        $this->assertNull(
-            $parent->getChild($child->name)
-        );
+        self::assertNull($parent->getChild($child->name));
+    }
+
+    public function testGetChild(): void
+    {
+        $parent = NodeFactory::getInstance('Node', 'parent');
+        $childOne = NodeFactory::getInstance('Node', '0');
+        $childTwo = NodeFactory::getInstance('Node', '00');
+        $parent->addChild($childOne);
+        $parent->addChild($childTwo);
+        self::assertSame($childTwo, $parent->getChild('00'));
+        self::assertSame($childOne, $parent->getChild('0'));
+        self::assertSame($childTwo, $parent->getChild('00', true));
+        self::assertSame($childOne, $parent->getChild('0', true));
     }
 
     /**
@@ -85,34 +83,16 @@ class NodeTest extends AbstractTestCase
         $emptyContainer = NodeFactory::getInstance('Node', 'empty', Node::CONTAINER);
         $child = NodeFactory::getInstance();
         // test with no children
-        $this->assertEquals(
-            $parent->hasChildren(true),
-            false
-        );
-        $this->assertEquals(
-            $parent->hasChildren(false),
-            false
-        );
+        self::assertSame($parent->hasChildren(true), false);
+        self::assertSame($parent->hasChildren(false), false);
         // test with an empty container
         $parent->addChild($emptyContainer);
-        $this->assertEquals(
-            $parent->hasChildren(true),
-            true
-        );
-        $this->assertEquals(
-            $parent->hasChildren(false),
-            false
-        );
+        self::assertSame($parent->hasChildren(true), true);
+        self::assertSame($parent->hasChildren(false), false);
         // test with a real child
         $parent->addChild($child);
-        $this->assertEquals(
-            $parent->hasChildren(true),
-            true
-        );
-        $this->assertEquals(
-            $parent->hasChildren(false),
-            true
-        );
+        self::assertSame($parent->hasChildren(true), true);
+        self::assertSame($parent->hasChildren(false), true);
     }
 
     /**
@@ -122,25 +102,25 @@ class NodeTest extends AbstractTestCase
     {
         // start with root node only
         $parent = NodeFactory::getInstance();
-        $this->assertEquals($parent->numChildren(), 0);
+        self::assertSame($parent->numChildren(), 0);
         // add a child
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        $this->assertEquals($parent->numChildren(), 1);
+        self::assertSame($parent->numChildren(), 1);
         // add a direct grandchild, this one doesn't count as
         // it's not enclosed in a CONTAINER
         $child->addChild(NodeFactory::getInstance());
-        $this->assertEquals($parent->numChildren(), 1);
+        self::assertSame($parent->numChildren(), 1);
         // add a container, this one doesn't count wither
         $container = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($container);
-        $this->assertEquals($parent->numChildren(), 1);
+        self::assertSame($parent->numChildren(), 1);
         // add a grandchild to container, this one counts
         $container->addChild(NodeFactory::getInstance());
-        $this->assertEquals($parent->numChildren(), 2);
+        self::assertSame($parent->numChildren(), 2);
         // add another grandchild to container, this one counts
         $container->addChild(NodeFactory::getInstance());
-        $this->assertEquals($parent->numChildren(), 3);
+        self::assertSame($parent->numChildren(), 3);
     }
 
     /**
@@ -149,20 +129,17 @@ class NodeTest extends AbstractTestCase
     public function testParents(): void
     {
         $parent = NodeFactory::getInstance();
-        $this->assertEquals($parent->parents(), []); // exclude self
-        $this->assertEquals($parent->parents(true), [$parent]); // include self
+        self::assertSame($parent->parents(), []); // exclude self
+        self::assertSame($parent->parents(true), [$parent]); // include self
 
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
 
-        $this->assertEquals($child->parents(), [$parent]); // exclude self
-        $this->assertEquals(
-            $child->parents(true),
-            [
-                $child,
-                $parent,
-            ]
-        ); // include self
+        self::assertSame($child->parents(), [$parent]); // exclude self
+        self::assertSame($child->parents(true), [
+            $child,
+            $parent,
+        ]); // include self
     }
 
     /**
@@ -171,11 +148,11 @@ class NodeTest extends AbstractTestCase
     public function testRealParent(): void
     {
         $parent = NodeFactory::getInstance();
-        $this->assertFalse($parent->realParent());
+        self::assertFalse($parent->realParent());
 
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        $this->assertEquals($child->realParent(), $parent);
+        self::assertSame($child->realParent(), $parent);
     }
 
     /**
@@ -187,7 +164,7 @@ class NodeTest extends AbstractTestCase
         $parent = NodeFactory::getInstance();
         $child = NodeFactory::getInstance();
         $parent->addChild($child);
-        $this->assertFalse($child->hasSiblings());
+        self::assertFalse($child->hasSiblings());
     }
 
     /**
@@ -202,7 +179,7 @@ class NodeTest extends AbstractTestCase
         $secondChild = NodeFactory::getInstance();
         $parent->addChild($secondChild);
         // Normal case; two Node:NODE type siblings
-        $this->assertTrue($firstChild->hasSiblings());
+        self::assertTrue($firstChild->hasSiblings());
 
         $parent = NodeFactory::getInstance();
         $firstChild = NodeFactory::getInstance();
@@ -210,12 +187,12 @@ class NodeTest extends AbstractTestCase
         $secondChild = NodeFactory::getInstance('Node', 'default', Node::CONTAINER);
         $parent->addChild($secondChild);
         // Empty Node::CONTAINER type node should not be considered in hasSiblings()
-        $this->assertFalse($firstChild->hasSiblings());
+        self::assertFalse($firstChild->hasSiblings());
 
         $grandChild = NodeFactory::getInstance();
         $secondChild->addChild($grandChild);
         // Node::CONTAINER type nodes with children are counted for hasSiblings()
-        $this->assertTrue($firstChild->hasSiblings());
+        self::assertTrue($firstChild->hasSiblings());
     }
 
     /**
@@ -233,9 +210,9 @@ class NodeTest extends AbstractTestCase
         $grandChild->addChild($greatGrandChild);
 
         // Should return false for node that are two levels deeps
-        $this->assertFalse($grandChild->hasSiblings());
+        self::assertFalse($grandChild->hasSiblings());
         // Should return true for node that are three levels deeps
-        $this->assertTrue($greatGrandChild->hasSiblings());
+        self::assertTrue($greatGrandChild->hasSiblings());
     }
 
     /**
@@ -248,13 +225,10 @@ class NodeTest extends AbstractTestCase
 
         // Vanilla case
         $node = NodeFactory::getInstance();
-        $this->assertEquals(
-            'WHERE TRUE ',
-            $method->invoke($node, 'SCHEMA_NAME')
-        );
+        self::assertSame('WHERE TRUE ', $method->invoke($node, 'SCHEMA_NAME'));
 
         // When a schema names is passed as search clause
-        $this->assertEquals(
+        self::assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` LIKE '%schemaName%' ",
             $method->invoke($node, 'SCHEMA_NAME', 'schemaName')
         );
@@ -265,7 +239,7 @@ class NodeTest extends AbstractTestCase
 
         // When hide_db regular expression is present
         $GLOBALS['cfg']['Server']['hide_db'] = 'regexpHideDb';
-        $this->assertEquals(
+        self::assertSame(
             "WHERE TRUE AND `SCHEMA_NAME` NOT REGEXP 'regexpHideDb' ",
             $method->invoke($node, 'SCHEMA_NAME')
         );
@@ -273,7 +247,7 @@ class NodeTest extends AbstractTestCase
 
         // When only_db directive is present and it's a single db
         $GLOBALS['cfg']['Server']['only_db'] = 'stringOnlyDb';
-        $this->assertEquals(
+        self::assertSame(
             "WHERE TRUE AND ( `SCHEMA_NAME` LIKE 'stringOnlyDb' ) ",
             $method->invoke($node, 'SCHEMA_NAME')
         );
@@ -284,7 +258,7 @@ class NodeTest extends AbstractTestCase
             'onlyDbOne',
             'onlyDbTwo',
         ];
-        $this->assertEquals(
+        self::assertSame(
             'WHERE TRUE AND ( `SCHEMA_NAME` LIKE \'onlyDbOne\' OR `SCHEMA_NAME` LIKE \'onlyDbTwo\' ) ',
             $method->invoke($node, 'SCHEMA_NAME')
         );

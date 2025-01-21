@@ -59,57 +59,36 @@ class ExportJsonTest extends AbstractTestCase
         $attrProperties->setAccessible(true);
         $properties = $attrProperties->getValue($this->object);
 
-        $this->assertInstanceOf(ExportPluginProperties::class, $properties);
+        self::assertInstanceOf(ExportPluginProperties::class, $properties);
 
-        $this->assertEquals(
-            'JSON',
-            $properties->getText()
-        );
+        self::assertSame('JSON', $properties->getText());
 
-        $this->assertEquals(
-            'json',
-            $properties->getExtension()
-        );
+        self::assertSame('json', $properties->getExtension());
 
-        $this->assertEquals(
-            'text/plain',
-            $properties->getMimeType()
-        );
+        self::assertSame('text/plain', $properties->getMimeType());
 
-        $this->assertEquals(
-            'Options',
-            $properties->getOptionsText()
-        );
+        self::assertSame('Options', $properties->getOptionsText());
 
         $options = $properties->getOptions();
 
-        $this->assertInstanceOf(OptionsPropertyRootGroup::class, $options);
+        self::assertInstanceOf(OptionsPropertyRootGroup::class, $options);
 
-        $this->assertEquals(
-            'Format Specific Options',
-            $options->getName()
-        );
+        self::assertSame('Format Specific Options', $options->getName());
 
         $generalOptionsArray = $options->getProperties();
         $generalOptions = $generalOptionsArray[0];
 
-        $this->assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
+        self::assertInstanceOf(OptionsPropertyMainGroup::class, $generalOptions);
 
-        $this->assertEquals(
-            'general_opts',
-            $generalOptions->getName()
-        );
+        self::assertSame('general_opts', $generalOptions->getName());
 
         $generalProperties = $generalOptions->getProperties();
 
         $property = array_shift($generalProperties);
 
-        $this->assertInstanceOf(HiddenPropertyItem::class, $property);
+        self::assertInstanceOf(HiddenPropertyItem::class, $property);
 
-        $this->assertEquals(
-            'structure_or_data',
-            $property->getName()
-        );
+        self::assertSame('structure_or_data', $property->getName());
     }
 
     public function testExportHeader(): void
@@ -123,9 +102,7 @@ class ExportJsonTest extends AbstractTestCase
             . "\n"
         );
 
-        $this->assertTrue(
-            $this->object->exportHeader()
-        );
+        self::assertTrue($this->object->exportHeader());
     }
 
     public function testExportFooter(): void
@@ -134,9 +111,7 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->expectOutputString(']');
 
-        $this->assertTrue(
-            $this->object->exportFooter()
-        );
+        self::assertTrue($this->object->exportFooter());
     }
 
     public function testExportDBHeader(): void
@@ -145,23 +120,17 @@ class ExportJsonTest extends AbstractTestCase
 
         $this->expectOutputString('{"type":"database","name":"testDB"},' . "\n");
 
-        $this->assertTrue(
-            $this->object->exportDBHeader('testDB')
-        );
+        self::assertTrue($this->object->exportDBHeader('testDB'));
     }
 
     public function testExportDBFooter(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBFooter('testDB')
-        );
+        self::assertTrue($this->object->exportDBFooter('testDB'));
     }
 
     public function testExportDBCreate(): void
     {
-        $this->assertTrue(
-            $this->object->exportDBCreate('testDB', 'database')
-        );
+        self::assertTrue($this->object->exportDBCreate('testDB', 'database'));
     }
 
     public function testExportData(): void
@@ -176,7 +145,7 @@ class ExportJsonTest extends AbstractTestCase
             . '}' . "\n"
         );
 
-        $this->assertTrue($this->object->exportData(
+        self::assertTrue($this->object->exportData(
             'test_db',
             'test_table',
             "\n",
@@ -199,15 +168,13 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n"
         );
 
-        $this->assertTrue(
-            $this->object->exportData(
-                'test_db',
-                'test_table_complex',
-                "\n",
-                'example.com',
-                'SELECT * FROM `test_db`.`test_table_complex`;'
-            )
-        );
+        self::assertTrue($this->object->exportData(
+            'test_db',
+            'test_table_complex',
+            "\n",
+            'example.com',
+            'SELECT * FROM `test_db`.`test_table_complex`;'
+        ));
     }
 
     public function testExportRawComplexData(): void
@@ -223,13 +190,11 @@ class ExportJsonTest extends AbstractTestCase
             . "]\n}\n"
         );
 
-        $this->assertTrue(
-            $this->object->exportRawQuery(
-                'example.com',
-                null,
-                'SELECT * FROM `test_db`.`test_table_complex`;',
-                "\n"
-            )
-        );
+        self::assertTrue($this->object->exportRawQuery(
+            'example.com',
+            null,
+            'SELECT * FROM `test_db`.`test_table_complex`;',
+            "\n"
+        ));
     }
 }

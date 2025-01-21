@@ -75,35 +75,26 @@ class SelectTest extends AbstractTestCase
 
         if ($not_only_options) {
             if (! $omit_fieldset) {
-                $this->assertStringContainsString('</fieldset>', $html);
+                self::assertStringContainsString('</fieldset>', $html);
             }
 
-            $this->assertStringContainsString(
-                Util::getScriptNameForOption(
-                    $GLOBALS['cfg']['DefaultTabServer'],
-                    'server'
-                ),
-                $html
-            );
+            self::assertStringContainsString(Util::getScriptNameForOption(
+                $GLOBALS['cfg']['DefaultTabServer'],
+                'server'
+            ), $html);
 
-            $this->assertStringContainsString(
-                __('Current server:'),
-                $html
-            );
-            $this->assertStringContainsString(
-                '(' . __('Servers') . ')',
-                $html
-            );
+            self::assertStringContainsString(__('Current server:'), $html);
+            self::assertStringContainsString('(' . __('Servers') . ')', $html);
         }
 
         //server items
-        $this->assertStringContainsString($server['host'], $html);
-        $this->assertStringContainsString($server['port'], $html);
-        $this->assertStringContainsString($server['only_db'], $html);
-        $this->assertStringContainsString($server['user'], $html);
+        self::assertStringContainsString($server['host'], $html);
+        self::assertStringContainsString($server['port'], $html);
+        self::assertStringContainsString($server['only_db'], $html);
+        self::assertStringContainsString($server['user'], $html);
     }
 
-    public function renderDataProvider(): array
+    public static function renderDataProvider(): array
     {
         return [
             'only options, don\'t omit fieldset' => [

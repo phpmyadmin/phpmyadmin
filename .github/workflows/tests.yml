@@ -29,7 +29,7 @@ jobs:
           - { php-version: '8', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Write script
         # tcpdf allowed memory exhausted needs the memory_limit workaround
@@ -43,7 +43,7 @@ jobs:
           apk add --update --no-cache \
           php\$V-cli php\$V-mysqli php\$V-session php\$V-mbstring php\$V-ctype \
           php\$V-iconv php\$V-xml php\$V-tokenizer php\$V-xmlwriter php\$V-simplexml \
-          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip \
+          php\$V-dom php\$V-json php\$V-bz2 php\$V-curl php\$V-gd php\$V-zip php\$V-bcmath \
           musl-locales musl-locales-lang \
           gettext composer git && \
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
@@ -67,13 +67,13 @@ jobs:
     continue-on-error: ${{ matrix.experimental }}
     strategy:
       matrix:
-        php-version: ["7.2", "7.3", "7.4", "8.0", "8.1", "8.2"]
+        php-version: ['7.2', '7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
         experimental: [false]
         os: [ubuntu-latest]
         phpunit-options: ['--testsuite unit']
         php-extensions: ['mbstring, iconv, mysqli, zip, gd, bz2']
         include:
-          - php-version: 'nightly'
+          - php-version: '8.5'
             experimental: true
             os: ubuntu-latest
             phpunit-options: '--configuration test/phpunit-php-nightly.xml'
@@ -81,7 +81,7 @@ jobs:
             php-extensions: 'mbstring, iconv, mysqli, zip, bz2'
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -100,7 +100,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: highest
           composer-options: ${{ matrix.composer-options }}
@@ -141,7 +141,7 @@ jobs:
         extension: ["dbase", "recode"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -160,7 +160,7 @@ jobs:
           coverage: xdebug
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: highest
 
@@ -191,18 +191,20 @@ jobs:
           coverage-reports: build/logs/clover.xml
 
   test-php-psr7-implementations:
-    name: Test on PHP (+ psr7-${{ matrix.psr-7-library }}) ${{ matrix.php-version }} and ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: Test on PHP ${{ matrix.php-version }} (+ psr7-${{ matrix.psr-7-library }})
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.3']
-        os: [ubuntu-latest]
+        php-version: ['7.2']
         php-extensions: ['mbstring, iconv, mysqli, zip, bz2']
-        psr-7-library: ['guzzlehttp/psr7', 'nyholm/psr7', 'laminas/laminas-diactoros']
+        psr-7-library: ['guzzlehttp/psr7', 'slim/psr7', 'nyholm/psr7']
+        include:
+          # See: https://github.com/laminas/laminas-diactoros/releases/tag/2.18.0
+          - {psr-7-library: 'laminas/laminas-diactoros', php-version: '8.0'}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           # Fetch some commits for Scrutinizer coverage upload
           fetch-depth: 15
@@ -221,7 +223,7 @@ jobs:
           coverage: pcov
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: highest
 
@@ -262,10 +264,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 12
 
@@ -274,7 +276,7 @@ jobs:
         run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
 
       - name: Cache Yarn dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}

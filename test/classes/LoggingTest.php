@@ -15,8 +15,8 @@ class LoggingTest extends AbstractTestCase
     {
         $_SERVER['REMOTE_ADDR'] = '0.0.0.0';
         $log = Logging::getLogMessage('user', 'ok');
-        $this->assertEquals('user authenticated: user from 0.0.0.0', $log);
+        self::assertSame('user authenticated: user from 0.0.0.0', $log);
         $log = Logging::getLogMessage('user', 'error');
-        $this->assertEquals('user denied: user (error) from 0.0.0.0', $log);
+        self::assertSame('user denied: user (error) from 0.0.0.0', $log);
     }
 }

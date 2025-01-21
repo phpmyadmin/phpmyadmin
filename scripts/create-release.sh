@@ -33,6 +33,7 @@ do_ci=0
 do_sign=1
 do_pull=0
 do_daily=0
+do_revision=0
 
 while [ $# -gt 0 ] ; do
     case "$1" in
@@ -44,6 +45,9 @@ while [ $# -gt 0 ] ; do
             ;;
         --test)
             do_test=1
+            ;;
+        --revision-info)
+            do_revision=1
             ;;
         --daily)
             do_sign=0
@@ -58,20 +62,37 @@ while [ $# -gt 0 ] ; do
                 git branch ci
                 branch="ci"
             fi
-            version="${VERSION_SERIES}+ci"
+            ;;
+        --no-sign)
+            do_sign=0
+            ;;
+        --kits)
+            KITS="$2"
+            # Skip one position, the value
+            shift
+            ;;
+        --compressions)
+            COMPRESSIONS="$2"
+            # Skip one position, the value
+            shift
             ;;
         --help)
             echo "Usages:"
-            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci]"
+            echo "  create-release.sh <version> <from_branch> [--tag] [--stable] [--test] [--ci] [--daily] [--revision-info] [--compressions] [--kits] [--no-sign]"
             echo ""
             echo "If --tag is specified, release tag is automatically created (use this for all releases including pre-releases)"
             echo "If --stable is specified, the STABLE branch is updated with this release"
             echo "If --test is specified, the testsuite is executed before creating the release"
             echo "If --ci is specified, the testsuite is executed and no actual release is created"
+            echo "If --no-sign is specified, the ouput files will not be signed"
+            echo "If --daily is specified, the ouput files will have snapshot information"
+            echo "If --revision-info is specified, the output files will contain git revision info"
+            echo "If --compressions is specified, it changes the compressions available. Space separated values. Valid values: $COMPRESSIONS"
+            echo "If --kits is specified, it changes the kits to be built. Space separated values. Valid values: $KITS"
             echo ""
             echo "Examples:"
-            echo "  create-release.sh 2.9.0-rc1 QA_2_9"
-            echo "  create-release.sh 2.9.0 MAINT_2_9_0 --tag --stable"
+            echo "  create-release.sh 5.2.2-dev QA_5_2"
+            echo "  create-release.sh 5.2.2 QA_5_2 --tag --stable"
             exit 65
             ;;
         *)
@@ -90,16 +111,24 @@ while [ $# -gt 0 ] ; do
                 fi
             else
                 echo "Unknown parameter: $1!"
+                echo "Use --help to check the syntax."
                 exit 1
             fi
     esac
     shift
 done
 
-if [ -z "$version" -o -z "$branch" ] ; then
-    echo "Branch and version have to be specified!"
+if [ -z "$version" -a $do_ci -eq 0 ]; then
+    echo "Version must be specified!"
     exit 1
 fi
+
+if [ -z "$branch" ]; then
+    echo "Branch must be specified!"
+    exit 1
+fi
+
+kit_prefix="phpMyAdmin-$version"
 
 # Checks whether remote branch has local tracking branch
 ensure_local_branch() {
@@ -142,12 +171,6 @@ cleanup_composer_vendors() {
         vendor/phpmyadmin/twig-i18n-extension/README.rst \
         vendor/phpmyadmin/twig-i18n-extension/phpunit.xml.dist \
         vendor/phpmyadmin/twig-i18n-extension/test/ \
-        vendor/phpseclib/phpseclib/phpseclib/File/ \
-        vendor/phpseclib/phpseclib/phpseclib/Math/ \
-        vendor/phpseclib/phpseclib/phpseclib/Net/ \
-        vendor/phpseclib/phpseclib/phpseclib/System/ \
-        vendor/phpseclib/phpseclib/appveyor.yml \
-        vendor/phpseclib/phpseclib/.github \
         vendor/symfony/cache/Tests/ \
         vendor/symfony/service-contracts/Test/ \
         vendor/symfony/expression-language/Tests/ \
@@ -163,6 +186,7 @@ cleanup_composer_vendors() {
         vendor/tecnickcom/tcpdf/.github/ \
         vendor/bacon/bacon-qr-code/phpunit.xml.dist \
         vendor/bacon/bacon-qr-code/test/ \
+        vendor/dasprid/enum/.github/ \
         vendor/dasprid/enum/phpunit.xml.dist \
         vendor/dasprid/enum/test/ \
         vendor/williamdes/mariadb-mysql-kbs/phpunit.xml \
@@ -194,6 +218,7 @@ cleanup_composer_vendors() {
         vendor/webmozart/assert/.php_cs \
         vendor/webmozart/assert/psalm.xml \
         vendor/twig/twig/src/Test/ \
+        vendor/psr/http-message/docs/ \
         vendor/psr/log/Psr/Log/Test/ \
         vendor/psr/http-factory/.pullapprove.yml \
         vendor/slim/psr7/MAINTAINERS.md \
@@ -223,6 +248,7 @@ cleanup_composer_vendors() {
         vendor/paragonie/sodium_compat/composer-php52.json \
         vendor/paragonie/sodium_compat/src/PHP52/SplFixedArray.php \
         vendor/paragonie/sodium_compat/src/PHP52 \
+        vendor/pragmarx/google2fa/.github/ \
         vendor/pragmarx/google2fa/phpstan.neon \
         vendor/pragmarx/google2fa-qrcode/.scrutinizer.yml \
         vendor/pragmarx/google2fa-qrcode/.travis.yml \
@@ -361,14 +387,21 @@ VERSION_FILE=libraries/classes/Version.php
 
 # Keep in sync with update-po script
 fetchReleaseFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::VERSION;"
+    SUFFIX="${1:-}"
+    php -r "define('VERSION_SUFFIX', '$SUFFIX'); require_once('$VERSION_FILE'); echo \PhpMyAdmin\Version::VERSION;"
 }
 
 fetchVersionSeriesFromFile() {
-    php -r "define('VERSION_SUFFIX', ''); require_once('libraries/classes/Version.php'); echo \PhpMyAdmin\Version::SERIES;"
+    php -r "define('VERSION_SUFFIX', ''); require_once('$VERSION_FILE'); echo \PhpMyAdmin\Version::SERIES;"
 }
 
+VERSION_FROM_FILE="$(fetchReleaseFromFile)"
 VERSION_SERIES_FROM_FILE="$(fetchVersionSeriesFromFile)"
+
+if [ $do_ci -eq 1 ]; then
+    VERSION_FROM_FILE="$(fetchReleaseFromFile '+ci')"
+    version="${VERSION_FROM_FILE}"
+fi
 
 if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
     echo "This script can not handle ${VERSION_SERIES_FROM_FILE} version series."
@@ -377,9 +410,10 @@ if [ "${VERSION_SERIES_FROM_FILE}" != "${VERSION_SERIES}" ]; then
     exit 1;
 fi
 
-echo "The actual configured release is: $(fetchReleaseFromFile)"
+echo "The actual configured release is: $VERSION_FROM_FILE"
+echo "The actual configured release series is: $VERSION_SERIES_FROM_FILE"
 
-if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
+if [ $do_ci -eq 0 -a $do_daily -eq 0 ] ; then
     cat <<END
 
 Please ensure you have incremented rc count or version in the repository :
@@ -400,16 +434,16 @@ END
     if [ "$do_release" != 'y' ]; then
         exit 100
     fi
+    echo "The actual configured release is now: $(fetchReleaseFromFile)"
 fi
-
-echo "The actual configured release is now: $(fetchReleaseFromFile)"
 
 # Create working copy
 mkdir -p release
 git worktree prune
-workdir=release/phpMyAdmin-$version
+workdir_name=phpMyAdmin-$version
+workdir=release/$workdir_name
 if [ -d $workdir ] ; then
-    echo "Working directory '$workdir' already exists, please move it out of way"
+    echo "Working directory '$workdir' already exists, please move it out of the way"
     exit 1
 fi
 
@@ -429,6 +463,11 @@ if [ $do_daily -eq 1 ] ; then
     echo '* setting the version suffix for the snapshot'
     sed -i "s/'versionSuffix' => '.*'/'versionSuffix' => '+$today_date.$git_head_short'/" libraries/vendor_config.php
     php -l libraries/vendor_config.php
+
+    # Fetch it back and refresh $version
+    VERSION_FROM_FILE="$(fetchReleaseFromFile "+$today_date.$git_head_short")"
+    version="${VERSION_FROM_FILE}"
+    echo "The actual configured release is: $VERSION_FROM_FILE"
 fi
 
 # Check release version
@@ -451,10 +490,15 @@ if [ $do_ci -eq 0 -a -$do_daily -eq 0 ] ; then
     fi
 fi
 
-# Cleanup release dir
-LC_ALL=C date -u > RELEASE-DATE-${version}
+# Save the build date
+if [ $do_daily -eq 1 ] ; then
+    LC_ALL=C date -u > RELEASE-DATE-$VERSION_SERIES_FROM_FILE+snapshot
+else
+    LC_ALL=C date -u > RELEASE-DATE-$version
+fi
 
 # Building documentation
+echo "* Running sphinx-build (version: $(sphinx-build --version))"
 echo "* Generating documentation"
 LC_ALL=C make -C doc html
 find doc -name '*.pyc' -print0 | xargs -0 -r rm -f
@@ -493,6 +537,9 @@ if [ -f ./scripts/console ]; then
     composer update --no-interaction
     # Warm up the routing cache for 5.1+ releases
     ./scripts/console cache:warmup --routing
+    if [ $do_revision -eq 1 ] ; then
+        ./scripts/console write-revision-info
+    fi
 fi
 
 PHP_REQ=$(sed -n '/"php"/ s/.*"\^\([0-9]\.[0-9]\.[0-9]\).*/\1/p' composer.json)
@@ -597,15 +644,17 @@ security_checkup
 
 cd ..
 
+SIGN_FILES=""
+
 # Prepare all kits
 for kit in $KITS ; do
     echo "* Building kit: $kit"
     # Copy all files
-    name=phpMyAdmin-$version-$kit
-    cp -r phpMyAdmin-$version $name
+    name=$kit_prefix-$kit
+    cp -r $workdir_name $name
 
     # Cleanup translations
-    cd phpMyAdmin-$version-$kit
+    cd $name
     ./scripts/lang-cleanup.sh $kit
 
     # Remove tests, source code,...
@@ -615,7 +664,7 @@ for kit in $KITS ; do
         rm -r test/
         # Template test files
         rm -r templates/test/
-        rm phpunit.xml.* build.xml
+        rm phpunit.xml.*
         rm .editorconfig .browserslistrc .eslintignore .jshintrc .eslintrc.json .stylelintrc.json psalm.xml psalm-baseline.xml phpstan.neon.dist phpstan-baseline.neon phpcs.xml.dist jest.config.js infection.json.dist
         # Gettext po files (if they where not removed by ./scripts/lang-cleanup.sh)
         rm -rf po
@@ -653,15 +702,18 @@ for kit in $KITS ; do
                 if [ $comp = txz ] ; then
                     echo "* Creating $name.tar.xz"
                     xz -9k $name.tar
+                    SIGN_FILES="$SIGN_FILES $name.tar.xz"
                 fi
                 if [ $comp = tgz ] ; then
                     echo "* Creating $name.tar.gz"
                     gzip -9c $name.tar > $name.tar.gz
+                    SIGN_FILES="$SIGN_FILES $name.tar.gz"
                 fi
                 ;;
             zip-7z)
                 echo "* Creating $name.zip"
                 7za a -bd -tzip $name.zip $name > /dev/null
+                SIGN_FILES="$SIGN_FILES $name.zip"
                 ;;
             *)
                 echo "WARNING: ignoring compression '$comp', not known!"
@@ -677,12 +729,17 @@ for kit in $KITS ; do
 done
 
 # Cleanup
-rm -r phpMyAdmin-${version}
+rm -r $workdir_name
 git worktree prune
 
 # Signing of files with default GPG key
-echo "* Signing files"
-for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$version-*.xz ; do
+if [ $do_sign -eq 1 ] ; then
+    echo "* Signing and making .sha{1,256} files"
+else
+    echo "* Making .sha{1,256} files"
+fi
+
+for file in $SIGN_FILES; do
     if [ $do_sign -eq 1 ] ; then
         gpg --detach-sign --armor $file
     fi
@@ -691,7 +748,7 @@ for file in phpMyAdmin-$version-*.gz phpMyAdmin-$version-*.zip phpMyAdmin-$versi
 done
 
 if [ $do_daily -eq 1 ] ; then
-    cat > phpMyAdmin-${version}.json << EOT
+    cat > $kit_prefix.json << EOT
 {
     "date": "`date --iso-8601=seconds`",
     "commit": "$git_head"
@@ -707,7 +764,7 @@ echo ""
 echo "Files:"
 echo "------"
 
-ls -la *.gz *.zip *.xz
+ls -la $SIGN_FILES
 
 cd ..
 

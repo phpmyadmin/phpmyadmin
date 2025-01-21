@@ -39,7 +39,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         ],
     ];
 
-    public function dataProviderPsr7Implementations(): array
+    public static function dataProviderPsr7Implementations(): array
     {
         return self::IMPLEMENTATION_CLASSES;
     }
@@ -47,7 +47,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
     /**
      * @phpstan-param class-string $className
      */
-    private function testOrSkip(string $className, string $humanName): void
+    private function runOrSkip(string $className, string $humanName): void
     {
         if (! class_exists($className)) {
             $this->markTestSkipped($humanName . ' is missing');
@@ -75,7 +75,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
      */
     public function testPsr7ImplementationGet(string $className, string $humanName): void
     {
-        $this->testOrSkip($className, $humanName);
+        $this->runOrSkip($className, $humanName);
 
         $_GET['foo'] = 'bar';
         $_GET['blob'] = 'baz';
@@ -85,35 +85,21 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
         $request = ServerRequestFactory::createFromGlobals();
-        $this->assertSame(
-            'GET',
-            $request->getMethod()
-        );
-        $this->assertSame(
-            'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
-            $request->getUri()->__toString()
-        );
-        $this->assertFalse(
-            $request->isPost()
-        );
-        $this->assertSame(
-            'default',
-            $request->getParam('not-exists', 'default')
-        );
-        $this->assertSame(
-            'bar',
-            $request->getParam('foo')
-        );
-        $this->assertSame(
-            'baz',
-            $request->getParam('blob')
-        );
-        $this->assertSame([
+        self::assertSame('GET', $request->getMethod());
+        self::assertSame('http://phpmyadmin.local/test-page.php?foo=bar&blob=baz', $request->getUri()->__toString());
+        self::assertFalse($request->isPost());
+        self::assertSame('default', $request->getParam('not-exists', 'default'));
+        self::assertSame('bar', $request->getParam('foo'));
+        self::assertSame('baz', $request->getParam('blob'));
+        self::assertSame([
             'foo' => 'bar',
             'blob' => 'baz',
         ], $request->getQueryParams());
     }
 
+    /**
+     * @requires PHPUnit < 10
+     */
     public function testCreateServerRequestFromGlobals(): void
     {
         $_GET['foo'] = 'bar';
@@ -127,7 +113,7 @@ class ServerRequestFactoryTest extends AbstractTestCase
         $_SERVER['HTTP_HOST'] = 'phpmyadmin.local';
 
         $creator = $this->getMockBuilder(ServerRequestFactory::class)
-            ->setMethods(['getallheaders'])
+            ->onlyMethods(['getallheaders'])
             ->getMock();
 
         $creator
@@ -143,48 +129,28 @@ class ServerRequestFactoryTest extends AbstractTestCase
 
         $request = new ServerRequest($serverRequest);
 
-        $this->assertSame(
-            ['application/x-www-form-urlencoded'],
-            $request->getHeader('Content-Type')
-        );
-        $this->assertSame(
-            'POST',
-            $request->getMethod()
-        );
-        $this->assertSame(
-            'http://phpmyadmin.local/test-page.php?foo=bar&blob=baz',
-            $request->getUri()->__toString()
-        );
-        $this->assertTrue(
-            $request->isPost()
-        );
-        $this->assertSame(
-            'default',
-            $request->getParam('not-exists', 'default')
-        );
-        $this->assertSame(
-            'bar',
-            $request->getParam('foo')
-        );
-        $this->assertSame(
-            'baz',
-            $request->getParam('blob')
-        );
-        $this->assertSame([
+        self::assertSame(['application/x-www-form-urlencoded'], $request->getHeader('Content-Type'));
+        self::assertSame('POST', $request->getMethod());
+        self::assertSame('http://phpmyadmin.local/test-page.php?foo=bar&blob=baz', $request->getUri()->__toString());
+        self::assertTrue($request->isPost());
+        self::assertSame('default', $request->getParam('not-exists', 'default'));
+        self::assertSame('bar', $request->getParam('foo'));
+        self::assertSame('baz', $request->getParam('blob'));
+        self::assertSame([
             'foo' => 'bar',
             'blob' => 'baz',
         ], $request->getQueryParams());
 
-        $this->assertSame([
+        self::assertSame([
             'input1' => 'value1',
             'input2' => 'value2',
             'input3' => '',
         ], $request->getParsedBody());
 
-        $this->assertNull($request->getParsedBodyParam('foo'));
-        $this->assertSame('value1', $request->getParsedBodyParam('input1'));
-        $this->assertSame('value2', $request->getParsedBodyParam('input2'));
-        $this->assertSame('', $request->getParsedBodyParam('input3', 'default'));
+        self::assertNull($request->getParsedBodyParam('foo'));
+        self::assertSame('value1', $request->getParsedBodyParam('input1'));
+        self::assertSame('value2', $request->getParsedBodyParam('input2'));
+        self::assertSame('', $request->getParsedBodyParam('input3', 'default'));
     }
 
     /**
@@ -194,14 +160,14 @@ class ServerRequestFactoryTest extends AbstractTestCase
      */
     public function testPsr7ImplementationCreateServerRequestFactory(string $className, string $humanName): void
     {
-        $this->testOrSkip($className, $humanName);
+        $this->runOrSkip($className, $humanName);
 
         $serverRequestFactory = new $className();
-        $this->assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
+        self::assertInstanceOf(ServerRequestFactoryInterface::class, $serverRequestFactory);
 
         $factory = new ServerRequestFactory(
             $serverRequestFactory
         );
-        $this->assertInstanceOf(ServerRequestFactory::class, $factory);
+        self::assertInstanceOf(ServerRequestFactory::class, $factory);
     }
 }

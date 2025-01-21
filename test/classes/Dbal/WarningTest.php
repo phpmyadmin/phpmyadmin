@@ -20,17 +20,17 @@ class WarningTest extends TestCase
     public function testWarning(array $row, string $level, int $code, string $message, string $toString): void
     {
         $warning = Warning::fromArray($row);
-        $this->assertSame($level, $warning->level);
-        $this->assertSame($code, $warning->code);
-        $this->assertSame($message, $warning->message);
-        $this->assertSame($toString, (string) $warning);
+        self::assertSame($level, $warning->level);
+        self::assertSame($code, $warning->code);
+        self::assertSame($message, $warning->message);
+        self::assertSame($toString, (string) $warning);
     }
 
     /**
      * @return int[][]|string[][]|string[][][]
      * @psalm-return array{string[], string, int, string, string}[]
      */
-    public function providerForTestWarning(): array
+    public static function providerForTestWarning(): array
     {
         return [
             [

@@ -27,13 +27,13 @@ class SubPartitionTest extends TestCase
             'PARTITION_COMMENT' => 'partition_comment',
         ];
         $object = new SubPartition($row);
-        $this->assertEquals('subpartition_name', $object->getName());
-        $this->assertEquals(1, $object->getOrdinal());
-        $this->assertEquals('subpartition_method', $object->getMethod());
-        $this->assertEquals('subpartition_expression', $object->getExpression());
-        $this->assertEquals(2, $object->getRows());
-        $this->assertEquals(3, $object->getDataLength());
-        $this->assertEquals(4, $object->getIndexLength());
-        $this->assertEquals('partition_comment', $object->getComment());
+        self::assertSame('subpartition_name', $object->getName());
+        self::assertSame(1, $object->getOrdinal());
+        self::assertSame('subpartition_method', $object->getMethod());
+        self::assertSame('subpartition_expression', $object->getExpression());
+        self::assertSame(2, $object->getRows());
+        self::assertSame(3, $object->getDataLength());
+        self::assertSame(4, $object->getIndexLength());
+        self::assertSame('partition_comment', $object->getComment());
     }
 }

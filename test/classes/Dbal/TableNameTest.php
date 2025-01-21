@@ -42,8 +42,8 @@ class TableNameTest extends TestCase
     public function testValidName(): void
     {
         $name = TableName::fromValue('name');
-        $this->assertEquals('name', $name->getName());
-        $this->assertEquals('name', (string) $name);
+        self::assertSame('name', $name->getName());
+        self::assertSame('name', (string) $name);
     }
 
     /**
@@ -62,7 +62,7 @@ class TableNameTest extends TestCase
      * @return mixed[][]
      * @psalm-return non-empty-list<array{mixed, string}>
      */
-    public function providerForTestInvalidMixedNames(): array
+    public static function providerForTestInvalidMixedNames(): array
     {
         return [
             [null, 'Expected a string. Got: NULL'],

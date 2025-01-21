@@ -41,12 +41,9 @@ class NdbclusterTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
-            $this->object->getVariables(),
-            [
-                'ndb_connectstring' => [],
-            ]
-        );
+        self::assertSame($this->object->getVariables(), [
+            'ndb_connectstring' => [],
+        ]);
     }
 
     /**
@@ -54,10 +51,7 @@ class NdbclusterTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        $this->assertEquals(
-            $this->object->getVariablesLikePattern(),
-            'ndb\\_%'
-        );
+        self::assertSame($this->object->getVariablesLikePattern(), 'ndb\\_%');
     }
 
     /**
@@ -65,9 +59,6 @@ class NdbclusterTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'ndbcluster'
-        );
+        self::assertSame($this->object->getMysqlHelpPage(), 'ndbcluster');
     }
 }

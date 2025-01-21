@@ -20,17 +20,17 @@ class MessageTest extends TestCase
     public function testFromArray(array $row, string $table, string $operation, string $type, string $text): void
     {
         $message = Message::fromArray($row);
-        $this->assertSame($message->table, $table);
-        $this->assertSame($message->operation, $operation);
-        $this->assertSame($message->type, $type);
-        $this->assertSame($message->text, $text);
+        self::assertSame($message->table, $table);
+        self::assertSame($message->operation, $operation);
+        self::assertSame($message->type, $type);
+        self::assertSame($message->text, $text);
     }
 
     /**
      * @return array<int|string, array<int, array<string, mixed>|string>>
      * @psalm-return array{mixed[], string, string, string, string}[]
      */
-    public function providerForTestFromArray(): array
+    public static function providerForTestFromArray(): array
     {
         return [
             [[], '', '', '', ''],

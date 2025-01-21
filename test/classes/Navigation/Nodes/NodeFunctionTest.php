@@ -27,19 +27,16 @@ class NodeFunctionTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeFunction');
-        $this->assertIsArray($parent->links);
-        $this->assertEquals(
-            [
-                'text' => [
-                    'route' => '/database/routines',
-                    'params' => ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],
-                ],
-                'icon' => [
-                    'route' => '/database/routines',
-                    'params' => ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
-                ],
+        self::assertIsArray($parent->links);
+        self::assertSame([
+            'text' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'edit_item' => 1, 'db' => null, 'item_name' => null],
             ],
-            $parent->links
-        );
+            'icon' => [
+                'route' => '/database/routines',
+                'params' => ['item_type' => 'FUNCTION', 'execute_dialog' => 1, 'db' => null, 'item_name' => null],
+            ],
+        ], $parent->links);
     }
 }

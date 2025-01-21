@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests;
 use ArrayIterator;
 use PhpMyAdmin\ErrorHandler;
 use PhpMyAdmin\Footer;
+use ReflectionProperty;
 
 use function json_encode;
 
@@ -79,11 +80,8 @@ class FooterTest extends AbstractTestCase
             ],
         ];
 
-        $this->assertEquals(
-            '{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
-            . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}',
-            $this->object->getDebugMessage()
-        );
+        self::assertSame('{"queries":[{"count":1,"time":0.2,"query":"SELECT * FROM `pma_bookmark` WHERE 1"},'
+        . '{"count":1,"time":2.5,"query":"SELECT * FROM `db` WHERE 1"}]}', $this->object->getDebugMessage());
     }
 
     /**
@@ -97,7 +95,7 @@ class FooterTest extends AbstractTestCase
         $object->child->parent = $object;
 
         $this->callFunction($this->object, Footer::class, 'removeRecursion', [&$object]);
-        $this->assertEquals(
+        self::assertSame(
             '{"child":{"parent":"***RECURSION***"},"childIterator":"***ITERATOR***"}',
             json_encode($object)
         );
@@ -110,23 +108,14 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $footer->disable();
-        $this->assertEquals(
-            '',
-            $footer->getDisplay()
-        );
+        self::assertSame('', $footer->getDisplay());
     }
 
-    /**
-     * Test for footer when ajax enabled
-     */
-    public function testAjax(): void
+    public function testGetDisplayWhenAjaxIsEnabled(): void
     {
         $footer = new Footer();
         $footer->setAjax(true);
-        $this->assertEquals(
-            '',
-            $footer->getDisplay()
-        );
+        self::assertSame('', $footer->getDisplay());
     }
 
     /**
@@ -135,7 +124,7 @@ class FooterTest extends AbstractTestCase
     public function testGetScripts(): void
     {
         $footer = new Footer();
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<script data-cfasync="false" type="text/javascript">',
             $footer->getScripts()->getDisplay()
         );
@@ -149,10 +138,7 @@ class FooterTest extends AbstractTestCase
     public function testDisplay(): void
     {
         $footer = new Footer();
-        $this->assertStringContainsString(
-            'Open new phpMyAdmin window',
-            $footer->getDisplay()
-        );
+        self::assertStringContainsString('Open new phpMyAdmin window', $footer->getDisplay());
     }
 
     /**
@@ -162,9 +148,19 @@ class FooterTest extends AbstractTestCase
     {
         $footer = new Footer();
         $footer->setMinimal();
-        $this->assertEquals(
-            "  </div>\n  </body>\n</html>\n",
-            $footer->getDisplay()
-        );
+        self::assertSame("  </div>\n  </body>\n</html>\n", $footer->getDisplay());
+    }
+
+    public function testSetAjax(): void
+    {
+        $isAjax = new ReflectionProperty(Footer::class, 'isAjax');
+        $isAjax->setAccessible(true);
+        $footer = new Footer();
+
+        self::assertFalse($isAjax->getValue($footer));
+        $footer->setAjax(true);
+        self::assertTrue($isAjax->getValue($footer));
+        $footer->setAjax(false);
+        self::assertFalse($isAjax->getValue($footer));
     }
 }

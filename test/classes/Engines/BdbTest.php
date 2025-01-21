@@ -43,28 +43,25 @@ class BdbTest extends AbstractTestCase
      */
     public function testGetVariables(): void
     {
-        $this->assertEquals(
-            $this->object->getVariables(),
-            [
-                'version_bdb' => [
-                    'title' => __('Version information'),
-                ],
-                'bdb_cache_size' => ['type' => 1],
-                'bdb_home' => [],
-                'bdb_log_buffer_size' => ['type' => 1],
-                'bdb_logdir' => [],
-                'bdb_max_lock' => ['type' => 2],
-                'bdb_shared_data' => [],
-                'bdb_tmpdir' => [],
-                'bdb_data_direct' => [],
-                'bdb_lock_detect' => [],
-                'bdb_log_direct' => [],
-                'bdb_no_recover' => [],
-                'bdb_no_sync' => [],
-                'skip_sync_bdb_logs' => [],
-                'sync_bdb_logs' => [],
-            ]
-        );
+        self::assertSame($this->object->getVariables(), [
+            'version_bdb' => [
+                'title' => __('Version information'),
+            ],
+            'bdb_cache_size' => ['type' => 1],
+            'bdb_home' => [],
+            'bdb_log_buffer_size' => ['type' => 1],
+            'bdb_logdir' => [],
+            'bdb_max_lock' => ['type' => 2],
+            'bdb_shared_data' => [],
+            'bdb_tmpdir' => [],
+            'bdb_data_direct' => [],
+            'bdb_lock_detect' => [],
+            'bdb_log_direct' => [],
+            'bdb_no_recover' => [],
+            'bdb_no_sync' => [],
+            'skip_sync_bdb_logs' => [],
+            'sync_bdb_logs' => [],
+        ]);
     }
 
     /**
@@ -72,10 +69,7 @@ class BdbTest extends AbstractTestCase
      */
     public function testGetVariablesLikePattern(): void
     {
-        $this->assertEquals(
-            $this->object->getVariablesLikePattern(),
-            '%bdb%'
-        );
+        self::assertSame($this->object->getVariablesLikePattern(), '%bdb%');
     }
 
     /**
@@ -83,9 +77,6 @@ class BdbTest extends AbstractTestCase
      */
     public function testGetMysqlHelpPage(): void
     {
-        $this->assertEquals(
-            $this->object->getMysqlHelpPage(),
-            'bdb'
-        );
+        self::assertSame($this->object->getMysqlHelpPage(), 'bdb');
     }
 }

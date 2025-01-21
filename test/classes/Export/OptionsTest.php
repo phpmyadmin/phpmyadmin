@@ -143,7 +143,7 @@ class OptionsTest extends AbstractTestCase
             'filename_template' => 'user value for test',
         ];
 
-        $this->assertIsArray($actual);
-        $this->assertEquals($expected, $actual);
+        self::assertIsArray($actual);
+        self::assertEquals($expected, $actual);
     }
 }

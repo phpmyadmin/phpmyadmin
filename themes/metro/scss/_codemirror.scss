@@ -103,3 +103,13 @@ span {
 .CodeMirror-hints {
   z-index: 1999;
 }
+
+.CodeMirror-lint-tooltip {
+  z-index: 2000;
+  font-family: inherit;
+
+  code {
+    font-family: monospace;
+    font-weight: bold;
+  }
+}

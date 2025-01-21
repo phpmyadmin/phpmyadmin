@@ -63,23 +63,11 @@ class ImportXmlTest extends AbstractTestCase
     public function testGetProperties(): void
     {
         $properties = $this->object->getProperties();
-        $this->assertEquals(
-            __('XML'),
-            $properties->getText()
-        );
-        $this->assertEquals(
-            'xml',
-            $properties->getExtension()
-        );
-        $this->assertEquals(
-            'text/xml',
-            $properties->getMimeType()
-        );
-        $this->assertNull($properties->getOptions());
-        $this->assertEquals(
-            __('Options'),
-            $properties->getOptionsText()
-        );
+        self::assertSame(__('XML'), $properties->getText());
+        self::assertSame('xml', $properties->getExtension());
+        self::assertSame('text/xml', $properties->getMimeType());
+        self::assertNull($properties->getOptions());
+        self::assertSame(__('Options'), $properties->getOptionsText());
     }
 
     /**
@@ -119,14 +107,14 @@ class ImportXmlTest extends AbstractTestCase
         */
 
         //asset that all databases and tables are imported
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'The following structures have either been created or altered.',
             $import_notice
         );
-        $this->assertStringContainsString('Go to database: `phpmyadmintest`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `phpmyadmintest`', $import_notice);
-        $this->assertStringContainsString('Go to table: `pma_bookmarktest`', $import_notice);
-        $this->assertStringContainsString('Edit settings for `pma_bookmarktest`', $import_notice);
-        $this->assertTrue($GLOBALS['finished']);
+        self::assertStringContainsString('Go to database: `phpmyadmintest`', $import_notice);
+        self::assertStringContainsString('Edit settings for `phpmyadmintest`', $import_notice);
+        self::assertStringContainsString('Go to table: `pma_bookmarktest`', $import_notice);
+        self::assertStringContainsString('Edit settings for `pma_bookmarktest`', $import_notice);
+        self::assertTrue($GLOBALS['finished']);
     }
 }

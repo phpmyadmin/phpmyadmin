@@ -1,0 +1,12 @@
+
+<!--
+Table data for `empty`
+-->
+
+{| class="wikitable sortable" style="text-align:center;"
+|+'''empty'''
+|-
+ ! \'table
+ ! \\column
+|}
+

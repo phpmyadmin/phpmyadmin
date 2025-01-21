@@ -43,7 +43,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp = [
             0 => [
@@ -164,7 +164,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
             ],
         ];
 
-        $this->assertEquals(
+        self::assertSame(
             $this->object->getShape($row_data),
             'MULTILINESTRING((5.02 8.45,6.14 0.15),(1.23 4.25,9.15 0.47))'
         );
@@ -175,7 +175,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         $temp = [
             'MULTILINESTRING' => [
@@ -230,7 +230,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
@@ -251,7 +251,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'MULTILINESTRING((36 14,47 23,62 75),(36 10,17 23,178 53))',
             'image',
@@ -259,8 +259,8 @@ class GisMultiLineStringTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -282,7 +282,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        self::assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -290,7 +290,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -327,7 +327,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -335,7 +335,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -348,10 +348,10 @@ class GisMultiLineStringTest extends GisGeomTestCase
                     'scale' => 2,
                     'height' => 150,
                 ],
-                '/^(<polyline points="48,260 70,242 100,138 " name="svg" '
+                '/^(<polyline points="48,260 70,242 100,138 " data-label="svg" '
                 . 'class="linestring vector" fill="none" stroke="#B02EE0" '
                 . 'stroke-width="2" id="svg)(\d+)("\/><polyline points="48,268 10,'
-                . '242 332,182 " name="svg" class="linestring vector" fill="none" '
+                . '242 332,182 " data-label="svg" class="linestring vector" fill="none" '
                 . 'stroke="#B02EE0" stroke-width="2" id="svg)(\d+)("\/>)$/',
             ],
         ];
@@ -377,16 +377,13 @@ class GisMultiLineStringTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $output,
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $line_color,
-                $scale_data
-            )
-        );
+        self::assertSame($output, $this->object->prepareRowAsOl(
+            $spatial,
+            $srid,
+            $label,
+            $line_color,
+            $scale_data
+        ));
     }
 
     /**
@@ -394,7 +391,7 @@ class GisMultiLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

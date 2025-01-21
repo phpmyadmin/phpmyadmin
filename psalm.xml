@@ -23,6 +23,9 @@
             <directory name="vendor"/>
             <directory name="libraries/cache"/>
         </ignoreFiles>
+        <ignoreFiles allowMissingFiles="true">
+            <file name="config.inc.php"/>
+        </ignoreFiles>
     </projectFiles>
 
     <stubs>

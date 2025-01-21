@@ -28,7 +28,7 @@ class FileListingTest extends AbstractTestCase
 
     public function testGetDirContent(): void
     {
-        $this->assertFalse($this->fileListing->getDirContent('nonexistent directory'));
+        self::assertFalse($this->fileListing->getDirContent('nonexistent directory'));
 
         $fixturesDir = TEST_PATH . 'test/classes/_data/file_listing';
 
@@ -37,20 +37,17 @@ class FileListingTest extends AbstractTestCase
             $dirContent = [];
         }
 
-        $this->assertSame(
-            [
-                'one.txt',
-                'two.md',
-            ],
-            array_values($dirContent)
-        );
+        self::assertSame([
+            'one.txt',
+            'two.md',
+        ], array_values($dirContent));
     }
 
     public function testGetFileSelectOptions(): void
     {
         $fixturesDir = TEST_PATH . 'test/classes/_data/file_listing';
 
-        $this->assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
+        self::assertFalse($this->fileListing->getFileSelectOptions('nonexistent directory'));
 
         $expectedHtmlWithoutActive = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
@@ -59,10 +56,7 @@ class FileListingTest extends AbstractTestCase
             . '    two.md' . "\n"
             . '  </option>' . "\n";
 
-        $this->assertSame(
-            $expectedHtmlWithoutActive,
-            $this->fileListing->getFileSelectOptions($fixturesDir)
-        );
+        self::assertSame($expectedHtmlWithoutActive, $this->fileListing->getFileSelectOptions($fixturesDir));
 
         $expectedHtmlWithActive = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
@@ -71,19 +65,13 @@ class FileListingTest extends AbstractTestCase
             . '    two.md' . "\n"
             . '  </option>' . "\n";
 
-        $this->assertSame(
-            $expectedHtmlWithActive,
-            $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md')
-        );
+        self::assertSame($expectedHtmlWithActive, $this->fileListing->getFileSelectOptions($fixturesDir, '', 'two.md'));
 
         $expectedFilteredHtml = '  <option value="one.txt">' . "\n"
             . '    one.txt' . "\n"
             . '  </option>' . "\n";
 
-        $this->assertSame(
-            $expectedFilteredHtml,
-            $this->fileListing->getFileSelectOptions($fixturesDir, '/.*\.txt/')
-        );
+        self::assertSame($expectedFilteredHtml, $this->fileListing->getFileSelectOptions($fixturesDir, '/.*\.txt/'));
     }
 
     public function testSupportedDecompressionsEmptyList(): void
@@ -91,7 +79,7 @@ class FileListingTest extends AbstractTestCase
         $GLOBALS['cfg']['ZipDump'] = false;
         $GLOBALS['cfg']['GZipDump'] = false;
         $GLOBALS['cfg']['BZipDump'] = false;
-        $this->assertEmpty($this->fileListing->supportedDecompressions());
+        self::assertEmpty($this->fileListing->supportedDecompressions());
     }
 
     /**
@@ -102,7 +90,7 @@ class FileListingTest extends AbstractTestCase
         $GLOBALS['cfg']['ZipDump'] = true;
         $GLOBALS['cfg']['GZipDump'] = true;
         $GLOBALS['cfg']['BZipDump'] = true;
-        $this->assertEquals('gz|bz2|zip', $this->fileListing->supportedDecompressions());
+        self::assertSame('gz|bz2|zip', $this->fileListing->supportedDecompressions());
     }
 
     public function testSupportedDecompressionsPartial(): void
@@ -116,6 +104,6 @@ class FileListingTest extends AbstractTestCase
         }
 
         $extensionString .= '|zip';
-        $this->assertEquals($extensionString, $this->fileListing->supportedDecompressions());
+        self::assertSame($extensionString, $this->fileListing->supportedDecompressions());
     }
 }

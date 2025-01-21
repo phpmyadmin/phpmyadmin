@@ -74,10 +74,7 @@ class OperationsTest extends TestBase
         $this->waitAjax();
         $this->waitForElement('cssSelector', 'table.table_results');
 
-        $this->assertEquals(
-            '2',
-            $this->getCellByTableClass('table_results', 1, 5)
-        );
+        self::assertEquals('2', $this->getCellByTableClass('table_results', 1, 5));
     }
 
     /**
@@ -105,8 +102,8 @@ class OperationsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES LIKE \'test_table2\'',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
     }
@@ -138,8 +135,8 @@ class OperationsTest extends TestBase
             'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES LIKE \'test_table2\'',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('test_table2', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
     }
@@ -169,8 +166,8 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'SELECT COUNT(*) as c FROM `' . $this->databaseName . '`.test_table2',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('2', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
     }
@@ -196,8 +193,8 @@ class OperationsTest extends TestBase
         $this->dbQuery(
             'SELECT CONCAT("Count: ", COUNT(*)) as c FROM `' . $this->databaseName . '`.test_table',
             function (): void {
-                $this->assertTrue($this->isElementPresent('className', 'table_results'));
-                $this->assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertEquals('Count: 0', $this->getCellByTableClass('table_results', 1, 1));
             }
         );
     }
@@ -220,13 +217,12 @@ class OperationsTest extends TestBase
             '//div[@class=\'alert alert-success\' and contains(., \'MySQL returned an empty result set\')]'
         );
 
-        $this->waitForElement('xpath', "//a[@class='nav-link text-nowrap' and contains(., 'Structure')]");
-
         $this->dbQuery(
             'USE `' . $this->databaseName . '`;'
             . 'SHOW TABLES',
             function (): void {
-                $this->assertFalse($this->isElementPresent('className', 'table_results'));
+                self::assertTrue($this->isElementPresent('className', 'table_results'));
+                self::assertFalse($this->isElementPresent('cssSelector', '.table_results tbody tr'));
             }
         );
     }

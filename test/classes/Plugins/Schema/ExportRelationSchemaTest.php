@@ -44,10 +44,7 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetPageNumber(): void
     {
         $this->object->setPageNumber(33);
-        $this->assertEquals(
-            33,
-            $this->object->getPageNumber()
-        );
+        self::assertSame(33, $this->object->getPageNumber());
     }
 
     /**
@@ -58,13 +55,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetShowColor(): void
     {
         $this->object->setShowColor(true);
-        $this->assertTrue(
-            $this->object->isShowColor()
-        );
+        self::assertTrue($this->object->isShowColor());
         $this->object->setShowColor(false);
-        $this->assertFalse(
-            $this->object->isShowColor()
-        );
+        self::assertFalse($this->object->isShowColor());
     }
 
     /**
@@ -75,15 +68,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetOrientation(): void
     {
         $this->object->setOrientation('P');
-        $this->assertEquals(
-            'P',
-            $this->object->getOrientation()
-        );
+        self::assertSame('P', $this->object->getOrientation());
         $this->object->setOrientation('A');
-        $this->assertEquals(
-            'L',
-            $this->object->getOrientation()
-        );
+        self::assertSame('L', $this->object->getOrientation());
     }
 
     /**
@@ -94,13 +81,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetTableDimension(): void
     {
         $this->object->setTableDimension(true);
-        $this->assertTrue(
-            $this->object->isTableDimension()
-        );
+        self::assertTrue($this->object->isTableDimension());
         $this->object->setTableDimension(false);
-        $this->assertFalse(
-            $this->object->isTableDimension()
-        );
+        self::assertFalse($this->object->isTableDimension());
     }
 
     /**
@@ -111,15 +94,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetPaper(): void
     {
         $this->object->setPaper('A5');
-        $this->assertEquals(
-            'A5',
-            $this->object->getPaper()
-        );
+        self::assertSame('A5', $this->object->getPaper());
         $this->object->setPaper('A4');
-        $this->assertEquals(
-            'A4',
-            $this->object->getPaper()
-        );
+        self::assertSame('A4', $this->object->getPaper());
     }
 
     /**
@@ -130,13 +107,9 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetAllTablesSameWidth(): void
     {
         $this->object->setAllTablesSameWidth(true);
-        $this->assertTrue(
-            $this->object->isAllTableSameWidth()
-        );
+        self::assertTrue($this->object->isAllTableSameWidth());
         $this->object->setAllTablesSameWidth(false);
-        $this->assertFalse(
-            $this->object->isAllTableSameWidth()
-        );
+        self::assertFalse($this->object->isAllTableSameWidth());
     }
 
     /**
@@ -147,12 +120,8 @@ class ExportRelationSchemaTest extends AbstractTestCase
     public function testSetShowKeys(): void
     {
         $this->object->setShowKeys(true);
-        $this->assertTrue(
-            $this->object->isShowKeys()
-        );
+        self::assertTrue($this->object->isShowKeys());
         $this->object->setShowKeys(false);
-        $this->assertFalse(
-            $this->object->isShowKeys()
-        );
+        self::assertFalse($this->object->isShowKeys());
     }
 }

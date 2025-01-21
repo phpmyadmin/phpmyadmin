@@ -59,13 +59,10 @@ jobs:
         db-server: ["mysql:5.7"]
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Refresh apt cache
-        run: sudo apt-get update
+        uses: actions/checkout@v4
 
       - name: Install gettext
-        run: sudo apt-get install -y gettext
+        run: sudo apt-get update && sudo apt-get install -y gettext
 
       - name: Generate mo files
         run: ./scripts/generate-mo --quiet
@@ -77,26 +74,15 @@ jobs:
           extensions: mbstring, iconv, mysqli, zip, gd, bz2
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v2
+        uses: ramsey/composer-install@v3
         with:
           dependency-versions: highest
 
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 12
-
-      - name: Get Yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      - name: Cache Yarn dependencies
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: 'yarn'
 
       - name: Install modules
         run: yarn install --non-interactive --production
@@ -138,9 +124,9 @@ jobs:
           ./test/stop-local-server
 
       - name: Upload screenshots
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: ${{ failure() }}
         with:
           name: selenium-screenshots
           path: ${{ github.workspace }}/build/selenium/**/*
-          retention-days: 1
+          retention-days: 3

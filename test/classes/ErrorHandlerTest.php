@@ -7,12 +7,21 @@ namespace PhpMyAdmin\Tests;
 use Exception;
 use PhpMyAdmin\Error;
 use PhpMyAdmin\ErrorHandler;
+use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseRendererStub;
+use ReflectionProperty;
 
 use function array_keys;
 use function array_pop;
-use function count;
 
+use const E_COMPILE_WARNING;
+use const E_CORE_WARNING;
+use const E_ERROR;
+use const E_NOTICE;
 use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
 use const E_USER_NOTICE;
 use const E_USER_WARNING;
 use const E_WARNING;
@@ -54,7 +63,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *
      * @return array data for testHandleError
      */
-    public function providerForTestHandleError(): array
+    public static function providerForTestHandleError(): array
     {
         return [
             [
@@ -106,10 +115,10 @@ class ErrorHandlerTest extends AbstractTestCase
         $output = $this->object->getDispErrors();
 
         if ($output_hide === '') {
-            $this->assertEquals('', $output);
+            self::assertSame('', $output);
         } else {
-            $this->assertNotEmpty($output_show);// Useless check
-            $this->assertStringContainsString($output_hide, $output);
+            self::assertNotEmpty($output_show);// Useless check
+            self::assertStringContainsString($output_hide, $output);
         }
     }
 
@@ -126,6 +135,7 @@ class ErrorHandlerTest extends AbstractTestCase
      *                            disabled
      *
      * @dataProvider providerForTestHandleError
+     * @requires PHPUnit < 10
      */
     public function testGetDispErrorsForDisplayTrue(
         int $errno,
@@ -137,11 +147,8 @@ class ErrorHandlerTest extends AbstractTestCase
     ): void {
         $this->object->handleError($errno, $errstr, $errfile, $errline);
 
-        $this->assertIsString($output_hide);// Useless check
-        $this->assertStringContainsString(
-            $output_show,
-            $this->object->getDispErrors()
-        );
+        self::assertIsString($output_hide);// Useless check
+        self::assertStringContainsString($output_show, $this->object->getDispErrors());
     }
 
     /**
@@ -155,7 +162,7 @@ class ErrorHandlerTest extends AbstractTestCase
             'checkSavedErrors',
             []
         );
-        $this->assertArrayNotHasKey('errors', $_SESSION);
+        self::assertArrayNotHasKey('errors', $_SESSION);
     }
 
     /**
@@ -166,10 +173,34 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testCountErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
-        $this->assertEquals(
-            1,
-            $this->object->countErrors()
-        );
+        self::assertSame(1, $this->object->countErrors());
+    }
+
+    /** @dataProvider addErrorProvider */
+    public function testAddError(int $errorNumber, string $expected): void
+    {
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('[em]Error[/em]', $errorNumber, 'error.txt', 15);
+        $errors = $errorHandler->getCurrentErrors();
+        self::assertCount(1, $errors);
+        $error = array_pop($errors);
+        self::assertSame($errorNumber, $error->getNumber());
+        self::assertSame($expected, $error->getMessage());
+    }
+
+    /** @return iterable<string, array{int, string}> */
+    public static function addErrorProvider(): iterable
+    {
+        yield 'E_STRICT' => [@E_STRICT, '[em]Error[/em]'];
+        yield 'E_NOTICE' => [E_NOTICE, '[em]Error[/em]'];
+        yield 'E_WARNING' => [E_WARNING, '[em]Error[/em]'];
+        yield 'E_CORE_WARNING' => [E_CORE_WARNING, '[em]Error[/em]'];
+        yield 'E_COMPILE_WARNING' => [E_COMPILE_WARNING, '[em]Error[/em]'];
+        yield 'E_RECOVERABLE_ERROR' => [E_RECOVERABLE_ERROR, '[em]Error[/em]'];
+        yield 'E_USER_NOTICE' => [E_USER_NOTICE, '<em>Error</em>'];
+        yield 'E_USER_WARNING' => [E_USER_WARNING, '<em>Error</em>'];
+        yield 'E_USER_ERROR' => [E_USER_ERROR, '<em>Error</em>'];
+        yield 'E_USER_DEPRECATED' => [E_USER_DEPRECATED, '<em>Error</em>'];
     }
 
     /**
@@ -181,26 +212,11 @@ class ErrorHandlerTest extends AbstractTestCase
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 16);
-        $this->assertEquals(
-            2,
-            $this->object->countErrors()
-        );
-        $this->assertEquals(
-            [],
-            $this->object->sliceErrors(2)
-        );
-        $this->assertEquals(
-            2,
-            $this->object->countErrors()
-        );
-        $this->assertCount(
-            1,
-            $this->object->sliceErrors(1)
-        );
-        $this->assertEquals(
-            1,
-            $this->object->countErrors()
-        );
+        self::assertSame(2, $this->object->countErrors());
+        self::assertSame([], $this->object->sliceErrors(2));
+        self::assertSame(2, $this->object->countErrors());
+        self::assertCount(1, $this->object->sliceErrors(1));
+        self::assertSame(1, $this->object->countErrors());
     }
 
     /**
@@ -215,34 +231,31 @@ class ErrorHandlerTest extends AbstractTestCase
         }
 
         // 10 initial items
-        $this->assertEquals(10, $this->object->countErrors());
-        $this->assertEquals(10, count($this->object->getCurrentErrors()));
+        self::assertSame(10, $this->object->countErrors());
+        self::assertCount(10, $this->object->getCurrentErrors());
 
         // slice 9 elements, returns one 10 - 9
         $elements = $this->object->sliceErrors(9);
         $firstKey = array_keys($elements)[0];
 
         // Gives the last element
-        $this->assertEquals(
-            [
-                $firstKey => $elements[$firstKey],
-            ],
-            $elements
-        );
-        $this->assertEquals(9, count($this->object->getCurrentErrors()));
-        $this->assertEquals(9, $this->object->countErrors());
+        self::assertSame([
+            $firstKey => $elements[$firstKey],
+        ], $elements);
+        self::assertCount(9, $this->object->getCurrentErrors());
+        self::assertSame(9, $this->object->countErrors());
 
         // Slice as much as there is (9), does nothing
         $elements = $this->object->sliceErrors(9);
-        $this->assertEquals([], $elements);
-        $this->assertEquals(9, count($this->object->getCurrentErrors()));
-        $this->assertEquals(9, $this->object->countErrors());
+        self::assertSame([], $elements);
+        self::assertCount(9, $this->object->getCurrentErrors());
+        self::assertSame(9, $this->object->countErrors());
 
         // Slice 0, removes everything
         $elements = $this->object->sliceErrors(0);
-        $this->assertEquals(9, count($elements));
-        $this->assertEquals(0, count($this->object->getCurrentErrors()));
-        $this->assertEquals(0, $this->object->countErrors());
+        self::assertCount(9, $elements);
+        self::assertCount(0, $this->object->getCurrentErrors());
+        self::assertSame(0, $this->object->countErrors());
     }
 
     /**
@@ -251,15 +264,9 @@ class ErrorHandlerTest extends AbstractTestCase
     public function testCountUserErrors(): void
     {
         $this->object->addError('Compile Error', E_WARNING, 'error.txt', 15);
-        $this->assertEquals(
-            0,
-            $this->object->countUserErrors()
-        );
+        self::assertSame(0, $this->object->countUserErrors());
         $this->object->addError('Compile Error', E_USER_WARNING, 'error.txt', 15);
-        $this->assertEquals(
-            1,
-            $this->object->countUserErrors()
-        );
+        self::assertSame(1, $this->object->countUserErrors());
     }
 
     /**
@@ -267,7 +274,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testHasUserErrors(): void
     {
-        $this->assertFalse($this->object->hasUserErrors());
+        self::assertFalse($this->object->hasUserErrors());
     }
 
     /**
@@ -275,7 +282,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testHasErrors(): void
     {
-        $this->assertFalse($this->object->hasErrors());
+        self::assertFalse($this->object->hasErrors());
     }
 
     /**
@@ -283,10 +290,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountDisplayErrorsForDisplayTrue(): void
     {
-        $this->assertEquals(
-            0,
-            $this->object->countDisplayErrors()
-        );
+        self::assertSame(0, $this->object->countDisplayErrors());
     }
 
     /**
@@ -294,10 +298,7 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testCountDisplayErrorsForDisplayFalse(): void
     {
-        $this->assertEquals(
-            0,
-            $this->object->countDisplayErrors()
-        );
+        self::assertSame(0, $this->object->countDisplayErrors());
     }
 
     /**
@@ -305,42 +306,111 @@ class ErrorHandlerTest extends AbstractTestCase
      */
     public function testHasDisplayErrors(): void
     {
-        $this->assertFalse($this->object->hasDisplayErrors());
+        self::assertFalse($this->object->hasDisplayErrors());
     }
 
     public function testHandleExceptionForDevEnv(): void
     {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['config']->set('environment', 'development');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue(null, $responseStub);
+        $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
-        $this->assertSame([], $errorHandler->getCurrentErrors());
+        self::assertSame([], $errorHandler->getCurrentErrors());
         $errorHandler->handleException(new Exception('Exception message.'));
-        $output = $this->getActualOutputForAssertion();
+        $output = $responseStub->getHTMLResult();
         $errors = $errorHandler->getCurrentErrors();
-        $this->assertCount(1, $errors);
+        self::assertCount(1, $errors);
         $error = array_pop($errors);
-        $this->assertInstanceOf(Error::class, $error);
-        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
-        $this->assertStringContainsString($error->getDisplay(), $output);
-        $this->assertStringContainsString('Internal error', $output);
-        $this->assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
-        $this->assertStringContainsString('Exception: Exception message.', $output);
+        self::assertInstanceOf(Error::class, $error);
+        self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        self::assertStringContainsString($error->getDisplay(), $output);
+        self::assertStringContainsString('Internal error', $output);
+        self::assertStringContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        self::assertStringContainsString('Exception: Exception message.', $output);
     }
 
     public function testHandleExceptionForProdEnv(): void
     {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $GLOBALS['config']->set('environment', 'production');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue(null, $responseStub);
+        $responseStub->setHeadersSent(true);
         $errorHandler = new ErrorHandler();
-        $this->assertSame([], $errorHandler->getCurrentErrors());
+        self::assertSame([], $errorHandler->getCurrentErrors());
         $errorHandler->handleException(new Exception('Exception message.'));
-        $output = $this->getActualOutputForAssertion();
+        $output = $responseStub->getHTMLResult();
         $errors = $errorHandler->getCurrentErrors();
-        $this->assertCount(1, $errors);
+        self::assertCount(1, $errors);
         $error = array_pop($errors);
-        $this->assertInstanceOf(Error::class, $error);
-        $this->assertSame('Exception: Exception message.', $error->getOnlyMessage());
-        $this->assertStringContainsString($error->getDisplay(), $output);
-        $this->assertStringContainsString('Exception: Exception message.', $output);
-        $this->assertStringNotContainsString('Internal error', $output);
-        $this->assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+        self::assertInstanceOf(Error::class, $error);
+        self::assertSame('Exception: Exception message.', $error->getOnlyMessage());
+        self::assertStringContainsString($error->getDisplay(), $output);
+        self::assertStringContainsString('Exception: Exception message.', $output);
+        self::assertStringNotContainsString('Internal error', $output);
+        self::assertStringNotContainsString('ErrorHandlerTest.php#' . $error->getLine(), $output);
+    }
+
+    public function testAddErrorWithFatalErrorAndHeadersSent(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['config']->set('environment', 'production');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue(null, $responseStub);
+        $responseStub->setHeadersSent(true);
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        $expectedStart = <<<'HTML'
+<div class="alert alert-danger" role="alert"><strong>Error</strong> in name#1<br>
+<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<br>
+<br>
+<strong>Backtrace</strong><br>
+<br>
+HTML;
+
+        $output = $responseStub->getHTMLResult();
+        self::assertStringStartsWith($expectedStart, $output);
+        self::assertStringEndsWith('</div></body></html>', $output);
+    }
+
+    public function testAddErrorWithFatalErrorAndHeadersNotSent(): void
+    {
+        $GLOBALS['lang'] = 'en';
+        $GLOBALS['text_dir'] = 'ltr';
+        $GLOBALS['PMA_PHP_SELF'] = 'index.php';
+        $GLOBALS['config']->set('environment', 'production');
+        $responseStub = new ResponseRendererStub();
+        $property = new ReflectionProperty(ResponseRenderer::class, 'instance');
+        $property->setAccessible(true);
+        $property->setValue(null, $responseStub);
+        $responseStub->setHeadersSent(false);
+        $errorHandler = new ErrorHandler();
+        $errorHandler->addError('Fatal error message!', E_ERROR, './file/name', 1);
+        $expectedStart = <<<'HTML'
+<html><head><title>Error: Fatal error message!</title></head>
+<div class="alert alert-danger" role="alert"><strong>Error</strong> in name#1<br>
+<img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Fatal error message!<br>
+<br>
+<strong>Backtrace</strong><br>
+<br>
+HTML;
+
+        $output = $responseStub->getHTMLResult();
+        self::assertStringStartsWith($expectedStart, $output);
+        self::assertStringEndsWith('</div></body></html>', $output);
     }
 }

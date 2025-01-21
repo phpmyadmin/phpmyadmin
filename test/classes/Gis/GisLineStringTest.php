@@ -43,7 +43,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateWkt
      */
-    public function providerForTestGenerateWkt(): array
+    public static function providerForTestGenerateWkt(): array
     {
         $temp1 = [
             0 => [
@@ -108,7 +108,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array data for testGenerateParams
      */
-    public function providerForTestGenerateParams(): array
+    public static function providerForTestGenerateParams(): array
     {
         $temp = [
             'LINESTRING' => [
@@ -148,7 +148,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array data for testScaleRow
      */
-    public function providerForTestScaleRow(): array
+    public static function providerForTestScaleRow(): array
     {
         return [
             [
@@ -169,7 +169,7 @@ class GisLineStringTest extends GisGeomTestCase
     public function testPrepareRowAsPng(): void
     {
         $image = ImageWrapper::create(120, 150);
-        $this->assertNotNull($image);
+        self::assertNotNull($image);
         $return = $this->object->prepareRowAsPng(
             'LINESTRING(12 35,48 75,69 23,25 45,14 53,35 78)',
             'image',
@@ -177,8 +177,8 @@ class GisLineStringTest extends GisGeomTestCase
             ['x' => 12, 'y' => 69, 'scale' => 2, 'height' => 150],
             $image
         );
-        $this->assertEquals(120, $return->width());
-        $this->assertEquals(150, $return->height());
+        self::assertSame(120, $return->width());
+        self::assertSame(150, $return->height());
     }
 
     /**
@@ -200,7 +200,7 @@ class GisLineStringTest extends GisGeomTestCase
         TCPDF $pdf
     ): void {
         $return = $this->object->prepareRowAsPdf($spatial, $label, $line_color, $scale_data, $pdf);
-        $this->assertInstanceOf(TCPDF::class, $return);
+        self::assertInstanceOf(TCPDF::class, $return);
     }
 
     /**
@@ -208,7 +208,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsPdf() test case
      */
-    public function providerForPrepareRowAsPdf(): array
+    public static function providerForPrepareRowAsPdf(): array
     {
         return [
             [
@@ -245,7 +245,7 @@ class GisLineStringTest extends GisGeomTestCase
         string $output
     ): void {
         $string = $this->object->prepareRowAsSvg($spatial, $label, $lineColor, $scaleData);
-        $this->assertEquals(1, preg_match($output, $string));
+        self::assertSame(1, preg_match($output, $string));
     }
 
     /**
@@ -253,7 +253,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsSvg() test case
      */
-    public function providerForPrepareRowAsSvg(): array
+    public static function providerForPrepareRowAsSvg(): array
     {
         return [
             [
@@ -267,7 +267,7 @@ class GisLineStringTest extends GisGeomTestCase
                     'height' => 150,
                 ],
                 '/^(<polyline points="0,218 72,138 114,242 26,198 4,182 46,132 " '
-                . 'name="svg" id="svg)(\d+)(" class="linestring vector" fill="none" '
+                . 'data-label="svg" id="svg)(\d+)(" class="linestring vector" fill="none" '
                 . 'stroke="#B02EE0" stroke-width="2"\/>)$/',
             ],
         ];
@@ -293,16 +293,13 @@ class GisLineStringTest extends GisGeomTestCase
         array $scale_data,
         string $output
     ): void {
-        $this->assertEquals(
-            $this->object->prepareRowAsOl(
-                $spatial,
-                $srid,
-                $label,
-                $line_color,
-                $scale_data
-            ),
-            $output
-        );
+        self::assertSame($this->object->prepareRowAsOl(
+            $spatial,
+            $srid,
+            $label,
+            $line_color,
+            $scale_data
+        ), $output);
     }
 
     /**
@@ -310,7 +307,7 @@ class GisLineStringTest extends GisGeomTestCase
      *
      * @return array test data for testPrepareRowAsOl() test case
      */
-    public function providerForPrepareRowAsOl(): array
+    public static function providerForPrepareRowAsOl(): array
     {
         return [
             [

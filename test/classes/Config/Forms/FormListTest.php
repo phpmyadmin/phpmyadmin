@@ -42,30 +42,30 @@ class FormListTest extends AbstractTestCase
         $cf = new ConfigFile($GLOBALS['config']->baseSettings);
 
         /* Static API */
-        $this->assertTrue($class::isValid('Export'));
-        $this->assertEquals($prefix, $class::get('Export'));
+        self::assertTrue($class::isValid('Export'));
+        self::assertSame($prefix, $class::get('Export'));
         foreach ($class::getAll() as $form) {
             $form_class = $class::get($form);
-            $this->assertNotNull($form_class);
-            $this->assertNotNull($form_class::getName());
+            self::assertNotNull($form_class);
+            self::assertNotNull($form_class::getName());
         }
 
-        $this->assertContains('Export/texytext_columns', $class::getFields());
+        self::assertContains('Export/texytext_columns', $class::getFields());
 
         /* Instance handling */
         $forms = new $class($cf);
-        $this->assertInstanceOf(BaseFormList::class, $forms);
-        $this->assertFalse($forms->process());
+        self::assertInstanceOf(BaseFormList::class, $forms);
+        self::assertFalse($forms->process());
         $forms->fixErrors();
-        $this->assertFalse($forms->hasErrors());
-        $this->assertEquals('', $forms->displayErrors());
+        self::assertFalse($forms->hasErrors());
+        self::assertSame('', $forms->displayErrors());
     }
 
     /**
      * @return string[][]
      * @psalm-return array{array{class-string<BaseFormList>, class-string<BaseForm>}}
      */
-    public function formObjects(): array
+    public static function formObjects(): array
     {
         return [
             [User\UserFormList::class, User\ExportForm::class],

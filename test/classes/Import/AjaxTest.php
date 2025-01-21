@@ -14,6 +14,6 @@ class AjaxTest extends TestCase
 {
     public function testNopluginCheck(): void
     {
-        $this->assertTrue(Ajax::nopluginCheck());
+        self::assertTrue(Ajax::nopluginCheck());
     }
 }

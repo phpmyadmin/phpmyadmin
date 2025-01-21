@@ -41,7 +41,8 @@ class ImportControllerTest extends AbstractTestCase
         $this->dummyDbi->addResult(
             'SELECT A.* FROM table1 A WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\''
             . ' AND foo = 4 AND `:a` IS NULL LIMIT 0, 25',
-            []
+            [],
+            ['nomEtablissement', 'foo']
         );
 
         $this->dummyDbi->addResult(
@@ -62,12 +63,12 @@ class ImportControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $this->assertResponseWasSuccessfull();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'MySQL returned an empty result set (i.e. zero rows).',
             $this->getResponseHtmlResult()
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'SELECT A.*' . "\n" . 'FROM table1 A' . "\n"
                 . 'WHERE A.nomEtablissement = \'Saint-Louis - Châteaulin\' AND foo = 4 AND `:a` IS NULL',
             $this->getResponseHtmlResult()

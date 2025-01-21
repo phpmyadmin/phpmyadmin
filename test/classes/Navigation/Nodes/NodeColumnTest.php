@@ -24,20 +24,17 @@ class NodeColumnTest extends AbstractTestCase
     public function testConstructor(): void
     {
         $parent = NodeFactory::getInstance('NodeColumn', ['name' => 'name', 'key' => 'key']);
-        $this->assertIsArray($parent->links);
-        $this->assertEquals(
-            [
-                'text' => [
-                    'route' => '/table/structure/change',
-                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-                ],
-                'icon' => [
-                    'route' => '/table/structure/change',
-                    'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
-                ],
-                'title' => 'Structure',
+        self::assertIsArray($parent->links);
+        self::assertSame([
+            'text' => [
+                'route' => '/table/structure/change',
+                'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
             ],
-            $parent->links
-        );
+            'icon' => [
+                'route' => '/table/structure/change',
+                'params' => ['change_column' => 1, 'db' => null, 'table' => null, 'field' => null],
+            ],
+            'title' => 'Structure',
+        ], $parent->links);
     }
 }

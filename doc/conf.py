@@ -44,14 +44,14 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'phpMyAdmin'
-copyright = u'2012 - 2021, The phpMyAdmin devel team'
+copyright = u'2012 - 2024, The phpMyAdmin devel team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
 # built documents.
 #
 # The short X.Y version.
-version = '5.2.1'
+version = '5.2.2'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -99,6 +99,16 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 html_theme = 'default'
+
+# See: https://docs.readthedocs.io/en/stable/reference/environment-variables.html#envvar-READTHEDOCS
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+
+if on_rtd:  # only import and set the theme if we're building docs on readthedocs
+    try:
+        import sphinx_rtd_theme
+        html_theme = 'sphinx_rtd_theme'
+    except:
+        html_theme = 'default'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -315,6 +325,4 @@ linkcheck_ignore = [
     r'https://authy.com/.*',
     # Site often changes links and reverts changes (9362bde02d0535a2f8cb74a18797249cb734c4b0)
     r'https://www.yubico.com/.*',
-    # Some timeouts and SSL issues: https://github.com/sektioneins/suhosin/issues/119
-    r'https://suhosin.org/.*',
 ]

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Query;
 
 use PhpMyAdmin\DatabaseInterface;
+use PhpMyAdmin\Dbal\DbalInterface;
 use PhpMyAdmin\Query\Compatibility;
 use PHPUnit\Framework\TestCase;
 
@@ -18,14 +19,14 @@ class CompatibilityTest extends TestCase
      */
     public function testHasAccountLocking(bool $expected, bool $isMariaDb, int $version): void
     {
-        $this->assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
+        self::assertSame($expected, Compatibility::hasAccountLocking($isMariaDb, $version));
     }
 
     /**
      * @return array[]
      * @psalm-return array<string, array{bool, bool, int}>
      */
-    public function providerForTestHasAccountLocking(): array
+    public static function providerForTestHasAccountLocking(): array
     {
         return [
             'MySQL 5.7.5' => [false, false, 50705],
@@ -47,14 +48,14 @@ class CompatibilityTest extends TestCase
         $dbiStub->method('isMariaDB')->willReturn($isMariaDb);
         $dbiStub->method('getVersion')->willReturn($version);
 
-        $this->assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
+        self::assertSame($expected, Compatibility::isUUIDSupported($dbiStub));
     }
 
     /**
      * @return array[]
      * @psalm-return array<string, array{bool, bool, int}>
      */
-    public function providerForTestIsUUIDSupported(): array
+    public static function providerForTestIsUUIDSupported(): array
     {
         return [
             'MySQL 5.7.5' => [false, false, 50705],
@@ -62,5 +63,25 @@ class CompatibilityTest extends TestCase
             'MariaDB 10.6.0' => [false, true, 100600],
             'MariaDB 10.7.0' => [true, true, 100700],
         ];
+    }
+
+    /** @dataProvider showBinLogStatusProvider */
+    public function testGetShowBinLogStatusStmt(string $serverName, int $version, string $expected): void
+    {
+        $dbal = self::createStub(DbalInterface::class);
+        $dbal->method('isMySql')->willReturn($serverName === 'MySQL');
+        $dbal->method('isMariaDB')->willReturn($serverName === 'MariaDB');
+        $dbal->method('getVersion')->willReturn($version);
+        self::assertSame($expected, Compatibility::getShowBinLogStatusStmt($dbal));
+    }
+
+    /** @return iterable<int, array{string, int, string}> */
+    public static function showBinLogStatusProvider(): iterable
+    {
+        yield ['MySQL', 80200, 'SHOW BINARY LOG STATUS'];
+        yield ['MariaDB', 100502, 'SHOW BINLOG STATUS'];
+        yield ['MySQL', 80199, 'SHOW MASTER STATUS'];
+        yield ['MariaDB', 100501, 'SHOW MASTER STATUS'];
+        yield ['MySQL', 100502, 'SHOW BINARY LOG STATUS'];
     }
 }

@@ -66,21 +66,21 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
-        $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
-        $this->assertStringContainsString('sakila', $actual);
-        $this->assertStringContainsString('utf8_general_ci', $actual);
-        $this->assertStringContainsString('title="Unicode, case-insensitive"', $actual);
-        $this->assertStringContainsString('data-filter-row="SAKILA"', $actual);
-        $this->assertStringContainsString('employees', $actual);
-        $this->assertStringContainsString('latin1_swedish_ci', $actual);
-        $this->assertStringContainsString('title="Swedish, case-insensitive"', $actual);
-        $this->assertStringContainsString('<span id="filter-rows-count">2</span>', $actual);
-        $this->assertStringContainsString('name="pos" value="0"', $actual);
-        $this->assertStringContainsString('name="sort_by" value="SCHEMA_NAME"', $actual);
-        $this->assertStringContainsString('name="sort_order" value="asc"', $actual);
-        $this->assertStringContainsString(__('Enable statistics'), $actual);
-        $this->assertStringContainsString(__('No privileges to create databases'), $actual);
-        $this->assertStringNotContainsString(__('Indexes'), $actual);
+        self::assertStringContainsString('data-filter-row="SAKILA"', $actual);
+        self::assertStringContainsString('sakila', $actual);
+        self::assertStringContainsString('utf8_general_ci', $actual);
+        self::assertStringContainsString('title="Unicode, case-insensitive"', $actual);
+        self::assertStringContainsString('data-filter-row="SAKILA"', $actual);
+        self::assertStringContainsString('employees', $actual);
+        self::assertStringContainsString('latin1_swedish_ci', $actual);
+        self::assertStringContainsString('title="Swedish, case-insensitive"', $actual);
+        self::assertStringContainsString('<span id="filter-rows-count">2</span>', $actual);
+        self::assertStringContainsString('name="pos" value="0"', $actual);
+        self::assertStringContainsString('name="sort_by" value="SCHEMA_NAME"', $actual);
+        self::assertStringContainsString('name="sort_order" value="asc"', $actual);
+        self::assertStringContainsString(__('Enable statistics'), $actual);
+        self::assertStringContainsString(__('No privileges to create databases'), $actual);
+        self::assertStringNotContainsString(__('Indexes'), $actual);
 
         $response = new ResponseRenderer();
 
@@ -103,16 +103,16 @@ class DatabasesControllerTest extends AbstractTestCase
         $this->assertAllSelectsConsumed();
         $actual = $response->getHTMLResult();
 
-        $this->assertStringNotContainsString(__('Enable statistics'), $actual);
-        $this->assertStringContainsString(__('Indexes'), $actual);
-        $this->assertStringContainsString('name="sort_by" value="SCHEMA_TABLES"', $actual);
-        $this->assertStringContainsString('name="sort_order" value="desc"', $actual);
-        $this->assertStringContainsString('name="statistics" value="1"', $actual);
-        $this->assertStringContainsString('title="3912174"', $actual);
-        $this->assertStringContainsString('3,912,174', $actual);
-        $this->assertStringContainsString('title="4358144"', $actual);
-        $this->assertStringContainsString('4.2', $actual);
-        $this->assertStringContainsString('MiB', $actual);
-        $this->assertStringContainsString('name="db_collation"', $actual);
+        self::assertStringNotContainsString(__('Enable statistics'), $actual);
+        self::assertStringContainsString(__('Indexes'), $actual);
+        self::assertStringContainsString('name="sort_by" value="SCHEMA_TABLES"', $actual);
+        self::assertStringContainsString('name="sort_order" value="desc"', $actual);
+        self::assertStringContainsString('name="statistics" value="1"', $actual);
+        self::assertStringContainsString('title="3912174"', $actual);
+        self::assertStringContainsString('3,912,174', $actual);
+        self::assertStringContainsString('title="4358144"', $actual);
+        self::assertStringContainsString('4.2', $actual);
+        self::assertStringContainsString('MiB', $actual);
+        self::assertStringContainsString('name="db_collation"', $actual);
     }
 }

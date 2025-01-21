@@ -108,7 +108,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->getPageName($pg);
 
-        $this->assertEquals($pageName, $result);
+        self::assertSame($pageName, $result);
     }
 
     /**
@@ -134,7 +134,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->deletePage($pg);
-        $this->assertTrue($result);
+        self::assertTrue($result);
     }
 
     /**
@@ -168,7 +168,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        $this->assertEquals($default_pg, $result);
+        self::assertEquals($default_pg, $result);
     }
 
     /**
@@ -200,7 +200,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getDefaultPage($db);
-        $this->assertEquals(-1, $result);
+        self::assertSame(-1, $result);
     }
 
     /**
@@ -233,7 +233,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($default_pg, $result);
+        self::assertEquals($default_pg, $result);
     }
 
     /**
@@ -261,7 +261,7 @@ class CommonTest extends AbstractTestCase
         $this->designerCommon = new Common($GLOBALS['dbi'], new Relation($dbi));
 
         $result = $this->designerCommon->getLoadingPage($db);
-        $this->assertEquals($first_pg, $result);
+        self::assertEquals($first_pg, $result);
     }
 
     private function loadTestDataForRelationDeleteAddTests(string $createTableString): void
@@ -366,7 +366,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
+        self::assertSame([
             false,
             'Error: Relational features are disabled!',
         ], $result);
@@ -409,7 +409,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
+        self::assertSame([
             true,
             'Internal relationship has been removed.',
         ], $result);
@@ -472,7 +472,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
+        self::assertSame([
             true,
             'FOREIGN KEY relationship has been removed.',
         ], $result);
@@ -515,7 +515,7 @@ class CommonTest extends AbstractTestCase
 
         $result = $this->designerCommon->removeRelation('db\'1.table\'1', 'field\'1', 'db\'2.table\'2', 'field\'2');
 
-        $this->assertSame([
+        self::assertSame([
             false,
             'Error: Internal relationship could not be removed!<br>',
         ], $result);

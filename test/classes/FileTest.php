@@ -34,7 +34,7 @@ class FileTest extends AbstractTestCase
     public function testMIME(string $file, string $mime): void
     {
         $arr = new File($file);
-        $this->assertEquals($mime, $arr->getCompression());
+        self::assertSame($mime, $arr->getCompression());
     }
 
     /**
@@ -48,7 +48,7 @@ class FileTest extends AbstractTestCase
     {
         $data = '0x' . bin2hex((string) file_get_contents($file));
         $file = new File($file);
-        $this->assertEquals($data, $file->getContent());
+        self::assertSame($data, $file->getContent());
     }
 
     /**
@@ -65,11 +65,11 @@ class FileTest extends AbstractTestCase
         $file = new File($file);
         $file->setDecompressContent(true);
         $file->open();
-        $this->assertEquals("TEST FILE\n", $file->read(100));
+        self::assertSame("TEST FILE\n", $file->read(100));
         $file->close();
     }
 
-    public function compressedFiles(): array
+    public static function compressedFiles(): array
     {
         return [
             [

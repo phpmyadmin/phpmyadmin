@@ -50,13 +50,13 @@ class UserPasswordTest extends AbstractTestCase
         $_POST['nopass'] = $noPassword;
         $_POST['pma_pw'] = $password;
         $_POST['pma_pw2'] = $passwordConfirmation;
-        $this->assertEquals(['error' => $error, 'msg' => $message], $this->object->setChangePasswordMsg());
+        self::assertEquals(['error' => $error, 'msg' => $message], $this->object->setChangePasswordMsg());
     }
 
     /**
      * @psalm-return array{0: bool, 1: Message, 2: string, 3: string, 4: string}[]
      */
-    public function providerSetChangePasswordMsg(): array
+    public static function providerSetChangePasswordMsg(): array
     {
         return [
             [false, Message::success('The profile has been updated.'), '1', '', ''],

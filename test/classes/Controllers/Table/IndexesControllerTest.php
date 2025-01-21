@@ -119,16 +119,13 @@ class IndexesControllerTest extends AbstractTestCase
         $html = $response->getHTMLResult();
 
         //Url::getHiddenInputs
-        $this->assertStringContainsString(
-            Url::getHiddenInputs(
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                    'create_index' => 1,
-                ]
-            ),
-            $html
-        );
+        self::assertStringContainsString(Url::getHiddenInputs(
+            [
+                'db' => 'db',
+                'table' => 'table',
+                'create_index' => 1,
+            ]
+        ), $html);
 
         $doc_html = Generator::showHint(
             Message::notice(
@@ -137,20 +134,14 @@ class IndexesControllerTest extends AbstractTestCase
                 )
             )->getMessage()
         );
-        $this->assertStringContainsString($doc_html, $html);
+        self::assertStringContainsString($doc_html, $html);
 
-        $this->assertStringContainsString(
-            MySQLDocumentation::show('ALTER_TABLE'),
-            $html
-        );
+        self::assertStringContainsString(MySQLDocumentation::show('ALTER_TABLE'), $html);
 
-        $this->assertStringContainsString(
-            sprintf(__('Add %s column(s) to index'), 1),
-            $html
-        );
+        self::assertStringContainsString(sprintf(__('Add %s column(s) to index'), 1), $html);
 
         //$field_name & $field_type
-        $this->assertStringContainsString('field_name', $html);
-        $this->assertStringContainsString('field_type', $html);
+        self::assertStringContainsString('field_name', $html);
+        self::assertStringContainsString('field_type', $html);
     }
 }

@@ -50,9 +50,9 @@ class DbiDummy implements DbiExtension
      * @var array
      * @phpstan-var array{
      *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
+     *     'result': list<array<string|float|int|null>>|array{true}|bool,
      *     'columns'?: string[],
-     *     'metadata'?: object[]|empty-array,
+     *     'metadata'?: object[],
      *     'used'?: bool,
      *     'pos'?: int
      * }[]
@@ -72,9 +72,9 @@ class DbiDummy implements DbiExtension
      * @var array
      * @phpstan-var array{
      *     'query': string,
-     *     'result': ((int[]|string[]|array{string: string})[])|bool|bool[]|empty-array,
+     *     'result': list<array<string|float|int|null>>|bool,
      *     'columns'?: string[],
-     *     'metadata'?: object[]|empty-array,
+     *     'metadata'?: object[],
      *     'pos'?: int
      * }[]
      */
@@ -132,7 +132,7 @@ class DbiDummy implements DbiExtension
             return true;
         }
 
-        Assert::markTestIncomplete('Non expected select of database: ' . $databaseName);
+        Assert::fail('Non expected select of database: ' . $databaseName);
     }
 
     public function hasUnUsedErrors(): bool
@@ -226,7 +226,7 @@ class DbiDummy implements DbiExtension
             return new DummyResult($this, $i + self::OFFSET_GLOBAL);
         }
 
-        Assert::markTestIncomplete('Not supported query: ' . $query);
+        Assert::fail('Not supported query: ' . $query);
     }
 
     /**
@@ -493,7 +493,7 @@ class DbiDummy implements DbiExtension
      * @param array|bool $result   Expected result
      * @param string[]   $columns  The result columns
      * @param object[]   $metadata The result metadata
-     * @phpstan-param array<int, array<int, array{string: string}|bool|int|string|null>|bool>|bool $result
+     * @phpstan-param list<array<string|float|int|null>>|array{true}|bool $result
      */
     public function addResult(string $query, $result, array $columns = [], array $metadata = []): void
     {
@@ -582,7 +582,9 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                     . " WHERE `PRIVILEGE_TYPE` = 'CREATE USER'"
-                    . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
+                    . " AND '''pma_test''@''localhost''' LIKE `GRANTEE`"
+                    . " UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci"
+                    . " AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1",
                 'result' => [['1']],
             ],
             [
@@ -595,11 +597,13 @@ class DbiDummy implements DbiExtension
                     . ' UNION SELECT `GRANTEE`, `IS_GRANTABLE`'
                     . ' FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t'
                     . " WHERE `IS_GRANTABLE` = 'YES'"
-                    . " AND '''pma_test''@''localhost''' LIKE `GRANTEE` LIMIT 1",
+                    . " AND '''pma_test''@''localhost''' LIKE `GRANTEE`"
+                    . " UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci"
+                    . " AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1",
                 'result' => [['1']],
             ],
             [
-                'query' => 'SHOW MASTER LOGS',
+                'query' => 'SHOW BINARY LOGS',
                 'result' => [
                     [
                         'Log_name' => 'index1',
@@ -1182,152 +1186,45 @@ class DbiDummy implements DbiExtension
                 ],
                 'result' => [
                     [
-                        'def',
-                        'smash',
-                        'issues_issue',
+                        'ref',
+                        'pma_test',
+                        'table1',
                         'BASE TABLE',
-                        'InnoDB',
-                        '10',
-                        'Compact',
-                        '9136',
-                        '862',
-                        '7880704',
-                        '0',
-                        '1032192',
-                        '420478976',
-                        '155862',
-                        '2012-08-29 13:28:28',
-                        'NULL',
-                        'NULL',
-                        'utf8_general_ci',
-                        'NULL',
-                        '',
-                        '',
-                        'smash',
-                        'issues_issue',
-                        'BASE TABLE',
-                        'InnoDB',
-                        'InnoDB',
-                        '10',
-                        'Compact',
-                        '9136',
-                        '862',
-                        '7880704',
-                        '0',
-                        '1032192',
-                        '420478976',
-                        '155862',
-                        '2012-08-29 13:28:28',
-                        'NULL',
-                        'NULL',
-                        'utf8_general_ci',
-                        'NULL',
-                    ],
-                ],
-            ],
-            [
-                'query' => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
-                    . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
-                    . ' `ENGINE` AS `Type`, `VERSION` AS `Version`,'
-                    . ' `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`,'
-                    . ' `AVG_ROW_LENGTH` AS `Avg_row_length`,'
-                    . ' `DATA_LENGTH` AS `Data_length`,'
-                    . ' `MAX_DATA_LENGTH` AS `Max_data_length`,'
-                    . ' `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
-                    . ' `AUTO_INCREMENT` AS `Auto_increment`,'
-                    . ' `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
-                    . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
-                    . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
-                    . ' `TABLE_COMMENT` AS `Comment`'
-                    . ' FROM `information_schema`.`TABLES` t'
-                    . ' WHERE `TABLE_SCHEMA` IN (\'pma_test\')'
-                    . ' AND t.`TABLE_NAME` = \'table1\' ORDER BY Name ASC',
-                'columns' => [
-                    'TABLE_CATALOG',
-                    'TABLE_SCHEMA',
-                    'TABLE_NAME',
-                    'TABLE_TYPE',
-                    'ENGINE',
-                    'VERSION',
-                    'ROW_FORMAT',
-                    'TABLE_ROWS',
-                    'AVG_ROW_LENGTH',
-                    'DATA_LENGTH',
-                    'MAX_DATA_LENGTH',
-                    'INDEX_LENGTH',
-                    'DATA_FREE',
-                    'AUTO_INCREMENT',
-                    'CREATE_TIME',
-                    'UPDATE_TIME',
-                    'CHECK_TIME',
-                    'TABLE_COLLATION',
-                    'CHECKSUM',
-                    'CREATE_OPTIONS',
-                    'TABLE_COMMENT',
-                    'Db',
-                    'Name',
-                    'TABLE_TYPE',
-                    'Engine',
-                    'Type',
-                    'Version',
-                    'Row_format',
-                    'Rows',
-                    'Avg_row_length',
-                    'Data_length',
-                    'Max_data_length',
-                    'Index_length',
-                    'Data_free',
-                    'Auto_increment',
-                    'Create_time',
-                    'Update_time',
-                    'Check_time',
-                    'Collation',
-                    'Checksum',
-                    'Create_options',
-                    'Comment',
-                ],
-                'result' => [
-                    [
-                        'def',
-                        'smash',
-                        'issues_issue',
-                        'BASE TABLE',
-                        'InnoDB',
-                        '10',
-                        'Compact',
-                        '9136',
-                        '862',
-                        '7880704',
-                        '0',
-                        '1032192',
-                        '420478976',
-                        '155862',
-                        '2012-08-29 13:28:28',
-                        'NULL',
-                        'NULL',
-                        'utf8_general_ci',
-                        'NULL',
-                        '',
-                        '',
-                        'smash',
-                        'issues_issue',
-                        'BASE TABLE',
-                        'InnoDB',
-                        'InnoDB',
-                        '10',
-                        'Compact',
-                        '9136',
-                        '862',
-                        '7880704',
-                        '0',
-                        '1032192',
-                        '420478976',
-                        '155862',
-                        '2012-08-29 13:28:28',
-                        'NULL',
-                        'NULL',
-                        'utf8_general_ci',
-                        'NULL',
+                        'DBIdummy',
+                        '11',
+                        'Redundant',
+                        '123456',
+                        '42',
+                        '21708991',
+                        '281474976710655',// MyISAM
+                        '2048',// MyISAM
+                        '2547',
+                        '5',
+                        '2014-06-24 17:30:00',
+                        '2018-06-25 18:35:12',
+                        '2015-04-24 19:30:59',
+                        'utf8mb4_general_ci',
+                        '3844432963',
+                        'row_format=REDUNDANT',
+                        'Test comment for "table1" in \'pma_test\'',
+                        'table1',
+                        'DBIdummy',
+                        '11',
+                        'Redundant',
+                        '123456',
+                        '42',
+                        '21708991',
+                        '281474976710655',// MyISAM
+                        '2048',// MyISAM
+                        '2547',
+                        '5',
+                        '2014-06-24 17:30:00',
+                        '2018-06-25 18:35:12',
+                        '2015-04-24 19:30:59',
+                        'utf8mb4_general_ci',
+                        '3844432963',
+                        'row_format=REDUNDANT',
+                        'Test comment for "table1" in \'pma_test\'',
                     ],
                 ],
             ],
@@ -1769,44 +1666,7 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => "SHOW TABLE STATUS FROM `my_dataset` WHERE `Name` LIKE 'company\\\\_users%'",
-                'result' => [],
-            ],
-            [
-                'query' => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
-                . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`,'
-                . ' `ENGINE` AS `Type`, `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`,'
-                . ' `TABLE_ROWS` AS `Rows`, `AVG_ROW_LENGTH` AS `Avg_row_length`,'
-                . ' `DATA_LENGTH` AS `Data_length`, `MAX_DATA_LENGTH` AS `Max_data_length`,'
-                . ' `INDEX_LENGTH` AS `Index_length`, `DATA_FREE` AS `Data_free`,'
-                . ' `AUTO_INCREMENT` AS `Auto_increment`, `CREATE_TIME` AS `Create_time`,'
-                . ' `UPDATE_TIME` AS `Update_time`, `CHECK_TIME` AS `Check_time`,'
-                . ' `TABLE_COLLATION` AS `Collation`, `CHECKSUM` AS `Checksum`,'
-                . ' `CREATE_OPTIONS` AS `Create_options`, `TABLE_COMMENT` AS `Comment`'
-                . " FROM `information_schema`.`TABLES` t WHERE `TABLE_SCHEMA` IN ('table1')"
-                . " AND t.`TABLE_NAME` = 'pma_test' ORDER BY Name ASC",
                 'columns' => [
-                    'TABLE_CATALOG',
-                    'TABLE_SCHEMA',
-                    'TABLE_NAME',
-                    'TABLE_TYPE',
-                    'ENGINE',
-                    'VERSION',
-                    'ROW_FORMAT',
-                    'TABLE_ROWS',
-                    'AVG_ROW_LENGTH',
-                    'DATA_LENGTH',
-                    'MAX_DATA_LENGTH',
-                    'INDEX_LENGTH',
-                    'DATA_FREE',
-                    'AUTO_INCREMENT',
-                    'CREATE_TIME',
-                    'UPDATE_TIME',
-                    'CHECK_TIME',
-                    'TABLE_COLLATION',
-                    'CHECKSUM',
-                    'CREATE_OPTIONS',
-                    'TABLE_COMMENT',
-                    'Db',
                     'Name',
                     'TABLE_TYPE',
                     'Engine',
@@ -1830,16 +1690,13 @@ class DbiDummy implements DbiExtension
                 ],
                 'result' => [
                     [
-                        'ref',
-                        'pma_test',
-                        'table1',
-                        'BASE TABLE',
+                        'company_users',
                         'DBIdummy',
                         '11',
                         'Redundant',
                         '123456',
                         '42',
-                        '21708991',
+                        '18',
                         '281474976710655',// MyISAM
                         '2048',// MyISAM
                         '2547',
@@ -1850,25 +1707,7 @@ class DbiDummy implements DbiExtension
                         'utf8mb4_general_ci',
                         '3844432963',
                         'row_format=REDUNDANT',
-                        'Test comment for "table1" in \'pma_test\'',
-                        'table1',
-                        'DBIdummy',
-                        '11',
-                        'Redundant',
-                        '123456',
-                        '42',
-                        '21708991',
-                        '281474976710655',// MyISAM
-                        '2048',// MyISAM
-                        '2547',
-                        '5',
-                        '2014-06-24 17:30:00',
-                        '2018-06-25 18:35:12',
-                        '2015-04-24 19:30:59',
-                        'utf8mb4_general_ci',
-                        '3844432963',
-                        'row_format=REDUNDANT',
-                        'Test comment for "table1" in \'pma_test\'',
+                        'Test comment for "company_users" in \'my_dataset\'',
                     ],
                 ],
             ],
@@ -2394,16 +2233,6 @@ class DbiDummy implements DbiExtension
                 'result' => [['PMA_table', 'InnoDB']],
             ],
             [
-                'query' => 'SELECT `id` FROM `table_1` WHERE `id` > 10 AND (`id` <> 20)',
-                'columns' => ['id'],
-                'result' => [['11'], ['12']],
-            ],
-            [
-                'query' => 'SELECT * FROM `table_1` WHERE `id` > 10',
-                'columns' => ['column'],
-                'result' => [['row1'], ['row2']],
-            ],
-            [
                 'query' => 'SELECT * FROM `PMA`.`table_1` LIMIT 1',
                 'columns' => ['column'],
                 'result' => [['table']],
@@ -2416,14 +2245,14 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = "table_1"'
                     . ' AND `table_schema` = "PMA" AND UPPER(`engine`)'
-                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
+                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB", "ROCKSDB")',
                 'columns' => ['ENGINE'],
                 'result' => [['INNODB']],
             ],
             [
                 'query' => 'SELECT `ENGINE` FROM `information_schema`.`tables` WHERE `table_name` = "table_2"'
                     . ' AND `table_schema` = "PMA" AND UPPER(`engine`)'
-                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB")',
+                    . ' IN ("INNODB", "FALCON", "NDB", "INFINIDB", "TOKUDB", "XTRADB", "SEQUENCE", "BDB", "ROCKSDB")',
                 'columns' => ['ENGINE'],
                 'result' => [['INNODB']],
             ],
@@ -2670,8 +2499,8 @@ class DbiDummy implements DbiExtension
                 'result' => [],
             ],
             [
-                'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE dbase = \'my_db\''
-                . ' AND (user = \'user\') AND `label` = \'test_tbl\' LIMIT 1',
+                'query' => 'SELECT * FROM `information_schema`.`bookmark` WHERE `label` = \'test_tbl\''
+                . ' AND dbase = \'my_db\' AND (user = \'user\') LIMIT 1',
                 'result' => [],
             ],
             [
@@ -2737,7 +2566,7 @@ class DbiDummy implements DbiExtension
             [
                 'query' => 'SELECT * FROM `pmadb`.`usergroups` ORDER BY `usergroup` ASC',
                 'columns' => ['usergroup', 'tab', 'allowed'],
-                'result' => [['usergroup', 'server_sql', 'Y']],
+                'result' => [['user<br>group', 'server_sql', 'Y']],
             ],
             [
                 'query' => 'DESCRIBE `test_table`',
@@ -2759,17 +2588,17 @@ class DbiDummy implements DbiExtension
                 'result' => [['hostname', 'username', 'password']],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE not_working_count != 0 ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE not_working_count != 0 ) as cnt',
                 'result' => false,
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users ) as cnt',
                 'result' => [
                     [4],
                 ],
             ],
             [
-                'query' => 'SELECT COUNT(*) FROM (SELECT * FROM company_users WHERE working_count = 0 ) as cnt',
+                'query' => 'SELECT COUNT(*) FROM (SELECT 1 FROM company_users WHERE working_count = 0 ) as cnt',
                 'result' => [
                     [15],
                 ],
@@ -2782,8 +2611,8 @@ class DbiDummy implements DbiExtension
             ],
             [
                 'query' => 'SELECT COUNT(*) FROM ('
-                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) as c1, '
-                . '(SELECT 1 FROM tbl2) as c2 FROM company_users WHERE subquery_case = 0 ) as cnt',
+                . 'SELECT *, 1, (SELECT COUNT(*) FROM tbl1) AS `c1`, '
+                . '(SELECT 1 FROM tbl2) AS `c2` FROM company_users WHERE subquery_case = 0 ) as cnt',
                 'result' => [
                     [42],
                 ],
@@ -2991,7 +2820,163 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SHOW TABLE STATUS FROM `world`',
+                'query' => 'SELECT *, `TABLE_SCHEMA` AS `Db`, `TABLE_NAME` AS `Name`,'
+                    . ' `TABLE_TYPE` AS `TABLE_TYPE`, `ENGINE` AS `Engine`, `ENGINE` AS `Type`,'
+                    . ' `VERSION` AS `Version`, `ROW_FORMAT` AS `Row_format`, `TABLE_ROWS` AS `Rows`,'
+                    . ' `AVG_ROW_LENGTH` AS `Avg_row_length`, `DATA_LENGTH` AS `Data_length`,'
+                    . ' `MAX_DATA_LENGTH` AS `Max_data_length`, `INDEX_LENGTH` AS `Index_length`,'
+                    . ' `DATA_FREE` AS `Data_free`, `AUTO_INCREMENT` AS `Auto_increment`,'
+                    . ' `CREATE_TIME` AS `Create_time`, `UPDATE_TIME` AS `Update_time`,'
+                    . ' `CHECK_TIME` AS `Check_time`, `TABLE_COLLATION` AS `Collation`,'
+                    . ' `CHECKSUM` AS `Checksum`, `CREATE_OPTIONS` AS `Create_options`,'
+                    . ' `TABLE_COMMENT` AS `Comment` FROM `information_schema`.`TABLES` t'
+                    . ' WHERE `TABLE_SCHEMA` IN (\'test_db\') AND t.`TABLE_NAME` IN (\'test_table\') ORDER BY Name ASC',
+                'columns' => [
+                    'TABLE_CATALOG',
+                    'TABLE_SCHEMA',
+                    'TABLE_NAME',
+                    'TABLE_TYPE',
+                    'ENGINE',
+                    'VERSION',
+                    'ROW_FORMAT',
+                    'TABLE_ROWS',
+                    'AVG_ROW_LENGTH',
+                    'DATA_LENGTH',
+                    'MAX_DATA_LENGTH',
+                    'INDEX_LENGTH',
+                    'DATA_FREE',
+                    'AUTO_INCREMENT',
+                    'CREATE_TIME',
+                    'UPDATE_TIME',
+                    'CHECK_TIME',
+                    'TABLE_COLLATION',
+                    'CHECKSUM',
+                    'CREATE_OPTIONS',
+                    'TABLE_COMMENT',
+                    'MAX_INDEX_LENGTH',
+                    'TEMPORARY',
+                    'Db',
+                    'Name',
+                    'TABLE_TYPE',
+                    'Engine',
+                    'Type',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                ],
+                'result' => [
+                    [
+                        'def',
+                        'test_db',
+                        'test_table',
+                        'BASE TABLE',
+                        'InnoDB',
+                        '10',
+                        'Dynamic',
+                        '3',
+                        '5461',
+                        '16384',
+                        '0',
+                        '0',
+                        '0',
+                        '4',
+                        '2011-12-13 14:15:16',
+                        null,
+                        null,
+                        'utf8mb4_general_ci',
+                        null,
+                        '',
+                        '',
+                        '0',
+                        'N',
+                        'test_db',
+                        'test_table',
+                        'BASE TABLE',
+                        'InnoDB',
+                        'InnoDB',
+                        '10',
+                        'Dynamic',
+                        '3',
+                        '5461',
+                        '16384',
+                        '0',
+                        '0',
+                        '0',
+                        '4',
+                        '2011-12-13 14:15:16',
+                        null,
+                        null,
+                        'utf8mb4_general_ci',
+                        null,
+                        '',
+                        '',
+                    ],
+                ],
+            ],
+            [
+                'query' => 'SHOW TABLE STATUS FROM `pma_test` WHERE `Name` LIKE \'table1%\'',
+                'columns' => [
+                    'Name',
+                    'Engine',
+                    'Version',
+                    'Row_format',
+                    'Rows',
+                    'Avg_row_length',
+                    'Data_length',
+                    'Max_data_length',
+                    'Index_length',
+                    'Data_free',
+                    'Auto_increment',
+                    'Create_time',
+                    'Update_time',
+                    'Check_time',
+                    'Collation',
+                    'Checksum',
+                    'Create_options',
+                    'Comment',
+                    'Max_index_length',
+                    'Temporary',
+                ],
+                'result' => [
+                    [
+                        'table1',
+                        'InnoDB',
+                        '10',
+                        'Dynamic',
+                        '4046',
+                        '101',
+                        '409600',
+                        '0',
+                        '114688',
+                        '0',
+                        '4080',
+                        '2020-07-03 17:24:47',
+                        null,
+                        null,
+                        'utf8mb4_general_ci',
+                        null,
+                        '',
+                        '',
+                        '0',
+                        'N',
+                    ],
+                ],
+            ],
+            [
+                'query' => "SHOW TABLE STATUS FROM `world` WHERE `Name` IN ('City', 'Country', 'CountryLanguage')",
                 'columns' => [
                     'Name',
                     'Engine',
@@ -3102,6 +3087,25 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT COUNT(*) AS `row_count` FROM `world`.`CountryLanguage`',
                 'columns' => ['row_count'],
                 'result' => [['984']],
+            ],
+            [
+                'query' => 'SELECT `collapp`.`FULL_COLLATION_NAME` AS `Collation`,'
+                        . ' `collapp`.`CHARACTER_SET_NAME` AS `Charset`,'
+                        . ' `collapp`.`ID` AS `Id`,'
+                        . ' `collapp`.`IS_DEFAULT` AS `Default`,'
+                        . ' `coll`.`IS_COMPILED` AS `Compiled`,'
+                        . ' `coll`.`SORTLEN` AS `Sortlen`'
+                        . ' FROM `information_schema`.`COLLATION_CHARACTER_SET_APPLICABILITY` `collapp`'
+                        . ' LEFT JOIN `information_schema`.`COLLATIONS` `coll`'
+                        . ' ON `collapp`.`COLLATION_NAME`=`coll`.`COLLATION_NAME`',
+                'columns' => ['Collation', 'Charset', 'Id', 'Default', 'Compiled', 'Sortlen'],
+                'result' => [
+                    ['utf8mb4_general_ci', 'utf8mb4', '45', 'Yes', 'Yes', '1'],
+                    ['armscii8_general_ci', 'armscii8', '32', 'Yes', 'Yes', '1'],
+                    ['utf8_general_ci', 'utf8', '33', 'Yes', 'Yes', '1'],
+                    ['utf8_bin', 'utf8', '83', '', 'Yes', '1'],
+                    ['latin1_swedish_ci', 'latin1', '8', 'Yes', 'Yes', '1'],
+                ],
             ],
         ];
 

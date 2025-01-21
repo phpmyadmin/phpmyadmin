@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Url;
+use ReflectionProperty;
 
+use function ini_get;
 use function is_string;
-use function method_exists;
 use function parse_str;
 use function str_repeat;
 use function urldecode;
@@ -17,6 +18,9 @@ use function urldecode;
  */
 class UrlTest extends AbstractTestCase
 {
+    /** @var string|false|null */
+    private static $inputArgSeparator = null;
+
     /**
      * Sets up the fixture, for example, opens a network connection.
      * This method is called before a test is executed.
@@ -43,7 +47,7 @@ class UrlTest extends AbstractTestCase
         $expected = '?db=db'
             . $separator . $expected;
 
-        $this->assertEquals($expected, Url::getCommon(['db' => 'db']));
+        self::assertSame($expected, Url::getCommon(['db' => 'db']));
     }
 
     /**
@@ -64,7 +68,7 @@ class UrlTest extends AbstractTestCase
             'db' => 'db',
             'table' => 'table',
         ];
-        $this->assertEquals($expected, Url::getCommon($params));
+        self::assertSame($expected, Url::getCommon($params));
     }
 
     /**
@@ -80,16 +84,13 @@ class UrlTest extends AbstractTestCase
 
         $expected = '#ABC#db=db' . $separator . 'table=table' . $separator
             . $expected;
-        $this->assertEquals(
-            $expected,
-            Url::getCommonRaw(
-                [
-                    'db' => 'db',
-                    'table' => 'table',
-                ],
-                '#ABC#'
-            )
-        );
+        self::assertSame($expected, Url::getCommonRaw(
+            [
+                'db' => 'db',
+                'table' => 'table',
+            ],
+            '#ABC#'
+        ));
     }
 
     /**
@@ -102,7 +103,7 @@ class UrlTest extends AbstractTestCase
 
         $separator = Url::getArgSeparator();
         $expected = '?server=x' . $separator . 'lang=en';
-        $this->assertEquals($expected, Url::getCommon());
+        self::assertSame($expected, Url::getCommon());
     }
 
     /**
@@ -117,7 +118,7 @@ class UrlTest extends AbstractTestCase
             'field' => '%1\$s',
             'change_column' => 1,
         ]);
-        $this->assertEquals(
+        self::assertSame(
             'index.php?route=/test&db=%253%5C%24s&table=%252%5C%24s&field=%251%5C%24s&change_column=1&lang=en',
             $generatedUrl
         );
@@ -137,15 +138,12 @@ class UrlTest extends AbstractTestCase
         ]);
         $expectedUrl = 'index.php?route=/test&db=%26test%3D_database%3D'
         . '&table=%26test%3D_database%3D&field=%26test%3D_database%3D&change_column=1&lang=en';
-        $this->assertEquals($expectedUrl, $generatedUrl);
+        self::assertSame($expectedUrl, $generatedUrl);
 
-        $this->assertEquals(
-            'index.php?route=/test&db=&test=_database=&table=&'
-            . 'test=_database=&field=&test=_database=&change_column=1&lang=en',
-            urldecode(
-                $expectedUrl
-            )
-        );
+        self::assertSame('index.php?route=/test&db=&test=_database=&table=&'
+        . 'test=_database=&field=&test=_database=&change_column=1&lang=en', urldecode(
+            $expectedUrl
+        ));
     }
 
     /**
@@ -162,22 +160,19 @@ class UrlTest extends AbstractTestCase
             'book' => false,
             'worm' => false,
         ]);
-        $this->assertEquals(
-            'index.php?route=/test&db=%3Cscript+src%3D%22https%3A%2F%2Fdomain.tld%2Fsvn'
-            . '%2Ftrunk%2Fhtml5.js%22%3E%3C%2Fscript%3E&table=%3Cscript+src%3D%22'
-            . 'https%3A%2F%2Fdomain.tld%2Fmaybeweshouldusegit%2Ftrunk%2Fhtml5.js%22%3E%3C%2F'
-            . 'script%3E&field=1&trees=1&book=0&worm=0&lang=en',
-            $generatedUrl
-        );
+        self::assertSame('index.php?route=/test&db=%3Cscript+src%3D%22https%3A%2F%2Fdomain.tld%2Fsvn'
+        . '%2Ftrunk%2Fhtml5.js%22%3E%3C%2Fscript%3E&table=%3Cscript+src%3D%22'
+        . 'https%3A%2F%2Fdomain.tld%2Fmaybeweshouldusegit%2Ftrunk%2Fhtml5.js%22%3E%3C%2F'
+        . 'script%3E&field=1&trees=1&book=0&worm=0&lang=en', $generatedUrl);
     }
 
     public function testGetHiddenFields(): void
     {
         $_SESSION = [];
-        $this->assertSame('', Url::getHiddenFields([]));
+        self::assertSame('', Url::getHiddenFields([]));
 
         $_SESSION = [' PMA_token ' => '<b>token</b>'];
-        $this->assertSame(
+        self::assertSame(
             '<input type="hidden" name="token" value="&lt;b&gt;token&lt;/b&gt;">',
             Url::getHiddenFields([])
         );
@@ -192,7 +187,7 @@ class UrlTest extends AbstractTestCase
 
         $config->set('URLQueryEncryption', false);
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
-        $this->assertEquals('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
+        self::assertSame('db=test_db&table=test_table&pos=0', Url::buildHttpQuery($params));
     }
 
     /**
@@ -208,23 +203,18 @@ class UrlTest extends AbstractTestCase
 
         $params = ['db' => 'test_db', 'table' => 'test_table', 'pos' => 0];
         $query = Url::buildHttpQuery($params);
-        $this->assertStringStartsWith('pos=0&eq=', $query);
+        self::assertStringStartsWith('pos=0&eq=', $query);
         parse_str($query, $queryParams);
-        $this->assertCount(2, $queryParams);
-        $this->assertSame('0', $queryParams['pos']);
-        $this->assertTrue(is_string($queryParams['eq']));
-        $this->assertNotSame('', $queryParams['eq']);
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
-        }
+        self::assertCount(2, $queryParams);
+        self::assertSame('0', $queryParams['pos']);
+        self::assertTrue(is_string($queryParams['eq']));
+        self::assertNotSame('', $queryParams['eq']);
+        self::assertMatchesRegularExpressionCompat('/^[a-zA-Z0-9-_=]+$/', $queryParams['eq']);
 
         $decrypted = Url::decryptQuery($queryParams['eq']);
-        $this->assertNotNull($decrypted);
-        $this->assertJson($decrypted);
-        $this->assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
+        self::assertNotNull($decrypted);
+        self::assertJson($decrypted);
+        self::assertSame('{"db":"test_db","table":"test_table"}', $decrypted);
     }
 
     /**
@@ -240,16 +230,56 @@ class UrlTest extends AbstractTestCase
 
         $query = '{"db":"test_db","table":"test_table"}';
         $encrypted = Url::encryptQuery($query);
-        $this->assertNotSame($query, $encrypted);
-        $this->assertNotSame('', $encrypted);
-        if (method_exists($this, 'assertMatchesRegularExpression')) {
-            $this->assertMatchesRegularExpression('/^[a-zA-Z0-9-_=]+$/', $encrypted);
-        } else {
-            /** @psalm-suppress DeprecatedMethod */
-            $this->assertRegExp('/^[a-zA-Z0-9-_=]+$/', $encrypted);
-        }
+        self::assertNotSame($query, $encrypted);
+        self::assertNotSame('', $encrypted);
+        self::assertMatchesRegularExpressionCompat('/^[a-zA-Z0-9-_=]+$/', $encrypted);
 
         $decrypted = Url::decryptQuery($encrypted);
-        $this->assertSame($query, $decrypted);
+        self::assertSame($query, $decrypted);
+    }
+
+    /**
+     * @param string|false $iniValue
+     *
+     * @dataProvider getArgSeparatorProvider
+     */
+    public function testGetArgSeparator(string $expected, $iniValue, ?string $cacheValue): void
+    {
+        $property = new ReflectionProperty(Url::class, 'inputArgSeparator');
+        $property->setAccessible(true);
+        $property->setValue(null, $cacheValue);
+
+        self::$inputArgSeparator = $iniValue;
+        self::assertSame($expected, Url::getArgSeparator());
+
+        self::$inputArgSeparator = null;
+        $property->setValue(null, null);
+    }
+
+    /** @psalm-return array<string, array{string, string|false, string|null}> */
+    public static function getArgSeparatorProvider(): array
+    {
+        return [
+            'ampersand' => ['&', '&', null],
+            'semicolon' => [';', ';', null],
+            'prefer ampersand' => ['&', '+;&$', null],
+            'prefer semicolon' => [';', '+;$', null],
+            'first char' => ['+', '+$', null],
+            'cache' => ['$', '&', '$'],
+            'empty value' => ['&', '', null],
+            'false' => ['&', false, null],
+        ];
+    }
+
+    /**
+     * Test double for ini_get('arg_separator.input') as it can't be changed using ini_set()
+     *
+     * @see Url::getArgSeparatorValueFromIni
+     *
+     * @return string|false
+     */
+    public static function getInputArgSeparator()
+    {
+        return self::$inputArgSeparator ?? ini_get('arg_separator.input');
     }
 }

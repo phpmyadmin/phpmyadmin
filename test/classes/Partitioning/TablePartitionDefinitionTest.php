@@ -7,8 +7,6 @@ namespace PhpMyAdmin\Tests\Partitioning;
 use PhpMyAdmin\Partitioning\TablePartitionDefinition;
 use PHPUnit\Framework\TestCase;
 
-use function count;
-
 /**
  * @covers \PhpMyAdmin\Partitioning\TablePartitionDefinition
  */
@@ -141,7 +139,7 @@ class TablePartitionDefinitionTest extends TestCase
         $_POST['ignored_key'] = 'ignored_value';
 
         $actual = TablePartitionDefinition::getDetails();
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
     /**
@@ -149,7 +147,7 @@ class TablePartitionDefinitionTest extends TestCase
      *   0: string, 1: bool, 2: bool, 3: int, 4: int, 5: array<string, string|array<string, string>[]>[]|null
      * }>
      */
-    public function providerGetDetails(): array
+    public static function providerGetDetails(): array
     {
         return [
             'partition by RANGE' => ['RANGE', true, true, 2, 2, [['name' => 'part0']]],
@@ -235,10 +233,10 @@ class TablePartitionDefinitionTest extends TestCase
         ];
 
         $actual = TablePartitionDefinition::getDetails($expected);
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
 
         $actual = TablePartitionDefinition::getDetails();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -248,17 +246,17 @@ class TablePartitionDefinitionTest extends TestCase
     {
         $_POST = ['partition_count' => $partitionCountFromPost];
         $actual = TablePartitionDefinition::getDetails();
-        $this->assertArrayHasKey('partition_count', $actual);
-        $this->assertArrayHasKey('partitions', $actual);
-        $this->assertSame($partitionCount, $actual['partition_count']);
-        $this->assertIsArray($actual['partitions']);
-        $this->assertEquals($partitionCount, count($actual['partitions']));
+        self::assertArrayHasKey('partition_count', $actual);
+        self::assertArrayHasKey('partitions', $actual);
+        self::assertSame($partitionCount, $actual['partition_count']);
+        self::assertIsArray($actual['partitions']);
+        self::assertCount($partitionCount, $actual['partitions']);
     }
 
     /**
      * @psalm-return array{0: int, 1: string}[]
      */
-    public function providerGetDetailsWithMaxPartitions(): array
+    public static function providerGetDetailsWithMaxPartitions(): array
     {
         return ['count within the limit' => [8192, '8192'], 'count above the limit' => [8192, '8193']];
     }

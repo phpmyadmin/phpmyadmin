@@ -49,14 +49,11 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $this->userPreferences->pageInit(new ConfigFile());
 
-        $this->assertEquals(
-            [
-                'Servers' => [
-                    1 => ['hide_db' => 'testval123'],
-                ],
+        self::assertSame([
+            'Servers' => [
+                1 => ['hide_db' => 'testval123'],
             ],
-            $_SESSION['ConfigFile' . $GLOBALS['server']]
-        );
+        ], $_SESSION['ConfigFile' . $GLOBALS['server']]);
     }
 
     /**
@@ -71,21 +68,13 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->load();
 
-        $this->assertCount(3, $result);
+        self::assertCount(3, $result);
 
-        $this->assertEquals(
-            [],
-            $result['config_data']
-        );
+        self::assertSame([], $result['config_data']);
 
-        $this->assertEqualsWithDelta(
-            time(),
-            $result['mtime'],
-            2,
-            ''
-        );
+        self::assertEqualsWithDelta(time(), $result['mtime'], 2, '');
 
-        $this->assertEquals('session', $result['type']);
+        self::assertSame('session', $result['type']);
 
         // case 2
         $_SESSION['relation'] = [];
@@ -122,17 +111,14 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->load();
 
-        $this->assertEquals(
-            [
-                'config_data' => [
-                    1,
-                    2,
-                ],
-                'mtime' => 123,
-                'type' => 'db',
+        self::assertSame([
+            'config_data' => [
+                1,
+                2,
             ],
-            $result
-        );
+            'mtime' => 123,
+            'type' => 'db',
+        ], $result);
     }
 
     /**
@@ -149,22 +135,14 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->save([1]);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
 
-        $this->assertCount(2, $_SESSION['userconfig']);
+        self::assertCount(2, $_SESSION['userconfig']);
 
-        $this->assertEquals(
-            [1],
-            $_SESSION['userconfig']['db']
-        );
+        self::assertSame([1], $_SESSION['userconfig']['db']);
 
         /* TODO: This breaks sometimes as there might be time difference! */
-        $this->assertEqualsWithDelta(
-            time(),
-            $_SESSION['userconfig']['ts'],
-            2,
-            ''
-        );
+        self::assertEqualsWithDelta(time(), $_SESSION['userconfig']['ts'], 2, '');
 
         $assert = true;
 
@@ -172,7 +150,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             $assert = false;
         }
 
-        $this->assertTrue($assert);
+        self::assertTrue($assert);
 
         // case 2
         $_SESSION['relation'] = [];
@@ -210,7 +188,7 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->save([1]);
 
-        $this->assertTrue($result);
+        self::assertTrue($result);
 
         // case 3
 
@@ -245,12 +223,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
 
         $result = $this->userPreferences->save([1]);
 
-        $this->assertInstanceOf(Message::class, $result);
-        $this->assertEquals(
-            'Could not save configuration<br><br>err1'
-            . '<br><br>The phpMyAdmin configuration storage database could not be accessed.',
-            $result->getMessage()
-        );
+        self::assertInstanceOf(Message::class, $result);
+        self::assertSame('Could not save configuration<br><br>err1'
+        . '<br><br>The phpMyAdmin configuration storage database could not be accessed.', $result->getMessage());
     }
 
     /**
@@ -273,12 +248,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ]
         );
 
-        $this->assertEquals(
-            [
-                'Server' => ['hide_db' => 1],
-            ],
-            $result
-        );
+        self::assertEquals([
+            'Server' => ['hide_db' => 1],
+        ], $result);
     }
 
     /**
@@ -291,12 +263,9 @@ class UserPreferencesTest extends AbstractNetworkTestCase
             ['DBG/sql' => true]
         );
 
-        $this->assertEquals(
-            [
-                'DBG' => ['sql' => true],
-            ],
-            $result
-        );
+        self::assertSame([
+            'DBG' => ['sql' => true],
+        ], $result);
     }
 
     /**
@@ -317,17 +286,11 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $GLOBALS['server'] = 2;
         $_SESSION['relation'][$GLOBALS['server']] = RelationParameters::fromArray([])->toArray();
 
-        $this->assertTrue(
-            $this->userPreferences->persistOption('Server/hide_db', 'val', 'val')
-        );
+        self::assertTrue($this->userPreferences->persistOption('Server/hide_db', 'val', 'val'));
 
-        $this->assertTrue(
-            $this->userPreferences->persistOption('Server/hide_db', 'val2', 'val')
-        );
+        self::assertTrue($this->userPreferences->persistOption('Server/hide_db', 'val2', 'val'));
 
-        $this->assertTrue(
-            $this->userPreferences->persistOption('Server/hide_db2', 'val', 'val')
-        );
+        self::assertTrue($this->userPreferences->persistOption('Server/hide_db2', 'val', 'val'));
     }
 
     /**
@@ -359,29 +322,26 @@ class UserPreferencesTest extends AbstractNetworkTestCase
         $_SESSION['userprefs_autoload'] = false;
         $_REQUEST['prefs_autoload'] = 'hide';
 
-        $this->assertEquals(
-            '',
-            $this->userPreferences->autoloadGetHeader()
-        );
+        self::assertSame('', $this->userPreferences->autoloadGetHeader());
 
-        $this->assertTrue($_SESSION['userprefs_autoload']);
+        self::assertTrue($_SESSION['userprefs_autoload']);
 
         $_REQUEST['prefs_autoload'] = 'nohide';
         $GLOBALS['cfg']['ServerDefault'] = 1;
         $GLOBALS['PMA_PHP_SELF'] = 'index.php';
         $result = $this->userPreferences->autoloadGetHeader();
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             '<form action="' . Url::getFromRoute('/preferences/manage') . '" method="post" class="disableAjax">',
             $result
         );
 
-        $this->assertStringContainsString('<input type="hidden" name="token" value="token"', $result);
+        self::assertStringContainsString('<input type="hidden" name="token" value="token"', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="json" value="">', $result);
+        self::assertStringContainsString('<input type="hidden" name="json" value="">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="submit_import" value="1">', $result);
+        self::assertStringContainsString('<input type="hidden" name="submit_import" value="1">', $result);
 
-        $this->assertStringContainsString('<input type="hidden" name="return_url" value="index.php?">', $result);
+        self::assertStringContainsString('<input type="hidden" name="return_url" value="index.php?">', $result);
     }
 }

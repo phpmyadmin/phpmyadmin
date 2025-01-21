@@ -36,18 +36,15 @@ class TablesControllerTest extends AbstractTestCase
         /** @var TablesController $multiTableQueryController */
         $multiTableQueryController = $containerBuilder->get(TablesController::class);
         $multiTableQueryController();
-        $this->assertSame(
-            [
-                'foreignKeyConstrains' => [
-                    [
-                        'TABLE_NAME' => 'table2',
-                        'COLUMN_NAME' => 'idtable2',
-                        'REFERENCED_TABLE_NAME' => 'table1',
-                        'REFERENCED_COLUMN_NAME' => 'idtable1',
-                    ],
+        self::assertSame([
+            'foreignKeyConstrains' => [
+                [
+                    'TABLE_NAME' => 'table2',
+                    'COLUMN_NAME' => 'idtable2',
+                    'REFERENCED_TABLE_NAME' => 'table1',
+                    'REFERENCED_COLUMN_NAME' => 'idtable1',
                 ],
             ],
-            $this->getResponseJsonResult()
-        );
+        ], $this->getResponseJsonResult());
     }
 }

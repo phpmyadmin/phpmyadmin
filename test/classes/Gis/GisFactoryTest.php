@@ -30,7 +30,7 @@ class GisFactoryTest extends AbstractTestCase
      */
     public function testFactory(string $type, string $geom): void
     {
-        $this->assertInstanceOf($geom, GisFactory::factory($type));
+        self::assertInstanceOf($geom, GisFactory::factory($type));
     }
 
     /**
@@ -38,7 +38,7 @@ class GisFactoryTest extends AbstractTestCase
      *
      * @return array[] data for testFactory
      */
-    public function providerForTestFactory(): array
+    public static function providerForTestFactory(): array
     {
         return [
             [

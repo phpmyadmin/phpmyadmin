@@ -30,10 +30,10 @@ class AdvisorTest extends AbstractTestCase
     public function testAdvisorBytime(float $time, string $expected): void
     {
         $result = Advisor::byTime($time, 2);
-        $this->assertEquals($expected, $result);
+        self::assertSame($expected, $result);
     }
 
-    public function advisorTimes(): array
+    public static function advisorTimes(): array
     {
         return [
             [
@@ -73,24 +73,24 @@ class AdvisorTest extends AbstractTestCase
         parent::setLanguage();
         $advisor = new Advisor($GLOBALS['dbi'], new ExpressionLanguage());
         $parseResult = include ROOT_PATH . 'libraries/advisory_rules_generic.php';
-        $this->assertIsArray($parseResult);
-        $this->assertArrayHasKey(0, $parseResult);
-        $this->assertIsArray($parseResult[0]);
+        self::assertIsArray($parseResult);
+        self::assertArrayHasKey(0, $parseResult);
+        self::assertIsArray($parseResult[0]);
         $advisor->setVariable('value', 0);
         $advisor->addRule('fired', $rule);
         $runResult = $advisor->getRunResult();
         if (isset($runResult['errors']) || $error !== null) {
-            $this->assertEquals([$error], $runResult['errors']);
+            self::assertSame([$error], $runResult['errors']);
         }
 
         if (! isset($runResult['fired']) && $expected == []) {
             return;
         }
 
-        $this->assertEquals([$expected], $runResult['fired']);
+        self::assertEquals([$expected], $runResult['fired']);
     }
 
-    public function rulesProvider(): array
+    public static function rulesProvider(): array
     {
         return [
             [

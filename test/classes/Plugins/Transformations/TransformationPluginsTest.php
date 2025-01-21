@@ -36,7 +36,25 @@ use const MYSQLI_TYPE_TINY;
 /**
  * Tests for different input/output transformation plugins
  *
- * @coversNothing
+ * @covers \PhpMyAdmin\Plugins\TransformationsPlugin
+ * @covers \PhpMyAdmin\Plugins\Transformations\Input\Image_JPEG_Upload
+ * @covers \PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_FileUpload
+ * @covers \PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_Iptolong
+ * @covers \PhpMyAdmin\Plugins\Transformations\Input\Text_Plain_RegexValidation
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Download
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Application_Octetstream_Hex
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Inline
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Image_JPEG_Link
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Image_PNG_Inline
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Dateformat
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_External
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Formatted
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Imagelink
+ * @covers \PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql
+ * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Link
+ * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Longtoipv4
+ * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_PreApPend
+ * @covers \PhpMyAdmin\Plugins\Transformations\Text_Plain_Substring
  */
 class TransformationPluginsTest extends AbstractTestCase
 {
@@ -67,7 +85,7 @@ class TransformationPluginsTest extends AbstractTestCase
     /**
      * Data provider for testGetMulti
      */
-    public function multiDataProvider(): array
+    public static function multiDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
 
@@ -717,16 +735,13 @@ class TransformationPluginsTest extends AbstractTestCase
         }
 
         $reflectionMethod = new ReflectionMethod($object, $method);
-        $this->assertEquals(
-            $expected,
-            $reflectionMethod->invokeArgs($object, $args)
-        );
+        self::assertEquals($expected, $reflectionMethod->invokeArgs($object, $args));
     }
 
     /**
      * Data provider for testTransformation
      */
-    public function transformationDataProvider(): array
+    public static function transformationDataProvider(): array
     {
         $GLOBALS['cfg']['CodemirrorEnable'] = false;
 
@@ -993,7 +1008,7 @@ class TransformationPluginsTest extends AbstractTestCase
                         'option2',
                     ],
                 ],
-                '<code class="sql"><pre>' . "\n"
+                '<code class="sql" dir="ltr"><pre>' . "\n"
                 . 'select *' . "\n"
                 . '</pre></code>',
             ],
@@ -1273,17 +1288,11 @@ class TransformationPluginsTest extends AbstractTestCase
         string $error = ''
     ): void {
         $reflectionMethod = new ReflectionMethod($object, 'applyTransformation');
-        $this->assertEquals(
-            $transformed,
-            $reflectionMethod->invokeArgs($object, $applyArgs)
-        );
+        self::assertEquals($transformed, $reflectionMethod->invokeArgs($object, $applyArgs));
 
         // For output transformation plugins, this method may not exist
         if (method_exists($object, 'isSuccess')) {
-            $this->assertEquals(
-                $success,
-                $object->isSuccess()
-            );
+            self::assertSame($success, $object->isSuccess());
         }
 
         // For output transformation plugins, this method may not exist
@@ -1291,9 +1300,6 @@ class TransformationPluginsTest extends AbstractTestCase
             return;
         }
 
-        $this->assertEquals(
-            $error,
-            $object->getError()
-        );
+        self::assertSame($error, $object->getError());
     }
 }

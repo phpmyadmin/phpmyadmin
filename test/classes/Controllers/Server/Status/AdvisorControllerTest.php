@@ -60,10 +60,7 @@ class AdvisorControllerTest extends AbstractTestCase
             'data' => [],
         ]);
 
-        $this->assertSame(
-            $expected,
-            $this->response->getHTMLResult()
-        );
+        self::assertSame($expected, $this->response->getHTMLResult());
     }
 
     public function testIndexWithData(): void
@@ -102,9 +99,6 @@ class AdvisorControllerTest extends AbstractTestCase
 
         $expected = $this->template->render('server/status/advisor/index', ['data' => $advisorData]);
 
-        $this->assertSame(
-            $expected,
-            $this->response->getHTMLResult()
-        );
+        self::assertSame($expected, $this->response->getHTMLResult());
     }
 }

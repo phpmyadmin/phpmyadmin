@@ -47,13 +47,13 @@ class OperationsTest extends AbstractTestCase
         $expected = array_merge($choices, $extraChoice);
 
         $actual = $this->object->getPartitionMaintenanceChoices();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
      * @psalm-return array<string, array{0: string, 1: array<string, string>}>
      */
-    public function providerGetPartitionMaintenanceChoices(): array
+    public static function providerGetPartitionMaintenanceChoices(): array
     {
         return [
             'no partition method' => ['no_partition_method', ['COALESCE' => 'Coalesce']],

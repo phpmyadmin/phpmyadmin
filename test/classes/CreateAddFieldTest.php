@@ -37,7 +37,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $actual = $this->createAddField->getPartitionsDefinition();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -45,7 +45,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetPartitionsDefinition(): array
+    public static function providerGetPartitionsDefinition(): array
     {
         return [
             [
@@ -238,7 +238,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $actual = $this->createAddField->getTableCreationQuery($db, $table);
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -246,7 +246,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetTableCreationQuery(): array
+    public static function providerGetTableCreationQuery(): array
     {
         return [
             [
@@ -263,7 +263,24 @@ class CreateAddFieldTest extends AbstractTestCase
                 ],
             ],
             [
-                'CREATE TABLE `db`.`table` () ENGINE = Inno\\\'DB CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'CREATE TABLE `db`.`table` () ENGINE = dummy CHARSET=armscii8 COMMENT = \'my \\\'table\';',
+                'db',
+                'table',
+                [
+                    'field_name' => [],
+                    'primary_indexes' => '{}',
+                    'indexes' => '{}',
+                    'unique_indexes' => '{}',
+                    'fulltext_indexes' => '{}',
+                    'spatial_indexes' => '{}',
+                    'tbl_storage_engine' => 'dummy',
+                    'tbl_collation' => 'armscii8',
+                    'connection' => 'aaaa',
+                    'comment' => 'my \'table',
+                ],
+            ],
+            [
+                'CREATE TABLE `db`.`table` () CHARSET=armscii8 COMMENT = \'my \\\'table\';',
                 'db',
                 'table',
                 [
@@ -294,7 +311,7 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $actual = $this->createAddField->getNumberOfFieldsFromRequest();
-        $this->assertEquals($expected, $actual);
+        self::assertSame($expected, $actual);
     }
 
     /**
@@ -302,7 +319,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerGetNumberOfFieldsFromRequest(): array
+    public static function providerGetNumberOfFieldsFromRequest(): array
     {
         return [
             [
@@ -317,7 +334,7 @@ class CreateAddFieldTest extends AbstractTestCase
      *
      * @return array[]
      */
-    public function providerGetColumnCreationQueryRequest(): array
+    public static function providerGetColumnCreationQueryRequest(): array
     {
         return [
             [
@@ -508,6 +525,6 @@ class CreateAddFieldTest extends AbstractTestCase
     {
         $_POST = $request;
         $sqlQuery = $this->createAddField->getColumnCreationQuery('my_table');
-        $this->assertEquals($expected, $sqlQuery);
+        self::assertSame($expected, $sqlQuery);
     }
 }

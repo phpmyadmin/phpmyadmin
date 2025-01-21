@@ -36,6 +36,7 @@ use const MYSQLI_TYPE_DATETIME;
 use const MYSQLI_TYPE_DECIMAL;
 use const MYSQLI_TYPE_LONG;
 use const MYSQLI_TYPE_STRING;
+use const MYSQLI_TYPE_TIME;
 use const MYSQLI_TYPE_TIMESTAMP;
 
 /**
@@ -81,19 +82,17 @@ class ResultsTest extends AbstractTestCase
     public function testisSelect(): void
     {
         $parser = new Parser('SELECT * FROM pma');
-        $this->assertTrue(
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'isSelect',
+        self::assertTrue($this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'isSelect',
+            [
                 [
-                    [
-                        'statement' => $parser->statements[0],
-                        'select_from' => true,
-                    ],
-                ]
-            )
-        );
+                    'statement' => $parser->statements[0],
+                    'select_from' => true,
+                ],
+            ]
+        ));
     }
 
     /**
@@ -128,11 +127,11 @@ class ResultsTest extends AbstractTestCase
             ]
         );
 
-        $this->assertStringContainsString('<form action="index.php?route=/sql', $actual);
-        $this->assertStringContainsString('" method="post" >', $actual);
-        $this->assertStringContainsString('name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"', $actual);
-        $this->assertStringContainsString('name="pos" value="1"', $actual);
-        $this->assertStringContainsString('value="btn" title="Submit"', $actual);
+        self::assertStringContainsString('<form action="index.php?route=/sql', $actual);
+        self::assertStringContainsString('" method="post" >', $actual);
+        self::assertStringContainsString('name="sql_query" value="SELECT * FROM `pma_bookmark` WHERE 1"', $actual);
+        self::assertStringContainsString('name="pos" value="1"', $actual);
+        self::assertStringContainsString('value="btn" title="Submit"', $actual);
     }
 
     /**
@@ -140,7 +139,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array array data for testGetTableNavigationButton
      */
-    public function providerForTestGetTableNavigationButton(): array
+    public static function providerForTestGetTableNavigationButton(): array
     {
         return [
             [
@@ -154,41 +153,32 @@ class ResultsTest extends AbstractTestCase
 
     public function testGetClassForDateTimeRelatedFieldsCase1(): void
     {
-        $this->assertEquals(
-            'datetimefield',
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) [])]
-            )
-        );
+        self::assertSame('datetimefield', $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getClassForDateTimeRelatedFields',
+            [new FieldMetadata(MYSQLI_TYPE_TIMESTAMP, 0, (object) [])]
+        ));
     }
 
     public function testGetClassForDateTimeRelatedFieldsCase2(): void
     {
-        $this->assertEquals(
-            'datefield',
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) [])]
-            )
-        );
+        self::assertSame('datefield', $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getClassForDateTimeRelatedFields',
+            [new FieldMetadata(MYSQLI_TYPE_DATE, 0, (object) [])]
+        ));
     }
 
     public function testGetClassForDateTimeRelatedFieldsCase3(): void
     {
-        $this->assertEquals(
-            'text',
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getClassForDateTimeRelatedFields',
-                [new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])]
-            )
-        );
+        self::assertSame('text', $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getClassForDateTimeRelatedFields',
+            [new FieldMetadata(MYSQLI_TYPE_STRING, 0, (object) [])]
+        ));
     }
 
     /**
@@ -197,18 +187,15 @@ class ResultsTest extends AbstractTestCase
     public function testGetOffsetsCase1(): void
     {
         $_SESSION['tmpval']['max_rows'] = DisplayResults::ALL_ROWS;
-        $this->assertEquals(
-            [
-                0,
-                0,
-            ],
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getOffsets',
-                []
-            )
-        );
+        self::assertSame([
+            0,
+            0,
+        ], $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getOffsets',
+            []
+        ));
     }
 
     /**
@@ -218,18 +205,15 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['max_rows'] = 5;
         $_SESSION['tmpval']['pos'] = 4;
-        $this->assertEquals(
-            [
-                9,
-                0,
-            ],
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getOffsets',
-                []
-            )
-        );
+        self::assertSame([
+            9,
+            0,
+        ], $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getOffsets',
+            []
+        ));
     }
 
     /**
@@ -237,7 +221,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetSpecialLinkUrl(): array
+    public static function dataProviderForTestGetSpecialLinkUrl(): array
     {
         return [
             [
@@ -325,19 +309,16 @@ class ResultsTest extends AbstractTestCase
             ],
         ];
 
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getSpecialLinkUrl',
-                [
-                    $specialSchemaLinks[$db][$table][$field_name],
-                    $column_value,
-                    $row_info,
-                ]
-            )
-        );
+        self::assertSame($output, $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSpecialLinkUrl',
+            [
+                $specialSchemaLinks[$db][$table][$field_name],
+                $column_value,
+                $row_info,
+            ]
+        ));
     }
 
     /**
@@ -345,7 +326,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetRowInfoForSpecialLinks(): array
+    public static function dataProviderForTestGetRowInfoForSpecialLinks(): array
     {
         $column_names = [
             'host',
@@ -408,18 +389,15 @@ class ResultsTest extends AbstractTestCase
         $this->object->properties['fields_meta'] = $fields_meta;
         $this->object->properties['fields_cnt'] = $fields_count;
 
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getRowInfoForSpecialLinks',
-                [
-                    $row,
-                    $col_order,
-                ]
-            )
-        );
+        self::assertSame($output, $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getRowInfoForSpecialLinks',
+            [
+                $row,
+                $col_order,
+            ]
+        ));
     }
 
     /**
@@ -427,7 +405,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestSetHighlightedColumnGlobalField(): array
+    public static function dataProviderForTestSetHighlightedColumnGlobalField(): array
     {
         $parser = new Parser('SELECT * FROM db_name WHERE `db_name`.`tbl`.id > 0 AND `id` < 10');
 
@@ -460,7 +438,7 @@ class ResultsTest extends AbstractTestCase
             [$analyzed_sql]
         );
 
-        $this->assertEquals($output, $this->object->properties['highlight_columns']);
+        self::assertSame($output, $this->object->properties['highlight_columns']);
     }
 
     /**
@@ -468,7 +446,7 @@ class ResultsTest extends AbstractTestCase
      *
      * @return array parameters and output
      */
-    public function dataProviderForTestGetPartialText(): array
+    public static function dataProviderForTestGetPartialText(): array
     {
         return [
             [
@@ -528,15 +506,12 @@ class ResultsTest extends AbstractTestCase
     {
         $_SESSION['tmpval']['pftext'] = $pftext;
         $GLOBALS['cfg']['LimitChars'] = $limitChars;
-        $this->assertEquals(
-            $output,
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getPartialText',
-                [$str]
-            )
-        );
+        self::assertSame($output, $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getPartialText',
+            [$str]
+        ));
     }
 
     /**
@@ -554,7 +529,7 @@ class ResultsTest extends AbstractTestCase
      *   string
      * }}
      */
-    public function dataProviderForTestHandleNonPrintableContents(): array
+    public static function dataProviderForTestHandleNonPrintableContents(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $meta = new FieldMetadata(MYSQLI_TYPE_BLOB, 0, (object) ['orgtable' => 'bar']);
@@ -656,23 +631,20 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['display_binary'] = $display_binary;
         $_SESSION['tmpval']['display_blob'] = $display_blob;
         $GLOBALS['cfg']['LimitChars'] = 50;
-        $this->assertStringContainsString(
-            $output,
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'handleNonPrintableContents',
-                [
-                    $category,
-                    $content,
-                    $transformation_plugin,
-                    $transform_options,
-                    $meta,
-                    $url_params,
-                    &$is_truncated,
-                ]
-            )
-        );
+        self::assertStringContainsString($output, $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'handleNonPrintableContents',
+            [
+                $category,
+                $content,
+                $transformation_plugin,
+                $transform_options,
+                $meta,
+                $url_params,
+                &$is_truncated,
+            ]
+        ));
     }
 
     /**
@@ -691,7 +663,7 @@ class ResultsTest extends AbstractTestCase
      *   string
      * }}
      */
-    public function dataProviderForTestGetDataCellForNonNumericColumns(): array
+    public static function dataProviderForTestGetDataCellForNonNumericColumns(): array
     {
         $transformation_plugin = new Text_Plain_Link();
         $transformation_plugin_external = new Text_Plain_External();
@@ -854,25 +826,22 @@ class ResultsTest extends AbstractTestCase
         $_SESSION['tmpval']['relational_display'] = false;
         $GLOBALS['cfg']['LimitChars'] = 50;
         $GLOBALS['cfg']['ProtectBinary'] = $protectBinary;
-        $this->assertStringContainsString(
-            $output,
-            $this->callFunction(
-                $this->object,
-                DisplayResults::class,
-                'getDataCellForNonNumericColumns',
-                [
-                    $column,
-                    $class,
-                    $meta,
-                    $map,
-                    $_url_params,
-                    $condition_field,
-                    $transformation_plugin,
-                    $transform_options,
-                    $analyzed_sql_results,
-                ]
-            )
-        );
+        self::assertStringContainsString($output, $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getDataCellForNonNumericColumns',
+            [
+                $column,
+                $class,
+                $meta,
+                $map,
+                $_url_params,
+                $condition_field,
+                $transformation_plugin,
+                $transform_options,
+                $analyzed_sql_results,
+            ]
+        ));
     }
 
     /**
@@ -965,12 +934,12 @@ class ResultsTest extends AbstractTestCase
         );
 
         // Dateformat
-        $this->assertStringContainsString('Jan 01, 1970 at 01:00 AM', $output);
+        self::assertStringContainsString('Jan 01, 1970 at 01:00 AM', $output);
         // Bool2Text
-        $this->assertStringContainsString('>T<', $output);
+        self::assertStringContainsString('>T<', $output);
     }
 
-    public function dataProviderGetSortOrderHiddenInputs(): array
+    public static function dataProviderGetSortOrderHiddenInputs(): array
     {
         // SQL to add the column
         // SQL to remove the column
@@ -1059,31 +1028,31 @@ class ResultsTest extends AbstractTestCase
             ]
         );
         $out = urldecode(htmlspecialchars_decode($output));
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'name="url-remove-order" value="index.php?route=/sql&sql_query=' . $sqlRemove,
             $out,
             'The remove query should be found'
         );
 
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'name="url-add-order" value="index.php?route=/sql&sql_query=' . $sqlAdd,
             $out,
             'The add query should be found'
         );
 
         $firstLine = explode("\n", $out)[0] ?? '';
-        $this->assertStringContainsString(
+        self::assertStringContainsString(
             'url-remove-order',
             $firstLine,
             'The first line should contain url-remove-order input'
         );
-        $this->assertStringNotContainsString(
+        self::assertStringNotContainsString(
             'url-add-order',
             $firstLine,
             'The first line should contain NOT url-add-order input'
         );
 
-        $this->assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
+        self::assertStringContainsString($urlParamsRemove, $firstLine, 'The first line should contain the URL params');
     }
 
     /**
@@ -1101,7 +1070,7 @@ class ResultsTest extends AbstractTestCase
                 '  special value  ',
             ]
         );
-        $this->assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
+        self::assertSame('<td class="text-start my_class">  special value  </td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
@@ -1112,7 +1081,7 @@ class ResultsTest extends AbstractTestCase
                 '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
             ]
         );
-        $this->assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
+        self::assertSame('<td class="text-start my_class">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n", $output);
         $output = $this->callFunction(
             $this->object,
             DisplayResults::class,
@@ -1123,7 +1092,7 @@ class ResultsTest extends AbstractTestCase
                 '0x11e6ac0cfb1e8bf3bf48b827ebdafb0b',
             ]
         );
-        $this->assertSame(
+        self::assertSame(
             '<td class="text-start my_class condition">0x11e6ac0cfb1e8bf3bf48b827ebdafb0b</td>' . "\n",
             $output
         );
@@ -1140,7 +1109,7 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
-        $this->assertSame('F', $_SESSION['tmpval']['pftext']);
+        self::assertSame('F', $_SESSION['tmpval']['pftext']);
 
         $query = 'ANALYZE NO_WRITE_TO_BINLOG TABLE test_table';
         [$analyzedSqlResults] = ParseAnalyze::sqlQuery($query, $db);
@@ -1148,7 +1117,7 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
-        $this->assertSame('P', $_SESSION['tmpval']['pftext']);
+        self::assertSame('P', $_SESSION['tmpval']['pftext']);
     }
 
     /**
@@ -1174,12 +1143,12 @@ class ResultsTest extends AbstractTestCase
         $object = new DisplayResults($this->dbi, $db, $table, 1, '', $query);
         $object->setConfigParamsForDisplayTable($analyzedSqlResults);
 
-        $this->assertArrayHasKey('tmpval', $_SESSION);
-        $this->assertIsArray($_SESSION['tmpval']);
-        $this->assertSame($expected, $_SESSION['tmpval']);
+        self::assertArrayHasKey('tmpval', $_SESSION);
+        self::assertIsArray($_SESSION['tmpval']);
+        self::assertSame($expected, $_SESSION['tmpval']);
     }
 
-    public function providerSetConfigParamsForDisplayTable(): array
+    public static function providerSetConfigParamsForDisplayTable(): array
     {
         $cfg = ['RelationalDisplay' => DisplayResults::RELATIONAL_KEY, 'MaxRows' => 25, 'RepeatCells' => 100];
 
@@ -1454,7 +1423,7 @@ class ResultsTest extends AbstractTestCase
             'text_btn' => '0',
             'pview_lnk' => '1',
         ];
-        $this->assertNotFalse($dtResult);
+        self::assertNotFalse($dtResult);
         $actual = $object->getTable($dtResult, $displayParts, $analyzedSqlResults);
 
         $template = new Template();
@@ -1464,14 +1433,14 @@ class ResultsTest extends AbstractTestCase
             'columns' => [
                 [
                     'column_name' => 'id',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60id%60+ASC+'
+                        . '&sql_signature=5b09494be0beb7899b460ba6b695504ca89d1ad1fbc8705f3b60f7da71f61b2f'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">id'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60id%60+ASC+'
+                        . '&sql_signature=5b09494be0beb7899b460ba6b695504ca89d1ad1fbc8705f3b60f7da71f61b2f'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1480,8 +1449,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60id%60+ASC'
-                        . '&sql_signature=dcfe20b407b35309f6af81f745e77a10f723d39b082d2a8f9cb8e75b17c4d3ce'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60id%60+ASC+'
+                        . '&sql_signature=5b09494be0beb7899b460ba6b695504ca89d1ad1fbc8705f3b60f7da71f61b2f'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1491,14 +1460,14 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'name',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60name%60+ASC+'
+                        . '&sql_signature=deb7ae82acc39ae4faa69b87f757edb5c3a6a714196d2f5fefe5cccc06985aba'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">name'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60name%60+ASC+'
+                        . '&sql_signature=deb7ae82acc39ae4faa69b87f757edb5c3a6a714196d2f5fefe5cccc06985aba'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1507,8 +1476,8 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0AORDER+BY+%60name%60+ASC'
-                        . '&sql_signature=0d06fa8d6795b1c69892cca27d6213c08401bd434145d16cb35c365ab3e03039'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0AORDER+BY+%60name%60+ASC+'
+                        . '&sql_signature=deb7ae82acc39ae4faa69b87f757edb5c3a6a714196d2f5fefe5cccc06985aba'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1518,16 +1487,16 @@ class ResultsTest extends AbstractTestCase
                 ],
                 [
                     'column_name' => 'datetimefield',
-                    'order_link' => '<a href="index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
-                        . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                    'order_link' => '<a href="index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC+'
+                        . '&sql_signature=d7f66b34e106a07349e748fa1f6c517fb33e0a717c285b623d10e7f0e24a3db4'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en" class="sortlink">datetimefield'
                         . '<input type="hidden" value="'
-                        . 'index.php?route=/sql&server=0&lang=en&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
-                        . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . 'index.php?route=/sql&db=test_db&table=test_table'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC+'
+                        . '&sql_signature=d7f66b34e106a07349e748fa1f6c517fb33e0a717c285b623d10e7f0e24a3db4'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en"></a>'
                         . '<input type="hidden" name="url-remove-order" value="index.php?route=/sql&db=test_db'
                         . '&table=test_table&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60'
@@ -1536,9 +1505,9 @@ class ResultsTest extends AbstractTestCase
                         . '&discard_remembered_sort=1">' . "\n"
                         . '<input type="hidden" name="url-add-order" value="'
                         . 'index.php?route=/sql&db=test_db&table=test_table'
-                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60++%0A'
-                        . 'ORDER+BY+%60datetimefield%60+DESC'
-                        . '&sql_signature=1c46f7e3c625f9e0846fb2de844ca1732319e5fb7fb93e96c89a4b6218579358'
+                        . '&sql_query=SELECT+%2A+FROM+%60test_db%60.%60test_table%60+%0A'
+                        . 'ORDER+BY+%60datetimefield%60+DESC+'
+                        . '&sql_signature=d7f66b34e106a07349e748fa1f6c517fb33e0a717c285b623d10e7f0e24a3db4'
                         . '&session_max_rows=25&is_browse_distinct=0&server=0&lang=en">',
                     'comments' => '',
                     'is_browse_pointer_enabled' => true,
@@ -1662,6 +1631,169 @@ class ResultsTest extends AbstractTestCase
             'text_dir' => 'ltr',
         ]);
 
-        $this->assertEquals($tableTemplate, $actual);
+        self::assertSame($tableTemplate, $actual);
+    }
+
+    /**
+     * @return array[]
+     */
+    public static function dataProviderSortOrder(): array
+    {
+        return [
+            'Default date' => [
+                'SMART',
+                'DESC',// date types are DESC in SMART mode
+                MYSQLI_TYPE_DATE,
+            ],
+            'ASC date' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_DATE,
+            ],
+            'DESC date' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_DATE,
+            ],
+            'Default date-time' => [
+                'SMART',
+                'DESC',// date time types are DESC in SMART mode
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'ASC date-time' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'DESC date-time' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_DATETIME,
+            ],
+            'Default time' => [
+                'SMART',
+                'DESC',// time types are DESC in SMART mode
+                MYSQLI_TYPE_TIME,
+            ],
+            'ASC time' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_TIME,
+            ],
+            'DESC time' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_TIME,
+            ],
+            'Default timestamp' => [
+                'SMART',
+                'DESC',// timestamp types are DESC in SMART mode
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'ASC timestamp' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'DESC timestamp' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_TIMESTAMP,
+            ],
+            'Default string' => [
+                'SMART',
+                'ASC',// string types are ASC in SMART mode
+                MYSQLI_TYPE_STRING,
+            ],
+            'ASC string' => [
+                'ASC',
+                'ASC',// do as config says
+                MYSQLI_TYPE_STRING,
+            ],
+            'DESC string' => [
+                'DESC',
+                'DESC',// do as config says
+                MYSQLI_TYPE_STRING,
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderSortOrder
+     */
+    public function testGetSingleAndMultiSortUrls(
+        string $orderSetting,
+        string $querySortDirection,
+        int $metaType
+    ): void {
+        $GLOBALS['cfg']['Order'] = $orderSetting;
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`Country`.`Code` ASC'], // sortExpression,
+                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                '`Country`.',
+                'FoundedIn',
+                ['ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ]
+        );
+
+        self::assertSame([
+            "\n" . 'ORDER BY `Country`.`FoundedIn` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`FoundedIn` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                ['`Country`.`Code` ASC'], // sortExpression,
+                ['`Country`.`Code`'], // sortExpressionNoDirection,
+                '`Country`.',
+                'Code2',
+                ['ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ]
+        );
+
+        self::assertSame([
+            "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Code` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
+
+        $data = $this->callFunction(
+            $this->object,
+            DisplayResults::class,
+            'getSingleAndMultiSortUrls',
+            [
+                [
+                    '`Country`.`Continent` DESC","`Country`.`Region` ASC',
+                    '`Country`.`Population` ASC',
+                ], // sortExpression,
+                [
+                    '`Country`.`Continent`',
+                    '`Country`.`Region`',
+                    '`Country`.`Population`',
+                ], // sortExpressionNoDirection,
+                '`Country`.',
+                'Code2',
+                ['DESC', 'ASC', 'ASC'], // sortDirection,
+                new FieldMetadata($metaType, 0, (object) []),
+            ]
+        );
+
+        self::assertSame([
+            "\n" . 'ORDER BY `Country`.`Code2` ' . $querySortDirection, // singleSortOrder
+            "\n" . 'ORDER BY `Country`.`Continent` DESC, `Country`.`Region` ASC'
+                . ', `Country`.`Population` ASC, `Country`.`Code2` ' . $querySortDirection, // sortOrderColumns
+            '', // orderImg
+        ], $data);
     }
 }

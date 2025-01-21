@@ -25,10 +25,7 @@ class ForeignKeyTest extends AbstractTestCase
     {
         $GLOBALS['server'] = 1;
 
-        $this->assertEquals(
-            $e,
-            ForeignKey::isSupported($a)
-        );
+        self::assertSame($e, ForeignKey::isSupported($a));
     }
 
     /**
@@ -36,7 +33,7 @@ class ForeignKeyTest extends AbstractTestCase
      *
      * @return array
      */
-    public function providerIsSupported(): array
+    public static function providerIsSupported(): array
     {
         return [
             ['MyISAM', false],
@@ -51,25 +48,19 @@ class ForeignKeyTest extends AbstractTestCase
         $GLOBALS['server'] = 1;
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'enable';
-        $this->assertTrue(
-            ForeignKey::isCheckEnabled()
-        );
+        self::assertTrue(ForeignKey::isCheckEnabled());
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'disable';
-        $this->assertFalse(
-            ForeignKey::isCheckEnabled()
-        );
+        self::assertFalse(ForeignKey::isCheckEnabled());
 
         $GLOBALS['cfg']['DefaultForeignKeyChecks'] = 'default';
-        $this->assertTrue(
-            ForeignKey::isCheckEnabled()
-        );
+        self::assertTrue(ForeignKey::isCheckEnabled());
     }
 
     /**
      * @return array[]
      */
-    public function providerCheckInit(): array
+    public static function providerCheckInit(): array
     {
         return [
             ['', 'OFF'],
@@ -99,7 +90,7 @@ class ForeignKeyTest extends AbstractTestCase
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->will($this->returnValue(true));
 
-        $this->assertTrue(ForeignKey::handleDisableCheckInit());
+        self::assertTrue(ForeignKey::handleDisableCheckInit());
     }
 
     /**
@@ -123,13 +114,13 @@ class ForeignKeyTest extends AbstractTestCase
             ->with('FOREIGN_KEY_CHECKS', $setVariableParam)
             ->will($this->returnValue(true));
 
-        $this->assertFalse(ForeignKey::handleDisableCheckInit());
+        self::assertFalse(ForeignKey::handleDisableCheckInit());
     }
 
     /**
      * @return array[]
      */
-    public function providerCheckCleanup(): array
+    public static function providerCheckCleanup(): array
     {
         return [
             [true, 'ON'],
