@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-18 01:02+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2025-01-21 12:25+0000\n"
+"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fi/>\n"
 "Language: fi\n"
@@ -84,7 +84,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:46
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "Hitaan kyselysuhteen tulisi olla alle 5 %%, arvosi on %s %%."
 
 #: libraries/advisory_rules_generic.php:51
 #, fuzzy
@@ -103,6 +103,8 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"Sinulla on hidas kyselynopeus %s tunnissa, sinun pitäisi olla alle 1 %% "
+"tunnissa."
 
 #: libraries/advisory_rules_generic.php:65
 #, fuzzy
@@ -328,6 +330,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"%s %% kaikista tyypeistä aiheuttaa väliaikaisia taulukoita, tämän arvon "
+"tulee olla alle 10 %%."
 
 #: libraries/advisory_rules_generic.php:220
 #, fuzzy
@@ -519,6 +523,8 @@ msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
 msgstr ""
+"%s %% kaikista väliaikaisista taulukoista kirjoitetaan levylle, tämän arvon "
+"tulee olla alle 25 %%"
 
 #: libraries/advisory_rules_generic.php:339
 #, fuzzy
@@ -589,11 +595,12 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:384
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"maksimi %% koskaan käytetty MyISAM-avainpuskuri: %in %%, tämän arvon tulee "
+"olla yli 95 %%"
 
 #: libraries/advisory_rules_generic.php:389
 #, fuzzy
@@ -602,10 +609,10 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "Lajittelupuskurin koko"
 
 #: libraries/advisory_rules_generic.php:401
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"%% MyISAM-avainpuskuri käytetty: %s %%, tämän arvon tulee olla yli 95 %%"
 
 #: libraries/advisory_rules_generic.php:406
 #, fuzzy
@@ -623,10 +630,9 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:413
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
-msgstr "Lajittelupuskurin koko"
+msgstr "Indeksi lukee muistista: %s %%, tämän arvon tulee olla yli 95 %%"
 
 #: libraries/advisory_rules_generic.php:419
 #, fuzzy
@@ -676,6 +682,7 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"Avattujen tiedostojen määrä on %s %% rajasta. Sen pitäisi olla alle 85 %%"
 
 #: libraries/advisory_rules_generic.php:448
 #, fuzzy
@@ -714,10 +721,9 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:468
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
-msgstr "Lajittelupuskurin koko"
+msgstr "Välittömät pöydän lukitukset: %s %%, tämän arvon tulee olla yli 95 %%"
 
 #: libraries/advisory_rules_generic.php:473
 msgid "Table lock wait rate"
@@ -768,10 +774,10 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:499
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"Säikeen välimuistin osumanopeus: %s %%, tämän arvon tulee olla yli 80 %%"
 
 #: libraries/advisory_rules_generic.php:504
 #, fuzzy
@@ -844,6 +850,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections on %s %% max_connectionsista, sen pitäisi olla alle 80 "
+"%%"
 
 #: libraries/advisory_rules_generic.php:547
 #, fuzzy
@@ -868,6 +876,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"%s %% kaikista yhteyksistä on keskeytetty. Tämän arvon tulee olla alle 1 %%"
 
 #: libraries/advisory_rules_generic.php:561
 #, fuzzy
@@ -906,6 +915,7 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"%s %% kaikista asiakkaista on keskeytetty. Tämän arvon tulee olla alle 2 %%"
 
 #: libraries/advisory_rules_generic.php:589
 #, fuzzy
@@ -970,12 +980,13 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:633
 #: libraries/advisory_rules_generic.php:662
-#, fuzzy, php-format
-#| msgid "The number writes done to the InnoDB buffer pool."
+#, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "InnoDB:n puskurivarannon kirjoituspyyntöjen määrä."
+msgstr ""
+"InnoDB-lokikokosi on %s %% suhteessa InnoDB-puskurivarannon kokoon, sen ei "
+"pitäisi olla alle 20 %%"
 
 #: libraries/advisory_rules_generic.php:669
 #, fuzzy
@@ -1041,6 +1052,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"Käytät tällä hetkellä %s %% muististasi InnoDB-puskurivarannossa. Tämä "
+"sääntö käynnistyy, jos määrität alle 60 %%, mutta tämä saattaa olla täysin "
+"riittävä järjestelmällesi, jos sinulla ei ole paljon InnoDB-taulukoita tai "
+"muita palveluita käynnissä samassa koneessa."
 
 #: libraries/advisory_rules_generic.php:716
 #, fuzzy
@@ -1104,10 +1119,9 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:29
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr "Lajittelupuskurin koko"
+msgstr "Nykyinen kyselyn välimuistin osumasuhde %s %% on alle 20 %%"
 
 #: libraries/advisory_rules_mysql_before80003.php:34
 #, fuzzy
@@ -1131,6 +1145,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
 msgstr ""
+"Vapaan kyselyvälimuistin nykyinen suhde kyselyn välimuistin kokonaiskokoon "
+"on %s %%. Sen pitäisi olla yli 80 % %"
 
 #: libraries/advisory_rules_mysql_before80003.php:52
 #, fuzzy
@@ -1163,6 +1179,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"Välimuisti on tällä hetkellä pirstoutunut %s %%:lla, 100 %%:n "
+"pirstoutuneisuus tarkoittaa, että kyselyvälimuisti on vuorotellen ilmaisia "
+"ja käytettyjä lohkoja. Tämän arvon tulisi olla alle 20 %%."
 
 #: libraries/advisory_rules_mysql_before80003.php:73
 #, fuzzy
@@ -1191,6 +1210,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"Poistettujen kyselyjen suhde lisättyihin kyselyihin on %s %%. Mitä pienempi "
+"tämä arvo on, sitä parempi (Tämä säätelee laukaisurajaa: 0,1 %%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:91
 #, fuzzy
