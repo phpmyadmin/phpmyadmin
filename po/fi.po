@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-21 15:38+0000\n"
+"PO-Revision-Date: 2025-01-21 21:05+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "fi/>\n"
@@ -17869,11 +17869,11 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.txt:240
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"maksimi %% koskaan käytetty MyISAM-avainpuskuri: %in %%, tämän arvon tulee "
+"maksimi %% koskaan käytetty MyISAM-avainpuskuri: %s%%, tämän arvon tulee "
 "olla yli 95 %%"
 
 #: libraries/advisory_rules_generic.txt:243
