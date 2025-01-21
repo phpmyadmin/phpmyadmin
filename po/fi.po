@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-21 15:28+0000\n"
-"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"PO-Revision-Date: 2025-01-21 15:38+0000\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "fi/>\n"
 "Language: fi\n"
@@ -1137,13 +1137,13 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:45
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
 msgstr ""
 "Vapaan kyselyvälimuistin nykyinen suhde kyselyn välimuistin kokonaiskokoon "
-"on %s %%. Sen pitäisi olla yli 80 % %"
+"on %s %%. Sen pitäisi olla yli 80%%"
 
 #: libraries/advisory_rules_mysql_before80003.php:52
 #, fuzzy
