@@ -5,7 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
 "PO-Revision-Date: 2025-01-21 15:38+0000\n"
-"Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
+"Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
 "Language: fi\n"
@@ -8710,11 +8710,11 @@ msgid ""
 msgstr ""
 
 #: src/Advisory/Rules.php:413
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
-"maksimi %% koskaan käytetty MyISAM-avainpuskuri: %in %%, tämän arvon tulee "
+"maksimi %% koskaan käytetty MyISAM-avainpuskuri: %s%%, tämän arvon tulee "
 "olla yli 95 %%"
 
 #: src/Advisory/Rules.php:418
@@ -9244,13 +9244,13 @@ msgid ""
 msgstr ""
 
 #: src/Advisory/Rules.php:808
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
 msgstr ""
 "Vapaan kyselyvälimuistin nykyinen suhde kyselyn välimuistin kokonaiskokoon "
-"on %s %%. Sen pitäisi olla yli 80 % %"
+"on %s %%. Sen pitäisi olla yli 80%%"
 
 #: src/Advisory/Rules.php:815
 #, fuzzy
