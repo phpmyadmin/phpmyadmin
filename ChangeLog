@@ -1,6 +1,8 @@
 phpMyAdmin - ChangeLog
 ======================
 
+5.2.3 (not yet released)
+
 5.2.2 (2025-01-21)
 - issue        [security] Fix for a path disclosure leak in the Monitoring tab
 - issue        Prevent the user from deleting system databases
