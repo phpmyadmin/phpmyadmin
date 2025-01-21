@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:10+0000\n"
+"PO-Revision-Date: 2025-01-21 12:11+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -9087,12 +9087,13 @@ msgid ""
 msgstr ""
 
 #: src/Advisory/Rules.php:662 src/Advisory/Rules.php:692
-#, fuzzy, php-format
-#| msgid "The number writes done to the InnoDB buffer pool."
+#, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
-msgstr "InnoDB:n puskurivarannon kirjoituspyyntöjen määrä."
+msgstr ""
+"InnoDB-lokikokosi on %s %% suhteessa InnoDB-puskurivarannon kokoon, sen ei "
+"pitäisi olla alle 20 %%"
 
 #: src/Advisory/Rules.php:699
 #, fuzzy
