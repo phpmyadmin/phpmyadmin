@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-21 12:01+0000\n"
+"PO-Revision-Date: 2025-01-21 12:03+0000\n"
 "Last-Translator: Ricky Tigg <ricky.tigg@gmail.com>\n"
 "Language-Team: Finnish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/fi/>\n"
@@ -8713,11 +8713,12 @@ msgid ""
 msgstr ""
 
 #: src/Advisory/Rules.php:413
-#, fuzzy, php-format
-#| msgid "Sort buffer size"
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
-msgstr "Lajittelupuskurin koko"
+msgstr ""
+"maksimi %% koskaan käytetty MyISAM-avainpuskuri: %in %%, tämän arvon tulee "
+"olla yli 95 %%"
 
 #: src/Advisory/Rules.php:418
 #, fuzzy
