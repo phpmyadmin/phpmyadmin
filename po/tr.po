@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-22 10:19+0000\n"
+"PO-Revision-Date: 2025-01-22 10:22+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "tr/>\n"
@@ -16973,7 +16973,7 @@ msgstr "Kullanıcı hesabı için veritabanı"
 
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
-msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver."
+msgstr "Aynı ad ile veritabanı oluştur ve tüm yetkileri ver."
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
