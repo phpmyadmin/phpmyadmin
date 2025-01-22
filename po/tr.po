@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-22 10:26+0000\n"
+"PO-Revision-Date: 2025-01-22 10:28+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -8979,7 +8979,7 @@ msgstr "Yordam adı"
 #: templates/table/tracking/structure_snapshot_indexes.twig:6
 #: templates/table/zoom_search/index.twig:39
 msgid "Type"
-msgstr "Türü"
+msgstr "Tür"
 
 #: libraries/classes/Database/Routines.php:872
 #: templates/database/events/editor_form.twig:41
