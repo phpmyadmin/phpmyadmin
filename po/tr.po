@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-22 10:22+0000\n"
+"PO-Revision-Date: 2025-01-22 10:25+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "tr/>\n"
@@ -5120,7 +5120,7 @@ msgstr "Veritabanı adı boş!"
 
 #: libraries/classes/Controllers/Database/OperationsController.php:106
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "Veritabanı aynı isimde kopyalanamaz. Adı değiştirin ve tekrar deneyin."
+msgstr "Veritabanı aynı ada kopyalanamaz. Adı değiştirin ve tekrar deneyin."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:197
 #, php-format
