@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-19 00:24+0000\n"
-"PO-Revision-Date: 2025-01-19 08:50+0000\n"
+"PO-Revision-Date: 2025-01-23 11:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -606,7 +606,7 @@ msgstr "Ad"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:602
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:624
 msgid "Type"
-msgstr "Türü"
+msgstr "Tür"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:16
 #: resources/templates/database/central_columns/edit.twig:10
@@ -3702,7 +3702,7 @@ msgstr ""
 
 #: resources/templates/login/form.twig:74
 msgid "Username:"
-msgstr "Kullanıcı Adı:"
+msgstr "Kullanıcı adı:"
 
 #: resources/templates/login/form.twig:83
 #: resources/templates/server/privileges/change_password.twig:24
@@ -4582,11 +4582,11 @@ msgstr "Kullanıcı hesabı için veritabanı"
 
 #: resources/templates/server/privileges/add_user.twig:16
 msgid "Create database with same name and grant all privileges."
-msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver."
+msgstr "Aynı ad ile veritabanı oluştur ve tüm yetkileri ver."
 
 #: resources/templates/server/privileges/add_user.twig:20
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr "Joker isimlere tüm yetkileri ver (kullanıcıadı\\_%)."
+msgstr "Joker karakterli ada tüm yetkileri ver (kullanıcıadı\\_%)."
 
 #: resources/templates/server/privileges/add_user.twig:25
 #, php-format
@@ -5252,7 +5252,7 @@ msgstr "Kullanıcılardan tüm etkin yetkileri geri alır ve sonra da siler."
 
 #: resources/templates/server/privileges/users_overview.twig:152
 msgid "Drop the databases that have the same names as the users."
-msgstr "Kullanıcılarla aynı isimlerde olan veritabanlarını kaldır."
+msgstr "Kullanıcılarla aynı ada sahip veritabanlarını kaldır."
 
 #: resources/templates/server/privileges/users_overview.twig:177
 msgid "Save changes"
@@ -9839,8 +9839,8 @@ msgstr "Varsayılan için boş bırakın."
 #: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"HTTP Kimlik Doğrulaması yaparken görüntülemek için Basit Kimlik Doğrulaması "
-"alan adı."
+"HTTP Kimlik Doğrulaması yapılırken görüntülenecek HTTP Temel Kimlik "
+"Doğrulama Alanı adı."
 
 #: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
@@ -10031,7 +10031,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin'in en son sürümü hakkında bilgi alırken ya da hata raporlarını "
 "gönderirken kullanılan proksi URL'si. phpMyAdmin'nin yüklü olduğu sunucunun "
-"doğrudan Internet erişimi yoksa buna ihtiyacınız olur. Biçimi: "
+"doğrudan İnternet erişimi yoksa buna ihtiyacınız olur. Biçimi: "
 "\"anamakineadı:bağlantınoktası\"."
 
 #: src/Config/Descriptions.php:523
@@ -10177,7 +10177,7 @@ msgstr "Kısayol tuşlarını etkisizleştir"
 
 #: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
-msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullanır."
+msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sırayı kullanın."
 
 #: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
 #: src/Config/Descriptions.php:566
@@ -14336,7 +14336,7 @@ msgstr "Sağlanan karşılaştırma yok."
 
 #: src/Controllers/Operations/DatabaseController.php:81
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "Veritabanı aynı isimde kopyalanamaz. Adı değiştirin ve tekrar deneyin."
+msgstr "Veritabanı aynı ada kopyalanamaz. Adı değiştirin ve tekrar deneyin."
 
 #: src/Controllers/Operations/DatabaseController.php:161
 #, php-format
@@ -14537,9 +14537,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"Eğer MySQL sunucusu verilen isimdeki tabloyu biliyorsa, NDB Küme depolama "
-"motorunu sorabilir. Buna keşfetme denir. Handler_discover tabloların keç kez "
-"keşfedildiğini gösterir."
+"MySQL sunucusu, NDB Küme depolama motoruna belirli bir ada sahip bir tablo "
+"hakkında bilgisi olup olmadığını sorabilir. Buna keşfetme denir. "
+"Handler_discover tabloların keç kez keşfedildiğini gösterir."
 
 #: src/Controllers/Server/Status/VariablesController.php:261
 msgid ""
@@ -17698,7 +17698,7 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"BIGINT olarak saklanan bir (IPv4) Internet ağ adresini, Internet standart "
+"BIGINT olarak saklanan bir (IPv4) İnternet ağ adresini, Internet standart "
 "noktalı biçimindeki bir dizgiye dönüştürür."
 
 #: src/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:28
@@ -17773,14 +17773,14 @@ msgstr ""
 #: src/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:31
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
-"(IPv4/IPv6) biçimindeki bir Internet ağ adresini ikili değere dönüştürür"
+"(IPv4/IPv6) biçimindeki bir İnternet ağ adresini ikili değere dönüştürür"
 
 #: src/Plugins/Transformations/Input/Text_Plain_Iptolong.php:28
 msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
 msgstr ""
-"(IPv4/IPv6) biçimindeki bir Internet ağ adresini uzun bir tam sayıya "
+"(IPv4/IPv6) biçimindeki bir İnternet ağ adresini uzun bir tam sayıya "
 "dönüştürür."
 
 #: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
@@ -17800,7 +17800,7 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"İkili değer dizgisi olarak saklanan bir Internet ağ adresini, Internet "
+"İkili değer dizgisi olarak saklanan bir İnternet ağ adresini, İnternet "
 "standart (IPv4/IPv6) biçimindeki bir dizgiye dönüştürür."
 
 #: src/Plugins/Transformations/Output/Text_Plain_Json.php:43
