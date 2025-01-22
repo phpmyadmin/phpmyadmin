@@ -2817,7 +2817,7 @@ msgid ""
 msgstr ""
 "phpMyAdmin'in en son sürümü hakkında bilgi alırken ya da hata raporlarını "
 "gönderirken kullanılan proksi URL'si. phpMyAdmin'nin yüklü olduğu sunucunun "
-"doğrudan Internet erişimi yoksa buna ihtiyacınız olur. Biçimi: "
+"doğrudan İnternet erişimi yoksa buna ihtiyacınız olur. Biçimi: "
 "\"anamakineadı:bağlantınoktası\"."
 
 #: libraries/classes/Config/Descriptions.php:538
