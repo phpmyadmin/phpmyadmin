@@ -265,7 +265,6 @@ class TwoFactorTest extends AbstractTestCase
 
     #[Group('extension-iconv')]
     #[RequiresPhpExtension('iconv')]
-    #[RequiresPhpExtension('xmlwriter')]
     public function testApplication(): void
     {
         $this->setLanguage();
@@ -288,15 +287,15 @@ class TwoFactorTest extends AbstractTestCase
         /* Generate valid code */
         $app = $object->getBackend();
         self::assertInstanceOf(Application::class, $app);
-        $google2fa = $app->getGoogle2fa();
-        $_POST['2fa_code'] = $google2fa->oathTotp(
-            $object->config['settings']['secret'],
-            $google2fa->getTimestamp(),
-        );
+        $google2fa = $app->getAuthenticator();
+        $_POST['2fa_code'] = $google2fa->setSecret($object->config['settings']['secret'])->code();
 
         $this->dummyDbi->assertAllQueriesConsumed();
         $this->loadResultForConfig([]);
-        $this->loadQueriesForConfigure('application', ['secret' => $object->config['settings']['secret']]);
+        $this->loadQueriesForConfigure('application', [
+            'secret' => $object->config['settings']['secret'],
+            'backup_counter' => $object->config['settings']['backup_counter'],
+        ]);
 
         self::assertTrue($object->configure($request, 'application'));
 
@@ -308,10 +307,7 @@ class TwoFactorTest extends AbstractTestCase
         self::assertFalse($object->check($request, true));
         $_POST['2fa_code'] = 'invalid';
         self::assertFalse($object->check($request, true));
-        $_POST['2fa_code'] = $google2fa->oathTotp(
-            $object->config['settings']['secret'],
-            $google2fa->getTimestamp(),
-        );
+        $_POST['2fa_code'] = $google2fa->setSecret($object->config['settings']['secret'])->code();
         self::assertTrue($object->check($request, true));
         unset($_POST['2fa_code']);
 

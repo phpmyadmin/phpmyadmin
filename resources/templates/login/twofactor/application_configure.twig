@@ -1,17 +1,45 @@
 {{ get_hidden_inputs() }}
+<div class="config-form">
+<fieldset>
+
+<div class="2fa-setup-qrcode">
+  {% if qrcode %}
+      {{ qrcode|raw }}
+  {% else %}
+      {{ uri }}
+  {% endif %}
+</div>
+
+<table class="table table-borderless">
+
+  <tr>
+    <th class="w-75"><label for="2fa-setup-secret">{{ t('Secret/key:') }}</label></th>
+    <td class="w-25">
+      <input id="2fa-setup-secret" class="w-100" type="text" readonly="readonly" onclick="this.select();" value="{{ secret }}"/>
+    </td>
+  </tr>
+
+  <tr>
+    <th class="w-75">
+      <label for="2fa-setup-backup">{{ t('Backup code:') }}</label>
+      <br/>
+      <span class="text-danger">{{ t('Please write this backup code down and store in a safe place. You can use it to access your account in case you lost access to your mobile authenticator.') }}</span>
+    </th>
+    <td class="w-25">
+      <input id="2fa-setup-backup" class="w-100" type="text" readonly="readonly" onclick="this.select();" value="{{ backup }}"/>
+    </td>
+  </tr>
+
+</table>
+
 <p>
-    {{ t('Please scan following QR code into the two-factor authentication app on your device and enter authentication code it generates.') }}
+  {{ t('Please scan the QR code or copy the secret key into the two-factor authentication app on your device and enter authentication code it generates.') }}
 </p>
+
 <p>
-    {% if has_imagick %}
-        <img src="{{ image }}">
-    {% else %}
-        {{ image|raw }}
-    {% endif %}
+  <label for="2fa-setup-confirm">{{ t('Authentication code:') }}</label>
+  <input id="2fa-setup-confirm" type="text" name="2fa_code" autocomplete="off" />
 </p>
-<p>
-    {{ t('Secret/key:') }} <strong>{{ secret }}</strong>
-</p>
-<p>
-    <label>{{ t('Authentication code:') }} <input type="text" name="2fa_code" autocomplete="off"></label>
-</p>
+
+</fieldset>
+</div>
