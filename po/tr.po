@@ -11815,7 +11815,7 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"BIGINT olarak saklanan bir (IPv4) Internet ağ adresini, Internet standart "
+"BIGINT olarak saklanan bir (IPv4) İnternet ağ adresini, Internet standart "
 "noktalı biçimindeki bir dizgiye dönüştürür."
 
 #: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:29
