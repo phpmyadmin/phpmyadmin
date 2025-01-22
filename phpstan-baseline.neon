@@ -3712,12 +3712,6 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#1 \$sqlQuery of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#11 \$rowId of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects int, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
@@ -3742,26 +3736,8 @@ parameters:
 			path: src/Controllers/Table/ChangeController.php
 
 		-
-			message: '#^Parameter \#4 \$currentResult of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects PhpMyAdmin\\Dbal\\ResultInterface, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
 			message: '#^Parameter \#7 \$isUpload of method PhpMyAdmin\\InsertEdit\:\:getHtmlForInsertEditRow\(\) expects bool, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Short ternary operator is not allowed\. Use null coalesce operator if applicable or consider using long ternary\.$#'
-			identifier: ternary.shortNotAllowed
-			count: 1
-			path: src/Controllers/Table/ChangeController.php
-
-		-
-			message: '#^Static property PhpMyAdmin\\Current\:\:\$whereClause \(array\<string\>\|string\|null\) does not accept mixed\.$#'
-			identifier: assign.propertyType
 			count: 1
 			path: src/Controllers/Table/ChangeController.php
 
@@ -4300,12 +4276,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '#^Implicit array creation is not allowed \- variable \$extraData might not exist\.$#'
-			identifier: variable.implicitArray
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 1
@@ -4378,6 +4348,12 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
+			message: '#^Parameter \#4 \$editedValues of method PhpMyAdmin\\InsertEdit\:\:transformEditedValues\(\) expects array\<array\<string\>\>, array\<array\<mixed\>\|string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Table/ReplaceController.php
+
+		-
 			message: '#^Parameter \#5 \$relationFieldValue of method PhpMyAdmin\\InsertEdit\:\:getLinkForRelationalDisplayField\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -4404,12 +4380,6 @@ parameters:
 		-
 			message: '#^Static property PhpMyAdmin\\UrlParams\:\:\$params \(array\<string, bool\|int\|string\>\) does not accept array\<string, mixed\>\.$#'
 			identifier: assign.propertyType
-			count: 1
-			path: src/Controllers/Table/ReplaceController.php
-
-		-
-			message: '#^Variable \$extraData might not be defined\.$#'
-			identifier: variable.undefined
 			count: 1
 			path: src/Controllers/Table/ReplaceController.php
 
@@ -4444,12 +4414,6 @@ parameters:
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 2
-			path: src/Controllers/Table/SearchController.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Controllers/Table/SearchController.php
 
 		-
@@ -4990,12 +4954,6 @@ parameters:
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 5
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -5566,12 +5524,6 @@ parameters:
 			path: src/Database/CentralColumns.php
 
 		-
-			message: '#^Cannot cast mixed to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
 			count: 2
@@ -5609,18 +5561,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$def of method PhpMyAdmin\\Database\\CentralColumns\:\:getInsertQuery\(\) expects PhpMyAdmin\\ColumnFull, PhpMyAdmin\\ColumnFull\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/CentralColumns.php
-
-		-
-			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/CentralColumns.php
@@ -9091,18 +9031,6 @@ parameters:
 			path: src/IndexColumn.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Binary operation "\." between '' data\-maxlength\="'' and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -9115,33 +9043,21 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
-			count: 3
+			count: 1
 			path: src/InsertEdit.php
 
 		-
 			message: '#^Cannot cast mixed to string\.$#'
 			identifier: cast.string
-			count: 4
+			count: 1
 			path: src/InsertEdit.php
 
 		-
@@ -9163,7 +9079,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) should return array\{bool, array\<string\>\|string\|null, array\<string\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string, string\|null\>\|false\>, bool, string\|null\} but returns array\{bool, mixed, array\<mixed\>, array\<string\>\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string\|null\>\|false\>, bool, mixed\}\.$#'
+			message: '#^Method PhpMyAdmin\\InsertEdit\:\:determineInsertOrEdit\(\) should return array\{bool, array\<string\>\|string\|null, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string, string\|null\>\>, bool, string\|null\} but returns array\{bool, mixed, array\<PhpMyAdmin\\Dbal\\ResultInterface\>\|PhpMyAdmin\\Dbal\\ResultInterface, array\<array\<string\|null\>\>, bool, mixed\}\.$#'
 			identifier: return.type
 			count: 1
 			path: src/InsertEdit.php
@@ -9171,12 +9087,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\InsertEdit\:\:getErrorUrl\(\) should return string but returns mixed\.$#'
 			identifier: return.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Method PhpMyAdmin\\InsertEdit\:\:getFormParametersForInsertForm\(\) has parameter \$whereClauses with no value type specified in iterable type array\.$#'
-			identifier: missingType.iterableValue
 			count: 1
 			path: src/InsertEdit.php
 
@@ -9211,25 +9121,13 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 2
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, string\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$buffer of method PhpMyAdmin\\Plugins\\TransformationsInterface\:\:applyTransformation\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$data of static method PhpMyAdmin\\Utils\\Gis\:\:convertToWellKnownText\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$currentRow of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsAndBackupFieldForExistingRow\(\) expects array\<string\|null\>, array\<mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -9247,27 +9145,9 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 6
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$optionString of method PhpMyAdmin\\Transformations\:\:getOptions\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$params of static method PhpMyAdmin\\Url\:\:getCommon\(\) expects array\<string, bool\|int\|string\>, array\<mixed\> given\.$#'
-			identifier: argument.type
-			count: 2
 			path: src/InsertEdit.php
 
 		-
@@ -9289,30 +9169,6 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$string of function bin2hex expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 4
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:addMicroseconds\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Parameter \#1 \$whereClauseArray of method PhpMyAdmin\\InsertEdit\:\:analyzeWhereClauses\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -9325,19 +9181,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#2 \$row of class PhpMyAdmin\\UniqueCondition constructor expects array\<int, mixed\>, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
 			message: '#^Parameter \#2 \$signature of static method PhpMyAdmin\\Core\:\:checkSqlQuerySignature\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Parameter \#2 \$specInBrackets of method PhpMyAdmin\\InsertEdit\:\:getColumnSize\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php
@@ -9988,12 +9832,6 @@ parameters:
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: src/Normalization.php
-
-		-
-			message: '#^Parameter \#1 \$string of function mb_strtoupper expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Normalization.php
 
 		-
@@ -11034,7 +10872,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportHtmlword.php
 
 		-
@@ -11072,12 +10910,6 @@ parameters:
 
 		-
 			message: '#^Binary operation "\." between mixed and "\\000" results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Plugins/Export/ExportLatex.php
-
-		-
-			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
 			path: src/Plugins/Export/ExportLatex.php
@@ -11340,7 +11172,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportOdt.php
 
 		-
@@ -11578,12 +11410,6 @@ parameters:
 			path: src/Plugins/Export/ExportSql.php
 
 		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Plugins/Export/ExportSql.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, bool\|null given\.$#'
 			identifier: if.condNotBoolean
 			count: 3
@@ -11721,7 +11547,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Plugins/Export/ExportTexytext.php
 
 		-
@@ -12129,7 +11955,7 @@ parameters:
 		-
 			message: '#^Parameter \#3 \$txt of method TCPDF\:\:MultiCell\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 3
+			count: 2
 			path: src/Plugins/Export/Helpers/Pdf.php
 
 		-
@@ -15508,13 +15334,7 @@ parameters:
 			path: src/Table/ColumnsDefinition.php
 
 		-
-			message: '#^Parameter \#1 \$string of function rtrim expects string, \(list\<string\>\|string\|null\) given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: '#^Parameter \#1 \$string of function trim expects string, mixed given\.$#'
+			message: '#^Parameter \#1 \$string of function rtrim expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/ColumnsDefinition.php
@@ -15533,12 +15353,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$column of method PhpMyAdmin\\ConfigStorage\\Relation\:\:checkChildForeignReferences\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/ColumnsDefinition.php
-
-		-
-			message: '#^Parameter \#3 \$subject of function preg_replace expects array\<float\|int\|string\>\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/ColumnsDefinition.php
@@ -16350,12 +16164,6 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/UniqueCondition.php
-
-		-
-			message: '#^Parameter \#1 \$row of method PhpMyAdmin\\UniqueCondition\:\:getConditionValue\(\) expects float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/UniqueCondition.php
 
@@ -19689,7 +19497,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 35
+			count: 34
 			path: tests/unit/InsertEditTest.php
 
 		-

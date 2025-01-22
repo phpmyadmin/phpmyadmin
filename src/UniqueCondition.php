@@ -30,7 +30,7 @@ class UniqueCondition
      * @param bool                          $forceUnique     generate condition only on pk or unique
      * @param string                        $restrictToTable restrict the unique condition to this table
      * @param (Expression|CaseExpression)[] $expressions     An array of Expression instances.
-     * @psalm-param array<int, mixed> $row
+     * @psalm-param array<string|int|float|null> $row
      */
     public function __construct(
         array $fieldsMeta,

@@ -2304,7 +2304,6 @@
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
       <code><![CDATA[$request->getQueryParam('where_clause_signature')]]></code>
-      <code><![CDATA[$whereClause]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$rowId]]></code>
@@ -2313,16 +2312,11 @@
     <MixedAssignment>
       <code><![CDATA[$isUpload]]></code>
       <code><![CDATA[$repopulate]]></code>
-      <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
-    <PossiblyInvalidArgument>
-      <code><![CDATA[$currentResult]]></code>
-    </PossiblyInvalidArgument>
     <PossiblyNullArgument>
       <code><![CDATA[$isUpload]]></code>
     </PossiblyNullArgument>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[$currentRow]]></code>
       <code><![CDATA[empty(Current::$displayMessage)]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -2768,7 +2762,6 @@
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
       <code><![CDATA[$columnName]]></code>
-      <code><![CDATA[$extraData]]></code>
       <code><![CDATA[$fields['multi_edit']]]></code>
       <code><![CDATA[$multiEditColumnsPrev[$key] ?? null]]></code>
       <code><![CDATA[$multiEditColumnsType[$key] ?? '']]></code>
@@ -2780,8 +2773,10 @@
       <code><![CDATA[Current::$table]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$editedValues]]></code>
+    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
-      <code><![CDATA[$extraData['relations']]]></code>
       <code><![CDATA[$multiEditColumnsPrev[$key]]]></code>
       <code><![CDATA[$multiEditColumnsType[$key]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
@@ -2790,8 +2785,6 @@
       <code><![CDATA[$request->getParsedBodyParam('fields_name')['multi_edit']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
-      <code><![CDATA[$extraData['relations']]]></code>
-      <code><![CDATA[$extraData['relations'][$cellIndex]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
       <code><![CDATA[$multiEditColumns[$key]]]></code>
     </MixedArrayAssignment>
@@ -2831,9 +2824,6 @@
     <PossiblyInvalidArrayAssignment>
       <code><![CDATA[UrlParams::$params['where_clause'][]]]></code>
     </PossiblyInvalidArrayAssignment>
-    <PossiblyUndefinedVariable>
-      <code><![CDATA[$extraData]]></code>
-    </PossiblyUndefinedVariable>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2850,9 +2840,6 @@
     <MixedArgument>
       <code><![CDATA[$foreignData->foreignField]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$isUnsigned]]></code>
-    </MixedAssignment>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
@@ -3081,9 +3068,6 @@
     <MixedArgument>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$attributes[$rownum]]]></code>
-    </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
       <code><![CDATA[$displayedFields[$rownum]->icon]]></code>
@@ -3165,9 +3149,6 @@
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$isUnsigned]]></code>
-    </MixedAssignment>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
@@ -3546,7 +3527,6 @@
     <MixedArgument>
       <code><![CDATA[$columnDefault[$i]]]></code>
       <code><![CDATA[$columnExtra[$i]]]></code>
-      <code><![CDATA[$extractedColumnSpec['attribute']]]></code>
       <code><![CDATA[$params['db']]]></code>
       <code><![CDATA[$params['field_attribute'][$i]]]></code>
       <code><![CDATA[$params['field_collation'][$i]]]></code>
@@ -3555,7 +3535,6 @@
       <code><![CDATA[$params['field_type'][$i]]]></code>
       <code><![CDATA[$params['orig_col_name']]]></code>
       <code><![CDATA[$params['orig_col_name'][$i]]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$columnDefault[$i]]]></code>
@@ -3577,8 +3556,6 @@
       <code><![CDATA[$columnDefault]]></code>
       <code><![CDATA[$columnDefault[$i]]]></code>
       <code><![CDATA[$columnExtra[$i]]]></code>
-      <code><![CDATA[$length]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tnPageNow]]></code>
@@ -5502,8 +5479,6 @@
       <code><![CDATA[[
             $insertMode,
             $whereClause,
-            $whereClauseArray,
-            $whereClauses,
             $result,
             $rows,
             $foundUniqueKey,
@@ -5511,18 +5486,8 @@
         ]]]></code>
     </LessSpecificReturnStatement>
     <MixedArgument>
-      <code><![CDATA[$columnMime['input_transformation_options']]]></code>
-      <code><![CDATA[$currCellEditedValues[$columnName]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
       <code><![CDATA[$currentRow[$column->field] ?? '']]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$extractedColumnspec['enum_set_values']]]></code>
-      <code><![CDATA[$extractedColumnspec['spec_in_brackets']]]></code>
       <code><![CDATA[$foreignData->foreignField]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
@@ -5532,38 +5497,17 @@
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['foreign_table']]]></code>
       <code><![CDATA[$foreigner['foreign_table']]]></code>
-      <code><![CDATA[$rows[$keyId]]]></code>
-      <code><![CDATA[$transformation[$type . '_options'] ?? '']]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
-      <code><![CDATA[$thisUrlParams]]></code>
-      <code><![CDATA[$thisUrlParams]]></code>
-      <code><![CDATA[$whereClauseArray]]></code>
+      <code><![CDATA[$currentRow]]></code>
+      <code><![CDATA[(array) $whereClause]]></code>
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
-      <code><![CDATA[$currCellEditedValues[$columnName]]]></code>
     </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$editedValues[$cellIndex][$columnName]]]></code>
-      <code><![CDATA[$extraData['transformations'][$cellIndex]]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
-      <code><![CDATA[$columnSetValues]]></code>
-      <code><![CDATA[$currCellEditedValues]]></code>
       <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$currentRow[$column->field]]]></code>
-      <code><![CDATA[$data]]></code>
       <code><![CDATA[$defaultValue]]></code>
-      <code><![CDATA[$enumSelectedValue]]></code>
-      <code><![CDATA[$enumValue]]></code>
-      <code><![CDATA[$enumValues]]></code>
-      <code><![CDATA[$file]]></code>
-      <code><![CDATA[$isUnsigned]]></code>
-      <code><![CDATA[$maxlength]]></code>
-      <code><![CDATA[$maxlength]]></code>
-      <code><![CDATA[$specialChars]]></code>
       <code><![CDATA[$whereClause]]></code>
     </MixedAssignment>
     <MixedOperand>
@@ -5573,10 +5517,8 @@
       <code><![CDATA[array{
      *     bool,
      *     string[]|string|null,
-     *     string[],
-     *     string[]|null,
      *     ResultInterface[]|ResultInterface,
-     *     array<string, string|null>[]|false[],
+     *     array<string, string|null>[],
      *     bool,
      *     string|null
      * }]]></code>
@@ -5600,6 +5542,7 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[! $gotoInclude]]></code>
       <code><![CDATA[$editField->salt]]></code>
+      <code><![CDATA[empty($columnMime['input_transformation'])]]></code>
       <code><![CDATA[empty($this->config->settings['UploadDir'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
@@ -5926,7 +5869,6 @@
       <code><![CDATA[$dependents]]></code>
       <code><![CDATA[$dropCols['nonpk']]]></code>
       <code><![CDATA[$dropCols['pk']]]></code>
-      <code><![CDATA[$extractedColumnSpec['type']]]></code>
       <code><![CDATA[$key]]></code>
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$table]]></code>
@@ -6527,7 +6469,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -6589,12 +6530,10 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$columnsAlias[$i]]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedOperand>
     <PossiblyFalseReference>
       <code><![CDATA[fetchAssoc]]></code>
@@ -6664,7 +6603,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
-      <code><![CDATA[$extractedColumnSpec['print_type']]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -6879,7 +6817,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$comments[$fieldName]]]></code>
       <code><![CDATA[$mimeMap[$fieldName]['mimetype']]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedArgument>
     <MixedArrayAccess>
       <code><![CDATA[$comments[$fieldName]]]></code>
@@ -6890,7 +6827,6 @@
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
       <code><![CDATA[$colAs]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[str_replace('_', '/', $mimeMap[$fieldName]['mimetype'])]]></code>
@@ -7081,7 +7017,6 @@
       <code><![CDATA[$currpage]]></code>
       <code><![CDATA[$data[]]]></code>
       <code><![CDATA[$data[]]]></code>
-      <code><![CDATA[$data[]]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
       <code><![CDATA[$fullwidth]]></code>
@@ -7137,7 +7072,6 @@
       <code><![CDATA[$txt]]></code>
       <code><![CDATA[$txt]]></code>
       <code><![CDATA[$txt]]></code>
-      <code><![CDATA[$type]]></code>
       <code><![CDATA[$width]]></code>
       <code><![CDATA[$width]]></code>
       <code><![CDATA[$width]]></code>
@@ -7787,11 +7721,9 @@
       <code><![CDATA[$this->pdf->customLinks['doc'][$foreigner['foreign_table']][$foreigner['foreign_field']]]]></code>
     </MixedArrayOffset>
     <MixedAssignment>
-      <code><![CDATA[$attribute]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$links[0]]]></code>
       <code><![CDATA[$links[6]]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$foreigner['foreign_db']]]></code>
@@ -9107,10 +9039,8 @@
       <code><![CDATA[$columnMeta['DefaultValue']]]></code>
       <code><![CDATA[$columnMeta['Field']]]></code>
       <code><![CDATA[$columnMeta['Type']]]></code>
-      <code><![CDATA[$extractedColumnSpec['attribute'] ?? '']]></code>
       <code><![CDATA[$formParams['db']]]></code>
       <code><![CDATA[$formParams['table']]]></code>
-      <code><![CDATA[$type]]></code>
       <code><![CDATA[Util::getValueByKey($_POST, ['field_key', $columnNumber], '')]]></code>
     </MixedArgument>
     <MixedArrayAccess>
@@ -9132,10 +9062,8 @@
       <code><![CDATA[$formParams['field_orig[' . $columnNumber . ']']]]></code>
       <code><![CDATA[$formParams['selected[' . $oFldNr . ']']]]></code>
       <code><![CDATA[$length]]></code>
-      <code><![CDATA[$length]]></code>
       <code><![CDATA[$oFldVal]]></code>
       <code><![CDATA[$submitAttribute]]></code>
-      <code><![CDATA[$type]]></code>
     </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$formParams['db']]]></code>
@@ -9604,12 +9532,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$row[$i] ?? null]]></code>
-    </MixedArgument>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$row[$i]]]></code>
-    </MixedArrayTypeCoercion>
   </file>
   <file src="src/Url.php">
     <DeprecatedMethod>
@@ -11989,7 +11911,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
@@ -12011,7 +11932,6 @@
     <MixedAssignment>
       <code><![CDATA[$actual]]></code>
       <code><![CDATA[$actual]]></code>
-      <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>
       <code><![CDATA[$result]]></code>

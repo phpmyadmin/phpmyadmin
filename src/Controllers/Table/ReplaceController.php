@@ -383,6 +383,8 @@ final class ReplaceController implements InvocableController
     /** @param string[][] $mimeMap */
     private function doTransformations(array $mimeMap, ServerRequest $request): void
     {
+        $extraData = [];
+
         $relFieldsList = $request->getParsedBodyParamAsString('rel_fields_list', '');
         if ($relFieldsList !== '') {
             $foreigners = $this->relation->getForeigners(Current::$database, Current::$table);
@@ -416,26 +418,26 @@ final class ReplaceController implements InvocableController
             $editedValues = [];
             parse_str($request->getParsedBodyParamAsString('transform_fields_list'), $editedValues);
 
-            if (! isset($extraData)) {
-                $extraData = [];
-            }
-
-            $transformationTypes = ['input_transformation', 'transformation'];
             foreach ($mimeMap as $transformation) {
-                $columnName = $transformation['column_name'];
-                foreach ($transformationTypes as $type) {
-                    $file = Core::securePath($transformation[$type]);
-                    $extraData = $this->insertEdit->transformEditedValues(
-                        Current::$database,
-                        Current::$table,
-                        $transformation,
-                        $editedValues,
-                        $file,
-                        $columnName,
-                        $extraData,
-                        $type,
-                    );
-                }
+                $extraData = $this->insertEdit->transformEditedValues(
+                    Current::$database,
+                    Current::$table,
+                    $transformation['input_transformation_options'],
+                    $editedValues,
+                    Core::securePath($transformation['input_transformation']),
+                    $transformation['column_name'],
+                    $extraData,
+                );
+
+                $extraData = $this->insertEdit->transformEditedValues(
+                    Current::$database,
+                    Current::$table,
+                    $transformation['transformation_options'],
+                    $editedValues,
+                    Core::securePath($transformation['transformation']),
+                    $transformation['column_name'],
+                    $extraData,
+                );
             }
         }
 

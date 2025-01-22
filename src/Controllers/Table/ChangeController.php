@@ -22,6 +22,7 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
+use Webmozart\Assert\Assert;
 
 use function __;
 use function array_fill;
@@ -54,6 +55,8 @@ class ChangeController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
+        $whereClauses = Current::$whereClause;
+
         $this->pageSettings->init('Edit');
         $this->response->addHTML($this->pageSettings->getErrorHTML());
         $this->response->addHTML($this->pageSettings->getHTML());
@@ -90,8 +93,9 @@ class ChangeController implements InvocableController
 
         if ($request->hasQueryParam('where_clause') && $request->hasQueryParam('where_clause_signature')) {
             $whereClause = $request->getQueryParam('where_clause');
+            Assert::string($whereClause);
             if (Core::checkSqlQuerySignature($whereClause, $request->getQueryParam('where_clause_signature'))) {
-                Current::$whereClause = $whereClause;
+                $whereClauses = $whereClause;
             }
         }
 
@@ -100,17 +104,15 @@ class ChangeController implements InvocableController
          */
         [
             $insertMode,
-            Current::$whereClause,
-            $whereClauseArray,
             $whereClauses,
             $result,
             $rows,
             $foundUniqueIndex,
             $afterInsert,
-        ] = $this->insertEdit->determineInsertOrEdit(Current::$whereClause, Current::$database, Current::$table);
+        ] = $this->insertEdit->determineInsertOrEdit($whereClauses, Current::$database, Current::$table);
         // Increase number of rows if unsaved rows are more
         if (! empty(self::$unsavedValues) && count($rows) < count(self::$unsavedValues)) {
-            $rows = array_fill(0, count(self::$unsavedValues), false);
+            $rows = array_fill(0, count(self::$unsavedValues), []);
         }
 
         /**
@@ -172,8 +174,7 @@ class ChangeController implements InvocableController
         $formParams = $this->insertEdit->getFormParametersForInsertForm(
             Current::$database,
             Current::$table,
-            $whereClauses,
-            $whereClauseArray,
+            (array) $whereClauses,
             $errorUrl,
         );
 
@@ -187,7 +188,7 @@ class ChangeController implements InvocableController
 
         UrlParams::$params['db'] = Current::$database;
         UrlParams::$params['table'] = Current::$table;
-        UrlParams::$params = $this->urlParamsInEditMode($request, UrlParams::$params, $whereClauseArray);
+        UrlParams::$params = $this->urlParamsInEditMode($request, UrlParams::$params, (array) $whereClauses);
 
         $hasBlobField = false;
         foreach ($tableColumns as $tableColumn) {
@@ -222,7 +223,7 @@ class ChangeController implements InvocableController
 
         InsertEdit::$pluginScripts = [];
         foreach ($rows as $rowId => $currentRow) {
-            $currentResult = is_array($result) && isset($result[$rowId]) ? $result[$rowId] : $result;
+            $currentResult = is_array($result) ? $result[$rowId] : $result;
             $repopulate = [];
             $checked = true;
             if (isset(self::$unsavedValues[$rowId])) {
@@ -238,16 +239,16 @@ class ChangeController implements InvocableController
                 UrlParams::$params,
                 $tableColumns,
                 $commentsMap,
-                $currentResult,
+                $currentResult->getFieldsMeta(),
                 $insertMode,
-                $currentRow ?: [],
+                $currentRow,
                 $isUpload,
                 $foreigners,
                 Current::$table,
                 Current::$database,
                 $rowId,
                 $repopulate,
-                $whereClauseArray,
+                (array) $whereClauses,
             );
         }
 
@@ -255,9 +256,9 @@ class ChangeController implements InvocableController
         InsertEdit::$pluginScripts = [];
         self::$unsavedValues = [];
 
-        $isNumeric = InsertEdit::isWhereClauseNumeric(Current::$whereClause);
+        $isNumeric = InsertEdit::isWhereClauseNumeric($whereClauses);
         $htmlOutput .= $this->template->render('table/insert/actions_panel', [
-            'where_clause' => Current::$whereClause,
+            'where_clause' => $whereClauses,
             'after_insert' => $afterInsert ?? 'back',
             'found_unique_key' => $foundUniqueIndex,
             'is_numeric' => $isNumeric,
@@ -273,7 +274,7 @@ class ChangeController implements InvocableController
             $htmlOutput .= $this->insertEdit->getContinueInsertionForm(
                 Current::$table,
                 Current::$database,
-                $whereClauseArray,
+                (array) $whereClauses,
                 $errorUrl,
             );
         }
