@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-22 10:15+0000\n"
+"PO-Revision-Date: 2025-01-22 10:25+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -311,7 +311,7 @@ msgstr "Veritabanı adı boş!"
 
 #: db_operations.php:69
 msgid "Cannot copy database to the same name. Change the name and try again."
-msgstr "Veritabanı aynı isimde kopyalanamaz. Adı değiştirin ve tekrar deneyin."
+msgstr "Veritabanı aynı ada kopyalanamaz. Adı değiştirin ve tekrar deneyin."
 
 #: db_operations.php:156
 #, php-format
@@ -5031,7 +5031,7 @@ msgstr "Kısayol tuşlarını etkisizleştir"
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid "Use natural order for sorting table and database names."
-msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sıra kullanır."
+msgstr "Tablo ve veritabanı adlarını sıralamak için doğal sırayı kullanın."
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Natural order"
@@ -5238,8 +5238,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:988
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"HTTP Kimlik Doğrulaması yaparken görüntülemek için Basit Kimlik Doğrulaması "
-"alan adı."
+"HTTP Kimlik Doğrulaması yapılırken görüntülenecek HTTP Temel Kimlik "
+"Doğrulama Alanı adı."
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "HTTP Realm"
@@ -11596,7 +11596,7 @@ msgstr "Kullanıcı hesabı için veritabanı"
 
 #: libraries/classes/Server/Privileges.php:2190
 msgid "Create database with same name and grant all privileges."
-msgstr "Aynı isimle veritabanı oluştur ve tüm yetkileri ver."
+msgstr "Aynı ad ile veritabanı oluştur ve tüm yetkileri ver."
 
 #: libraries/classes/Server/Privileges.php:2201
 msgid "Grant all privileges on wildcard name (username\\_%)."
