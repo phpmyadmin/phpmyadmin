@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-22 10:29+0000\n"
+"PO-Revision-Date: 2025-01-23 11:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "tr/>\n"
@@ -10148,7 +10148,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:30
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
 msgstr ""
-"(IPv4/IPv6) biçimindeki bir Internet ağ adresini ikili değere dönüştürür"
+"(IPv4/IPv6) biçimindeki bir İnternet ağ adresini ikili değere dönüştürür"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:30
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -10167,7 +10167,7 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"İkili değer dizgisi olarak saklanan bir İnternet ağ adresini, Internet "
+"İkili değer dizgisi olarak saklanan bir İnternet ağ adresini, İnternet "
 "standart (IPv4/IPv6) biçimindeki bir dizgiye dönüştürür."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:47
