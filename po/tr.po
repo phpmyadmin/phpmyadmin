@@ -11897,7 +11897,7 @@ msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
 msgstr ""
-"(IPv4/IPv6) biçimindeki bir Internet ağ adresini uzun bir tam sayıya "
+"(IPv4/IPv6) biçimindeki bir İnternet ağ adresini uzun bir tam sayıya "
 "dönüştürür."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
