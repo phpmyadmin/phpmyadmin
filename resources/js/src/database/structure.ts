@@ -3,7 +3,6 @@ import { AJAX } from '../modules/ajax.ts';
 import { getForeignKeyCheckboxLoader, loadForeignKeyCheckbox } from '../modules/functions.ts';
 import { Navigation } from '../modules/navigation.ts';
 import { CommonParams } from '../modules/common.ts';
-import tooltip from '../modules/tooltip.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../modules/ajax-message.ts';
 import getJsConfirmCommonParam from '../modules/functions/getJsConfirmCommonParam.ts';
 import { escapeHtml, escapeJsString } from '../modules/functions/escape.ts';
@@ -82,6 +81,12 @@ function fetchRealRowCount ($target) {
         error: function () {
             ajaxShowMessage(window.Messages.strErrorRealRowCount);
         },
+    });
+}
+
+function addTooltipToFavoriteIcons (): void {
+    document.querySelectorAll('.favorite_table_anchor').forEach((favoriteTableAnchor: HTMLElement): void => {
+        new window.bootstrap.Tooltip(favoriteTableAnchor);
     });
 }
 
@@ -304,10 +309,7 @@ AJAX.registerOnload('database/structure.js', function () {
         }, loadForeignKeyCheckbox);
     }); // end of Drop Table Ajax action
 
-    // Add tooltip to favorite icons.
-    $('.favorite_table_anchor').each(function () {
-        tooltip($(this), 'a', $(this).attr('title'));
-    });
+    addTooltipToFavoriteIcons();
 
     // Get real row count via Ajax.
     $('a.real_row_count').on('click', function (event) {
