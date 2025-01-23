@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { AJAX } from './ajax.ts';
 import { Navigation } from './navigation.ts';
 import { CommonParams } from './common.ts';
-import tooltip from './tooltip.ts';
 import highlightSql from './sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
 import { escapeHtml } from './functions/escape.ts';
@@ -2831,8 +2830,10 @@ export function showHints ($div: JQuery<HTMLElement> | undefined = undefined) {
         $newDiv = $('body');
     }
 
-    $newDiv.find('.pma_hint').each(function () {
-        tooltip($(this).children('img'), 'img', $(this).children('span').html());
+    $newDiv.get(0).querySelectorAll('.pma_hint').forEach((hintElement: HTMLElement): void => {
+        const content = hintElement.querySelector('span').textContent;
+        window.bootstrap.Tooltip.getOrCreateInstance(hintElement, { title: content })
+            .setContent({ '.tooltip-inner': content });
     });
 }
 
