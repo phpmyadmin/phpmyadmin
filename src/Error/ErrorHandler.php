@@ -236,8 +236,13 @@ class ErrorHandler
     public function handleException(Throwable $exception): void
     {
         $this->hideLocation = Config::getInstance()->get('environment') !== 'development';
+        $message = $exception::class;
+        if (! ($exception instanceof \Error) || ! $this->hideLocation) {
+            $message .= ': ' . $exception->getMessage();
+        }
+
         $this->addError(
-            $exception::class . ': ' . $exception->getMessage(),
+            $message,
             (int) $exception->getCode(),
             $exception->getFile(),
             $exception->getLine(),

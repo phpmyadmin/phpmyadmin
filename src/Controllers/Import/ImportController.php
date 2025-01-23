@@ -33,6 +33,7 @@ use Throwable;
 
 use function __;
 use function _ngettext;
+use function in_array;
 use function ini_get;
 use function ini_parse_quantity;
 use function ini_set;
@@ -444,6 +445,7 @@ final class ImportController implements InvocableController
         if (
             Encoding::isSupported()
             && ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8'
+            && in_array(ImportSettings::$charsetOfFile, Encoding::listEncodings(), true)
         ) {
             ImportSettings::$charsetConversion = true;
         } elseif (ImportSettings::$charsetOfFile !== '' && ImportSettings::$charsetOfFile !== 'utf-8') {

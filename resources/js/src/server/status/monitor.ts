@@ -2142,15 +2142,16 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             '</span></th><th class="text-end">' + data.sum.TOTAL + '</th></tr></tfoot>');
 
         // Append a tooltip to the count column, if there exist one
-        if ($('#logTable').find('tr').first().find('th').last().text().indexOf('#') > -1) {
-            $('#logTable').find('tr').first().find('th').last().append('&nbsp;' + getImageTag('b_help', '', { 'class': 'qroupedQueryInfoIcon' }));
+        const amountColumn = $('#logTable').find('tr').first().find('th').last();
+        if (amountColumn.text().indexOf('#') > -1) {
+            amountColumn.append('&nbsp;' + getImageTag('b_help'));
 
-            var tooltipContent = window.Messages.strCountColumnExplanation;
+            let tooltipContent = window.Messages.strCountColumnExplanation;
             if (groupInserts) {
-                tooltipContent += '<p>' + window.Messages.strMoreCountColumnExplanation + '</p>';
+                tooltipContent += '<br>' + window.Messages.strMoreCountColumnExplanation;
             }
 
-            tooltip($('img.qroupedQueryInfoIcon'), 'img', tooltipContent);
+            tooltip(amountColumn, 'th', tooltipContent);
         }
 
         $('#logTable').find('table').tablesorter({

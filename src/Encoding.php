@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin;
 
+use function array_filter;
 use function array_intersect;
 use function array_map;
 use function explode;
@@ -14,11 +15,16 @@ use function fopen;
 use function function_exists;
 use function fwrite;
 use function iconv;
+use function is_string;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
 use function mb_list_encodings;
+use function preg_replace;
+use function str_contains;
+use function str_starts_with;
 use function strtolower;
+use function strtoupper;
 use function tempnam;
 use function unlink;
 
@@ -156,11 +162,18 @@ class Encoding
             self::initEngine();
         }
 
+        $config = Config::getInstance();
+        $iconvExtraParams = '';
+        if (
+            isset($config->settings['IconvExtraParams'])
+            && is_string($config->settings['IconvExtraParams'])
+            && str_starts_with($config->settings['IconvExtraParams'], '//')
+        ) {
+            $iconvExtraParams = $config->settings['IconvExtraParams'];
+        }
+
         return match (self::$engine) {
-            self::ENGINE_ICONV => iconv(
-                $srcCharset,
-                $destCharset . (Config::getInstance()->settings['IconvExtraParams'] ?? ''), $what,
-            ),
+            self::ENGINE_ICONV => iconv($srcCharset, $destCharset . $iconvExtraParams, $what),
             self::ENGINE_MB => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
@@ -310,7 +323,14 @@ class Encoding
         /* Most engines do not support listing */
         $config = Config::getInstance();
         if (self::$engine != self::ENGINE_MB) {
-            return $config->settings['AvailableCharsets'];
+            return array_filter($config->settings['AvailableCharsets'], static function (string $charset): bool {
+                // Removes any ignored character
+                $normalizedCharset = strtoupper((string) preg_replace(['/[^A-Za-z0-9\-\/]/'], '', $charset));
+
+                // The character set ISO-2022-CN-EXT can be vulnerable (CVE-2024-2961).
+                return ! str_contains($normalizedCharset, 'ISO-2022-CN-EXT')
+                    && ! str_contains($normalizedCharset, 'ISO2022CNEXT');
+            });
         }
 
         return array_intersect(

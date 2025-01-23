@@ -11,6 +11,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
+use PhpMyAdmin\Query\Utilities;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UserPrivilegesFactory;
@@ -18,8 +19,10 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function _ngettext;
+use function array_filter;
 use function count;
 use function is_array;
+use function is_string;
 
 final class DestroyController implements InvocableController
 {
@@ -36,11 +39,10 @@ final class DestroyController implements InvocableController
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $selectedDbs = $request->getParsedBodyParam('selected_dbs');
-
+        $config = Config::getInstance();
         if (
             ! $request->isAjax()
-            || (! $this->dbi->isSuperUser() && ! Config::getInstance()->settings['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! $config->settings['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
             $json = ['message' => $message];
@@ -50,10 +52,15 @@ final class DestroyController implements InvocableController
             return $this->response->response();
         }
 
-        if (
-            ! is_array($selectedDbs)
-            || $selectedDbs === []
-        ) {
+        $selectedDbs = $request->getParsedBodyParam('selected_dbs');
+        $selectedDbs = is_array($selectedDbs) ? $selectedDbs : [];
+        $selectedDbs = array_filter($selectedDbs, static function ($database) use ($config): bool {
+            return is_string($database)
+                && ! Utilities::isSystemSchema($database, true)
+                && $database !== ($config->selectedServer['pmadb'] ?? '');
+        });
+
+        if ($selectedDbs === []) {
             $message = Message::error(__('No databases selected.'));
             $json = ['message' => $message];
             $this->response->setRequestStatus($message->isSuccess());

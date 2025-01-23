@@ -1897,11 +1897,8 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$database]]></code>
-    </MixedArgument>
     <MixedAssignment>
-      <code><![CDATA[$database]]></code>
+      <code><![CDATA[$selectedDbs]]></code>
     </MixedAssignment>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
@@ -4410,6 +4407,11 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[setKanjiEncodings]]></code>
     </PossiblyUnusedMethod>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[is_string($config->settings['IconvExtraParams'])]]></code>
+      <code><![CDATA[isset($config->settings['IconvExtraParams'])
+            && is_string($config->settings['IconvExtraParams'])]]></code>
+    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Engines/Innodb.php">
     <DeprecatedMethod>
@@ -11467,6 +11469,7 @@
   </file>
   <file src="tests/unit/EncodingTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

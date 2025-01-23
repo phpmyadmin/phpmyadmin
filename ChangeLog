@@ -18,7 +18,16 @@ phpMyAdmin - ChangeLog
 - issue #17480 Added an option in the SQL box to "Format as a single line"
 - issue        Add support for `INSERT IGNORE` into for non table imports
 
-5.2.2 (not yet released)
+5.2.3 (not yet released)
+- issue #19548 Fix missing tooltip in status monitor log table
+
+5.2.2 (2025-01-21)
+- issue        [security] Fix for a path disclosure leak in the Monitoring tab
+- issue        Prevent the user from deleting system databases
+- issue        [security] Fix an XSS vulnerability when checking tables (PMASA-2025-1)
+- issue        [security] Fix an XSS vulnerability on the Insert tab (PMASA-2025-2)
+- issue        [security] Fix a possible glibc/iconv vulnerability (CVE-2024-2961, assigned PMASA-2025-3 but please note that phpMyAdmin is not vulnerable by default)
+- issue        Fix for sql-parser relating to quadratic complexity in certain queries, which could have caused long execution times.
 - issue #17851 Fix total count of rows in not accurate
 - issue #17766 Allow to open in a new tab copy and edit row actions
 - issue #17599 Fix error when handling an user that is not in privileges table

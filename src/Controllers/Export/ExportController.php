@@ -225,7 +225,8 @@ final class ExportController implements InvocableController
         // Do we need to convert charset?
         Export::$outputCharsetConversion = Export::$asFile
             && Encoding::isSupported()
-            && isset(Current::$charset) && Current::$charset !== 'utf-8';
+            && isset(Current::$charset) && Current::$charset !== 'utf-8'
+            && in_array(Current::$charset, Encoding::listEncodings(), true);
 
         // Use on the fly compression?
         Export::$onFlyCompression = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';

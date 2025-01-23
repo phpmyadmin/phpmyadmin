@@ -782,7 +782,7 @@ class InsertEdit
             $specialChars = bin2hex($defaultValue);
         } elseif (str_ends_with($trueType, 'text')) {
             $textDefault = substr($defaultValue, 1, -1);
-            $specialChars = stripcslashes($textDefault !== '' ? $textDefault : $defaultValue);
+            $specialChars = htmlspecialchars(stripcslashes($textDefault !== '' ? $textDefault : $defaultValue));
         } else {
             $specialChars = htmlspecialchars($defaultValue);
         }
