@@ -42,7 +42,6 @@ module.exports = [
             'makegrid': rootPath + '/resources/js/src/makegrid.ts',
             'menu_resizer': rootPath + '/resources/js/src/menu_resizer.ts',
             'multi_column_sort': rootPath + '/resources/js/src/multi_column_sort.ts',
-            'name-conflict-fixes': rootPath + '/resources/js/src/name-conflict-fixes.ts',
             'normalization': rootPath + '/resources/js/src/normalization.ts',
             'replication': rootPath + '/resources/js/src/replication.ts',
             'server/databases': rootPath + '/resources/js/src/server/databases.ts',

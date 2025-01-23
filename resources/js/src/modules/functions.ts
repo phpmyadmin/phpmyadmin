@@ -2825,6 +2825,10 @@ export function showIndexEditDialog ($outer) {
  *                    in the whole body
  **/
 export function showHints ($div: JQuery<HTMLElement> | undefined = undefined) {
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
     var $newDiv = $div;
     if ($newDiv === undefined || ! ($newDiv instanceof $) || $newDiv.length === 0) {
         $newDiv = $('body');

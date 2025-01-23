@@ -1275,23 +1275,6 @@ input#auto_increment_opt {
   position: absolute;
 }
 
-.tooltip {
-  background: #333 !important;
-  opacity: 0.8 !important;
-  z-index: 9999;
-  border: 1px solid $black !important;
-  border-radius: 0.3em !important;
-  text-shadow: -1px -1px $black !important;
-  font-size: 0.8em !important;
-  font-weight: bold !important;
-  padding: 1px 3px !important;
-
-  * {
-    background: none !important;
-    color: $white !important;
-  }
-}
-
 .cDrop {
   right: 0;
   position: absolute;
