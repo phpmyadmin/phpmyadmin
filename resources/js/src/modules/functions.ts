@@ -1507,22 +1507,6 @@ export function dismissNotifications () {
             }
         });
 
-        /**
-         * The below two functions hide the "Dismiss notification" tooltip when a user
-         * is hovering a link or button that is inside an ajax message
-         */
-        $(document).on('mouseover', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
-            if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
-                $(this).parents('span.ajax_notification').uiTooltip('disable');
-            }
-        });
-
-        $(document).on('mouseout', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
-            if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
-                $(this).parents('span.ajax_notification').uiTooltip('enable');
-            }
-        });
-
         $(document).on('click', 'a.copyQueryBtn', function (event) {
             event.preventDefault();
             var copyStatus = copyToClipboard($(this).attr('data-text'));
@@ -1536,11 +1520,8 @@ export function dismissNotifications () {
                 message = $(this).hasClass('copyQueryBtn') ? window.Messages.strCopyToClipboard : window.Messages.strEditQuery;
             }
 
-            tooltip(
-                $('.ajax_notification'),
-                'span',
-                message
-            );
+            window.bootstrap.Tooltip.getOrCreateInstance('.ajax_notification', { title: message })
+                .setContent({ '.tooltip-inner': message });
         });
 
         $(document).on('mouseup', '.ajax_notification a', function (event) {
