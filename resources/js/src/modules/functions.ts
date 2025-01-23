@@ -123,11 +123,13 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
                 // Fix wrong timepicker z-index, doesn't work without timeout
                 $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
                 // Integrate tooltip text into dialog
-                var tooltip = $thisElement.uiTooltip('instance');
-                if (typeof tooltip !== 'undefined') {
-                    tooltip.disable();
-                    var $note = $('<p class="note"></div>');
-                    $note.text(tooltip.option('content'));
+                if ($thisElement.hasClass('timefield')) {
+                    const $note = $('<p class="note"></div>');
+                    $note.text(window.Messages.strMysqlAllowedValuesTipTime);
+                    $('div.ui-datepicker').append($note);
+                } else if ($thisElement.hasClass('datefield')) {
+                    const $note = $('<p class="note"></div>');
+                    $note.text(window.Messages.strMysqlAllowedValuesTipDate);
                     $('div.ui-datepicker').append($note);
                 }
             }, 0);
@@ -141,17 +143,13 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
             if (typeof $thisElement.data('datepicker') !== 'undefined') {
                 $thisElement.data('datepicker').inline = false;
             }
-
-            var tooltip = $thisElement.uiTooltip('instance');
-            if (typeof tooltip !== 'undefined') {
-                tooltip.enable();
-            }
         }
     };
     if (type === 'time') {
         $thisElement.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        tooltip($thisElement, 'input', window.Messages.strMysqlAllowedValuesTipTime);
+        window.bootstrap.Tooltip.getOrCreateInstance($thisElement.get(0), { title: window.Messages.strMysqlAllowedValuesTipTime })
+            .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
     } else {
         $thisElement.datetimepicker($.extend(defaultOptions, options));
     }
@@ -198,12 +196,13 @@ export function addDateTimePicker () {
             firstDay: window.firstDayOfCalendar
         });
 
-        // Add a tip regarding entering MySQL allowed-values
-        // for TIME and DATE data-type
-        if ($(this).hasClass('timefield')) {
-            tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
-        } else if ($(this).hasClass('datefield')) {
-            tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
+        // Add a tip regarding entering MySQL allowed-values for TIME and DATE data-type
+        if (this.classList.contains('timefield')) {
+            window.bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipTime })
+                .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
+        } else if (this.classList.contains('datefield')) {
+            window.bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipDate })
+                .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipDate });
         }
     });
 }
