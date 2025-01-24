@@ -1400,7 +1400,8 @@ SQL;
             . "REFERENCES dept_master (baz)\n"
             . ') ENGINE=InnoDB  DEFAULT CHARSET=latin1 COLLATE='
             . "latin1_general_ci COMMENT='List' AUTO_INCREMENT=5";
-        $result = $this->object->replaceWithAliases(null, $sqlQuery, $aliases, $db);
+        $flag = false;
+        $result = $this->object->replaceWithAliases(null, $sqlQuery, $aliases, $db, $flag);
 
         self::assertSame(
             "CREATE TABLE IF NOT EXISTS `bartest` (\n" .
@@ -1412,7 +1413,8 @@ SQL;
             $result,
         );
 
-        $result = $this->object->replaceWithAliases(null, $sqlQuery, [], '');
+        $flag = false;
+        $result = $this->object->replaceWithAliases(null, $sqlQuery, [], '', $flag);
 
         self::assertSame(
             "CREATE TABLE IF NOT EXISTS foo (\n" .
@@ -1433,7 +1435,8 @@ SQL;
             . 'IF @cnt<>0 THEN '
             . 'SET NEW.xy=1; '
             . 'END IF; END';
-        $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db);
+        $flag = false;
+        $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db, $flag);
 
         self::assertSame(
             'CREATE TRIGGER `BEFORE_bar_INSERT` BEFORE INSERT ON `f` FOR EACH ROW BEGIN ' .
@@ -1467,7 +1470,8 @@ RETURN TextString ;
 END
 SQL;
 
-        $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db);
+        $flag = false;
+        $result = $this->object->replaceWithAliases('$$', $sqlQuery, $aliases, $db, $flag);
 
         $expectedQuery = <<<'SQL'
 CREATE FUNCTION `HTML_UnEncode` (`x` TEXT CHARSET utf8) RETURNS TEXT CHARSET utf8  BEGIN
