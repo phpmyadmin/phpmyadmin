@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { AJAX } from '../../modules/ajax.ts';
 import { addDatepicker, prettyProfilingNum } from '../../modules/functions.ts';
 import { CommonParams } from '../../modules/common.ts';
-import tooltip from '../../modules/tooltip.ts';
 import createProfilingChart from '../../modules/functions/createProfilingChart.ts';
 import { escapeHtml } from '../../modules/functions/escape.ts';
 import getImageTag from '../../modules/functions/getImageTag.ts';
@@ -2151,7 +2150,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 tooltipContent += '<br>' + window.Messages.strMoreCountColumnExplanation;
             }
 
-            tooltip(amountColumn, 'th', tooltipContent);
+            new window.bootstrap.Tooltip(amountColumn.get(0), { title: tooltipContent, html: true });
         }
 
         $('#logTable').find('table').tablesorter({

@@ -278,7 +278,6 @@ class HeaderTest extends AbstractTestCase
             ['name' => 'vendor/jquery/jquery-migrate.min.js', 'fire' => 0],
             ['name' => 'vendor/sprintf.js', 'fire' => 0],
             ['name' => 'vendor/jquery/jquery-ui.min.js', 'fire' => 0],
-            ['name' => 'name-conflict-fixes.js', 'fire' => 0],
             ['name' => 'vendor/bootstrap/bootstrap.bundle.min.js', 'fire' => 0],
             ['name' => 'vendor/js.cookie.min.js', 'fire' => 0],
             ['name' => 'vendor/jquery/jquery.validate.min.js', 'fire' => 0],

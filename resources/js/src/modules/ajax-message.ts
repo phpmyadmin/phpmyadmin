@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import tooltip from './tooltip.ts';
 import highlightSql from './sql-highlight.ts';
 
 /**
@@ -115,9 +114,7 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
         $retval
             .delay(newTimeOut)
             .fadeOut('medium', function () {
-                if ($(this).is(':data(tooltip)')) {
-                    $(this).uiTooltip('destroy');
-                }
+                window.bootstrap.Tooltip.getInstance(this)?.dispose();
 
                 // Remove the notification
                 $(this).remove();
@@ -132,7 +129,8 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
          * Add a tooltip to the notification to let the user know that they
          * can dismiss the ajax notification by clicking on it.
          */
-        tooltip($retval, 'span', window.Messages.strDismiss);
+        window.bootstrap.Tooltip.getOrCreateInstance($retval.get(0), { title: window.Messages.strDismiss })
+            .setContent({ '.tooltip-inner': window.Messages.strDismiss });
     }
 
     // Hide spinner if this is not a loading message
@@ -152,15 +150,13 @@ const ajaxShowMessage = function (message = null, timeout = null, type = null) {
  */
 const ajaxRemoveMessage = function ($thisMessageBox: JQuery | boolean): void {
     if ($thisMessageBox !== undefined && typeof $thisMessageBox !== 'boolean' && $thisMessageBox instanceof $) {
+        window.bootstrap.Tooltip.getInstance($thisMessageBox.get(0))?.dispose();
+
         $thisMessageBox
             .stop(true, true)
             .fadeOut('medium');
 
-        if ($thisMessageBox.is(':data(tooltip)')) {
-            $thisMessageBox.uiTooltip('destroy');
-        } else {
-            $thisMessageBox.remove();
-        }
+        $thisMessageBox.remove();
     }
 };
 

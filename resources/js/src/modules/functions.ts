@@ -2,7 +2,6 @@ import $ from 'jquery';
 import { AJAX } from './ajax.ts';
 import { Navigation } from './navigation.ts';
 import { CommonParams } from './common.ts';
-import tooltip from './tooltip.ts';
 import highlightSql from './sql-highlight.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from './ajax-message.ts';
 import { escapeHtml } from './functions/escape.ts';
@@ -123,11 +122,13 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
                 // Fix wrong timepicker z-index, doesn't work without timeout
                 $('#ui-timepicker-div').css('z-index', $('#ui-datepicker-div').css('z-index'));
                 // Integrate tooltip text into dialog
-                var tooltip = $thisElement.uiTooltip('instance');
-                if (typeof tooltip !== 'undefined') {
-                    tooltip.disable();
-                    var $note = $('<p class="note"></div>');
-                    $note.text(tooltip.option('content'));
+                if ($thisElement.hasClass('timefield')) {
+                    const $note = $('<p class="note"></div>');
+                    $note.text(window.Messages.strMysqlAllowedValuesTipTime);
+                    $('div.ui-datepicker').append($note);
+                } else if ($thisElement.hasClass('datefield')) {
+                    const $note = $('<p class="note"></div>');
+                    $note.text(window.Messages.strMysqlAllowedValuesTipDate);
                     $('div.ui-datepicker').append($note);
                 }
             }, 0);
@@ -141,17 +142,13 @@ export function addDatepicker ($thisElement, type = undefined, options = undefin
             if (typeof $thisElement.data('datepicker') !== 'undefined') {
                 $thisElement.data('datepicker').inline = false;
             }
-
-            var tooltip = $thisElement.uiTooltip('instance');
-            if (typeof tooltip !== 'undefined') {
-                tooltip.enable();
-            }
         }
     };
     if (type === 'time') {
         $thisElement.timepicker($.extend(defaultOptions, options));
         // Add a tip regarding entering MySQL allowed-values for TIME data-type
-        tooltip($thisElement, 'input', window.Messages.strMysqlAllowedValuesTipTime);
+        window.bootstrap.Tooltip.getOrCreateInstance($thisElement.get(0), { title: window.Messages.strMysqlAllowedValuesTipTime })
+            .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
     } else {
         $thisElement.datetimepicker($.extend(defaultOptions, options));
     }
@@ -198,12 +195,13 @@ export function addDateTimePicker () {
             firstDay: window.firstDayOfCalendar
         });
 
-        // Add a tip regarding entering MySQL allowed-values
-        // for TIME and DATE data-type
-        if ($(this).hasClass('timefield')) {
-            tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipTime);
-        } else if ($(this).hasClass('datefield')) {
-            tooltip($(this), 'input', window.Messages.strMysqlAllowedValuesTipDate);
+        // Add a tip regarding entering MySQL allowed-values for TIME and DATE data-type
+        if (this.classList.contains('timefield')) {
+            window.bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipTime })
+                .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipTime });
+        } else if (this.classList.contains('datefield')) {
+            window.bootstrap.Tooltip.getOrCreateInstance(this, { title: window.Messages.strMysqlAllowedValuesTipDate })
+                .setContent({ '.tooltip-inner': window.Messages.strMysqlAllowedValuesTipDate });
         }
     });
 }
@@ -1507,22 +1505,6 @@ export function dismissNotifications () {
             }
         });
 
-        /**
-         * The below two functions hide the "Dismiss notification" tooltip when a user
-         * is hovering a link or button that is inside an ajax message
-         */
-        $(document).on('mouseover', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
-            if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
-                $(this).parents('span.ajax_notification').uiTooltip('disable');
-            }
-        });
-
-        $(document).on('mouseout', 'span.ajax_notification a, span.ajax_notification button, span.ajax_notification input', function () {
-            if ($(this).parents('span.ajax_notification').is(':data(tooltip)')) {
-                $(this).parents('span.ajax_notification').uiTooltip('enable');
-            }
-        });
-
         $(document).on('click', 'a.copyQueryBtn', function (event) {
             event.preventDefault();
             var copyStatus = copyToClipboard($(this).attr('data-text'));
@@ -1536,11 +1518,8 @@ export function dismissNotifications () {
                 message = $(this).hasClass('copyQueryBtn') ? window.Messages.strCopyToClipboard : window.Messages.strEditQuery;
             }
 
-            tooltip(
-                $('.ajax_notification'),
-                'span',
-                message
-            );
+            window.bootstrap.Tooltip.getOrCreateInstance('.ajax_notification', { title: message })
+                .setContent({ '.tooltip-inner': message });
         });
 
         $(document).on('mouseup', '.ajax_notification a', function (event) {
@@ -2846,13 +2825,19 @@ export function showIndexEditDialog ($outer) {
  *                    in the whole body
  **/
 export function showHints ($div: JQuery<HTMLElement> | undefined = undefined) {
+    if ($('#no_hint').length > 0) {
+        return;
+    }
+
     var $newDiv = $div;
     if ($newDiv === undefined || ! ($newDiv instanceof $) || $newDiv.length === 0) {
         $newDiv = $('body');
     }
 
-    $newDiv.find('.pma_hint').each(function () {
-        tooltip($(this).children('img'), 'img', $(this).children('span').html());
+    $newDiv.get(0).querySelectorAll('.pma_hint').forEach((hintElement: HTMLElement): void => {
+        const content = hintElement.querySelector('span').textContent;
+        window.bootstrap.Tooltip.getOrCreateInstance(hintElement, { title: content })
+            .setContent({ '.tooltip-inner': content });
     });
 }
 

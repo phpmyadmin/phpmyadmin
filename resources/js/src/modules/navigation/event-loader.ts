@@ -4,7 +4,15 @@ import { Navigation } from '../navigation.ts';
 import handleCreateViewModal from '../functions/handleCreateViewModal.ts';
 import { ajaxRemoveMessage, ajaxShowMessage } from '../ajax-message.ts';
 import isStorageSupported from '../functions/isStorageSupported.ts';
-import tooltip from '../tooltip.ts';
+
+function updateFavoriteTableButton (buttonId: string, htmlContent: string): void {
+    const currentButton = document.getElementById(buttonId);
+    // Remove current tooltip before changing the button
+    window.bootstrap.Tooltip.getInstance(currentButton)?.dispose();
+    currentButton.outerHTML = htmlContent;
+    // Enable tooltip of the new button
+    new window.bootstrap.Tooltip(document.getElementById(buttonId));
+}
 
 /**
  * @return {function}
@@ -260,7 +268,6 @@ export default function onloadNavigation () {
         $(document).on('click', '.favorite_table_anchor', function (event) {
             event.preventDefault();
             var $self = $(this);
-            var anchorId = $self.attr('id');
             if ($self.data('favtargetn') !== null) {
                 var $dataFavTargets = $('a[data-favtargets="' + $self.data('favtargetn') + '"]');
                 if ($dataFavTargets.length > 0) {
@@ -283,8 +290,10 @@ export default function onloadNavigation () {
                 success: function (data) {
                     if (data.changes) {
                         $('#favoriteTableList').html(data.list);
-                        $('#' + anchorId).parent().html(data.anchor);
-                        tooltip($('#' + anchorId), 'a', $('#' + anchorId).attr('title'));
+                        if ($self.attr('id')) {
+                            updateFavoriteTableButton($self.attr('id'), data.anchor);
+                        }
+
                         // Update localStorage.
                         if (isStorageSupported('localStorage')) {
                             window.localStorage.favoriteTables = data.favoriteTables;

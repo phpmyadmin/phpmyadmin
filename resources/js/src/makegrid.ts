@@ -10,7 +10,6 @@ import {
     updateCode
 } from './modules/functions.ts';
 import { CommonParams } from './modules/common.ts';
-import tooltip from './modules/tooltip.ts';
 import highlightSql from './modules/sql-highlight.ts';
 import { ajaxShowMessage } from './modules/ajax-message.ts';
 import { escapeHtml } from './modules/functions/escape.ts';
@@ -1761,9 +1760,9 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 })
                 .on('mouseleave', function () {
                     g.showReorderHint = false;
-                    $(this).uiTooltip('option', {
-                        content: g.updateHint()
-                    });
+
+                    window.bootstrap.Tooltip.getOrCreateInstance(this, { title: g.updateHint(), html: true })
+                        .setContent({ '.tooltip-inner': g.updateHint() });
                 })
                 .on('dblclick', function (e) {
                     e.preventDefault();
@@ -1835,8 +1834,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
 
             // make sure we have more than one column
             if ($firstRowCols.length > 1) {
-                var $colVisibTh = $(g.t).find('th:not(.draggable)').slice(0, 1);
-                tooltip($colVisibTh, 'th', window.Messages.strColVisibHint);
+                const colVisibTh = g.t.querySelectorAll('th:not(.draggable)');
+                const $colVisibTh = $(colVisibTh).slice(0, 1);
+
+                colVisibTh.forEach((tableHeader: HTMLElement) => {
+                    window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: window.Messages.strColVisibHint })
+                        .setContent({ '.tooltip-inner': window.Messages.strColVisibHint });
+                });
 
                 // create column visibility drop-down arrow(s)
                 $colVisibTh.each(function () {
@@ -2278,10 +2282,13 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
             $(g.gDiv).append(g.cEditTextarea);
 
             // add hint for grid editing feature when hovering "Edit" link in each table row
-            const editRowAnchor = $(g.t).find('.edit_row_anchor');
-            if (editRowAnchor.attr('data-grid-edit-config') !== 'disabled') {
-                editRowAnchor.find('a').tooltip();
-            }
+            g.t.querySelectorAll('.edit_row_anchor').forEach((editRowAnchor: HTMLElement) => {
+                if (editRowAnchor.dataset.gridEditConfig === 'disabled') {
+                    return;
+                }
+
+                window.bootstrap.Tooltip.getOrCreateInstance(editRowAnchor.querySelector('a'));
+            });
         }
     };
 
@@ -2374,22 +2381,29 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
     }
 
     // create tooltip for each <th> with draggable class
-    tooltip($(t).find('th.draggable'), 'th', g.updateHint());
+    t.querySelectorAll('th.draggable').forEach((tableHeader: HTMLElement) => {
+        window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
+            .setContent({ '.tooltip-inner': g.updateHint() });
+    });
 
     // register events for hint tooltip (anchors inside draggable th)
     $(t).find('th.draggable a')
         .on('mouseenter', function () {
             g.showSortHint = true;
             g.showMultiSortHint = true;
-            $(t).find('th.draggable').uiTooltip('option', {
-                content: g.updateHint()
+
+            t.querySelectorAll('th.draggable').forEach((tableHeader: HTMLElement) => {
+                window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
+                    .setContent({ '.tooltip-inner': g.updateHint() });
             });
         })
         .on('mouseleave', function () {
             g.showSortHint = false;
             g.showMultiSortHint = false;
-            $(t).find('th.draggable').uiTooltip('option', {
-                content: g.updateHint()
+
+            t.querySelectorAll('th.draggable').forEach((tableHeader: HTMLElement) => {
+                window.bootstrap.Tooltip.getOrCreateInstance(tableHeader, { title: g.updateHint(), html: true })
+                    .setContent({ '.tooltip-inner': g.updateHint() });
             });
         });
 
