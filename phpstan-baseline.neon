@@ -6459,7 +6459,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 8
+			count: 7
 			path: src/Display/Results.php
 
 		-
@@ -6613,12 +6613,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, int\|string\|false given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Parameter \#2 \$field of class PhpMyAdmin\\Display\\ForeignKeyRelatedTable constructor expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -6717,12 +6711,6 @@ parameters:
 		-
 			message: '#^Parameter \#9 \$colVisibElement of method PhpMyAdmin\\Display\\Results\:\:getOrderLinkAndSortedHeaderHtml\(\) expects int\|string\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 1
-			path: src/Display/Results.php
-
-		-
-			message: '#^Property PhpMyAdmin\\Display\\Results\:\:\$unlimNumRows \(int\|numeric\-string\|false\) is never assigned false so it can be removed from the property type\.$#'
-			identifier: property.unusedType
 			count: 1
 			path: src/Display/Results.php
 

@@ -112,9 +112,9 @@ class Results
     /**
      * the total number of rows returned by the SQL query without any appended "LIMIT" clause programmatically
      *
-     * @var int|numeric-string|false
+     * @var int|numeric-string
      */
-    private int|string|false $unlimNumRows = 0;
+    private int|string $unlimNumRows = 0;
 
     /**
      * meta information about fields
@@ -484,12 +484,11 @@ class Results
      *
      * @see     getTable()
      *
-     * @return array<int, DisplayParts|int|mixed> the first element is a {@see DisplayParts} object
+     * @return array{DisplayParts, int} the first element is a {@see DisplayParts} object
      *               the second element is the total number of rows returned
      *               by the SQL query without any programmatically appended
      *               LIMIT clause (just a copy of $unlim_num_rows if it exists,
      *               else computed inside this function)
-     * @psalm-return array{DisplayParts, int}
      */
     private function setDisplayPartsAndTotal(DisplayParts $displayParts): array
     {
@@ -614,7 +613,7 @@ class Results
             [$pageSelector, $numberTotalPage] = $this->getHtmlPageSelector();
         }
 
-        $isLastPage = $this->unlimNumRows !== -1 && $this->unlimNumRows !== false
+        $isLastPage = $this->unlimNumRows !== -1
             && ($isShowingAll
                 || ($this->isExactCount()
                     && (int) $_SESSION['tmpval']['pos'] + (int) $_SESSION['tmpval']['max_rows']
@@ -659,7 +658,7 @@ class Results
             'pos_next' => $posNext,
             'pos_last' => $posLast,
             'is_last_page' => $isLastPage,
-            'is_last_page_known' => $this->unlimNumRows !== false,
+            'is_last_page_known' => $this->unlimNumRows !== -1,
             'onsubmit' => $onsubmit,
         ];
     }
@@ -3380,8 +3379,6 @@ class Results
         string $preCount,
         string $afterCount,
     ): Message {
-        $unlimNumRows = $this->unlimNumRows; // To use in isset()
-
         if (! empty($statementInfo->statement->limit)) {
             $firstShownRec = $statementInfo->statement->limit->offset;
             $rowCount = $statementInfo->statement->limit->rowCount;
@@ -3401,7 +3398,7 @@ class Results
 
         $messageViewWarning = false;
         $table = new Table($this->table, $this->db, $this->dbi);
-        if ($table->isView() && $total == $this->config->settings['MaxExactCountViews']) {
+        if ($table->isView() && $total === -1) {
             $message = Message::notice(
                 __(
                     'This view has at least this number of rows. Please refer to %sdocumentation%s.',
@@ -3425,12 +3422,12 @@ class Results
         $message->addText('(');
 
         if ($messageViewWarning === false) {
-            if ($unlimNumRows != $total) {
+            if ($this->unlimNumRows != $total) {
                 $messageTotal = Message::notice(
                     $preCount . __('%1$s total, %2$s in query'),
                 );
                 $messageTotal->addParam(Util::formatNumber($total, 0));
-                $messageTotal->addParam(Util::formatNumber($unlimNumRows, 0));
+                $messageTotal->addParam(Util::formatNumber($this->unlimNumRows, 0));
             } else {
                 $messageTotal = Message::notice($preCount . __('%s total'));
                 $messageTotal->addParam(Util::formatNumber($total, 0));
