@@ -1206,25 +1206,15 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[$favoriteTables]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$value['db']]]></code>
-      <code><![CDATA[$value['table']]]></code>
-    </MixedArrayAccess>
-    <MixedArrayAssignment>
-      <code><![CDATA[$_SESSION['tmpval']['favorites_synced']]]></code>
-      <code><![CDATA[$_SESSION['tmpval']['favorites_synced'][Current::$server]]]></code>
-    </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$favoriteTables]]></code>
-      <code><![CDATA[$favoriteTables]]></code>
-      <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[Current::$database]]></code>
     </MixedOperand>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/RealRowCountController.php">
     <MixedArgument>
@@ -2259,6 +2249,23 @@
     <MixedAssignment>
       <code><![CDATA[$bkmAllUsers]]></code>
       <code><![CDATA[$sqlQuery]]></code>
+    </MixedAssignment>
+  </file>
+  <file src="src/Controllers/SyncFavoriteTablesController.php">
+    <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
+    </DeprecatedMethod>
+    <MixedArrayAccess>
+      <code><![CDATA[$value['db']]]></code>
+      <code><![CDATA[$value['table']]]></code>
+    </MixedArrayAccess>
+    <MixedArrayAssignment>
+      <code><![CDATA[$_SESSION['tmpval']['favorites_synced']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['favorites_synced'][Current::$server]]]></code>
+    </MixedArrayAssignment>
+    <MixedAssignment>
+      <code><![CDATA[$favoriteTables]]></code>
+      <code><![CDATA[$value]]></code>
     </MixedAssignment>
   </file>
   <file src="src/Controllers/Table/AddFieldController.php">

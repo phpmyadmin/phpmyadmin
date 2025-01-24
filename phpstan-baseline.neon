@@ -2338,12 +2338,6 @@ parameters:
 			path: src/Controllers/Database/Structure/EmptyTableController.php
 
 		-
-			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
-			identifier: foreach.nonIterable
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -2353,38 +2347,8 @@ parameters:
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
-			message: '#^Cannot access offset ''db'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: '#^Cannot access offset ''favorites_synced'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: '#^Cannot access offset ''table'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
-
-		-
-			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
-			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
@@ -3632,6 +3596,39 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
+
+		-
+			message: '''
+				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
+				Use dependency injection instead\.$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: src/Controllers/SyncFavoriteTablesController.php
+
+		-
+			message: '#^Cannot access offset ''db'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Controllers/SyncFavoriteTablesController.php
+
+		-
+			message: '#^Cannot access offset ''favorites_synced'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Controllers/SyncFavoriteTablesController.php
+
+		-
+			message: '#^Cannot access offset ''table'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Controllers/SyncFavoriteTablesController.php
+
+		-
+			message: '#^Cannot access offset int\<0, max\> on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/Controllers/SyncFavoriteTablesController.php
 
 		-
 			message: '#^Cannot access offset \(int\|string\) on mixed\.$#'
@@ -18578,6 +18575,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 2
 			path: tests/unit/Controllers/Sql/SetValuesControllerTest.php
+
+		-
+			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, string\|false given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/unit/Controllers/SyncFavoriteTablesControllerTest.php
 
 		-
 			message: '''

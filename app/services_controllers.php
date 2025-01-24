@@ -31,6 +31,7 @@ use PhpMyAdmin\Controllers\SchemaExportController;
 use PhpMyAdmin\Controllers\Server;
 use PhpMyAdmin\Controllers\Setup;
 use PhpMyAdmin\Controllers\Sql;
+use PhpMyAdmin\Controllers\SyncFavoriteTablesController;
 use PhpMyAdmin\Controllers\Table;
 use PhpMyAdmin\Controllers\TableController;
 use PhpMyAdmin\Controllers\ThemesController;
@@ -308,7 +309,6 @@ return [
             'arguments' => [
                 '$response' => '@response',
                 '$template' => '@template',
-                '$relation' => '@relation',
                 '$dbTableExists' => '@' . DbTableExists::class,
             ],
         ],
@@ -1359,6 +1359,13 @@ return [
                 '$response' => '@response',
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
+            ],
+        ],
+        SyncFavoriteTablesController::class => [
+            'class' => SyncFavoriteTablesController::class,
+            'arguments' => [
+                '$response' => '@response',
+                '$relation' => '@relation',
             ],
         ],
     ],

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
 use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\DbTableExists;
@@ -22,18 +21,17 @@ use PhpMyAdmin\Template;
 
 use function __;
 use function count;
+use function hash;
 use function is_array;
 use function json_decode;
 use function json_encode;
 use function md5;
-use function sha1;
 
 final class FavoriteTableController implements InvocableController
 {
     public function __construct(
         private readonly ResponseRenderer $response,
         private readonly Template $template,
-        private readonly Relation $relation,
         private readonly DbTableExists $dbTableExists,
     ) {
     }
@@ -52,29 +50,13 @@ final class FavoriteTableController implements InvocableController
 
         $favoriteInstance = RecentFavoriteTables::getInstance(TableType::Favorite);
 
-        $favoriteTables = $request->getParam('favoriteTables');
-        $favoriteTables = $favoriteTables !== null ? json_decode($favoriteTables, true) : [];
-
+        $favoriteTables = json_decode($request->getParsedBodyParamAsString('favoriteTables'), true);
         if (! is_array($favoriteTables)) {
             $favoriteTables = [];
         }
 
         // Required to keep each user's preferences separate.
-        $user = sha1($config->selectedServer['user']);
-
-        // Request for Synchronization of favorite tables.
-        if ($request->getParam('sync_favorite_tables') !== null) {
-            $relationParameters = $this->relation->getRelationParameters();
-            if ($relationParameters->favoriteTablesFeature !== null) {
-                $this->response->addJSON($this->synchronizeFavoriteTables(
-                    $favoriteInstance,
-                    $user,
-                    $favoriteTables,
-                ));
-            }
-
-            return $this->response->response();
-        }
+        $user = hash('sha1', $config->selectedServer['user']);
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -143,36 +125,5 @@ final class FavoriteTableController implements InvocableController
         $this->response->addJSON($json);
 
         return $this->response->response();
-    }
-
-    /**
-     * Synchronize favorite tables
-     *
-     * @param RecentFavoriteTables $favoriteInstance Instance of this class
-     * @param string               $user             The user hash
-     * @param mixed[]              $favoriteTables   Existing favorites
-     *
-     * @return mixed[]
-     */
-    private function synchronizeFavoriteTables(
-        RecentFavoriteTables $favoriteInstance,
-        string $user,
-        array $favoriteTables,
-    ): array {
-        if ($favoriteInstance->getTables() === [] && isset($favoriteTables[$user])) {
-            foreach ($favoriteTables[$user] as $value) {
-                $favoriteInstance->add(new RecentFavoriteTable(
-                    DatabaseName::from($value['db']),
-                    TableName::from($value['table']),
-                ));
-            }
-        }
-
-        $favoriteTables[$user] = $favoriteInstance->getTables();
-
-        // Set flag when localStorage and pmadb(if present) are in sync.
-        $_SESSION['tmpval']['favorites_synced'][Current::$server] = true;
-
-        return ['favoriteTables' => json_encode($favoriteTables), 'list' => $favoriteInstance->getHtmlList()];
     }
 }
