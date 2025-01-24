@@ -109,7 +109,7 @@ class EncodingTest extends AbstractTestCase
 
     public function testMbstring(): void
     {
-        Encoding::setEngine(Encoding::ENGINE_MB);
+        Encoding::setEngine(Encoding::ENGINE_MBSTRING);
         self::assertSame(
             "This is the Euro symbol '?'.",
             Encoding::convertString(

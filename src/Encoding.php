@@ -32,27 +32,16 @@ use function unlink;
  */
 class Encoding
 {
-    /**
-     * None encoding conversion engine
-     */
-    public const ENGINE_NONE = 0;
-
-    /**
-     * iconv encoding conversion engine
-     */
-    public const ENGINE_ICONV = 1;
-
-    /**
-     * mbstring encoding conversion engine
-     */
-    public const ENGINE_MB = 3;
+    public const ENGINE_NONE = 'none';
+    public const ENGINE_ICONV = 'iconv';
+    public const ENGINE_MBSTRING = 'mbstring';
 
     /**
      * Chosen encoding engine
      *
-     * @var self::ENGINE_NONE|self::ENGINE_ICONV|self::ENGINE_MB|null
+     * @var self::ENGINE_NONE|self::ENGINE_ICONV|self::ENGINE_MBSTRING|null
      */
-    private static int|null $engine = null;
+    private static string|null $engine = null;
 
     /**
      * Map of conversion engine configurations
@@ -64,15 +53,15 @@ class Encoding
      * - extension name to warn when missing
      */
     private const ENGINE_MAP = [
-        'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
-        'mb' => ['mb_convert_encoding', self::ENGINE_MB, 'mbstring'],
-        'none' => ['isset', self::ENGINE_NONE, ''],
+        'iconv' => 'iconv',
+        'mbstring' => 'mb_convert_encoding',
+        'none' => 'isset',
     ];
 
     /**
      * Order of automatic detection of engines
      */
-    private const ENGINE_ORDER = ['iconv', 'mb'];
+    private const ENGINE_ORDER = ['iconv', 'mbstring'];
 
     /**
      * Kanji encodings list
@@ -88,19 +77,19 @@ class Encoding
 
         /* Use user configuration */
         if (isset(self::ENGINE_MAP[$engine])) {
-            if (function_exists(self::ENGINE_MAP[$engine][0])) {
-                self::$engine = self::ENGINE_MAP[$engine][1];
+            if (function_exists(self::ENGINE_MAP[$engine])) {
+                self::$engine = $engine;
 
                 return;
             }
 
-            Core::warnMissingExtension(self::ENGINE_MAP[$engine][2]);
+            Core::warnMissingExtension($engine);
         }
 
         /* Autodetection */
         foreach (self::ENGINE_ORDER as $engine) {
-            if (function_exists(self::ENGINE_MAP[$engine][0])) {
-                self::$engine = self::ENGINE_MAP[$engine][1];
+            if (function_exists(self::ENGINE_MAP[$engine])) {
+                self::$engine = $engine;
 
                 return;
             }
@@ -113,9 +102,9 @@ class Encoding
     /**
      * Setter for engine. Use with caution, mostly useful for testing.
      *
-     * @param self::ENGINE_NONE|self::ENGINE_ICONV|self::ENGINE_MB $engine
+     * @param self::ENGINE_NONE|self::ENGINE_ICONV|self::ENGINE_MBSTRING $engine
      */
-    public static function setEngine(int $engine): void
+    public static function setEngine(string $engine): void
     {
         self::$engine = $engine;
     }
@@ -163,7 +152,7 @@ class Encoding
 
         return match (self::$engine) {
             self::ENGINE_ICONV => iconv($srcCharset, $destCharset . $iconvExtraParams, $what),
-            self::ENGINE_MB => mb_convert_encoding($what, $destCharset, $srcCharset),
+            self::ENGINE_MBSTRING => mb_convert_encoding($what, $destCharset, $srcCharset),
             default => $what,
         };
     }
@@ -301,7 +290,7 @@ class Encoding
     /**
      * Lists available encodings.
      *
-     * @return mixed[]
+     * @return string[]
      */
     public static function listEncodings(): array
     {
@@ -311,7 +300,7 @@ class Encoding
 
         /* Most engines do not support listing */
         $config = Config::getInstance();
-        if (self::$engine != self::ENGINE_MB) {
+        if (self::$engine != self::ENGINE_MBSTRING) {
             return array_filter($config->settings['AvailableCharsets'], static function (string $charset): bool {
                 // Removes any ignored character
                 $normalizedCharset = strtoupper((string) preg_replace(['/[^A-Za-z0-9\-\/]/'], '', $charset));

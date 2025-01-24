@@ -707,7 +707,7 @@ class SettingsTest extends TestCase
                     ['DefaultTabServer', 'status', '/server/status'],
                     ['DefaultTabDatabase', 'search', '/database/search'],
                     ['DefaultTabTable', 'search', '/table/search'],
-                    ['RecodingEngine', 'mb', 'mb'],
+                    ['RecodingEngine', 'mb', 'mbstring'],
                     ['RowActionLinks', 'both', 'both'],
                 ],
             ],
