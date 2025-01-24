@@ -7,6 +7,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
@@ -31,6 +32,7 @@ final class SearchControllerTest extends AbstractTestCase
             [['1', '2']],
         );
         $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
 
         $_POST['range_search'] = '1';
         $_POST['column'] = 'column';

@@ -8,6 +8,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\ZoomSearchController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Table\Search;
@@ -30,6 +31,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
 
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);
@@ -76,6 +78,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
 
         $dbiDummy = $this->createDbiDummy();
         $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
 
         $dbiDummy->addSelectDb('test_db');
         $dbiDummy->addResult('SELECT 1 FROM `test_db`.`test_table` LIMIT 1;', [['1']]);

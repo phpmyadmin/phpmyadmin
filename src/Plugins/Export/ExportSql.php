@@ -1302,7 +1302,7 @@ class ExportSql extends ExportPlugin
         $createQuery .= Util::backquote($viewAlias) . '(' . "\n";
 
         $dbi = DatabaseInterface::getInstance();
-        $columns = $dbi->getColumns($db, $view, true);
+        $columns = $dbi->getColumns($db, $view);
 
         $firstCol = true;
         foreach ($columns as $column) {

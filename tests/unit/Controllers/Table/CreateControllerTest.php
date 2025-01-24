@@ -33,8 +33,26 @@ class CreateControllerTest extends AbstractTestCase
 
         $dummyDbi = $this->createDbiDummy();
         $dummyDbi->addSelectDb('test_db');
-        $dummyDbi->addResult('SHOW COLUMNS FROM `test_db`.`new_test_table`', false);
-        $dummyDbi->addResult('SHOW FULL COLUMNS FROM `test_db`.`new_test_table`', false);
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'new_test_table\'',
+            false,
+        );
+        $dummyDbi->addResult(
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'new_test_table\'',
+            false,
+        );
         $dummyDbi->addResult('SHOW CREATE TABLE `test_db`.`new_test_table`', false);
         $dbi = $this->createDatabaseInterface($dummyDbi);
         DatabaseInterface::$instance = $dbi;

@@ -585,8 +585,8 @@ class ExportLatexTest extends AbstractTestCase
             );
 
         $columns = [
-            new Column('name1', 'set(abc)enum123', true, 'PRI', null, ''),
-            new Column('fields', '', false, 'COMP', 'def', ''),
+            new Column('name1', 'set(abc)enum123', null, true, 'PRI', null, '', '', ''),
+            new Column('fields', '', null, false, 'COMP', 'def', '', '', ''),
         ];
         $dbi->expects(self::once())
             ->method('getColumns')

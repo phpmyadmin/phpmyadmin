@@ -2356,9 +2356,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/CreateController.php">
-    <ImplicitToStringCast>
-      <code><![CDATA[Current::$database]]></code>
-    </ImplicitToStringCast>
     <MixedArgument>
       <code><![CDATA[$_POST['field_input_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_input_transformation_options'][$fieldindex]]]></code>
@@ -2374,6 +2371,7 @@
       <code><![CDATA[$_POST['field_transformation'][$fieldindex]]]></code>
       <code><![CDATA[$_POST['field_transformation_options'][$fieldindex]]]></code>
       <code><![CDATA[$mimetype]]></code>
+      <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -2533,14 +2531,12 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/GetFieldController.php">
-    <ImplicitToStringCast>
-      <code><![CDATA[Current::$database]]></code>
-    </ImplicitToStringCast>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
     <PossiblyInvalidArgument>
+      <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
     </PossiblyInvalidArgument>
   </file>
@@ -4019,7 +4015,7 @@
      *   Visible?: string,
      *   Expression?: string|null
      * }>]]></code>
-      <code><![CDATA[array_column($result->fetchAllAssoc(), 'Field')]]></code>
+      <code><![CDATA[array_column($result->fetchAllAssoc(), 'COLUMN_NAME')]]></code>
       <code><![CDATA[list<string>]]></code>
     </MixedReturnTypeCoercion>
     <NullableReturnStatement>
@@ -9198,10 +9194,6 @@
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
       <code><![CDATA[$this->uiprefs[$property->value]]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$indexed]]></code>
-      <code><![CDATA[$indexed]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
       <code><![CDATA[$existrel[$masterField]['foreign_db']]]></code>

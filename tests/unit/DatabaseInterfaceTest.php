@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests;
 
 use PhpMyAdmin\Column;
-use PhpMyAdmin\ColumnFull;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Settings\Server;
 use PhpMyAdmin\Current;
@@ -26,7 +25,7 @@ use function array_keys;
 
 #[CoversClass(DatabaseInterface::class)]
 #[CoversClass(Column::class)]
-#[CoversClass(ColumnFull::class)]
+#[CoversClass(Column::class)]
 class DatabaseInterfaceTest extends AbstractTestCase
 {
     protected function setUp(): void
@@ -859,13 +858,20 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addResult(
-            'SHOW COLUMNS FROM `test_db`.`test_table` LIKE \'test\\\\_column\'',
-            [['test_column', 'varchar(45)', 'NO', '', null, '']],
-            ['Field', 'Type', 'Null', 'Key', 'Default', 'Extra'],
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'test_table\''
+                . ' AND `COLUMN_NAME` = \'test_column\'',
+            [['test_column', 'varchar(45)', null, 'NO', '', null, '', '', '']],
+            ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $dbiDummy->addResult('SHOW INDEXES FROM `test_db`.`test_table`', []);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $column = new Column('test_column', 'varchar(45)', false, '', null, '');
+        $column = new Column('test_column', 'varchar(45)', null, false, '', null, '', '', '');
         self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column'));
         $dbiDummy->assertAllQueriesConsumed();
     }
@@ -876,14 +882,21 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->removeDefaultResults();
         $dbiDummy->addResult(
-            'SHOW FULL COLUMNS FROM `test_db`.`test_table` LIKE \'test\\\\_column\'',
+            'SELECT `COLUMN_NAME` AS `Field`, `COLUMN_TYPE` AS `Type`, `COLLATION_NAME` AS `Collation`,'
+                . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
+                . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
+                . ' `COLUMN_COMMENT` AS `Comment`'
+                . ' FROM `information_schema`.`COLUMNS`'
+                . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'test_table\''
+                . ' AND `COLUMN_NAME` = \'test_column\'',
             // phpcs:ignore Generic.Files.LineLength.TooLong
             [['test_column', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', '']],
             ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
         $dbiDummy->addResult('SHOW INDEXES FROM `test_db`.`test_table`', []);
         $dbi = $this->createDatabaseInterface($dbiDummy);
-        $column = new ColumnFull(
+        $column = new Column(
             'test_column',
             'varchar(45)',
             'utf8mb4_general_ci',
@@ -894,7 +907,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
             'select,insert,update,references',
             '',
         );
-        self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column', true));
+        self::assertEquals($column, $dbi->getColumn('test_db', 'test_table', 'test_column'));
         $dbiDummy->assertAllQueriesConsumed();
     }
 }

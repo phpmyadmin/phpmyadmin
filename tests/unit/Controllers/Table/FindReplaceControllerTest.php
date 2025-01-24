@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Template;
@@ -28,6 +29,7 @@ final class FindReplaceControllerTest extends AbstractTestCase
         // phpcs:ignore Generic.Files.LineLength.TooLong
         $dbiDummy->addResult('UPDATE `test_table` SET `id` = REPLACE(`id`, \'Field\', \'Column\') WHERE `id` LIKE \'%Field%\' COLLATE utf8mb4_bin', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
 
         $responseRenderer = new ResponseRenderer();
         $controller = new FindReplaceController(
@@ -73,6 +75,7 @@ final class FindReplaceControllerTest extends AbstractTestCase
         // phpcs:ignore Generic.Files.LineLength.TooLong
         $dbiDummy->addResult('UPDATE `test_table` SET `id` = `id` WHERE `id` RLIKE \'Field\' COLLATE utf8mb4_bin', true);
         $dbi = $this->createDatabaseInterface($dbiDummy);
+        DatabaseInterface::$instance = $dbi;
 
         $responseRenderer = new ResponseRenderer();
         $controller = new FindReplaceController(

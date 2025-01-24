@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table\Structure;
 
-use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -73,13 +73,13 @@ final class ChangeController implements InvocableController
      */
     private function displayHtmlForColumnChange(array $selected): void
     {
-        $fieldsMeta = $this->dbi->getColumns(Current::$database, Current::$table, true);
+        $fieldsMeta = $this->dbi->getColumns(Current::$database, Current::$table);
         $fieldsMeta = array_values(array_filter(
             $fieldsMeta,
-            static fn (ColumnFull $column): bool => in_array($column->field, $selected, true),
+            static fn (Column $column): bool => in_array($column->field, $selected, true),
         ));
         // TODO: Refactor columnsDefinition->displayForm() method to avoid unwrapping DTO
-        $fieldsMeta = array_map(static fn (ColumnFull $column): array => [
+        $fieldsMeta = array_map(static fn (Column $column): array => [
             'Field' => $column->field,
             'Type' => $column->type,
             'Collation' => $column->collation,

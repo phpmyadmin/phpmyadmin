@@ -105,7 +105,7 @@ final class SearchController implements InvocableController
     private function loadTableInfo(): void
     {
         // Gets the list and number of columns
-        $columns = $this->dbi->getColumns(Current::$database, Current::$table, true);
+        $columns = $this->dbi->getColumns(Current::$database, Current::$table);
         // Get details about the geometry functions
         $geomTypes = Gis::getDataTypes();
 

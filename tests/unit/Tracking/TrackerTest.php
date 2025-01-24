@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Tracking;
 
-use PhpMyAdmin\ColumnFull;
+use PhpMyAdmin\Column;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
@@ -168,8 +168,8 @@ class TrackerTest extends AbstractTestCase
          */
 
         $getColumnsResult = [
-            new ColumnFull('field1', 'int(11)', null, false, 'PRI', null, '', '', ''),
-            new ColumnFull('field2', 'text', null, false, '', null, '', '', ''),
+            new Column('field1', 'int(11)', null, false, 'PRI', null, '', '', ''),
+            new Column('field2', 'text', null, false, '', null, '', '', ''),
         ];
         $dbi->expects(self::once())->method('getColumns')
             ->with('pma_test', 'pma_tbl')

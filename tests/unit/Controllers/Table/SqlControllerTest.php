@@ -55,7 +55,7 @@ class SqlControllerTest extends AbstractTestCase
             new UserPreferences($this->dbi, new Relation($this->dbi), new Template()),
         );
         $pageSettings->init('Sql');
-        $fields = $this->dbi->getColumns('test_db', 'test_table', true);
+        $fields = $this->dbi->getColumns('test_db', 'test_table');
         $template = new Template();
 
         $expected = $pageSettings->getHTML();

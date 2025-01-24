@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers;
 
 use PhpMyAdmin\Controllers\ColumnController;
+use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Tests\AbstractTestCase;
@@ -20,6 +21,7 @@ final class ColumnControllerTest extends AbstractTestCase
             ->withParsedBody(['db' => 'test_db', 'table' => 'test_table']);
 
         $dbi = $this->createDatabaseInterface();
+        DatabaseInterface::$instance = $dbi;
         $responseRenderer = new ResponseRenderer();
         $controller = new ColumnController($responseRenderer, $dbi);
         $controller($request);
