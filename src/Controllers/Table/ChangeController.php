@@ -200,7 +200,7 @@ class ChangeController implements InvocableController
 
         //Insert/Edit form
         //If table has blob fields we have to disable ajax.
-        $isUpload = $this->config->get('enable_upload');
+        $isUpload = $this->config->isUploadEnabled();
         $htmlOutput .= $this->insertEdit->getHtmlForInsertEditFormHeader($hasBlobField, $isUpload);
 
         $htmlOutput .= Url::getHiddenInputs($formParams);

@@ -14,6 +14,7 @@ use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\DbiDummy;
 use PhpMyAdmin\Utils\HttpRequest;
+use PhpMyAdmin\Utils\UserAgentParser;
 use PhpMyAdmin\Version;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -50,7 +51,6 @@ class ErrorReportTest extends AbstractTestCase
         $_SERVER['SERVER_SOFTWARE'] = 'SERVER_SOFTWARE';
         $_SERVER['HTTP_USER_AGENT'] = 'HTTP_USER_AGENT';
         $_COOKIE['pma_lang'] = 'en';
-        $config->set('is_https', false);
 
         $this->errorReport = new ErrorReport(
             new HttpRequest(),
@@ -76,12 +76,14 @@ class ErrorReportTest extends AbstractTestCase
 
         $_SESSION['prev_errors'] = [new Error(0, 'error 0', 'file', 1), new Error(1, 'error 1', 'file', 2)];
 
-        $config = Config::getInstance();
+        $_SERVER['HTTP_USER_AGENT'] = 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.22 (KHTML, '
+                . 'like Gecko) Chrome/25.0.1364.172 Safari/537.22';
+        $userAgentParser = new UserAgentParser($_SERVER['HTTP_USER_AGENT']);
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => $config->get('PMA_USR_BROWSER_AGENT'),
-            'browser_version' => $config->get('PMA_USR_BROWSER_VER'),
-            'user_os' => $config->get('PMA_USR_OS'),
+            'browser_name' => $userAgentParser->getUserBrowserAgent(),
+            'browser_version' => $userAgentParser->getUserBrowserVersion(),
+            'user_os' => $userAgentParser->getClientPlatform(),
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $_COOKIE['pma_lang'],
@@ -180,12 +182,13 @@ class ErrorReportTest extends AbstractTestCase
         ];
         $_POST['description'] = 'description';
 
-        $config = Config::getInstance();
+        $_SERVER['HTTP_USER_AGENT'] = 'Opera/9.80 (X11; Linux x86_64; U; pl) Presto/2.7.62 Version/11.00';
+        $userAgentParser = new UserAgentParser($_SERVER['HTTP_USER_AGENT']);
         $report = [
             'pma_version' => Version::VERSION,
-            'browser_name' => $config->get('PMA_USR_BROWSER_AGENT'),
-            'browser_version' => $config->get('PMA_USR_BROWSER_VER'),
-            'user_os' => $config->get('PMA_USR_OS'),
+            'browser_name' => $userAgentParser->getUserBrowserAgent(),
+            'browser_version' => $userAgentParser->getUserBrowserVersion(),
+            'user_os' => $userAgentParser->getClientPlatform(),
             'server_software' => $_SERVER['SERVER_SOFTWARE'],
             'user_agent_string' => $_SERVER['HTTP_USER_AGENT'],
             'locale' => $_COOKIE['pma_lang'],

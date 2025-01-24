@@ -1007,7 +1007,7 @@ class Sql
                 ]),
                 'user' => $this->config->selectedServer['user'],
                 'sql_query' => $completeQuery,
-                'allow_shared_bookmarks' => $this->config->settings['AllowSharedBookmarks'],
+                'allow_shared_bookmarks' => $this->config->config->AllowSharedBookmarks,
             ]);
         }
 

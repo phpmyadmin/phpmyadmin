@@ -207,8 +207,7 @@ class ErrorHandler
 
             $config = Config::getInstance();
             if (
-                isset($config->settings['environment'])
-                && $config->settings['environment'] === 'development'
+                $config->config->environment === 'development'
                 && ! $isSilenced
             ) {
                 throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
@@ -235,7 +234,7 @@ class ErrorHandler
      */
     public function handleException(Throwable $exception): void
     {
-        $this->hideLocation = Config::getInstance()->get('environment') !== 'development';
+        $this->hideLocation = Config::getInstance()->config->environment !== 'development';
         $message = $exception::class;
         if (! ($exception instanceof \Error) || ! $this->hideLocation) {
             $message .= ': ' . $exception->getMessage();
@@ -371,7 +370,7 @@ class ErrorHandler
         $retval = '';
         // display errors if SendErrorReports is set to 'ask'.
         $config = Config::getInstance();
-        if ($config->settings['SendErrorReports'] !== 'never') {
+        if ($config->config->SendErrorReports !== 'never') {
             foreach ($this->getErrors() as $error) {
                 if ($error->isDisplayed()) {
                     continue;
@@ -383,11 +382,11 @@ class ErrorHandler
             $retval .= $this->getDispUserErrors();
         }
 
-        if ($config->settings['SendErrorReports'] !== 'never' && $this->countActualErrors() !== 0) {
+        if ($config->config->SendErrorReports !== 'never' && $this->countActualErrors() !== 0) {
             // add report button.
             $retval .= '<form method="post" action="' . Url::getFromRoute('/error-report')
                     . '" id="pma_report_errors_form"';
-            if ($config->settings['SendErrorReports'] === 'always') {
+            if ($config->config->SendErrorReports === 'always') {
                 // in case of 'always', generate 'invisible' form.
                 $retval .= ' class="hide"';
             }
@@ -407,7 +406,7 @@ class ErrorHandler
                     . __('Automatically send report next time')
                     . '</label>';
 
-            if ($config->settings['SendErrorReports'] === 'ask') {
+            if ($config->config->SendErrorReports === 'ask') {
                 // add ignore buttons
                 $retval .= '<input type="submit" value="'
                         . __('Ignore')
@@ -473,7 +472,7 @@ class ErrorHandler
      */
     public function hasDisplayErrors(): bool
     {
-        if (Config::getInstance()->settings['SendErrorReports'] !== 'never') {
+        if (Config::getInstance()->config->SendErrorReports !== 'never') {
             return $this->getErrors() !== [];
         }
 
@@ -500,7 +499,7 @@ class ErrorHandler
      */
     public function hasErrorsForPrompt(): bool
     {
-        return Config::getInstance()->settings['SendErrorReports'] !== 'never'
+        return Config::getInstance()->config->SendErrorReports !== 'never'
             && $this->countActualErrors() !== 0;
     }
 
@@ -520,7 +519,7 @@ class ErrorHandler
         $response = ResponseRenderer::getInstance();
         $jsCode = '';
         $config = Config::getInstance();
-        if ($config->settings['SendErrorReports'] === 'always') {
+        if ($config->config->SendErrorReports === 'always') {
             if ($response->isAjax()) {
                 // set flag for automatic report submission.
                 $response->addJSON('sendErrorAlways', '1');
@@ -535,7 +534,7 @@ class ErrorHandler
                                 scrollTop:$(document).height()
                             }, "slow");';
             }
-        } elseif ($config->settings['SendErrorReports'] === 'ask') {
+        } elseif ($config->config->SendErrorReports === 'ask') {
             //ask user whether to submit errors or not.
             if (! $response->isAjax()) {
                 // js code to show appropriate msgs, event binding & focusing.

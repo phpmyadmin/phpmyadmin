@@ -228,7 +228,7 @@ class Header
             }
         }
 
-        if ($this->config->settings['SendErrorReports'] !== 'never') {
+        if ($this->config->config->SendErrorReports !== 'never') {
             $this->scripts->addFile('vendor/tracekit.js');
             $this->scripts->addFile('error_report.js');
         }
@@ -237,7 +237,7 @@ class Header
             $this->scripts->addFile('drag_drop_import.js');
         }
 
-        if (! $this->config->get('DisableShortcutKeys')) {
+        if (! $this->config->config->DisableShortcutKeys) {
             $this->scripts->addFile('shortcuts_handler.js');
         }
 
@@ -253,11 +253,11 @@ class Header
             $navigation = (new Navigation($this->template, new Relation($dbi), $dbi, $this->config))->getDisplay();
         }
 
-        $customHeader = Config::renderHeader();
+        $customHeader = self::renderHeader();
 
         // offer to load user preferences from localStorage
         if (
-            $this->config->get('user_preferences') === 'session'
+            $this->config->userPreferences === 'session'
             && ! isset($_SESSION['userprefs_autoload'])
         ) {
             $loadUserPreferences = $this->userPreferences->autoloadGetHeader();
@@ -502,5 +502,13 @@ class Header
     public function getConsole(): Console
     {
         return $this->console;
+    }
+
+    /**
+     * Renders user configured footer
+     */
+    public static function renderHeader(): string
+    {
+        return Generator::renderCustom(CUSTOM_HEADER_FILE, 'pma_header');
     }
 }

@@ -800,8 +800,8 @@ class LanguageManager
             return $this->availableLocales;
         }
 
-        $filterLanguages = $this->config->get('FilterLanguages');
-        if (! is_string($filterLanguages) || $filterLanguages === '') {
+        $filterLanguages = $this->config->config->FilterLanguages;
+        if ($filterLanguages === '') {
             return $this->availableLocales = $this->listLocaleDir();
         }
 
@@ -884,8 +884,8 @@ class LanguageManager
      */
     public function selectLanguage(): Language
     {
-        $languageFromConfig = $this->config->get('Lang');
-        if (is_string($languageFromConfig) && $languageFromConfig !== '') {
+        $languageFromConfig = $this->config->config->Lang;
+        if ($languageFromConfig !== '') {
             $lang = $this->getLanguage($languageFromConfig);
             if ($lang !== false) {
                 return $lang;
@@ -949,7 +949,7 @@ class LanguageManager
         }
 
         // Fallback to English
-        return $langs[$this->config->get('DefaultLang')] ?? $langs['en'];
+        return $langs[$this->config->config->DefaultLang] ?? $langs['en'];
     }
 
     /**

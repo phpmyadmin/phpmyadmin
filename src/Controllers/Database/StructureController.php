@@ -509,7 +509,7 @@ final class StructureController implements InvocableController
                 'overhead_check' => $overheadCheck,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,
-                'disable_multi_table' => $config->settings['DisableMultiTableMaintenance'],
+                'disable_multi_table' => $config->config->DisableMultiTableMaintenance,
                 'central_columns_work' => $relationParameters->centralColumnsFeature !== null,
             ],
         ]);

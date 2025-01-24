@@ -49,7 +49,6 @@ class FeaturesForm extends \PhpMyAdmin\Config\Forms\User\FeaturesForm
         ];
         $result['Developer'] = ['UserprefsDeveloperTab', 'DBG/sql'];
         $result['Other_core_settings'] = [
-            'OBGzip',
             'PersistentConnections',
             'ExecTimeLimit',
             'MemoryLimit',

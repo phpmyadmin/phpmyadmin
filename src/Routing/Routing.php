@@ -65,7 +65,7 @@ class Routing
 
     public static function skipCache(): bool
     {
-        return (Config::getInstance()->settings['environment'] ?? '') === 'development';
+        return Config::getInstance()->config->environment === 'development';
     }
 
     public static function canWriteCache(): bool

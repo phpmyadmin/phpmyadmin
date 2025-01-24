@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin;
 
 use PhpMyAdmin\Error\ErrorHandler;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Routing\Routing;
 use Traversable;
 
@@ -166,7 +167,7 @@ class Footer
                 $gitRevisionInfo = $git->getGitRevisionInfo();
             }
 
-            $footer = Config::renderFooter();
+            $footer = self::renderFooter();
         }
 
         return [
@@ -178,5 +179,13 @@ class Footer
             'git_revision_info' => $gitRevisionInfo ?? [],
             'footer' => $footer ?? '',
         ];
+    }
+
+    /**
+     * Renders user configured footer
+     */
+    public static function renderFooter(): string
+    {
+        return Generator::renderCustom(CUSTOM_FOOTER_FILE, 'pma_footer');
     }
 }

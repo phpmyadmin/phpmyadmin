@@ -125,7 +125,7 @@ final class HomeController implements InvocableController
             'has_check_page_refresh' => self::$hasCheckPageRefresh,
             'eol' => isset($_SESSION['eol']) && is_scalar($_SESSION['eol'])
                 ? $_SESSION['eol']
-                : ($this->config->get('PMA_IS_WINDOWS') ? 'win' : 'unix'),
+                : ($this->config->isWindows() ? 'win' : 'unix'),
         ]));
     }
 

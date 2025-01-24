@@ -38,6 +38,7 @@ use function htmlspecialchars;
 use function htmlspecialchars_decode;
 use function implode;
 use function in_array;
+use function ini_get;
 use function is_array;
 use function is_numeric;
 use function is_object;
@@ -50,6 +51,7 @@ use function mb_strpos;
 use function mb_strrpos;
 use function mb_strtolower;
 use function mb_substr;
+use function min;
 use function number_format;
 use function ord;
 use function parse_url;
@@ -1988,5 +1990,27 @@ class Util
         }
 
         return $_SESSION['tmpval']['table_limit_offset'];
+    }
+
+    /**
+     * Maximum upload size as limited by PHP
+     * Used with permission from Moodle (https://moodle.org/) by Martin Dougiamas
+     */
+    public static function getUploadSizeInBytes(): int
+    {
+        $fileSize = ini_get('upload_max_filesize');
+
+        if ($fileSize === '' || $fileSize === false) {
+            $fileSize = '5M';
+        }
+
+        $size = Core::getRealSize($fileSize);
+        $postSize = ini_get('post_max_size');
+
+        if ($postSize !== '' && $postSize !== false) {
+            $size = min($size, Core::getRealSize($postSize));
+        }
+
+        return $size;
     }
 }
