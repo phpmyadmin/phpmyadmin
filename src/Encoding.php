@@ -86,11 +86,7 @@ class Encoding
      */
     public static function initEngine(): void
     {
-        $engine = 'auto';
-        $config = Config::getInstance();
-        if (isset($config->settings['RecodingEngine'])) {
-            $engine = $config->settings['RecodingEngine'];
-        }
+        $engine = Config::getInstance()->config->RecodingEngine;
 
         /* Use user configuration */
         if (isset(self::$enginemap[$engine])) {
