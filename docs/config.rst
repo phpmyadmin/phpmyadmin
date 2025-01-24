@@ -3050,6 +3050,10 @@ Web server settings
     a certain patch is known to cause data corruption when having enabled
     buffering.
 
+    .. deprecated:: 6.0.0
+
+        This setting was removed.
+
 .. config:option:: $cfg['TrustedProxies']
 
     :type: array
