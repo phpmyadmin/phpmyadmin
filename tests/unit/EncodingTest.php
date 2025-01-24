@@ -54,8 +54,7 @@ class EncodingTest extends AbstractTestCase
 
     public function testInvalidConversion(): void
     {
-        // Invalid value to use default case
-        Encoding::setEngine(-1);
+        Encoding::setEngine(Encoding::ENGINE_NONE);
         self::assertSame(
             'test',
             Encoding::convertString('UTF-8', 'anything', 'test'),

@@ -49,6 +49,8 @@ class Encoding
 
     /**
      * Chosen encoding engine
+     *
+     * @var self::ENGINE_NONE|self::ENGINE_ICONV|self::ENGINE_MB|null
      */
     private static int|null $engine = null;
 
@@ -60,10 +62,8 @@ class Encoding
      * - function to detect
      * - engine contant
      * - extension name to warn when missing
-     *
-     * @var mixed[]
      */
-    private static array $enginemap = [
+    private const ENGINE_MAP = [
         'iconv' => ['iconv', self::ENGINE_ICONV, 'iconv'],
         'mb' => ['mb_convert_encoding', self::ENGINE_MB, 'mbstring'],
         'none' => ['isset', self::ENGINE_NONE, ''],
@@ -71,10 +71,8 @@ class Encoding
 
     /**
      * Order of automatic detection of engines
-     *
-     * @var mixed[]
      */
-    private static array $engineorder = ['iconv', 'mb'];
+    private const ENGINE_ORDER = ['iconv', 'mb'];
 
     /**
      * Kanji encodings list
@@ -89,20 +87,20 @@ class Encoding
         $engine = Config::getInstance()->config->RecodingEngine;
 
         /* Use user configuration */
-        if (isset(self::$enginemap[$engine])) {
-            if (function_exists(self::$enginemap[$engine][0])) {
-                self::$engine = self::$enginemap[$engine][1];
+        if (isset(self::ENGINE_MAP[$engine])) {
+            if (function_exists(self::ENGINE_MAP[$engine][0])) {
+                self::$engine = self::ENGINE_MAP[$engine][1];
 
                 return;
             }
 
-            Core::warnMissingExtension(self::$enginemap[$engine][2]);
+            Core::warnMissingExtension(self::ENGINE_MAP[$engine][2]);
         }
 
         /* Autodetection */
-        foreach (self::$engineorder as $engine) {
-            if (function_exists(self::$enginemap[$engine][0])) {
-                self::$engine = self::$enginemap[$engine][1];
+        foreach (self::ENGINE_ORDER as $engine) {
+            if (function_exists(self::ENGINE_MAP[$engine][0])) {
+                self::$engine = self::ENGINE_MAP[$engine][1];
 
                 return;
             }
@@ -115,7 +113,7 @@ class Encoding
     /**
      * Setter for engine. Use with caution, mostly useful for testing.
      *
-     * @param int $engine Engine encoding
+     * @param self::ENGINE_NONE|self::ENGINE_ICONV|self::ENGINE_MB $engine
      */
     public static function setEngine(int $engine): void
     {
