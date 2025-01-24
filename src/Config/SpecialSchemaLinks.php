@@ -12,63 +12,55 @@ use PhpMyAdmin\Url;
 
 class SpecialSchemaLinks
 {
+    /** @var array<'mysql'|'information_schema',
+     *   array<string,
+     *    array<string,
+     *     array{
+     *      'link_param': string,
+     *      'link_dependancy_params'?: array<
+     *       int,
+     *       array{'param_info': string, 'column_name': string}
+     *      >,
+     *      'default_page': string
+     *     }
+     *    >
+     *   >
+     *  > */
+    private static array $specialSchemaLinks = [];
+
     /**
      * This array represent the details for generating links inside
      * special schemas like mysql, information_schema etc.
      * Major element represent a schema.
      * All the strings in this array represented in lower case
      *
-     * Array structure ex:
-     * array(
-     *     // Database name is the major element
-     *     'mysql' => array(
-     *         // Table name
-     *         'db' => array(
-     *             // Column name
-     *             'user' => array(
-     *                 // Main url param (can be an array where represent sql)
-     *                 'link_param' => 'username',
-     *                 // Other url params
-     *                 'link_dependancy_params' => array(
-     *                     0 => array(
-     *                         // URL parameter name
-     *                         // (can be array where url param has static value)
-     *                         'param_info' => 'hostname',
-     *                         // Column name related to url param
-     *                         'column_name' => 'host'
-     *                     )
-     *                 ),
-     *                 // Page to link
-     *                 'default_page' => './' . Url::getFromRoute('/server/privileges')
-     *             )
-     *         )
-     *     )
-     * );
+     * @param 'mysql'|'information_schema' $database
      *
-     * @return array<string,array<string,array<string,array<string,array<int,array<string,string>>|string>>>>
-     * @phpstan-return array<
-     *              string, array<
-     *                  string, array<
-     *                      string,
-     *                      array{
-     *                          'link_param': string,
-     *                          'link_dependancy_params'?: array<
-     *                                                      int,
-     *                                                      array{'param_info': string, 'column_name': string}
-     *                                                     >,
-     *                          'default_page': string
-     *                      }>
-     *                  >
-     *             >
-     * }
+     * @return array{
+     *   'link_param': string,
+     *   'link_dependancy_params'?: array<
+     *     int,
+     *     array{'param_info': string, 'column_name': string}
+     *   >,
+     *   'default_page': string
+     * }|null
      */
-    public static function get(): array
+    public static function get(string $database, string $table, string $column): array|null
+    {
+        if (self::$specialSchemaLinks === []) {
+            self::setSpecialSchemaLinks();
+        }
+
+        return self::$specialSchemaLinks[$database][$table][$column] ?? null;
+    }
+
+    private static function setSpecialSchemaLinks(): void
     {
         $config = Config::getInstance();
         $defaultPageDatabase = './' . Url::getFromRoute($config->settings['DefaultTabDatabase']);
         $defaultPageTable = './' . Url::getFromRoute($config->settings['DefaultTabTable']);
 
-        return [
+        self::$specialSchemaLinks = [
             'mysql' => [
                 'columns_priv' => [
                     'user' => [
