@@ -15,7 +15,6 @@ use function fopen;
 use function function_exists;
 use function fwrite;
 use function iconv;
-use function is_string;
 use function mb_convert_encoding;
 use function mb_convert_kana;
 use function mb_detect_encoding;
@@ -164,12 +163,8 @@ class Encoding
 
         $config = Config::getInstance();
         $iconvExtraParams = '';
-        if (
-            isset($config->settings['IconvExtraParams'])
-            && is_string($config->settings['IconvExtraParams'])
-            && str_starts_with($config->settings['IconvExtraParams'], '//')
-        ) {
-            $iconvExtraParams = $config->settings['IconvExtraParams'];
+        if (str_starts_with($config->config->IconvExtraParams, '//')) {
+            $iconvExtraParams = $config->config->IconvExtraParams;
         }
 
         return match (self::$engine) {

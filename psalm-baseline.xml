@@ -4348,11 +4348,6 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[setKanjiEncodings]]></code>
     </PossiblyUnusedMethod>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($config->settings['IconvExtraParams'])]]></code>
-      <code><![CDATA[isset($config->settings['IconvExtraParams'])
-            && is_string($config->settings['IconvExtraParams'])]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Engines/Innodb.php">
     <DeprecatedMethod>

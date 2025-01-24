@@ -6796,12 +6796,6 @@ parameters:
 			path: src/Encoding.php
 
 		-
-			message: '#^Right side of && is always true\.$#'
-			identifier: booleanAnd.rightAlwaysTrue
-			count: 1
-			path: src/Encoding.php
-
-		-
 			message: '#^Static property PhpMyAdmin\\Encoding\:\:\$engine \(int\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 2
