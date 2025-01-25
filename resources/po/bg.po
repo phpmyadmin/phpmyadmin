@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-25 15:00+0000\n"
-"PO-Revision-Date: 2023-04-04 08:37+0000\n"
-"Last-Translator: 109247019824 <stoyan@gmx.com>\n"
+"PO-Revision-Date: 2025-01-25 16:10+0000\n"
+"Last-Translator: 109247019824 <109247019824@users.noreply.hosted.weblate.org>"
+"\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13622,11 +13623,10 @@ msgid "Double-click to copy column name."
 msgstr "Щракнете двукратно за копиране името на колона."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr ""
-"Кликнете падащата стрелка,<br>за да превключите видимостта на колоните."
+"Натиснете стрелката на падащото меню, за да превключите видимостта на "
+"колоните."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
