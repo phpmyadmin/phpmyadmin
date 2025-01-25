@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-19 00:24+0000\n"
+"POT-Creation-Date: 2025-01-25 15:00+0000\n"
 "PO-Revision-Date: 2024-04-18 08:29+0000\n"
 "Last-Translator: Nicoara Alex <alex.nicoara@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -66,7 +66,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
-#: src/Util.php:1349
+#: src/Util.php:1361
 msgid "Settings"
 msgstr "Setări"
 
@@ -206,7 +206,7 @@ msgstr "după %s"
 #: resources/templates/server/status/processes/list.twig:72
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
-#: src/Config/ConfigFile.php:553
+#: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:225
 #: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2040
 #: src/Plugins/Schema/SchemaPdf.php:96
@@ -552,8 +552,8 @@ msgstr "Grup de noduri"
 #: resources/templates/database/structure/structure_table_row.twig:48
 #: resources/templates/server/privileges/privileges_table.twig:357
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:1
-#: src/Config/ConfigFile.php:517 src/Config/ConfigFile.php:531
-#: src/Config/ConfigFile.php:585 src/Config/ConfigFile.php:595
+#: src/Config/ConfigFile.php:518 src/Config/ConfigFile.php:532
+#: src/Config/ConfigFile.php:586 src/Config/ConfigFile.php:596
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
@@ -561,8 +561,8 @@ msgstr "Grup de noduri"
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1039 src/Util.php:1358
-#: src/Util.php:1375
+#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1051 src/Util.php:1370
+#: src/Util.php:1387
 msgid "Structure"
 msgstr "Structură"
 
@@ -604,7 +604,7 @@ msgstr "Nume"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:291
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:260
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:339
 #: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
@@ -818,7 +818,7 @@ msgstr "Resetează"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:671 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:185
 msgid "Documentation"
 msgstr "Documentație"
@@ -847,7 +847,7 @@ msgstr "Această setare este dezactivată, nu va fi aplicată la configurarea ta
 #: resources/templates/relation/check_relations.twig:462
 #: resources/templates/relation/check_relations.twig:487
 #: resources/templates/relation/check_relations.twig:512
-#: src/Config/ConfigFile.php:568 src/Config/ConfigFile.php:605
+#: src/Config/ConfigFile.php:569 src/Config/ConfigFile.php:606
 msgid "Disabled"
 msgstr "Dezactivată"
 
@@ -988,8 +988,8 @@ msgstr "Reinterogare"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2469 src/Html/Generator.php:517
-#: src/Html/Generator.php:785
+#: src/Display/Results.php:2466 src/Html/Generator.php:520
+#: src/Html/Generator.php:788
 msgid "Edit"
 msgstr "Editează"
 
@@ -1007,7 +1007,7 @@ msgstr "Editează"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:408
-#: src/Display/Results.php:2528 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2525 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Șterge"
 
@@ -1099,7 +1099,7 @@ msgstr "Explică"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:604
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
 msgstr "Creez profilul"
 
@@ -1180,8 +1180,8 @@ msgstr "Timp luat:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1080
-#: src/Html/Generator.php:573
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1081
+#: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "Reîmprospătează"
 
@@ -1743,9 +1743,9 @@ msgstr "Nume eveniment"
 #: resources/templates/database/events/index.twig:46
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
-#: src/Config/ConfigFile.php:577
+#: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1345
+#: src/Server/Status/Processes.php:96 src/Util.php:1357
 msgid "Status"
 msgstr "Stare"
 
@@ -1814,7 +1814,7 @@ msgstr "Definitor"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1367
+#: src/Util.php:1379
 msgid "Events"
 msgstr "Evenimente"
 
@@ -1876,7 +1876,7 @@ msgstr "Bifează tot"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1347 src/Util.php:1362 src/Util.php:1379
+#: src/Util.php:1359 src/Util.php:1374 src/Util.php:1391
 msgid "Export"
 msgstr "Exportă"
 
@@ -2012,7 +2012,7 @@ msgstr "selectează coloana"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:720
-#: src/Controllers/Table/ChangeController.php:212
+#: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "Arată"
 
@@ -2033,7 +2033,7 @@ msgid "criteria"
 msgstr "criteriu"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1868
+#: src/Util.php:1880
 msgid "Sort"
 msgstr "Sortează"
 
@@ -2044,8 +2044,8 @@ msgstr "Sortează"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1876 src/Util.php:1893
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1457
+#: src/Display/Results.php:1464 src/Util.php:1888 src/Util.php:1905
 msgid "Ascending"
 msgstr "Crescător"
 
@@ -2056,8 +2056,8 @@ msgstr "Crescător"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1881 src/Util.php:1898
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1452
+#: src/Display/Results.php:1469 src/Util.php:1893 src/Util.php:1910
 msgid "Descending"
 msgstr "Descrescător"
 
@@ -2066,8 +2066,8 @@ msgid "Add as"
 msgstr "Adaugă ca"
 
 #: resources/templates/database/multi_table_query/form.twig:116
-#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
-#: src/Config/ConfigFile.php:564
+#: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
+#: src/Config/ConfigFile.php:565
 msgid "Text"
 msgstr "Text"
 
@@ -2093,7 +2093,7 @@ msgid "Update query"
 msgstr "Actualizează interogarea"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#: src/Html/Generator.php:542
+#: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Trimite interogarea"
 
@@ -2240,9 +2240,9 @@ msgstr "Nume gazdă"
 #: resources/templates/server/privileges/privileges_summary.twig:16
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
-#: src/Config/ConfigFile.php:581
+#: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1365 src/Util.php:1381
+#: src/Menu.php:365 src/Util.php:1377 src/Util.php:1393
 msgid "Privileges"
 msgstr "Privilegii"
 
@@ -2390,13 +2390,13 @@ msgstr "Parametri rutină"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:290
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:259
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Funcție"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1366
+#: src/Util.php:1378
 msgid "Routines"
 msgstr "Rutine"
 
@@ -2406,10 +2406,10 @@ msgstr "Rutine"
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
-#: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
-#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1041
-#: src/Util.php:1360 src/Util.php:1377
+#: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
+#: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1053
+#: src/Util.php:1372 src/Util.php:1389
 msgid "Search"
 msgstr "Caută"
 
@@ -2509,9 +2509,9 @@ msgstr[2] "%1$s de potriviri în <strong>%2$s</strong>"
 #: resources/templates/database/search/results.twig:25
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:271
-#: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
-#: src/Config/ConfigFile.php:603 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1043 src/Util.php:1374
+#: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
+#: src/Config/ConfigFile.php:604 src/Menu.php:207
+#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1055 src/Util.php:1386
 msgid "Browse"
 msgstr "Răsfoiește"
 
@@ -2540,7 +2540,7 @@ msgstr[2] "%s de tabele"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1351
+#: src/Server/Status/Data.php:124 src/Util.php:1363
 #, fuzzy
 msgid "Replication"
 msgstr "Replicare"
@@ -2647,7 +2647,7 @@ msgid "Copy table with prefix"
 msgstr "Copiază tabelul cu prefix"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1371
+#: src/Menu.php:405 src/Util.php:1383
 msgid "Central columns"
 msgstr "Coloane centrale"
 
@@ -2725,7 +2725,7 @@ msgstr "Dicționar de date"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:125
-#: src/Controllers/Export/ExportController.php:287
+#: src/Controllers/Export/ExportController.php:288
 msgid "No tables found in database."
 msgstr "Niciun tabel găsit în baza de date."
 
@@ -2792,9 +2792,9 @@ msgid "Replicated"
 msgstr "Reprodus"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
-#: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:523
-#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1042 src/Util.php:1378
+#: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
+#: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
+#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1054 src/Util.php:1390
 msgid "Insert"
 msgstr "Inserează"
 
@@ -3050,7 +3050,7 @@ msgstr "Binar Popular"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:494
-#: src/Display/Results.php:2473 src/Html/Generator.php:80
+#: src/Display/Results.php:2470 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Copiază"
 
@@ -3061,7 +3061,7 @@ msgstr "Operații rezultate interogări"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:493
-#: src/Export/Export.php:1099
+#: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr "Copiază în clipboard"
 
@@ -3091,7 +3091,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:736 src/Import/Import.php:119 src/InsertEdit.php:489
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:458
 #: src/Message.php:138
 msgid "Error"
 msgstr "Eroare"
@@ -3118,7 +3118,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr "Poți examina datele în raportul de erori:"
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:406
 msgid "Automatically send report next time"
 msgstr "Trimite automat raportul data viitoare"
 
@@ -3172,7 +3172,7 @@ msgstr "Actualizează"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:760
+#: src/Html/Generator.php:763
 msgid "SQL query:"
 msgstr "Interogare SQL:"
 
@@ -3598,7 +3598,7 @@ msgstr "Ia-l"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:438
-#: src/Export/Export.php:1122 src/Html/Generator.php:851
+#: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "Înapoi"
@@ -3609,8 +3609,8 @@ msgstr "Înapoi"
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1348 src/Util.php:1363
-#: src/Util.php:1380
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1360 src/Util.php:1375
+#: src/Util.php:1392
 msgid "Import"
 msgstr "Importă"
 
@@ -3650,7 +3650,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "De asemenea, poți trage și plasa un fișier în orice pagină."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:490
+#: src/InsertEdit.php:459
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Directorul pe care l-ai setat pentru încărcare nu poate fi găsit."
 
@@ -3768,7 +3768,7 @@ msgstr "Alegere server:"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:91
-#: src/Plugins/Auth/AuthenticationHttp.php:86
+#: src/Plugins/Auth/AuthenticationHttp.php:87
 #, php-format
 msgid "Welcome to %s"
 msgstr "Bun venit la %s"
@@ -3962,8 +3962,8 @@ msgstr "Dump SQL"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1343
+#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1355
 msgid "Databases"
 msgstr "Baze de date"
 
@@ -4432,7 +4432,7 @@ msgstr ""
 "actualizat."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1350
+#: src/Server/Status/Data.php:119 src/Util.php:1362
 msgid "Binary log"
 msgstr "Jurnal binar"
 
@@ -4576,8 +4576,8 @@ msgstr "Descriere"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
-#: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:579
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1352
+#: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1364
 msgid "Variables"
 msgstr "Variabile"
 
@@ -4598,7 +4598,7 @@ msgid "Importing into the current server"
 msgstr "Import în serverul curent"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1354
+#: src/Util.php:1366
 msgid "Plugins"
 msgstr "Module"
 
@@ -4910,7 +4910,7 @@ msgstr "Permite citirea datelor."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:498
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:467
 msgid "Or"
 msgstr "Sau"
 
@@ -5874,13 +5874,13 @@ msgstr "Aplică un divizor"
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:151
-#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:301
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:303
 msgid "KiB"
 msgstr "KiO"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
-#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:303
+#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:305
 msgid "MiB"
 msgstr "MiO"
 
@@ -5952,7 +5952,7 @@ msgid "Start auto refresh"
 msgstr "Pornește împrospătarea automată"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2547
+#: src/Display/Results.php:2544
 #, fuzzy
 msgid "Kill"
 msgstr "Oprește"
@@ -6347,7 +6347,7 @@ msgstr "Profilez rezultatele"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1027 src/Display/Results.php:3131
+#: src/Database/Routines.php:1027 src/Display/Results.php:3120
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "Interogarea SQL a fost executată cu succes."
@@ -6658,7 +6658,7 @@ msgstr "Trage pentru a reordona"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:492
 #: src/Controllers/JavaScriptMessagesController.php:644
-#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1519
+#: src/Error/ErrorHandler.php:412 src/InsertEdit.php:1461
 msgid "Ignore"
 msgstr "Ignoră"
 
@@ -6873,8 +6873,8 @@ msgid "Check referential integrity"
 msgstr "Verifică integritatea referențială"
 
 #: resources/templates/table/operations/view.twig:8
-#: src/Config/ConfigFile.php:591 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1044 src/Util.php:1364 src/Util.php:1382
+#: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
+#: src/Menu.php:358 src/Util.php:1056 src/Util.php:1376 src/Util.php:1394
 msgid "Operations"
 msgstr "Operații"
 
@@ -7355,7 +7355,7 @@ msgstr "Exportul declanșatorului %s"
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
 #: src/Plugins/Export/ExportSql.php:1909
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1368 src/Util.php:1384
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1380 src/Util.php:1396
 msgid "Triggers"
 msgstr "Declanșatori"
 
@@ -8989,140 +8989,129 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "Vietnameză"
 
-#: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
-#: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1040
-#: src/Util.php:1344 src/Util.php:1359 src/Util.php:1376
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1052
+#: src/Util.php:1356 src/Util.php:1371 src/Util.php:1388
 msgid "SQL"
 msgstr "SQL"
 
-#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
-#: src/Config/ConfigFile.php:564
+#: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
+#: src/Config/ConfigFile.php:565
 msgid "Icons"
 msgstr "Iconuri"
 
-#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:551
-#: src/Config/ConfigFile.php:556 src/Config/ConfigFile.php:564
+#: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:552
+#: src/Config/ConfigFile.php:557 src/Config/ConfigFile.php:565
 msgid "Both"
 msgstr "Ambele"
 
-#: src/Config/ConfigFile.php:548
+#: src/Config/ConfigFile.php:549
 msgid "Nowhere"
 msgstr "Nicăieri"
 
-#: src/Config/ConfigFile.php:549
+#: src/Config/ConfigFile.php:550
 msgid "Left"
 msgstr "Stânga"
 
-#: src/Config/ConfigFile.php:550
+#: src/Config/ConfigFile.php:551
 msgid "Right"
 msgstr "Dreapta"
 
-#: src/Config/ConfigFile.php:566
+#: src/Config/ConfigFile.php:567
 msgid "Click"
 msgstr "Dă clic"
 
-#: src/Config/ConfigFile.php:567
+#: src/Config/ConfigFile.php:568
 msgid "Double click"
 msgstr "Clic dublu"
 
-#: src/Config/ConfigFile.php:570
+#: src/Config/ConfigFile.php:571
 msgid "key"
 msgstr "cheie"
 
-#: src/Config/ConfigFile.php:570
+#: src/Config/ConfigFile.php:571
 msgid "display column"
 msgstr "afișează coloana"
 
-#: src/Config/ConfigFile.php:573
+#: src/Config/ConfigFile.php:574
 msgid "Welcome"
 msgstr "Bine ai venit"
 
-#: src/Config/ConfigFile.php:605
+#: src/Config/ConfigFile.php:606
 msgid "Open"
 msgstr "Deschis"
 
-#: src/Config/ConfigFile.php:605
+#: src/Config/ConfigFile.php:606
 msgid "Closed"
 msgstr "Închis"
 
-#: src/Config/ConfigFile.php:607
+#: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:748
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Luni"
 
-#: src/Config/ConfigFile.php:608
+#: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:749
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Marți"
 
-#: src/Config/ConfigFile.php:609
+#: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:750
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Miercuri"
 
-#: src/Config/ConfigFile.php:610
+#: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:751
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Joi"
 
-#: src/Config/ConfigFile.php:611
+#: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:752
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Vineri"
 
-#: src/Config/ConfigFile.php:612
+#: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:753
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sâmbătă"
 
-#: src/Config/ConfigFile.php:613
+#: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Duminică"
 
-#: src/Config/ConfigFile.php:616
+#: src/Config/ConfigFile.php:617
 msgid "Ask before sending error reports"
 msgstr "Întreabă înainte de trimiterea rapoartelor de erori"
 
-#: src/Config/ConfigFile.php:617
+#: src/Config/ConfigFile.php:618
 msgid "Always send error reports"
 msgstr "Trimite mereu rapoarte de erori"
 
-#: src/Config/ConfigFile.php:618
+#: src/Config/ConfigFile.php:619
 msgid "Never send error reports"
 msgstr "Nu trimite niciodată rapoarte de erori"
 
-#: src/Config/ConfigFile.php:621
+#: src/Config/ConfigFile.php:622
 msgid "Server default"
 msgstr "Server implicit"
 
-#: src/Config/ConfigFile.php:622
+#: src/Config/ConfigFile.php:623
 msgid "Enable"
 msgstr "Activează"
 
-#: src/Config/ConfigFile.php:623
+#: src/Config/ConfigFile.php:624
 msgid "Disable"
 msgstr "Dezactivează"
-
-#: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
-#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
-#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
-#: src/Plugins/Export/ExportLatex.php:113
-#: src/Plugins/Export/ExportMediawiki.php:68
-#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:267
-#: src/Plugins/Export/ExportTexytext.php:70
-msgid "structure"
-msgstr "structură"
 
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
@@ -9132,8 +9121,8 @@ msgstr "structură"
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
 #: src/Plugins/Export/ExportSql.php:267
 #: src/Plugins/Export/ExportTexytext.php:70
-msgid "data"
-msgstr "date"
+msgid "structure"
+msgstr "structură"
 
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
@@ -9143,34 +9132,45 @@ msgstr "date"
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
 #: src/Plugins/Export/ExportSql.php:267
 #: src/Plugins/Export/ExportTexytext.php:70
+msgid "data"
+msgstr "date"
+
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
+#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
+#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Plugins/Export/ExportLatex.php:113
+#: src/Plugins/Export/ExportMediawiki.php:68
+#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
+#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportTexytext.php:70
 msgid "structure and data"
 msgstr "structură și date"
 
-#: src/Config/ConfigFile.php:668
+#: src/Config/ConfigFile.php:669
 msgid "Quick - display only the minimal options to configure"
 msgstr "Rapid - afișează numai opțiunile minime pentru configurare"
 
-#: src/Config/ConfigFile.php:669
+#: src/Config/ConfigFile.php:670
 msgid "Custom - display all possible options to configure"
 msgstr "Personalizat - afișează toate opțiunile posibile pentru configurare"
 
-#: src/Config/ConfigFile.php:670
+#: src/Config/ConfigFile.php:671
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "Personalizat - ca mai sus, dar fără alegerea rapid/personalizat"
 
-#: src/Config/ConfigFile.php:722
+#: src/Config/ConfigFile.php:723
 msgid "complete inserts"
 msgstr "inserări complete"
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:724
 msgid "extended inserts"
 msgstr "inserări extinse"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:725
 msgid "both of the above"
 msgstr "ambele de mai sus"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:726
 msgid "neither of the above"
 msgstr "niciuna din cele de sus"
 
@@ -11521,11 +11521,11 @@ msgstr "Arată statistici"
 msgid "Skip locked tables"
 msgstr "Omite tabele blocate"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:495
 msgid "Explain SQL"
 msgstr "Explică SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:553
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:556
 msgid "Create PHP code"
 msgstr "Creează cod PHP"
 
@@ -11730,30 +11730,16 @@ msgstr "Transformări implicite"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr "Nu pot salva setările, formularul de configurare trimis conține erori!"
 
-#: src/Config.php:620
+#: src/Config.php:439
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "Fișierul de configurare existent (%s) nu poate fi citit."
 
-#: src/Config.php:656
+#: src/Config.php:472
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr ""
 "Permisiuni greșite la fișierul de configurare, nu ar trebui să poată fi "
 "scris de oricine!"
-
-#: src/Config.php:670
-msgid "Failed to read configuration file!"
-msgstr "Citirea fișierului de configurare a eșuat!"
-
-#: src/Config.php:672
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
-msgid "This usually means there is a syntax error in it."
-msgstr ""
-"De obicei, asta înseamnă că are o eroare de sintaxă, te rog verifică toate "
-"erorile de mai jos."
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -11882,7 +11868,7 @@ msgstr ""
 "%1$sCompresia și decompresia GZip%2$s necesită funcții (%3$s) care nu sunt "
 "disponibile pe acest sistem."
 
-#: src/Config/Settings.php:3165
+#: src/Config/Settings.php:3149
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -12062,7 +12048,7 @@ msgstr "Există deja o pagină numită „%s”. Te rog să o redenumești în a
 #: src/Controllers/Database/SqlController.php:57
 #: src/Controllers/Database/StructureController.php:138
 #: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/Structure/FavoriteTableController.php:82
+#: src/Controllers/Database/Structure/FavoriteTableController.php:64
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
 #: src/Controllers/Database/TrackingController.php:54
 #: src/Controllers/Database/TrackingController.php:59
@@ -12074,11 +12060,11 @@ msgstr "Există deja o pagină numită „%s”. Te rog să o redenumești în a
 #: src/Controllers/Operations/TableController.php:89
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Server/Databases/DestroyController.php:57
+#: src/Controllers/Server/Databases/DestroyController.php:64
 #: src/Controllers/Table/AddFieldController.php:159
 #: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/ChangeController.php:65
-#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:68
+#: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:85
 #: src/Controllers/Table/ChartController.php:90
 #: src/Controllers/Table/ChartController.php:120
@@ -12193,8 +12179,8 @@ msgstr "Nu ai privilegii pentru a gestiona utilizatorii!"
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Table/AddFieldController.php:173
 #: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/ChangeController.php:79
-#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:99
 #: src/Controllers/Table/ChartController.php:104
 #: src/Controllers/Table/ChartController.php:207
@@ -12285,7 +12271,7 @@ msgid "Success!"
 msgstr "Succes!"
 
 #: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3408
+#: src/Display/Results.php:3397
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12298,7 +12284,7 @@ msgstr ""
 msgid "unknown"
 msgstr "necunoscut"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:118
+#: src/Controllers/Database/Structure/FavoriteTableController.php:100
 msgid "Favorite List is full!"
 msgstr "Lista de favorite este plină!"
 
@@ -12353,7 +12339,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Poate vrei să reîmprospătezi pagina."
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1060
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1061
 msgid "Bad type!"
 msgstr "Tip incorect!"
 
@@ -12480,7 +12466,7 @@ msgstr ""
 "această cauză, unele funcționalități, cum ar fi raportarea erorilor sau "
 "verificarea versiunii, sunt dezactivate."
 
-#: src/Controllers/Import/ImportController.php:159
+#: src/Controllers/Import/ImportController.php:160
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12489,22 +12475,22 @@ msgstr ""
 "Probabil ai încercat să încarci un fișier care este prea mare. Te rog "
 "consultă %sdocumentația%s pentru o soluție ocolitoare pentru această limită."
 
-#: src/Controllers/Import/ImportController.php:185
+#: src/Controllers/Import/ImportController.php:186
 #, fuzzy
 msgid "Incorrect format parameter"
 msgstr "Formular specificat incorect!"
 
-#: src/Controllers/Import/ImportController.php:296
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:297
+#: src/Controllers/Import/ImportController.php:511
 msgid "Showing bookmark"
 msgstr "Arăt semn de carte"
 
-#: src/Controllers/Import/ImportController.php:316
-#: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:317
+#: src/Controllers/Import/ImportController.php:507
 msgid "The bookmark has been deleted."
 msgstr "Semnul de carte a fost șters."
 
-#: src/Controllers/Import/ImportController.php:428
+#: src/Controllers/Import/ImportController.php:429
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -12514,7 +12500,7 @@ msgstr ""
 "fie dimensiunea fișierului a depășit dimensiunea maximă permisă de "
 "configurarea ta PHP. Vezi [doc@faq1-16]FAQ 1.16[/doc]."
 
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:519
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
@@ -12522,7 +12508,7 @@ msgstr[0] "Importul a fost finalizat cu succes, o interogare executată."
 msgstr[1] "Importul a fost finalizat cu succes, %d interogări executate."
 msgstr[2] "Importul a fost finalizat cu succes, %d de interogări executate."
 
-#: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:556
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -12531,7 +12517,7 @@ msgstr ""
 "Timpul de executare a scriptului a expirat, dacă vrei să termini importul, "
 "te rog %sretrimite același fișier%s și importul va fi reluat."
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:566
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -12540,12 +12526,12 @@ msgstr ""
 "obicei asta înseamnă că phpMyAdmin nu va putea finaliza acest import decât "
 "dacă mărești limitele de timp php."
 
-#: src/Controllers/Import/ImportController.php:627
+#: src/Controllers/Import/ImportController.php:629
 #: src/Controllers/Sql/SqlController.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Declarațiile „ELIMINĂ BAZA DE DATE” sunt dezactivate."
 
-#: src/Controllers/Import/ImportController.php:676 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
@@ -12821,14 +12807,14 @@ msgid "Other"
 msgstr "Altele"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:389
-#: src/Util.php:421
+#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:391
+#: src/Util.php:423
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:387
-#: src/Util.php:419
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:389
+#: src/Util.php:421
 msgid "."
 msgstr ","
 
@@ -12932,27 +12918,27 @@ msgid "Bytes received"
 msgstr "Octeți primiți"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:299
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:301
 msgid "B"
 msgstr "O"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:305
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:307
 msgid "GiB"
 msgstr "GiO"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:307
+#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:309
 msgid "TiB"
 msgstr "TiO"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:311
 msgid "PiB"
 msgstr "PiO"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:313
 msgid "EiB"
 msgstr "EiO"
 
@@ -13831,7 +13817,9 @@ msgid "Double-click to copy column name."
 msgstr "Dă dublu clic pentru a copia numele coloanei."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-msgid "Click the drop-down arrow<br>to toggle column's visibility."
+#, fuzzy
+#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
+msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "Dă clic pe săgeată jos<br>pentru a comuta vizibilitatea coloanei."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
@@ -13969,7 +13957,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Te rog uită-te în partea de jos a acestei ferestre."
 
 #: src/Controllers/JavaScriptMessagesController.php:647
-#: src/Error/ErrorHandler.php:413
+#: src/Error/ErrorHandler.php:417
 msgid "Ignore All"
 msgstr "Ignoră tot"
 
@@ -14127,7 +14115,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabelul %s există deja!"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:275
+#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:244
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Ascunde"
@@ -14192,98 +14180,98 @@ msgctxt "Month name"
 msgid "December"
 msgstr "Decembrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:495
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "ian."
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:496
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "feb."
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "mart."
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "apr."
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "iun."
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "iul."
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "aug."
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "sept."
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "oct."
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "nov."
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "dec."
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
 #, fuzzy
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "D"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "L"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Ma"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mi"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "J"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "V"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "S"
@@ -14602,7 +14590,7 @@ msgstr "Lipsește parametrul:"
 msgid "Database %1$s has been created."
 msgstr "Baza de date %1$s a fost creată."
 
-#: src/Controllers/Server/Databases/DestroyController.php:80
+#: src/Controllers/Server/Databases/DestroyController.php:87
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15440,7 +15428,7 @@ msgstr "Există prea multe asocieri fără indexuri."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:202 src/Sql.php:863
+#: src/InsertEdit.php:161 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
@@ -15667,7 +15655,7 @@ msgstr "Următoarea interogare a eșuat: „%s”"
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:108 src/Database/Routines.php:134
 #: src/Database/Routines.php:212 src/Database/Routines.php:226
-#: src/Database/Routines.php:1008 src/Html/Generator.php:801
+#: src/Database/Routines.php:1008 src/Html/Generator.php:804
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -15792,7 +15780,7 @@ msgstr[0] "Un rând afectat de ultima declarație din cadrul procedurii."
 msgstr[1] "%d rânduri afectate de ultima declarație din cadrul procedurii."
 msgstr[2] "%d de rânduri afectate de ultima declarație din cadrul procedurii."
 
-#: src/Dbal/DatabaseInterface.php:1065
+#: src/Dbal/DatabaseInterface.php:1051
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -15804,11 +15792,11 @@ msgstr ""
 "em]. phpMyAdmin folosește în prezent fusul orar implicit al serverului de "
 "baze de date."
 
-#: src/Dbal/DatabaseInterface.php:1107
+#: src/Dbal/DatabaseInterface.php:1093
 msgid "Failed to set configured collation connection!"
 msgstr "Setarea conexiunii de colaționare configurată a eșuat!"
 
-#: src/Dbal/DatabaseInterface.php:1640
+#: src/Dbal/DatabaseInterface.php:1626
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 "Conexiunea pentru utilizatorul de control definit în configurarea ta a eșuat."
@@ -15820,31 +15808,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2504 src/Display/Results.php:2519
+#: src/Display/Results.php:2501 src/Display/Results.php:2516
 msgid "The row has been deleted."
 msgstr "Rândul a fost șters."
 
-#: src/Display/Results.php:3417
+#: src/Display/Results.php:3406
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "Arăt rândurile %1s - %2s"
 
-#: src/Display/Results.php:3431
+#: src/Display/Results.php:3420
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr "%1$s în total, %2$s în interogare"
 
-#: src/Display/Results.php:3436
+#: src/Display/Results.php:3425
 #, php-format
 msgid "%s total"
 msgstr "%s total"
 
-#: src/Display/Results.php:3449 src/Sql.php:869
+#: src/Display/Results.php:3438 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
 
-#: src/Display/Results.php:3747
+#: src/Display/Results.php:3734
 msgid "Link not found!"
 msgstr "Legătură negăsită!"
 
@@ -16199,7 +16187,7 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Prea multe mesaje de eroare, unele nu sunt afișate."
 
-#: src/Error/ErrorHandler.php:397
+#: src/Error/ErrorHandler.php:401
 msgid "Report"
 msgstr "Raport"
 
@@ -16212,7 +16200,7 @@ msgstr "Nu te pot autentifica în serverul MySQL"
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
 #: src/Plugins/Auth/AuthenticationConfig.php:84
-#: src/Plugins/Auth/AuthenticationHttp.php:81
+#: src/Plugins/Auth/AuthenticationHttp.php:82
 msgid "Access denied!"
 msgstr "Acces refuzat!"
 
@@ -16236,13 +16224,13 @@ msgstr ""
 "Te-am deconectat automat din cauza inactivității de %s secunde. Odată ce te "
 "conectezi din nou, ar trebui să poți relua munca de unde ai rămas."
 
-#: src/Export/Export.php:188 src/Export/Export.php:224
-#: src/Export/Export.php:432
+#: src/Export/Export.php:189 src/Export/Export.php:225
+#: src/Export/Export.php:433
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "Spațiu insuficient pentru a salva fișierul %s."
 
-#: src/Export/Export.php:385
+#: src/Export/Export.php:386
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
@@ -16250,18 +16238,18 @@ msgstr ""
 "Fișierul %s există deja pe server, schimbă-i numele sau verifică opțiunea de "
 "a-l suprascrie."
 
-#: src/Export/Export.php:392 src/Export/Export.php:402
+#: src/Export/Export.php:393 src/Export/Export.php:403
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "Serverul web nu are permisiunea de a salva fișierul %s."
 
-#: src/Export/Export.php:439
+#: src/Export/Export.php:440
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "Dump-ul a fost salvat în fișierul %s."
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:778
+#: src/Export/Export.php:779
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -16346,53 +16334,53 @@ msgstr ""
 msgid "Session not found."
 msgstr "Sesiunea nu a fost găsită."
 
-#: src/Html/Generator.php:148
+#: src/Html/Generator.php:151
 #, php-format
 msgid "Jump to database “%s”."
 msgstr "Sari la baza de date „%s”."
 
-#: src/Html/Generator.php:214
+#: src/Html/Generator.php:217
 msgid "SSL is not being used"
 msgstr "Nu se folosește SSL"
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:224
 msgid "SSL is used with disabled verification"
 msgstr "Este folosit SSL cu verificarea dezactivată"
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:226
 msgid "SSL is used without certification authority"
 msgstr "Este folosit SSL fără autoritatea de certificare"
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:229
 msgid "SSL is used"
 msgstr "Este folosit SSL"
 
-#: src/Html/Generator.php:330
+#: src/Html/Generator.php:333
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:331
+#: src/Html/Generator.php:334
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:504
 msgid "Skip Explain SQL"
 msgstr "Sari peste Explică SQL"
 
-#: src/Html/Generator.php:533
+#: src/Html/Generator.php:536
 msgid "Without PHP code"
 msgstr "Fără cod PHP"
 
-#: src/Html/Generator.php:618
+#: src/Html/Generator.php:621
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "Editează în-linie"
 
-#: src/Html/Generator.php:743
+#: src/Html/Generator.php:746
 msgid "Static analysis:"
 msgstr "Analiză statică:"
 
-#: src/Html/Generator.php:746
+#: src/Html/Generator.php:749
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr "Au fost găsite %d erori în timpul analizei."
@@ -16550,15 +16538,15 @@ msgid ""
 msgstr ""
 "Indexurile %1$s și %2$s par să fie egale și unul ar putea fi înlăturat."
 
-#: src/InsertEdit.php:499
+#: src/InsertEdit.php:468
 msgid "web server upload directory:"
 msgstr "director încărcare pe server web:"
 
-#: src/InsertEdit.php:927 src/Sql.php:860
+#: src/InsertEdit.php:886 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
-#: src/InsertEdit.php:951 src/Sql.php:840
+#: src/InsertEdit.php:910 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -16575,7 +16563,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (lângă <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1369 src/Util.php:1383
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1381 src/Util.php:1395
 msgid "Tracking"
 msgstr "Urmărire"
 
@@ -16583,11 +16571,11 @@ msgstr "Urmărire"
 msgid "Database seems to be empty!"
 msgstr "Baza de date pare să fie goală!"
 
-#: src/Menu.php:335 src/Util.php:1361
+#: src/Menu.php:335 src/Util.php:1373
 msgid "Query"
 msgstr "Interogare"
 
-#: src/Menu.php:398 src/Util.php:1370
+#: src/Menu.php:398 src/Util.php:1382
 msgid "Designer"
 msgstr "Designer"
 
@@ -16595,11 +16583,11 @@ msgstr "Designer"
 msgid "User accounts"
 msgstr "Conturi utilizator"
 
-#: src/Menu.php:508 src/Util.php:1353
+#: src/Menu.php:508 src/Util.php:1365
 msgid "Charsets"
 msgstr "Seturi de caractere"
 
-#: src/Menu.php:513 src/Util.php:1355
+#: src/Menu.php:513 src/Util.php:1367
 msgid "Engines"
 msgstr "Motoare"
 
@@ -17094,26 +17082,26 @@ msgstr ""
 msgid "Retry to connect"
 msgstr "Reîncearcă să te conectezi"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:126
+#: src/Plugins/Auth/AuthenticationCookie.php:127
 msgid "Your session has expired. Please log in again."
 msgstr "Sesiunea ta a expirat. Te rog autentifică-te din nou."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:235
+#: src/Plugins/Auth/AuthenticationCookie.php:236
 #, fuzzy
 #| msgid ""
 #| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr "Lipsește verificarea reCAPTCHA, poate a fost blocată de adblock?"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:270
+#: src/Plugins/Auth/AuthenticationCookie.php:271
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "Conectarea la serviciul reCAPTCHA a eșuat!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:272
+#: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Entered captcha is wrong, try again!"
 msgstr "Captcha introdusă este greșită, încearcă din nou!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:284
+#: src/Plugins/Auth/AuthenticationCookie.php:285
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
@@ -17121,11 +17109,11 @@ msgstr ""
 "Parola ta este prea lungă. Pentru a preveni atacurile DoS, phpMyAdmin "
 "restricționează parolele la mai puțin de 2000 caractere."
 
-#: src/Plugins/Auth/AuthenticationCookie.php:302
+#: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "Nu ai voie să te autentifici în acest server MySQL!"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:91
+#: src/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
 msgstr "Nume de utilizator incorect/parolă incorectă. Acces refuzat."
 
@@ -17139,7 +17127,7 @@ msgstr "Nu pot găsi scriptul de autentificare signon:"
 msgid "Invalid authentication method set in configuration:"
 msgstr "Metodă de autentificare invalidă setată în configurare:"
 
-#: src/Plugins/AuthenticationPlugin.php:312
+#: src/Plugins/AuthenticationPlugin.php:313
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 "Ai activat autentificarea pe două niveluri, te rog confirmă autentificarea."
@@ -17716,7 +17704,7 @@ msgstr "Nu folosi <code>AUTO_INCREMENT</code> pentru valorile zero"
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:576
+#: src/Plugins.php:575
 msgid "This format has no options"
 msgstr "Acest format nu are nicio opțiune"
 
@@ -17829,7 +17817,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:520
+#: src/Util.php:522
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%B %d, %Y la %I:%M %p"
 
@@ -18484,7 +18472,7 @@ msgstr "Nu pot redenumi indexul în PRIMARY!"
 msgid "No index parts defined!"
 msgstr "Nicio parte de index definită!"
 
-#: src/Table/Maintenance.php:116
+#: src/Table/Maintenance.php:117
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Probleme cu indexurile tabelului „%s”"
@@ -19011,27 +18999,27 @@ msgstr ""
 "%sCreează%s spațiul de stocare pentru configurarea phpMyAdmin în baza de "
 "date curentă."
 
-#: src/Util.php:125
+#: src/Util.php:127
 #, php-format
 msgid "Max: %s%s"
 msgstr "Maxim: %s%s"
 
-#: src/Util.php:529
+#: src/Util.php:531
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr "PM"
 
-#: src/Util.php:531
+#: src/Util.php:533
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr "AM"
 
-#: src/Util.php:603
+#: src/Util.php:605
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s zile, %s ore, %s minute și %s secunde"
 
-#: src/Util.php:1346
+#: src/Util.php:1358
 msgid "Users"
 msgstr "Utilizatori"
 
@@ -19042,6 +19030,18 @@ msgstr "Eroare în arhiva ZIP:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "Niciun fișier găsit în arhiva ZIP!"
+
+#~ msgid "Failed to read configuration file!"
+#~ msgstr "Citirea fișierului de configurare a eșuat!"
+
+#, fuzzy
+#~| msgid ""
+#~| "This usually means there is a syntax error in it, please check any "
+#~| "errors shown below."
+#~ msgid "This usually means there is a syntax error in it."
+#~ msgstr ""
+#~ "De obicei, asta înseamnă că are o eroare de sintaxă, te rog verifică "
+#~ "toate erorile de mai jos."
 
 #~ msgid ""
 #~ "Displays a link to download the binary data of the column. You can use "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-19 00:24+0000\n"
+"POT-Creation-Date: 2025-01-25 15:00+0000\n"
 "PO-Revision-Date: 2022-11-07 12:02+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -69,7 +69,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
-#: src/Util.php:1349
+#: src/Util.php:1361
 msgid "Settings"
 msgstr "การตั้งค่า"
 
@@ -214,7 +214,7 @@ msgstr "หลัง %s"
 #: resources/templates/server/status/processes/list.twig:72
 #: resources/templates/table/zoom_search/index.twig:62
 #: resources/templates/table/zoom_search/index.twig:120
-#: src/Config/ConfigFile.php:553
+#: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:225
 #: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2040
 #: src/Plugins/Schema/SchemaPdf.php:96
@@ -602,8 +602,8 @@ msgstr "ผู้ใช้"
 #: resources/templates/database/structure/structure_table_row.twig:48
 #: resources/templates/server/privileges/privileges_table.twig:357
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:1
-#: src/Config/ConfigFile.php:517 src/Config/ConfigFile.php:531
-#: src/Config/ConfigFile.php:585 src/Config/ConfigFile.php:595
+#: src/Config/ConfigFile.php:518 src/Config/ConfigFile.php:532
+#: src/Config/ConfigFile.php:586 src/Config/ConfigFile.php:596
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
@@ -611,8 +611,8 @@ msgstr "ผู้ใช้"
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1039 src/Util.php:1358
-#: src/Util.php:1375
+#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1051 src/Util.php:1370
+#: src/Util.php:1387
 msgid "Structure"
 msgstr "โครงสร้าง"
 
@@ -654,7 +654,7 @@ msgstr "ชื่อ"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:291
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:260
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:339
 #: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
@@ -881,7 +881,7 @@ msgstr "รีเซ็ต"
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
-#: src/Html/Generator.php:668 src/Html/MySQLDocumentation.php:49
+#: src/Html/Generator.php:671 src/Html/MySQLDocumentation.php:49
 #: src/Sanitize.php:185
 msgid "Documentation"
 msgstr "เอกสารประกอบ"
@@ -910,7 +910,7 @@ msgstr ""
 #: resources/templates/relation/check_relations.twig:462
 #: resources/templates/relation/check_relations.twig:487
 #: resources/templates/relation/check_relations.twig:512
-#: src/Config/ConfigFile.php:568 src/Config/ConfigFile.php:605
+#: src/Config/ConfigFile.php:569 src/Config/ConfigFile.php:606
 msgid "Disabled"
 msgstr "ระงับการใช้อยู่"
 
@@ -1053,8 +1053,8 @@ msgstr "ในคำค้น"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2469 src/Html/Generator.php:517
-#: src/Html/Generator.php:785
+#: src/Display/Results.php:2466 src/Html/Generator.php:520
+#: src/Html/Generator.php:788
 msgid "Edit"
 msgstr "แก้ไข"
 
@@ -1072,7 +1072,7 @@ msgstr "แก้ไข"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:408
-#: src/Display/Results.php:2528 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2525 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "ลบ"
 
@@ -1173,7 +1173,7 @@ msgstr "อธิบาย SQL"
 
 #: resources/templates/console/display.twig:55
 #: resources/templates/console/display.twig:213
-#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:604
+#: resources/templates/sql/profiling_chart.twig:3 src/Html/Generator.php:607
 msgid "Profiling"
 msgstr "การทำแฟ้มประวัติ"
 
@@ -1279,8 +1279,8 @@ msgstr "ใช้เวลา:"
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
 #: resources/templates/server/status/variables/index.twig:42
-#: src/Config/Descriptions.php:928 src/Export/Export.php:1080
-#: src/Html/Generator.php:573
+#: src/Config/Descriptions.php:928 src/Export/Export.php:1081
+#: src/Html/Generator.php:576
 msgid "Refresh"
 msgstr "เรียกใหม่"
 
@@ -1915,9 +1915,9 @@ msgstr "ชนิดคำค้น"
 #: resources/templates/database/events/index.twig:46
 #: resources/templates/database/tracking/tables.twig:17
 #: resources/templates/table/tracking/main.twig:31
-#: src/Config/ConfigFile.php:577
+#: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1345
+#: src/Server/Status/Processes.php:96 src/Util.php:1357
 msgid "Status"
 msgstr "สถานะ"
 
@@ -1994,7 +1994,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1367
+#: src/Util.php:1379
 msgid "Events"
 msgstr "เหตุการณ์"
 
@@ -2058,7 +2058,7 @@ msgstr "เลือกทั้งหมด"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1347 src/Util.php:1362 src/Util.php:1379
+#: src/Util.php:1359 src/Util.php:1374 src/Util.php:1391
 msgid "Export"
 msgstr "ส่งออก"
 
@@ -2201,7 +2201,7 @@ msgstr "เลือกคอลัมน์"
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
 #: src/Controllers/JavaScriptMessagesController.php:720
-#: src/Controllers/Table/ChangeController.php:212
+#: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "แสดง"
 
@@ -2228,7 +2228,7 @@ msgid "criteria"
 msgstr "เงื่อนไข"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1868
+#: src/Util.php:1880
 msgid "Sort"
 msgstr "เรียง"
 
@@ -2239,8 +2239,8 @@ msgstr "เรียง"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1876 src/Util.php:1893
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1457
+#: src/Display/Results.php:1464 src/Util.php:1888 src/Util.php:1905
 msgid "Ascending"
 msgstr "น้อยไปมาก"
 
@@ -2251,8 +2251,8 @@ msgstr "น้อยไปมาก"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:553 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1881 src/Util.php:1898
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1452
+#: src/Display/Results.php:1469 src/Util.php:1893 src/Util.php:1910
 msgid "Descending"
 msgstr "มากไปน้อย"
 
@@ -2263,8 +2263,8 @@ msgid "Add as"
 msgstr "เพิ่ม %s"
 
 #: resources/templates/database/multi_table_query/form.twig:116
-#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
-#: src/Config/ConfigFile.php:564
+#: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
+#: src/Config/ConfigFile.php:565
 #, fuzzy
 #| msgid "Test"
 msgid "Text"
@@ -2299,7 +2299,7 @@ msgid "Update query"
 msgstr "ปรับปรุงคำค้น"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#: src/Html/Generator.php:542
+#: src/Html/Generator.php:545
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Submit query"
@@ -2461,9 +2461,9 @@ msgstr "ชื่อคอลัมน์"
 #: resources/templates/server/privileges/privileges_summary.twig:16
 #: resources/templates/server/sub_page_header.twig:2
 #: resources/templates/table/privileges/index.twig:22
-#: src/Config/ConfigFile.php:581
+#: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1365 src/Util.php:1381
+#: src/Menu.php:365 src/Util.php:1377 src/Util.php:1393
 msgid "Privileges"
 msgstr "สิทธิ"
 
@@ -2633,13 +2633,13 @@ msgstr "พารามิเตอร์ตามปกติ"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:290
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:259
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "ฟังก์ชั่น"
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1366
+#: src/Util.php:1378
 msgid "Routines"
 msgstr ""
 
@@ -2649,10 +2649,10 @@ msgstr ""
 #: resources/templates/database/structure/structure_table_row.twig:53
 #: resources/templates/server/databases/index.twig:76
 #: resources/templates/server/databases/index.twig:77
-#: src/Config/ConfigFile.php:521 src/Config/ConfigFile.php:535
-#: src/Config/ConfigFile.php:589 src/Config/ConfigFile.php:599 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1041
-#: src/Util.php:1360 src/Util.php:1377
+#: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
+#: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1053
+#: src/Util.php:1372 src/Util.php:1389
 msgid "Search"
 msgstr "ค้นหา"
 
@@ -2767,9 +2767,9 @@ msgstr[0] "พบ %s ผลลัพธ์ที่ตรงในตารา�
 #: resources/templates/database/search/results.twig:25
 #: resources/templates/database/structure/structure_table_row.twig:43
 #: resources/templates/table/structure/display_structure.twig:271
-#: src/Config/ConfigFile.php:525 src/Config/ConfigFile.php:539
-#: src/Config/ConfigFile.php:603 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1043 src/Util.php:1374
+#: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
+#: src/Config/ConfigFile.php:604 src/Menu.php:207
+#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1055 src/Util.php:1386
 msgid "Browse"
 msgstr "เปิดดู"
 
@@ -2796,7 +2796,7 @@ msgstr[0] "%s ตาราง"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1351
+#: src/Server/Status/Data.php:124 src/Util.php:1363
 msgid "Replication"
 msgstr "การจำลองแบบ"
 
@@ -2912,7 +2912,7 @@ msgid "Copy table with prefix"
 msgstr "คัดลอกคำนำไปยังตาราง"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1371
+#: src/Menu.php:405 src/Util.php:1383
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
@@ -3005,7 +3005,7 @@ msgstr "พจนานุกรมข้อมูล"
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
 #: src/Controllers/Database/TrackingController.php:125
-#: src/Controllers/Export/ExportController.php:287
+#: src/Controllers/Export/ExportController.php:288
 msgid "No tables found in database."
 msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
 
@@ -3073,9 +3073,9 @@ msgid "Replicated"
 msgstr "ทำซ้ำเรียบร้อยแล้ว"
 
 #: resources/templates/database/structure/structure_table_row.twig:59
-#: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:523
-#: src/Config/ConfigFile.php:537 src/Config/ConfigFile.php:601 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1042 src/Util.php:1378
+#: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
+#: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
+#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1054 src/Util.php:1390
 msgid "Insert"
 msgstr "แทรก"
 
@@ -3347,7 +3347,7 @@ msgstr "ไบนารีที่รู้จักกันดี"
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:494
-#: src/Display/Results.php:2473 src/Html/Generator.php:80
+#: src/Display/Results.php:2470 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "คัดลอก"
 
@@ -3358,7 +3358,7 @@ msgstr "การดำเนินงานผลแบบสอบถาม"
 
 #: resources/templates/display/results/table.twig:353
 #: src/Controllers/JavaScriptMessagesController.php:493
-#: src/Export/Export.php:1099
+#: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr ""
 
@@ -3390,7 +3390,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:736 src/Import/Import.php:119 src/InsertEdit.php:489
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:458
 #: src/Message.php:138
 msgid "Error"
 msgstr "ผิดพลาด"
@@ -3412,7 +3412,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:402
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:406
 #, fuzzy
 #| msgid "Automatically create versions"
 msgid "Automatically send report next time"
@@ -3483,7 +3483,7 @@ msgstr "ปรับปรุงคำค้น"
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
 #: src/Controllers/JavaScriptMessagesController.php:132
-#: src/Html/Generator.php:760
+#: src/Html/Generator.php:763
 msgid "SQL query:"
 msgstr "คำค้น SQL:"
 
@@ -3944,7 +3944,7 @@ msgstr "ใช้ชุดรูปแบบนี้"
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
 #: src/Controllers/JavaScriptMessagesController.php:438
-#: src/Export/Export.php:1122 src/Html/Generator.php:851
+#: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
 msgstr "ย้อนกลับ"
@@ -3955,8 +3955,8 @@ msgstr "ย้อนกลับ"
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1348 src/Util.php:1363
-#: src/Util.php:1380
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1360 src/Util.php:1375
+#: src/Util.php:1392
 msgid "Import"
 msgstr "นำเข้า"
 
@@ -3999,7 +3999,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:490
+#: src/InsertEdit.php:459
 msgid "The directory you set for upload work cannot be reached."
 msgstr "ไม่สามารถใช้งาน ไดเรกทอรีที่ตั้งไว้สำหรับอัพโหลดได้"
 
@@ -4115,7 +4115,7 @@ msgstr "ตัวเลือกเซิร์ฟเวอร์"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:91
-#: src/Plugins/Auth/AuthenticationHttp.php:86
+#: src/Plugins/Auth/AuthenticationHttp.php:87
 #, php-format
 msgid "Welcome to %s"
 msgstr "%s ยินดีต้อนรับ"
@@ -4307,8 +4307,8 @@ msgstr "ผลลัพธ์ SQL"
 #: resources/templates/server/export/index.twig:7
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
-#: src/Config/ConfigFile.php:575 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1343
+#: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1355
 msgid "Databases"
 msgstr "ฐานข้อมูล"
 
@@ -4818,7 +4818,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1350
+#: src/Server/Status/Data.php:119 src/Util.php:1362
 #, fuzzy
 msgid "Binary log"
 msgstr "ข้อมูลไบนารี "
@@ -4983,8 +4983,8 @@ msgstr "คำอธิบาย"
 
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
-#: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:579
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1352
+#: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1364
 msgid "Variables"
 msgstr "ตัวแปร"
 
@@ -5007,7 +5007,7 @@ msgid "Importing into the current server"
 msgstr "การนำเข้าฐานข้อมูลสู่เซิร์ฟเวอร์ปัจจุบัน"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1354
+#: src/Util.php:1366
 msgid "Plugins"
 msgstr "ปลั๊กอิน"
 
@@ -5351,7 +5351,7 @@ msgstr "อนุญาตให้อ่านข้อมูลได้."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:498
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:467
 msgid "Or"
 msgstr "หรือ"
 
@@ -6328,13 +6328,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:151
-#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:301
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:303
 msgid "KiB"
 msgstr "กิโลไบต์"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
-#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:303
+#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:305
 msgid "MiB"
 msgstr "เมกกะไบต์"
 
@@ -6417,7 +6417,7 @@ msgid "Start auto refresh"
 msgstr "เริ่มการรีเฟรชอัตโนมัติ"
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2547
+#: src/Display/Results.php:2544
 msgid "Kill"
 msgstr "ฆ่าทิ้ง"
 
@@ -6838,7 +6838,7 @@ msgstr "ผลลัพธ์"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1027 src/Display/Results.php:3131
+#: src/Database/Routines.php:1027 src/Display/Results.php:3120
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7203,7 +7203,7 @@ msgstr "ลากเพื่อเปลี่ยนลำดับ"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:492
 #: src/Controllers/JavaScriptMessagesController.php:644
-#: src/Error/ErrorHandler.php:408 src/InsertEdit.php:1519
+#: src/Error/ErrorHandler.php:412 src/InsertEdit.php:1461
 msgid "Ignore"
 msgstr "ข้าม"
 
@@ -7432,8 +7432,8 @@ msgid "Check referential integrity"
 msgstr "ตรวจสอบความสมบูรณ์ของการอ้างถึง:"
 
 #: resources/templates/table/operations/view.twig:8
-#: src/Config/ConfigFile.php:591 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1044 src/Util.php:1364 src/Util.php:1382
+#: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
+#: src/Menu.php:358 src/Util.php:1056 src/Util.php:1376 src/Util.php:1394
 msgid "Operations"
 msgstr "กระบวนการ"
 
@@ -7986,7 +7986,7 @@ msgstr "นำออก Trigger %s"
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
 #: src/Plugins/Export/ExportSql.php:1909
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1368 src/Util.php:1384
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1380 src/Util.php:1396
 msgid "Triggers"
 msgstr "ทริกเกอร์"
 
@@ -9539,73 +9539,73 @@ msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "เวียดนาม"
 
-#: src/Config/ConfigFile.php:519 src/Config/ConfigFile.php:533
-#: src/Config/ConfigFile.php:587 src/Config/ConfigFile.php:597
+#: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
+#: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1040
-#: src/Util.php:1344 src/Util.php:1359 src/Util.php:1376
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1052
+#: src/Util.php:1356 src/Util.php:1371 src/Util.php:1388
 msgid "SQL"
 msgstr "SQL"
 
-#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:556
-#: src/Config/ConfigFile.php:564
+#: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
+#: src/Config/ConfigFile.php:565
 #, fuzzy
 #| msgid "Ins"
 msgid "Icons"
 msgstr "เพิ่ม"
 
-#: src/Config/ConfigFile.php:544 src/Config/ConfigFile.php:551
-#: src/Config/ConfigFile.php:556 src/Config/ConfigFile.php:564
+#: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:552
+#: src/Config/ConfigFile.php:557 src/Config/ConfigFile.php:565
 msgid "Both"
 msgstr "ทั้งสอง"
 
-#: src/Config/ConfigFile.php:548
+#: src/Config/ConfigFile.php:549
 msgid "Nowhere"
 msgstr "ไม่ปรากฏที่ใด"
 
-#: src/Config/ConfigFile.php:549
+#: src/Config/ConfigFile.php:550
 msgid "Left"
 msgstr "ซ้าย"
 
-#: src/Config/ConfigFile.php:550
+#: src/Config/ConfigFile.php:551
 msgid "Right"
 msgstr "ขวา"
 
-#: src/Config/ConfigFile.php:566
+#: src/Config/ConfigFile.php:567
 msgid "Click"
 msgstr "คลิก"
 
-#: src/Config/ConfigFile.php:567
+#: src/Config/ConfigFile.php:568
 msgid "Double click"
 msgstr "ดับเบิลคลิก"
 
-#: src/Config/ConfigFile.php:570
+#: src/Config/ConfigFile.php:571
 msgid "key"
 msgstr ""
 
-#: src/Config/ConfigFile.php:570
+#: src/Config/ConfigFile.php:571
 #, fuzzy
 #| msgid "Displaying Column Comments"
 msgid "display column"
 msgstr "แสดงหมายเหตุของคอลัมน์"
 
-#: src/Config/ConfigFile.php:573
+#: src/Config/ConfigFile.php:574
 #, fuzzy
 #| msgid "Welcome to %s"
 msgid "Welcome"
 msgstr "%s ยินดีต้อนรับ"
 
-#: src/Config/ConfigFile.php:605
+#: src/Config/ConfigFile.php:606
 msgid "Open"
 msgstr "เปิด"
 
-#: src/Config/ConfigFile.php:605
+#: src/Config/ConfigFile.php:606
 #, fuzzy
 #| msgid "Unclosed quote"
 msgid "Closed"
 msgstr "ไม่ได้ปิดเครื่องหมายคำพูด"
 
-#: src/Config/ConfigFile.php:607
+#: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Monday"
@@ -9613,7 +9613,7 @@ msgctxt "Week day name"
 msgid "Monday"
 msgstr "วันจันทร์"
 
-#: src/Config/ConfigFile.php:608
+#: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Tuesday"
@@ -9621,7 +9621,7 @@ msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "วันอังคาร"
 
-#: src/Config/ConfigFile.php:609
+#: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Wednesday"
@@ -9629,7 +9629,7 @@ msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "วันพุธ"
 
-#: src/Config/ConfigFile.php:610
+#: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
 #| msgid "Thursday"
@@ -9637,7 +9637,7 @@ msgctxt "Week day name"
 msgid "Thursday"
 msgstr "วันพฤหัสบดี"
 
-#: src/Config/ConfigFile.php:611
+#: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 #| msgid "Friday"
@@ -9645,7 +9645,7 @@ msgctxt "Week day name"
 msgid "Friday"
 msgstr "วันศุกร์"
 
-#: src/Config/ConfigFile.php:612
+#: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Saturday"
@@ -9653,7 +9653,7 @@ msgctxt "Week day name"
 msgid "Saturday"
 msgstr "วันเสาร์"
 
-#: src/Config/ConfigFile.php:613
+#: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
 #, fuzzy
 #| msgid "Sunday"
@@ -9661,47 +9661,35 @@ msgctxt "Week day name"
 msgid "Sunday"
 msgstr "อาทิตย์"
 
-#: src/Config/ConfigFile.php:616
+#: src/Config/ConfigFile.php:617
 msgid "Ask before sending error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:617
+#: src/Config/ConfigFile.php:618
 msgid "Always send error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:618
+#: src/Config/ConfigFile.php:619
 msgid "Never send error reports"
 msgstr ""
 
-#: src/Config/ConfigFile.php:621
+#: src/Config/ConfigFile.php:622
 #, fuzzy
 #| msgid "Export defaults"
 msgid "Server default"
 msgstr "ส่งออกค่าเริ่มต้น"
 
-#: src/Config/ConfigFile.php:622
+#: src/Config/ConfigFile.php:623
 #, fuzzy
 #| msgid "Enabled"
 msgid "Enable"
 msgstr "เปิดใช้อยู่"
 
-#: src/Config/ConfigFile.php:623
+#: src/Config/ConfigFile.php:624
 #, fuzzy
 #| msgid "Disabled"
 msgid "Disable"
 msgstr "ระงับการใช้อยู่"
-
-#: src/Config/ConfigFile.php:663 src/Config/ConfigFile.php:716
-#: src/Config/ConfigFile.php:728 src/Config/ConfigFile.php:736
-#: src/Config/ConfigFile.php:741 src/Plugins/Export/ExportHtmlword.php:72
-#: src/Plugins/Export/ExportLatex.php:113
-#: src/Plugins/Export/ExportMediawiki.php:68
-#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:267
-#: src/Plugins/Export/ExportTexytext.php:70
-#, fuzzy
-msgid "structure"
-msgstr "โครงสร้าง"
 
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
@@ -9711,12 +9699,24 @@ msgstr "โครงสร้าง"
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
 #: src/Plugins/Export/ExportSql.php:267
 #: src/Plugins/Export/ExportTexytext.php:70
-msgid "data"
-msgstr "ข้อมูล"
+#, fuzzy
+msgid "structure"
+msgstr "โครงสร้าง"
 
 #: src/Config/ConfigFile.php:665 src/Config/ConfigFile.php:718
 #: src/Config/ConfigFile.php:730 src/Config/ConfigFile.php:738
 #: src/Config/ConfigFile.php:743 src/Plugins/Export/ExportHtmlword.php:72
+#: src/Plugins/Export/ExportLatex.php:113
+#: src/Plugins/Export/ExportMediawiki.php:68
+#: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
+#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportTexytext.php:70
+msgid "data"
+msgstr "ข้อมูล"
+
+#: src/Config/ConfigFile.php:666 src/Config/ConfigFile.php:719
+#: src/Config/ConfigFile.php:731 src/Config/ConfigFile.php:739
+#: src/Config/ConfigFile.php:744 src/Plugins/Export/ExportHtmlword.php:72
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
@@ -9727,35 +9727,35 @@ msgstr "ข้อมูล"
 msgid "structure and data"
 msgstr "ทั้งโครงสร้างและข้อมูล"
 
-#: src/Config/ConfigFile.php:668
+#: src/Config/ConfigFile.php:669
 msgid "Quick - display only the minimal options to configure"
 msgstr "รวดเร็ว - แสดงเฉพาะตัวเลือกที่น้อยที่สุดในการกำหนดค่า"
 
-#: src/Config/ConfigFile.php:669
+#: src/Config/ConfigFile.php:670
 msgid "Custom - display all possible options to configure"
 msgstr "กำหนดเอง - แสดงตัวเลือกที่เป็นไปได้ทั้งหมดในการกำหนดค่า"
 
-#: src/Config/ConfigFile.php:670
+#: src/Config/ConfigFile.php:671
 msgid "Custom - like above, but without the quick/custom choice"
 msgstr "กำหนดเอง - เหมือนข้างต้น แต่ไม่มีทางเลือกที่รวดเร็ว/กำหนดเอง"
 
-#: src/Config/ConfigFile.php:722
+#: src/Config/ConfigFile.php:723
 #, fuzzy
 #| msgid "Complete inserts"
 msgid "complete inserts"
 msgstr "คำสั่ง INSERT เต็มรูปแบบ"
 
-#: src/Config/ConfigFile.php:723
+#: src/Config/ConfigFile.php:724
 #, fuzzy
 #| msgid "Extended inserts"
 msgid "extended inserts"
 msgstr "แทรกหลายระเบียนในคราวเดียว"
 
-#: src/Config/ConfigFile.php:724
+#: src/Config/ConfigFile.php:725
 msgid "both of the above"
 msgstr "ทั้งสองอย่าง"
 
-#: src/Config/ConfigFile.php:725
+#: src/Config/ConfigFile.php:726
 msgid "neither of the above"
 msgstr "ไม่ใช้ดังกล่าวข้างต้น"
 
@@ -12054,11 +12054,11 @@ msgstr "สถิติของแถว"
 msgid "Skip locked tables"
 msgstr "ข้ามตารางที่ถูกล็อก"
 
-#: src/Config/Descriptions.php:927 src/Html/Generator.php:492
+#: src/Config/Descriptions.php:927 src/Html/Generator.php:495
 msgid "Explain SQL"
 msgstr "อธิบาย SQL"
 
-#: src/Config/Descriptions.php:929 src/Html/Generator.php:553
+#: src/Config/Descriptions.php:929 src/Html/Generator.php:556
 #, fuzzy
 #| msgid "Create PHP Code"
 msgid "Create PHP code"
@@ -12286,26 +12286,14 @@ msgstr "การแปลงที่เรียกใช้ได้"
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
-#: src/Config.php:620
+#: src/Config.php:439
 #, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr "ไฟล์ตั้งค่า %s ไม่สามารถอ่านได้"
 
-#: src/Config.php:656
+#: src/Config.php:472
 msgid "Wrong permissions on configuration file, should not be world writable!"
 msgstr "สิทธิ์สำหรับไฟล์ตั้งค่าไม่ถูกต้อง ไม่ควรให้เขียนได้ทั้งหมด!"
-
-#: src/Config.php:670
-msgid "Failed to read configuration file!"
-msgstr "ไม่สามารถอ่านไฟล์การตั้งค่าได้!"
-
-#: src/Config.php:672
-#, fuzzy
-#| msgid ""
-#| "This usually means there is a syntax error in it, please check any errors "
-#| "shown below."
-msgid "This usually means there is a syntax error in it."
-msgstr "ซึ่งมักจะหมายความว่ามีข้อผิดพลาดทางไวยากรณ์อยู่โปรดตรวจสอบข้อผิดพลาดที่แสดงด้านล่าง"
 
 #: src/Config/ServerConfigChecks.php:52
 #, php-format
@@ -12415,7 +12403,7 @@ msgid ""
 msgstr ""
 "การบีบอัดและการคลาย %sGZip%s ต้องใช้ฟังก์ชั่น (%s) ซึ่งเป็นสิ่งที่ไม่สามารถใช้งานได้ในระบบนี้"
 
-#: src/Config/Settings.php:3165
+#: src/Config/Settings.php:3149
 #, php-format
 msgid "Server %d"
 msgstr "เซิร์ฟเวอร์ %d"
@@ -12604,7 +12592,7 @@ msgstr ""
 #: src/Controllers/Database/SqlController.php:57
 #: src/Controllers/Database/StructureController.php:138
 #: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/Structure/FavoriteTableController.php:82
+#: src/Controllers/Database/Structure/FavoriteTableController.php:64
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
 #: src/Controllers/Database/TrackingController.php:54
 #: src/Controllers/Database/TrackingController.php:59
@@ -12616,11 +12604,11 @@ msgstr ""
 #: src/Controllers/Operations/TableController.php:89
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Server/Databases/DestroyController.php:57
+#: src/Controllers/Server/Databases/DestroyController.php:64
 #: src/Controllers/Table/AddFieldController.php:159
 #: src/Controllers/Table/AddFieldController.php:164
-#: src/Controllers/Table/ChangeController.php:65
-#: src/Controllers/Table/ChangeController.php:70
+#: src/Controllers/Table/ChangeController.php:68
+#: src/Controllers/Table/ChangeController.php:73
 #: src/Controllers/Table/ChartController.php:85
 #: src/Controllers/Table/ChartController.php:90
 #: src/Controllers/Table/ChartController.php:120
@@ -12742,8 +12730,8 @@ msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!
 #: src/Controllers/Operations/ViewController.php:78
 #: src/Controllers/Table/AddFieldController.php:173
 #: src/Controllers/Table/AddFieldController.php:178
-#: src/Controllers/Table/ChangeController.php:79
-#: src/Controllers/Table/ChangeController.php:84
+#: src/Controllers/Table/ChangeController.php:82
+#: src/Controllers/Table/ChangeController.php:87
 #: src/Controllers/Table/ChartController.php:99
 #: src/Controllers/Table/ChartController.php:104
 #: src/Controllers/Table/ChartController.php:207
@@ -12835,7 +12823,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3408
+#: src/Display/Results.php:3397
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -12846,7 +12834,7 @@ msgstr "การแสดงผลนี้ จะแสดงเพียง�
 msgid "unknown"
 msgstr "ไม่ระบุ"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:118
+#: src/Controllers/Database/Structure/FavoriteTableController.php:100
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -12893,7 +12881,7 @@ msgstr "หากคุณพบปัญหาในการใช้งาน
 msgid "You may want to refresh the page."
 msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1060
+#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1061
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
 
@@ -13012,7 +13000,7 @@ msgstr ""
 "ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดใช้งานอยู่ "
 "ทำให้บางคุณลักษณะอย่างการรายงานข้อผิดพลาดหรือตรวจสอบรุ่นล่าสุดจะถูกปิดไว้"
 
-#: src/Controllers/Import/ImportController.php:159
+#: src/Controllers/Import/ImportController.php:160
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13021,23 +13009,23 @@ msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %s เอกสารช่วยเหลือ%s "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
 
-#: src/Controllers/Import/ImportController.php:185
+#: src/Controllers/Import/ImportController.php:186
 #, fuzzy
 #| msgid "Remove database"
 msgid "Incorrect format parameter"
 msgstr "เอาฐานข้อมูลออก"
 
-#: src/Controllers/Import/ImportController.php:296
-#: src/Controllers/Import/ImportController.php:509
+#: src/Controllers/Import/ImportController.php:297
+#: src/Controllers/Import/ImportController.php:511
 msgid "Showing bookmark"
 msgstr "แสดงบุ๊คมาร์ค"
 
-#: src/Controllers/Import/ImportController.php:316
-#: src/Controllers/Import/ImportController.php:505
+#: src/Controllers/Import/ImportController.php:317
+#: src/Controllers/Import/ImportController.php:507
 msgid "The bookmark has been deleted."
 msgstr "ลบคำค้นที่จดไว้เรียบร้อยแล้ว"
 
-#: src/Controllers/Import/ImportController.php:428
+#: src/Controllers/Import/ImportController.php:429
 msgid ""
 "No data was received to import. Either no file name was submitted, or the "
 "file size exceeded the maximum size permitted by your PHP configuration. See "
@@ -13046,13 +13034,13 @@ msgstr ""
 "ไม่มีข้อมูลสำหรับการนำเข้า อาจจะไม่ได้ใส่ชื่อไฟล์ หรือขนาดไฟล์เกินขนาดสูงสุดที่ระบบตั้งไว้ "
 "กรุณาแก้ไขไฟล์ตั้งค่าของ PHP ดูเอกสารเพิ่มเติมได้ที่ [doc@faq1-16]FAQ 1.16[/doc]"
 
-#: src/Controllers/Import/ImportController.php:517
+#: src/Controllers/Import/ImportController.php:519
 #, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] "นำเข้าสำเร็จเรียบร้อย การเรียกใช้ %d รายการได้ถูกดำเนินการแล้ว"
 
-#: src/Controllers/Import/ImportController.php:554
+#: src/Controllers/Import/ImportController.php:556
 #, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
@@ -13061,7 +13049,7 @@ msgstr ""
 "หมดเวลาการเรียกใช้สคริปต์แล้ว หากคุณต้องการนำเข้าให้เรียบร้อย กรุณา %sนำเข้าไฟล์เดิม%s "
 "อีกรอบ และการนำเข้าจะดำเนินต่อไป"
 
-#: src/Controllers/Import/ImportController.php:564
+#: src/Controllers/Import/ImportController.php:566
 msgid ""
 "However on last run no data has been parsed, this usually means phpMyAdmin "
 "won't be able to finish this import unless you increase php time limits."
@@ -13069,12 +13057,12 @@ msgstr ""
 "ชุดข้อมูลที่นำเข้าล่าสุดไม่ได้สามารถนำเข้าได้ หมายความว่า phpMyAdmin ไม่สามารถนำเข้าได้ทัน "
 "ตามเวลารันสูงสุดที่กำหนดใน PHP"
 
-#: src/Controllers/Import/ImportController.php:627
+#: src/Controllers/Import/ImportController.php:629
 #: src/Controllers/Sql/SqlController.php:143
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "คำสั่ง \"DROP DATABASE\" ถูกปิดไว้"
 
-#: src/Controllers/Import/ImportController.php:676 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -13351,14 +13339,14 @@ msgid "Other"
 msgstr "อื่นๆ"
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:389
-#: src/Util.php:421
+#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:391
+#: src/Util.php:423
 msgid ","
 msgstr ","
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:387
-#: src/Util.php:419
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:389
+#: src/Util.php:421
 msgid "."
 msgstr "."
 
@@ -13459,27 +13447,27 @@ msgid "Bytes received"
 msgstr "Byte ที่รับ"
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:299
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:301
 msgid "B"
 msgstr "ไบต์"
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:305
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:307
 msgid "GiB"
 msgstr "กิกะไบต์"
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:307
+#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:309
 msgid "TiB"
 msgstr "เทอราไบต์"
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:311
 msgid "PiB"
 msgstr "เพตตะไบต์"
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:313
 msgid "EiB"
 msgstr "เอกซะไบต์"
 
@@ -14329,7 +14317,7 @@ msgstr "คลิกสองครั้งเพื่อคัดลอกช
 
 #: src/Controllers/JavaScriptMessagesController.php:580
 #, fuzzy
-msgid "Click the drop-down arrow<br>to toggle column's visibility."
+msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "กดเพื่อเลือก <br>เพื่อดูสดมภ์."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
@@ -14456,7 +14444,7 @@ msgid "Please look at the bottom of this window."
 msgstr "กรุณาดูที่ด้านล่างของหน้าต่าง"
 
 #: src/Controllers/JavaScriptMessagesController.php:647
-#: src/Error/ErrorHandler.php:413
+#: src/Error/ErrorHandler.php:417
 msgid "Ignore All"
 msgstr "ไม่สนใจทั้งหมด"
 
@@ -14622,7 +14610,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "มีตาราง %s อยู่แล้ว!"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:275
+#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:244
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "ซ่อน"
@@ -14711,133 +14699,133 @@ msgctxt "Month name"
 msgid "December"
 msgstr "ธันวาคม"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:495
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "ม.ค."
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:496
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "ก.พ."
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "มี.ค."
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "เม.ย."
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "พฤษภาคม"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "มิ.ย."
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "ก.ค."
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "ส.ค."
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "ก.ย."
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "ต.ค."
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "พ.ย."
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "ธ.ค."
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
 #, fuzzy
 #| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "อ."
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:510
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "จ."
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "อ."
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "พ."
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "พฤ."
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "ศ."
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
@@ -15189,7 +15177,7 @@ msgstr "เพิ่มฟิลด์ใหม่"
 msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
-#: src/Controllers/Server/Databases/DestroyController.php:80
+#: src/Controllers/Server/Databases/DestroyController.php:87
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -15961,7 +15949,7 @@ msgstr "ตารางที่ถูกติดตาม"
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:202 src/Sql.php:863
+#: src/InsertEdit.php:161 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL คืนผลลัพธ์ว่างเปล่ากลับมา (null / 0 แถว)."
 
@@ -16210,7 +16198,7 @@ msgstr ""
 #: src/Database/Events.php:119 src/Database/Events.php:140
 #: src/Database/Routines.php:108 src/Database/Routines.php:134
 #: src/Database/Routines.php:212 src/Database/Routines.php:226
-#: src/Database/Routines.php:1008 src/Html/Generator.php:801
+#: src/Database/Routines.php:1008 src/Html/Generator.php:804
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -16334,7 +16322,7 @@ msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 
-#: src/Dbal/DatabaseInterface.php:1065
+#: src/Dbal/DatabaseInterface.php:1051
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -16342,13 +16330,13 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1107
+#: src/Dbal/DatabaseInterface.php:1093
 #, fuzzy
 #| msgid "Failed to read configuration file"
 msgid "Failed to set configured collation connection!"
 msgstr "ไม่สามารถอ่านแฟ้มการตั้งค่าได้"
 
-#: src/Dbal/DatabaseInterface.php:1640
+#: src/Dbal/DatabaseInterface.php:1626
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -16359,36 +16347,36 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2504 src/Display/Results.php:2519
+#: src/Display/Results.php:2501 src/Display/Results.php:2516
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "ลบเรียบร้อยแล้ว"
 
-#: src/Display/Results.php:3417
+#: src/Display/Results.php:3406
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "กำลังแสดงแถวที่ %1s - %2s"
 
-#: src/Display/Results.php:3431
+#: src/Display/Results.php:3420
 #, fuzzy, php-format
 #| msgid "%1$d total, %2$d in query"
 msgid "%1$s total, %2$s in query"
 msgstr "ทั้งหมด %1$d, %2$d ในคำค้น"
 
-#: src/Display/Results.php:3436
+#: src/Display/Results.php:3425
 #, fuzzy, php-format
 #| msgid "%d total"
 msgid "%s total"
 msgstr "ทั้งหมด %d"
 
-#: src/Display/Results.php:3449 src/Sql.php:869
+#: src/Display/Results.php:3438 src/Sql.php:869
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "คำค้นใช้เวลา %01.4f วินาที"
 
-#: src/Display/Results.php:3747
+#: src/Display/Results.php:3734
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -16695,7 +16683,7 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "มีข้อความผิดพลาดจำนวนมาก บางส่วนจึงซ่อนไว้ไม่แสดง"
 
-#: src/Error/ErrorHandler.php:397
+#: src/Error/ErrorHandler.php:401
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
@@ -16710,7 +16698,7 @@ msgstr "ไม่สามารถล็อกอินเข้าเซิร
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
 #: src/Plugins/Auth/AuthenticationConfig.php:84
-#: src/Plugins/Auth/AuthenticationHttp.php:81
+#: src/Plugins/Auth/AuthenticationHttp.php:82
 msgid "Access denied!"
 msgstr "การเข้าถึงถูกปฏิเสธ!"
 
@@ -16730,30 +16718,30 @@ msgid ""
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
 
-#: src/Export/Export.php:188 src/Export/Export.php:224
-#: src/Export/Export.php:432
+#: src/Export/Export.php:189 src/Export/Export.php:225
+#: src/Export/Export.php:433
 #, php-format
 msgid "Insufficient space to save the file %s."
 msgstr "พื้นที่ไม่เพียงพอที่จะบันทึกไฟล์ %s"
 
-#: src/Export/Export.php:385
+#: src/Export/Export.php:386
 #, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr "ให้เปลี่ยนชื่อไฟล์ หรือเลือกแบบเขียนทับไฟล์เดิม เพราะมีไฟล์ %s อยู่ในเซิร์ฟเวอร์อยู่แล้ว"
 
-#: src/Export/Export.php:392 src/Export/Export.php:402
+#: src/Export/Export.php:393 src/Export/Export.php:403
 #, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr "บันทึกไฟล์ %s ไม่ได้ เพราะเว็บเซิร์ฟเวอร์ไม่อนุญาต"
 
-#: src/Export/Export.php:439
+#: src/Export/Export.php:440
 #, php-format
 msgid "Dump has been saved to file %s."
 msgstr "ข้อมูลที่ส่งออกถูกบันทึกไว้ในไฟล์ %s"
 
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
-#: src/Export/Export.php:778
+#: src/Export/Export.php:779
 msgid "Exporting a raw query is not supported for this export method."
 msgstr ""
 
@@ -16842,58 +16830,58 @@ msgstr ""
 msgid "Session not found."
 msgstr "ไม่พบ SOAP"
 
-#: src/Html/Generator.php:148
+#: src/Html/Generator.php:151
 #, fuzzy, php-format
 #| msgid "Jump to database \"%s\"."
 msgid "Jump to database “%s”."
 msgstr "กระโดดไปที่ฐานข้อมูล \"%s\"."
 
-#: src/Html/Generator.php:214
+#: src/Html/Generator.php:217
 msgid "SSL is not being used"
 msgstr ""
 
-#: src/Html/Generator.php:221
+#: src/Html/Generator.php:224
 msgid "SSL is used with disabled verification"
 msgstr ""
 
-#: src/Html/Generator.php:223
+#: src/Html/Generator.php:226
 msgid "SSL is used without certification authority"
 msgstr ""
 
-#: src/Html/Generator.php:226
+#: src/Html/Generator.php:229
 msgid "SSL is used"
 msgstr ""
 
-#: src/Html/Generator.php:330
+#: src/Html/Generator.php:333
 msgid "The PHP function password_hash() with default options."
 msgstr ""
 
-#: src/Html/Generator.php:331
+#: src/Html/Generator.php:334
 msgid "password_hash() PHP function"
 msgstr ""
 
-#: src/Html/Generator.php:501
+#: src/Html/Generator.php:504
 msgid "Skip Explain SQL"
 msgstr "ไม่ต้องอธิบาย SQL"
 
-#: src/Html/Generator.php:533
+#: src/Html/Generator.php:536
 #, fuzzy
 #| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "ไม่เอาโค้ด PHP"
 
-#: src/Html/Generator.php:618
+#: src/Html/Generator.php:621
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "แก้ไขแบบอินไลน์"
 
-#: src/Html/Generator.php:743
+#: src/Html/Generator.php:746
 #, fuzzy
 #| msgid "Static data"
 msgid "Static analysis:"
 msgstr "ข้อมูลคงที่"
 
-#: src/Html/Generator.php:746
+#: src/Html/Generator.php:749
 #, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
@@ -17047,17 +17035,17 @@ msgid ""
 "removed."
 msgstr "ดัชนี %1$s และ %2$s น่าจะเป็นอันเดียวกัน ควรจะลบออกไปอันหนึ่ง"
 
-#: src/InsertEdit.php:499
+#: src/InsertEdit.php:468
 #, fuzzy
 #| msgid "web server upload directory"
 msgid "web server upload directory:"
 msgstr "ไดเรกทอรีสำหรับอัพโหลด ที่เว็บเซิร์ฟเวอร์"
 
-#: src/InsertEdit.php:927 src/Sql.php:860
+#: src/InsertEdit.php:886 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:951 src/Sql.php:840
+#: src/InsertEdit.php:910 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -17072,7 +17060,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1369 src/Util.php:1383
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1381 src/Util.php:1395
 msgid "Tracking"
 msgstr "การติดตาม"
 
@@ -17080,11 +17068,11 @@ msgstr "การติดตาม"
 msgid "Database seems to be empty!"
 msgstr "ดูเหมือนว่าฐานข้อมูลจะว่างเปล่า!"
 
-#: src/Menu.php:335 src/Util.php:1361
+#: src/Menu.php:335 src/Util.php:1373
 msgid "Query"
 msgstr "คำค้นจากตัวอย่าง"
 
-#: src/Menu.php:398 src/Util.php:1370
+#: src/Menu.php:398 src/Util.php:1382
 msgid "Designer"
 msgstr "ผู้ออกแบบ"
 
@@ -17094,11 +17082,11 @@ msgstr "ผู้ออกแบบ"
 msgid "User accounts"
 msgstr "ผู้ใช้"
 
-#: src/Menu.php:508 src/Util.php:1353
+#: src/Menu.php:508 src/Util.php:1365
 msgid "Charsets"
 msgstr "ชุดอักขระ"
 
-#: src/Menu.php:513 src/Util.php:1355
+#: src/Menu.php:513 src/Util.php:1367
 msgid "Engines"
 msgstr "เครื่องมือ"
 
@@ -17568,37 +17556,37 @@ msgstr ""
 msgid "Retry to connect"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:126
+#: src/Plugins/Auth/AuthenticationCookie.php:127
 msgid "Your session has expired. Please log in again."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:235
+#: src/Plugins/Auth/AuthenticationCookie.php:236
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:270
+#: src/Plugins/Auth/AuthenticationCookie.php:271
 #, fuzzy
 #| msgid "Failed to connect to SQL validator!"
 msgid "Failed to connect to the reCAPTCHA service!"
 msgstr "การเชื่อมต่อกับตัวตรวจสอบ SQL ล้มเหลว!"
 
-#: src/Plugins/Auth/AuthenticationCookie.php:272
+#: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Entered captcha is wrong, try again!"
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:284
+#: src/Plugins/Auth/AuthenticationCookie.php:285
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
 
-#: src/Plugins/Auth/AuthenticationCookie.php:302
+#: src/Plugins/Auth/AuthenticationCookie.php:303
 #, fuzzy
 #| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "ไม่สามารถล็อกอินเข้าเซิร์ฟเวอร์ MySQL ได้"
 
-#: src/Plugins/Auth/AuthenticationHttp.php:91
+#: src/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
 msgstr "อนุญาตให้เข้าใช้ไม่ได้ ชื่อผู้ใช้หรือรหัสผ่านผิด"
 
@@ -17612,7 +17600,7 @@ msgstr "﻿สามารถค้นหา signon สำหรับตรว�
 msgid "Invalid authentication method set in configuration:"
 msgstr ""
 
-#: src/Plugins/AuthenticationPlugin.php:312
+#: src/Plugins/AuthenticationPlugin.php:313
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
 
@@ -18226,7 +18214,7 @@ msgstr ""
 msgid "XML"
 msgstr "XML"
 
-#: src/Plugins.php:576
+#: src/Plugins.php:575
 #, fuzzy
 #| msgid "This format has no options"
 msgid "This format has no options"
@@ -18345,7 +18333,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:520
+#: src/Util.php:522
 msgid "%B %d, %Y at %I:%M %p"
 msgstr "%d %B %Y เมื่อ %I:%M %p"
 
@@ -18979,7 +18967,7 @@ msgstr "เปลี่ยนชื่อดัชนีเป็น PRIMARY ไ
 msgid "No index parts defined!"
 msgstr "ไม่ได้กำหนดส่วนใดๆ ของดัชนี!"
 
-#: src/Table/Maintenance.php:116
+#: src/Table/Maintenance.php:117
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
@@ -19482,27 +19470,27 @@ msgstr ""
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr "การจัดเก็บการตั้งค่าของ phpMyAdmin ได้ถูกระงับเอาไว้ %sรายละเอียดเพิ่มเติม%s"
 
-#: src/Util.php:125
+#: src/Util.php:127
 #, php-format
 msgid "Max: %s%s"
 msgstr "ขนาดใหญ่สุด: %s%s"
 
-#: src/Util.php:529
+#: src/Util.php:531
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: src/Util.php:531
+#: src/Util.php:533
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: src/Util.php:603
+#: src/Util.php:605
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s วัน, %s ชั่วโมง, %s นาที, %s วินาที"
 
-#: src/Util.php:1346
+#: src/Util.php:1358
 msgid "Users"
 msgstr "ผู้ใช้"
 
@@ -19513,6 +19501,16 @@ msgstr ""
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr ""
+
+#~ msgid "Failed to read configuration file!"
+#~ msgstr "ไม่สามารถอ่านไฟล์การตั้งค่าได้!"
+
+#, fuzzy
+#~| msgid ""
+#~| "This usually means there is a syntax error in it, please check any "
+#~| "errors shown below."
+#~ msgid "This usually means there is a syntax error in it."
+#~ msgstr "ซึ่งมักจะหมายความว่ามีข้อผิดพลาดทางไวยากรณ์อยู่โปรดตรวจสอบข้อผิดพลาดที่แสดงด้านล่าง"
 
 #~ msgid "No previously auto-saved query is available. Loading default query."
 #~ msgstr "ไม่มีการเรียกใช้อัตโนมัติที่ใช้งานได้ กำลังโหลดการเรียกใช้เดิม"
