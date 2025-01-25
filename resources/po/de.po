@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-25 15:00+0000\n"
-"PO-Revision-Date: 2025-01-25 16:10+0000\n"
+"PO-Revision-Date: 2025-01-26 00:24+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -6975,7 +6975,7 @@ msgstr "Reparieren"
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:523
 msgid "Truncate"
-msgstr "Leeren"
+msgstr "Kürzen"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 msgid "Partition table"
