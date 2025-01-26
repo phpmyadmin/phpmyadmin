@@ -2624,8 +2624,6 @@ msgid "Allow login to any MySQL server"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:618
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
 msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
 
