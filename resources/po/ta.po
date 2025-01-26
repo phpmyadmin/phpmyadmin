@@ -10782,8 +10782,6 @@ msgid "Show databases navigation as tree"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: src/Config/Descriptions.php:810
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
 msgstr "வழிசெலுத்தல் பலகம்"
 
