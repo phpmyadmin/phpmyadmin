@@ -336,7 +336,6 @@ final class JavaScriptMessagesController implements InvocableController
             /* For query editor */
             'strFormatting' => __('Formatting SQL…'),
             'strNoParam' => __('No parameters found!'),
-            'strQueryCopiedSuccess' => __('Query copied successfully'),
             'strQueryCopyEmpty' => __('Query is empty!'),
 
             /* For inline query editing */
