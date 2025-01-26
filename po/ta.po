@@ -7711,8 +7711,6 @@ msgstr ""
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
 #: libraries/classes/Controllers/Table/ExportController.php:146
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
 msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
