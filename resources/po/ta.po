@@ -1811,7 +1811,7 @@ msgstr ""
 #: resources/templates/triggers/editor_form.twig:67
 #: resources/templates/view_create.twig:55
 msgid "Definer"
-msgstr ""
+msgstr "வரையறுக்கவும்"
 
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
