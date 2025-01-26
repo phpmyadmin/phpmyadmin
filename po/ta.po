@@ -15566,8 +15566,6 @@ msgid "This field is required"
 msgstr ""
 
 #: templates/javascript/variables.twig:91
-#, fuzzy
-#| msgid "Use text field:"
 msgid "Please fix this field"
 msgstr "உரைபுலத்தின் மூலமாக:"
 
