@@ -1227,8 +1227,6 @@ msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:207
 #: libraries/classes/Charsets/Collation.php:499
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "தரவு அகராதி"
