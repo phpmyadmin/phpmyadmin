@@ -11075,8 +11075,6 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:135
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
 msgstr "உறுதிப்படுத்தல்"
 
