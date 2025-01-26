@@ -81,8 +81,6 @@ msgstr "செல்பதிகை"
 
 #: resources/templates/base.twig:108
 #: src/Controllers/JavaScriptMessagesController.php:345
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "அமைப்புக்களை மாற்று"
 
