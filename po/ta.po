@@ -17446,8 +17446,6 @@ msgid "Index length"
 msgstr "நிரல் நீளம்"
 
 #: templates/table/structure/display_partitions.twig:194
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition table"
 msgstr "பிரிவினை %s"
 
