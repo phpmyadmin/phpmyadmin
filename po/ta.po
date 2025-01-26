@@ -6130,8 +6130,6 @@ msgid "Renaming databases"
 msgstr "தரவுத்தளங்கங்களின் பெயர் மாற்றப்படுகின்றது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
