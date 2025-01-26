@@ -1581,8 +1581,6 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:91
 #: resources/templates/database/designer/main.twig:94
 #: resources/templates/database/designer/main.twig:268
-#, fuzzy
-#| msgid "Create version"
 msgid "Create relationship"
 msgstr "பதிப்பை உருவாக்கு"
 
