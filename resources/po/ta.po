@@ -8648,8 +8648,6 @@ msgid "German (phone book order)"
 msgstr ""
 
 #: src/Charsets/Collation.php:145 src/Charsets/Collation.php:403
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "தரவு அகராதி"
