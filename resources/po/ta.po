@@ -2790,8 +2790,6 @@ msgid "Add DROP TABLE"
 msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:35
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
 
