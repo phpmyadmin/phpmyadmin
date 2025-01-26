@@ -9458,8 +9458,7 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:73
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
 msgstr "நிரல்வரிசைகளை சேர்க்க முடியவில்லை!"
 
