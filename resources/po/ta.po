@@ -8883,8 +8883,6 @@ msgid "Burmese"
 msgstr ""
 
 #: src/Charsets/Collation.php:445
-#, fuzzy
-#| msgid "Version"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "பதிப்பு"
