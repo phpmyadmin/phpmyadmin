@@ -3076,8 +3076,6 @@ msgid "Foreign key limit"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:746
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
 msgstr "அயல் குறியெண் சரிபார்க்க:"
 
