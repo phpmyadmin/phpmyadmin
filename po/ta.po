@@ -1504,8 +1504,6 @@ msgid "Slovenian"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:597
-#, fuzzy
-#| msgid "File name"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "கோப்பின் பெயர்"
