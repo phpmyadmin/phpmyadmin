@@ -15685,8 +15685,6 @@ msgstr ""
 "%sநிறுவல்கோவை%s மூலம்."
 
 #: templates/preferences/manage/main.twig:81
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
 msgstr "கோப்பாக சேமிக்க"
 
