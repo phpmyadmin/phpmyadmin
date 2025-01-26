@@ -15021,8 +15021,6 @@ msgid ""
 msgstr ""
 
 #: templates/import.twig:26
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "தரவிறக்கத்திற்கான கோப்பு:"
 
