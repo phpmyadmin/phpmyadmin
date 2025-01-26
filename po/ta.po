@@ -3455,8 +3455,6 @@ msgid "Enable navigation tree expansion"
 msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
 
 #: libraries/classes/Config/Descriptions.php:848
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show tables in tree"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
