@@ -14178,8 +14178,6 @@ msgstr "அட்டவணைகளில்:"
 
 #: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "அனைத்தையும் தெரிவுநீக்கு"
 
