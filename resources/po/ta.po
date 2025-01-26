@@ -2828,8 +2828,6 @@ msgstr ""
 #: resources/templates/import.twig:154 resources/templates/sql/query.twig:145
 #: resources/templates/table/delete/confirm.twig:25
 #: src/Controllers/JavaScriptMessagesController.php:376
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Enable foreign key checks"
 msgstr "அயல் குறியெண் சரிபார்க்க:"
 
