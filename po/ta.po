@@ -14373,8 +14373,6 @@ msgid "Options:"
 msgstr "விருப்பத்தேர்வுகள்"
 
 #: templates/database/structure/copy_form.twig:39
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
 
