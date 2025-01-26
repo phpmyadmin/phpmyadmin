@@ -11064,8 +11064,6 @@ msgid "Recently used table"
 msgstr ""
 
 #: src/Config/Descriptions.php:888
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "விருப்பமான அட்டவணைகள்"
 
