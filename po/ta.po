@@ -17737,8 +17737,6 @@ msgstr "அணுக்க தேடல்"
 #: templates/table/find_replace/index.twig:27
 #: templates/table/search/index.twig:16
 #: templates/table/zoom_search/index.twig:16
-#, fuzzy
-#| msgid "Hide find and replace criteria"
 msgid "Find and replace"
 msgstr "தேடிமாற்று நிபந்தனையை மறை"
 
