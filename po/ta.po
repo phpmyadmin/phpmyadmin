@@ -12322,8 +12322,6 @@ msgid "The profile has been updated."
 msgstr ""
 
 #: libraries/classes/UserPassword.php:50
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
 msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
