@@ -2711,8 +2711,6 @@ msgstr "அட்டவணையை சரிபார்"
 #: resources/templates/database/structure/check_all_tables.twig:21
 #: resources/templates/table/maintenance/checksum.twig:3
 #: resources/templates/table/operations/index.twig:357
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
 msgstr "அட்டவணையை சரிபார்"
 
