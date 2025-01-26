@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
+<files psalm-version="6.0.0@b8e96bb617bf59382113b1b56cef751f648a7dc9">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -282,11 +282,6 @@
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$verbose]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$port]]></code>
       <code><![CDATA[$this->getValue($path . '/host')]]></code>
@@ -583,9 +578,6 @@
       <code><![CDATA[$vname]]></code>
       <code><![CDATA[self::$validators]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$ip]]></code>
     </MixedOperand>
@@ -677,9 +669,6 @@
       <code><![CDATA[$value]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array|false]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$foreigners[$column]]]></code>
     </MixedReturnStatement>
@@ -1484,9 +1473,6 @@
       <code><![CDATA[$bookmarkVariables]]></code>
       <code><![CDATA[$consoleMessageId]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[Response]]></code>
-    </MixedInferredReturnType>
     <MixedPropertyTypeCoercion>
       <code><![CDATA[['db' => Current::$database, 'table' => Current::$table]]]></code>
     </MixedPropertyTypeCoercion>
@@ -2441,9 +2427,6 @@
     <InvalidPropertyAssignmentValue>
       <code><![CDATA[array_values($_POST['rows_to_delete'])]]></code>
     </InvalidPropertyAssignmentValue>
-    <MixedInferredReturnType>
-      <code><![CDATA[Response]]></code>
-    </MixedInferredReturnType>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3522,9 +3505,6 @@
     <MixedAssignment>
       <code><![CDATA[$params]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$params]]></code>
       <code><![CDATA[$params]]></code>
@@ -3926,11 +3906,6 @@
       <code><![CDATA[$this->versionComment]]></code>
       <code><![CDATA[$this->versionString]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[list<string>]]></code>
-      <code><![CDATA[mixed[]]]></code>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$a['Data_length']]]></code>
       <code><![CDATA[$b['Data_length']]]></code>
@@ -4220,9 +4195,6 @@
       <code><![CDATA[$relationalDisplay]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[Message]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
@@ -4623,9 +4595,6 @@
     <MixedAssignment>
       <code><![CDATA[$table]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array{db:string, table:string}[]]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[json_decode($value, true)]]></code>
     </MixedReturnStatement>
@@ -4711,9 +4680,6 @@
     <MixedAssignment>
       <code><![CDATA[$this->previousMessages]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[FlashMessageList]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$this->storage[self::STORAGE_KEY]]]></code>
     </MixedReturnStatement>
@@ -5076,10 +5042,6 @@
       <code><![CDATA[$position]]></code>
       <code><![CDATA[$start]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[int|null]]></code>
-      <code><![CDATA[stdClass|null]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$fanout[256]]]></code>
       <code><![CDATA[$offset]]></code>
@@ -5280,9 +5242,6 @@
       <code><![CDATA[bool]]></code>
       <code><![CDATA[bool]]></code>
     </PossiblyUnusedReturnValue>
-    <TooFewArguments>
-      <code><![CDATA[imagefilledpolygon($this->image, $points, $color)]]></code>
-    </TooFewArguments>
   </file>
   <file src="src/Import/Ajax.php">
     <MixedArrayAccess>
@@ -5520,9 +5479,6 @@
     <MixedAssignment>
       <code><![CDATA[$binaryLogs]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[SessionCache::get($cacheKey)]]></code>
     </MixedReturnStatement>
@@ -7116,9 +7072,6 @@
       <code><![CDATA[$table]]></code>
       <code><![CDATA[$tableKey]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$ffield]]></code>
       <code><![CDATA[$ftable]]></code>
@@ -7196,50 +7149,27 @@
     </RedundantCondition>
   </file>
   <file src="src/Plugins/Import/ImportOds.php">
-    <MixedArgument>
-      <code><![CDATA[$cellAttrs]]></code>
-      <code><![CDATA[$text]]></code>
-    </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$row]]></code>
-      <code><![CDATA[$row]]></code>
-      <code><![CDATA[$values]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayAccess>
-      <code><![CDATA[$attr['number-columns-repeated']]]></code>
-      <code><![CDATA[$attr['number-columns-repeated']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$attr]]></code>
-      <code><![CDATA[$attr]]></code>
-      <code><![CDATA[$cellAttrs]]></code>
-      <code><![CDATA[$paragraphValue]]></code>
-      <code><![CDATA[$text]]></code>
-      <code><![CDATA[$values[]]]></code>
-      <code><![CDATA[$values[]]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[__toString]]></code>
-      <code><![CDATA[__toString]]></code>
-      <code><![CDATA[attributes]]></code>
-      <code><![CDATA[attributes]]></code>
-      <code><![CDATA[attributes]]></code>
-      <code><![CDATA[children]]></code>
-      <code><![CDATA[count]]></code>
-      <code><![CDATA[getName]]></code>
-    </MixedMethodCall>
     <PossiblyNullArgument>
+      <code><![CDATA[$cellAttrs]]></code>
       <code><![CDATA[$sheets]]></code>
     </PossiblyNullArgument>
     <PossiblyNullArrayAccess>
+      <code><![CDATA[$attr['number-columns-repeated']]]></code>
+      <code><![CDATA[$attr['number-columns-repeated']]]></code>
       <code><![CDATA[$tblAttr['name']]]></code>
     </PossiblyNullArrayAccess>
     <PossiblyNullPropertyFetch>
       <code><![CDATA[$xml->children('office', true)->body]]></code>
     </PossiblyNullPropertyFetch>
+    <PossiblyNullReference>
+      <code><![CDATA[count]]></code>
+    </PossiblyNullReference>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
+    <RedundantCondition>
+      <code><![CDATA[$paragraphValue === '' && isset($paragraph->{'a'})]]></code>
+    </RedundantCondition>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">
     <DeprecatedMethod>
@@ -7302,18 +7232,8 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Plugins/Import/ImportXml.php">
-    <MixedArrayAccess>
-      <code><![CDATA[$attrs['name']]]></code>
-    </MixedArrayAccess>
-    <MixedAssignment>
-      <code><![CDATA[$attrs]]></code>
-      <code><![CDATA[$val2]]></code>
-      <code><![CDATA[$val3]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[attributes]]></code>
-    </MixedMethodCall>
     <PossiblyNullArrayAccess>
+      <code><![CDATA[$attrs['name']]]></code>
       <code><![CDATA[$dbAttr['charset']]]></code>
       <code><![CDATA[$dbAttr['collation']]]></code>
       <code><![CDATA[$dbAttr['name']]]></code>
@@ -7328,6 +7248,10 @@
     <PossiblyUnusedReturnValue>
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[SimpleXMLElement]]></code>
+      <code><![CDATA[SimpleXMLElement]]></code>
+    </UnnecessaryVarAnnotation>
   </file>
   <file src="src/Plugins/Import/Upload/UploadNoplugin.php">
     <MixedArgument>
@@ -7339,9 +7263,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
     </MixedArrayAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array|null]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
     </MixedReturnStatement>
@@ -7369,9 +7290,6 @@
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY][$id]]]></code>
       <code><![CDATA[$ret]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array|null]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$ret]]></code>
       <code><![CDATA[$ret]]></code>
@@ -7415,9 +7333,6 @@
       <code><![CDATA[$ret['total']]]></code>
       <code><![CDATA[$status]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[array|null]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$ret['complete']]]></code>
     </MixedOperand>
@@ -7896,9 +7811,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedInferredReturnType>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$options[0]]]></code>
       <code><![CDATA[$options[1]]]></code>
@@ -8771,11 +8683,6 @@
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[int]]></code>
-      <code><![CDATA[int]]></code>
-      <code><![CDATA[int|numeric-string]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -8915,9 +8822,6 @@
       <code><![CDATA[$mroongaData]]></code>
       <code><![CDATA[$mysqlVars[$row['Variable_name']]]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
       <code><![CDATA[$decodedData['disk_usage']]]></code>
@@ -9135,9 +9039,6 @@
     <MixedAssignment>
       <code><![CDATA[$index]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[mixed[]]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$index[0]]]></code>
     </MixedOperand>
@@ -9276,9 +9177,6 @@
     <MixedArrayAssignment>
       <code><![CDATA[self::$trackingCache[$dbName][$tableName]]]></code>
     </MixedArrayAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[bool]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$result['identifier']]]></code>
     </MixedOperand>
@@ -9552,7 +9450,6 @@
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArrayOffset>
-      <code><![CDATA[$byteUnits[$d]]]></code>
       <code><![CDATA[$units[$d]]]></code>
     </InvalidArrayOffset>
     <MixedArgument>
@@ -9614,9 +9511,6 @@
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[int]]></code>
-    </MixedInferredReturnType>
     <MixedOperand>
       <code><![CDATA[$row['Column_name']]]></code>
       <code><![CDATA[$unit]]></code>
@@ -9670,9 +9564,6 @@
       <code><![CDATA[$buffer]]></code>
       <code><![CDATA[$buffer]]></code>
     </MixedArgument>
-    <MixedInferredReturnType>
-      <code><![CDATA[string]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$buffer]]></code>
     </MixedReturnStatement>
@@ -9701,9 +9592,6 @@
       <code><![CDATA[$context['http']['content']]]></code>
       <code><![CDATA[$httpStatus]]></code>
     </MixedAssignment>
-    <MixedInferredReturnType>
-      <code><![CDATA[string|bool|null]]></code>
-    </MixedInferredReturnType>
     <MixedReturnStatement>
       <code><![CDATA[$response]]></code>
     </MixedReturnStatement>
