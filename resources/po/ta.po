@@ -2096,8 +2096,6 @@ msgid "+ Add column"
 msgstr "+ நெடுவரிசையை சேர்க்க"
 
 #: resources/templates/database/multi_table_query/form.twig:174
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "வினவலை புதுப்பி"
 
