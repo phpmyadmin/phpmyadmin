@@ -10415,8 +10415,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:207
-#, fuzzy
-#| msgid "Export schema"
 msgid "Export metadata"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
