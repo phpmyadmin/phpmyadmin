@@ -7115,8 +7115,6 @@ msgstr "துவக்க வரிசை:"
 
 #: resources/templates/table/structure/display_partitions.twig:3
 #: resources/templates/table/structure/display_structure.twig:586
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
 msgstr "பிரிவினை %s"
 
