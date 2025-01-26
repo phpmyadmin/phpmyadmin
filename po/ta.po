@@ -15661,8 +15661,6 @@ msgid "MySQL Documentation"
 msgstr "ஆவணச்சான்று"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
 msgstr "வழிசெலுத்தல் பலகம்"
 
