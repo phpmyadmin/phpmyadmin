@@ -6134,8 +6134,6 @@ msgid "Copying database"
 msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:353
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
 
