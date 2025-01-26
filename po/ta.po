@@ -13610,8 +13610,6 @@ msgstr "நீளம்/மதிப்புகள்"
 
 #: templates/database/central_columns/main.twig:36
 #: templates/database/central_columns/main.twig:242
-#, fuzzy
-#| msgid "Contribute"
 msgid "Attribute"
 msgstr "பங்களிப்பு"
 
