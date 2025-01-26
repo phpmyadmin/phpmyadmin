@@ -13092,8 +13092,6 @@ msgid "Time taken"
 msgstr ""
 
 #: templates/console/display.twig:64 templates/table/search/index.twig:146
-#, fuzzy
-#| msgid "Order"
 msgid "Order by:"
 msgstr "ஏனையது->வரிசை"
 
