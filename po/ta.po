@@ -16578,8 +16578,6 @@ msgid "Does not require SSL-encrypted connections."
 msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
 
 #: templates/server/privileges/privileges_table.twig:793
-#, fuzzy
-#| msgid "Rate of aborted connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
 
