@@ -16417,8 +16417,6 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/slave_configuration.twig:5
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
 msgstr "பாதுகாப்பற்ற இணைப்பு"
 
