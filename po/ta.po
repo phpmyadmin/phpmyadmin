@@ -10882,8 +10882,6 @@ msgid "Data dictionary"
 msgstr "தரவு அகராதி"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:95
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Order of the tables"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
