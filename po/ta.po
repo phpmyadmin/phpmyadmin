@@ -7018,8 +7018,6 @@ msgid "Copy tables to"
 msgstr "தரவுதளத்தை இப்படி படியெடுக்க"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:672
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
 
