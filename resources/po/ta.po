@@ -8977,8 +8977,6 @@ msgid "Enable"
 msgstr "இயலச்செய்க %s"
 
 #: src/Config/ConfigFile.php:624
-#, fuzzy
-#| msgid "Disable %s"
 msgid "Disable"
 msgstr "முடக்குக %s"
 
