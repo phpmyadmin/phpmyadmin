@@ -4061,8 +4061,6 @@ msgid "Switch to dark theme"
 msgstr "பிரதியான தரவுதளத்துக்கு மாறு"
 
 #: libraries/classes/Config/Descriptions.php:982
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
 msgstr "முனையம்"
 
