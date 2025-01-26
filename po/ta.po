@@ -15422,7 +15422,6 @@ msgstr ""
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
