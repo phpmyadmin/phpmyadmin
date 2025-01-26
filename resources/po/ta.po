@@ -11036,8 +11036,6 @@ msgid "Maximal number of table preferences to store"
 msgstr ""
 
 #: src/Config/Descriptions.php:880
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
