@@ -14100,9 +14100,6 @@ msgstr[0] "%1$s அட்டவணையில் பொருந்தியவ
 msgstr[1] "%1$s அட்டவணையில் பொருந்தியவைகள் <strong>%2$s </strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>மொத்தம்:</b> <i>%s</i> பொருத்தம்"
