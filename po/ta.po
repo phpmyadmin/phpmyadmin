@@ -1434,8 +1434,6 @@ msgid "English"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:471
-#, fuzzy
-#| msgid "Operations"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "செயல்பாடுகள்"
