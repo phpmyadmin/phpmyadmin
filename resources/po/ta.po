@@ -17204,8 +17204,6 @@ msgstr ""
 
 #: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
 #: src/Plugins/Schema/SchemaPdf.php:68
-#, fuzzy
-#| msgid "Point"
 msgid "Portrait"
 msgstr "புள்ளி"
 
