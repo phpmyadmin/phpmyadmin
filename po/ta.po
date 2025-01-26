@@ -17680,8 +17680,6 @@ msgstr ""
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
 #: templates/table/tracking/main.twig:93
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
 msgstr "பதிப்பை உருவாக்கு"
 
