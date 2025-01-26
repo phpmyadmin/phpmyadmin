@@ -12470,7 +12470,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:110
 msgid "Reset all"
-msgstr "அனைத்தையும் மீட்டமை"
+msgstr "அனைத்தையும் தொடக்கத்தில் இருந்தது போல மாற்ற"
 
 #: src/Controllers/JavaScriptMessagesController.php:113
 msgid "Missing value in the form!"
