@@ -14786,8 +14786,6 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: templates/error/report_modal.twig:5
-#, fuzzy
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "பிழை அறிக்கை அளிக்க"
 
