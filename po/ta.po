@@ -15622,8 +15622,6 @@ msgid "Please enter a value less than or equal to {0}"
 msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: templates/javascript/variables.twig:105
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
