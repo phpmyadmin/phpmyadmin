@@ -12804,8 +12804,6 @@ msgid "Subpartition by:"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Subpartitions:"
 msgstr "பிரிவினை %s"
 
