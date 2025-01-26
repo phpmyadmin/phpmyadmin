@@ -6570,8 +6570,6 @@ msgid "Geometry"
 msgstr "கேத்திர கணிதம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:485
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "உள்ப்புற வளையம்"
 
