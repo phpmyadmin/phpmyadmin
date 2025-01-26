@@ -6818,8 +6818,6 @@ msgid "Create view"
 msgstr "விவரபார்வையை உருவாக்குக"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:640
-#, fuzzy
-#| msgid "Send Error Report"
 msgid "Send error report"
 msgstr "பிழை அறிக்கை அனுப்புக"
 
