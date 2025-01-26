@@ -17040,8 +17040,6 @@ msgid "Stacked"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:48
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
 msgstr "வரைபட தலைப்பு"
 
