@@ -13023,8 +13023,6 @@ msgid "Formatting SQL…"
 msgstr "SQL சரியமைக்கபடுகிறது…"
 
 #: src/Controllers/JavaScriptMessagesController.php:338
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
