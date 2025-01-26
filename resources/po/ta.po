@@ -2036,8 +2036,6 @@ msgid "Use this column in criteria"
 msgstr ""
 
 #: resources/templates/database/multi_table_query/form.twig:48
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
 msgstr "தேர்வளவை:"
 
