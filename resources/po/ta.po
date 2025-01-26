@@ -10538,8 +10538,6 @@ msgid "Foreign key limit"
 msgstr ""
 
 #: src/Config/Descriptions.php:726
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
 msgstr "அயல் குறியெண் சரிபார்க்க:"
 
