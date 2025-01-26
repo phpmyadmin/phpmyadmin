@@ -6563,8 +6563,6 @@ msgid "Index type:"
 msgstr "சுட்டுதொகுப்புக்குறி வகை:"
 
 #: resources/templates/table/index_form.twig:101
-#, fuzzy
-#| msgid "User:"
 msgid "Parser:"
 msgstr "பயனர்:"
 
