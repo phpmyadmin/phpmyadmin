@@ -6545,8 +6545,6 @@ msgid ""
 msgstr ""
 
 #: resources/templates/table/index_form.twig:37
-#, fuzzy
-#| msgid "Index name:"
 msgid "Index choice:"
 msgstr "சுட்டுதொகுப்புக்குறி பெயர்:"
 
