@@ -15822,8 +15822,7 @@ msgid "Session not found."
 msgstr "இணைப்பை காணவில்லை!"
 
 #: src/Html/Generator.php:151
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
 msgstr "தரவுத்தளம் தாவி செல்லவும் \"%s\"."
 
