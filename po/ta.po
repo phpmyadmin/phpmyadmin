@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-26 23:05+0000\n"
+"PO-Revision-Date: 2025-01-26 23:06+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -16292,8 +16292,6 @@ msgstr "புதிய பயனாளரை சேர்க்க->தனி�
 
 #: templates/server/privileges/edit_routine_privileges.twig:5
 #: templates/server/privileges/user_properties.twig:5
-#, fuzzy
-#| msgid "User groups"
 msgid "User account"
 msgstr "பயனர் குழுக்கள்"
 
