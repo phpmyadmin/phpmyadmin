@@ -15622,8 +15622,6 @@ msgid "Manage your settings"
 msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: templates/preferences/header.twig:12
-#, fuzzy
-#| msgid "Authentication"
 msgid "Two-factor authentication"
 msgstr "உறுதிப்படுத்தல்"
 
