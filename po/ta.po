@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-26 23:03+0000\n"
+"PO-Revision-Date: 2025-01-26 23:04+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -14079,8 +14079,6 @@ msgid "Sort:"
 msgstr "வரிசைப்படுத்து:"
 
 #: templates/database/qbe/selection_form.twig:32
-#, fuzzy
-#| msgid "Sort:"
 msgid "Sort order:"
 msgstr "வரிசைப்படுத்து:"
 
