@@ -6896,8 +6896,6 @@ msgstr "+கட்டுப்பாட்டை சேர்க்க"
 
 #: resources/templates/table/relation/common_form.twig:61
 #: resources/templates/table/relation/common_form.twig:69
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "உள்ளமை உறவுமுறைகள்"
 
