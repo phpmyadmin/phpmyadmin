@@ -3891,8 +3891,6 @@ msgid "Suhosin warning"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:951
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "புகுபதிவு நிலைபதிவுத்துணுக்கு செல்லுங்காலம்"
 
