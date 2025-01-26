@@ -16574,8 +16574,6 @@ msgid "Limits the number of simultaneous connections the user may have."
 msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:784
-#, fuzzy
-#| msgid "Rate of aborted connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
 
