@@ -1080,8 +1080,7 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/classes/Advisor.php:234
-#, fuzzy, php-format
-#| msgid "Error text: %s"
+#, php-format
 msgid "Error when evaluating: %s"
 msgstr "பிழை செய்தி: %s"
 
