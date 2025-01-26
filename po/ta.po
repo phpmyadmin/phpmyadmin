@@ -7919,8 +7919,7 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
 msgstr "நிறைவரிசை எண்ணிக்கையை பெற தவறியது."
 
