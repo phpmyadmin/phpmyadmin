@@ -12814,8 +12814,6 @@ msgid "Partition"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "X Values"
 msgid "Values"
 msgstr "X மதிப்புக்கள்"
 
