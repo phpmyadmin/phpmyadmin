@@ -14535,8 +14535,6 @@ msgid "Select database:"
 msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
 
 #: templates/export.twig:290
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
