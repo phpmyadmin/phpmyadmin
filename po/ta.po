@@ -13096,8 +13096,6 @@ msgid "Order by:"
 msgstr "ஏனையது->வரிசை"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL வினவல்கள்"
 
