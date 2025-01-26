@@ -10886,8 +10886,6 @@ msgid "Order of the tables"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "ஏறுவரிசை"
 
