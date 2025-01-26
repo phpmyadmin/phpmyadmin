@@ -12600,8 +12600,6 @@ msgid "Server default"
 msgstr "இயல்நிலையை அமைக்க"
 
 #: libraries/config.values.php:206
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable"
 msgstr "இயலச்செய்க %s"
 
