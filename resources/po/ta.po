@@ -2024,8 +2024,6 @@ msgid "Show"
 msgstr "காண்பி"
 
 #: resources/templates/database/multi_table_query/form.twig:40
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
 msgstr "அட்டவணைகள்"
 
