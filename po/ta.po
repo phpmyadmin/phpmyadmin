@@ -6771,8 +6771,6 @@ msgid "More"
 msgstr "மேலும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:619
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "பலகத்தை காட்டு"
 
