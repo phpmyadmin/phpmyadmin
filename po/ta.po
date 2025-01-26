@@ -16719,8 +16719,6 @@ msgid "Use text field:"
 msgstr "உரைபுலத்தின் மூலமாக:"
 
 #: templates/server/replication/primary_add_replica_user.twig:70
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
 msgstr "கடவுச்சொல்லை இயற்று"
 
