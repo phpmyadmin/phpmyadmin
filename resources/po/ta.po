@@ -16803,8 +16803,6 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:249
-#, fuzzy
-#| msgid "Export schema"
 msgid "Export metadata"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
