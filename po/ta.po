@@ -17941,8 +17941,6 @@ msgid "Sub partitioned by:"
 msgstr ""
 
 #: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
 msgid "Data length"
 msgstr "நிரல் நீளம்"
 
