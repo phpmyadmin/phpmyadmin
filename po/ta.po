@@ -13084,8 +13084,6 @@ msgid "Count"
 msgstr "எண்ணிக்கை"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Execute"
 msgid "Execution order"
 msgstr "செயலாக்குக"
 
