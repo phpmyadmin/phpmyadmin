@@ -6126,8 +6126,6 @@ msgid "Click to dismiss this notification"
 msgstr "இந்த அறிவுறுத்தலை நீக்க சொடுக்குக"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:351
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "தரவுத்தளங்கங்களின் பெயர் மாற்றப்படுகின்றது"
 
