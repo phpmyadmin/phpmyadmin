@@ -3655,8 +3655,6 @@ msgid "QBE saved searches table"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:900
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
