@@ -507,8 +507,6 @@ msgid "Values"
 msgstr "X மதிப்புக்கள்"
 
 #: resources/templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Subpartition"
 msgstr "பிரிவினை %s"
 
