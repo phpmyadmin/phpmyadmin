@@ -9622,8 +9622,6 @@ msgid "Central columns"
 msgstr "மைய நெடுவரிசைகள்"
 
 #: libraries/classes/Menu.php:553
-#, fuzzy
-#| msgid "User groups"
 msgid "User accounts"
 msgstr "பயனர் குழுக்கள்"
 
