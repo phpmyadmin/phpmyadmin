@@ -12796,8 +12796,6 @@ msgid "Expression or column list"
 msgstr "நெடுவரிசை %sகான மதிப்பு.கள்"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
 msgstr "பிரிவினை %s"
 
