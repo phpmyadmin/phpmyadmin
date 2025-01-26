@@ -3407,8 +3407,6 @@ msgstr "அட்டவணை"
 
 #: resources/templates/export.twig:233
 #: src/Controllers/JavaScriptMessagesController.php:301
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "நிரல்வரிசை"
