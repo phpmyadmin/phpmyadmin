@@ -12540,8 +12540,6 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:149
-#, fuzzy
-#| msgid "Display comments"
 msgid "display column"
 msgstr "கருத்துரைகளை காட்டுக"
 
