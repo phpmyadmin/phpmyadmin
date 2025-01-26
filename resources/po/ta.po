@@ -2069,8 +2069,6 @@ msgid "Descending"
 msgstr "இறங்குவரிசை"
 
 #: resources/templates/database/multi_table_query/form.twig:62
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
 msgstr "%sஐ சேர்க்க"
 
