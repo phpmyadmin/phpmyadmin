@@ -2566,8 +2566,6 @@ msgid "all of the words"
 msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
 #: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "சரியான சொற்றொடர்"
 
