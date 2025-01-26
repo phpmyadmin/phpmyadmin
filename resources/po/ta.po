@@ -7557,8 +7557,7 @@ msgid "Column names"
 msgstr ""
 
 #: src/Advisory/Advisor.php:207
-#, fuzzy, php-format
-#| msgid "Error text: %s"
+#, php-format
 msgid "Error when evaluating: %s"
 msgstr "பிழை செய்தி: %s"
 
