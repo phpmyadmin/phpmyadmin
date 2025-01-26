@@ -15414,8 +15414,6 @@ msgstr ""
 
 #: templates/login/twofactor/application_configure.twig:16
 #: templates/login/twofactor/application.twig:2
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
 msgstr "உறுதிப்படுத்தல்"
 
