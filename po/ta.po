@@ -8050,8 +8050,6 @@ msgid "Error: relationship already exists."
 msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
 
 #: libraries/classes/Database/Designer/Common.php:625
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
