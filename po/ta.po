@@ -17746,8 +17746,6 @@ msgstr "+கட்டுப்பாட்டை சேர்க்க"
 
 #: templates/table/relation/common_form.twig:106
 #: templates/table/relation/common_form.twig:114
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "உள்ளமை உறவுமுறைகள்"
 
