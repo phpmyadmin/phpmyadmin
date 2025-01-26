@@ -12822,8 +12822,6 @@ msgid "Subpartition"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "செயல்பொறிகள்"
 
