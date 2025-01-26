@@ -2727,8 +2727,6 @@ msgid "Hide table structure actions"
 msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
 
 #: libraries/classes/Config/Descriptions.php:643
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations for Hex"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
