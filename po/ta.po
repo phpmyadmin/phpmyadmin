@@ -13295,8 +13295,6 @@ msgid "Select all"
 msgstr "அனைத்தையும் தெரிவுசெய்க"
 
 #: templates/database/designer/database_tables.twig:37
-#, fuzzy
-#| msgid "Move columns"
 msgid "Show/hide columns"
 msgstr "நெடுவரிசைகளை நகர்த்து"
 
