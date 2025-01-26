@@ -13435,8 +13435,6 @@ msgid "Number of tables:"
 msgstr ""
 
 #: templates/database/designer/main.twig:381
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete relationship"
 msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
 
