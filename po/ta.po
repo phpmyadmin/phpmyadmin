@@ -11581,8 +11581,6 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:29
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
-#, fuzzy
-#| msgid "routine"
 msgid "Routine"
 msgstr "%s களத்தை சேர்க்க->செயல்முறை"
 
