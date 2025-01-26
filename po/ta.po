@@ -6673,8 +6673,6 @@ msgstr "பக்கத்தை சேமிக்க"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:528
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
-#, fuzzy
-#| msgid "Save page"
 msgid "Save page as"
 msgstr "பக்கத்தை சேமிக்க"
 
