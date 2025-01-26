@@ -6066,8 +6066,6 @@ msgid "Request aborted!!"
 msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "வேண்டுகோள் செயல்முறைப்படுத்தபடுகின்றது"
 
