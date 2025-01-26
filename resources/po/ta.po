@@ -14295,8 +14295,6 @@ msgid "Sent"
 msgstr ""
 
 #: src/Controllers/Server/Status/StatusController.php:171
-#, fuzzy
-#| msgid "Current connection"
 msgid "Max. concurrent connections"
 msgstr "நடப்பாணை இணைப்பு"
 
