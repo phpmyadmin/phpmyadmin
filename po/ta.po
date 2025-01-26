@@ -11801,8 +11801,6 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:794
 #: libraries/classes/Server/Privileges.php:868
 #: libraries/classes/Server/Privileges.php:3965
-#, fuzzy
-#| msgid "Authentication"
 msgid "Native MySQL authentication"
 msgstr "உறுதிப்படுத்தல்"
 
