@@ -14996,8 +14996,6 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: templates/import.twig:152
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "பகுதியளவு தரவிறக்கம்:"
 
