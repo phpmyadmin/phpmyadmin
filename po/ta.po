@@ -16576,8 +16576,6 @@ msgstr ""
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
-#, fuzzy
-#| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "பயனர்கள் கண்ணோட்டம்"
 
