@@ -7910,8 +7910,6 @@ msgid "Display column was successfully updated."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/RelationController.php:275
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationships were successfully updated."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
