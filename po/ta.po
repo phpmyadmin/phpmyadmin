@@ -7850,8 +7850,7 @@ msgid "The columns have been moved successfully."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: libraries/classes/Controllers/Table/StructureController.php:746
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
 msgstr "நிறைவரிசை எண்ணிக்கையை பெற தவறியது."
 
