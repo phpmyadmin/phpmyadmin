@@ -2028,8 +2028,6 @@ msgid "Table alias"
 msgstr "அட்டவணைகள்"
 
 #: resources/templates/database/multi_table_query/form.twig:41
-#, fuzzy
-#| msgid "Column selector"
 msgid "Column alias"
 msgstr "நிரல்வரிசை தெரிவு"
 
