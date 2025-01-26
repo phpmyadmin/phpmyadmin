@@ -15689,8 +15689,6 @@ msgid "Save as JSON file"
 msgstr "கோப்பாக சேமிக்க"
 
 #: templates/preferences/manage/main.twig:85
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
 msgstr "கோப்பாக சேமிக்க"
 
