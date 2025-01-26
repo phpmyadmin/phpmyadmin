@@ -17420,8 +17420,7 @@ msgid "Session value"
 msgstr "அமர்வு மதிப்பு"
 
 #: templates/server/variables/index.twig:80
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
 
