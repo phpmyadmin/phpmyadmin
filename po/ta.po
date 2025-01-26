@@ -10623,8 +10623,7 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
 msgstr "அமர்வு மதிப்பு"
 
