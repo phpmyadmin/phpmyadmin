@@ -1157,8 +1157,6 @@ msgid "ascending"
 msgstr "ஏறுவரிசை"
 
 #: resources/templates/console/display.twig:82
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "இறங்குவரிசை"
 
