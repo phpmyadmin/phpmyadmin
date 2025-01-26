@@ -11818,8 +11818,7 @@ msgid "Run SQL query/queries on database %s"
 msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
 
 #: libraries/classes/SqlQueryForm.php:180
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
 
