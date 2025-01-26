@@ -13053,8 +13053,6 @@ msgid "Engine"
 msgstr "செயல்பொறிகள்"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
