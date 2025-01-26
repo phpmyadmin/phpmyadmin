@@ -6044,8 +6044,6 @@ msgstr "விலக்கு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: templates/header.twig:44
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "அமைப்புக்களை மாற்று"
 
