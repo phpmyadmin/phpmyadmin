@@ -17968,8 +17968,6 @@ msgstr "துவக்க வரிசை:"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:597
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
 msgstr "பிரிவினை %s"
 
