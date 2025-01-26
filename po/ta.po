@@ -17935,8 +17935,6 @@ msgid "No partitioning defined!"
 msgstr ""
 
 #: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitioned by:"
 msgstr "பிரிவினை %s"
 
