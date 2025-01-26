@@ -15248,8 +15248,6 @@ msgid "Internal relationship has been added."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: src/Database/Designer/Common.php:575
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
