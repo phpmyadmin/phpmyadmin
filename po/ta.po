@@ -15786,8 +15786,6 @@ msgid "Exporting databases from the current server"
 msgstr ""
 
 #: templates/server/export/index.twig:7
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
 msgstr "தரவுத்தளங்கள்"
 
