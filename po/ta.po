@@ -16840,8 +16840,6 @@ msgid "Variable"
 msgstr ""
 
 #: templates/server/select/index.twig:7 templates/server/select/index.twig:19
-#, fuzzy
-#| msgid "Current Server:"
 msgid "Current server:"
 msgstr "நடப்பு வழங்கி:"
 
