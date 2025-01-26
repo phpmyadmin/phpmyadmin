@@ -14496,8 +14496,6 @@ msgid "Send error report"
 msgstr "பிழை அறிக்கை அனுப்புக"
 
 #: templates/export/template_options.twig:1 templates/export.twig:42
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
 msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
 
