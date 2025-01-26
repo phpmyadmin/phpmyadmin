@@ -1303,8 +1303,6 @@ msgid "West European"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:369
-#, fuzzy
-#| msgid "Central columns"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "மைய நெடுவரிசைகள்"
