@@ -17130,8 +17130,6 @@ msgid "Query analyzer"
 msgstr ""
 
 #: templates/server/status/processes/index.twig:14
-#, fuzzy
-#| msgid "not active"
 msgid "Show only active"
 msgstr "செயல்பாடற்ற"
 
