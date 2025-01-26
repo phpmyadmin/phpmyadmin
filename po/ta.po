@@ -4079,8 +4079,6 @@ msgid "Order"
 msgstr "ஏனையது->வரிசை"
 
 #: libraries/classes/Config/Descriptions.php:986
-#, fuzzy
-#| msgid "Order"
 msgid "Order by"
 msgstr "ஏனையது->வரிசை"
 
