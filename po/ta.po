@@ -10717,8 +10717,6 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1062
-#, fuzzy
-#| msgid "data"
 msgid "Metadata"
 msgstr "தரவு"
 
