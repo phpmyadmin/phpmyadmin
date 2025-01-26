@@ -8222,8 +8222,6 @@ msgid "Failed to set configured collation connection!"
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1959
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
