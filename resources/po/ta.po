@@ -10294,8 +10294,6 @@ msgid "Default transformations for Substring"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: src/Config/Descriptions.php:625
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Bool2Text"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
