@@ -9213,8 +9213,7 @@ msgid "Print view"
 msgstr "அச்சுப் பார்வை"
 
 #: libraries/classes/Html/Generator.php:153
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
 msgstr "தரவுத்தளம் தாவி செல்லவும் \"%s\"."
 
