@@ -11317,8 +11317,6 @@ msgid "Console height"
 msgstr "முனையம்"
 
 #: src/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
 msgstr "முனையம்"
 
