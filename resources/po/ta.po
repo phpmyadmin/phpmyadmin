@@ -6438,8 +6438,6 @@ msgstr ""
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
 #: resources/templates/sql/query.twig:52
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
