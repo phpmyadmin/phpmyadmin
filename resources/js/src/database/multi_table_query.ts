@@ -34,6 +34,7 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
     });
 
     $('#update_query_button').off('click');
+    $('#copy_query').off('click');
     $('#add_column_button').off('click');
     $('body').off('click', 'input.add-option');
     $('body').off('click', 'input.remove-option');
@@ -182,6 +183,15 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 $('#slide-handle').trigger('click');// Collapse search criteria area
             }
         });
+    });
+
+    $('#copy_query').on('click', function () {
+        const query = editor.getDoc().getValue();
+
+        if (query !== '') {
+            navigator.clipboard.writeText(query);
+            ajaxShowMessage('Query copied successfully', 1000);
+        }
     });
 
     $('#add_column_button').on('click', function () {
