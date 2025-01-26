@@ -4333,8 +4333,6 @@ msgid "Import"
 msgstr "தரவிறக்கம்"
 
 #: libraries/classes/Config/Forms/User/MainForm.php:35
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
