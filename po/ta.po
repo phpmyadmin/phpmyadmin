@@ -6006,8 +6006,6 @@ msgid "No files available on server for import!"
 msgstr "தரவிறக்குவதற்கு வழங்கியில் எந்த கோப்பும் இல்லை!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "வினவலை பகுத்தாய்க"
 
