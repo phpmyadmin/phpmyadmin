@@ -5157,8 +5157,6 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:235
 #: resources/templates/server/privileges/privileges_table.twig:239
 #: src/Server/Privileges.php:361 src/Server/Privileges.php:370
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Allows deleting historical rows."
 msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
