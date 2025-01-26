@@ -15860,8 +15860,6 @@ msgid "Without PHP code"
 msgstr "PHP நிரல் இல்லாமல்"
 
 #: src/Html/Generator.php:621
-#, fuzzy
-#| msgid "Edit view"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "தொகுப்பு பார்வை"
