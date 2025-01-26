@@ -7966,8 +7966,6 @@ msgid "Tracking of %s is activated."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/TrackingController.php:140
-#, fuzzy
-#| msgid "The columns have been moved successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
