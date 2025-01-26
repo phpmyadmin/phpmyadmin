@@ -8083,8 +8083,6 @@ msgid "Error: Internal relationship could not be removed!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:755
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been removed."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
