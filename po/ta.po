@@ -3790,8 +3790,6 @@ msgid "Show table comments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
 #: libraries/classes/Config/Descriptions.php:933
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show creation timestamp"
 msgstr "செயல்கூற்றின் களங்களை காட்டுக"
 
