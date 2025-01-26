@@ -9343,8 +9343,6 @@ msgid "Customize appearance of the navigation panel."
 msgstr ""
 
 #: src/Config/Descriptions.php:208
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
 msgstr "வழிசெலுத்தல் பலகத்தை தனிப்பயனாக்குக"
 
