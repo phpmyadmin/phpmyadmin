@@ -17945,8 +17945,6 @@ msgid "Data length"
 msgstr "நிரல் நீளம்"
 
 #: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
 msgid "Index length"
 msgstr "நிரல் நீளம்"
 
