@@ -10778,8 +10778,6 @@ msgid "Memory limit"
 msgstr ""
 
 #: src/Config/Descriptions.php:809
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
