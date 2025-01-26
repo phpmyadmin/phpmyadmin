@@ -13587,8 +13587,6 @@ msgid ""
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:590
-#, fuzzy
-#| msgid "Original string"
 msgid "Original length"
 msgstr "மெய் சரம்"
 
