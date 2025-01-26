@@ -13791,8 +13791,6 @@ msgid "criteria"
 msgstr "தேர்வளவை:"
 
 #: templates/database/multi_table_query/form.twig:65
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
 msgstr "%sஐ சேர்க்க"
 
