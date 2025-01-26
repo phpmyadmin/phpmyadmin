@@ -8973,8 +8973,6 @@ msgid "Server default"
 msgstr "இயல்நிலையை அமைக்க"
 
 #: src/Config/ConfigFile.php:623
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable"
 msgstr "இயலச்செய்க %s"
 
