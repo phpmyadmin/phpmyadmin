@@ -4172,8 +4172,6 @@ msgid "Configure two-factor authentication"
 msgstr ""
 
 #: resources/templates/preferences/two_factor/configure.twig:12
-#, fuzzy
-#| msgid "Change password"
 msgid "Enable two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
