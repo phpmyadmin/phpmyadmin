@@ -529,8 +529,6 @@ msgid "Comment"
 msgstr "கருத்துரை"
 
 #: resources/templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
