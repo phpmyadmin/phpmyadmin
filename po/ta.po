@@ -13687,8 +13687,6 @@ msgstr "+ நெடுவரிசையை சேர்க்க"
 #: templates/database/multi_table_query/form.twig:183
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "வினவலை புதுப்பி"
 
