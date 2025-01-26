@@ -5335,8 +5335,6 @@ msgid "Y values"
 msgstr "செங்குத்து (Y) மதிப்புகள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:128
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter the SQL query first."
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
