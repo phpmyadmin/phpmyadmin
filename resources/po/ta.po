@@ -1170,8 +1170,6 @@ msgid "Count"
 msgstr "எண்ணிக்கை"
 
 #: resources/templates/console/display.twig:94
-#, fuzzy
-#| msgid "Execute"
 msgid "Execution order"
 msgstr "செயலாக்குக"
 
