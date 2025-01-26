@@ -14681,8 +14681,6 @@ msgid "Export databases as separate files"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
 #: templates/export.twig:463
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
