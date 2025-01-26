@@ -1961,8 +1961,6 @@ msgid "Whether to expand single database in the navigation tree automatically."
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: libraries/classes/Config/Descriptions.php:315
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
 msgstr "வழிசெலுத்தல் பலகத்தில் இலச்சினையை காட்டுக."
 
