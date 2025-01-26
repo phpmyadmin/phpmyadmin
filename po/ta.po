@@ -8391,8 +8391,6 @@ msgstr "குறைந்தபட்சம் ஒரு சொல்லைய�
 
 #: libraries/classes/Database/Search.php:105
 #: templates/database/search/main.twig:27
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "சரியான சொற்றொடர்"
 
