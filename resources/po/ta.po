@@ -12666,8 +12666,6 @@ msgid "Used memory"
 msgstr "பயன்பாட்டிலுள்ள நினைவகம்"
 
 #: src/Controllers/JavaScriptMessagesController.php:199
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "மொத்த மாற்றிடம்"
 
