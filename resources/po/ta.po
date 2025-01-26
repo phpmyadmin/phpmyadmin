@@ -4631,8 +4631,6 @@ msgstr "உறுதிசெய்க"
 
 #: resources/templates/server/engines/index.twig:5
 #: resources/templates/server/engines/show.twig:3
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "சேமிப்பக செயல்பொறிகள்"
 
