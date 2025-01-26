@@ -15471,8 +15471,6 @@ msgid ""
 msgstr ""
 
 #: templates/preferences/autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings"
 msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
 
