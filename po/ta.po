@@ -15637,8 +15637,6 @@ msgid "Home"
 msgstr "முகப்புப்பக்கம்"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
-#, fuzzy
-#| msgid "Wrong data"
 msgid "Empty session data"
 msgstr "தவறான தரவு"
 
