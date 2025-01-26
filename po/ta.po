@@ -13104,8 +13104,6 @@ msgid "Show trace"
 msgstr "உருவாக்கத்தை காட்டு"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "பலகத்தை மறை"
 
