@@ -3401,8 +3401,6 @@ msgstr ""
 
 #: resources/templates/export.twig:220
 #: src/Controllers/JavaScriptMessagesController.php:300
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "அட்டவணை"
