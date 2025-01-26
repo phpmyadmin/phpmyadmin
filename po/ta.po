@@ -13644,8 +13644,6 @@ msgstr "அட்டவணையை தேர்வுசெய்க"
 #: templates/database/multi_table_query/form.twig:45
 #: templates/database/multi_table_query/form.twig:95
 #: templates/database/multi_table_query/form.twig:145
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
 msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
