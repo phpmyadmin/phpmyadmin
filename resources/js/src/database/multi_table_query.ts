@@ -190,7 +190,9 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
 
         if (query !== '') {
             navigator.clipboard.writeText(query);
-            ajaxShowMessage('Query copied successfully', 1000);
+            ajaxShowMessage(window.Messages.strQueryCopiedSuccess, 1000);
+        } else {
+            ajaxShowMessage(window.Messages.strQueryCopyEmpty, 1000);
         }
     });
 
