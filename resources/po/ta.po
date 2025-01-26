@@ -545,8 +545,6 @@ msgid "Min rows"
 msgstr "உலாவு"
 
 #: resources/templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table space"
 msgstr "அட்டவணை தேடல்"
 
