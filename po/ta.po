@@ -13037,8 +13037,6 @@ msgstr "அடுக்கு"
 #: templates/table/operations/index.twig:79
 #: templates/table/operations/index.twig:115
 #: templates/table/operations/index.twig:315
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Adjust privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
