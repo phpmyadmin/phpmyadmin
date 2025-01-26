@@ -11156,8 +11156,6 @@ msgid "Show create database form"
 msgstr ""
 
 #: src/Config/Descriptions.php:912
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
