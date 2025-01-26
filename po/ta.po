@@ -15574,8 +15574,6 @@ msgid "Please enter a valid email address"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: templates/javascript/variables.twig:93
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
