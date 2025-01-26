@@ -5693,8 +5693,6 @@ msgstr ""
 
 #: resources/templates/server/select/index.twig:4
 #: resources/templates/server/select/index.twig:13
-#, fuzzy
-#| msgid "Current Server:"
 msgid "Current server:"
 msgstr "நடப்பு வழங்கி:"
 
