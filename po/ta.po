@@ -12824,8 +12824,6 @@ msgstr "பிரிவினை %s"
 #: templates/columns_definitions/partitions.twig:76
 #: templates/table/operations/index.twig:480
 #: templates/table/structure/display_partitions.twig:24
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
 msgstr "பிரிவினை %s"
 
