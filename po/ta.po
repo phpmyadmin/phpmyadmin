@@ -7970,8 +7970,6 @@ msgid "Tracking versions deleted successfully."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:145
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
