@@ -10314,8 +10314,6 @@ msgid "Default transformations for Inline"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: src/Config/Descriptions.php:630
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
