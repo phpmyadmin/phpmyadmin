@@ -8046,8 +8046,6 @@ msgid ""
 msgstr "அமைப்பாக்க சேமிப்பகம் மைய நிரல்வரிசைகள் பட்டியல் வசதிக்கு ஏதுவாக இல்லை."
 
 #: libraries/classes/Database/Designer/Common.php:573
-#, fuzzy
-#| msgid "Primary key already exists."
 msgid "Error: relationship already exists."
 msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
 
