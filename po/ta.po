@@ -12058,8 +12058,7 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/classes/Tracking.php:979
-#, fuzzy, php-format
-#| msgid "Create version %1$s of %2$s"
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
 
