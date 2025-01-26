@@ -2901,8 +2901,6 @@ msgstr "தகா வகை!"
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
 #: libraries/classes/Config/Descriptions.php:745
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relationships"
 msgstr "தொடர்பு பார்வை"
 
