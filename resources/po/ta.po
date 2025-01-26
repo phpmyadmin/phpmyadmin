@@ -2079,8 +2079,6 @@ msgid "Text"
 msgstr "உரை"
 
 #: resources/templates/database/multi_table_query/form.twig:117
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
 msgstr "நிரல்வரிசையை நகர்த்து"
 
