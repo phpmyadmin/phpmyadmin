@@ -17542,8 +17542,6 @@ msgid "No preview available."
 msgstr ""
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
 msgstr "அதை ஏற்றுக்கொள்"
 
