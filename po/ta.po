@@ -12596,8 +12596,6 @@ msgid "Never send error reports"
 msgstr ""
 
 #: libraries/config.values.php:205
-#, fuzzy
-#| msgid "Set default"
 msgid "Server default"
 msgstr "இயல்நிலையை அமைக்க"
 
