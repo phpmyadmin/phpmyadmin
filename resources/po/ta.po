@@ -10976,8 +10976,6 @@ msgid "Allow root login"
 msgstr "root புகுபதிவை ஏற்க"
 
 #: src/Config/Descriptions.php:864
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
 msgstr "அமர்வு மதிப்பு"
 
