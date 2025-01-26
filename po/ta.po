@@ -14540,8 +14540,6 @@ msgid "Show SQL query"
 msgstr "SQL வினவல்களை காட்டுக"
 
 #: templates/export.twig:104
-#, fuzzy
-#| msgid "Export schema"
 msgid "Export method:"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
