@@ -13668,8 +13668,6 @@ msgid "Add as"
 msgstr "%sஐ சேர்க்க"
 
 #: templates/database/multi_table_query/form.twig:128
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
 msgstr "நிரல்வரிசையை நகர்த்து"
 
