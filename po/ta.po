@@ -13766,8 +13766,6 @@ msgstr "வினவல் சாளரம்"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:119
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
