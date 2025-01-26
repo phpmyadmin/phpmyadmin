@@ -6106,8 +6106,6 @@ msgid "Dropping column"
 msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "முதனிலை குறிப்பெழுத்து சேர்க்க"
 
