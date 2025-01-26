@@ -16329,8 +16329,6 @@ msgid "Add privileges on the following table:"
 msgstr "பின்வரும் அட்டவணையின் மீதான தனிச்சலுகையை சேர்க்க:"
 
 #: templates/server/privileges/privileges_summary.twig:86
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
 msgstr "பின்வரும் அட்டவணையின் மீதான தனிச்சலுகையை சேர்க்க:"
 
