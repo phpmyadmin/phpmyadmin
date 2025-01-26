@@ -9272,8 +9272,6 @@ msgid "Profiling"
 msgstr "பகுமுறையிடல்"
 
 #: libraries/classes/Html/Generator.php:779
-#, fuzzy
-#| msgid "Edit view"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "தொகுப்பு பார்வை"
