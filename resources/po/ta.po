@@ -4947,8 +4947,6 @@ msgid ""
 msgstr ""
 
 #: resources/templates/server/privileges/login_information_fields.twig:23
-#, fuzzy
-#| msgid "User name:"
 msgid "Host name:"
 msgstr "பயனர் பெயர்:"
 
