@@ -2570,8 +2570,6 @@ msgid "the exact phrase as substring"
 msgstr "சரியான சொற்றொடர்"
 
 #: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "சரியான சொற்றொடர்"
 
