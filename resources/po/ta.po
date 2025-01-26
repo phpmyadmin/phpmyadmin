@@ -1197,8 +1197,6 @@ msgid "Order by:"
 msgstr "ஏனையது->வரிசை"
 
 #: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL வினவல்கள்"
 
