@@ -13137,8 +13137,7 @@ msgid "Create version %1$s of %2$s"
 msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
 
 #: templates/create_tracking_version.twig:15
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Create version %1$s"
 msgstr "பதிப்பை உருவாக்கு"
 
