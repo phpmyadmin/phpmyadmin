@@ -17445,8 +17445,6 @@ msgid "Login using password only."
 msgstr ""
 
 #: src/Plugins/TwoFactor/Simple.php:47
-#, fuzzy
-#| msgid "Change password"
 msgid "Simple two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
