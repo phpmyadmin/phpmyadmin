@@ -11319,8 +11319,6 @@ msgid "Console mode"
 msgstr "முனையம்"
 
 #: src/Config/Descriptions.php:966
-#, fuzzy
-#| msgid "Order"
 msgid "Order by"
 msgstr "ஏனையது->வரிசை"
 
