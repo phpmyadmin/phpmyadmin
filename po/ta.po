@@ -13315,8 +13315,6 @@ msgstr "அழிக்கவேண்டிய பக்கம்"
 
 #: templates/database/designer/main.twig:19
 #: templates/database/designer/main.twig:25
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show/Hide tables list"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
