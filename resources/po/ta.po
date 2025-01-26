@@ -11212,8 +11212,6 @@ msgid "Explain SQL"
 msgstr ""
 
 #: src/Config/Descriptions.php:929 src/Html/Generator.php:556
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP குறிமுறை உருவாக்கு"
 
