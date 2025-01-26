@@ -15606,8 +15606,6 @@ msgid "Please enter no more than {0} characters"
 msgstr ""
 
 #: templates/javascript/variables.twig:101
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
