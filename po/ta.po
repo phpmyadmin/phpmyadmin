@@ -12544,8 +12544,6 @@ msgid "display column"
 msgstr "கருத்துரைகளை காட்டுக"
 
 #: libraries/config.values.php:153
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
 msgstr "%sக்கு வருக"
 
