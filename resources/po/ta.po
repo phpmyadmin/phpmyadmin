@@ -10310,8 +10310,6 @@ msgid "Default transformations for DateFormat"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: src/Config/Descriptions.php:629
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
