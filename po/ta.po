@@ -17724,8 +17724,6 @@ msgstr ""
 
 #: templates/table/find_replace/index.twig:4
 #: templates/table/search/index.twig:4 templates/table/zoom_search/index.twig:4
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "அட்டவணை தேடல்"
 
