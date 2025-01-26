@@ -7126,8 +7126,6 @@ msgid "Truncate"
 msgstr ""
 
 #: resources/templates/table/structure/display_partitions.twig:195
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition table"
 msgstr "பிரிவினை %s"
 
