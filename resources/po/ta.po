@@ -7246,8 +7246,6 @@ msgid "Add %s column(s)"
 msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
 #: resources/templates/table/structure/display_structure.twig:434
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "at beginning of table"
 msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
 
