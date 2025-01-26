@@ -5906,8 +5906,6 @@ msgstr "தரவுத்தளம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:282
 #: templates/export.twig:224
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "அட்டவணை"
