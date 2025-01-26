@@ -2416,8 +2416,6 @@ msgstr ""
 #: resources/templates/server/privileges/user_overview.twig:23
 #: resources/templates/server/privileges/users_overview.twig:139
 #: resources/templates/table/privileges/index.twig:136
-#, fuzzy
-#| msgid "Add user group"
 msgid "Add user account"
 msgstr "பயனர்குழுவை சேர்க்க"
 
