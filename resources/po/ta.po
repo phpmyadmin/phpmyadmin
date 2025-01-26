@@ -10225,8 +10225,6 @@ msgid "Enable CodeMirror"
 msgstr ""
 
 #: src/Config/Descriptions.php:607
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable linter"
 msgstr "இயலச்செய்க %s"
 
