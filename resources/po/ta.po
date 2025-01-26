@@ -14196,8 +14196,6 @@ msgid "Could not import configuration"
 msgstr ""
 
 #: src/Controllers/Preferences/TwoFactorController.php:47
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Two-factor authentication has been removed."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
