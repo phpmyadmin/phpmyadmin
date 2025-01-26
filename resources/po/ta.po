@@ -1914,8 +1914,6 @@ msgstr ""
 #: resources/templates/table/privileges/index.twig:116
 #: resources/templates/table/privileges/index.twig:117
 #: resources/templates/triggers/list.twig:14
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "அனைத்தையும் தெரி"
 
