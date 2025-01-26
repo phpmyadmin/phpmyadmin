@@ -6102,8 +6102,6 @@ msgid "No accounts selected."
 msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:345
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
 
