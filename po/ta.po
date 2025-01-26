@@ -10890,8 +10890,6 @@ msgid "Name (Ascending)"
 msgstr "ஏறுவரிசை"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:101
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
 msgstr "இறங்குவரிசை"
 
