@@ -8439,7 +8439,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:450
 #: templates/database/events/editor_form.twig:89 templates/view_create.twig:45
 msgid "Definer"
-msgstr ""
+msgstr "வரையறுக்கவும்"
 
 #: libraries/classes/Database/Routines.php:1001
 msgid "Security type"
