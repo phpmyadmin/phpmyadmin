@@ -11220,8 +11220,6 @@ msgid "Suhosin warning"
 msgstr ""
 
 #: src/Config/Descriptions.php:931
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "புகுபதிவு நிலைபதிவுத்துணுக்கு செல்லுங்காலம்"
 
