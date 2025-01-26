@@ -9257,8 +9257,6 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/classes/Html/Generator.php:710
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP நிரல் இல்லாமல்"
 
