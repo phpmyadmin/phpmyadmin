@@ -6867,8 +6867,6 @@ msgid "Show panel"
 msgstr "பலகத்தை காட்டு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "பலகத்தை மறை"
 
