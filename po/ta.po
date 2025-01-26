@@ -17736,7 +17736,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
-msgstr ""
+msgstr "வெளிநாட்டு முக்கிய தடை"
 
 #: templates/table/relation/common_form.twig:93
 msgid "+ Add constraint"
