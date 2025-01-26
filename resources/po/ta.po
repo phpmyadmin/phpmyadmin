@@ -4228,8 +4228,6 @@ msgstr ""
 
 #: resources/templates/preferences/two_factor/confirm.twig:13
 #: resources/templates/preferences/two_factor/main.twig:66
-#, fuzzy
-#| msgid "Change password"
 msgid "Disable two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
