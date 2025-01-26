@@ -5465,8 +5465,6 @@ msgid "Total swap"
 msgstr "மொத்த மாற்றிடம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "இடைமாற்று மாற்றிடம்"
 
