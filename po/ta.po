@@ -15640,8 +15640,6 @@ msgid "Information"
 msgstr ""
 
 #: templates/server/collations/index.twig:5
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
 
