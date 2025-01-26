@@ -2759,8 +2759,6 @@ msgid "Default transformations for TextImageLink"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:651
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
