@@ -4070,8 +4070,6 @@ msgstr "முனையம்"
 
 #: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL வினவல்கள்"
 
