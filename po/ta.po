@@ -9028,8 +9028,6 @@ msgid "Skip Explain SQL"
 msgstr ""
 
 #: libraries/classes/Html/Generator.php:628
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP நிரல் இல்லாமல்"
 
