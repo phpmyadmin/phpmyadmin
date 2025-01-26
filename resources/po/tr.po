@@ -13614,11 +13614,8 @@ msgid "Double-click to copy column name."
 msgstr "Sütun adını kopyalamak için çift tıklayın."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr ""
-"Sütunların görünürlüğünü değiştirmek<br>için aşağı açılır okuna tıklayın."
+msgstr "Sütunların görünürlüğünü değiştirmek için aşağı açılır okuna tıklayın."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
@@ -19379,7 +19376,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgstr "Anamakine Tablosu kullan"
 
 #, fuzzy
-#~| msgid "Description"
 #~ msgctxt "for media (MIME) type transformation"
 #~ msgid "Description"
 #~ msgstr "Açıklama"
@@ -19935,7 +19931,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgstr "Sizi götürdüğü yer %s."
 
 #, fuzzy
-#~| msgid "Authentication"
 #~ msgid "MySQL Native Authentication"
 #~ msgstr "Kimlik doğrulaması"
 
@@ -20155,7 +20150,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgid "Disable foreign key check"
 #~ msgstr "Dış anahtar kontrolünü etkisizleştir"
 
-#~| msgid "Reloading Privileges"
 #~ msgid "Realign Privileges"
 #~ msgstr "Yetkileri Yeniden Sıraya Koy"
 
@@ -20211,7 +20205,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgid "Inline"
 #~ msgstr "Sıralı"
 
-#~| msgid "after %s"
 #~ msgid "after"
 #~ msgstr "sonra"
 
@@ -20312,7 +20305,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgid "Plugin is disabled"
 #~ msgstr "Eklenti etkisizleştirildi"
 
-#~| msgid "Link with main panel"
 #~ msgid "Unlink with main panel"
 #~ msgstr "Ana panel ile bağlantıyı kopar"
 
@@ -20323,12 +20315,10 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgstr "Tanımlı indeks yok! Aşağıdan bir tane oluşturun"
 
 #, fuzzy
-#~| msgid "Export type"
 #~ msgid "eps export page"
 #~ msgstr "Dışa aktarma türü"
 
 #, fuzzy
-#~| msgid "Invalid export type"
 #~ msgid "pdf export page"
 #~ msgstr "Geçersiz dışa aktarma türü"
 
@@ -20532,7 +20522,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ "gerekli PHP uzantılarının kurulu olduğunu kontrol edin."
 
 #, fuzzy
-#~| msgid "Error: Relation not added."
 #~ msgid "Error: Relation could not be added."
 #~ msgstr "Hata: Bağlantı eklenmedi."
 
@@ -20541,9 +20530,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgstr ""
 #~ "<b>İsteğiniz işlenirken bir ya da daha fazla hata meydana geldi:</b>"
 
-#~| msgid ""
-#~| "After saving or loading a search, you can rename it and save the new "
-#~| "criteria."
 #~ msgid ""
 #~ "After saving or loading a bookmarked search, you can rename it and save "
 #~ "the new criteria."
@@ -20715,7 +20701,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgstr "Her %s satırda bir başlıklar"
 
 #, fuzzy
-#~| msgid "Table Search"
 #~ msgid "Enable reCaptcha"
 #~ msgstr "Tablo Arama"
 
@@ -20908,7 +20893,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ "veritabanı değiştirilmeden aynen kalacaktır."
 
 #, fuzzy
-#~| msgid "New"
 #~ msgctxt "Crate new trigger"
 #~ msgid "New"
 #~ msgstr "Yeni"
@@ -21024,7 +21008,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgstr "Dizgiler çizim yapmak için tamsayıya dönüştürülür"
 
 #, fuzzy
-#~| msgid "Linestring"
 #~ msgid "String"
 #~ msgstr "Satır dizgisi"
 
@@ -21034,11 +21017,9 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgid "A time, range is \"%1$s\" to \"%2$s\""
 #~ msgstr "Bir saat, aralığı \"%1$s\" ile \"%2$s\" arası"
 
-#~| msgid "A date, supported range is '%s' to '%s'"
 #~ msgid "A date, supported range is \\\"%1$s\\\" to \\\"%2$s\\\""
 #~ msgstr "Bir tarih, desteklenen aralık \\\"%1$s\\\" ile \\\"%2$s\\\" arası"
 
-#~| msgid "A date and time combination, supported range is '%s' to '%s'"
 #~ msgid ""
 #~ "A date and time combination, supported range is \\\"%1$s\\\" to \\\"%2$s\\"
 #~ "\""
@@ -21055,11 +21036,9 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgid "The remaining columns"
 #~ msgstr "Kalan sütunlar"
 
-#~| msgid "A date, supported range is '%s' to '%s'"
 #~ msgid "A date, supported range is \"%1$s\" to \"%2$s\""
 #~ msgstr "Bir tarih, desteklenen aralık \"%1$s\" ile \"%2$s\" arası"
 
-#~| msgid "A date and time combination, supported range is '%s' to '%s'"
 #~ msgid "A date and time combination, supported range is \"%1$s\" to \"%2$s\""
 #~ msgstr ""
 #~ "Bir tarih ve saat birleşimi, desteklenen aralık \"%1$s\" ile \"%2$s\" "
@@ -21101,7 +21080,6 @@ msgstr "ZIP arşivi içinde bulunan dosya yok!"
 #~ msgid "Stores Universally Unique Identifiers (UUID)."
 #~ msgstr "Evrensel Depolanan Benzersiz Tanımlayıcı (UUID)."
 
-#~| msgid "Data only"
 #~ msgid "Dates only."
 #~ msgstr "Sadece tarihler."
 

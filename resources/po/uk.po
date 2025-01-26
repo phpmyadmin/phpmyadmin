@@ -13604,10 +13604,8 @@ msgid "Double-click to copy column name."
 msgstr "Натисніть двічі, щоб скопіювати назву стовпця."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Натисніть на випадаючу стрілку<br> для перемикання видимості стовпця."
+msgstr "Клацніть стрілку, що випадає, щоб переключити видимість стовпця."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
@@ -18894,7 +18892,6 @@ msgstr "Файлів всередині ZIP-архіву не знайдено!"
 #~ msgstr "Текст"
 
 #, fuzzy
-#~| msgid "Use tables"
 #~ msgid "One table"
 #~ msgid_plural "%count% tables"
 #~ msgstr[0] "Використовувати таблиці"

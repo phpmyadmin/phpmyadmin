@@ -6975,7 +6975,7 @@ msgstr "Reparieren"
 #: resources/templates/table/structure/display_partitions.twig:135
 #: src/Operations.php:523
 msgid "Truncate"
-msgstr "Leeren"
+msgstr "Kürzen"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 msgid "Partition table"
