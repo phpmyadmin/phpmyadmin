@@ -13975,8 +13975,6 @@ msgstr "புதியது"
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
-#, fuzzy
-#| msgid "Add user group"
 msgid "Add user account"
 msgstr "பயனர்குழுவை சேர்க்க"
 
