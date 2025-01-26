@@ -6912,8 +6912,6 @@ msgid "Change report settings"
 msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:618
-#, fuzzy
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "அறிவிக்கை விவரங்களை காட்டுக"
 
