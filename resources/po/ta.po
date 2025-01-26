@@ -11160,8 +11160,6 @@ msgid "Show table comments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
 #: src/Config/Descriptions.php:913
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show creation timestamp"
 msgstr "செயல்கூற்றின் களங்களை காட்டுக"
 
