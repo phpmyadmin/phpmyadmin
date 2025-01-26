@@ -13504,8 +13504,6 @@ msgstr "பக்கங்களை அழிக்க"
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
 #: templates/database/designer/main.twig:272
-#, fuzzy
-#| msgid "Create version"
 msgid "Create relationship"
 msgstr "பதிப்பை உருவாக்கு"
 
