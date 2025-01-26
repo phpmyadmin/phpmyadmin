@@ -4038,8 +4038,6 @@ msgstr "முகப்புப்பக்கம்"
 
 #: resources/templates/navigation/main.twig:30
 #: resources/templates/navigation/main.twig:31
-#, fuzzy
-#| msgid "Wrong data"
 msgid "Empty session data"
 msgstr "தவறான தரவு"
 
