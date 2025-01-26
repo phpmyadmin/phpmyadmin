@@ -2719,8 +2719,6 @@ msgid "Enable autocomplete for table and column names"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:641
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
