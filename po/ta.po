@@ -14504,8 +14504,6 @@ msgid "Select a template"
 msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
 
 #: templates/export.twig:15
-#, fuzzy
-#| msgid "Export contents"
 msgid "Export templates:"
 msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
