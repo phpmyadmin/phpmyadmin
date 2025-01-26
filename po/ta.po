@@ -10018,8 +10018,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
 
