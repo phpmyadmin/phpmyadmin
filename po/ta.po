@@ -15570,8 +15570,6 @@ msgid "Please fix this field"
 msgstr "உரைபுலத்தின் மூலமாக:"
 
 #: templates/javascript/variables.twig:92
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
