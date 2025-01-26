@@ -13303,8 +13303,7 @@ msgid "See table structure"
 msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
 msgstr "அனைத்தையும் தெரிவுசெய்க"
 
