@@ -7022,8 +7022,6 @@ msgid "Add table prefix"
 msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:673
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "அட்டவணை முன்னொட்டை பதிலிடு"
 
