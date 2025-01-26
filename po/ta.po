@@ -11580,8 +11580,6 @@ msgstr "%s களத்தை சேர்க்க->செயல்முறை
 
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:47
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Routine-specific privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
