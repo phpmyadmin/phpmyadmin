@@ -6908,8 +6908,6 @@ msgstr ""
 "ஒரு ஆபத்தான ஜாவா ஸ்க்ரிப்ட் பிழை நிகழ்ந்துள்ளது. பிழை அறிக்கை அளிக்க விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:617
-#, fuzzy
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
 
