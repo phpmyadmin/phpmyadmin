@@ -11313,8 +11313,6 @@ msgid "Execute queries on Enter and insert new line with Shift+Enter"
 msgstr ""
 
 #: src/Config/Descriptions.php:962
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
 msgstr "முனையம்"
 
