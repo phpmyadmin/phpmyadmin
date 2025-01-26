@@ -7342,8 +7342,6 @@ msgstr "%1s நிரல்வரிசைகளை %2s அட்டவணைய
 #: resources/templates/table/tracking/main.twig:64
 #: resources/templates/table/tracking/main.twig:90
 #: resources/templates/table/tracking/main.twig:91
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
 msgstr "பதிப்பை உருவாக்கு"
 
