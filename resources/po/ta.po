@@ -8720,8 +8720,6 @@ msgid "West European"
 msgstr ""
 
 #: src/Charsets/Collation.php:272
-#, fuzzy
-#| msgid "Central columns"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "மைய நெடுவரிசைகள்"
