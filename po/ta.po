@@ -5545,8 +5545,6 @@ msgid "Cached swap"
 msgstr "இடைமாற்று மாற்றிடம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:183
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "பயன்பாட்டிலுள்ள மாற்றிடம்"
 
