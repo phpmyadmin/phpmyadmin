@@ -9263,8 +9263,6 @@ msgstr "PHP நிரல் இல்லாமல்"
 #: libraries/classes/Html/Generator.php:718
 #: templates/database/multi_table_query/form.twig:170
 #: templates/database/qbe/selection_form.twig:115
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "வினவலை சமர்ப்பி"
 
