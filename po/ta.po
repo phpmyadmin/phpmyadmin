@@ -13676,8 +13676,6 @@ msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:162
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
 msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
