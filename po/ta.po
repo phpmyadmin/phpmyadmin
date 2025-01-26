@@ -13530,7 +13530,7 @@ msgstr ""
 #: templates/database/triggers/editor_form.twig:61
 #: templates/view_create.twig:45
 msgid "Definer"
-msgstr ""
+msgstr "வரையறுக்கவும்"
 
 #: templates/database/events/index.twig:14
 #: templates/database/privileges/index.twig:113
