@@ -6163,8 +6163,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:397
-#, fuzzy, php-format
-#| msgid "Variables"
+#, php-format
 msgid "Variable %d:"
 msgstr "மாறிகள்"
 
