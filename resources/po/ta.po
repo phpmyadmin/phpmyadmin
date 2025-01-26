@@ -10848,8 +10848,6 @@ msgid "Show tables in tree"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
 #: src/Config/Descriptions.php:829
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "பதிப்புகளை காட்டு"
 
