@@ -3451,8 +3451,6 @@ msgid "Enable highlighting"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:847
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
 
