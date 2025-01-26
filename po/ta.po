@@ -10620,8 +10620,7 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2270
-#, fuzzy, php-format
-#| msgid "Delete data or table"
+#, php-format
 msgid "Error reading data for table %s:"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
