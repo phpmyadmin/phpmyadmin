@@ -10546,8 +10546,7 @@ msgid "Metadata for table %s"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1153
-#, fuzzy, php-format
-#| msgid "Go to database: %s"
+#, php-format
 msgid "Metadata for database %s"
 msgstr "தரவுத்தளம்: %s க்கு செல்க"
 
