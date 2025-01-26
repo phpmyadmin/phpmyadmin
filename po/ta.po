@@ -3467,8 +3467,6 @@ msgid "Show procedures in tree"
 msgstr "செயல்முறைகள்:"
 
 #: libraries/classes/Config/Descriptions.php:852
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "பதிப்புகளை காட்டு"
 
