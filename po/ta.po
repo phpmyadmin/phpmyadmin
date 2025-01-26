@@ -4422,8 +4422,6 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:279
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Invalid authentication type!"
 msgstr "தகா தரவேற்ற சுட்டுவகை"
 
