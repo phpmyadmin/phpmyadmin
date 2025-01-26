@@ -13387,8 +13387,6 @@ msgid "Hide/Show all"
 msgstr ""
 
 #: templates/database/designer/main.twig:212
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Hide/Show tables with no relationship"
 msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
 
