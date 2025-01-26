@@ -7131,8 +7131,6 @@ msgstr "பிரிவினை %s"
 
 #: resources/templates/table/structure/display_partitions.twig:208
 #: resources/templates/table/structure/partition_definition_form.twig:3
-#, fuzzy
-#| msgid "Edit view"
 msgid "Edit partitioning"
 msgstr "தொகுப்பு பார்வை"
 
