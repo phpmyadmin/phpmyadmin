@@ -14543,8 +14543,6 @@ msgid "New table name"
 msgstr "அட்டவணையின் புதிய பெயர்"
 
 #: templates/export.twig:306
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
 msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
