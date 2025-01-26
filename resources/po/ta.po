@@ -10448,8 +10448,6 @@ msgid "Save on server"
 msgstr ""
 
 #: src/Config/Descriptions.php:682
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
