@@ -14188,8 +14188,6 @@ msgid ""
 msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்கப்பட்டுள்ளது. %sஏனென்று அறிக%s."
 
 #: src/Controllers/Preferences/ManageController.php:85
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin ஆவணச்சான்று"
 
