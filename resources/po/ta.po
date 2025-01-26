@@ -16779,8 +16779,6 @@ msgid "Query result data"
 msgstr "தேடல் முடிவுகளை மறை"
 
 #: src/Plugins/Export/ExportPdf.php:237
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
 msgstr "கட்டமைப்பு"
 
