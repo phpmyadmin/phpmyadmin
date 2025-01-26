@@ -8396,8 +8396,6 @@ msgstr "சரியான சொற்றொடர்"
 
 #: libraries/classes/Database/Search.php:106
 #: templates/database/search/main.twig:31
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "சரியான சொற்றொடர்"
 
