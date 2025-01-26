@@ -14903,8 +14903,6 @@ msgstr "%s தரவுத்தளத்தின் ஒழுங்கமை�
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
 msgstr "அதை ஏற்றுக்கொள்"
 
