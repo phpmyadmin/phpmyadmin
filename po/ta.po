@@ -11934,8 +11934,6 @@ msgstr "நீங்கள் புதிய பயனாளரை சேர்
 
 #: libraries/classes/Server/Select.php:57
 #: libraries/classes/Server/Select.php:62
-#, fuzzy
-#| msgid "Current Server:"
 msgid "Current server:"
 msgstr "நடப்பு வழங்கி:"
 
