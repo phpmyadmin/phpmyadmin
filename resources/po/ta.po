@@ -13516,8 +13516,6 @@ msgid "%d object(s) created."
 msgstr "%d கருப்பொதிவு(கள்) உருவாக்கப்பட்டன."
 
 #: src/Controllers/JavaScriptMessagesController.php:562
-#, fuzzy
-#| msgid "Copy column name."
 msgid "Column name"
 msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
