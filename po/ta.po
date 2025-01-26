@@ -1474,8 +1474,6 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/classes/Charsets/Collation.php:541
-#, fuzzy
-#| msgid "Version"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "பதிப்பு"
