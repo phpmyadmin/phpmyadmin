@@ -13043,8 +13043,6 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
 
 #: templates/console/display.twig:23
-#, fuzzy
-#| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
 msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
 
