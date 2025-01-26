@@ -6062,8 +6062,6 @@ msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
 
