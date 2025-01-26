@@ -2960,8 +2960,6 @@ msgid "Overwrite existing file(s)"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:702
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
