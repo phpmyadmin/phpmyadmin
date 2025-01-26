@@ -13749,8 +13749,6 @@ msgid "Show arguments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
 #: src/Controllers/JavaScriptMessagesController.php:670
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "தேடல் முடிவுகளை மறை"
 
