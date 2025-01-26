@@ -3193,8 +3193,6 @@ msgstr ""
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
 msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
 
