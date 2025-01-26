@@ -2326,8 +2326,6 @@ msgstr ""
 #: resources/templates/server/privileges/login_information_fields.twig:38
 #: resources/templates/server/privileges/users_overview.twig:9
 #: resources/templates/table/privileges/index.twig:20
-#, fuzzy
-#| msgid "Constraint name"
 msgid "Host name"
 msgstr "கட்டுப்பாட்டின் பெயர்"
 
