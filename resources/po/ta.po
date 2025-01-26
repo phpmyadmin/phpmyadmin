@@ -762,8 +762,6 @@ msgstr "வெற்று"
 #: resources/templates/table/operations/index.twig:80
 #: resources/templates/table/operations/index.twig:116
 #: resources/templates/table/operations/index.twig:316
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Adjust privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
