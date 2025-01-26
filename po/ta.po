@@ -17465,8 +17465,6 @@ msgstr "காட்சிபடுத்தல் வரிசைமுறை:"
 
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:534
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
 msgstr "பிரிவினை %s"
 
