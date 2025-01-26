@@ -12843,8 +12843,6 @@ msgid "Data directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Index directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
