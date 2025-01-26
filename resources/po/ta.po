@@ -15871,8 +15871,6 @@ msgid "Edit inline"
 msgstr "தொகுப்பு பார்வை"
 
 #: src/Html/Generator.php:746
-#, fuzzy
-#| msgid "Static data"
 msgid "Static analysis:"
 msgstr "நிலையான தரவு"
 
