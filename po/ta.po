@@ -12847,8 +12847,6 @@ msgid "Index directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
 msgid "Max rows"
 msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
