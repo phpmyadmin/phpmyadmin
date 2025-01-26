@@ -14910,8 +14910,6 @@ msgstr ""
 #: src/Controllers/Table/ChangeRowsController.php:34
 #: src/Controllers/Table/DeleteConfirmController.php:36
 #: src/Controllers/Table/ExportRowsController.php:31
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
 msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
