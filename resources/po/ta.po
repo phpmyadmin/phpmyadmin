@@ -2379,8 +2379,6 @@ msgstr "%s களத்தை சேர்க்க->செயல்முறை
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
 #: src/Server/Privileges.php:1275
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
