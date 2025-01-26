@@ -12604,8 +12604,6 @@ msgid "Enable"
 msgstr "இயலச்செய்க %s"
 
 #: libraries/config.values.php:207
-#, fuzzy
-#| msgid "Disable %s"
 msgid "Disable"
 msgstr "முடக்குக %s"
 
