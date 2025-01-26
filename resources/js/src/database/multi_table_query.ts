@@ -185,15 +185,16 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
+    editor.getDoc().on('change', function () {
+        const query = editor.getDoc().getValue();
+
+        $('#copy_query').prop('disabled', query === '');
+    });
+
     $('#copy_query').on('click', function () {
         const query = editor.getDoc().getValue();
 
-        if (query !== '') {
-            navigator.clipboard.writeText(query);
-            ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000);
-        } else {
-            ajaxShowMessage(window.Messages.strQueryCopyEmpty, 1000);
-        }
+        navigator.clipboard.writeText(query);
     });
 
     $('#add_column_button').on('click', function () {
