@@ -3836,8 +3836,6 @@ msgstr "புதுப்பி"
 
 #: libraries/classes/Config/Descriptions.php:958
 #: libraries/classes/Html/Generator.php:728
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP குறிமுறை உருவாக்கு"
 
