@@ -17070,8 +17070,6 @@ msgid "Index type:"
 msgstr "சுட்டுதொகுப்புக்குறி வகை:"
 
 #: templates/table/index_form.twig:93
-#, fuzzy
-#| msgid "User:"
 msgid "Parser:"
 msgstr "பயனர்:"
 
