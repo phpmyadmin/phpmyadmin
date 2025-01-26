@@ -8885,8 +8885,6 @@ msgid "key"
 msgstr ""
 
 #: src/Config/ConfigFile.php:571
-#, fuzzy
-#| msgid "Display comments"
 msgid "display column"
 msgstr "கருத்துரைகளை காட்டுக"
 
