@@ -13392,8 +13392,6 @@ msgid "Polygon"
 msgstr "பல்கோணி"
 
 #: src/Controllers/JavaScriptMessagesController.php:501
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "உள்ப்புற வளையம்"
 
