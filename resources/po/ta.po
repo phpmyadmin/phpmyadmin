@@ -17215,8 +17215,6 @@ msgid "Show grid"
 msgstr ""
 
 #: src/Plugins/Schema/SchemaPdf.php:93
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Order of the tables"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
