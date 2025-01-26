@@ -11040,8 +11040,6 @@ msgid "Export templates table"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
 #: src/Config/Descriptions.php:881
-#, fuzzy
-#| msgid "Central columns"
 msgid "Central columns table"
 msgstr "மைய நெடுவரிசைகள்"
 
