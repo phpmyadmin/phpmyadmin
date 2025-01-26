@@ -15701,8 +15701,6 @@ msgid "Disable two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: templates/preferences/two_factor/main.twig:5
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
 msgstr "உறுதிப்பாடு அமைப்புமுறைமை."
 
