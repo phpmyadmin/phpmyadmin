@@ -6993,8 +6993,6 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
