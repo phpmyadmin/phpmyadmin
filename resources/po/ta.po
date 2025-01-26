@@ -6927,8 +6927,6 @@ msgid "Table structure"
 msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #: resources/templates/table/page_with_secondary_tabs.twig:11
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "தொடர்பு பார்வை"
 
