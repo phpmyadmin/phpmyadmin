@@ -15594,8 +15594,6 @@ msgid "Please enter a valid credit card number"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #: templates/javascript/variables.twig:98
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
