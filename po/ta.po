@@ -5501,8 +5501,6 @@ msgid "Query cache used"
 msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டுள்ளது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:170
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "மையச்செயலக பயனளவு"
 
