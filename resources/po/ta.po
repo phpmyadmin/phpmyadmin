@@ -6688,8 +6688,6 @@ msgstr "அட்டவணை தேடல்"
 #: resources/templates/table/find_replace/index.twig:10
 #: resources/templates/table/search/index.twig:10
 #: resources/templates/table/zoom_search/index.twig:10
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "அணுக்க தேடல்"
 
