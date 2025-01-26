@@ -8192,8 +8192,7 @@ msgid "Error in processing request:"
 msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
 #: libraries/classes/Database/Events.php:536
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
