@@ -3205,8 +3205,6 @@ msgid "New template:"
 msgstr "புது பக்கம்"
 
 #: resources/templates/export.twig:23 resources/templates/export.twig:26
-#, fuzzy
-#| msgid "Page name"
 msgid "Template name"
 msgstr "பக்கத்தின் பெயர்"
 
