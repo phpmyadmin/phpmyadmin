@@ -1191,8 +1191,6 @@ msgid "Ungroup queries"
 msgstr "SQL வினவல்கள்"
 
 #: resources/templates/console/display.twig:118
-#, fuzzy
-#| msgid "Show create"
 msgid "Show trace"
 msgstr "உருவாக்கத்தை காட்டு"
 
