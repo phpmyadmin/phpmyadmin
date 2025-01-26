@@ -2562,8 +2562,6 @@ msgid "Words are separated by a space character (\" \")."
 msgstr "சொற்கள் ஓர் இடைவெளி எழுத்தால் (\" \") பிரிக்கப்பட்டிருக்கும்."
 
 #: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
