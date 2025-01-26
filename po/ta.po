@@ -14876,8 +14876,7 @@ msgid "New column name"
 msgstr "புதிய நிரல்வரிசையின் பெயர்"
 
 #: templates/export.twig:347
-#, fuzzy, php-format
-#| msgid "Add statements:"
+#, php-format
 msgid "Use %s statement"
 msgstr "கூற்றுகளை சேர்க்க:"
 
