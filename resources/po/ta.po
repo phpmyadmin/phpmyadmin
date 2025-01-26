@@ -13167,8 +13167,7 @@ msgid "%d is not valid row number."
 msgstr "%d என்பது சரியான நிரைவரிசை எண் அல்ல."
 
 #: src/Controllers/JavaScriptMessagesController.php:411
-#, fuzzy, php-format
-#| msgid "Variables"
+#, php-format
 msgid "Variable %d:"
 msgstr "மாறிகள்"
 
