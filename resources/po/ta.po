@@ -15232,8 +15232,6 @@ msgid "FOREIGN KEY relationship has been added."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: src/Database/Designer/Common.php:541
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
