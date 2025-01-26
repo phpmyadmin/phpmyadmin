@@ -2515,8 +2515,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:604
-#, fuzzy
-#| msgid "Tables display options."
 msgid "For display Options"
 msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
 
