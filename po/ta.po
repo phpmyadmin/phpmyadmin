@@ -14500,8 +14500,6 @@ msgid "You may examine the data in the error report:"
 msgstr ""
 
 #: templates/export/template_options.twig:1 templates/export.twig:30
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
 msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
 
