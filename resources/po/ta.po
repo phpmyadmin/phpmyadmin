@@ -3433,8 +3433,7 @@ msgid "Save & close"
 msgstr "சேமித்துவிட்டபின்  மூடு"
 
 #: resources/templates/export.twig:343
-#, fuzzy, php-format
-#| msgid "Add statements:"
+#, php-format
 msgid "Use %s statement"
 msgstr "கூற்றுகளை சேர்க்க:"
 
