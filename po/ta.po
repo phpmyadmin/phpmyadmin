@@ -16246,8 +16246,7 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
 #: templates/server/privileges/add_user.twig:24
-#, fuzzy, php-format
-#| msgid "Check privileges for database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
 msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
