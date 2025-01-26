@@ -17547,8 +17547,6 @@ msgstr ""
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
 #: src/Server/Privileges.php:3138
-#, fuzzy
-#| msgid "Authentication"
 msgid "Native MySQL authentication"
 msgstr "உறுதிப்படுத்தல்"
 
