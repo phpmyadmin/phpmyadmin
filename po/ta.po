@@ -8386,8 +8386,6 @@ msgstr "குறைந்தபட்சம் ஒரு சொல்லைய�
 
 #: libraries/classes/Database/Search.php:104
 #: templates/database/search/main.twig:23
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
