@@ -11410,8 +11410,6 @@ msgid "Persistent recently used tables"
 msgstr ""
 
 #: libraries/classes/Relation.php:294
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Persistent favorite tables"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
