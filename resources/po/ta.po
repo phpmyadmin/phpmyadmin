@@ -1283,8 +1283,6 @@ msgid "Show query history at start"
 msgstr "துவக்கத்தின் போது வினவல் வரலாற்றை காண்பி"
 
 #: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
 
