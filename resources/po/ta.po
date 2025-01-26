@@ -3298,9 +3298,7 @@ msgid "Output:"
 msgstr ""
 
 #: resources/templates/export.twig:171 resources/templates/export.twig:366
-#, fuzzy, php-format
-#| msgid "%1$s match in <strong>%2$s</strong>"
-#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
 
