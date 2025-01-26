@@ -16044,8 +16044,7 @@ msgid "Replica replication"
 msgstr "படியெடுத்தல்"
 
 #: templates/server/databases/index.twig:181
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
 msgstr "தரவுத்தளத்துக்கு செல்க"
 
