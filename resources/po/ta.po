@@ -15139,8 +15139,7 @@ msgid "Edit trigger"
 msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டியை தொகுக்க"
 
 #: src/Controllers/Triggers/IndexController.php:209
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
