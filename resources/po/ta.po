@@ -11402,8 +11402,6 @@ msgid "CSV using LOAD DATA"
 msgstr ""
 
 #: src/Config/Forms/User/MainForm.php:31
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
