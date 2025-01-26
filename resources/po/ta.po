@@ -10436,8 +10436,6 @@ msgstr ""
 
 #: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
 #: src/Config/Descriptions.php:716
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relationships"
 msgstr "தொடர்பு பார்வை"
 
