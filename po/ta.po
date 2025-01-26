@@ -3802,8 +3802,6 @@ msgid "Show last check timestamp"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:936
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
