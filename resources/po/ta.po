@@ -1647,8 +1647,6 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:185
 #: resources/templates/database/designer/main.twig:190
-#, fuzzy
-#| msgid "Partial texts"
 msgid "Pin text"
 msgstr "பகுதியளவு உரை"
 
