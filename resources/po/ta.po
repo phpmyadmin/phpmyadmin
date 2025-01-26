@@ -1525,8 +1525,6 @@ msgstr "பெயரிடாதது"
 
 #: resources/templates/database/designer/main.twig:19
 #: resources/templates/database/designer/main.twig:25
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show/Hide tables list"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
