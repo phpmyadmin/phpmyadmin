@@ -4048,8 +4048,6 @@ msgstr "எப்போதும் வினவல் தகவல்களை 
 
 #: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:157
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
 
