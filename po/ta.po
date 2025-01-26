@@ -17497,8 +17497,6 @@ msgid "Series column:"
 msgstr "தொடர் நிரல்வரிசை:"
 
 #: templates/table/chart/tbl_chart.twig:126
-#, fuzzy
-#| msgid "Value column:"
 msgid "Value Column:"
 msgstr "மதிப்பு நிரல்வரிசை:"
 
