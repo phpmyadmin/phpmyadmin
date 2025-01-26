@@ -15268,8 +15268,6 @@ msgid "Server type:"
 msgstr "வழங்கி வகை:"
 
 #: templates/home/index.twig:171
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
 msgstr "பாதுகாப்பற்ற இணைப்பு"
 
