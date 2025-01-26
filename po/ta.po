@@ -6178,8 +6178,6 @@ msgstr "இல்லை"
 #: templates/database/structure/drop_form.twig:16
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Enable foreign key checks"
 msgstr "அயல் குறியெண் சரிபார்க்க:"
 
