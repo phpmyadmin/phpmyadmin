@@ -14533,8 +14533,6 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export.twig:235
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
 msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
 
