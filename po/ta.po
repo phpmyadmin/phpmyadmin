@@ -15582,8 +15582,6 @@ msgid "Please enter a valid date"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: templates/javascript/variables.twig:95
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
