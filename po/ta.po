@@ -9404,8 +9404,6 @@ msgstr[0] "%1$d வரிசை சேர்க்கப்பட்டுள்
 msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்டுள்ளன."
 
 #: libraries/classes/Navigation/Navigation.php:231
-#, fuzzy
-#| msgid "Group name:"
 msgid "Groups:"
 msgstr "பயனர்குழுவின் பெயர்:"
 
