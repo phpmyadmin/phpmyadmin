@@ -11805,8 +11805,6 @@ msgid "Native MySQL authentication"
 msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/classes/Server/Privileges.php:796
-#, fuzzy
-#| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
