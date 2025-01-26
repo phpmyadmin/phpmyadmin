@@ -8969,8 +8969,6 @@ msgid "Never send error reports"
 msgstr ""
 
 #: src/Config/ConfigFile.php:622
-#, fuzzy
-#| msgid "Set default"
 msgid "Server default"
 msgstr "இயல்நிலையை அமைக்க"
 
