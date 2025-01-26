@@ -1187,8 +1187,6 @@ msgid "Group queries"
 msgstr "SQL வினவல்கள்"
 
 #: resources/templates/console/display.twig:106
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL வினவல்கள்"
 
