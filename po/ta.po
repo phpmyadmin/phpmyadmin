@@ -12851,8 +12851,6 @@ msgid "Max rows"
 msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
 #: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "Browse"
 msgid "Min rows"
 msgstr "உலாவு"
 
