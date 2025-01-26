@@ -13039,8 +13039,6 @@ msgstr "வேண்டுகோள் கைவிடப்பட்டது!!
 #: src/Controllers/JavaScriptMessagesController.php:353
 #: src/Controllers/Sql/EnumValuesController.php:36
 #: src/Controllers/Sql/SetValuesController.php:39
-#, fuzzy
-#| msgid "Error in processing request:"
 msgid "Error in processing request"
 msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
