@@ -2643,8 +2643,6 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: resources/templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy table"
 msgstr "நகல்"
 
