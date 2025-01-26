@@ -10290,8 +10290,6 @@ msgid "Default transformations for Hex"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
 #: src/Config/Descriptions.php:624
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
