@@ -16054,8 +16054,6 @@ msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
 #: templates/server/databases/index.twig:243
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
