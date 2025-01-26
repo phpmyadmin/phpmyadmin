@@ -12717,8 +12717,6 @@ msgid "Add"
 msgstr "சேர்க்க"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add %s column(s)"
 msgid "column(s)"
 msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
