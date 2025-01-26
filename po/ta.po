@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2025-01-26 23:13+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/>"
 "\n"
 "Language: ta\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -336,8 +336,6 @@ msgid "You have to choose at least one column to display!"
 msgstr "காட்சிப்படுத்த நீங்கள் குறைந்தபட்சம் ஒரு நிரலை தேர்ந்தெடுக்க வேண்டும்!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
-#, fuzzy
-#| msgid "Simulate query"
 msgid "Multi-table query"
 msgstr "வினவலை பாவித்து காண்பி"
 
@@ -542,10 +540,6 @@ msgid "Output"
 msgstr "வெளியீடு"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
@@ -701,8 +695,6 @@ msgid "Server type:"
 msgstr "வழங்கி வகை:"
 
 #: index.php:351
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Server connection:"
 msgstr "பாதுகாப்பற்ற இணைப்பு"
 
@@ -1050,7 +1042,6 @@ msgid "Reset"
 msgstr "தொடக்கத்தில் இருந்தது போல மாற்ற"
 
 #: js/messages.php:114
-#, fuzzy
 msgid "Reset all"
 msgstr "அனைத்தையும் தொடக்கத்தில் இருந்தது போல மாற்ற"
 
@@ -1067,7 +1058,6 @@ msgid "Please enter a valid number!"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #: js/messages.php:120
-#, fuzzy
 msgid "Please enter a valid length!"
 msgstr "தயவுசெய்து ஒரு சரியான நீள அளவை இடுக!"
 
@@ -1125,8 +1115,6 @@ msgid "Y values"
 msgstr "செங்குத்து (Y) மதிப்புகள்"
 
 #: js/messages.php:142
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter the SQL query first."
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
@@ -1224,8 +1212,6 @@ msgid "Query cache used"
 msgstr "வினவல் இடைமாற்று பயன்படுத்தப்பட்டுள்ளது"
 
 #: js/messages.php:181
-#, fuzzy
-#| msgid "System CPU Usage"
 msgid "System CPU usage"
 msgstr "மையச்செயலக பயனளவு"
 
@@ -1262,26 +1248,18 @@ msgid "Used memory"
 msgstr "பயன்பாட்டிலுள்ள நினைவகம்"
 
 #: js/messages.php:192
-#, fuzzy
-#| msgid "Total Swap"
 msgid "Total swap"
 msgstr "மொத்த மாற்றிடம்"
 
 #: js/messages.php:193
-#, fuzzy
-#| msgid "Cached Swap"
 msgid "Cached swap"
 msgstr "இடைமாற்று மாற்றிடம்"
 
 #: js/messages.php:194
-#, fuzzy
-#| msgid "Used Swap"
 msgid "Used swap"
 msgstr "பயன்பாட்டிலுள்ள மாற்றிடம்"
 
 #: js/messages.php:195
-#, fuzzy
-#| msgid "Free Swap"
 msgid "Free swap"
 msgstr "பயன்பாடுத்தபடாத மாற்றிடம்"
 
@@ -1608,22 +1586,16 @@ msgid "Chart"
 msgstr "விளக்கப்படம்"
 
 #: js/messages.php:299 libraries/classes/Display/Export.php:579
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "தரவுத்தளம்"
 
 #: js/messages.php:300 libraries/classes/Display/Export.php:591
-#, fuzzy
-#| msgid "Table"
 msgctxt "Alias"
 msgid "Table"
 msgstr "அட்டவணை"
 
 #: js/messages.php:301 libraries/classes/Display/Export.php:602
-#, fuzzy
-#| msgid "Column"
 msgctxt "Alias"
 msgid "Column"
 msgstr "நிரல்வரிசை"
@@ -1714,8 +1686,6 @@ msgid "No files available on server for import!"
 msgstr "தரவிறக்குவதற்கு வழங்கியில் எந்த கோப்பும் இல்லை!"
 
 #: js/messages.php:336
-#, fuzzy
-#| msgid "Analyse Query"
 msgid "Analyse query"
 msgstr "வினவலை பகுத்தாய்க"
 
@@ -1756,8 +1726,6 @@ msgid "Formatting SQL…"
 msgstr "SQL சரியமைக்கபடுகிறது…"
 
 #: js/messages.php:351
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "No parameters found!"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
@@ -1773,8 +1741,6 @@ msgid "Cancel"
 msgstr "விலக்கு"
 
 #: js/messages.php:358 libraries/classes/Header.php:461
-#, fuzzy
-#| msgid "Change settings"
 msgid "Page-related settings"
 msgstr "அமைப்புக்களை மாற்று"
 
@@ -1788,26 +1754,18 @@ msgid "Loading…"
 msgstr "ஏற்றப்படுகிறது…"
 
 #: js/messages.php:363
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request aborted!!"
 msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
 
 #: js/messages.php:364
-#, fuzzy
-#| msgid "Processing Request"
 msgid "Processing request"
 msgstr "வேண்டுகோள் செயல்முறைப்படுத்தபடுகின்றது"
 
 #: js/messages.php:365
-#, fuzzy
-#| msgid "Request Aborted!!"
 msgid "Request failed!!"
 msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
 
 #: js/messages.php:366
-#, fuzzy
-#| msgid "Error in processing request:"
 msgid "Error in processing request"
 msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
 
@@ -1836,20 +1794,14 @@ msgid "No databases selected."
 msgstr "எந்த தரவுத்தளமும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: js/messages.php:374
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
 msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
 
 #: js/messages.php:375
-#, fuzzy
-#| msgid "Dropping Column"
 msgid "Dropping column"
 msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
 
 #: js/messages.php:376
-#, fuzzy
-#| msgid "Add primary key"
 msgid "Adding primary key"
 msgstr "முதனிலை குறிப்பெழுத்து சேர்க்க"
 
@@ -1868,26 +1820,18 @@ msgid "Click to dismiss this notification"
 msgstr "இந்த அறிவுறுத்தலை நீக்க சொடுக்குக"
 
 #: js/messages.php:381
-#, fuzzy
-#| msgid "Renaming Databases"
 msgid "Renaming databases"
 msgstr "தரவுத்தளங்கங்களின் பெயர் மாற்றப்படுகின்றது"
 
 #: js/messages.php:382
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying database"
 msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
 #: js/messages.php:383
-#, fuzzy
-#| msgid "Changing Charset"
 msgid "Changing charset"
 msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
 
 #: js/messages.php:387 templates/fk_checkbox.twig:4
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Enable foreign key checks"
 msgstr "அயல் குறியெண் சரிபார்க்க:"
 
@@ -2029,8 +1973,7 @@ msgid "No auto-saved query"
 msgstr "தானாக சேமிக்கப்பட்ட வினா இல்லை"
 
 #: js/messages.php:427
-#, fuzzy, php-format
-#| msgid "Variables"
+#, php-format
 msgid "Variable %d:"
 msgstr "மாறிகள்"
 
@@ -2152,8 +2095,7 @@ msgid "The following actions will be performed:"
 msgstr "பின்வரும் நடவடிக்கைகள் செயல்படுத்தப்படும்:"
 
 #: js/messages.php:472
-#, fuzzy, php-format
-#| msgid "DROP columns %1s from the table %2s"
+#, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "%1s நிரல்வரிசைகளை %2s அட்டவணையிலிருந்து கைவிடுக"
 
@@ -2287,14 +2229,10 @@ msgid "Geometry"
 msgstr "கேத்திர கணிதம்"
 
 #: js/messages.php:528
-#, fuzzy
-#| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "உள்ப்புற வளையம்"
 
 #: js/messages.php:529
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "வெளிப்புற வளையம்:"
 
@@ -2357,8 +2295,6 @@ msgstr ""
 
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Add tables from other databases"
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
@@ -2373,8 +2309,6 @@ msgstr "பக்கத்தை சேமிக்க"
 
 #: js/messages.php:568 templates/database/designer/side_menu.twig:64
 #: templates/database/designer/side_menu.twig:67
-#, fuzzy
-#| msgid "Save page"
 msgid "Save page as"
 msgstr "பக்கத்தை சேமிக்க"
 
@@ -2421,8 +2355,6 @@ msgid "%d object(s) created."
 msgstr "%d கருப்பொதிவு(கள்) உருவாக்கப்பட்டன."
 
 #: js/messages.php:582
-#, fuzzy
-#| msgid "Copy column name."
 msgid "Column name"
 msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
@@ -2451,17 +2383,13 @@ msgid "Click to sort results by this column."
 msgstr "இந்நெடுவரிசையை பொருத்து முடிவுகளை வரிசைப்படுத்த சொடுக்குக."
 
 #: js/messages.php:594
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Control+Click to remove column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC.<br /"
 ">- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column from "
 "ORDER BY clause"
 msgstr ""
-"இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற shift"
-"+சொடுக்கவும். <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க Ctrl+சொடுக்கவும்"
+"இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற shift+சொடுக்கவும்"
+". <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க Ctrl+சொடுக்கவும்"
 
 #: js/messages.php:598
 msgid "Click to mark/unmark."
@@ -2501,8 +2429,6 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:614
-#, fuzzy
-#| msgid "Original string"
 msgid "Original length"
 msgstr "மெய் சரம்"
 
@@ -2571,14 +2497,10 @@ msgid "More"
 msgstr "மேலும்"
 
 #: js/messages.php:658
-#, fuzzy
-#| msgid "Show Panel"
 msgid "Show panel"
 msgstr "பலகத்தை காட்டு"
 
 #: js/messages.php:659
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide panel"
 msgstr "பலகத்தை மறை"
 
@@ -2623,14 +2545,10 @@ msgid "Create view"
 msgstr "விவரபார்வையை உருவாக்குக"
 
 #: js/messages.php:680
-#, fuzzy
-#| msgid "Send Error Report"
 msgid "Send error report"
 msgstr "பிழை அறிக்கை அனுப்புக"
 
 #: js/messages.php:681
-#, fuzzy
-#| msgid "Submit Error Report"
 msgid "Submit error report"
 msgstr "பிழை அறிக்கை அளிக்க"
 
@@ -2642,14 +2560,10 @@ msgstr ""
 "ஒரு ஆபத்தான ஜாவா ஸ்க்ரிப்ட் பிழை நிகழ்ந்துள்ளது. பிழை அறிக்கை அளிக்க விரும்புகிறீர்களா?"
 
 #: js/messages.php:685
-#, fuzzy
-#| msgid "Change Report Settings"
 msgid "Change report settings"
 msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
 
 #: js/messages.php:686
-#, fuzzy
-#| msgid "Show Report Details"
 msgid "Show report details"
 msgstr "அறிவிக்கை விவரங்களை காட்டுக"
 
@@ -2709,14 +2623,10 @@ msgid "%s argument(s) passed"
 msgstr ""
 
 #: js/messages.php:733
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show arguments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
 #: js/messages.php:734
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "தேடல் முடிவுகளை மறை"
 
@@ -2734,20 +2644,14 @@ msgid ""
 msgstr ""
 
 #: js/messages.php:738
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "தரவுதளத்தை இப்படி படியெடுக்க"
 
 #: js/messages.php:739
-#, fuzzy
-#| msgid "Add table prefix:"
 msgid "Add table prefix"
 msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
 
 #: js/messages.php:740
-#, fuzzy
-#| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "அட்டவணை முன்னொட்டை பதிலிடு"
 
@@ -2785,8 +2689,7 @@ msgid "Failed security key activation (%s)."
 msgstr ""
 
 #: js/messages.php:755
-#, fuzzy, php-format
-#| msgid "Table %s already exists!"
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -3028,7 +2931,6 @@ msgstr "கிழமை"
 #. * or "calendar-year-month".
 #.
 #: js/messages.php:899
-#, fuzzy
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
@@ -3055,56 +2957,38 @@ msgid "This field is required"
 msgstr ""
 
 #: js/messages.php:928
-#, fuzzy
-#| msgid "Use text field:"
 msgid "Please fix this field"
 msgstr "உரைபுலத்தின் மூலமாக:"
 
 #: js/messages.php:929
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid email address"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: js/messages.php:930
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid URL"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #: js/messages.php:931
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: js/messages.php:934
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date ( ISO )"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: js/messages.php:936
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid number"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #: js/messages.php:939
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid credit card number"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
 #: js/messages.php:941
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter only digits"
 msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: js/messages.php:944
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter the same value again"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
@@ -3113,8 +2997,6 @@ msgid "Please enter no more than {0} characters"
 msgstr ""
 
 #: js/messages.php:953
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter at least {0} characters"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
@@ -3123,32 +3005,22 @@ msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
 #: js/messages.php:963
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value between {0} and {1}"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: js/messages.php:968
-#, fuzzy
-#| msgid "Please enter a valid length!"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: js/messages.php:973
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: js/messages.php:979
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid date or time"
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: js/messages.php:984
-#, fuzzy
-#| msgid "Please enter a valid number!"
 msgid "Please enter a valid HEX input"
 msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
 
@@ -3160,8 +3032,7 @@ msgid "Error"
 msgstr "வலு"
 
 #: libraries/classes/Advisor.php:259
-#, fuzzy, php-format
-#| msgid "Error text: %s"
+#, php-format
 msgid "Error when evaluating: %s"
 msgstr "பிழை செய்தி: %s"
 
@@ -3351,8 +3222,6 @@ msgid "Collation"
 msgstr "அடுக்கு"
 
 #: libraries/classes/CentralColumns.php:753
-#, fuzzy
-#| msgid "Contribute"
 msgid "Attribute"
 msgstr "பங்களிப்பு"
 
@@ -3407,8 +3276,6 @@ msgid "West European"
 msgstr ""
 
 #: libraries/classes/Charsets.php:382
-#, fuzzy
-#| msgid "Central columns"
 msgctxt "Collation"
 msgid "Central European"
 msgstr "மைய நெடுவரிசைகள்"
@@ -3534,8 +3401,6 @@ msgid "English"
 msgstr ""
 
 #: libraries/classes/Charsets.php:495
-#, fuzzy
-#| msgid "Operations"
 msgctxt "Collation"
 msgid "Esperanto"
 msgstr "செயல்பாடுகள்"
@@ -3546,8 +3411,6 @@ msgid "Estonian"
 msgstr ""
 
 #: libraries/classes/Charsets.php:502 libraries/classes/Charsets.php:623
-#, fuzzy
-#| msgid "Data Dictionary"
 msgctxt "Collation"
 msgid "German (dictionary order)"
 msgstr "தரவு அகராதி"
@@ -3588,8 +3451,6 @@ msgid "Burmese"
 msgstr ""
 
 #: libraries/classes/Charsets.php:544
-#, fuzzy
-#| msgid "Version"
 msgctxt "Collation"
 msgid "Persian"
 msgstr "பதிப்பு"
@@ -3630,8 +3491,6 @@ msgid "Spanish (traditional)"
 msgstr ""
 
 #: libraries/classes/Charsets.php:600
-#, fuzzy
-#| msgid "File name"
 msgctxt "Collation"
 msgid "Vietnamese"
 msgstr "கோப்பின் பெயர்"
@@ -3733,8 +3592,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:72
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Restrict login to MySQL server"
 msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
 
@@ -3815,8 +3672,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:127
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable linter"
 msgstr "இயலச்செய்க %s"
 
@@ -3927,8 +3782,6 @@ msgid "Whether the table structure actions should be hidden."
 msgstr "அட்டவணை வடிவாக்க செயல்களை மறைக்கவா."
 
 #: libraries/classes/Config/Descriptions.php:189
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show column comments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
@@ -3941,8 +3794,6 @@ msgid "Hide table structure actions"
 msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
 
 #: libraries/classes/Config/Descriptions.php:195
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations for Hex"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
@@ -3961,50 +3812,34 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:199
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Substring"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:203
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Bool2Text"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:207
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for External"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:211
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for PreApPend"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:215
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for DateFormat"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:219
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for Inline"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:223
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextImageLink"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:227
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for TextLink"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
@@ -4038,8 +3873,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:251
 #: templates/display/export/options_output.twig:17
-#, fuzzy, php-format
-#| msgid "Add statements:"
+#, php-format
 msgid "Use %s statement"
 msgstr "கூற்றுகளை சேர்க்க:"
 
@@ -4184,8 +4018,6 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:314
 #: libraries/classes/Config/Descriptions.php:338
 #: libraries/classes/Config/Descriptions.php:403
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relationships"
 msgstr "தொடர்பு பார்வை"
 
@@ -4206,8 +4038,6 @@ msgid "Overwrite existing file(s)"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:346
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export as separate files"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
@@ -4323,8 +4153,6 @@ msgid "Default value for foreign key checks checkbox for some queries."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:432
-#, fuzzy
-#| msgid "Foreign key check:"
 msgid "Foreign key checks"
 msgstr "அயல் குறியெண் சரிபார்க்க:"
 
@@ -4425,14 +4253,10 @@ msgid "Customize appearance of the navigation panel."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:482
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation tree"
 msgstr "வழிசெலுத்தல் பலகம்"
 
 #: libraries/classes/Config/Descriptions.php:484
-#, fuzzy
-#| msgid "Customize navigation panel"
 msgid "Customize the navigation tree."
 msgstr "வழிசெலுத்தல் பலகத்தை தனிப்பயனாக்குக"
 
@@ -4883,20 +4707,14 @@ msgid "In the navigation panel, replaces the database tree with a selector"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:770
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Show databases navigation as tree"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: libraries/classes/Config/Descriptions.php:772
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel width"
 msgstr "வழிசெலுத்தல் பலகம்"
 
 #: libraries/classes/Config/Descriptions.php:774
-#, fuzzy
-#| msgid "Show logo in navigation panel."
 msgid "Set to 0 to collapse navigation panel."
 msgstr "வழிசெலுத்தல் பலகத்தில் இலச்சினையை காட்டுக."
 
@@ -5004,38 +4822,26 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:835
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Enable navigation tree expansion"
 msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
 
 #: libraries/classes/Config/Descriptions.php:837
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show tables in tree"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
 #: libraries/classes/Config/Descriptions.php:839
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show tables under database in the navigation tree"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: libraries/classes/Config/Descriptions.php:841
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show views in tree"
 msgstr "பதிப்புகளை காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:843
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show views under database in the navigation tree"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
 #: libraries/classes/Config/Descriptions.php:845
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
 msgstr "செயல்கூற்றின் களங்களை காட்டுக"
 
@@ -5044,8 +4850,6 @@ msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:849
-#, fuzzy
-#| msgid "Procedures:"
 msgid "Show procedures in tree"
 msgstr "செயல்முறைகள்:"
 
@@ -5054,14 +4858,10 @@ msgid "Whether to show procedures under database in the navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:853
-#, fuzzy
-#| msgid "Show versions"
 msgid "Show events in tree"
 msgstr "பதிப்புகளை காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:855
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Whether to show events under database in the navigation tree"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
@@ -5241,14 +5041,10 @@ msgid "Grid editing: trigger action"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:959
-#, fuzzy
-#| msgid "Relational display column"
 msgid "Relational display"
 msgstr "தொடர்புடை நிரல்வரிசை காண்பிக்க"
 
 #: libraries/classes/Config/Descriptions.php:961
-#, fuzzy
-#| msgid "Tables display options."
 msgid "For display Options"
 msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
 
@@ -5289,8 +5085,6 @@ msgid "Allow root login"
 msgstr "root புகுபதிவை ஏற்க"
 
 #: libraries/classes/Config/Descriptions.php:981
-#, fuzzy
-#| msgid "Session value"
 msgid "Session timezone"
 msgstr "அமர்வு மதிப்பு"
 
@@ -5441,8 +5235,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1076
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export templates table"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
@@ -5453,8 +5245,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1083
-#, fuzzy
-#| msgid "Central columns"
 msgid "Central columns table"
 msgstr "மைய நெடுவரிசைகள்"
 
@@ -5530,8 +5320,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1130
-#, fuzzy
-#| msgid "Favorite tables"
 msgid "Favorites table"
 msgstr "விருப்பமான அட்டவணைகள்"
 
@@ -5747,8 +5535,6 @@ msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1271
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table comments"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
@@ -5757,8 +5543,6 @@ msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1275
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show creation timestamp"
 msgstr "செயல்கூற்றின் களங்களை காட்டுக"
 
@@ -5785,8 +5569,6 @@ msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1287
-#, fuzzy
-#| msgid "Table comments"
 msgid "Show table charset"
 msgstr "அட்டவணைக் கருத்துரைகள்"
 
@@ -5881,8 +5663,6 @@ msgstr "புதுப்பி"
 
 #: libraries/classes/Config/Descriptions.php:1335
 #: libraries/classes/Util.php:1109
-#, fuzzy
-#| msgid "Create PHP Code"
 msgid "Create PHP code"
 msgstr "PHP குறிமுறை உருவாக்கு"
 
@@ -5904,8 +5684,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1350
-#, fuzzy
-#| msgid "Login cookie validity"
 msgid "Login cookie validity warning"
 msgstr "புகுபதிவு நிலைபதிவுத்துணுக்கு செல்லுங்காலம்"
 
@@ -6136,8 +5914,6 @@ msgstr "எப்போதும் வினவல் தகவல்களை 
 
 #: libraries/classes/Config/Descriptions.php:1470
 #: templates/console/display.twig:157
-#, fuzzy
-#| msgid "Show current browsing query"
 msgid "Show current browsing query"
 msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
 
@@ -6147,27 +5923,19 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:1474
 #: templates/console/display.twig:168
-#, fuzzy
-#| msgid "Switch to copied database"
 msgid "Switch to dark theme"
 msgstr "பிரதியான தரவுதளத்துக்கு மாறு"
 
 #: libraries/classes/Config/Descriptions.php:1476
-#, fuzzy
-#| msgid "Console"
 msgid "Console height"
 msgstr "முனையம்"
 
 #: libraries/classes/Config/Descriptions.php:1478
-#, fuzzy
-#| msgid "Console"
 msgid "Console mode"
 msgstr "முனையம்"
 
 #: libraries/classes/Config/Descriptions.php:1480
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Group queries"
 msgstr "SQL வினவல்கள்"
 
@@ -6176,8 +5944,6 @@ msgid "Order"
 msgstr "ஏனையது->வரிசை"
 
 #: libraries/classes/Config/Descriptions.php:1484
-#, fuzzy
-#| msgid "Order"
 msgid "Order by"
 msgstr "ஏனையது->வரிசை"
 
@@ -6308,16 +6074,13 @@ msgid "CSV using LOAD DATA"
 msgstr ""
 
 #: libraries/classes/Config/Forms/User/MainForm.php:32
-#, fuzzy
-#| msgid "Input transformation"
 msgid "Default transformations"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
 #: libraries/classes/Config/PageSettings.php:141
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன!"
+msgstr ""
+"அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன!"
 
 #: libraries/classes/Config/ServerConfigChecks.php:71
 #, php-format
@@ -6432,8 +6195,6 @@ msgid "Could not connect to the database server!"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:253
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Invalid authentication type!"
 msgstr "தகா தரவேற்ற சுட்டுவகை"
 
@@ -6629,8 +6390,7 @@ msgid "Replicated"
 msgstr "இரட்டையாக்கப்பட்டது"
 
 #: libraries/classes/Controllers/Server/ServerVariablesController.php:116
-#, fuzzy, php-format
-#| msgid "Server variables and settings"
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
 
@@ -6673,27 +6433,19 @@ msgid "Your SQL query has been executed successfully."
 msgstr "உங்கள் SQL வினவல் வெற்றிகரமாக நிறைவேற்றப்பட்டது."
 
 #: libraries/classes/Controllers/Table/TableRelationController.php:304
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationships were successfully updated."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:792
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "அட்டவணை தேடல்"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:799
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "அணுக்க தேடல்"
 
 #: libraries/classes/Controllers/Table/TableSearchController.php:804
 #: templates/table/search/selection_form.twig:75
-#, fuzzy
-#| msgid "Hide find and replace criteria"
 msgid "Find and replace"
 msgstr "தேடிமாற்று நிபந்தனையை மறை"
 
@@ -6713,8 +6465,7 @@ msgid "The columns have been moved successfully."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: libraries/classes/Controllers/Table/TableStructureController.php:535
-#, fuzzy, php-format
-#| msgid "Failed to get real row count."
+#, php-format
 msgid "Failed to get description of column %s!"
 msgstr "நிறைவரிசை எண்ணிக்கையை பெற தவறியது."
 
@@ -6807,11 +6558,6 @@ msgstr ""
 "இவ்விருப்பம் PHPMyAdminஉடன் இணக்கமற்றது மேலும் சில தரவுகள் வீணாகலாம்!"
 
 #: libraries/classes/Core.php:1231
-#, fuzzy
-#| msgid ""
-#| "You have enabled mbstring.func_overload in your PHP configuration. This "
-#| "option is incompatible with phpMyAdmin and might cause some data to be "
-#| "corrupted!"
 msgid ""
 "You have disabled ini_get and/or ini_set in php.ini. This option is "
 "incompatible with phpMyAdmin!"
@@ -6834,10 +6580,6 @@ msgstr ""
 "சரிபார்க்கவும்!"
 
 #: libraries/classes/Database/Designer/Common.php:518
-#, fuzzy
-#| msgid ""
-#| "The configuration storage is not ready for the central list of columns "
-#| "feature."
 msgctxt ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\" "
 "on designer when user tries to set a display field."
@@ -6846,20 +6588,14 @@ msgid ""
 msgstr "அமைப்பாக்க சேமிப்பகம் மைய நிரல்வரிசைகள் பட்டியல் வசதிக்கு ஏதுவாக இல்லை."
 
 #: libraries/classes/Database/Designer/Common.php:565
-#, fuzzy
-#| msgid "Primary key already exists."
 msgid "Error: relationship already exists."
 msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
 
 #: libraries/classes/Database/Designer/Common.php:611
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "FOREIGN KEY relationship has been added."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:617
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Error: FOREIGN KEY relationship could not be added!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
@@ -6872,38 +6608,26 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: libraries/classes/Database/Designer/Common.php:649
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:655
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Error: Internal relationship could not be added!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:693
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "FOREIGN KEY relationship has been removed."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:699
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Error: FOREIGN KEY relationship could not be removed!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:726
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Error: Internal relationship could not be removed!"
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
 #: libraries/classes/Database/Designer/Common.php:730
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been removed."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
@@ -6921,8 +6645,6 @@ msgid "Sort:"
 msgstr "வரிசைப்படுத்து:"
 
 #: libraries/classes/Database/Qbe.php:616
-#, fuzzy
-#| msgid "Sort:"
 msgid "Sort order:"
 msgstr "வரிசைப்படுத்து:"
 
@@ -7007,20 +6729,14 @@ msgid "at least one of the words"
 msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
 #: libraries/classes/Database/Search.php:94
-#, fuzzy
-#| msgid "at least one of the words"
 msgid "all of the words"
 msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
 
 #: libraries/classes/Database/Search.php:95
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as substring"
 msgstr "சரியான சொற்றொடர்"
 
 #: libraries/classes/Database/Search.php:96
-#, fuzzy
-#| msgid "the exact phrase"
 msgid "the exact phrase as whole field"
 msgstr "சரியான சொற்றொடர்"
 
@@ -7069,8 +6785,6 @@ msgid "Details…"
 msgstr "தகவல்கள்…"
 
 #: libraries/classes/DatabaseInterface.php:2507
-#, fuzzy
-#| msgid "Missing parameter:"
 msgid "Missing connection parameters!"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
@@ -7316,8 +7030,6 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/privileges/global_priv_table.twig:5 templates/select_all.twig:4
 #: templates/select_all.twig:5
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "அனைத்தையும் தெரி"
 
@@ -8133,8 +7845,6 @@ msgid "Central columns"
 msgstr "மைய நெடுவரிசைகள்"
 
 #: libraries/classes/Menu.php:607
-#, fuzzy
-#| msgid "User groups"
 msgid "User accounts"
 msgstr "பயனர் குழுக்கள்"
 
@@ -8208,8 +7918,6 @@ msgid "Data only"
 msgstr "தரவுகளை மட்டும்"
 
 #: libraries/classes/MultSubmits.php:407
-#, fuzzy
-#| msgid "Add AUTO_INCREMENT value"
 msgid "Add AUTO INCREMENT value"
 msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
 
@@ -8223,8 +7931,6 @@ msgstr "கட்டுப்பாடுகளை சேர்க்க"
 #: libraries/classes/Operations.php:971 libraries/classes/Operations.php:1330
 #: libraries/classes/Rte/Routines.php:1025
 #: templates/columns_definitions/table_fields_definitions.twig:36
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Adjust privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
@@ -8249,8 +7955,6 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: libraries/classes/Navigation/Navigation.php:207
-#, fuzzy
-#| msgid "Group name:"
 msgid "Groups:"
 msgstr "பயனர்குழுவின் பெயர்:"
 
@@ -8291,8 +7995,6 @@ msgid "Log out"
 msgstr "செல்பதிகை"
 
 #: libraries/classes/Navigation/NavigationHeader.php:179
-#, fuzzy
-#| msgid "Wrong data"
 msgid "Empty session data"
 msgstr "தவறான தரவு"
 
@@ -8301,8 +8003,6 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin ஆவணச்சான்று"
 
 #: libraries/classes/Navigation/NavigationHeader.php:217
-#, fuzzy
-#| msgid "Navigation panel"
 msgid "Navigation panel settings"
 msgstr "வழிசெலுத்தல் பலகம்"
 
@@ -8344,8 +8044,7 @@ msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:61
-#, fuzzy, php-format
-#| msgid "Could not add columns!"
+#, php-format
 msgid "Could not load class \"%1$s\""
 msgstr "நிரல்வரிசைகளை சேர்க்க முடியவில்லை!"
 
@@ -8817,8 +8516,6 @@ msgstr "அட்டவணையை சரிபார்"
 
 #: libraries/classes/Operations.php:1425
 #: templates/database/structure/check_all_tables.twig:21
-#, fuzzy
-#| msgid "Check table"
 msgid "Checksum table"
 msgstr "அட்டவணையை சரிபார்"
 
@@ -8891,8 +8588,6 @@ msgid "Truncate"
 msgstr ""
 
 #: libraries/classes/Operations.php:1608
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
 msgstr "சுருக்கு"
 
@@ -9023,8 +8718,6 @@ msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:344
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "You are not allowed to log in to this MySQL server!"
 msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
 
@@ -9297,14 +8990,10 @@ msgid "Report title:"
 msgstr "அறிக்கையின் தலைப்பு:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:228
-#, fuzzy
-#| msgid "Wrong data"
 msgid "Dumping data"
 msgstr "தவறான தரவு"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:283
-#, fuzzy
-#| msgid "structure"
 msgid "View structure"
 msgstr "கட்டமைப்பு"
 
@@ -9329,8 +9018,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:176
-#, fuzzy
-#| msgid "Export schema"
 msgid "Export metadata"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
@@ -9359,8 +9046,7 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:298
-#, fuzzy, php-format
-#| msgid "Session value"
+#, php-format
 msgid "%s value"
 msgstr "அமர்வு மதிப்பு"
 
@@ -9449,20 +9135,16 @@ msgid "alias export may not work reliably in all cases."
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1010
-#, fuzzy
-#| msgid "data"
 msgid "Metadata"
 msgstr "தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1080
-#, fuzzy, php-format
-#| msgid "Delete data or table"
+#, php-format
 msgid "Metadata for table %s"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1087
-#, fuzzy, php-format
-#| msgid "Go to database: %s"
+#, php-format
 msgid "Metadata for database %s"
 msgstr "தரவுத்தளம்: %s க்கு செல்க"
 
@@ -9536,8 +9218,7 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2210
-#, fuzzy, php-format
-#| msgid "Delete data or table"
+#, php-format
 msgid "Error reading data for table %s:"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
@@ -9733,8 +9414,6 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/SchemaDia.php:65
 #: libraries/classes/Plugins/Schema/SchemaEps.php:73
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:73
-#, fuzzy
-#| msgid "Point"
 msgid "Portrait"
 msgstr "புள்ளி"
 
@@ -9750,26 +9429,18 @@ msgstr ""
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:93
 #: templates/database/structure/print_view_data_dictionary_link.twig:6
-#, fuzzy
-#| msgid "Data Dictionary"
 msgid "Data dictionary"
 msgstr "தரவு அகராதி"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Order of the tables"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:104
-#, fuzzy
-#| msgid "Ascending"
 msgid "Name (Ascending)"
 msgstr "ஏறுவரிசை"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:105
-#, fuzzy
-#| msgid "Descending"
 msgid "Name (Descending)"
 msgstr "இறங்குவரிசை"
 
@@ -9963,8 +9634,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Application (2FA)"
 msgstr "உறுதிப்படுத்தல்"
 
@@ -9984,8 +9653,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:52
-#, fuzzy
-#| msgid "Change password"
 msgid "Simple two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
@@ -10097,8 +9764,6 @@ msgid "Persistent recently used tables"
 msgstr ""
 
 #: libraries/classes/Relation.php:257
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Persistent favorite tables"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
@@ -10131,8 +9796,6 @@ msgid "Remembering Designer Settings"
 msgstr ""
 
 #: libraries/classes/Relation.php:362
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates"
 msgstr "தகா தரவேற்ற சுட்டுவகை"
 
@@ -10256,8 +9919,6 @@ msgid "Slave replication"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:161
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Master connection:"
 msgstr "பாதுகாப்பற்ற இணைப்பு"
 
@@ -10349,8 +10010,6 @@ msgstr ""
 #: libraries/classes/ReplicationGui.php:389
 #: templates/display/export/select_options.twig:8
 #: templates/database/search/selection_form.twig:35
-#, fuzzy
-#| msgid "Unselect All"
 msgid "Unselect all"
 msgstr "அனைத்தையும் தெரிவுநீக்கு"
 
@@ -10465,8 +10124,6 @@ msgid "Re-type"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:886
-#, fuzzy
-#| msgid "Generate password"
 msgid "Generate password:"
 msgstr "கடவுச்சொல்லை இயற்று"
 
@@ -10886,8 +10543,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:47
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
@@ -10913,8 +10569,7 @@ msgid "You do not have the necessary privileges to create a trigger."
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:61
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
@@ -10940,8 +10595,7 @@ msgid "You do not have the necessary privileges to create an event."
 msgstr ""
 
 #: libraries/classes/Rte/Words.php:75
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
@@ -11128,14 +10782,10 @@ msgid "Allows executing stored routines."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:738
-#, fuzzy
-#| msgid "Rate of aborted connections"
 msgid "Does not require SSL-encrypted connections."
 msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
 
 #: libraries/classes/Server/Privileges.php:754
-#, fuzzy
-#| msgid "Rate of aborted connections"
 msgid "Requires SSL-encrypted connections."
 msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
 
@@ -11178,8 +10828,6 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:3373
 #: libraries/classes/Server/Privileges.php:4596
 #: templates/privileges/edit_routine_privileges.twig:11
-#, fuzzy
-#| msgid "routine"
 msgid "Routine"
 msgstr "%s களத்தை சேர்க்க->செயல்முறை"
 
@@ -11250,14 +10898,10 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1440
 #: libraries/classes/Server/Privileges.php:1471
-#, fuzzy
-#| msgid "Authentication"
 msgid "Native MySQL authentication"
 msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/classes/Server/Privileges.php:1473
-#, fuzzy
-#| msgid "Change password"
 msgid "SHA256 password authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
@@ -11280,8 +10924,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1565
-#, fuzzy
-#| msgid "User name:"
 msgid "Host name:"
 msgstr "பயனர் பெயர்:"
 
@@ -11289,8 +10931,6 @@ msgstr "பயனர் பெயர்:"
 #: libraries/classes/Server/Privileges.php:1655
 #: libraries/classes/Server/Privileges.php:2582
 #: libraries/classes/Server/Privileges.php:3560
-#, fuzzy
-#| msgid "Constraint name"
 msgid "Host name"
 msgstr "கட்டுப்பாட்டின் பெயர்"
 
@@ -11299,14 +10939,10 @@ msgid "Do not change the password"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1728
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication Plugin"
 msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/classes/Server/Privileges.php:1735
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password Hashing Method"
 msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
@@ -11322,14 +10958,10 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2175
 #: templates/privileges/add_user_fieldset.twig:7
-#, fuzzy
-#| msgid "Add user group"
 msgid "Add user account"
 msgstr "பயனர்குழுவை சேர்க்க"
 
 #: libraries/classes/Server/Privileges.php:2184
-#, fuzzy
-#| msgid "Database operations"
 msgid "Database for user account"
 msgstr "தரவுதள நடவடிக்கைகள்"
 
@@ -11342,8 +10974,7 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2214
-#, fuzzy, php-format
-#| msgid "Check privileges for database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
 msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
@@ -11395,8 +11026,6 @@ msgid "table-specific"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2855
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Edit privileges"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
@@ -11437,8 +11066,6 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:3372
 #: templates/privileges/edit_routine_privileges.twig:12
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Routine-specific privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
@@ -11497,14 +11124,10 @@ msgid "User"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4546
-#, fuzzy
-#| msgid "Edit Privileges:"
 msgid "Edit privileges:"
 msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
 
 #: libraries/classes/Server/Privileges.php:4547
-#, fuzzy
-#| msgid "User groups"
 msgid "User account"
 msgstr "பயனர் குழுக்கள்"
 
@@ -11516,8 +11139,6 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:4641
 #: libraries/classes/Server/Users.php:30
-#, fuzzy
-#| msgid "Users overview"
 msgid "User accounts overview"
 msgstr "பயனர்கள் கண்ணோட்டம்"
 
@@ -11552,8 +11173,6 @@ msgstr "நீங்கள் புதிய பயனாளரை சேர்
 
 #: libraries/classes/Server/Select.php:53
 #: libraries/classes/Server/Select.php:58
-#, fuzzy
-#| msgid "Current Server:"
 msgid "Current server:"
 msgstr "நடப்பு வழங்கி:"
 
@@ -11600,8 +11219,6 @@ msgid "Sent"
 msgstr ""
 
 #: libraries/classes/Server/Status.php:251
-#, fuzzy
-#| msgid "Current connection"
 msgid "Max. concurrent connections"
 msgstr "நடப்பாணை இணைப்பு"
 
@@ -11860,8 +11477,6 @@ msgid "Clear series"
 msgstr ""
 
 #: libraries/classes/Server/Status/Monitor.php:240
-#, fuzzy
-#| msgid "Server charset:"
 msgid "Series in chart:"
 msgstr "வழங்கி குறிமுறை:"
 
@@ -11928,8 +11543,6 @@ msgid "Filters"
 msgstr "வடிகட்டிகள்"
 
 #: libraries/classes/Server/Status/Processes.php:243
-#, fuzzy
-#| msgid "not active"
 msgid "Show only active"
 msgstr "செயல்பாடற்ற"
 
@@ -12667,10 +12280,7 @@ msgid "Showing as PHP code"
 msgstr ""
 
 #: libraries/classes/Sql.php:1813
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
@@ -12679,10 +12289,7 @@ msgstr ""
 "தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
 
 #: libraries/classes/Sql.php:1827
-#, fuzzy, php-format
-#| msgid ""
-#| "This table does not contain a unique column. Features related to the grid "
-#| "edit, checkbox, Edit, Copy and Delete links may not work after saving."
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
@@ -12696,8 +12303,7 @@ msgid "Problems with indexes of table `%s`"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr "SQL வினவலை/களை %s வழங்கியில் செயலாக்குக"
 
@@ -12707,8 +12313,7 @@ msgid "Run SQL query/queries on database %s"
 msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
 
 #: libraries/classes/SqlQueryForm.php:178
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
 
@@ -12722,8 +12327,6 @@ msgid "Get auto-saved query"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:260
-#, fuzzy
-#| msgid "Bad parameters!"
 msgid "Bind parameters"
 msgstr "ஒவ்வாத பண்புகூறுகள்!"
 
@@ -12893,8 +12496,6 @@ msgid "Updated"
 msgstr "புதுப்பிக்கப்பட்டது"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
 msgstr "பதிப்பை உருவாக்கு"
 
@@ -12997,8 +12598,7 @@ msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/classes/Tracking.php:986
-#, fuzzy, php-format
-#| msgid "Create version %1$s of %2$s"
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
 
@@ -13256,8 +12856,6 @@ msgid "The profile has been updated."
 msgstr ""
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
 msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
@@ -13271,8 +12869,6 @@ msgid "Max: %s%s"
 msgstr ""
 
 #: libraries/classes/Util.php:549
-#, fuzzy
-#| msgid "Static data"
 msgid "Static analysis:"
 msgstr "நிலையான தரவு"
 
@@ -13291,21 +12887,15 @@ msgid "Analyze Explain at %s"
 msgstr ""
 
 #: libraries/classes/Util.php:1093
-#, fuzzy
-#| msgid "Without PHP Code"
 msgid "Without PHP code"
 msgstr "PHP நிரல் இல்லாமல்"
 
 #: libraries/classes/Util.php:1100
 #: templates/database/multi_table_query/form.twig:176
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "வினவலை சமர்ப்பி"
 
 #: libraries/classes/Util.php:1166
-#, fuzzy
-#| msgid "Edit view"
 msgctxt "Inline edit query"
 msgid "Edit inline"
 msgstr "தொகுப்பு பார்வை"
@@ -13336,8 +12926,7 @@ msgid "Missing parameter:"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
 #: libraries/classes/Util.php:2440
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
 msgstr "தரவுத்தளம் தாவி செல்லவும் \"%s\"."
 
@@ -13461,14 +13050,10 @@ msgid "key"
 msgstr ""
 
 #: libraries/config.values.php:99
-#, fuzzy
-#| msgid "Display comments"
 msgid "display column"
 msgstr "கருத்துரைகளை காட்டுக"
 
 #: libraries/config.values.php:103
-#, fuzzy
-#| msgid "Welcome to %s"
 msgid "Welcome"
 msgstr "%sக்கு வருக"
 
@@ -13493,20 +13078,14 @@ msgid "Never send error reports"
 msgstr ""
 
 #: libraries/config.values.php:133
-#, fuzzy
-#| msgid "Set default"
 msgid "Server default"
 msgstr "இயல்நிலையை அமைக்க"
 
 #: libraries/config.values.php:134
-#, fuzzy
-#| msgid "Enable %s"
 msgid "Enable"
 msgstr "இயலச்செய்க %s"
 
 #: libraries/config.values.php:135
-#, fuzzy
-#| msgid "Disable %s"
 msgid "Disable"
 msgstr "முடக்குக %s"
 
@@ -13551,8 +13130,6 @@ msgid "Manage your settings"
 msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Authentication"
 msgid "Two-factor authentication"
 msgstr "உறுதிப்படுத்தல்"
 
@@ -13582,8 +13159,6 @@ msgid "Cannot save settings, submitted form contains errors!"
 msgstr "அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration snippet"
 msgstr "phpMyAdmin ஆவணச்சான்று"
 
@@ -13641,14 +13216,10 @@ msgstr ""
 "%sநிறுவல்கோவை%s மூலம்."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
 msgstr "கோப்பாக சேமிக்க"
 
 #: prefs_manage.php:314
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as PHP file"
 msgstr "கோப்பாக சேமிக்க"
 
@@ -13669,8 +13240,6 @@ msgid "You can reset all your settings and restore them to default values."
 msgstr "நீங்கள் உங்கள் அனைத்து அமைப்புக்களையும் அவற்றின் இயல்நிலை மதிப்புக்கு மீட்டமைக்கலாம்."
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Two-factor authentication has been removed."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
@@ -13683,8 +13252,6 @@ msgid "View dump (schema) of databases"
 msgstr ""
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Allows deleting historical rows."
 msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
@@ -13765,8 +13332,6 @@ msgid ""
 msgstr ""
 
 #: setup/frames/index.inc.php:97
-#, fuzzy
-#| msgid "Configuration saved."
 msgid "Configuration not saved!"
 msgstr "உள்ளமைவு சேமிக்கப்பட்டது."
 
@@ -13928,8 +13493,6 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: tbl_row_action.php:73
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No row selected."
 msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
@@ -13939,14 +13502,10 @@ msgid "Tracking of %s is activated."
 msgstr ""
 
 #: tbl_tracking.php:103
-#, fuzzy
-#| msgid "The columns have been moved successfully."
 msgid "Tracking versions deleted successfully."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: tbl_tracking.php:108
-#, fuzzy
-#| msgid "No rows selected"
 msgid "No versions selected."
 msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
 
@@ -14025,8 +13584,6 @@ msgid "Maximum rows to plot"
 msgstr ""
 
 #: templates/display/export/selection.twig:3
-#, fuzzy
-#| msgid "Databases"
 msgid "Databases:"
 msgstr "தரவுத்தளங்கள்"
 
@@ -14066,8 +13623,6 @@ msgstr "தொகுப்பு பார்வை"
 
 #: templates/table/structure/display_structure.twig:194
 #: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
 msgstr "பிரிவினை %s"
 
@@ -14084,8 +13639,6 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
 
 #: templates/console/display.twig:23
-#, fuzzy
-#| msgid "Press Ctrl+Enter to execute query"
 msgid "Press Enter to execute query"
 msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
 
@@ -14125,20 +13678,14 @@ msgid "During current session"
 msgstr "அமர்வின் போது"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "ஏறுவரிசை"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
 msgstr "இறங்குவரிசை"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Order"
 msgid "Order:"
 msgstr "ஏனையது->வரிசை"
 
@@ -14148,8 +13695,6 @@ msgid "Count"
 msgstr "எண்ணிக்கை"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Execute"
 msgid "Execution order"
 msgstr "செயலாக்குக"
 
@@ -14158,26 +13703,18 @@ msgid "Time taken"
 msgstr ""
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Order"
 msgid "Order by:"
 msgstr "ஏனையது->வரிசை"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Ungroup queries"
 msgstr "SQL வினவல்கள்"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Show create"
 msgid "Show trace"
 msgstr "உருவாக்கத்தை காட்டு"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide trace"
 msgstr "பலகத்தை மறை"
 
@@ -14246,8 +13783,6 @@ msgid "Check tables having overhead"
 msgstr ""
 
 #: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy table"
 msgstr "நகல்"
 
@@ -14284,8 +13819,6 @@ msgid "Edit ENUM/SET values"
 msgstr ""
 
 #: templates/privileges/delete_user_fieldset.twig:3
-#, fuzzy
-#| msgid "Removing Selected Users"
 msgid "Remove selected user accounts"
 msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர்கள் நீக்கப்படுகின்றனர்"
 
@@ -14305,8 +13838,6 @@ msgid "Add %s column(s)"
 msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
 #: templates/table/structure/add_column.twig:14
-#, fuzzy
-#| msgid "Rate of table open"
 msgid "at beginning of table"
 msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
 
@@ -14317,20 +13848,15 @@ msgid "after %s"
 msgstr "%s க்கு அடுத்து"
 
 #: templates/database/designer/database_tables.twig:37
-#, fuzzy
-#| msgid "Move columns"
 msgid "Show/hide columns"
 msgstr "நெடுவரிசைகளை நகர்த்து"
 
 #: templates/database/designer/database_tables.twig:46
-#, fuzzy
-#| msgid "Table structure"
 msgid "See table structure"
 msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
 #: templates/database/designer/database_tables.twig:91
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
 msgstr "அனைத்தையும் தெரிவுசெய்க"
 
@@ -14341,9 +13867,7 @@ msgstr "நெடுவரிசை \"%s\" க்கு ஒரு விரு�
 
 #: templates/display/export/options_output_save_dir.twig:5
 #: templates/display/export/options_quick_export.twig:8
-#, fuzzy, php-format
-#| msgid "%1$s match in <strong>%2$s</strong>"
-#| msgid_plural "%1$s matches in <strong>%2$s</strong>"
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
 
@@ -14396,8 +13920,6 @@ msgid "Stacked"
 msgstr ""
 
 #: templates/table/chart/tbl_chart.twig:51
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart title:"
 msgstr "வரைபட தலைப்பு"
 
@@ -14434,8 +13956,6 @@ msgid "Series column:"
 msgstr "தொடர் நிரல்வரிசை:"
 
 #: templates/table/chart/tbl_chart.twig:132
-#, fuzzy
-#| msgid "Value column:"
 msgid "Value Column:"
 msgstr "மதிப்பு நிரல்வரிசை:"
 
@@ -14511,8 +14031,6 @@ msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: templates/prefs_twofactor.twig:3
-#, fuzzy
-#| msgid "Authentication settings."
 msgid "Two-factor authentication status"
 msgstr "உறுதிப்பாடு அமைப்புமுறைமை."
 
@@ -14546,8 +14064,6 @@ msgid "You have enabled two factor authentication."
 msgstr ""
 
 #: templates/prefs_twofactor.twig:37 templates/prefs_twofactor_confirm.twig:9
-#, fuzzy
-#| msgid "Change password"
 msgid "Disable two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
@@ -14573,8 +14089,6 @@ msgid "Column names"
 msgstr ""
 
 #: templates/table/secondary_tabs.twig:9
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "தொடர்பு பார்வை"
 
@@ -14600,8 +14114,6 @@ msgstr ""
 
 #: templates/login/twofactor/application.twig:2
 #: templates/login/twofactor/application_configure.twig:21
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication code:"
 msgstr "உறுதிப்படுத்தல்"
 
@@ -14630,8 +14142,6 @@ msgid "No partitioning defined!"
 msgstr ""
 
 #: templates/table/structure/display_partitions.twig:11
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitioned by:"
 msgstr "பிரிவினை %s"
 
@@ -14641,33 +14151,23 @@ msgstr ""
 
 #: templates/table/structure/display_partitions.twig:24
 #: templates/columns_definitions/partitions.twig:76
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition"
 msgstr "பிரிவினை %s"
 
 #: templates/table/structure/display_partitions.twig:29
-#, fuzzy
-#| msgid "Row length"
 msgid "Data length"
 msgstr "நிரல் நீளம்"
 
 #: templates/table/structure/display_partitions.twig:30
-#, fuzzy
-#| msgid "Row length"
 msgid "Index length"
 msgstr "நிரல் நீளம்"
 
 #: templates/table/structure/display_partitions.twig:135
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition table"
 msgstr "பிரிவினை %s"
 
 #: templates/table/structure/display_partitions.twig:141
 #: templates/table/structure/partition_definition_form.twig:6
-#, fuzzy
-#| msgid "Edit view"
 msgid "Edit partitioning"
 msgstr "தொகுப்பு பார்வை"
 
@@ -14684,8 +14184,7 @@ msgid "Note: Setting these options to 0 (zero) removes the limit."
 msgstr ""
 
 #: templates/database/structure/show_create_row.twig:7
-#, fuzzy, php-format
-#| msgid "Created"
+#, php-format
 msgid "Create %s"
 msgstr "உருவாக்கப்பட்டது"
 
@@ -14742,8 +14241,7 @@ msgid "Create version %1$s of %2$s"
 msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
 
 #: templates/table/tracking/create_version.twig:16
-#, fuzzy, php-format
-#| msgid "Create version"
+#, php-format
 msgid "Create version %1$s"
 msgstr "பதிப்பை உருவாக்கு"
 
@@ -14765,8 +14263,6 @@ msgid "Aggregate"
 msgstr ""
 
 #: templates/database/designer/delete_relation_panel.twig:21
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete relationship"
 msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
 
@@ -14780,8 +14276,7 @@ msgid "As defined:"
 msgstr ""
 
 #: templates/server/databases/table_row.twig:13
-#, fuzzy, php-format
-#| msgid "Jump to database"
+#, php-format
 msgid "Jump to database '%s'"
 msgstr "தரவுத்தளத்துக்கு செல்க"
 
@@ -14791,20 +14286,14 @@ msgid "Check privileges for database \"%s\"."
 msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
 #: templates/server/databases/table_row.twig:64
-#, fuzzy
-#| msgid "Check Privileges"
 msgid "Check privileges"
 msgstr "தனிசலுகைகளை சரிபார்க்க"
 
 #: templates/display/export/options_output_separate_files.twig:7
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
 #: templates/display/export/options_output_separate_files.twig:9
-#, fuzzy
-#| msgid "Export table headers"
 msgid "Export tables as separate files"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
@@ -14853,8 +14342,6 @@ msgid "Table name"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:40
-#, fuzzy
-#| msgid "Add %s column(s)"
 msgid "column(s)"
 msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
@@ -14867,8 +14354,6 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
 msgstr "இணைப்புகள்"
 
@@ -14956,8 +14441,6 @@ msgid "Deactivate now"
 msgstr ""
 
 #: templates/display/export/method.twig:3
-#, fuzzy
-#| msgid "Export schema"
 msgid "Export method:"
 msgstr "ஒழுங்கமைவை தரவேற்றுக"
 
@@ -14982,14 +14465,10 @@ msgid "Server variables and settings"
 msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: templates/server/sub_page_header.twig:2
-#, fuzzy
-#| msgid "Character Sets and Collations"
 msgid "Character sets and collations"
 msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
 
@@ -15141,8 +14620,6 @@ msgid "Encoding Conversion:"
 msgstr ""
 
 #: templates/display/export/template_options.twig:1
-#, fuzzy
-#| msgid "Select a table"
 msgid "Select a template"
 msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
 
@@ -15161,8 +14638,6 @@ msgid "Importing into the table \"%s\""
 msgstr ""
 
 #: templates/display/import/import.twig:50
-#, fuzzy
-#| msgid "File to Import:"
 msgid "File to import:"
 msgstr "தரவிறக்கத்திற்கான கோப்பு:"
 
@@ -15187,8 +14662,6 @@ msgid "File uploads are not allowed on this server."
 msgstr ""
 
 #: templates/display/import/import.twig:124
-#, fuzzy
-#| msgid "Partial Import:"
 msgid "Partial import:"
 msgstr "பகுதியளவு தரவிறக்கம்:"
 
@@ -15210,8 +14683,6 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
 
 #: templates/display/import/import.twig:161
-#, fuzzy
-#| msgid "Options"
 msgid "Other options:"
 msgstr "விருப்பத்தேர்வுகள்"
 
@@ -15245,8 +14716,6 @@ msgstr ""
 
 #: templates/server/databases/databases_footer.twig:70
 #: templates/server/databases/databases_footer.twig:71
-#, fuzzy
-#| msgid "Query statistics"
 msgid "Enable statistics"
 msgstr "வினவல் புள்ளிவிவரவியல்"
 
@@ -15257,20 +14726,14 @@ msgid "None"
 msgstr ""
 
 #: templates/display/export/template_loading.twig:2
-#, fuzzy
-#| msgid "Export contents"
 msgid "Export templates:"
 msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
 #: templates/display/export/template_loading.twig:6
-#, fuzzy
-#| msgid "New page"
 msgid "New template:"
 msgstr "புது பக்கம்"
 
 #: templates/display/export/template_loading.twig:8
-#, fuzzy
-#| msgid "Page name"
 msgid "Template name"
 msgstr "பக்கத்தின் பெயர்"
 
@@ -15288,8 +14751,6 @@ msgid "Template:"
 msgstr ""
 
 #: templates/display/export/template_loading.twig:21
-#, fuzzy
-#| msgid "Updated"
 msgid "Update"
 msgstr "புதுப்பிக்கப்பட்டது"
 
@@ -15315,9 +14776,6 @@ msgstr[0] "%1$s அட்டவணையில் பொருந்தியவ
 msgstr[1] "%1$s அட்டவணையில் பொருந்தியவைகள் <strong>%2$s </strong>"
 
 #: templates/database/search/results.twig:56
-#, fuzzy
-#| msgid "<b>Total:</b> <i>%s</i> match"
-#| msgid_plural "<b>Total:</b> <i>%s</i> matches"
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
 msgstr[0] "<b>மொத்தம்:</b> <i>%s</i> பொருத்தம்"
@@ -15372,8 +14830,6 @@ msgid "Relational key"
 msgstr "தொடர்புசார் குறிப்பெழுத்து"
 
 #: templates/display/results/options_block.twig:30
-#, fuzzy
-#| msgid "Display comments"
 msgid "Display column for relationships"
 msgstr "கருத்துரைகளை காட்டுக"
 
@@ -15405,8 +14861,6 @@ msgstr ""
 
 #: templates/database/designer/side_menu.twig:13
 #: templates/database/designer/side_menu.twig:19
-#, fuzzy
-#| msgid "Showing tables:"
 msgid "Show/Hide tables list"
 msgstr "காட்டப்படுகிற அட்டவணைகள்:"
 
@@ -15433,8 +14887,6 @@ msgstr "பக்கங்களை அழிக்க"
 #: templates/database/designer/side_menu.twig:85
 #: templates/database/designer/side_menu.twig:88
 #: templates/database/designer/new_relation_panel.twig:22
-#, fuzzy
-#| msgid "Create version"
 msgid "Create relationship"
 msgstr "பதிப்பை உருவாக்கு"
 
@@ -15495,8 +14947,6 @@ msgstr ""
 
 #: templates/database/designer/side_menu.twig:181
 #: templates/database/designer/side_menu.twig:186
-#, fuzzy
-#| msgid "Partial texts"
 msgid "Pin text"
 msgstr "பகுதியளவு உரை"
 
@@ -15517,8 +14967,6 @@ msgid "Inside column:"
 msgstr "நிரல் உள்ளே:"
 
 #: templates/privileges/add_privileges_routine.twig:3
-#, fuzzy
-#| msgid "Add privileges on the following table:"
 msgid "Add privileges on the following routine:"
 msgstr "பின்வரும் அட்டவணையின் மீதான தனிச்சலுகையை சேர்க்க:"
 
@@ -15577,8 +15025,6 @@ msgid "None"
 msgstr "ஒன்றுமில்லாத"
 
 #: templates/prefs_twofactor_configure.twig:8
-#, fuzzy
-#| msgid "Change password"
 msgid "Enable two-factor authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
@@ -15592,87 +15038,59 @@ msgid "Convert to Kana"
 msgstr ""
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition by:"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:32
 #: templates/columns_definitions/partitions.twig:60
-#, fuzzy
-#| msgid "Values for column %s"
 msgid "Expression or column list"
 msgstr "நெடுவரிசை %sகான மதிப்பு.கள்"
 
 #: templates/columns_definitions/partitions.twig:37
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions:"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:45
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Subpartition by:"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:65
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Subpartitions:"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:78
-#, fuzzy
-#| msgid "X Values"
 msgid "Values"
 msgstr "X மதிப்புக்கள்"
 
 #: templates/columns_definitions/partitions.twig:82
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Subpartition"
 msgstr "பிரிவினை %s"
 
 #: templates/columns_definitions/partitions.twig:84
-#, fuzzy
-#| msgid "Engines"
 msgid "Engine"
 msgstr "செயல்பொறிகள்"
 
 #: templates/columns_definitions/partitions.twig:86
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Data directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
 #: templates/columns_definitions/partitions.twig:87
-#, fuzzy
-#| msgid "Data home directory"
 msgid "Index directory"
 msgstr "தரவின் முகப்பு அடைவு"
 
 #: templates/columns_definitions/partitions.twig:88
-#, fuzzy
-#| msgid "Matched rows:"
 msgid "Max rows"
 msgstr "பொருந்திய நிரல்வரிசைகள்:"
 
 #: templates/columns_definitions/partitions.twig:89
-#, fuzzy
-#| msgid "Browse"
 msgid "Min rows"
 msgstr "உலாவு"
 
 #: templates/columns_definitions/partitions.twig:90
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table space"
 msgstr "அட்டவணை தேடல்"
 
 #: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User groups"
 msgid "Node group"
 msgstr "பயனர் குழுக்கள்"
 
@@ -15762,8 +15180,6 @@ msgid "Hide/Show all"
 msgstr ""
 
 #: templates/database/designer/table_list.twig:14
-#, fuzzy
-#| msgid "Hide table structure actions"
 msgid "Hide/Show tables with no relationship"
 msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
 
@@ -15777,27 +15193,19 @@ msgstr "வினவல் சாளரம்"
 
 #: templates/database/multi_table_query/form.twig:33
 #: templates/database/multi_table_query/form.twig:121
-#, fuzzy
-#| msgid "Select table"
 msgid "select table"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
 #: templates/database/multi_table_query/form.twig:40
 #: templates/database/multi_table_query/form.twig:129
-#, fuzzy
-#| msgid "Select a column."
 msgid "select column"
 msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
 #: templates/database/multi_table_query/form.twig:46
-#, fuzzy
-#| msgid "Tables"
 msgid "Table alias"
 msgstr "அட்டவணைகள்"
 
 #: templates/database/multi_table_query/form.twig:47
-#, fuzzy
-#| msgid "Column selector"
 msgid "Column alias"
 msgstr "நிரல்வரிசை தெரிவு"
 
@@ -15806,20 +15214,14 @@ msgid "Use this column in criteria"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:53
-#, fuzzy
-#| msgid "Criteria:"
 msgid "criteria"
 msgstr "தேர்வளவை:"
 
 #: templates/database/multi_table_query/form.twig:67
-#, fuzzy
-#| msgid "Add %s"
 msgid "Add as"
 msgstr "%sஐ சேர்க்க"
 
 #: templates/database/multi_table_query/form.twig:112
-#, fuzzy
-#| msgid "Move column"
 msgid "Another column"
 msgstr "நிரல்வரிசையை நகர்த்து"
 
@@ -15828,14 +15230,10 @@ msgid "Enter criteria as free text"
 msgstr ""
 
 #: templates/database/multi_table_query/form.twig:148
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Remove this column"
 msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
 #: templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
 msgid "Update query"
 msgstr "வினவலை புதுப்பி"
 
@@ -15856,8 +15254,6 @@ msgid "Define new aliases"
 msgstr ""
 
 #: templates/export/alias_add.twig:9
-#, fuzzy
-#| msgid "Select database"
 msgid "Select database:"
 msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
 
@@ -15866,8 +15262,6 @@ msgid "New database name"
 msgstr "தரவுத்தளத்தின் புதிய பெயர்"
 
 #: templates/export/alias_add.twig:23
-#, fuzzy
-#| msgid "Select table"
 msgid "Select table:"
 msgstr "அட்டவணையை தேர்வுசெய்க"
 
@@ -15876,8 +15270,6 @@ msgid "New table name"
 msgstr "அட்டவணையின் புதிய பெயர்"
 
 #: templates/export/alias_add.twig:37
-#, fuzzy
-#| msgid "Select a column."
 msgid "Select column:"
 msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
 
@@ -15890,8 +15282,6 @@ msgid "No preview available."
 msgstr ""
 
 #: templates/theme_preview.twig:13
-#, fuzzy
-#| msgid "take it"
 msgid "Take it"
 msgstr "அதை ஏற்றுக்கொள்"
 
@@ -15902,8 +15292,6 @@ msgid ""
 msgstr ""
 
 #: templates/prefs_autoload.twig:13
-#, fuzzy
-#| msgid "Delete tracking"
 msgid "Delete settings"
 msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
 
@@ -15917,14 +15305,10 @@ msgid ""
 msgstr ""
 
 #: templates/table/index_form.twig:34
-#, fuzzy
-#| msgid "Index name:"
 msgid "Index choice:"
 msgstr "சுட்டுதொகுப்புக்குறி பெயர்:"
 
 #: templates/table/index_form.twig:42
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced Options"
 msgstr "செயல்படு விருப்பங்கள்"
 
@@ -15937,8 +15321,6 @@ msgid "Index type:"
 msgstr "சுட்டுதொகுப்புக்குறி வகை:"
 
 #: templates/table/index_form.twig:77
-#, fuzzy
-#| msgid "User:"
 msgid "Parser:"
 msgstr "பயனர்:"
 
@@ -15993,8 +15375,6 @@ msgstr "+கட்டுப்பாட்டை சேர்க்க"
 
 #: templates/table/relation/common_form.twig:99
 #: templates/table/relation/common_form.twig:104
-#, fuzzy
-#| msgid "Internal relations"
 msgid "Internal relationships"
 msgstr "உள்ளமை உறவுமுறைகள்"
 
@@ -16013,8 +15393,6 @@ msgid "Choose column to display:"
 msgstr "காட்சிப்படுத்த நிரல்வரிசையை தேர்ந்தெடுக்கவும்:"
 
 #: url.php:41
-#, fuzzy
-#| msgid "Taking you to next step…"
 msgid "Taking you to the target site."
 msgstr "அடுத்த படிநிலைக்கு செல்கிறோம்…"
 
