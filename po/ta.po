@@ -2747,8 +2747,6 @@ msgid "Default transformations for PreApPend"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:648
-#, fuzzy
-#| msgid "Input transformation options"
 msgid "Default transformations for DateFormat"
 msgstr "உள்ளீடு மாற்றுருவாக்க விருப்பங்கள்"
 
