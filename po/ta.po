@@ -15343,7 +15343,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:6
 msgid "Foreign key constraints"
-msgstr "அயல் குறியெண் கட்டுப்பாடுகள்"
+msgstr "வெளிநாட்டு முக்கிய தடைகள்"
 
 #: templates/table/relation/common_form.twig:10
 msgid "Actions"
