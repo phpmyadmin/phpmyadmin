@@ -12486,7 +12486,7 @@ msgstr "தயவுசெய்து ஒரு சரியான எண்ண
 
 #: src/Controllers/JavaScriptMessagesController.php:116
 msgid "Please enter a valid length!"
-msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
+msgstr "தயவுசெய்து ஒரு சரியான நீள அளவை இடுக!"
 
 #: src/Controllers/JavaScriptMessagesController.php:117
 msgid "Add index"
