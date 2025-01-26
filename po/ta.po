@@ -16234,8 +16234,6 @@ msgid "deleted"
 msgstr "அழி"
 
 #: templates/server/privileges/add_user.twig:12
-#, fuzzy
-#| msgid "Database operations"
 msgid "Database for user account"
 msgstr "தரவுதள நடவடிக்கைகள்"
 
