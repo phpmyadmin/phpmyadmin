@@ -10950,8 +10950,6 @@ msgid "Grid editing: trigger action"
 msgstr ""
 
 #: src/Config/Descriptions.php:857
-#, fuzzy
-#| msgid "Relational display column"
 msgid "Relational display"
 msgstr "தொடர்புடை நிரல்வரிசை காண்பிக்க"
 
