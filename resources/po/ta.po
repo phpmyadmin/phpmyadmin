@@ -3390,8 +3390,6 @@ msgstr ""
 
 #: resources/templates/export.twig:206
 #: src/Controllers/JavaScriptMessagesController.php:299
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "தரவுத்தளம்"
