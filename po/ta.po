@@ -14677,8 +14677,6 @@ msgid "gzipped"
 msgstr ""
 
 #: templates/export.twig:461
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export databases as separate files"
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
