@@ -5978,8 +5978,6 @@ msgid "Clear series"
 msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:173
-#, fuzzy
-#| msgid "Server charset:"
 msgid "Series in chart:"
 msgstr "வழங்கி குறிமுறை:"
 
