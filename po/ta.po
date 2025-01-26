@@ -16047,8 +16047,6 @@ msgstr ""
 
 #: templates/server/databases/index.twig:300
 #: templates/server/databases/index.twig:301
-#, fuzzy
-#| msgid "Query statistics"
 msgid "Enable statistics"
 msgstr "வினவல் புள்ளிவிவரவியல்"
 
