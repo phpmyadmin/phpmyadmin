@@ -13275,8 +13275,7 @@ msgid "The following actions will be performed:"
 msgstr "பின்வரும் நடவடிக்கைகள் செயல்படுத்தப்படும்:"
 
 #: src/Controllers/JavaScriptMessagesController.php:446
-#, fuzzy, php-format
-#| msgid "DROP columns %1s from the table %2s"
+#, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "%1s நிரல்வரிசைகளை %2s அட்டவணையிலிருந்து கைவிடுக"
 
