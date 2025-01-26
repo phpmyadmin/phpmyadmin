@@ -10850,8 +10850,6 @@ msgid "Show views in tree"
 msgstr "பதிப்புகளை காட்டு"
 
 #: src/Config/Descriptions.php:830
-#, fuzzy
-#| msgid "Show function fields"
 msgid "Show functions in tree"
 msgstr "செயல்கூற்றின் களங்களை காட்டுக"
 
