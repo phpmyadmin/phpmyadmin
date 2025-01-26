@@ -1179,8 +1179,6 @@ msgstr ""
 
 #: resources/templates/console/display.twig:100
 #: resources/templates/table/search/index.twig:145
-#, fuzzy
-#| msgid "Order"
 msgid "Order by:"
 msgstr "ஏனையது->வரிசை"
 
