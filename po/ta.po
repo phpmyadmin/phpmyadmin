@@ -10381,8 +10381,6 @@ msgid "Report title:"
 msgstr "அறிக்கையின் தலைப்பு:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:192
-#, fuzzy
-#| msgid "Wrong data"
 msgid "Dumping data"
 msgstr "தவறான தரவு"
 
