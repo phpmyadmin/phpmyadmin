@@ -5823,8 +5823,6 @@ msgstr "விளக்கப்படம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:279
 #: templates/export.twig:171
-#, fuzzy
-#| msgid "Database"
 msgctxt "Alias"
 msgid "Database"
 msgstr "தரவுத்தளம்"
