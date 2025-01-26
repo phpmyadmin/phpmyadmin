@@ -12859,8 +12859,6 @@ msgid "Table space"
 msgstr "அட்டவணை தேடல்"
 
 #: templates/columns_definitions/partitions.twig:91
-#, fuzzy
-#| msgid "User groups"
 msgid "Node group"
 msgstr "பயனர் குழுக்கள்"
 
