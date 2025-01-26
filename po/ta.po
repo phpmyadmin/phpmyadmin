@@ -13873,8 +13873,6 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 #: templates/server/user_groups/edit_user_groups.twig:11
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
-#, fuzzy
-#| msgid "Check All"
 msgid "Check all"
 msgstr "அனைத்தையும் தெரி"
 
