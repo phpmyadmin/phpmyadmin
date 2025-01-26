@@ -11808,8 +11808,7 @@ msgstr ""
 "தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
 
 #: libraries/classes/SqlQueryForm.php:149
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr "SQL வினவலை/களை %s வழங்கியில் செயலாக்குக"
 
