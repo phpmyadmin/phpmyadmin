@@ -16552,8 +16552,6 @@ msgid "User group"
 msgstr ""
 
 #: templates/server/privileges/users_overview.twig:147
-#, fuzzy
-#| msgid "Removing Selected Users"
 msgid "Remove selected user accounts"
 msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர்கள் நீக்கப்படுகின்றனர்"
 
