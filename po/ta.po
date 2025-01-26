@@ -13299,8 +13299,6 @@ msgid "Show/hide columns"
 msgstr "நெடுவரிசைகளை நகர்த்து"
 
 #: templates/database/designer/database_tables.twig:46
-#, fuzzy
-#| msgid "Table structure"
 msgid "See table structure"
 msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
 
