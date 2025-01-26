@@ -17730,8 +17730,6 @@ msgstr "அட்டவணை தேடல்"
 #: templates/table/find_replace/index.twig:10
 #: templates/table/search/index.twig:10
 #: templates/table/zoom_search/index.twig:10
-#, fuzzy
-#| msgid "Zoom Search"
 msgid "Zoom search"
 msgstr "அணுக்க தேடல்"
 
