@@ -4255,10 +4255,9 @@ msgid "Default transformations"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 
 #: libraries/classes/Config/PageSettings.php:135
-#, fuzzy
-#| msgid "Cannot save settings, submitted form contains errors!"
 msgid "Cannot save settings, submitted configuration form contains errors!"
-msgstr "அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன!"
+msgstr ""
+"அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன!"
 
 #: libraries/classes/Config.php:652
 #, php-format
