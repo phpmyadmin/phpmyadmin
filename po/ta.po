@@ -13067,8 +13067,6 @@ msgid "During current session"
 msgstr "அமர்வின் போது"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
 msgstr "ஏறுவரிசை"
 
