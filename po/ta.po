@@ -14419,8 +14419,6 @@ msgid "Relational key"
 msgstr "தொடர்புசார் குறிப்பெழுத்து"
 
 #: templates/display/results/table.twig:148
-#, fuzzy
-#| msgid "Display comments"
 msgid "Display column for relationships"
 msgstr "கருத்துரைகளை காட்டுக"
 
