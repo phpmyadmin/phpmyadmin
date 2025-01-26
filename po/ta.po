@@ -17780,8 +17780,6 @@ msgid "Delete the view (DROP)"
 msgstr "தரவு பார்வையை அழி (கைவிடு)"
 
 #: templates/table/page_with_secondary_tabs.twig:11
-#, fuzzy
-#| msgid "Relation view"
 msgid "Relation view"
 msgstr "தொடர்பு பார்வை"
 
