@@ -6006,8 +6006,6 @@ msgstr ""
 "சேவையக நிலையை சரிபார்க்கவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:343
-#, fuzzy
-#| msgid "No column selected."
 msgid "No accounts selected."
 msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
 
