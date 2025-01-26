@@ -10721,8 +10721,7 @@ msgid "Metadata"
 msgstr "தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1134
-#, fuzzy, php-format
-#| msgid "Delete data or table"
+#, php-format
 msgid "Metadata for table %s"
 msgstr "தரவை அல்லது அட்டவணையை அழி"
 
