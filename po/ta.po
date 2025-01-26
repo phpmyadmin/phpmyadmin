@@ -12787,8 +12787,6 @@ msgid "Pick from Central Columns"
 msgstr "முதன்மைநிரல்வரிசைகளிலிருந்து தேர்ந்தெடுக்கவும்"
 
 #: templates/columns_definitions/partitions.twig:17
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partition by:"
 msgstr "பிரிவினை %s"
 
