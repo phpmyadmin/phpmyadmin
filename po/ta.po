@@ -12729,8 +12729,6 @@ msgid "Storage Engine:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:82
-#, fuzzy
-#| msgid "Connections"
 msgid "Connection:"
 msgstr "இணைப்புகள்"
 
