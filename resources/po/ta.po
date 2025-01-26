@@ -2187,8 +2187,6 @@ msgstr "வினவலை புதுப்பி"
 
 #: resources/templates/database/multi_table_query/form.twig:175
 #: src/Html/Generator.php:545
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Submit query"
 msgstr "வினவலை சமர்ப்பி"
 
