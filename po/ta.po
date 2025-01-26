@@ -8067,8 +8067,6 @@ msgid "Error: Relational features are disabled!"
 msgstr ""
 
 #: libraries/classes/Database/Designer/Common.php:672
-#, fuzzy
-#| msgid "Internal relation has been added."
 msgid "Internal relationship has been added."
 msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
 
