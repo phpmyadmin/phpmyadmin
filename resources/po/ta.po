@@ -6682,8 +6682,6 @@ msgstr ""
 #: resources/templates/table/find_replace/index.twig:4
 #: resources/templates/table/search/index.twig:4
 #: resources/templates/table/zoom_search/index.twig:4
-#, fuzzy
-#| msgid "Table Search"
 msgid "Table search"
 msgstr "அட்டவணை தேடல்"
 
