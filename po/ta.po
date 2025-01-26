@@ -9917,8 +9917,6 @@ msgid "Drop"
 msgstr "அழி"
 
 #: libraries/classes/Operations.php:571
-#, fuzzy
-#| msgid "Collapse"
 msgid "Coalesce"
 msgstr "சுருக்கு"
 
