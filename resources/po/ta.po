@@ -16123,8 +16123,6 @@ msgid "Designer"
 msgstr ""
 
 #: src/Menu.php:459
-#, fuzzy
-#| msgid "User groups"
 msgid "User accounts"
 msgstr "பயனர் குழுக்கள்"
 
