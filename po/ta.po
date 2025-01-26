@@ -14504,8 +14504,6 @@ msgid "Export templates:"
 msgstr "உள்ளடக்கத்தை தரவேற்றுக"
 
 #: templates/export.twig:18
-#, fuzzy
-#| msgid "New page"
 msgid "New template:"
 msgstr "புது பக்கம்"
 
