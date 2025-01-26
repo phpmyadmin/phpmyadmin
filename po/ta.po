@@ -6574,8 +6574,6 @@ msgid "Inner ring"
 msgstr "உள்ப்புற வளையம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
-#, fuzzy
-#| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "வெளிப்புற வளையம்:"
 
