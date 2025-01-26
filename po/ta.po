@@ -16065,8 +16065,6 @@ msgid "No databases"
 msgstr ""
 
 #: templates/server/engines/index.twig:5 templates/server/engines/show.twig:3
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engines"
 msgstr "சேமிப்பக செயல்பொறிகள்"
 
