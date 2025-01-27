@@ -10299,7 +10299,7 @@ msgstr "சின்னத்தை காட்டுக"
 
 #: src/Config/Descriptions.php:813
 msgid "Logo link URL"
-msgstr ""
+msgstr "லோகோ இணைப்பு முகவரி"
 
 #: src/Config/Descriptions.php:814
 msgid "Logo link target"
