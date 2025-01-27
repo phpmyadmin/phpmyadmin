@@ -14518,7 +14518,7 @@ msgstr "வினவல் தற்காலிக சேமிப்பில�
 
 #: src/Controllers/Server/Status/VariablesController.php:443
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "தோல்வியுற்ற நகலெடுப்பின் நிலை (இன்னும் செயல்படுத்தப்படவில்லை)."
 
 #: src/Controllers/Server/Status/VariablesController.php:445
 msgid ""
