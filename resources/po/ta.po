@@ -13454,11 +13454,11 @@ msgstr "அதே மதிப்பை மீண்டும் உள்ளி
 
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter no more than {0} characters"
-msgstr ""
+msgstr "தயவுசெய்து {0} எழுத்துக்களை விட அதிகமாக உள்ளிட வேண்டாம்"
 
 #: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter at least {0} characters"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "தயவுசெய்து குறைந்தது {0} எழுத்துக்களை உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter a value between {0} and {1} characters long"
