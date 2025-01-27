@@ -3373,17 +3373,17 @@ msgstr "கிளை இல்லை"
 #: resources/templates/home/git_info.twig:22
 #, php-format
 msgid "from %s branch"
-msgstr ""
+msgstr "%s கிளையிலிருந்து"
 
 #: resources/templates/home/git_info.twig:25
 #, php-format
 msgid "committed on %s by %s"
-msgstr "%1$s அன்று %2$s ஆல் உறுதியளிக்கப்பட்டது"
+msgstr "%s இல் %s ஆல் செய்யப்படுகிறது"
 
 #: resources/templates/home/git_info.twig:32
 #, php-format
 msgid "authored on %s by %s"
-msgstr "%1$s அன்று %2$s ஆல் இயற்றப்பட்டது"
+msgstr "%s இல் %s ஆல் எழுதப்பட்டது"
 
 #: resources/templates/home/index.twig:22 resources/templates/login/form.twig:8
 #, php-format
@@ -3410,7 +3410,7 @@ msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: resources/templates/home/index.twig:56
 msgid "Server connection collation:"
-msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
+msgstr "சேவையக இணைப்பு கூட்டு:"
 
 #: resources/templates/home/index.twig:82
 #: resources/templates/preferences/manage/main.twig:55
@@ -3437,7 +3437,7 @@ msgstr "கருப்பொருள்"
 #: resources/templates/home/index.twig:142
 msgctxt "View all themes"
 msgid "View all"
-msgstr "படத்தை பார்"
+msgstr "அனைத்தையும் காண்க"
 
 #: resources/templates/home/index.twig:178
 msgid "Database server"
