@@ -6597,8 +6597,6 @@ msgid "Submit"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
-#, fuzzy
-#| msgid "Press escape to cancel editing."
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "தொகுப்பதை நிறுத்த Esc அழுத்தவும்."
 
