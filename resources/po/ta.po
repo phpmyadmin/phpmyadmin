@@ -17767,6 +17767,7 @@ msgstr ""
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
+"%1$s இல் வெளிநாட்டு விசையை உருவாக்கும் பிழை (தரவு வகைகளை சரிபார்க்கவும்)"
 
 #: src/Theme/ThemeManager.php:66
 #, php-format
