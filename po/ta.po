@@ -8938,6 +8938,8 @@ msgid ""
 "If this value is greater than 1, MyISAM table indexes are created in "
 "parallel (each index in its own thread) during the repair by sorting process."
 msgstr ""
+"இந்த மதிப்பு 1 ஐ விட அதிகமாக இருந்தால், MyISAM அட்டவணை குறியீடுகள் பழுதுபார்ப்பின் போது"
+" இணையாக (ஒவ்வொரு குறியீடும் அதன் சொந்த நூலில்) உருவாக்கப்படுகின்றன."
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
