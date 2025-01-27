@@ -13981,7 +13981,7 @@ msgstr ""
 #: templates/database/designer/main.twig:845
 #: templates/database/designer/main.twig:1038
 msgid "Except"
-msgstr ""
+msgstr "தவிர"
 
 #: templates/database/designer/main.twig:484
 #: templates/database/designer/main.twig:649
