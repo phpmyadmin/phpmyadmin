@@ -4390,7 +4390,7 @@ msgstr "இல்லை"
 #: libraries/classes/Config/FormDisplayTemplate.php:350
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "மதிப்பை அமைக்கவும்: %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:355
 msgid "Restore default value"
