@@ -8366,7 +8366,7 @@ msgstr "போலீச்"
 #: src/Charsets/Collation.php:456
 msgctxt "Collation"
 msgid "Romanian"
-msgstr ""
+msgstr "ருமேனிய"
 
 #: src/Charsets/Collation.php:463
 msgctxt "Collation"
