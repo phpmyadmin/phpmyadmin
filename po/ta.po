@@ -2892,7 +2892,7 @@ msgstr "அட்டவணை தலைப்பு"
 #: libraries/classes/Config/Descriptions.php:691
 #: libraries/classes/Config/Descriptions.php:697
 msgid "Continued table caption"
-msgstr ""
+msgstr "தொடர்ச்சியான அட்டவணை தலைப்பு"
 
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:698
