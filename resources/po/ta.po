@@ -11534,7 +11534,7 @@ msgstr ""
 #: src/Controllers/Server/UserGroupsController.php:45
 #: src/Controllers/Table/PrivilegesController.php:64
 msgid "No Privileges"
-msgstr ""
+msgstr "சலுகைகள் இல்லை"
 
 #: src/Controllers/Database/PrivilegesController.php:70
 #: src/Controllers/Server/PrivilegesController.php:105
