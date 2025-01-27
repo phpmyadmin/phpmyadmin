@@ -15970,7 +15970,7 @@ msgstr "அசல் நிலை"
 #: templates/server/binlog/index.twig:89
 #: templates/table/structure/display_table_stats.twig:3
 msgid "Information"
-msgstr ""
+msgstr "தகவல்"
 
 #: templates/server/collations/index.twig:4
 msgid "Character sets and collations"
@@ -17104,7 +17104,7 @@ msgstr "அமர்வு மதிப்பு"
 #: templates/server/variables/index.twig:80
 #, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
-msgstr "சேவையக மாறிகள் மற்றும் அமைப்புக்கள்"
+msgstr "சேவையக மாறிகள் மற்றும் அமைப்புகளைக் காண போதுமான பாக்கியம் இல்லை. %s"
 
 #: templates/setup/base.twig:29 templates/setup/home/index.twig:20
 msgid "Overview"
