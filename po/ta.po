@@ -14013,7 +14013,7 @@ msgstr "மறுபெயரிடுங்கள்"
 #: templates/database/designer/main.twig:501
 #: templates/database/designer/main.twig:719
 msgid "New name"
-msgstr ""
+msgstr "புதிய பெயர்"
 
 #: templates/database/designer/main.twig:510
 #: templates/database/designer/main.twig:916
