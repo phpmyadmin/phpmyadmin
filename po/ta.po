@@ -6839,7 +6839,7 @@ msgstr "மென்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 msgid "Good"
-msgstr ""
+msgstr "நல்லது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
 msgid "Strong"
