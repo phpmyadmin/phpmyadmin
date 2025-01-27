@@ -10271,7 +10271,7 @@ msgstr "காண்பிக்க அதிகபட்ச வரிசைக�
 
 #: src/Config/Descriptions.php:807
 msgid "Maximum tables"
-msgstr ""
+msgstr "அதிகபட்ச அட்டவணைகள்"
 
 #: src/Config/Descriptions.php:808
 msgid "Memory limit"
