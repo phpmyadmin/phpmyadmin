@@ -9333,6 +9333,7 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
+"பைட்டுகளின் எண்ணிக்கை ஒரு ச்கிரிப்ட் ஒதுக்க அனுமதிக்கப்படுகிறது, எ.கா. ."
 
 #: src/Config/Descriptions.php:278
 msgid "In the navigation panel, replaces the database tree with a selector"
