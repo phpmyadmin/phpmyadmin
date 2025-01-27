@@ -17209,7 +17209,7 @@ msgstr "பிரதி நிறுத்துவதில் பிழை."
 
 #: src/Replication/ReplicationGui.php:472
 msgid "Replication resetting successfully."
-msgstr ""
+msgstr "பிரதி மீட்டமை வெற்றிகரமாக."
 
 #: src/Replication/ReplicationGui.php:473
 msgid "Error resetting replication."
