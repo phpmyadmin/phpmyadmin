@@ -1964,6 +1964,7 @@ msgid ""
 "The number of items that can be displayed on each page of the navigation "
 "tree."
 msgstr ""
+"வழிசெலுத்தல் மரத்தின் ஒவ்வொரு பக்கத்திலும் காட்டக்கூடிய பொருட்களின் எண்ணிக்கை."
 
 #: libraries/classes/Config/Descriptions.php:282
 msgid ""
