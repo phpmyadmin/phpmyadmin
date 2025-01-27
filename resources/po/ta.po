@@ -17347,7 +17347,7 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர�
 #: src/Server/Privileges.php:1985
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr ""
+msgstr "%s க்கான சலுகைகளை நீங்கள் புதுப்பித்துள்ளீர்கள்."
 
 #: src/Server/Privileges.php:2143
 #, php-format
