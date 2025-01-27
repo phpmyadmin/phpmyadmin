@@ -14956,10 +14956,8 @@ msgstr "நெடுவரிசைகளைச் சேர்க்கவு�
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
-msgstr "அட்டவணைகளை பயன்படுத்துக"
+msgstr "அட்டவணைகள் பயன்படுத்தவும்"
 
 #: templates/database/qbe/selection_form.twig:107
 #, php-format
@@ -15152,7 +15150,7 @@ msgstr "முதன்மைபட்டியலை ஒத்து நில�
 
 #: templates/database/structure/copy_form.twig:14
 msgid "Options:"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "விருப்பங்கள்:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15281,7 +15279,7 @@ msgstr "காண்பிக்க தூண்டுதல்கள் எத�
 
 #: templates/display/results/sort_by_key.twig:3
 msgid "Sort by key:"
-msgstr "குறிப்பெழுத்தின்படி வரிசைபடுத்துக"
+msgstr "விசை மூலம் வரிசைப்படுத்துங்கள்:"
 
 #: templates/display/results/table.twig:32
 msgid "Save edited data"
@@ -15410,7 +15408,7 @@ msgstr "புதுப்பிப்பு"
 
 #: templates/export.twig:53
 msgid "Show SQL query"
-msgstr "SQL வினவல்களை காட்டுக"
+msgstr "கவிமொ வினவலைக் காட்டு"
 
 #: templates/export.twig:72
 msgid "Export method:"
