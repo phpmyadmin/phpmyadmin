@@ -7632,7 +7632,7 @@ msgstr "வெவ்வேறு tmp_table_size மற்றும் max_heap_t
 
 #: src/Advisory/Rules.php:335
 msgid "{tmp_table_size} and {max_heap_table_size} are not the same."
-msgstr ""
+msgstr "{tmp_table_size} மற்றும் {max_heap_table_size} ஒரே மாதிரியானவை அல்ல."
 
 #: src/Advisory/Rules.php:337
 msgid ""
