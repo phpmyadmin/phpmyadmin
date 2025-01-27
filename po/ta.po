@@ -79,6 +79,8 @@ msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"நீங்கள் {long_query_time ஐ அதிகரிக்க விரும்பலாம் அல்லது மெதுவான வினவல் பதிவில் "
+"பட்டியலிடப்பட்ட வினவல்களை மேம்படுத்தலாம்"
 
 #: libraries/advisory_rules_generic.php:45
 #, php-format
