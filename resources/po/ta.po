@@ -5389,18 +5389,19 @@ msgstr "பிரதி io நூல் இயங்கவில்லை!"
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
+"சேவையகம் ஒரு பிரதி செயல்பாட்டில் பிரதிகளாக கட்டமைக்கப்பட்டுள்ளது. நீங்கள் விரும்புகிறீர்கள்:"
 
 #: resources/templates/server/replication/replica_configuration.twig:34
 msgid "See replica status table"
-msgstr "இந்த அட்டவணையில் தேடுக"
+msgstr "பிரதி நிலை அட்டவணையைப் பார்க்கவும்"
 
 #: resources/templates/server/replication/replica_configuration.twig:38
 msgid "Control replica:"
-msgstr "இரட்டையாக்கப்படாதது"
+msgstr "கட்டுப்பாட்டு பிரதி:"
 
 #: resources/templates/server/replication/replica_configuration.twig:48
 msgid "Reset replica"
-msgstr "இரட்டையாக்கப்படாதது"
+msgstr "பிரதி மீட்டமை"
 
 #: resources/templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
