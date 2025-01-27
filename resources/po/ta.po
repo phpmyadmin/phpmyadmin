@@ -10901,7 +10901,7 @@ msgstr "பதிலி கடவுச்சொல்"
 
 #: src/Config/Descriptions.php:946
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "சிப்"
 
 #: src/Config/Descriptions.php:947
 msgid "URL for reCAPTCHA v2 API"
