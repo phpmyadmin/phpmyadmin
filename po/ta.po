@@ -16480,7 +16480,7 @@ msgstr "கடவுச்சொல்"
 
 #: templates/server/privileges/login_information_fields.twig:47
 msgid "Do not change the password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மாற்ற வேண்டாம்"
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/primary_add_replica_user.twig:53
