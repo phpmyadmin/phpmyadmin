@@ -4970,8 +4970,6 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "நீங்கள் ஒரு முழு அட்டவணையின் தரவுகளை நீக்கவுள்ளீர்கள்!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
 msgstr "நீங்கள் ஒரு முழுமையான அட்டவணையை அழிக்க உள்ளீர்கள்!"
 
