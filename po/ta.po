@@ -12263,7 +12263,7 @@ msgstr ""
 
 #: libraries/classes/Setup/Index.php:152
 msgid "Got invalid version string from server"
-msgstr ""
+msgstr "சேவையகத்திலிருந்து தவறான பதிப்பு சரம் கிடைத்தது"
 
 #: libraries/classes/Setup/Index.php:164
 msgid "Unparsable version string"
