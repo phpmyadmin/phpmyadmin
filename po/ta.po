@@ -12490,7 +12490,7 @@ msgstr "இந்த விருப்பம் உங்கள் அட்ட
 
 #: libraries/classes/Tracking.php:479
 msgid "SQL execution"
-msgstr ""
+msgstr "கவிமொ சாவுஒறுப்பு"
 
 #: libraries/classes/Tracking.php:483
 #, php-format
