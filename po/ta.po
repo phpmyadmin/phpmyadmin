@@ -12267,7 +12267,7 @@ msgstr "சேவையகத்திலிருந்து தவறான �
 
 #: libraries/classes/Setup/Index.php:164
 msgid "Unparsable version string"
-msgstr ""
+msgstr "அங்கீகரிக்க முடியாத பதிப்பு சரம்"
 
 #: libraries/classes/Setup/Index.php:186
 #, php-format
