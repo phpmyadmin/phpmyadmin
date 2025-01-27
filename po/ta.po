@@ -1253,7 +1253,7 @@ msgstr "வழக்கு உணர்திறன்"
 #: libraries/classes/Charsets/Collation.php:294
 msgctxt "Collation variant"
 msgid "accent-insensitive"
-msgstr ""
+msgstr "உச்சரிப்பு-உணர்திறன்"
 
 #: libraries/classes/Charsets/Collation.php:297
 msgctxt "Collation variant"
