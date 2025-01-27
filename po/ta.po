@@ -2609,7 +2609,7 @@ msgstr "BZIP2"
 
 #: libraries/classes/Config/Descriptions.php:631
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "கரி நெடுவரிசைகள் திருத்துதல்"
 
 #: libraries/classes/Config/Descriptions.php:632
 msgid "Enable CodeMirror"
