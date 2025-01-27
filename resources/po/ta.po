@@ -15599,7 +15599,7 @@ msgstr ""
 #: src/Import/Import.php:1173
 #, php-format
 msgid "Go to table: %s"
-msgstr ""
+msgstr "அட்டவணைக்குச் செல்லுங்கள்: %s"
 
 #: src/Import/Import.php:1181
 #, php-format
