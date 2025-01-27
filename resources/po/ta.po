@@ -7291,7 +7291,7 @@ msgstr ""
 #: src/Advisory/Rules.php:101
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time தற்போது %ds ஆக அமைக்கப்பட்டுள்ளது."
 
 #: src/Advisory/Rules.php:106 src/Advisory/Rules.php:119
 msgid "Slow query logging"
