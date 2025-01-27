@@ -18350,7 +18350,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:142
 #, php-format
 msgid "A primary key has been added on %s."
-msgstr ""
+msgstr "%s இல் ஒரு முதன்மை விசை சேர்க்கப்பட்டுள்ளது."
 
 #: templates/table/structure/display_structure.twig:157
 #: templates/table/structure/display_structure.twig:172
