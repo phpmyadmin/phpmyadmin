@@ -18506,7 +18506,7 @@ msgstr "சூழ்ச்சி செய்ய அதிகபட்ச வர
 
 #: templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
-msgstr ""
+msgstr "புள்ளிகளை உலாவுக/திருத்தவும்"
 
 #: templates/table/zoom_search/result_form.twig:14
 msgid "How to use"
