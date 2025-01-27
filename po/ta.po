@@ -8878,7 +8878,7 @@ msgstr "தூண்டுதலுக்கான சரியான நேர�
 
 #: libraries/classes/Database/Triggers.php:510
 msgid "You must provide a valid event for the trigger!"
-msgstr ""
+msgstr "தூண்டுதலுக்கு நீங்கள் சரியான நிகழ்வை வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Triggers.php:518
 msgid "You must provide a valid table name!"
