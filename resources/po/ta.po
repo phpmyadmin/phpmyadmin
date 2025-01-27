@@ -15442,7 +15442,7 @@ msgstr ""
 
 #: src/File.php:475
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "பதிவேற்றிய கோப்பை நகர்த்தும்போது பிழை."
 
 #: src/File.php:484
 msgid "Cannot read uploaded file."
