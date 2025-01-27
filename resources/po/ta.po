@@ -4681,7 +4681,7 @@ msgstr "கடவுச்சொல்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:48
 msgid "Do not change the password"
-msgstr ""
+msgstr "கடவுச்சொல்லை மாற்ற வேண்டாம்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:50
 #: resources/templates/server/replication/primary_add_replica_user.twig:53
