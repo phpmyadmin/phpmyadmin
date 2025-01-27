@@ -8787,7 +8787,7 @@ msgstr "உலாவு பயன்முறையைத் தனிப்ப�
 #: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
 #: src/Config/Descriptions.php:212 src/Config/Descriptions.php:217
 msgid "Customize default options."
-msgstr ""
+msgstr "இயல்புநிலை விருப்பங்களைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
