@@ -12773,6 +12773,8 @@ msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
+"அதிகபட்சம் 16,777,215 (2^24 - 1) பைட்டுகள் கொண்ட ஒரு குமிழ் நெடுவரிசை, மதிப்பின் "
+"நீளத்தைக் குறிக்கும் மூன்று -பைட் முன்னொட்டுடன் சேமிக்கப்படுகிறது"
 
 #: libraries/classes/Types.php:393
 msgid ""
