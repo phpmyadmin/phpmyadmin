@@ -16110,7 +16110,7 @@ msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுக�
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
-msgstr ""
+msgstr "கடவுச்சொல் இல்லை"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
