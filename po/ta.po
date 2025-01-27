@@ -7465,6 +7465,10 @@ msgid ""
 "it suggests that the server is doing a lot of full index scans; for example, "
 "SELECT col1 FROM foo, assuming that col1 is indexed."
 msgstr ""
+"முதல் நுழைவு எத்தனை முறை ஒரு குறியீட்டிலிருந்து வாசிக்கப்பட்டது. இது அதிகமாக இருந்தால்"
+", சேவையகம் நிறைய முழு குறியீட்டு ச்கேன்களைச் செய்கிறது என்று அது அறிவுறுத்துகிறது; "
+"எடுத்துக்காட்டாக, COL1 குறியிடப்பட்டதாகக் கருதி, FOO இலிருந்து COL1 ஐத் "
+"தேர்ந்தெடுக்கவும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:287
 msgid ""
