@@ -4288,7 +4288,7 @@ msgstr "காணாமல் போன செயல்பாடுகள் க
 #: libraries/classes/Config/FormDisplay.php:943
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "அதிகபட்ச %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:178
 #: libraries/classes/Engines/Pbxt.php:169
