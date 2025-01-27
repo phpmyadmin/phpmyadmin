@@ -18015,7 +18015,7 @@ msgstr "மாற்று"
 #: templates/table/structure/display_structure.twig:117
 #, php-format
 msgid "Column %s has been dropped."
-msgstr ""
+msgstr "நெடுவரிசை %s கைவிடப்பட்டுள்ளன."
 
 #: templates/table/structure/display_structure.twig:143
 #, php-format
