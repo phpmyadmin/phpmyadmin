@@ -1260,7 +1260,7 @@ msgstr "பதிப்பை உருவாக்கு"
 #: resources/templates/database/central_columns/edit.twig:15
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr ""
+msgstr "A_i"
 
 #: resources/templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -1269,7 +1269,7 @@ msgstr "புதிய நெடுவரிசையை சேர்க்க"
 #: resources/templates/database/central_columns/main.twig:24
 #: resources/templates/database/central_columns/main.twig:234
 msgid "Length/Value"
-msgstr "நீளம்/மதிப்புகள்"
+msgstr "நீளம்/மதிப்பு"
 
 #: resources/templates/database/central_columns/main.twig:36
 #: resources/templates/database/central_columns/main.twig:246
@@ -1283,7 +1283,7 @@ msgstr "A_i"
 
 #: resources/templates/database/central_columns/main.twig:129
 msgid "The central list of columns for the current database is empty"
-msgstr "நடப்பு தரவுத்தளத்துக்கான மையநிரல்வரிசைப்பட்டியல் வெறுமையாக உள்ளது."
+msgstr "தற்போதைய தரவுத்தளத்திற்கான நெடுவரிசைகளின் மைய பட்டியல் காலியாக உள்ளது"
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
@@ -1363,7 +1363,7 @@ msgstr "விலக்கு"
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
 msgid "Create new table"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய அட்டவணையை உருவாக்கவும்"
 
 #: resources/templates/database/create_table.twig:10
 #: resources/templates/database/operations/index.twig:35
@@ -1379,7 +1379,7 @@ msgstr "உருவாக்கு"
 
 #: resources/templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
-msgstr "தரவுத்தள கருத்துரை"
+msgstr "தரவுத்தள கருத்து:"
 
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
@@ -1894,7 +1894,7 @@ msgstr "அழி"
 
 #: resources/templates/database/events/index.twig:29
 msgid "Create new event"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "புதிய நிகழ்வை உருவாக்கவும்"
 
 #: resources/templates/database/events/index.twig:38
 msgid "There are no events to display."
@@ -1921,7 +1921,8 @@ msgstr "அணை"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr ""
+"@ சேவையகம்@ சேவையக பெயராகவும்,@ தரவுத்தளமாக@ தரவுத்தள பெயராகவும் மாறும்."
 
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
