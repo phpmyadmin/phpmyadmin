@@ -3119,7 +3119,7 @@ msgstr "சிஎச்வி"
 
 #: libraries/classes/Config/Descriptions.php:752
 msgid "Developer"
-msgstr ""
+msgstr "உருவாக்குநர்"
 
 #: libraries/classes/Config/Descriptions.php:753
 msgid "Edit mode"
