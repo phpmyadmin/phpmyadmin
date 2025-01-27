@@ -16441,7 +16441,7 @@ msgstr ""
 
 #: templates/server/privileges/user_properties.twig:120
 msgid "… keep the old one."
-msgstr ""
+msgstr "… பழையதை வைத்திருங்கள்."
 
 #: templates/server/privileges/user_properties.twig:127
 msgid "… delete the old one from the user tables."
