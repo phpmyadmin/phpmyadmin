@@ -11409,7 +11409,7 @@ msgstr "தொடரியல் சாதொபொகு க்கான கோ
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr ""
+msgstr "தொடரியல் கவிமொ க்கான கோட்மிரர் எடிட்டரை சிறப்பிக்கப்பட்டது."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
