@@ -13083,7 +13083,7 @@ msgstr "மிகவும் பலவீனமான"
 
 #: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Weak"
-msgstr ""
+msgstr "மென்"
 
 #: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Good"
