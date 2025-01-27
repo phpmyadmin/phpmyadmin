@@ -13699,7 +13699,7 @@ msgstr "பாதுகாப்பு விசை செயலாக்கத�
 #: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "பாதுகாப்பு விசைக்கு தவறான கோரிக்கை அனுப்பப்பட்டது."
 
 #. l10n: unknown error code (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:698
