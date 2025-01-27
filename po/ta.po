@@ -10120,7 +10120,7 @@ msgstr "அனைத்து நெடுவரிசைகளையும் �
 #: libraries/classes/Normalization.php:229
 #: libraries/classes/Normalization.php:955
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "இயல்பாக்கத்தின் முதல் படி (1NF)"
 
 #: libraries/classes/Normalization.php:232
 #: libraries/classes/Normalization.php:284
