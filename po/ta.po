@@ -3743,7 +3743,7 @@ msgstr "சேவையக ஓச்ட்பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:897
 msgid "Logout URL"
-msgstr ""
+msgstr "வெளியேறு முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "Maximal number of table preferences to store"
