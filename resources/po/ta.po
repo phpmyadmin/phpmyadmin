@@ -3610,6 +3610,7 @@ msgstr "பகுதி இறக்குமதி:"
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
+"முந்தைய இறக்குமதி நேரம் முடிந்தது, மீண்டும் சமர்ப்பித்த பிறகு %d நிலையில் இருந்து தொடரும்."
 
 #: resources/templates/import.twig:133
 msgid ""
