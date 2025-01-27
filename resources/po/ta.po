@@ -81,7 +81,7 @@ msgstr ""
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "புதிய Phpmyadmin சாளரத்தைத் திறக்கவும்"
 
 #: resources/templates/base.twig:151 resources/templates/home/index.twig:18
 #: resources/templates/login/form.twig:5
