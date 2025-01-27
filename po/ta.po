@@ -11764,7 +11764,7 @@ msgstr "தரவைப் படிக்க அனுமதிக்கிற�
 #: templates/server/privileges/privileges_table.twig:297
 #: templates/server/privileges/privileges_table.twig:300
 msgid "Allows inserting and replacing data."
-msgstr ""
+msgstr "தரவைச் செருகவும் மாற்றவும் அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:361
 #: templates/server/privileges/privileges_table.twig:69
