@@ -3650,7 +3650,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:878
 msgid "Save directory"
-msgstr ""
+msgstr "கோப்பகத்தை சேமிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Host authorization order"
