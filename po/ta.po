@@ -14151,7 +14151,7 @@ msgstr "ஏதேனும்"
 #: templates/database/privileges/index.twig:47
 #: templates/table/privileges/index.twig:49
 msgid "global"
-msgstr ""
+msgstr "உலகளாவிய"
 
 #: templates/database/privileges/index.twig:50
 #: templates/table/privileges/index.twig:52
