@@ -11270,7 +11270,7 @@ msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கா�
 
 #: src/Config/Descriptions.php:948
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான உள்ளடக்க-பாதுகாப்பு-கொள்கை துணுக்கை"
 
 #: src/Config/Descriptions.php:949
 msgid "Request parameter for reCAPTCHA v2 API"
