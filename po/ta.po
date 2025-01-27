@@ -2967,7 +2967,7 @@ msgstr "தாமதமான செருகல்களைப் பயன்�
 #: libraries/classes/Config/Descriptions.php:720
 #: libraries/classes/Plugins/Export/ExportSql.php:180
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "வெளிநாட்டு விசை காசோலைகளை முடக்கு"
 
 #: libraries/classes/Config/Descriptions.php:721
 #: libraries/classes/Plugins/Export/ExportSql.php:194
