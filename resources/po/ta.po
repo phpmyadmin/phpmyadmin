@@ -2277,7 +2277,7 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 #: resources/templates/table/privileges/index.twig:126
 #: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "பயனர்களைப் பார்க்க போதுமான பாக்கியம் இல்லை."
 
 #: resources/templates/database/privileges/index.twig:131
 #: resources/templates/server/privileges/add_user_fieldset.twig:5
