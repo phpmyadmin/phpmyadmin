@@ -16632,7 +16632,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 #: templates/server/status/variables/index.twig:72
 #: templates/server/variables/index.twig:31
 msgid "Variable"
-msgstr ""
+msgstr "மாறக்கூடிய"
 
 #: templates/server/status/advisor/index.twig:6
 #: templates/server/status/advisor/index.twig:19
