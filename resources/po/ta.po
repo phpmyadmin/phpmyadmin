@@ -10867,7 +10867,7 @@ msgstr "ஐபி அனுமதி/மறுப்பதற்கான நம
 
 #: src/Config/Descriptions.php:939
 msgid "Upload directory"
-msgstr ""
+msgstr "கோப்பகத்தை பதிவேற்றவும்"
 
 #: src/Config/Descriptions.php:940
 msgid "Use database search"
