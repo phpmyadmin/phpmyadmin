@@ -16773,12 +16773,12 @@ msgstr "உள்ளக"
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/master_add_slave_user.twig:37
 msgid "This host"
-msgstr ""
+msgstr "இந்த புரவலன்"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/master_add_slave_user.twig:39
 msgid "Use host table"
-msgstr "பயனர் அட்டவணை"
+msgstr "புரவலன் அட்டவணையைப் பயன்படுத்தவும்"
 
 #: templates/server/privileges/login_information_fields.twig:39
 #: templates/server/replication/master_add_slave_user.twig:44
@@ -16805,7 +16805,7 @@ msgstr "கடவுச்சொல்லை மாற்ற வேண்டா�
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/master_add_slave_user.twig:53
 msgid "No password"
-msgstr "பதிலி கடவுச்சொல்"
+msgstr "கடவுச்சொல் இல்லை"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/master_add_slave_user.twig:65
@@ -16814,11 +16814,11 @@ msgstr "மறு வகை"
 
 #: templates/server/privileges/login_information_fields.twig:68
 msgid "Authentication plugin"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "அங்கீகார சொருகி"
 
 #: templates/server/privileges/login_information_fields.twig:70
 msgid "Password hashing method"
-msgstr "கடவுச்சொல் கூளமாக்கள்:"
+msgstr "கடவுச்சொல் ஏசிங் முறை"
 
 #: templates/server/privileges/login_information_fields.twig:83
 msgid ""
