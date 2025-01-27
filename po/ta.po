@@ -2672,7 +2672,7 @@ msgstr "உள்ளீட்டு புலத்திற்கான கு�
 
 #: libraries/classes/Config/Descriptions.php:629
 msgid "Maximum size for input field"
-msgstr ""
+msgstr "உள்ளீட்டு புலத்திற்கான அதிகபட்ச அளவு"
 
 #: libraries/classes/Config/Descriptions.php:630
 msgid "CHAR textarea columns"
