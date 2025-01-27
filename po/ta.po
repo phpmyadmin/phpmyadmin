@@ -11799,7 +11799,7 @@ msgstr ""
 
 #: libraries/classes/Relation.php:261 templates/sql/query.twig:145
 msgid "Bookmarked SQL query"
-msgstr ""
+msgstr "புக்மார்க்கு செய்யப்பட்ட கவிமொ வினவல்"
 
 #: libraries/classes/Relation.php:272
 msgid "SQL history"
