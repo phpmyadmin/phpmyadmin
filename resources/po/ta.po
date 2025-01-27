@@ -13941,7 +13941,7 @@ msgstr ""
 #: src/Controllers/Server/Status/Processes/KillController.php:43
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr ""
+msgstr "நூல் %s வெற்றிகரமாக கொல்லப்பட்டன."
 
 #: src/Controllers/Server/Status/Processes/KillController.php:49
 #, php-format
