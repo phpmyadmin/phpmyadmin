@@ -14321,8 +14321,6 @@ msgstr "குறிப்பெழுத்தின்படி வரிச�
 
 #: templates/display/results/table.twig:122
 #: templates/table/search/index.twig:102
-#, fuzzy
-#| msgid "Return options"
 msgid "Extra options"
 msgstr "செயல்கள்->திருப்பியளிதல் விருப்பங்கள்"
 
