@@ -13629,7 +13629,7 @@ msgstr "நெடுவரிசை பெயர் வெற்றிகரம�
 
 #: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "இடைநிலைப்பலகைக்கு நெடுவரிசை பெயர் நகலெடுப்பது தோல்வியடைந்தது!"
 
 #: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Successfully copied!"
