@@ -10041,6 +10041,8 @@ msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
+"அசல் அட்டவணையை '%1$s' இரண்டாவது சாதாரண வடிவத்தில் வைக்க நாம் பின்வரும் அட்டவணைகளை "
+"உருவாக்க வேண்டும்:"
 
 #: libraries/classes/Normalization.php:535
 #, php-format
