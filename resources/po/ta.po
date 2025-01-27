@@ -9821,7 +9821,7 @@ msgstr "சுருக்க"
 #: src/Plugins/Export/ExportOdt.php:133
 #: src/Plugins/Export/ExportTexytext.php:85
 msgid "Put columns names in the first row"
-msgstr ""
+msgstr "முதல் வரிசையில் நெடுவரிசை பெயர்களை வைக்கவும்"
 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
 #: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
