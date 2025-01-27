@@ -2881,7 +2881,7 @@ msgstr "தரவுத்தள பெயர் வார்ப்புரு"
 
 #: libraries/classes/Config/Descriptions.php:672
 msgid "Server name template"
-msgstr ""
+msgstr "சேவையக பெயர் வார்ப்புரு"
 
 #: libraries/classes/Config/Descriptions.php:673
 msgid "Table name template"
