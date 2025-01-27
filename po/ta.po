@@ -2897,7 +2897,7 @@ msgstr "தொடர்ச்சியான அட்டவணை தலைப�
 #: libraries/classes/Config/Descriptions.php:692
 #: libraries/classes/Config/Descriptions.php:698
 msgid "Label key"
-msgstr ""
+msgstr "சிட்டை விசை"
 
 #: libraries/classes/Config/Descriptions.php:693
 #: libraries/classes/Config/Descriptions.php:705
@@ -2915,7 +2915,7 @@ msgstr "தகா வகை!"
 #: libraries/classes/Config/Descriptions.php:707
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Relationships"
-msgstr "தொடர்பு பார்வை"
+msgstr "உறவுகள்"
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Export method"
