@@ -17639,7 +17639,7 @@ msgstr "புதிய நிலையான பதிப்புகள் ஏ
 #: src/Sql.php:443
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "இயல்புநிலை உலாவி வினவலாக புக்மார்க்குகளைப் பயன்படுத்துதல்."
 
 #: src/Sql.php:857
 msgid "Showing as PHP code"
