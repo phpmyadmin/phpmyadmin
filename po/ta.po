@@ -18469,6 +18469,8 @@ msgstr ""
 #: templates/table/zoom_search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
 msgstr ""
+"இரண்டு வெவ்வேறு நெடுவரிசைகளுக்கு \"எடுத்துக்காட்டு மூலம் வினவல்\" (வைல்டு கார்டு: \"%\""
+") செய்யுங்கள்"
 
 #: templates/table/zoom_search/index.twig:54
 msgid "Additional search criteria"
