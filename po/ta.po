@@ -8810,7 +8810,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:107
 msgid "Buffer Pool"
-msgstr ""
+msgstr "இடையக குளம்"
 
 #: libraries/classes/Engines/Innodb.php:108
 #: libraries/classes/Server/Status/Data.php:233
