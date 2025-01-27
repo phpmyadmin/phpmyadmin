@@ -11542,7 +11542,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:474
 msgid "Replication started successfully."
-msgstr ""
+msgstr "பிரதி வெற்றிகரமாக தொடங்கியது."
 
 #: libraries/classes/ReplicationGui.php:475
 msgid "Error starting replication."
