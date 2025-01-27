@@ -4413,7 +4413,7 @@ msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: resources/templates/server/engines/index.twig:13
 msgid "Storage Engine"
-msgstr ""
+msgstr "சேமிப்பக இயந்திரம்"
 
 #: resources/templates/server/engines/index.twig:14
 #: resources/templates/server/plugins/index.twig:27
