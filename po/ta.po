@@ -2639,7 +2639,7 @@ msgstr "வரிசை மார்க்கர்"
 
 #: libraries/classes/Config/Descriptions.php:623
 msgid "Highlight pointer"
-msgstr ""
+msgstr "சுட்டிக்காட்டி சிறப்பம்சமாக"
 
 #: libraries/classes/Config/Descriptions.php:624
 msgid "Bzip2"
