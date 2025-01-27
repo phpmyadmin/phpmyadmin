@@ -2327,6 +2327,8 @@ msgid ""
 "Whether the tracking mechanism creates versions for tables and views "
 "automatically."
 msgstr ""
+"கண்காணிப்பு பொறிமுறையானது அட்டவணைகள் மற்றும் பார்வைகளுக்கான பதிப்புகளை தானாக "
+"உருவாக்குகிறது."
 
 #: libraries/classes/Config/Descriptions.php:447
 msgid ""
