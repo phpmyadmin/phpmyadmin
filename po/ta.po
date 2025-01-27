@@ -14910,8 +14910,6 @@ msgid ""
 msgstr ""
 
 #: templates/import.twig:40
-#, fuzzy
-#| msgid "Download file"
 msgid "Upload a file"
 msgstr "கோப்பை பதிவிறக்கு"
 
