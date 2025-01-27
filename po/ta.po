@@ -15232,8 +15232,6 @@ msgid "Password:"
 msgstr "கடவுச்சொல்:"
 
 #: templates/login/form.twig:95
-#, fuzzy
-#| msgid "Server Choice:"
 msgid "Server choice:"
 msgstr "விருப்பமான வழங்கி:"
 
