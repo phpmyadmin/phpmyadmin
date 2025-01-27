@@ -8348,6 +8348,7 @@ msgstr "நிகழ்வை தொகுக்க"
 #: libraries/classes/Database/Triggers.php:381
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
+"வரையறுக்கப்பட்டவர் \"பயனர்பெயர்@ஓச்ட்பெயர்\" வடிவத்தில் இருக்க வேண்டும்!"
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
