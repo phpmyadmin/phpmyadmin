@@ -9638,7 +9638,7 @@ msgstr ""
 
 #: libraries/classes/InsertEdit.php:536
 msgid "Binary"
-msgstr ""
+msgstr "இருமம்"
 
 #: libraries/classes/InsertEdit.php:794
 msgid "Because of its length,<br> this column might not be editable."
