@@ -2215,7 +2215,7 @@ msgstr "சலுகைகள்"
 #: resources/templates/server/privileges/users_overview.twig:18
 #: resources/templates/table/privileges/index.twig:23
 msgid "Grant"
-msgstr ""
+msgstr "மானியம்"
 
 #: resources/templates/database/privileges/index.twig:36
 #: resources/templates/server/privileges/initials_row.twig:8
