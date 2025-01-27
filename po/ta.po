@@ -2680,7 +2680,7 @@ msgstr "கரி டெக்ச்டேரியா நெடுவரிச�
 
 #: libraries/classes/Config/Descriptions.php:631
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "கரி டெக்ச்டேரியா வரிசைகள்"
 
 #: libraries/classes/Config/Descriptions.php:632
 msgid "Check config file permissions"
