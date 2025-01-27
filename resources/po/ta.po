@@ -5923,7 +5923,7 @@ msgstr "இறுதிப்பர்வை"
 #: resources/templates/setup/config/index.twig:4
 #: resources/templates/setup/home/index.twig:100
 msgid "Configuration file"
-msgstr ""
+msgstr "உள்ளமைவு கோப்பு"
 
 #: resources/templates/setup/config/index.twig:16
 msgid "Generated configuration file"
