@@ -8911,6 +8911,9 @@ msgid ""
 "creating a MyISAM index (during REPAIR TABLE, ALTER TABLE, or LOAD DATA "
 "INFILE)."
 msgstr ""
+"MYISAM குறியீட்டை மீண்டும் உருவாக்கும் போது MySQL இன் தற்காலிக கோப்பின் அதிகபட்ச அளவு "
+"பயன்படுத்த அனுமதிக்கப்படுகிறது (பழுதுபார்க்கும் அட்டவணை, மாற்று அட்டவணை அல்லது தரவு "
+"தொற்றுநோயை ஏற்றும் போது)."
 
 #: libraries/classes/Engines/Myisam.php:52
 msgid "Maximum size for temporary files on index creation"
