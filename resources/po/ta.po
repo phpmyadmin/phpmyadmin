@@ -16684,7 +16684,7 @@ msgstr "அட்டவணை பெயர் காலியாக உள்ள
 
 #: src/Partitioning/Maintenance.php:136
 msgid "This table is a view, it can not be truncated."
-msgstr ""
+msgstr "இந்த அட்டவணை ஒரு பார்வை, அதை துண்டிக்க முடியாது."
 
 #: src/Pdf.php:146
 msgid "Error while creating PDF:"
