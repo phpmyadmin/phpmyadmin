@@ -10179,7 +10179,7 @@ msgstr "உள்ளக முக்கிய சொல்லைப் பயன
 
 #: src/Config/Descriptions.php:786
 msgid "Column names in first row"
-msgstr ""
+msgstr "முதல் வரிசையில் நெடுவரிசை பெயர்கள்"
 
 #: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:81
 msgid "Do not import empty rows"
