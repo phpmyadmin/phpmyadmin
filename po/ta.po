@@ -7627,7 +7627,7 @@ msgstr "இதுவரை FSYNC () செயல்பாடுகளின் �
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid "The current number of pending fsync() operations."
-msgstr ""
+msgstr "நிலுவையில் உள்ள FSYNC () செயல்பாடுகளின் தற்போதைய எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:361
 msgid "The current number of pending reads."
