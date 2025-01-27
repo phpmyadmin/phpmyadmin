@@ -6373,7 +6373,7 @@ msgstr "முந்தைய பக்கத்திற்குச் செ�
 
 #: resources/templates/table/insert/actions_panel.twig:21
 msgid "Insert another new row"
-msgstr ""
+msgstr "மற்றொரு புதிய வரிசையைச் செருகவும்"
 
 #: resources/templates/table/insert/actions_panel.twig:23
 msgid "Go back to this page"
