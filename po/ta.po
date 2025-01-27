@@ -6520,13 +6520,13 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:524
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "மதிப்பு/துணைக்குழு காலியாக உள்ளது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:525
 #: templates/database/designer/main.twig:40
 #: templates/database/designer/main.twig:43
 msgid "Add tables from other databases"
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "பிற தரவுத்தளங்களிலிருந்து அட்டவணையைச் சேர்க்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:526
 msgid "Page name"
@@ -6542,7 +6542,7 @@ msgstr "பக்கத்தை சேமிக்க"
 #: templates/database/designer/main.twig:70
 #: templates/database/designer/main.twig:73
 msgid "Save page as"
-msgstr "பக்கத்தை சேமிக்க"
+msgstr "பக்கத்தை சேமிக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:529
 #: templates/database/designer/main.twig:56
@@ -6595,7 +6595,7 @@ msgstr "%d கருப்பொதிவு(கள்) உருவாக்க
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 msgid "Column name"
-msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
+msgstr "நெடுவரிசை பெயர்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:544
 #: templates/modals/build_query.twig:17 templates/sql/query.twig:178
