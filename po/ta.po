@@ -8186,7 +8186,7 @@ msgstr "தகுதியற்ற அட்டவணைப் பெயர்"
 #: libraries/classes/Controllers/Table/GetFieldController.php:72
 #: libraries/classes/Controllers/Transformation/WrapperController.php:103
 msgid "There is an issue with your request."
-msgstr ""
+msgstr "உங்கள் கோரிக்கையில் சிக்கல் உள்ளது."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:86
 #: libraries/classes/Database/Routines.php:1241
