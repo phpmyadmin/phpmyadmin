@@ -11633,7 +11633,7 @@ msgstr "இந்த பெயருடன் ஒரு நுழைவு ஏ�
 
 #: libraries/classes/SavedSearches.php:338
 msgid "Missing information to delete the search."
-msgstr ""
+msgstr "தேடலை நீக்க செய்தி இல்லை."
 
 #: libraries/classes/SavedSearches.php:365
 msgid "Missing information to load the search."
