@@ -11585,7 +11585,7 @@ msgstr "புதிய அட்டவணையின் பெயர் (வ�
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:86
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "புதிய தரவுத்தளத்தின் பெயர் (விரும்பினால்):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:95
 #: libraries/classes/Plugins/Import/ImportCsv.php:113
