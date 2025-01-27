@@ -921,7 +921,7 @@ msgstr "இயல்புநிலை மதிப்பை மீட்டெ�
 #: resources/templates/config/form_display/input.twig:79
 #: resources/templates/config/form_display/input.twig:80
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "இந்த மதிப்பைத் தனிப்பயனாக்க பயனர்களை அனுமதிக்கவும்"
 
 #: resources/templates/console/bookmark_content.twig:7
 #: resources/templates/console/display.twig:50
