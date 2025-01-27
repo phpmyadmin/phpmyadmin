@@ -4576,6 +4576,9 @@ msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
+"%உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
+"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயங்களை "
+"ஏற்படுத்தக்கூடும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:433
 #, php-format
