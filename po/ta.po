@@ -14650,6 +14650,7 @@ msgstr "%1$s அட்டவணையில் பொருந்தியவை
 #: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr ""
+"ஏற்றுமதி செய்யப்பட்ட தரவுத்தளங்கள்/அட்டவணைகள்/நெடுவரிசைகளை மறுபெயரிடுங்கள்"
 
 #: templates/export.twig:201
 msgid "Defined aliases"
