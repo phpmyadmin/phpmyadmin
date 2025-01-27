@@ -10796,8 +10796,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:128
-#, fuzzy
-#| msgid "Copy column name."
 msgid "Column names:"
 msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
 
