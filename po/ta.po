@@ -7980,6 +7980,9 @@ msgid ""
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
+"ஒன்றிணைக்கும் எண்ணிக்கை வரிசைப்படுத்தப்பட்ட வழிமுறை செய்ய வேண்டியிருந்தது. இந்த மதிப்பு "
+"பெரியதாக இருந்தால், Sort_buffer_size கணினி மாறியின் மதிப்பை அதிகரிப்பதை நீங்கள் "
+"கருத்தில் கொள்ள வேண்டும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid "The number of sorts that were done with ranges."
