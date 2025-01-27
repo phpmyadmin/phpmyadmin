@@ -9986,7 +9986,7 @@ msgstr "ஏற்றுமதி வகை"
 
 #: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "ஒரு பரிவர்த்தனையில் ஏற்றுமதியை இணைக்கவும்"
 
 #: src/Config/Descriptions.php:720
 msgid "Export time in UTC"
