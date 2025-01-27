@@ -9152,7 +9152,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:41
 msgid "Maximum size for temporary sort files"
-msgstr ""
+msgstr "தற்காலிக வரிசை கோப்புகளுக்கான அதிகபட்ச அளவு"
 
 #: libraries/classes/Engines/Myisam.php:43
 msgid ""
