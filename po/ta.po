@@ -15567,6 +15567,7 @@ msgstr ""
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
+"முதல் ஒன்றிலிருந்து தொடங்கி இந்த எண்ணிக்கையிலான வினவல்களை (SQL க்கு) தவிர்க்கவும்:"
 
 #: templates/import.twig:154
 msgid "Other options"
