@@ -3863,7 +3863,7 @@ msgstr "துளி தரவுத்தளத்தைச் சேர்க�
 #: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "துளி அட்டவணையைச் சேர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Add DROP VIEW"
