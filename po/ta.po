@@ -13868,7 +13868,7 @@ msgstr "ஒவ்வொன்றையும் இயக்கவும்"
 #: templates/database/events/editor_form.twig:70
 msgctxt "Start of recurring event"
 msgid "Start"
-msgstr ""
+msgstr "தொடங்கு"
 
 #: templates/database/events/editor_form.twig:76
 msgctxt "End of recurring event"
