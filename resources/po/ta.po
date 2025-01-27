@@ -9489,7 +9489,7 @@ msgstr "நெடுவரிசை கருத்துகள் அட்ட�
 
 #: src/Config/Descriptions.php:546
 msgid "Show server listing as a list instead of a drop down."
-msgstr ""
+msgstr "சேவையக பட்டியலை ஒரு வீழ்ச்சிக்கு பதிலாக பட்டியலாகக் காட்டுங்கள்."
 
 #: src/Config/Descriptions.php:547
 msgid "A dropdown will be used if fewer items are present."
