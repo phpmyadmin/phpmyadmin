@@ -16486,7 +16486,7 @@ msgstr "கடவுச்சொல்லை இயற்று"
 
 #: templates/server/replication/master_configuration.twig:2
 msgid "Master configuration"
-msgstr ""
+msgstr "முதன்மை உள்ளமைவு"
 
 #: templates/server/replication/master_configuration.twig:4
 msgid ""
