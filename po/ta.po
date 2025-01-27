@@ -17098,8 +17098,6 @@ msgid "Bookmarked SQL query"
 msgstr ""
 
 #: templates/sql/query.twig:160
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "புத்தகக்குறி"
 
