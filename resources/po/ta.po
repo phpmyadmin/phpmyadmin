@@ -4919,7 +4919,7 @@ msgstr "சேமிக்கப்பட்ட நடைமுறைகளை �
 #: resources/templates/server/privileges/privileges_table.twig:489
 #: src/Server/Privileges.php:375
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "சேமிக்கப்பட்ட நடைமுறைகளை இயக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:530
 #: resources/templates/server/privileges/privileges_table.twig:533
@@ -5043,11 +5043,11 @@ msgstr ""
 
 #: resources/templates/server/privileges/privileges_table.twig:802
 msgid "Does not require SSL-encrypted connections."
-msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
+msgstr "SSL- மறைகுறியாக்கப்பட்ட இணைப்புகள் தேவையில்லை."
 
 #: resources/templates/server/privileges/privileges_table.twig:811
 msgid "Requires SSL-encrypted connections."
-msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
+msgstr "SSL- மறைகுறியாக்கப்பட்ட இணைப்புகள் தேவை."
 
 #: resources/templates/server/privileges/privileges_table.twig:820
 msgid "Requires a valid X509 certificate."
