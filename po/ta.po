@@ -7294,7 +7294,7 @@ msgstr "கட்டளை"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:175
 msgid "Progress"
-msgstr ""
+msgstr "முன்னேற்றம்"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:179
 #: libraries/classes/Server/Status/Data.php:146
@@ -16989,7 +16989,7 @@ msgstr "வினவல் பகுப்பாய்வி"
 
 #: templates/server/status/processes/index.twig:14
 msgid "Show only active"
-msgstr "செயல்பாடற்ற"
+msgstr "செயலில் மட்டும் காட்டு"
 
 #: templates/server/status/processes/index.twig:24
 msgid ""
