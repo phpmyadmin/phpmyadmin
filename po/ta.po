@@ -4000,7 +4000,7 @@ msgstr "வினவல் பெட்டியை வைத்திருக�
 
 #: libraries/classes/Config/Descriptions.php:944
 msgid "Show statistics"
-msgstr ""
+msgstr "புள்ளிவிவரங்களைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:945
 msgid "Skip locked tables"
