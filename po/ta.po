@@ -8495,7 +8495,7 @@ msgstr "தவறான வழக்கமான வகை: \"%s\""
 #: libraries/classes/Database/Routines.php:253
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr ""
+msgstr "வழக்கமான %1$s உருவாக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Routines.php:412
 #, php-format
