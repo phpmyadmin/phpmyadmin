@@ -11562,12 +11562,14 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
+"தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை. இந்த வழக்கத்தைத் திருத்துவதற்கு "
+"தேவையான சலுகைகள் உங்களுக்கு இல்லாதிருக்கலாம்."
 
 #: src/Controllers/Database/RoutinesController.php:302
 #: src/Controllers/Database/RoutinesController.php:370
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை."
 
 #: src/Controllers/Database/RoutinesController.php:351
 #: src/Controllers/Database/RoutinesController.php:361
