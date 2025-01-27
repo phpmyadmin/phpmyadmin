@@ -10527,7 +10527,7 @@ msgstr "புக்மார்க்கு அட்டவணை"
 
 #: src/Config/Descriptions.php:868
 msgid "Column information table"
-msgstr ""
+msgstr "நெடுவரிசை செய்தி அட்டவணை"
 
 #: src/Config/Descriptions.php:869
 msgid "Compress connection"
