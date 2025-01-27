@@ -11274,7 +11274,7 @@ msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கா�
 
 #: src/Config/Descriptions.php:949
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Recaptcha V2 பநிஇ க்கான அளவுரு"
 
 #: src/Config/Descriptions.php:950
 msgid "Response parameter for reCAPTCHA v2 API"
