@@ -8894,7 +8894,7 @@ msgstr "இயல்புநிலை விருப்பங்களைத�
 
 #: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
-msgstr ""
+msgstr "Phpmyadmin ஆல் காட்டப்பட்ட சில எச்சரிக்கைகளை முடக்கு."
 
 #: src/Config/Descriptions.php:227
 msgid "Enable gzip compression for import and export operations."
