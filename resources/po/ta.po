@@ -1729,7 +1729,7 @@ msgstr "நிகழ்வு வகை"
 #: resources/templates/database/routines/editor_form.twig:43
 #, php-format
 msgid "Change to %s"
-msgstr ""
+msgstr "%s ஆக மாற்றவும்"
 
 #: resources/templates/database/events/editor_form.twig:58
 msgid "Execute at"
