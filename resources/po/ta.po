@@ -2315,7 +2315,7 @@ msgstr "திரும்ப வகை"
 
 #: resources/templates/database/routines/editor_form.twig:88
 msgid "Return length/values"
-msgstr ""
+msgstr "திரும்ப நீளம்/மதிப்புகள்"
 
 #: resources/templates/database/routines/editor_form.twig:95
 msgid "Return options"
