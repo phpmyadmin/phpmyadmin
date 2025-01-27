@@ -1721,7 +1721,7 @@ msgstr "நிகழ்நிலை"
 #: resources/templates/database/events/editor_form.twig:40
 #: resources/templates/server/binlog/index.twig:84
 msgid "Event type"
-msgstr ""
+msgstr "நிகழ்வு வகை"
 
 #: resources/templates/database/events/editor_form.twig:53
 #: resources/templates/database/routines/editor_form.twig:43
