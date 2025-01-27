@@ -13205,7 +13205,7 @@ msgstr "மேற்கூறிய எதுவும் இல்லை"
 
 #: setup/index.php:33
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "உள்ளமைவு ஏற்கனவே உள்ளது, அமைப்பு முடக்கப்பட்டுள்ளது!"
 
 #: setup/validate.php:31
 msgid "Wrong data"
