@@ -2373,7 +2373,7 @@ msgstr "கட்டமைப்பு அங்கீகாரத்தைப�
 
 #: libraries/classes/Config/Descriptions.php:474
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr ""
+msgstr "MySQL சேவையகம் கேட்கும் துறைமுகம், இயல்புநிலைக்கு காலியாக விடவும்."
 
 #: libraries/classes/Config/Descriptions.php:475
 msgid "Socket on which MySQL server is listening, leave empty for default."
