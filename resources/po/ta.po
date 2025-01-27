@@ -4076,7 +4076,7 @@ msgstr ""
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:499
 msgid "No change"
-msgstr ""
+msgstr "எந்த மாற்றமும் இல்லை"
 
 #: resources/templates/recent_favorite_table_favorite.twig:3
 msgid "There are no favorite tables."
