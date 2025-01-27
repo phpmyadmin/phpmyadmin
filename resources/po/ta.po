@@ -8622,7 +8622,7 @@ msgstr "தனிப்பயன் - உள்ளமைக்க அனைத�
 
 #: src/Config/ConfigFile.php:671
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "தனிப்பயன் - மேலே உள்ளதைப் போல, ஆனால் விரைவான/தனிப்பயன் தேர்வு இல்லாமல்"
 
 #: src/Config/ConfigFile.php:723
 msgid "complete inserts"
