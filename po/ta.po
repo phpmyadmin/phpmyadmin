@@ -3143,7 +3143,7 @@ msgstr "பிற முக்கிய அமைப்புகள்"
 
 #: libraries/classes/Config/Descriptions.php:777
 msgid "Page titles"
-msgstr ""
+msgstr "பக்க தலைப்புகள்"
 
 #: libraries/classes/Config/Descriptions.php:778
 msgid "Security"
