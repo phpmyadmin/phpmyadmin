@@ -6149,7 +6149,7 @@ msgstr "வினவல் பெட்டியை வைத்திருக�
 
 #: resources/templates/sql/query.twig:137
 msgid "Rollback when finished"
-msgstr ""
+msgstr "முடிந்ததும் ரோல்பேக்"
 
 #: resources/templates/sql/query.twig:159
 msgid "Bookmarked SQL query"
