@@ -15053,7 +15053,7 @@ msgstr "சில வரிசை (களை) கொட்டவும்"
 
 #: templates/export.twig:160
 msgid "Row to begin at:"
-msgstr ""
+msgstr "தொடங்குவதற்கு வரிசை:"
 
 #: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
