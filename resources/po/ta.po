@@ -3856,7 +3856,7 @@ msgstr "தரவுத்தளங்கள்"
 #: resources/templates/navigation/tree/fast_filter.twig:11
 #: resources/templates/navigation/tree/fast_filter.twig:12
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "இவற்றை வடிகட்ட தட்டச்சு செய்க, அனைத்தையும் தேட உள்ளிடவும்"
 
 #: resources/templates/navigation/tree/fast_filter.twig:16
 msgid "Clear fast filter"
