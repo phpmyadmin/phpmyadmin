@@ -13840,11 +13840,11 @@ msgstr ""
 #: templates/database/routines/editor_form.twig:11
 #: templates/database/triggers/editor_form.twig:14 templates/view_create.twig:8
 msgid "Details"
-msgstr ""
+msgstr "விவரங்கள்"
 
 #: templates/database/events/editor_form.twig:19
 msgid "Event name"
-msgstr "கட்டுப்பாட்டின் பெயர்"
+msgstr "நிகழ்வு பெயர்"
 
 #: templates/database/events/editor_form.twig:35
 #: templates/server/binlog/index.twig:86
