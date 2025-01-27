@@ -10992,7 +10992,7 @@ msgstr "செயல்பாடு %s காணாமல் போனதால�
 #: src/Config/FormDisplay.php:800
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr ""
+msgstr "காணாமல் போன செயல்பாடுகள் காரணமாக சுருக்கப்பட்ட ஏற்றுமதி இயங்காது."
 
 #: src/Config/FormDisplay.php:820
 #, php-format
