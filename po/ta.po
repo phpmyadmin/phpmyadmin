@@ -17818,11 +17818,11 @@ msgstr "சிதறல்"
 
 #: templates/table/chart/tbl_chart.twig:47
 msgid "Stacked"
-msgstr ""
+msgstr "அடுக்கப்பட்டது"
 
 #: templates/table/chart/tbl_chart.twig:51
 msgid "Chart title:"
-msgstr "வரைபட தலைப்பு"
+msgstr "விளக்கப்படம் தலைப்பு:"
 
 #: templates/table/chart/tbl_chart.twig:57
 msgid "X-Axis:"
