@@ -2482,7 +2482,7 @@ msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள�
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
-msgstr ""
+msgstr "முன்னொட்டு சேர்க்கவும்"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:5
 #, php-format
