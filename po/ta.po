@@ -10487,7 +10487,7 @@ msgstr "அட்டவணை %s %s க்கு மாற்றப்பட்�
 #: libraries/classes/Operations.php:1097
 #, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "அட்டவணை %s %s க்கு நகலெடுக்கப்பட்டுள்ளன. சலுகைகள் சரிசெய்யப்பட்டுள்ளன."
 
 #: libraries/classes/Operations.php:1105
 #, php-format
