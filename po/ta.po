@@ -14292,7 +14292,7 @@ msgstr "திரும்ப வகை"
 
 #: templates/database/routines/editor_form.twig:83
 msgid "Return length/values"
-msgstr ""
+msgstr "திரும்ப நீளம்/மதிப்புகள்"
 
 #: templates/database/routines/editor_form.twig:90
 msgid "Return options"
