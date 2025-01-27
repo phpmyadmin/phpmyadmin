@@ -16115,6 +16115,8 @@ msgid ""
 "By disabling two factor authentication you will be again able to login using "
 "password only."
 msgstr ""
+"இரண்டு காரணி அங்கீகாரத்தை முடக்குவதன் மூலம் நீங்கள் மீண்டும் கடவுச்சொல்லைப் பயன்படுத்தி உள்நுழை"
+"ய முடியும்."
 
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:66
