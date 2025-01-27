@@ -7865,6 +7865,9 @@ msgid ""
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
+"வினவல் தற்காலிக சேமிப்பில் இலவச நினைவக தொகுதிகளின் எண்ணிக்கை. அதிக எண்கள் துண்டு துண்டா"
+"ன சிக்கல்களைக் குறிக்கலாம், அவை பறிப்பு வினவல் கேச் அறிக்கையை வெளியிடுவதன் மூலம் "
+"தீர்க்கப்படலாம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:448
 msgid "The amount of free memory for query cache."
