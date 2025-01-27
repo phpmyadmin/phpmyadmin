@@ -15903,6 +15903,8 @@ msgid ""
 "Please connect your FIDO U2F device into your computer's USB port. Then "
 "confirm login on the device."
 msgstr ""
+"உங்கள் FIDO U2F சாதனத்தை உங்கள் கணினியின் யூ.எச்.பி போர்ட்டில் இணைக்கவும். சாதனத்தில் "
+"உள்நுழைவை உறுதிப்படுத்தவும்."
 
 #: templates/login/twofactor.twig:10
 msgid "Verify"
