@@ -16819,7 +16819,7 @@ msgstr "கவிமொ நூலை மட்டும் தொடங்கவ
 
 #: templates/server/replication/replica_configuration.twig:56
 msgid "Stop SQL Thread only"
-msgstr ""
+msgstr "கவிமொ நூலை மட்டும் நிறுத்துங்கள்"
 
 #: templates/server/replication/replica_configuration.twig:63
 msgid "Start IO Thread only"
