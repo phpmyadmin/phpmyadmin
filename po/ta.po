@@ -427,7 +427,7 @@ msgstr "நிலையான குறியிடத்தை கண்டற�
 
 #: libraries/advisory_rules_generic.php:278
 msgid "The rate of reading data from a fixed position is high."
-msgstr ""
+msgstr "ஒரு நிலையான நிலையில் இருந்து தரவைப் படிக்கும் விகிதம் அதிகமாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:280
 msgid ""
