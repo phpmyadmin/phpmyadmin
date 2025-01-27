@@ -11790,6 +11790,8 @@ msgstr "தரவுத்தளங்கள் மற்றும் அட்�
 #: templates/server/privileges/privileges_table.twig:602
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
+"சேவையக அமைப்புகளை மீண்டும் ஏற்றவும், சேவையகத்தின் தற்காலிக சேமிப்புகளை சுத்தப்படுத்தவும் "
+"அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:386
 #: templates/server/privileges/privileges_table.twig:612
