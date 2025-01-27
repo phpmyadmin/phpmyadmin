@@ -10973,7 +10973,7 @@ msgstr ""
 #: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:831
 msgid "Incorrect value!"
-msgstr ""
+msgstr "தவறான மதிப்பு!"
 
 #: src/Config/FormDisplay.php:767
 msgid "unavailable"
