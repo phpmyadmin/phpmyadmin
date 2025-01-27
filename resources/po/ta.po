@@ -17854,6 +17854,7 @@ msgstr ""
 #: src/Tracking/Tracking.php:794
 msgid "Comment out these two lines if you do not need them."
 msgstr ""
+"இந்த இரண்டு வரிகளும் உங்களுக்குத் தேவையில்லை என்றால் கருத்து தெரிவிக்கவும்."
 
 #: src/Tracking/Tracking.php:805
 msgid "SQL statements exported. Please copy the dump or execute it."
