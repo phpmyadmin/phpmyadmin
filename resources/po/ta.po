@@ -7182,7 +7182,7 @@ msgstr "ஒரு நாளைக்கு"
 
 #: src/Advisory/Rules.php:34
 msgid "Uptime below one day"
-msgstr ""
+msgstr "ஒரு நாளுக்குக் கீழே நேரம்"
 
 #: src/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
