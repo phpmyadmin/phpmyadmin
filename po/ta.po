@@ -13955,8 +13955,6 @@ msgid "Routine parameters"
 msgstr ""
 
 #: templates/database/routines/index.twig:36
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
 msgstr "பதிப்பை உருவாக்கு"
 
