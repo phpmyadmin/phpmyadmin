@@ -11001,6 +11001,9 @@ msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
+"தவறான நெடுவரிசை (%s) குறிப்பிடப்பட்டுள்ளது! நெடுவரிசைகளின் பெயர்கள் சரியாக "
+"உச்சரிக்கப்படுகின்றன, காற்புள்ளிகளால் பிரிக்கப்படுகின்றன, மற்றும் மேற்கோள்களில் "
+"இணைக்கப்படவில்லை என்பதை உறுதிப்படுத்தவும்."
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:62
 msgid "Column names: "
