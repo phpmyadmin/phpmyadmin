@@ -16168,7 +16168,7 @@ msgstr "பயனர் பெயர்:"
 #: templates/server/privileges/login_information_fields.twig:7
 #: templates/server/replication/master_add_slave_user.twig:20
 msgid "Any user"
-msgstr ""
+msgstr "எந்த பயனரும்"
 
 #: templates/server/privileges/login_information_fields.twig:8
 #: templates/server/privileges/login_information_fields.twig:33
