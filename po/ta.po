@@ -13959,11 +13959,11 @@ msgstr "முள் உரை"
 
 #: templates/database/designer/main.twig:202
 msgid "Hide/Show all"
-msgstr ""
+msgstr "அனைத்தையும் மறைக்க/காட்டு"
 
 #: templates/database/designer/main.twig:212
 msgid "Hide/Show tables with no relationship"
-msgstr "தரவுதள வடிவமைப்பு நடவடிக்கைகளை மறை"
+msgstr "எந்த உறவும் இல்லாமல் அட்டவணைகளை மறைக்க/காட்டு"
 
 #: templates/database/designer/main.twig:223
 msgid "Number of tables:"
