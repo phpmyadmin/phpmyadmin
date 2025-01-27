@@ -1651,7 +1651,7 @@ msgstr "மறுபெயரிடுங்கள்"
 #: resources/templates/database/designer/main.twig:498
 #: resources/templates/database/designer/main.twig:716
 msgid "New name"
-msgstr ""
+msgstr "புதிய பெயர்"
 
 #: resources/templates/database/designer/main.twig:507
 #: resources/templates/database/designer/main.twig:913
