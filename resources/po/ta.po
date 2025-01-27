@@ -9586,7 +9586,7 @@ msgstr "பிடித்த அட்டவணைகளின் அதிக�
 
 #: src/Config/Descriptions.php:558
 msgid "These are Edit, Copy and Delete links."
-msgstr ""
+msgstr "இவை திருத்து, நகலெடு மற்றும் இணைப்புகளை நீக்குதல்."
 
 #: src/Config/Descriptions.php:559
 msgid "Whether to show row links even in the absence of a unique key."
