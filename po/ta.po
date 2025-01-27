@@ -3662,7 +3662,7 @@ msgstr "புரவலன் அங்கீகார விதிகள்"
 
 #: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "கடவுச்சொல் இல்லாமல் உள்நுழைவுகளை அனுமதிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:882
 msgid "Allow root login"
@@ -3670,7 +3670,7 @@ msgstr "root புகுபதிவை ஏற்க"
 
 #: libraries/classes/Config/Descriptions.php:883
 msgid "Session timezone"
-msgstr "அமர்வு மதிப்பு"
+msgstr "அமர்வு நேர மண்டலம்"
 
 #: libraries/classes/Config/Descriptions.php:884
 msgid "HTTP Realm"
