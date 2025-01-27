@@ -9659,7 +9659,7 @@ msgstr "காட்சி விருப்பங்களுக்கு"
 
 #: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
-msgstr ""
+msgstr "சேவையகத்தில் ஏற்றுமதியைச் சேமிக்கக்கூடிய அடைவு."
 
 #: src/Config/Descriptions.php:575
 msgid ""
