@@ -14328,8 +14328,6 @@ msgid "There are no triggers to display."
 msgstr ""
 
 #: templates/display/results/sort_by_key.twig:3
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
 msgstr "குறிப்பெழுத்தின்படி வரிசைபடுத்துக"
 
