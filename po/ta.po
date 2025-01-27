@@ -11932,7 +11932,7 @@ msgstr ""
 
 #: libraries/classes/ReplicationGui.php:566
 msgid "Unable to change master!"
-msgstr ""
+msgstr "மாச்டரை மாற்ற முடியவில்லை!"
 
 #: libraries/classes/ReplicationGui.php:570
 #, php-format
