@@ -7639,7 +7639,7 @@ msgstr "நிலுவையில் உள்ள நிலுவையில�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:363
 msgid "The amount of data read so far, in bytes."
-msgstr ""
+msgstr "இதுவரை, பைட்டுகளில் படித்த தரவுகளின் அளவு."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:364
 msgid "The total number of data reads."
