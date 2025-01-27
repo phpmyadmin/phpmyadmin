@@ -18446,7 +18446,7 @@ msgstr "இப்போது செயற்படுத்து"
 #: templates/table/tracking/main.twig:106
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr ""
+msgstr "%s கண்காணிப்பதை செயலிழக்கச் செய்யுங்கள்"
 
 #: templates/table/tracking/main.twig:108
 msgid "Deactivate now"
