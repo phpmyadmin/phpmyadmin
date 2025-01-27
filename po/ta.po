@@ -10501,7 +10501,7 @@ msgstr "அட்டவணை %s %s க்கு நகலெடுக்கப�
 
 #: libraries/classes/Operations.php:1133
 msgid "The table name is empty!"
-msgstr ""
+msgstr "அட்டவணை பெயர் காலியாக உள்ளது!"
 
 #: libraries/classes/Pdf.php:158
 msgid "Error while creating PDF:"
