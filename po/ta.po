@@ -1543,7 +1543,7 @@ msgstr "குளோபல்ச் முயற்சியை மேலெழ�
 
 #: libraries/classes/Common.php:590
 msgid "possible exploit"
-msgstr ""
+msgstr "சாத்தியமான சுரண்டல்"
 
 #: libraries/classes/Config/Descriptions.php:69
 #: libraries/classes/Config/Descriptions.php:70
@@ -8234,19 +8234,20 @@ msgctxt ""
 "on designer when user tries to set a display field."
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
-msgstr "அமைப்பாக்க சேமிப்பகம் மைய நிரல்வரிசைகள் பட்டியல் வசதிக்கு ஏதுவாக இல்லை."
+msgstr ""
+"Phpmyadmin உள்ளமைவு சேமிப்பு \"காட்சி அம்சங்களுக்கு\" கட்டமைக்கப்படவில்லை."
 
 #: libraries/classes/Database/Designer/Common.php:573
 msgid "Error: relationship already exists."
-msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
+msgstr "பிழை: உறவு ஏற்கனவே உள்ளது."
 
 #: libraries/classes/Database/Designer/Common.php:625
 msgid "FOREIGN KEY relationship has been added."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "வெளிநாட்டு முக்கிய உறவு சேர்க்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Designer/Common.php:633
 msgid "Error: FOREIGN KEY relationship could not be added!"
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "பிழை: வெளிநாட்டு முக்கிய உறவை சேர்க்க முடியவில்லை!"
 
 #: libraries/classes/Database/Designer/Common.php:640
 msgid "Error: Missing index on column(s)."
