@@ -13835,7 +13835,7 @@ msgstr "%s/நொடி."
 
 #: src/Controllers/JavaScriptMessagesController.php:820
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "சுமார் %நிமிடம். %நொடி நொடி. மீதமுள்ள."
 
 #: src/Controllers/JavaScriptMessagesController.php:821
 msgid "About %SEC sec. remaining."
