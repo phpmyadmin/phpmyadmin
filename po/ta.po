@@ -11046,7 +11046,7 @@ msgstr ""
 
 #: libraries/classes/Plugins.php:589
 msgid "This format has no options"
-msgstr ""
+msgstr "இந்த வடிவத்திற்கு விருப்பங்கள் இல்லை"
 
 #: libraries/classes/Plugins.php:607
 msgid "Invalid authentication method set in configuration:"
