@@ -7353,7 +7353,7 @@ msgstr "சிறுய பதிப்பு"
 
 #: src/Advisory/Rules.php:149
 msgid "Version less than 5.1.30 (the first GA release of 5.1)."
-msgstr ""
+msgstr "பதிப்பு 5.1.30 க்கும் குறைவானது (5.1 இன் முதல் கா வெளியீடு)."
 
 #: src/Advisory/Rules.php:151
 msgid ""
