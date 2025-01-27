@@ -7054,8 +7054,7 @@ msgstr[0] "%1$d தரவுத்தளம் வெற்றிகரமாக
 msgstr[1] "%1$d தரவுத்தளங்கள் வெற்றிகரமாக கைவிடப்பட்டன."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully locked."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
