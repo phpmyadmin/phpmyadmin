@@ -8076,7 +8076,7 @@ msgstr "இன்னோடிபி முடக்கப்பட்டுள�
 
 #: src/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
-msgstr ""
+msgstr "உங்களிடம் இன்னோடிபி இயக்கப்பட்டது இல்லை."
 
 #: src/Advisory/Rules.php:637
 msgid "InnoDB is usually the better choice for table engines."
