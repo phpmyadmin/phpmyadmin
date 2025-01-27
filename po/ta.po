@@ -12612,6 +12612,8 @@ msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
+"ஒரு நிலையான -புள்ளி எண் (மீ, டி) - அதிகபட்ச இலக்கங்களின் எண்ணிக்கை (மீ) 65 (இயல்புநிலை "
+"10), அதிகபட்ச தசமங்களின் எண்ணிக்கை (ஈ) 30 (இயல்புநிலை 0)"
 
 #: libraries/classes/Types.php:264
 msgid ""
