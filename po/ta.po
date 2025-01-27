@@ -4268,6 +4268,8 @@ msgid ""
 "This usually means there is a syntax error in it, please check any errors "
 "shown below."
 msgstr ""
+"இது வழக்கமாக அதில் ஒரு தொடரியல் பிழை இருப்பதாக பொருள், கீழே காட்டப்பட்டுள்ள ஏதேனும் "
+"பிழைகள் சரிபார்க்கவும்."
 
 #: libraries/classes/Config.php:1234
 #, php-format
