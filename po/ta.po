@@ -7480,7 +7480,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:338
 msgid "The number of internal ROLLBACK statements."
-msgstr ""
+msgstr "உள் ரோல்பேக் அறிக்கைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:341
 msgid "The number of requests to update a row in a table."
