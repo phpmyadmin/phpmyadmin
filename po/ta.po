@@ -16632,6 +16632,7 @@ msgstr "இணைப்புக்கு ஒரு குறிப்பிட�
 #: templates/server/privileges/privileges_table.twig:832
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
 msgstr ""
+"இந்த CA ஆல் வழங்கப்பட்ட செல்லுபடியாகும் x509 சான்றிதழ் வழங்கப்பட வேண்டும்."
 
 #: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
