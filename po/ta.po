@@ -11756,7 +11756,7 @@ msgstr "விருப்பமானவைகள்"
 
 #: libraries/classes/Relation.php:142
 msgid "not OK"
-msgstr ""
+msgstr "சரி இல்லை"
 
 #: libraries/classes/Relation.php:146
 msgctxt "Correctly working"
