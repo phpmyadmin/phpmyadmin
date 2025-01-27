@@ -4648,7 +4648,7 @@ msgstr ""
 #: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
 msgid "Not a valid port number!"
-msgstr ""
+msgstr "செல்லுபடியாகும் துறைமுகம் எண் அல்ல!"
 
 #: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
