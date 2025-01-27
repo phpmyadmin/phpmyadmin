@@ -9421,7 +9421,7 @@ msgstr "நிலையான பகுப்பாய்வு:"
 #: libraries/classes/Html/Generator.php:826
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "பகுப்பாய்வின் போது %d பிழைகள் காணப்பட்டன."
 
 #: libraries/classes/Import.php:292 libraries/classes/Sql.php:996
 msgid "[ROLLBACK occurred.]"
