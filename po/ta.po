@@ -795,6 +795,7 @@ msgstr ""
 #, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
+"%s நூல் (கள்) தொடங்குவதற்கு %s வினாடிகளுக்கு மேல் எடுத்தது, அது 0 ஆக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:515
 msgid "Slow launch time"
