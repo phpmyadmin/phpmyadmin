@@ -6016,7 +6016,7 @@ msgstr ""
 
 #: resources/templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
-msgstr ""
+msgstr "இந்த கவிமொ வினவலை புக்மார்க்கு செய்யுங்கள்"
 
 #: resources/templates/sql/bookmark.twig:14
 msgid "Bookmark label:"
