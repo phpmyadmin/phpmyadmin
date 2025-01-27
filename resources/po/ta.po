@@ -16700,7 +16700,7 @@ msgstr "வரி %d இல் காபிம உள்ளீட்டின்
 #: src/Plugins/Import/ImportCsv.php:494
 #, php-format
 msgid "Invalid column count in CSV input on line %d."
-msgstr ""
+msgstr "சி.எச்.வி உள்ளீட்டில் தவறான நெடுவரிசை எண்ணிக்கை %d."
 
 #: src/Plugins/Import/ImportCsv.php:636 src/Plugins/Import/ImportCsv.php:651
 #: src/Plugins/Import/ImportCsv.php:662 src/Plugins/Import/ImportCsv.php:669
