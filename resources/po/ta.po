@@ -16967,7 +16967,7 @@ msgstr ""
 
 #: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:76
 msgid "Image preview here"
-msgstr ""
+msgstr "பட முன்னோட்டம் இங்கே"
 
 #: src/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:30
 msgid ""
