@@ -15628,7 +15628,7 @@ msgstr "இவற்றை வடிகட்ட தட்டச்சு செ
 
 #: templates/navigation/tree/fast_filter.twig:16
 msgid "Clear fast filter"
-msgstr ""
+msgstr "விரைவான வடிகட்டியை அழிக்கவும்"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
