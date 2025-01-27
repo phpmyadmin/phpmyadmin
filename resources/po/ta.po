@@ -1784,7 +1784,7 @@ msgstr "வரையறுக்கவும்"
 #: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1379
 msgid "Events"
-msgstr ""
+msgstr "நிகழ்வுகள்"
 
 #: resources/templates/database/events/index.twig:14
 #: resources/templates/database/privileges/index.twig:112
