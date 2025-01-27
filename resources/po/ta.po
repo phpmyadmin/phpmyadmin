@@ -1619,7 +1619,7 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:842
 #: resources/templates/database/designer/main.twig:1035
 msgid "Except"
-msgstr ""
+msgstr "தவிர"
 
 #: resources/templates/database/designer/main.twig:481
 #: resources/templates/database/designer/main.twig:646
