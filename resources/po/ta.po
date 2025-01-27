@@ -4331,7 +4331,7 @@ msgstr "ஈரான் பதிவு"
 
 #: resources/templates/server/binlog/index.twig:8
 msgid "Select binary log to view"
-msgstr ""
+msgstr "பார்க்க பைனரி பதிவைத் தேர்ந்தெடுக்கவும்"
 
 #: resources/templates/server/binlog/index.twig:25
 #: src/Server/Status/Data.php:128
