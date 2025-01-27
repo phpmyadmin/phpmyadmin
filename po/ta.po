@@ -16425,7 +16425,7 @@ msgstr "இயல்நிலை"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
-msgstr ""
+msgstr "தரவுத்தள புள்ளிவிவரங்கள்"
 
 #: templates/server/databases/index.twig:9
 msgid "Create database"
