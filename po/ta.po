@@ -14792,6 +14792,8 @@ msgid ""
 "May be approximate. Click on the number to get the exact count. See "
 "[doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
+"தோராயமாக இருக்கலாம். சரியான எண்ணிக்கையைப் பெற எண்ணைக் சொடுக்கு செய்க. "
+"[Doc@கேள்விகள் 3-11] கேள்விகள் 3.11 [/doc] ஐப் பார்க்கவும்."
 
 #: templates/database/structure/table_header.twig:36
 #: templates/table/index_form.twig:144
