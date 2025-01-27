@@ -10834,7 +10834,7 @@ msgstr "பிஎச்பி குறியீட்டை உருவாக�
 
 #: src/Config/Descriptions.php:930
 msgid "Suhosin warning"
-msgstr ""
+msgstr "சுஓசின் எச்சரிக்கை"
 
 #: src/Config/Descriptions.php:931
 msgid "Login cookie validity warning"
