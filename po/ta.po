@@ -13500,7 +13500,7 @@ msgstr "முழுமையான செருகல்கள்"
 
 #: libraries/config.values.php:331
 msgid "extended inserts"
-msgstr ""
+msgstr "நீட்டிக்கப்பட்ட செருகல்கள்"
 
 #: libraries/config.values.php:332
 msgid "both of the above"
