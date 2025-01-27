@@ -16269,7 +16269,7 @@ msgstr "புள்ளிவிவரங்களை இயக்கவும�
 
 #: templates/server/databases/index.twig:330
 msgid "No databases"
-msgstr ""
+msgstr "தரவுத்தளங்கள் இல்லை"
 
 #: templates/server/engines/index.twig:5 templates/server/engines/show.twig:3
 msgid "Storage engines"
