@@ -16623,7 +16623,7 @@ msgstr "SSL- மறைகுறியாக்கப்பட்ட இணைப
 
 #: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
-msgstr ""
+msgstr "செல்லுபடியாகும் x509 சான்றிதழ் தேவை."
 
 #: templates/server/privileges/privileges_table.twig:823
 msgid "Requires that a specific cipher method be used for a connection."
