@@ -1295,12 +1295,12 @@ msgstr "ஒருங்குறி"
 #: libraries/classes/Charsets/Collation.php:527
 msgctxt "Collation"
 msgid "West European"
-msgstr ""
+msgstr "மேற்கு ஐரோப்பிய"
 
 #: libraries/classes/Charsets/Collation.php:355
 msgctxt "Collation"
 msgid "Central European"
-msgstr "மைய நெடுவரிசைகள்"
+msgstr "மத்திய ஐரோப்பிய"
 
 #: libraries/classes/Charsets/Collation.php:360
 #: libraries/classes/Charsets/Collation.php:534
