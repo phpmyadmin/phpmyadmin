@@ -8582,6 +8582,8 @@ msgstr ""
 msgid ""
 "If enabled, user can enter any MySQL server in login form for cookie auth."
 msgstr ""
+"இயக்கப்பட்டால், பயனர் எந்த MySQL சேவையகத்தையும் குக்கீ அங்கீகாரத்திற்காக உள்நுழைவு படிவத்தில் "
+"உள்ளிடலாம்."
 
 #: src/Config/Descriptions.php:79
 msgid ""
