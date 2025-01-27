@@ -7972,7 +7972,7 @@ msgstr "ச்லோ_லாஞ்ச்_ டைம் விநாடிகள�
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:487
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr ""
+msgstr "Long_query_time வினாடிகளை விட அதிகமாக எடுத்த கேள்விகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:489
 msgid ""
