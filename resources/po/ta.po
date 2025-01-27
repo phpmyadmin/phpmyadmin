@@ -17328,7 +17328,7 @@ msgstr "%s க்கான சலுகைகளை நீங்கள் ரத
 
 #: src/Server/Privileges.php:1279
 msgid "Revoke"
-msgstr ""
+msgstr "ரத்து செய்யுங்கள்"
 
 #: src/Server/Privileges.php:1883
 msgid "No users selected for deleting!"
