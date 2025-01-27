@@ -12369,7 +12369,7 @@ msgstr "தற்போதைய சேவையகம்:"
 
 #: libraries/classes/Server/Status/Data.php:149
 msgid "Handler"
-msgstr ""
+msgstr "கையாளுபவர்"
 
 #: libraries/classes/Server/Status/Data.php:150
 msgid "Query cache"
