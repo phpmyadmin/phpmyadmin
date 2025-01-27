@@ -2312,6 +2312,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:438
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"புதிய பதிப்புகளுக்கு தானாக உருவாக்கும் அறிக்கைகளின் பட்டியலை வரையறுக்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:441
 msgid ""
