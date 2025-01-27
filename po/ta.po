@@ -212,7 +212,7 @@ msgstr "பதிப்பு 5.5.8 க்கும் குறைவானத�
 
 #: libraries/advisory_rules_generic.php:137
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
+msgstr "MySQL 5.5 இன் நிலையான பதிப்பிற்கு நீங்கள் மேம்படுத்த வேண்டும்."
 
 #: libraries/advisory_rules_generic.php:143
 #: libraries/advisory_rules_generic.php:156
