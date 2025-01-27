@@ -16446,7 +16446,7 @@ msgstr ""
 #: templates/server/replication/change_master.twig:6
 #: templates/server/replication/slave_configuration.twig:97
 msgid "Change or reconfigure master server"
-msgstr ""
+msgstr "மாச்டர் சேவையகத்தை மாற்றவும் அல்லது மறுகட்டமைக்கவும்"
 
 #: templates/server/replication/change_master.twig:9
 msgid ""
