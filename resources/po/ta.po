@@ -6542,7 +6542,7 @@ msgstr "பிரிவினை பராமரிப்பு"
 #: resources/templates/table/operations/index.twig:501
 #: resources/templates/table/structure/display_partitions.twig:202
 msgid "Remove partitioning"
-msgstr ""
+msgstr "பகிர்வை அகற்று"
 
 #: resources/templates/table/operations/index.twig:514
 msgid "Check referential integrity"
