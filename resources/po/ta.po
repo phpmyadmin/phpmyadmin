@@ -13826,7 +13826,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:818
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s %s"
 
 #: src/Controllers/JavaScriptMessagesController.php:819
 #, php-format
