@@ -13859,7 +13859,7 @@ msgstr "%s ஆக மாற்றவும்"
 
 #: templates/database/events/editor_form.twig:53
 msgid "Execute at"
-msgstr ""
+msgstr "செயல்படுத்தவும்"
 
 #: templates/database/events/editor_form.twig:59
 msgid "Execute every"
