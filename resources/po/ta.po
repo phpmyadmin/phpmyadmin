@@ -4629,7 +4629,7 @@ msgstr "எந்த பயனரும்"
 #: resources/templates/server/privileges/privileges_summary.twig:76
 #: resources/templates/server/privileges/privileges_summary.twig:91
 msgid "Use text field"
-msgstr ""
+msgstr "உரை புலத்தைப் பயன்படுத்தவும்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:17
 msgid ""
