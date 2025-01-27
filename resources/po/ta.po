@@ -10029,7 +10029,7 @@ msgstr "திருத்து பயன்முறை"
 
 #: src/Config/Descriptions.php:734
 msgid "Export defaults"
-msgstr ""
+msgstr "இயல்புநிலைகளை ஏற்றுமதி செய்யுங்கள்"
 
 #: src/Config/Descriptions.php:735
 msgid "General"
