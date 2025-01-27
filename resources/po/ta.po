@@ -10439,7 +10439,7 @@ msgstr "பல்வேறு செயல் இணைப்புகளை எ
 
 #: src/Config/Descriptions.php:848
 msgid "Protect binary columns"
-msgstr ""
+msgstr "பைனரி நெடுவரிசைகளைப் பாதுகாக்கவும்"
 
 #: src/Config/Descriptions.php:849
 msgid "Permanent query history"
