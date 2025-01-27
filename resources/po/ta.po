@@ -6105,7 +6105,7 @@ msgstr "ஒரு புதிய சேவையகத்தை சேர்"
 
 #: resources/templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "ஏதோ தவறு நடந்தது."
 
 #: resources/templates/sql/bookmark.twig:11
 msgid "Bookmark this SQL query"
@@ -6250,7 +6250,7 @@ msgstr "புக்மார்க்கு செய்யப்பட்ட �
 
 #: resources/templates/sql/query.twig:163
 msgid "Bookmark:"
-msgstr "புத்தகக்குறி"
+msgstr "புக்மார்க்கு:"
 
 #: resources/templates/sql/query.twig:172
 msgid "shared"
@@ -6278,7 +6278,7 @@ msgstr "இம்மதிப்பை பயன்படுத்துக"
 
 #: resources/templates/table/chart/tbl_chart.twig:10
 msgid "Chart type"
-msgstr "வரைபட தலைப்பு"
+msgstr "விளக்கப்பட வகை"
 
 #: resources/templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -6303,7 +6303,7 @@ msgstr "வளைக்கோடு"
 #: resources/templates/table/chart/tbl_chart.twig:29
 msgctxt "Chart type"
 msgid "Area"
-msgstr "பரப்பளவு"
+msgstr "பகுதி"
 
 #: resources/templates/table/chart/tbl_chart.twig:33
 msgctxt "Chart type"
@@ -6377,7 +6377,9 @@ msgstr "விளக்கப்படத்தை படமாக சேமி�
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr ""
+"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ அட்டவணை"
+" பெயராகவும் மாறும்."
 
 #: resources/templates/table/export/index.twig:7
 #, php-format
@@ -6471,7 +6473,7 @@ msgstr "குறியீட்டு தேர்வு:"
 
 #: resources/templates/table/index_form.twig:57
 msgid "Advanced options"
-msgstr "செயல்படு விருப்பங்கள்"
+msgstr "மேம்பட்ட விருப்பங்கள்"
 
 #: resources/templates/table/index_form.twig:67
 msgid "Key block size:"
@@ -6553,7 +6555,7 @@ msgstr "இருமம்"
 
 #: resources/templates/table/insert/column_row.twig:30
 msgid "Use the NULL value for this column."
-msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
+msgstr "இந்த நெடுவரிசைக்கு சுழிய மதிப்பைப் பயன்படுத்தவும்."
 
 #: resources/templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -6574,7 +6576,7 @@ msgstr ""
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
-msgstr "சரிபார்"
+msgstr "செக்சம்"
 
 #: resources/templates/table/normalization/normalization.twig:4
 msgid "Improve table structure (Normalization):"
