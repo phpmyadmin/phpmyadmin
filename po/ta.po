@@ -9969,7 +9969,7 @@ msgstr "மீண்டும் மீண்டும் குழு இல்
 
 #: libraries/classes/Normalization.php:404
 msgid "Step 2."
-msgstr ""
+msgstr "படி 2."
 
 #: libraries/classes/Normalization.php:404
 msgid "Find partial dependencies"
