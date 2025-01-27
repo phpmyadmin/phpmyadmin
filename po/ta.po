@@ -11430,11 +11430,11 @@ msgstr "தொடரியல் சிறப்பம்சத்துடன�
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:44
 msgid "Formats text as XML with syntax highlighting."
-msgstr ""
+msgstr "தொடரியல் சிறப்பம்சத்துடன் எக்ச்எம்எல் என உரையை வடிவமைக்கிறது."
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:135
 msgid "Authentication Application (2FA)"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "அங்கீகார பயன்பாடு (2FA)"
 
 #: libraries/classes/Plugins/TwoFactor/Application.php:146
 msgid ""
