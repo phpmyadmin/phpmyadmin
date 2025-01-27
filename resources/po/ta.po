@@ -14653,8 +14653,8 @@ msgstr "வினவல் வழு"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "'%s' என்ற பெயர் MySQL ஒதுக்கப்பட்ட முக்கிய சொல்."
+msgstr[1] "'%s' பெயர்கள் MySQL ஒதுக்கப்பட்ட முக்கிய வார்த்தைகள்."
 
 #: src/Controllers/Table/Structure/SaveController.php:209
 #, php-format
