@@ -9439,7 +9439,7 @@ msgstr "கோப்பு பதிவேற்றத்தில் தெர�
 
 #: libraries/classes/File.php:503
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "கோப்பு ஒரு குறியீட்டு இணைப்பு"
 
 #: libraries/classes/File.php:509 libraries/classes/File.php:608
 msgid "File could not be read!"
