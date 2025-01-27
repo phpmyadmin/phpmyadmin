@@ -2976,7 +2976,7 @@ msgstr "விவரபார்வையை அட்டவணையாக த�
 
 #: libraries/classes/Config/Descriptions.php:722
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பிலிருந்து ஏற்றுமதி தொடர்பான மேனிலை தரவு"
 
 #: libraries/classes/Config/Descriptions.php:723
 #: libraries/classes/Config/Descriptions.php:724
