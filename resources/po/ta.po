@@ -2594,7 +2594,7 @@ msgstr "அட்டவணை முன்னொட்டை பதிலிட�
 #: resources/templates/database/structure/check_all_tables.twig:28
 #: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "முன்னொட்டுடன் அட்டவணையை நகலெடுக்கவும்"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
 #: src/Menu.php:405 src/Util.php:1383
