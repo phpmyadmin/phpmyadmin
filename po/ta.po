@@ -10100,7 +10100,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:929
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "அட்டவணை ஏற்கனவே மூன்றாவது சாதாரண வடிவத்தில் உள்ளது!"
 
 #: libraries/classes/Normalization.php:955
 msgid "Improve table structure (Normalization):"
