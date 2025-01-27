@@ -8326,7 +8326,7 @@ msgstr "நிகழ்வு %1$s மாற்றியமைக்கப்ப
 #: libraries/classes/Database/Events.php:146
 #, php-format
 msgid "Event %1$s has been created."
-msgstr ""
+msgstr "நிகழ்வு %1$s உருவாக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Events.php:160
 #: libraries/classes/Database/Routines.php:266
