@@ -16810,7 +16810,7 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
-msgstr ""
+msgstr "வள வரம்புகள்"
 
 #: templates/server/privileges/privileges_table.twig:723
 msgid "Note: Setting these options to 0 (zero) removes the limit."
