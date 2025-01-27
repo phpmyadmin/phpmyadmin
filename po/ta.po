@@ -4717,11 +4717,11 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:233
 msgid "Could not connect to the database server!"
-msgstr ""
+msgstr "தரவுத்தள சேவையகத்துடன் இணைக்க முடியவில்லை!"
 
 #: libraries/classes/Config/Validator.php:268
 msgid "Invalid authentication type!"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "தவறான அங்கீகார வகை!"
 
 #: libraries/classes/Config/Validator.php:275
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
