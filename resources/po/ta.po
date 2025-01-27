@@ -8732,6 +8732,8 @@ msgid ""
 "Set the number of seconds a script is allowed to run ([kbd]0[/kbd] for no "
 "limit)."
 msgstr ""
+"ஒரு ச்கிரிப்ட் இயக்க அனுமதிக்கப்பட்ட வினாடிகளின் எண்ணிக்கையை அமைக்கவும் ([KBD] 0 [/KBD] "
+"வரம்புக்கு)."
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:367
