@@ -3733,7 +3733,7 @@ msgstr "பட்டியலிடப்பட்ட தரவுத்தள�
 
 #: libraries/classes/Config/Descriptions.php:912
 msgid "Password for config auth"
-msgstr ""
+msgstr "கட்டமைப்பு அங்கீகாரத்திற்கான கடவுச்சொல்"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "PDF schema: pages table"
