@@ -7904,7 +7904,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 msgid "The number of queries registered in the cache."
-msgstr ""
+msgstr "தற்காலிக சேமிப்பில் பதிவுசெய்யப்பட்ட வினவல்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:462
 msgid "The total number of blocks in the query cache."
