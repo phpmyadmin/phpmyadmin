@@ -5412,7 +5412,7 @@ msgstr "திப்"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: libraries/classes/Util.php:519
 msgid "PiB"
-msgstr "PiB"
+msgstr "தொடங்கவும்"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
