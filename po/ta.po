@@ -17183,11 +17183,11 @@ msgstr "இத்தொகுதியை சேர்க்க"
 
 #: templates/server/status/monitor/index.twig:204
 msgid "Clear series"
-msgstr ""
+msgstr "தெளிவான தொடர்"
 
 #: templates/server/status/monitor/index.twig:208
 msgid "Series in chart:"
-msgstr "வழங்கி குறிமுறை:"
+msgstr "விளக்கப்படத்தில் தொடர்:"
 
 #: templates/server/status/monitor/index.twig:224
 msgid "Log statistics"
