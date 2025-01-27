@@ -2676,7 +2676,7 @@ msgstr "உள்ளீட்டு புலத்திற்கான அத�
 
 #: libraries/classes/Config/Descriptions.php:630
 msgid "CHAR textarea columns"
-msgstr ""
+msgstr "கரி டெக்ச்டேரியா நெடுவரிசைகள்"
 
 #: libraries/classes/Config/Descriptions.php:631
 msgid "CHAR textarea rows"
