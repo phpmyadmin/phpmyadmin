@@ -977,6 +977,8 @@ msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
 msgstr ""
+"உங்கள் INNODB பதிவு அளவு INNODB இடையக பூல் அளவு தொடர்பாக%s %% இல் உள்ளது, இது 20 "
+"%ண்ட் குறைவாக இருக்கக்கூடாது"
 
 #: libraries/advisory_rules_generic.php:660
 msgid "Max InnoDB log size"
