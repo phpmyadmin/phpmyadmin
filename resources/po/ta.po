@@ -15292,7 +15292,7 @@ msgstr "கைப்பிடி தரவு (.xtd) கோப்புகளி
 
 #: src/Engines/Pbxt.php:122
 msgid "Row file grow size"
-msgstr ""
+msgstr "வரிசை கோப்பு அளவு வளரும்"
 
 #: src/Engines/Pbxt.php:123
 msgid "The grow size of the row pointer (.xtr) files."
