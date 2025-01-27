@@ -4487,7 +4487,7 @@ msgstr "பதிப்பு"
 
 #: resources/templates/server/plugins/index.twig:29
 msgid "Author"
-msgstr ""
+msgstr "நூலாசிரியர்"
 
 #: resources/templates/server/plugins/index.twig:41
 msgid "inactive"
