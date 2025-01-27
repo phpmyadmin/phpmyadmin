@@ -1045,7 +1045,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:707
 msgid "MyISAM concurrent inserts"
-msgstr ""
+msgstr "Myisam ஒரே நேரத்தில் செருகல்கள்"
 
 #: libraries/advisory_rules_generic.php:710
 msgid "Enable {concurrent_insert} by setting it to 1"
