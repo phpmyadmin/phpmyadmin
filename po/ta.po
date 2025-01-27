@@ -11839,11 +11839,11 @@ msgstr "நெடுவரிசைகளின் மைய பட்டிய�
 
 #: libraries/classes/Relation.php:388
 msgid "Remembering Designer Settings"
-msgstr ""
+msgstr "வடிவமைப்பாளர் அமைப்புகளை நினைவில் கொள்கிறார்"
 
 #: libraries/classes/Relation.php:399
 msgid "Saving export templates"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "ஏற்றுமதி வார்ப்புருக்களை சேமிக்கிறது"
 
 #: libraries/classes/Relation.php:1834
 msgid "no description"
