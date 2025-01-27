@@ -11115,7 +11115,7 @@ msgstr "%s தரவுத்தளத்தின் ஒழுங்கமை�
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:163
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:541
 msgid "Relational schema"
-msgstr ""
+msgstr "தொடர்புடைய திட்டம்"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:486
 msgid "Table of contents"
