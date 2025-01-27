@@ -3200,7 +3200,7 @@ msgstr "பாதுகாப்பு"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
-msgstr ""
+msgstr "அடிப்படை அமைப்புகள்"
 
 #: libraries/classes/Config/Descriptions.php:771
 msgid "Authentication"
