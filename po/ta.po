@@ -2484,7 +2484,7 @@ msgstr "சேவையக பட்டியலை ஒரு வீழ்ச்
 
 #: libraries/classes/Config/Descriptions.php:562
 msgid "A dropdown will be used if fewer items are present."
-msgstr ""
+msgstr "குறைவான உருப்படிகள் இருந்தால் கீழ்தோன்றும் பயன்படுத்தப்படும்."
 
 #: libraries/classes/Config/Descriptions.php:563
 msgid "Default value for foreign key checks checkbox for some queries."
