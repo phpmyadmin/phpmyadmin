@@ -17657,7 +17657,7 @@ msgstr "அதே பெயரில் இருக்கும் புத்
 
 #: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
-msgstr ""
+msgstr "பிரிப்பான்"
 
 #: templates/sql/query.twig:119
 msgid "Show this query here again"
