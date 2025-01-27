@@ -4510,7 +4510,7 @@ msgstr "கடவுச்சொல் இல்லை"
 
 #: resources/templates/server/privileges/change_password.twig:28
 msgid "Enter:"
-msgstr ""
+msgstr "உள்ளிடவும்:"
 
 #: resources/templates/server/privileges/change_password.twig:32
 #: resources/templates/server/privileges/login_information_fields.twig:61
