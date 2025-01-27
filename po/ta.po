@@ -15968,7 +15968,7 @@ msgstr "முதன்மை பிரதி"
 #: templates/server/databases/index.twig:163
 #: templates/server/replication/slave_configuration.twig:2
 msgid "Slave replication"
-msgstr ""
+msgstr "அடிமை பிரதி"
 
 #: templates/server/databases/index.twig:184
 #, php-format
@@ -16545,7 +16545,7 @@ msgstr ""
 
 #: templates/server/replication/slave_configuration.twig:5
 msgid "Master connection:"
-msgstr "பாதுகாப்பற்ற இணைப்பு"
+msgstr "முதன்மை இணைப்பு:"
 
 #: templates/server/replication/slave_configuration.twig:25
 msgid "Slave SQL Thread not running!"
