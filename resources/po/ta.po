@@ -2290,7 +2290,7 @@ msgstr "பயனர்குழுவை சேர்க்க"
 
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
-msgstr ""
+msgstr "வழக்கமான பெயர்"
 
 #: resources/templates/database/routines/editor_form.twig:48
 msgid "Parameters"
