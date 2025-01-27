@@ -8657,7 +8657,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 
 #: libraries/classes/Dbal/DbiMysqli.php:152
 msgid "SSL connection enforced by server, automatically enabling it."
-msgstr ""
+msgstr "சேவையகத்தால் செயல்படுத்தப்பட்ட SSL இணைப்பு, தானாகவே அதை இயக்குகிறது."
 
 #: libraries/classes/Dbal/DbiMysqli.php:164
 #, php-format
