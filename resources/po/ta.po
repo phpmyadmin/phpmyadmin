@@ -9856,7 +9856,7 @@ msgstr "கோடுகள் நிறுத்தப்பட்டன"
 
 #: src/Config/Descriptions.php:648
 msgid "Excel edition"
-msgstr ""
+msgstr "எக்செல் பதிப்பு"
 
 #: src/Config/Descriptions.php:651
 msgid "Database name template"
