@@ -8630,7 +8630,7 @@ msgstr "முழுமையான செருகல்கள்"
 
 #: src/Config/ConfigFile.php:724
 msgid "extended inserts"
-msgstr ""
+msgstr "நீட்டிக்கப்பட்ட செருகல்கள்"
 
 #: src/Config/ConfigFile.php:725
 msgid "both of the above"
