@@ -2339,7 +2339,7 @@ msgstr ""
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
-msgstr ""
+msgstr "பாதுகாப்பு வகை"
 
 #: resources/templates/database/routines/editor_form.twig:163
 msgid "SQL data access"
