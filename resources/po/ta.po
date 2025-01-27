@@ -8088,7 +8088,7 @@ msgstr "HASE_INNODB 'மதிப்பு' என அமைக்கப்ப�
 
 #: src/Advisory/Rules.php:642 src/Advisory/Rules.php:669
 msgid "InnoDB log size"
-msgstr ""
+msgstr "INNODB பதிவு அளவு"
 
 #: src/Advisory/Rules.php:647 src/Advisory/Rules.php:677
 msgid ""
