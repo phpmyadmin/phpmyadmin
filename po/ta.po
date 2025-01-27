@@ -7986,7 +7986,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:493
 msgid "The number of sorts that were done with ranges."
-msgstr ""
+msgstr "வரம்புகளுடன் செய்யப்பட்ட வகைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:494
 msgid "The number of sorted rows."
