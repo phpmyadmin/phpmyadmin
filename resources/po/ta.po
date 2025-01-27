@@ -8787,6 +8787,7 @@ msgid ""
 "Tracking of changes made in database. Requires the phpMyAdmin configuration "
 "storage."
 msgstr ""
+"தரவுத்தளத்தில் செய்யப்பட்ட மாற்றங்களின் கண்காணிப்பு. Phpmyadmin உள்ளமைவு சேமிப்பு தேவை."
 
 #: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
