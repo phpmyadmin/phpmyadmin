@@ -1539,7 +1539,7 @@ msgstr ""
 
 #: libraries/classes/Common.php:580
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "குளோபல்ச் முயற்சியை மேலெழுதும்"
 
 #: libraries/classes/Common.php:590
 msgid "possible exploit"
