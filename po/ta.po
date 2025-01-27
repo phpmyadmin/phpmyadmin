@@ -17027,7 +17027,7 @@ msgstr "விளக்கப்படத்தை சேர்"
 
 #: templates/server/status/monitor/index.twig:31
 msgid "Enable charts dragging"
-msgstr ""
+msgstr "விளக்கப்படங்களை இழுப்பதை இயக்கவும்"
 
 #: templates/server/status/monitor/index.twig:36
 #: templates/server/status/processes/index.twig:33
