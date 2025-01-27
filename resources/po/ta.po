@@ -5824,7 +5824,7 @@ msgstr "வினவல் புள்ளிவிவரங்களைக் �
 #. l10n: Questions is the name of a MySQL Status variable
 #: resources/templates/server/status/queries/index.twig:9
 msgid "Questions since startup:"
-msgstr ""
+msgstr "தொடக்கத்திலிருந்து கேள்விகள்:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
@@ -5858,7 +5858,7 @@ msgstr "#"
 #: resources/templates/server/status/status/index.twig:18
 #: resources/templates/server/status/status/index.twig:38
 msgid "ø per hour"
-msgstr "ஒவ்வொரு மணிக்கும்"
+msgstr "ஒரு மணி நேரத்திற்கு"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
