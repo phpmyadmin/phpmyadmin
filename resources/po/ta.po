@@ -3640,6 +3640,8 @@ msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
+"ச்கிரிப்ட் பி.எச்.பி காலக்கெடு வரம்புக்கு அருகில் இருப்பதைக் கண்டறிந்தால் இறக்குமதியின் "
+"குறுக்கீட்டை அனுமதிக்கவும்."
 
 #: resources/templates/import.twig:135
 msgid ""
