@@ -12315,6 +12315,7 @@ msgstr "கவிமொ வினவல்/வினவல்களை அட்
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr ""
+"இந்த சேமிப்பக இயந்திரத்திற்கு விரிவான நிலை தகவல்கள் எதுவும் கிடைக்கவில்லை."
 
 #: libraries/classes/StorageEngine.php:470
 #: templates/database/structure/body_for_table_summary.twig:46
