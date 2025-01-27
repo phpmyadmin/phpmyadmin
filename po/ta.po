@@ -12741,8 +12741,6 @@ msgid "PARTITION definition:"
 msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:154
-#, fuzzy
-#| msgid "Input transformation"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "உள்ளிடு மாற்றுருவாக்கம்"
