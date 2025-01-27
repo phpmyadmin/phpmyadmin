@@ -14846,8 +14846,7 @@ msgid "Get more themes!"
 msgstr ""
 
 #: templates/home/themes.twig:7
-#, fuzzy, php-format
-#| msgid "Schema of the %s database"
+#, php-format
 msgid "Screenshot of the %s theme."
 msgstr "%s தரவுத்தளத்தின் ஒழுங்கமைவு"
 
