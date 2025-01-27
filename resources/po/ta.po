@@ -10068,7 +10068,7 @@ msgstr "பக்க தலைப்புகள்"
 
 #: src/Config/Descriptions.php:749
 msgid "Security"
-msgstr ""
+msgstr "பாதுகாப்பு"
 
 #: src/Config/Descriptions.php:750
 msgid "Basic settings"
