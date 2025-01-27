@@ -9386,7 +9386,7 @@ msgstr "கட்டமைப்பு அங்கீகாரத்தைப�
 
 #: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
-msgstr ""
+msgstr "MySQL சேவையகம் கேட்கும் துறைமுகம், இயல்புநிலைக்கு காலியாக விடவும்."
 
 #: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
