@@ -3412,7 +3412,7 @@ msgstr "சின்னத்தை காட்டுக"
 
 #: libraries/classes/Config/Descriptions.php:842
 msgid "Logo link URL"
-msgstr ""
+msgstr "லோகோ இணைப்பு முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:843
 msgid "Logo link target"
