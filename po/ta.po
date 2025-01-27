@@ -10106,7 +10106,7 @@ msgstr "புதியது"
 #: libraries/classes/Plugins/Export/ExportXml.php:140
 #: templates/database/structure/show_create.twig:28
 msgid "Views"
-msgstr ""
+msgstr "காட்சிகள்"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:39
 msgctxt "Create new view"
