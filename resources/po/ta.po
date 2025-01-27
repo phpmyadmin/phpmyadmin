@@ -10012,7 +10012,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:729
 msgid "Browse mode"
-msgstr ""
+msgstr "உலாவு பயன்முறை"
 
 #: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
