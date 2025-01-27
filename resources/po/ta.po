@@ -10326,6 +10326,7 @@ msgstr "வடிகட்டி பெட்டியைக் காண்ப�
 #: src/Config/Descriptions.php:820
 msgid "Minimum number of databases to display the database filter box"
 msgstr ""
+"தரவுத்தள வடிகட்டி பெட்டியைக் காண்பிக்க குறைந்தபட்ச தரவுத்தளங்களின் எண்ணிக்கை"
 
 #: src/Config/Descriptions.php:822
 msgid "Group items in the tree"
