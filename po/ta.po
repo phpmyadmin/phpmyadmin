@@ -2193,6 +2193,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
+"ஏற்றுமதி வார்ப்புரு ஆதரவுக்கு காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [KBD] "
+"PMA__export_templates [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:383
 msgid ""
@@ -3763,7 +3765,7 @@ msgstr "ஏற்றுமதி வார்ப்புருக்கள் �
 
 #: libraries/classes/Config/Descriptions.php:901
 msgid "Central columns table"
-msgstr "மைய நெடுவரிசைகள்"
+msgstr "நடு நெடுவரிசைகள் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:902
 msgid "Show only listed databases"
