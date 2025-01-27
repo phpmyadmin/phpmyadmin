@@ -14134,6 +14134,7 @@ msgstr "உள் ரோல்பேக் அறிக்கைகளின் 
 #: src/Controllers/Server/Status/VariablesController.php:295
 msgid "The number of requests to update a row in a table."
 msgstr ""
+"ஒரு அட்டவணையில் ஒரு வரிசையைப் புதுப்பிப்பதற்கான கோரிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:296
 msgid "The number of requests to insert a row in a table."
