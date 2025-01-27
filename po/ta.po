@@ -387,6 +387,8 @@ msgstr ""
 #, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
+"அட்டவணை சராசரியாக இணைகிறது: %s, இந்த மதிப்பு ஒரு மணி நேரத்திற்கு 1 க்கும் குறைவாக "
+"இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:259
 msgid "Rate of reading first index entry"
