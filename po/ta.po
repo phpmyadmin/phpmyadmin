@@ -14617,8 +14617,6 @@ msgid "Use OpenStreetMaps as Base Layer"
 msgstr "கீழடுக்காக OpenStreetMaps ஐ பயன்படுத்தவும்"
 
 #: templates/gis_data_editor_form.twig:39
-#, fuzzy
-#| msgid "SRID:"
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
 msgstr "SRID (இடம்சார்ந்த குறியீடு அமைப்பு காட்டி) :"
