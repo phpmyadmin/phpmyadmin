@@ -9791,6 +9791,7 @@ msgstr "மொழி"
 msgid ""
 "Linting is disabled for this query because it exceeds the maximum length."
 msgstr ""
+"இந்த வினவலுக்கு லிண்டிங் முடக்கப்பட்டுள்ளது, ஏனெனில் இது அதிகபட்ச நீளத்தை மீறுகிறது."
 
 #: libraries/classes/Linter.php:176
 #, php-format
