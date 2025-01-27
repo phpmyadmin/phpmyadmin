@@ -11566,7 +11566,7 @@ msgstr "பிரதி மீட்டமைப்பதில் பிழை.
 
 #: libraries/classes/ReplicationGui.php:486
 msgid "Success."
-msgstr ""
+msgstr "வெற்றி."
 
 #: libraries/classes/ReplicationGui.php:487
 msgid "Error."
