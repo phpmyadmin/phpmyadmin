@@ -4673,7 +4673,7 @@ msgstr ""
 #: resources/templates/server/replication/primary_add_replica_user.twig:52
 #: resources/templates/server/replication/primary_add_replica_user.twig:57
 msgid "Password"
-msgstr ""
+msgstr "கடவுச்சொல்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:48
 msgid "Do not change the password"
