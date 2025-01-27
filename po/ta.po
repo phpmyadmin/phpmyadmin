@@ -5279,6 +5279,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"உங்கள் சேவையகம் கண்ட்ரோல்சர் மற்றும் கடவுச்சொல்லுக்கான இயல்புநிலை மதிப்புகளுடன் இயங்குகிறது "
+"(கட்டுப்பாட்டு பாச்) மற்றும் ஊடுருவலுக்கு திறந்திருக்கும்; Controluser 'PMA' க்கான "
+"கடவுச்சொல்லை மாற்றுவதன் மூலம் இந்த பாதுகாப்பு பலவீனத்தை நீங்கள் உண்மையில் சரிசெய்ய வேண்டும்."
 
 #: libraries/classes/Controllers/HomeController.php:328
 msgid ""
