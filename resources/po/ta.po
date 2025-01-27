@@ -7392,7 +7392,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "பதிப்பு_மென்ட்டில் 'சான்று' காணப்படுகிறது"
 
 #: src/Advisory/Rules.php:186
 msgid "The MySQL manual only is accurate for official MySQL binaries."
