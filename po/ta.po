@@ -11789,7 +11789,7 @@ msgstr "நெடுவரிசை கருத்துகளைக் கா�
 
 #: libraries/classes/Relation.php:238
 msgid "Browser transformation"
-msgstr ""
+msgstr "உலாவி மாற்றம்"
 
 #: libraries/classes/Relation.php:245
 msgid "Please see the documentation on how to update your column_info table."
