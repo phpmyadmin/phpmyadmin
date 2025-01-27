@@ -3214,7 +3214,7 @@ msgstr "சேவையக உள்ளமைவு"
 
 #: libraries/classes/Config/Descriptions.php:773
 msgid "Configuration storage"
-msgstr ""
+msgstr "உள்ளமைவு சேமிப்பு"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "Changes tracking"
