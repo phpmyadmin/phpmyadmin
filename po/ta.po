@@ -1100,6 +1100,7 @@ msgstr "வினவல் இடைமாற்று முறைமை செ
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"வினவல் கேச் திறமையாக இயங்கவில்லை, இது குறைந்த செய் விகிதத்தைக் கொண்டுள்ளது."
 
 #: libraries/advisory_rules_mysql_before80003.php:28
 msgid "Consider increasing {query_cache_limit}."
