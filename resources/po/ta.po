@@ -5686,7 +5686,7 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:212
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "வினவல் உரையால் முடிவுகள் தொகுக்கப்படுகின்றன."
 
 #: resources/templates/server/status/monitor/index.twig:216
 msgid "Query analyzer"
