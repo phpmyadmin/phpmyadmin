@@ -2169,7 +2169,7 @@ msgstr "பிரதியான தரவுதளத்துக்கு ம�
 
 #: resources/templates/database/operations/index.twig:217
 msgid "Change all tables collations"
-msgstr ""
+msgstr "எல்லா அட்டவணைகளையும் மாற்றவும்"
 
 #: resources/templates/database/operations/index.twig:221
 msgid "Change all tables columns collations"
