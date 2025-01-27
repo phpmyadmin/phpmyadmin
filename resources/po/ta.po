@@ -748,7 +748,7 @@ msgstr "நிரல்வரிசையை நகர்த்து"
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:517
 msgid "Media type"
-msgstr "தகா வகை!"
+msgstr "ஊடக வகை"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
@@ -9999,6 +9999,7 @@ msgstr "சில வினவல்களுக்கான வெளிநா�
 #: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"இழுவை முடக்கவும் இறக்குமதியை கைவிடவும் தேர்வுப்பெட்டியைத் தேர்வுநீக்கவும்"
 
 #: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
@@ -10469,7 +10470,7 @@ msgstr ""
 #: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:373
 #, php-format
 msgid "%s view"
-msgstr "அமர்வு மதிப்பு"
+msgstr "%s"
 
 #: src/Config/Descriptions.php:710
 msgid "Use ignore inserts"
