@@ -10275,7 +10275,7 @@ msgstr "அதிகபட்ச அட்டவணைகள்"
 
 #: src/Config/Descriptions.php:808
 msgid "Memory limit"
-msgstr ""
+msgstr "நினைவக வரம்பு"
 
 #: src/Config/Descriptions.php:809
 msgid "Show databases navigation as tree"
