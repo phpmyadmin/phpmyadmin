@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:04+0000\n"
+"PO-Revision-Date: 2025-01-27 02:05+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -4214,7 +4214,7 @@ msgstr "பிழை அறிக்கைகளை அனுப்பவும�
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "கன்சோலில் வினவல்களை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "Enable Zero Configuration mode"
@@ -4233,7 +4233,7 @@ msgstr "எப்போதும் வினவல் தகவல்களை 
 #: libraries/classes/Config/Descriptions.php:979
 #: templates/console/display.twig:157
 msgid "Show current browsing query"
-msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
+msgstr "தற்போதைய உலாவல் வினவலைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
@@ -4242,20 +4242,20 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
-msgstr "பிரதியான தரவுதளத்துக்கு மாறு"
+msgstr "இருண்ட கருப்பொருளுக்கு மாறவும்"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "Console height"
-msgstr "முனையம்"
+msgstr "கன்சோல் உயரம்"
 
 #: libraries/classes/Config/Descriptions.php:983
 msgid "Console mode"
-msgstr "முனையம்"
+msgstr "கன்சோல் பயன்முறை"
 
 #: libraries/classes/Config/Descriptions.php:984
 #: templates/console/display.twig:64
 msgid "Group queries"
-msgstr "SQL வினவல்கள்"
+msgstr "குழு வினவல்கள்"
 
 #: libraries/classes/Config/Descriptions.php:985
 #: templates/sql/profiling_chart.twig:9
@@ -4264,7 +4264,7 @@ msgstr "ஏனையது->வரிசை"
 
 #: libraries/classes/Config/Descriptions.php:986
 msgid "Order by"
-msgstr "ஏனையது->வரிசை"
+msgstr "வழங்கியவர்"
 
 #: libraries/classes/Config/Descriptions.php:987
 msgid "Server connection collation"
