@@ -9973,7 +9973,7 @@ msgstr "படி 2."
 
 #: libraries/classes/Normalization.php:404
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "பகுதி சார்புகளைக் கண்டறியவும்"
 
 #: libraries/classes/Normalization.php:425
 #, php-format
