@@ -12638,6 +12638,8 @@ msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
+"இரட்டிப்பிற்கு ஒத்த பெயர் (விதிவிலக்கு: ரியல்_ஏஎச்_ஃப்ளோட் கவிமொ பயன்முறையில் இது "
+"மிதவைக்கு ஒத்ததாகும்)"
 
 #: libraries/classes/Types.php:280
 msgid ""
