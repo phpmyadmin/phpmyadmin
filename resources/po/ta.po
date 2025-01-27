@@ -3196,7 +3196,7 @@ msgstr "தரவுத்தளம்"
 #: resources/templates/export.twig:212 resources/templates/export.twig:226
 #: resources/templates/export.twig:239 resources/templates/export.twig:256
 msgid "Remove"
-msgstr ""
+msgstr "அகற்று"
 
 #: resources/templates/export.twig:220
 #: src/Controllers/JavaScriptMessagesController.php:300
