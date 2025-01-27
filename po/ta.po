@@ -7348,6 +7348,7 @@ msgstr "நூல் %s வெற்றிகரமாக கொல்லப்�
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
+"Phpmyadmin நூல் %s ஐக் கொல்ல முடியவில்லை. இது ஏற்கனவே மூடப்பட்டிருக்கலாம்."
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:137
 msgid "Received"
