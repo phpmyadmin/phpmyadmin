@@ -4074,7 +4074,7 @@ msgstr "உரைக்கட்ட நெடுவரிசைகள்"
 
 #: libraries/classes/Config/Descriptions.php:953
 msgid "Textarea rows"
-msgstr ""
+msgstr "டெக்ச்டேரியா வரிசைகள்"
 
 #: libraries/classes/Config/Descriptions.php:954
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:141
