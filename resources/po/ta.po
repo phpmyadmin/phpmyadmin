@@ -6436,7 +6436,7 @@ msgstr ""
 #: resources/templates/table/normalization/normalization.twig:13
 #: src/Normalization.php:201
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "இயல்பாக்கத்தின் முதல் படி (1NF)"
 
 #: resources/templates/table/normalization/normalization.twig:17
 msgid "Second step of normalization (1NF+2NF)"
