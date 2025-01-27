@@ -14150,7 +14150,7 @@ msgstr "தற்போது அழுக்கு பக்கங்களி�
 
 #: src/Controllers/Server/Status/VariablesController.php:300
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr ""
+msgstr "சுத்தப்படுத்தக் கோரப்பட்ட இடையக பூல் பக்கங்களின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:302
 msgid "The number of free pages."
