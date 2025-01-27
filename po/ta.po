@@ -9188,7 +9188,7 @@ msgstr "ஓர் தற்காலிக அடைவை காணவில்
 
 #: libraries/classes/File.php:283
 msgid "Failed to write file to disk."
-msgstr ""
+msgstr "வட்டுக்கு கோப்பை எழுதுவதில் தோல்வி."
 
 #: libraries/classes/File.php:286
 msgid "File upload stopped by extension."
