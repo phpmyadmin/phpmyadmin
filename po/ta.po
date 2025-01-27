@@ -1672,6 +1672,8 @@ msgid ""
 "Whether a warning (\"Are your really sure…\") should be displayed when "
 "you're about to lose data."
 msgstr ""
+"நீங்கள் தரவை இழக்கும்போது ஒரு எச்சரிக்கை ("
+"\"உங்களுக்கு உண்மையிலேயே உறுதியாக இருக்கிறது ...\") காண்பிக்கப்பட வேண்டும்."
 
 #: libraries/classes/Config/Descriptions.php:139
 msgid "Autocomplete of the table and column names in the SQL queries."
