@@ -469,6 +469,8 @@ msgstr ""
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
+"அடுத்த அட்டவணை வரிசையைப் படிக்கும் வீதம்: %s, இந்த மதிப்பு ஒரு மணி நேரத்திற்கு 1 க்கும் "
+"குறைவாக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:301
 msgid "Different tmp_table_size and max_heap_table_size"
