@@ -16666,7 +16666,7 @@ msgstr ""
 
 #: templates/server/privileges/user_properties.twig:106
 msgid "Change login information / Copy user account"
-msgstr ""
+msgstr "உள்நுழைவு தகவலை மாற்றவும் / பயனர் கணக்கை நகலெடுக்கவும்"
 
 #: templates/server/privileges/user_properties.twig:113
 msgid "Create a new user account with the same privileges and …"
