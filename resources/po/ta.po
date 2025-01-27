@@ -1482,7 +1482,7 @@ msgstr ""
 #: resources/templates/database/designer/main.twig:43
 #: src/Controllers/JavaScriptMessagesController.php:544
 msgid "Add tables from other databases"
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "பிற தரவுத்தளங்களிலிருந்து அட்டவணையைச் சேர்க்கவும்"
 
 #: resources/templates/database/designer/main.twig:48
 #: resources/templates/database/designer/main.twig:52
@@ -1505,7 +1505,7 @@ msgstr "பக்கத்தை சேமிக்க"
 #: resources/templates/database/designer/main.twig:73
 #: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Save page as"
-msgstr "பக்கத்தை சேமிக்க"
+msgstr "பக்கத்தை சேமிக்கவும்"
 
 #: resources/templates/database/designer/main.twig:77
 #: resources/templates/database/designer/main.twig:80
@@ -12774,7 +12774,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:543
 msgid "value/subQuery is empty"
-msgstr ""
+msgstr "மதிப்பு/துணைக்குழு காலியாக உள்ளது"
 
 #: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Page name"
@@ -12820,7 +12820,7 @@ msgstr "%d கருப்பொதிவு(கள்) உருவாக்க
 
 #: src/Controllers/JavaScriptMessagesController.php:562
 msgid "Column name"
-msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
+msgstr "நெடுவரிசை பெயர்"
 
 #: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
