@@ -8659,7 +8659,7 @@ msgstr "வரையறை"
 
 #: libraries/classes/Database/Routines.php:967
 msgid "Is deterministic"
-msgstr ""
+msgstr "தீர்மானகரமானது"
 
 #: libraries/classes/Database/Routines.php:975
 #: templates/columns_definitions/table_fields_definitions.twig:36
