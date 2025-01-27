@@ -1455,7 +1455,7 @@ msgstr "ஐச்லாந்திய"
 #: libraries/classes/Charsets/Collation.php:522
 msgctxt "Collation"
 msgid "Classical Latin"
-msgstr ""
+msgstr "பாரம்பரிய லத்தீன்"
 
 #: libraries/classes/Charsets/Collation.php:526
 msgctxt "Collation"
