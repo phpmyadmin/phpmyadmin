@@ -13784,7 +13784,7 @@ msgstr "புதிய பயனாளரை சேர்க்க"
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
 msgid "Number of columns"
-msgstr ""
+msgstr "நெடுவரிசைகளின் எண்ணிக்கை"
 
 #: templates/database/create_table.twig:14
 #: templates/database/operations/index.twig:39 templates/export.twig:27
