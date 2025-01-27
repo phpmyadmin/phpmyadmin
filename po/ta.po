@@ -3488,7 +3488,7 @@ msgstr "வெளிநாட்டு விசை காசோலைகள்"
 
 #: libraries/classes/Config/Descriptions.php:747
 msgid "First day of calendar"
-msgstr ""
+msgstr "காலெண்டரின் முதல் நாள்"
 
 #: libraries/classes/Config/Descriptions.php:748
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:477
@@ -3614,7 +3614,7 @@ msgstr "கண்காணிப்பை மாற்றுகிறது"
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
-msgstr "கவிமொ"
+msgstr "SQL"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
