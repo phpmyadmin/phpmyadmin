@@ -8417,7 +8417,7 @@ msgstr "கட்டமைக்கப்பட்ட கூட்டு இண�
 
 #: libraries/classes/DatabaseInterface.php:1959
 msgid "Missing connection parameters!"
-msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
+msgstr "இணைப்பு அளவுருக்களைக் காணவில்லை!"
 
 #: libraries/classes/DatabaseInterface.php:1984
 msgid "Connection for controluser as defined in your configuration failed."
@@ -11311,7 +11311,7 @@ msgstr "வழங்கி பதிலளிக்கவில்லை."
 
 #: libraries/classes/Query/Utilities.php:104
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "வெளியேறி மற்றொரு பயனராக முயற்சிக்கவும்."
 
 #: libraries/classes/Query/Utilities.php:109
 msgid "Please check privileges of directory containing database."
