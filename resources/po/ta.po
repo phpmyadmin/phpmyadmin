@@ -9842,7 +9842,7 @@ msgstr "பூச்யத்தை மாற்றவும்"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
 msgid "Remove CRLF characters within columns"
-msgstr ""
+msgstr "நெடுவரிசைகளுக்குள் சிஆர்எல்எஃப் எழுத்துக்களை அகற்று"
 
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
 #: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
