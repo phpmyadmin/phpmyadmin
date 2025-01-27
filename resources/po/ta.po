@@ -11228,11 +11228,11 @@ msgstr "அட்டவணை-படிநிலைமட்ட தாவல்�
 
 #: src/Config/Validator.php:253
 msgid "Could not connect to the database server!"
-msgstr ""
+msgstr "தரவுத்தள சேவையகத்துடன் இணைக்க முடியவில்லை!"
 
 #: src/Config/Validator.php:289
 msgid "Invalid authentication type!"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "தவறான அங்கீகார வகை!"
 
 #: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
