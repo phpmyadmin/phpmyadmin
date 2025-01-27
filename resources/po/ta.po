@@ -10464,7 +10464,7 @@ msgstr "மறுவடிவமைப்பு இயந்திரம்"
 
 #: src/Config/Descriptions.php:853
 msgid "Remember table's sorting"
-msgstr ""
+msgstr "அட்டவணையின் வரிசையாக்கத்தை நினைவில் கொள்ளுங்கள்"
 
 #: src/Config/Descriptions.php:854
 msgid "Primary key default sort order"
