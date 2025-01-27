@@ -12677,6 +12677,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
+"ஒரு நேர முத்திரை, வரம்பு 1970-01-01 00:00:01 UTC முதல் 2038-01-09 03:14:07 UTC, "
+"இது சகாப்தத்திலிருந்து விநாடிகளின் எண்ணிக்கையாக சேமிக்கப்படுகிறது (1970-01-01 00 UTC "
+")"
 
 #: libraries/classes/Types.php:313
 #, php-format
