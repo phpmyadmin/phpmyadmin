@@ -12758,7 +12758,7 @@ msgstr "கருப்பொருள் பாதை கருப்பொர�
 
 #: libraries/classes/ThemeManager.php:334
 msgid "Theme:"
-msgstr ""
+msgstr "தீம்:"
 
 #: libraries/classes/Theme.php:227
 #, php-format
@@ -18004,7 +18004,7 @@ msgstr ""
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:92
 #: templates/table/tracking/main.twig:93
 msgid "Delete version"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "பதிப்பை நீக்கு"
 
 #: templates/table/tracking/main.twig:103
 #, php-format
