@@ -11827,7 +11827,7 @@ msgstr "உள்ளமைக்கக்கூடிய பட்டிகள�
 
 #: libraries/classes/Relation.php:355
 msgid "Hide/show navigation items"
-msgstr ""
+msgstr "வழிசெலுத்தல் உருப்படிகளை மறைக்க/காட்டு"
 
 #: libraries/classes/Relation.php:366
 msgid "Saving Query-By-Example searches"
