@@ -11771,7 +11771,7 @@ msgstr "தரவைச் செருகவும் மாற்றவும�
 #: templates/server/privileges/privileges_table.twig:310
 #: templates/server/privileges/privileges_table.twig:313
 msgid "Allows changing data."
-msgstr ""
+msgstr "தரவை மாற்ற அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:371
 #: templates/server/privileges/privileges_table.twig:359
