@@ -3230,7 +3230,7 @@ msgstr "சேமித்துவிட்டபின்  மூடு"
 #: resources/templates/export.twig:343
 #, php-format
 msgid "Use %s statement"
-msgstr "கூற்றுகளை சேர்க்க:"
+msgstr "%s அறிக்கையைப் பயன்படுத்தவும்"
 
 #: resources/templates/export.twig:352
 msgid "View output as text"
@@ -9794,7 +9794,7 @@ msgstr "பல அட்டவணை பராமரிப்பை முடக
 
 #: src/Config/Descriptions.php:634
 msgid "Maximum execution time"
-msgstr ""
+msgstr "அதிகபட்ச சாவுஒறுப்பு நேரம்"
 
 #: src/Config/Descriptions.php:635
 msgid "Use [code]LOCK TABLES[/code] statement"
