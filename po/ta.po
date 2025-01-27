@@ -17135,6 +17135,10 @@ msgid ""
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
+"செனரல்_லாக் இயக்குவது சேவையக சுமையை 5-15%அதிகரிக்கக்கூடும். பதிவுகளிலிருந்து "
+"புள்ளிவிவரங்களை உருவாக்குவது ஒரு சுமை தீவிரமான பணியாகும் என்பதையும் அறிந்து கொள்ளுங்கள்"
+", எனவே ஒரு சிறிய கால இடைவெளியைத் தேர்ந்தெடுப்பது மற்றும் செனரல்_லாக் முடக்குவது மற்றும் "
+"கண்காணிப்பு தேவையில்லை என்று அதன் அட்டவணையை வெறுமை செய்வது நல்லது."
 
 #: templates/server/status/monitor/index.twig:128
 #: templates/server/status/monitor/index.twig:134
