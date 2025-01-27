@@ -1171,6 +1171,9 @@ msgid ""
 "that the query cache is an alternating pattern of free and used blocks. This "
 "value should be below 20%%."
 msgstr ""
+"தற்காலிக சேமிப்பு தற்போது%s %% ஆல் துண்டு துண்டாக உள்ளது, 100 %% துண்டு துண்டாக உள்ளது"
+", அதாவது வினவல் தற்காலிக சேமிப்பு இலவச மற்றும் பயன்படுத்தப்பட்ட தொகுதிகளின் மாற்று முறை"
+". இந்த மதிப்பு 20 %% க்குக் குறைவாக இருக்க வேண்டும்."
 
 #: libraries/advisory_rules_mysql_before80003.php:73
 msgid "Query cache low memory prunes"
