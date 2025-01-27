@@ -4398,7 +4398,7 @@ msgstr "இயல்புநிலை மதிப்பை மீட்டெ�
 
 #: libraries/classes/Config/FormDisplayTemplate.php:368
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "இந்த மதிப்பைத் தனிப்பயனாக்க பயனர்களை அனுமதிக்கவும்"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:37
 msgid "Config authentication"
