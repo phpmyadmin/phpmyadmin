@@ -17609,6 +17609,7 @@ msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
 msgstr ""
+"இணைய பிணையம் முகவரியை (IPV4/IPV6) வடிவமைப்பில் நீண்ட முழு எண்ணாக மாற்றுகிறது."
 
 #: src/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -17616,7 +17617,7 @@ msgstr "தொடரியல் சாதொபொகு க்கான கோ
 
 #: src/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for SQL."
-msgstr "தொடரியல் கவிமொ க்கான கோட்மிரர் எடிட்டரை சிறப்பிக்கப்பட்டது."
+msgstr "CQL க்கான CODEMIRROR எடிட்டரை தொடரியல் சிறப்பிக்கப்பட்டது."
 
 #: src/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:25
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
