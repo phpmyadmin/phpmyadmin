@@ -14029,7 +14029,7 @@ msgstr ""
 #: templates/table/search/index.twig:41
 #: templates/table/zoom_search/index.twig:39
 msgid "Operator"
-msgstr ""
+msgstr "ஆபரேட்டர்"
 
 #: templates/database/designer/main.twig:1090
 msgid "Active options"
