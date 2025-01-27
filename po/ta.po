@@ -9554,7 +9554,7 @@ msgstr "தரவு %s கோப்பாக சேமிக்கப்பட�
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:992
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "இந்த ஏற்றுமதி முறைக்கு மூல வினவலை ஏற்றுமதி செய்வது ஆதரிக்கப்படவில்லை."
 
 #: libraries/classes/File.php:231
 msgid "File was not an uploaded file."
