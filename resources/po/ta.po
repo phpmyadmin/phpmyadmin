@@ -10680,7 +10680,7 @@ msgstr "இடைமுகம் விருப்பத்தேர்வு�
 
 #: src/Config/Descriptions.php:897
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "துளி தரவுத்தளத்தைச் சேர்க்கவும்"
 
 #: src/Config/Descriptions.php:899
 msgid "Add DROP VIEW"
