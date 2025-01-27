@@ -9492,7 +9492,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:486
 msgid "Display the function fields in edit/insert mode."
-msgstr ""
+msgstr "செயல்பாட்டு புலங்களை திருத்து/செருகு பயன்முறையில் காண்பி."
 
 #: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
