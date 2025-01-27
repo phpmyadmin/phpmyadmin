@@ -7347,7 +7347,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:137
 msgid "Received"
-msgstr ""
+msgstr "பெறப்பட்டது"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:142
 msgid "Sent"
