@@ -4935,7 +4935,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/ReplaceController.php:416
 #: libraries/classes/Core.php:873 templates/preview_sql.twig:3
 msgid "No change"
-msgstr ""
+msgstr "எந்த மாற்றமும் இல்லை"
 
 #: libraries/classes/Controllers/Database/TrackingController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:101
