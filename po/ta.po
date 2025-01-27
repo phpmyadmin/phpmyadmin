@@ -268,6 +268,9 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"உங்கள் நினைவக திறன் 3 கிபுக்கு மேல் உள்ளது (சேவையகம் உள்ளக ஓச்டில் இருப்பதாகக் கருதி), "
+"எனவே MySQL உங்கள் நினைவகம் அனைத்தையும் அணுக முடியாமல் போகலாம். MySQL இன் 64 பிட் "
+"பதிப்பை நிறுவுவதை நீங்கள் பரிசீலிக்க விரும்பலாம்."
 
 #: libraries/advisory_rules_generic.php:178
 #, php-format
