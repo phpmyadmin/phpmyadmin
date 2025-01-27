@@ -6617,17 +6617,13 @@ msgid "Click to sort results by this column."
 msgstr "இந்நெடுவரிசையை பொருத்து முடிவுகளை வரிசைப்படுத்த சொடுக்குக."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:555
-#, fuzzy
-#| msgid ""
-#| "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
-#| "<br />- Control+Click to remove column from ORDER BY clause"
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற "
-"shift+சொடுக்கவும். <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க Ctrl+சொடுக்கவும்"
+"இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற shift+சொடுக்கவும்"
+". <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க Ctrl+சொடுக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:559
 msgid "Click to mark/unmark."
