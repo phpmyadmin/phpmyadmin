@@ -14222,19 +14222,19 @@ msgstr "நெடுவரிசை மாற்றுப்பெயர்"
 
 #: templates/database/multi_table_query/form.twig:55
 msgid "Use this column in criteria"
-msgstr ""
+msgstr "இந்த நெடுவரிசையை அளவுகோல்களில் பயன்படுத்தவும்"
 
 #: templates/database/multi_table_query/form.twig:59
 msgid "criteria"
-msgstr "தேர்வளவை:"
+msgstr "அளவுகோல்கள்"
 
 #: templates/database/multi_table_query/form.twig:73
 msgid "Add as"
-msgstr "%sஐ சேர்க்க"
+msgstr "சேர்க்க"
 
 #: templates/database/multi_table_query/form.twig:128
 msgid "Another column"
-msgstr "நிரல்வரிசையை நகர்த்து"
+msgstr "மற்றொரு நெடுவரிசை"
 
 #: templates/database/multi_table_query/form.twig:155
 msgid "Enter criteria as free text"
