@@ -3453,7 +3453,7 @@ msgstr "தரவுத்தள மரம் பிரிப்பான்"
 
 #: libraries/classes/Config/Descriptions.php:853
 msgid "Table tree separator"
-msgstr ""
+msgstr "அட்டவணை மரம் பிரிப்பான்"
 
 #: libraries/classes/Config/Descriptions.php:854
 msgid "Maximum table tree depth"
