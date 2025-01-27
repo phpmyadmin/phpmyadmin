@@ -10828,21 +10828,21 @@ msgstr "உங்கள் தரவுத்தளம் நடைமுறை�
 #: libraries/classes/Plugins/Export/ExportSql.php:1626
 #: libraries/classes/Plugins/Export/ExportSql.php:2148
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "மாற்று ஏற்றுமதி எல்லா நிகழ்வுகளிலும் நம்பத்தகுந்ததாக செயல்படாது."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1078
 msgid "Metadata"
-msgstr "தரவு"
+msgstr "மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1146
 #, php-format
 msgid "Metadata for table %s"
-msgstr "தரவை அல்லது அட்டவணையை அழி"
+msgstr "அட்டவணை %s க்கான மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1153
 #, php-format
 msgid "Metadata for database %s"
-msgstr "தரவுத்தளம்: %s க்கு செல்க"
+msgstr "தரவுத்தளம் %s க்கான மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1470
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:631
