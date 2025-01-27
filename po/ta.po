@@ -17763,7 +17763,7 @@ msgstr "கருத்துரை:"
 
 #: templates/table/index_form.twig:152 templates/table/index_form.twig:189
 msgid "Drag to reorder"
-msgstr ""
+msgstr "மறுவரிசைப்படுத்த இழுக்கவும்"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
