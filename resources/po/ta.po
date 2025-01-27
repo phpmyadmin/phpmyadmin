@@ -16798,7 +16798,7 @@ msgstr "இந்த வடிவத்திற்கு விருப்ப�
 #: src/Plugins/Schema/Svg/TableStatsSvg.php:78
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr ""
+msgstr "%s அட்டவணை இல்லை!"
 
 #: src/Plugins/Schema/Eps/EpsRelationSchema.php:64
 #: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
