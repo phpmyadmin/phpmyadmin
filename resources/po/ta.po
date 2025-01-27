@@ -10396,7 +10396,7 @@ msgstr "வரிசை இணைப்புகளை எப்படியு�
 
 #: src/Config/Descriptions.php:839
 msgid "Natural order"
-msgstr ""
+msgstr "இயற்கை ஒழுங்கு"
 
 #: src/Config/Descriptions.php:840
 msgid "Table navigation bar"
