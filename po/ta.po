@@ -15649,8 +15649,6 @@ msgid "OK"
 msgstr "சரி"
 
 #: templates/relation/check_relations.twig:62
-#, fuzzy
-#| msgid "Internal relations"
 msgid "General relation features:"
 msgstr "உள்ளமை உறவுமுறைகள்"
 
