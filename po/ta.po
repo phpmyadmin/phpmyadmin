@@ -17939,7 +17939,7 @@ msgstr "உள் உறவு"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr ""
+msgstr "தொடர்புடைய வெளிநாட்டு முக்கிய உறவு இருக்கும்போது உள் உறவு தேவையில்லை."
 
 #: templates/table/relation/common_form.twig:205
 msgid "Choose column to display:"
@@ -18248,7 +18248,7 @@ msgstr "நெடுவரிசை பெயர்கள்"
 
 #: url.php:52
 msgid "Taking you to the target site."
-msgstr "அடுத்த படிநிலைக்கு செல்கிறோம்…"
+msgstr "உங்களை இலக்கு தளத்திற்கு அழைத்துச் செல்கிறது."
 
 #~ msgid "Configuration saved."
 #~ msgstr "உள்ளமைவு சேமிக்கப்பட்டது."
