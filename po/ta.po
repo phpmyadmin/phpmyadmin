@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:26+0000\n"
+"PO-Revision-Date: 2025-01-27 02:27+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -8631,7 +8631,7 @@ msgstr "தூண்டுதலுக்கான சரியான நேர�
 
 #: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a valid event for the trigger!"
-msgstr ""
+msgstr "தூண்டுதலுக்கு நீங்கள் சரியான நிகழ்வை வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Triggers.php:408
 msgid "You must provide a valid table name!"
