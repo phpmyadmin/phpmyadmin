@@ -13945,7 +13945,7 @@ msgstr "ஒழுங்கமைவை தரவேற்றுக"
 #: templates/database/designer/main.twig:169
 #: templates/database/designer/main.twig:172
 msgid "Build Query"
-msgstr ""
+msgstr "வினவலை உருவாக்குங்கள்"
 
 #: templates/database/designer/main.twig:177
 #: templates/database/designer/main.twig:181
