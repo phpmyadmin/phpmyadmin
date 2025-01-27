@@ -803,7 +803,7 @@ msgstr "மெதுவாக ஏவுதல் நேரம்"
 
 #: libraries/advisory_rules_generic.php:518
 msgid "Slow_launch_time is above 2s."
-msgstr ""
+msgstr "Slow_launch_time 2s க்கு மேல் உள்ளது."
 
 #: libraries/advisory_rules_generic.php:520
 msgid ""
