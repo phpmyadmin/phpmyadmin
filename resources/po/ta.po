@@ -14649,7 +14649,7 @@ msgstr "நூல் கேச் செய் வீதம் (கணக்க�
 
 #: src/Controllers/Server/Status/VariablesController.php:497
 msgid "The number of threads that are not sleeping."
-msgstr ""
+msgstr "தூங்காத நூல்களின் எண்ணிக்கை."
 
 #: src/Controllers/Server/UserGroupsFormController.php:53
 msgid "User groups management is not enabled."
