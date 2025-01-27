@@ -7416,7 +7416,7 @@ msgstr "MySQL கட்டிடக்கலை"
 
 #: src/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL 64 பிட் தொகுப்பாக தொகுக்கப்படவில்லை."
 
 #: src/Advisory/Rules.php:201
 msgid ""
