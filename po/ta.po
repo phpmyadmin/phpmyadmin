@@ -17612,7 +17612,7 @@ msgstr ""
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
-msgstr ""
+msgstr "விரிவான சுயவிவரம்"
 
 #: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:43
 msgid "State"
