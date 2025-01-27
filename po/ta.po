@@ -16458,7 +16458,7 @@ msgstr ""
 
 #: templates/server/replication/change_master.twig:26
 msgid "Port:"
-msgstr ""
+msgstr "போர்ட்:"
 
 #: templates/server/replication/index.twig:21
 #, php-format
