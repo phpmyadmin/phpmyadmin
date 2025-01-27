@@ -14053,7 +14053,7 @@ msgstr "பக்கத்தைத் தேர்ந்தெடுக்க�
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
-msgstr ""
+msgstr "ஏற்றுமதி தொடர்புடைய வகையைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
