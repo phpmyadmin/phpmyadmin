@@ -11363,7 +11363,7 @@ msgstr "மிகை"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:66
 msgid "Show color"
-msgstr ""
+msgstr "வண்ணத்தைக் காட்டு"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:68
 msgid "Only show keys"
