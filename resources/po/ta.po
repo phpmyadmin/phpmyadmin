@@ -11839,7 +11839,7 @@ msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்�
 
 #: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[ரோல்பேக் ஏற்பட்டது.]"
 
 #: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
