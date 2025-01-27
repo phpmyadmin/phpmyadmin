@@ -116,6 +116,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} 10 வினாடிகள் அல்லது அதற்கு மேற்பட்டதாக அமைக்கப்பட்டுள்ளது, இதனால் 10 "
+"வினாடிகளுக்கு மேல் எடுக்கும் மெதுவான வினவல்கள் மட்டுமே உள்நுழைந்துள்ளன."
 
 #: libraries/advisory_rules_generic.php:71
 msgid ""
