@@ -684,6 +684,8 @@ msgstr ""
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
+"திறந்த கோப்புகளின் எண்ணிக்கை வரம்பின்%s %% இல் உள்ளது. இது 85 %% க்குக் குறைவாக இருக்க "
+"வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:445
 msgid "Rate of open files"
