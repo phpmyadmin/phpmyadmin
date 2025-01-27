@@ -12802,7 +12802,7 @@ msgstr ""
 
 #: libraries/classes/Types.php:410
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "64 உறுப்பினர்களின் தொகுப்பிலிருந்து தேர்ந்தெடுக்கப்பட்ட ஒற்றை மதிப்பு"
 
 #: libraries/classes/Types.php:413
 msgid "A type that can store a geometry of any type"
