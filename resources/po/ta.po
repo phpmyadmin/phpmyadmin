@@ -18210,7 +18210,7 @@ msgstr ""
 #: src/Types.php:584
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "எண் வரிசை"
 
 #: src/Types.php:602
 msgctxt "date and time types"
