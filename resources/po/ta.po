@@ -5555,7 +5555,7 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:62
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "வழிமுறைகளை கண்காணிக்கவும்"
 
 #: resources/templates/server/status/monitor/index.twig:64
 msgid ""
