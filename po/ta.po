@@ -16963,7 +16963,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:233
 msgid "Results are grouped by query text."
-msgstr ""
+msgstr "வினவல் உரையால் முடிவுகள் தொகுக்கப்படுகின்றன."
 
 #: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
