@@ -3553,7 +3553,7 @@ msgstr "பட்டியல் தாவல்களை எவ்வாறு 
 
 #: libraries/classes/Config/Descriptions.php:876
 msgid "How to display various action links"
-msgstr ""
+msgstr "பல்வேறு செயல் இணைப்புகளை எவ்வாறு காண்பிப்பது"
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid "Protect binary columns"
