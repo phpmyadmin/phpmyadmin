@@ -9032,7 +9032,7 @@ msgstr "அனைத்து INNODB தரவுக் கோப்புகள
 
 #: libraries/classes/Engines/Innodb.php:36
 msgid "Data files"
-msgstr ""
+msgstr "தரவுக் கோப்புகள்"
 
 #: libraries/classes/Engines/Innodb.php:39
 msgid "Autoextend increment"
