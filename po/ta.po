@@ -14201,8 +14201,6 @@ msgid "Make consistent with central list"
 msgstr "முதன்மைபட்டியலை ஒத்து நிலைப்படுத்துக"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
 msgstr "விருப்பத்தேர்வுகள்"
 
