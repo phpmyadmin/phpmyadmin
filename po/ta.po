@@ -15906,7 +15906,7 @@ msgstr ""
 
 #: templates/login/twofactor.twig:10
 msgid "Verify"
-msgstr ""
+msgstr "சரிபார்க்கவும்"
 
 #: templates/login/twofactor/webauthn_creation.twig:1
 msgid ""
