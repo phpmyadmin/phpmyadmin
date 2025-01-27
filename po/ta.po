@@ -1739,6 +1739,8 @@ msgid ""
 "Please note that phpMyAdmin is just a user interface and its features do not "
 "limit MySQL."
 msgstr ""
+"Phpmyadmin என்பது ஒரு பயனர் இடைமுகம் மற்றும் அதன் நற்பொருத்தங்கள் MySQL ஐ மட்டுப்படுத்தாது"
+" என்பதை நினைவில் கொள்க."
 
 #: libraries/classes/Config/Descriptions.php:198
 msgid ""
