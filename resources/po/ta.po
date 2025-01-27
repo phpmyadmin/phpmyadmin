@@ -11010,7 +11010,7 @@ msgstr "HTTP ஏற்பு"
 
 #: src/Config/Forms/Setup/ServersForm.php:33
 msgid "Signon authentication"
-msgstr ""
+msgstr "சிக்னன் ஏற்பு"
 
 #: src/Config/Forms/User/ExportForm.php:23
 msgid "Quick"
