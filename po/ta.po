@@ -7665,7 +7665,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The number of pages read."
-msgstr ""
+msgstr "பக்கங்களின் எண்ணிக்கை படித்தது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:466
 msgid "The number of pages written."
