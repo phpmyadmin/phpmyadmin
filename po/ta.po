@@ -11773,7 +11773,7 @@ msgstr "pmadbஇன் அமைப்பாக்கம்…"
 
 #: libraries/classes/Relation.php:157 libraries/classes/Relation.php:193
 msgid "General relation features"
-msgstr ""
+msgstr "பொது உறவு நற்பொருத்தங்கள்"
 
 #: libraries/classes/Relation.php:204
 msgid "Display Features"
