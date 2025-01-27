@@ -15703,7 +15703,7 @@ msgstr "பகுப்பாய்வின் போது %d பிழைக�
 #: src/Http/Middleware/DatabaseServerVersionChecking.php:42
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "நீங்கள் %s %s அல்லது அதற்குப் பிறகு மேம்படுத்த வேண்டும்."
 
 #: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
