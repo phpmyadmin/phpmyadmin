@@ -6065,7 +6065,7 @@ msgstr "மொத்த நேரம்"
 
 #: resources/templates/sql/profiling_chart.twig:38
 msgid "% Time"
-msgstr ""
+msgstr "% நேரம்"
 
 #: resources/templates/sql/profiling_chart.twig:39
 msgid "Calls"
