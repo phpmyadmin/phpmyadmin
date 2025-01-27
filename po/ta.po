@@ -7611,6 +7611,11 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
+"பொதுவாக, இன்னோடிபி இடையகக் குளத்திற்கு எழுதுகிறது பின்னணியில் நடக்கும். இருப்பினும், "
+"ஒரு பக்கத்தைப் படிக்க அல்லது உருவாக்க வேண்டியது தேவை மற்றும் தூய்மையான பக்கங்கள் எதுவும் "
+"கிடைக்கவில்லை என்றால், முதலில் பக்கங்கள் சுத்தப்படுத்தப்படும் வரை காத்திருக்க வேண்டியது தேவை"
+". இந்த காத்திருப்பு நிகழ்வுகளை இந்த எதிர் கணக்கிடுகிறது. இடையக பூல் அளவு சரியாக "
+"அமைக்கப்பட்டிருந்தால், இந்த மதிப்பு சிறியதாக இருக்க வேண்டும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:358
 msgid "The number writes done to the InnoDB buffer pool."
