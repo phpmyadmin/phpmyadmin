@@ -12486,7 +12486,7 @@ msgstr "கவிமொ டம்ப்"
 
 #: libraries/classes/Tracking.php:477
 msgid "This option will replace your table and contained data."
-msgstr ""
+msgstr "இந்த விருப்பம் உங்கள் அட்டவணையை மாற்றும் மற்றும் தரவைக் கொண்டிருக்கும்."
 
 #: libraries/classes/Tracking.php:479
 msgid "SQL execution"
