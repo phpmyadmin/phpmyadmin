@@ -2869,7 +2869,7 @@ msgstr "நெடுவரிசைகள் நிறுத்தப்பட�
 #: libraries/classes/Config/Descriptions.php:793
 #: libraries/classes/Plugins/Import/ImportCsv.php:684
 msgid "Lines terminated with"
-msgstr ""
+msgstr "கோடுகள் நிறுத்தப்பட்டன"
 
 #: libraries/classes/Config/Descriptions.php:668
 msgid "Excel edition"
