@@ -17108,6 +17108,9 @@ msgid ""
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
+"உங்கள் உலாவி காண்பிக்கப்படும் அனைத்து விளக்கப்படங்களையும் வழக்கமான இடைவெளியில் புதுப்பிக்கும்"
+". நீங்கள் விளக்கப்படங்களைச் சேர்த்து, 'அமைப்புகள்' கீழ் புதுப்பிப்பு வீதத்தை மாற்றலாம் அல்லது "
+"அந்தந்த ஒவ்வொரு விளக்கப்படத்திலும் COG ஐகானைப் பயன்படுத்தி எந்த விளக்கப்படத்தையும் அகற்றலாம்."
 
 #: templates/server/status/monitor/index.twig:108
 msgid ""
