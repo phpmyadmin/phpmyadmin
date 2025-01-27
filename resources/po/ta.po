@@ -7022,7 +7022,7 @@ msgstr "திகதி"
 
 #: resources/templates/table/tracking/report_table.twig:6
 msgid "Username"
-msgstr ""
+msgstr "பயனர்பெயர்"
 
 #: resources/templates/table/zoom_search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
