@@ -14862,6 +14862,7 @@ msgstr ""
 #: src/Triggers/Triggers.php:190
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr ""
+"வரையறுக்கப்பட்டவர் \"பயனர்பெயர்@ஓச்ட்பெயர்\" வடிவத்தில் இருக்க வேண்டும்!"
 
 #: src/Database/Events.php:278
 msgid "You must provide an event name!"
