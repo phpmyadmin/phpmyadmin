@@ -6357,7 +6357,7 @@ msgstr "புதிய வரிசையாக செருகவும்"
 
 #: resources/templates/table/insert/actions_panel.twig:11
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "புதிய வரிசையாக செருகவும், பிழைகளை புறக்கணிக்கவும்"
 
 #: resources/templates/table/insert/actions_panel.twig:12
 msgid "Show insert query"
