@@ -14681,6 +14681,8 @@ msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
+"நீங்கள் பாதுகாப்பான இணைப்பைப் பயன்படுத்தவில்லை; எல்லா தரவுகளும் (கடவுச்சொற்கள் போன்ற "
+"முக்கியமான தகவல்கள் உட்பட) மறைகுறியாக்கப்பட்டவை!"
 
 #: src/Controllers/Setup/HomeController.php:79
 msgid ""
