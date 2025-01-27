@@ -4772,7 +4772,7 @@ msgstr "தரவைச் செருகவும் மாற்றவும�
 #: resources/templates/server/privileges/privileges_table.twig:316
 #: src/Server/Privileges.php:319
 msgid "Allows changing data."
-msgstr ""
+msgstr "தரவை மாற்ற அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:97
 #: resources/templates/server/privileges/privileges_table.twig:677
