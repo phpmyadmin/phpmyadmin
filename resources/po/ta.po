@@ -10806,7 +10806,7 @@ msgstr "Phpinfo () இணைப்பைக் காட்டு"
 
 #: src/Config/Descriptions.php:921
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "விரிவான MySQL சேவையக தகவலைக் காட்டு"
 
 #: src/Config/Descriptions.php:922
 msgid "Show SQL queries"
