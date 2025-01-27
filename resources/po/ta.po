@@ -15636,7 +15636,7 @@ msgstr ""
 
 #: src/Import/Import.php:1224
 msgid "Edit structure by following the \"Structure\" link."
-msgstr ""
+msgstr "\"கட்டமைப்பு\" இணைப்பைப் பின்பற்றுவதன் மூலம் கட்டமைப்பைத் திருத்தவும்."
 
 #: src/Import/Import.php:1231
 #, php-format
