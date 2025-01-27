@@ -16914,6 +16914,7 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர�
 #: templates/server/privileges/users_overview.twig:149
 msgid "Revoke all active privileges from the users and delete them afterwards."
 msgstr ""
+"பயனர்களிடமிருந்து அனைத்து செயலில் உள்ள சலுகைகளையும் ரத்து செய்து பின்னர் அவற்றை நீக்கவும்."
 
 #: templates/server/privileges/users_overview.twig:153
 msgid "Drop the databases that have the same names as the users."
