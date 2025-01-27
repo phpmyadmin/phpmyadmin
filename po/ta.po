@@ -3506,7 +3506,7 @@ msgstr "அதிகபட்ச அட்டவணை மர ஆழம்"
 
 #: libraries/classes/Config/Descriptions.php:846
 msgid "Enable highlighting"
-msgstr ""
+msgstr "சிறப்பம்சமாக இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Enable navigation tree expansion"
