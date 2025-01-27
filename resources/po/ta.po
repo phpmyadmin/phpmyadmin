@@ -2453,7 +2453,7 @@ msgstr "அட்டவணைகளில்:"
 #: resources/templates/server/export/index.twig:11
 #: resources/templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
-msgstr "அனைத்தையும் தெரிவுநீக்கு"
+msgstr "அனைத்தையும் தேர்வு செய்யுங்கள்"
 
 #: resources/templates/database/search/main.twig:67
 msgid "Inside column:"
@@ -5324,7 +5324,7 @@ msgstr "தற்போதைய பிழையைத் தவிர்க்�
 #: resources/templates/server/replication/replica_configuration.twig:87
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "அடுத்த %s பிழைகளைத் தவிர்க்கவும்."
 
 #: resources/templates/server/replication/replica_configuration.twig:97
 msgid "Change or reconfigure primary server"
