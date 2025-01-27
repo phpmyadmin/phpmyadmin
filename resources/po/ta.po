@@ -10037,7 +10037,7 @@ msgstr "பொது"
 
 #: src/Config/Descriptions.php:736
 msgid "Import defaults"
-msgstr ""
+msgstr "இயல்புநிலைகளை இறக்குமதி செய்க"
 
 #: src/Config/Descriptions.php:737
 msgid "Import / export"
