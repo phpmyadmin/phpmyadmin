@@ -14607,7 +14607,7 @@ msgstr "வினவலின் பயன்முடிவுகளின் �
 
 #: templates/display/results/table.twig:249
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
 #: templates/display/results/table.twig:268
 #: templates/table/chart/tbl_chart.twig:7
