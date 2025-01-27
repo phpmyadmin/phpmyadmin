@@ -6407,7 +6407,7 @@ msgstr "பைனரி - திருத்த வேண்டாம்"
 #: resources/templates/table/insert/column_row.twig:120
 #: resources/templates/table/search/input_box.twig:32
 msgid "Edit/Insert"
-msgstr ""
+msgstr "திருத்து/செருகவும்"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
