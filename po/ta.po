@@ -11631,8 +11631,6 @@ msgid "Show primary status"
 msgstr "இரும உள்ளடக்கங்களை காண்பி"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Replication status"
 msgid "Show replica status"
 msgstr "துணைநிலை நிகழ்நிலை"
 
