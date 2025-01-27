@@ -10282,7 +10282,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:283
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr ""
+msgstr "ரெக்காப்ட்சா சேவையுடன் இணைக்கத் தவறிவிட்டது!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:285
 msgid "Entered captcha is wrong, try again!"
