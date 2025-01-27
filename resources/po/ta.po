@@ -9909,7 +9909,7 @@ msgstr "ஏற்றுமதி முறை"
 
 #: src/Config/Descriptions.php:680 src/Config/Descriptions.php:683
 msgid "Save on server"
-msgstr ""
+msgstr "சேவையகத்தில் சேமிக்கவும்"
 
 #: src/Config/Descriptions.php:682
 msgid "Export as separate files"
