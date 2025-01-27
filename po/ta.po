@@ -10350,7 +10350,7 @@ msgstr "இணைக்கப்பட்ட நெடுவரிசைகள�
 #: libraries/classes/Plugins/Export/ExportCsv.php:68
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
 msgid "Columns escaped with:"
-msgstr ""
+msgstr "நெடுவரிசைகள் தப்பித்தன:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:73
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:56
