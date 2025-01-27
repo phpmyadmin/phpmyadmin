@@ -14136,7 +14136,7 @@ msgstr ""
 
 #: templates/database/events/index.twig:149
 msgid "OFF"
-msgstr ""
+msgstr "அணை"
 
 #: templates/database/export/index.twig:62
 msgid ""
