@@ -14342,7 +14342,7 @@ msgstr "ஒரு வரிசை பூட்டை எத்தனை மு�
 
 #: src/Controllers/Server/Status/VariablesController.php:374
 msgid "The number of rows deleted from InnoDB tables."
-msgstr ""
+msgstr "INNODB அட்டவணைகளிலிருந்து நீக்கப்பட்ட வரிசைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:375
 msgid "The number of rows inserted in InnoDB tables."
