@@ -3708,7 +3708,7 @@ msgstr "சேமிக்க அட்டவணை விருப்பங்�
 
 #: libraries/classes/Config/Descriptions.php:908
 msgid "QBE saved searches table"
-msgstr ""
+msgstr "QBE சேமித்த தேடல் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:909
 msgid "Export templates table"
