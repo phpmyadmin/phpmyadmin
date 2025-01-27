@@ -11278,7 +11278,7 @@ msgstr "Recaptcha V2 பநிஇ க்கான அளவுரு"
 
 #: src/Config/Descriptions.php:950
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான மறுமொழி அளவுரு"
 
 #: src/Config/Descriptions.php:951
 msgid "Public key for reCAPTCHA"
