@@ -7767,7 +7767,7 @@ msgstr "MyISAM விசை இடையகத்தின் விழுக்
 #: src/Advisory/Rules.php:430
 #, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
-msgstr ""
+msgstr "%% myisam key buffed:%s %%, இந்த மதிப்பு 95 %ுறமாக இருக்க வேண்டும்"
 
 #: src/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
