@@ -10095,6 +10095,8 @@ msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
+"அட்டவணையில் எந்தவொரு முதன்மை முக்கிய நெடுவரிசைகளும் இல்லாததால் எந்த இடைக்கால சார்புகளும் "
+"சாத்தியமில்லை"
 
 #: libraries/classes/Normalization.php:929
 msgid "Table is already in Third normal form!"
