@@ -17319,7 +17319,7 @@ msgstr "கிராண்ட் தவிர அனைத்து சலுக
 #: src/Server/Privileges.php:893
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr ""
+msgstr "%s க்கான கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது."
 
 #: src/Server/Privileges.php:941
 #, php-format
