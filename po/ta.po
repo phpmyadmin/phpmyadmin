@@ -11091,7 +11091,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:87
 #, php-format
 msgid "The %s table doesn't exist!"
-msgstr ""
+msgstr "%s அட்டவணை இல்லை!"
 
 #: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:62
 #: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:78
