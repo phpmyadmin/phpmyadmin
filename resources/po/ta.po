@@ -10251,7 +10251,7 @@ msgstr "அதிகபட்சம் காட்டப்படும் க�
 
 #: src/Config/Descriptions.php:803
 msgid "Maximum databases"
-msgstr ""
+msgstr "அதிகபட்ச தரவுத்தளங்கள்"
 
 #: src/Config/Descriptions.php:804
 msgid "Maximum items on first level"
