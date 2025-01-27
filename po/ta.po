@@ -14131,7 +14131,7 @@ msgstr "பயனர் பெயர்"
 #: templates/server/privileges/users_overview.twig:9
 #: templates/table/privileges/index.twig:20
 msgid "Host name"
-msgstr "கட்டுப்பாட்டின் பெயர்"
+msgstr "புரவலன் பெயர்"
 
 #: templates/database/privileges/index.twig:21
 #: templates/server/privileges/privileges_summary.twig:16
@@ -16434,11 +16434,11 @@ msgstr "உரை புலத்தைப் பயன்படுத்தவ�
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
-msgstr ""
+msgstr "ஒரு கணக்கு ஏற்கனவே அதே பயனர்பெயருடன் உள்ளது, ஆனால் வேறு ஓச்ட்பெயர்."
 
 #: templates/server/privileges/login_information_fields.twig:22
 msgid "Host name:"
-msgstr "பயனர் பெயர்:"
+msgstr "புரவலன் பெயர்:"
 
 #: templates/server/privileges/login_information_fields.twig:27
 #: templates/server/replication/primary_add_replica_user.twig:34
