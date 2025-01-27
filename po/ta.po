@@ -11816,7 +11816,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:96
 #: templates/server/privileges/privileges_table.twig:666
 msgid "Has no effect in this MySQL version."
-msgstr ""
+msgstr "இந்த MySQL பதிப்பில் எந்த விளைவும் இல்லை."
 
 #: libraries/classes/Server/Privileges.php:416
 #: templates/server/privileges/privileges_table.twig:625
