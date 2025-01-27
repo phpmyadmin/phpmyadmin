@@ -8495,15 +8495,15 @@ msgstr "இரட்டை சொடுக்கு"
 
 #: src/Config/ConfigFile.php:571
 msgid "key"
-msgstr ""
+msgstr "விசை"
 
 #: src/Config/ConfigFile.php:571
 msgid "display column"
-msgstr "கருத்துரைகளை காட்டுக"
+msgstr "நெடுவரிசை காட்சி"
 
 #: src/Config/ConfigFile.php:574
 msgid "Welcome"
-msgstr "%sக்கு வருக"
+msgstr "வரவேற்கிறோம்"
 
 #: src/Config/ConfigFile.php:606
 msgid "Open"
