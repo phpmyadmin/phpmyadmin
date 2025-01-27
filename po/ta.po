@@ -11949,7 +11949,7 @@ msgstr "வழக்கமான"
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:47
 msgid "Routine-specific privileges"
-msgstr "தனிசலுகைகளை சரிபார்க்க"
+msgstr "வழக்கமான-குறிப்பிட்ட சலுகைகள்"
 
 #: libraries/classes/Server/Privileges.php:2173
 msgid "No users selected for deleting!"
@@ -16670,7 +16670,7 @@ msgstr "உள்நுழைவு தகவலை மாற்றவும் 
 
 #: templates/server/privileges/user_properties.twig:113
 msgid "Create a new user account with the same privileges and …"
-msgstr ""
+msgstr "அதே சலுகைகளுடன் புதிய பயனர் கணக்கை உருவாக்கவும்…"
 
 #: templates/server/privileges/user_properties.twig:119
 msgid "… keep the old one."
