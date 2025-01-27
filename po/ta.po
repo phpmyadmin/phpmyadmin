@@ -1418,7 +1418,7 @@ msgstr "குரோசியன்"
 #: libraries/classes/Charsets/Collation.php:459
 msgctxt "Collation"
 msgid "Czech"
-msgstr ""
+msgstr "செக்"
 
 #: libraries/classes/Charsets/Collation.php:463
 msgctxt "Collation"
