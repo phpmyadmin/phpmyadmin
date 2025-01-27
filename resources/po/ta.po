@@ -3860,7 +3860,7 @@ msgstr "இவற்றை வடிகட்ட தட்டச்சு செ
 
 #: resources/templates/navigation/tree/fast_filter.twig:16
 msgid "Clear fast filter"
-msgstr ""
+msgstr "விரைவான வடிகட்டியை அழிக்கவும்"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
 msgid "Recently visited tables"
