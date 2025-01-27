@@ -4410,7 +4410,7 @@ msgstr "HTTP ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:44
 msgid "Signon authentication"
-msgstr ""
+msgstr "சிக்னன் ஏற்பு"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:23
 msgid "Quick"
