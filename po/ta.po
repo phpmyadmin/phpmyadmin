@@ -13869,7 +13869,7 @@ msgstr "அட்டவணைகள் பட்டியலைக் காட�
 #: templates/database/designer/main.twig:35
 #: templates/database/designer/main.twig:36
 msgid "View in fullscreen"
-msgstr ""
+msgstr "முழுத் திரையில் காண்க"
 
 #: templates/database/designer/main.twig:34
 msgid "Exit fullscreen"
