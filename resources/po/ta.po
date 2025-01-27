@@ -17859,6 +17859,7 @@ msgstr ""
 #: src/Tracking/Tracking.php:805
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
+"கவிமொ அறிக்கைகள் ஏற்றுமதி செய்யப்பட்டன. தயவுசெய்து டம்பை நகலெடுக்கவும் அல்லது இயக்கவும்."
 
 #: src/Tracking/Tracking.php:838
 #, php-format
