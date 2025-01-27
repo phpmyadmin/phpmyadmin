@@ -3037,7 +3037,7 @@ msgstr "%sஐ சேர்க்க"
 
 #: libraries/classes/Config/Descriptions.php:724
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr ""
+msgstr "பைனரி மற்றும் குமிழிக்கு எக்சாடெசிமல் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:726
 msgid ""
