@@ -629,7 +629,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:410
 msgid "You may need to increase {key_buffer_size}."
-msgstr ""
+msgstr "நீங்கள் {key_buffer_size} அதிகரிக்க வேண்டியிருக்கலாம்."
 
 #: libraries/advisory_rules_generic.php:411
 #, php-format
