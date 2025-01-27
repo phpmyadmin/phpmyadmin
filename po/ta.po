@@ -12529,6 +12529,8 @@ msgid ""
 "You can execute the dump by creating and using a temporary database. Please "
 "ensure that you have the privileges to do so."
 msgstr ""
+"தற்காலிக தரவுத்தளத்தை உருவாக்கி பயன்படுத்துவதன் மூலம் நீங்கள் டம்பை இயக்கலாம். அவ்வாறு செய்ய "
+"உங்களுக்கு சலுகைகள் இருப்பதை உறுதிப்படுத்தவும்."
 
 #: libraries/classes/Tracking.php:801
 msgid "Comment out these two lines if you do not need them."
