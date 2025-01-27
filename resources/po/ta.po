@@ -3300,7 +3300,7 @@ msgstr ""
 
 #: resources/templates/export.twig:478 resources/templates/import.twig:173
 msgid "Format-specific options:"
-msgstr ""
+msgstr "வடிவமைப்பு-குறிப்பிட்ட விருப்பங்கள்:"
 
 #: resources/templates/export.twig:487 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
