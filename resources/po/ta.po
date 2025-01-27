@@ -9061,7 +9061,7 @@ msgstr "வழிசெலுத்தல் குழுவின் மேல�
 
 #: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "தரவுத்தளங்களை வெவ்வேறு மர மட்டங்களாக பிரிக்கும் சரம்."
 
 #: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
