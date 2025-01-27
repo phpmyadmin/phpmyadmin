@@ -1780,7 +1780,7 @@ msgstr "திருத்து பயன்முறையைத் தனி�
 
 #: libraries/classes/Config/Descriptions.php:214
 msgid "Customize default export options."
-msgstr ""
+msgstr "இயல்புநிலை ஏற்றுமதி விருப்பங்களைத் தனிப்பயனாக்குங்கள்."
 
 #: libraries/classes/Config/Descriptions.php:215
 msgid "Set some commonly used options."
