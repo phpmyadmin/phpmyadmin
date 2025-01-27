@@ -240,7 +240,7 @@ msgstr "பதிப்பு_மென்ட்டில் 'சான்று
 
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
-msgstr ""
+msgstr "MySQL கையேடு அதிகாரப்பூர்வ MySQL பைனரிகளுக்கு மட்டுமே துல்லியமானது."
 
 #: libraries/advisory_rules_generic.php:161
 msgid ""
