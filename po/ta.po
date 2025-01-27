@@ -2790,7 +2790,7 @@ msgstr "இறக்குமதி மற்றும் ஏற்றுமத�
 
 #: libraries/classes/Config/Descriptions.php:600
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "பிழை அறிக்கைகளை அனுப்பும்போது இயல்புநிலை செயலைத் தேர்வுசெய்க."
 
 #: libraries/classes/Config/Descriptions.php:617
 msgid "Allow login to any MySQL server"
