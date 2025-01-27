@@ -2306,6 +2306,8 @@ msgid ""
 "Whether a DROP VIEW IF EXISTS statement will be added as first line to the "
 "log when creating a view."
 msgstr ""
+"ஒரு பார்வையை உருவாக்கும் போது பதிவின் முதல் வரியாக ஒரு துளி காட்சி சேர்க்கப்படுமா "
+"என்பது."
 
 #: libraries/classes/Config/Descriptions.php:438
 msgid "Defines the list of statements the auto-creation uses for new versions."
