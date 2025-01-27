@@ -8040,7 +8040,7 @@ msgstr "கைவிடப்பட்ட நுகர்வாளர்கள�
 
 #: src/Advisory/Rules.php:606 src/Advisory/Rules.php:620
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "அதிகமான வாடிக்கையாளர்கள் கைவிடப்படுகிறார்கள்."
 
 #: src/Advisory/Rules.php:608 src/Advisory/Rules.php:622
 msgid ""
