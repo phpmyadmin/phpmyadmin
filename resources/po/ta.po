@@ -8614,7 +8614,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:91
 msgid "Enable bzip2 compression for import operations."
-msgstr ""
+msgstr "இறக்குமதி நடவடிக்கைகளுக்கு BZIP2 சுருக்கத்தை இயக்கவும்."
 
 #: src/Config/Descriptions.php:92
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
