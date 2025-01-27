@@ -6497,7 +6497,7 @@ msgstr "அட்டவணையை ஒருங்கமை"
 #: resources/templates/table/operations/index.twig:373
 #, php-format
 msgid "Table %s has been flushed."
-msgstr ""
+msgstr "அட்டவணை %s சுத்தப்படுத்தப்பட்டுள்ளன."
 
 #: resources/templates/table/operations/index.twig:377
 msgid "Flush the table (FLUSH)"
