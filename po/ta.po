@@ -1248,7 +1248,7 @@ msgstr "வழக்கு-உணர்வற்ற"
 #: libraries/classes/Charsets/Collation.php:291
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr ""
+msgstr "வழக்கு உணர்திறன்"
 
 #: libraries/classes/Charsets/Collation.php:294
 msgctxt "Collation variant"
