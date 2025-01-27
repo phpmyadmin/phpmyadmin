@@ -9621,7 +9621,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:597
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "எந்த MySQL சேவையகத்திலும் உள்நுழைய அனுமதிக்கவும்"
 
 #: src/Config/Descriptions.php:598
 msgid "Restrict login to MySQL server"
