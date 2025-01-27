@@ -7903,7 +7903,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:516
 msgid "The thread cache is set to 0"
-msgstr ""
+msgstr "நூல் தற்காலிக சேமிப்பு 0 ஆக அமைக்கப்பட்டுள்ளது"
 
 #: src/Advisory/Rules.php:521
 #, no-php-format
