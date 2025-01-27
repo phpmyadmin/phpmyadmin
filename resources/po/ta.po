@@ -10135,7 +10135,7 @@ msgstr "எச்சரிக்கைகள்"
 
 #: src/Config/Descriptions.php:767
 msgid "GZip"
-msgstr ""
+msgstr "Gzip"
 
 #: src/Config/Descriptions.php:768
 msgid "Extra parameters for iconv"
