@@ -1950,7 +1950,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:273
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr ""
+msgstr "கவிமொ வினவல் காட்டப்படும் போது பயன்படுத்தப்படும் அதிகபட்ச எழுத்துக்கள்."
 
 #: libraries/classes/Config/Descriptions.php:276
 msgid ""
