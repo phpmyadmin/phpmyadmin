@@ -9776,7 +9776,7 @@ msgstr "ஒரு அட்டவணை தேர்ந்தெடுக்க�
 
 #: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
-msgstr ""
+msgstr "இறக்குமதிக்கான கோப்புகளை பதிவேற்றக்கூடிய சேவையகத்தில் அடைவு."
 
 #: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
