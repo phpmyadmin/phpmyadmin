@@ -1214,7 +1214,7 @@ msgstr "அனைத்தையும் காட்டு"
 #: libraries/classes/Charsets/Collation.php:168
 #: libraries/classes/Charsets.php:172 libraries/classes/Charsets.php:173
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியவில்லை"
 
 #: libraries/classes/Charsets/Collation.php:212
 #: libraries/classes/Charsets/Collation.php:481
