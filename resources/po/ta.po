@@ -15428,7 +15428,7 @@ msgstr "கோப்பு பதிவேற்றத்தில் தெர�
 
 #: src/File.php:412
 msgid "File is a symbolic link"
-msgstr ""
+msgstr "கோப்பு ஒரு குறியீட்டு இணைப்பு"
 
 #: src/File.php:419 src/File.php:510
 msgid "File could not be read!"
