@@ -8820,11 +8820,11 @@ msgstr "தரவுத்தளங்களின் காட்சித்�
 
 #: src/Config/Descriptions.php:207
 msgid "Customize appearance of the navigation panel."
-msgstr ""
+msgstr "வழிசெலுத்தல் குழுவின் தோற்றத்தைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:208
 msgid "Customize the navigation tree."
-msgstr "வழிசெலுத்தல் பலகத்தை தனிப்பயனாக்குக"
+msgstr "வழிசெலுத்தல் மரத்தைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:209
 msgid "Servers display options."
@@ -10050,7 +10050,7 @@ msgstr "லாடெக்சு"
 
 #: src/Config/Descriptions.php:741
 msgid "Navigation tree"
-msgstr "வழிசெலுத்தல் பலகம்"
+msgstr "வழிசெலுத்தல் மரம்"
 
 #: src/Config/Descriptions.php:745
 msgid "Microsoft Office"
