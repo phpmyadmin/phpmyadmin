@@ -10866,7 +10866,7 @@ msgstr "அட்டவணை %s க்கான பிழை வாசிப்
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1623
 msgid "It appears your database uses views;"
-msgstr ""
+msgstr "உங்கள் தரவுத்தளம் காட்சிகளைப் பயன்படுத்துகிறது என்று தோன்றுகிறது;"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1790
 msgid "Constraints for dumped tables"
