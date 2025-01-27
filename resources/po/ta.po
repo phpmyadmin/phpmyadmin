@@ -2801,7 +2801,7 @@ msgstr "கடைசி சரிபார்ப்பு"
 
 #: resources/templates/database/structure/tracking_icon.twig:3
 msgid "Tracking is active."
-msgstr ""
+msgstr "கண்காணிப்பு செயலில் உள்ளது."
 
 #: resources/templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
