@@ -16255,7 +16255,7 @@ msgstr "கோடுகள் நிறுத்தப்பட்டன:"
 #: src/Plugins/Export/ExportOdt.php:138
 #: src/Plugins/Export/ExportTexytext.php:90
 msgid "Replace NULL with:"
-msgstr ""
+msgstr "பூச்யத்தை மாற்றவும்:"
 
 #: src/Plugins/Export/ExportCsv.php:90 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
