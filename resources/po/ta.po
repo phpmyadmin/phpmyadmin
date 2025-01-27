@@ -3270,7 +3270,7 @@ msgstr "சுருக்க:"
 
 #: resources/templates/export.twig:433
 msgid "zipped"
-msgstr ""
+msgstr "சிப்"
 
 #: resources/templates/export.twig:439
 msgid "gzipped"
