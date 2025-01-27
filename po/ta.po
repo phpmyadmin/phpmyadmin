@@ -8039,7 +8039,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid "Thread cache hit rate (calculated value)"
-msgstr ""
+msgstr "நூல் கேச் செய் வீதம் (கணக்கிடப்பட்ட மதிப்பு)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:517
 msgid "The number of threads that are not sleeping."
