@@ -738,7 +738,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:480
 msgid "Thread cache"
-msgstr ""
+msgstr "நூல் தற்காலிக சேமிப்பு"
 
 #: libraries/advisory_rules_generic.php:483
 msgid ""
