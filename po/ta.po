@@ -1982,7 +1982,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:291
 msgid "In the navigation panel, replaces the database tree with a selector"
-msgstr ""
+msgstr "வழிசெலுத்தல் குழுவில், தரவுத்தள மரத்தை ஒரு தேர்வாளருடன் மாற்றுகிறது"
 
 #: libraries/classes/Config/Descriptions.php:294
 msgid "Link with main panel by highlighting the current database or table."
@@ -2021,7 +2021,7 @@ msgstr "மறைத்துள்ள வழிசெலுத்தல் ப�
 
 #: libraries/classes/Config/Descriptions.php:315
 msgid "Set to 0 to collapse navigation panel."
-msgstr "வழிசெலுத்தல் பலகத்தில் இலச்சினையை காட்டுக."
+msgstr "வழிசெலுத்தல் குழுவில் சரிவதற்கு 0 என அமைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:316
 msgid "Show logo in navigation panel."
@@ -3437,11 +3437,11 @@ msgstr "நினைவக வரம்பு"
 
 #: libraries/classes/Config/Descriptions.php:829
 msgid "Show databases navigation as tree"
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "தரவுத்தளங்கள் வழிசெலுத்தலை மரமாகக் காட்டுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:830
 msgid "Navigation panel width"
-msgstr "வழிசெலுத்தல் பலகம்"
+msgstr "வழிசெலுத்தல் குழு அகலம்"
 
 #: libraries/classes/Config/Descriptions.php:831
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:602
