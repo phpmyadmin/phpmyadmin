@@ -13712,8 +13712,6 @@ msgid "OFF"
 msgstr ""
 
 #: templates/database/export/index.twig:62
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
