@@ -7810,6 +7810,7 @@ msgstr "திறந்த கோப்புகளின் எண்ணிக�
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid "The number of streams that are open (used mainly for logging)."
 msgstr ""
+"திறந்திருக்கும் நீரோடைகளின் எண்ணிக்கை (முக்கியமாக உள்நுழைவுக்கு பயன்படுத்தப்படுகிறது)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:559
 msgid "The number of tables that are open."
