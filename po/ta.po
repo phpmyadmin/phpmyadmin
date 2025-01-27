@@ -606,6 +606,8 @@ msgstr ""
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
+"அதிகபட்சம் %% myisam key buffear இதுவரை பயன்படுத்தப்பட்டது:%s %%, இந்த மதிப்பு 95 "
+"%ுறமாக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:387
 msgid "Percentage of MyISAM key buffer used"
