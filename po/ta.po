@@ -16941,8 +16941,6 @@ msgid "Configuration file"
 msgstr ""
 
 #: templates/setup/config/index.twig:16
-#, fuzzy
-#| msgid "Enable Zero Configuration mode"
 msgid "Generated configuration file"
 msgstr "அமைப்பாக்கம் இல்லா முறைமையை இயலசெய்க"
 
