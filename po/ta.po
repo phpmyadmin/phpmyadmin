@@ -164,7 +164,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:101
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr "slow_query_log 'ஆஃப்' என அமைக்கப்பட்டுள்ளது"
 
 #: libraries/advisory_rules_generic.php:106
 msgid "Release Series"
