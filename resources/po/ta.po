@@ -15813,7 +15813,7 @@ msgstr "விரிவாக்கு/சரிவு"
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
 #: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
-msgstr ""
+msgstr "நடைமுறைகள்"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:31
 msgctxt "Create new procedure"
