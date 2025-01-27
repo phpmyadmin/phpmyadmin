@@ -1250,7 +1250,7 @@ msgstr "வழக்கு-உணர்வற்ற"
 #: libraries/classes/Charsets/Collation.php:301
 msgctxt "Collation variant"
 msgid "case-sensitive"
-msgstr ""
+msgstr "வழக்கு உணர்திறன்"
 
 #: libraries/classes/Charsets/Collation.php:304
 msgctxt "Collation variant"
