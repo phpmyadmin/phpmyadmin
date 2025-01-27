@@ -11641,7 +11641,7 @@ msgstr "தேடலை ஏற்றுவதற்கான தகவல்க�
 
 #: libraries/classes/SavedSearches.php:385
 msgid "Error while loading the search."
-msgstr ""
+msgstr "தேடலை ஏற்றும்போது பிழை."
 
 #: libraries/classes/Server/Plugins.php:68
 #: libraries/classes/Server/Privileges.php:795
