@@ -4928,7 +4928,7 @@ msgstr "தெரியவில்லை"
 #: libraries/classes/Controllers/Database/StructureController.php:1280
 #: libraries/classes/Controllers/Database/StructureController.php:1303
 msgid "Success!"
-msgstr ""
+msgstr "வெற்றி!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:1454
 #: libraries/classes/Controllers/Database/StructureController.php:1537
@@ -15947,7 +15947,7 @@ msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: templates/preferences/header.twig:12
 msgid "Two-factor authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "இரண்டு காரணி ஏற்பு"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
