@@ -15963,7 +15963,7 @@ msgstr ""
 
 #: src/Normalization.php:345
 msgid "No repeating group"
-msgstr ""
+msgstr "மீண்டும் மீண்டும் குழு இல்லை"
 
 #: src/Normalization.php:373
 msgid "Step 2."
