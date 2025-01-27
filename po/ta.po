@@ -4586,6 +4586,9 @@ msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
+"If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
+"0, %sLogin cookie validity%s must be கணம் பெறுநர் a மதிப்பு less or equal பெறுநர்"
+" it."
 
 #: libraries/classes/Config/ServerConfigChecks.php:472
 #, php-format
