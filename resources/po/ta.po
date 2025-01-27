@@ -14049,7 +14049,7 @@ msgstr "செயல்படுத்தப்பட்ட பறிப்ப�
 
 #: src/Controllers/Server/Status/VariablesController.php:252
 msgid "The number of internal COMMIT statements."
-msgstr ""
+msgstr "உள் கமிட் அறிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:253
 msgid "The number of times a row was deleted from a table."
