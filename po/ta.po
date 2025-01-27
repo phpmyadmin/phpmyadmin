@@ -2031,7 +2031,7 @@ msgstr "வழிசெலுத்தல் பலகத்தில் இல�
 
 #: libraries/classes/Config/Descriptions.php:317
 msgid "URL where logo in the navigation panel will point to."
-msgstr ""
+msgstr "வழிசெலுத்தல் குழுவில் லோகோ சுட்டிக்காட்டும் முகவரி."
 
 #: libraries/classes/Config/Descriptions.php:318
 msgid "Display server choice at the top of the navigation panel."
