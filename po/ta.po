@@ -3191,7 +3191,7 @@ msgstr "கவிமொ"
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "SQL Query box"
-msgstr ""
+msgstr "கவிமொ வினவல் பெட்டி"
 
 #: libraries/classes/Config/Descriptions.php:786
 #: libraries/classes/Config/Forms/User/SqlForm.php:46
