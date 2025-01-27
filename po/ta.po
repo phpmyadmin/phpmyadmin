@@ -10505,7 +10505,7 @@ msgstr "அட்டவணை பெயர் காலியாக உள்ள
 
 #: libraries/classes/Pdf.php:158
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr "PDF ஐ உருவாக்கும் போது பிழை:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:80
 msgid "Cannot connect: invalid settings."
