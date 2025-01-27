@@ -16121,7 +16121,7 @@ msgstr "அட்டவணையை ஒரே மாதிரியாக நக
 
 #: src/Operations.php:890
 msgid "Can't copy table to same one!"
-msgstr ""
+msgstr "அட்டவணையை ஒரே மாதிரியாக நகலெடுக்க முடியாது!"
 
 #: src/Operations.php:926
 #, php-format
