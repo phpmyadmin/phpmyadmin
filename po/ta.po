@@ -6623,7 +6623,7 @@ msgstr "புறக்கணி"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:476
 #: templates/display/results/table.twig:263
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
 #: libraries/classes/Display/Results.php:2969
