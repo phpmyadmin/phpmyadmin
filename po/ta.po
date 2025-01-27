@@ -2676,7 +2676,7 @@ msgstr "இயல்புநிலை தரவுத்தள தாவல்"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Default server tab"
-msgstr ""
+msgstr "இயல்புநிலை சேவையக தாவல்"
 
 #: libraries/classes/Config/Descriptions.php:645
 msgid "Default table tab"
