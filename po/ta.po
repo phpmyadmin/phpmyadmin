@@ -15576,6 +15576,9 @@ msgid ""
 "to the PHP timeout limit. <em>(This might be a good way to import large "
 "files, however it can break transactions.)</em>"
 msgstr ""
+"ச்கிரிப்ட் பி.எச்.பி காலக்கெடு வரம்புக்கு அருகில் இருப்பதைக் கண்டறிந்தால் இறக்குமதியின் "
+"குறுக்கீட்டை அனுமதிக்கவும். <em> (பெரிய கோப்புகளை இறக்குமதி செய்வதற்கான சிறந்த வழியாக "
+"இது இருக்கலாம், இருப்பினும் இது பரிவர்த்தனைகளை உடைக்கக்கூடும்.) </em>"
 
 #: templates/import.twig:172
 msgid "Skip this number of queries (for SQL) starting from the first one:"
