@@ -10123,6 +10123,7 @@ msgid ""
 "Hint: Please follow the procedure carefully in order to obtain correct "
 "normalization"
 msgstr ""
+"குறிப்பு: சரியான இயல்பாக்கத்தைப் பெறுவதற்கு நடைமுறையை கவனமாகப் பின்பற்றுங்கள்"
 
 #: libraries/classes/Normalization.php:1047
 msgid ""
