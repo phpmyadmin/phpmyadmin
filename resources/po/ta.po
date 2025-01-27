@@ -8122,7 +8122,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:699
 msgid "Max InnoDB log size"
-msgstr ""
+msgstr "மேக்ச் இன்னோடிபி பதிவு அளவு"
 
 #: src/Advisory/Rules.php:704
 msgid "The InnoDB log file size is inadequately large."
