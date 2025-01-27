@@ -12331,7 +12331,7 @@ msgstr "இந்த MySQL சேவையகத்தில் %s கிடை�
 #: libraries/classes/StorageEngine.php:476
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "இந்த MySQL சேவையகத்திற்கு %s முடக்கப்பட்டுள்ளது."
 
 #: libraries/classes/StorageEngine.php:480
 #, php-format
