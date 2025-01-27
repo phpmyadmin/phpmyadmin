@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:50+0000\n"
+"PO-Revision-Date: 2025-01-27 02:51+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -13692,7 +13692,7 @@ msgstr "பதிப்பு %1$s ஐ உருவாக்கவும்"
 
 #: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "இந்த தரவு வரையறை அறிக்கைகளைக் கண்காணிக்கவும்:"
 
 #: templates/create_tracking_version.twig:60
 msgid "Track these data manipulation statements:"
