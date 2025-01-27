@@ -16524,7 +16524,7 @@ msgstr ""
 
 #: templates/server/replication/master_replication.twig:5
 msgid "This server is configured as master in a replication process."
-msgstr ""
+msgstr "இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் மாச்டராக கட்டமைக்கப்பட்டுள்ளது."
 
 #: templates/server/replication/master_replication.twig:16
 msgid "Show connected slaves"
