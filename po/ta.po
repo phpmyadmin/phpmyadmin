@@ -13139,7 +13139,7 @@ msgstr "64 உறுப்பினர்களின் தொகுப்ப�
 
 #: libraries/classes/Types.php:373
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "எந்தவொரு வகையிலும் ஒரு வடிவவியலை சேமிக்கக்கூடிய ஒரு வகை"
 
 #: libraries/classes/Types.php:375
 msgid "A point in 2-dimensional space"
