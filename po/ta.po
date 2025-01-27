@@ -1656,6 +1656,8 @@ msgid ""
 "Defines the maximum size for input fields generated for CHAR and VARCHAR "
 "columns."
 msgstr ""
+"CHAR மற்றும் VARCHAR நெடுவரிசைகளுக்காக உருவாக்கப்படும் உள்ளீட்டு புலங்களுக்கான அதிகபட்ச "
+"அளவை வரையறுக்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:132
 msgid ""
