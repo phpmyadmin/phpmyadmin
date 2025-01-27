@@ -10816,6 +10816,9 @@ msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
+"யுடிசியில் நேர முத்திரை நெடுவரிசைகளை டம்ப் <i> (வெவ்வேறு நேர மண்டலங்களில் "
+"சேவையகங்களுக்கு இடையில் நேர முத்திரை நெடுவரிசைகளை கொட்டவும் மீண்டும் ஏற்றவும் "
+"செயல்படுத்துகிறது) </i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:586
 msgid "It appears your database uses routines;"
