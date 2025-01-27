@@ -10705,6 +10705,8 @@ msgstr "ஏற்றுமதி மேனிலை தரவு"
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
+"இதனுடன் வெளியீட்டு பொருந்தக்கூடிய தன்மையை அதிகரிக்க தரவுத்தள அமைப்பு அல்லது பழைய MySQL "
+"சேவையகம்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:268
 msgid "Add statements:"
