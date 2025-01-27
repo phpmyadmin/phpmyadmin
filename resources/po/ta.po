@@ -15984,7 +15984,7 @@ msgstr ""
 
 #: src/Normalization.php:400 src/Normalization.php:442
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "அட்டவணை ஏற்கனவே இரண்டாவது சாதாரண வடிவத்தில் உள்ளது."
 
 #: src/Normalization.php:405
 #, php-format
