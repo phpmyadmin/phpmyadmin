@@ -12749,7 +12749,7 @@ msgstr "இயல்புநிலை கருப்பொருள் %s க�
 #: libraries/classes/ThemeManager.php:157
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: libraries/classes/ThemeManager.php:245
 #, php-format
