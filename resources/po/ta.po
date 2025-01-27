@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:02+0000\n"
+"PO-Revision-Date: 2025-01-27 02:03+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -10751,7 +10751,7 @@ msgstr "அனைத்து வரிசைகளையும் காண்�
 
 #: src/Config/Descriptions.php:910
 msgid "Show password change form"
-msgstr ""
+msgstr "கடவுச்சொல் மாற்ற படிவத்தைக் காட்டு"
 
 #: src/Config/Descriptions.php:911
 msgid "Show create database form"
