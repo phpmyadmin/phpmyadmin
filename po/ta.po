@@ -10823,7 +10823,7 @@ msgstr "முதல் வரிசையில் நெடுவரிசை 
 #: templates/server/replication/change_master.twig:22
 #: templates/server/replication/master_add_slave_user.twig:29
 msgid "Host:"
-msgstr ""
+msgstr "புரவலன்:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:220
 #: libraries/classes/Plugins/Export/ExportSql.php:756
@@ -10881,7 +10881,7 @@ msgstr "அறிக்கையின் தலைப்பு:"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:229
 msgid "Dumping data"
-msgstr "தவறான தரவு"
+msgstr "தரவை கொட்டுதல்"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
 msgid "Query result data"
@@ -10889,7 +10889,7 @@ msgstr "தேடல் முடிவுகளை மறை"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
-msgstr "கட்டமைப்பு"
+msgstr "கட்டமைப்பைக் காண்க"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:313
 msgid "Stand in"
