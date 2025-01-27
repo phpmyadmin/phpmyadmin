@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 04:19+0000\n"
+"PO-Revision-Date: 2025-01-27 16:51+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -292,6 +292,10 @@ msgid ""
 "5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
 "especially if you have multiple replicas."
 msgstr ""
+"நீங்கள் MySQL வினவல் தற்காலிக சேமிப்பை மிகவும் அதிக போக்குவரத்து தரவுத்தளத்துடன் "
+"பயன்படுத்துகிறீர்கள். <A href = "
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\"> Memcached </"
+"a> ஐப் பயன்படுத்துவதைக் கருத்தில் கொள்ளலாம் உங்களிடம் பல பிரதிகள் இருந்தால்."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -1818,33 +1822,36 @@ msgstr "இறக்குமதி நடவடிக்கைகளுக்�
 
 #: libraries/classes/Config/Descriptions.php:105
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr ""
+msgstr "உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான ஏபிஐக்கு முகவரி ஐ உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:106
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான ஏபிஐக்கு உள்ளடக்க-பாதுகாப்பு-கொள்கை துணுக்கை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:107
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான பநிஇ பயன்படுத்தும் கோரிக்கை அளவுருவை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:108
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான பநிஇ பயன்படுத்தும் மறுமொழி அளவுருவை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:109
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr ""
+msgstr "உங்கள் டொமைனில் ரெக்காப்ட்சா சேவைக்கு உங்கள் பொது விசையை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:110
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr ""
+msgstr "உங்கள் டொமைன் ரெக்காப்ட்சா சேவைக்கு உங்கள் தனிப்பட்ட விசையை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:111
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr ""
+msgstr "உங்கள் ரெக்காப்ட்சா சேவைக்கு உங்கள் தளத்தை முகவரி ஐ உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:113
 msgid ""
@@ -2795,6 +2802,10 @@ msgid ""
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Phpmyadmin இன் அண்மைக் கால பதிப்பைப் பற்றிய தகவல்களை மீட்டெடுக்கும்போது அல்லது பிழை "
+"அறிக்கைகளை சமர்ப்பிக்கும் போது பயன்படுத்த வேண்டிய ப்ராக்சியின் முகவரி. Phpmyadmin "
+"நிறுவப்பட்ட சேவையகத்திற்கு இணையத்திற்கு நேரடி அணுகல் இல்லை என்றால் உங்களுக்கு இது தேவை. "
+"வடிவம்: \"ஓச்ட்பெயர்: போர்ட்நம்பர்\"."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid ""
@@ -2819,6 +2830,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
+"சுழிய உள்ளமைவு பயன்முறையை இயக்கவும், இது phpmyadmin உள்ளமைவு சேமிப்பக அட்டவணைகளை "
+"தானாக அமைக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:551
 msgid "Highlight selected rows."
@@ -3188,7 +3201,7 @@ msgstr "அதிகபட்ச சாவுஒறுப்பு நேரம�
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "[குறியீடு] பூட்டு அட்டவணைகள் [/குறியீடு] அறிக்கையைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3375,11 +3388,11 @@ msgstr "தனி கோப்புகளாக ஏற்றுமதி செ
 
 #: libraries/classes/Config/Descriptions.php:705
 msgid "Remember filename template"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+msgstr "கோப்பு பெயர் வார்ப்புருவை நினைவில் கொள்க"
 
 #: libraries/classes/Config/Descriptions.php:706
 msgid "Remove DEFINER clause from definitions"
-msgstr ""
+msgstr "வரையறைகளிலிருந்து வரையறுக்கும் பிரிவை அகற்று"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -3616,7 +3629,7 @@ msgstr "கண்காணிப்பை மாற்றுகிறது"
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
-msgstr "SQL"
+msgstr "கவிமொ"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
@@ -4403,7 +4416,7 @@ msgstr "பதிப்பு சோதனை"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Proxy URL"
-msgstr ""
+msgstr "பதிலாள் முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Proxy username"
@@ -4415,35 +4428,35 @@ msgstr "பதிலி கடவுச்சொல்"
 
 #: libraries/classes/Config/Descriptions.php:966
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "சிப்"
 
 #: libraries/classes/Config/Descriptions.php:967
 msgid "URL for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:968
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான உள்ளடக்க-பாதுகாப்பு-கொள்கை துணுக்கை"
 
 #: libraries/classes/Config/Descriptions.php:969
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "Recaptcha V2 பநிஇ க்கான அளவுரு"
 
 #: libraries/classes/Config/Descriptions.php:970
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான மறுமொழி அளவுரு"
 
 #: libraries/classes/Config/Descriptions.php:971
 msgid "Public key for reCAPTCHA"
-msgstr ""
+msgstr "ரெக்காப்ட்சாவிற்கான பொது விசை"
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "Private key for reCAPTCHA"
-msgstr ""
+msgstr "ரெக்காப்ட்சாவிற்கான தனிப்பட்ட விசை"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "URL for reCAPTCHA siteverify"
-msgstr ""
+msgstr "Recaptcha siteverify க்கான முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Send error reports"
@@ -4474,7 +4487,7 @@ msgstr "தற்போதைய உலாவல் வினவலைக் க
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr ""
+msgstr "Shift+Enter உடன் புதிய வரியை உள்ளிடவும் செருகவும் வினவல்களை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:981
 #: templates/console/display.twig:168
@@ -4860,6 +4873,8 @@ msgid ""
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
+"'%s' என்ற தரவுத்தளத்தை உருவாக்க உங்களுக்கு தேவையான சலுகைகள் இல்லை. Phpmyadmin உள்ளமைவு"
+" சேமிப்பிடத்தை அமைக்க எந்த தரவுத்தளத்தின் 'செயல்பாட்டு' தாவலுக்குச் செல்லலாம்."
 
 #: libraries/classes/ConfigStorage/UserGroups.php:112
 msgid "View users"
@@ -5291,6 +5306,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"குக்கீ குறியாக்கத்திற்கு உள்ளமைவு கோப்புக்கு சரியான விசை தேவை. உங்களுக்காக ஒரு தற்காலிக "
+"விசை தானாக உருவாக்கப்பட்டது. தயவுசெய்து [doc@cfg_blowfish_secret] ஆவணங்களைப் "
+"பார்க்கவும் [/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:338
 #, php-format
@@ -5299,6 +5317,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"உள்ளமைவு கோப்பில் உள்ள குக்கீ குறியாக்க விசை தேவையானதை விட நீளமானது. இது %d பைட்டுகள் "
+"மட்டுமே நீளமாக இருக்க வேண்டும். தயவுசெய்து [doc@cfg_blowfish_secret] ஆவணங்களைப் "
+"பார்க்கவும் [/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:356
 msgid ""
@@ -5445,7 +5466,7 @@ msgstr "நீங்கள் ஒரு முழுமையான தரவு
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:43
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"அதே பெயரில் தரவுத்தளத்தை மறுபெயரிட முடியாது.பெயரை மாற்றி மீண்டும் முயற்சிக்கவும்."
+"தரவுத்தளத்தை அதே பெயருக்கு மறுபெயரிட முடியாது. பெயரை மாற்றி மீண்டும் முயற்சிக்கவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:45
 msgid "You are about to DESTROY a complete table!"
@@ -5457,7 +5478,7 @@ msgstr "நீங்கள் ஒரு முழு அட்டவணையி
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "நீங்கள் ஒரு முழுமையான அட்டவணையை அழிக்க உள்ளீர்கள்!"
+msgstr "நீங்கள் அட்டவணையின் அனைத்து வரிசைகளையும் நீக்க உள்ளீர்கள்!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -5550,7 +5571,8 @@ msgstr "பகிர்வுகளை நீங்கள்  உண்மைய
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "உங்களுக்கு உண்மையிலேயே தேர்ந்தெடுத்த பயனர்(களை) திரும்பப்பெற வேண்டுமா?"
+msgstr ""
+"நீங்கள் உண்மையில் பிரதிகளை மீட்டமைக்க விரும்புகிறீர்களா (பிரதி மீட்டமை)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -5773,23 +5795,23 @@ msgstr "மூடுக"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "பூட்டு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "திறக்க"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:100
 msgid "Lock this account."
-msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
+msgstr "இந்த கணக்கை பூட்டவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
 msgid "Unlock this account."
-msgstr "பயனர் குழுக்கள்"
+msgstr "இந்த கணக்கைத் திறக்கவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:143
 msgid "Template was created."
@@ -5940,38 +5962,38 @@ msgstr "து"
 #: libraries/classes/Util.php:461
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
-msgstr "KiB"
+msgstr "வினோதமாக"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 #: libraries/classes/Util.php:463
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mib"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: libraries/classes/Util.php:465
 msgid "GiB"
-msgstr "GiB"
+msgstr "கிப்"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:467
 msgid "TiB"
-msgstr "TiB"
+msgstr "திப்"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:469
 msgid "PiB"
-msgstr "PiB"
+msgstr "தொடங்கவும்"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:471
 msgid "EiB"
-msgstr "EiB"
+msgstr "Eib"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #, php-format
@@ -6604,7 +6626,7 @@ msgstr "வினவல் பெட்டியை காண்பி"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
 msgid "Edit query"
-msgstr "வினவலை சமர்ப்பி"
+msgstr "வினவலைத் திருத்து"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3033
@@ -7096,7 +7118,8 @@ msgstr "சமர்ப்பிக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:547
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "தொகுப்பதை நிறுத்த Esc அழுத்தவும்."
+msgstr ""
+"திருத்துதல் ரத்து செய்ய எச்கேப் அழுத்தவும். <br>- சிப்ட்+ஒரு புதிய வரிக்கு உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:549
 msgid ""
@@ -7252,7 +7275,7 @@ msgstr "இன்றுவரை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
 msgid "There was an error in loading the Git information."
-msgstr "ESRI வடிவகோப்பை \"%s\" தரவிறக்குவதில் பிழை நிகழ்ந்துள்ளது."
+msgstr "அறிவிலி தகவல்களை ஏற்றுவதில் பிழை ஏற்பட்டது."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
@@ -7306,11 +7329,11 @@ msgstr "உங்கள் அமைவுகளின்படி,தற்ப�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:649
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "நெடுவரிசை பெயர் வெற்றிகரமாக இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:650
 msgid "Column name copying to clipboard failed!"
-msgstr ""
+msgstr "இடைநிலைப்பலகைக்கு நெடுவரிசை பெயர் நகலெடுப்பது தோல்வியடைந்தது!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:651
 msgid "Successfully copied!"
@@ -7446,6 +7469,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"வெப்அத்ன் கிடைக்கவில்லை. பாதுகாப்பான சூழலில் (HTTPS) ஆதரிக்கப்பட்ட உலாவியைப் "
+"பயன்படுத்தவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:703
 msgid ""
@@ -7564,12 +7589,12 @@ msgstr[1] "%1$d தரவுத்தளங்கள் வெற்றிகர
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
 #, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கணக்கு %s@ %s வெற்றிகரமாக பூட்டப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
 #, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கணக்கு %s@ %s வெற்றிகரமாக திறக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
@@ -8213,16 +8238,20 @@ msgstr "முதல் அட்டவணையின் முழு ச்க
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
+"தற்போது பிரதி கவிமொ நூலால் திறக்கப்பட்ட தற்காலிக அட்டவணைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
+"மொத்தம் (தொடக்கத்திலிருந்து) பிரதி பிரதி பிரதி கவிமொ நூல் பரிவர்த்தனைகளை மறுபரிசீலனை "
+"செய்துள்ளது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
+"இந்த சேவையகம் ஒரு முதன்மை உடன் இணைக்கப்பட்டுள்ள ஒரு பிரதி என்றால் இது உள்ளது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -8313,7 +8342,7 @@ msgstr "மதிப்புருக்கள் காணப்படவி�
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
 msgid "User groups management is not enabled."
-msgstr "வினவல் இடைமாற்று முடக்கப்பட்டுள்ளது."
+msgstr "பயனர் குழுக்கள் மேலாண்மை இயக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Server/Variables/SetVariableController.php:93
 msgid "Setting variable failed"
@@ -8431,8 +8460,8 @@ msgstr "எந்த நிரல்வரிசையும் தெரிவ�
 #, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "%1$d தரவுத்தளம் வெற்றிகரமாக கைவிடப்பட்டது."
-msgstr[1] "%1$d தரவுத்தளங்கள் வெற்றிகரமாக கைவிடப்பட்டன."
+msgstr[0] "%1$d நெடுவரிசை வெற்றிகரமாக கைவிடப்பட்டது."
+msgstr[1] "%1$d நெடுவரிசைகள் வெற்றிகரமாக கைவிடப்பட்டுள்ளன."
 
 #: libraries/classes/Controllers/Table/GetFieldController.php:63
 msgid "Invalid table name"
@@ -9625,7 +9654,7 @@ msgstr ""
 
 #: libraries/classes/FlashMessages.php:24
 msgid "Session not found."
-msgstr "இணைப்பை காணவில்லை!"
+msgstr "அமர்வு காணப்படவில்லை."
 
 #: libraries/classes/Html/Generator.php:146
 #, php-format
@@ -10216,7 +10245,7 @@ msgstr "புதியது"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
 msgid "Trigger"
-msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டி"
+msgstr "தூண்டுதல்"
 
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeViewContainer.php:26
@@ -10630,7 +10659,7 @@ msgstr "அட்டவணை பெயர் காலியாக உள்ள
 
 #: libraries/classes/Partitioning/Maintenance.php:141
 msgid "This table is a view, it can not be truncated."
-msgstr ""
+msgstr "இந்த அட்டவணை ஒரு பார்வை, அதை துண்டிக்க முடியாது."
 
 #: libraries/classes/Pdf.php:142
 msgid "Error while creating PDF:"
@@ -10693,6 +10722,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
+"உங்கள் கடவுச்சொல் மிக நீளமானது. பணி மறுப்பு தாக்குதல்களைத் தடுக்க, Phpmyadmin "
+"கடவுச்சொற்களை 2000 க்கும் குறைவான எழுத்துக்களுக்கு கட்டுப்படுத்துகிறது."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 msgid "You are not allowed to log in to this MySQL server!"
@@ -11212,6 +11243,8 @@ msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"மேற்கூறிய எதுவும் இல்லை <br> & nbsp; & nbsp; & nbsp; எடுத்துக்காட்டு: <code> "
+"TBL_NAME மதிப்புகளில் (1,2,3) </code> இல் செருகவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
@@ -11304,7 +11337,7 @@ msgstr "அட்டவணைக்கான AUTO_INCREMENT(தன்னில�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1931
 msgid "MEDIA TYPES FOR TABLE"
-msgstr ""
+msgstr "அட்டவணைக்கான ஊடக வகைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1956
 msgid "RELATIONSHIPS FOR TABLE"
@@ -11352,16 +11385,16 @@ msgstr "இறக்குமதியில் காணப்படும் �
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:83
 msgid "Name of the new table (optional):"
-msgstr ""
+msgstr "புதிய அட்டவணையின் பெயர் (விரும்பினால்):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:92
 msgid "Name of the new database (optional):"
-msgstr ""
+msgstr "புதிய தரவுத்தளத்தின் பெயர் (விரும்பினால்):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:101
 #: libraries/classes/Plugins/Import/ImportCsv.php:119
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "இந்த பல எண்ணிக்கையிலான வரிசைகளை இறக்குமதி செய்க (விரும்பினால்):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:109
 #: libraries/classes/Plugins/Import/ImportOds.php:66
@@ -11384,7 +11417,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
 msgid "Column names:"
-msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
+msgstr "நெடுவரிசை பெயர்கள்:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:272
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
@@ -11430,7 +11463,7 @@ msgstr "மீடியாவிகி அட்டவணை"
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:275
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "%sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது."
+msgstr "வரியில் மீடியாவிகி உள்ளீட்டின் தவறான வடிவம்: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:80
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
@@ -11669,12 +11702,12 @@ msgstr ""
 "நெடுவரிசை தரவை உணவளிக்கிறது. பயன்பாட்டின் நிலையான வெளியீட்டை வழங்குகிறது. இயல்புநிலை "
 "நேர்த்தியானது, அழகாக அச்சிட உஉகுமொ குறியீட்டிற்கு. பாதுகாப்பு காரணங்களுக்காக, நீங்கள் "
 "கோப்பு நூலகங்கள்/வகுப்புகள்/செருகுநிரல்கள்/உருமாற்றங்கள்/ஏபிஎச்/வெளிப்புற டிரான்ச்ஃபார்மேசன்ச்"
-" பிளகின்.பிபி மற்றும் நீங்கள் கிடைக்க விரும்பும் கருவிகளை பட்டியலிட வேண்டும். முதல் "
-"விருப்பம் நீங்கள் பயன்படுத்த விரும்பும் நிரலின் எண்ணிக்கை. இரண்டாவது விருப்பம் வரலாற்று "
-"காரணங்களுக்காக காலியாக இருக்க வேண்டும். மூன்றாவது விருப்பம், 1 என அமைக்கப்பட்டால், "
-"HTMLSPecialChar () (இயல்புநிலை 1) ஐப் பயன்படுத்தி வெளியீட்டை மாற்றும். நான்காவது "
-"விருப்பம், 1 என அமைக்கப்பட்டால், மடக்குவதைத் தடுக்கும் மற்றும் வெளியீடு ஒரு வரியில் "
-"(இயல்புநிலை 1) தோன்றுவதை உறுதி செய்யும்."
+" பிளெகின்.பிபி ஆகியவற்றை கைமுறையாக திருத்த வேண்டும் மற்றும் நீங்கள் கிடைக்க விரும்பும் "
+"கருவிகளை பட்டியலிட வேண்டும். முதல் விருப்பம் நீங்கள் பயன்படுத்த விரும்பும் நிரலின் எண்ணிக்கை"
+". இரண்டாவது விருப்பம் வரலாற்று காரணங்களுக்காக காலியாக இருக்க வேண்டும். மூன்றாவது "
+"விருப்பம், 1 என அமைக்கப்பட்டால், HTMLSPecialChar () (இயல்புநிலை 1) ஐப் பயன்படுத்தி "
+"வெளியீட்டை மாற்றும். நான்காவது விருப்பம், 1 என அமைக்கப்பட்டால், மடக்குவதைத் தடுக்கும் மற்றும் "
+"வெளியீடு ஒரு வரியில் (இயல்புநிலை 1) தோன்றுவதை உறுதி செய்யும்."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
 #, php-format
@@ -11812,6 +11845,7 @@ msgid ""
 "Converts an Internet network address in (IPv4/IPv6) format into a long "
 "integer."
 msgstr ""
+"இணைய பிணையம் முகவரியை (IPV4/IPV6) வடிவமைப்பில் நீண்ட முழு எண்ணாக மாற்றுகிறது."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
@@ -11863,6 +11897,8 @@ msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
+"யூபிகே போன்ற ஃபிடோ யு 2 எஃப் ஆதரிக்கும் வன்பொருள் பாதுகாப்பு டோக்கன்களைப் பயன்படுத்தி "
+"அங்கீகாரத்தை வழங்குகிறது."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11875,7 +11911,7 @@ msgstr "இரண்டு காரணி ஏற்பு தோல்விய
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:128
 msgid "No Two-Factor Authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "இரண்டு காரணி ஏற்பு இல்லை"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:138
 msgid "Login using password only."
@@ -11891,13 +11927,15 @@ msgstr "சோதனை நோக்கங்களுக்காக மட்�
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr ""
+msgstr "வன்பொருள் பாதுகாப்பு விசை (வெப்அத்ன்/ஃபிடோ 2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
+"ஒரு யூபிகே போன்ற வெப்அத்ன்/ஃபிடோ 2 நெறிமுறையை ஆதரிக்கும் வன்பொருள் பாதுகாப்பு "
+"டோக்கன்களைப் பயன்படுத்தி அங்கீகாரத்தை வழங்குகிறது."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -11989,21 +12027,22 @@ msgstr "தெரியாத பிழை"
 #: libraries/classes/ReplicationGui.php:545
 #, php-format
 msgid "Unable to connect to primary %s."
-msgstr ""
+msgstr "முதன்மை %s உடன் இணைக்க முடியவில்லை."
 
 #: libraries/classes/ReplicationGui.php:555
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
+"முதன்மை பதிவு நிலையைப் படிக்க முடியவில்லை. முதன்மை மீது சாத்தியமான சலுகை சிக்கல்."
 
 #: libraries/classes/ReplicationGui.php:573
 msgid "Unable to change primary!"
-msgstr ""
+msgstr "முதன்மை மாற்ற முடியவில்லை!"
 
 #: libraries/classes/ReplicationGui.php:577
 #, php-format
 msgid "Primary server changed successfully to %s."
-msgstr ""
+msgstr "முதன்மை சேவையகம் வெற்றிகரமாக %s ஆக மாற்றப்பட்டது."
 
 #: libraries/classes/Routing.php:109
 #, php-format
@@ -12011,15 +12050,17 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"ரூட்டிங் கேச் எழுத முடியவில்லை, நீங்கள் \"%s\" என்ற கோப்புறை/கோப்பில் அனுமதிகளை சரிசெய்ய "
+"வேண்டும்"
 
 #: libraries/classes/Routing.php:168
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr ""
+msgstr "பிழை 404! பக்கம் %s காணப்படவில்லை."
 
 #: libraries/classes/Routing.php:179
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "பிழை 405! கோரிக்கை முறை அனுமதிக்கப்படவில்லை."
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
@@ -12058,20 +12099,20 @@ msgstr "SHA256 கடவுச்சொல் ஏற்பு"
 
 #: libraries/classes/Server/Plugins.php:78
 msgid "Caching sha2 authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "SHA2 ஏற்பு"
 
 #: libraries/classes/Server/Plugins.php:83
 msgid "Unix Socket based authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "யூனிக்ச் சாக்கெட் அடிப்படையிலான ஏற்பு"
 
 #: libraries/classes/Server/Plugins.php:88
 msgid "Old MySQL-4.0 authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "பழைய MySQL-4.0 ஏற்பு"
 
 #: libraries/classes/Server/Privileges/AccountLocking.php:30
 #: libraries/classes/Server/Privileges/AccountLocking.php:51
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "கணக்கு பூட்டுதல் ஆதரிக்கப்படவில்லை."
 
 #: libraries/classes/Server/Privileges.php:269
 msgid "No privileges."
@@ -12255,13 +12296,13 @@ msgstr "தற்போதைய நூலுக்கான பூட்டு�
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Needed for the replication replicas."
-msgstr ""
+msgstr "பிரதி பிரதிகளுக்கு தேவை."
 
 #: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr ""
+msgstr "பிரதிகள் / முதன்மைகள் எங்கே என்று பயனரை கேட்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:455
 #: templates/server/privileges/privileges_table.twig:524
@@ -12499,16 +12540,16 @@ msgstr "திறந்த அட்டவணைகளைக் காட்ட�
 
 #: libraries/classes/Server/Status/Data.php:193
 msgid "Show replica hosts"
-msgstr "இரட்டையாக்கப்படாதது"
+msgstr "பிரதி ஓச்ட்களைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
 msgid "Show primary status"
-msgstr "இரும உள்ளடக்கங்களை காண்பி"
+msgstr "முதன்மை நிலையைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:207
 msgid "Show replica status"
-msgstr "துணைநிலை நிகழ்நிலை"
+msgstr "பிரதி நிலையைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -13142,10 +13183,12 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"ஐபிவி 6 முகவரிகளை சேமிப்பதற்காகவும், ஐபிவி 4 முகவரிகளையும் ஐபிவி 4 முகவரிகளின் "
+"வழக்கமான மேப்பிங் ஐபிவி 6 முகவரிகளில் கருதுகிறது"
 
 #: libraries/classes/Types.php:445
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr ""
+msgstr "128-பிட் UUID (உலகளவில் தனித்துவமான அடையாளங்காட்டி)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -13180,7 +13223,7 @@ msgstr "உள்ளமைவைச் சேமிக்க முடியவ�
 
 #: libraries/classes/UserPreferences.php:192
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்கப்பட்டுள்ளது. %sஏனென்று அறிக%s."
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பக தரவுத்தளத்தை அணுக முடியவில்லை."
 
 #: libraries/classes/Util.php:132
 #, php-format
@@ -13263,7 +13306,7 @@ msgstr "மார்கழி"
 #: libraries/classes/Util.php:693
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "ஞாயிறு"
+msgstr "சூரியன்"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Util.php:695 templates/javascript/variables.twig:58
@@ -13602,7 +13645,7 @@ msgstr "இணைப்பு:"
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
 msgid "Storage engine"
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "சேமிப்பக இயந்திரம்"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
@@ -13611,13 +13654,15 @@ msgstr "பகிர்வு வரையறை:"
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "உள்ளிடு மாற்றுருவாக்கம்"
+msgstr "நிகழ்நிலை பரிவர்த்தனை"
 
 #: templates/columns_definitions/column_definitions_form.twig:166
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"ஒரு டைனின்ட் (1) நெடுவரிசையை வரையறுக்காவிட்டால், முழு எண் வகைகளின் நெடுவரிசை அகலம் "
+"உங்கள் MySQL பதிப்பில் புறக்கணிக்கப்படுகிறது"
 
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
@@ -13631,7 +13676,7 @@ msgstr ""
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:97
 msgid "Loading"
-msgstr "ஏற்றப்படுகிறது…"
+msgstr "ஏற்றுகிறது"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
@@ -13735,6 +13780,10 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"நெடுவரிசை வகை \"enum\" அல்லது \"அமைக்க\" என்றால், தயவுசெய்து இந்த வடிவமைப்பைப் "
+"பயன்படுத்தி மதிப்புகளை உள்ளிடவும்: 'a', 'b', 'c'… <br> நீங்கள் எப்போதாவது ஒரு "
+"பின்சாய்வுக்கோ (\"\\\") அல்லது a அந்த மதிப்புகளுக்கு இடையில் ஒற்றை மேற்கோள் (\"\" \"), "
+"அதை ஒரு பின்சாய்வுடன் முன்னதாக (எடுத்துக்காட்டாக '\\\\ xyz' அல்லது 'A \\' B ')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:21
 msgid ""
@@ -13808,6 +13857,10 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"இந்த வடிவமைப்பைப் பயன்படுத்தி உருமாற்ற விருப்பங்களுக்கான மதிப்புகளை உள்ளிடவும்: 'a', "
+"100, b, 'c'… <br> நீங்கள் எப்போதாவது ஒரு பின்சாய்வுக்கோ (\"\\\") அல்லது ஒரு மேற்கோள் ("
+"\"\" \") அவற்றில் வைக்க வேண்டும் என்றால் அவற்றில் மதிப்புகள், அதை ஒரு பின்சாய்வுக்குறுப்புடன்"
+" முன்னதாக (எடுத்துக்காட்டாக '\\\\ xyz' அல்லது 'A \\' B ')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
@@ -13961,6 +14014,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
+"Shift+Enter உடன் புதிய வரியை உள்ளிடவும் செருகவும் வினவல்களை இயக்கவும். இதை நிரந்தரமாக்"
+"க, அமைப்புகளைக் காண்க."
 
 #: templates/create_tracking_version.twig:10
 #, php-format
@@ -13987,7 +14042,7 @@ msgstr "பதிப்பை உருவாக்கு"
 #: templates/database/central_columns/edit.twig:15
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr ""
+msgstr "A_i"
 
 #: templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -13996,7 +14051,7 @@ msgstr "புதிய நெடுவரிசையை சேர்க்க"
 #: templates/database/central_columns/main.twig:24
 #: templates/database/central_columns/main.twig:228
 msgid "Length/Value"
-msgstr "நீளம்/மதிப்புகள்"
+msgstr "நீளம்/மதிப்பு"
 
 #: templates/database/central_columns/main.twig:36
 #: templates/database/central_columns/main.twig:240
@@ -14010,7 +14065,7 @@ msgstr "A_i"
 
 #: templates/database/central_columns/main.twig:129
 msgid "The central list of columns for the current database is empty"
-msgstr "நடப்பு தரவுத்தளத்துக்கான மையநிரல்வரிசைப்பட்டியல் வெறுமையாக உள்ளது."
+msgstr "தற்போதைய தரவுத்தளத்திற்கான நெடுவரிசைகளின் மைய பட்டியல் காலியாக உள்ளது"
 
 #: templates/database/central_columns/main.twig:166
 #: templates/display/results/table.twig:65
@@ -14061,7 +14116,7 @@ msgstr "செயல்"
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
 msgid "Create new table"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய அட்டவணையை உருவாக்கவும்"
 
 #: templates/database/create_table.twig:10
 #: templates/database/operations/index.twig:34
@@ -14076,7 +14131,7 @@ msgstr "உருவாக்கு"
 
 #: templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
-msgstr "தரவுத்தள கருத்துரை"
+msgstr "தரவுத்தள கருத்து:"
 
 #: templates/database/data_dictionary/index.twig:8
 #: templates/database/data_dictionary/index.twig:124
@@ -14413,7 +14468,7 @@ msgstr "அனைத்தையும் சரிபார்க்கவு�
 
 #: templates/database/events/index.twig:29
 msgid "Create new event"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "புதிய நிகழ்வை உருவாக்கவும்"
 
 #: templates/database/events/index.twig:38
 msgid "There are no events to display."
@@ -14440,12 +14495,13 @@ msgstr "அணை"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr ""
+"@ சேவையகம்@ சேவையக பெயராகவும்,@ தரவுத்தளமாக@ தரவுத்தள பெயராகவும் மாறும்."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr ""
+msgstr "ஒரு மூல வினவலை ஏற்றுமதி செய்கிறது"
 
 #: templates/database/export/index.twig:7
 #, php-format
@@ -14454,11 +14510,11 @@ msgstr "\"%s\" தரவுத்தளத்திலிருந்து அ�
 
 #: templates/database/export/index.twig:30
 msgid "Export the structure of all tables."
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "அனைத்து அட்டவணைகளின் கட்டமைப்பையும் ஏற்றுமதி செய்யுங்கள்."
 
 #: templates/database/export/index.twig:33
 msgid "Export the data of all tables."
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "அனைத்து அட்டவணைகளின் தரவை ஏற்றுமதி செய்யுங்கள்."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -14472,10 +14528,8 @@ msgstr "பல அட்டவணை வினவல்"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "வினவல் தோல்வியடைந்தது"
+msgstr "எடுத்துக்காட்டு மூலம் வினவல்"
 
 #: templates/database/multi_table_query/form.twig:17
 msgid "Query window"
@@ -14557,6 +14611,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
+"இந்த செயல்பாட்டைச் செய்ய உங்களுக்கு போதுமான சலுகைகள் இல்லை; மேலும் விவரங்களுக்கு ஆவணங்களைப்"
+" பார்க்கவும்."
 
 #: templates/database/operations/index.twig:83
 msgid "Remove database"
@@ -14703,10 +14759,8 @@ msgid "Ins:"
 msgstr "செருகுக:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "மற்றும்:"
+msgstr "மற்றும்"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
@@ -14742,23 +14796,17 @@ msgid "Modify:"
 msgstr "மாற்று:"
 
 #: templates/database/qbe/selection_form.twig:54
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Add/Delete criteria rows:"
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
+msgstr "அளவுகோல் வரிசைகளைச் சேர்க்கவும்/நீக்கவும்:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
+msgstr "நெடுவரிசைகளைச் சேர்க்கவும்/நீக்கு:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
-#, fuzzy
-#| msgid "Use Tables"
 msgid "Use tables"
-msgstr "அட்டவணைகளை பயன்படுத்துக"
+msgstr "அட்டவணைகள் பயன்படுத்தவும்"
 
 #: templates/database/qbe/selection_form.twig:107
 #, php-format
@@ -14813,6 +14861,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
+"இந்த செயல்பாட்டைச் செய்ய உங்களுக்கு போதுமான சலுகைகள் இல்லை; மேலும் விவரங்களுக்கு ஆவணங்களைப்"
+" பார்க்கவும்."
 
 #: templates/database/routines/editor_form.twig:148
 msgid "Security type"
@@ -14829,7 +14879,7 @@ msgstr "வழக்கமான அளவுருக்கள்"
 
 #: templates/database/routines/index.twig:36
 msgid "Create new routine"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "புதிய வழக்கத்தை உருவாக்கவும்"
 
 #: templates/database/routines/index.twig:45
 msgid "There are no routines to display."
@@ -15020,7 +15070,7 @@ msgstr ""
 
 #: templates/database/structure/copy_form.twig:14
 msgid "Options:"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "விருப்பங்கள்:"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
@@ -15165,7 +15215,7 @@ msgstr "நேரம்"
 
 #: templates/database/triggers/list.twig:29
 msgid "Create new trigger"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய தூண்டுதலை உருவாக்கவும்"
 
 #: templates/database/triggers/list.twig:38
 msgid "There are no triggers to display."
@@ -15190,12 +15240,12 @@ msgstr "அனைத்தும்"
 
 #: templates/display/results/table.twig:73
 msgid "Sort by key:"
-msgstr "குறிப்பெழுத்தின்படி வரிசைபடுத்துக"
+msgstr "விசை மூலம் வரிசைப்படுத்துங்கள்:"
 
 #: templates/display/results/table.twig:122
 #: templates/table/search/index.twig:102
 msgid "Extra options"
-msgstr "செயல்கள்->திருப்பியளிதல் விருப்பங்கள்"
+msgstr "கூடுதல் விருப்பங்கள்"
 
 #: templates/display/results/table.twig:144
 msgid "Relational key"
@@ -15307,7 +15357,7 @@ msgstr "புதுப்பிப்பு"
 
 #: templates/export.twig:72
 msgid "Show SQL query"
-msgstr "SQL வினவல்களை காட்டுக"
+msgstr "கவிமொ வினவலைக் காட்டு"
 
 #: templates/export.twig:104
 msgid "Export method:"
@@ -15323,7 +15373,7 @@ msgstr "தனிப்பயன் - சாத்தியமான அனை�
 
 #: templates/export.twig:121
 msgid "File format to export"
-msgstr "தரவிறக்கத்திற்கான கோப்பு:"
+msgstr "ஏற்றுமதி செய்ய கோப்பு வடிவம்"
 
 #: templates/export.twig:137
 msgid "Rows:"
@@ -15412,10 +15462,13 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"இந்த மதிப்பு 'STRFTIME' செயல்பாட்டைப் பயன்படுத்தி விளக்கப்படுகிறது, எனவே நீங்கள் நேர "
+"வடிவமைக்கும் சரங்களைப் பயன்படுத்தலாம். கூடுதலாக பின்வரும் மாற்றங்கள் நடக்கும்: %s மற்ற உரை "
+"அப்படியே வைக்கப்படும். விவரங்களுக்கு கேள்விகள் 6.27 ஐப் பார்க்கவும்."
 
 #: templates/export.twig:398
 msgid "Use this for future exports"
-msgstr ""
+msgstr "எதிர்கால ஏற்றுமதிக்கு இதைப் பயன்படுத்தவும்"
 
 #: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
@@ -15443,11 +15496,11 @@ msgstr "அட்டவணைகளை தனி கோப்புகளாக 
 
 #: templates/export.twig:474
 msgid "Skip tables larger than:"
-msgstr ""
+msgstr "இடங்களை விட பெரிய அட்டவணையைத் தவிர்க்கவும்:"
 
 #: templates/export.twig:476
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "அளவு MIB இல் அளவிடப்படுகிறது."
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
@@ -15497,7 +15550,7 @@ msgstr "கீழடுக்காக OpenStreetMaps ஐ பயன்படு�
 #: templates/gis_data_editor_form.twig:39
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
-msgstr "SRID (இடம்சார்ந்த குறியீடு அமைப்பு காட்டி) :"
+msgstr "ச்ரிட்:"
 
 #: templates/gis_data_editor_form.twig:62
 #, php-format
@@ -15511,10 +15564,9 @@ msgstr "புள்ளி:"
 #: templates/gis_data_editor_form.twig:106
 #: templates/gis_data_editor_form.twig:151
 #: templates/gis_data_editor_form.twig:207
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "புள்ளி %d"
+msgstr "புள்ளி %d:"
 
 #: templates/gis_data_editor_form.twig:130
 #, php-format
@@ -15580,17 +15632,17 @@ msgstr "கிளை இல்லை"
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
 #, php-format
 msgid "from %s branch"
-msgstr ""
+msgstr "%s கிளையிலிருந்து"
 
 #: templates/home/git_info.twig:25
 #, php-format
 msgid "committed on %s by %s"
-msgstr "%1$s அன்று %2$s ஆல் உறுதியளிக்கப்பட்டது"
+msgstr "%s இல் %s ஆல் செய்யப்படுகிறது"
 
 #: templates/home/git_info.twig:32
 #, php-format
 msgid "authored on %s by %s"
-msgstr "%1$s அன்று %2$s ஆல் இயற்றப்பட்டது"
+msgstr "%s இல் %s ஆல் எழுதப்பட்டது"
 
 #: templates/home/index.twig:22 templates/login/form.twig:8
 #, php-format
@@ -15609,7 +15661,7 @@ msgstr "பொதுவான அமைவுகள்"
 
 #: templates/home/index.twig:57
 msgid "Server connection collation:"
-msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
+msgstr "சேவையக இணைப்பு கூட்டு:"
 
 #: templates/home/index.twig:83 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -15632,7 +15684,7 @@ msgstr "கருப்பொருள்"
 #: templates/home/index.twig:143
 msgctxt "View all themes"
 msgid "View all"
-msgstr "படத்தை பார்"
+msgstr "அனைத்தையும் காண்க"
 
 #: templates/home/index.twig:159
 msgid "Database server"
@@ -15713,11 +15765,11 @@ msgstr "எச்சரிக்கை"
 
 #: templates/home/index.twig:284
 msgid "Notice"
-msgstr ""
+msgstr "அறிவிப்பு"
 
 #: templates/home/index.twig:297
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin அகப்பக்கம்"
+msgstr "phpmyadmin கருப்பொருள்கள்"
 
 #: templates/home/index.twig:308
 msgid "Get more themes!"
@@ -15726,7 +15778,7 @@ msgstr "மேலும் கருப்பொருள்களைப் ப�
 #: templates/home/themes.twig:7
 #, php-format
 msgid "Screenshot of the %s theme."
-msgstr "%s தரவுத்தளத்தின் ஒழுங்கமைவு"
+msgstr "%s கருப்பொருளின் திரை காட்சி."
 
 #. l10n: Choose the theme button in the themes list modal
 #: templates/home/themes.twig:12
@@ -15795,11 +15847,11 @@ msgstr ""
 
 #: templates/import.twig:40
 msgid "Upload a file"
-msgstr "கோப்பை பதிவிறக்கு"
+msgstr "ஒரு கோப்பைப் பதிவேற்றவும்"
 
 #: templates/import.twig:43
 msgid "Select file to import"
-msgstr "தரவிறக்கத்திற்கான கோப்பு:"
+msgstr "இறக்குமதி செய்ய கோப்பைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/import.twig:50 templates/import.twig:77
 #: templates/preferences/manage/main.twig:22
@@ -15813,11 +15865,12 @@ msgstr "நீங்கள் எந்தப் பக்கத்திலு�
 #: templates/import.twig:62 templates/import.twig:88
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
+msgstr ""
+"வலை சேவையக பதிவேற்ற கோப்பகத்திலிருந்து [வலுவான]%s [/strong] ஐத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/import.twig:69 templates/import.twig:96
 msgid "There are no files to import!"
-msgstr "பதிவேற்றுவதற்கு எந்த கோப்புகளும் இல்லை!"
+msgstr "இறக்குமதி செய்ய கோப்புகள் எதுவும் இல்லை!"
 
 #: templates/import.twig:100
 msgid "File uploads are not allowed on this server."
@@ -15839,12 +15892,16 @@ msgid ""
 "Allow the interruption of an import in case the script detects it is close "
 "to the PHP timeout limit."
 msgstr ""
+"ச்கிரிப்ட் பி.எச்.பி காலக்கெடு வரம்புக்கு அருகில் இருப்பதைக் கண்டறிந்தால் இறக்குமதியின் "
+"குறுக்கீட்டை அனுமதிக்கவும்."
 
 #: templates/import.twig:140
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"பெரிய கோப்புகளை இறக்குமதி செய்வதற்கான சிறந்த வழியாக இது இருக்கலாம், இருப்பினும் இது "
+"பரிவர்த்தனைகளை உடைக்கக்கூடும்."
 
 #: templates/import.twig:144
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -15853,12 +15910,12 @@ msgstr ""
 
 #: templates/import.twig:154
 msgid "Other options"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "பிற விருப்பங்கள்"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:506
 msgid "Rename"
-msgstr "முக்கியபெயர்"
+msgstr "மறுபெயரிடுங்கள்"
 
 #: templates/indexes.twig:45
 #: templates/table/structure/display_structure.twig:512
@@ -15878,27 +15935,18 @@ msgstr "காலண்டர்-மாத ஆண்டு"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
-#, fuzzy
-#| msgctxt "Year suffix"
-#| msgid "none"
 msgid "none"
 msgstr "எதுவுமில்லை"
 
 #. l10n: Previous month. Display text for previous month link in calendar
 #: templates/javascript/variables.twig:16
-#, fuzzy
-#| msgctxt "Previous month"
-#| msgid "Prev"
 msgid "Prev"
-msgstr "பின்"
+msgstr "முந்தைய"
 
 #. l10n: Next month. Display text for next month link in calendar
 #: templates/javascript/variables.twig:17
-#, fuzzy
-#| msgctxt "Next month"
-#| msgid "Next"
 msgid "Next"
-msgstr "அடுத்த"
+msgstr "அடுத்தது"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
@@ -16087,7 +16135,7 @@ msgstr "செல்லுபடியாகும் ஃச் உள்ளீ�
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "இந்த நெடுவரிசையில் 32 எழுத்துக்கள் மதிப்பைக் கொண்டிருக்க முடியாது"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16095,6 +16143,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"இந்த செயல்பாடுகள் ஒரு பைனரி முடிவைத் தரும்; சீரற்ற முடிவுகளைத் தவிர்க்க நீங்கள் அதை ஒரு "
+"பைனரி, வர்பினரி அல்லது குமிழ் நெடுவரிசையில் சேமிக்க வேண்டும்."
 
 #: templates/login/form.twig:58 templates/login/form.twig:117
 #: templates/login/form.twig:121 templates/login/form.twig:124
@@ -16120,7 +16170,7 @@ msgstr "கடவுச்சொல்:"
 
 #: templates/login/form.twig:95
 msgid "Server choice:"
-msgstr "விருப்பமான வழங்கி:"
+msgstr "சேவையக தேர்வு:"
 
 #: templates/login/header.twig:17
 msgid ""
@@ -16128,6 +16178,9 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"சேவையகம் மற்றும் கிளையண்டில் சுட்டிக்காட்டப்பட்ட HTTP களுக்கு இடையே ஒரு பொருத்தமின்மை "
+"உள்ளது. இது வேலை செய்யாத PHPMYADMIN அல்லது பாதுகாப்பு அபாயத்திற்கு வழிவகுக்கும். "
+"HTTP களை சரியாகக் குறிக்க உங்கள் சேவையக உள்ளமைவை சரிசெய்யவும்."
 
 #: templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -16166,7 +16219,7 @@ msgstr ""
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
 msgid "Deprecated!"
-msgstr "இரட்டையாக்கப்பட்டது"
+msgstr "மதிப்பிடப்பட்டது!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
@@ -16175,7 +16228,7 @@ msgstr "இரட்டையாக்கப்பட்டது"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr ""
+msgstr "FIDO U2F பநிஇ வலை அங்கீகார பநிஇ (WebAuthn) க்கு ஆதரவாக நீக்கப்பட்டது."
 
 #: templates/login/twofactor/key_configure.twig:6
 #: templates/login/twofactor/key.twig:6
@@ -16185,6 +16238,9 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"FIDO U2F பநிஇ ஐப் பயன்படுத்தி உங்கள் கணக்கை அங்கீகரிக்க நீங்கள் இன்னும் பயர்பாக்சைப் "
+"பயன்படுத்தலாம், இருப்பினும் அதற்கு பதிலாக WebAuthn அங்கீகாரத்தைப் பயன்படுத்த "
+"பரிந்துரைக்கப்படுகிறது."
 
 #: templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -16219,20 +16275,22 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
+"உங்கள் WebAuthn/FIDO2 சாதனத்தை இணைக்கவும். சாதனத்தில் பதிவை உறுதிப்படுத்தவும்."
 
 #: templates/login/twofactor/webauthn_request.twig:1
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
+"உங்கள் WebAuthn/FIDO2 சாதனத்தை இணைக்கவும். சாதனத்தில் உள்நுழைவை உறுதிப்படுத்தவும்."
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
-msgstr "விவரபார்வைகள்:"
+msgstr "காண்க:"
 
 #: templates/modals/index_dialog_modal.twig:30
 #: templates/table/structure/display_structure.twig:363
 msgid "Go back"
-msgstr ""
+msgstr "திரும்பிச் செல்லுங்கள்"
 
 #: templates/modals/unhide_nav_item.twig:5
 msgid "Show hidden navigation tree items."
@@ -16240,7 +16298,7 @@ msgstr "மறைத்துள்ள வழிசெலுத்தல் ப�
 
 #: templates/navigation/item_unhide_dialog.twig:20
 msgid "Unhide"
-msgstr ""
+msgstr "இரக்கமற்றது"
 
 #: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
@@ -16260,11 +16318,11 @@ msgstr "phpMyAdmin ஆவணச்சான்று"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
-msgstr "ஆவணச்சான்று"
+msgstr "மரியாடிபி ஆவணம்"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MySQL Documentation"
-msgstr "ஆவணச்சான்று"
+msgstr "MySQL ஆவணங்கள்"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
@@ -16280,7 +16338,7 @@ msgstr "வழிசெலுத்தல் காட்சியை ஏற்�
 
 #: templates/navigation/main.twig:88
 msgid "SQL upload"
-msgstr ""
+msgstr "கவிமொ பதிவேற்றம்"
 
 #: templates/navigation/tree/fast_filter.twig:11
 #: templates/navigation/tree/fast_filter.twig:12
@@ -16458,7 +16516,7 @@ msgstr ""
 #: templates/preferences/two_factor/main.twig:26
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
-msgstr ""
+msgstr "மேலும் அங்கீகார பின்தளத்தில் செயல்படுத்த விருப்ப சார்புகளை நிறுவவும்."
 
 #: templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -16482,7 +16540,7 @@ msgstr "விருப்பமான அட்டவணைகள் ஏது�
 
 #: templates/relation/check_relations.twig:3
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin ஆவணச்சான்று"
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பு"
 
 #: templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -16521,6 +16579,7 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
+"%'%s' என்ற தரவுத்தளத்தை%உருவாக்கி, அங்கு phpmyadmin உள்ளமைவு சேமிப்பிடத்தை அமைக்கவும்."
 
 #: templates/relation/check_relations.twig:24
 #, php-format
@@ -16559,7 +16618,7 @@ msgstr "சரி"
 
 #: templates/relation/check_relations.twig:62
 msgid "General relation features:"
-msgstr "உள்ளமை உறவுமுறைகள்"
+msgstr "பொது உறவு அம்சங்கள்:"
 
 #: templates/relation/check_relations.twig:64
 #: templates/relation/check_relations.twig:89
@@ -16584,19 +16643,19 @@ msgstr "இயக்கப்பட்டது"
 
 #: templates/relation/check_relations.twig:87
 msgid "Display features:"
-msgstr "பயன்முறைகளை காட்டுக"
+msgstr "காட்சி அம்சங்கள்:"
 
 #: templates/relation/check_relations.twig:125
 msgid "Designer and creation of PDFs:"
-msgstr ""
+msgstr "PDFS இன் வடிவமைப்பாளர் மற்றும் உருவாக்கம்:"
 
 #: templates/relation/check_relations.twig:150
 msgid "Displaying column comments:"
-msgstr "கருத்துரைகளை காட்டுக"
+msgstr "நெடுவரிசை கருத்துகளைக் காண்பிக்கும்:"
 
 #: templates/relation/check_relations.twig:160
 msgid "Browser transformation:"
-msgstr "உலவியின் மாற்றுருவாக்கத்தை மறைக்க"
+msgstr "உலாவி மாற்றம்:"
 
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -16606,55 +16665,55 @@ msgstr ""
 
 #: templates/relation/check_relations.twig:195
 msgid "Bookmarked SQL query:"
-msgstr "SQL வினவல்:"
+msgstr "புக்மார்க்கு செய்யப்பட்ட கவிமொ வினவல்:"
 
 #: templates/relation/check_relations.twig:220
 msgid "SQL history:"
-msgstr "SQL வினவல்:"
+msgstr "கவிமொ வரலாறு:"
 
 #: templates/relation/check_relations.twig:245
 msgid "Persistent recently used tables:"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "தொடர்ந்து அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணைகள்:"
 
 #: templates/relation/check_relations.twig:270
 msgid "Persistent favorite tables:"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "தொடர்ந்து பிடித்த அட்டவணைகள்:"
 
 #: templates/relation/check_relations.twig:295
 msgid "Persistent tables' UI preferences:"
-msgstr ""
+msgstr "தொடர்ச்சியான அட்டவணைகளின் இடைமுகம் விருப்பத்தேர்வுகள்:"
 
 #: templates/relation/check_relations.twig:320
 msgid "Tracking:"
-msgstr "கண்காணிப்பு அறிக்கை"
+msgstr "கண்காணிப்பு:"
 
 #: templates/relation/check_relations.twig:345
 msgid "User preferences:"
-msgstr ""
+msgstr "பயனர் விருப்பத்தேர்வுகள்:"
 
 #: templates/relation/check_relations.twig:383
 msgid "Configurable menus:"
-msgstr "உள்ளமைக்கக்கூடிய பட்டிகள்"
+msgstr "உள்ளமைக்கக்கூடிய மெனுக்கள்:"
 
 #: templates/relation/check_relations.twig:408
 msgid "Hide/show navigation items:"
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "வழிசெலுத்தல் உருப்படிகளை மறைக்க/காட்டு:"
 
 #: templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
-msgstr ""
+msgstr "வினவல் மூலம் சான்று தேடல்களைச் சேமிக்கிறது:"
 
 #: templates/relation/check_relations.twig:458
 msgid "Managing central list of columns:"
-msgstr ""
+msgstr "நெடுவரிசைகளின் மைய பட்டியலை நிர்வகித்தல்:"
 
 #: templates/relation/check_relations.twig:483
 msgid "Remembering designer settings:"
-msgstr ""
+msgstr "வடிவமைப்பாளர் அமைப்புகளை நினைவில் வைத்தல்:"
 
 #: templates/relation/check_relations.twig:508
 msgid "Saving export templates:"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "ஏற்றுமதி வார்ப்புருக்களை சேமிக்கிறது:"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -16689,12 +16748,12 @@ msgstr "பார்க்க பைனரி பதிவைத் தேர்
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
 msgid "Truncate shown queries"
-msgstr "மெதுவான வினவல்களின் விழுக்காடு"
+msgstr "காட்டப்பட்ட வினவல்களைக் குறைத்தல்"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
 msgid "Show full queries"
-msgstr "SQL வினவல்களை காட்டுக"
+msgstr "முழு கேள்விகளையும் காட்டு"
 
 #: templates/server/binlog/index.twig:84
 msgid "Log name"
@@ -16725,7 +16784,7 @@ msgstr "எழுத்து செட் மற்றும் தொகுத
 #: templates/server/collations/index.twig:23
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "இயல்நிலை"
+msgstr "இயல்புநிலை"
 
 #: templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -16737,18 +16796,18 @@ msgstr "தரவுத்தளத்தை உருவாக்கவும�
 
 #: templates/server/databases/index.twig:50
 msgid "No privileges to create databases"
-msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
+msgstr "தரவுத்தளங்களை உருவாக்க சலுகைகள் இல்லை"
 
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
 msgid "Primary replication"
-msgstr "படியெடுத்தல்"
+msgstr "முதன்மை பிரதி"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
 msgid "Replica replication"
-msgstr "படியெடுத்தல்"
+msgstr "பிரதி பிரதி"
 
 #: templates/server/databases/index.twig:181
 #, php-format
@@ -16791,11 +16850,11 @@ msgstr "சேமிப்பக இயந்திரம்"
 
 #: templates/server/engines/show.twig:45
 msgid "Unknown storage engine."
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "அறியப்படாத சேமிப்பக இயந்திரம்."
 
 #: templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr "@ சேவையகம்@ சேவையக பெயராக மாறும்."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16819,7 +16878,7 @@ msgstr "நூலாசிரியர்"
 
 #: templates/server/plugins/index.twig:41
 msgid "inactive"
-msgstr "செயற்படு"
+msgstr "செயலற்றது"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
@@ -16827,11 +16886,11 @@ msgstr "முடக்கப்பட்டது"
 
 #: templates/server/plugins/index.twig:45
 msgid "deleting"
-msgstr "அழித்தல்"
+msgstr "நீக்குதல்"
 
 #: templates/server/plugins/index.twig:47
 msgid "deleted"
-msgstr "அழி"
+msgstr "நீக்கப்பட்டது"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -16862,7 +16921,7 @@ msgstr "உள்ளிடவும்:"
 #: templates/server/privileges/login_information_fields.twig:54
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "நிரல் நீளம்"
+msgstr "வலிமை:"
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
@@ -16885,7 +16944,7 @@ msgstr ""
 
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் குழு:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16932,7 +16991,7 @@ msgstr "இந்த வழக்கத்தை செயல்படுத்�
 
 #: templates/server/privileges/initials_row.twig:1
 msgid "Pagination of user accounts"
-msgstr "தரவுதள நடவடிக்கைகள்"
+msgstr "பயனர் கணக்குகளின் மண்பாண்டம்"
 
 #: templates/server/privileges/login_information_fields.twig:2
 #: templates/server/privileges/user_properties.twig:105
@@ -16981,12 +17040,12 @@ msgstr "உள்ளக"
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/primary_add_replica_user.twig:37
 msgid "This host"
-msgstr ""
+msgstr "இந்த புரவலன்"
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:39
 msgid "Use host table"
-msgstr "பயனர் அட்டவணை"
+msgstr "புரவலன் அட்டவணையைப் பயன்படுத்தவும்"
 
 #: templates/server/privileges/login_information_fields.twig:39
 #: templates/server/replication/primary_add_replica_user.twig:44
@@ -17013,7 +17072,7 @@ msgstr "கடவுச்சொல்லை மாற்ற வேண்டா�
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/primary_add_replica_user.twig:53
 msgid "No password"
-msgstr "பதிலி கடவுச்சொல்"
+msgstr "கடவுச்சொல் இல்லை"
 
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/primary_add_replica_user.twig:65
@@ -17022,11 +17081,11 @@ msgstr "மறு வகை"
 
 #: templates/server/privileges/login_information_fields.twig:68
 msgid "Authentication plugin"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "அங்கீகார சொருகி"
 
 #: templates/server/privileges/login_information_fields.twig:70
 msgid "Password hashing method"
-msgstr "கடவுச்சொல் கூளமாக்கள்:"
+msgstr "கடவுச்சொல் ஏசிங் முறை"
 
 #: templates/server/privileges/login_information_fields.twig:83
 msgid ""
@@ -17034,6 +17093,8 @@ msgid ""
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
+"இந்த முறைக்கு '<em> SSL இணைப்பு </em>' அல்லது '<em> மறைகுறியாக்கப்பட்ட இணைப்பு, இது "
+"RSA </em>' ஐப் பயன்படுத்தி கடவுச்சொல்லை குறியாக்குகிறது; சேவையகத்துடன் இணைக்கும்போது."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:83
@@ -17106,15 +17167,15 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Allows creating foreign key relations."
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
+msgstr "வெளிநாட்டு முக்கிய உறவுகளை உருவாக்க அனுமதிக்கிறது."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "மரியாட்பில் பயன்படுத்தப்படவில்லை."
 
 #: templates/server/privileges/privileges_table.twig:670
 msgid "Not used for this MySQL version."
-msgstr ""
+msgstr "இந்த MySQL பதிப்பிற்கு பயன்படுத்தப்படவில்லை."
 
 #: templates/server/privileges/privileges_table.twig:721
 msgid "Resource limits"
@@ -17240,18 +17301,16 @@ msgstr "பயனர்களின் அதே பெயர்களைக் 
 
 #: templates/server/privileges/users_overview.twig:178
 msgid "Save changes"
-msgstr "பக்கத்தை சேமிக்க"
+msgstr "மாற்றங்களைச் சேமிக்கவும்"
 
 #: templates/server/replication/change_primary.twig:5
-#, fuzzy
-#| msgid "Replication"
 msgid "Replica configuration"
-msgstr "படியெடுத்தல்"
+msgstr "பிரதி உள்ளமைவு"
 
 #: templates/server/replication/change_primary.twig:6
 #: templates/server/replication/replica_configuration.twig:97
 msgid "Change or reconfigure primary server"
-msgstr ""
+msgstr "முதன்மை சேவையகத்தை மாற்றவும் அல்லது மறுகட்டமைக்கவும்"
 
 #: templates/server/replication/change_primary.twig:9
 msgid ""
@@ -17271,15 +17330,17 @@ msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் முதன்மையாக கட்டமைக்கப்படவில்லை. நீங்கள் %sconfigure "
+"%s ஐ விரும்புகிறீர்களா?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகள் இல்லை"
 
 #: templates/server/replication/primary_add_replica_user.twig:6
 #: templates/server/replication/primary_replication.twig:44
 msgid "Add replica replication user"
-msgstr ""
+msgstr "பிரதி பிரதி பயனரைச் சேர்க்கவும்"
 
 #: templates/server/replication/primary_add_replica_user.twig:21
 #: templates/server/replication/primary_add_replica_user.twig:40
@@ -17293,7 +17354,7 @@ msgstr "கடவுச்சொல்லை உருவாக்கு:"
 
 #: templates/server/replication/primary_configuration.twig:2
 msgid "Primary configuration"
-msgstr "கண்காணிப்பின் அமைப்பாக்கத்தை தரவிறக்கு"
+msgstr "முதன்மை உள்ளமைவு"
 
 #: templates/server/replication/primary_configuration.twig:4
 msgid ""
@@ -17303,6 +17364,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் முதன்மை சேவையகமாக கட்டமைக்கப்படவில்லை. எல்லா "
+"தரவுத்தளங்களையும் பிரதிபலிப்பதிலிருந்தும் அவற்றில் சிலவற்றை புறக்கணிப்பதிலிருந்தும் நீங்கள் "
+"தேர்வு செய்யலாம் (நீங்கள் பெரும்பான்மையான தரவுத்தளங்களை நகலெடுக்க விரும்பினால் பயனுள்ளதாக "
+"இருக்கும்) அல்லது இயல்பாகவே அனைத்து தரவுத்தளங்களையும் புறக்கணிக்க தேர்வு செய்யலாம் மற்றும் "
+"சில தரவுத்தளங்களை மட்டுமே பிரதிபலிக்க அனுமதிக்கலாம். பயன்முறையைத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -17330,49 +17396,55 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
+"நீங்கள் MySQL சேவையகத்தை மறுதொடக்கம் செய்தவுடன், GO பொத்தானைக் சொடுக்கு செய்க. பின்னர், இந்"
+"த சேவையகம் <strong> </strong> முதன்மை என கட்டமைக்கப்பட்டுள்ளது என்பதை உங்களுக்குத் "
+"தெரிவிக்கும் ஒரு செய்தியை நீங்கள் காண வேண்டும்."
 
 #: templates/server/replication/primary_replication.twig:5
 msgid "This server is configured as primary in a replication process."
-msgstr ""
+msgstr "இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் முதன்மையாக கட்டமைக்கப்பட்டுள்ளது."
 
 #: templates/server/replication/primary_replication.twig:16
 msgid "Show connected replicas"
-msgstr ""
+msgstr "இணைக்கப்பட்ட பிரதிகளைக் காட்டு"
 
 #: templates/server/replication/primary_replication.twig:38
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"–ரேபோர்ட்-ஓச்ட் = ஓச்ட்_பெயர் விருப்பத்துடன் தொடங்கப்பட்ட பிரதிகள் மட்டுமே இந்த பட்டியலில் "
+"தெரியும்."
 
 #: templates/server/replication/replica_configuration.twig:5
 msgid "Primary connection:"
-msgstr "பாதுகாப்பற்ற இணைப்பு"
+msgstr "முதன்மை இணைப்பு:"
 
 #: templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
-msgstr ""
+msgstr "பிரதி கவிமொ நூல் இயங்கவில்லை!"
 
 #: templates/server/replication/replica_configuration.twig:28
 msgid "Replica IO Thread not running!"
-msgstr ""
+msgstr "பிரதி io நூல் இயங்கவில்லை!"
 
 #: templates/server/replication/replica_configuration.twig:31
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
+"சேவையகம் ஒரு பிரதி செயல்பாட்டில் பிரதிகளாக கட்டமைக்கப்பட்டுள்ளது. நீங்கள் விரும்புகிறீர்கள்:"
 
 #: templates/server/replication/replica_configuration.twig:34
 msgid "See replica status table"
-msgstr "இந்த அட்டவணையில் தேடுக"
+msgstr "பிரதி நிலை அட்டவணையைப் பார்க்கவும்"
 
 #: templates/server/replication/replica_configuration.twig:38
 msgid "Control replica:"
-msgstr "இரட்டையாக்கப்படாதது"
+msgstr "கட்டுப்பாட்டு பிரதி:"
 
 #: templates/server/replication/replica_configuration.twig:48
 msgid "Reset replica"
-msgstr "இரட்டையாக்கப்படாதது"
+msgstr "பிரதி மீட்டமை"
 
 #: templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -17397,6 +17469,7 @@ msgstr "பிழை மேலாண்மை:"
 #: templates/server/replication/replica_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
+"பிழைகளைத் தவிர்ப்பது ஒத்திசைக்கப்படாத முதன்மை மற்றும் பிரதிகளுக்கு வழிவகுக்கும்!"
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -17413,14 +17486,16 @@ msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் பிரதிகளாக கட்டமைக்கப்படவில்லை. நீங்கள் %sconfigure "
+"%s ஐ விரும்புகிறீர்களா?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Primary status"
-msgstr "தரவிறக்க நிலை"
+msgstr "முதன்மை நிலை"
 
 #: templates/server/replication/status_table.twig:8
 msgid "Replica status"
-msgstr "துணைநிலை நிகழ்நிலை"
+msgstr "பிரதி நிலை"
 
 #: templates/server/replication/status_table.twig:16
 #: templates/server/status/variables/index.twig:75
@@ -17484,7 +17559,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:53
 msgid "Errors occurred while executing rule expressions:"
-msgstr ""
+msgstr "விதி வெளிப்பாடுகளைச் செயல்படுத்தும்போது பிழைகள் ஏற்பட்டன:"
 
 #: templates/server/status/advisor/index.twig:63
 msgid "Possible performance issues"
@@ -17492,23 +17567,23 @@ msgstr "நேரிடகூடிய செயல்திறன் சிக�
 
 #: templates/server/status/advisor/index.twig:76
 msgid "Issue:"
-msgstr "சிக்கல்"
+msgstr "வெளியீடு:"
 
 #: templates/server/status/advisor/index.twig:79
 msgid "Recommendation:"
-msgstr "பரிந்துரை"
+msgstr "பரிந்துரை:"
 
 #: templates/server/status/advisor/index.twig:82
 msgid "Justification:"
-msgstr "விளக்கமளி"
+msgstr "நியாயப்படுத்துதல்:"
 
 #: templates/server/status/advisor/index.twig:85
 msgid "Used variable / formula:"
-msgstr "பயன்படுத்தப்பட்ட மாறி/வாய்ப்பாடு"
+msgstr "பயன்படுத்தப்பட்ட மாறி / சூத்திரம்:"
 
 #: templates/server/status/advisor/index.twig:88
 msgid "Test:"
-msgstr "தேர்வுமுறை"
+msgstr "சோதனை:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
@@ -17553,31 +17628,27 @@ msgstr "வீதத்தை புதுப்பிக்கவும்"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
-msgstr "ஒரு வினாடிக்கு"
+msgstr "%d இரண்டாவது"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d seconds"
-msgstr "ஒரு வினாடிக்கு"
+msgstr "%d விநாடிகள்"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:46
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "ஒவ்வொரு நிமிடத்திற்கும்"
+msgstr "%d மணித்துளி"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:48
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minutes"
-msgstr "ஒவ்வொரு நிமிடத்திற்கும்"
+msgstr "%d நிமிடங்கள்"
 
 #: templates/server/status/monitor/index.twig:61
 msgid "Chart columns"
@@ -17753,7 +17824,7 @@ msgstr ""
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
 msgid "Questions since startup:"
-msgstr ""
+msgstr "தொடக்கத்திலிருந்து கேள்விகள்:"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per hour:"
@@ -17780,7 +17851,7 @@ msgstr "#"
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "ø per hour"
-msgstr "ஒவ்வொரு மணிக்கும்"
+msgstr "ஒரு மணி நேரத்திற்கு"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17809,16 +17880,20 @@ msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
+"இந்த MySQL சேவையகம் <b> முதன்மை </b> மற்றும் <b> பிரதி </b> <b> பிரதி </b> "
+"செயல்பாட்டில் செயல்படுகிறது."
 
 #: templates/server/status/status/index.twig:61
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
+"இந்த MySQL சேவையகம் <b> முதன்மை </b> <b> பிரதி </b> செயல்பாட்டில் செயல்படுகிறது."
 
 #: templates/server/status/status/index.twig:63
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
+"இந்த MySQL சேவையகம் <b> பிரதி </b> <b> பிரதி </b> செயல்பாட்டில் செயல்படுகிறது."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -17881,7 +17956,7 @@ msgstr "அட்டவணை படிநிலைமட்ட தாவல்�
 
 #: templates/server/user_groups/user_groups.twig:50
 msgid "Delete user group"
-msgstr "பயனர் குழுவை தொகுக்க"
+msgstr "பயனர் குழுவை நீக்கு"
 
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -17919,7 +17994,7 @@ msgstr "உள்ளமைவு கோப்பு"
 
 #: templates/setup/config/index.twig:16
 msgid "Generated configuration file"
-msgstr "அமைப்பாக்கம் இல்லா முறைமையை இயலசெய்க"
+msgstr "உருவாக்கப்பட்ட உள்ளமைவு கோப்பு"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
@@ -17943,7 +18018,7 @@ msgstr "படிவத்தை காட்டு"
 
 #: templates/setup/home/index.twig:23
 msgid "Show hidden messages"
-msgstr "மறைக்கப்பட்ட உருப்படிகளை காட்டு"
+msgstr "மறைக்கப்பட்ட செய்திகளைக் காட்டு"
 
 #: templates/setup/home/index.twig:79
 msgid "There are no configured servers"
@@ -17999,7 +18074,7 @@ msgstr "ஒரு புதிய சேவையகத்தை சேர்"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "ஏதோ தவறு நடந்தது."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -18076,7 +18151,7 @@ msgstr "புக்மார்க்கு செய்யப்பட்ட �
 
 #: templates/sql/query.twig:160
 msgid "Bookmark:"
-msgstr "புத்தகக்குறி"
+msgstr "புக்மார்க்கு:"
 
 #: templates/sql/query.twig:169
 msgid "shared"
@@ -18092,7 +18167,7 @@ msgstr "இம்மதிப்பை பயன்படுத்துக"
 
 #: templates/table/chart/tbl_chart.twig:10
 msgid "Chart type"
-msgstr "வரைபட தலைப்பு"
+msgstr "விளக்கப்பட வகை"
 
 #: templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -18186,7 +18261,9 @@ msgstr "விளக்கப்படத்தை படமாக சேமி�
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr ""
+"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ அட்டவணை"
+" பெயராகவும் மாறும்."
 
 #: templates/table/export/index.twig:7
 #, php-format
@@ -18273,7 +18350,7 @@ msgstr "குறியீட்டு தேர்வு:"
 
 #: templates/table/index_form.twig:57
 msgid "Advanced options"
-msgstr "செயல்படு விருப்பங்கள்"
+msgstr "மேம்பட்ட விருப்பங்கள்"
 
 #: templates/table/index_form.twig:67
 msgid "Key block size:"
@@ -18340,7 +18417,7 @@ msgstr "இருமம்"
 
 #: templates/table/insert/column_row.twig:30
 msgid "Use the NULL value for this column."
-msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
+msgstr "இந்த நெடுவரிசைக்கு சுழிய மதிப்பைப் பயன்படுத்தவும்."
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
@@ -18362,7 +18439,7 @@ msgstr "%s வரிசைகளுடன் செருகுவதைத் �
 
 #: templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
-msgstr "சரிபார்"
+msgstr "செக்சம்"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
@@ -18371,11 +18448,11 @@ msgstr "மூலம் அட்டவணை வரிசையை மாற்
 #: templates/table/operations/index.twig:20
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr ""
+msgstr "(ஒற்றை)"
 
 #: templates/table/operations/index.twig:50
 msgid "Move table to (database.table)"
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "அட்டவணையை நகர்த்தவும் (தரவுத்தளம். டேபிள்)"
 
 #: templates/table/operations/index.twig:101
 msgid "Table options"
@@ -18395,7 +18472,7 @@ msgstr "அனைத்து நெடுவரிசை தொகைகளை�
 
 #: templates/table/operations/index.twig:251
 msgid "Copy table to (database.table)"
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "அட்டவணையை நகலெடுக்கவும் (தரவுத்தளம். டேபிள்)"
 
 #: templates/table/operations/index.twig:322
 msgid "Switch to copied table"
@@ -18420,7 +18497,7 @@ msgstr "அட்டவணையை வெறுமையாக்கு (கா
 
 #: templates/table/operations/index.twig:431
 msgid "Empty the table (DELETE FROM)"
-msgstr "அட்டவணையை வெறுமையாக்கு (காலி)"
+msgstr "அட்டவணையை வெறுமை செய்யுங்கள் (இருந்து நீக்கு)"
 
 #: templates/table/operations/index.twig:452
 msgid "Delete the table (DROP)"
@@ -18437,7 +18514,7 @@ msgstr "பகிர்வை அகற்று"
 
 #: templates/table/operations/index.twig:513
 msgid "Check referential integrity"
-msgstr ""
+msgstr "குறிப்பு ஒருமைப்பாட்டை சரிபார்க்கவும்"
 
 #: templates/table/operations/view.twig:12
 msgid "Rename view to"
@@ -18453,31 +18530,31 @@ msgstr "உறவு பார்வை"
 
 #: templates/table/partition/analyze.twig:2
 msgid "Analyze partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை பகுப்பாய்வு செய்யுங்கள்"
 
 #: templates/table/partition/check.twig:2
 msgid "Check partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை சரிபார்க்கவும்"
 
 #: templates/table/partition/drop.twig:2
 msgid "Drop partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வு கைவிடவும்"
 
 #: templates/table/partition/optimize.twig:2
 msgid "Optimize partition"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வை மேம்படுத்தவும்"
 
 #: templates/table/partition/rebuild.twig:2
 msgid "Rebuild partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை மீண்டும் உருவாக்குங்கள்"
 
 #: templates/table/partition/repair.twig:2
 msgid "Repair partition"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வு பழுதுபார்க்கும்"
 
 #: templates/table/partition/truncate.twig:2
 msgid "Truncate partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை துண்டிக்கவும்"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18620,7 +18697,7 @@ msgstr "பகிர்வைத் திருத்து"
 
 #: templates/table/structure/display_structure.twig:70
 msgid "Media type:"
-msgstr "சுட்டுதொகுப்புக்குறி வகை:"
+msgstr "ஊடக வகை:"
 
 #: templates/table/structure/display_structure.twig:91
 #: templates/table/tracking/structure_snapshot_columns.twig:47
@@ -18704,7 +18781,7 @@ msgstr "அட்டவணையின் தொடக்கத்தில்"
 #: templates/table/structure/display_structure.twig:569
 #, php-format
 msgid "Create an index on %s columns"
-msgstr ""
+msgstr "%s நெடுவரிசைகளில் ஒரு குறியீட்டை உருவாக்கவும்"
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
@@ -18812,16 +18889,16 @@ msgstr "பெரிதாக்கு மீட்டமைக்கவும�
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
 msgid "Toggle navigation"
-msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
+msgstr "வழிசெலுத்தலை மாற்றவும்"
 
 #. l10n: Current page
 #: templates/top_menu.twig:14
 msgid "(current)"
-msgstr ""
+msgstr "(மின்னோட்டம்)"
 
 #: templates/transformation_overview.twig:1
 msgid "Available media types"
-msgstr "பயன்முறைகளை காட்டுக"
+msgstr "கிடைக்கும் ஊடக வகைகள்"
 
 #: templates/transformation_overview.twig:13
 msgid "Available browser display transformations"
@@ -18831,7 +18908,7 @@ msgstr "கிடைக்கபெறும் உலவியின் கா�
 #: templates/transformation_overview.twig:38
 msgctxt "for media type transformation"
 msgid "Description"
-msgstr "சிறுகுறிப்பு"
+msgstr "விவரம்"
 
 #: templates/transformation_overview.twig:32
 msgid "Available input transformations"
