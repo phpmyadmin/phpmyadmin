@@ -304,7 +304,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:204
 msgid "Percentage of sorts that cause temporary tables"
-msgstr ""
+msgstr "தற்காலிக அட்டவணைகளை ஏற்படுத்தும் வகையான விழுக்காடு"
 
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
