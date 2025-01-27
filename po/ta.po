@@ -12724,6 +12724,8 @@ msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
+"அதிகபட்சம் 65,535 (2^16 - 1) எழுத்துக்களைக் கொண்ட உரை நெடுவரிசை, பைட்டுகளில் மதிப்பின் "
+"நீளத்தைக் குறிக்கும் இரண்டு -பைட் முன்னொட்டுடன் சேமிக்கப்படுகிறது"
 
 #: libraries/classes/Types.php:355
 msgid ""
