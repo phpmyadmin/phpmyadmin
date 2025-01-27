@@ -12587,6 +12587,8 @@ msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
+"3 -பைட் முழு எண், கையொப்பமிடப்பட்ட வரம்பு -8,388,608 முதல் 8,388,607 வரை, கையொப்பமிடா"
+"த வரம்பு 0 முதல் 16,777,215 வரை"
 
 #: libraries/classes/Types.php:243
 msgid ""
