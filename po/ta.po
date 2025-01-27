@@ -2563,6 +2563,7 @@ msgstr "அட்டவணை பட்டியலில் காட்டப�
 #: libraries/classes/Config/Descriptions.php:571
 msgid "Maximum number of recently used tables; set 0 to disable."
 msgstr ""
+"அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணைகளின் அதிகபட்ச எண்ணிக்கை; முடக்க 0 ஐ அமைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:572
 msgid "Maximum number of favorite tables; set 0 to disable."
