@@ -15878,8 +15878,6 @@ msgid "Unknown storage engine."
 msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: templates/server/export/index.twig:26
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
 msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
 
