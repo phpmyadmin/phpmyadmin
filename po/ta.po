@@ -2244,6 +2244,8 @@ msgid ""
 "Leave blank for no \"persistent\" favorite tables across sessions, "
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
+"அமர்வுகள் முழுவதும் \"தொடர்ச்சியான\" பிடித்த அட்டவணைகளுக்கு காலியாக விடவும், "
+"பரிந்துரைக்கப்படுகிறது: [KBD] PMA__Foavorite [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:407
 msgid ""
@@ -3807,7 +3809,7 @@ msgstr "அண்மைக் காலத்தில் பயன்படு�
 
 #: libraries/classes/Config/Descriptions.php:908
 msgid "Favorites table"
-msgstr "விருப்பமான அட்டவணைகள்"
+msgstr "பிடித்த அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:909
 msgid "Relation table"
