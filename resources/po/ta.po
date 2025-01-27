@@ -2228,7 +2228,7 @@ msgstr "ஏதேனும்"
 #: resources/templates/database/privileges/index.twig:47
 #: resources/templates/table/privileges/index.twig:49
 msgid "global"
-msgstr ""
+msgstr "உலகளாவிய"
 
 #: resources/templates/database/privileges/index.twig:50
 #: resources/templates/table/privileges/index.twig:52
