@@ -10977,7 +10977,7 @@ msgstr "தவறான மதிப்பு!"
 
 #: src/Config/FormDisplay.php:767
 msgid "unavailable"
-msgstr ""
+msgstr "கிடைக்கவில்லை"
 
 #: src/Config/FormDisplay.php:769
 #, php-format
