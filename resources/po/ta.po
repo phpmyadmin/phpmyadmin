@@ -8799,7 +8799,7 @@ msgstr "திருத்து பயன்முறையைத் தனி�
 
 #: src/Config/Descriptions.php:201
 msgid "Customize default export options."
-msgstr ""
+msgstr "இயல்புநிலை ஏற்றுமதி விருப்பங்களைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:202
 msgid "Set some commonly used options."
