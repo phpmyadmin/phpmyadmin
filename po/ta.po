@@ -3694,7 +3694,7 @@ msgstr "கவிமொ வினவல் வரலாற்று அட்ட
 
 #: libraries/classes/Config/Descriptions.php:905
 msgid "Server hostname"
-msgstr ""
+msgstr "சேவையக ஓச்ட்பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:906
 msgid "Logout URL"
