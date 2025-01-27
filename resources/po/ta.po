@@ -9990,7 +9990,7 @@ msgstr "ஒரு பரிவர்த்தனையில் ஏற்று�
 
 #: src/Config/Descriptions.php:720
 msgid "Export time in UTC"
-msgstr ""
+msgstr "UTC இல் ஏற்றுமதி நேரம்"
 
 #: src/Config/Descriptions.php:724
 msgid "Foreign key dropdown order"
