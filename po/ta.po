@@ -3378,7 +3378,7 @@ msgstr "நெடுவரிசை எழுத்துக்களை கட�
 
 #: libraries/classes/Config/Descriptions.php:817
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "அனைத்து குக்கீகளையும் வெளியேறுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:818
 msgid "Recall user name"
