@@ -14705,8 +14705,7 @@ msgid "from %s branch"
 msgstr ""
 
 #: templates/home/git_info.twig:25
-#, fuzzy, php-format
-#| msgid "committed on %1$s by %2$s"
+#, php-format
 msgid "committed on %s by %s"
 msgstr "%1$s அன்று %2$s ஆல் உறுதியளிக்கப்பட்டது"
 
