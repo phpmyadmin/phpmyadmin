@@ -5426,6 +5426,7 @@ msgstr "பிழை மேலாண்மை:"
 #: resources/templates/server/replication/replica_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
 msgstr ""
+"பிழைகளைத் தவிர்ப்பது ஒத்திசைக்கப்படாத முதன்மை மற்றும் பிரதிகளுக்கு வழிவகுக்கும்!"
 
 #: resources/templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
