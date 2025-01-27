@@ -17322,7 +17322,7 @@ msgstr "வகை மூலம் வடிகட்டவும்…"
 
 #: templates/server/status/variables/index.twig:37
 msgid "Show unformatted values"
-msgstr ""
+msgstr "வடிவமைக்கப்படாத மதிப்புகளைக் காட்டு"
 
 #: templates/server/status/variables/index.twig:50
 msgid "Related links:"
