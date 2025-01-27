@@ -8134,7 +8134,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/IndexesController.php:232
 #: libraries/classes/Table.php:2250
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr ""
+msgstr "முதன்மை விசையின் பெயர் \"முதன்மை\" ஆக இருக்க வேண்டும்!"
 
 #: libraries/classes/Controllers/Table/MaintenanceController.php:51
 #: libraries/classes/Controllers/Table/MaintenanceController.php:86
