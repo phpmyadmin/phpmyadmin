@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 03:02+0000\n"
+"PO-Revision-Date: 2025-01-27 03:03+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -945,7 +945,7 @@ msgstr "HASE_INNODB 'மதிப்பு' என அமைக்கப்ப�
 #: libraries/advisory_rules_generic.php:614
 #: libraries/advisory_rules_generic.php:640
 msgid "InnoDB log size"
-msgstr ""
+msgstr "INNODB பதிவு அளவு"
 
 #: libraries/advisory_rules_generic.php:619
 #: libraries/advisory_rules_generic.php:648
