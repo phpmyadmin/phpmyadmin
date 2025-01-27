@@ -17441,7 +17441,7 @@ msgstr "தாமதமான செருகல்கள்"
 
 #: src/Server/Status/Data.php:122
 msgid "Key cache"
-msgstr ""
+msgstr "முக்கிய கேச்"
 
 #: src/Server/Status/Data.php:123
 msgid "Joins"
