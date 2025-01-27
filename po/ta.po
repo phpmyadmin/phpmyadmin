@@ -8857,7 +8857,7 @@ msgstr "தூண்டுதல் பெயர்"
 #: libraries/classes/Database/Triggers.php:416
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: libraries/classes/Database/Triggers.php:430
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:494
