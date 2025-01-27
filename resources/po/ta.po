@@ -6501,7 +6501,7 @@ msgstr "அட்டவணை %s சுத்தப்படுத்தப்�
 
 #: resources/templates/table/operations/index.twig:377
 msgid "Flush the table (FLUSH)"
-msgstr ""
+msgstr "அட்டவணையை பறிக்கவும் (பறிப்பு)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
@@ -16113,7 +16113,7 @@ msgstr "பகுதி சார்புநிலைகள் எதுவு�
 
 #: src/Operations.php:537
 msgid "Coalesce"
-msgstr "சுருக்கு"
+msgstr "ஒருங்கிணைப்பு"
 
 #: src/Operations.php:888
 msgid "Can't move table to same one!"
