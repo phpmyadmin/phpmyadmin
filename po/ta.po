@@ -2646,7 +2646,7 @@ msgstr "காட்சி விருப்பங்களுக்கு"
 
 #: libraries/classes/Config/Descriptions.php:589
 msgid "Directory where exports can be saved on server."
-msgstr ""
+msgstr "சேவையகத்தில் ஏற்றுமதியைச் சேமிக்கக்கூடிய அடைவு."
 
 #: libraries/classes/Config/Descriptions.php:590
 msgid ""
