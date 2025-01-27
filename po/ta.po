@@ -1359,7 +1359,7 @@ msgstr "கொரிய"
 #: libraries/classes/Charsets/Collation.php:401
 msgctxt "Collation"
 msgid "Hebrew"
-msgstr ""
+msgstr "எபிரேய"
 
 #: libraries/classes/Charsets/Collation.php:404
 msgctxt "Collation"
