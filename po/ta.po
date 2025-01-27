@@ -9960,6 +9960,8 @@ msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
+"மீண்டும் மீண்டும் குழுவை உருவாக்கும் நெடுவரிசைகளை சரிபார்க்கவும். அத்தகைய குழு இல்லை என்றால்"
+", 'மீண்டும் மீண்டும் குழு இல்லை' என்பதைக் சொடுக்கு செய்க"
 
 #: libraries/classes/Normalization.php:376
 msgid "No repeating group"
