@@ -7919,6 +7919,8 @@ msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
+"குறியீடுகளைப் பயன்படுத்தாத இணைப்புகளின் எண்ணிக்கை. இந்த மதிப்பு 0 இல்லையென்றால், உங்கள் "
+"அட்டவணைகளின் குறியீடுகளை கவனமாக சரிபார்க்க வேண்டும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:468
 msgid "The number of joins that used a range search on a reference table."
