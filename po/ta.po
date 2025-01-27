@@ -236,7 +236,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
-msgstr ""
+msgstr "பதிப்பு_மென்ட்டில் 'சான்று' காணப்படுகிறது"
 
 #: libraries/advisory_rules_generic.php:159
 msgid "The MySQL manual only is accurate for official MySQL binaries."
