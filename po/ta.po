@@ -17471,8 +17471,6 @@ msgid "Relation view"
 msgstr "தொடர்பு பார்வை"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Analyze partition"
 msgstr "பிரிவினை %s"
 
