@@ -13554,7 +13554,7 @@ msgstr "எதுவுமில்லை"
 #: templates/database/central_columns/main.twig:79
 #: templates/database/central_columns/main.twig:316
 msgid "As defined:"
-msgstr ""
+msgstr "வரையறுக்கப்பட்டுள்ளபடி:"
 
 #: templates/columns_definitions/column_attributes.twig:97
 msgid ""
@@ -15222,11 +15222,11 @@ msgstr "gzipt"
 
 #: templates/export.twig:380
 msgid "Export databases as separate files"
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "தரவுத்தளங்களை தனி கோப்புகளாக ஏற்றுமதி செய்யுங்கள்"
 
 #: templates/export.twig:382
 msgid "Export tables as separate files"
-msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
+msgstr "அட்டவணைகளை தனி கோப்புகளாக ஏற்றுமதி செய்யுங்கள்"
 
 #: templates/export.twig:394
 msgid "View output as text"
@@ -16216,7 +16216,7 @@ msgstr "அடிமை பிரதி"
 #: templates/server/databases/index.twig:184
 #, php-format
 msgid "Jump to database '%s'"
-msgstr "தரவுத்தளத்துக்கு செல்க"
+msgstr "தரவுத்தளத்திற்கு செல்லவும் '%s'"
 
 #: templates/server/databases/index.twig:245
 #, php-format
@@ -16225,7 +16225,7 @@ msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுக�
 
 #: templates/server/databases/index.twig:246
 msgid "Check privileges"
-msgstr "தனிசலுகைகளை சரிபார்க்க"
+msgstr "சலுகைகளை சரிபார்க்கவும்"
 
 #: templates/server/databases/index.twig:312
 msgid ""
