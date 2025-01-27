@@ -11777,7 +11777,7 @@ msgstr "தரவை மாற்ற அனுமதிக்கிறது."
 #: templates/server/privileges/privileges_table.twig:359
 #: templates/server/privileges/privileges_table.twig:367
 msgid "Allows creating new databases and tables."
-msgstr ""
+msgstr "புதிய தரவுத்தளங்கள் மற்றும் அட்டவணைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:376
 #: templates/server/privileges/privileges_table.twig:407
