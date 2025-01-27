@@ -3171,6 +3171,7 @@ msgstr "இருக்கும் கோப்பு (களை) மேலெ�
 #: resources/templates/export.twig:189 resources/templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
 msgstr ""
+"ஏற்றுமதி செய்யப்பட்ட தரவுத்தளங்கள்/அட்டவணைகள்/நெடுவரிசைகளை மறுபெயரிடுங்கள்"
 
 #: resources/templates/export.twig:197
 msgid "Defined aliases"
