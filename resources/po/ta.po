@@ -11039,16 +11039,16 @@ msgstr "கட்டற்றஆவண உரை"
 
 #: src/Config/Forms/User/ImportForm.php:37
 msgid "CSV using LOAD DATA"
-msgstr ""
+msgstr "சுமை தரவைப் பயன்படுத்தி காபிம"
 
 #: src/Config/Forms/User/MainForm.php:31
 msgid "Default transformations"
-msgstr "உள்ளிடு மாற்றுருவாக்கம்"
+msgstr "இயல்புநிலை மாற்றங்கள்"
 
 #: src/Config/PageSettings.php:123
 msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
-"அமைப்புருவாக்கத்தை சேமிக்க முடியவில்லை, அளிக்கப்பட்ட படிவத்தில் பிழைகள் உள்ளன!"
+"அமைப்புகளைச் சேமிக்க முடியாது, சமர்ப்பிக்கப்பட்ட உள்ளமைவு படிவத்தில் பிழைகள் உள்ளன!"
 
 #: src/Config.php:439
 #, php-format
