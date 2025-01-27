@@ -15768,7 +15768,7 @@ msgstr[1] "%s முடிவுகள் காணப்பட்டன"
 
 #: src/Navigation/NavigationTree.php:1290
 msgid "Collapse all"
-msgstr ""
+msgstr "அனைத்தையும் சரக்கு"
 
 #: src/Navigation/Nodes/NodeColumnContainer.php:32
 msgctxt "Create new column"
