@@ -5396,7 +5396,7 @@ msgstr ""
 
 #: resources/templates/server/status/advisor/index.twig:12
 msgid "Instructions"
-msgstr ""
+msgstr "வழிமுறைகள்"
 
 #: resources/templates/server/status/advisor/index.twig:24
 msgid ""
