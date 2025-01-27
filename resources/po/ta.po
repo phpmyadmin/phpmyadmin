@@ -8867,7 +8867,7 @@ msgstr "SQL வினவல் அமைவுகள்."
 
 #: src/Config/Descriptions.php:219
 msgid "Customize startup page."
-msgstr ""
+msgstr "தொடக்க பக்கத்தைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:220
 msgid ""
