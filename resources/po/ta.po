@@ -16974,6 +16974,8 @@ msgid ""
 "Displays a clickable thumbnail. The options are the maximum width and height "
 "in pixels. The original aspect ratio is preserved."
 msgstr ""
+"சொடுக்கு செய்யக்கூடிய சிறுபடத்தைக் காட்டுகிறது. விருப்பங்கள் பிக்சல்களில் அதிகபட்ச அகலம் "
+"மற்றும் உயரம். அசல் விகித விகிதம் பாதுகாக்கப்படுகிறது."
 
 #: src/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
 msgid ""
