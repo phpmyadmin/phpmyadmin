@@ -15895,6 +15895,8 @@ msgid ""
 "You are not using https to access phpMyAdmin, therefore FIDO U2F device will "
 "most likely refuse to authenticate you."
 msgstr ""
+"PHPMYADMIN ஐ அணுக நீங்கள் HTTPS ஐப் பயன்படுத்தவில்லை, எனவே FIDO U2F சாதனம் உங்களை "
+"அங்கீகரிக்க மறுக்கும்."
 
 #: templates/login/twofactor/key.twig:10
 msgid ""
