@@ -13790,7 +13790,7 @@ msgstr "நெடுவரிசைகளின் எண்ணிக்கை"
 #: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
-msgstr ""
+msgstr "உருவாக்கு"
 
 #: templates/database/data_dictionary/index.twig:4
 msgid "Database comment:"
