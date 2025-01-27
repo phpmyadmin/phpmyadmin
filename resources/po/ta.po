@@ -4894,7 +4894,7 @@ msgstr "புதிய தரவுத்தளங்கள் மற்று�
 #: resources/templates/server/privileges/privileges_table.twig:421
 #: src/Server/Privileges.php:322
 msgid "Allows dropping databases and tables."
-msgstr ""
+msgstr "தரவுத்தளங்கள் மற்றும் அட்டவணைகளை கைவிட அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:434
 #: resources/templates/server/privileges/privileges_table.twig:437
