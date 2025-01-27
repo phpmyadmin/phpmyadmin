@@ -13070,7 +13070,7 @@ msgstr "சொடுக்கு செய்க"
 
 #: libraries/config.values.php:144
 msgid "Double click"
-msgstr ""
+msgstr "இரட்டை சொடுக்கு"
 
 #: libraries/config.values.php:145 libraries/config.values.php:188
 #: templates/config/form_display/input.twig:16
