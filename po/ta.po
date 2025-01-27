@@ -864,6 +864,10 @@ msgid ""
 "href=\"https://www.percona.com/blog/2008/08/23/how-to-track-down-the-source-"
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
+"இணைப்புகள் பொதுவாக அங்கீகரிக்க முடியாதபோது கைவிடப்படுகின்றன. <a href = \"https://"
+"www.percona.com/blog/2008/08/23/"
+"how-to-to-track-down-the-source-of-aborted_connects/\"> இந்த கட்டுரை உங்களுக்கு "
+"உதவக்கூடும் மூலத்தைக் கண்காணிக்கவும்."
 
 #: libraries/advisory_rules_generic.php:551
 #, php-format
