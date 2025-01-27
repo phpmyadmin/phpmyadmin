@@ -9176,6 +9176,7 @@ msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
 msgstr ""
+"பதிவேற்றிய கோப்பு உஉகுமொ படிவத்தில் குறிப்பிடப்பட்ட MAX_FILE_SIZE உத்தரவை மீறுகிறது."
 
 #: libraries/classes/File.php:276
 msgid "The uploaded file was only partially uploaded."
