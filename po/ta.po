@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 01:46+0000\n"
+"PO-Revision-Date: 2025-01-27 01:47+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -5485,7 +5485,7 @@ msgstr "தொடங்கவும்"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:471
 msgid "EiB"
-msgstr "EiB"
+msgstr "Eib"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #, php-format
@@ -5784,7 +5784,7 @@ msgstr "அட்டவணை"
 #: templates/export.twig:237
 msgctxt "Alias"
 msgid "Column"
-msgstr "நிரல்வரிசை"
+msgstr "நெடுவரிசை"
 
 #. l10n: A collection of available filters
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:286
@@ -5873,7 +5873,7 @@ msgstr "தரவிறக்குவதற்கு வழங்கியி�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:316
 msgid "Analyse query"
-msgstr "வினவலை பகுத்தாய்க"
+msgstr "வினவலை பகுப்பாய்வு செய்யுங்கள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:319
 msgid "Formatting SQL…"
@@ -5881,7 +5881,7 @@ msgstr "SQL சரியமைக்கபடுகிறது…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:320
 msgid "No parameters found!"
-msgstr "ஒவ்வாத பண்புகூறுகள்!"
+msgstr "அளவுருக்கள் எதுவும் கிடைக்கவில்லை!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:324
 #: templates/database/central_columns/main.twig:269
@@ -5911,7 +5911,7 @@ msgstr "விலக்கு"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:327
 #: templates/header.twig:44
 msgid "Page-related settings"
-msgstr "அமைப்புக்களை மாற்று"
+msgstr "பக்கம் தொடர்பான அமைப்புகள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:328
 #: templates/config/form_display/display.twig:46
@@ -5929,21 +5929,21 @@ msgstr "ஏற்றப்படுகிறது…"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:332
 msgid "Request aborted!!"
-msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
+msgstr "கோரிக்கை நிறுத்தப்பட்டது !!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:333
 msgid "Processing request"
-msgstr "வேண்டுகோள் செயல்முறைப்படுத்தபடுகின்றது"
+msgstr "செயலாக்க கோரிக்கை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:334
 msgid "Request failed!!"
-msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
+msgstr "கோரிக்கை தோல்வியடைந்தது !!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:335
 #: libraries/classes/Controllers/Sql/EnumValuesController.php:49
 #: libraries/classes/Controllers/Sql/SetValuesController.php:52
 msgid "Error in processing request"
-msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
+msgstr "செயலாக்க கோரிக்கையில் பிழை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
 #, php-format
@@ -5965,15 +5965,15 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:344
 msgid "No accounts selected."
-msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
+msgstr "கணக்குகள் எதுவும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:345
 msgid "Dropping column"
-msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
+msgstr "சொட்டு நெடுவரிசை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:346
 msgid "Adding primary key"
-msgstr "முதனிலை குறிப்பெழுத்து சேர்க்க"
+msgstr "முதன்மை விசையைச் சேர்ப்பது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
 #: templates/console/display.twig:129 templates/database/designer/main.twig:337
@@ -5993,15 +5993,15 @@ msgstr "இந்த அறிவுறுத்தலை நீக்க சொ
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:351
 msgid "Renaming databases"
-msgstr "தரவுத்தளங்கங்களின் பெயர் மாற்றப்படுகின்றது"
+msgstr "தரவுத்தளங்களை மறுபெயரிடுதல்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:352
 msgid "Copying database"
-msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
+msgstr "தரவுத்தளத்தை நகலெடுக்கும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:353
 msgid "Changing charset"
-msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
+msgstr "மாற்றும் சார்சனை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:354
 #: libraries/classes/IndexColumn.php:161 libraries/classes/Index.php:498
@@ -6045,7 +6045,7 @@ msgstr "இல்லை"
 #: templates/database/structure/empty_form.twig:16 templates/import.twig:159
 #: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
-msgstr "அயல் குறியெண் சரிபார்க்க:"
+msgstr "வெளிநாட்டு விசை காசோலைகளை இயக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:360
 msgid "Failed to get real row count."
@@ -6162,7 +6162,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
 msgid "Variable %d:"
-msgstr "மாறிகள்"
+msgstr "மாறி %d:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:399
 #: libraries/classes/Normalization.php:1051
@@ -6279,7 +6279,7 @@ msgstr "பின்வரும் நடவடிக்கைகள் செ�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "%1s நிரல்வரிசைகளை %2s அட்டவணையிலிருந்து கைவிடுக"
+msgstr "அட்டவணை %s இலிருந்து %s நெடுவரிசைகளை விடுங்கள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:432
 msgid "Create the following table"
@@ -6435,11 +6435,11 @@ msgstr "கேத்திர கணிதம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:485
 msgid "Inner ring"
-msgstr "உள்ப்புற வளையம்"
+msgstr "உள் வளையம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:486
 msgid "Outer ring"
-msgstr "வெளிப்புற வளையம்:"
+msgstr "வெளிப்புற வளையம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:487
 #: templates/gis_data_editor_form.twig:116
