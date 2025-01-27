@@ -6966,7 +6966,7 @@ msgstr "நிரல் அளவு"
 
 #: resources/templates/table/structure/display_table_stats.twig:147
 msgid "Next autoindex"
-msgstr ""
+msgstr "அடுத்த ஆட்டோஇண்டெக்ச்"
 
 #: resources/templates/table/structure/drop_confirm.twig:2
 msgid "Dropping columns from the table"
