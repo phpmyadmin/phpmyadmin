@@ -15233,7 +15233,7 @@ msgstr ""
 #: templates/export.twig:400
 #, php-format
 msgid "Skip tables larger than %s MiB"
-msgstr ""
+msgstr "%s MIB ஐ விட பெரிய அட்டவணையைத் தவிர்க்கவும்"
 
 #: templates/export.twig:406 templates/import.twig:204
 msgid "Format-specific options:"
