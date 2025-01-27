@@ -11997,7 +11997,7 @@ msgstr "%s க்கான சலுகைகள்"
 #: libraries/classes/Server/Status/Processes.php:114
 #: templates/server/user_groups/user_listings.twig:9
 msgid "User"
-msgstr ""
+msgstr "பயனர்"
 
 #: libraries/classes/Server/Privileges.php:2980
 msgid ""
@@ -16363,12 +16363,12 @@ msgstr "பயனர் குழுக்கள்"
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
 msgid "Edit privileges:"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகளைத் திருத்தவும்:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:5
 #: templates/server/privileges/user_properties.twig:5
 msgid "User account"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் கணக்கு"
 
 #: templates/server/privileges/edit_routine_privileges.twig:34
 #: templates/server/privileges/user_properties.twig:53
