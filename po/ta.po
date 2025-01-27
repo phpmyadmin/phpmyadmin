@@ -1049,7 +1049,7 @@ msgstr "Myisam ஒரே நேரத்தில் செருகல்கள
 
 #: libraries/advisory_rules_generic.php:710
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "1 ஐ அமைப்பதன் மூலம் {concurrent_insert} ஐ இயக்கவும்"
 
 #: libraries/advisory_rules_generic.php:712
 msgid ""
