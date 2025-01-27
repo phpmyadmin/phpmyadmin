@@ -5757,7 +5757,7 @@ msgstr "தொடக்கத்திலிருந்து பிணைய �
 #: resources/templates/server/status/status/index.twig:7
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
+msgstr "இந்த MySQL சேவையகம் %1$s க்கு இயங்குகிறது. இது %2$s இல் தொடங்கியது."
 
 #: resources/templates/server/status/status/index.twig:14
 #: src/Controllers/JavaScriptMessagesController.php:221
