@@ -10790,7 +10790,7 @@ msgstr "டேபிள் சார்சைக் காட்டு"
 
 #: src/Config/Descriptions.php:917
 msgid "Show field types"
-msgstr ""
+msgstr "புல வகைகளைக் காட்டு"
 
 #: src/Config/Descriptions.php:918
 msgid "Show function fields"
