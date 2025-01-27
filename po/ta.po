@@ -2580,7 +2580,7 @@ msgstr "தனித்துவமான விசை இல்லாத நி
 #: libraries/classes/Config/Descriptions.php:575
 #: libraries/classes/Config/Descriptions.php:858
 msgid "Disable shortcut keys"
-msgstr ""
+msgstr "குறுக்குவழி விசைகளை முடக்கு"
 
 #: libraries/classes/Config/Descriptions.php:576
 msgid "Use natural order for sorting table and database names."
