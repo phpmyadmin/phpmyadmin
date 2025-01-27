@@ -5762,7 +5762,7 @@ msgstr "அறிக்கைகள்"
 #. l10n: # = Amount of queries
 #: resources/templates/server/status/queries/index.twig:33
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:34
