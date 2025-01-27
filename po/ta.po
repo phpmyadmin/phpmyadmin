@@ -13641,7 +13641,7 @@ msgstr ""
 #: templates/table/zoom_search/index.twig:40
 #: templates/table/zoom_search/result_form.twig:37
 msgid "Value"
-msgstr ""
+msgstr "மதிப்பு"
 
 #: templates/database/designer/main.twig:486
 #: templates/database/designer/main.twig:651
