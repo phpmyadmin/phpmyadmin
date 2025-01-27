@@ -17933,7 +17933,7 @@ msgstr "உள் உறவுகள்"
 
 #: templates/table/relation/common_form.twig:119
 msgid "Internal relation"
-msgstr ""
+msgstr "உள் உறவு"
 
 #: templates/table/relation/common_form.twig:121
 msgid ""
