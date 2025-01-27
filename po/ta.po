@@ -9359,7 +9359,7 @@ msgstr "இணைப்பை காணவில்லை!"
 #: libraries/classes/Html/Generator.php:146
 #, php-format
 msgid "Jump to database “%s”."
-msgstr "தரவுத்தளம் தாவி செல்லவும் \"%s\"."
+msgstr "தரவுத்தளத்திற்கு செல்லவும் “%s”."
 
 #: libraries/classes/Html/Generator.php:174
 #, php-format
@@ -13010,7 +13010,7 @@ msgstr "பி.எம்"
 #: libraries/classes/Util.php:733
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "ஆம்"
 
 #: libraries/classes/Util.php:804
 #, php-format
