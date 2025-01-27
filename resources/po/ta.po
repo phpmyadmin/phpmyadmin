@@ -15552,7 +15552,7 @@ msgstr ""
 
 #: src/I18n/LanguageManager.php:968
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "ஆதரிக்கப்படாத மொழி குறியீட்டை புறக்கணித்தல்."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
 msgid "The database name must be a non-empty string."
