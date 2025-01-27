@@ -7903,7 +7903,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:612
 msgid "The number of joins that did a full scan of the first table."
-msgstr ""
+msgstr "முதல் அட்டவணையின் முழு ச்கேன் செய்த இணைப்புகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:615
 msgid "The number of temporary tables currently open by the slave SQL thread."
