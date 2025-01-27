@@ -11929,7 +11929,7 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1820
 #: templates/server/privileges/privileges_table.twig:264
 msgid "Database-specific privileges"
-msgstr ""
+msgstr "தரவுத்தள-குறிப்பிட்ட சலுகைகள்"
 
 #: libraries/classes/Server/Privileges.php:1826
 #: templates/server/privileges/privileges_summary.twig:18
