@@ -10058,7 +10058,7 @@ msgstr "புதியது"
 #: libraries/classes/Plugins/Export/ExportSql.php:628
 #: libraries/classes/Plugins/Export/ExportXml.php:120
 msgid "Functions"
-msgstr ""
+msgstr "செயல்பாடுகள்"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:38
 msgctxt "Create new function"
