@@ -10539,6 +10539,7 @@ msgstr "பார்வைக்கு ச்டாண்ட்-இன் அம
 #: libraries/classes/Plugins/Export/ExportJson.php:87
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
 msgstr ""
+"வெளியீடு அழகாக அச்சிடப்பட்ட சாதொபொகு (மனிதனால் படிக்கக்கூடிய வடிவமைப்பைப் பயன்படுத்தவும்)"
 
 #: libraries/classes/Plugins/Export/ExportJson.php:93
 msgid "Output unicode characters unescaped"
