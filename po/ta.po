@@ -4300,7 +4300,7 @@ msgstr "செயல்பாடு %s காணாமல் போனதால�
 #: libraries/classes/Config/FormDisplay.php:848
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
-msgstr ""
+msgstr "காணாமல் போன செயல்பாடுகள் காரணமாக சுருக்கப்பட்ட ஏற்றுமதி இயங்காது."
 
 #: libraries/classes/Config/FormDisplay.php:867
 #, php-format
