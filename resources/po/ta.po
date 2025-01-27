@@ -1419,7 +1419,7 @@ msgstr ""
 #: resources/templates/indexes.twig:93
 #: resources/templates/table/structure/display_structure.twig:548
 msgid "No index defined!"
-msgstr ""
+msgstr "குறியீட்டு வரையறுக்கப்படவில்லை!"
 
 #: resources/templates/database/designer/database_tables.twig:31
 #: resources/templates/database/export/index.twig:28
