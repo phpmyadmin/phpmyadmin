@@ -1971,6 +1971,8 @@ msgid ""
 "Number of rows displayed when browsing a result set. If the result set "
 "contains more rows, \"Previous\" and \"Next\" links will be shown."
 msgstr ""
+"முடிவு தொகுப்பை உலாவும்போது காண்பிக்கப்படும் வரிசைகளின் எண்ணிக்கை. முடிவு தொகுப்பில் அதி"
+"க வரிசைகள் இருந்தால், \"முந்தைய\" மற்றும் \"அடுத்த\" இணைப்புகள் காண்பிக்கப்படும்."
 
 #: libraries/classes/Config/Descriptions.php:287
 msgid ""
