@@ -11906,7 +11906,7 @@ msgstr "%s க்கான கடவுச்சொல் வெற்றிக�
 #: libraries/classes/Server/Privileges.php:1131
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr ""
+msgstr "%s க்கான சலுகைகளை நீங்கள் ரத்து செய்துள்ளீர்கள்."
 
 #: libraries/classes/Server/Privileges.php:1443
 #: templates/database/privileges/index.twig:124
@@ -14198,7 +14198,7 @@ msgstr "புதியது"
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
 msgid "Add user account"
-msgstr "பயனர்குழுவை சேர்க்க"
+msgstr "பயனர் கணக்கைச் சேர்க்கவும்"
 
 #: templates/database/qbe/index.twig:16
 #, php-format
@@ -16308,7 +16308,7 @@ msgstr "அழி"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
-msgstr "தரவுதள நடவடிக்கைகள்"
+msgstr "பயனர் கணக்கிற்கான தரவுத்தளம்"
 
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
