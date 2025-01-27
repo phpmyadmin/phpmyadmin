@@ -15194,7 +15194,7 @@ msgstr ""
 
 #: src/Engines/Pbxt.php:52
 msgid "Log cache size"
-msgstr ""
+msgstr "பதிவு கேச் அளவு"
 
 #: src/Engines/Pbxt.php:54
 msgid ""
