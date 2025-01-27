@@ -15609,7 +15609,7 @@ msgstr ""
 #: src/Import/Import.php:1188 src/Import/Import.php:1237
 #, php-format
 msgid "Edit settings for %s"
-msgstr ""
+msgstr "%s க்கான அமைப்புகளைத் திருத்தவும்"
 
 #: src/Import/Import.php:1199
 #, php-format
