@@ -10088,7 +10088,7 @@ msgstr "சேவையக உள்ளமைவு"
 
 #: src/Config/Descriptions.php:753
 msgid "Configuration storage"
-msgstr ""
+msgstr "உள்ளமைவு சேமிப்பு"
 
 #: src/Config/Descriptions.php:754
 msgid "Changes tracking"
