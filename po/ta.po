@@ -4157,7 +4157,7 @@ msgstr "அமைப்புகளில் உருவாக்குபவ�
 #: libraries/classes/Setup/Index.php:163 libraries/classes/Setup/Index.php:176
 #: libraries/classes/Setup/Index.php:185 libraries/classes/Setup/Index.php:193
 msgid "Version check"
-msgstr ""
+msgstr "பதிப்பு சோதனை"
 
 #: libraries/classes/Config/Descriptions.php:963
 msgid "Proxy URL"
