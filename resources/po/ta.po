@@ -4320,7 +4320,7 @@ msgstr "வழிசெலுத்தல் உருப்படிகளை �
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
-msgstr ""
+msgstr "வினவல் மூலம் சான்று தேடல்களைச் சேமிக்கிறது:"
 
 #: resources/templates/relation/check_relations.twig:458
 msgid "Managing central list of columns:"
