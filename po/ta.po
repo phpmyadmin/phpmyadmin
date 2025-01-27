@@ -9538,7 +9538,7 @@ msgstr "செயல்பாடுகள்"
 #: libraries/classes/Menu.php:323 libraries/classes/Menu.php:432
 #: libraries/classes/Util.php:1964 libraries/classes/Util.php:1978
 msgid "Tracking"
-msgstr ""
+msgstr "கண்காணிப்பு"
 
 #: libraries/classes/Menu.php:330 libraries/classes/Menu.php:425
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:25
