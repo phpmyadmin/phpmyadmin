@@ -14241,7 +14241,7 @@ msgstr "நிலுவையில் உள்ள வாசிப்புக�
 
 #: src/Controllers/Server/Status/VariablesController.php:342
 msgid "The current number of pending writes."
-msgstr ""
+msgstr "நிலுவையில் உள்ள நிலுவையில் உள்ள எழுத்துக்களின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:343
 msgid "The amount of data read so far, in bytes."
