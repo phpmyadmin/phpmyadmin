@@ -9397,7 +9397,7 @@ msgstr "MySQL சேவையகம் கேட்கும் துறைம�
 
 #: src/Config/Descriptions.php:460
 msgid "Socket on which MySQL server is listening, leave empty for default."
-msgstr ""
+msgstr "MySQL சேவையகம் கேட்கும் சாக்கெட், இயல்புநிலைக்கு காலியாக விடவும்."
 
 #: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
