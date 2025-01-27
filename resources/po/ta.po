@@ -11695,6 +11695,7 @@ msgstr "நிறைவரிசைகள் %1$s - %2$s காட்டப்�
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"\"%s\" என்ற பக்கம் ஏற்கனவே உள்ளது, தயவுசெய்து அதை வேறு ஏதாவது மறுபெயரிடுங்கள்."
 
 #: src/Controllers/Database/DesignerController.php:169
 #: src/Controllers/Database/DesignerController.php:174
@@ -11877,7 +11878,7 @@ msgstr ""
 #: src/Controllers/Table/ZoomSearchController.php:119
 #: src/Controllers/Triggers/IndexController.php:72
 msgid "No table selected."
-msgstr "எந்த அட்டவணைகளும்  தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "எந்த அட்டவணையும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: src/Controllers/Database/RoutinesController.php:170
 msgid "Add routine"
@@ -14144,7 +14145,7 @@ msgstr "சரம்"
 #: src/Controllers/Operations/Database/CollationController.php:40
 #: src/Controllers/Operations/TableController.php:275
 msgid "No collation provided."
-msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
+msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
 
 #: src/Controllers/Operations/DatabaseController.php:81
 msgid "Cannot copy database to the same name. Change the name and try again."
