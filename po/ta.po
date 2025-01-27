@@ -3557,7 +3557,7 @@ msgstr "பல்வேறு செயல் இணைப்புகளை எ
 
 #: libraries/classes/Config/Descriptions.php:877
 msgid "Protect binary columns"
-msgstr ""
+msgstr "பைனரி நெடுவரிசைகளைப் பாதுகாக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:878
 msgid "Permanent query history"
