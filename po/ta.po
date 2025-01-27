@@ -7899,6 +7899,8 @@ msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
+"தற்காலிக சேமிப்பு அல்லாத வினவல்களின் எண்ணிக்கை (வினவல்_கேச்_பே அமைப்பு காரணமாக தற்காலிக "
+"சேமிப்பு அல்ல, அல்லது தற்காலிக சேமிப்பு செய்யப்படவில்லை)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:461
 msgid "The number of queries registered in the cache."
