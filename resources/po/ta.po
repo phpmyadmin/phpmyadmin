@@ -16270,7 +16270,7 @@ msgstr "எக்செல் பதிப்பு:"
 #: src/Plugins/Export/ExportTexytext.php:79
 #: src/Plugins/Export/ExportXml.php:129
 msgid "Data dump options"
-msgstr ""
+msgstr "தரவு டம்ப் விருப்பங்கள்"
 
 #: src/Plugins/Export/ExportHtmlword.php:192
 #: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2155
