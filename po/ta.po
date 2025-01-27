@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-01-27 04:22+0000\n"
+"PO-Revision-Date: 2025-01-27 07:19+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/4-9/ta/>"
 "\n"
@@ -341,7 +341,7 @@ msgstr "பல அட்டவணை வினவல்"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
-msgstr "எடுத்துக்காட்டுவாரியாக வினவல்"
+msgstr "எடுத்துக்காட்டு மூலம் வினவல்"
 
 #: db_qbe.php:168
 #, php-format
@@ -1289,33 +1289,33 @@ msgstr "து"
 #: js/messages.php:204 libraries/classes/Server/Status/Monitor.php:224
 #: libraries/classes/Util.php:1266
 msgid "KiB"
-msgstr "KiB"
+msgstr "வினோதமாக"
 
 #. l10n: shortcuts for Megabyte
 #: js/messages.php:205 libraries/classes/Server/Status/Monitor.php:225
 #: libraries/classes/Util.php:1268
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mib"
 
 #. l10n: shortcuts for Gigabyte
 #: js/messages.php:206 libraries/classes/Util.php:1270
 msgid "GiB"
-msgstr "GiB"
+msgstr "கிப்"
 
 #. l10n: shortcuts for Terabyte
 #: js/messages.php:207 libraries/classes/Util.php:1272
 msgid "TiB"
-msgstr "TiB"
+msgstr "திப்"
 
 #. l10n: shortcuts for Petabyte
 #: js/messages.php:208 libraries/classes/Util.php:1274
 msgid "PiB"
-msgstr "PiB"
+msgstr "தொடங்கவும்"
 
 #. l10n: shortcuts for Exabyte
 #: js/messages.php:209 libraries/classes/Util.php:1276
 msgid "EiB"
-msgstr "EiB"
+msgstr "Eib"
 
 #: js/messages.php:210
 #, php-format
@@ -2430,8 +2430,8 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
-"நீங்கள் உண்மையில் அனைத்து வரிசைகளையும் பார்க்க விரும்புகிறீர்களா? ஒரு பெரிய அட்டவணைக்கு இது"
-" உலாவியை செயலிழக்கச் செய்யலாம்."
+"Do you really want பெறுநர் see அனைத்தும் of the rows? க்கு a big table this "
+"could crash the browser."
 
 #: js/messages.php:614
 msgid "Original length"
@@ -4399,7 +4399,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற Phpmyadmin உள்ளமைவு சேமிப்பகத்தை உள்ளமைக்கவும், "
+"Phpmyadmin உள்ளமைவு சேமிப்பிடத்தை உள்ளமைக்கவும் கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற, "
 "ஆவணத்தில் [DOC@இணைக்கப்பட்ட-அட்டவணைகள்] Phpmyadmin உள்ளமைவு சேமிப்பிடம் [/doc] ஐப் "
 "பார்க்கவும்."
 
@@ -4423,7 +4423,7 @@ msgstr ""
 #: libraries/config.values.php:39 libraries/config.values.php:47
 #: libraries/config.values.php:111 libraries/config.values.php:117
 msgid "SQL"
-msgstr "SQL"
+msgstr "கவிமொ"
 
 #: libraries/classes/Config/Descriptions.php:555
 msgid "SQL Query box"
@@ -5463,7 +5463,7 @@ msgid ""
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "அமர்வுகள் முழுவதும் \"தொடர்ச்சியான\" பிடித்த அட்டவணைகளுக்கு காலியாக விடவும், "
-"பரிந்துரைக்கப்படுகிறது: [kbd] pma__foavorite [/kbd]."
+"பரிந்துரைக்கப்படுகிறது: [KBD] PMA__Foavorite [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:1130
 msgid "Favorites table"
@@ -5733,7 +5733,7 @@ msgstr "படைப்பு நேர முத்திரையைக் க
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
-"அனைத்து அட்டவணைகளுக்கும் கடைசி புதுப்பிப்பு நேர முத்திரையைக் காண்பிக்கும் நெடுவரிசையைக் "
+"எல்லா அட்டவணைகளுக்கும் கடைசி புதுப்பிப்பு நேர முத்திரையைக் காண்பிக்கும் நெடுவரிசையைக் "
 "காட்டவும் அல்லது மறைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:1279
@@ -5818,7 +5818,7 @@ msgstr "SQL வினவல்களை காட்டுக"
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
-"வினவல் பெட்டி சமர்ப்பித்த பின்னர் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
+"வினவல் பெட்டி சமர்ப்பித்தபின் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:1319
 #: libraries/classes/SqlQueryForm.php:356
@@ -6073,7 +6073,7 @@ msgstr "இறக்குமதி மற்றும் ஏற்றுமத�
 
 #: libraries/classes/Config/Descriptions.php:1435
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "சிப்"
 
 #: libraries/classes/Config/Descriptions.php:1437
 msgid "Enter your public key for your domain reCaptcha service."
@@ -6420,7 +6420,7 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "%உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
+"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயங்களை "
 "ஏற்படுத்தக்கூடும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:466
@@ -7661,7 +7661,7 @@ msgstr "வரிசை சுட்டிக்காட்டி (.xtr) கோ
 
 #: libraries/classes/Engines/Pbxt.php:124
 msgid "Log file count"
-msgstr "Log கோப்பு எண்ணுங்கள்"
+msgstr "பதிவு கோப்பு எண்ணிக்கை"
 
 #: libraries/classes/Engines/Pbxt.php:126
 msgid ""
@@ -7680,8 +7680,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"ஆவணப்படுத்துதல் and further செய்தி பற்றி PBXT can be found on the %sPrimeBase XT "
-"வீடு Page%s."
+"PBXT பற்றிய ஆவணங்கள் மற்றும் மேலதிக தகவல்களை %sPRIMEBASE XT முகப்பு பக்கம் %s இல் "
+"காணலாம்."
 
 #: libraries/classes/ErrorHandler.php:80
 msgid "Too many error messages, some are not displayed."
@@ -8806,7 +8806,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:977
 msgid "No partial dependencies found!"
-msgstr "பகுதி சார்புகள் எதுவும் கிடைக்கவில்லை!"
+msgstr "பகுதி சார்புநிலைகள் எதுவும் காணப்படவில்லை!"
 
 #: libraries/classes/Operations.php:104
 msgid "Rename database to"
@@ -9492,7 +9492,7 @@ msgstr "<code> தாமதத்தை செருகவும் </குற�
 #: libraries/classes/Plugins/Export/ExportSql.php:376
 #: libraries/classes/Plugins/Export/ExportSql.php:410
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code> செருகவும் புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
+msgstr "<குறியீடு> செருகு புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:390
 msgid "Function to use when dumping data:"
@@ -11099,7 +11099,7 @@ msgstr ""
 #: libraries/classes/Rte/Words.php:47
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் வழக்கமாக இல்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை."
 
 #: libraries/classes/Rte/Words.php:48
 msgid "There are no routines to display."
@@ -12231,8 +12231,8 @@ msgid ""
 "statements from the transaction."
 msgstr ""
 "தற்காலிக பைனரி பதிவு தற்காலிக சேமிப்பைப் பயன்படுத்திய பரிவர்த்தனைகளின் எண்ணிக்கை, ஆனால் "
-"அது பின்லோக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க ஒரு "
-"தற்காலிக கோப்பைப் பயன்படுத்தியது."
+"அது பின்லாக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க தற்காலிக "
+"கோப்பைப் பயன்படுத்தியது."
 
 #: libraries/classes/Server/Status/Variables.php:353
 msgid "The number of transactions that used the temporary binary log cache."
@@ -13931,7 +13931,7 @@ msgstr "மேற்கூறிய எதுவும் இல்லை"
 
 #: libraries/db_common.inc.php:151 tbl_operations.php:224
 msgid "No collation provided."
-msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
+msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
 
 #: libraries/mult_submits.inc.php:337
 msgid "Success!"
@@ -14541,7 +14541,7 @@ msgstr "குழு வினவல்கள்"
 
 #: templates/console/display.twig:84
 msgid "Show trace"
-msgstr "சுவடு காட்டு"
+msgstr "ட்ரேசைக் காட்டு"
 
 #: templates/console/display.twig:84
 msgid "Hide trace"
@@ -14735,7 +14735,7 @@ msgstr "வளைக்கோடு"
 #: templates/table/chart/tbl_chart.twig:31
 msgctxt "Chart type"
 msgid "Area"
-msgstr "பரப்பளவு"
+msgstr "பகுதி"
 
 #: templates/table/chart/tbl_chart.twig:35
 msgctxt "Chart type"
