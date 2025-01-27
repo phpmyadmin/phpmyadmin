@@ -3633,7 +3633,7 @@ msgstr "முதனிலை குறிப்பெழுத்தின் �
 
 #: libraries/classes/Config/Descriptions.php:874
 msgid "Repeat headers"
-msgstr ""
+msgstr "தலைப்புகளை மீண்டும் செய்யவும்"
 
 #: libraries/classes/Config/Descriptions.php:875
 msgid "Grid editing: trigger action"
