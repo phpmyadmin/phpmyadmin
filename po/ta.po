@@ -49,6 +49,8 @@ msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"இந்த சேவையகத்திற்கு எதிராக 1,000 க்கும் குறைவான கேள்விகள் இயக்கப்பட்டுள்ளன. பரிந்துரைகள் "
+"துல்லியமாக இருக்காது."
 
 #: libraries/advisory_rules_generic.php:30
 msgid ""
