@@ -16118,6 +16118,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"இந்த செயல்பாடுகள் ஒரு பைனரி முடிவைத் தரும்; சீரற்ற முடிவுகளைத் தவிர்க்க நீங்கள் அதை ஒரு "
+"பைனரி, வர்பினரி அல்லது குமிழ் நெடுவரிசையில் சேமிக்க வேண்டும்."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -16142,7 +16144,7 @@ msgstr "கடவுச்சொல்:"
 
 #: templates/login/form.twig:67
 msgid "Server choice:"
-msgstr "விருப்பமான வழங்கி:"
+msgstr "சேவையக தேர்வு:"
 
 #: templates/login/header.twig:17
 msgid ""
