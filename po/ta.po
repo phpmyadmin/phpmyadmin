@@ -10762,7 +10762,7 @@ msgstr "<குறியீடு> செருகு </குறியீடு
 
 #: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
-msgstr ""
+msgstr "<code> தாமதத்தை செருகவும் </குறியீடு> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:426
 #: libraries/classes/Plugins/Export/ExportSql.php:460
