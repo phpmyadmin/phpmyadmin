@@ -12171,7 +12171,7 @@ msgstr "தற்போதைய நூலுக்கான பூட்டு�
 #: templates/server/privileges/privileges_table.twig:670
 #: templates/server/privileges/privileges_table.twig:673
 msgid "Needed for the replication slaves."
-msgstr ""
+msgstr "பிரதி அடிமைகளுக்கு தேவை."
 
 #: libraries/classes/Server/Privileges.php:422
 #: templates/server/privileges/privileges_table.twig:657
