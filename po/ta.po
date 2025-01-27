@@ -2800,7 +2800,7 @@ msgstr "கோப்பாக சேமிக்க"
 #: libraries/classes/Config/Descriptions.php:657
 #: libraries/classes/Config/Descriptions.php:792
 msgid "Character set of the file"
-msgstr ""
+msgstr "கோப்பின் எழுத்து தொகுப்பு"
 
 #: libraries/classes/Config/Descriptions.php:658
 #: libraries/classes/Config/Descriptions.php:674 templates/import.twig:165
