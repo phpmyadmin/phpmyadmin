@@ -13705,7 +13705,7 @@ msgstr "பாதுகாப்பு விசைக்கு தவறான 
 #: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr ""
+msgstr "அறியப்படாத பாதுகாப்பு விசை பிழை."
 
 #. l10n: error code 3 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:700
