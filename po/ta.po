@@ -12522,7 +12522,7 @@ msgstr "தரவு வரையறையைக் கண்காணித்�
 
 #: libraries/classes/Tracking.php:740
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "தரவு கையாளுதலைக் கண்காணித்தல் வெற்றிகரமாக நீக்கப்பட்டது"
 
 #: libraries/classes/Tracking.php:797
 msgid ""
