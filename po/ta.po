@@ -2622,6 +2622,7 @@ msgstr "வரலாற்றில் எத்தனை வினவல்க�
 #: libraries/classes/Config/Descriptions.php:584
 msgid "Select which functions will be used for character set conversion."
 msgstr ""
+"எழுத்து தொகுப்பு மாற்றத்திற்கு எந்த செயல்பாடுகள் பயன்படுத்தப்படும் என்பதைத் தேர்ந்தெடுக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:585
 msgid "When browsing tables, the sorting of each table is remembered."
