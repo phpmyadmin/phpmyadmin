@@ -9561,7 +9561,7 @@ msgstr "தரவுத்தளம் காலியாக இருப்ப�
 
 #: libraries/classes/Menu.php:374 libraries/classes/Util.php:1956
 msgid "Query"
-msgstr ""
+msgstr "வினவல்"
 
 #: libraries/classes/Menu.php:412 libraries/classes/Util.php:1961
 #: templates/database/routines/index.twig:3
