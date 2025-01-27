@@ -12430,7 +12430,7 @@ msgstr ""
 #: libraries/classes/Theme.php:168
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "கருப்பொருள் %s கிடைக்கக்கூடிய சரியான பட பாதை இல்லை!"
 
 #: libraries/classes/Tracking.php:236
 #: templates/database/tracking/tables.twig:115
