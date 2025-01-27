@@ -208,7 +208,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "பதிப்பு 5.5.8 க்கும் குறைவானது (5.5 இன் முதல் கா வெளியீடு)."
 
 #: libraries/advisory_rules_generic.php:137
 msgid "You should upgrade, to a stable version of MySQL 5.5."
