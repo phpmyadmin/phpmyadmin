@@ -7039,7 +7039,7 @@ msgstr "சிறுகுறிப்பு"
 
 #: resources/templates/transformation_overview.twig:32
 msgid "Available input transformations"
-msgstr ""
+msgstr "கிடைக்கும் உள்ளீட்டு மாற்றங்கள்"
 
 #: resources/templates/triggers/editor_form.twig:28
 msgid "Trigger name"
