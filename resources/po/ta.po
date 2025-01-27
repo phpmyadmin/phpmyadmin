@@ -17782,7 +17782,7 @@ msgstr ""
 #: src/Theme/Theme.php:179
 #, php-format
 msgid "No valid image path for theme %s found!"
-msgstr ""
+msgstr "கருப்பொருள் %s கிடைக்கக்கூடிய சரியான பட பாதை இல்லை!"
 
 #: src/Tracking/TrackedDataType.php:35
 msgid "Tracking data definition successfully deleted"
