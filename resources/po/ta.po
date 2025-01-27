@@ -8216,7 +8216,7 @@ msgstr "சீன"
 #: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 msgctxt "Collation"
 msgid "Japanese"
-msgstr ""
+msgstr "சப்பானியர்கள்"
 
 #: src/Charsets/Collation.php:301
 msgctxt "Collation"
