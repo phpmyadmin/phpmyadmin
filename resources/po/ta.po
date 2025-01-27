@@ -102,7 +102,7 @@ msgstr "Git தகவல் காணவில்லை!"
 #: resources/templates/database/central_columns/main.twig:71
 #: resources/templates/database/central_columns/main.twig:304
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "மதிப்புகளைத் திருத்தவும்"
 
 #: resources/templates/columns_definitions/column_attributes.twig:38
 #: resources/templates/database/central_columns/edit_table_row.twig:30
@@ -5156,7 +5156,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
-msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர்கள் நீக்கப்படுகின்றனர்"
+msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர் கணக்குகளை அகற்று"
 
 #: resources/templates/server/privileges/users_overview.twig:148
 msgid "Revoke all active privileges from the users and delete them afterwards."
