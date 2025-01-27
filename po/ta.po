@@ -13925,7 +13925,7 @@ msgstr "கட்டத்திற்கு ச்னாப்"
 #: templates/database/designer/main.twig:133
 #: templates/database/designer/main.twig:139
 msgid "Small/Big All"
-msgstr ""
+msgstr "சிறிய/பெரியது"
 
 #: templates/database/designer/main.twig:143
 #: templates/database/designer/main.twig:146
