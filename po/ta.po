@@ -9877,7 +9877,7 @@ msgstr "வினவல்"
 #: libraries/classes/Menu.php:456 libraries/classes/Util.php:2498
 #: templates/database/routines/index.twig:18
 msgid "Routines"
-msgstr ""
+msgstr "நடைமுறைகள்"
 
 #: libraries/classes/Menu.php:462
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:24
