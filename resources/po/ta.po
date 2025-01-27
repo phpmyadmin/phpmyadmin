@@ -4502,12 +4502,12 @@ msgstr "ஒரே பெயருடன் தரவுத்தளத்தை 
 
 #: resources/templates/server/privileges/add_user.twig:20
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr ""
+msgstr "வைல்டு அட்டை பெயரில் அனைத்து சலுகைகளையும் வழங்கவும் (பயனர்பெயர் \\ _%)."
 
 #: resources/templates/server/privileges/add_user.twig:25
 #, php-format
 msgid "Grant all privileges on database %s."
-msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
+msgstr "தரவுத்தள %s இல் அனைத்து சலுகைகளையும் வழங்கவும்."
 
 #: resources/templates/server/privileges/add_user.twig:38
 msgid "Create user"
