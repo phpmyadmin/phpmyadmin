@@ -10963,7 +10963,7 @@ msgstr "அட்டவணைக் கருத்துரைகள்:"
 #: templates/database/central_columns/edit.twig:11
 #: templates/table/structure/display_structure.twig:25
 msgid "Attributes"
-msgstr ""
+msgstr "பண்புக்கூறுகள்"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:715
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:748
