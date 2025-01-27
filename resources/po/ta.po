@@ -1614,7 +1614,7 @@ msgstr "உறவை நீக்கு"
 #: resources/templates/database/designer/main.twig:442
 #: resources/templates/database/designer/main.twig:607
 msgid "Relationship operator"
-msgstr ""
+msgstr "உறவு ஆபரேட்டர்"
 
 #: resources/templates/database/designer/main.twig:471
 #: resources/templates/database/designer/main.twig:636
