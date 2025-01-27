@@ -16300,8 +16300,6 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
 #: templates/server/privileges/users_overview.twig:178
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
 msgstr "பக்கத்தை சேமிக்க"
 
