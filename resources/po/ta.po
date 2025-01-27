@@ -5541,7 +5541,7 @@ msgstr "விளக்கப்பட நெடுவரிசைகள்"
 
 #: resources/templates/server/status/monitor/index.twig:49
 msgid "Chart arrangement"
-msgstr ""
+msgstr "விளக்கப்பட ஏற்பாடு"
 
 #: resources/templates/server/status/monitor/index.twig:50
 msgid ""
