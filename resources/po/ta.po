@@ -10145,7 +10145,7 @@ msgstr "ICONV க்கான கூடுதல் அளவுருக்க�
 
 #: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
-msgstr ""
+msgstr "பல அறிக்கை பிழைகளை புறக்கணிக்கவும்"
 
 #: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
