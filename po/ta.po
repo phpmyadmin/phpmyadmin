@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 02:55+0000\n"
+"PO-Revision-Date: 2025-01-27 02:56+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -17687,7 +17687,7 @@ msgstr "சுருங்குறியை பயன்படுத்து�
 
 #: templates/table/find_replace/replace_preview.twig:13
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "கண்டுபிடித்து மாற்றவும் - முன்னோட்டம்"
 
 #: templates/table/find_replace/replace_preview.twig:18
 msgid "Original string"
