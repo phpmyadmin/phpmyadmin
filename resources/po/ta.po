@@ -8136,7 +8136,7 @@ msgstr "ச்பானிச் (நவீன)"
 #: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr ""
+msgstr "வழக்கு-உணர்வற்ற"
 
 #: src/Charsets/Collation.php:219
 msgctxt "Collation variant"
