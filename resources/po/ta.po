@@ -2635,7 +2635,7 @@ msgstr "தரவுத்தளம்:"
 #: resources/templates/database/structure/copy_form.twig:31
 #: src/Config/Descriptions.php:898
 msgid "Add DROP TABLE"
-msgstr ""
+msgstr "துளி அட்டவணையைச் சேர்க்கவும்"
 
 #: resources/templates/database/structure/copy_form.twig:35
 msgid "Add AUTO INCREMENT value"
