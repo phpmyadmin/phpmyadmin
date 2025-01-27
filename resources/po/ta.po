@@ -14390,6 +14390,7 @@ msgstr ""
 #: src/Controllers/Server/Status/VariablesController.php:393
 msgid "The number of requests to read a key block from the cache."
 msgstr ""
+"தற்காலிக சேமிப்பிலிருந்து ஒரு முக்கிய தொகுதியைப் படிக்க கோரிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:395
 msgid ""
