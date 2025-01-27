@@ -4605,6 +4605,8 @@ msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
+"%1$sgzip சுருக்க மற்றும் டிகம்பரச்சன்%2$s இந்த அமைப்பில் கிடைக்காத செயல்பாடுகள் (%3$s) "
+"தேவைப்படுகிறது."
 
 #: libraries/classes/ConfigStorage/Relation.php:1365
 msgid "no description"
