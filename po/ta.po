@@ -7494,6 +7494,8 @@ msgid ""
 "The number of requests to read the previous row in key order. This read "
 "method is mainly used to optimize ORDER BY … DESC."
 msgstr ""
+"முந்தைய வரிசையை முக்கிய வரிசையில் படிக்க கோரிக்கைகளின் எண்ணிக்கை. இந்த வாசிப்பு முறை "
+"முக்கியமாக ஆர்டரை மேம்படுத்த பயன்படுத்தப்படுகிறது… DESC."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:301
 msgid ""
