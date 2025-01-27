@@ -10027,7 +10027,7 @@ msgstr "\"%1$s\" வகுப்பை ஏற்ற முடியவில்�
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: templates/sql/query.twig:63
 msgid "Columns"
-msgstr ""
+msgstr "நெடுவரிசைகள்"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:36
 msgctxt "Create new column"
