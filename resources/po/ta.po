@@ -2343,7 +2343,7 @@ msgstr "பாதுகாப்பு வகை"
 
 #: resources/templates/database/routines/editor_form.twig:163
 msgid "SQL data access"
-msgstr ""
+msgstr "கவிமொ தரவு அணுகல்"
 
 #: resources/templates/database/routines/execute_form.twig:7
 #: resources/templates/database/routines/execute_form.twig:12
