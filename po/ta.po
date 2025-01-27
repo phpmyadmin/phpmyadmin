@@ -16907,7 +16907,7 @@ msgstr "மரியாட்பில் பயன்படுத்தப்�
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used for this MySQL version."
-msgstr ""
+msgstr "இந்த MySQL பதிப்பிற்கு பயன்படுத்தப்படவில்லை."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -17059,7 +17059,7 @@ msgstr ""
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகள் இல்லை"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:44
