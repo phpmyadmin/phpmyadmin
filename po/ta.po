@@ -3925,7 +3925,7 @@ msgstr "இந்த சேவையகத்தின் சொற்களஞ�
 
 #: libraries/classes/Config/Descriptions.php:929
 msgid "Allow to display all the rows"
-msgstr ""
+msgstr "அனைத்து வரிசைகளையும் காண்பிக்க அனுமதிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:930
 msgid "Show password change form"
