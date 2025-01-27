@@ -10229,8 +10229,6 @@ msgstr "கருத்துரைகளை காட்டுக"
 #: libraries/classes/Plugins/Export/ExportLatex.php:146
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
 #: libraries/classes/Plugins/Export/ExportSql.php:162
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display media types"
 msgstr "பயன்முறைகளை காட்டுக"
 
