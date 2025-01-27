@@ -10882,7 +10882,7 @@ msgstr "அமைப்புகளில் உருவாக்குபவ�
 #: src/Config/Descriptions.php:942 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
 msgid "Version check"
-msgstr ""
+msgstr "பதிப்பு சோதனை"
 
 #: src/Config/Descriptions.php:943
 msgid "Proxy URL"
