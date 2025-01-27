@@ -3043,7 +3043,7 @@ msgstr "வெளிநாட்டு விசை கீழ்தோன்ற�
 
 #: libraries/classes/Config/Descriptions.php:754
 msgid "Foreign key limit"
-msgstr ""
+msgstr "வெளிநாட்டு முக்கிய வரம்பு"
 
 #: libraries/classes/Config/Descriptions.php:755
 msgid "Foreign key checks"
