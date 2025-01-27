@@ -12797,6 +12797,8 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"ஒரு கணக்கீடு, 65,535 மதிப்புகள் அல்லது சிறப்பு '' பிழை மதிப்பு ஆகியவற்றின் "
+"பட்டியலிலிருந்து தேர்ந்தெடுக்கப்பட்டது"
 
 #: libraries/classes/Types.php:410
 msgid "A single value chosen from a set of up to 64 members"
