@@ -10688,7 +10688,7 @@ msgstr "துளி தரவுத்தளத்தைச் சேர்க�
 
 #: src/Config/Descriptions.php:899
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "துளி காட்சியைச் சேர்க்கவும்"
 
 #: src/Config/Descriptions.php:900
 msgid "Statements to track"
