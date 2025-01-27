@@ -4596,6 +4596,8 @@ msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
+"%1$sBZIP2 சுருக்க மற்றும் டிகம்பரச்சன்%2$s இந்த அமைப்பில் கிடைக்காத செயல்பாடுகள் (%3$s) "
+"தேவைப்படுகிறது."
 
 #: libraries/classes/Config/ServerConfigChecks.php:503
 #, php-format
