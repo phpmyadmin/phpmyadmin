@@ -16241,8 +16241,6 @@ msgid "Possible performance issues"
 msgstr "நேரிடகூடிய செயல்திறன் சிக்கல்கள்"
 
 #: templates/server/status/advisor/index.twig:78
-#, fuzzy
-#| msgid "Issue"
 msgid "Issue:"
 msgstr "சிக்கல்"
 
