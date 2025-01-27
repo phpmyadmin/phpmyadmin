@@ -13927,7 +13927,7 @@ msgstr "கூற்றுகளை சேர்க்க:"
 
 #: src/Controllers/Server/Status/StatusController.php:129
 msgid "Received"
-msgstr ""
+msgstr "பெறப்பட்டது"
 
 #: src/Controllers/Server/Status/StatusController.php:134
 msgid "Sent"
