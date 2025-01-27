@@ -17924,6 +17924,8 @@ msgstr "நீங்கள் ஒரு தூண்டுதல் வரைய
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
+"1 -பைட் முழு எண், கையொப்பமிடப்பட்ட வரம்பு -128 முதல் 127 வரை, கையொப்பமிடப்படாத வரம்பு "
+"0 முதல் 255 வரை"
 
 #: src/Types.php:147
 msgid ""
