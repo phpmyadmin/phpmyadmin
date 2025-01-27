@@ -2691,6 +2691,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
+"[A@https: //www.php.net/manual/en/function.phpinfo.php] phpinfo () [/a] "
+"வெளியீட்டிற்கான இணைப்பைக் காட்டுகிறது."
 
 #: libraries/classes/Config/Descriptions.php:498
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
