@@ -16428,7 +16428,7 @@ msgstr "எந்த பயனரும்"
 #: templates/server/privileges/privileges_summary.twig:75
 #: templates/server/privileges/privileges_summary.twig:90
 msgid "Use text field"
-msgstr ""
+msgstr "உரை புலத்தைப் பயன்படுத்தவும்"
 
 #: templates/server/privileges/login_information_fields.twig:16
 msgid ""
