@@ -12518,7 +12518,7 @@ msgstr "பதிப்பு %s ச்னாப்சாட் (SQL குற�
 
 #: libraries/classes/Tracking.php:728
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "தரவு வரையறையைக் கண்காணித்தல் வெற்றிகரமாக நீக்கப்பட்டது"
 
 #: libraries/classes/Tracking.php:740
 msgid "Tracking data manipulation successfully deleted"
