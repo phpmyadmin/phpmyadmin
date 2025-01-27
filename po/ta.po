@@ -2691,7 +2691,7 @@ msgstr "பிழைத்திருத்தம் கவிமொ"
 #: libraries/classes/Plugins/Schema/SchemaDia.php:65
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:73
 msgid "Paper size"
-msgstr ""
+msgstr "காகித அளவு"
 
 #: libraries/classes/Config/Descriptions.php:643
 msgid "Default database tab"
