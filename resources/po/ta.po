@@ -11290,7 +11290,7 @@ msgstr "ரெக்காப்ட்சாவிற்கான தனிப�
 
 #: src/Config/Descriptions.php:953
 msgid "URL for reCAPTCHA siteverify"
-msgstr ""
+msgstr "Recaptcha siteverify க்கான முகவரி"
 
 #: src/Config/Descriptions.php:954
 msgid "Send error reports"
