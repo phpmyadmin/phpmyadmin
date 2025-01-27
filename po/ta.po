@@ -8393,8 +8393,7 @@ msgid "Export of trigger %s"
 msgstr "%s செயல்தூண்டியின் தரவேற்றம்"
 
 #: libraries/classes/Database/Triggers.php:520
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
