@@ -4279,7 +4279,7 @@ msgstr ""
 #: libraries/classes/Config/Validator.php:590
 #: templates/config/form_display/display.twig:67
 msgid "Incorrect value!"
-msgstr ""
+msgstr "தவறான மதிப்பு!"
 
 #: libraries/classes/Config/FormDisplay.php:797
 #: libraries/classes/Config/FormDisplay.php:806
