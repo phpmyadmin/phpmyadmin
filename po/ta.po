@@ -15706,8 +15706,6 @@ msgid "Persistent recently used tables:"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
 #: templates/relation/check_relations.twig:270
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Persistent favorite tables:"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
