@@ -8109,7 +8109,7 @@ msgstr "அட்டவணை %1$s வெற்றிகரமாக மாற�
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
 #: libraries/classes/Controllers/Table/ExportRowsController.php:36
 msgid "No row selected."
-msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
+msgstr "எந்த வரிசையும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Table/ChartController.php:60
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:70
@@ -8236,7 +8236,7 @@ msgstr "உள் உறவுகள் வெற்றிகரமாக பு
 #: libraries/classes/Controllers/Table/ReplaceController.php:294
 #, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
-msgstr ""
+msgstr "வரிசை: %1$s, நெடுவரிசை: %2$s, பிழை: %3$s"
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
 #, php-format
