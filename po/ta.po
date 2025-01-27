@@ -18136,7 +18136,7 @@ msgstr "பகிர்வை அகற்று"
 
 #: templates/table/operations/index.twig:471
 msgid "Check referential integrity"
-msgstr ""
+msgstr "குறிப்பு ஒருமைப்பாட்டை சரிபார்க்கவும்"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -18152,31 +18152,31 @@ msgstr "உறவு பார்வை"
 
 #: templates/table/partition/analyze.twig:2
 msgid "Analyze partition"
-msgstr "பிரிவினை %s"
+msgstr "Analyze பிரிவினை"
 
 #: templates/table/partition/check.twig:2
 msgid "Check partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை சரிபார்க்கவும்"
 
 #: templates/table/partition/drop.twig:2
 msgid "Drop partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வு கைவிடவும்"
 
 #: templates/table/partition/optimize.twig:2
 msgid "Optimize partition"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வை மேம்படுத்தவும்"
 
 #: templates/table/partition/rebuild.twig:2
 msgid "Rebuild partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை மீண்டும் உருவாக்குங்கள்"
 
 #: templates/table/partition/repair.twig:2
 msgid "Repair partition"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வு பழுதுபார்க்கும்"
 
 #: templates/table/partition/truncate.twig:2
 msgid "Truncate partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை துண்டிக்கவும்"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -18303,7 +18303,7 @@ msgstr "பகிர்வைத் திருத்து"
 
 #: templates/table/structure/display_structure.twig:71
 msgid "Media type:"
-msgstr "சுட்டுதொகுப்புக்குறி வகை:"
+msgstr "ஊடக வகை:"
 
 #: templates/table/structure/display_structure.twig:92
 #: templates/table/tracking/structure_snapshot_columns.twig:47
