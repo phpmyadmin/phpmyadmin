@@ -1901,7 +1901,7 @@ msgstr ""
 
 #: resources/templates/database/events/index.twig:143
 msgid "OFF"
-msgstr ""
+msgstr "அணை"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
