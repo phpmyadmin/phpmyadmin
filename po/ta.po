@@ -8102,6 +8102,8 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
+"திறக்கப்பட்ட அட்டவணைகளின் எண்ணிக்கை. திறந்த அட்டவணைகள் பெரியதாக இருந்தால், உங்கள் அட்டவணை"
+"_OPEN_CACHE மதிப்பு மிகவும் சிறியதாக இருக்கலாம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:440
 msgid "The number of files that are open."
