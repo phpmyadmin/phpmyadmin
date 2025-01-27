@@ -16458,6 +16458,7 @@ msgid ""
 "… delete the old one from the user tables and reload the privileges "
 "afterwards."
 msgstr ""
+"… பயனர் அட்டவணையில் இருந்து பழையதை நீக்கி, பின்னர் சலுகைகளை மீண்டும் ஏற்றவும்."
 
 #: templates/server/privileges/users_overview.twig:131
 msgid "Remove selected user accounts"
