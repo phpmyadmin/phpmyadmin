@@ -8196,7 +8196,7 @@ msgstr "மத்திய ஐரோப்பிய"
 #: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 msgctxt "Collation"
 msgid "Russian"
-msgstr ""
+msgstr "ரச்ய"
 
 #: src/Charsets/Collation.php:282
 msgctxt "Collation"
