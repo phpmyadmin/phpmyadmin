@@ -11807,11 +11807,11 @@ msgstr "கவிமொ வரலாறு"
 
 #: libraries/classes/Relation.php:283
 msgid "Persistent recently used tables"
-msgstr ""
+msgstr "தொடர்ந்து அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணைகள்"
 
 #: libraries/classes/Relation.php:294
 msgid "Persistent favorite tables"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "தொடர்ந்து பிடித்த அட்டவணைகள்"
 
 #: libraries/classes/Relation.php:305
 msgid "Persistent tables' UI preferences"
