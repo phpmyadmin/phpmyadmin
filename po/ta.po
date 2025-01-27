@@ -10758,7 +10758,7 @@ msgstr "செருகுவதற்கு முன் அட்டவணை�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr ""
+msgstr "<குறியீடு> செருகு </குறியீடு> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
