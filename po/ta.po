@@ -222,6 +222,7 @@ msgstr "பரம்பல்"
 #: libraries/advisory_rules_generic.php:146
 msgid "Version is compiled from source, not a MySQL official binary."
 msgstr ""
+"பதிப்பு மூலத்திலிருந்து தொகுக்கப்பட்டுள்ளது, MySQL அதிகாரப்பூர்வ பைனரி அல்ல."
 
 #: libraries/advisory_rules_generic.php:148
 msgid ""
