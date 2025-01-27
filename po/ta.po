@@ -1756,6 +1756,9 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
+"Phpmyadmin உள்ளமைவு சேமிப்பிடத்தை உள்ளமைக்கவும் கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற, "
+"ஆவணத்தில் [DOC@இணைக்கப்பட்ட-அட்டவணைகள்] Phpmyadmin உள்ளமைவு சேமிப்பிடம் [/doc] ஐப் "
+"பார்க்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:206
 msgid ""
