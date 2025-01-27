@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 02:18+0000\n"
+"PO-Revision-Date: 2025-01-27 02:19+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -11046,21 +11046,21 @@ msgstr "உங்கள் தரவுத்தளம் நடைமுறை�
 #: libraries/classes/Plugins/Export/ExportSql.php:1652
 #: libraries/classes/Plugins/Export/ExportSql.php:2194
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "மாற்று ஏற்றுமதி எல்லா நிகழ்வுகளிலும் நம்பத்தகுந்ததாக செயல்படாது."
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1062
 msgid "Metadata"
-msgstr "தரவு"
+msgstr "மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1134
 #, php-format
 msgid "Metadata for table %s"
-msgstr "தரவை அல்லது அட்டவணையை அழி"
+msgstr "அட்டவணை %s க்கான மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1141
 #, php-format
 msgid "Metadata for database %s"
-msgstr "தரவுத்தளம்: %s க்கு செல்க"
+msgstr "தரவுத்தளம் %s க்கான மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1476
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:674
