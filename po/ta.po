@@ -12321,7 +12321,7 @@ msgstr ""
 #: templates/database/structure/body_for_table_summary.twig:46
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "இந்த MySQL சேவையகத்தின் இயல்புநிலை சேமிப்பக இயந்திரமாக %s ஆகும்."
 
 #: libraries/classes/StorageEngine.php:473
 #, php-format
