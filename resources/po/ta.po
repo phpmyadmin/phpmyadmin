@@ -10344,7 +10344,7 @@ msgstr "அட்டவணை மரம் பிரிப்பான்"
 
 #: src/Config/Descriptions.php:825
 msgid "Maximum table tree depth"
-msgstr ""
+msgstr "அதிகபட்ச அட்டவணை மர ஆழம்"
 
 #: src/Config/Descriptions.php:826
 msgid "Enable highlighting"
