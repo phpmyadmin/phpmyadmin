@@ -1477,7 +1477,7 @@ msgstr "அட்டவணைகள் பட்டியலைக் காட�
 #: resources/templates/database/designer/main.twig:35
 #: resources/templates/database/designer/main.twig:36
 msgid "View in fullscreen"
-msgstr ""
+msgstr "முழுத் திரையில் காண்க"
 
 #: resources/templates/database/designer/main.twig:34
 msgid "Exit fullscreen"
