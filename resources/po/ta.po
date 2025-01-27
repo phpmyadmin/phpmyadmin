@@ -4300,11 +4300,11 @@ msgstr "தொடர்ந்து பிடித்த அட்டவணை�
 
 #: resources/templates/relation/check_relations.twig:295
 msgid "Persistent tables' UI preferences:"
-msgstr ""
+msgstr "தொடர்ச்சியான அட்டவணைகளின் இடைமுகம் விருப்பத்தேர்வுகள்:"
 
 #: resources/templates/relation/check_relations.twig:320
 msgid "Tracking:"
-msgstr "கண்காணிப்பு அறிக்கை"
+msgstr "கண்காணிப்பு:"
 
 #: resources/templates/relation/check_relations.twig:345
 msgid "User preferences:"
