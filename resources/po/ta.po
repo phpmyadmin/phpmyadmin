@@ -2508,7 +2508,7 @@ msgstr "கூட்டுத்தொகை"
 #: src/StorageEngine.php:414
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
-msgstr ""
+msgstr "இந்த MySQL சேவையகத்தின் இயல்புநிலை சேமிப்பக இயந்திரமாக %s ஆகும்."
 
 #: resources/templates/database/structure/bulk_action_modal.twig:12
 #: resources/templates/database/structure/check_all_tables.twig:56
