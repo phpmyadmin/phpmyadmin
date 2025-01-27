@@ -2596,6 +2596,7 @@ msgstr "ஐகான்கள், உரை அல்லது இரண்ட�
 #: libraries/classes/Config/Descriptions.php:578
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
 msgstr ""
+"HTTP இடமாற்றங்களில் அதிகரித்த வேகத்திற்கு GZIP வெளியீடு இடையகத்தைப் பயன்படுத்தவும்."
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Use persistent connections to MySQL databases."
