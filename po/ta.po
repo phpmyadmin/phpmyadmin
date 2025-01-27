@@ -3729,7 +3729,7 @@ msgstr "தகவல்_செமாவின் பயன்பாட்டை 
 
 #: libraries/classes/Config/Descriptions.php:894
 msgid "Hide databases"
-msgstr ""
+msgstr "தரவுத்தளங்களை மறைக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
