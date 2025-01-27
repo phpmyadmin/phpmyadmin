@@ -1693,7 +1693,7 @@ msgstr ""
 
 #: resources/templates/database/designer/page_selector.twig:2
 msgid "Select page"
-msgstr ""
+msgstr "பக்கத்தைத் தேர்ந்தெடுக்கவும்"
 
 #: resources/templates/database/designer/schema_export.twig:6
 msgid "Select export relational type:"
