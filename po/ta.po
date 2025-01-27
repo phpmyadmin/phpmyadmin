@@ -3496,7 +3496,7 @@ msgstr "தரவுத்தளம் நகல் எடுக்கபடு�
 
 #: libraries/classes/Config/Descriptions.php:863
 msgid "Recently used tables"
-msgstr ""
+msgstr "அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணைகள்"
 
 #: libraries/classes/Config/Descriptions.php:864
 #: libraries/classes/RecentFavoriteTable.php:273
