@@ -11847,7 +11847,7 @@ msgstr "ஏற்றுமதி வார்ப்புருக்களை �
 
 #: libraries/classes/Relation.php:1834
 msgid "no description"
-msgstr ""
+msgstr "விளக்கம் இல்லை"
 
 #: libraries/classes/Relation.php:2052
 #, php-format
