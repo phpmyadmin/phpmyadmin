@@ -16402,7 +16402,7 @@ msgstr ""
 
 #: templates/server/binlog/index.twig:10
 msgid "Select binary log to view"
-msgstr ""
+msgstr "பார்க்க பைனரி பதிவைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
