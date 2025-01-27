@@ -2355,6 +2355,8 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"நெடுவரிசை கருத்துகள்/ஊடக வகைகளுக்கு காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [KBD] "
+"PMA__Column_info [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid ""
@@ -2362,7 +2364,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "வரையறுக்கப்பட்ட அனுமதிகளுடன் கட்டமைக்கப்பட்ட ஒரு சிறப்பு MySQL பயனர், "
-"[DOC@இணைக்கப்பட்ட-அட்டவணைகள்] ஆவணங்களில் [/doc] இல் கூடுதல் தகவல்கள் கிடைக்கின்றன."
+"[DOC@இணைக்கப்பட்ட-அட்டவணைகள்] ஆவணத்தில் [/doc] கூடுதல் தகவல்கள் கிடைக்கின்றன."
 
 #: libraries/classes/Config/Descriptions.php:358
 msgid ""
@@ -2473,7 +2475,7 @@ msgid ""
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "அமர்வுகள் முழுவதும் \"தொடர்ச்சியான\" பிடித்த அட்டவணைகளுக்கு காலியாக விடவும், "
-"பரிந்துரைக்கப்படுகிறது: [KBD] PMA__Foavorite [/KBD]."
+"பரிந்துரைக்கப்படுகிறது: [kbd] pma__foavorite [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:407
 msgid ""
@@ -2481,7 +2483,7 @@ msgid ""
 "[kbd]pma__relation[/kbd]."
 msgstr ""
 "இல்லை [டாக்@உறவுகள்@] உறவு-இணைப்புகள் [/doc] உதவி, பரிந்துரைக்கப்படுகிறது: [kbd] "
-"pma__ URELATION [/kbd]."
+"pma__Relation [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:412
 msgid ""
