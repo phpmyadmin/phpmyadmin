@@ -4245,7 +4245,7 @@ msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 #: libraries/classes/Config/FormDisplay.php:125
 #: libraries/classes/Config/Validator.php:514
 msgid "Not a valid port number!"
-msgstr ""
+msgstr "செல்லுபடியாகும் துறைமுகம் எண் அல்ல!"
 
 #: libraries/classes/Config/FormDisplay.php:126
 #: libraries/classes/Config/FormDisplay.php:718
