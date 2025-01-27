@@ -4284,7 +4284,7 @@ msgstr "தவறான மதிப்பு!"
 #: libraries/classes/Config/FormDisplay.php:797
 #: libraries/classes/Config/FormDisplay.php:806
 msgid "unavailable"
-msgstr ""
+msgstr "கிடைக்கவில்லை"
 
 #: libraries/classes/Config/FormDisplay.php:799
 #: libraries/classes/Config/FormDisplay.php:808
