@@ -8638,7 +8638,7 @@ msgstr "மேற்கூறிய இரண்டும்"
 
 #: src/Config/ConfigFile.php:726
 msgid "neither of the above"
-msgstr ""
+msgstr "மேற்கூறிய எதுவும் இல்லை"
 
 #: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
 #: src/Config/Descriptions.php:63
