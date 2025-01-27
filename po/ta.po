@@ -15702,8 +15702,6 @@ msgid "SQL history:"
 msgstr "SQL வினவல்:"
 
 #: templates/relation/check_relations.twig:245
-#, fuzzy
-#| msgid "There are no favorite tables."
 msgid "Persistent recently used tables:"
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
