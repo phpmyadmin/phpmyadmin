@@ -1641,6 +1641,7 @@ msgid ""
 "Find any errors in the query before executing it. Requires CodeMirror to be "
 "enabled."
 msgstr ""
+"வினவலை இயக்குவதற்கு முன் ஏதேனும் பிழைகளைக் கண்டறியவும். கோட்மிரர் இயக்கப்பட வேண்டும்."
 
 #: libraries/classes/Config/Descriptions.php:126
 msgid ""
@@ -2659,7 +2660,7 @@ msgstr "கோட்மிரரை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Enable linter"
-msgstr "இயலச்செய்க %s"
+msgstr "லிண்டரை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:628
 msgid "Minimum size for input field"
