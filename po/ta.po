@@ -379,6 +379,9 @@ msgid ""
 "This means that joins are doing full table scans. Adding indexes for the "
 "columns being used in the join conditions will greatly speed up table joins."
 msgstr ""
+"இதன் பொருள் இணைகள் முழு அட்டவணை ச்கேன்களைச் செய்கின்றன. சேரும் நிபந்தனைகளில் "
+"பயன்படுத்தப்படும் நெடுவரிசைகளுக்கான குறியீடுகளைச் சேர்ப்பது அட்டவணை சேருவதை பெரிதும் "
+"விரைவுபடுத்தும்."
 
 #: libraries/advisory_rules_generic.php:254
 #, php-format
