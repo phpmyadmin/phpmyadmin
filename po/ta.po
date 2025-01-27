@@ -10010,7 +10010,7 @@ msgstr "விரைவான வடிகட்டியை அழிக்க�
 
 #: libraries/classes/Navigation/NavigationTree.php:1475
 msgid "Collapse all"
-msgstr ""
+msgstr "அனைத்தையும் சரக்கு"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:39
