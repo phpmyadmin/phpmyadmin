@@ -3044,6 +3044,8 @@ msgid ""
 "Add IF NOT EXISTS (less efficient as indexes will be generated during table "
 "creation)"
 msgstr ""
+"இல்லை என்றால் சேர் (அட்டவணை உருவாக்கத்தின் போது குறியீடுகள் உருவாக்கப்படும் என்பதால் குறைந்த "
+"செயல்திறன் கொண்டது)"
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:354
