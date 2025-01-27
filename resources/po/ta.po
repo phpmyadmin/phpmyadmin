@@ -9074,7 +9074,7 @@ msgstr ""
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
 #: src/Plugins/Export/ExportSql.php:367
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "தற்போதைய பயனரின் வரையறையை விலக்கவும்"
 
 #: src/Config/Descriptions.php:173
 msgid ""
@@ -9114,7 +9114,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Phpmyadmin உள்ளமைவு சேமிப்பிடத்தை உள்ளமைக்கவும் கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற, "
+"கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற Phpmyadmin உள்ளமைவு சேமிப்பகத்தை உள்ளமைக்கவும், "
 "ஆவணத்தில் [DOC@இணைக்கப்பட்ட-அட்டவணைகள்] Phpmyadmin உள்ளமைவு சேமிப்பிடம் [/doc] ஐப் "
 "பார்க்கவும்."
 
