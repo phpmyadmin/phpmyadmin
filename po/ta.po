@@ -2282,6 +2282,8 @@ msgid ""
 "Leave blank for no \"persistent\" tables' UI preferences across sessions, "
 "suggested: [kbd]pma__table_uiprefs[/kbd]."
 msgstr ""
+"அமர்வுகள் முழுவதும் \"தொடர்ச்சியான\" அட்டவணைகளின் இடைமுகம் விருப்பங்களுக்கு காலியாக "
+"விடவும், பரிந்துரைக்கப்படுகிறது: [kbd] pma__table_uiprefs [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:426
 msgid ""
