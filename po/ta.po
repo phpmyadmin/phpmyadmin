@@ -8510,7 +8510,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:390
 #: templates/database/events/editor_form.twig:9 templates/view_create.twig:8
 msgid "Details"
-msgstr ""
+msgstr "விவரங்கள்"
 
 #: libraries/classes/Database/Routines.php:853
 msgid "Routine name"
@@ -14040,7 +14040,7 @@ msgstr ""
 
 #: templates/database/events/editor_form.twig:12
 msgid "Event name"
-msgstr "கட்டுப்பாட்டின் பெயர்"
+msgstr "நிகழ்வு பெயர்"
 
 #: templates/database/events/editor_form.twig:28
 #: templates/server/binlog/index.twig:86
