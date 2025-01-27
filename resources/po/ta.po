@@ -4582,7 +4582,7 @@ msgstr "தனிசலுகைகளை சரிபார்க்க"
 #: resources/templates/server/privileges/privileges_table.twig:11
 #: resources/templates/server/privileges/privileges_table.twig:274
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr ""
+msgstr "குறிப்பு: MySQL சலுகை பெயர்கள் ஆங்கிலத்தில் வெளிப்படுத்தப்பட்டுள்ளன."
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:65
 #: resources/templates/server/privileges/edit_routine_privileges.twig:69
