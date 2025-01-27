@@ -17495,7 +17495,7 @@ msgstr "ஃப்ளச் வினவல் தற்காலிக சேம
 
 #: src/Server/Status/Processes.php:90
 msgid "ID"
-msgstr ""
+msgstr "ஐடி"
 
 #: src/Server/Status/Processes.php:94
 msgid "Command"
