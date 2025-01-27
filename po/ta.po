@@ -904,6 +904,9 @@ msgid ""
 "MySQL properly. This can be due to network issues or code not closing a "
 "database handler properly. Check your network and code."
 msgstr ""
+"MySQL உடனான தொடர்பை சரியாக மூடாதபோது வாடிக்கையாளர்கள் வழக்கமாக கைவிடப்படுவார்கள். இது"
+" பிணையம் சிக்கல்கள் அல்லது குறியீடு ஒரு தரவுத்தள கையாளுபவரை சரியாக மூடாததால் இருக்கலாம்"
+". உங்கள் பிணையம் மற்றும் குறியீட்டை சரிபார்க்கவும்."
 
 #: libraries/advisory_rules_generic.php:579
 #, php-format
