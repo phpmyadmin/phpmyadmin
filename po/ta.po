@@ -10071,7 +10071,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:832
 msgid "Groups"
-msgstr "பயனர்குழுவின் பெயர்:"
+msgstr "குழுக்கள்"
 
 #: libraries/classes/Navigation/NavigationTree.php:945
 #, php-format
@@ -18326,7 +18326,7 @@ msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
 
 #: templates/table/insert/column_row.twig:65
 msgid "Because of its length,<br> this column might not be editable."
-msgstr ""
+msgstr "அதன் நீளம் காரணமாக, <br> இந்த நெடுவரிசை திருத்தக்கூடியதாக இருக்காது."
 
 #: templates/table/insert/column_row.twig:93
 msgid "Binary - do not edit"
