@@ -4610,7 +4610,7 @@ msgstr ""
 
 #: libraries/classes/ConfigStorage/Relation.php:1365
 msgid "no description"
-msgstr ""
+msgstr "விளக்கம் இல்லை"
 
 #: libraries/classes/ConfigStorage/Relation.php:1567
 #, php-format
