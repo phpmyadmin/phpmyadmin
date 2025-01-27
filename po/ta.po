@@ -8304,7 +8304,7 @@ msgstr "பதிப்புகள் எதுவும் தேர்ந்�
 
 #: libraries/classes/Controllers/Table/TrackingController.php:174
 msgid "SQL statements executed."
-msgstr ""
+msgstr "கவிமொ அறிக்கைகள் செயல்படுத்தப்பட்டன."
 
 #: libraries/classes/Controllers/UserPasswordController.php:54
 msgid "You don't have sufficient privileges to be here right now!"
