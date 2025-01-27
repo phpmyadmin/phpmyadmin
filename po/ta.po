@@ -12113,7 +12113,7 @@ msgstr "ஃப்ளச் வினவல் தற்காலிக சேம
 
 #: libraries/classes/Server/Status/Processes.php:110
 msgid "ID"
-msgstr ""
+msgstr "ஐடி"
 
 #: libraries/classes/Server/Status/Processes.php:118
 #: templates/server/replication/primary_add_replica_user.twig:32
