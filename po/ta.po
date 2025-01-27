@@ -16422,8 +16422,6 @@ msgid "See replica status table"
 msgstr "இந்த அட்டவணையில் தேடுக"
 
 #: templates/server/replication/replica_configuration.twig:38
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Control replica:"
 msgstr "இரட்டையாக்கப்படாதது"
 
