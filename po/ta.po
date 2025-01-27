@@ -14161,7 +14161,7 @@ msgstr "தரவுத்தள-குறிப்பிட்ட"
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
 msgid "wildcard"
-msgstr ""
+msgstr "வைல்டு அட்டை"
 
 #: templates/database/privileges/index.twig:55
 #: templates/table/privileges/index.twig:59
