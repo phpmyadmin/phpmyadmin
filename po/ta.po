@@ -8515,7 +8515,7 @@ msgstr "விவரங்கள்"
 
 #: libraries/classes/Database/Routines.php:853
 msgid "Routine name"
-msgstr ""
+msgstr "வழக்கமான பெயர்"
 
 #: libraries/classes/Database/Routines.php:858
 #: libraries/classes/Database/Routines.php:888
