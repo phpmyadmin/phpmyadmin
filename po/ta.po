@@ -3718,7 +3718,7 @@ msgstr "கட்டுப்பாட்டு புரவலன்"
 
 #: libraries/classes/Config/Descriptions.php:892
 msgid "Control port"
-msgstr ""
+msgstr "கட்டுப்பாட்டு துறை"
 
 #: libraries/classes/Config/Descriptions.php:893
 msgid "Disable use of INFORMATION_SCHEMA"
