@@ -13921,7 +13921,7 @@ msgstr ""
 
 #: templates/database/events/index.twig:114
 msgid "Event scheduler status"
-msgstr ""
+msgstr "நிகழ்வு திட்டமிடல் நிலை"
 
 #: templates/database/events/index.twig:119
 #: templates/database/tracking/tables.twig:47
