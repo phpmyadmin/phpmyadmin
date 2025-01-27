@@ -252,7 +252,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "பதிப்பு_மென்ட்டில் 'பெர்கோனா' காணப்படுகிறது"
 
 #: libraries/advisory_rules_generic.php:168
 msgid "MySQL Architecture"
