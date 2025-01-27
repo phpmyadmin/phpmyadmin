@@ -4053,7 +4053,7 @@ msgstr ""
 #: resources/templates/preferences/two_factor/main.twig:12
 #: resources/templates/preferences/two_factor/main.twig:27
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "பின்வரும் இசையமைப்பாளர் தொகுப்புகள் இல்லை:"
 
 #: resources/templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
