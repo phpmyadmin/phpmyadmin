@@ -17586,7 +17586,7 @@ msgstr "இறுதிப்பர்வை"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:98
 msgid "Configuration file"
-msgstr ""
+msgstr "உள்ளமைவு கோப்பு"
 
 #: templates/setup/config/index.twig:16
 msgid "Generated configuration file"
