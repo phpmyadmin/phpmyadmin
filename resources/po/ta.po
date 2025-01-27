@@ -4873,7 +4873,7 @@ msgstr "உலகளாவிய"
 #: resources/templates/server/privileges/privileges_table.twig:263
 #: resources/templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
-msgstr ""
+msgstr "உலகளாவிய சலுகைகள்"
 
 #: resources/templates/server/privileges/privileges_table.twig:265
 #: src/Server/Privileges.php:1568
