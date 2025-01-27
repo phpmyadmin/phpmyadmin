@@ -710,7 +710,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:463
 #: libraries/advisory_rules_generic.php:473
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "பல அட்டவணை பூட்டுகள் உடனடியாக வழங்கப்படவில்லை."
 
 #: libraries/advisory_rules_generic.php:464
 #: libraries/advisory_rules_generic.php:474
