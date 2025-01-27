@@ -11015,7 +11015,7 @@ msgstr "இந்த சொருகி சுருக்கப்பட்ட 
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
-msgstr ""
+msgstr "மீடியாவிகி அட்டவணை"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:275
 #, php-format
