@@ -8890,7 +8890,7 @@ msgstr "உரைஉள்ளிடல் களங்களை தனிபய�
 
 #: src/Config/Descriptions.php:224
 msgid "Customize default options"
-msgstr ""
+msgstr "இயல்புநிலை விருப்பங்களைத் தனிப்பயனாக்குங்கள்"
 
 #: src/Config/Descriptions.php:225
 msgid "Disable some of the warnings shown by phpMyAdmin."
