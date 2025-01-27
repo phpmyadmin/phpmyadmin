@@ -8635,7 +8635,7 @@ msgstr "தூண்டுதலுக்கு நீங்கள் சரி�
 
 #: libraries/classes/Database/Triggers.php:408
 msgid "You must provide a valid table name!"
-msgstr ""
+msgstr "நீங்கள் செல்லுபடியாகும் அட்டவணை பெயரை வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Triggers.php:415
 msgid "You must provide a trigger definition."
