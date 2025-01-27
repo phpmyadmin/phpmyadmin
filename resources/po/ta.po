@@ -8226,7 +8226,7 @@ msgstr "பால்டிக்"
 #: src/Charsets/Collation.php:306
 msgctxt "Collation"
 msgid "Armenian"
-msgstr ""
+msgstr "ஆர்மீனியன்"
 
 #: src/Charsets/Collation.php:309
 msgctxt "Collation"
