@@ -3092,15 +3092,15 @@ msgstr "ஒரு வார்ப்புருவைத் தேர்ந்�
 
 #: resources/templates/export.twig:16
 msgid "Export templates:"
-msgstr "உள்ளடக்கத்தை தரவேற்றுக"
+msgstr "ஏற்றுமதி வார்ப்புருக்கள்:"
 
 #: resources/templates/export.twig:20
 msgid "New template:"
-msgstr "புது பக்கம்"
+msgstr "புதிய வார்ப்புரு:"
 
 #: resources/templates/export.twig:23 resources/templates/export.twig:26
 msgid "Template name"
-msgstr "பக்கத்தின் பெயர்"
+msgstr "வார்ப்புரு பெயர்"
 
 #: resources/templates/export.twig:37
 msgid "Existing templates:"
@@ -4789,7 +4789,7 @@ msgstr "அல்லது"
 #: resources/templates/server/privileges/privileges_table.twig:118
 msgctxt "None privileges"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: resources/templates/server/privileges/privileges_table.twig:43
 #: resources/templates/server/privileges/privileges_table.twig:300
