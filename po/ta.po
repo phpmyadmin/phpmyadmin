@@ -14146,8 +14146,6 @@ msgstr ""
 "விரும்புகிறீர்களா?"
 
 #: templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
 msgstr "விருப்பத்தேர்வுகள்"
 
