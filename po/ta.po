@@ -4837,7 +4837,7 @@ msgstr "எந்த அட்டவணைகளும்  தேர்ந்த
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/RemoveController.php:53
 msgid "Success!"
-msgstr ""
+msgstr "வெற்றி!"
 
 #: libraries/classes/Controllers/Database/StructureController.php:365
 #: templates/table/operations/index.twig:451
@@ -15992,7 +15992,7 @@ msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: templates/preferences/header.twig:12
 msgid "Two-factor authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "இரண்டு காரணி ஏற்பு"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
