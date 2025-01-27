@@ -17356,7 +17356,7 @@ msgstr "%s நீக்குதல்"
 
 #: src/Server/Privileges.php:2173
 msgid "The privileges were reloaded successfully."
-msgstr ""
+msgstr "சலுகைகள் வெற்றிகரமாக மீண்டும் ஏற்றப்பட்டன."
 
 #: src/Server/Privileges.php:2238
 #, php-format
