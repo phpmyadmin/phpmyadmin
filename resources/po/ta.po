@@ -4956,6 +4956,8 @@ msgstr ""
 #: src/Server/Privileges.php:323
 msgid "Allows reloading server settings and flushing the server's caches."
 msgstr ""
+"சேவையக அமைப்புகளை மீண்டும் ஏற்றவும், சேவையகத்தின் தற்காலிக சேமிப்புகளை சுத்தப்படுத்தவும் "
+"அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:623
 #: resources/templates/server/privileges/privileges_table.twig:626
