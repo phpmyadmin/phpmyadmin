@@ -3658,7 +3658,7 @@ msgstr "புரவலன் அங்கீகார கட்டளை"
 
 #: libraries/classes/Config/Descriptions.php:880
 msgid "Host authorization rules"
-msgstr ""
+msgstr "புரவலன் அங்கீகார விதிகள்"
 
 #: libraries/classes/Config/Descriptions.php:881
 msgid "Allow logins without a password"
