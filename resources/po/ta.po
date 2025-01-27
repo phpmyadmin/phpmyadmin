@@ -17129,7 +17129,7 @@ msgstr "உறுதிப்படுத்தல்"
 
 #: src/Plugins/TwoFactorPlugin.php:118
 msgid "Login using password only."
-msgstr ""
+msgstr "கடவுச்சொல்லைப் பயன்படுத்தி மட்டுமே உள்நுழைக."
 
 #: src/Plugins/TwoFactor/Simple.php:47
 msgid "Simple two-factor authentication"
