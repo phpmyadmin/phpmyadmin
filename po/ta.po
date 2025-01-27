@@ -4261,7 +4261,7 @@ msgstr ""
 
 #: libraries/classes/Config.php:705
 msgid "Failed to read configuration file!"
-msgstr ""
+msgstr "உள்ளமைவு கோப்பைப் படிக்கத் தவறிவிட்டது!"
 
 #: libraries/classes/Config.php:707
 msgid ""
