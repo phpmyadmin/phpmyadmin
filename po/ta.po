@@ -16019,7 +16019,7 @@ msgstr "மீதமுள்ள அமைப்புகளை இறக்க�
 #: templates/preferences/manage/main.twig:3
 #: templates/preferences/manage/main.twig:33
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "சேமிக்கப்பட்டது: @தேதி @"
 
 #: templates/preferences/manage/main.twig:20
 msgid "Import from file"
