@@ -6703,7 +6703,7 @@ msgstr "பகிர்வை அகற்று"
 
 #: resources/templates/table/operations/index.twig:514
 msgid "Check referential integrity"
-msgstr ""
+msgstr "குறிப்பு ஒருமைப்பாட்டை சரிபார்க்கவும்"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
@@ -6730,31 +6730,31 @@ msgstr "உறவு பார்வை"
 
 #: resources/templates/table/partition/analyze.twig:2
 msgid "Analyze partition"
-msgstr "பிரிவினை %s"
+msgstr "Analyze பிரிவினை"
 
 #: resources/templates/table/partition/check.twig:2
 msgid "Check partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை சரிபார்க்கவும்"
 
 #: resources/templates/table/partition/drop.twig:2
 msgid "Drop partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வு கைவிடவும்"
 
 #: resources/templates/table/partition/optimize.twig:2
 msgid "Optimize partition"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வை மேம்படுத்தவும்"
 
 #: resources/templates/table/partition/rebuild.twig:2
 msgid "Rebuild partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை மீண்டும் உருவாக்குங்கள்"
 
 #: resources/templates/table/partition/repair.twig:2
 msgid "Repair partition"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வு பழுதுபார்க்கும்"
 
 #: resources/templates/table/partition/truncate.twig:2
 msgid "Truncate partition"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வை துண்டிக்கவும்"
 
 #: resources/templates/table/privileges/index.twig:57
 msgid "table-specific"
@@ -6934,7 +6934,7 @@ msgstr "மிகை"
 
 #: resources/templates/table/structure/display_structure.twig:70
 msgid "Media type:"
-msgstr "சுட்டுதொகுப்புக்குறி வகை:"
+msgstr "ஊடக வகை:"
 
 #: resources/templates/table/structure/display_structure.twig:91
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:47
