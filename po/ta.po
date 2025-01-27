@@ -1313,7 +1313,7 @@ msgstr "ரச்ய"
 #: libraries/classes/Charsets/Collation.php:379
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "எளிமைப்படுத்தப்பட்ட சீன"
 
 #: libraries/classes/Charsets/Collation.php:382
 msgctxt "Collation"
