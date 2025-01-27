@@ -9385,6 +9385,7 @@ msgid ""
 "A user-friendly description of this server. Leave blank to display the "
 "hostname instead."
 msgstr ""
+"இந்த சேவையகத்தின் பயனர் நட்பு விளக்கம். அதற்கு பதிலாக ஓச்ட்பெயரைக் காட்ட காலியாக விடவும்."
 
 #: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
