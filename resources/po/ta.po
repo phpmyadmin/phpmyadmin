@@ -9880,7 +9880,7 @@ msgstr "அட்டவணை பெயர் வார்ப்புரு"
 #: src/Plugins/Export/ExportSql.php:263
 #: src/Plugins/Export/ExportTexytext.php:65
 msgid "Dump table"
-msgstr ""
+msgstr "டம்ப் டேபிள்"
 
 #: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:99
 msgid "Include table caption"
