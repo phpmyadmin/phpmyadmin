@@ -4295,7 +4295,7 @@ msgstr "\" %s\" க்கு %s நீட்டிப்பு தேவைப�
 #: libraries/classes/Config/FormDisplay.php:839
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
-msgstr ""
+msgstr "செயல்பாடு %s காணாமல் போனதால் சுருக்கப்பட்ட இறக்குமதி இயங்காது."
 
 #: libraries/classes/Config/FormDisplay.php:848
 #, php-format
