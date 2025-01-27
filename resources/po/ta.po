@@ -9640,6 +9640,7 @@ msgstr ""
 #: src/Config/Descriptions.php:570
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
+"அட்டவணைகளை உலாவும்போது, ஒவ்வொரு அட்டவணையின் வரிசையாக்கமும் நினைவில் இருக்கும்."
 
 #: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
