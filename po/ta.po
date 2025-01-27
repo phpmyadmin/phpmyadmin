@@ -17175,7 +17175,7 @@ msgstr "வழங்கி குறிமுறை:"
 
 #: templates/server/status/monitor/index.twig:224
 msgid "Log statistics"
-msgstr ""
+msgstr "பதிவு புள்ளிவிவரங்கள்"
 
 #: templates/server/status/monitor/index.twig:226
 msgid "Selected time range:"
