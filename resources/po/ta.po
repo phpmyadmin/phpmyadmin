@@ -15097,7 +15097,7 @@ msgstr ""
 #: src/Controllers/Table/Maintenance/OptimizeController.php:65
 #: src/Controllers/Table/Maintenance/RepairController.php:65
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "பல அட்டவணைகளில் பராமரிப்பு செயல்பாடுகள் முடக்கப்பட்டுள்ளன."
 
 #: src/Controllers/Table/Partition/AnalyzeController.php:34
 #: src/Controllers/Table/Partition/CheckController.php:34
