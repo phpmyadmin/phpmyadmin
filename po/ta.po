@@ -6848,15 +6848,15 @@ msgstr "%s வினாடிகள் %s வினாடிகளில் %s �
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:659
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s உரையாடல் (கள்) கடந்துவிட்டன"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:660
 msgid "Show arguments"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "வாதங்களைக் காட்டு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:661
 msgid "Hide arguments"
-msgstr "தேடல் முடிவுகளை மறை"
+msgstr "வாதங்களை மறைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Time taken:"
