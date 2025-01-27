@@ -13178,7 +13178,7 @@ msgstr "தனிப்பயன் - உள்ளமைக்க அனைத�
 
 #: libraries/config.values.php:261
 msgid "Custom - like above, but without the quick/custom choice"
-msgstr ""
+msgstr "தனிப்பயன் - மேலே உள்ளதைப் போல, ஆனால் விரைவான/தனிப்பயன் தேர்வு இல்லாமல்"
 
 #: libraries/config.values.php:328
 msgid "complete inserts"
