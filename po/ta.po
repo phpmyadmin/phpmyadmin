@@ -3735,7 +3735,7 @@ msgstr "தரவுத்தளங்களை மறைக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:895
 msgid "SQL query history table"
-msgstr ""
+msgstr "கவிமொ வினவல் வரலாற்று அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
