@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 04:25+0000\n"
+"PO-Revision-Date: 2025-01-27 04:30+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -3858,7 +3858,7 @@ msgstr "மறைத்துள்ள வழிசெலுத்தல் ப�
 
 #: resources/templates/navigation/item_unhide_dialog.twig:19
 msgid "Unhide"
-msgstr ""
+msgstr "இரக்கமற்றது"
 
 #: resources/templates/navigation/main.twig:25
 #: resources/templates/navigation/main.twig:26
@@ -3873,12 +3873,12 @@ msgstr "வெற்று அமர்வு தரவு"
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
-msgstr "ஆவணச்சான்று"
+msgstr "மரியாடிபி ஆவணம்"
 
 #: resources/templates/navigation/main.twig:39
 #: resources/templates/navigation/main.twig:40
 msgid "MySQL Documentation"
-msgstr "ஆவணச்சான்று"
+msgstr "MySQL ஆவணம்"
 
 #: resources/templates/navigation/main.twig:43
 #: resources/templates/navigation/main.twig:44
