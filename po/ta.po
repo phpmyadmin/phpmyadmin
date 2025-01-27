@@ -5534,8 +5534,6 @@ msgstr "எதுவுமில்லை"
 
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
-#, fuzzy
-#| msgid "SQL query"
 msgid "SQL Query"
 msgstr "SQL வினவல்"
 
