@@ -16138,6 +16138,8 @@ msgid ""
 "connection that encrypts the password using RSA</i>'; while connecting to "
 "the server."
 msgstr ""
+"இந்த முறைக்கு '<i> SSL இணைப்பு </i>' அல்லது '<i> மறைகுறியாக்கப்பட்ட இணைப்பு, இது RSA "
+"</i>' ஐப் பயன்படுத்தி கடவுச்சொல்லை குறியாக்குகிறது; சேவையகத்துடன் இணைக்கும்போது."
 
 #: templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
