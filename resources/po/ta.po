@@ -2358,7 +2358,7 @@ msgstr "செயல்கூறு"
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1378
 msgid "Routines"
-msgstr ""
+msgstr "நடைமுறைகள்"
 
 #: resources/templates/database/routines/index.twig:28
 #: resources/templates/database/routines/index.twig:29
