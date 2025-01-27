@@ -11025,6 +11025,7 @@ msgstr "%sம் வரியில் செல்லுபடியாகா�
 #: libraries/classes/Plugins/Import/ImportOds.php:80
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
 msgstr ""
+"சரியான தசமங்களாக இறக்குமதி சதவீதங்கள் <i> (எ.கா. 12.00% முதல் .12 வரை) </i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:86
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
