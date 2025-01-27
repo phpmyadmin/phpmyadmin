@@ -11922,7 +11922,7 @@ msgstr "தெரியாத பிழை"
 #: libraries/classes/ReplicationGui.php:536
 #, php-format
 msgid "Unable to connect to master %s."
-msgstr ""
+msgstr "முதன்மை %s உடன் இணைக்க முடியவில்லை."
 
 #: libraries/classes/ReplicationGui.php:547
 msgid ""
