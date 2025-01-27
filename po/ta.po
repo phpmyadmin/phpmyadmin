@@ -9365,7 +9365,7 @@ msgstr "தரவுத்தளம்: %s க்கு செல்க"
 #: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
 #, php-format
 msgid "Edit settings for %s"
-msgstr ""
+msgstr "%s க்கான அமைப்புகளைத் திருத்தவும்"
 
 #: libraries/classes/Import.php:1312
 #, php-format
