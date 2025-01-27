@@ -11846,7 +11846,7 @@ msgstr "தற்காலிக அட்டவணைகளை உருவா�
 #: templates/server/privileges/privileges_table.twig:653
 #: templates/server/privileges/privileges_table.twig:656
 msgid "Allows locking tables for the current thread."
-msgstr ""
+msgstr "தற்போதைய நூலுக்கான பூட்டுதல் அட்டவணையை அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:440
 #: templates/server/privileges/privileges_table.twig:694
