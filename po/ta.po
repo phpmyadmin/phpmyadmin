@@ -7857,7 +7857,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:442
 msgid "The number of tables that are open."
-msgstr ""
+msgstr "திறந்த அட்டவணைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:444
 msgid ""
