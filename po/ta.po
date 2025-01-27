@@ -9850,7 +9850,7 @@ msgstr "செயல்பாடுகள்"
 #: libraries/classes/Relation.php:316 libraries/classes/Util.php:2501
 #: libraries/classes/Util.php:2515
 msgid "Tracking"
-msgstr ""
+msgstr "கண்காணிப்பு"
 
 #: libraries/classes/Menu.php:370 libraries/classes/Menu.php:469
 #: libraries/classes/Navigation/Nodes/NodeTriggerContainer.php:24
