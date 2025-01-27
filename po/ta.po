@@ -3523,7 +3523,7 @@ msgstr "அட்டவணை வழிசெலுத்தல் பட்ட�
 
 #: libraries/classes/Config/Descriptions.php:870
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZIP வெளியீடு இடையக"
 
 #: libraries/classes/Config/Descriptions.php:871
 msgid "Default sorting order"
