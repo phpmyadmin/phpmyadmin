@@ -17313,7 +17313,7 @@ msgstr ""
 
 #: templates/server/status/variables/index.twig:20
 msgid "Show only alert values"
-msgstr ""
+msgstr "எச்சரிக்கை மதிப்புகளை மட்டும் காட்டு"
 
 #: templates/server/status/variables/index.twig:25
 #: templates/server/status/variables/index.twig:27
