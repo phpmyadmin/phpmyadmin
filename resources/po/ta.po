@@ -7893,6 +7893,8 @@ msgid ""
 "Thread cache is disabled, resulting in more overhead from new connections to "
 "MySQL."
 msgstr ""
+"நூல் கேச் முடக்கப்பட்டுள்ளது, இதன் விளைவாக MySQL க்கு புதிய இணைப்புகளிலிருந்து அதிக "
+"மேல்நிலை ஏற்படுகிறது."
 
 #: src/Advisory/Rules.php:515
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
