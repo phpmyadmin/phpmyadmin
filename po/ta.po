@@ -14972,6 +14972,8 @@ msgid ""
 "about relevant configuration settings. It will be sent to the phpMyAdmin "
 "team for debugging the error."
 msgstr ""
+"இந்த அறிக்கையில் தானாகவே பிழை பற்றிய தரவு மற்றும் தொடர்புடைய உள்ளமைவு அமைப்புகள் பற்றிய "
+"தகவல்கள் அடங்கும். பிழையை பிழைத்திருத்துவதற்காக இது PHPMYADMIN குழுவுக்கு அனுப்பப்படும்."
 
 #: templates/error/report_form.twig:11
 msgid ""
