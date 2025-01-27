@@ -9002,6 +9002,8 @@ msgid ""
 "The size of a transaction log before rollover, and a new log is created. The "
 "default value is 16MB."
 msgstr ""
+"ரோல்ஓவருக்கு முன் ஒரு பரிவர்த்தனை பதிவின் அளவு, மற்றும் ஒரு புதிய பதிவு "
+"உருவாக்கப்படுகிறது. இயல்புநிலை மதிப்பு 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:69
 msgid "Transaction buffer size"
