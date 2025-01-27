@@ -2608,7 +2608,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:617
 msgid "Allow login to any MySQL server"
-msgstr ""
+msgstr "எந்த MySQL சேவையகத்திலும் உள்நுழைய அனுமதிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:618
 msgid "Restrict login to MySQL server"
