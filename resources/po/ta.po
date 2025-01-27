@@ -12101,6 +12101,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"உள்ளமைவு கோப்பில் உள்ள குக்கீ குறியாக்க விசை தேவையானதை விட நீளமானது. இது %d பைட்டுகள் "
+"மட்டுமே நீளமாக இருக்க வேண்டும். தயவுசெய்து [doc@cfg_blowfish_secret] ஆவணங்களைப் "
+"பார்க்கவும் [/doc]."
 
 #: src/Controllers/HomeController.php:348
 msgid ""
@@ -12237,7 +12240,7 @@ msgstr "நீங்கள் ஒரு முழுமையான தரவு
 #: src/Controllers/JavaScriptMessagesController.php:56
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"அதே பெயரில் தரவுத்தளத்தை மறுபெயரிட முடியாது.பெயரை மாற்றி மீண்டும் முயற்சிக்கவும்."
+"அதே பெயரில் தரவுத்தளத்தை மறுபெயரிட முடியாது. பெயரை மாற்றி மீண்டும் முயற்சிக்கவும்."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12249,7 +12252,7 @@ msgstr "நீங்கள் ஒரு முழு அட்டவணையி
 
 #: src/Controllers/JavaScriptMessagesController.php:60
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "நீங்கள் ஒரு முழுமையான அட்டவணையை அழிக்க உள்ளீர்கள்!"
+msgstr "நீங்கள் அட்டவணையின் அனைத்து வரிசைகளையும் நீக்க உள்ளீர்கள்!"
 
 #: src/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for this table?"
@@ -12333,7 +12336,8 @@ msgstr "பகிர்வுகளை நீங்கள்  உண்மைய
 
 #: src/Controllers/JavaScriptMessagesController.php:84
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "உங்களுக்கு உண்மையிலேயே தேர்ந்தெடுத்த பயனர்(களை) திரும்பப்பெற வேண்டுமா?"
+msgstr ""
+"நீங்கள் உண்மையில் பிரதிகளை மீட்டமைக்க விரும்புகிறீர்களா (பிரதி மீட்டமை)?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
 msgid ""
