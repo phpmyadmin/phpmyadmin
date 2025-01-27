@@ -13922,7 +13922,7 @@ msgstr "பதிப்பை உருவாக்கு"
 
 #: templates/database/events/index.twig:38
 msgid "There are no events to display."
-msgstr ""
+msgstr "காண்பிக்க நிகழ்வுகள் எதுவும் இல்லை."
 
 #: templates/database/events/index.twig:114
 msgid "Event scheduler status"
