@@ -9077,7 +9077,7 @@ msgstr "தரவு கோப்பு அளவு அதிகரிக்க
 
 #: libraries/classes/Engines/Pbxt.php:118
 msgid "The grow size of the handle data (.xtd) files."
-msgstr ""
+msgstr "கைப்பிடி தரவு (.xtd) கோப்புகளின் வளரும் அளவு."
 
 #: libraries/classes/Engines/Pbxt.php:122
 msgid "Row file grow size"
