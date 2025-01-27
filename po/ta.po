@@ -7684,7 +7684,7 @@ msgstr "பதிவு கோப்பில் செய்யப்பட்�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "நிலுவையில் உள்ள பதிவு கோப்பின் எண்ணிக்கை fsyncs."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:379
 msgid "Pending log file writes."
