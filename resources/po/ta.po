@@ -9466,7 +9466,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr ""
+msgstr "ஒரு பயனர் \"அனைத்தையும் (வரிசைகள்) காட்டு\" பொத்தானைக் காட்ட வேண்டுமா."
 
 #: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
