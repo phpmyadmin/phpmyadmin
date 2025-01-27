@@ -18151,7 +18151,7 @@ msgstr "அதை ஏற்றுக்கொள்"
 
 #: templates/themes.twig:4
 msgid "Get more themes!"
-msgstr ""
+msgstr "மேலும் கருப்பொருள்களைப் பெறுங்கள்!"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
