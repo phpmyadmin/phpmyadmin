@@ -15684,7 +15684,7 @@ msgstr "கண்காணிப்பு"
 
 #: src/Menu.php:332 src/Menu.php:340 src/Menu.php:348
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "தரவுத்தளம் காலியாக இருப்பதாக தெரிகிறது!"
 
 #: src/Menu.php:335 src/Util.php:1373
 msgid "Query"
