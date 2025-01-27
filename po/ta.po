@@ -203,6 +203,8 @@ msgid ""
 "You should upgrade, as recent versions of MySQL 5.1 have improved "
 "performance and MySQL 5.5 even more so."
 msgstr ""
+"MySQL 5.1 இன் அண்மைக் கால பதிப்புகள் மேம்பட்ட செயல்திறனையும், MySQL 5.5 ஐ இன்னும் "
+"அதிகமாகவும் மேம்படுத்தியுள்ளதால் நீங்கள் மேம்படுத்த வேண்டும்."
 
 #: libraries/advisory_rules_generic.php:136
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
