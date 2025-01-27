@@ -17798,7 +17798,7 @@ msgstr ""
 
 #: src/Tracking/TrackedDataType.php:44
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "தரவு கையாளுதல் அறிக்கை"
 
 #: src/Tracking/Tracking.php:203
 msgid "Tracking statements"
