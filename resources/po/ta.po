@@ -15022,7 +15022,7 @@ msgstr ""
 
 #: src/Engines/Innodb.php:105
 msgid "Buffer Pool"
-msgstr ""
+msgstr "இடையக குளம்"
 
 #: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
