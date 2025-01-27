@@ -18049,7 +18049,7 @@ msgstr "நெடுவரிசைகளை நகர்த்து"
 
 #: templates/table/structure/display_structure.twig:317
 msgid "Move the columns by dragging them up and down."
-msgstr ""
+msgstr "நெடுவரிசைகளை மேலேயும் கீழேயும் இழுத்து நகர்த்தவும்."
 
 #: templates/table/structure/display_structure.twig:330
 #: templates/view_create.twig:13
