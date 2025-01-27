@@ -12384,6 +12384,8 @@ msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
+"அட்டவணை இடைமுகம் விருப்பங்களை தூய்மை செய்வதில் தோல்வி ($ cfg ['சேவையகங்கள்'] [$ i] "
+"['maxtableuiprefs'] %s ஐப் பார்க்கவும்)"
 
 #: libraries/classes/Table.php:1963
 #, php-format
