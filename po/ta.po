@@ -15682,8 +15682,6 @@ msgid "Designer and creation of PDFs:"
 msgstr ""
 
 #: templates/relation/check_relations.twig:150
-#, fuzzy
-#| msgid "Display comments"
 msgid "Displaying column comments:"
 msgstr "கருத்துரைகளை காட்டுக"
 
