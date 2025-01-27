@@ -15214,7 +15214,7 @@ msgstr "சுருக்க:"
 
 #: templates/export.twig:359
 msgid "zipped"
-msgstr ""
+msgstr "சிப்"
 
 #: templates/export.twig:365
 msgid "gzipped"
