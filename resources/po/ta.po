@@ -9949,7 +9949,7 @@ msgstr "விவரபார்வையை அட்டவணையாக த�
 
 #: src/Config/Descriptions.php:694
 msgid "Export related metadata from phpMyAdmin configuration storage"
-msgstr ""
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பிலிருந்து ஏற்றுமதி தொடர்பான மேனிலை தரவு"
 
 #: src/Config/Descriptions.php:704
 msgid "Use hexadecimal for BINARY & BLOB"
