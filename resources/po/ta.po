@@ -11014,7 +11014,7 @@ msgstr "சிக்னன் ஏற்பு"
 
 #: src/Config/Forms/User/ExportForm.php:23
 msgid "Quick"
-msgstr ""
+msgstr "விரைவான"
 
 #: src/Config/Forms/User/ExportForm.php:27
 msgid "Custom"
