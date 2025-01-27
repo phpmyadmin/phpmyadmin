@@ -9566,7 +9566,7 @@ msgstr ""
 
 #: libraries/classes/Import.php:321 libraries/classes/Sql.php:1059
 msgid "[ROLLBACK occurred.]"
-msgstr ""
+msgstr "[ரோல்பேக் ஏற்பட்டது.]"
 
 #: libraries/classes/Import.php:1338
 msgid ""
