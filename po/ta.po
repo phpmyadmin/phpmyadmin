@@ -7978,7 +7978,7 @@ msgstr ""
 #: libraries/classes/Table/Indexes.php:85
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr ""
+msgstr "அட்டவணை %1$s வெற்றிகரமாக மாற்றப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Table/ChangeRowsController.php:36
 #: libraries/classes/Controllers/Table/DeleteConfirmController.php:25
