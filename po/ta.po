@@ -16741,7 +16741,7 @@ msgstr "பின்வரும் தரவுத்தள(ங்களின�
 
 #: templates/server/privileges/privileges_summary.twig:67
 msgid "Wildcards % and _ should be escaped with a \\ to use them literally."
-msgstr ""
+msgstr "காடு கார்டுகள் % மற்றும் _ ஆகியவற்றை a உடன் தப்பிக்க வேண்டும்."
 
 #: templates/server/privileges/privileges_summary.twig:71
 msgid "Add privileges on the following table:"
