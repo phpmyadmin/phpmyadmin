@@ -17719,7 +17719,7 @@ msgstr "அட்டவணை `%s` இன் குறியீடுகளி�
 #: src/Table/TableMover.php:294
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr ""
+msgstr "மூல தரவுத்தளம் `%s` காணப்படவில்லை!"
 
 #: src/Table/TableMover.php:303
 #, php-format
