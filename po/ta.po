@@ -15245,7 +15245,7 @@ msgstr "%s MIB ஐ விட பெரிய அட்டவணையைத் �
 
 #: templates/export.twig:406 templates/import.twig:204
 msgid "Format-specific options:"
-msgstr ""
+msgstr "வடிவமைப்பு-குறிப்பிட்ட விருப்பங்கள்:"
 
 #: templates/export.twig:408 templates/import.twig:206
 msgid ""
