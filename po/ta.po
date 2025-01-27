@@ -1143,7 +1143,7 @@ msgstr "வினவல் இடைமாற்றல் கூறுபடு�
 
 #: libraries/advisory_rules_mysql_before80003.php:56
 msgid "The query cache is considerably fragmented."
-msgstr ""
+msgstr "வினவல் தற்காலிக சேமிப்பு கணிசமாக துண்டு துண்டாக உள்ளது."
 
 #: libraries/advisory_rules_mysql_before80003.php:58
 msgid ""
