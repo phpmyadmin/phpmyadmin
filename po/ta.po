@@ -7540,7 +7540,7 @@ msgstr "தரவைக் கொண்ட பக்கங்களின் எ
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:318
 msgid "The number of pages currently dirty."
-msgstr ""
+msgstr "தற்போது அழுக்கு பக்கங்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:320
 msgid "The number of buffer pool pages that have been requested to be flushed."
