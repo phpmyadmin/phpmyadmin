@@ -8251,7 +8251,7 @@ msgstr "பிழை: வெளிநாட்டு முக்கிய உ�
 
 #: libraries/classes/Database/Designer/Common.php:640
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "பிழை: நெடுவரிசை (கள்) இல் குறியீட்டை காணவில்லை."
 
 #: libraries/classes/Database/Designer/Common.php:648
 #: libraries/classes/Database/Designer/Common.php:727
