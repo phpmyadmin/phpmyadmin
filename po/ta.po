@@ -14285,7 +14285,7 @@ msgstr "இதிலிருந்து"
 
 #: templates/database/structure/change_prefix_form.twig:13
 msgid "To"
-msgstr ""
+msgstr "பெறுநர்"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
