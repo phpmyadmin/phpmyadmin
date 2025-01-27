@@ -14172,6 +14172,10 @@ msgid ""
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
+"பக்கங்களின் எண்ணிக்கை பிசியாக இருப்பதால் அவை வரிசை பூட்டுகள் அல்லது தகவமைப்பு ஆச் "
+"குறியீட்டு போன்ற நிர்வாக மேல்நிலைகளுக்கு ஒதுக்கப்பட்டுள்ளன. இந்த மதிப்பை "
+"innodb_buffer_pool_pages_total - innodb_buffer_pool_pages_free - "
+"innodb_buffer_pool_pages_data என்றும் கணக்கிடலாம்."
 
 #: src/Controllers/Server/Status/VariablesController.php:315
 msgid "Total size of buffer pool, in pages."
