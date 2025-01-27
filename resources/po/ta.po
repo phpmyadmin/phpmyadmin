@@ -10711,7 +10711,7 @@ msgstr "பதிப்புகளை தானாக உருவாக்க�
 
 #: src/Config/Descriptions.php:903
 msgid "User preferences storage table"
-msgstr ""
+msgstr "பயனர் விருப்பத்தேர்வுகள் சேமிப்பக அட்டவணை"
 
 #: src/Config/Descriptions.php:904
 msgid "Users table"
