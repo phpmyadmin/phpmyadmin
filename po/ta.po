@@ -16431,7 +16431,7 @@ msgstr "எந்த புரவலன்"
 #: templates/server/privileges/login_information_fields.twig:28
 #: templates/server/replication/primary_add_replica_user.twig:35
 msgid "Local"
-msgstr ""
+msgstr "உள்ளக"
 
 #: templates/server/privileges/login_information_fields.twig:30
 #: templates/server/replication/primary_add_replica_user.twig:37
