@@ -10062,7 +10062,7 @@ msgstr "பிற முக்கிய அமைப்புகள்"
 
 #: src/Config/Descriptions.php:748
 msgid "Page titles"
-msgstr ""
+msgstr "பக்க தலைப்புகள்"
 
 #: src/Config/Descriptions.php:749
 msgid "Security"
