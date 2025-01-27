@@ -4240,7 +4240,7 @@ msgstr "நேர்மறை எண் அல்ல!"
 #: libraries/classes/Config/FormDisplay.php:124
 #: libraries/classes/Config/Validator.php:558
 msgid "Not a non-negative number!"
-msgstr ""
+msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 
 #: libraries/classes/Config/FormDisplay.php:125
 #: libraries/classes/Config/Validator.php:514
