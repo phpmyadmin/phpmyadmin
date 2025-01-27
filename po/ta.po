@@ -3461,7 +3461,7 @@ msgstr "லோகோ இணைப்பு முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:834
 msgid "Logo link target"
-msgstr ""
+msgstr "லோகோ இணைப்பு இலக்கு"
 
 #: libraries/classes/Config/Descriptions.php:835
 msgid "Display servers selection"
