@@ -16546,6 +16546,8 @@ msgid ""
 "Only slaves started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"இந்த பட்டியலில் –ரேபோர்ட்-ஓச்ட் = ஓச்ட்_பேம் விருப்பத்துடன் தொடங்கப்பட்ட அடிமைகள் மட்டுமே "
+"தெரியும்."
 
 #: templates/server/replication/slave_configuration.twig:5
 msgid "Master connection:"
