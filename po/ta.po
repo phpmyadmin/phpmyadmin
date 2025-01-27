@@ -7378,6 +7378,9 @@ msgid ""
 "exceeded the value of binlog_cache_size and used a temporary file to store "
 "statements from the transaction."
 msgstr ""
+"தற்காலிக பைனரி பதிவு தற்காலிக சேமிப்பைப் பயன்படுத்திய பரிவர்த்தனைகளின் எண்ணிக்கை, ஆனால் "
+"அது பின்லாக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க தற்காலிக "
+"கோப்பைப் பயன்படுத்தியது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:247
 msgid "The number of transactions that used the temporary binary log cache."
