@@ -461,6 +461,8 @@ msgid ""
 "This indicates that many queries are doing full table scans. Add indexes "
 "where applicable."
 msgstr ""
+"பல கேள்விகள் முழு அட்டவணை ச்கேன்களைச் செய்கின்றன என்பதை இது குறிக்கிறது. பொருந்தக்கூடிய "
+"இடங்களில் குறியீடுகளைச் சேர்க்கவும்."
 
 #: libraries/advisory_rules_generic.php:295
 #, php-format
