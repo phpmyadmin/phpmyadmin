@@ -9630,7 +9630,7 @@ msgstr "திருத்துதல் மூலம் குமிழ் ம
 
 #: src/Config/Descriptions.php:568
 msgid "How many queries are kept in history."
-msgstr ""
+msgstr "வரலாற்றில் எத்தனை வினவல்கள் வைக்கப்படுகின்றன."
 
 #: src/Config/Descriptions.php:569
 msgid "Select which functions will be used for character set conversion."
