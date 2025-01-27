@@ -3404,7 +3404,7 @@ msgstr "மொழி"
 
 #: resources/templates/home/index.twig:131
 msgid "Theme"
-msgstr ""
+msgstr "கருப்பொருள்"
 
 #: resources/templates/home/index.twig:142
 msgctxt "View all themes"
