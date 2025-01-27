@@ -10032,6 +10032,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
+"முதன்மை விசையில் ( %1$s) ஒரு நெடுவரிசை மட்டுமே இருப்பதால் பகுதி சார்புகள் எதுவும் "
+"சாத்தியமில்லை."
 
 #: libraries/classes/Normalization.php:497
 #, php-format
