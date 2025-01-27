@@ -16108,6 +16108,8 @@ msgid ""
 "Two-factor authentication is not available, enable phpMyAdmin configuration "
 "storage to use it."
 msgstr ""
+"இரண்டு காரணி ஏற்பு கிடைக்கவில்லை, அதைப் பயன்படுத்த Phpmyadmin உள்ளமைவு சேமிப்பிடத்தை "
+"இயக்கவும்."
 
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
