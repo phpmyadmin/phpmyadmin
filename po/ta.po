@@ -2043,7 +2043,7 @@ msgstr "வழிசெலுத்தல் குழுவின் மேல�
 
 #: libraries/classes/Config/Descriptions.php:319
 msgid "String that separates databases into different tree levels."
-msgstr ""
+msgstr "தரவுத்தளங்களை வெவ்வேறு மர மட்டங்களாக பிரிக்கும் சரம்."
 
 #: libraries/classes/Config/Descriptions.php:320
 msgid "String that separates tables into different tree levels."
