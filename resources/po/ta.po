@@ -5730,7 +5730,7 @@ msgstr "கொல்க"
 
 #: resources/templates/server/status/queries/index.twig:6
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "வினவல் புள்ளிவிவரங்களைக் காண போதுமான பாக்கியம் இல்லை."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: resources/templates/server/status/queries/index.twig:9
