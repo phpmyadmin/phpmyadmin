@@ -9416,7 +9416,7 @@ msgstr "தொகுப்பு பார்வை"
 
 #: libraries/classes/Html/Generator.php:823
 msgid "Static analysis:"
-msgstr "நிலையான தரவு"
+msgstr "நிலையான பகுப்பாய்வு:"
 
 #: libraries/classes/Html/Generator.php:826
 #, php-format
@@ -12892,7 +12892,7 @@ msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம்
 #: libraries/classes/Util.php:132
 #, php-format
 msgid "Max: %s%s"
-msgstr ""
+msgstr "அதிகபட்சம்: %s %s"
 
 #. l10n: Short month name
 #. l10n: Short month name for January
