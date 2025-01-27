@@ -7573,7 +7573,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:335
 msgid "Total size of buffer pool, in pages."
-msgstr ""
+msgstr "பக்கங்களில், இடையக குளத்தின் மொத்த அளவு."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:337
 msgid ""
