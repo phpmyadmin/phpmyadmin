@@ -12230,7 +12230,7 @@ msgstr "SHA256 கடவுச்சொல் ஏற்பு"
 #: libraries/classes/Server/Privileges.php:1165
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr ""
+msgstr "%s க்கான கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது."
 
 #: libraries/classes/Server/Privileges.php:1214
 #, php-format
