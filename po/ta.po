@@ -2160,6 +2160,9 @@ msgid ""
 "8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL "
 "Bugs[/a]"
 msgstr ""
+"More செய்தி on [a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]"
+"phpMyAdmin சிக்கல் tracker[/a] and [a@https://bugs.mysql.com/19588]MySQL Bugs[/"
+"a ]]"
 
 #: libraries/classes/Config/Descriptions.php:370
 msgid ""
