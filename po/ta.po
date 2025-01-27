@@ -9232,7 +9232,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:50
 msgid "Log cache size"
-msgstr ""
+msgstr "பதிவு கேச் அளவு"
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid ""
