@@ -9622,7 +9622,7 @@ msgstr "அச்சுப் பார்வை"
 #: libraries/classes/Html/Generator.php:153
 #, php-format
 msgid "Jump to database “%s”."
-msgstr "தரவுத்தளம் தாவி செல்லவும் \"%s\"."
+msgstr "தரவுத்தளத்திற்கு செல்லவும் “%s”."
 
 #: libraries/classes/Html/Generator.php:181
 #, php-format
@@ -13335,7 +13335,7 @@ msgstr "பி.எம்"
 #: libraries/classes/Util.php:810
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "ஆம்"
 
 #: libraries/classes/Util.php:884
 #, php-format
