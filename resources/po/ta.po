@@ -7455,6 +7455,8 @@ msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
 msgstr ""
+"வினவல் தற்காலிக சேமிப்பு இயக்கப்பட்டது மற்றும் சேவையகம் நொடிக்கு %d வினவல்களைப் பெறுகிறது"
+". நொடிக்கு 100 க்கும் மேற்பட்ட வினவல்கள் இருந்தால் இந்த விதி சுடுகிறது."
 
 #: src/Advisory/Rules.php:231
 msgid "Percentage of sorts that cause temporary tables"
