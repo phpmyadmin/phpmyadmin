@@ -17483,8 +17483,6 @@ msgid "Drop partition"
 msgstr "பிரிவினை %s"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Edit view"
 msgid "Optimize partition"
 msgstr "தொகுப்பு பார்வை"
 
