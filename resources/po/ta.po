@@ -713,7 +713,7 @@ msgstr "வெற்று"
 #: resources/templates/table/operations/index.twig:116
 #: resources/templates/table/operations/index.twig:316
 msgid "Adjust privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகளை சரிசெய்யவும்"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:54
 #: resources/templates/database/data_dictionary/index.twig:29
@@ -2640,7 +2640,7 @@ msgstr "துளி அட்டவணையைச் சேர்க்கவ�
 
 #: resources/templates/database/structure/copy_form.twig:35
 msgid "Add AUTO INCREMENT value"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
+msgstr "ஆட்டோ அதிகரிப்பு மதிப்பைச் சேர்க்கவும்"
 
 #: resources/templates/database/structure/drop_form.twig:6
 #: resources/templates/database/structure/empty_form.twig:6
@@ -4446,7 +4446,7 @@ msgstr ""
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
 #: src/Util.php:1366
 msgid "Plugins"
-msgstr ""
+msgstr "செருகுநிரல்கள்"
 
 #: resources/templates/server/plugins/index.twig:26
 msgid "Plugin"
