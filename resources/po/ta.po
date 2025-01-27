@@ -10046,7 +10046,7 @@ msgstr "தரவிறக்கம் / தரவேற்றம்"
 
 #: src/Config/Descriptions.php:738
 msgid "LaTeX"
-msgstr ""
+msgstr "லாடெக்சு"
 
 #: src/Config/Descriptions.php:741
 msgid "Navigation tree"
