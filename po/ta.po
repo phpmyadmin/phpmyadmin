@@ -3267,7 +3267,7 @@ msgstr "தாவல்கள்"
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display relational schema"
-msgstr ""
+msgstr "தொடர்புடைய திட்டத்தைக் காண்பி"
 
 #: libraries/classes/Config/Descriptions.php:783
 msgid "Text fields"
