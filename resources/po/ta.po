@@ -10119,7 +10119,7 @@ msgstr "தாவல்கள்"
 
 #: src/Config/Descriptions.php:762
 msgid "Display relational schema"
-msgstr ""
+msgstr "தொடர்புடைய திட்டத்தைக் காண்பி"
 
 #: src/Config/Descriptions.php:763
 msgid "Text fields"
