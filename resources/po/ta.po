@@ -15688,7 +15688,7 @@ msgstr "தரவுத்தளம் காலியாக இருப்ப�
 
 #: src/Menu.php:335 src/Util.php:1373
 msgid "Query"
-msgstr ""
+msgstr "வினவல்"
 
 #: src/Menu.php:398 src/Util.php:1382
 msgid "Designer"
