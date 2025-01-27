@@ -11319,7 +11319,7 @@ msgstr "%s தரவுத்தளத்தின் திட்டம் - �
 
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:298
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ச்கீமா பிழை: "
 
 #: libraries/classes/Plugins/Schema/Pdf/Pdf.php:300
 msgid "PDF export page"
