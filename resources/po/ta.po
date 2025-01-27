@@ -5127,7 +5127,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/users_overview.twig:16
 msgid "User group"
-msgstr ""
+msgstr "பயனர் குழு"
 
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:156
