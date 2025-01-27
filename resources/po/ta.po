@@ -10000,7 +10000,7 @@ msgstr "வெளிநாட்டு விசை கீழ்தோன்ற�
 
 #: src/Config/Descriptions.php:725
 msgid "Foreign key limit"
-msgstr ""
+msgstr "வெளிநாட்டு முக்கிய வரம்பு"
 
 #: src/Config/Descriptions.php:726
 msgid "Foreign key checks"
