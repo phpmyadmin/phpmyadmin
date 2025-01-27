@@ -10058,7 +10058,7 @@ msgstr "நுண்மென் ஆபிச்"
 
 #: src/Config/Descriptions.php:747
 msgid "Other core settings"
-msgstr ""
+msgstr "பிற முக்கிய அமைப்புகள்"
 
 #: src/Config/Descriptions.php:748
 msgid "Page titles"
