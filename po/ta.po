@@ -836,6 +836,9 @@ msgid ""
 "that do not close database handlers properly get killed sooner. Make sure "
 "the code closes database handlers properly."
 msgstr ""
+"{max_connections}, அல்லது {waind_timeout fork ஐக் குறைக்கவும், இதனால் தரவுத்தள "
+"கையாளுபவர்களை சரியாக மூடாத இணைப்புகள் விரைவில் கொல்லப்படும். குறியீடு தரவுத்தள "
+"கையாளுபவர்களை சரியாக மூடுவதை உறுதிசெய்க."
 
 #: libraries/advisory_rules_generic.php:537
 #, php-format
