@@ -9244,7 +9244,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:59
 msgid "Log file threshold"
-msgstr ""
+msgstr "பதிவு கோப்பு வாசல்"
 
 #: libraries/classes/Engines/Pbxt.php:61
 msgid ""
