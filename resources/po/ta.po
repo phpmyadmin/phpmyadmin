@@ -15893,7 +15893,7 @@ msgstr ""
 
 #: src/Normalization.php:268
 msgid "Add a primary key on existing column(s)"
-msgstr ""
+msgstr "இருக்கும் நெடுவரிசையில் (கள்) முதன்மை விசையைச் சேர்க்கவும்"
 
 #: src/Normalization.php:272
 msgid ""
