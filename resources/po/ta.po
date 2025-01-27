@@ -15392,7 +15392,7 @@ msgstr ""
 
 #: src/Favorites/RecentFavoriteTables.php:154
 msgid "Could not save recent table!"
-msgstr ""
+msgstr "அண்மைக் கால அட்டவணையை சேமிக்க முடியவில்லை!"
 
 #: src/Favorites/RecentFavoriteTables.php:155
 msgid "Could not save favorite table!"
