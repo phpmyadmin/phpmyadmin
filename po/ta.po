@@ -2437,7 +2437,7 @@ msgstr "கரி/வர்சார் டெக்ச்டேரியாக�
 
 #: libraries/classes/Config/Descriptions.php:554
 msgid "Number of rows for CHAR/VARCHAR textareas."
-msgstr ""
+msgstr "கரி/வர்சார் டெக்ச்டேரியாக்களுக்கான வரிசைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Config/Descriptions.php:555
 msgid ""
