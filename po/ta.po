@@ -3194,7 +3194,7 @@ msgstr "பக்க தலைப்புகள்"
 
 #: libraries/classes/Config/Descriptions.php:769
 msgid "Security"
-msgstr ""
+msgstr "பாதுகாப்பு"
 
 #: libraries/classes/Config/Descriptions.php:770
 msgid "Basic settings"
