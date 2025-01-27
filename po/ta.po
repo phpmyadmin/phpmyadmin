@@ -4251,7 +4251,7 @@ msgstr "செல்லுபடியாகும் துறைமுகம�
 #: libraries/classes/Config/FormDisplay.php:718
 #: libraries/classes/Config/Validator.php:580
 msgid "Incorrect value!"
-msgstr ""
+msgstr "தவறான மதிப்பு!"
 
 #: libraries/classes/Config/FormDisplay.php:127
 #: libraries/classes/Config/Validator.php:598
