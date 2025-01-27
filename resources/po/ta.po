@@ -5708,7 +5708,7 @@ msgstr "வினவல் பகுப்பாய்வி"
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
-msgstr "செயல்பாடற்ற"
+msgstr "செயலில் மட்டும் காட்டு"
 
 #: resources/templates/server/status/processes/index.twig:28
 msgid ""
@@ -17503,7 +17503,7 @@ msgstr "கட்டளை"
 
 #: src/Server/Status/Processes.php:100
 msgid "Progress"
-msgstr ""
+msgstr "முன்னேற்றம்"
 
 #: src/Setup/Index.php:127
 msgid ""
