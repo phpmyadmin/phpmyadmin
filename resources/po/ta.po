@@ -9435,7 +9435,7 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட வரிச�
 
 #: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
-msgstr ""
+msgstr "மவுச் கர்சரால் சுட்டிக்காட்டப்பட்ட வரிசையை முன்னிலைப்படுத்தவும்."
 
 #: src/Config/Descriptions.php:538
 msgid "Number of columns for CHAR/VARCHAR textareas."
