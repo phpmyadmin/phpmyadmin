@@ -10226,7 +10226,7 @@ msgstr "அனைத்து குக்கீகளையும் வெள�
 
 #: src/Config/Descriptions.php:798
 msgid "Recall user name"
-msgstr ""
+msgstr "பயனர் பெயரை நினைவுகூருங்கள்"
 
 #: src/Config/Descriptions.php:799
 msgid "Login cookie store"
