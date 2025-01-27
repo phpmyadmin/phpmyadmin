@@ -8634,7 +8634,7 @@ msgstr "நீட்டிக்கப்பட்ட செருகல்க�
 
 #: src/Config/ConfigFile.php:725
 msgid "both of the above"
-msgstr ""
+msgstr "மேற்கூறிய இரண்டும்"
 
 #: src/Config/ConfigFile.php:726
 msgid "neither of the above"
