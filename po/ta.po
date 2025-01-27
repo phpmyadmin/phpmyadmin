@@ -3015,7 +3015,7 @@ msgstr "புறக்கணிப்பு செருகல்களைப�
 
 #: libraries/classes/Config/Descriptions.php:741
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "தரவைச் செருகும்போது பயன்படுத்த தொடரியல்"
 
 #: libraries/classes/Config/Descriptions.php:742
 #: libraries/classes/Plugins/Export/ExportSql.php:491
