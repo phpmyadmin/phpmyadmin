@@ -13580,8 +13580,6 @@ msgid "Exporting tables from \"%s\" database"
 msgstr ""
 
 #: templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the structure of all tables."
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
