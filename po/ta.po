@@ -15828,8 +15828,6 @@ msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுக�
 #: templates/server/databases/index.twig:156
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/primary_replication.twig:3
-#, fuzzy
-#| msgid "Replication"
 msgid "Primary replication"
 msgstr "படியெடுத்தல்"
 
