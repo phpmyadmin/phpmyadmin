@@ -10410,7 +10410,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:1056
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "பகுதி சார்புநிலைகள் எதுவும் காணப்படவில்லை!"
 
 #: libraries/classes/Operations.php:600
 #: templates/table/structure/display_partitions.twig:84
