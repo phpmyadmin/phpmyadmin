@@ -10438,7 +10438,7 @@ msgstr "கோப்பு பெயர் வார்ப்புருவை 
 
 #: src/Config/Descriptions.php:686
 msgid "Remove DEFINER clause from definitions"
-msgstr ""
+msgstr "வரையறைகளிலிருந்து வரையறுக்கும் பிரிவை அகற்று"
 
 #: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
