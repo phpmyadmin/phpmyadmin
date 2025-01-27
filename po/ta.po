@@ -3083,7 +3083,7 @@ msgstr "UTC இல் ஏற்றுமதி நேரம்"
 
 #: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "வெளிநாட்டு விசை கீழ்தோன்றும் ஒழுங்கு"
 
 #: libraries/classes/Config/Descriptions.php:745
 msgid "Foreign key limit"
