@@ -13155,7 +13155,7 @@ msgstr "ஒரு பல்கோணி"
 
 #: libraries/classes/Types.php:381
 msgid "A collection of points"
-msgstr ""
+msgstr "புள்ளிகளின் தொகுப்பு"
 
 #: libraries/classes/Types.php:384
 msgid "A collection of curves with linear interpolation between points"
