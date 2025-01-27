@@ -14346,7 +14346,7 @@ msgstr "INNODB அட்டவணைகளிலிருந்து நீக�
 
 #: src/Controllers/Server/Status/VariablesController.php:375
 msgid "The number of rows inserted in InnoDB tables."
-msgstr ""
+msgstr "INNODB அட்டவணையில் செருகப்பட்ட வரிசைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of rows read from InnoDB tables."
