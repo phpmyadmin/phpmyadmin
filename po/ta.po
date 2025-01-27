@@ -16179,8 +16179,6 @@ msgid ""
 msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:670
-#, fuzzy
-#| msgid "Add/Delete criteria rows"
 msgid "Allows creating foreign key relations."
 msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
 
