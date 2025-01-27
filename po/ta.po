@@ -9309,6 +9309,7 @@ msgstr "[ரோல்பேக் ஏற்பட்டது.]"
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
+"பின்வரும் கட்டமைப்புகள் உருவாக்கப்பட்டுள்ளன அல்லது மாற்றப்பட்டுள்ளன. இங்கே நீங்கள் முடியும்:"
 
 #: libraries/classes/Import.php:1269
 msgid "View a structure's contents by clicking on its name."
