@@ -195,6 +195,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         const query = editor.getDoc().getValue();
 
         navigator.clipboard.writeText(query);
+        ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000);
     });
 
     $('#add_column_button').on('click', function () {
