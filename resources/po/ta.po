@@ -17692,7 +17692,7 @@ msgstr "இந்த MySQL சேவையகத்தில் %s கிடை�
 #: src/StorageEngine.php:416
 #, php-format
 msgid "%s has been disabled for this MySQL server."
-msgstr ""
+msgstr "இந்த MySQL சேவையகத்திற்கு %s முடக்கப்பட்டுள்ளது."
 
 #: src/StorageEngine.php:417
 #, php-format
