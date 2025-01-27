@@ -4713,7 +4713,7 @@ msgstr "பயனர் குழுவை தொகுக்க"
 #: resources/templates/server/privileges/privileges_table.twig:267
 #: src/Server/Privileges.php:1574
 msgid "Table-specific privileges"
-msgstr ""
+msgstr "அட்டவணை சார்ந்த சலுகைகள்"
 
 #: resources/templates/server/privileges/privileges_summary.twig:21
 msgid "Column-specific privileges"
