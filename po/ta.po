@@ -8917,7 +8917,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:52
 msgid "Maximum size for temporary files on index creation"
-msgstr ""
+msgstr "குறியீட்டு உருவாக்கத்தில் தற்காலிக கோப்புகளுக்கான அதிகபட்ச அளவு"
 
 #: libraries/classes/Engines/Myisam.php:54
 msgid ""
