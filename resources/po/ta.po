@@ -9431,7 +9431,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட வரிசைகளை முன்னிலைப்படுத்தவும்."
 
 #: src/Config/Descriptions.php:537
 msgid "Highlight row pointed by the mouse cursor."
