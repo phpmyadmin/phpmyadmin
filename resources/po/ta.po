@@ -10216,7 +10216,7 @@ msgstr "செருகப்பட்ட வரிசைகளின் எண�
 
 #: src/Config/Descriptions.php:796
 msgid "Limit column characters"
-msgstr ""
+msgstr "நெடுவரிசை எழுத்துக்களை கட்டுப்படுத்துங்கள்"
 
 #: src/Config/Descriptions.php:797
 msgid "Delete all cookies on logout"
