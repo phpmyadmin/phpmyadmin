@@ -17358,8 +17358,6 @@ msgid "Binary"
 msgstr ""
 
 #: templates/table/insert/column_row.twig:30
-#, fuzzy
-#| msgid "Value for the column \"%s\""
 msgid "Use the NULL value for this column."
 msgstr "\"%s\" நிரல்வரிசையின் மதிப்பு"
 
