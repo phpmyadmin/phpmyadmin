@@ -17702,7 +17702,7 @@ msgstr ""
 
 #: src/Triggers/Triggers.php:107
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட தூண்டுதலை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
 #: src/Triggers/Triggers.php:114
 #, php-format
