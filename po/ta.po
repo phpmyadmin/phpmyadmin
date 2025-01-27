@@ -14238,11 +14238,11 @@ msgstr "மற்றொரு நெடுவரிசை"
 
 #: templates/database/multi_table_query/form.twig:155
 msgid "Enter criteria as free text"
-msgstr ""
+msgstr "இலவச உரையாக அளவுகோல்களை உள்ளிடவும்"
 
 #: templates/database/multi_table_query/form.twig:162
 msgid "Remove this column"
-msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
+msgstr "இந்த நெடுவரிசையை அகற்று"
 
 #: templates/database/multi_table_query/form.twig:168
 #: templates/table/relation/foreign_key_row.twig:85
@@ -14253,7 +14253,7 @@ msgstr "+ நெடுவரிசையை சேர்க்க"
 #: templates/database/qbe/selection_form.twig:80
 #: templates/database/qbe/selection_form.twig:96
 msgid "Update query"
-msgstr "வினவலை புதுப்பி"
+msgstr "வினவலைப் புதுப்பிக்கவும்"
 
 #: templates/database/operations/index.twig:9
 #: templates/database/operations/index.twig:13
