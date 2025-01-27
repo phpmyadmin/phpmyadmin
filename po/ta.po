@@ -18276,11 +18276,11 @@ msgstr "பகிர்வுகள்"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
-msgstr ""
+msgstr "பகிர்வு எதுவும் வரையறுக்கப்படவில்லை!"
 
 #: templates/table/structure/display_partitions.twig:11
 msgid "Partitioned by:"
-msgstr "பிரிவினை %s"
+msgstr "பிரிந்தவர்:"
 
 #: templates/table/structure/display_partitions.twig:16
 msgid "Sub partitioned by:"
