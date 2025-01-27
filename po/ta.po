@@ -15082,7 +15082,7 @@ msgstr "வரையறுக்கப்பட்ட மாற்றுப்�
 #: templates/export.twig:216 templates/export.twig:230
 #: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
-msgstr ""
+msgstr "அகற்று"
 
 #: templates/export.twig:269
 msgid "Define new aliases"
