@@ -16316,12 +16316,12 @@ msgstr "ஒரே பெயருடன் தரவுத்தளத்தை 
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
-msgstr ""
+msgstr "வைல்டு அட்டை பெயரில் அனைத்து சலுகைகளையும் வழங்கவும் (பயனர்பெயர் \\ _%)."
 
 #: templates/server/privileges/add_user.twig:24
 #, php-format
 msgid "Grant all privileges on database %s."
-msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
+msgstr "தரவுத்தள %s இல் அனைத்து சலுகைகளையும் வழங்கவும்."
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
