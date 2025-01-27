@@ -13032,7 +13032,7 @@ msgstr "கவிமொ பிழைத்திருத்த தகவலை�
 #: src/Controllers/JavaScriptMessagesController.php:667
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
-msgstr ""
+msgstr "%s வினாடிகள் %s வினாடிகளில் %s முறை செயல்படுத்தப்பட்டன."
 
 #: src/Controllers/JavaScriptMessagesController.php:668
 #, php-format
