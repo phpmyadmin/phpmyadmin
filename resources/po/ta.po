@@ -5595,7 +5595,7 @@ msgstr "வினோதமாக"
 #: resources/templates/server/status/monitor/index.twig:152
 #: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:305
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mib"
 
 #: resources/templates/server/status/monitor/index.twig:158
 msgid "Append unit to data values"
