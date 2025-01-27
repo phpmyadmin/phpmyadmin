@@ -4328,11 +4328,11 @@ msgstr "நெடுவரிசைகளின் மைய பட்டிய�
 
 #: resources/templates/relation/check_relations.twig:483
 msgid "Remembering designer settings:"
-msgstr ""
+msgstr "வடிவமைப்பாளர் அமைப்புகளை நினைவில் வைத்தல்:"
 
 #: resources/templates/relation/check_relations.twig:508
 msgid "Saving export templates:"
-msgstr "தகா தரவேற்ற சுட்டுவகை"
+msgstr "ஏற்றுமதி வார்ப்புருக்களை சேமிக்கிறது:"
 
 #: resources/templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
@@ -4378,13 +4378,13 @@ msgstr "கோப்புகள்"
 #: resources/templates/server/binlog/index.twig:58
 #: resources/templates/server/status/processes/list.twig:20
 msgid "Truncate shown queries"
-msgstr "மெதுவான வினவல்களின் விழுக்காடு"
+msgstr "காட்டப்பட்ட வினவல்களைக் குறைத்தல்"
 
 #: resources/templates/server/binlog/index.twig:61
 #: resources/templates/server/binlog/index.twig:62
 #: resources/templates/server/status/processes/list.twig:26
 msgid "Show full queries"
-msgstr "SQL வினவல்களை காட்டுக"
+msgstr "முழு கேள்விகளையும் காட்டு"
 
 #: resources/templates/server/binlog/index.twig:82
 msgid "Log name"
@@ -4415,7 +4415,7 @@ msgstr "எழுத்து செட் மற்றும் தொகுத
 #: resources/templates/server/collations/index.twig:23
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "இயல்நிலை"
+msgstr "இயல்புநிலை"
 
 #: resources/templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -4427,18 +4427,18 @@ msgstr "தரவுத்தளத்தை உருவாக்கவும�
 
 #: resources/templates/server/databases/index.twig:50
 msgid "No privileges to create databases"
-msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
+msgstr "தரவுத்தளங்களை உருவாக்க சலுகைகள் இல்லை"
 
 #: resources/templates/server/databases/index.twig:156
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
 msgid "Primary replication"
-msgstr "படியெடுத்தல்"
+msgstr "முதன்மை பிரதி"
 
 #: resources/templates/server/databases/index.twig:160
 #: resources/templates/server/replication/replica_configuration.twig:2
 msgid "Replica replication"
-msgstr "படியெடுத்தல்"
+msgstr "பிரதி பிரதி"
 
 #: resources/templates/server/databases/index.twig:181
 #, php-format
@@ -4507,11 +4507,11 @@ msgstr "மாறிகள்"
 
 #: resources/templates/server/engines/show.twig:45
 msgid "Unknown storage engine."
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "அறியப்படாத சேமிப்பக இயந்திரம்."
 
 #: resources/templates/server/export/index.twig:26
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr "@ சேவையகம்@ சேவையக பெயராக மாறும்."
 
 #: resources/templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -4541,7 +4541,7 @@ msgstr "நூலாசிரியர்"
 
 #: resources/templates/server/plugins/index.twig:41
 msgid "inactive"
-msgstr "செயற்படு"
+msgstr "செயலற்றது"
 
 #: resources/templates/server/plugins/index.twig:43
 msgid "disabled"
@@ -4549,11 +4549,11 @@ msgstr "முடக்கப்பட்டது"
 
 #: resources/templates/server/plugins/index.twig:45
 msgid "deleting"
-msgstr "அழித்தல்"
+msgstr "நீக்குதல்"
 
 #: resources/templates/server/plugins/index.twig:47
 msgid "deleted"
-msgstr "அழி"
+msgstr "நீக்கப்பட்டது"
 
 #: resources/templates/server/privileges/add_user_fieldset.twig:2
 #: resources/templates/server/privileges/user_overview.twig:20
@@ -4601,7 +4601,7 @@ msgstr "மீண்டும் உள்ளிடு:"
 #: resources/templates/server/privileges/login_information_fields.twig:55
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "நிரல் நீளம்"
+msgstr "வலிமை:"
 
 #: resources/templates/server/privileges/change_password.twig:48
 msgid "Password Hashing:"
@@ -4617,7 +4617,7 @@ msgstr ""
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் குழு:"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:4
 #: resources/templates/server/privileges/user_properties.twig:4
@@ -4676,7 +4676,7 @@ msgstr "இந்த வழக்கத்தை செயல்படுத்�
 
 #: resources/templates/server/privileges/initials_row.twig:1
 msgid "Pagination of user accounts"
-msgstr "தரவுதள நடவடிக்கைகள்"
+msgstr "பயனர் கணக்குகளின் மண்பாண்டம்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:2
 #: resources/templates/server/privileges/user_properties.twig:105
