@@ -8976,6 +8976,10 @@ msgid ""
 "table data. The default value is 32MB. This memory is used to cache changes "
 "to the handle data (.xtd) and row pointer (.xtr) files."
 msgstr ""
+"அட்டவணை தரவை கேச் செய்ய பயன்படுத்தப்படும் பதிவு தற்காலிக சேமிப்பிற்கு ஒதுக்கப்பட்ட "
+"நினைவகத்தின் அளவு இது. இயல்புநிலை மதிப்பு 32MB ஆகும். கைப்பிடி தரவு (.xtd) மற்றும் "
+"வரிசை சுட்டிக்காட்டி (.xtr) கோப்புகளில் மாற்றங்களை கேச் செய்ய இந்த நினைவகம் "
+"பயன்படுத்தப்படுகிறது."
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid "Log cache size"
