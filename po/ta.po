@@ -16554,8 +16554,6 @@ msgid "Used variable / formula:"
 msgstr "பயன்படுத்தப்பட்ட மாறி/வாய்ப்பாடு"
 
 #: templates/server/status/advisor/index.twig:88
-#, fuzzy
-#| msgid "Test"
 msgid "Test:"
 msgstr "தேர்வுமுறை"
 
