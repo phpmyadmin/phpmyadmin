@@ -12326,7 +12326,7 @@ msgstr "இந்த MySQL சேவையகத்தின் இயல்ப�
 #: libraries/classes/StorageEngine.php:473
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "இந்த MySQL சேவையகத்தில் %s கிடைக்கின்றன."
 
 #: libraries/classes/StorageEngine.php:476
 #, php-format
