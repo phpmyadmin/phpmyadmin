@@ -17661,6 +17661,8 @@ msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
+"யூபிகே போன்ற ஃபிடோ யு 2 எஃப் ஆதரிக்கும் வன்பொருள் பாதுகாப்பு டோக்கன்களைப் பயன்படுத்தி "
+"அங்கீகாரத்தை வழங்குகிறது."
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -17673,7 +17675,7 @@ msgstr "இரண்டு காரணி ஏற்பு தோல்விய
 
 #: src/Plugins/TwoFactorPlugin.php:110
 msgid "No Two-Factor Authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "இரண்டு காரணி ஏற்பு இல்லை"
 
 #: src/Plugins/TwoFactorPlugin.php:118
 msgid "Login using password only."
