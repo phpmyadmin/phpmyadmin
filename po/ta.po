@@ -3752,7 +3752,7 @@ msgstr "தரவுத்தள பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:915
 msgid "Server port"
-msgstr ""
+msgstr "சேவையக துறைமுகம்"
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "Recently used table"
