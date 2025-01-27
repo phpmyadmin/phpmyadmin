@@ -4235,7 +4235,7 @@ msgstr "சேவையக இணைப்பு குறிமுறை அட
 #: libraries/classes/Config/FormDisplay.php:123
 #: libraries/classes/Config/Validator.php:536
 msgid "Not a positive number!"
-msgstr ""
+msgstr "நேர்மறை எண் அல்ல!"
 
 #: libraries/classes/Config/FormDisplay.php:124
 #: libraries/classes/Config/Validator.php:558
