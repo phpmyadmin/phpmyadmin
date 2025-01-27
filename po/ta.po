@@ -7763,6 +7763,8 @@ msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
+"முக்கிய தற்காலிக சேமிப்பில் பயன்படுத்தப்படாத தொகுதிகளின் எண்ணிக்கை. முக்கிய கேச் எவ்வளவு "
+"பயன்பாட்டில் உள்ளது என்பதை தீர்மானிக்க இந்த மதிப்பைப் பயன்படுத்தலாம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:408
 msgid ""
