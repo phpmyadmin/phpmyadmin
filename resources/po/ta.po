@@ -4765,7 +4765,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:303
 #: src/Server/Privileges.php:318
 msgid "Allows inserting and replacing data."
-msgstr ""
+msgstr "தரவைச் செருகவும் மாற்றவும் அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:70
 #: resources/templates/server/privileges/privileges_table.twig:313
