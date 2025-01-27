@@ -15680,7 +15680,7 @@ msgstr "%1$s (<குறியீடு>%2$s </code> க்கு அருக�
 
 #: src/Menu.php:284 src/Menu.php:391 src/Util.php:1381 src/Util.php:1395
 msgid "Tracking"
-msgstr ""
+msgstr "கண்காணிப்பு"
 
 #: src/Menu.php:332 src/Menu.php:340 src/Menu.php:348
 msgid "Database seems to be empty!"
