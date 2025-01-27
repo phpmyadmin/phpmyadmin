@@ -14041,7 +14041,7 @@ msgstr "தெரிவுசெய்யப்பட பக்கத்தி�
 
 #: templates/database/designer/page_save_as.twig:23
 msgid "Create a page and save to it"
-msgstr ""
+msgstr "ஒரு பக்கத்தை உருவாக்கி அதைச் சேமிக்கவும்"
 
 #: templates/database/designer/page_save_as.twig:29
 msgid "New page name"
