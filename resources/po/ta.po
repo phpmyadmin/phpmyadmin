@@ -7403,6 +7403,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"பெர்கோனா ஆவணம் <a href = \"https://www.percona.com/software/documentation/\"> "
+"https://www.percona.com/software/documentation/ </a> இல் உள்ளது"
 
 #: src/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
