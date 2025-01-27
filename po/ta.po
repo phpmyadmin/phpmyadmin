@@ -9646,7 +9646,7 @@ msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்ட
 
 #: libraries/classes/Navigation/Navigation.php:231
 msgid "Groups:"
-msgstr "பயனர்குழுவின் பெயர்:"
+msgstr "குழுக்கள்:"
 
 #: libraries/classes/Navigation/Navigation.php:232
 msgid "Events:"
@@ -15613,7 +15613,7 @@ msgstr "வழிசெலுத்தல் பலகத்தை மீளே�
 
 #: templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "வழிசெலுத்தல் காட்சியை ஏற்றும்போது பிழை ஏற்பட்டது"
 
 #: templates/navigation/main.twig:88
 msgid "SQL upload"
