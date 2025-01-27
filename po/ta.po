@@ -9372,7 +9372,7 @@ msgstr "எச்.எச்.எல் பயன்படுத்தப்பட
 
 #: libraries/classes/Html/Generator.php:247
 msgid "SSL is used with disabled verification"
-msgstr ""
+msgstr "முடக்கப்பட்ட சரிபார்ப்புடன் SSL பயன்படுத்தப்படுகிறது"
 
 #: libraries/classes/Html/Generator.php:249
 msgid "SSL is used without certification authority"
