@@ -14597,6 +14597,7 @@ msgstr ""
 #: src/InsertEdit.php:161 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
+"MySQL ஒரு வெற்று முடிவு தொகுப்பை (அதாவது சுழிய வரிசைகள்) திருப்பி அளித்தது."
 
 #: src/Controllers/Table/GisVisualizationController.php:98
 msgid "No spatial column found for this SQL query."
