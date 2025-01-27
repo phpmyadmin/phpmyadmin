@@ -17206,8 +17206,6 @@ msgid "Save chart as image"
 msgstr ""
 
 #: templates/table/export/index.twig:12
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
