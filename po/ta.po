@@ -15674,8 +15674,6 @@ msgid "Enabled"
 msgstr ""
 
 #: templates/relation/check_relations.twig:87
-#, fuzzy
-#| msgid "Display Features"
 msgid "Display features:"
 msgstr "பயன்முறைகளை காட்டுக"
 
