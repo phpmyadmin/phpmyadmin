@@ -6402,7 +6402,7 @@ msgstr ""
 
 #: resources/templates/table/insert/column_row.twig:93
 msgid "Binary - do not edit"
-msgstr ""
+msgstr "பைனரி - திருத்த வேண்டாம்"
 
 #: resources/templates/table/insert/column_row.twig:120
 #: resources/templates/table/search/input_box.twig:32
