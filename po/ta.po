@@ -17945,7 +17945,7 @@ msgstr "பதிலிடு"
 
 #: templates/table/gis_visualization/gis_visualization.twig:2
 msgid "Display GIS Visualization"
-msgstr ""
+msgstr "சிஐஎச் காட்சிப்படுத்தல் காட்சி"
 
 #: templates/table/gis_visualization/gis_visualization.twig:10
 msgid "Label column"
