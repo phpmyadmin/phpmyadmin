@@ -2483,7 +2483,7 @@ msgstr "செயல்பாட்டு புலங்களை திரு�
 
 #: libraries/classes/Config/Descriptions.php:502
 msgid "Whether to show hint or not."
-msgstr ""
+msgstr "குறிப்பைக் காட்ட வேண்டுமா இல்லையா."
 
 #: libraries/classes/Config/Descriptions.php:503
 msgid ""
