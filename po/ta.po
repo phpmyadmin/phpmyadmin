@@ -827,6 +827,8 @@ msgid ""
 "The maximum amount of used connections is getting close to the value of "
 "{max_connections}."
 msgstr ""
+"பயன்படுத்தப்பட்ட இணைப்புகளின் அதிகபட்ச அளவு {max_connections of இன் மதிப்பை "
+"நெருங்குகிறது."
 
 #: libraries/advisory_rules_generic.php:533
 msgid ""
