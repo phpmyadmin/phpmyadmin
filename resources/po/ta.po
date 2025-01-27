@@ -3174,7 +3174,7 @@ msgstr ""
 
 #: resources/templates/export.twig:197
 msgid "Defined aliases"
-msgstr ""
+msgstr "வரையறுக்கப்பட்ட மாற்றுப்பெயர்கள்"
 
 #: resources/templates/export.twig:206
 #: src/Controllers/JavaScriptMessagesController.php:299
