@@ -17577,7 +17577,7 @@ msgstr "பின்னர்"
 
 #: templates/table/insert/actions_panel.twig:19
 msgid "Go back to previous page"
-msgstr ""
+msgstr "முந்தைய பக்கத்திற்குச் செல்லவும்"
 
 #: templates/table/insert/actions_panel.twig:20
 msgid "Insert another new row"
