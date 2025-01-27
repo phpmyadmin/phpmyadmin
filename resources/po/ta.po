@@ -10220,7 +10220,7 @@ msgstr "நெடுவரிசை எழுத்துக்களை கட�
 
 #: src/Config/Descriptions.php:797
 msgid "Delete all cookies on logout"
-msgstr ""
+msgstr "அனைத்து குக்கீகளையும் வெளியேறுங்கள்"
 
 #: src/Config/Descriptions.php:798
 msgid "Recall user name"
