@@ -4750,7 +4750,7 @@ msgstr "அட்டவணை சார்ந்த சலுகைகள்"
 
 #: resources/templates/server/privileges/privileges_summary.twig:21
 msgid "Column-specific privileges"
-msgstr ""
+msgstr "நெடுவரிசை-குறிப்பிட்ட சலுகைகள்"
 
 #: resources/templates/server/privileges/privileges_summary.twig:55
 msgid "Add privileges on the following database(s):"
