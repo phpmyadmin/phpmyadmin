@@ -8002,7 +8002,7 @@ msgstr "கைவிடப்பட்ட இணைப்புகளின் �
 
 #: src/Advisory/Rules.php:578 src/Advisory/Rules.php:592
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "பல இணைப்புகள் கைவிடப்படுகின்றன."
 
 #: src/Advisory/Rules.php:580 src/Advisory/Rules.php:594
 msgid ""
