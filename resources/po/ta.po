@@ -4506,7 +4506,7 @@ msgstr "உருவாக்கப்பட்டது"
 
 #: resources/templates/server/privileges/change_password.twig:18
 msgid "No Password"
-msgstr ""
+msgstr "கடவுச்சொல் இல்லை"
 
 #: resources/templates/server/privileges/change_password.twig:28
 msgid "Enter:"
