@@ -8781,7 +8781,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:196
 msgid "Customize browse mode."
-msgstr ""
+msgstr "உலாவு பயன்முறையைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:197 src/Config/Descriptions.php:198
 #: src/Config/Descriptions.php:205 src/Config/Descriptions.php:211
