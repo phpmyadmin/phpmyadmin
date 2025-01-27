@@ -3332,7 +3332,7 @@ msgstr "இறக்குமதி செய்யப்பட்ட கோப�
 #: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "உள்ளக முக்கிய சொல்லைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:806
 msgid "Column names in first row"
