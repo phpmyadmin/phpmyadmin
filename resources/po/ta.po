@@ -7866,7 +7866,7 @@ msgstr ""
 #: src/Advisory/Rules.php:490
 #, no-php-format
 msgid "Immediate table locks %"
-msgstr ""
+msgstr "உடனடி அட்டவணை பூட்டுகள் %"
 
 #: src/Advisory/Rules.php:494 src/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
