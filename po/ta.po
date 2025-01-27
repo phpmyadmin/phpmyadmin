@@ -10625,7 +10625,7 @@ msgstr "நெடுவரிசைகள் தப்பித்தன:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:76
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:74
 msgid "Lines terminated with:"
-msgstr ""
+msgstr "கோடுகள் நிறுத்தப்பட்டன:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:81
 #: libraries/classes/Plugins/Export/ExportExcel.php:48
