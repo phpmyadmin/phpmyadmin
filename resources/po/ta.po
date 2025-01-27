@@ -14013,7 +14013,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:236
 msgid "How many temporary files mysqld has created."
-msgstr ""
+msgstr "MySQLD எத்தனை தற்காலிக கோப்புகளை உருவாக்கியுள்ளது."
 
 #: src/Controllers/Server/Status/VariablesController.php:238
 msgid ""
