@@ -10016,6 +10016,9 @@ msgid ""
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
+"கீழேயுள்ள ஒவ்வொரு நெடுவரிசைக்கும், கொடுக்கப்பட்ட தொகுப்பில் <b> குறைந்தபட்ச தொகுப்பு </b> "
+"ஐத் தேர்ந்தெடுக்கவும், அதன் மதிப்புகள் ஒன்றாக இணைந்தவை நெடுவரிசையின் மதிப்பைத் தீர்மானிக்க "
+"போதுமானவை."
 
 #: libraries/classes/Normalization.php:458
 #: libraries/classes/Normalization.php:912
