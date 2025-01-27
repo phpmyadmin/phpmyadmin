@@ -11977,7 +11977,7 @@ msgstr "எந்த பயனரும் கிடைக்கவில்ல�
 #: libraries/classes/Server/Privileges.php:2452
 #, php-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "%s நீக்குதல்"
 
 #: libraries/classes/Server/Privileges.php:2482
 msgid "The privileges were reloaded successfully."
