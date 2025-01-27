@@ -2179,7 +2179,7 @@ msgstr "அனைத்து அட்டவணைகள் நெடுவர�
 #: resources/templates/table/privileges/index.twig:5
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr ""
+msgstr "பயனர்கள் \"%s\" அணுகல் கொண்டவர்கள்"
 
 #: resources/templates/database/privileges/index.twig:17
 #: resources/templates/server/privileges/login_information_fields.twig:7
