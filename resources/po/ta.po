@@ -13037,15 +13037,15 @@ msgstr "%s வினாடிகள் %s வினாடிகளில் %s �
 #: src/Controllers/JavaScriptMessagesController.php:668
 #, php-format
 msgid "%s argument(s) passed"
-msgstr ""
+msgstr "%s உரையாடல் (கள்) கடந்துவிட்டன"
 
 #: src/Controllers/JavaScriptMessagesController.php:669
 msgid "Show arguments"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "வாதங்களைக் காட்டு"
 
 #: src/Controllers/JavaScriptMessagesController.php:670
 msgid "Hide arguments"
-msgstr "தேடல் முடிவுகளை மறை"
+msgstr "வாதங்களை மறைக்கவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:673
 msgid ""
