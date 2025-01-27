@@ -9838,7 +9838,7 @@ msgstr "நெடுவரிசைகள் தப்பித்தன"
 #: src/Config/Descriptions.php:673 src/Config/Descriptions.php:677
 #: src/Config/Descriptions.php:722
 msgid "Replace NULL with"
-msgstr ""
+msgstr "பூச்யத்தை மாற்றவும்"
 
 #: src/Config/Descriptions.php:644 src/Config/Descriptions.php:650
 msgid "Remove CRLF characters within columns"
