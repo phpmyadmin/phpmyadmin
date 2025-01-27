@@ -11222,7 +11222,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
 msgid "Column names: "
-msgstr ""
+msgstr "நெடுவரிசை பெயர்கள்: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:115
 msgid "This plugin does not support compressed imports!"
