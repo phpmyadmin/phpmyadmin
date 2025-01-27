@@ -12109,7 +12109,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
-msgstr ""
+msgstr "ஃப்ளச் வினவல் தற்காலிக சேமிப்பு"
 
 #: libraries/classes/Server/Status/Processes.php:110
 msgid "ID"
