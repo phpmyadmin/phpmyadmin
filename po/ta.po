@@ -2445,6 +2445,8 @@ msgstr ""
 msgid ""
 "Show or hide a column displaying the Last check timestamp for all tables."
 msgstr ""
+"அனைத்து அட்டவணைகளுக்கும் கடைசி காசோலை நேர முத்திரையைக் காண்பிக்கும் நெடுவரிசையைக் "
+"காட்டவும் அல்லது மறைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:493
 msgid ""
