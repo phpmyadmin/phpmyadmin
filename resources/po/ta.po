@@ -8181,7 +8181,7 @@ msgstr "இருமம்"
 #: src/Charsets/Collation.php:255 src/Charsets/Collation.php:505
 msgctxt "Collation"
 msgid "Unicode"
-msgstr ""
+msgstr "ஒருங்குறி"
 
 #: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
