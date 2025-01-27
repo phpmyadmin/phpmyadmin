@@ -753,7 +753,7 @@ msgstr "தகா வகை!"
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
 msgid "List of available transformations and their options"
-msgstr ""
+msgstr "கிடைக்கக்கூடிய மாற்றங்களின் பட்டியல் மற்றும் அவற்றின் விருப்பங்கள்"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:77
 #: resources/templates/transformation_overview.twig:18
