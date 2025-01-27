@@ -9334,7 +9334,7 @@ msgstr "இயல்புநிலைக்கு காலியாக வி�
 
 #: src/Config/Descriptions.php:453
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
-msgstr ""
+msgstr "HTTP AUTH ஐச் செய்யும்போது காண்பிக்க HTTP அடிப்படை AUTH ermm பெயர்."
 
 #: src/Config/Descriptions.php:454
 msgid "Authentication method to use."
