@@ -11237,7 +11237,7 @@ msgstr ""
 #: src/Config/Validator.php:530
 #: src/Controllers/JavaScriptMessagesController.php:830
 msgid "Not a valid port number!"
-msgstr ""
+msgstr "செல்லுபடியாகும் துறைமுகம் எண் அல்ல!"
 
 #: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:828
