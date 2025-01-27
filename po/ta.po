@@ -17573,7 +17573,7 @@ msgstr ""
 
 #: templates/table/insert/actions_panel.twig:15
 msgid "and then"
-msgstr ""
+msgstr "பின்னர்"
 
 #: templates/table/insert/actions_panel.twig:19
 msgid "Go back to previous page"
