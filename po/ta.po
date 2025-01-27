@@ -3414,7 +3414,7 @@ msgstr "அதிகபட்ச தரவுத்தளங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:824
 msgid "Maximum items on first level"
-msgstr ""
+msgstr "முதல் மட்டத்தில் அதிகபட்ச உருப்படிகள்"
 
 #: libraries/classes/Config/Descriptions.php:825
 msgid "Maximum items in branch"
