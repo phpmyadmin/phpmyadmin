@@ -9889,7 +9889,7 @@ msgstr "நிகழ்வுகள்"
 
 #: libraries/classes/Menu.php:483 libraries/classes/Util.php:2502
 msgid "Designer"
-msgstr ""
+msgstr "வடிவமைப்பாளர்"
 
 #: libraries/classes/Menu.php:492 libraries/classes/Util.php:2503
 #: templates/database/structure/check_all_tables.twig:32
@@ -9898,7 +9898,7 @@ msgstr "மைய நெடுவரிசைகள்"
 
 #: libraries/classes/Menu.php:553
 msgid "User accounts"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் கணக்குகள்"
 
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:2482 templates/server/binlog/index.twig:3
