@@ -16107,7 +16107,7 @@ msgstr ""
 
 #: src/Normalization.php:960
 msgid "No partial dependencies found!"
-msgstr ""
+msgstr "பகுதி சார்புநிலைகள் எதுவும் காணப்படவில்லை!"
 
 #: src/Operations.php:537
 msgid "Coalesce"
