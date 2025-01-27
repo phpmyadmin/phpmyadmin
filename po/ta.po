@@ -4654,6 +4654,7 @@ msgid ""
 "Empty signon session name while using [kbd]signon[/kbd] authentication "
 "method!"
 msgstr ""
+"[KBD] சிக்னான் [/KBD] அங்கீகார முறையைப் பயன்படுத்தும் போது வெற்று சிக்னன் அமர்வு பெயர்!"
 
 #: libraries/classes/Config/Validator.php:297
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
