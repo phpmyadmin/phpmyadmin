@@ -5655,7 +5655,7 @@ msgstr "Mib"
 
 #: resources/templates/server/status/monitor/index.twig:158
 msgid "Append unit to data values"
-msgstr ""
+msgstr "தரவு மதிப்புகளுடன் அலகு சேர்க்கவும்"
 
 #: resources/templates/server/status/monitor/index.twig:166
 msgid "Add this series"
