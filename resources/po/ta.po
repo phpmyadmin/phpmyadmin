@@ -9549,6 +9549,7 @@ msgstr ""
 #: src/Config/Descriptions.php:552
 msgid "Define how long (in seconds) a login cookie is valid."
 msgstr ""
+"உள்நுழைவு குக்கீ எவ்வளவு காலம் (நொடிகளில்) செல்லுபடியாகும் என்பதை வரையறுக்கவும்."
 
 #: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
