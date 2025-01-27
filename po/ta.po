@@ -3202,7 +3202,7 @@ msgstr "SQL வினவல்கள்"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "Startup"
-msgstr ""
+msgstr "தொடங்கு"
 
 #: libraries/classes/Config/Descriptions.php:788
 msgid "Database structure"
