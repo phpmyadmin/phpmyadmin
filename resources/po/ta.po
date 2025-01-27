@@ -8311,12 +8311,12 @@ msgstr "டேனிச்"
 #: src/Charsets/Collation.php:392
 msgctxt "Collation"
 msgid "English"
-msgstr ""
+msgstr "ஆங்கிலம்"
 
 #: src/Charsets/Collation.php:396
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "செயல்பாடுகள்"
+msgstr "எச்பெராண்டோ"
 
 #: src/Charsets/Collation.php:400
 msgctxt "Collation"
