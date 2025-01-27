@@ -16401,8 +16401,6 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:5
-#, fuzzy
-#| msgid "Insecure connection"
 msgid "Primary connection:"
 msgstr "பாதுகாப்பற்ற இணைப்பு"
 
