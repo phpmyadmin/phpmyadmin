@@ -2312,7 +2312,7 @@ msgstr "பயன்படுத்தப்படாவிட்டால் �
 
 #: libraries/classes/Config/Descriptions.php:467
 msgid "Leave blank for defaults."
-msgstr ""
+msgstr "இயல்புநிலைக்கு காலியாக விடவும்."
 
 #: libraries/classes/Config/Descriptions.php:468
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
