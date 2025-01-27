@@ -10627,7 +10627,7 @@ msgstr "சேவையக துறைமுகம்"
 
 #: src/Config/Descriptions.php:887
 msgid "Recently used table"
-msgstr ""
+msgstr "அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணை"
 
 #: src/Config/Descriptions.php:888
 msgid "Favorites table"
