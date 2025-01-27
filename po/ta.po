@@ -17175,7 +17175,7 @@ msgstr "ஒரு வகுப்பியைப் பயன்படுத்�
 
 #: templates/server/status/monitor/index.twig:193
 msgid "Append unit to data values"
-msgstr ""
+msgstr "தரவு மதிப்புகளுடன் அலகு சேர்க்கவும்"
 
 #: templates/server/status/monitor/index.twig:201
 msgid "Add this series"
