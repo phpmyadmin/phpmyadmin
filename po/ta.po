@@ -10726,11 +10726,12 @@ msgstr "%s அறிக்கையைச் சேர்க்கவும்"
 #: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
+"(அட்டவணை உருவாக்கத்தின் போது குறியீடுகள் உருவாக்கப்படும் என்பதால் குறைந்த செயல்திறன்)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
 #, php-format
 msgid "%s value"
-msgstr "அமர்வு மதிப்பு"
+msgstr "%s மதிப்பு"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
