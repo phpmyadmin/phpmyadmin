@@ -14936,7 +14936,7 @@ msgstr "நீங்கள் ஒரு வழக்கமான பெயரை
 
 #: src/Database/Routines.php:886
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "நீங்கள் ஒரு வழக்கமான வரையறையை வழங்க வேண்டும்."
 
 #: src/Database/Routines.php:1020
 #, php-format
