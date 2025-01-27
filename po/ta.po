@@ -1914,7 +1914,7 @@ msgstr "இறக்குமதியில் நகல் விசைகள�
 
 #: libraries/classes/Config/Descriptions.php:256
 msgid "Number of queries to skip from start."
-msgstr ""
+msgstr "தொடக்கத்திலிருந்து தவிர்க்க வினவல்களின் எண்ணிக்கை."
 
 #: libraries/classes/Config/Descriptions.php:258
 msgid ""
