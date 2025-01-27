@@ -16340,7 +16340,7 @@ msgstr "சிட்டை குறிப்பெழுத்து:"
 #: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:102
 #: src/Plugins/Export/ExportSql.php:204
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "வெளிநாட்டு முக்கிய உறவுகளைக் காண்பி"
 
 #: src/Plugins/Export/ExportLatex.php:156 src/Plugins/Export/ExportOdt.php:109
 msgid "Display comments"
