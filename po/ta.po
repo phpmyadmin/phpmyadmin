@@ -8256,27 +8256,27 @@ msgstr "பிழை: நெடுவரிசை (கள்) இல் கு�
 #: libraries/classes/Database/Designer/Common.php:648
 #: libraries/classes/Database/Designer/Common.php:727
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "பிழை: தொடர்புடைய நற்பொருத்தங்கள் முடக்கப்பட்டுள்ளன!"
 
 #: libraries/classes/Database/Designer/Common.php:672
 msgid "Internal relationship has been added."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "உள் உறவு சேர்க்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Designer/Common.php:680
 msgid "Error: Internal relationship could not be added!"
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "பிழை: உள் உறவை சேர்க்க முடியவில்லை!"
 
 #: libraries/classes/Database/Designer/Common.php:718
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "வெளிநாட்டு முக்கிய உறவு அகற்றப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Designer/Common.php:749
 msgid "Error: Internal relationship could not be removed!"
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "பிழை: உள் உறவை அகற்ற முடியவில்லை!"
 
 #: libraries/classes/Database/Designer/Common.php:755
 msgid "Internal relationship has been removed."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "உள் உறவு அகற்றப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Designer.php:136
 msgid "Could not load schema plugins, please check your installation!"
