@@ -14922,6 +14922,8 @@ msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
 msgstr ""
+"ENUM, SET, VARBAR மற்றும் வர்பினரி என்ற வகை வழக்கமான அளவுருக்களுக்கு நீளம்/மதிப்புகளை "
+"வழங்க வேண்டும்."
 
 #: src/Database/Routines.php:736
 msgid "You must provide a valid return type for the routine."
