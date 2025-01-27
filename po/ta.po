@@ -13683,7 +13683,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:91
 #: templates/table/structure/display_structure.twig:499
 msgid "No index defined!"
-msgstr ""
+msgstr "குறியீட்டு வரையறுக்கப்படவில்லை!"
 
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:29
