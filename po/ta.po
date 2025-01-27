@@ -11781,7 +11781,7 @@ msgstr "பயன்முறைகளை காட்டுக"
 
 #: libraries/classes/Relation.php:221
 msgid "Designer and creation of PDFs"
-msgstr ""
+msgstr "PDF களின் வடிவமைப்பாளர் மற்றும் உருவாக்கம்"
 
 #: libraries/classes/Relation.php:232
 msgid "Displaying Column Comments"
