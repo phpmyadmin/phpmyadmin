@@ -9083,6 +9083,7 @@ msgstr "வழிசெலுத்தல் மரத்தில் தரவ�
 #: src/Config/Descriptions.php:311
 msgid "Whether to show functions under database in the navigation tree"
 msgstr ""
+"வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் செயல்பாடுகளைக் காட்ட வேண்டுமா?"
 
 #: src/Config/Descriptions.php:312
 msgid "Whether to show events under database in the navigation tree"
@@ -10369,7 +10370,7 @@ msgstr "மரத்தில் செயல்பாடுகளைக் க�
 
 #: src/Config/Descriptions.php:831
 msgid "Show procedures in tree"
-msgstr "செயல்முறைகள்:"
+msgstr "மரத்தில் நடைமுறைகளைக் காட்டு"
 
 #: src/Config/Descriptions.php:832
 msgid "Show events in tree"
