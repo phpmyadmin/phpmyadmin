@@ -8975,6 +8975,7 @@ msgid ""
 "The number of items that can be displayed on each page on the first level of "
 "the navigation tree."
 msgstr ""
+"வழிசெலுத்தல் மரத்தின் முதல் மட்டத்தில் ஒவ்வொரு பக்கத்திலும் காட்டக்கூடிய பொருட்களின் எண்ணிக்கை."
 
 #: src/Config/Descriptions.php:266
 msgid ""
