@@ -4888,7 +4888,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:373
 #: src/Server/Privileges.php:321
 msgid "Allows creating new databases and tables."
-msgstr ""
+msgstr "புதிய தரவுத்தளங்கள் மற்றும் அட்டவணைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:413
 #: resources/templates/server/privileges/privileges_table.twig:421
