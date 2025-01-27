@@ -4855,7 +4855,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:546
 #: src/Server/Privileges.php:304 src/Server/Privileges.php:350
 msgid "Allows creating and dropping triggers."
-msgstr ""
+msgstr "தூண்டுதல்களை உருவாக்க மற்றும் கைவிட அனுமதிக்கிறது."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: resources/templates/server/privileges/privileges_table.twig:235
