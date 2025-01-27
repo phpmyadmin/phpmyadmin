@@ -7998,7 +7998,7 @@ msgstr "அட்டவணையை ச்கேன் செய்வதன் 
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:496
 msgid "The number of times that a table lock was acquired immediately."
-msgstr ""
+msgstr "ஒரு அட்டவணை பூட்டு உடனடியாக பெறப்பட்ட முறை எத்தனை முறை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:498
 msgid ""
