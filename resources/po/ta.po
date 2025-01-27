@@ -9470,7 +9470,7 @@ msgstr "தரவுத்தளத்தை உள்ளிடும்போ�
 
 #: src/Config/Descriptions.php:542
 msgid "Tab that is displayed when entering a server."
-msgstr ""
+msgstr "சேவையகத்தை உள்ளிடும்போது காண்பிக்கப்படும் தாவல்."
 
 #: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
