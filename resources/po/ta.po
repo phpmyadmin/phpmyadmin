@@ -6444,7 +6444,7 @@ msgstr "இயல்பாக்கத்தின் இரண்டாவத�
 
 #: resources/templates/table/normalization/normalization.twig:21
 msgid "Third step of normalization (1NF+2NF+3NF)"
-msgstr ""
+msgstr "இயல்பாக்கத்தின் மூன்றாவது படி (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
 msgid "Table operations"
