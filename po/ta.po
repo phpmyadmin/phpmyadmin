@@ -12272,7 +12272,7 @@ msgstr "புதிய நிலையான பதிப்புகள் ஏ
 #: libraries/classes/Sql.php:504
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
-msgstr ""
+msgstr "இயல்புநிலை உலாவி வினவலாக புக்மார்க்குகளைப் பயன்படுத்துதல்."
 
 #: libraries/classes/Sql.php:976
 msgid "Showing as PHP code"
