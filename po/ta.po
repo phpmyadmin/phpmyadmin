@@ -7744,7 +7744,7 @@ msgstr "INNODB அட்டவணையில் செருகப்பட்�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:396
 msgid "The number of rows read from InnoDB tables."
-msgstr ""
+msgstr "INNODB அட்டவணைகளிலிருந்து படித்த வரிசைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:397
 msgid "The number of rows updated in InnoDB tables."
