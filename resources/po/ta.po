@@ -10523,7 +10523,7 @@ msgstr "Http சாம்ராச்யம்"
 
 #: src/Config/Descriptions.php:867
 msgid "Bookmark table"
-msgstr ""
+msgstr "புக்மார்க்கு அட்டவணை"
 
 #: src/Config/Descriptions.php:868
 msgid "Column information table"
