@@ -11890,7 +11890,7 @@ msgstr "சேமிக்கப்பட்ட நடைமுறைகளை �
 #: templates/server/privileges/privileges_table.twig:707
 #: templates/server/privileges/privileges_table.twig:710
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "பயனர் கணக்குகளை உருவாக்க, கைவிடுதல் மற்றும் மறுபெயரிட அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:513
 #: templates/server/privileges/privileges_table.twig:480
