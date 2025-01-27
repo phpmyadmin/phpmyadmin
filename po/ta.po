@@ -1232,7 +1232,7 @@ msgstr "செர்மன் (அகராதி ஒழுங்கு)"
 #: libraries/classes/Charsets/Collation.php:556
 msgctxt "Collation"
 msgid "Spanish (traditional)"
-msgstr ""
+msgstr "ச்பானிச் (பாரம்பரிய)"
 
 #: libraries/classes/Charsets/Collation.php:226
 #: libraries/classes/Charsets/Collation.php:549
@@ -1503,7 +1503,7 @@ msgstr "ச்லோவேனியன்"
 #: libraries/classes/Charsets/Collation.php:576
 msgctxt "Collation"
 msgid "Vietnamese"
-msgstr "கோப்பின் பெயர்"
+msgstr "வியட்நாமிய"
 
 #: libraries/classes/Config/Descriptions.php:58
 #: libraries/classes/Config/Descriptions.php:59
