@@ -16253,8 +16253,6 @@ msgid "Justification:"
 msgstr "விளக்கமளி"
 
 #: templates/server/status/advisor/index.twig:87
-#, fuzzy
-#| msgid "Used variable / formula"
 msgid "Used variable / formula:"
 msgstr "பயன்படுத்தப்பட்ட மாறி/வாய்ப்பாடு"
 
