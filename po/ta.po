@@ -9840,7 +9840,7 @@ msgstr "புதியது"
 
 #: libraries/classes/Normalization.php:223
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "அனைத்து நெடுவரிசைகளையும் அணு செய்யுங்கள்"
 
 #: libraries/classes/Normalization.php:225
 #: libraries/classes/Normalization.php:961
