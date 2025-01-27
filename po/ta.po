@@ -71,7 +71,7 @@ msgstr "மெதுவான வினவல்களின் விழுக�
 #: libraries/advisory_rules_generic.php:41
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "ஒட்டுமொத்த வினவல்களுடன் ஒப்பிடும்போது மெதுவான வினவல்கள் நிறைய உள்ளன."
 
 #: libraries/advisory_rules_generic.php:43
 #: libraries/advisory_rules_generic.php:56
