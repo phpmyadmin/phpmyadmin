@@ -17831,7 +17831,7 @@ msgstr "இந்த விருப்பம் உங்கள் அட்ட
 
 #: src/Tracking/Tracking.php:400
 msgid "SQL execution"
-msgstr ""
+msgstr "கவிமொ சாவுஒறுப்பு"
 
 #: src/Tracking/Tracking.php:404
 #, php-format
