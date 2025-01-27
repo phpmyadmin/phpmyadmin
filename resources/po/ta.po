@@ -10662,7 +10662,7 @@ msgstr "SSL ஐப் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:894
 msgid "Designer and PDF schema: table coordinates"
-msgstr ""
+msgstr "வடிவமைப்பாளர் மற்றும் பி.டி.எஃப் ச்கீமா: அட்டவணை ஒருங்கிணைப்புகள்"
 
 #: src/Config/Descriptions.php:895
 msgid "Display columns table"
