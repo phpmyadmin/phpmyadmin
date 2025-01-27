@@ -15833,8 +15833,6 @@ msgstr "படியெடுத்தல்"
 
 #: templates/server/databases/index.twig:160
 #: templates/server/replication/replica_configuration.twig:2
-#, fuzzy
-#| msgid "Replication"
 msgid "Replica replication"
 msgstr "படியெடுத்தல்"
 
