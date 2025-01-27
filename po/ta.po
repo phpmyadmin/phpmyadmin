@@ -11928,6 +11928,7 @@ msgstr "முதன்மை %s உடன் இணைக்க முடிய
 msgid ""
 "Unable to read master log position. Possible privilege problem on master."
 msgstr ""
+"முதன்மை பதிவு நிலையைப் படிக்க முடியவில்லை. மாச்டர் மீது சாத்தியமான சலுகை சிக்கல்."
 
 #: libraries/classes/ReplicationGui.php:566
 msgid "Unable to change master!"
