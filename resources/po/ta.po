@@ -5484,7 +5484,7 @@ msgstr "அனைத்து நிலை மாறிகள்"
 
 #: resources/templates/server/status/base.twig:26
 msgid "Monitor"
-msgstr ""
+msgstr "கண்காணிக்கவும்"
 
 #: resources/templates/server/status/base.twig:31
 msgid "Advisor"
