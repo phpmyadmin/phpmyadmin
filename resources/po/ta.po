@@ -5892,7 +5892,7 @@ msgstr "மறைக்கப்பட்ட உருப்படிகளை �
 
 #: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
 msgid "Authentication type"
-msgstr ""
+msgstr "அங்கீகார வகை"
 
 #: resources/templates/setup/home/index.twig:80
 msgid "There are no configured servers"
