@@ -3006,7 +3006,7 @@ msgstr "உருவாக்கம்/புதுப்பித்தல்/�
 
 #: libraries/classes/Config/Descriptions.php:711
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "தாமதமான செருகல்களைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:712
 #: libraries/classes/Plugins/Export/ExportSql.php:186
