@@ -8264,7 +8264,7 @@ msgstr "பதிப்புகள் எதுவும் தேர்ந்�
 
 #: libraries/classes/Controllers/Table/TrackingController.php:185
 msgid "SQL statements executed."
-msgstr ""
+msgstr "கவிமொ அறிக்கைகள் செயல்படுத்தப்பட்டன."
 
 #: libraries/classes/Controllers/ThemesController.php:20
 #: templates/themes.twig:1
