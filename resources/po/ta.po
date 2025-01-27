@@ -2519,7 +2519,7 @@ msgstr "இதிலிருந்து"
 
 #: resources/templates/database/structure/change_prefix_form.twig:8
 msgid "To"
-msgstr ""
+msgstr "பெறுநர்"
 
 #: resources/templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
