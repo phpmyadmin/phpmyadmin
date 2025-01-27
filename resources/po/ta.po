@@ -10699,7 +10699,7 @@ msgstr "கண்காணிக்க அறிக்கைகள்"
 
 #: src/Config/Descriptions.php:901
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "கவிமொ வினவல் கண்காணிப்பு அட்டவணை"
 
 #: src/Config/Descriptions.php:902
 msgid "Automatically create versions"
