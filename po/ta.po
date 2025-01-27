@@ -9686,7 +9686,7 @@ msgstr "புதிய வரிசையாக செருகவும், �
 
 #: libraries/classes/InsertEdit.php:1901
 msgid "Show insert query"
-msgstr ""
+msgstr "செருகும் வினவலைக் காட்டு"
 
 #: libraries/classes/InsertEdit.php:1922
 msgid "Go back to previous page"
