@@ -10415,7 +10415,7 @@ msgstr "இயல்புநிலை வரிசையாக்க வரி�
 
 #: src/Config/Descriptions.php:843
 msgid "Persistent connections"
-msgstr ""
+msgstr "தொடர்ச்சியான இணைப்புகள்"
 
 #: src/Config/Descriptions.php:844
 msgid "Missing phpMyAdmin configuration storage tables"
