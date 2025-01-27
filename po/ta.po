@@ -5061,8 +5061,6 @@ msgid "Do you really want to remove partitioning?"
 msgstr "பகிர்வுகளை நீங்கள்  உண்மையாகவே அகற்ற விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
 msgstr "உங்களுக்கு உண்மையிலேயே தேர்ந்தெடுத்த பயனர்(களை) திரும்பப்பெற வேண்டுமா?"
 
@@ -5129,7 +5127,7 @@ msgstr "மீட்டமைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Reset all"
-msgstr "அனைத்தையும் தொடக்கத்தில் இருந்தது போல மாற்ற"
+msgstr "அனைத்தையும் மீட்டமை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Missing value in the form!"
@@ -5145,7 +5143,7 @@ msgstr "தயவுசெய்து ஒரு சரியான எண்ண
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 msgid "Please enter a valid length!"
-msgstr "தயவுசெய்து ஒரு சரியான நீள அளவை இடுக!"
+msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Add index"
