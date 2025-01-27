@@ -16786,7 +16786,7 @@ msgstr ""
 
 #: src/Plugins/Import/ImportXml.php:48
 msgid "XML"
-msgstr ""
+msgstr "நீகுமொ"
 
 #: src/Plugins.php:575
 msgid "This format has no options"
