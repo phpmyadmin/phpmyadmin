@@ -16739,6 +16739,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
+"உங்கள் கடவுச்சொல் மிக நீளமானது. பணி மறுப்பு தாக்குதல்களைத் தடுக்க, Phpmyadmin "
+"கடவுச்சொற்களை 2000 க்கும் குறைவான எழுத்துக்களுக்கு கட்டுப்படுத்துகிறது."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
