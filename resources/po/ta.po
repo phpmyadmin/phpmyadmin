@@ -10446,7 +10446,7 @@ msgstr "பைனரி நெடுவரிசைகளைப் பாது�
 
 #: src/Config/Descriptions.php:849
 msgid "Permanent query history"
-msgstr ""
+msgstr "நிரந்தர வினவல் வரலாறு"
 
 #: src/Config/Descriptions.php:850
 msgid "Query history length"
