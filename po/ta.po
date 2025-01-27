@@ -16139,6 +16139,7 @@ msgstr "பின்வரும் இசையமைப்பாளர் த�
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
 msgstr ""
+"இரண்டு காரணி ஏற்பு இந்த கணக்கிற்கு கிடைக்கிறது மற்றும் கட்டமைக்கப்பட்டுள்ளது."
 
 #: templates/preferences/two_factor/main.twig:22
 msgid ""
