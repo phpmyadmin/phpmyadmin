@@ -4945,6 +4945,9 @@ msgid ""
 "required for most administrative operations like setting global variables or "
 "killing threads of other users."
 msgstr ""
+"அதிகபட்ச இணைப்புகளின் எண்ணிக்கையை அடைந்தாலும் இணைக்க அனுமதிக்கிறது; உலகளாவிய மாறிகள் "
+"அமைத்தல் அல்லது பிற பயனர்களின் நூல்களைக் கொல்வது போன்ற பெரும்பாலான நிர்வாக "
+"நடவடிக்கைகளுக்கு தேவை."
 
 #: resources/templates/server/privileges/privileges_table.twig:597
 #: resources/templates/server/privileges/privileges_table.twig:600
