@@ -9140,7 +9140,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:34
 msgid "Automatic recovery mode"
-msgstr ""
+msgstr "தானியங்கி மீட்பு முறை"
 
 #: libraries/classes/Engines/Myisam.php:36
 msgid ""
