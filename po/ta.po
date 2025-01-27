@@ -9040,6 +9040,10 @@ msgid ""
 "value of this variable can be increased to increase the total amount of data "
 "that can be stored in the database."
 msgstr ""
+"தரவு பதிவு கோப்பின் அதிகபட்ச அளவு. இயல்புநிலை மதிப்பு 64MB ஆகும். PBXT அதிகபட்சம் "
+"32000 தரவு பதிவுகளை உருவாக்க முடியும், அவை அனைத்து அட்டவணைகளாலும் பயன்படுத்தப்படுகின்"
+"றன. எனவே தரவுத்தளத்தில் சேமிக்கக்கூடிய தரவுகளின் மொத்த அளவை அதிகரிக்க இந்த மாறியின் "
+"மதிப்பை அதிகரிக்க முடியும்."
 
 #: libraries/classes/Engines/Pbxt.php:98
 msgid "Garbage threshold"
