@@ -1943,6 +1943,10 @@ msgid ""
 "and will be deleted as soon as you close the browser window. This is "
 "recommended for non-trusted environments."
 msgstr ""
+"ஒரு உள்நுழைவு குக்கீ உலாவியில் எவ்வளவு காலம் (நொடிகளில்) எவ்வளவு காலம் சேமிக்கப்பட "
+"வேண்டும் என்பதை வரையறுக்கிறது. 0 இன் இயல்புநிலை என்பது தற்போதுள்ள அமர்வுக்கு மட்டுமே "
+"வைக்கப்படும், மேலும் நீங்கள் உலாவி சாளரத்தை மூடியவுடன் நீக்கப்படும். நம்பமுடியாத சூழல்களுக்கு"
+" இது பரிந்துரைக்கப்படுகிறது."
 
 #: libraries/classes/Config/Descriptions.php:273
 msgid "Maximum number of characters used when a SQL query is displayed."
