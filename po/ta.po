@@ -11783,7 +11783,7 @@ msgstr "புதிய தரவுத்தளங்கள் மற்று�
 #: templates/server/privileges/privileges_table.twig:407
 #: templates/server/privileges/privileges_table.twig:415
 msgid "Allows dropping databases and tables."
-msgstr ""
+msgstr "தரவுத்தளங்கள் மற்றும் அட்டவணைகளை கைவிட அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:381
 #: templates/server/privileges/privileges_table.twig:599
