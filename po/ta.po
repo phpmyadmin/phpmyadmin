@@ -12336,7 +12336,7 @@ msgstr "இந்த MySQL சேவையகத்திற்கு %s மு�
 #: libraries/classes/StorageEngine.php:480
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "இந்த MySQL சேவையகம் %s சேமிப்பக இயந்திரத்தை ஆதரிக்காது."
 
 #: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2110
 msgid "The name of the primary key must be \"PRIMARY\"!"
