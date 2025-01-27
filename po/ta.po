@@ -14980,7 +14980,7 @@ msgstr "வடிகட்டிகள்"
 
 #: templates/filter.twig:4 templates/server/status/variables/index.twig:12
 msgid "Containing the word:"
-msgstr ""
+msgstr "வார்த்தையைக் கொண்டுள்ளது:"
 
 #: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
 msgid "Open new phpMyAdmin window"
