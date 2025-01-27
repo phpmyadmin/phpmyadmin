@@ -555,6 +555,8 @@ msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
 msgstr ""
+"தற்காலிக அட்டவணைகளின் வீதம் வட்டுக்கு எழுதப்படுகிறது: %s, இந்த மதிப்பு ஒரு மணி "
+"நேரத்திற்கு 1 க்கும் குறைவாக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:359
 msgid "MyISAM key buffer size"
