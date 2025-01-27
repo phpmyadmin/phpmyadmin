@@ -1134,6 +1134,8 @@ msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
 msgstr ""
+"மொத்த வினவல் கேச் அளவிற்கு இலவச வினவல் கேச் நினைவகத்தின் தற்போதைய விகிதம்%s %% ஆகும். "
+"இது 80 %% க்கு மேல் இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_mysql_before80003.php:52
 msgid "Query cache fragmentation"
