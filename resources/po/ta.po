@@ -9401,7 +9401,7 @@ msgstr "MySQL சேவையகம் கேட்கும் சாக்க�
 
 #: src/Config/Descriptions.php:461
 msgid "Enable SSL for connection to MySQL server."
-msgstr ""
+msgstr "MySQL சேவையகத்துடன் இணைக்க SSL ஐ இயக்கவும்."
 
 #: src/Config/Descriptions.php:464
 msgid ""
