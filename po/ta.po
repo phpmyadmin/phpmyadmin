@@ -2643,7 +2643,7 @@ msgstr "சுட்டிக்காட்டி சிறப்பம்ச�
 
 #: libraries/classes/Config/Descriptions.php:624
 msgid "Bzip2"
-msgstr ""
+msgstr "BZIP2"
 
 #: libraries/classes/Config/Descriptions.php:625
 msgid "CHAR columns editing"
