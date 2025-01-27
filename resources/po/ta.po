@@ -5348,6 +5348,9 @@ msgid ""
 "should see a message informing you, that this server <strong>is</strong> "
 "configured as primary."
 msgstr ""
+"நீங்கள் MySQL சேவையகத்தை மறுதொடக்கம் செய்தவுடன், GO பொத்தானைக் சொடுக்கு செய்க. பின்னர், இந்"
+"த சேவையகம் <strong> </strong> முதன்மை என கட்டமைக்கப்பட்டுள்ளது என்பதை உங்களுக்குத் "
+"தெரிவிக்கும் ஒரு செய்தியை நீங்கள் காண வேண்டும்."
 
 #: resources/templates/server/replication/primary_replication.twig:5
 msgid "This server is configured as primary in a replication process."
