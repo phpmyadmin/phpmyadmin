@@ -2570,7 +2570,7 @@ msgstr "MySQL தரவுத்தளங்களுக்கு தொடர�
 
 #: libraries/classes/Config/Descriptions.php:598
 msgid "Disallow BLOB and BINARY columns from editing."
-msgstr ""
+msgstr "திருத்துதல் மூலம் குமிழ் மற்றும் பைனரி நெடுவரிசைகளை அனுமதிக்காதீர்கள்."
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "How many queries are kept in history."
