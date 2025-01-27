@@ -14662,7 +14662,7 @@ msgstr "தூண்டுதல் பெயர்"
 #: templates/database/triggers/editor_form.twig:37
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: templates/database/triggers/list.twig:29
 msgid "Create new trigger"
