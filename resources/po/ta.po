@@ -8231,7 +8231,7 @@ msgstr "ஆர்மீனியன்"
 #: src/Charsets/Collation.php:309
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr ""
+msgstr "சிரிலிக்"
 
 #: src/Charsets/Collation.php:312
 msgctxt "Collation"
