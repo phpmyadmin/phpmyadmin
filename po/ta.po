@@ -14138,7 +14138,7 @@ msgstr "புரவலன் பெயர்"
 #: templates/server/privileges/users_overview.twig:18
 #: templates/table/privileges/index.twig:23
 msgid "Grant"
-msgstr ""
+msgstr "மானியம்"
 
 #: templates/database/privileges/index.twig:36
 #: templates/server/privileges/initials_row.twig:9
