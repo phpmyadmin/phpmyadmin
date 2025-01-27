@@ -17698,6 +17698,8 @@ msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
+"ஒரு யூபிகே போன்ற வெப்அத்ன்/ஃபிடோ 2 நெறிமுறையை ஆதரிக்கும் வன்பொருள் பாதுகாப்பு "
+"டோக்கன்களைப் பயன்படுத்தி அங்கீகாரத்தை வழங்குகிறது."
 
 #: src/Query/Utilities.php:93
 msgid ""
