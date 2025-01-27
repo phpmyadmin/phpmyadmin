@@ -10405,7 +10405,7 @@ msgstr "அட்டவணை வழிசெலுத்தல் பட்ட�
 
 #: src/Config/Descriptions.php:841
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZIP வெளியீடு இடையக"
 
 #: src/Config/Descriptions.php:842
 msgid "Default sorting order"
