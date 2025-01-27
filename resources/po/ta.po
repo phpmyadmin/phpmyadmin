@@ -10933,7 +10933,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:954
 msgid "Send error reports"
-msgstr ""
+msgstr "பிழை அறிக்கைகளை அனுப்பவும்"
 
 #: src/Config/Descriptions.php:955
 msgid "Enter executes queries in console"
