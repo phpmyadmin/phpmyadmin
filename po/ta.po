@@ -11345,8 +11345,8 @@ msgstr ""
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "ஒரு வினாடிக்கு"
+msgstr[1] "ஒரு வினாடிக்கு"
 
 #: libraries/classes/Server/Status/Data.php:496
 #, php-format
