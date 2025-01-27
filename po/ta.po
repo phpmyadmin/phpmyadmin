@@ -7703,6 +7703,8 @@ msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
+"தொகுக்கப்பட்ட INNODB பக்க அளவு (இயல்புநிலை 16KB). பல மதிப்புகள் பக்கங்களில் "
+"கணக்கிடப்படுகின்றன; பக்க அளவு அவற்றை எளிதில் பைட்டுகளாக மாற்ற அனுமதிக்கிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:387
 msgid "The number of pages read."
