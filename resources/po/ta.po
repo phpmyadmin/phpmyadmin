@@ -6361,7 +6361,7 @@ msgstr "புதிய வரிசையாக செருகவும், �
 
 #: resources/templates/table/insert/actions_panel.twig:12
 msgid "Show insert query"
-msgstr ""
+msgstr "செருகும் வினவலைக் காட்டு"
 
 #: resources/templates/table/insert/actions_panel.twig:16
 msgid "and then"
