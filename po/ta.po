@@ -17698,7 +17698,7 @@ msgstr "அட்டவணைக் கருத்துரைகள்"
 
 #: templates/table/operations/index.twig:170
 msgid "Change all column collations"
-msgstr ""
+msgstr "அனைத்து நெடுவரிசை தொகைகளையும் மாற்றவும்"
 
 #: templates/table/operations/index.twig:251
 msgid "Copy table to (database.table)"
