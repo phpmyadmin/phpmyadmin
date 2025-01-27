@@ -15459,7 +15459,7 @@ msgstr ""
 #: templates/import/javascript.twig:13
 #, php-format
 msgid "%s of %s"
-msgstr ""
+msgstr "%s %s"
 
 #: templates/import/javascript.twig:14
 #, php-format
