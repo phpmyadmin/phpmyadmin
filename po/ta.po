@@ -17252,7 +17252,7 @@ msgstr "நொடி வீதம்:"
 
 #: templates/server/status/queries/index.twig:37
 msgid "Statements"
-msgstr ""
+msgstr "அறிக்கைகள்"
 
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
