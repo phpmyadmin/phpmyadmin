@@ -1558,7 +1558,7 @@ msgstr "நேரடி இணைப்புகள்"
 #: resources/templates/database/designer/main.twig:127
 #: resources/templates/database/designer/main.twig:129
 msgid "Snap to grid"
-msgstr ""
+msgstr "கட்டத்திற்கு ச்னாப்"
 
 #: resources/templates/database/designer/main.twig:133
 #: resources/templates/database/designer/main.twig:139
