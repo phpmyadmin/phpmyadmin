@@ -2111,6 +2111,8 @@ msgid ""
 "Sets the effective timezone; possibly different than the one from your "
 "database server"
 msgstr ""
+"பயனுள்ள நேர மண்டலத்தை அமைக்கிறது; உங்கள் தரவுத்தள சேவையகத்திலிருந்து வந்ததை விட "
+"வேறுபட்டது"
 
 #: libraries/classes/Config/Descriptions.php:348
 msgid ""
