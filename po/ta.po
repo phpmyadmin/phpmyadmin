@@ -8477,7 +8477,7 @@ msgstr "%s களத்தை சேர்க்க->செயல்முறை
 
 #: libraries/classes/Database/Routines.php:122
 msgid "Edit routine"
-msgstr ""
+msgstr "வழக்கத்தைத் திருத்து"
 
 #: libraries/classes/Database/Routines.php:154
 #, php-format
