@@ -7720,7 +7720,7 @@ msgstr "தற்போது காத்திருக்கப்பட்�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:390
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "மில்லி விநாடிகளில் ஒரு வரிசை பூட்டைப் பெறுவதற்கான சராசரி நேரம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:391
 msgid "The total time spent in acquiring row locks, in milliseconds."
