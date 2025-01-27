@@ -17495,8 +17495,6 @@ msgid "Repair partition"
 msgstr "தொகுப்பு பார்வை"
 
 #: templates/table/partition/truncate.twig:2
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Truncate partition"
 msgstr "பிரிவினை %s"
 
@@ -17506,7 +17504,7 @@ msgstr ""
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
-msgstr "வெளிநாட்டு முக்கிய தடைகள்"
+msgstr "அயல் குறியெண் கட்டுப்பாடுகள்"
 
 #: templates/table/relation/common_form.twig:14
 msgid "Actions"
