@@ -8823,7 +8823,7 @@ msgstr "இடையக பூல் பயன்பாடு"
 
 #: libraries/classes/Engines/Innodb.php:142
 msgid "pages"
-msgstr ""
+msgstr "பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:150
 msgid "Free pages"
