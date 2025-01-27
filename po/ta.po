@@ -13863,7 +13863,7 @@ msgstr "அழிக்கவேண்டிய பக்கம்"
 #: templates/database/designer/main.twig:19
 #: templates/database/designer/main.twig:25
 msgid "Show/Hide tables list"
-msgstr "காட்டப்படுகிற அட்டவணைகள்:"
+msgstr "அட்டவணைகள் பட்டியலைக் காட்டு/மறைக்கவும்"
 
 #: templates/database/designer/main.twig:29
 #: templates/database/designer/main.twig:35
@@ -17612,7 +17612,7 @@ msgstr "சேவையக மாறிகள் மற்றும் அமை
 
 #: templates/server/variables/index.twig:43
 msgid "This is a read-only variable and can not be edited"
-msgstr ""
+msgstr "இது படிக்க மட்டும் மாறி மற்றும் திருத்த முடியாது"
 
 #: templates/server/variables/index.twig:69
 msgid "Session value"
