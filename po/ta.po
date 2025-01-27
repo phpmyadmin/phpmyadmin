@@ -12814,7 +12814,7 @@ msgstr "2 பரிமாண இடத்தில் ஒரு புள்ள�
 
 #: libraries/classes/Types.php:419
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "புள்ளிகளுக்கு இடையில் நேரியல் இடைக்கணிப்பு கொண்ட ஒரு வளைவு"
 
 #: libraries/classes/Types.php:422
 msgid "A polygon"
