@@ -15973,7 +15973,7 @@ msgstr "சரி இல்லை"
 
 #: templates/relation/check_relations.twig:14
 msgid "General relation features"
-msgstr ""
+msgstr "பொது உறவு நற்பொருத்தங்கள்"
 
 #: templates/relation/check_relations.twig:20
 #, php-format
