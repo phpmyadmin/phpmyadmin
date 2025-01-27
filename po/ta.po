@@ -17355,7 +17355,7 @@ msgstr "சிட்டை:"
 
 #: templates/sql/bookmark.twig:22 templates/sql/query.twig:91
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "ஒவ்வொரு பயனரும் இந்த புத்தகக்குறியை அணுகட்டும்"
 
 #: templates/sql/profiling_chart.twig:4
 msgid "Detailed profile"
