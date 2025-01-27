@@ -11185,6 +11185,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"ஒவ்வொரு <code> செருகும் </code> அறிக்கையிலும் நெடுவரிசை பெயர்களைச் சேர்க்கவும் <br> & "
+"nbsp; & nbsp; & nbsp; எடுத்துக்காட்டு: <code> TBL_NAME (COL_A, COL_B, COL_C) "
+"மதிப்புகள் (1,2,3) </code> இல் செருகவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid ""
