@@ -10531,7 +10531,7 @@ msgstr "நெடுவரிசை செய்தி அட்டவணை"
 
 #: src/Config/Descriptions.php:869
 msgid "Compress connection"
-msgstr ""
+msgstr "இணைப்பு சுருக்க"
 
 #: src/Config/Descriptions.php:870
 msgid "Control user password"
