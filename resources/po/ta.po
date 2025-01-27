@@ -11554,7 +11554,7 @@ msgstr "%s களத்தை சேர்க்க->செயல்முறை
 
 #: src/Controllers/Database/RoutinesController.php:174
 msgid "Edit routine"
-msgstr ""
+msgstr "வழக்கத்தைத் திருத்து"
 
 #: src/Controllers/Database/RoutinesController.php:273
 #, php-format
