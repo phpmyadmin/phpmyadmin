@@ -2725,11 +2725,11 @@ msgstr "இயல்புநிலை அட்டவணை தாவல்"
 
 #: libraries/classes/Config/Descriptions.php:640
 msgid "Enable autocomplete for table and column names"
-msgstr ""
+msgstr "அட்டவணை மற்றும் நெடுவரிசை பெயர்களுக்கான தன்னியக்க வேறுபாட்டை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:641
 msgid "Show column comments"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "நெடுவரிசை கருத்துகளைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:642
 msgid "Hide table structure actions"
