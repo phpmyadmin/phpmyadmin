@@ -10474,7 +10474,7 @@ msgstr "முதனிலை குறிப்பெழுத்தின் �
 
 #: src/Config/Descriptions.php:855
 msgid "Repeat headers"
-msgstr ""
+msgstr "தலைப்புகளை மீண்டும் செய்யவும்"
 
 #: src/Config/Descriptions.php:856
 msgid "Grid editing: trigger action"
