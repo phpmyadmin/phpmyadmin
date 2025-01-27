@@ -6025,7 +6025,7 @@ msgstr "புத்தகக்குறி"
 #: resources/templates/sql/bookmark.twig:21
 #: resources/templates/sql/query.twig:95
 msgid "Let every user access this bookmark"
-msgstr ""
+msgstr "ஒவ்வொரு பயனரும் இந்த புத்தகக்குறியை அணுகட்டும்"
 
 #: resources/templates/sql/bookmark.twig:26
 msgid "Create new bookmark"
