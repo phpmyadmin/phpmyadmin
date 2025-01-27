@@ -4664,6 +4664,7 @@ msgstr ""
 #: libraries/classes/Config/ServerConfigChecks.php:393
 msgid "Key should contain letters, numbers [em]and[/em] special characters."
 msgstr ""
+"விசையில் கடிதங்கள், எண்கள் [EM] மற்றும் [/em] சிறப்பு எழுத்துக்கள் இருக்க வேண்டும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:428
 #, php-format
