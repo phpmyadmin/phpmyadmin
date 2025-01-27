@@ -4406,7 +4406,7 @@ msgstr "உள்ளமைவு ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:41
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:44
 msgid "Signon authentication"
