@@ -17167,7 +17167,7 @@ msgstr "அல்லது மாறி பெயரைத் தட்டச்
 
 #: templates/server/status/monitor/index.twig:177
 msgid "Display as differential value"
-msgstr ""
+msgstr "வேறுபட்ட மதிப்பாக காண்பிக்கப்படும்"
 
 #: templates/server/status/monitor/index.twig:182
 msgid "Apply a divisor"
