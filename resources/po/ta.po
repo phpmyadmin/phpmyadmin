@@ -76,7 +76,7 @@ msgstr "பக்கம் தொடர்பான அமைப்புகள�
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "பக்கத்தின் மேல் உருட்ட பட்டியில் சொடுக்கு செய்க"
 
 #: resources/templates/base.twig:132 resources/templates/base.twig:134
 #: resources/templates/base.twig:136
