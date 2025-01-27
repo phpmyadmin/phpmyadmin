@@ -4878,7 +4878,7 @@ msgstr "உலகளாவிய சலுகைகள்"
 #: resources/templates/server/privileges/privileges_table.twig:265
 #: src/Server/Privileges.php:1568
 msgid "Database-specific privileges"
-msgstr ""
+msgstr "தரவுத்தள-குறிப்பிட்ட சலுகைகள்"
 
 #: resources/templates/server/privileges/privileges_table.twig:340
 #: resources/templates/server/privileges/privileges_table.twig:343
