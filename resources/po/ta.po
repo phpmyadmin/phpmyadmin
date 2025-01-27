@@ -8491,7 +8491,7 @@ msgstr "சொடுக்கு செய்க"
 
 #: src/Config/ConfigFile.php:568
 msgid "Double click"
-msgstr ""
+msgstr "இரட்டை சொடுக்கு"
 
 #: src/Config/ConfigFile.php:571
 msgid "key"
