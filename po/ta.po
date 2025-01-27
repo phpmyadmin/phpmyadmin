@@ -7811,7 +7811,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:424
 msgid "The number of physical writes of a key block to disk."
-msgstr ""
+msgstr "வட்டுக்கு ஒரு முக்கிய தொகுதியின் இயற்பியல் எழுத்துக்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:425
 msgid ""
