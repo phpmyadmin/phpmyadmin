@@ -9697,7 +9697,7 @@ msgstr "கரி டெக்ச்டேரியா வரிசைகள்"
 
 #: src/Config/Descriptions.php:612
 msgid "Check config file permissions"
-msgstr ""
+msgstr "கட்டமைப்பு கோப்பு அனுமதிகளை சரிபார்க்கவும்"
 
 #: src/Config/Descriptions.php:613
 msgid "Compress on the fly"
