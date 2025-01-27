@@ -4394,7 +4394,7 @@ msgstr "மதிப்பை அமைக்கவும்: %s"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:355
 msgid "Restore default value"
-msgstr ""
+msgstr "இயல்புநிலை மதிப்பை மீட்டெடுக்கவும்"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:368
 msgid "Allow users to customize this value"
