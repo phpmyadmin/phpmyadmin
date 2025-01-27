@@ -10484,6 +10484,10 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
+"கீழேயுள்ள ஒவ்வொரு நெடுவரிசைக்கும், தயவுசெய்து கொடுக்கப்பட்ட தொகுப்பில் <b> குறைந்தபட்ச "
+"தொகுப்பு </b> நெடுவரிசைகளைத் தேர்ந்தெடுக்கவும், அதன் மதிப்புகள் ஒன்றாக நெடுவரிசையின் "
+"மதிப்பைத் தீர்மானிக்க போதுமானவை. <br> குறிப்பு: ஒரு நெடுவரிசையில் இடைநிலை சார்பு இல்லை"
+", இல் அந்த வழக்கு நீங்கள் எதையும் தேர்ந்தெடுக்க வேண்டியதில்லை."
 
 #: libraries/classes/Normalization.php:926
 msgid ""
@@ -10530,7 +10534,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:1062
 msgid "No partial dependencies found!"
-msgstr "பகுதி சார்புநிலைகள் எதுவும் காணப்படவில்லை!"
+msgstr "பகுதி சார்புகள் எதுவும் கிடைக்கவில்லை!"
 
 #: libraries/classes/Operations.php:552
 #: templates/table/structure/display_partitions.twig:84
