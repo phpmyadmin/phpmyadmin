@@ -9744,6 +9744,7 @@ msgstr "சேவையகத்தில் ஏற்றுமதியைச�
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
+"வினவல் பெட்டி சமர்ப்பித்தபின் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
 
 #: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
