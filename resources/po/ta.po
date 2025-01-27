@@ -10579,7 +10579,7 @@ msgstr "சேவையக ஓச்ட்பெயர்"
 
 #: src/Config/Descriptions.php:878
 msgid "Logout URL"
-msgstr ""
+msgstr "வெளியேறு முகவரி"
 
 #: src/Config/Descriptions.php:879
 msgid "Maximal number of table preferences to store"
