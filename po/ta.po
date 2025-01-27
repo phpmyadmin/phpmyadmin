@@ -3109,7 +3109,7 @@ msgstr "தரவுத்தளங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:749
 msgid "Browse mode"
-msgstr ""
+msgstr "உலாவு பயன்முறை"
 
 #: libraries/classes/Config/Descriptions.php:751
 #: libraries/classes/Config/Forms/User/ExportForm.php:82
