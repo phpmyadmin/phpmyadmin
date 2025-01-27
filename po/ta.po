@@ -12499,7 +12499,7 @@ msgstr "%s ஆக தரவேற்றுக"
 
 #: libraries/classes/Tracking.php:521
 msgid "Data manipulation statement"
-msgstr ""
+msgstr "தரவு கையாளுதல் அறிக்கை"
 
 #: libraries/classes/Tracking.php:557
 msgid "Data definition statement"
