@@ -1548,7 +1548,7 @@ msgstr "உதவி"
 #: resources/templates/database/designer/main.twig:120
 #: resources/templates/database/designer/main.twig:123
 msgid "Angular links"
-msgstr ""
+msgstr "கோண இணைப்புகள்"
 
 #: resources/templates/database/designer/main.twig:120
 #: resources/templates/database/designer/main.twig:123
