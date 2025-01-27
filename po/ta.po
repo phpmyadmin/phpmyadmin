@@ -9837,7 +9837,7 @@ msgstr "செருகு"
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
 msgid "Privileges"
-msgstr ""
+msgstr "சலுகைகள்"
 
 #: libraries/classes/Menu.php:342 libraries/classes/Menu.php:351
 #: libraries/classes/Menu.php:441 libraries/classes/Util.php:1725
