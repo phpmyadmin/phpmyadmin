@@ -11936,7 +11936,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:7
 #: templates/server/privileges/privileges_table.twig:266
 msgid "Table-specific privileges"
-msgstr ""
+msgstr "அட்டவணை சார்ந்த சலுகைகள்"
 
 #: libraries/classes/Server/Privileges.php:1831
 #: libraries/classes/Server/Privileges.php:1833
