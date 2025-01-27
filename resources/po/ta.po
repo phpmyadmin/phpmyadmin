@@ -15038,7 +15038,7 @@ msgstr "பக்கங்கள்"
 
 #: src/Engines/Innodb.php:143
 msgid "Free pages"
-msgstr ""
+msgstr "இலவச பக்கங்கள்"
 
 #: src/Engines/Innodb.php:149
 msgid "Dirty pages"
