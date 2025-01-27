@@ -17081,7 +17081,7 @@ msgstr ""
 
 #: templates/server/status/variables/index.twig:22
 msgid "Show only alert values"
-msgstr ""
+msgstr "எச்சரிக்கை மதிப்புகளை மட்டும் காட்டு"
 
 #: templates/server/status/variables/index.twig:28
 msgid "Filter by category…"
