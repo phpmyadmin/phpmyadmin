@@ -96,6 +96,7 @@ msgstr "மெதுவான வினவல்களின் வீதம்"
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"சேவையக இயக்க நேரத்துடன் ஒப்பிடும்போது மெதுவான வினவல்களின் அதிக விழுக்காடு உள்ளது."
 
 #: libraries/advisory_rules_generic.php:58
 #, php-format
