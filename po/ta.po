@@ -11986,7 +11986,7 @@ msgstr "சலுகைகள் வெற்றிகரமாக மீண்�
 #: libraries/classes/Server/Privileges.php:2585
 #, php-format
 msgid "The user %s already exists!"
-msgstr ""
+msgstr "பயனர் %s ஏற்கனவே உள்ளன!"
 
 #: libraries/classes/Server/Privileges.php:2860
 #, php-format
