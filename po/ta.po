@@ -16903,7 +16903,7 @@ msgstr "வெளிநாட்டு முக்கிய உறவுகள�
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "மரியாட்பில் பயன்படுத்தப்படவில்லை."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used for this MySQL version."
