@@ -1369,7 +1369,7 @@ msgstr "சார்சியன்"
 #: libraries/classes/Charsets/Collation.php:407
 msgctxt "Collation"
 msgid "Greek"
-msgstr ""
+msgstr "கிரேக்கம்"
 
 #: libraries/classes/Charsets/Collation.php:410
 msgctxt "Collation"
