@@ -17101,8 +17101,6 @@ msgid "Rebuild partition"
 msgstr "பிரிவினை %s"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Edit view"
 msgid "Repair partition"
 msgstr "தொகுப்பு பார்வை"
 
