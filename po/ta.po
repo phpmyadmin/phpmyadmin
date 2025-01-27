@@ -9118,6 +9118,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
+"PBXT பற்றிய ஆவணங்கள் மற்றும் மேலதிக தகவல்களை %sPRIMEBASE XT முகப்பு பக்கம் %s இல் "
+"காணலாம்."
 
 #: libraries/classes/ErrorHandler.php:103
 msgid "Too many error messages, some are not displayed."
