@@ -11920,7 +11920,7 @@ msgstr "பயனர்களைப் பார்க்க போதுமா�
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
 msgid "Edit privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகளைத் திருத்தவும்"
 
 #: libraries/classes/Server/Privileges.php:1509
 msgid "Revoke"
@@ -17916,7 +17916,7 @@ msgstr "பிரிவினை %s"
 
 #: templates/table/privileges/index.twig:57
 msgid "table-specific"
-msgstr ""
+msgstr "அட்டவணை சார்ந்த"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
