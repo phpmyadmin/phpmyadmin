@@ -9019,7 +9019,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:78
 msgid "Checkpoint frequency"
-msgstr ""
+msgstr "சோதனைச் சாவடி அதிர்வெண்"
 
 #: libraries/classes/Engines/Pbxt.php:80
 msgid ""
