@@ -13281,7 +13281,7 @@ msgstr "கோவை"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
-msgstr ""
+msgstr "முதல்"
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:450
