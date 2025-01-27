@@ -855,7 +855,7 @@ msgstr "கைவிடப்பட்ட இணைப்புகளின் �
 #: libraries/advisory_rules_generic.php:545
 #: libraries/advisory_rules_generic.php:559
 msgid "Too many connections are aborted."
-msgstr ""
+msgstr "பல இணைப்புகள் கைவிடப்படுகின்றன."
 
 #: libraries/advisory_rules_generic.php:547
 #: libraries/advisory_rules_generic.php:561
