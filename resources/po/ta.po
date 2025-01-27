@@ -3212,15 +3212,15 @@ msgstr "நெடுவரிசை"
 
 #: resources/templates/export.twig:265
 msgid "Define new aliases"
-msgstr ""
+msgstr "புதிய மாற்றுப்பெயர்களை வரையறுக்கவும்"
 
 #: resources/templates/export.twig:270
 msgid "Select database:"
-msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
+msgstr "தரவுத்தளத்தைத் தேர்ந்தெடுக்கவும்:"
 
 #: resources/templates/export.twig:286
 msgid "Select table:"
-msgstr "அட்டவணையை தேர்வுசெய்க"
+msgstr "அட்டவணையைத் தேர்ந்தெடுக்கவும்:"
 
 #: resources/templates/export.twig:294
 msgid "New table name"
@@ -3228,7 +3228,7 @@ msgstr "அட்டவணையின் புதிய பெயர்"
 
 #: resources/templates/export.twig:302
 msgid "Select column:"
-msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
+msgstr "நெடுவரிசையைத் தேர்ந்தெடுக்கவும்:"
 
 #: resources/templates/export.twig:310
 msgid "New column name"
@@ -3530,7 +3530,7 @@ msgstr "%s தரவுத்தளத்தின் ஒழுங்கமை�
 #. l10n: Choose the theme button in the themes list modal
 #: resources/templates/home/themes.twig:14
 msgid "Take it"
-msgstr "அதை ஏற்றுக்கொள்"
+msgstr "அதை எடுத்துக் கொள்ளுங்கள்"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
