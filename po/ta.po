@@ -12444,7 +12444,7 @@ msgstr "கண்காணிப்பு அறிக்கைகள்"
 
 #: libraries/classes/Tracking.php:255
 msgid "Delete tracking data row from report"
-msgstr ""
+msgstr "அறிக்கையிலிருந்து தரவு வரிசையை கண்காணிக்கவும்"
 
 #: libraries/classes/Tracking.php:267
 msgid "No data"
