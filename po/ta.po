@@ -11017,8 +11017,6 @@ msgid "Two-factor authentication failed."
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:128
-#, fuzzy
-#| msgid "Authentication"
 msgid "No Two-Factor Authentication"
 msgstr "உறுதிப்படுத்தல்"
 
