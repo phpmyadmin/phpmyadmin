@@ -8828,7 +8828,7 @@ msgstr "வழிசெலுத்தல் மரத்தைத் தனி�
 
 #: src/Config/Descriptions.php:209
 msgid "Servers display options."
-msgstr ""
+msgstr "சேவையகங்கள் காட்சி விருப்பங்கள்."
 
 #: src/Config/Descriptions.php:210
 msgid "Tables display options."
