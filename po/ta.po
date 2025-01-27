@@ -15774,8 +15774,6 @@ msgstr ""
 
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
-#, fuzzy
-#| msgid "Percentage of slow queries"
 msgid "Truncate shown queries"
 msgstr "மெதுவான வினவல்களின் விழுக்காடு"
 
