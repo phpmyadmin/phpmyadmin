@@ -14340,7 +14340,7 @@ msgstr "மானியம்"
 #: templates/server/privileges/users_overview.twig:33
 #: templates/table/privileges/index.twig:38
 msgid "Any"
-msgstr ""
+msgstr "ஏதேனும்"
 
 #: templates/database/privileges/index.twig:47
 #: templates/table/privileges/index.twig:49
