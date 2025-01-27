@@ -2964,7 +2964,7 @@ msgstr "ஏற்றுமதி முறை"
 #: libraries/classes/Config/Descriptions.php:700
 #: libraries/classes/Config/Descriptions.php:703
 msgid "Save on server"
-msgstr ""
+msgstr "சேவையகத்தில் சேமிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:701
 #: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
