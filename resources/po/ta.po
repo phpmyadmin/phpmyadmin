@@ -5663,11 +5663,11 @@ msgstr "இத்தொகுதியை சேர்க்க"
 
 #: resources/templates/server/status/monitor/index.twig:169
 msgid "Clear series"
-msgstr ""
+msgstr "தெளிவான தொடர்"
 
 #: resources/templates/server/status/monitor/index.twig:173
 msgid "Series in chart:"
-msgstr "வழங்கி குறிமுறை:"
+msgstr "விளக்கப்படத்தில் தொடர்:"
 
 #: resources/templates/server/status/monitor/index.twig:182
 #: src/Controllers/JavaScriptMessagesController.php:223
