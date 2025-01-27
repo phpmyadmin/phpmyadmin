@@ -5354,7 +5354,7 @@ msgstr ""
 
 #: resources/templates/server/replication/primary_replication.twig:5
 msgid "This server is configured as primary in a replication process."
-msgstr ""
+msgstr "இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் முதன்மையாக கட்டமைக்கப்பட்டுள்ளது."
 
 #: resources/templates/server/replication/primary_replication.twig:9
 #: src/Server/Status/Data.php:163
