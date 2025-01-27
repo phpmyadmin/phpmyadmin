@@ -1126,12 +1126,12 @@ msgstr "சாவுஒறுப்பு வரிசை"
 
 #: resources/templates/console/display.twig:97
 msgid "Time taken"
-msgstr ""
+msgstr "எடுக்கப்பட்ட நேரம்"
 
 #: resources/templates/console/display.twig:100
 #: resources/templates/table/search/index.twig:145
 msgid "Order by:"
-msgstr "ஏனையது->வரிசை"
+msgstr "வழங்கியவர்:"
 
 #: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
 msgid "Group queries"
@@ -1139,15 +1139,15 @@ msgstr "குழு வினவல்கள்"
 
 #: resources/templates/console/display.twig:106
 msgid "Ungroup queries"
-msgstr "SQL வினவல்கள்"
+msgstr "குழு வினவல்கள்"
 
 #: resources/templates/console/display.twig:118
 msgid "Show trace"
-msgstr "உருவாக்கத்தை காட்டு"
+msgstr "ட்ரேசைக் காட்டு"
 
 #: resources/templates/console/display.twig:119
 msgid "Hide trace"
-msgstr "பலகத்தை மறை"
+msgstr "சுவடு மறை"
 
 #: resources/templates/console/display.twig:120
 msgid "Count:"
