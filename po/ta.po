@@ -14045,7 +14045,7 @@ msgstr "ஒரு பக்கத்தை உருவாக்கி அதை
 
 #: templates/database/designer/page_save_as.twig:29
 msgid "New page name"
-msgstr ""
+msgstr "புதிய பக்கத்தின் பெயர்"
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
