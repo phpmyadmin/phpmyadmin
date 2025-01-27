@@ -86,6 +86,7 @@ msgstr ""
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
+"மெதுவான வினவல் வீதம் 5 %% க்குக் குறைவாக இருக்க வேண்டும், உங்கள் மதிப்பு%s %%."
 
 #: libraries/advisory_rules_generic.php:50
 msgid "Slow query rate"
