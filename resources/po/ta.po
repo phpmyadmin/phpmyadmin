@@ -16276,7 +16276,7 @@ msgstr "தரவு டம்ப் விருப்பங்கள்"
 #: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2155
 #: src/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
-msgstr ""
+msgstr "அட்டவணைக்கான தரவை கொட்டுகிறது"
 
 #: src/Plugins/Export/ExportHtmlword.php:486
 #: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1895
