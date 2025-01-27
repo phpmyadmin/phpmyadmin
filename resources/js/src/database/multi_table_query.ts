@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { copyToClipboard, getSqlEditor } from '../modules/functions.ts';
+import { copyToClipboard, displayCopyNotification, getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeBacktick } from '../modules/functions/escape.ts';
@@ -195,7 +195,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         const query: string = editor.getDoc().getValue();
 
         copyToClipboard(query, '<textarea>');
-        ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000);
+        displayCopyNotification();
     });
 
     $('#add_column_button').on('click', function () {
