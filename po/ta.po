@@ -3828,7 +3828,7 @@ msgstr "முகவரி இன் அடையாளம்"
 
 #: libraries/classes/Config/Descriptions.php:912
 msgid "Server socket"
-msgstr ""
+msgstr "சேவையக சாக்கெட்"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "Use SSL"
