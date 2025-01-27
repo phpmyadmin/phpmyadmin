@@ -16759,7 +16759,7 @@ msgstr ""
 
 #: src/Plugins.php:575
 msgid "This format has no options"
-msgstr ""
+msgstr "இந்த வடிவத்திற்கு விருப்பங்கள் இல்லை"
 
 #: src/Plugins/Schema/Dia/TableStatsDia.php:66
 #: src/Plugins/Schema/Eps/TableStatsEps.php:78
