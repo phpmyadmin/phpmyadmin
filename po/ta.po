@@ -12811,7 +12811,7 @@ msgstr "%1$s தேதிகளுடன் %2$s முதல் %3$s வரை 
 
 #: libraries/classes/Tracking.php:476
 msgid "SQL dump (file download)"
-msgstr ""
+msgstr "கவிமொ டம்ப் (கோப்பு பதிவிறக்கம்)"
 
 #: libraries/classes/Tracking.php:478
 msgid "SQL dump"
