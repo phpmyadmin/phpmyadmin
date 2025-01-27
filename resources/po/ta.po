@@ -17773,6 +17773,7 @@ msgstr "முதன்மை %s உடன் இணைக்க முடிய
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
+"முதன்மை பதிவு நிலையைப் படிக்க முடியவில்லை. முதன்மை மீது சாத்தியமான சலுகை சிக்கல்."
 
 #: src/Replication/ReplicationGui.php:550
 msgid "Unable to change primary!"
