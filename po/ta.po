@@ -1405,7 +1405,7 @@ msgstr "தாய்"
 #: libraries/classes/Charsets/Collation.php:439
 msgctxt "Collation"
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியவில்லை"
 
 #: libraries/classes/Charsets/Collation.php:464
 msgctxt "Collation"
