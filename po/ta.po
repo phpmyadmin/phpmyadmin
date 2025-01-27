@@ -11664,7 +11664,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:206
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "வன்பொருள் பாதுகாப்பு விசை (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:216
 msgid ""
