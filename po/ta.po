@@ -14316,7 +14316,7 @@ msgstr ""
 
 #: templates/database/routines/editor_form.twig:148
 msgid "Security type"
-msgstr ""
+msgstr "பாதுகாப்பு வகை"
 
 #: templates/database/routines/editor_form.twig:157
 msgid "SQL data access"
