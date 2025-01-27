@@ -15081,7 +15081,7 @@ msgstr "பிழை அறிக்கையில் தரவை நீங்
 
 #: templates/export/template_options.twig:1 templates/export.twig:30
 msgid "Select a template"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+msgstr "ஒரு வார்ப்புருவைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/export.twig:15
 msgid "Export templates:"
@@ -15257,7 +15257,7 @@ msgstr ""
 
 #: templates/export.twig:416 templates/import.twig:215
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "குறியீட்டு மாற்றம்:"
 
 #: templates/gis_data_editor_form.twig:4
 #, php-format
