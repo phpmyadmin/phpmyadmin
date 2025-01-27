@@ -14063,7 +14063,7 @@ msgstr "தொடங்கு"
 #: templates/database/events/editor_form.twig:69
 msgctxt "End of recurring event"
 msgid "End"
-msgstr ""
+msgstr "முடிவு"
 
 #: templates/database/events/editor_form.twig:83
 msgid "On completion preserve"
