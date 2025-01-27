@@ -12020,7 +12020,7 @@ msgstr "புதிய அட்டவணைகளை உருவாக்க 
 #: templates/server/privileges/privileges_table.twig:385
 #: templates/server/privileges/privileges_table.twig:393
 msgid "Allows dropping tables."
-msgstr ""
+msgstr "அட்டவணைகளை கைவிட அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:291
 #: libraries/classes/Server/Privileges.php:383
