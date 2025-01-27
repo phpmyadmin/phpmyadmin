@@ -4199,24 +4199,25 @@ msgstr "தற்போதைய உலாவல் வினவலைக் க
 #: libraries/classes/Config/Descriptions.php:989
 msgid "Execute queries on Enter and insert new line with Shift + Enter"
 msgstr ""
+"உயர்த்து + Enter உடன் புதிய வரியை உள்ளிடவும் செருகவும் வினவல்களை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:990
 #: templates/console/display.twig:168
 msgid "Switch to dark theme"
-msgstr "பிரதியான தரவுதளத்துக்கு மாறு"
+msgstr "இருண்ட கருப்பொருளுக்கு மாறவும்"
 
 #: libraries/classes/Config/Descriptions.php:991
 msgid "Console height"
-msgstr "முனையம்"
+msgstr "கன்சோல் உயரம்"
 
 #: libraries/classes/Config/Descriptions.php:992
 msgid "Console mode"
-msgstr "முனையம்"
+msgstr "கன்சோல் பயன்முறை"
 
 #: libraries/classes/Config/Descriptions.php:993
 #: templates/console/display.twig:64
 msgid "Group queries"
-msgstr "SQL வினவல்கள்"
+msgstr "குழு வினவல்கள்"
 
 #: libraries/classes/Config/Descriptions.php:994
 #: templates/sql/profiling_chart.twig:9
@@ -4225,7 +4226,7 @@ msgstr "ஏனையது->வரிசை"
 
 #: libraries/classes/Config/Descriptions.php:995
 msgid "Order by"
-msgstr "ஏனையது->வரிசை"
+msgstr "வழங்கியவர்"
 
 #: libraries/classes/Config/Descriptions.php:996
 msgid "Server connection collation"
