@@ -7455,6 +7455,9 @@ msgid ""
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
+"கொடுக்கப்பட்ட பெயரைக் கொண்ட ஒரு அட்டவணையைப் பற்றி தெரிந்தால் MySQL சேவையகம் NDB கிளச்டர் "
+"சேமிப்பக இயந்திரத்தைக் கேட்கலாம். இது கண்டுபிடிப்பு என்று அழைக்கப்படுகிறது. ஏண்ட்லர்_டிச்கவர்"
+" நேர அட்டவணைகள் கண்டுபிடிக்கப்பட்டதைக் குறிக்கிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:281
 msgid ""
