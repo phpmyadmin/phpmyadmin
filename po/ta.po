@@ -12124,7 +12124,7 @@ msgstr "விருந்தோம்பி"
 
 #: libraries/classes/Server/Status/Processes.php:126
 msgid "Command"
-msgstr ""
+msgstr "கட்டளை"
 
 #: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
