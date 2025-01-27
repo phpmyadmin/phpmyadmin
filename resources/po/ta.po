@@ -15408,7 +15408,7 @@ msgstr ""
 
 #: src/File.php:272
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "பதிவேற்றிய கோப்பு ஓரளவு மட்டுமே பதிவேற்றப்பட்டது."
 
 #: src/File.php:276
 msgid "Missing a temporary folder."
