@@ -9007,7 +9007,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:69
 msgid "Transaction buffer size"
-msgstr ""
+msgstr "பரிவர்த்தனை இடையக அளவு"
 
 #: libraries/classes/Engines/Pbxt.php:71
 msgid ""
