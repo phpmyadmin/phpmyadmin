@@ -17247,7 +17247,7 @@ msgstr "தொடக்கத்திலிருந்து பிணைய �
 #: templates/server/status/status/index.twig:7
 #, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
-msgstr ""
+msgstr "இந்த MySQL சேவையகம் %1$s க்கு இயங்குகிறது. இது %2$s இல் தொடங்கியது."
 
 #: templates/server/status/status/index.twig:15
 msgid ""
