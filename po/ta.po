@@ -16474,8 +16474,6 @@ msgid "Primary status"
 msgstr "தரவிறக்க நிலை"
 
 #: templates/server/replication/status_table.twig:8
-#, fuzzy
-#| msgid "Replication status"
 msgid "Replica status"
 msgstr "துணைநிலை நிகழ்நிலை"
 
