@@ -3336,7 +3336,7 @@ msgstr "உள்ளக முக்கிய சொல்லைப் பயன
 
 #: libraries/classes/Config/Descriptions.php:806
 msgid "Column names in first row"
-msgstr ""
+msgstr "முதல் வரிசையில் நெடுவரிசை பெயர்கள்"
 
 #: libraries/classes/Config/Descriptions.php:807
 #: libraries/classes/Plugins/Import/ImportOds.php:74
