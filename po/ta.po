@@ -13930,7 +13930,7 @@ msgstr "சிறிய/பெரியது"
 #: templates/database/designer/main.twig:143
 #: templates/database/designer/main.twig:146
 msgid "Toggle small/big"
-msgstr ""
+msgstr "சிறிய/பெரிய மாற்று"
 
 #: templates/database/designer/main.twig:150
 #: templates/database/designer/main.twig:153
