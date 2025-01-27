@@ -6481,6 +6481,8 @@ msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
+"MySQL TATEPICKER ஆல் தேர்ந்தெடுக்கப்படாத கூடுதல் மதிப்புகளை ஏற்றுக்கொள்கிறது; "
+"விரும்பினால் அந்த மதிப்புகளில் விசை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:511
 msgid ""
