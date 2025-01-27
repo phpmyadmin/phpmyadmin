@@ -9031,7 +9031,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:87
 msgid "Data log threshold"
-msgstr ""
+msgstr "தரவு பதிவு வாசல்"
 
 #: libraries/classes/Engines/Pbxt.php:89
 msgid ""
