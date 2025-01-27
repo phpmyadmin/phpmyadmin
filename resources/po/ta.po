@@ -17437,7 +17437,7 @@ msgstr "தற்காலிக தரவு"
 
 #: src/Server/Status/Data.php:121
 msgid "Delayed inserts"
-msgstr ""
+msgstr "தாமதமான செருகல்கள்"
 
 #: src/Server/Status/Data.php:122
 msgid "Key cache"
