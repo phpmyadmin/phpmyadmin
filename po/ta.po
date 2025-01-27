@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 04:30+0000\n"
+"PO-Revision-Date: 2025-01-27 06:58+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -3580,7 +3580,7 @@ msgstr "கண்காணிப்பை மாற்றுகிறது"
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
-msgstr "SQL"
+msgstr "கவிமொ"
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "SQL Query box"
@@ -4379,7 +4379,7 @@ msgstr "பதிலி கடவுச்சொல்"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "சிப்"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
@@ -5883,38 +5883,38 @@ msgstr "து"
 #: libraries/classes/Util.php:511
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
-msgstr "KiB"
+msgstr "வினோதமாக"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: libraries/classes/Util.php:513
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mib"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: libraries/classes/Util.php:515
 msgid "GiB"
-msgstr "GiB"
+msgstr "கிப்"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 #: libraries/classes/Util.php:517
 msgid "TiB"
-msgstr "TiB"
+msgstr "திப்"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: libraries/classes/Util.php:519
 msgid "PiB"
-msgstr "PiB"
+msgstr "தொடங்கவும்"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:521
 msgid "EiB"
-msgstr "EiB"
+msgstr "Eib"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #, php-format
@@ -12287,6 +12287,7 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
+"%'%s' என்ற தரவுத்தளத்தை%உருவாக்கி, அங்கு phpmyadmin உள்ளமைவு சேமிப்பிடத்தை அமைக்கவும்."
 
 #: libraries/classes/Relation.php:2214
 #, php-format
@@ -16473,12 +16474,12 @@ msgstr "பார்க்க பைனரி பதிவைத் தேர்
 #: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
 msgid "Truncate shown queries"
-msgstr "மெதுவான வினவல்களின் விழுக்காடு"
+msgstr "காட்டப்பட்ட வினவல்களைக் குறைத்தல்"
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
 msgid "Show full queries"
-msgstr "SQL வினவல்களை காட்டுக"
+msgstr "முழு கேள்விகளையும் காட்டு"
 
 #: templates/server/binlog/index.twig:84
 msgid "Log name"
@@ -16523,7 +16524,7 @@ msgstr "தரவுத்தளத்தை உருவாக்கவும�
 
 #: templates/server/databases/index.twig:72
 msgid "No privileges to create databases"
-msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
+msgstr "தரவுத்தளங்களை உருவாக்க சலுகைகள் இல்லை"
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:18
@@ -16577,11 +16578,11 @@ msgstr "சேமிப்பக இயந்திரம்"
 
 #: templates/server/engines/show.twig:45
 msgid "Unknown storage engine."
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "அறியப்படாத சேமிப்பக இயந்திரம்."
 
 #: templates/server/export/index.twig:32
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr "@ சேவையகம்@ சேவையக பெயராக மாறும்."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16609,7 +16610,7 @@ msgstr "நூலாசிரியர்"
 
 #: templates/server/plugins/index.twig:41
 msgid "inactive"
-msgstr "செயற்படு"
+msgstr "செயலற்றது"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
@@ -16617,11 +16618,11 @@ msgstr "முடக்கப்பட்டது"
 
 #: templates/server/plugins/index.twig:45
 msgid "deleting"
-msgstr "அழித்தல்"
+msgstr "நீக்குதல்"
 
 #: templates/server/plugins/index.twig:47
 msgid "deleted"
-msgstr "அழி"
+msgstr "நீக்கப்பட்டது"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -16652,7 +16653,7 @@ msgstr "உள்ளிடவும்:"
 #: templates/server/privileges/login_information_fields.twig:54
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "நிரல் நீளம்"
+msgstr "வலிமை:"
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
@@ -16680,7 +16681,7 @@ msgstr "பயனர் குழு"
 
 #: templates/server/privileges/choose_user_group.twig:6
 msgid "User group:"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் குழு:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
