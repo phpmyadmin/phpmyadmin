@@ -6425,7 +6425,7 @@ msgstr "அட்டவணை வடிவமைப்பை மெருகே�
 
 #: resources/templates/table/normalization/normalization.twig:7
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "நீங்கள் எந்த படி இயல்பாக்க விரும்புகிறீர்கள் என்பதைத் தேர்ந்தெடுக்கவும்"
 
 #: resources/templates/table/normalization/normalization.twig:9
 msgid ""
