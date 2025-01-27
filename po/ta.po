@@ -3316,7 +3316,7 @@ msgstr "பகுதி இறக்குமதி: குறுக்கீட
 #: libraries/classes/Plugins/Import/ImportCsv.php:141
 #: libraries/classes/Plugins/Import/ImportLdi.php:68
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "செருகும் பிழையை நிறுத்த வேண்டாம்"
 
 #: libraries/classes/Config/Descriptions.php:797
 #: libraries/classes/Config/Descriptions.php:804
