@@ -13920,7 +13920,7 @@ msgstr "நேரடி இணைப்புகள்"
 #: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
 msgid "Snap to grid"
-msgstr ""
+msgstr "கட்டத்திற்கு ச்னாப்"
 
 #: templates/database/designer/main.twig:133
 #: templates/database/designer/main.twig:139
