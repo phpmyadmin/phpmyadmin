@@ -799,7 +799,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:515
 msgid "Slow launch time"
-msgstr ""
+msgstr "மெதுவாக ஏவுதல் நேரம்"
 
 #: libraries/advisory_rules_generic.php:518
 msgid "Slow_launch_time is above 2s."
