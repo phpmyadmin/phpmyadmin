@@ -10582,7 +10582,7 @@ msgstr "சிட்டை குறிப்பெழுத்து:"
 #: libraries/classes/Plugins/Export/ExportOdt.php:96
 #: libraries/classes/Plugins/Export/ExportSql.php:154
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "வெளிநாட்டு முக்கிய உறவுகளைக் காண்பி"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:140
 #: libraries/classes/Plugins/Export/ExportOdt.php:103
