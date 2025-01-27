@@ -10033,7 +10033,7 @@ msgstr "இயல்புநிலைகளை ஏற்றுமதி செ�
 
 #: src/Config/Descriptions.php:735
 msgid "General"
-msgstr ""
+msgstr "பொது"
 
 #: src/Config/Descriptions.php:736
 msgid "Import defaults"
