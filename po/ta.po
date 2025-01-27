@@ -8333,6 +8333,7 @@ msgstr "நிகழ்வு %1$s உருவாக்கப்பட்டு
 #: libraries/classes/Database/Triggers.php:174
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
+"உங்கள் கோரிக்கையை செயலாக்கும்போது ஒன்று அல்லது அதற்கு மேற்பட்ட பிழைகள் ஏற்பட்டுள்ளன:"
 
 #: libraries/classes/Database/Events.php:239
 msgid "Add event"
