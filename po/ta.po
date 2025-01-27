@@ -9685,8 +9685,8 @@ msgstr "பயனர்குழுவின் பெயர்:"
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s முடிவு காணப்பட்டது"
+msgstr[1] "%s முடிவுகள் காணப்பட்டன"
 
 #: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
