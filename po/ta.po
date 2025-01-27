@@ -17607,7 +17607,7 @@ msgstr "மதிப்பு நெடுவரிசை:"
 
 #: templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
-msgstr ""
+msgstr "விளக்கப்படத்தை படமாக சேமிக்கவும்"
 
 #: templates/table/export/index.twig:12
 msgid ""
