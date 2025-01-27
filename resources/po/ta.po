@@ -2710,7 +2710,7 @@ msgstr "அட்டவணை"
 #: src/Navigation/Nodes/NodeViewContainer.php:24
 #: src/Plugins/Export/ExportXml.php:121
 msgid "Views"
-msgstr ""
+msgstr "காட்சிகள்"
 
 #: resources/templates/database/structure/show_create.twig:35
 #: resources/templates/database/structure/structure_table_row.twig:122
