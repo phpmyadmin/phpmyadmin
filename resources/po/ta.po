@@ -7408,7 +7408,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:191
 msgid "'percona' found in version_comment"
-msgstr ""
+msgstr "பதிப்பு_மென்ட்டில் 'பெர்கோனா' காணப்படுகிறது"
 
 #: src/Advisory/Rules.php:195
 msgid "MySQL Architecture"
