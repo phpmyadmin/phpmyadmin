@@ -17786,7 +17786,7 @@ msgstr "கருப்பொருள் %s கிடைக்கக்கூ�
 
 #: src/Tracking/TrackedDataType.php:35
 msgid "Tracking data definition successfully deleted"
-msgstr ""
+msgstr "தரவு வரையறையைக் கண்காணித்தல் வெற்றிகரமாக நீக்கப்பட்டது"
 
 #: src/Tracking/TrackedDataType.php:36
 msgid "Tracking data manipulation successfully deleted"
