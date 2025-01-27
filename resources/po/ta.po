@@ -1543,7 +1543,7 @@ msgstr "ஏற்றவும்"
 #: resources/templates/database/designer/main.twig:112
 #: resources/templates/database/designer/main.twig:115
 msgid "Help"
-msgstr ""
+msgstr "உதவி"
 
 #: resources/templates/database/designer/main.twig:120
 #: resources/templates/database/designer/main.twig:123
