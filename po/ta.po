@@ -13150,7 +13150,7 @@ msgstr "பிழை அறிக்கைகளை அனுப்புவத�
 
 #: libraries/config.values.php:201
 msgid "Always send error reports"
-msgstr ""
+msgstr "எப்போதும் பிழை அறிக்கைகளை அனுப்பவும்"
 
 #: libraries/config.values.php:202
 msgid "Never send error reports"
