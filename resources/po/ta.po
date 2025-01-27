@@ -4040,7 +4040,7 @@ msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: resources/templates/preferences/two_factor/main.twig:5
 msgid "Two-factor authentication status"
-msgstr "உறுதிப்பாடு அமைப்புமுறைமை."
+msgstr "இரண்டு காரணி அங்கீகார நிலை"
 
 #: resources/templates/preferences/two_factor/main.twig:11
 msgid ""
@@ -6294,7 +6294,7 @@ msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக 
 #: resources/templates/table/export/index.twig:7
 #, php-format
 msgid "Exporting rows from \"%s\" table"
-msgstr ""
+msgstr "\"%s\" அட்டவணையில் இருந்து வரிசைகளை ஏற்றுமதி செய்தல்"
 
 #: resources/templates/table/find_replace/index.twig:4
 #: resources/templates/table/search/index.twig:4
