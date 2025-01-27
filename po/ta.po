@@ -17085,7 +17085,7 @@ msgstr "எச்சரிக்கை மதிப்புகளை மட்�
 
 #: templates/server/status/variables/index.twig:28
 msgid "Filter by category…"
-msgstr ""
+msgstr "வகை மூலம் வடிகட்டவும்…"
 
 #: templates/server/status/variables/index.twig:38
 msgid "Show unformatted values"
