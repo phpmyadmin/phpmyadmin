@@ -16559,6 +16559,7 @@ msgstr "அடிமை io நூல் இயங்கவில்லை!"
 msgid ""
 "Server is configured as slave in a replication process. Would you like to:"
 msgstr ""
+"சேவையகம் ஒரு பிரதி செயல்பாட்டில் அடிமையாக கட்டமைக்கப்பட்டுள்ளது. நீங்கள் விரும்புகிறீர்கள்:"
 
 #: templates/server/replication/slave_configuration.twig:34
 msgid "See slave status table"
