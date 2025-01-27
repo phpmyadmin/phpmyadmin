@@ -3122,7 +3122,7 @@ msgstr "SQL வினவல்களை காட்டுக"
 
 #: resources/templates/export.twig:104
 msgid "Export method:"
-msgstr "ஒழுங்கமைவை தரவேற்றுக"
+msgstr "ஏற்றுமதி முறை:"
 
 #: resources/templates/export.twig:108
 msgid "Quick - display only the minimal options"
@@ -6994,7 +6994,7 @@ msgstr "%s கண்காணிப்பதை செயலிழக்கச�
 
 #: resources/templates/table/tracking/main.twig:105
 msgid "Deactivate now"
-msgstr ""
+msgstr "இப்போது செயலிழக்கச் செய்யுங்கள்"
 
 #: resources/templates/table/tracking/report_table.twig:4
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:5
