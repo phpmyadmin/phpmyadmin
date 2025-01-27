@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:28+0000\n"
+"PO-Revision-Date: 2025-01-27 02:29+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -5038,6 +5038,8 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:776
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
+"பயனர் ஒரு மணி நேரத்திற்கு திறக்கக்கூடிய புதிய இணைப்புகளின் எண்ணிக்கையை "
+"கட்டுப்படுத்துகிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:782
 #: resources/templates/server/privileges/privileges_table.twig:789
