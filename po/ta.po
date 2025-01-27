@@ -17518,7 +17518,7 @@ msgstr "தொடர்புடைய இணைப்புகள்:"
 
 #: templates/server/status/variables/index.twig:139
 msgid "Not enough privilege to view status variables."
-msgstr ""
+msgstr "நிலை மாறிகளைக் காண போதுமான பாக்கியம் இல்லை."
 
 #: templates/server/user_groups/edit_user_groups.twig:2
 #: templates/server/user_groups/user_groups.twig:64
