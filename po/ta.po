@@ -10980,7 +10980,7 @@ msgstr "நிரல்வரிசை பெயரை படியெடுக�
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
 #, php-format
 msgid "Invalid format of CSV input on line %d."
-msgstr ""
+msgstr "வரி %d இல் காபிம உள்ளீட்டின் தவறான வடிவம் d."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:490
 #, php-format
