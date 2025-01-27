@@ -7366,6 +7366,7 @@ msgid ""
 "The number of connections that were aborted because the client died without "
 "closing the connection properly."
 msgstr ""
+"கிளையன்ட் இணைப்பை சரியாக மூடாமல் இறந்ததால் நிறுத்தப்பட்ட இணைப்புகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid "The number of failed attempts to connect to the MySQL server."
