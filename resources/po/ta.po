@@ -15664,7 +15664,7 @@ msgstr "முடக்கப்பட்ட சரிபார்ப்பு�
 
 #: src/Html/Generator.php:226
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "சான்றிதழ் ஆணையம் இல்லாமல் SSL பயன்படுத்தப்படுகிறது"
 
 #: src/Html/Generator.php:229
 msgid "SSL is used"
