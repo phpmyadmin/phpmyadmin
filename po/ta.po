@@ -10305,7 +10305,7 @@ msgstr "தவறான பயனர்பெயர்/கடவுச்சொ�
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
 msgid "Can not find signon authentication script:"
-msgstr ""
+msgstr "சிக்னான் அங்கீகார ச்கிரிப்டைக் கண்டுபிடிக்க முடியவில்லை:"
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:180
 msgid ""
