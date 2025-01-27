@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 01:50+0000\n"
+"PO-Revision-Date: 2025-01-27 01:51+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -2416,7 +2416,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:551
 msgid "Highlight selected rows."
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட வரிசைகளை முன்னிலைப்படுத்தவும்."
 
 #: libraries/classes/Config/Descriptions.php:552
 msgid "Highlight row pointed by the mouse cursor."
