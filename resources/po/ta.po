@@ -17790,7 +17790,7 @@ msgstr "தரவு வரையறையைக் கண்காணித்�
 
 #: src/Tracking/TrackedDataType.php:36
 msgid "Tracking data manipulation successfully deleted"
-msgstr ""
+msgstr "தரவு கையாளுதலைக் கண்காணித்தல் வெற்றிகரமாக நீக்கப்பட்டது"
 
 #: src/Tracking/TrackedDataType.php:43
 msgid "Data definition statement"
