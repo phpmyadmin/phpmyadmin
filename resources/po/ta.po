@@ -13843,7 +13843,7 @@ msgstr "சுமார் %நொடி. மீதமுள்ள."
 
 #: src/Controllers/JavaScriptMessagesController.php:822
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "கோப்பு செயலாக்கப்படுகிறது, தயவுசெய்து பொறுமையாக இருங்கள்."
 
 #: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Uploading your import file…"
