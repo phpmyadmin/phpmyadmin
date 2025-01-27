@@ -10261,7 +10261,7 @@ msgstr "முதல் மட்டத்தில் அதிகபட்ச 
 
 #: src/Config/Descriptions.php:805
 msgid "Maximum items in branch"
-msgstr ""
+msgstr "கிளையில் அதிகபட்ச உருப்படிகள்"
 
 #: src/Config/Descriptions.php:806
 msgid "Maximum number of rows to display"
