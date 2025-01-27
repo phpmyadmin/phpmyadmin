@@ -2363,6 +2363,8 @@ msgid ""
 "Leave blank to disable the feature to hide and show navigation items, "
 "suggested: [kbd]pma__navigationhiding[/kbd]."
 msgstr ""
+"வழிசெலுத்தல் உருப்படிகளை மறைத்து காண்பிப்பதற்கான அம்சத்தை முடக்க காலியாக விடுங்கள், "
+"பரிந்துரைக்கப்படுகிறது: [kbd] pma__navigationhiding [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:464
 msgid ""
