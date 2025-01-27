@@ -8211,7 +8211,7 @@ msgstr "பாரம்பரிய சீன"
 #: src/Charsets/Collation.php:288 src/Charsets/Collation.php:374
 msgctxt "Collation"
 msgid "Chinese"
-msgstr ""
+msgstr "சீன"
 
 #: src/Charsets/Collation.php:296 src/Charsets/Collation.php:423
 msgctxt "Collation"
