@@ -372,7 +372,7 @@ msgstr "குறியீடுகள் இல்லாமல் இணைந�
 
 #: libraries/advisory_rules_generic.php:249
 msgid "There are too many joins without indexes."
-msgstr ""
+msgstr "குறியீடுகள் இல்லாமல் அதிகமான இணைப்புகள் உள்ளன."
 
 #: libraries/advisory_rules_generic.php:251
 msgid ""
