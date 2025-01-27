@@ -10171,7 +10171,7 @@ msgstr "நகல் விசை புதுப்பிப்பில் ச
 
 #: src/Config/Descriptions.php:779
 msgid "Format of imported file"
-msgstr ""
+msgstr "இறக்குமதி செய்யப்பட்ட கோப்பின் வடிவம்"
 
 #: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
