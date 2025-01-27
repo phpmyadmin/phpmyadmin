@@ -1701,6 +1701,8 @@ msgid ""
 "Disable the table maintenance mass operations, like optimizing or repairing "
 "the selected tables of a database."
 msgstr ""
+"தரவுத்தளத்தின் தேர்ந்தெடுக்கப்பட்ட அட்டவணைகளை மேம்படுத்துவது அல்லது சரிசெய்வது போன்ற அட்டவணை"
+" பராமரிப்பு வெகுசன செயல்பாடுகளை முடக்கு."
 
 #: libraries/classes/Config/Descriptions.php:182
 msgid ""
