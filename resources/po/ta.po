@@ -3706,7 +3706,7 @@ msgstr ""
 #: resources/templates/login/twofactor/application_configure.twig:16
 #: resources/templates/login/twofactor/application.twig:2
 msgid "Authentication code:"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "அங்கீகார குறியீடு:"
 
 #: resources/templates/login/twofactor/application.twig:5
 msgid ""
@@ -7012,7 +7012,7 @@ msgstr ""
 
 #: resources/templates/table/zoom_search/index.twig:54
 msgid "Additional search criteria"
-msgstr ""
+msgstr "கூடுதல் தேடல் அளவுகோல்கள்"
 
 #: resources/templates/table/zoom_search/index.twig:114
 msgid "Use this column to label each point"
