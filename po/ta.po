@@ -14971,8 +14971,6 @@ msgstr "விருப்பத்தேர்வுகள்"
 
 #: templates/indexes.twig:39
 #: templates/table/structure/display_structure.twig:506
-#, fuzzy
-#| msgid "Keyname"
 msgid "Rename"
 msgstr "முக்கியபெயர்"
 
