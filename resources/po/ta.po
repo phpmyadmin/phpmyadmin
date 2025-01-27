@@ -8240,6 +8240,7 @@ msgstr "வினவல் இடைமாற்று முறைமை செ
 #: src/Advisory/Rules.php:790
 msgid "Query cache not running efficiently, it has a low hit rate."
 msgstr ""
+"வினவல் கேச் திறமையாக இயங்கவில்லை, இது குறைந்த செய் விகிதத்தைக் கொண்டுள்ளது."
 
 #: src/Advisory/Rules.php:791
 msgid "Consider increasing {query_cache_limit}."
