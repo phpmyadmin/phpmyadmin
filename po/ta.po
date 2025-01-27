@@ -7834,6 +7834,7 @@ msgid ""
 "The maximum number of connections that have been in use simultaneously since "
 "the server started."
 msgstr ""
+"சேவையகம் தொடங்கியதிலிருந்து ஒரே நேரத்தில் பயன்பாட்டில் இருக்கும் அதிகபட்ச இணைப்புகள்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:435
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
