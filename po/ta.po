@@ -12415,7 +12415,7 @@ msgstr ""
 #: libraries/classes/Template.php:135
 #, php-format
 msgid "Error while working with template cache: %s"
-msgstr ""
+msgstr "வார்ப்புரு தற்காலிக சேமிப்பில் பணிபுரியும் போது பிழை: %s"
 
 #: libraries/classes/ThemeManager.php:83
 #, php-format
