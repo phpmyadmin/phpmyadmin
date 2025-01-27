@@ -7713,7 +7713,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:390
 msgid "MyISAM key buffer size"
-msgstr ""
+msgstr "MyISAM விசை இடையக அளவு"
 
 #: src/Advisory/Rules.php:393
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
