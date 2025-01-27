@@ -3961,7 +3961,7 @@ msgstr "புள்ளிவிவரங்களைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:954
 msgid "Skip locked tables"
-msgstr ""
+msgstr "பூட்டப்பட்ட அட்டவணைகளைத் தவிர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:955
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
