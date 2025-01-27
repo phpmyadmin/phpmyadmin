@@ -9779,7 +9779,7 @@ msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
 
 #: libraries/classes/LanguageManager.php:989
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "ஆதரிக்கப்படாத மொழி குறியீட்டை புறக்கணித்தல்."
 
 #: libraries/classes/LanguageManager.php:1015
 #: libraries/classes/LanguageManager.php:1016 templates/setup/home/index.twig:8
