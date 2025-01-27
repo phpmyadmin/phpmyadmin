@@ -8746,7 +8746,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 #: libraries/classes/Database/Routines.php:1448
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "வழக்கமான %s இன் சாவுஒறுப்பு முடிவுகள்"
 
 #: libraries/classes/Database/Routines.php:1498
 #, php-format
