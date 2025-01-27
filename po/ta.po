@@ -11901,7 +11901,7 @@ msgstr "சேமிக்கப்பட்ட நடைமுறைகளை �
 #: libraries/classes/Server/Privileges.php:1083
 #, php-format
 msgid "The password for %s was changed successfully."
-msgstr ""
+msgstr "%s க்கான கடவுச்சொல் வெற்றிகரமாக மாற்றப்பட்டது."
 
 #: libraries/classes/Server/Privileges.php:1131
 #, php-format
