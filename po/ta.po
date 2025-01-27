@@ -15881,7 +15881,7 @@ msgstr "மேம்பட்ட அம்சங்களை அமைப்ப�
 #: templates/relation/diagnostic_info.twig:5
 #, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
-msgstr ""
+msgstr "<code>%screate_tables.sql </code> உடன் தேவையான அட்டவணைகளை உருவாக்கவும்."
 
 #: templates/relation/diagnostic_info.twig:9
 msgid "Create a pma user and give access to these tables."
