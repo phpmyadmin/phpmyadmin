@@ -14887,7 +14887,7 @@ msgstr "நீங்கள் ஒரு நிகழ்வு வரையறை
 #: src/Database/Routines.php:85 src/Database/Routines.php:814
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "தவறான வழக்கமான வகை: \"%s\""
 
 #: src/Database/Routines.php:137
 #, php-format
