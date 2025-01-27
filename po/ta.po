@@ -16470,8 +16470,6 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/status_table.twig:6
-#, fuzzy
-#| msgid "Import status"
 msgid "Primary status"
 msgstr "தரவிறக்க நிலை"
 
