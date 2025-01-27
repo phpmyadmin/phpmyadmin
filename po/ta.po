@@ -12565,7 +12565,7 @@ msgstr "பதிப்பு %1$s %2$s நீக்கப்பட்டது.
 #: libraries/classes/Tracking.php:1010
 #, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
-msgstr ""
+msgstr "பதிப்பு %1$s உருவாக்கப்பட்டது, %2$s க்கான கண்காணிப்பு செயலில் உள்ளது."
 
 #: libraries/classes/Types.php:231
 msgid ""
