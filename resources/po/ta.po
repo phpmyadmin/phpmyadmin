@@ -16263,7 +16263,7 @@ msgstr "நெடுவரிசைகளுக்குள் வண்டி �
 
 #: src/Plugins/Export/ExportExcel.php:84
 msgid "Excel edition:"
-msgstr ""
+msgstr "எக்செல் பதிப்பு:"
 
 #: src/Plugins/Export/ExportHtmlword.php:81
 #: src/Plugins/Export/ExportLatex.php:174 src/Plugins/Export/ExportOdt.php:127
