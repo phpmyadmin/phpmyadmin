@@ -14779,7 +14779,7 @@ msgstr "தகுதியற்ற அட்டவணைப் பெயர்"
 #: src/Controllers/Table/GetFieldController.php:70
 #: src/Controllers/Transformation/WrapperController.php:75
 msgid "There is an issue with your request."
-msgstr ""
+msgstr "உங்கள் கோரிக்கையில் சிக்கல் உள்ளது."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
