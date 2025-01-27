@@ -14194,7 +14194,7 @@ msgstr ""
 
 #: templates/database/designer/main.twig:382
 msgid "Delete relationship"
-msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
+msgstr "உறவை நீக்கு"
 
 #: templates/database/designer/main.twig:446
 #: templates/database/designer/main.twig:611
@@ -14228,7 +14228,7 @@ msgstr "புதிய பெயர்"
 #: templates/database/designer/main.twig:511
 #: templates/database/designer/main.twig:917
 msgid "Aggregate"
-msgstr ""
+msgstr "மொத்தம்"
 
 #: templates/database/designer/main.twig:517
 #: templates/database/designer/main.twig:581
