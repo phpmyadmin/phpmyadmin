@@ -15480,7 +15480,7 @@ msgstr "கோப்பு செயலாக்கப்படுகிறத�
 
 #: templates/import/javascript.twig:29
 msgid "Uploading your import file…"
-msgstr ""
+msgstr "உங்கள் இறக்குமதி கோப்பை பதிவேற்றுதல்…"
 
 #: templates/import/javascript.twig:152
 msgid ""
