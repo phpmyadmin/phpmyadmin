@@ -3292,7 +3292,7 @@ msgstr "Gzip"
 
 #: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "ICONV க்கான கூடுதல் அளவுருக்கள்"
 
 #: libraries/classes/Config/Descriptions.php:789
 msgid "Ignore multiple statement errors"
