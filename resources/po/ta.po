@@ -18268,7 +18268,7 @@ msgstr ""
 
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "சிப் காப்பகத்திற்குள் கோப்புகள் எதுவும் இல்லை!"
 
 #~ msgid "Bad parameters!"
 #~ msgstr "ஒவ்வாத பண்புகூறுகள்!"
