@@ -9892,7 +9892,7 @@ msgstr "அட்டவணை தலைப்பு"
 
 #: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
 msgid "Continued table caption"
-msgstr ""
+msgstr "தொடர்ச்சியான அட்டவணை தலைப்பு"
 
 #: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
 msgid "Label key"
