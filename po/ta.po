@@ -15453,6 +15453,8 @@ msgid ""
 "this is a known bug in webkit based (Safari, Google Chrome, Arora etc.) "
 "browsers."
 msgstr ""
+"பதிவேற்றப்படும் கோப்பு அதிகபட்சமாக அனுமதிக்கப்பட்ட அளவை விட பெரியது அல்லது இது வெப்கிட் "
+"அடிப்படையிலான (சஃபாரி, கூகிள் குரோம், அரோரா போன்றவை) உலாவிகளில் அறியப்பட்ட பிழை."
 
 #: templates/import/javascript.twig:13
 #, php-format
