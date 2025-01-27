@@ -8229,6 +8229,8 @@ msgstr ""
 #: src/Advisory/Rules.php:781
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
+"query_cache_size 0 ஆக அமைக்கப்பட்டுள்ளது அல்லது query_cache_type 'off' என "
+"அமைக்கப்பட்டுள்ளது"
 
 #: src/Advisory/Rules.php:786
 #, no-php-format
