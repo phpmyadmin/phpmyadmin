@@ -3318,7 +3318,7 @@ msgstr "இடங்களை விட பெரிய அட்டவணைய
 
 #: resources/templates/export.twig:472
 msgid "The size is measured in MiB."
-msgstr ""
+msgstr "அளவு MIB இல் அளவிடப்படுகிறது."
 
 #: resources/templates/export.twig:478 resources/templates/import.twig:173
 msgid "Format-specific options:"
@@ -3350,7 +3350,7 @@ msgstr ""
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
 msgid "SRID:"
-msgstr "SRID (இடம்சார்ந்த குறியீடு அமைப்பு காட்டி) :"
+msgstr "ச்ரிட்:"
 
 #: resources/templates/gis_data_editor_form.twig:61
 #: resources/templates/table/gis_visualization/gis_visualization.twig:39
