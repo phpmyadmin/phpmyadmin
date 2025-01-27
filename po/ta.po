@@ -4664,7 +4664,7 @@ msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 #: templates/config/form_display/display.twig:68
 #, php-format
 msgid "Value must be less than or equal to %s!"
-msgstr ""
+msgstr "மதிப்பு %s ஐ விட குறைவாகவோ அல்லது சமமாகவோ இருக்க வேண்டும்!"
 
 #: libraries/classes/Console.php:92
 #, php-format
