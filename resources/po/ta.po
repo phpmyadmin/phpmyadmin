@@ -16282,7 +16282,7 @@ msgstr "அட்டவணைக்கான தரவை கொட்டுக�
 #: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1895
 #: src/Plugins/Export/ExportTexytext.php:458
 msgid "Table structure for table"
-msgstr ""
+msgstr "அட்டவணைக்கான அட்டவணை அமைப்பு"
 
 #: src/Plugins/Export/ExportHtmlword.php:503
 #: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1952
