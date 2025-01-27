@@ -15030,7 +15030,7 @@ msgstr "InnoDB நிகழ்நிலை"
 
 #: src/Engines/Innodb.php:128
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "இடையக பூல் பயன்பாடு"
 
 #: src/Engines/Innodb.php:135
 msgid "pages"
