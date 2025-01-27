@@ -13888,7 +13888,7 @@ msgstr "Phpmyadmin உள்ளமைவு துணுக்கை"
 
 #: src/Controllers/Preferences/ManageController.php:86
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "அதை உங்கள் config.inc.php க்கு ஒட்டவும்"
 
 #: src/Controllers/Preferences/ManageController.php:136
 msgid "Could not import configuration"
