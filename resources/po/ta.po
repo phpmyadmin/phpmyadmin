@@ -16157,7 +16157,7 @@ msgstr "PDF ஐ உருவாக்கும் போது பிழை:"
 
 #: src/Plugins/Auth/AuthenticationConfig.php:76
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "இணைக்க முடியாது: தவறான அமைப்புகள்."
 
 #: src/Plugins/Auth/AuthenticationConfig.php:106
 #, php-format
