@@ -12079,7 +12079,7 @@ msgstr "வரிசைப்படுத்துதல்"
 
 #: libraries/classes/Server/Status/Data.php:160
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "பரிவர்த்தனை ஒருங்கிணைப்பாளர்"
 
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/server/binlog/index.twig:27
