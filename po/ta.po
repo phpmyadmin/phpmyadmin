@@ -9068,7 +9068,7 @@ msgstr "InnoDB நிகழ்நிலை"
 
 #: libraries/classes/Engines/Innodb.php:136
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "இடையக பூல் பயன்பாடு"
 
 #: libraries/classes/Engines/Innodb.php:146
 msgid "pages"
