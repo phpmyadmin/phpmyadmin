@@ -14396,7 +14396,7 @@ msgstr "ஆட்டோ அதிகரிப்பு மதிப்பைச�
 #: templates/table/structure/drop_confirm.twig:6
 #: templates/table/structure/primary.twig:6
 msgid "Do you really want to execute the following query?"
-msgstr ""
+msgstr "பின்வரும் வினவலை இயக்க விரும்புகிறீர்களா?"
 
 #: templates/database/structure/favorite_anchor.twig:4
 #: templates/recent_favorite_table_favorite.twig:6
