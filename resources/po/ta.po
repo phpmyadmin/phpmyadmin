@@ -13847,7 +13847,7 @@ msgstr "கோப்பு செயலாக்கப்படுகிறத�
 
 #: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Uploading your import file…"
-msgstr ""
+msgstr "உங்கள் இறக்குமதி கோப்பை பதிவேற்றுதல்…"
 
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid ""
