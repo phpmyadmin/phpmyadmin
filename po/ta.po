@@ -3327,7 +3327,7 @@ msgstr "நகல் விசை புதுப்பிப்பில் ச
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Format of imported file"
-msgstr ""
+msgstr "இறக்குமதி செய்யப்பட்ட கோப்பின் வடிவம்"
 
 #: libraries/classes/Config/Descriptions.php:803
 #: libraries/classes/Plugins/Import/ImportLdi.php:74
