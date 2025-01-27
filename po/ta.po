@@ -6636,6 +6636,7 @@ msgstr "அயல் குறியெண் மதிப்புகளை உ
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:392
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"முன்னர் தானாக சேமிக்கப்பட்ட வினவல் எதுவும் கிடைக்கவில்லை. இயல்புநிலை வினவலை ஏற்றுகிறது."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:394
 msgid ""
