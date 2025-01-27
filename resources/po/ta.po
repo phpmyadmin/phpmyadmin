@@ -17352,7 +17352,7 @@ msgstr "%s க்கான சலுகைகளை நீங்கள் பு
 #: src/Server/Privileges.php:2143
 #, php-format
 msgid "Deleting %s"
-msgstr ""
+msgstr "%s நீக்குதல்"
 
 #: src/Server/Privileges.php:2173
 msgid "The privileges were reloaded successfully."
