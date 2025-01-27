@@ -11572,7 +11572,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 #: src/Controllers/Database/RoutinesController.php:351
 #: src/Controllers/Database/RoutinesController.php:361
 msgid "Execute routine"
-msgstr ""
+msgstr "வழக்கத்தை இயக்கவும்"
 
 #: src/Controllers/Database/RoutinesController.php:413
 #, php-format
