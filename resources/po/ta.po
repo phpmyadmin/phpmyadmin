@@ -18264,7 +18264,7 @@ msgstr "பயனர்கள்"
 
 #: src/ZipExtension.php:67 src/ZipExtension.php:105
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "சிப் காப்பகத்தில் பிழை:"
 
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
