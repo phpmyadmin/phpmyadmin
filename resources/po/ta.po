@@ -9120,6 +9120,9 @@ msgid ""
 "storage). If disabled, this utilizes JS-routines to display query history "
 "(lost by window close)."
 msgstr ""
+"நீங்கள் DB- அடிப்படையிலான வினவல் வரலாற்றை விரும்பினால் இயக்கவும் (Phpmyadmin உள்ளமைவு "
+"சேமிப்பு தேவை). முடக்கப்பட்டால், இது வினவல் வரலாற்றைக் காண்பிக்க JS- ரூட்டின்களைப் "
+"பயன்படுத்துகிறது (சாளர நெருக்கமான மூலம் இழந்தது)."
 
 #: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
