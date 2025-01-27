@@ -8897,7 +8897,7 @@ msgstr "மன்னிக்கவும், கைவிடப்பட்ட 
 #: libraries/classes/Database/Triggers.php:582
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் தூண்டுதல் இல்லை."
 
 #: libraries/classes/Database/Triggers.php:618
 #, php-format
@@ -14463,7 +14463,7 @@ msgstr ""
 
 #: templates/database/routines/index.twig:23
 msgid "There are no routines to display."
-msgstr ""
+msgstr "காண்பிக்க எந்த நடைமுறைகளும் இல்லை."
 
 #: templates/database/routines/index.twig:33
 msgid "Returns"
