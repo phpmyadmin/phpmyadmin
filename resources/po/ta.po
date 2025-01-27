@@ -2567,7 +2567,7 @@ msgstr "அட்டவணையை சரிபார்"
 #: resources/templates/table/maintenance/checksum.twig:3
 #: resources/templates/table/operations/index.twig:357
 msgid "Checksum table"
-msgstr "அட்டவணையை சரிபார்"
+msgstr "செக்சம் அட்டவணை"
 
 #: resources/templates/database/structure/check_all_tables.twig:22
 #: resources/templates/table/maintenance/optimize.twig:3
@@ -6488,7 +6488,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 
 #: resources/templates/table/operations/index.twig:323
 msgid "Switch to copied table"
-msgstr ""
+msgstr "நகலெடுக்கப்பட்ட அட்டவணைக்கு மாறவும்"
 
 #: resources/templates/table/operations/index.twig:365
 msgid "Defragment table"
