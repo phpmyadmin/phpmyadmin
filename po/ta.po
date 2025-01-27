@@ -16394,7 +16394,7 @@ msgstr "செல்லுபடியாகும் x509 சான்றித
 
 #: templates/server/privileges/privileges_table.twig:799
 msgid "Requires that a specific cipher method be used for a connection."
-msgstr ""
+msgstr "இணைப்புக்கு ஒரு குறிப்பிட்ட மறைக்குறியீடு முறை பயன்படுத்தப்பட வேண்டும்."
 
 #: templates/server/privileges/privileges_table.twig:808
 msgid "Requires that a valid X509 certificate issued by this CA be presented."
