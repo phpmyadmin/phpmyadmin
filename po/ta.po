@@ -11119,7 +11119,7 @@ msgstr "தொடர்புடைய திட்டம்"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:486
 msgid "Table of contents"
-msgstr ""
+msgstr "உள்ளடக்க அட்டவணை"
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:620
 #: templates/columns_definitions/column_definitions_form.twig:72
