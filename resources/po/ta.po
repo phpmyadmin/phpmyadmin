@@ -9937,7 +9937,7 @@ msgstr "உருவாக்கம்/புதுப்பித்தல்/�
 
 #: src/Config/Descriptions.php:691
 msgid "Use delayed inserts"
-msgstr ""
+msgstr "தாமதமான செருகல்களைப் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
