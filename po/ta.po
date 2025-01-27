@@ -15125,7 +15125,7 @@ msgstr "தனிப்பயன் - சாத்தியமான அனை�
 
 #: templates/export.twig:102
 msgid "Rows:"
-msgstr ""
+msgstr "வரிசைகள்:"
 
 #: templates/export.twig:107
 msgid "Dump some row(s)"
