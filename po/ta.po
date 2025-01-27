@@ -14267,7 +14267,7 @@ msgstr "தரவுத்தளம் <b>%s</b>ன் மீது SQL வி�
 
 #: templates/database/routines/editor_form.twig:20
 msgid "Routine name"
-msgstr ""
+msgstr "வழக்கமான பெயர்"
 
 #: templates/database/routines/editor_form.twig:43
 msgid "Parameters"
