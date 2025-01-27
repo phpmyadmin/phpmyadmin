@@ -418,7 +418,7 @@ msgstr "மூடுக"
 #: resources/templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
-msgstr ""
+msgstr "%s ஆல் குறிப்பிடப்படுகிறது."
 
 #: resources/templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
