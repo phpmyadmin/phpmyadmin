@@ -4469,7 +4469,7 @@ msgstr "தற்போதைய சேவையகத்திலிருந�
 
 #: resources/templates/server/import/index.twig:3
 msgid "Importing into the current server"
-msgstr ""
+msgstr "தற்போதைய சேவையகத்தில் இறக்குமதி செய்கிறது"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
 #: src/Util.php:1366
