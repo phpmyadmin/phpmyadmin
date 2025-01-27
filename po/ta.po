@@ -11803,7 +11803,7 @@ msgstr "புக்மார்க்கு செய்யப்பட்ட �
 
 #: libraries/classes/Relation.php:272
 msgid "SQL history"
-msgstr ""
+msgstr "கவிமொ வரலாறு"
 
 #: libraries/classes/Relation.php:283
 msgid "Persistent recently used tables"
