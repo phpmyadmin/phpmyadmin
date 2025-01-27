@@ -18514,7 +18514,7 @@ msgstr "எப்படி பயன்படுத்துவது"
 
 #: templates/table/zoom_search/result_form.twig:17
 msgid "Reset zoom"
-msgstr ""
+msgstr "பெரிதாக்கு மீட்டமைக்கவும்"
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
