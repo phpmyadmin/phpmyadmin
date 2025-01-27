@@ -15046,7 +15046,7 @@ msgstr "அழுக்கு பக்கங்கள்"
 
 #: src/Engines/Innodb.php:155
 msgid "Pages containing data"
-msgstr ""
+msgstr "தரவைக் கொண்ட பக்கங்கள்"
 
 #: src/Engines/Innodb.php:161
 msgid "Pages to be flushed"
