@@ -199,9 +199,8 @@ PHP;
 
     /**
      * Test for isGitRevision
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testIsGitRevisionRevisionInfo(): void
     {
         $gitLocation = '';
@@ -398,9 +397,8 @@ PHP;
 
     /**
      * Test for checkGitRevision with a revision-info.php file
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testCheckGitRevisionRevisionInfo(): void
     {
         file_put_contents(
@@ -457,9 +455,8 @@ PHP;
 
     /**
      * Test for getGitRevisionInfo with a revision-info.php file
-     *
-     * @group git-revision
      */
+    #[Group('git-revision')]
     public function testGetGitRevisionInfo(): void
     {
         self::assertNull($this->object->getGitRevisionInfo());
