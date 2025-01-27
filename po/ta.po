@@ -17119,6 +17119,10 @@ msgid ""
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
+"பதிவுகளிலிருந்து வினவல்களைக் காண்பிக்க, இடது சுட்டி பொத்தானை அழுத்திப் பிடித்து "
+"விளக்கப்படம் மூலம் எந்த விளக்கப்படத்திலும் தொடர்புடைய நேர இடைவெளியைத் தேர்ந்தெடுக்கவும். "
+"உறுதிசெய்யப்பட்டதும், இது தொகுக்கப்பட்ட வினவல்களின் அட்டவணையை ஏற்றும், அவற்றை மேலும் "
+"பகுப்பாய்வு செய்ய எந்தவொரு தேர்ந்தெடுக்கப்பட்ட அறிக்கைகளையும் நீங்கள் சொடுக்கு செய்யலாம்."
 
 #: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
