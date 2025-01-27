@@ -4539,6 +4539,7 @@ msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"இந்த அமைப்பில் கிடைக்காத செயல்பாடுகள் (%s)%sZIP டிகம்பரச்சன்%s தேவைப்படுகிறது."
 
 #: libraries/classes/Config/ServerConfigChecks.php:328
 #, php-format
