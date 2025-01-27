@@ -17421,7 +17421,7 @@ msgstr ""
 
 #: src/Server/Status/Data.php:116
 msgid "Handler"
-msgstr ""
+msgstr "கையாளுபவர்"
 
 #: src/Server/Status/Data.php:117
 msgid "Query cache"
