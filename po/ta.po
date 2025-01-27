@@ -2290,6 +2290,8 @@ msgid ""
 "Whether a DROP DATABASE IF EXISTS statement will be added as first line to "
 "the log when creating a database."
 msgstr ""
+"தரவுத்தளத்தை உருவாக்கும் போது பதிவின் முதல் வரியாக ஒரு துளி தரவுத்தளம் சேர்க்கப்படுமா "
+"என்பது."
 
 #: libraries/classes/Config/Descriptions.php:430
 msgid ""
