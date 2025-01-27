@@ -10503,7 +10503,7 @@ msgstr "புரவலன் அங்கீகார விதிகள்"
 
 #: src/Config/Descriptions.php:862
 msgid "Allow logins without a password"
-msgstr ""
+msgstr "கடவுச்சொல் இல்லாமல் உள்நுழைவுகளை அனுமதிக்கவும்"
 
 #: src/Config/Descriptions.php:863
 msgid "Allow root login"
@@ -10511,7 +10511,7 @@ msgstr "root புகுபதிவை ஏற்க"
 
 #: src/Config/Descriptions.php:864
 msgid "Session timezone"
-msgstr "அமர்வு மதிப்பு"
+msgstr "அமர்வு நேர மண்டலம்"
 
 #: src/Config/Descriptions.php:865
 msgid "HTTP Realm"
