@@ -185,14 +185,14 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
         });
     });
 
-    editor.getDoc().on('change', function () {
-        const query = editor.getDoc().getValue();
+    editor.getDoc().on('change', function (): void {
+        const query: string = editor.getDoc().getValue();
 
         $('#copy_query').prop('disabled', query === '');
     });
 
-    $('#copy_query').on('click', function () {
-        const query = editor.getDoc().getValue();
+    $('#copy_query').on('click', function (): void {
+        const query: string = editor.getDoc().getValue();
 
         copyToClipboard(query, '<textarea>');
         ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000);
