@@ -16834,7 +16834,7 @@ msgstr "வண்ணத்தைக் காட்டு"
 
 #: src/Plugins/SchemaPlugin.php:72
 msgid "Only show keys"
-msgstr ""
+msgstr "விசைகளை மட்டுமே காட்டு"
 
 #: src/Plugins/Schema/SchemaDia.php:55 src/Plugins/Schema/SchemaEps.php:63
 #: src/Plugins/Schema/SchemaPdf.php:65
