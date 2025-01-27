@@ -1350,7 +1350,7 @@ msgstr "சிரிலிக்"
 #: libraries/classes/Charsets/Collation.php:409
 msgctxt "Collation"
 msgid "Arabic"
-msgstr ""
+msgstr "அரபு"
 
 #: libraries/classes/Charsets/Collation.php:412
 #: libraries/classes/Charsets/Collation.php:534
