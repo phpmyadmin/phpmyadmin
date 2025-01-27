@@ -17800,7 +17800,7 @@ msgstr "பிழை 404! பக்கம் %s காணப்படவில�
 
 #: src/Routing/Routing.php:167
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "பிழை 405! கோரிக்கை முறை அனுமதிக்கப்படவில்லை."
 
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
 #: src/Server/Privileges.php:3138
@@ -17813,15 +17813,15 @@ msgstr "SHA256 கடவுச்சொல் ஏற்பு"
 
 #: src/Server/Plugins.php:63
 msgid "Caching sha2 authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "SHA2 ஏற்பு"
 
 #: src/Server/Plugins.php:68
 msgid "Unix Socket based authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "யூனிக்ச் சாக்கெட் அடிப்படையிலான ஏற்பு"
 
 #: src/Server/Plugins.php:73
 msgid "Old MySQL-4.0 authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "பழைய MySQL-4.0 ஏற்பு"
 
 #: src/Server/Privileges/AccountLocking.php:24
 #: src/Server/Privileges/AccountLocking.php:43
