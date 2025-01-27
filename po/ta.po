@@ -2169,6 +2169,8 @@ msgid ""
 "Leave blank for no SQL query history support, suggested: [kbd]pma__history[/"
 "kbd]."
 msgstr ""
+"கவிமொ வினவல் வரலாற்று ஆதரவுக்கு காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [KBD] "
+"PMA__ வரலாறு [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:373
 msgid ""
