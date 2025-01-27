@@ -7240,7 +7240,7 @@ msgstr "அதுபோல் நிரல்வரிசை இல்லை"
 #: libraries/classes/Normalization.php:250 libraries/classes/Types.php:843
 msgctxt "string types"
 msgid "String"
-msgstr ""
+msgstr "சரம்"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:94
 msgid "phpMyAdmin configuration snippet"
