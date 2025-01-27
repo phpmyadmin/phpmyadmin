@@ -8389,7 +8389,7 @@ msgstr "வேண்டுகோள் செயலாக்கதில் ப�
 #: libraries/classes/Database/Events.php:534
 #, php-format
 msgid "No event with name %1$s found in database %2$s."
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயர் கொண்ட நிகழ்வு இல்லை."
 
 #: libraries/classes/Database/Events.php:566
 #, php-format
@@ -14759,7 +14759,7 @@ msgstr "அட்டவணையை கண்காணி"
 
 #: templates/database/triggers/list.twig:11
 msgid "There are no triggers to display."
-msgstr ""
+msgstr "காண்பிக்க தூண்டுதல்கள் எதுவும் இல்லை."
 
 #: templates/display/results/sort_by_key.twig:3
 msgid "Sort by key:"
