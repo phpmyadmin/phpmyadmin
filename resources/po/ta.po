@@ -4311,7 +4311,7 @@ msgstr "SQL வினவல்களை காட்டுக"
 
 #: resources/templates/server/binlog/index.twig:82
 msgid "Log name"
-msgstr ""
+msgstr "பதிவு பெயர்"
 
 #: resources/templates/server/binlog/index.twig:83
 msgid "Position"
