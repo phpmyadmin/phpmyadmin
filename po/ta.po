@@ -3457,7 +3457,7 @@ msgstr "சின்னத்தை காட்டுக"
 
 #: libraries/classes/Config/Descriptions.php:833
 msgid "Logo link URL"
-msgstr ""
+msgstr "லோகோ இணைப்பு முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:834
 msgid "Logo link target"
