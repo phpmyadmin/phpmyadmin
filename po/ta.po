@@ -7673,7 +7673,7 @@ msgstr "எழுதப்பட்ட பக்கங்களின் எண�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:469
 msgid "The number of row locks currently being waited for."
-msgstr ""
+msgstr "தற்போது காத்திருக்கப்பட்ட வரிசை பூட்டுகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:472
 msgid "The average time to acquire a row lock, in milliseconds."
