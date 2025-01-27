@@ -11896,7 +11896,7 @@ msgstr "பயனர் கணக்குகளை உருவாக்க, �
 #: templates/server/privileges/privileges_table.twig:480
 #: templates/server/privileges/privileges_table.twig:483
 msgid "Allows executing stored routines."
-msgstr ""
+msgstr "சேமிக்கப்பட்ட நடைமுறைகளை இயக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:1083
 #, php-format
@@ -16615,11 +16615,11 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:784
 msgid "Does not require SSL-encrypted connections."
-msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
+msgstr "SSL- மறைகுறியாக்கப்பட்ட இணைப்புகள் தேவையில்லை."
 
 #: templates/server/privileges/privileges_table.twig:793
 msgid "Requires SSL-encrypted connections."
-msgstr "கைவிடப்பட்ட இணைப்புகளின் வீதம்"
+msgstr "SSL- மறைகுறியாக்கப்பட்ட இணைப்புகள் தேவை."
 
 #: templates/server/privileges/privileges_table.twig:802
 msgid "Requires a valid X509 certificate."
