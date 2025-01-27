@@ -3568,7 +3568,7 @@ msgstr "அட்டவணை வழிசெலுத்தல் பட்ட�
 
 #: libraries/classes/Config/Descriptions.php:861
 msgid "GZip output buffering"
-msgstr ""
+msgstr "GZIP வெளியீடு இடையக"
 
 #: libraries/classes/Config/Descriptions.php:862
 msgid "Default sorting order"
