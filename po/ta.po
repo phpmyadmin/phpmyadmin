@@ -5311,8 +5311,6 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "Remove redundant columns"
 msgid "Lock this account."
 msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
