@@ -4305,7 +4305,7 @@ msgstr "காணாமல் போன செயல்பாடுகள் க
 #: libraries/classes/Config/FormDisplay.php:867
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "அதிகபட்ச %s"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:39
 msgid "Config authentication"
