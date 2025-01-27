@@ -12700,6 +12700,8 @@ msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
+"ஒரு நிலையான நீளம் (0-255, இயல்புநிலை 1) சரம் சேமிக்கும்போது குறிப்பிட்ட நீளத்திற்கு "
+"எப்போதும் வலது-துடுப்பு"
 
 #: libraries/classes/Types.php:334
 #, php-format
