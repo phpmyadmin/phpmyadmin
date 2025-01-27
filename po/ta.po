@@ -11629,7 +11629,7 @@ msgstr "புக்மார்க்கு செய்யப்பட்ட �
 #: libraries/classes/SavedSearches.php:276
 #: libraries/classes/SavedSearches.php:310
 msgid "An entry with this name already exists."
-msgstr ""
+msgstr "இந்த பெயருடன் ஒரு நுழைவு ஏற்கனவே உள்ளது."
 
 #: libraries/classes/SavedSearches.php:338
 msgid "Missing information to delete the search."
