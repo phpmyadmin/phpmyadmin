@@ -17393,8 +17393,6 @@ msgid "(singly)"
 msgstr ""
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "No tables found in database."
 msgid "Move table to (database.table)"
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
 
