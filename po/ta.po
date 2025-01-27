@@ -1155,7 +1155,7 @@ msgstr "வினவல் இடைமாற்றல் பாவனையள�
 #: libraries/advisory_rules_mysql_before80003.php:39
 #, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr ""
+msgstr "வினவல் தற்காலிக சேமிப்பில் 80% க்கும் குறைவானது பயன்படுத்தப்படுகிறது."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
