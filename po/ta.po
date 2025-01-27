@@ -9872,7 +9872,7 @@ msgstr "தரவுத்தளம் காலியாக இருப்ப�
 
 #: libraries/classes/Menu.php:418 libraries/classes/Util.php:2493
 msgid "Query"
-msgstr ""
+msgstr "வினவல்"
 
 #: libraries/classes/Menu.php:456 libraries/classes/Util.php:2498
 #: templates/database/routines/index.twig:18
