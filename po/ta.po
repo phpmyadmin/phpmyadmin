@@ -17015,7 +17015,7 @@ msgstr "தொடக்க மானிட்டர்"
 
 #: templates/server/status/monitor/index.twig:16
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "வழிமுறைகள்/அமைப்பு"
 
 #: templates/server/status/monitor/index.twig:20
 msgid "Done dragging (rearranging) charts"
