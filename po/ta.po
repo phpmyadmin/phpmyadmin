@@ -1215,6 +1215,8 @@ msgid ""
 "The query cache size is above 128 MiB. Big query caches may cause "
 "significant overhead that is required to maintain the cache."
 msgstr ""
+"வினவல் கேச் அளவு 128 MIB க்கு மேல் உள்ளது. பெரிய வினவல் தற்காலிக சேமிப்புகள் தற்காலிக "
+"சேமிப்பை பராமரிக்க தேவையான குறிப்பிடத்தக்க மேல்நிலைகளை ஏற்படுத்தக்கூடும்."
 
 #: libraries/advisory_rules_mysql_before80003.php:100
 msgid ""
