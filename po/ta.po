@@ -3077,7 +3077,7 @@ msgstr "ஒரு பரிவர்த்தனையில் ஏற்று�
 
 #: libraries/classes/Config/Descriptions.php:740
 msgid "Export time in UTC"
-msgstr ""
+msgstr "UTC இல் ஏற்றுமதி நேரம்"
 
 #: libraries/classes/Config/Descriptions.php:744
 msgid "Foreign key dropdown order"
