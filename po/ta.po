@@ -1005,7 +1005,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:676
 #, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
-msgstr ""
+msgstr "உங்கள் முழுமையான INNODB பதிவு அளவு %s MIB ஆகும்"
 
 #: libraries/advisory_rules_generic.php:681
 msgid "InnoDB buffer pool size"
