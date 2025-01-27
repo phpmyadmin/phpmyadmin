@@ -6817,8 +6817,6 @@ msgid "Successfully copied!"
 msgstr "பக்கம் நீக்கப்பட்டது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:652
-#, fuzzy
-#| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
 
