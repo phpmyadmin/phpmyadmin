@@ -2706,7 +2706,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:607
 msgid "Title of browser window when a database is selected."
-msgstr ""
+msgstr "ஒரு தரவுத்தளம் தேர்ந்தெடுக்கப்படும்போது உலாவி சாளரத்தின் தலைப்பு."
 
 #: libraries/classes/Config/Descriptions.php:608
 msgid "Title of browser window when nothing is selected."
