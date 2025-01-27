@@ -7233,7 +7233,7 @@ msgstr "மெதுவான வினவல்களின் விழுக�
 #: src/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "ஒட்டுமொத்த வினவல்களுடன் ஒப்பிடும்போது மெதுவான வினவல்கள் நிறைய உள்ளன."
 
 #: src/Advisory/Rules.php:68 src/Advisory/Rules.php:81
 msgid ""
