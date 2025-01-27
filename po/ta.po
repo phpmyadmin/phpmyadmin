@@ -3479,7 +3479,7 @@ msgstr "இரண்டாவது விரைவான அணுகல் ஐ
 
 #: libraries/classes/Config/Descriptions.php:838
 msgid "Minimum number of items to display the filter box"
-msgstr ""
+msgstr "வடிகட்டி பெட்டியைக் காண்பிக்க குறைந்தபட்ச உருப்படிகளின் எண்ணிக்கை"
 
 #: libraries/classes/Config/Descriptions.php:840
 msgid "Minimum number of databases to display the database filter box"
