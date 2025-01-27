@@ -8968,7 +8968,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:260
 msgid "Maximum number of characters used when a SQL query is displayed."
-msgstr ""
+msgstr "கவிமொ வினவல் காட்டப்படும் போது பயன்படுத்தப்படும் அதிகபட்ச எழுத்துக்கள்."
 
 #: src/Config/Descriptions.php:263
 msgid ""
