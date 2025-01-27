@@ -16040,7 +16040,7 @@ msgstr "நீங்கள் அமைவுகள் எதுவும் ச
 #: templates/preferences/manage/main.twig:40
 #: templates/preferences/manage/main.twig:104
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "இந்த அம்சத்தை உங்கள் வலை உலாவியால் ஆதரிக்கவில்லை"
 
 #: templates/preferences/manage/main.twig:44
 msgid "Merge with current configuration"
@@ -16057,11 +16057,11 @@ msgstr ""
 
 #: templates/preferences/manage/main.twig:81
 msgid "Save as JSON file"
-msgstr "கோப்பாக சேமிக்க"
+msgstr "சாதொபொகு கோப்பாக சேமிக்கவும்"
 
 #: templates/preferences/manage/main.twig:85
 msgid "Save as PHP file"
-msgstr "கோப்பாக சேமிக்க"
+msgstr "பிஎச்பி கோப்பாக சேமிக்கவும்"
 
 #: templates/preferences/manage/main.twig:90
 msgid "Save to browser's storage"
