@@ -1280,7 +1280,7 @@ msgstr "இருமம்"
 #: libraries/classes/Charsets/Collation.php:320
 msgctxt "Collation variant"
 msgid "no-pad"
-msgstr ""
+msgstr "இல்லை"
 
 #: libraries/classes/Charsets/Collation.php:339
 msgctxt "Collation"
