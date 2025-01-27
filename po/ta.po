@@ -9665,7 +9665,7 @@ msgstr "அல்லது"
 
 #: libraries/classes/InsertEdit.php:1584
 msgid "web server upload directory:"
-msgstr ""
+msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
 #: libraries/classes/InsertEdit.php:1787
 #: templates/table/search/input_box.twig:37
