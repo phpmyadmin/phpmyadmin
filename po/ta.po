@@ -15892,7 +15892,7 @@ msgstr ""
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "சரிபார்க்கவும்"
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
