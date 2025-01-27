@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:07+0000\n"
+"PO-Revision-Date: 2025-01-27 02:08+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -8574,17 +8574,17 @@ msgstr "குறைந்தபட்சம் ஒரு சொல்லைய�
 #: libraries/classes/Database/Search.php:104
 #: templates/database/search/main.twig:23
 msgid "all of the words"
-msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
+msgstr "எல்லா வார்த்தைகளும்"
 
 #: libraries/classes/Database/Search.php:105
 #: templates/database/search/main.twig:27
 msgid "the exact phrase as substring"
-msgstr "சரியான சொற்றொடர்"
+msgstr "மூலக்கூறு என சரியான சொற்றொடர்"
 
 #: libraries/classes/Database/Search.php:106
 #: templates/database/search/main.twig:31
 msgid "the exact phrase as whole field"
-msgstr "சரியான சொற்றொடர்"
+msgstr "முழு புலமாக சரியான சொற்றொடர்"
 
 #: libraries/classes/Database/Search.php:107
 #: templates/database/search/main.twig:35
@@ -14018,7 +14018,7 @@ msgstr "நெடுவரிசை:"
 
 #: templates/database/qbe/selection_form.twig:17
 msgid "Alias:"
-msgstr ""
+msgstr "மாற்றுப்பெயர்:"
 
 #: templates/database/qbe/selection_form.twig:22
 msgid "Show:"
@@ -14030,7 +14030,7 @@ msgstr "வரிசைப்படுத்து:"
 
 #: templates/database/qbe/selection_form.twig:32
 msgid "Sort order:"
-msgstr "வரிசைப்படுத்து:"
+msgstr "வரிசைப்படுத்தல்:"
 
 #: templates/database/qbe/selection_form.twig:37
 msgid "Criteria:"
