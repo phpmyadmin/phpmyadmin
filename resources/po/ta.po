@@ -9199,6 +9199,8 @@ msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"தரவுத்தளத்தில் சேமிக்கப்பட்டுள்ள அட்டவணை விருப்பங்களின் எண்ணிக்கை, பழமையான பதிவுகள் தானாகவே"
+" அகற்றப்படும்."
 
 #: src/Config/Descriptions.php:365
 msgid ""
