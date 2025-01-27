@@ -11346,7 +11346,7 @@ msgstr ""
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:54
 #, php-format
 msgid "Validation failed for the input string %s."
-msgstr ""
+msgstr "உள்ளீட்டு சரம் %s க்கு சரிபார்ப்பு தோல்வியடைந்தது."
 
 #: libraries/classes/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:28
 msgid "Formats text as SQL query with syntax highlighting."
