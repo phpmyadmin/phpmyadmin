@@ -4302,6 +4302,7 @@ msgstr "ஆவணச்சான்று"
 #: libraries/classes/Config/FormDisplayTemplate.php:255
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
+"இந்த அமைப்பு முடக்கப்பட்டுள்ளது, இது உங்கள் உள்ளமைவுக்கு பயன்படுத்தப்படாது."
 
 #: libraries/classes/Config/FormDisplayTemplate.php:257
 #: libraries/classes/Relation.php:150 libraries/classes/Relation.php:158
