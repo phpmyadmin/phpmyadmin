@@ -14999,7 +14999,7 @@ msgstr "தரவுக் கோப்புகள்"
 
 #: src/Engines/Innodb.php:37
 msgid "Autoextend increment"
-msgstr ""
+msgstr "தன்வய எதிர்பார்ப்பு அதிகரிப்பு"
 
 #: src/Engines/Innodb.php:39
 msgid ""
