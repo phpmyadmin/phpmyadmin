@@ -12757,6 +12757,8 @@ msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"VARCHAR வகையைப் போன்றது, ஆனால் பைனரி அல்லாத எழுத்து சரங்களை விட பைனரி பைட் சரங்களை "
+"சேமிக்கிறது"
 
 #: libraries/classes/Types.php:380
 msgid ""
