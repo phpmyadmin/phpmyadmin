@@ -11080,7 +11080,7 @@ msgstr "கடைசி சரிபார்ப்பு:"
 #: libraries/classes/Plugins/Export/ExportSql.php:1558
 #, php-format
 msgid "Error reading structure for table %s:"
-msgstr ""
+msgstr "அட்டவணை %s க்கான பிழை வாசிப்பு:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1649
 msgid "It appears your database uses views;"
