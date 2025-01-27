@@ -15137,7 +15137,7 @@ msgstr ""
 
 #: templates/export.twig:138 templates/export.twig:279
 msgid "Output:"
-msgstr ""
+msgstr "வெளியீடு:"
 
 #: templates/export.twig:143 templates/export.twig:309
 #, php-format
