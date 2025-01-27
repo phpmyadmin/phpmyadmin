@@ -9877,7 +9877,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:253
 msgid "split into "
-msgstr ""
+msgstr "பிரிந்தது "
 
 #: libraries/classes/Normalization.php:275
 msgid "Have a primary key"
