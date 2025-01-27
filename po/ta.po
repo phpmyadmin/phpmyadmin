@@ -10800,7 +10800,7 @@ msgstr "சிட்டை குறிப்பெழுத்து:"
 #: libraries/classes/Plugins/Export/ExportOdt.php:98
 #: libraries/classes/Plugins/Export/ExportSql.php:150
 msgid "Display foreign key relationships"
-msgstr ""
+msgstr "வெளிநாட்டு முக்கிய உறவுகளைக் காண்பி"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:145
 #: libraries/classes/Plugins/Export/ExportOdt.php:104
