@@ -2725,6 +2725,8 @@ msgstr "phpMyAdminஆல் உருவாக்கபட்ட SQL வின�
 #: libraries/classes/Config/Descriptions.php:504
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
+"தரவுத்தளம் மற்றும் அட்டவணை புள்ளிவிவரங்களைக் காட்ட அனுமதிக்கவும் (எ.கா. விண்வெளி "
+"பயன்பாடு)."
 
 #: libraries/classes/Config/Descriptions.php:506
 msgid ""
