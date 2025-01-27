@@ -14112,7 +14112,7 @@ msgstr "அனைத்து அட்டவணைகள் நெடுவர�
 #: templates/table/privileges/index.twig:8
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr ""
+msgstr "பயனர்கள் \"%s\" அணுகல் கொண்டவர்கள்"
 
 #: templates/database/privileges/index.twig:17
 #: templates/server/privileges/login_information_fields.twig:6
