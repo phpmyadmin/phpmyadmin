@@ -3384,7 +3384,7 @@ msgstr "அனைத்து குக்கீகளையும் வெள�
 
 #: libraries/classes/Config/Descriptions.php:818
 msgid "Recall user name"
-msgstr ""
+msgstr "பயனர் பெயரை நினைவுகூருங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:819
 msgid "Login cookie store"
