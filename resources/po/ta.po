@@ -9053,7 +9053,7 @@ msgstr "வழிசெலுத்தல் குழுவில் லோக�
 
 #: src/Config/Descriptions.php:305
 msgid "Display server choice at the top of the navigation panel."
-msgstr ""
+msgstr "வழிசெலுத்தல் குழுவின் மேலே சேவையக தேர்வைக் காண்பி."
 
 #: src/Config/Descriptions.php:306
 msgid "String that separates databases into different tree levels."
