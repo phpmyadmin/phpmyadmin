@@ -16094,7 +16094,7 @@ msgstr ""
 
 #: src/Normalization.php:879
 msgid "Table is already in Third normal form!"
-msgstr ""
+msgstr "அட்டவணை ஏற்கனவே மூன்றாவது சாதாரண வடிவத்தில் உள்ளது!"
 
 #: src/Normalization.php:945
 msgid ""
