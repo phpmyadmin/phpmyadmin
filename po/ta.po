@@ -8771,7 +8771,7 @@ msgstr "இணைப்பை காணவில்லை!"
 
 #: libraries/classes/Engines/Bdb.php:28
 msgid "Version information"
-msgstr ""
+msgstr "பதிப்பு செய்தி"
 
 #: libraries/classes/Engines/Innodb.php:31
 msgid "Data home directory"
