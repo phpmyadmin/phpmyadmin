@@ -3064,7 +3064,7 @@ msgstr "தரவைச் செருகும்போது பயன்ப�
 #: libraries/classes/Config/Descriptions.php:733
 #: libraries/classes/Plugins/Export/ExportSql.php:491
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "உருவாக்கப்பட்ட வினவலின் அதிகபட்ச நீளம்"
 
 #: libraries/classes/Config/Descriptions.php:738
 msgid "Export type"
