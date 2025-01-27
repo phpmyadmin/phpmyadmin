@@ -1009,7 +1009,7 @@ msgstr "உங்கள் முழுமையான INNODB பதிவு �
 
 #: libraries/advisory_rules_generic.php:681
 msgid "InnoDB buffer pool size"
-msgstr ""
+msgstr "INNODB இடையக பூல் அளவு"
 
 #: libraries/advisory_rules_generic.php:685
 msgid "Your InnoDB buffer pool is fairly small."
