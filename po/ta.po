@@ -3144,7 +3144,7 @@ msgstr "தரவிறக்கம் / தரவேற்றம்"
 
 #: libraries/classes/Config/Descriptions.php:758
 msgid "LaTeX"
-msgstr ""
+msgstr "லாடெக்சு"
 
 #: libraries/classes/Config/Descriptions.php:760
 #: libraries/classes/Config/Forms/User/NaviForm.php:68
