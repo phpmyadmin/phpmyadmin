@@ -3139,7 +3139,7 @@ msgstr "நுண்மென் ஆபிச்"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Other core settings"
-msgstr ""
+msgstr "பிற முக்கிய அமைப்புகள்"
 
 #: libraries/classes/Config/Descriptions.php:777
 msgid "Page titles"
