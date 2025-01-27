@@ -4324,7 +4324,7 @@ msgstr "வினவல் மூலம் சான்று தேடல்க
 
 #: resources/templates/relation/check_relations.twig:458
 msgid "Managing central list of columns:"
-msgstr ""
+msgstr "நெடுவரிசைகளின் மைய பட்டியலை நிர்வகித்தல்:"
 
 #: resources/templates/relation/check_relations.twig:483
 msgid "Remembering designer settings:"
