@@ -7919,7 +7919,7 @@ msgstr "நூல் தற்காலிக சேமிப்பு 0 ஆக 
 #: src/Advisory/Rules.php:521
 #, no-php-format
 msgid "Thread cache hit rate %"
-msgstr ""
+msgstr "நூல் கேச் இட் வீதம் %"
 
 #: src/Advisory/Rules.php:525
 msgid "Thread cache is not efficient."
