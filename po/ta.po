@@ -16250,7 +16250,7 @@ msgstr ""
 
 #: templates/server/export/index.twig:7
 msgid "Databases:"
-msgstr "தரவுத்தளங்கள்"
+msgstr "தரவுத்தளங்கள்:"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
@@ -18127,7 +18127,7 @@ msgstr "ஒவ்வொரு புள்ளியையும் லேபி�
 
 #: templates/table/zoom_search/index.twig:143
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "சூழ்ச்சி செய்ய அதிகபட்ச வரிசைகள்"
 
 #: templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
