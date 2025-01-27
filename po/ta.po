@@ -9865,6 +9865,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:236
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
+"இந்த அட்டவணையில் ஏற்கனவே இல்லாத நெடுவரிசைகளின் மைய பட்டியலை எனக்குக் காட்டுங்கள்"
 
 #: libraries/classes/Normalization.php:238
 msgid ""
