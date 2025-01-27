@@ -5473,7 +5473,7 @@ msgstr "கிப்"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:467
 msgid "TiB"
-msgstr "TiB"
+msgstr "திப்"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
