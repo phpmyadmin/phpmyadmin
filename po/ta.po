@@ -11322,6 +11322,8 @@ msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
+"ஒரு (ஐபிவி 4) இணைய பிணையம் முகவரியை இணைய தரநிலை புள்ளியிடப்பட்ட வடிவத்தில் ஒரு சரம் "
+"என மாற்றுகிறது."
 
 #: libraries/classes/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:29
 msgid ""
