@@ -11206,7 +11206,7 @@ msgstr "இந்த வடிவத்திற்கு விருப்ப�
 
 #: libraries/classes/Plugins.php:607
 msgid "Invalid authentication method set in configuration:"
-msgstr ""
+msgstr "உள்ளமைவில் அமைக்கப்பட்ட தவறான அங்கீகார முறை:"
 
 #: libraries/classes/Plugins/Schema/Dia/TableStatsDia.php:68
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:87
