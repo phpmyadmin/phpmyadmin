@@ -16110,7 +16110,7 @@ msgstr "செல்லுபடியாகும் ஃச் உள்ளீ�
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "இந்த நெடுவரிசையில் 32 எழுத்துக்கள் மதிப்பைக் கொண்டிருக்க முடியாது"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
