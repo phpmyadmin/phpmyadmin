@@ -10165,7 +10165,7 @@ msgstr "செருகும் பிழையை நிறுத்த வே
 
 #: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "நகல் விசை புதுப்பிப்பில் சேர்க்கவும்"
 
 #: src/Config/Descriptions.php:779
 msgid "Format of imported file"
