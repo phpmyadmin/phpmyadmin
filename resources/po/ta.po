@@ -5842,7 +5842,7 @@ msgstr "வடிவமைக்கப்படாத மதிப்புக�
 
 #: resources/templates/server/status/variables/index.twig:50
 msgid "Related links:"
-msgstr ""
+msgstr "தொடர்புடைய இணைப்புகள்:"
 
 #: resources/templates/server/status/variables/index.twig:139
 msgid "Not enough privilege to view status variables."
