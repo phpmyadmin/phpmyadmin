@@ -1081,7 +1081,7 @@ msgstr ""
 #: libraries/classes/Advisor.php:234
 #, php-format
 msgid "Error when evaluating: %s"
-msgstr "பிழை செய்தி: %s"
+msgstr "மதிப்பீடு செய்யும் போது பிழை: %s"
 
 #: libraries/classes/Advisor.php:261
 #, php-format
@@ -13060,7 +13060,7 @@ msgstr "நீளம்/மதிப்புகள்"
 #: templates/database/central_columns/main.twig:36
 #: templates/database/central_columns/main.twig:240
 msgid "Attribute"
-msgstr "பங்களிப்பு"
+msgstr "பண்புக்கூறு"
 
 #: templates/database/central_columns/main.twig:44
 #: templates/database/central_columns/main.twig:248
@@ -15106,27 +15106,27 @@ msgstr "தயவுசெய்து குறைந்தது {0} எழு
 
 #: templates/javascript/variables.twig:102
 msgid "Please enter a value between {0} and {1} characters long"
-msgstr ""
+msgstr "{0} மற்றும் {1} எழுத்துக்களுக்கு இடையில் ஒரு மதிப்பை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:103
 msgid "Please enter a value between {0} and {1}"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "{0} மற்றும் {1 between க்கு இடையில் ஒரு மதிப்பை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:104
 msgid "Please enter a value less than or equal to {0}"
-msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
+msgstr "தயவுசெய்து {0 than க்கு சமமான அல்லது சமமான மதிப்பை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:105
 msgid "Please enter a value greater than or equal to {0}"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "தயவுசெய்து {0 than ஐ விட அதிகமாகவோ அல்லது சமமாகவோ உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:106
 msgid "Please enter a valid date or time"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான தேதி அல்லது நேரத்தை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:107
 msgid "Please enter a valid HEX input"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் ஃச் உள்ளீட்டை உள்ளிடவும்"
 
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
