@@ -6746,7 +6746,7 @@ msgstr "உள் உறவுகள்"
 
 #: resources/templates/table/relation/common_form.twig:78
 msgid "Internal relation"
-msgstr ""
+msgstr "உள் உறவு"
 
 #: resources/templates/table/relation/common_form.twig:80
 msgid ""
