@@ -3629,7 +3629,7 @@ msgstr "முக்கியபெயர்"
 #: resources/templates/indexes.twig:46
 #: resources/templates/table/structure/display_structure.twig:501
 msgid "The primary key has been dropped."
-msgstr ""
+msgstr "முதன்மை விசை கைவிடப்பட்டது."
 
 #: resources/templates/indexes.twig:51
 #: resources/templates/table/structure/display_structure.twig:506
