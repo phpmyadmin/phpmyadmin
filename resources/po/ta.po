@@ -14821,7 +14821,7 @@ msgstr ""
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "பின்வரும் வினவல் தோல்வியுற்றது: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
