@@ -17653,7 +17653,7 @@ msgstr "இந்த கவிமொ வினவலை புக்மார்
 
 #: templates/sql/query.twig:100
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "அதே பெயரில் இருக்கும் புத்தகக்குறியை மாற்றவும்"
 
 #: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
