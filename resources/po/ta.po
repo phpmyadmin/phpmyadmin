@@ -16153,7 +16153,7 @@ msgstr ""
 
 #: src/Pdf.php:146
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr "PDF ஐ உருவாக்கும் போது பிழை:"
 
 #: src/Plugins/Auth/AuthenticationConfig.php:76
 msgid "Cannot connect: invalid settings."
