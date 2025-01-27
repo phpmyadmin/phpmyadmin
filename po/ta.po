@@ -11765,7 +11765,7 @@ msgstr "சரி"
 
 #: libraries/classes/Relation.php:149
 msgid "Enabled"
-msgstr ""
+msgstr "இயக்கப்பட்டது"
 
 #: libraries/classes/Relation.php:153
 msgid "Configuration of pmadb…"
