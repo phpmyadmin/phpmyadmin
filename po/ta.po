@@ -2841,7 +2841,7 @@ msgstr "இணைக்கப்பட்ட நெடுவரிசைகள�
 #: libraries/classes/Config/Descriptions.php:801
 #: libraries/classes/Plugins/Import/ImportCsv.php:677
 msgid "Columns escaped with"
-msgstr ""
+msgstr "நெடுவரிசைகள் தப்பித்தன"
 
 #: libraries/classes/Config/Descriptions.php:663
 #: libraries/classes/Config/Descriptions.php:669
