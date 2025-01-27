@@ -5594,7 +5594,7 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
-msgstr ""
+msgstr "தயவுசெய்து கவனிக்கவும்:"
 
 #: resources/templates/server/status/monitor/index.twig:84
 msgid ""
