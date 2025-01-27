@@ -10047,7 +10047,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:535
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "இயல்பாக்கத்தின் இரண்டாவது படி '%1$s' க்கு அட்டவணைக்கு முடிந்தது."
 
 #: libraries/classes/Normalization.php:591
 #: libraries/classes/Normalization.php:764
