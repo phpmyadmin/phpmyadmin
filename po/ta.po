@@ -9674,7 +9674,7 @@ msgstr "திருத்து/செருகவும்"
 
 #: libraries/classes/InsertEdit.php:1856
 msgid "and then"
-msgstr ""
+msgstr "பின்னர்"
 
 #: libraries/classes/InsertEdit.php:1895
 msgid "Insert as new row"
