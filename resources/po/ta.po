@@ -5673,6 +5673,7 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட நேர வ�
 #: resources/templates/server/status/monitor/index.twig:199
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr ""
+"அறிக்கைகளைத் தேர்ந்தெடுப்பது, செருகவும், புதுப்பிக்கவும் நீக்கவும் மட்டுமே மீட்டெடுக்கவும்"
 
 #: resources/templates/server/status/monitor/index.twig:205
 msgid "Remove variable data in INSERT statements for better grouping"
