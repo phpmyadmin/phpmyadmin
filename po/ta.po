@@ -2655,7 +2655,7 @@ msgstr "கரி நெடுவரிசைகள் திருத்து�
 
 #: libraries/classes/Config/Descriptions.php:626
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "கோட்மிரரை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:627
 msgid "Enable linter"
