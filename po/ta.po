@@ -7655,7 +7655,7 @@ msgstr "இதுவரை எழுதப்பட்ட தரவுகளி�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:368
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr ""
+msgstr "டபுள் வ்ரைட் செயல்பாடுகளுக்காக எழுதப்பட்ட பக்கங்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:370
 msgid "The number of doublewrite operations that have been performed."
