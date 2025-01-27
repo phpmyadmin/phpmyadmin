@@ -15698,7 +15698,7 @@ msgstr "நிலையான பகுப்பாய்வு:"
 #: src/Html/Generator.php:749
 #, php-format
 msgid "%d errors were found during analysis."
-msgstr ""
+msgstr "பகுப்பாய்வின் போது %d பிழைகள் காணப்பட்டன."
 
 #: src/Http/Middleware/DatabaseServerVersionChecking.php:42
 #, php-format
