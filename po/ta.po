@@ -7588,6 +7588,8 @@ msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
+"தொடர்ச்சியான வாசிப்பு-முன்னால் இன்னோடிபி தொடங்கப்பட்டது. INNODB ஒரு தொடர்ச்சியான முழு "
+"அட்டவணை ச்கேன் செய்யும்போது இது நிகழ்கிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:345
 msgid "The number of logical read requests InnoDB has done."
