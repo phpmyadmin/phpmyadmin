@@ -15726,8 +15726,6 @@ msgid "Configurable menus:"
 msgstr "உள்ளமைக்கக்கூடிய பட்டிகள்"
 
 #: templates/relation/check_relations.twig:408
-#, fuzzy
-#| msgid "Show hidden navigation tree items."
 msgid "Hide/show navigation items:"
 msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
 
