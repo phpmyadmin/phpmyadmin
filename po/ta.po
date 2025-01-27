@@ -9621,7 +9621,7 @@ msgstr "செயல்பொறிகள்"
 #: libraries/classes/Menu.php:563 libraries/classes/Util.php:1949
 #: templates/server/plugins/index.twig:4
 msgid "Plugins"
-msgstr ""
+msgstr "செருகுநிரல்கள்"
 
 #: libraries/classes/Message.php:252
 #, php-format
@@ -13140,7 +13140,7 @@ msgstr "அடுக்கு"
 #: templates/table/operations/index.twig:115
 #: templates/table/operations/index.twig:315
 msgid "Adjust privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகளை சரிசெய்யவும்"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
@@ -14388,7 +14388,7 @@ msgstr "விருப்பத்தேர்வுகள்"
 
 #: templates/database/structure/copy_form.twig:39
 msgid "Add AUTO INCREMENT value"
-msgstr "தானாக அதிகரிக்கும் பெறுமதியை சேர்"
+msgstr "ஆட்டோ அதிகரிப்பு மதிப்பைச் சேர்க்கவும்"
 
 #: templates/database/structure/drop_form.twig:6
 #: templates/database/structure/empty_form.twig:6
