@@ -2076,6 +2076,8 @@ msgid ""
 "[kbd]SMART[/kbd] - i.e. descending order for columns of type TIME, DATE, "
 "DATETIME and TIMESTAMP, ascending order otherwise."
 msgstr ""
+"[kbd]SMART[/kbd] - i.e. இறங்கு order க்கு columns of வகை TIME, DATE, DATETIME "
+"and TIMESTAMP, ஏறுதல் order otherwise."
 
 #: libraries/classes/Config/Descriptions.php:331
 msgid ""
