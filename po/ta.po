@@ -8554,7 +8554,7 @@ msgstr "வகை"
 #: templates/database/events/editor_form.twig:41
 #, php-format
 msgid "Change to %s"
-msgstr ""
+msgstr "%s ஆக மாற்றவும்"
 
 #: libraries/classes/Database/Routines.php:878
 msgid "Parameters"
