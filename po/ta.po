@@ -2354,6 +2354,9 @@ msgid ""
 "menus feature; leaving either one of them blank will disable this feature, "
 "suggested: [kbd]pma__usergroups[/kbd]."
 msgstr ""
+"இந்த அட்டவணை மற்றும் பயனர்கள் அட்டவணை இரண்டும் கட்டமைக்கக்கூடிய மெனுக்கள் அம்சத்தை இயக்க "
+"வேண்டும்; அவற்றில் ஒன்றை காலியாக விட்டுவிடுவது இந்த அம்சத்தை முடக்கும், "
+"பரிந்துரைக்கப்படுகிறது: [kbd] pma__usergroups [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:460
 msgid ""
