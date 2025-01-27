@@ -11937,7 +11937,7 @@ msgstr "மாச்டரை மாற்ற முடியவில்லை!
 #: libraries/classes/ReplicationGui.php:570
 #, php-format
 msgid "Master server changed successfully to %s."
-msgstr ""
+msgstr "முதன்மை சேவையகம் %s க்கு வெற்றிகரமாக மாற்றப்பட்டது."
 
 #: libraries/classes/Routing.php:102
 #, php-format
