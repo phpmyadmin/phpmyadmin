@@ -10492,7 +10492,7 @@ msgstr "அட்டவணை %s %s க்கு நகலெடுக்கப�
 #: libraries/classes/Operations.php:1105
 #, php-format
 msgid "Table %s has been moved to %s."
-msgstr ""
+msgstr "அட்டவணை %s %s க்கு மாற்றப்பட்டுள்ளன."
 
 #: libraries/classes/Operations.php:1109
 #, php-format
