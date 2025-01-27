@@ -7331,7 +7331,7 @@ msgstr "தொகுப்புகளை விடுக"
 
 #: src/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
-msgstr ""
+msgstr "MySQL சேவையக பதிப்பு 5.1 க்கும் குறைவானது."
 
 #: src/Advisory/Rules.php:138
 msgid ""
