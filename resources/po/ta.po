@@ -10821,7 +10821,7 @@ msgstr "புள்ளிவிவரங்களைக் காட்டு"
 
 #: src/Config/Descriptions.php:925
 msgid "Skip locked tables"
-msgstr ""
+msgstr "பூட்டப்பட்ட அட்டவணைகளைத் தவிர்க்கவும்"
 
 #: src/Config/Descriptions.php:927 src/Html/Generator.php:495
 msgid "Explain SQL"
