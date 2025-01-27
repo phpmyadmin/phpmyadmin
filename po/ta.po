@@ -3601,6 +3601,7 @@ msgstr "தொடர்புடைய காட்சி"
 #: libraries/classes/Config/Descriptions.php:886
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
+"கட்டம் எடிட்டிங்: அனைத்து திருத்தப்பட்ட கலங்களையும் ஒரே நேரத்தில் சேமிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:887
 msgid "Save directory"
