@@ -10547,7 +10547,7 @@ msgstr "கட்டுப்பாட்டு பயனரை"
 
 #: src/Config/Descriptions.php:872
 msgid "Control host"
-msgstr ""
+msgstr "கட்டுப்பாட்டு புரவலன்"
 
 #: src/Config/Descriptions.php:873
 msgid "Control port"
