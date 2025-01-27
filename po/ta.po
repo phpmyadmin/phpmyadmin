@@ -13678,7 +13678,7 @@ msgstr "பொதிக்கப்பட்டது"
 #: templates/table/structure/display_structure.twig:420
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
-msgstr ""
+msgstr "கார்டினலிட்டி"
 
 #: templates/database/data_dictionary/index.twig:110 templates/indexes.twig:91
 #: templates/table/structure/display_structure.twig:499
