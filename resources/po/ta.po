@@ -7886,7 +7886,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:511
 msgid "Thread cache"
-msgstr ""
+msgstr "நூல் தற்காலிக சேமிப்பு"
 
 #: src/Advisory/Rules.php:514
 msgid ""
