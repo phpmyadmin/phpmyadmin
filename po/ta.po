@@ -8080,6 +8080,8 @@ msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
+"HTTPS கோரிக்கைகளை ஏற்க உங்கள் சேவையகம் கட்டமைக்கப்பட்டிருந்தால், பாதுகாப்பான இணைப்பைப் "
+"பயன்படுத்த இந்த இணைப்பைப் பின்தொடரவும்."
 
 #: libraries/classes/Controllers/Setup/HomeController.php:51
 msgid "Insecure connection"
