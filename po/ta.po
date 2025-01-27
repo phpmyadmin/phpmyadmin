@@ -2472,6 +2472,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:500
 msgid "Show or hide a column displaying the charset for all tables."
 msgstr ""
+"அனைத்து அட்டவணைகளுக்கும் சார்ச்செட்டைக் காண்பிக்கும் நெடுவரிசையைக் காட்டவும் அல்லது "
+"மறைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:501
 msgid "Display the function fields in edit/insert mode."
@@ -3963,7 +3965,7 @@ msgstr "கடைசி காசோலை நேர முத்திரைய
 
 #: libraries/classes/Config/Descriptions.php:936
 msgid "Show table charset"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "டேபிள் சார்சைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:937
 msgid "Show field types"
