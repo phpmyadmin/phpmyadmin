@@ -17600,7 +17600,7 @@ msgstr ""
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
-msgstr ""
+msgstr "இந்த கவிமொ வினவலை புக்மார்க்கு செய்யுங்கள்"
 
 #: templates/sql/bookmark.twig:15
 msgid "Label:"
