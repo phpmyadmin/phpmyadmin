@@ -1413,7 +1413,7 @@ msgstr "பொதிக்கப்பட்டது"
 #: resources/templates/table/structure/display_structure.twig:469
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
-msgstr ""
+msgstr "கார்டினலிட்டி"
 
 #: resources/templates/database/data_dictionary/index.twig:117
 #: resources/templates/indexes.twig:93
