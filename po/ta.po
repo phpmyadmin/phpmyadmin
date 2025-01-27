@@ -16441,7 +16441,7 @@ msgstr ""
 
 #: templates/server/replication/change_master.twig:5
 msgid "Slave configuration"
-msgstr ""
+msgstr "அடிமை உள்ளமைவு"
 
 #: templates/server/replication/change_master.twig:6
 #: templates/server/replication/slave_configuration.twig:97
