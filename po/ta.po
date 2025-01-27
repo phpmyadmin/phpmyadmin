@@ -873,6 +873,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
+"அனைத்து இணைப்புகளிலும்%s %% கைவிடப்படுகிறது. இந்த மதிப்பு 1 %% க்குக் குறைவாக இருக்க "
+"வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:556
 msgid "Rate of aborted connections"
