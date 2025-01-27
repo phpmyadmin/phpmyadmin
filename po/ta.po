@@ -8851,7 +8851,7 @@ msgstr "இணைக்கப்பட்ட பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:194
 msgid "Buffer Pool Activity"
-msgstr ""
+msgstr "இடையக பூல் செயல்பாடு"
 
 #: libraries/classes/Engines/Innodb.php:198
 msgid "Read requests"
