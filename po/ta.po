@@ -13225,7 +13225,7 @@ msgstr "தவறான தரவு அல்லது %s க்கு சர�
 #: templates/database/central_columns/main.twig:71
 #: templates/database/central_columns/main.twig:298
 msgid "Edit ENUM/SET values"
-msgstr ""
+msgstr "மதிப்புகளைத் திருத்தவும்"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
@@ -16909,7 +16909,7 @@ msgstr "பயனர் குழு"
 
 #: templates/server/privileges/users_overview.twig:147
 msgid "Remove selected user accounts"
-msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர்கள் நீக்கப்படுகின்றனர்"
+msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர் கணக்குகளை அகற்று"
 
 #: templates/server/privileges/users_overview.twig:149
 msgid "Revoke all active privileges from the users and delete them afterwards."
