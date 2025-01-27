@@ -15070,7 +15070,7 @@ msgstr "கோரிக்கைகளைப் படியுங்கள்"
 
 #: src/Engines/Innodb.php:197
 msgid "Write requests"
-msgstr ""
+msgstr "கோரிக்கைகளை எழுதுங்கள்"
 
 #: src/Engines/Innodb.php:203
 msgid "Read misses"
