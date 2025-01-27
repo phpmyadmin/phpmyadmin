@@ -1879,7 +1879,7 @@ msgstr "Phpmyadmin ஆல் காட்டப்பட்ட சில எச�
 
 #: libraries/classes/Config/Descriptions.php:240
 msgid "Enable gzip compression for import and export operations."
-msgstr ""
+msgstr "இறக்குமதி மற்றும் ஏற்றுமதி நடவடிக்கைகளுக்கு GZIP சுருக்கத்தை இயக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:242
 msgid ""
