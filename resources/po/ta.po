@@ -14761,7 +14761,7 @@ msgstr "பிழை: வெளிநாட்டு முக்கிய உ�
 
 #: src/Database/Designer/Common.php:544
 msgid "Error: Missing index on column(s)."
-msgstr ""
+msgstr "பிழை: நெடுவரிசை (கள்) இல் குறியீட்டை காணவில்லை."
 
 #: src/Database/Designer/Common.php:549 src/Database/Designer/Common.php:611
 msgid "Error: Relational features are disabled!"
