@@ -506,6 +506,7 @@ msgid ""
 "Many temporary tables are being written to disk instead of being kept in "
 "memory."
 msgstr ""
+"பல தற்காலிக அட்டவணைகள் நினைவகத்தில் வைக்கப்படுவதற்கு பதிலாக வட்டுக்கு எழுதப்படுகின்றன."
 
 #: libraries/advisory_rules_generic.php:322
 msgid ""
