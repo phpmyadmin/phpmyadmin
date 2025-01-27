@@ -845,6 +845,8 @@ msgstr ""
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
+"Max_used_connections என்பது MAX_CONNECTIONS இன்%s %% இல் உள்ளது, இது 80%மிகக் "
+"குறைவாக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:542
 msgid "Percentage of aborted connections"
