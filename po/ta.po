@@ -11924,7 +11924,7 @@ msgstr "சலுகைகளைத் திருத்தவும்"
 
 #: libraries/classes/Server/Privileges.php:1509
 msgid "Revoke"
-msgstr ""
+msgstr "ரத்து செய்யுங்கள்"
 
 #: libraries/classes/Server/Privileges.php:1820
 #: templates/server/privileges/privileges_table.twig:264
