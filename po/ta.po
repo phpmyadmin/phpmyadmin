@@ -16472,7 +16472,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->தனி�
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:44
 msgid "Add slave replication user"
-msgstr ""
+msgstr "அடிமை பிரதி பயனரைச் சேர்க்கவும்"
 
 #: templates/server/replication/master_add_slave_user.twig:21
 #: templates/server/replication/master_add_slave_user.twig:40
