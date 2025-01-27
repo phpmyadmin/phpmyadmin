@@ -18224,11 +18224,11 @@ msgstr "வெளி சார்பு"
 
 #: src/UserPassword.php:36
 msgid "The profile has been updated."
-msgstr ""
+msgstr "சுயவிவரம் புதுப்பிக்கப்பட்டுள்ளது."
 
 #: src/UserPassword.php:48
 msgid "Password is too long!"
-msgstr "கடவுச்சொல் கூளமாக்கள்:"
+msgstr "கடவுச்சொல் மிக நீளமானது!"
 
 #: src/UserPreferences.php:161
 msgid "Could not save configuration"
