@@ -13855,7 +13855,7 @@ msgstr "நிகழ்வு வகை"
 #: templates/database/routines/editor_form.twig:38
 #, php-format
 msgid "Change to %s"
-msgstr ""
+msgstr "%s ஆக மாற்றவும்"
 
 #: templates/database/events/editor_form.twig:53
 msgid "Execute at"
