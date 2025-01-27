@@ -15526,7 +15526,7 @@ msgstr "உமது கணினியிலிருந்து:"
 
 #: templates/import.twig:55 templates/import.twig:82
 msgid "You may also drag and drop a file on any page."
-msgstr ""
+msgstr "நீங்கள் எந்தப் பக்கத்திலும் ஒரு கோப்பை இழுத்து விடலாம்."
 
 #: templates/import.twig:62 templates/import.twig:88
 #, php-format
