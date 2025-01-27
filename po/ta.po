@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 03:04+0000\n"
+"PO-Revision-Date: 2025-01-27 04:21+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -292,6 +292,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"நீங்கள் MySQL வினவல் தற்காலிக சேமிப்பை மிகவும் அதிக போக்குவரத்து தரவுத்தளத்துடன் "
+"பயன்படுத்துகிறீர்கள். <A href = "
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\"> Memcached </"
+"a> ஐப் பயன்படுத்துவதைக் கருத்தில் கொள்ளலாம் உங்களுக்கு பல அடிமைகள் இருந்தால்."
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -548,6 +552,14 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"{max_heap_table_size} மற்றும் {tmp_table_size fork ஐ அதிகரிப்பது உதவக்கூடும். "
+"இருப்பினும் சில தற்காலிக அட்டவணைகள் எப்போதும் வட்டுக்கு எழுதப்படுகின்றன, இந்த மாறிகளின் "
+"மதிப்பிலிருந்து சுயாதீனமாக. இவற்றை அகற்ற நீங்கள் அந்த நிலைமைகளைத் தவிர்ப்பதற்கு உங்கள் "
+"கேள்விகளை மீண்டும் எழுத வேண்டும் (ஒரு தற்காலிக அட்டவணைக்குள்: ஒரு குமிழ் அல்லது உரை "
+"நெடுவரிசையின் இருப்பு அல்லது 512 பைட்டுகளை விட பெரிய நெடுவரிசையின் இருப்பு) <a "
+"href = "
+"\"https: // dev.mysql.com/doc/refman/8.0/en/internal-temperory-tables.html\""
+">mysql ஆவணங்கள் </a>"
 
 #: libraries/advisory_rules_generic.php:354
 #, php-format
@@ -582,13 +594,13 @@ msgstr "key_buffer_size 0"
 #: libraries/advisory_rules_generic.php:373
 #, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr ""
+msgstr "அதிகபட்சம் % myisam key buffeed இதுவரை பயன்படுத்தப்பட்டது"
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
 #, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr ""
+msgstr "MyISAM விசை இடையக (குறியீட்டு தற்காலிக சேமிப்பு) % குறைவாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:380
 #: libraries/advisory_rules_generic.php:397
@@ -625,7 +637,7 @@ msgstr "குறியீட்டின் விழுக்காடு ந�
 #: libraries/advisory_rules_generic.php:411
 #, no-php-format
 msgid "The % of indexes that use the MyISAM key buffer is low."
-msgstr ""
+msgstr "MyISAM விசை இடையகத்தைப் பயன்படுத்தும் குறியீடுகளின் % குறைவாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:412
 msgid "You may need to increase {key_buffer_size}."
@@ -635,7 +647,8 @@ msgstr "நீங்கள் {key_buffer_size} அதிகரிக்க வ�
 #, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
-"நினைவகத்திலிருந்து குறியீட்டு படிக்கிறது:%s %%, இந்த மதிப்பு 95 %ுறமாக இருக்க வேண்டும்"
+"குறியீட்டு நினைவகத்திலிருந்து படிக்கிறது:%s %%, இந்த மதிப்பு 95 %% க்கு மேல் இருக்க "
+"வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:419
 msgid "Rate of table open"
@@ -669,6 +682,8 @@ msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"திறந்த கோப்புகளின் எண்ணிக்கை திறந்த கோப்புகளின் அதிகபட்ச எண்ணிக்கையை நெருங்குகிறது. நீங்கள் "
+"\"பல திறந்த கோப்புகள்\" பிழையைப் பெறலாம்."
 
 #: libraries/advisory_rules_generic.php:440
 #: libraries/advisory_rules_generic.php:453
@@ -705,7 +720,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:462
 #, no-php-format
 msgid "Immediate table locks %"
-msgstr ""
+msgstr "உடனடி அட்டவணை பூட்டுகள் %"
 
 #: libraries/advisory_rules_generic.php:466
 #: libraries/advisory_rules_generic.php:476
@@ -760,7 +775,7 @@ msgstr "நூல் தற்காலிக சேமிப்பு 0 ஆக 
 #: libraries/advisory_rules_generic.php:493
 #, no-php-format
 msgid "Thread cache hit rate %"
-msgstr ""
+msgstr "நூல் கேச் இட் வீதம் %"
 
 #: libraries/advisory_rules_generic.php:497
 msgid "Thread cache is not efficient."
@@ -969,6 +984,15 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot."
 "com/2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"குறிப்பாக இன்னோடிபி அட்டவணைகளுக்கு நிறைய எழுத்துக்களைக் கொண்ட ஒரு கணினியில் நீங்கள் "
+"{innodb_log_file_size} {innodb_buffer_pool_size of இன் 25% ஆக அமைக்க வேண்டும். "
+"இருப்பினும் இந்த மதிப்பு பெரியது, தரவுத்தள செயலிழக்கும்போது மீட்பு நேரம் நீண்டதாக இருக்கும்"
+", எனவே இந்த மதிப்பு 256 MIB ஐ விட அதிகமாக அமைக்கப்படக்கூடாது. இந்த மாறியின் மதிப்பை "
+"நீங்கள் மாற்ற முடியாது என்பதை நினைவில் கொள்க. நீங்கள் சேவையகத்தை நிறுத்த வேண்டும், INNODB "
+"பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் அமைக்க வேண்டும், சேவையகத்தைத் "
+"தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை சரிபார்க்கவும். <A href = "
+"\"https://mysqldatabaseadminastry.blogspot.com/2007/01/increase-"
+"indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: libraries/advisory_rules_generic.php:633
 #: libraries/advisory_rules_generic.php:662
@@ -1001,6 +1025,14 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"{innodb_log_file_size} முதல் 25% வரை {innodb_buffer_pool_size of அளவில் அமைக்க "
+"இது போதுமானது. ஒரு தரவுத்தள செயலிழந்த பிறகு மிகப் பெரிய {innodb_log_file_size "
+"the மீட்பு நேரத்தை குறைக்கிறது. <A href = \"https://www.percona.com/blog/2006/07/"
+"03/choosing-proper-intnodb_log_file_size/\"> இந்த கட்டுரை </a>. நீங்கள் சேவையகத்தை "
+"நிறுத்த வேண்டும், INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் அமைக்"
+"க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை "
+"சரிபார்க்கவும். <A href = \"https://mysqldatabaseadminastry.blogspot.com/2007/"
+"01/increase-indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: libraries/advisory_rules_generic.php:685
 #, php-format
@@ -1029,6 +1061,15 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"INNODB இடையகக் குளம் INNODB அட்டவணைகளுக்கான செயல்திறனில் ஆழமான தாக்கத்தை "
+"ஏற்படுத்துகிறது. உங்கள் மீதமுள்ள அனைத்து நினைவகத்தையும் இந்த இடையகத்திற்கு ஒதுக்குங்கள். "
+"சேமிப்பக இயந்திரமாக மட்டுமே இன்னோடிபியைப் பயன்படுத்தும் தரவுத்தள சேவையகங்களுக்கு, வேறு "
+"எந்த சேவைகளும் (எ.கா. ஒரு வலை சேவையகம்) இயங்கவில்லை, இது உங்களுக்கு கிடைக்கக்கூடிய "
+"நினைவகத்தில் 80% வரை அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் "
+"இன்-இன்-இன் அல்லாத-அட்டவணைகளின் நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த "
+"மாறியை அமைக்க வேண்டும். இது மிக அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், "
+"இது செயல்திறனை கணிசமாகக் குறைக்கிறது. <A href = \"https://www.percona.com/blog/"
+"2007/11/11/03/choosing-indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
 
 #: libraries/advisory_rules_generic.php:706
 #, php-format
@@ -1095,7 +1136,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "வினவல் இடைமாற்று முறைமை செயல்திறன் (%%)"
+msgstr "வினவல் கேச் செயல்திறன் (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
@@ -1118,7 +1159,7 @@ msgstr "வினவல் இடைமாற்றல் பாவனையள�
 #: libraries/advisory_rules_mysql_before80003.php:39
 #, no-php-format
 msgid "Less than 80% of the query cache is being utilized."
-msgstr ""
+msgstr "வினவல் தற்காலிக சேமிப்பில் 80% க்கும் குறைவானது பயன்படுத்தப்படுகிறது."
 
 #: libraries/advisory_rules_mysql_before80003.php:41
 msgid ""
@@ -1262,7 +1303,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:120
 msgid "query_cache_limit is set to 1 MiB"
-msgstr ""
+msgstr "query_cache_limit 1 mib ஆக அமைக்கப்பட்டுள்ளது"
 
 #: libraries/classes/Advisor.php:233
 #, php-format
@@ -1737,21 +1778,24 @@ msgstr "இறக்குமதி நடவடிக்கைகளுக்�
 
 #: libraries/classes/Config/Descriptions.php:88
 msgid "Enter the URL for your reCaptcha v2 compatible API."
-msgstr ""
+msgstr "உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான ஏபிஐக்கு முகவரி ஐ உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCaptcha v2 compatible "
 "API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான ஏபிஐக்கு உள்ளடக்க-பாதுகாப்பு-கொள்கை துணுக்கை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:90
 msgid "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான பநிஇ பயன்படுத்தும் கோரிக்கை அளவுருவை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:91
 msgid "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான பநிஇ பயன்படுத்தும் மறுமொழி அளவுருவை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
@@ -1763,7 +1807,7 @@ msgstr "உங்கள் டொமைன் ரெக்காப்ட்ச�
 
 #: libraries/classes/Config/Descriptions.php:94
 msgid "Enter your siteverify URL for your reCaptcha service."
-msgstr ""
+msgstr "உங்கள் ரெக்காப்ட்சா சேவைக்கு உங்கள் தளத்தை முகவரி ஐ உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:96
 msgid ""
@@ -1862,7 +1906,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:737
 #: libraries/classes/Plugins/Export/ExportSql.php:348
 msgid "Exclude definition of current user"
-msgstr ""
+msgstr "தற்போதைய பயனரின் வரையறையை விலக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:174
 msgid ""
@@ -1902,7 +1946,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"Phpmyadmin உள்ளமைவு சேமிப்பிடத்தை உள்ளமைக்கவும் கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற, "
+"கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற Phpmyadmin உள்ளமைவு சேமிப்பகத்தை உள்ளமைக்கவும், "
 "ஆவணத்தில் [DOC@இணைக்கப்பட்ட-அட்டவணைகள்] Phpmyadmin உள்ளமைவு சேமிப்பிடம் [/doc] ஐப் "
 "பார்க்கவும்."
 
@@ -2125,6 +2169,7 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
+"பைட்டுகளின் எண்ணிக்கை ஒரு ச்கிரிப்ட் ஒதுக்க அனுமதிக்கப்படுகிறது, எ.கா. ."
 
 #: libraries/classes/Config/Descriptions.php:286
 msgid "In the navigation panel, replaces the database tree with a selector"
@@ -2141,6 +2186,8 @@ msgid ""
 "Open the linked page in the main window ([code]main[/code]) or in a new one "
 "([code]new[/code])."
 msgstr ""
+"இணைக்கப்பட்ட பக்கத்தை முதன்மையான சாளரத்தில் ([குறியீடு] முதன்மை [/குறியீடு]) அல்லது புதி"
+"ய ஒன்றில் ([குறியீடு] புதிய [/குறியீடு]) திறக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:296
 msgid ""
@@ -2170,7 +2217,7 @@ msgstr "வழிசெலுத்தல் மரத்தில் தரவ�
 
 #: libraries/classes/Config/Descriptions.php:310
 msgid "Whether to expand single database in the navigation tree automatically."
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "வழிசெலுத்தல் மரத்தில் ஒற்றை தரவுத்தளத்தை தானாக விரிவாக்க வேண்டுமா."
 
 #: libraries/classes/Config/Descriptions.php:312
 msgid "Set to 0 to collapse navigation panel."
@@ -2273,6 +2320,8 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
+"நெடுவரிசை கருத்துகள்/ஊடக வகைகளுக்கு காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [KBD] "
+"PMA__Column_info [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:354
 msgid ""
@@ -2280,7 +2329,7 @@ msgid ""
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
 "வரையறுக்கப்பட்ட அனுமதிகளுடன் கட்டமைக்கப்பட்ட ஒரு சிறப்பு MySQL பயனர், "
-"[DOC@இணைக்கப்பட்ட-அட்டவணைகள்] ஆவணங்களில் [/doc] இல் கூடுதல் தகவல்கள் கிடைக்கின்றன."
+"[DOC@இணைக்கப்பட்ட-அட்டவணைகள்] ஆவணத்தில் [/doc] கூடுதல் தகவல்கள் கிடைக்கின்றன."
 
 #: libraries/classes/Config/Descriptions.php:358
 msgid ""
@@ -2391,7 +2440,7 @@ msgid ""
 "suggested: [kbd]pma__favorite[/kbd]."
 msgstr ""
 "அமர்வுகள் முழுவதும் \"தொடர்ச்சியான\" பிடித்த அட்டவணைகளுக்கு காலியாக விடவும், "
-"பரிந்துரைக்கப்படுகிறது: [KBD] PMA__Foavorite [/KBD]."
+"பரிந்துரைக்கப்படுகிறது: [kbd] pma__foavorite [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:412
 msgid ""
@@ -2399,7 +2448,7 @@ msgid ""
 "[kbd]pma__relation[/kbd]."
 msgstr ""
 "இல்லை [டாக்@உறவுகள்@] உறவு-இணைப்புகள் [/doc] உதவி, பரிந்துரைக்கப்படுகிறது: [kbd] "
-"pma__ URELATION [/kbd]."
+"pma__Relation [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:417
 msgid ""
@@ -2584,7 +2633,7 @@ msgstr ""
 msgid ""
 "Show or hide a column displaying the Last update timestamp for all tables."
 msgstr ""
-"எல்லா அட்டவணைகளுக்கும் கடைசி புதுப்பிப்பு நேர முத்திரையைக் காண்பிக்கும் நெடுவரிசையைக் "
+"அனைத்து அட்டவணைகளுக்கும் கடைசி புதுப்பிப்பு நேர முத்திரையைக் காண்பிக்கும் நெடுவரிசையைக் "
 "காட்டவும் அல்லது மறைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:500
@@ -2607,6 +2656,8 @@ msgid ""
 "Shows link to [a@https://www.php.net/manual/en/function.phpinfo.php]phpinfo()"
 "[/a] output."
 msgstr ""
+"[A@https: //www.php.net/manual/en/function.phpinfo.php] phpinfo () [/a] "
+"வெளியீட்டிற்கான இணைப்பைக் காட்டுகிறது."
 
 #: libraries/classes/Config/Descriptions.php:510
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
@@ -2639,6 +2690,8 @@ msgstr "phpMyAdminஆல் உருவாக்கபட்ட SQL வின�
 #: libraries/classes/Config/Descriptions.php:516
 msgid "Allow to display database and table statistics (e.g. space usage)."
 msgstr ""
+"தரவுத்தளம் மற்றும் அட்டவணை புள்ளிவிவரங்களைக் காட்ட அனுமதிக்கவும் (எ.கா. விண்வெளி "
+"பயன்பாடு)."
 
 #: libraries/classes/Config/Descriptions.php:518
 msgid ""
@@ -2793,6 +2846,7 @@ msgstr "சில வினவல்களுக்கான வெளிநா�
 #: libraries/classes/Config/Descriptions.php:580
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"இழுவை முடக்கவும் இறக்குமதியை கைவிடவும் தேர்வுப்பெட்டியைத் தேர்வுநீக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:581
 msgid "How many rows can be inserted at one time."
@@ -2904,7 +2958,7 @@ msgstr "சேவையகத்தில் ஏற்றுமதியைச�
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
-"வினவல் பெட்டி சமர்ப்பித்தபின் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
+"வினவல் பெட்டி சமர்ப்பித்த பின்னர் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:607
 msgid "Title of browser window when a database is selected."
@@ -3261,7 +3315,7 @@ msgstr "சிட்டை விசை"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:25
 msgid "Media type"
-msgstr "தகா வகை!"
+msgstr "ஊடக வகை"
 
 #: libraries/classes/Config/Descriptions.php:695
 #: libraries/classes/Config/Descriptions.php:707
@@ -3359,7 +3413,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:354
 #, php-format
 msgid "%s view"
-msgstr "அமர்வு மதிப்பு"
+msgstr "%s"
 
 #: libraries/classes/Config/Descriptions.php:739
 msgid "Use ignore inserts"
@@ -3401,7 +3455,7 @@ msgstr "வெளிநாட்டு விசை காசோலைகள்"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "First day of calendar"
-msgstr ""
+msgstr "காலெண்டரின் முதல் நாள்"
 
 #: libraries/classes/Config/Descriptions.php:757
 #: libraries/classes/Config/Descriptions.php:768 libraries/classes/Menu.php:530
@@ -3526,7 +3580,7 @@ msgstr "கண்காணிப்பை மாற்றுகிறது"
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
-msgstr "கவிமொ"
+msgstr "SQL"
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "SQL Query box"
@@ -3591,7 +3645,7 @@ msgstr "பல அறிக்கை பிழைகளை புறக்கண
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "இழுவை மற்றும் இறக்குமதியை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:800
 msgid "Partial import: allow interrupt"
@@ -3800,7 +3854,7 @@ msgstr "மரத்தில் நிகழ்வுகளைக் காட�
 
 #: libraries/classes/Config/Descriptions.php:862
 msgid "Expand single database"
-msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
+msgstr "ஒற்றை தரவுத்தளத்தை விரிவாக்குங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:863
 msgid "Recently used tables"
@@ -4325,23 +4379,23 @@ msgstr "பதிலி கடவுச்சொல்"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "ZIP"
-msgstr "சிப்"
+msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:976
 msgid "URL for reCaptcha v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:977
 msgid "Content-Security-Policy snippet for reCaptcha v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான உள்ளடக்க-பாதுகாப்பு-கொள்கை துணுக்கை"
 
 #: libraries/classes/Config/Descriptions.php:978
 msgid "Request parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "Recaptcha V2 பநிஇ க்கான அளவுரு"
 
 #: libraries/classes/Config/Descriptions.php:979
 msgid "Response parameter for reCaptcha v2 API"
-msgstr ""
+msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கான மறுமொழி அளவுரு"
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
@@ -4353,7 +4407,7 @@ msgstr "ரெக்காப்ட்சாவிற்கான தனிப�
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCaptcha siteverify"
-msgstr ""
+msgstr "Recaptcha siteverify க்கான முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:983
 msgid "Send error reports"
@@ -4796,6 +4850,10 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
+"இது தேவை என்று நீங்கள் நினைத்தால், கூடுதல் பாதுகாப்பு அமைப்புகளைப் பயன்படுத்துங்கள் - %1 $ "
+"சோச்ட் ஏற்பு %2$s அமைப்புகள் மற்றும் %3 $ ச்ட்ரச்ட் செய்யப்பட்ட ப்ராக்சிகள் பட்டியல் %4 $ s. "
+"இருப்பினும், உங்கள் ஐபி ஐ.எச்.பி-க்கு சொந்தமானது என்றால் ஐபி அடிப்படையிலான பாதுகாப்பு "
+"நம்பகமானதாக இருக்காது, அங்கு நீங்கள் உட்பட ஆயிரக்கணக்கான பயனர்கள் இணைக்கப்பட்டுள்ளனர்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:200
 #, php-format
@@ -4870,7 +4928,7 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "%உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயங்களை "
+"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
 "ஏற்படுத்தக்கூடும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:475
@@ -4992,6 +5050,7 @@ msgstr "நிறைவரிசைகள் %1$s - %2$s காட்டப்�
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"\"%s\" என்ற பக்கம் ஏற்கனவே உள்ளது, தயவுசெய்து அதை வேறு ஏதாவது மறுபெயரிடுங்கள்."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -5025,7 +5084,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
 msgid "No table selected."
-msgstr "எந்த அட்டவணைகளும்  தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "எந்த அட்டவணையும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Database/ImportController.php:75
 #: libraries/classes/Controllers/ImportController.php:619
@@ -5064,7 +5123,7 @@ msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம்
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
-msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
+msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -5254,6 +5313,9 @@ msgid ""
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
+"உங்கள் சேவையகம் கண்ட்ரோல்சர் மற்றும் கடவுச்சொல்லுக்கான இயல்புநிலை மதிப்புகளுடன் இயங்குகிறது "
+"(கட்டுப்பாட்டு பாச்) மற்றும் ஊடுருவலுக்கு திறந்திருக்கும்; Controluser 'PMA' க்கான "
+"கடவுச்சொல்லை மாற்றுவதன் மூலம் இந்த பாதுகாப்பு பலவீனத்தை நீங்கள் உண்மையில் சரிசெய்ய வேண்டும்."
 
 #: libraries/classes/Controllers/HomeController.php:406
 msgid "The configuration file now needs a secret passphrase (blowfish_secret)."
@@ -5459,6 +5521,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"நீங்கள் வரிசைகளின் எண்ணிக்கையைக் குறைக்க முயற்சிக்கிறீர்கள், ஆனால் ஏற்கனவே இழக்கப்படும் அந்த "
+"வரிசைகளில் தரவை உள்ளிட்டுள்ளீர்கள். நீங்கள் தொடர விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:59
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -5490,10 +5554,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "பகிர்வுகளை நீங்கள்  உண்மையாகவே அகற்ற விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:68
-#, fuzzy
-#| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to RESET SLAVE?"
-msgstr "உங்களுக்கு உண்மையிலேயே \"%s\" செயலாக்க வேண்டுமா?"
+msgstr "நீங்கள் உண்மையில் அடிமையை மீட்டமைக்க விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:70
 msgid ""
@@ -5557,7 +5619,7 @@ msgstr "மீட்டமைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:96
 msgid "Reset all"
-msgstr "அனைத்தையும் மீட்டமைக்கவும்"
+msgstr "அனைத்தையும் மீட்டமை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Missing value in the form!"
@@ -5573,7 +5635,7 @@ msgstr "தயவுசெய்து ஒரு சரியான எண்ண
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Please enter a valid length!"
-msgstr "சரியான நீளத்தை உள்ளிடவும்!"
+msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Add index"
@@ -5586,7 +5648,7 @@ msgstr "தொகுக்குறியீட்டை திருத்த�
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Rename index"
-msgstr "தரவுத்தளத்தைப் இப்படி மறுபெயரிடுக"
+msgstr "குறியீட்டை மறுபெயரிடுங்கள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:107
 #: templates/table/index_form.twig:227
@@ -5821,38 +5883,38 @@ msgstr "து"
 #: libraries/classes/Util.php:511
 #: templates/server/status/monitor/index.twig:179
 msgid "KiB"
-msgstr "வினோதமாக"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:188
 #: libraries/classes/Util.php:513
 #: templates/server/status/monitor/index.twig:180
 msgid "MiB"
-msgstr "Mib"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:189
 #: libraries/classes/Util.php:515
 msgid "GiB"
-msgstr "கிப்"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:190
 #: libraries/classes/Util.php:517
 msgid "TiB"
-msgstr "திப்"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:191
 #: libraries/classes/Util.php:519
 msgid "PiB"
-msgstr "தொடங்கவும்"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:192
 #: libraries/classes/Util.php:521
 msgid "EiB"
-msgstr "Eib"
+msgstr "EiB"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:193
 #, php-format
@@ -5903,7 +5965,7 @@ msgstr "எதுவுமில்லை"
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:203
 msgid "SQL Query"
-msgstr "SQL வினவல்"
+msgstr "கவிமொ வினவல்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:204
 msgid "Resume monitor"
@@ -6227,11 +6289,11 @@ msgstr "தரவிறக்க வேண்டிய கோப்பை தய
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please enter a valid table name."
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "செல்லுபடியாகும் அட்டவணை பெயரை உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid database name."
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான தரவுத்தள பெயரை உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
@@ -6464,12 +6526,15 @@ msgstr "அயல் குறியெண் மதிப்புகளை உ
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:393
 msgid "No previously auto-saved query is available. Loading default query."
 msgstr ""
+"முன்னர் தானாக சேமிக்கப்பட்ட வினவல் எதுவும் கிடைக்கவில்லை. இயல்புநிலை வினவலை ஏற்றுகிறது."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:395
 msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"உங்களிடம் முன்பு சேமித்த வினவல் உள்ளது. வினவலை ஏற்ற தானாக சேமிக்கப்பட்ட வினவலைப் பெறுங்கள்"
+" என்பதைக் சொடுக்கு செய்க."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:397
 #, php-format
@@ -6507,15 +6572,11 @@ msgid "Are you sure?"
 msgstr "உறுதியாகவா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:410
-#, fuzzy
-#| msgid ""
-#| "This action may change some of the columns definition.<br/>Are you sure "
-#| "you want to continue?"
 msgid ""
 "This action may change some of the columns definition.<br>Are you sure you "
 "want to continue?"
 msgstr ""
-"இந்த நடவடிக்கை பத்திகளின் வரையறையில் சிலவற்றை மாற்றலாம். <br/>நீங்கள் உறுதியாக தொடர "
+"இந்த நடவடிக்கை சில நெடுவரிசை வரையறையை மாற்றக்கூடும். <br> நீங்கள் தொடர "
 "விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:413
@@ -6806,6 +6867,7 @@ msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
+"ஃச் செயல்பாடு எக்சாடெசிமல் மதிப்பைக் கணக்கிடும்போது முழு எண்ணை ஒரு சரமாக கருதும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:509
 msgid ""
@@ -6897,6 +6959,8 @@ msgstr "பக்கத்தை அழிக்க"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
+"இந்த பக்கத்தில் சேமிக்கப்பட்ட சில அட்டவணைகள் மறுபெயரிடப்பட்டிருக்கலாம் அல்லது "
+"நீக்கப்பட்டிருக்கலாம்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
 #: templates/database/designer/main.twig:10
@@ -6967,8 +7031,8 @@ msgid ""
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
-"இந்நெடுவரிசையை ORDER BY உறுப்புரையில் சேர்க்க அல்லது ASC/DESCஐ மாற்ற shift+சொடுக்கவும்"
-". <br/>- ORDER BY உறுப்புரையிலிருந்து  நீக்க Ctrl+சொடுக்கவும்"
+"Shift+இந்த நெடுவரிசையைச் சேர்க்கவும் அல்லது ASC/DESC ஐ மாற்றவும். <br>- Ctrl+கிளிக் "
+"அல்லது Alt+கிளிக் செய்ய"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:569
 msgid "Click to mark/unmark."
@@ -7188,11 +7252,11 @@ msgstr "உங்கள் அமைவுகளின்படி,தற்ப�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:682
 msgid "Successfully copied!"
-msgstr "பக்கம் நீக்கப்பட்டது"
+msgstr "வெற்றிகரமாக நகலெடுக்கப்பட்டது!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:683
 msgid "Copying failed!"
-msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
+msgstr "நகலெடுப்பது தோல்வியுற்றது!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:686
 msgid "Execute this query again?"
@@ -7283,37 +7347,37 @@ msgstr "வலுவான"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:716
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "பாதுகாப்பு விசை செயலாக்கத்திற்காக காத்திருக்கும் நேரம்."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "பாதுகாப்பு விசைக்கு தவறான கோரிக்கை அனுப்பப்பட்டது."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr ""
+msgstr "அறியப்படாத பாதுகாப்பு விசை பிழை."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "வாடிக்கையாளர் பாதுகாப்பு விசையை ஆதரிக்கவில்லை."
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr ""
+msgstr "தோல்வியுற்ற பாதுகாப்பு விசை செயல்படுத்தல்."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr ""
+msgstr "தவறான பாதுகாப்பு விசை."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:730
 msgid ""
@@ -7321,6 +7385,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"உங்கள் உலாவியில் இன்டெக்சிடிபி வேலை செய்யாததால், உங்கள் பக்க அமைப்பை நீங்கள் திறக்கவோ, "
+"சேமிக்கவோ அல்லது நீக்கவோ முடியாது, மேலும் உங்கள் Phpmyadmin உள்ளமைவு சேமிப்பு இதற்காக "
+"கட்டமைக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -7434,7 +7501,7 @@ msgstr "சலுகைகள் இல்லை"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:150
 msgid "You do not have the privileges to administrate the users!"
-msgstr ""
+msgstr "பயனர்களை நிர்வகிப்பதற்கான சலுகைகள் உங்களிடம் இல்லை!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:164
 msgid ""
@@ -7525,8 +7592,8 @@ msgid ""
 "statements from the transaction."
 msgstr ""
 "தற்காலிக பைனரி பதிவு தற்காலிக சேமிப்பைப் பயன்படுத்திய பரிவர்த்தனைகளின் எண்ணிக்கை, ஆனால் "
-"அது பின்லாக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க தற்காலிக "
-"கோப்பைப் பயன்படுத்தியது."
+"அது பின்லோக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க ஒரு "
+"தற்காலிக கோப்பைப் பயன்படுத்தியது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid "The number of transactions that used the temporary binary log cache."
@@ -7991,6 +8058,8 @@ msgid ""
 "The number of tables that have been opened. If opened tables is big, your "
 "table_open_cache value is probably too small."
 msgstr ""
+"திறக்கப்பட்ட அட்டவணைகளின் எண்ணிக்கை. திறந்த அட்டவணைகள் பெரியதாக இருந்தால், உங்கள் அட்டவணை"
+"_OPEN_CACHE மதிப்பு மிகவும் சிறியதாக இருக்கலாம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
@@ -8335,7 +8404,7 @@ msgstr "முதன்மை விசையின் பெயர் \"மு�
 #: libraries/classes/Controllers/Table/MaintenanceController.php:160
 #: libraries/classes/Controllers/Table/MaintenanceController.php:195
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "பல அட்டவணைகளில் பராமரிப்பு செயல்பாடுகள் முடக்கப்பட்டுள்ளன."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:113
 #: libraries/classes/Controllers/Table/OperationsController.php:303
@@ -8484,6 +8553,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Ini_get மற்றும்/அல்லது ini_set செயல்பாடுகள் php.ini இல் முடக்கப்பட்டுள்ளன. Phpmyadmin "
+"க்கு இந்த செயல்பாடுகள் தேவை!"
 
 #: libraries/classes/Core.php:1275
 msgid "GLOBALS overwrite attempt"
@@ -8713,7 +8784,8 @@ msgstr "%s நிகழ்வின் தரவேற்றம்"
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr ""
+"செயலாக்க கோரிக்கையில் பிழை: தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் நிகழ்வு எதுவும் இல்லை."
 
 #: libraries/classes/DatabaseInterface.php:1111
 #, php-format
@@ -9056,7 +9128,7 @@ msgstr "நீங்கள் ஒரு வழக்கமான வரையற
 #: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் வழக்கமாக இல்லை."
 
 #: libraries/classes/Database/Routines.php:1448
 #, php-format
@@ -9119,6 +9191,8 @@ msgid ""
 "%2$s. You might be lacking the necessary privileges to view/export this "
 "routine."
 msgstr ""
+"செயலாக்க கோரிக்கையில் பிழை: தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை. இந்"
+"த வழக்கத்தைக் காண/ஏற்றுமதி செய்ய தேவையான சலுகைகள் உங்களுக்கு இல்லாதிருக்கலாம்."
 
 #: libraries/classes/Database/Search.php:109
 #: templates/database/search/main.twig:19
@@ -9222,7 +9296,8 @@ msgstr "%s செயல்தூண்டியின் தரவேற்ற�
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr ""
+"செயலாக்க கோரிக்கையில் பிழை: தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் தூண்டுதல் இல்லை."
 
 #: libraries/classes/Dbal/DbiMysqli.php:207
 msgid "SSL connection enforced by server, automatically enabling it."
@@ -9234,6 +9309,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"பிழை 1045: பயனருக்கு அணுகல் மறுக்கப்பட்டது. கூடுதல் பிழை தகவல்கள் கிடைக்கக்கூடும், ஆனால் "
+"%s உள்ளமைவு கட்டளை மூலம் மறைக்கப்படுகிறது."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -9382,7 +9459,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:111
 msgid "Buffer Pool"
-msgstr "இடையக குளம்"
+msgstr "இடையகக் குளம்"
 
 #: libraries/classes/Engines/Innodb.php:112
 #: libraries/classes/Server/Status/Data.php:232
@@ -9661,7 +9738,7 @@ msgstr "வரிசை சுட்டிக்காட்டி (.xtr) கோ
 
 #: libraries/classes/Engines/Pbxt.php:125
 msgid "Log file count"
-msgstr "பதிவு கோப்பு எண்ணிக்கை"
+msgstr "Log கோப்பு எண்ணுங்கள்"
 
 #: libraries/classes/Engines/Pbxt.php:127
 msgid ""
@@ -9680,8 +9757,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"PBXT பற்றிய ஆவணங்கள் மற்றும் மேலதிக தகவல்களை %sPRIMEBASE XT முகப்பு பக்கம் %s இல் "
-"காணலாம்."
+"ஆவணப்படுத்துதல் and further செய்தி பற்றி PBXT can be found on the %sPrimeBase XT "
+"வீடு Page%s."
 
 #: libraries/classes/ErrorHandler.php:99
 msgid "Too many error messages, some are not displayed."
@@ -9722,7 +9799,7 @@ msgstr "தரவு %s கோப்பாக சேமிக்கப்பட�
 #. l10n: A query written by the user is a "raw query" that could be using no tables or databases in particular
 #: libraries/classes/Export.php:992
 msgid "Exporting a raw query is not supported for this export method."
-msgstr ""
+msgstr "இந்த ஏற்றுமதி முறைக்கு மூல வினவலை ஏற்றுமதி செய்வது ஆதரிக்கப்படவில்லை."
 
 #: libraries/classes/File.php:286
 msgid "File was not an uploaded file."
@@ -9842,11 +9919,11 @@ msgstr "எச்.எச்.எல் பயன்படுத்தப்பட
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "இயல்புநிலை விருப்பங்களுடன் பிஎச்பி செயல்பாடு கடவுச்சொல்_ஆச் ()."
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "கடவுச்சொல்_ஆச் () பிஎச்பி செயல்பாடு"
 
 #: libraries/classes/Html/Generator.php:670
 msgid "Skip Explain SQL"
@@ -9964,7 +10041,7 @@ msgstr "இருமம்"
 
 #: libraries/classes/InsertEdit.php:794
 msgid "Because of its length,<br> this column might not be editable."
-msgstr ""
+msgstr "அதன் நீளம் காரணமாக, <br> இந்த நெடுவரிசை திருத்தக்கூடியதாக இருக்காது."
 
 #: libraries/classes/InsertEdit.php:1417
 msgid "Binary - do not edit"
@@ -10311,7 +10388,7 @@ msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:820
 msgid "Groups"
-msgstr "பயனர்குழுவின் பெயர்:"
+msgstr "குழுக்கள்"
 
 #: libraries/classes/Navigation/NavigationTree.php:986
 #, php-format
@@ -10489,6 +10566,9 @@ msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"முதன்மை விசை இல்லை; தயவுசெய்து ஒன்றைச் சேர்க்கவும். <br> குறிப்பு: ஒரு முதன்மை விசை "
+"என்பது அனைத்து வரிசைகளையும் தனித்தனியாக அடையாளம் காணும் ஒரு நெடுவரிசை (அல்லது "
+"நெடுவரிசைகளின் சேர்க்கை) ஆகும்."
 
 #: libraries/classes/Normalization.php:300
 msgid "Add a primary key on existing column(s)"
@@ -10686,6 +10766,10 @@ msgid ""
 "value of the column.<br>Note: A column may have no transitive dependency, in "
 "that case you don't have to select any."
 msgstr ""
+"கீழேயுள்ள ஒவ்வொரு நெடுவரிசைக்கும், தயவுசெய்து கொடுக்கப்பட்ட தொகுப்பில் <b> குறைந்தபட்ச "
+"தொகுப்பு </b> நெடுவரிசைகளைத் தேர்ந்தெடுக்கவும், அதன் மதிப்புகள் ஒன்றாக நெடுவரிசையின் "
+"மதிப்பைத் தீர்மானிக்க போதுமானவை. <br> குறிப்பு: ஒரு நெடுவரிசையில் இடைநிலை சார்பு இல்லை"
+", இல் அந்த வழக்கு நீங்கள் எதையும் தேர்ந்தெடுக்க வேண்டியதில்லை."
 
 #: libraries/classes/Normalization.php:919
 msgid ""
@@ -10732,7 +10816,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:1056
 msgid "No partial dependencies found!"
-msgstr "பகுதி சார்புநிலைகள் எதுவும் காணப்படவில்லை!"
+msgstr "பகுதி சார்புகள் எதுவும் கிடைக்கவில்லை!"
 
 #: libraries/classes/Operations.php:600
 #: templates/table/structure/display_partitions.twig:84
@@ -10886,6 +10970,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 1000 characters."
 msgstr ""
+"உங்கள் கடவுச்சொல் மிக நீளமானது. பணி மறுப்புத் தாக்குதல்களைத் தடுக்க, PHPMYADMIN "
+"கடவுச்சொற்களை 1000 எழுத்துகளுக்கு குறைவாக கட்டுப்படுத்துகிறது."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:372
 msgid "You are not allowed to log in to this MySQL server!"
@@ -10912,6 +10998,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"%s வினாடிகளின் செயலற்ற தன்மை காரணமாக நீங்கள் தானாகவே பதிவு செய்யப்பட்டுள்ளீர்கள். நீங்கள் "
+"மீண்டும் உள்நுழைந்ததும், நீங்கள் விட்டுச்சென்ற வேலையை மீண்டும் தொடங்க முடியும்."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:216
 #: libraries/classes/Plugins/AuthenticationPlugin.php:219
@@ -11133,7 +11221,7 @@ msgstr "கருத்துரைகளை காட்டுக"
 #: libraries/classes/Plugins/Export/ExportOdt.php:110
 #: libraries/classes/Plugins/Export/ExportSql.php:157
 msgid "Display media types"
-msgstr "பயன்முறைகளை காட்டுக"
+msgstr "ஊடக வகைகளைக் காண்பி"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:168
 msgid "Put columns names in the first row:"
@@ -11195,7 +11283,7 @@ msgstr "அட்டவணை தலைப்புகளை தரவேற்�
 #: libraries/classes/Plugins/Export/ExportOdt.php:267
 #: libraries/classes/Plugins/Export/ExportTexytext.php:192
 msgid "Dumping data for query result"
-msgstr ""
+msgstr "வினவல் முடிவுக்கான தரவை கொட்டுதல்"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:98
 msgid "Report title:"
@@ -11207,7 +11295,7 @@ msgstr "தரவை கொட்டுதல்"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:252
 msgid "Query result data"
-msgstr "தேடல் முடிவுகளை மறை"
+msgstr "வினவல் முடிவு தரவு"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:310
 msgid "View structure"
@@ -11266,7 +11354,8 @@ msgstr "%s அறிக்கையைச் சேர்க்கவும்"
 #: libraries/classes/Plugins/Export/ExportSql.php:317
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
-"(அட்டவணை உருவாக்கத்தின் போது குறியீடுகள் உருவாக்கப்படும் என்பதால் குறைந்த செயல்திறன்)"
+"(அட்டவணை உருவாக்கத்தின் போது குறியீடுகள் உருவாக்கப்படும் என்பதால் குறைந்த செயல்திறன் "
+"கொண்டது)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
 #, php-format
@@ -11276,7 +11365,7 @@ msgstr "%s மதிப்பு"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "எளிய பார்வை ஏற்றுமதியைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -11298,7 +11387,7 @@ msgstr "செருகுவதற்கு முன் அட்டவணை�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<குறியீடு> செருகு </குறியீடு> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
+msgstr "<code> செருக </குறியீடு> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
@@ -11307,7 +11396,7 @@ msgstr "<code> தாமதத்தை செருகவும் </குற�
 #: libraries/classes/Plugins/Export/ExportSql.php:426
 #: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<குறியீடு> செருகு புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
+msgstr "<code> செருகவும் புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
@@ -11323,6 +11412,9 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
+"ஒவ்வொரு <code> செருகும் </code> அறிக்கையிலும் நெடுவரிசை பெயர்களைச் சேர்க்கவும் <br> & "
+"nbsp; & nbsp; & nbsp; எடுத்துக்காட்டு: <code> TBL_NAME (COL_A, COL_B, COL_C) "
+"மதிப்புகள் (1,2,3) </code> இல் செருகவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:470
 msgid ""
@@ -11330,18 +11422,25 @@ msgid ""
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
+"ஒவ்வொரு <code> செருகும் </code> அறிக்கையிலும் பல வரிசைகளைச் செருகவும் <br> & nbsp; "
+"& nbsp; & nbsp; எடுத்துக்காட்டு: <code> TBL_NAME மதிப்புகள் (1,2,3), (4,5,6), "
+"(7,8,9) </code> இல் செருகவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:475
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
+"மேலே உள்ள இரண்டும் <br> & nbsp; & nbsp; & nbsp; எடுத்துக்காட்டு: <code> TBL_NAME ("
+"COL_A, COL_B, COL_C) மதிப்புகள் (1,2,3), (4,5,6), (7,8,9) </code> இல் செருகவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:480
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
+"மேற்கூறிய எதுவும் இல்லை <br> & nbsp; & nbsp; & nbsp; எடுத்துக்காட்டு: <code> "
+"TBL_NAME மதிப்புகளில் (1,2,3) </code> இல் செருகவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:499
 msgid ""
