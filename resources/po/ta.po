@@ -5316,6 +5316,11 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் முதன்மை சேவையகமாக கட்டமைக்கப்படவில்லை. எல்லா "
+"தரவுத்தளங்களையும் பிரதிபலிப்பதிலிருந்தும் அவற்றில் சிலவற்றை புறக்கணிப்பதிலிருந்தும் நீங்கள் "
+"தேர்வு செய்யலாம் (நீங்கள் பெரும்பான்மையான தரவுத்தளங்களை நகலெடுக்க விரும்பினால் பயனுள்ளதாக "
+"இருக்கும்) அல்லது இயல்பாகவே அனைத்து தரவுத்தளங்களையும் புறக்கணிக்க தேர்வு செய்யலாம் மற்றும் "
+"சில தரவுத்தளங்களை மட்டுமே பிரதிபலிக்க அனுமதிக்கலாம். பயன்முறையைத் தேர்ந்தெடுக்கவும்:"
 
 #: resources/templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
