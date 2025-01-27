@@ -16662,7 +16662,7 @@ msgstr "பயனர் குழுக்கள்"
 #: templates/server/privileges/user_properties.twig:57
 #: templates/server/privileges/users_overview.twig:57
 msgid "The selected user was not found in the privilege table."
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர் சலுகை அட்டவணையில் காணப்படவில்லை."
 
 #: templates/server/privileges/user_properties.twig:106
 msgid "Change login information / Copy user account"
