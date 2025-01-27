@@ -17967,8 +17967,6 @@ msgstr ""
 
 #. l10n: Show or hide the menu using the hamburger style button
 #: templates/top_menu.twig:4
-#, fuzzy
-#| msgid "Table navigation bar"
 msgid "Toggle navigation"
 msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
 
