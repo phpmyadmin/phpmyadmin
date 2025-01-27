@@ -650,6 +650,8 @@ msgid ""
 "Opening tables requires disk I/O which is costly. Increasing "
 "{table_open_cache} might avoid this."
 msgstr ""
+"அட்டவணையைத் திறப்பது வட்டு I/O தேவைப்படுகிறது, இது விலை உயர்ந்தது. {"
+"Table_open_cache with ஐ அதிகரிப்பது இதைத் தவிர்க்கலாம்."
 
 #: libraries/advisory_rules_generic.php:424
 #, php-format
