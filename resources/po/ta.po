@@ -14850,7 +14850,7 @@ msgstr "நிகழ்வு %1$s மாற்றியமைக்கப்ப
 #: src/Database/Events.php:143
 #, php-format
 msgid "Event %1$s has been created."
-msgstr ""
+msgstr "நிகழ்வு %1$s உருவாக்கப்பட்டுள்ளது."
 
 #: src/Database/Events.php:157 src/Database/Routines.php:150
 #: src/Triggers/Triggers.php:148
