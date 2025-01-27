@@ -1223,6 +1223,7 @@ msgid ""
 "Depending on your environment, it might be performance increasing to reduce "
 "this value."
 msgstr ""
+"உங்கள் சூழலைப் பொறுத்து, இந்த மதிப்பைக் குறைக்க செயல்திறன் அதிகரிக்கும்."
 
 #: libraries/advisory_rules_mysql_before80003.php:102
 #, php-format
