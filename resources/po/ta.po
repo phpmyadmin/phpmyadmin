@@ -9738,7 +9738,7 @@ msgstr "துளி வினவல்களை உறுதிப்படு�
 #: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
 msgid "Paper size"
-msgstr ""
+msgstr "காகித அளவு"
 
 #: src/Config/Descriptions.php:617
 msgid "Default database tab"
