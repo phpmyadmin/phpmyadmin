@@ -1413,7 +1413,7 @@ msgstr "பல்கேரியன்"
 #: libraries/classes/Charsets/Collation.php:455
 msgctxt "Collation"
 msgid "Croatian"
-msgstr ""
+msgstr "குரோசியன்"
 
 #: libraries/classes/Charsets/Collation.php:459
 msgctxt "Collation"
