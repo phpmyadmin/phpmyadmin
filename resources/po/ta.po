@@ -17137,7 +17137,7 @@ msgstr "எளிய இரண்டு காரணி ஏற்பு"
 
 #: src/Plugins/TwoFactor/Simple.php:55
 msgid "For testing purposes only!"
-msgstr ""
+msgstr "சோதனை நோக்கங்களுக்காக மட்டுமே!"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:176
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
