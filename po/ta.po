@@ -4262,7 +4262,7 @@ msgstr "மதிப்பு %s ஐ விட குறைவாகவோ அ�
 #: libraries/classes/Config/FormDisplay.php:675
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "%s க்கான தரவு காணவில்லை"
 
 #: libraries/classes/Config/FormDisplay.php:874
 #: libraries/classes/Config/FormDisplay.php:882
