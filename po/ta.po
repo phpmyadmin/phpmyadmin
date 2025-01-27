@@ -16605,7 +16605,7 @@ msgstr "தற்போதைய பிழையைத் தவிர்க்�
 #: templates/server/replication/slave_configuration.twig:87
 #, php-format
 msgid "Skip next %s errors."
-msgstr ""
+msgstr "அடுத்த %s பிழைகளைத் தவிர்க்கவும்."
 
 #: templates/server/replication/slave_configuration.twig:107
 #, php-format
