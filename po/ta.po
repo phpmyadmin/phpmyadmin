@@ -8709,6 +8709,7 @@ msgstr "கருத்துரை"
 #: libraries/classes/Database/Routines.php:1076
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
+"ஒவ்வொரு வழக்கமான அளவுருவுக்கும் நீங்கள் ஒரு பெயரையும் ஒரு வகையையும் வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Routines.php:1094
 #, php-format
