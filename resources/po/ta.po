@@ -9326,6 +9326,7 @@ msgstr ""
 #: src/Config/Descriptions.php:423
 msgid "Defines the list of statements the auto-creation uses for new versions."
 msgstr ""
+"புதிய பதிப்புகளுக்கு தானாக உருவாக்கும் அறிக்கைகளின் பட்டியலை வரையறுக்கிறது."
 
 #: src/Config/Descriptions.php:426
 msgid ""
