@@ -1994,11 +1994,11 @@ msgstr "நெடுவரிசை மாற்றுப்பெயர்"
 
 #: resources/templates/database/multi_table_query/form.twig:44
 msgid "Use this column in criteria"
-msgstr ""
+msgstr "இந்த நெடுவரிசையை அளவுகோல்களில் பயன்படுத்தவும்"
 
 #: resources/templates/database/multi_table_query/form.twig:48
 msgid "criteria"
-msgstr "தேர்வளவை:"
+msgstr "அளவுகோல்கள்"
 
 #: resources/templates/database/multi_table_query/form.twig:56
 #: src/Util.php:1880
@@ -2031,7 +2031,7 @@ msgstr "இறங்குவரிசை"
 
 #: resources/templates/database/multi_table_query/form.twig:62
 msgid "Add as"
-msgstr "%sஐ சேர்க்க"
+msgstr "சேர்க்க"
 
 #: resources/templates/database/multi_table_query/form.twig:116
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
@@ -2041,7 +2041,7 @@ msgstr "உரை"
 
 #: resources/templates/database/multi_table_query/form.twig:117
 msgid "Another column"
-msgstr "நிரல்வரிசையை நகர்த்து"
+msgstr "மற்றொரு நெடுவரிசை"
 
 #: resources/templates/database/multi_table_query/form.twig:144
 msgid "Enter criteria as free text"
