@@ -3266,7 +3266,7 @@ msgstr "கோப்பின் எழுத்து தொகுப்பு:
 
 #: resources/templates/export.twig:425
 msgid "Compression:"
-msgstr ""
+msgstr "சுருக்க:"
 
 #: resources/templates/export.twig:433
 msgid "zipped"
