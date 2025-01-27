@@ -10644,7 +10644,7 @@ msgstr "உறவு அட்டவணை"
 
 #: src/Config/Descriptions.php:890
 msgid "Signon session name"
-msgstr ""
+msgstr "சிக்னன் அமர்வு பெயர்"
 
 #: src/Config/Descriptions.php:891
 msgid "Signon URL"
