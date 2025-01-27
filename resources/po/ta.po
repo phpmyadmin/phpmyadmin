@@ -3832,10 +3832,11 @@ msgstr ""
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
+"உங்கள் WebAuthn/FIDO2 சாதனத்தை இணைக்கவும். சாதனத்தில் உள்நுழைவை உறுதிப்படுத்தவும்."
 
 #: resources/templates/menu/main.twig:27
 msgid "View:"
-msgstr "விவரபார்வைகள்:"
+msgstr "காண்க:"
 
 #: resources/templates/menu/main.twig:29 src/Plugins/Export/Helpers/Pdf.php:177
 msgid "Table:"
