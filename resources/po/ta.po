@@ -9765,7 +9765,7 @@ msgstr "எதுவும் தேர்ந்தெடுக்கப்ப�
 
 #: src/Config/Descriptions.php:578
 msgid "Title of browser window when a server is selected."
-msgstr ""
+msgstr "உலாவி சாளரத்தின் தலைப்பு ஒரு சேவையகம் தேர்ந்தெடுக்கப்படும்போது."
 
 #: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
