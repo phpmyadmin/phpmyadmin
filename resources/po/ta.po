@@ -7311,7 +7311,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:115
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries 'off' என அமைக்கப்பட்டுள்ளது"
 
 #: src/Advisory/Rules.php:125
 msgid ""
