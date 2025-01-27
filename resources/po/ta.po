@@ -9884,7 +9884,7 @@ msgstr "டம்ப் டேபிள்"
 
 #: src/Config/Descriptions.php:658 src/Plugins/Export/ExportLatex.php:99
 msgid "Include table caption"
-msgstr ""
+msgstr "அட்டவணை தலைப்பு சேர்க்கவும்"
 
 #: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Table caption"
