@@ -18191,11 +18191,11 @@ msgstr "பெரிதாக்கு மீட்டமைக்கவும�
 
 #: templates/theme_preview.twig:11
 msgid "No preview available."
-msgstr ""
+msgstr "முன்னோட்டம் எதுவும் கிடைக்கவில்லை."
 
 #: templates/theme_preview.twig:13
 msgid "Take it"
-msgstr "அதை ஏற்றுக்கொள்"
+msgstr "அதை எடுத்துக் கொள்ளுங்கள்"
 
 #: templates/themes.twig:4
 msgid "Get more themes!"
