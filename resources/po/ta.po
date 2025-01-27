@@ -16117,7 +16117,7 @@ msgstr "ஒருங்கிணைப்பு"
 
 #: src/Operations.php:888
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "அட்டவணையை ஒரே மாதிரியாக நகர்த்த முடியாது!"
 
 #: src/Operations.php:890
 msgid "Can't copy table to same one!"
