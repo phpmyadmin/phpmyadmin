@@ -16263,7 +16263,7 @@ msgstr "வழிசெலுத்தல் காட்சியை ஏற்�
 
 #: templates/navigation/main.twig:88
 msgid "SQL upload"
-msgstr ""
+msgstr "கவிமொ பதிவேற்றம்"
 
 #: templates/preferences/autoload.twig:7
 msgid ""
