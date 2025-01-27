@@ -13414,43 +13414,43 @@ msgstr "இன்று"
 
 #: src/Controllers/JavaScriptMessagesController.php:789
 msgid "This field is required"
-msgstr ""
+msgstr "இந்த புலம் தேவை"
 
 #: src/Controllers/JavaScriptMessagesController.php:790
 msgid "Please fix this field"
-msgstr "உரைபுலத்தின் மூலமாக:"
+msgstr "இந்த புலத்தை சரிசெய்யவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please enter a valid email address"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter a valid URL"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் முகவரி ஐ உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a valid date"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான தேதியை உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter a valid date ( ISO )"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "செல்லுபடியாகும் தேதியை (ஐஎச்ஓ) உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a valid number"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் எண்ணை உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a valid credit card number"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் கடன் அட்டை எண்ணை உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter only digits"
-msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
+msgstr "தயவுசெய்து இலக்கங்களை மட்டும் உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter the same value again"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "அதே மதிப்பை மீண்டும் உள்ளிடவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter no more than {0} characters"
