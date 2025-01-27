@@ -16381,7 +16381,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:10
 #: templates/server/privileges/privileges_table.twig:272
 msgid "Note: MySQL privilege names are expressed in English."
-msgstr ""
+msgstr "குறிப்பு: MySQL சலுகை பெயர்கள் ஆங்கிலத்தில் வெளிப்படுத்தப்பட்டுள்ளன."
 
 #: templates/server/privileges/edit_routine_privileges.twig:63
 #: templates/server/privileges/edit_routine_privileges.twig:67
