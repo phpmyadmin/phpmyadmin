@@ -8186,12 +8186,12 @@ msgstr "ஒருங்குறி"
 #: src/Charsets/Collation.php:265 src/Charsets/Collation.php:452
 msgctxt "Collation"
 msgid "West European"
-msgstr ""
+msgstr "மேற்கு ஐரோப்பிய"
 
 #: src/Charsets/Collation.php:272
 msgctxt "Collation"
 msgid "Central European"
-msgstr "மைய நெடுவரிசைகள்"
+msgstr "மத்திய ஐரோப்பிய"
 
 #: src/Charsets/Collation.php:277 src/Charsets/Collation.php:459
 msgctxt "Collation"
