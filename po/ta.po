@@ -9392,17 +9392,17 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:602
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "கவிமொ ஐ விளக்குங்கள்"
 
 #: libraries/classes/Html/Generator.php:628
 msgid "Without PHP code"
-msgstr "PHP நிரல் இல்லாமல்"
+msgstr "பிஎச்பி குறியீடு இல்லாமல்"
 
 #: libraries/classes/Html/Generator.php:636
 #: templates/database/multi_table_query/form.twig:184
 #: templates/database/qbe/selection_form.twig:115
 msgid "Submit query"
-msgstr "வினவலை சமர்ப்பி"
+msgstr "வினவலை சமர்ப்பிக்கவும்"
 
 #: libraries/classes/Html/Generator.php:686 templates/console/display.twig:31
 #: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
@@ -9412,7 +9412,7 @@ msgstr "பகுமுறையிடல்"
 #: libraries/classes/Html/Generator.php:699
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "தொகுப்பு பார்வை"
+msgstr "இன்லைன் திருத்து"
 
 #: libraries/classes/Html/Generator.php:823
 msgid "Static analysis:"
