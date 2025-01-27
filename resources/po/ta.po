@@ -13859,7 +13859,7 @@ msgstr "சரம்"
 #: src/Controllers/Operations/Database/CollationController.php:40
 #: src/Controllers/Operations/TableController.php:275
 msgid "No collation provided."
-msgstr ""
+msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
 
 #: src/Controllers/Operations/DatabaseController.php:81
 msgid "Cannot copy database to the same name. Change the name and try again."
