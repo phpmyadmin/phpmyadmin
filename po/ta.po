@@ -2141,6 +2141,8 @@ msgid ""
 "An alternate host to hold the configuration storage; leave blank to use the "
 "already defined host."
 msgstr ""
+"உள்ளமைவு சேமிப்பிடத்தை வைத்திருக்க மாற்று ஓச்ட்; ஏற்கனவே வரையறுக்கப்பட்ட ஓச்டைப் பயன்படுத்த "
+"காலியாக விடவும்."
 
 #: libraries/classes/Config/Descriptions.php:361
 msgid ""
