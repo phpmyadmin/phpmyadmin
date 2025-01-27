@@ -15487,6 +15487,8 @@ msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
 msgstr ""
+"தயவுசெய்து பொறுமையாக இருங்கள், கோப்பு பதிவேற்றப்படுகிறது. பதிவேற்றம் குறித்த விவரங்கள் "
+"கிடைக்கவில்லை."
 
 #: templates/import.twig:26
 msgid "File to import:"
