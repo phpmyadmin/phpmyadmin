@@ -1226,7 +1226,7 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:478
 msgctxt "Collation"
 msgid "German (dictionary order)"
-msgstr "தரவு அகராதி"
+msgstr "செர்மன் (அகராதி ஒழுங்கு)"
 
 #: libraries/classes/Charsets/Collation.php:223
 #: libraries/classes/Charsets/Collation.php:556
@@ -1438,7 +1438,7 @@ msgstr "எச்பெராண்டோ"
 #: libraries/classes/Charsets/Collation.php:475
 msgctxt "Collation"
 msgid "Estonian"
-msgstr ""
+msgstr "எச்டோனிய"
 
 #: libraries/classes/Charsets/Collation.php:490
 msgctxt "Collation"
