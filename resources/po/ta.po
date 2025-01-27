@@ -16126,7 +16126,7 @@ msgstr "அட்டவணையை ஒரே மாதிரியாக நக
 #: src/Operations.php:926
 #, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
-msgstr ""
+msgstr "அட்டவணை %s %s க்கு மாற்றப்பட்டுள்ளன. சலுகைகள் சரிசெய்யப்பட்டுள்ளன."
 
 #: src/Operations.php:932
 #, php-format
