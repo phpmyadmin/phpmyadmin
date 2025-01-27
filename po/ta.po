@@ -9690,7 +9690,7 @@ msgstr "செருகும் வினவலைக் காட்டு"
 
 #: libraries/classes/InsertEdit.php:1922
 msgid "Go back to previous page"
-msgstr ""
+msgstr "முந்தைய பக்கத்திற்குச் செல்லவும்"
 
 #: libraries/classes/InsertEdit.php:1925
 msgid "Insert another new row"
