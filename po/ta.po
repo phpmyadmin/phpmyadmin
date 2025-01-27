@@ -4056,7 +4056,7 @@ msgstr "பிஎச்பி குறியீட்டை உருவாக�
 
 #: libraries/classes/Config/Descriptions.php:950
 msgid "Suhosin warning"
-msgstr ""
+msgstr "சுஓசின் எச்சரிக்கை"
 
 #: libraries/classes/Config/Descriptions.php:951
 msgid "Login cookie validity warning"
