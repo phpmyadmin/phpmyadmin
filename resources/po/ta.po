@@ -10575,7 +10575,7 @@ msgstr "கவிமொ வினவல் வரலாற்று அட்ட
 
 #: src/Config/Descriptions.php:877
 msgid "Server hostname"
-msgstr ""
+msgstr "சேவையக ஓச்ட்பெயர்"
 
 #: src/Config/Descriptions.php:878
 msgid "Logout URL"
