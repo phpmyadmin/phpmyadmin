@@ -14496,7 +14496,7 @@ msgstr "அட்டவணைகளில்:"
 #: templates/database/search/main.twig:46 templates/server/export/index.twig:16
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
-msgstr "அனைத்தையும் தெரிவுநீக்கு"
+msgstr "அனைத்தையும் தேர்வு செய்யுங்கள்"
 
 #: templates/database/search/main.twig:67
 msgid "Inside column:"
@@ -16464,6 +16464,8 @@ msgid ""
 "This server is not configured as master in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் மாச்டராக கட்டமைக்கப்படவில்லை. நீங்கள் %sconfigure "
+"%s ஐ விரும்புகிறீர்களா?"
 
 #: templates/server/replication/index.twig:43
 msgid "No privileges"
