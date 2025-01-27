@@ -11289,6 +11289,7 @@ msgstr "கவிமொ பொருந்தக்கூடிய பயன்�
 #: libraries/classes/Plugins/Import/ImportSql.php:81
 msgid "Do not use <code>AUTO_INCREMENT</code> for zero values"
 msgstr ""
+"சுழிய மதிப்புகளுக்கு <code> Auto_increment </code> ஐப் பயன்படுத்த வேண்டாம்"
 
 #: libraries/classes/Plugins/Import/ImportXml.php:49
 msgid "XML"
