@@ -10556,7 +10556,7 @@ msgstr "ரெக்காப்ட்சா சேவையுடன் இண�
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:336
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "நுழைந்த கேப்ட்சா தவறு, மீண்டும் முயற்சிக்கவும்!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:348
 msgid ""
