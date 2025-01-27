@@ -15845,7 +15845,7 @@ msgstr "புதியது"
 
 #: src/Normalization.php:200
 msgid "Make all columns atomic"
-msgstr ""
+msgstr "அனைத்து நெடுவரிசைகளையும் அணு செய்யுங்கள்"
 
 #: src/Normalization.php:203 src/Normalization.php:252
 #: src/Normalization.php:298 src/Normalization.php:330
