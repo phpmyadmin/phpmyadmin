@@ -17740,7 +17740,7 @@ msgstr "பிரிவினை பராமரிப்பு"
 #: templates/table/operations/index.twig:500
 #: templates/table/structure/display_partitions.twig:201
 msgid "Remove partitioning"
-msgstr ""
+msgstr "பகிர்வை அகற்று"
 
 #: templates/table/operations/index.twig:513
 msgid "Check referential integrity"
