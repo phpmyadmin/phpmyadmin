@@ -4531,7 +4531,7 @@ msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:224
 msgid "You allow for connecting to the server without a password."
-msgstr ""
+msgstr "கடவுச்சொல் இல்லாமல் சேவையகத்துடன் இணைக்க நீங்கள் அனுமதிக்கிறீர்கள்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:307
 #, php-format
