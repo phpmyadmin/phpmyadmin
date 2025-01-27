@@ -4317,7 +4317,7 @@ msgstr "HTTP ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:46
 msgid "Signon authentication"
-msgstr ""
+msgstr "சிக்னன் ஏற்பு"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:25
 msgid "Quick"
