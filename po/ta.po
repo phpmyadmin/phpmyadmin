@@ -716,7 +716,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:459
 #, no-php-format
 msgid "Immediate table locks %"
-msgstr ""
+msgstr "உடனடி அட்டவணை பூட்டுகள் %"
 
 #: libraries/advisory_rules_generic.php:463
 #: libraries/advisory_rules_generic.php:473
