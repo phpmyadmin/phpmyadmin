@@ -11685,7 +11685,7 @@ msgstr "கிராண்ட் தவிர அனைத்து சலுக
 #: templates/server/privileges/privileges_table.twig:323
 #: templates/server/privileges/privileges_table.twig:326
 msgid "Allows deleting data."
-msgstr ""
+msgstr "தரவை நீக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:304
 #: templates/server/privileges/privileges_table.twig:136
