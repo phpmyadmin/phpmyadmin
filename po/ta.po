@@ -1057,6 +1057,10 @@ msgid ""
 "writers for a given table. See also <a href=\"https://dev.mysql.com/doc/"
 "refman/5.5/en/concurrent-inserts.html\">MySQL Documentation</a>"
 msgstr ""
+"{ஒரே நேரத்தில்_ இன்செர்ட் 1 ஐ 1 க்கு அமைப்பது கொடுக்கப்பட்ட அட்டவணைக்கு வாசகர்களுக்கும் "
+"எழுத்தாளர்களுக்கும் இடையிலான வாதத்தை குறைக்கிறது. <A href = "
+"\"https://dev.mysql.com/doc/refman/5.5/en/concurrent-inserts.html\"> MySQL "
+"ஆவணங்கள் </a> ஐயும் காண்க"
 
 #: libraries/advisory_rules_generic.php:716
 msgid "concurrent_insert is set to 0"
