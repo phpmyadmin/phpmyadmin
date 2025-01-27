@@ -2686,7 +2686,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 
 #: resources/templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
-msgstr ""
+msgstr "உருவாக்க வினவல்களைக் காட்டுகிறது"
 
 #: resources/templates/database/structure/show_create.twig:11
 #: resources/templates/database/structure/table_header.twig:8
