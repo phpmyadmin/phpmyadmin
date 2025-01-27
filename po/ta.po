@@ -9067,6 +9067,9 @@ msgid ""
 "The engine allocates one buffer per thread, but only if the thread is "
 "required to write a data log."
 msgstr ""
+"தரவு பதிவை எழுதும் போது பயன்படுத்தப்படும் இடையகத்தின் அளவு. இயல்புநிலை 256MB. இயந்திரம்"
+" ஒரு நூலுக்கு ஒரு இடையகத்தை ஒதுக்குகிறது, ஆனால் நூல் பதிவை எழுத நூல் தேவைப்பட்டால் "
+"மட்டுமே."
 
 #: libraries/classes/Engines/Pbxt.php:117
 msgid "Data file grow size"
