@@ -14823,7 +14823,7 @@ msgstr "கண்காணிப்பு செயலில் உள்ளத�
 
 #: templates/database/structure/tracking_icon.twig:5
 msgid "Tracking is not active."
-msgstr ""
+msgstr "கண்காணிப்பு செயலில் இல்லை."
 
 #: templates/database/tracking/tables.twig:4
 msgid "Tracked tables"
