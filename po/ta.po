@@ -10911,12 +10911,12 @@ msgstr "பார்வைக்கான கட்டமைப்பு %s ஒ�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2202
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(உண்மையான பார்வைக்கு கீழே காண்க)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2270
 #, php-format
 msgid "Error reading data for table %s:"
-msgstr "தரவை அல்லது அட்டவணையை அழி"
+msgstr "அட்டவணை %s க்கான தரவைப் படிப்பது பிழை:"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:94
 msgid "Object creation options (all are recommended)"
