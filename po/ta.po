@@ -16610,6 +16610,8 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:762
 msgid "Limits the number of new connections the user may open per hour."
 msgstr ""
+"பயனர் ஒரு மணி நேரத்திற்கு திறக்கக்கூடிய புதிய இணைப்புகளின் எண்ணிக்கையை "
+"கட்டுப்படுத்துகிறது."
 
 #: templates/server/privileges/privileges_table.twig:768
 #: templates/server/privileges/privileges_table.twig:775
