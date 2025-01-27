@@ -3465,7 +3465,7 @@ msgstr "லோகோ இணைப்பு இலக்கு"
 
 #: libraries/classes/Config/Descriptions.php:835
 msgid "Display servers selection"
-msgstr ""
+msgstr "சேவையகங்கள் தேர்வு"
 
 #: libraries/classes/Config/Descriptions.php:836
 msgid "Target for quick access icon"
