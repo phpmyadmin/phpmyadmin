@@ -14929,7 +14929,7 @@ msgstr ""
 
 #: src/Database/Routines.php:822
 msgid "You must provide a routine name!"
-msgstr ""
+msgstr "நீங்கள் ஒரு வழக்கமான பெயரை வழங்க வேண்டும்!"
 
 #: src/Database/Routines.php:886
 msgid "You must provide a routine definition."
