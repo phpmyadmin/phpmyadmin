@@ -16507,7 +16507,7 @@ msgstr "தற்போதைய சேவையகத்திலிருந�
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
-msgstr ""
+msgstr "தற்போதைய சேவையகத்தில் இறக்குமதி செய்கிறது"
 
 #: templates/server/plugins/index.twig:26
 msgid "Plugin"
