@@ -16389,6 +16389,8 @@ msgid ""
 "Allows user to give to other users or remove from other users privileges "
 "that user possess on this routine."
 msgstr ""
+"இந்த வழக்கத்தில் பயனர் வைத்திருக்கும் பிற பயனர்களுக்கு மற்ற பயனர்களுக்கு வழங்க அல்லது அகற்ற "
+"பயனரை அனுமதிக்கிறது."
 
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
