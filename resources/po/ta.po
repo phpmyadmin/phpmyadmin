@@ -5295,7 +5295,7 @@ msgstr "இரட்டையாக்கப்படாதது"
 
 #: resources/templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
-msgstr ""
+msgstr "கவிமொ நூலை மட்டும் தொடங்கவும்"
 
 #: resources/templates/server/replication/replica_configuration.twig:56
 msgid "Stop SQL Thread only"
