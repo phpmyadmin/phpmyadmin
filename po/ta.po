@@ -9375,7 +9375,7 @@ msgstr "அட்டவணைக்குச் செல்லுங்கள�
 #: libraries/classes/Import.php:1320
 #, php-format
 msgid "Structure of %s"
-msgstr ""
+msgstr "%s இன் அமைப்பு"
 
 #: libraries/classes/Import.php:1338
 #, php-format
