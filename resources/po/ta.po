@@ -2286,7 +2286,7 @@ msgstr ""
 #: resources/templates/server/privileges/users_overview.twig:139
 #: resources/templates/table/privileges/index.twig:136
 msgid "Add user account"
-msgstr "பயனர்குழுவை சேர்க்க"
+msgstr "பயனர் கணக்கைச் சேர்க்கவும்"
 
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
@@ -4494,7 +4494,7 @@ msgstr "புதியது"
 
 #: resources/templates/server/privileges/add_user.twig:13
 msgid "Database for user account"
-msgstr "தரவுதள நடவடிக்கைகள்"
+msgstr "பயனர் கணக்கிற்கான தரவுத்தளம்"
 
 #: resources/templates/server/privileges/add_user.twig:16
 msgid "Create database with same name and grant all privileges."
@@ -17324,7 +17324,7 @@ msgstr "%s க்கான கடவுச்சொல் வெற்றிக�
 #: src/Server/Privileges.php:941
 #, php-format
 msgid "You have revoked the privileges for %s."
-msgstr ""
+msgstr "%s க்கான சலுகைகளை நீங்கள் ரத்து செய்துள்ளீர்கள்."
 
 #: src/Server/Privileges.php:1279
 msgid "Revoke"
