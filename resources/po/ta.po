@@ -3286,7 +3286,7 @@ msgstr ""
 
 #: resources/templates/export.twig:394
 msgid "Use this for future exports"
-msgstr ""
+msgstr "எதிர்கால ஏற்றுமதிக்கு இதைப் பயன்படுத்தவும்"
 
 #: resources/templates/export.twig:405 resources/templates/import.twig:98
 msgid "Character set of the file:"
