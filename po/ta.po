@@ -8078,7 +8078,7 @@ msgstr "நெடுவரிசைகள் வெற்றிகரமாக �
 #: libraries/classes/Controllers/Table/StructureController.php:746
 #, php-format
 msgid "Failed to get description of column %s!"
-msgstr "நிறைவரிசை எண்ணிக்கையை பெற தவறியது."
+msgstr "நெடுவரிசை %s பற்றிய விளக்கத்தைப் பெறுவதில் தோல்வி!"
 
 #: libraries/classes/Controllers/Table/StructureController.php:987
 #: libraries/classes/Controllers/Table/StructureController.php:1271
@@ -8118,8 +8118,8 @@ msgstr "சுட்டுதொகுப்புக்குறி"
 #, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "'%s' என்ற பெயர் MySQL ஒதுக்கப்பட்ட முக்கிய சொல்."
+msgstr[1] "'%s' பெயர்கள் MySQL ஒதுக்கப்பட்ட முக்கிய வார்த்தைகள்."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:71
 #, php-format
