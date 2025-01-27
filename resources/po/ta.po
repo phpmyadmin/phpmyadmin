@@ -9996,7 +9996,7 @@ msgstr "UTC இல் ஏற்றுமதி நேரம்"
 
 #: src/Config/Descriptions.php:724
 msgid "Foreign key dropdown order"
-msgstr ""
+msgstr "வெளிநாட்டு விசை கீழ்தோன்றும் ஒழுங்கு"
 
 #: src/Config/Descriptions.php:725
 msgid "Foreign key limit"
