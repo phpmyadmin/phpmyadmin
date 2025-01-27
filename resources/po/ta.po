@@ -17449,7 +17449,7 @@ msgstr "இணைகிறது"
 
 #: src/Server/Status/Data.php:125
 msgid "Sorting"
-msgstr ""
+msgstr "வரிசைப்படுத்துதல்"
 
 #: src/Server/Status/Data.php:127
 msgid "Transaction coordinator"
