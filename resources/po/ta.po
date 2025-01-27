@@ -3238,7 +3238,7 @@ msgstr "%s அறிக்கையைப் பயன்படுத்தவ�
 
 #: resources/templates/export.twig:352
 msgid "View output as text"
-msgstr ""
+msgstr "வெளியீட்டை உரையாக காண்க"
 
 #: resources/templates/export.twig:356
 msgid "Save output to a file"
