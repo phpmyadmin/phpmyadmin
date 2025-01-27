@@ -4658,7 +4658,7 @@ msgstr "நேர்மறை எண் அல்ல!"
 #: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
 msgid "Not a non-negative number!"
-msgstr ""
+msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 
 #: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
