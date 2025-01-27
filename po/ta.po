@@ -487,6 +487,9 @@ msgid ""
 "wish to increase the in-memory table limit you will have to increase the "
 "other value as well."
 msgstr ""
+"நீங்கள் வேண்டுமென்றே மாற்றியிருந்தால்: நினைவக அட்டவணைகளின் அதிகபட்ச அளவை தீர்மானிக்க "
+"சேவையகம் குறைந்த மதிப்பைப் பயன்படுத்துகிறது. எனவே நீங்கள் நினைவக அட்டவணை வரம்பை அதிகரிக்"
+"க விரும்பினால், மற்ற மதிப்பையும் அதிகரிக்க வேண்டும்."
 
 #: libraries/advisory_rules_generic.php:310
 #, php-format
