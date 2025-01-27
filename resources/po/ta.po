@@ -10156,7 +10156,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "பகுதி இறக்குமதி: குறுக்கீட்டை அனுமதிக்கவும்"
 
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
 #: src/Plugins/Import/ImportCsv.php:158 src/Plugins/Import/ImportLdi.php:79
