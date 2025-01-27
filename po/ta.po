@@ -347,7 +347,7 @@ msgstr "நிரைகளை வரிசைப்படுத்து"
 
 #: libraries/advisory_rules_generic.php:234
 msgid "There are lots of rows being sorted."
-msgstr ""
+msgstr "நிறைய வரிசைகள் வரிசைப்படுத்தப்படுகின்றன."
 
 #: libraries/advisory_rules_generic.php:236
 msgid ""
