@@ -2631,7 +2631,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:586
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "முதன்மை விசையுடன் அட்டவணைகளுக்கான இயல்புநிலை வரிசை வரிசை."
 
 #: libraries/classes/Config/Descriptions.php:587
 msgid ""
