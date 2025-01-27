@@ -5379,7 +5379,7 @@ msgstr "முதன்மை இணைப்பு:"
 
 #: resources/templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
-msgstr ""
+msgstr "பிரதி கவிமொ நூல் இயங்கவில்லை!"
 
 #: resources/templates/server/replication/replica_configuration.twig:28
 msgid "Replica IO Thread not running!"
