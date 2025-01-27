@@ -572,6 +572,8 @@ msgid ""
 "Set {key_buffer_size} depending on the size of your MyISAM indexes. 64M is a "
 "good start."
 msgstr ""
+"உங்கள் MyISAM குறியீடுகளின் அளவைப் பொறுத்து {key_buffer_size} அமைக்கவும். 64 மீ ஒரு நல்"
+"ல தொடக்கமாகும்."
 
 #: libraries/advisory_rules_generic.php:366
 msgid "key_buffer_size is 0"
