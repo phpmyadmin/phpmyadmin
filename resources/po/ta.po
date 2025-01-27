@@ -17197,7 +17197,7 @@ msgstr "பிரதி வெற்றிகரமாக தொடங்கி�
 
 #: src/Replication/ReplicationGui.php:465
 msgid "Error starting replication."
-msgstr ""
+msgstr "பிழை தொடங்கும் பிரதி."
 
 #: src/Replication/ReplicationGui.php:468
 msgid "Replication stopped successfully."
