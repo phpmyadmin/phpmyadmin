@@ -11944,7 +11944,7 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:46
 #: templates/server/privileges/edit_routine_privileges.twig:58
 msgid "Routine"
-msgstr "%s களத்தை சேர்க்க->செயல்முறை"
+msgstr "வழக்கமான"
 
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:47
@@ -16616,7 +16616,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:768
 #: templates/server/privileges/privileges_table.twig:775
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
+msgstr "பயனருக்கு ஒரே நேரத்தில் இணைப்புகளின் எண்ணிக்கையை கட்டுப்படுத்துகிறது."
 
 #: templates/server/privileges/privileges_table.twig:784
 msgid "Does not require SSL-encrypted connections."
