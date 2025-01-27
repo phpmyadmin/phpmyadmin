@@ -18465,7 +18465,7 @@ msgstr "ஒவ்வொரு புள்ளியையும் லேபி�
 
 #: templates/table/zoom_search/index.twig:141
 msgid "Maximum rows to plot"
-msgstr ""
+msgstr "சூழ்ச்சி செய்ய அதிகபட்ச வரிசைகள்"
 
 #: templates/table/zoom_search/result_form.twig:7
 msgid "Browse/Edit the points"
