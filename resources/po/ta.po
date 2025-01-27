@@ -8576,7 +8576,7 @@ msgstr ""
 #: src/Config/Descriptions.php:61 src/Config/Descriptions.php:62
 #: src/Config/Descriptions.php:63
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "பயனர்கள் அதிக மதிப்பை அமைக்க முடியாது"
 
 #: src/Config/Descriptions.php:76
 msgid ""
