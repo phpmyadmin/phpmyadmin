@@ -12709,6 +12709,7 @@ msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
+"மாறி-நீளம் (%s) சரம், பயனுள்ள அதிகபட்ச நீளம் அதிகபட்ச வரிசை அளவிற்கு உட்பட்டது"
 
 #: libraries/classes/Types.php:341
 msgid ""
