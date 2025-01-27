@@ -13838,7 +13838,7 @@ msgstr ""
 
 #: src/Controllers/NavigationController.php:38
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "அபாயகரமான பிழை: வழிசெலுத்தலை அசாக்ச் வழியாக மட்டுமே அணுக முடியும்"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
 #: src/Normalization.php:220
