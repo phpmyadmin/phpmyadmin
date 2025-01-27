@@ -6033,7 +6033,7 @@ msgstr "புத்தகக்குறி இடுக"
 
 #: resources/templates/sql/profiling_chart.twig:7
 msgid "Detailed profile"
-msgstr ""
+msgstr "விரிவான சுயவிவரம்"
 
 #: resources/templates/sql/profiling_chart.twig:11
 #: src/Config/Descriptions.php:965
