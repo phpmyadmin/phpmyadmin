@@ -10387,7 +10387,7 @@ msgstr "அண்மைக் காலத்தில் பயன்படு�
 
 #: src/Config/Descriptions.php:836
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "அட்டவணை வரிசை இணைப்புகளை எங்கே காண்பிப்பது"
 
 #: src/Config/Descriptions.php:837
 msgid "Show row links anyway"
