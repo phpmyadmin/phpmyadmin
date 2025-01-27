@@ -8500,7 +8500,7 @@ msgstr "வழக்கமான %1$s உருவாக்கப்பட்ட
 #: libraries/classes/Database/Routines.php:412
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr ""
+msgstr "வழக்கமான %1$s மாற்றியமைக்கப்பட்டுள்ளது. சலுகைகள் சரிசெய்யப்பட்டுள்ளன."
 
 #: libraries/classes/Database/Routines.php:417
 #, php-format
