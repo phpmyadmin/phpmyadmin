@@ -7825,6 +7825,9 @@ msgid ""
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
+"வினவல் உகப்பாக்கியால் கணக்கிடப்பட்டபடி கடைசியாக தொகுக்கப்பட்ட வினவலின் மொத்த செலவு. ஒரே "
+"வினவலுக்கான வெவ்வேறு வினவல் திட்டங்களின் விலையை ஒப்பிடுவதற்கு பயனுள்ளதாக இருக்கும். 0 இன்"
+" இயல்புநிலை மதிப்பு என்பது எந்த வினவலும் இன்னும் தொகுக்கப்படவில்லை என்பதாகும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:433
 msgid ""
