@@ -13591,7 +13591,7 @@ msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழ�
 
 #: templates/console/display.twig:23
 msgid "Press Enter to execute query"
-msgstr "வினவலை செயல்படுத்த Ctrl+Enter அழுத்துக"
+msgstr "வினவலை இயக்க Enter ஐ அழுத்தவும்"
 
 #: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
@@ -13615,15 +13615,15 @@ msgstr "அமர்வின் போது"
 
 #: templates/console/display.twig:64
 msgid "ascending"
-msgstr "ஏறுவரிசை"
+msgstr "ஏறுதல்"
 
 #: templates/console/display.twig:64
 msgid "descending"
-msgstr "இறங்குவரிசை"
+msgstr "இறங்கு"
 
 #: templates/console/display.twig:64
 msgid "Order:"
-msgstr "ஏனையது->வரிசை"
+msgstr "ஒழுங்கு:"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/find_replace/replace_preview.twig:16
@@ -13632,7 +13632,7 @@ msgstr "எண்ணிக்கை"
 
 #: templates/console/display.twig:64
 msgid "Execution order"
-msgstr "செயலாக்குக"
+msgstr "சாவுஒறுப்பு வரிசை"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
@@ -15131,7 +15131,7 @@ msgstr ""
 
 #: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
-msgstr ""
+msgstr "கோப்பின் எழுத்து தொகுப்பு:"
 
 #: templates/export.twig:429
 msgid "Compression:"
@@ -18259,7 +18259,7 @@ msgstr "துவக்க வரிசை:"
 #: templates/table/structure/display_partitions.twig:4
 #: templates/table/structure/display_structure.twig:597
 msgid "Partitions"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வுகள்"
 
 #: templates/table/structure/display_partitions.twig:8
 msgid "No partitioning defined!"
