@@ -7680,7 +7680,7 @@ msgstr "பதிவு கோப்பில் இயற்பியல் எ
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of fsync() writes done to the log file."
-msgstr ""
+msgstr "பதிவு கோப்பில் செய்யப்பட்ட FSYNC () எழுதுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:378
 msgid "The number of pending log file fsyncs."
