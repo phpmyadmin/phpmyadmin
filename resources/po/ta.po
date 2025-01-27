@@ -13939,7 +13939,7 @@ msgstr "அதிகபட்சம். ஒரே நேரத்தில் �
 
 #: src/Controllers/Server/Status/StatusController.php:177
 msgid "Failed attempts"
-msgstr ""
+msgstr "தோல்வியுற்ற முயற்சிகள்"
 
 #: src/Controllers/Server/Status/VariablesController.php:218
 msgid ""
