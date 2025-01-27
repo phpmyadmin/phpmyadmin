@@ -8990,6 +8990,8 @@ msgid ""
 "The amount of memory allocated to the transaction log cache used to cache on "
 "transaction log data. The default is 16MB."
 msgstr ""
+"பரிவர்த்தனை பதிவு தரவை கேச் செய்ய பயன்படுத்தப்படும் பரிவர்த்தனை பதிவு தற்காலிக "
+"சேமிப்பிற்கு ஒதுக்கப்பட்ட நினைவகத்தின் அளவு. இயல்புநிலை 16MB."
 
 #: libraries/classes/Engines/Pbxt.php:61
 msgid "Log file threshold"
