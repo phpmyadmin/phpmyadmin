@@ -15086,7 +15086,7 @@ msgstr "% இல் மிச்சைப் படியுங்கள்"
 
 #: src/Engines/Innodb.php:230
 msgid "Write waits in %"
-msgstr ""
+msgstr "எழுது % காத்திருக்கிறது"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
