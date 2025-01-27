@@ -15656,7 +15656,7 @@ msgstr "தரவுத்தளத்திற்கு செல்லவு�
 
 #: src/Html/Generator.php:217
 msgid "SSL is not being used"
-msgstr ""
+msgstr "எச்.எச்.எல் பயன்படுத்தப்படவில்லை"
 
 #: src/Html/Generator.php:224
 msgid "SSL is used with disabled verification"
