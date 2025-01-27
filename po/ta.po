@@ -4350,7 +4350,7 @@ msgstr "இயல்புநிலை உள்ளமைவை ஏற்ற ம
 
 #: libraries/classes/Config.php:804
 msgid "Failed to read configuration file!"
-msgstr ""
+msgstr "உள்ளமைவு கோப்பைப் படிக்கத் தவறிவிட்டது!"
 
 #: libraries/classes/Config.php:807
 msgid ""
