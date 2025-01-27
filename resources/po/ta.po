@@ -15668,7 +15668,7 @@ msgstr "சான்றிதழ் ஆணையம் இல்லாமல் 
 
 #: src/Html/Generator.php:229
 msgid "SSL is used"
-msgstr ""
+msgstr "எச்.எச்.எல் பயன்படுத்தப்படுகிறது"
 
 #: src/Html/Generator.php:333
 msgid "The PHP function password_hash() with default options."
