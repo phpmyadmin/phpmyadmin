@@ -2690,7 +2690,7 @@ msgstr "கட்டமைப்பு கோப்பு அனுமதிக�
 
 #: libraries/classes/Config/Descriptions.php:633
 msgid "Compress on the fly"
-msgstr ""
+msgstr "பறக்கும்போது சுருக்க"
 
 #: libraries/classes/Config/Descriptions.php:634
 msgid "Confirm DROP queries"
