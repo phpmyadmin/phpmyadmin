@@ -940,7 +940,7 @@ msgstr "வழக்கமாக InnoDB அட்டவணை செயல்ப
 
 #: libraries/advisory_rules_generic.php:605
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "HASE_INNODB 'மதிப்பு' என அமைக்கப்பட்டுள்ளது"
 
 #: libraries/advisory_rules_generic.php:609
 #: libraries/advisory_rules_generic.php:633
