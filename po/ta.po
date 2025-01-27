@@ -12741,6 +12741,8 @@ msgid ""
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
+"அதிகபட்சம் 4,294,967,295 அல்லது 4GIB (2^32 - 1) எழுத்துக்களைக் கொண்ட உரை நெடுவரிசை, "
+"பைட்டுகளில் மதிப்பின் நீளத்தைக் குறிக்கும் நான்கு -பைட் முன்னொட்டுடன் சேமிக்கப்படுகிறது"
 
 #: libraries/classes/Types.php:369
 msgid ""
