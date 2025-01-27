@@ -4324,7 +4324,7 @@ msgstr "சேவையக ஐடி"
 
 #: resources/templates/server/binlog/index.twig:86
 msgid "Original position"
-msgstr ""
+msgstr "அசல் நிலை"
 
 #: resources/templates/server/binlog/index.twig:87
 #: resources/templates/table/structure/display_table_stats.twig:2
