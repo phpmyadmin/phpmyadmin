@@ -9644,7 +9644,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:571
 msgid "Default sort order for tables with a primary key."
-msgstr ""
+msgstr "முதன்மை விசையுடன் அட்டவணைகளுக்கான இயல்புநிலை வரிசை வரிசை."
 
 #: src/Config/Descriptions.php:572
 msgid ""
