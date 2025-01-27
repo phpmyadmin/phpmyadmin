@@ -7412,7 +7412,7 @@ msgstr "பதிப்பு_மென்ட்டில் 'பெர்கோ
 
 #: src/Advisory/Rules.php:195
 msgid "MySQL Architecture"
-msgstr ""
+msgstr "MySQL கட்டிடக்கலை"
 
 #: src/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
