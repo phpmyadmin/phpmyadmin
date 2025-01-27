@@ -17666,7 +17666,7 @@ msgstr ""
 #: src/SqlQueryForm.php:144
 #, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "SQL வினவலை/களை %s வழங்கியில் செயலாக்குக"
+msgstr "சேவையகத்தில் “%s” இல் கவிமொ வினவல்/வினவல்களை இயக்கவும்"
 
 #: src/SqlQueryForm.php:160
 #, php-format
@@ -17676,7 +17676,7 @@ msgstr "SQL வினவலை/களை %s தரவுத்தளத்தி
 #: src/SqlQueryForm.php:175
 #, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "SQL வினவலை/களை %s தரவுத்தளத்தில் செயலாக்குக"
+msgstr "கவிமொ வினவல்/வினவல்களை அட்டவணை %s இல் இயக்கவும்"
 
 #: src/StorageEngine.php:318
 msgid ""
@@ -17713,7 +17713,7 @@ msgstr ""
 #: src/Table/Maintenance.php:117
 #, php-format
 msgid "Problems with indexes of table `%s`"
-msgstr ""
+msgstr "அட்டவணை `%s` இன் குறியீடுகளில் சிக்கல்கள்"
 
 #: src/Table/TableMover.php:294
 #, php-format
