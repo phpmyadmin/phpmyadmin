@@ -16089,8 +16089,6 @@ msgstr ""
 
 #: templates/server/privileges/login_information_fields.twig:49
 #: templates/server/replication/primary_add_replica_user.twig:53
-#, fuzzy
-#| msgid "Proxy password"
 msgid "No password"
 msgstr "பதிலி கடவுச்சொல்"
 
