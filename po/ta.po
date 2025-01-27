@@ -4768,8 +4768,9 @@ msgstr "தவறான ஐபி முகவரி: %s"
 #, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
-msgstr[0] ""
+msgstr[0] "%1$d புக்மார்க்கைக் காட்டுகிறது (தனியார் மற்றும் பகிரப்பட்டவை)"
 msgstr[1] ""
+"%1$d புக்மார்க்குகளைக் காட்டுகிறது (தனிப்பட்ட மற்றும் பகிரப்பட்ட இரண்டும்)"
 
 #: libraries/classes/Console.php:98
 msgid "No bookmarks"
