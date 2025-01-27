@@ -16492,7 +16492,7 @@ msgstr "தரவுகளை குவிக்கும் போது பய
 
 #: src/Plugins/Export/ExportSql.php:464
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "தரவைச் செருகும்போது பயன்படுத்த தொடரியல்:"
 
 #: src/Plugins/Export/ExportSql.php:474
 msgid ""
