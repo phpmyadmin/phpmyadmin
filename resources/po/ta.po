@@ -4827,7 +4827,7 @@ msgstr "குறியீடுகளை உருவாக்க மற்ற�
 #: resources/templates/server/privileges/privileges_table.twig:389
 #: src/Server/Privileges.php:301 src/Server/Privileges.php:329
 msgid "Allows altering the structure of existing tables."
-msgstr ""
+msgstr "இருக்கும் அட்டவணைகளின் கட்டமைப்பை மாற்ற அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:198
 #: resources/templates/server/privileges/privileges_table.twig:201
