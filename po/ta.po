@@ -3654,7 +3654,7 @@ msgstr "கோப்பகத்தை சேமிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Host authorization order"
-msgstr ""
+msgstr "புரவலன் அங்கீகார கட்டளை"
 
 #: libraries/classes/Config/Descriptions.php:880
 msgid "Host authorization rules"
