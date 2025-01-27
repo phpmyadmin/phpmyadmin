@@ -10017,7 +10017,7 @@ msgstr "உலாவு பயன்முறை"
 #: src/Config/Descriptions.php:731 src/Config/Forms/User/ExportForm.php:80
 #: src/Config/Forms/User/ImportForm.php:29
 msgid "CSV"
-msgstr ""
+msgstr "சிஎச்வி"
 
 #: src/Config/Descriptions.php:732
 msgid "Developer"
