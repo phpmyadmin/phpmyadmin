@@ -15652,7 +15652,7 @@ msgstr "இணைப்பை காணவில்லை!"
 #: src/Html/Generator.php:151
 #, php-format
 msgid "Jump to database “%s”."
-msgstr "தரவுத்தளம் தாவி செல்லவும் \"%s\"."
+msgstr "தரவுத்தளத்திற்கு செல்லவும் “%s”."
 
 #: src/Html/Generator.php:217
 msgid "SSL is not being used"
@@ -18251,7 +18251,7 @@ msgstr "பி.எம்"
 #: src/Util.php:533
 msgctxt "AM/PM indication in time"
 msgid "AM"
-msgstr ""
+msgstr "ஆம்"
 
 #: src/Util.php:605
 #, php-format
