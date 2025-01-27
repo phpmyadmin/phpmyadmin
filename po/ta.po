@@ -11873,7 +11873,7 @@ msgstr "தற்போதைய தரவுத்தளத்தில் phpm
 #: libraries/classes/Relation.php:2222
 #, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr ""
+msgstr "%ச்க்ரீட்%s காணாமல் போன phpmyadmin உள்ளமைவு சேமிப்பு அட்டவணைகள்."
 
 #: libraries/classes/ReplicationGui.php:449
 msgid ""
