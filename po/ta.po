@@ -10513,7 +10513,7 @@ msgstr "பெயர்"
 #: templates/database/routines/editor_form.twig:113
 #: templates/database/triggers/editor_form.twig:57
 msgid "Definition"
-msgstr ""
+msgstr "வரையறை"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:548
 #: libraries/classes/Plugins/Export/ExportOdt.php:686
