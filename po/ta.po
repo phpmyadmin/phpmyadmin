@@ -10130,6 +10130,8 @@ msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
+"இந்த பட்டியல் அட்டவணையின் தரவின் துணைக்குழுவை அடிப்படையாகக் கொண்டது மற்றும் இது துல்லியமா"
+"க இல்லை. "
 
 #: libraries/classes/Normalization.php:1062
 msgid "No partial dependencies found!"
