@@ -17080,7 +17080,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
-msgstr ""
+msgstr "இயல்புநிலைக்கு மீட்டமைக்கவும்"
 
 #: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
