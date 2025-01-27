@@ -8843,7 +8843,7 @@ msgstr "பக்கங்கள் சுத்தப்படுத்தப�
 
 #: libraries/classes/Engines/Innodb.php:174
 msgid "Busy pages"
-msgstr ""
+msgstr "பிசியான பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:183
 msgid "Latched pages"
