@@ -565,6 +565,7 @@ msgstr "MyISAM விசை இடையக அளவு"
 #: libraries/advisory_rules_generic.php:362
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
 msgstr ""
+"முக்கிய இடையகத் துவக்கப்படவில்லை. MyISAM குறியீடுகள் எதுவும் தற்காலிகமாக இருக்காது."
 
 #: libraries/advisory_rules_generic.php:364
 msgid ""
