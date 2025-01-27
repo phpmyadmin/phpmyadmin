@@ -6870,18 +6870,23 @@ msgid ""
 "cause such a problem, clearing your \"Offline Website Data\" might help. In "
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
+"உங்கள் உலாவி சேமிப்பிடத்தை அணுகுவதில் சிக்கல் இருந்தது, சில நற்பொருத்தங்கள் உங்களுக்கு "
+"சரியாக வேலை செய்யாது. உலாவி சேமிப்பிடத்தை ஆதரிக்கவில்லை அல்லது ஒதுக்கீட்டு வரம்பை "
+"எட்டியிருக்கலாம். பயர்பாக்சில், சிதைந்த சேமிப்பு அத்தகைய சிக்கலை ஏற்படுத்தக்கூடும், உங்கள் "
+"\"இணைப்பில்லாத வலைத்தள தரவை\" அழிப்பது உதவக்கூடும். சஃபாரியில், இத்தகைய சிக்கல் பொதுவா"
+"க \"தனியார் பயன்முறை உலாவல்\" காரணமாக ஏற்படுகிறது."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:671
 msgid "Copy tables to"
-msgstr "தரவுதளத்தை இப்படி படியெடுக்க"
+msgstr "அட்டவணைகளை நகலெடுக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:672
 msgid "Add table prefix"
-msgstr "அட்டவணையின் முன்னொட்டு சேர்க்க:"
+msgstr "அட்டவணை முன்னொட்டை சேர்க்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:673
 msgid "Replace table with prefix"
-msgstr "அட்டவணை முன்னொட்டை பதிலிடு"
+msgstr "அட்டவணையை முன்னொட்டுடன் மாற்றவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 #: templates/database/structure/check_all_tables.twig:28
