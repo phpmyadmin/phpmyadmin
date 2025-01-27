@@ -3856,7 +3856,7 @@ msgstr "இடைமுகம் விருப்பத்தேர்வு�
 
 #: libraries/classes/Config/Descriptions.php:917
 msgid "Add DROP DATABASE"
-msgstr ""
+msgstr "துளி தரவுத்தளத்தைச் சேர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:918
 #: templates/database/structure/copy_form.twig:34
