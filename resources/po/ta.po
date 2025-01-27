@@ -8189,7 +8189,7 @@ msgstr "Myisam ஒரே நேரத்தில் செருகல்கள
 
 #: src/Advisory/Rules.php:751
 msgid "Enable {concurrent_insert} by setting it to 1"
-msgstr ""
+msgstr "1 ஐ அமைப்பதன் மூலம் {concurrent_insert} ஐ இயக்கவும்"
 
 #: src/Advisory/Rules.php:753
 msgid ""
