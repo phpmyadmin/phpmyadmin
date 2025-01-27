@@ -2648,7 +2648,7 @@ msgstr "ஆட்டோ அதிகரிப்பு மதிப்பைச�
 #: resources/templates/table/structure/drop_confirm.twig:7
 #: resources/templates/table/structure/primary.twig:3
 msgid "Do you really want to execute the following query?"
-msgstr ""
+msgstr "பின்வரும் வினவலை இயக்க விரும்புகிறீர்களா?"
 
 #: resources/templates/database/structure/drop_form.twig:15
 #: resources/templates/database/structure/empty_form.twig:15
