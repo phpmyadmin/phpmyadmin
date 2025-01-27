@@ -14932,8 +14932,6 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
 
 #: templates/import.twig:69 templates/import.twig:96
-#, fuzzy
-#| msgid "There are no files to upload!"
 msgid "There are no files to import!"
 msgstr "பதிவேற்றுவதற்கு எந்த கோப்புகளும் இல்லை!"
 
