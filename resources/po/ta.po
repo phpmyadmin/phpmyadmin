@@ -16288,7 +16288,7 @@ msgstr "அட்டவணைக்கான அட்டவணை அமைப�
 #: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1952
 #: src/Plugins/Export/ExportTexytext.php:471
 msgid "Structure for view"
-msgstr ""
+msgstr "பார்வைக்கு அமைப்பு"
 
 #: src/Plugins/Export/ExportHtmlword.php:509
 #: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1991
