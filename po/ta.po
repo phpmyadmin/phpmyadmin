@@ -15476,7 +15476,7 @@ msgstr "சுமார் %நொடி. மீதமுள்ள."
 
 #: templates/import/javascript.twig:17
 msgid "The file is being processed, please be patient."
-msgstr ""
+msgstr "கோப்பு செயலாக்கப்படுகிறது, தயவுசெய்து பொறுமையாக இருங்கள்."
 
 #: templates/import/javascript.twig:29
 msgid "Uploading your import file…"
