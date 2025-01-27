@@ -678,6 +678,8 @@ msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
+"திறந்த கோப்புகளின் எண்ணிக்கை திறந்த கோப்புகளின் அதிகபட்ச எண்ணிக்கையை நெருங்குகிறது. நீங்கள் "
+"\"பல திறந்த கோப்புகள்\" பிழையைப் பெறலாம்."
 
 #: libraries/advisory_rules_generic.php:437
 #: libraries/advisory_rules_generic.php:450
