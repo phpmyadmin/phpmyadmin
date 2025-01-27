@@ -7645,7 +7645,7 @@ msgstr "நிலுவையில் உள்ள பதிவு கோப்
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "Pending log file writes."
-msgstr ""
+msgstr "நிலுவையில் உள்ள பதிவு கோப்பு எழுதுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:452
 msgid "The number of bytes written to the log file."
