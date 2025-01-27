@@ -17037,6 +17037,7 @@ msgstr ""
 #: templates/server/status/status/index.twig:63
 msgid "This MySQL server works as <b>slave</b> in <b>replication</b> process."
 msgstr ""
+"இந்த MySQL சேவையகம் <b> அடிமை </b> <b> பிரதி </b> செயல்பாட்டில் செயல்படுகிறது."
 
 #: templates/server/status/status/index.twig:69
 msgid "Replication status"
