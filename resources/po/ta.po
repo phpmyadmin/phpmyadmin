@@ -3714,7 +3714,7 @@ msgstr "கடவுச்சொல்:"
 
 #: resources/templates/login/form.twig:93
 msgid "Server choice:"
-msgstr "விருப்பமான வழங்கி:"
+msgstr "சேவையக தேர்வு:"
 
 #: resources/templates/login/header.twig:10
 #: src/Plugins/Auth/AuthenticationConfig.php:91
@@ -14146,6 +14146,8 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"இந்த செயல்பாடுகள் ஒரு பைனரி முடிவைத் தரும்; சீரற்ற முடிவுகளைத் தவிர்க்க நீங்கள் அதை ஒரு "
+"பைனரி, வர்பினரி அல்லது குமிழ் நெடுவரிசையில் சேமிக்க வேண்டும்."
 
 #: src/Controllers/JavaScriptMessagesController.php:816
 msgid ""
