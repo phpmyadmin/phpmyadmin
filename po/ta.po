@@ -7341,7 +7341,7 @@ msgstr "பயனர் சேர்க்கப்பட்டுள்ளத�
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
 msgid "Thread %s was successfully killed."
-msgstr ""
+msgstr "நூல் %s வெற்றிகரமாக கொல்லப்பட்டன."
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:48
 #, php-format
