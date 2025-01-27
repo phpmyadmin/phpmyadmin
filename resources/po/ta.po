@@ -14711,7 +14711,7 @@ msgstr ""
 #: src/Core.php:105 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "%s நீட்டிப்பு இல்லை. உங்கள் பிஎச்பி உள்ளமைவை சரிபார்க்கவும்."
 
 #: src/Database/CentralColumns.php:321
 #, php-format
