@@ -2566,6 +2566,9 @@ msgid ""
 "authentication is performed. If a username is supplied, Basic Authentication "
 "will be performed. No other types of authentication are currently supported."
 msgstr ""
+"ப்ராக்சியுடன் அங்கீகரிப்பதற்கான பயனர்பெயர். இயல்பாக, ஏற்பு எதுவும் செய்யப்படவில்லை. பயனர்பெயர்"
+" வழங்கப்பட்டால், அடிப்படை ஏற்பு செய்யப்படும். வேறு எந்த வகையான அங்கீகாரங்களும் தற்போது "
+"ஆதரிக்கப்படவில்லை."
 
 #: libraries/classes/Config/Descriptions.php:544
 msgid ""
