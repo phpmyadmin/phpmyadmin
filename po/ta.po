@@ -7407,7 +7407,7 @@ msgstr "வலுவான"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:685
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
-msgstr ""
+msgstr "பாதுகாப்பு விசை செயலாக்கத்திற்காக காத்திருக்கும் நேரம்."
 
 #. l10n: error code 2 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:687
