@@ -6264,7 +6264,7 @@ msgstr "கு மதிப்புக்கள்"
 
 #: resources/templates/table/chart/tbl_chart.twig:112
 msgid "Series names are in a column"
-msgstr ""
+msgstr "தொடர் பெயர்கள் ஒரு நெடுவரிசையில் உள்ளன"
 
 #: resources/templates/table/chart/tbl_chart.twig:116
 msgid "Series column:"
@@ -6272,7 +6272,7 @@ msgstr "தொடர் நிரல்வரிசை:"
 
 #: resources/templates/table/chart/tbl_chart.twig:126
 msgid "Value Column:"
-msgstr "மதிப்பு நிரல்வரிசை:"
+msgstr "மதிப்பு நெடுவரிசை:"
 
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
