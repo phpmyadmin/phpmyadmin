@@ -12878,7 +12878,7 @@ msgstr ""
 #: libraries/classes/Tracking.php:858
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "அட்டவணை `%s` க்கான கண்காணிப்பு அறிக்கை"
 
 #: libraries/classes/Tracking.php:889
 #, php-format
