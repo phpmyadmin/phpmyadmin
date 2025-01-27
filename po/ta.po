@@ -2947,8 +2947,6 @@ msgid "Export as separate files"
 msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
 
 #: libraries/classes/Config/Descriptions.php:705
-#, fuzzy
-#| msgid "Select a table"
 msgid "Remember filename template"
 msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
 
