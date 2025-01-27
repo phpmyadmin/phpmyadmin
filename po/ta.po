@@ -1343,7 +1343,7 @@ msgstr "ஆர்மீனியன்"
 #: libraries/classes/Charsets/Collation.php:392
 msgctxt "Collation"
 msgid "Cyrillic"
-msgstr ""
+msgstr "சிரிலிக்"
 
 #: libraries/classes/Charsets/Collation.php:395
 msgctxt "Collation"
