@@ -10656,7 +10656,7 @@ msgstr "சேவையக சாக்கெட்"
 
 #: src/Config/Descriptions.php:893
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL ஐப் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:894
 msgid "Designer and PDF schema: table coordinates"
