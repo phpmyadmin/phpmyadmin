@@ -13360,7 +13360,7 @@ msgstr "%s ஆல் குறிப்பிடப்படுகிறது."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
-msgstr ""
+msgstr "ஒரு வெளிநாட்டு விசை."
 
 #: templates/columns_definitions/column_name.twig:39
 msgid "Pick from Central Columns"
@@ -16124,7 +16124,7 @@ msgstr "இரண்டு காரணி அங்கீகாரத்தை 
 
 #: templates/preferences/two_factor/configure.twig:12
 msgid "Enable two-factor authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "இரண்டு காரணி அங்கீகாரத்தை இயக்கவும்"
 
 #: templates/preferences/two_factor/confirm.twig:5
 msgid "Confirm disabling two-factor authentication"
