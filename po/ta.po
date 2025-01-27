@@ -14881,8 +14881,6 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
 
 #: templates/import.twig:80
-#, fuzzy
-#| msgid "File to Import:"
 msgid "Select file to import"
 msgstr "தரவிறக்கத்திற்கான கோப்பு:"
 
