@@ -2602,7 +2602,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:579
 msgid "Use persistent connections to MySQL databases."
-msgstr ""
+msgstr "MySQL தரவுத்தளங்களுக்கு தொடர்ச்சியான இணைப்புகளைப் பயன்படுத்தவும்."
 
 #: libraries/classes/Config/Descriptions.php:582
 msgid "Disallow BLOB and BINARY columns from editing."
