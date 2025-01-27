@@ -15652,17 +15652,17 @@ msgstr "கிளை இல்லை"
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
 #, php-format
 msgid "from %s branch"
-msgstr ""
+msgstr "%s கிளையிலிருந்து"
 
 #: templates/home/git_info.twig:25
 #, php-format
 msgid "committed on %s by %s"
-msgstr "%1$s அன்று %2$s ஆல் உறுதியளிக்கப்பட்டது"
+msgstr "%s இல் %s ஆல் செய்யப்படுகிறது"
 
 #: templates/home/git_info.twig:32
 #, php-format
 msgid "authored on %s by %s"
-msgstr "%1$s அன்று %2$s ஆல் இயற்றப்பட்டது"
+msgstr "%s இல் %s ஆல் எழுதப்பட்டது"
 
 #: templates/home/index.twig:22 templates/login/form.twig:7
 #, php-format
@@ -15681,7 +15681,7 @@ msgstr "பொதுவான அமைவுகள்"
 
 #: templates/home/index.twig:56
 msgid "Server connection collation:"
-msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
+msgstr "சேவையக இணைப்பு கூட்டு:"
 
 #: templates/home/index.twig:79 templates/preferences/manage/main.twig:56
 msgid "More settings"
@@ -15842,11 +15842,12 @@ msgstr "நீங்கள் எந்தப் பக்கத்திலு�
 #: templates/import.twig:74 templates/import.twig:104
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
+msgstr ""
+"வலை சேவையக பதிவேற்ற கோப்பகத்திலிருந்து [வலுவான]%s [/strong] ஐத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/import.twig:80
 msgid "Select file to import"
-msgstr "தரவிறக்கத்திற்கான கோப்பு:"
+msgstr "இறக்குமதி செய்ய கோப்பைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/import.twig:85 templates/import.twig:115
 msgid "There are no files to upload!"
@@ -15889,7 +15890,7 @@ msgstr "பிற விருப்பங்கள்:"
 #: templates/indexes.twig:38
 #: templates/table/structure/display_structure.twig:446
 msgid "Rename"
-msgstr "முக்கியபெயர்"
+msgstr "மறுபெயரிடுங்கள்"
 
 #: templates/indexes.twig:44
 #: templates/table/structure/display_structure.twig:452
