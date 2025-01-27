@@ -3635,7 +3635,7 @@ msgstr "முதன்மை விசை கைவிடப்பட்டத�
 #: resources/templates/table/structure/display_structure.twig:506
 #, php-format
 msgid "Index %s has been dropped."
-msgstr ""
+msgstr "குறியீட்டு %s கைவிடப்பட்டுள்ளன."
 
 #: resources/templates/javascript/redirect.twig:6
 msgid "Taking you to the target site."
