@@ -3429,7 +3429,7 @@ msgstr "காண்பிக்க அதிகபட்ச வரிசைக�
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Maximum tables"
-msgstr ""
+msgstr "அதிகபட்ச அட்டவணைகள்"
 
 #: libraries/classes/Config/Descriptions.php:828
 msgid "Memory limit"
