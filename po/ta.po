@@ -2210,6 +2210,9 @@ msgid ""
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
+"நீங்கள் MySQL வைல்டு அட்டை எழுத்துக்களை (% மற்றும் _) பயன்படுத்தலாம், அவற்றின் நேரடி "
+"நிகழ்வுகளைப் பயன்படுத்த விரும்பினால் அவற்றிலிருந்து தப்பிக்கலாம், அதாவது [KBD] 'எனது \\ "
+"_DB' [/KBD] மற்றும் [KBD] 'my_db' [/kbd] அல்ல."
 
 #: libraries/classes/Config/Descriptions.php:391
 msgid ""
