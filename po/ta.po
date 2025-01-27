@@ -7258,7 +7258,7 @@ msgstr "உள்ளமைவை இறக்குமதி செய்ய ம
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:53
 msgid "Two-factor authentication has been removed."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "இரண்டு காரணி ஏற்பு அகற்றப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:64
 msgid "Two-factor authentication has been configured."
@@ -16073,7 +16073,7 @@ msgstr "அமைப்புகள் உங்கள் உலவியின�
 
 #: templates/preferences/manage/main.twig:99
 msgid "Existing settings will be overwritten!"
-msgstr ""
+msgstr "தற்போதுள்ள அமைப்புகள் மேலெழுதப்படும்!"
 
 #: templates/preferences/manage/main.twig:120
 msgid "You can reset all your settings and restore them to default values."
