@@ -9770,7 +9770,7 @@ msgstr "வெற்று"
 
 #: libraries/classes/InsertEdit.php:2407 libraries/classes/Sql.php:1042
 msgid "Showing SQL query"
-msgstr ""
+msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
 #: libraries/classes/InsertEdit.php:2433 libraries/classes/Sql.php:1020
 #, php-format
