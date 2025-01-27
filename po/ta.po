@@ -11819,7 +11819,7 @@ msgstr "தொடர்ச்சியான அட்டவணைகளின�
 
 #: libraries/classes/Relation.php:327
 msgid "User preferences"
-msgstr ""
+msgstr "பயனர் விருப்பத்தேர்வுகள்"
 
 #: libraries/classes/Relation.php:344
 msgid "Configurable menus"
