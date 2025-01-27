@@ -4150,7 +4150,7 @@ msgstr "தரவுத்தள தேடலைப் பயன்படுத�
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "அமைப்புகளில் உருவாக்குபவர் தாவலை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:962
 #: libraries/classes/Setup/Index.php:128 libraries/classes/Setup/Index.php:151
