@@ -9668,7 +9668,7 @@ msgstr "கரி நெடுவரிசைகள் திருத்து�
 
 #: src/Config/Descriptions.php:606
 msgid "Enable CodeMirror"
-msgstr ""
+msgstr "கோட்மிரரை இயக்கவும்"
 
 #: src/Config/Descriptions.php:607
 msgid "Enable linter"
