@@ -9698,7 +9698,7 @@ msgstr "மற்றொரு புதிய வரிசையைச் செ
 
 #: libraries/classes/InsertEdit.php:1930
 msgid "Go back to this page"
-msgstr ""
+msgstr "இந்த பக்கத்திற்குச் செல்லுங்கள்"
 
 #: libraries/classes/InsertEdit.php:1953
 msgid "Edit next row"
