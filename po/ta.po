@@ -3401,7 +3401,7 @@ msgstr "புகுபதிவு நிலைபதிவுத்துண�
 
 #: libraries/classes/Config/Descriptions.php:821
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "லாங்டெக்ச்டுக்கு பெரிய உரை"
 
 #: libraries/classes/Config/Descriptions.php:822
 msgid "Maximum displayed SQL length"
