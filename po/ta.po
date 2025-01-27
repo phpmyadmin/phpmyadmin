@@ -17126,7 +17126,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
-msgstr ""
+msgstr "தயவுசெய்து கவனிக்கவும்:"
 
 #: templates/server/status/monitor/index.twig:117
 msgid ""
