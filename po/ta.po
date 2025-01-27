@@ -18415,7 +18415,7 @@ msgstr "இறக்காற்றல்"
 
 #: templates/table/structure/display_table_stats.twig:99
 msgid "partitioned"
-msgstr ""
+msgstr "பகிர்வு"
 
 #: templates/table/structure/display_table_stats.twig:128
 msgid "Row length"
