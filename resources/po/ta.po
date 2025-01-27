@@ -14882,7 +14882,7 @@ msgstr "நிகழ்வுக்கு சரியான வகையை ந
 
 #: src/Database/Events.php:334
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "நீங்கள் ஒரு நிகழ்வு வரையறையை வழங்க வேண்டும்."
 
 #: src/Database/Routines.php:85 src/Database/Routines.php:814
 #, php-format
