@@ -9926,6 +9926,8 @@ msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
+"தேவையற்ற நெடுவரிசைகளை சரிபார்த்து அகற்று என்பதைக் சொடுக்கு செய்க. தேவையற்ற நெடுவரிசை "
+"இல்லை என்றால், 'தேவையற்ற நெடுவரிசை இல்லை' என்பதைக் சொடுக்கு செய்க"
 
 #: libraries/classes/Normalization.php:337
 msgid "Remove selected"
