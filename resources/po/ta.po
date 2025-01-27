@@ -11250,7 +11250,7 @@ msgstr "பதிப்பு சோதனை"
 
 #: src/Config/Descriptions.php:943
 msgid "Proxy URL"
-msgstr ""
+msgstr "பதிலாள் முகவரி"
 
 #: src/Config/Descriptions.php:944
 msgid "Proxy username"
