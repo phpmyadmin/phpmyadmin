@@ -16567,7 +16567,7 @@ msgstr "அடிமை நிலை அட்டவணையைப் பார
 
 #: templates/server/replication/slave_configuration.twig:38
 msgid "Control slave:"
-msgstr ""
+msgstr "கட்டுப்பாட்டு அடிமை:"
 
 #: templates/server/replication/slave_configuration.twig:48
 msgid "Reset slave"
