@@ -10187,7 +10187,7 @@ msgstr "வெற்று வரிசைகளை இறக்குமதி 
 
 #: src/Config/Descriptions.php:788
 msgid "Import currencies ($5.00 to 5.00)"
-msgstr ""
+msgstr "இறக்குமதி நாணயங்கள் ($ 5.00 முதல் 5.00 வரை)"
 
 #: src/Config/Descriptions.php:789
 msgid "Import percentages as proper decimals (12.00% to .12)"
