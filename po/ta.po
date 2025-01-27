@@ -13648,7 +13648,7 @@ msgstr "உள்ளிடு மாற்றுருவாக்கம்"
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
 msgid "Referenced by %s."
-msgstr ""
+msgstr "%s ஆல் குறிப்பிடப்படுகிறது."
 
 #: templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
