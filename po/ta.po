@@ -1021,6 +1021,14 @@ msgid ""
 "href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
 "innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"{innodb_log_file_size} முதல் 25% வரை {innodb_buffer_pool_size of அளவில் அமைக்க "
+"இது போதுமானது. ஒரு தரவுத்தள செயலிழந்த பிறகு மிகப் பெரிய {innodb_log_file_size "
+"the மீட்பு நேரத்தை குறைக்கிறது. <A href = \"https://www.percona.com/blog/2006/07/"
+"03/choosing-proper-intnodb_log_file_size/\"> இந்த கட்டுரை </a>. நீங்கள் சேவையகத்தை "
+"நிறுத்த வேண்டும், INNODB பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் அமைக்"
+"க வேண்டும், சேவையகத்தைத் தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை "
+"சரிபார்க்கவும். <A href = \"https://mysqldatabaseadminastry.blogspot.com/2007/"
+"01/increase-indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: libraries/advisory_rules_generic.php:676
 #, php-format
