@@ -15654,7 +15654,7 @@ msgstr ""
 
 #: src/InsertEdit.php:468
 msgid "web server upload directory:"
-msgstr ""
+msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
 #: src/InsertEdit.php:886 src/Sql.php:860
 msgid "Showing SQL query"
