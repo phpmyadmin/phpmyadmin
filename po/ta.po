@@ -9690,7 +9690,7 @@ msgstr[1] "%s முடிவுகள் காணப்பட்டன"
 
 #: libraries/classes/Navigation/NavigationTree.php:1346
 msgid "Collapse all"
-msgstr ""
+msgstr "அனைத்தையும் சரக்கு"
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:43
