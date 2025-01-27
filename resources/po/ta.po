@@ -2294,7 +2294,7 @@ msgstr "வழக்கமான பெயர்"
 
 #: resources/templates/database/routines/editor_form.twig:48
 msgid "Parameters"
-msgstr ""
+msgstr "அளவுருக்கள்"
 
 #: resources/templates/database/routines/editor_form.twig:54
 msgid "Direction"
