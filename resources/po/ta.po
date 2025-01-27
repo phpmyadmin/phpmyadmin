@@ -17864,7 +17864,7 @@ msgstr ""
 #: src/Tracking/Tracking.php:838
 #, php-format
 msgid "Tracking report for table `%s`"
-msgstr ""
+msgstr "அட்டவணை `%s` க்கான கண்காணிப்பு அறிக்கை"
 
 #: src/Tracking/Tracking.php:861
 #, php-format
