@@ -4159,7 +4159,7 @@ msgstr "ரெக்காப்ட்சாவிற்கான பொது �
 
 #: libraries/classes/Config/Descriptions.php:981
 msgid "Private key for reCaptcha"
-msgstr ""
+msgstr "ரெக்காப்ட்சாவிற்கான தனிப்பட்ட விசை"
 
 #: libraries/classes/Config/Descriptions.php:982
 msgid "URL for reCaptcha siteverify"
