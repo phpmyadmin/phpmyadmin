@@ -16575,7 +16575,7 @@ msgstr "அடிமையை மீட்டமைக்கவும்"
 
 #: templates/server/replication/slave_configuration.twig:54
 msgid "Start SQL Thread only"
-msgstr ""
+msgstr "கவிமொ நூலை மட்டும் தொடங்கவும்"
 
 #: templates/server/replication/slave_configuration.twig:56
 msgid "Stop SQL Thread only"
