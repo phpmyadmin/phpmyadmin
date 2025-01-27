@@ -8084,7 +8084,7 @@ msgstr "வழக்கமாக InnoDB அட்டவணை செயல்ப
 
 #: src/Advisory/Rules.php:638
 msgid "have_innodb is set to 'value'"
-msgstr ""
+msgstr "HASE_INNODB 'மதிப்பு' என அமைக்கப்பட்டுள்ளது"
 
 #: src/Advisory/Rules.php:642 src/Advisory/Rules.php:669
 msgid "InnoDB log size"
