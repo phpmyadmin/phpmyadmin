@@ -17496,7 +17496,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 
 #: templates/server/status/status/index.twig:75
 msgid "Not enough privilege to view server status."
-msgstr ""
+msgstr "சேவையக நிலையைக் காண போதுமான பாக்கியம் இல்லை."
 
 #: templates/server/status/variables/index.twig:20
 msgid "Show only alert values"
