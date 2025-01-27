@@ -2268,7 +2268,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:476
 msgid "Leave blank if not used."
-msgstr ""
+msgstr "பயன்படுத்தப்படாவிட்டால் காலியாக விடவும்."
 
 #: libraries/classes/Config/Descriptions.php:477
 msgid "Leave blank for defaults."
