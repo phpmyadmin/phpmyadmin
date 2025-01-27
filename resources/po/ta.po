@@ -2251,7 +2251,7 @@ msgstr "%s களத்தை சேர்க்க->செயல்முறை
 #: resources/templates/table/privileges/index.twig:84
 #: src/Server/Privileges.php:1275
 msgid "Edit privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகளைத் திருத்தவும்"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
@@ -6630,7 +6630,7 @@ msgstr "பிரிவினை %s"
 
 #: resources/templates/table/privileges/index.twig:57
 msgid "table-specific"
-msgstr ""
+msgstr "அட்டவணை சார்ந்த"
 
 #: resources/templates/table/relation/common_form.twig:10
 msgid "Foreign key constraints"
