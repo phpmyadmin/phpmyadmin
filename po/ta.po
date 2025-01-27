@@ -1340,7 +1340,7 @@ msgstr "பால்டிக்"
 #: libraries/classes/Charsets/Collation.php:403
 msgctxt "Collation"
 msgid "Armenian"
-msgstr ""
+msgstr "ஆர்மீனியன்"
 
 #: libraries/classes/Charsets/Collation.php:406
 msgctxt "Collation"
