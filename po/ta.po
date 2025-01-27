@@ -560,7 +560,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:359
 msgid "MyISAM key buffer size"
-msgstr ""
+msgstr "MyISAM விசை இடையக அளவு"
 
 #: libraries/advisory_rules_generic.php:362
 msgid "Key buffer is not initialized. No MyISAM indexes will be cached."
