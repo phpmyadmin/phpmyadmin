@@ -17610,7 +17610,7 @@ msgstr ""
 
 #: templates/table/insert/column_row.twig:93
 msgid "Binary - do not edit"
-msgstr ""
+msgstr "பைனரி - திருத்த வேண்டாம்"
 
 #: templates/table/insert/column_row.twig:123
 #: templates/table/search/input_box.twig:38
