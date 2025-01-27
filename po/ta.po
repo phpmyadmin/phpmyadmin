@@ -5454,7 +5454,7 @@ msgstr "து"
 #: libraries/classes/Util.php:461
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
-msgstr "KiB"
+msgstr "வினோதமாக"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
