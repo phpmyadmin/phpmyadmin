@@ -10006,7 +10006,7 @@ msgstr "இவற்றை வடிகட்ட தட்டச்சு செ
 #: libraries/classes/Navigation/NavigationTree.php:1415
 #: libraries/classes/Navigation/NavigationTree.php:1449
 msgid "Clear fast filter"
-msgstr ""
+msgstr "விரைவான வடிகட்டியை அழிக்கவும்"
 
 #: libraries/classes/Navigation/NavigationTree.php:1475
 msgid "Collapse all"
