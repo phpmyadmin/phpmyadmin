@@ -16949,11 +16949,11 @@ msgstr "இத்தொகுதியை சேர்க்க"
 
 #: templates/server/status/monitor/index.twig:197
 msgid "Clear series"
-msgstr ""
+msgstr "தெளிவான தொடர்"
 
 #: templates/server/status/monitor/index.twig:201
 msgid "Series in chart:"
-msgstr "வழங்கி குறிமுறை:"
+msgstr "விளக்கப்படத்தில் தொடர்:"
 
 #: templates/server/status/monitor/index.twig:210
 msgid "Log statistics"
