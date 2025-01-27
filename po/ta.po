@@ -4112,7 +4112,7 @@ msgstr "அமைப்புகளில் உருவாக்குபவ�
 #: libraries/classes/Setup/Index.php:170 libraries/classes/Setup/Index.php:183
 #: libraries/classes/Setup/Index.php:192 libraries/classes/Setup/Index.php:200
 msgid "Version check"
-msgstr ""
+msgstr "பதிப்பு சோதனை"
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "Proxy url"
