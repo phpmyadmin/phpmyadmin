@@ -8791,7 +8791,7 @@ msgstr "இயல்புநிலை விருப்பங்களைத�
 
 #: src/Config/Descriptions.php:199
 msgid "Settings for phpMyAdmin developers."
-msgstr ""
+msgstr "Phpmyadmin டெவலப்பர்களுக்கான அமைப்புகள்."
 
 #: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
