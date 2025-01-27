@@ -6455,7 +6455,7 @@ msgstr "அட்டவணை தெரிவுகள்"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
-msgstr ""
+msgstr "மூலம் அட்டவணை வரிசையை மாற்றவும்"
 
 #: resources/templates/table/operations/index.twig:21
 msgctxt "Alter table order by a single field."
