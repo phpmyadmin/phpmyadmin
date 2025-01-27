@@ -4838,7 +4838,7 @@ msgstr "இருக்கும் அட்டவணைகளின் கட�
 #: src/Server/Privileges.php:302 src/Server/Privileges.php:348
 #: src/Server/Privileges.php:352
 msgid "Allows creating new views."
-msgstr ""
+msgstr "புதிய காட்சிகளை உருவாக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:210
 #: resources/templates/server/privileges/privileges_table.twig:213
