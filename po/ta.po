@@ -2016,6 +2016,7 @@ msgstr ""
 msgid ""
 "Whether to offer the possibility of tree expansion in the navigation panel."
 msgstr ""
+"வழிசெலுத்தல் குழுவில் மரம் விரிவாக்கத்திற்கான சாத்தியத்தை வழங்க வேண்டுமா."
 
 #: libraries/classes/Config/Descriptions.php:310
 msgid "Whether to show procedures under database in the navigation tree"
@@ -2055,11 +2056,11 @@ msgstr "மவுச் கர்சரின் கீழ் சேவையக
 
 #: libraries/classes/Config/Descriptions.php:322
 msgid "Whether to show tables under database in the navigation tree"
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் அட்டவணைகளைக் காட்ட வேண்டுமா?"
 
 #: libraries/classes/Config/Descriptions.php:323
 msgid "Whether to show views under database in the navigation tree"
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் காட்சிகளைக் காட்ட வேண்டுமா?"
 
 #: libraries/classes/Config/Descriptions.php:324
 msgid "Whether to show functions under database in the navigation tree"
@@ -3510,19 +3511,19 @@ msgstr "சிறப்பம்சமாக இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Enable navigation tree expansion"
-msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
+msgstr "வழிசெலுத்தல் மரம் விரிவாக்கத்தை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:848
 msgid "Show tables in tree"
-msgstr "காட்டப்படுகிற அட்டவணைகள்:"
+msgstr "மரத்தில் அட்டவணைகளைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:849
 msgid "Show views in tree"
-msgstr "பதிப்புகளை காட்டு"
+msgstr "மரத்தில் காட்சிகளைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:850
 msgid "Show functions in tree"
-msgstr "செயல்கூற்றின் களங்களை காட்டுக"
+msgstr "மரத்தில் செயல்பாடுகளைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:851
 msgid "Show procedures in tree"
