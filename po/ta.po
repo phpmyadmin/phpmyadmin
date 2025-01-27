@@ -14676,7 +14676,7 @@ msgstr ""
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr ""
+msgstr "ஒரு மூல வினவலை ஏற்றுமதி செய்கிறது"
 
 #: templates/database/export/index.twig:7
 #, php-format
