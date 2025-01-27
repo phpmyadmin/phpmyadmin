@@ -9901,6 +9901,7 @@ msgstr "இருக்கும் நெடுவரிசையில் (க
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
+"ஏற்கனவே உள்ள நெடுவரிசை சேர்க்கைகளை முதன்மை விசையாக மாற்ற முடியாது என்றால்"
 
 #: libraries/classes/Normalization.php:300
 msgid "+ Add a new primary key column"
