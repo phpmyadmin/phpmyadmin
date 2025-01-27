@@ -8510,6 +8510,7 @@ msgstr "வழக்கமான %1$s மாற்றியமைக்கப்
 #: libraries/classes/Database/Routines.php:823
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
+"ஒவ்வொரு வழக்கமான அளவுருவுக்கும் நீங்கள் ஒரு பெயரையும் ஒரு வகையையும் வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Routines.php:841
 #, php-format
