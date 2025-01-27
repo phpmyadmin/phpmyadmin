@@ -14108,7 +14108,7 @@ msgstr ""
 #: templates/server/replication/primary_add_replica_user.twig:24
 #: templates/table/privileges/index.twig:19
 msgid "User name"
-msgstr ""
+msgstr "பயனர் பெயர்"
 
 #: templates/database/privileges/index.twig:18
 #: templates/server/privileges/login_information_fields.twig:25
