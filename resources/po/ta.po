@@ -17782,7 +17782,7 @@ msgstr "முதன்மை மாற்ற முடியவில்லை!
 #: src/Replication/ReplicationGui.php:554
 #, php-format
 msgid "Primary server changed successfully to %s."
-msgstr ""
+msgstr "முதன்மை சேவையகம் வெற்றிகரமாக %s ஆக மாற்றப்பட்டது."
 
 #: src/Routing/Routing.php:125
 #, php-format
