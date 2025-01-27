@@ -9847,7 +9847,7 @@ msgstr "நெடுவரிசைகளுக்குள் சிஆர்�
 #: src/Config/Descriptions.php:645 src/Config/Descriptions.php:778
 #: src/Config/Descriptions.php:785 src/Plugins/Import/ImportCsv.php:638
 msgid "Columns terminated with"
-msgstr ""
+msgstr "நெடுவரிசைகள் நிறுத்தப்பட்டன"
 
 #: src/Config/Descriptions.php:646 src/Config/Descriptions.php:773
 #: src/Plugins/Import/ImportCsv.php:671
