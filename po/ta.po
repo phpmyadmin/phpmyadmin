@@ -10571,7 +10571,7 @@ msgstr "அட்டவணை தலைப்பு:"
 #: libraries/classes/Plugins/Export/ExportLatex.php:119
 #: libraries/classes/Plugins/Export/ExportLatex.php:175
 msgid "Table caption (continued):"
-msgstr ""
+msgstr "அட்டவணை தலைப்பு (தொடரும்):"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:125
 #: libraries/classes/Plugins/Export/ExportLatex.php:181
