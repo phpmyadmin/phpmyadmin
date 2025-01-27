@@ -10920,7 +10920,7 @@ msgstr "அட்டவணை %s க்கான தரவைப் படிப
 
 #: libraries/classes/Plugins/Export/ExportXml.php:94
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "பொருள் உருவாக்கும் விருப்பங்கள் (அனைத்தும் பரிந்துரைக்கப்படுகின்றன)"
 
 #: libraries/classes/Plugins/Export/ExportXml.php:138
 msgid "Export contents"
