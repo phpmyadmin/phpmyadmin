@@ -8807,7 +8807,7 @@ msgstr "பொதுவாகப் பயன்படுத்தப்பட�
 
 #: src/Config/Descriptions.php:203
 msgid "Customize default common import options."
-msgstr ""
+msgstr "இயல்புநிலை பொதுவான இறக்குமதி விருப்பங்களைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:204
 msgid "Set import and export directories and compression options."
