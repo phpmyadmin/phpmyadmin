@@ -8131,7 +8131,7 @@ msgstr ""
 #: src/Charsets/Collation.php:158 src/Charsets/Collation.php:474
 msgctxt "Collation"
 msgid "Spanish (modern)"
-msgstr ""
+msgstr "ச்பானிச் (நவீன)"
 
 #: src/Charsets/Collation.php:218
 msgctxt "Collation variant"
