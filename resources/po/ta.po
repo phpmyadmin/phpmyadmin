@@ -15017,6 +15017,8 @@ msgid ""
 "The size of the memory buffer InnoDB uses to cache data and indexes of its "
 "tables."
 msgstr ""
+"நினைவக பஃபர் இன்னோடிபி அதன் அட்டவணைகளின் தரவு மற்றும் குறியீடுகளை கேச் செய்ய "
+"பயன்படுத்துகிறது."
 
 #: src/Engines/Innodb.php:105
 msgid "Buffer Pool"
