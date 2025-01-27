@@ -14892,7 +14892,7 @@ msgstr "தவறான வழக்கமான வகை: \"%s\""
 #: src/Database/Routines.php:137
 #, php-format
 msgid "Routine %1$s has been created."
-msgstr ""
+msgstr "வழக்கமான %1$s உருவாக்கப்பட்டுள்ளது."
 
 #: src/Database/Routines.php:223
 msgid "Sorry, we failed to restore the dropped routine."
