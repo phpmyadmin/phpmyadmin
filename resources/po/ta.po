@@ -3902,7 +3902,7 @@ msgstr "உங்கள் அமைவுகளை கையாளுக"
 
 #: resources/templates/preferences/header.twig:12
 msgid "Two-factor authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "இரண்டு காரணி ஏற்பு"
 
 #: resources/templates/preferences/header.twig:18
 #: src/Config/Forms/User/FeaturesForm.php:81
@@ -11647,7 +11647,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:46
 #: src/Controllers/Database/Structure/CentralColumns/RemoveController.php:46
 msgid "Success!"
-msgstr ""
+msgstr "வெற்றி!"
 
 #: src/Controllers/Database/StructureController.php:569
 #: src/Display/Results.php:3397
