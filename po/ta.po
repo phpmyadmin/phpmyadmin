@@ -1297,12 +1297,12 @@ msgstr "ஒருங்குறி"
 #: libraries/classes/Charsets/Collation.php:548
 msgctxt "Collation"
 msgid "West European"
-msgstr ""
+msgstr "மேற்கு ஐரோப்பிய"
 
 #: libraries/classes/Charsets/Collation.php:369
 msgctxt "Collation"
 msgid "Central European"
-msgstr "மைய நெடுவரிசைகள்"
+msgstr "மத்திய ஐரோப்பிய"
 
 #: libraries/classes/Charsets/Collation.php:374
 #: libraries/classes/Charsets/Collation.php:555
