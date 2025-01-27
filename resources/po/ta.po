@@ -14858,7 +14858,7 @@ msgstr ""
 #: src/Controllers/Table/TrackingController.php:90
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr ""
+msgstr "%s கண்காணிப்பு செயல்படுத்தப்படுகிறது."
 
 #: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
@@ -14866,11 +14866,11 @@ msgstr ""
 
 #: src/Controllers/Table/TrackingController.php:197
 msgid "Tracking versions deleted successfully."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கண்காணிப்பு பதிப்புகள் வெற்றிகரமாக நீக்கப்பட்டன."
 
 #: src/Controllers/Table/TrackingController.php:202
 msgid "No versions selected."
-msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
+msgstr "பதிப்புகள் எதுவும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: src/Controllers/Triggers/IndexController.php:163
 msgid "Add trigger"
