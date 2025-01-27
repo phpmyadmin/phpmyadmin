@@ -15105,11 +15105,11 @@ msgstr "தற்போதுள்ள வார்ப்புருக்க�
 
 #: templates/export.twig:28
 msgid "Template:"
-msgstr ""
+msgstr "வார்ப்புரு:"
 
 #: templates/export.twig:37
 msgid "Update"
-msgstr "புதுப்பிக்கப்பட்டது"
+msgstr "புதுப்பிப்பு"
 
 #: templates/export.twig:53
 msgid "Show SQL query"
