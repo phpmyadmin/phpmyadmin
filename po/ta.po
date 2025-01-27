@@ -2970,11 +2970,11 @@ msgstr "சேவையகத்தில் சேமிக்கவும்"
 #: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
 #: templates/export.twig:377
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "இருக்கும் கோப்பு (களை) மேலெழுதவும்"
 
 #: libraries/classes/Config/Descriptions.php:702
 msgid "Export as separate files"
-msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
+msgstr "தனி கோப்புகளாக ஏற்றுமதி செய்யுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:705
 msgid "Remember filename template"
