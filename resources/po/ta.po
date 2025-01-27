@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:07+0000\n"
+"PO-Revision-Date: 2025-01-27 02:08+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -2420,15 +2420,15 @@ msgstr "சொற்கள் ஓர் இடைவெளி எழுத்த
 
 #: resources/templates/database/search/main.twig:22 src/Database/Search.php:80
 msgid "all of the words"
-msgstr "குறைந்தபட்சம் ஒரு சொல்லையாவது"
+msgstr "எல்லா வார்த்தைகளும்"
 
 #: resources/templates/database/search/main.twig:26 src/Database/Search.php:81
 msgid "the exact phrase as substring"
-msgstr "சரியான சொற்றொடர்"
+msgstr "மூலக்கூறு என சரியான சொற்றொடர்"
 
 #: resources/templates/database/search/main.twig:30 src/Database/Search.php:82
 msgid "the exact phrase as whole field"
-msgstr "சரியான சொற்றொடர்"
+msgstr "முழு புலமாக சரியான சொற்றொடர்"
 
 #: resources/templates/database/search/main.twig:34 src/Database/Search.php:83
 msgid "as regular expression"
@@ -14765,27 +14765,27 @@ msgstr "பிழை: நெடுவரிசை (கள்) இல் கு�
 
 #: src/Database/Designer/Common.php:549 src/Database/Designer/Common.php:611
 msgid "Error: Relational features are disabled!"
-msgstr ""
+msgstr "பிழை: தொடர்புடைய நற்பொருத்தங்கள் முடக்கப்பட்டுள்ளன!"
 
 #: src/Database/Designer/Common.php:570
 msgid "Internal relationship has been added."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "உள் உறவு சேர்க்கப்பட்டுள்ளது."
 
 #: src/Database/Designer/Common.php:575
 msgid "Error: Internal relationship could not be added!"
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "பிழை: உள் உறவை சேர்க்க முடியவில்லை!"
 
 #: src/Database/Designer/Common.php:605
 msgid "FOREIGN KEY relationship has been removed."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "வெளிநாட்டு முக்கிய உறவு அகற்றப்பட்டுள்ளது."
 
 #: src/Database/Designer/Common.php:630
 msgid "Error: Internal relationship could not be removed!"
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "பிழை: உள் உறவை அகற்ற முடியவில்லை!"
 
 #: src/Database/Designer/Common.php:633
 msgid "Internal relationship has been removed."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "உள் உறவு அகற்றப்பட்டுள்ளது."
 
 #: src/Database/Designer.php:112
 msgid "Could not load schema plugins, please check your installation!"
