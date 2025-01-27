@@ -11088,7 +11088,7 @@ msgstr "உங்கள் தரவுத்தளம் காட்சிக�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1829
 msgid "Constraints for dumped tables"
-msgstr ""
+msgstr "கொட்டப்பட்ட அட்டவணைகளுக்கான தடைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1830
 msgid "Constraints for table"
