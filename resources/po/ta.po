@@ -11018,7 +11018,7 @@ msgstr "விரைவான"
 
 #: src/Config/Forms/User/ExportForm.php:27
 msgid "Custom"
-msgstr ""
+msgstr "தனிப்பயன்"
 
 #: src/Config/Forms/User/ExportForm.php:89
 msgid "CSV for MS Excel"
