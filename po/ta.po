@@ -3691,7 +3691,7 @@ msgstr "புக்மார்க்கு அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:887
 msgid "Column information table"
-msgstr ""
+msgstr "நெடுவரிசை செய்தி அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:888
 msgid "Compress connection"
