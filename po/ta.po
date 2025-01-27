@@ -12678,7 +12678,7 @@ msgstr "மூல தரவுத்தளம் `%s` காணப்படவ�
 #: libraries/classes/Table.php:1032
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr ""
+msgstr "இலக்கு தரவுத்தளம் `%s` காணப்படவில்லை!"
 
 #: libraries/classes/Table.php:1597
 msgid "Invalid database:"
