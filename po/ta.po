@@ -14914,8 +14914,6 @@ msgid "Upload a file"
 msgstr "கோப்பை பதிவிறக்கு"
 
 #: templates/import.twig:43
-#, fuzzy
-#| msgid "File to Import:"
 msgid "Select file to import"
 msgstr "தரவிறக்கத்திற்கான கோப்பு:"
 
