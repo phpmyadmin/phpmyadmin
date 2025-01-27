@@ -14199,7 +14199,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:325
 msgid "The number of logical read requests InnoDB has done."
-msgstr ""
+msgstr "INNODB செய்த தர்க்கரீதியான வாசிப்பு கோரிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:327
 msgid ""
