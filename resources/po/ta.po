@@ -14413,6 +14413,7 @@ msgstr ""
 #: src/Controllers/Server/Status/VariablesController.php:403
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
+"தற்காலிக சேமிப்பிற்கு ஒரு முக்கிய தொகுதியை எழுதுவதற்கான கோரிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:404
 msgid "The number of physical writes of a key block to disk."
