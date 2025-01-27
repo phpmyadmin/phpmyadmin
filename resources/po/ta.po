@@ -14705,7 +14705,7 @@ msgstr "புத்தகக்குறி %s குறிக்கப்ப�
 
 #: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
-msgstr ""
+msgstr "புக்மார்க்கு உருவாக்கப்படவில்லை!"
 
 #: src/Controllers/Table/AddFieldController.php:134
 #: src/Controllers/Table/IndexesController.php:137
