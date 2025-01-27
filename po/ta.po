@@ -10003,7 +10003,7 @@ msgstr ""
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
-msgstr ""
+msgstr "சரியான இயல்பாக்கத்தைப் பெற பின்வரும் கேள்வி (கள்) கவனமாக பதிலளிக்கவும்."
 
 #: libraries/classes/Normalization.php:442
 msgid "+ Show me the possible partial dependencies based on data in the table"
