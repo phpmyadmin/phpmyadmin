@@ -13408,7 +13408,7 @@ msgstr "சொடுக்கு செய்க"
 
 #: libraries/config.values.php:144
 msgid "Double click"
-msgstr ""
+msgstr "இரட்டை சொடுக்கு"
 
 #: libraries/config.values.php:148
 msgid "key"
