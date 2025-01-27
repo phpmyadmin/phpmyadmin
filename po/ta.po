@@ -11173,7 +11173,7 @@ msgstr "உருவப்படம்"
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:58
 #: libraries/classes/Plugins/Schema/SchemaSvg.php:55
 msgid "Same width for all tables"
-msgstr ""
+msgstr "எல்லா அட்டவணைகளுக்கும் ஒரே அகலம்"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:83
 msgid "Show grid"
