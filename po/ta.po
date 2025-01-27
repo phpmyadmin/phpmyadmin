@@ -12375,7 +12375,7 @@ msgstr ""
 #: libraries/classes/Routing.php:169
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr ""
+msgstr "பிழை 404! பக்கம் %s காணப்படவில்லை."
 
 #: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
