@@ -10112,7 +10112,7 @@ msgstr "நீங்கள் எந்த படி இயல்பாக்க
 
 #: libraries/classes/Normalization.php:966
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "இயல்பாக்கத்தின் இரண்டாவது படி (1NF+2NF)"
 
 #: libraries/classes/Normalization.php:971
 msgid "Third step of normalization (1NF+2NF+3NF)"
