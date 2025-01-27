@@ -4738,6 +4738,7 @@ msgstr ""
 #: libraries/classes/Config/Validator.php:292
 msgid "Empty signon URL while using [kbd]signon[/kbd] authentication method!"
 msgstr ""
+"[KBD] சிக்னான் [/KBD] அங்கீகார முறையைப் பயன்படுத்தும் போது வெற்று சிக்னன் URL!"
 
 #: libraries/classes/Config/Validator.php:346
 msgid ""
