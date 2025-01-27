@@ -3867,7 +3867,7 @@ msgstr "பயனர் குழுக்கள் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:935
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "மறைக்கப்பட்ட வழிசெலுத்தல் உருப்படிகள் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:936
 msgid "User for config auth"
