@@ -13075,7 +13075,7 @@ msgstr "அட்டவணையை முன்னொட்டுடன் ம�
 
 #: src/Controllers/JavaScriptMessagesController.php:686
 msgid "Extremely weak"
-msgstr ""
+msgstr "மிகவும் பலவீனமான"
 
 #: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Very weak"
