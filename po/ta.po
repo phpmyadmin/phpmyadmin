@@ -9380,7 +9380,7 @@ msgstr "சான்றிதழ் ஆணையம் இல்லாமல் 
 
 #: libraries/classes/Html/Generator.php:252
 msgid "SSL is used"
-msgstr ""
+msgstr "எச்.எச்.எல் பயன்படுத்தப்படுகிறது"
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
