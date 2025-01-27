@@ -8487,7 +8487,7 @@ msgstr "வலது"
 
 #: src/Config/ConfigFile.php:567
 msgid "Click"
-msgstr ""
+msgstr "சொடுக்கு செய்க"
 
 #: src/Config/ConfigFile.php:568
 msgid "Double click"
