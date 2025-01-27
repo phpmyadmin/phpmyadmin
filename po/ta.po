@@ -7941,6 +7941,8 @@ msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
+"முதல் அட்டவணையில் வரம்புகளைப் பயன்படுத்திய இணைப்புகளின் எண்ணிக்கை. (இது பெரியதாக "
+"இருந்தாலும் இது பொதுவாக முக்கியமானதல்ல.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:478
 msgid "The number of joins that did a full scan of the first table."
