@@ -2627,6 +2627,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:585
 msgid "When browsing tables, the sorting of each table is remembered."
 msgstr ""
+"அட்டவணைகளை உலாவும்போது, ஒவ்வொரு அட்டவணையின் வரிசையாக்கமும் நினைவில் இருக்கும்."
 
 #: libraries/classes/Config/Descriptions.php:586
 msgid "Default sort order for tables with a primary key."
