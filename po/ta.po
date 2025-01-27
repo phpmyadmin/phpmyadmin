@@ -2787,7 +2787,7 @@ msgstr "பல அட்டவணை பராமரிப்பை முடக
 
 #: libraries/classes/Config/Descriptions.php:654
 msgid "Maximum execution time"
-msgstr ""
+msgstr "அதிகபட்ச சாவுஒறுப்பு நேரம்"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
@@ -14475,7 +14475,7 @@ msgstr "புதிய நிரல்வரிசையின் பெயர�
 #: templates/export.twig:347
 #, php-format
 msgid "Use %s statement"
-msgstr "கூற்றுகளை சேர்க்க:"
+msgstr "%s அறிக்கையைப் பயன்படுத்தவும்"
 
 #: templates/export.twig:356
 msgid "View output as text"
