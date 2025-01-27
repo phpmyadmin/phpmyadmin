@@ -17353,7 +17353,7 @@ msgstr "இறுதிப்பர்வை"
 
 #: templates/setup/config/index.twig:4 templates/setup/home/index.twig:93
 msgid "Configuration file"
-msgstr ""
+msgstr "உள்ளமைவு கோப்பு"
 
 #: templates/setup/config/index.twig:22 templates/setup/home/index.twig:105
 msgid "Download"
