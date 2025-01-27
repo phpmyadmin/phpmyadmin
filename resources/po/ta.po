@@ -14154,7 +14154,7 @@ msgstr "சுத்தப்படுத்தக் கோரப்பட்�
 
 #: src/Controllers/Server/Status/VariablesController.php:302
 msgid "The number of free pages."
-msgstr ""
+msgstr "இலவச பக்கங்களின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:304
 msgid ""
