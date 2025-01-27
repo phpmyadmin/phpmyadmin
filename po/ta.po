@@ -8536,7 +8536,7 @@ msgstr "நீங்கள் ஒரு வழக்கமான பெயரை
 
 #: libraries/classes/Database/Routines.php:1063
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "நீங்கள் ஒரு வழக்கமான வரையறையை வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Routines.php:1143
 #: libraries/classes/Database/Routines.php:1312
