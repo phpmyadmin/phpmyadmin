@@ -4673,6 +4673,8 @@ msgid ""
 "Empty phpMyAdmin control user password while using phpMyAdmin configuration "
 "storage!"
 msgstr ""
+"Phpmyadmin உள்ளமைவு சேமிப்பிடத்தைப் பயன்படுத்தும் போது PHPMYADMIN கட்டுப்பாட்டு பயனர் "
+"கடவுச்சொல்லை கட்டுப்படுத்தவும்!"
 
 #: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
