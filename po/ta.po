@@ -9098,6 +9098,9 @@ msgid ""
 "will be deleted, otherwise they are renamed and given the next highest "
 "number."
 msgstr ""
+"இது பரிவர்த்தனை பதிவு கோப்புகளின் எண்ணிக்கை (pbxt/system/xlog*.xt) கணினி பராமரிக்கும்"
+". பதிவுகளின் எண்ணிக்கை இந்த மதிப்பை மீறினால், பழைய பதிவுகள் நீக்கப்படும், இல்லையெனில் அவை "
+"மறுபெயரிடப்பட்டு அடுத்த அதிக எண்ணிக்கையில் வழங்கப்படுகின்றன."
 
 #: libraries/classes/Engines/Pbxt.php:169
 #: libraries/classes/Html/Generator.php:745
