@@ -6881,7 +6881,7 @@ msgstr "மாற்று"
 #: resources/templates/table/structure/display_structure.twig:116
 #, php-format
 msgid "Column %s has been dropped."
-msgstr ""
+msgstr "நெடுவரிசை %s கைவிடப்பட்டுள்ளன."
 
 #: resources/templates/table/structure/display_structure.twig:130
 #: src/Controllers/JavaScriptMessagesController.php:608
