@@ -8406,6 +8406,10 @@ msgid ""
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
+"சேவையகத்திற்கு %2$d க்கு டைம் மண்டலத்தை \" %1$s\" பயன்படுத்த முடியவில்லை. [EM] $ cfg "
+"['சேவையகங்கள்'] [%3$d] ['SessionTimeZone'] [/em] க்கான உங்கள் உள்ளமைவு அமைப்பை "
+"சரிபார்க்கவும். PHPMYADMIN தற்போது தரவுத்தள சேவையகத்தின் இயல்புநிலை நேர மண்டலத்தைப் "
+"பயன்படுத்துகிறது."
 
 #: libraries/classes/DatabaseInterface.php:1186
 msgid "Failed to set configured collation connection!"
