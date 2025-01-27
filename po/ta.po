@@ -8983,7 +8983,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:52
 msgid "Log cache size"
-msgstr ""
+msgstr "பதிவு கேச் அளவு"
 
 #: libraries/classes/Engines/Pbxt.php:54
 msgid ""
