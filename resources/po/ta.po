@@ -2348,7 +2348,7 @@ msgstr "கவிமொ தரவு அணுகல்"
 #: resources/templates/database/routines/execute_form.twig:7
 #: resources/templates/database/routines/execute_form.twig:12
 msgid "Routine parameters"
-msgstr ""
+msgstr "வழக்கமான அளவுருக்கள்"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
