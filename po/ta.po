@@ -10993,7 +10993,7 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportCsv.php:682
 #, php-format
 msgid "Invalid parameter for CSV import: %s"
-msgstr ""
+msgstr "காபிம இறக்குமதிக்கான தவறான அளவுரு: %s"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:813
 #, php-format
