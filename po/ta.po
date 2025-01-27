@@ -16965,8 +16965,6 @@ msgid "Show form"
 msgstr "படிவத்தை காட்டு"
 
 #: templates/setup/home/index.twig:23
-#, fuzzy
-#| msgid "Show hidden items"
 msgid "Show hidden messages"
 msgstr "மறைக்கப்பட்ட உருப்படிகளை காட்டு"
 
