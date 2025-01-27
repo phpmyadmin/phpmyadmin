@@ -14910,10 +14910,8 @@ msgid "Ins:"
 msgstr "செருகுக:"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:12
-#, fuzzy
-#| msgid "And:"
 msgid "And"
-msgstr "மற்றும்:"
+msgstr "மற்றும்"
 
 #: templates/database/qbe/ins_del_and_or_cell.twig:17
 msgid "Del:"
