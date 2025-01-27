@@ -2588,7 +2588,7 @@ msgstr "முன்னொட்டு"
 
 #: resources/templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
-msgstr ""
+msgstr "அட்டவணையில் முன்னொட்டை சேர்க்கவும்"
 
 #: resources/templates/database/structure/check_all_tables.twig:27
 msgid "Replace table prefix"
