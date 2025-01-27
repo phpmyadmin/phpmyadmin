@@ -16544,21 +16544,21 @@ msgstr "உங்கள் தரவுத்தளம் நடைமுறை�
 #: src/Plugins/Export/ExportSql.php:596 src/Plugins/Export/ExportSql.php:1508
 #: src/Plugins/Export/ExportSql.php:1940
 msgid "alias export may not work reliably in all cases."
-msgstr ""
+msgstr "மாற்று ஏற்றுமதி எல்லா நிகழ்வுகளிலும் நம்பத்தகுந்ததாக செயல்படாது."
 
 #: src/Plugins/Export/ExportSql.php:1053
 msgid "Metadata"
-msgstr "தரவு"
+msgstr "மேனிலை தரவு"
 
 #: src/Plugins/Export/ExportSql.php:1114
 #, php-format
 msgid "Metadata for table %s"
-msgstr "தரவை அல்லது அட்டவணையை அழி"
+msgstr "அட்டவணை %s க்கான மேனிலை தரவு"
 
 #: src/Plugins/Export/ExportSql.php:1121
 #, php-format
 msgid "Metadata for database %s"
-msgstr "தரவுத்தளம்: %s க்கு செல்க"
+msgstr "தரவுத்தளம் %s க்கான மேனிலை தரவு"
 
 #: src/Plugins/Export/ExportSql.php:1420
 #, php-format
