@@ -7940,7 +7940,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/StructureController.php:1222
 #, php-format
 msgid "Table %1$s has been altered successfully."
-msgstr ""
+msgstr "அட்டவணை %1$s வெற்றிகரமாக மாற்றப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Table/ChangeController.php:304
 #: libraries/classes/Controllers/Table/DeleteController.php:121
