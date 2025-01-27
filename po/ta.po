@@ -16145,6 +16145,7 @@ msgstr ""
 msgid ""
 "Two-factor authentication is available, but not configured for this account."
 msgstr ""
+"இரண்டு காரணி ஏற்பு கிடைக்கிறது, ஆனால் இந்த கணக்கிற்கு கட்டமைக்கப்படவில்லை."
 
 #: templates/preferences/two_factor/main.twig:26
 msgid ""
