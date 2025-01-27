@@ -624,6 +624,10 @@ msgid ""
 "single quote (\"'\") amongst those values, precede it with a backslash (for "
 "example '\\\\xyz' or 'a\\'b')."
 msgstr ""
+"நெடுவரிசை வகை \"enum\" அல்லது \"அமைக்க\" என்றால், தயவுசெய்து இந்த வடிவமைப்பைப் "
+"பயன்படுத்தி மதிப்புகளை உள்ளிடவும்: 'a', 'b', 'c'… <br> நீங்கள் எப்போதாவது ஒரு "
+"பின்சாய்வுக்கோ (\"\\\") அல்லது a அந்த மதிப்புகளுக்கு இடையில் ஒற்றை மேற்கோள் (\"\" \"), "
+"அதை ஒரு பின்சாய்வுடன் முன்னதாக (எடுத்துக்காட்டாக '\\\\ xyz' அல்லது 'A \\' B ')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:20
 #: resources/templates/database/central_columns/edit.twig:11
