@@ -12005,6 +12005,9 @@ msgid ""
 "will prevent other users from connecting if the host part of their account "
 "allows a connection from any (%) host."
 msgstr ""
+"உள்ளக ஓச்டிலிருந்து எந்தவொரு பயனரும் இணைக்க அனுமதிக்கும் பயனர் கணக்கு உள்ளது. எந்தவொரு "
+"(%) ஓச்டிலிருந்தும் இணைப்பை அனுமதித்தால், மற்ற பயனர்கள் தங்கள் கணக்கின் புரவலன் பகுதி "
+"இணைப்பதை இது தடுக்கும்."
 
 #: libraries/classes/Server/Privileges.php:3015
 #, php-format
