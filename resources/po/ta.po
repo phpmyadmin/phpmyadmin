@@ -8376,7 +8376,7 @@ msgstr "சிங்களம்"
 #: src/Charsets/Collation.php:467
 msgctxt "Collation"
 msgid "Slovak"
-msgstr ""
+msgstr "ச்லோவாக்"
 
 #: src/Charsets/Collation.php:471
 msgctxt "Collation"
