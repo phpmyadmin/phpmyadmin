@@ -13218,7 +13218,7 @@ msgstr "தவறான தரவு"
 #: setup/validate.php:38
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "தவறான தரவு அல்லது %s க்கு சரிபார்ப்பு இல்லை"
 
 #: templates/columns_definitions/column_attributes.twig:31
 #: templates/database/central_columns/edit_table_row.twig:23
