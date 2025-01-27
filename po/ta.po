@@ -7290,7 +7290,7 @@ msgstr "விருந்தோம்பி"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:163
 msgid "Command"
-msgstr ""
+msgstr "கட்டளை"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:175
 msgid "Progress"
