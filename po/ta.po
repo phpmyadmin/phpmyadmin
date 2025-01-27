@@ -12286,7 +12286,7 @@ msgstr "நீக்க பயனர்கள் யாரும் தேர்
 
 #: libraries/classes/Server/Privileges.php:2311
 msgid "Reloading the privileges"
-msgstr ""
+msgstr "சலுகைகளை மீண்டும் ஏற்றுகிறது"
 
 #: libraries/classes/Server/Privileges.php:2334
 msgid "The selected users have been deleted successfully."
