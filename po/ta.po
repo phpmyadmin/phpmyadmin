@@ -13613,8 +13613,6 @@ msgid "Select Export Relational Type"
 msgstr ""
 
 #: templates/database/events/editor_form.twig:12
-#, fuzzy
-#| msgid "Constraint name"
 msgid "Event name"
 msgstr "கட்டுப்பாட்டின் பெயர்"
 
