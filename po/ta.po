@@ -11878,7 +11878,7 @@ msgstr "விதி நிரைகளை சேர்க்க/ நீக்�
 #: templates/server/privileges/privileges_table.twig:454
 #: templates/server/privileges/privileges_table.twig:457
 msgid "Allows creating stored routines."
-msgstr ""
+msgstr "சேமிக்கப்பட்ட நடைமுறைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:503
 #: templates/server/privileges/privileges_table.twig:467
