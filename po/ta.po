@@ -10898,7 +10898,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1956
 msgid "RELATIONSHIPS FOR TABLE"
-msgstr ""
+msgstr "அட்டவணைக்கான உறவுகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2145
 msgid "It appears your table uses triggers;"
