@@ -11983,7 +11983,7 @@ msgstr "தேடலை நீக்க செய்தி இல்லை."
 
 #: libraries/classes/SavedSearches.php:416
 msgid "Missing information to load the search."
-msgstr ""
+msgstr "தேடலை ஏற்றுவதற்கான தகவல்களைக் காணவில்லை."
 
 #: libraries/classes/SavedSearches.php:436
 msgid "Error while loading the search."
