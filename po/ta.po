@@ -7505,7 +7505,7 @@ msgstr "சுத்தப்படுத்தக் கோரப்பட்�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:357
 msgid "The number of free pages."
-msgstr ""
+msgstr "இலவச பக்கங்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid ""
