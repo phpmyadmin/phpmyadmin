@@ -230,6 +230,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"நீங்கள் மூலத்திலிருந்து தொகுக்கவில்லை என்றால், விநியோகத்தால் மாற்றியமைக்கப்பட்ட தொகுப்பைப் "
+"பயன்படுத்தலாம். MySQL கையேடு அதிகாரப்பூர்வ MySQL பைனரிகளுக்கு மட்டுமே துல்லியமானது, "
+"எந்த தொகுப்பு விநியோகங்களும் (ரெட்ஆட், டெபியன்/உபுண்டு போன்றவை) அல்ல."
 
 #: libraries/advisory_rules_generic.php:152
 msgid "'source' found in version_comment"
