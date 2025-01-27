@@ -14086,6 +14086,10 @@ msgid ""
 "quote (\"'\") amongst those values, precede it with a backslash (for example "
 "'\\\\xyz' or 'a\\'b')."
 msgstr ""
+"இந்த வடிவமைப்பைப் பயன்படுத்தி உருமாற்ற விருப்பங்களுக்கான மதிப்புகளை உள்ளிடவும்: 'a', "
+"100, b, 'c'… <br> நீங்கள் எப்போதாவது ஒரு பின்சாய்வுக்கோ (\"\\\") அல்லது ஒரு மேற்கோள் ("
+"\"\" \") அவற்றில் வைக்க வேண்டும் என்றால் அவற்றில் மதிப்புகள், அதை ஒரு பின்சாய்வுக்குறுப்புடன்"
+" முன்னதாக (எடுத்துக்காட்டாக '\\\\ xyz' அல்லது 'A \\' B ')."
 
 #: templates/columns_definitions/table_fields_definitions.twig:88
 #: templates/transformation_overview.twig:37
@@ -14187,7 +14191,7 @@ msgstr "குழு வினவல்கள்"
 
 #: templates/console/display.twig:84
 msgid "Show trace"
-msgstr "ட்ரேசைக் காட்டு"
+msgstr "சுவடு காட்டு"
 
 #: templates/console/display.twig:84
 msgid "Hide trace"
