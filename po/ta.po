@@ -10340,7 +10340,7 @@ msgstr "வடிவம்:"
 #: libraries/classes/Plugins/Export/ExportCsv.php:58
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
-msgstr ""
+msgstr "இதனுடன் பிரிக்கப்பட்ட நெடுவரிசைகள்:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:42
