@@ -7921,6 +7921,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid "This is ON if this server is a slave that is connected to a master."
 msgstr ""
+"இந்த சேவையகம் ஒரு எசமானருடன் இணைக்கப்பட்ட அடிமையாக இருந்தால் இது இயக்கத்தில் உள்ளது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:626
 msgid ""
