@@ -10183,7 +10183,7 @@ msgstr "முதல் வரிசையில் நெடுவரிசை 
 
 #: src/Config/Descriptions.php:787 src/Plugins/Import/ImportOds.php:81
 msgid "Do not import empty rows"
-msgstr ""
+msgstr "வெற்று வரிசைகளை இறக்குமதி செய்ய வேண்டாம்"
 
 #: src/Config/Descriptions.php:788
 msgid "Import currencies ($5.00 to 5.00)"
