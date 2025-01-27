@@ -364,7 +364,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:242
 #, php-format
 msgid "Sorted rows average: %s"
-msgstr ""
+msgstr "வரிசைப்படுத்தப்பட்ட வரிசைகள் சராசரி: %s"
 
 #: libraries/advisory_rules_generic.php:248
 msgid "Rate of joins without indexes"
