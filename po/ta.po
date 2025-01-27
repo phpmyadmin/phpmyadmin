@@ -7536,7 +7536,7 @@ msgstr "ஒரு அட்டவணையில் ஒரு வரிசைய
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:317
 msgid "The number of pages containing data (dirty or clean)."
-msgstr ""
+msgstr "தரவைக் கொண்ட பக்கங்களின் எண்ணிக்கை (அழுக்கு அல்லது சுத்தமானது)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:318
 msgid "The number of pages currently dirty."
