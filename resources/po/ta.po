@@ -13892,7 +13892,7 @@ msgstr "அதை உங்கள் config.inc.php க்கு ஒட்டவ
 
 #: src/Controllers/Preferences/ManageController.php:136
 msgid "Could not import configuration"
-msgstr ""
+msgstr "உள்ளமைவை இறக்குமதி செய்ய முடியவில்லை"
 
 #: src/Controllers/Preferences/TwoFactorController.php:47
 msgid "Two-factor authentication has been removed."
