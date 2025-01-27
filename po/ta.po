@@ -1514,7 +1514,7 @@ msgstr "நீங்கள் %s %s அல்லது அதற்குப் 
 
 #: libraries/classes/Common.php:277
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "பிழை: கிள்ளாக்கு பொருந்தாத தன்மை"
 
 #: libraries/classes/Common.php:491
 msgid ""
