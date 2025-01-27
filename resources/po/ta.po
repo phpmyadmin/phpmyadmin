@@ -13931,11 +13931,11 @@ msgstr "பெறப்பட்டது"
 
 #: src/Controllers/Server/Status/StatusController.php:134
 msgid "Sent"
-msgstr ""
+msgstr "அனுப்பப்பட்டது"
 
 #: src/Controllers/Server/Status/StatusController.php:171
 msgid "Max. concurrent connections"
-msgstr "நடப்பாணை இணைப்பு"
+msgstr "அதிகபட்சம். ஒரே நேரத்தில் இணைப்புகள்"
 
 #: src/Controllers/Server/Status/StatusController.php:177
 msgid "Failed attempts"
