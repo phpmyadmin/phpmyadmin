@@ -7989,7 +7989,7 @@ msgstr "தெரிவுசெய்யப்பட வரிசைகள் �
 #: libraries/classes/Controllers/Table/ChartController.php:60
 #: libraries/classes/Controllers/Table/GisVisualizationController.php:70
 msgid "No SQL query was set to fetch data."
-msgstr ""
+msgstr "தரவைப் பெற கவிமொ வினவல் எதுவும் அமைக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Table/ChartController.php:145
 msgid "No numeric columns present in the table to plot."
