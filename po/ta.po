@@ -9965,7 +9965,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:376
 msgid "No repeating group"
-msgstr ""
+msgstr "மீண்டும் மீண்டும் குழு இல்லை"
 
 #: libraries/classes/Normalization.php:404
 msgid "Step 2."
