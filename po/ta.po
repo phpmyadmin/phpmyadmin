@@ -17768,7 +17768,7 @@ msgstr "மறுவரிசைப்படுத்த இழுக்கவ�
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
 msgid "Continue insertion with %s rows"
-msgstr ""
+msgstr "%s வரிசைகளுடன் செருகுவதைத் தொடரவும்"
 
 #: templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
