@@ -10307,7 +10307,7 @@ msgstr "லோகோ இணைப்பு இலக்கு"
 
 #: src/Config/Descriptions.php:815
 msgid "Display servers selection"
-msgstr ""
+msgstr "சேவையகங்கள் தேர்வு"
 
 #: src/Config/Descriptions.php:816
 msgid "Target for quick access icon"
