@@ -1704,11 +1704,11 @@ msgstr "தொடர்புசார் திட்டத்தை திர�
 #: resources/templates/triggers/editor_form.twig:14
 #: resources/templates/view_create.twig:11
 msgid "Details"
-msgstr ""
+msgstr "விவரங்கள்"
 
 #: resources/templates/database/events/editor_form.twig:24
 msgid "Event name"
-msgstr "கட்டுப்பாட்டின் பெயர்"
+msgstr "நிகழ்வு பெயர்"
 
 #: resources/templates/database/events/editor_form.twig:30
 #: resources/templates/database/events/index.twig:46
