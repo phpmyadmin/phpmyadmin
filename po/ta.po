@@ -9397,6 +9397,7 @@ msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
 msgstr ""
+"குறியீடுகள் %1$s மற்றும் %2$s சமமாகத் தெரிகிறது, அவற்றில் ஒன்று அகற்றப்படலாம்."
 
 #: libraries/classes/InsertEdit.php:351
 #: libraries/classes/Navigation/Nodes/NodeFunction.php:28
