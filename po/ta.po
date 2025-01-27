@@ -14955,7 +14955,7 @@ msgstr ""
 
 #: templates/header.twig:52
 msgid "Click on the bar to scroll to top of page"
-msgstr ""
+msgstr "பக்கத்தின் மேல் உருட்ட பட்டியில் சொடுக்கு செய்க"
 
 #: templates/home/git_info.twig:2
 msgid "Git revision:"
