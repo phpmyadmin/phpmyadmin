@@ -9859,6 +9859,8 @@ msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
+"ஒன்றுக்கு மேற்பட்ட நெடுவரிசைகளாக பிரிக்கக்கூடிய ஏதேனும் நெடுவரிசை உங்களிடம் உள்ளதா? "
+"எடுத்துக்காட்டாக: முகவரியை தெரு, நகரம், நாடு மற்றும் சிப் என பிரிக்கலாம்."
 
 #: libraries/classes/Normalization.php:236
 msgid "Show me the central list of columns that are not already in this table"
