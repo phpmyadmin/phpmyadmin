@@ -10025,7 +10025,7 @@ msgstr "உருவாக்குநர்"
 
 #: src/Config/Descriptions.php:733
 msgid "Edit mode"
-msgstr ""
+msgstr "திருத்து பயன்முறை"
 
 #: src/Config/Descriptions.php:734
 msgid "Export defaults"
