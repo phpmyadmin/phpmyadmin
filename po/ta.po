@@ -16016,10 +16016,12 @@ msgid ""
 "Your browser has phpMyAdmin configuration for this domain. Would you like to "
 "import it for current session?"
 msgstr ""
+"உங்கள் உலாவியில் இந்த களத்திற்கான Phpmyadmin உள்ளமைவு உள்ளது. தற்போதைய அமர்வுக்கு அதை "
+"இறக்குமதி செய்ய விரும்புகிறீர்களா?"
 
 #: templates/preferences/autoload.twig:13
 msgid "Delete settings"
-msgstr "கண்காணிப்பு தரவுகள் அழிக்கப்படுகின்றன"
+msgstr "அமைப்புகளை நீக்கு"
 
 #: templates/preferences/forms/main.twig:4
 msgid "Cannot save settings, submitted form contains errors!"
