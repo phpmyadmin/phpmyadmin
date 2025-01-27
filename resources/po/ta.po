@@ -347,6 +347,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"ஒரு டைனின்ட் (1) நெடுவரிசையை வரையறுக்காவிட்டால், முழு எண் வகைகளின் நெடுவரிசை அகலம் "
+"உங்கள் MySQL பதிப்பில் புறக்கணிக்கப்படுகிறது"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:176
 #: resources/templates/database/designer/main.twig:1094
@@ -361,7 +363,7 @@ msgstr ""
 #: resources/templates/table/zoom_search/result_form.twig:24
 #: resources/templates/table/zoom_search/result_form.twig:95
 msgid "Loading"
-msgstr "ஏற்றப்படுகிறது…"
+msgstr "ஏற்றுகிறது"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:177
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
