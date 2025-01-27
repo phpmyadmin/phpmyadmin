@@ -8886,6 +8886,8 @@ msgid ""
 "The default pointer size in bytes, to be used by CREATE TABLE for MyISAM "
 "tables when no MAX_ROWS option is specified."
 msgstr ""
+"MAX_ROWS விருப்பமும் குறிப்பிடப்படாதபோது MyISAM அட்டவணைகளுக்கான அட்டவணையை உருவாக்கு "
+"பயன்படுத்தப்பட வேண்டிய பைட்டுகளில் இயல்புநிலை சுட்டிக்காட்டி அளவு."
 
 #: libraries/classes/Engines/Myisam.php:36
 msgid "Automatic recovery mode"
