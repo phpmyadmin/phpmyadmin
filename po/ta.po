@@ -11624,7 +11624,7 @@ msgstr "இந்த புக்மார்க்கு செய்யப்�
 
 #: libraries/classes/SavedSearches.php:255
 msgid "Missing information to save the bookmarked search."
-msgstr ""
+msgstr "புக்மார்க்கு செய்யப்பட்ட தேடலைச் சேமிக்க செய்தி இல்லை."
 
 #: libraries/classes/SavedSearches.php:276
 #: libraries/classes/SavedSearches.php:310
