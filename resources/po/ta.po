@@ -11242,7 +11242,7 @@ msgstr ""
 #: src/Config/Validator.php:552
 #: src/Controllers/JavaScriptMessagesController.php:828
 msgid "Not a positive number!"
-msgstr ""
+msgstr "நேர்மறை எண் அல்ல!"
 
 #: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:829
