@@ -6907,7 +6907,7 @@ msgstr "அட்டவணை கட்டமைப்பை முன்மொ�
 
 #: resources/templates/table/structure/display_structure.twig:409
 msgid "Normalize"
-msgstr ""
+msgstr "இயல்பாக்குங்கள்"
 
 #: resources/templates/table/structure/display_structure.twig:415
 msgid "Track view"
