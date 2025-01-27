@@ -13136,8 +13136,6 @@ msgid "A_I"
 msgstr ""
 
 #: templates/database/central_columns/main.twig:129
-#, fuzzy
-#| msgid "The central list of columns for the current database is empty."
 msgid "The central list of columns for the current database is empty"
 msgstr "நடப்பு தரவுத்தளத்துக்கான மையநிரல்வரிசைப்பட்டியல் வெறுமையாக உள்ளது."
 
