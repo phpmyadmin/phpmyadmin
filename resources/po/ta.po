@@ -15793,7 +15793,7 @@ msgstr "புதியது"
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
 #: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
-msgstr ""
+msgstr "செயல்பாடுகள்"
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:31
 msgctxt "Create new function"
