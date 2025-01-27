@@ -17937,7 +17937,7 @@ msgstr "சுருங்குறியை பயன்படுத்து�
 
 #: templates/table/find_replace/replace_preview.twig:10
 msgid "Find and replace - preview"
-msgstr ""
+msgstr "கண்டுபிடித்து மாற்றவும் - முன்னோட்டம்"
 
 #: templates/table/find_replace/replace_preview.twig:17
 msgid "Original string"
