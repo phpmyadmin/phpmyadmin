@@ -9655,7 +9655,7 @@ msgstr ""
 
 #: libraries/classes/Html/Generator.php:670
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "கவிமொ ஐ விளக்குங்கள்"
 
 #: libraries/classes/Html/Generator.php:679
 #, php-format
