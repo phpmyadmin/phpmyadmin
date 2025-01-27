@@ -13756,6 +13756,8 @@ msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
+"வெப்அத்ன் கிடைக்கவில்லை. பாதுகாப்பான சூழலில் (HTTPS) ஆதரிக்கப்பட்ட உலாவியைப் "
+"பயன்படுத்தவும்."
 
 #: src/Controllers/JavaScriptMessagesController.php:712
 msgid ""
@@ -14246,12 +14248,12 @@ msgstr[1] "%1$d தரவுத்தளங்கள் வெற்றிகர
 #: src/Controllers/Server/Privileges/AccountLockController.php:45
 #, php-format
 msgid "The account %s@%s has been successfully locked."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கணக்கு %s@ %s வெற்றிகரமாக பூட்டப்பட்டுள்ளது."
 
 #: src/Controllers/Server/Privileges/AccountUnlockController.php:45
 #, php-format
 msgid "The account %s@%s has been successfully unlocked."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கணக்கு %s@ %s வெற்றிகரமாக திறக்கப்பட்டுள்ளது."
 
 #: src/Controllers/Server/PrivilegesController.php:121
 msgid ""
