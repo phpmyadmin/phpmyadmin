@@ -10743,6 +10743,9 @@ msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
+"பேக்யூட்சுடன் அட்டவணை மற்றும் நெடுவரிசை பெயர்களை இணைக்கவும் <i> (சிறப்பு எழுத்துக்கள் "
+"அல்லது முக்கிய வார்த்தைகளுடன் உருவாக்கப்பட்ட நெடுவரிசை மற்றும் அட்டவணை பெயர்களைப் "
+"பாதுகாக்கிறது) </i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:396
 msgid "Data creation options"
