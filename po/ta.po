@@ -9073,7 +9073,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:117
 msgid "Data file grow size"
-msgstr ""
+msgstr "தரவு கோப்பு அளவு அதிகரிக்கும்"
 
 #: libraries/classes/Engines/Pbxt.php:118
 msgid "The grow size of the handle data (.xtd) files."
