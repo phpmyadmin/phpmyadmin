@@ -13202,8 +13202,6 @@ msgid "Create"
 msgstr ""
 
 #: templates/database/data_dictionary/index.twig:4
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
 msgstr "தரவுத்தள கருத்துரை"
 
