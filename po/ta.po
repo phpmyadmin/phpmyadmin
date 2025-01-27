@@ -7244,7 +7244,7 @@ msgstr "பயனீட்டளவு"
 #: libraries/classes/Controllers/Server/PrivilegesController.php:142
 #: libraries/classes/Controllers/Server/UserGroupsController.php:51
 msgid "No Privileges"
-msgstr ""
+msgstr "சலுகைகள் இல்லை"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:150
 msgid "You do not have the privileges to administrate the users!"
