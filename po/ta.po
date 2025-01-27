@@ -3938,7 +3938,7 @@ msgstr "குறிப்பைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:949
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Phpinfo () இணைப்பைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:950
 msgid "Show detailed MySQL server information"
