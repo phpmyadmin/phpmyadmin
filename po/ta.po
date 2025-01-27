@@ -2540,6 +2540,9 @@ msgid ""
 "For) header coming from the proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
+"உள்ளீட்டு ப்ராக்சிகள் [KBD] ஐபி: நம்பகமான HTTP தலைப்பு [/KBD]. Phpmyadmin ஒரு "
+"http_x_forwarded_for (x- முன்னோடி) தலைப்பை ப்ராக்சியில் இருந்து வரும் என்று பின்வரும் "
+"எடுத்துக்காட்டு குறிப்பிடுகிறது."
 
 #: libraries/classes/Config/Descriptions.php:529
 msgid ""
