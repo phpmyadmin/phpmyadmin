@@ -20,7 +20,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
-msgstr ""
+msgstr "ஒரு நாளுக்குக் கீழே நேரம்"
 
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
