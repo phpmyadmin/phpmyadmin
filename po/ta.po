@@ -13054,7 +13054,7 @@ msgstr "இரு சார்பிலும்"
 
 #: libraries/config.values.php:105
 msgid "Nowhere"
-msgstr ""
+msgstr "எங்கும்"
 
 #: libraries/config.values.php:106
 msgid "Left"
