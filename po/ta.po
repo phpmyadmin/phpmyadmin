@@ -2252,6 +2252,8 @@ msgid ""
 "Leave blank for no [doc@relations@]relation-links[/doc] support, suggested: "
 "[kbd]pma__relation[/kbd]."
 msgstr ""
+"இல்லை [டாக்@உறவுகள்@] உறவு-இணைப்புகள் [/doc] உதவி, பரிந்துரைக்கப்படுகிறது: [kbd] "
+"pma__ URELATION [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:412
 msgid ""
