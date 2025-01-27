@@ -7331,6 +7331,8 @@ msgid ""
 "Username and hostname didn't change. If you only want to change the "
 "password, 'Change password' tab should be used."
 msgstr ""
+"பயனர்பெயர் மற்றும் ஓச்ட்பெயர் மாறவில்லை. நீங்கள் கடவுச்சொல்லை மட்டுமே மாற்ற விரும்பினால், "
+"'கடவுச்சொல்லை மாற்று' தாவலைப் பயன்படுத்த வேண்டும்."
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:406
 msgid "User has been added."
