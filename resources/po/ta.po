@@ -10825,11 +10825,11 @@ msgstr "பூட்டப்பட்ட அட்டவணைகளைத் �
 
 #: src/Config/Descriptions.php:927 src/Html/Generator.php:495
 msgid "Explain SQL"
-msgstr ""
+msgstr "கவிமொ ஐ விளக்குங்கள்"
 
 #: src/Config/Descriptions.php:929 src/Html/Generator.php:556
 msgid "Create PHP code"
-msgstr "PHP குறிமுறை உருவாக்கு"
+msgstr "பிஎச்பி குறியீட்டை உருவாக்கவும்"
 
 #: src/Config/Descriptions.php:930
 msgid "Suhosin warning"
