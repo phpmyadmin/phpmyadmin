@@ -597,6 +597,9 @@ msgid ""
 "tables to see if indexes have been removed, or examine queries and "
 "expectations about what indexes are being used."
 msgstr ""
+"நீங்கள் {key_buffer_size of இன் அளவைக் குறைக்க வேண்டியிருக்கலாம், குறியீடுகள் "
+"அகற்றப்பட்டுள்ளதா என்பதைப் பார்க்க உங்கள் அட்டவணைகளை மறுபரிசீலனை செய்யவும், அல்லது குறியீடுகள்"
+" என்ன பயன்படுத்தப்படுகின்றன என்பது குறித்த கேள்விகள் மற்றும் எதிர்பார்ப்புகளை ஆராயவும்."
 
 #: libraries/advisory_rules_generic.php:382
 #, php-format
