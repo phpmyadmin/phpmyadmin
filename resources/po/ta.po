@@ -5280,7 +5280,7 @@ msgstr "சலுகைகள் இல்லை"
 #: resources/templates/server/replication/primary_add_replica_user.twig:11
 #: resources/templates/server/replication/primary_replication.twig:44
 msgid "Add replica replication user"
-msgstr ""
+msgstr "பிரதி பிரதி பயனரைச் சேர்க்கவும்"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:21
 #: resources/templates/server/replication/primary_add_replica_user.twig:40
@@ -5306,7 +5306,7 @@ msgstr "இயற்று"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
 msgid "Primary configuration"
-msgstr "கண்காணிப்பின் அமைப்பாக்கத்தை தரவிறக்கு"
+msgstr "முதன்மை உள்ளமைவு"
 
 #: resources/templates/server/replication/primary_configuration.twig:6
 msgid ""
