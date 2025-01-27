@@ -12875,11 +12875,11 @@ msgstr "அடுத்த படிநிலைக்கு செல்கி�
 
 #: libraries/classes/UserPassword.php:38
 msgid "The profile has been updated."
-msgstr ""
+msgstr "சுயவிவரம் புதுப்பிக்கப்பட்டுள்ளது."
 
 #: libraries/classes/UserPassword.php:50
 msgid "Password is too long!"
-msgstr "கடவுச்சொல் கூளமாக்கள்:"
+msgstr "கடவுச்சொல் மிக நீளமானது!"
 
 #: libraries/classes/UserPreferences.php:181
 msgid "Could not save configuration"
