@@ -7805,7 +7805,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:553
 msgid "The number of files that are open."
-msgstr ""
+msgstr "திறந்த கோப்புகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:556
 msgid "The number of streams that are open (used mainly for logging)."
