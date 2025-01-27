@@ -25,6 +25,7 @@ msgstr "ஒரு நாளுக்குக் கீழே நேரம்"
 #: libraries/advisory_rules_generic.php:12
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"வேலை நேரம் 1 நாளுக்கும் குறைவானது, செயல்திறன் சரிப்படுத்தும் துல்லியமாக இருக்காது."
 
 #: libraries/advisory_rules_generic.php:14
 msgid ""
