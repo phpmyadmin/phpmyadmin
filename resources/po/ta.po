@@ -9644,7 +9644,7 @@ msgstr "சாதாரண பயனர்களுக்கு \"டிரா�
 
 #: src/Config/Descriptions.php:601
 msgid "Blowfish secret"
-msgstr ""
+msgstr "ப்ளோஃபிச் மறைபொருள்"
 
 #: src/Config/Descriptions.php:602
 msgid "Row marker"
