@@ -4614,6 +4614,8 @@ msgid ""
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
+"இந்த முறைக்கு '<em> SSL இணைப்பு </em>' அல்லது '<em> மறைகுறியாக்கப்பட்ட இணைப்பு, இது "
+"RSA </em>' ஐப் பயன்படுத்தி கடவுச்சொல்லை குறியாக்குகிறது; சேவையகத்துடன் இணைக்கும்போது."
 
 #: resources/templates/server/privileges/choose_user_group.twig:5
 msgid "User group:"
@@ -5059,7 +5061,7 @@ msgstr "தற்போதைய நூலுக்கான பூட்டு�
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Allows creating foreign key relations."
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
+msgstr "வெளிநாட்டு முக்கிய உறவுகளை உருவாக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Not used on MariaDB."
