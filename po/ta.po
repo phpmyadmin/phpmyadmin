@@ -16449,7 +16449,7 @@ msgstr "தரவுத்தள புள்ளிவிவரங்கள்"
 
 #: templates/server/databases/index.twig:9
 msgid "Create database"
-msgstr ""
+msgstr "தரவுத்தளத்தை உருவாக்கவும்"
 
 #: templates/server/databases/index.twig:50
 msgid "No privileges to create databases"
