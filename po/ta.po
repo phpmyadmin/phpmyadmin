@@ -7400,6 +7400,10 @@ msgid ""
 "to increase the tmp_table_size  value to cause temporary tables to be memory-"
 "based instead of disk-based."
 msgstr ""
+"அறிக்கைகளை இயக்கும் போது சேவையகத்தால் தானாக உருவாக்கப்பட்ட வட்டில் தற்காலிக அட்டவணைகளின் "
+"எண்ணிக்கை. Created_tmp_disk_tables பெரியதாக இருந்தால், வட்டு அடிப்படையிலானவற்றுக்கு "
+"பதிலாக தற்காலிக அட்டவணைகள் நினைவக அடிப்படையிலானதாக இருக்க Tmp_table_size மதிப்பை "
+"அதிகரிக்க விரும்பலாம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid "How many temporary files mysqld has created."
