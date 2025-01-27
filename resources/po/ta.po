@@ -163,7 +163,7 @@ msgstr "சுட்டுதொகுப்புக்குறி"
 #: resources/templates/table/structure/display_structure.twig:212
 #: resources/templates/table/structure/display_structure.twig:296
 msgid "Fulltext"
-msgstr ""
+msgstr "முழு உரை"
 
 #: resources/templates/columns_definitions/column_attributes.twig:128
 #: resources/templates/table/structure/display_structure.twig:186
