@@ -7600,6 +7600,8 @@ msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
+"INNODB இடையகக் குளத்திலிருந்து நிறைவு அடைய முடியாது மற்றும் ஒற்றை பக்க வாசிப்பைச் செய்"
+"ய வேண்டிய தர்க்கரீதியான வாசிப்புகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:351
 msgid ""
