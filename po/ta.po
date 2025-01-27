@@ -3953,7 +3953,7 @@ msgstr "படைப்பு நேர முத்திரையைக் க
 
 #: libraries/classes/Config/Descriptions.php:934
 msgid "Show last update timestamp"
-msgstr ""
+msgstr "கடைசி புதுப்பிப்பு நேர முத்திரையைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:935
 msgid "Show last check timestamp"
