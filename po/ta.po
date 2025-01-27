@@ -1573,7 +1573,7 @@ msgstr "உங்கள் டொமைன் ரெக்காப்ட்ச�
 
 #: libraries/classes/Config/Descriptions.php:93
 msgid "Enter your private key for your domain reCaptcha service."
-msgstr ""
+msgstr "உங்கள் டொமைன் ரெக்காப்ட்சா சேவைக்கு உங்கள் தனிப்பட்ட விசையை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:94
 msgid "Enter your siteverify URL for your reCaptcha service."
