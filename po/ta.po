@@ -13170,7 +13170,7 @@ msgstr "முடக்கு"
 
 #: libraries/config.values.php:259
 msgid "Quick - display only the minimal options to configure"
-msgstr ""
+msgstr "விரைவாக - உள்ளமைக்க குறைந்தபட்ச விருப்பங்களை மட்டுமே காண்பி"
 
 #: libraries/config.values.php:260
 msgid "Custom - display all possible options to configure"
