@@ -9845,7 +9845,7 @@ msgstr "அனைத்து நெடுவரிசைகளையும் �
 #: libraries/classes/Normalization.php:225
 #: libraries/classes/Normalization.php:961
 msgid "First step of normalization (1NF)"
-msgstr ""
+msgstr "இயல்பாக்கத்தின் முதல் படி (1NF)"
 
 #: libraries/classes/Normalization.php:228
 #: libraries/classes/Normalization.php:278
