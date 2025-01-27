@@ -20,7 +20,7 @@ msgstr ""
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
-msgstr ""
+msgstr "சாவாச்கிரிப்ட் இந்த புள்ளியைத் தாண்டி இயக்கப்பட வேண்டும்!"
 
 #: resources/templates/base.twig:46
 msgid "Open user account menu"
