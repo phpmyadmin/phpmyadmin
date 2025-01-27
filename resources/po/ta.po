@@ -3779,7 +3779,7 @@ msgstr "மதிப்பிடப்பட்டது!"
 msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
-msgstr ""
+msgstr "FIDO U2F பநிஇ வலை அங்கீகார பநிஇ (Webauthn) க்கு ஆதரவாக நீக்கப்பட்டது."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
