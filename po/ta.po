@@ -3820,7 +3820,7 @@ msgstr "உறவு அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:910
 msgid "Signon session name"
-msgstr ""
+msgstr "சிக்னன் அமர்வு பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:911
 msgid "Signon URL"
