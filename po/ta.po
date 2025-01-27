@@ -3584,7 +3584,7 @@ msgstr "தொடர்ச்சியான இணைப்புகள்"
 
 #: libraries/classes/Config/Descriptions.php:864
 msgid "Missing phpMyAdmin configuration storage tables"
-msgstr ""
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பக அட்டவணைகளைக் காணவில்லை"
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
