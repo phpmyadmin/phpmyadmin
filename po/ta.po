@@ -816,7 +816,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:522
 #, php-format
 msgid "slow_launch_time is set to %s"
-msgstr ""
+msgstr "slow_launch_time %s என அமைக்கப்பட்டுள்ளது"
 
 #: libraries/advisory_rules_generic.php:528
 msgid "Percentage of used connections"
