@@ -17082,7 +17082,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:89
 msgid "Monitor Instructions"
-msgstr ""
+msgstr "வழிமுறைகளை கண்காணிக்கவும்"
 
 #: templates/server/status/monitor/index.twig:91
 msgid ""
