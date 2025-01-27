@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:23+0000\n"
+"PO-Revision-Date: 2025-01-27 02:24+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -4647,7 +4647,7 @@ msgstr "எந்த புரவலன்"
 #: resources/templates/server/privileges/login_information_fields.twig:29
 #: resources/templates/server/replication/primary_add_replica_user.twig:35
 msgid "Local"
-msgstr ""
+msgstr "உள்ளக"
 
 #: resources/templates/server/privileges/login_information_fields.twig:31
 #: resources/templates/server/replication/primary_add_replica_user.twig:37
