@@ -11803,7 +11803,7 @@ msgstr "சேவையகத்தை மூட அனுமதிக்கி�
 #: templates/server/privileges/privileges_table.twig:586
 #: templates/server/privileges/privileges_table.twig:589
 msgid "Allows viewing processes of all users."
-msgstr ""
+msgstr "அனைத்து பயனர்களின் செயல்முறைகளையும் பார்க்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:396
 #: templates/server/privileges/privileges_table.twig:337
