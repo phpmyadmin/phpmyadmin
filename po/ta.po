@@ -17681,7 +17681,7 @@ msgstr "பகிரப்பட்டது"
 
 #: templates/sql/query.twig:182
 msgid "View only"
-msgstr ""
+msgstr "பார்க்க மட்டுமே"
 
 #: templates/table/browse_foreigners/column_element.twig:4
 msgid "Use this value"
