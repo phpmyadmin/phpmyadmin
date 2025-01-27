@@ -16198,7 +16198,7 @@ msgstr "ரெக்காப்ட்சா சேவையுடன் இண�
 
 #: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Entered captcha is wrong, try again!"
-msgstr ""
+msgstr "நுழைந்த கேப்ட்சா தவறு, மீண்டும் முயற்சிக்கவும்!"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:285
 msgid ""
@@ -16208,7 +16208,7 @@ msgstr ""
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
+msgstr "இந்த MySQL சேவையகத்தில் உள்நுழைய உங்களுக்கு இசைவு இல்லை!"
 
 #: src/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
