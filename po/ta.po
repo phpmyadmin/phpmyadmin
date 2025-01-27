@@ -17011,7 +17011,7 @@ msgstr "ஆலோசகர்"
 
 #: templates/server/status/monitor/index.twig:8
 msgid "Start Monitor"
-msgstr ""
+msgstr "தொடக்க மானிட்டர்"
 
 #: templates/server/status/monitor/index.twig:16
 msgid "Instructions/Setup"
