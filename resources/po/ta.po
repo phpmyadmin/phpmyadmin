@@ -9599,6 +9599,7 @@ msgstr "குறுக்குவழி விசைகளை முடக்�
 #: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
 msgstr ""
+"அட்டவணை மற்றும் தரவுத்தள பெயர்களை வரிசைப்படுத்த இயற்கை வரிசையைப் பயன்படுத்தவும்."
 
 #: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
 #: src/Config/Descriptions.php:566
