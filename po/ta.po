@@ -275,7 +275,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:178
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "இந்த ஓச்டில் கிடைக்கும் நினைவகம்: %s"
 
 #: libraries/advisory_rules_generic.php:184
 msgid "Query caching method"
