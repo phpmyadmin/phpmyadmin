@@ -2666,7 +2666,7 @@ msgstr "லிண்டரை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:628
 msgid "Minimum size for input field"
-msgstr ""
+msgstr "உள்ளீட்டு புலத்திற்கான குறைந்தபட்ச அளவு"
 
 #: libraries/classes/Config/Descriptions.php:629
 msgid "Maximum size for input field"
