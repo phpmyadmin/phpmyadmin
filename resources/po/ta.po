@@ -7522,7 +7522,7 @@ msgstr "வரிசைப்படுத்தப்பட்ட வரிச�
 
 #: src/Advisory/Rules.php:275
 msgid "Rate of joins without indexes"
-msgstr ""
+msgstr "குறியீடுகள் இல்லாமல் இணைந்த விகிதம்"
 
 #: src/Advisory/Rules.php:278
 msgid "There are too many joins without indexes."
