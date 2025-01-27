@@ -4287,7 +4287,7 @@ msgstr ""
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
 #: src/Server/Status/Data.php:119 src/Util.php:1362
 msgid "Binary log"
-msgstr ""
+msgstr "ஈரான் பதிவு"
 
 #: resources/templates/server/binlog/index.twig:8
 msgid "Select binary log to view"
