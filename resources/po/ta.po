@@ -14946,7 +14946,7 @@ msgstr "இப்போது இங்கே இருக்க உங்கள
 
 #: src/Controllers/View/CreateController.php:83
 msgid "View name can not be empty!"
-msgstr ""
+msgstr "காட்சி பெயர் காலியாக இருக்க முடியாது!"
 
 #: src/Core.php:105 src/ZipExtension.php:57
 #, php-format
