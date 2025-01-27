@@ -828,7 +828,7 @@ msgstr ""
 #: resources/templates/relation/check_relations.twig:512
 #: src/Config/ConfigFile.php:569 src/Config/ConfigFile.php:606
 msgid "Disabled"
-msgstr ""
+msgstr "முடக்கப்பட்டது"
 
 #: resources/templates/config/form_display/input.twig:42
 #: resources/templates/database/central_columns/main.twig:362
