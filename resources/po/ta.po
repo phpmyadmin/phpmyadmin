@@ -13723,7 +13723,7 @@ msgstr "தோல்வியுற்ற பாதுகாப்பு வி�
 #: src/Controllers/JavaScriptMessagesController.php:704
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr ""
+msgstr "தவறான பாதுகாப்பு விசை."
 
 #: src/Controllers/JavaScriptMessagesController.php:707
 msgid ""
