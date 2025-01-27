@@ -16656,7 +16656,7 @@ msgstr "நோக்கம்:"
 #: src/Plugins/Import/AbstractImportCsv.php:30
 msgid ""
 "Update data when duplicate keys found on import (add ON DUPLICATE KEY UPDATE)"
-msgstr ""
+msgstr "இறக்குமதியில் காணப்படும் நகல் விசைகள் (நகல் விசை புதுப்பிப்பில் சேர்)"
 
 #: src/Plugins/Import/ImportCsv.php:100
 msgid "Name of the new table (optional):"
