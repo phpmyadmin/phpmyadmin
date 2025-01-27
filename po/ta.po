@@ -7576,7 +7576,7 @@ msgstr "சலுகைகள் இல்லை"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:161
 msgid "You do not have the privileges to administrate the users!"
-msgstr ""
+msgstr "பயனர்களை நிர்வகிப்பதற்கான சலுகைகள் உங்களிடம் இல்லை!"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:176
 msgid ""
@@ -7636,8 +7636,8 @@ msgid ""
 "statements from the transaction."
 msgstr ""
 "தற்காலிக பைனரி பதிவு தற்காலிக சேமிப்பைப் பயன்படுத்திய பரிவர்த்தனைகளின் எண்ணிக்கை, ஆனால் "
-"அது பின்லாக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க தற்காலிக "
-"கோப்பைப் பயன்படுத்தியது."
+"அது பின்லோக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க ஒரு "
+"தற்காலிக கோப்பைப் பயன்படுத்தியது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:247
 msgid "The number of transactions that used the temporary binary log cache."
