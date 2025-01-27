@@ -15809,8 +15809,6 @@ msgid "Character sets and collations"
 msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
 
 #: templates/server/collations/index.twig:23
-#, fuzzy
-#| msgid "Default"
 msgctxt "The collation is the default one"
 msgid "default"
 msgstr "இயல்நிலை"
