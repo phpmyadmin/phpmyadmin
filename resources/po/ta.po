@@ -7859,7 +7859,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:494 src/Advisory/Rules.php:504
 msgid "Too many table locks were not granted immediately."
-msgstr ""
+msgstr "பல அட்டவணை பூட்டுகள் உடனடியாக வழங்கப்படவில்லை."
 
 #: src/Advisory/Rules.php:495 src/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
