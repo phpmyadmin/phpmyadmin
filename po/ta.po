@@ -11405,7 +11405,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_JsonEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for JSON."
-msgstr ""
+msgstr "தொடரியல் சாதொபொகு க்கான கோட்மிரர் எடிட்டரை முன்னிலைப்படுத்தியது."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_SqlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for SQL."
