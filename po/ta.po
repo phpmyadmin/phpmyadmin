@@ -2875,6 +2875,7 @@ msgstr "சில வினவல்களுக்கான வெளிநா�
 #: libraries/classes/Config/Descriptions.php:564
 msgid "Uncheck the checkbox to disable drag and drop import"
 msgstr ""
+"இழுவை முடக்கவும் இறக்குமதியை கைவிடவும் தேர்வுப்பெட்டியைத் தேர்வுநீக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "How many rows can be inserted at one time."
@@ -3343,7 +3344,7 @@ msgstr "சிட்டை விசை"
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
 msgid "Media type"
-msgstr "தகா வகை!"
+msgstr "ஊடக வகை"
 
 #: libraries/classes/Config/Descriptions.php:686
 #: libraries/classes/Config/Descriptions.php:698
@@ -3445,7 +3446,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:354
 #, php-format
 msgid "%s view"
-msgstr "அமர்வு மதிப்பு"
+msgstr "%s"
 
 #: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
