@@ -7755,6 +7755,8 @@ msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
+"முக்கிய தற்காலிக சேமிப்பில் உள்ள முக்கிய தொகுதிகளின் எண்ணிக்கை மாறிவிட்டது, ஆனால் இன்னும் "
+"வட்டில் சுத்தப்படுத்தப்படவில்லை. இது not_flushed_key_blocks என அறியப்படுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:404
 msgid ""
