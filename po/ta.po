@@ -16064,8 +16064,6 @@ msgstr ""
 
 #: templates/server/privileges/login_information_fields.twig:32
 #: templates/server/replication/primary_add_replica_user.twig:39
-#, fuzzy
-#| msgid "Users table"
 msgid "Use host table"
 msgstr "பயனர் அட்டவணை"
 
