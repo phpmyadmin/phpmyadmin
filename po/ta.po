@@ -3979,7 +3979,7 @@ msgstr "செயல்கூற்றின் களங்களை காட�
 
 #: libraries/classes/Config/Descriptions.php:939
 msgid "Show hint"
-msgstr ""
+msgstr "குறிப்பைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:940
 msgid "Show phpinfo() link"
