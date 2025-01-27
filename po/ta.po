@@ -10421,7 +10421,7 @@ msgstr "கட்டமைப்பும் தரவும்"
 #: libraries/classes/Plugins/Export/ExportTexytext.php:73
 #: libraries/classes/Plugins/Export/ExportXml.php:133
 msgid "Data dump options"
-msgstr ""
+msgstr "தரவு டம்ப் விருப்பங்கள்"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:194
 #: libraries/classes/Plugins/Export/ExportOdt.php:245
