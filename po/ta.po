@@ -15698,8 +15698,6 @@ msgid "Bookmarked SQL query:"
 msgstr "SQL வினவல்:"
 
 #: templates/relation/check_relations.twig:220
-#, fuzzy
-#| msgid "SQL query:"
 msgid "SQL history:"
 msgstr "SQL வினவல்:"
 
