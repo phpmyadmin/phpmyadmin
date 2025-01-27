@@ -4308,15 +4308,15 @@ msgstr "கண்காணிப்பு:"
 
 #: resources/templates/relation/check_relations.twig:345
 msgid "User preferences:"
-msgstr ""
+msgstr "பயனர் விருப்பத்தேர்வுகள்:"
 
 #: resources/templates/relation/check_relations.twig:383
 msgid "Configurable menus:"
-msgstr "உள்ளமைக்கக்கூடிய பட்டிகள்"
+msgstr "உள்ளமைக்கக்கூடிய மெனுக்கள்:"
 
 #: resources/templates/relation/check_relations.twig:408
 msgid "Hide/show navigation items:"
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "வழிசெலுத்தல் உருப்படிகளை மறைக்க/காட்டு:"
 
 #: resources/templates/relation/check_relations.twig:433
 msgid "Saving Query-By-Example searches:"
