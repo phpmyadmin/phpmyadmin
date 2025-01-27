@@ -16118,7 +16118,7 @@ msgstr "தகா தரவேற்ற சுட்டுவகை"
 
 #: templates/relation/check_relations.twig:519
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "மேம்பட்ட அம்சங்களை அமைப்பதற்கான விரைவான படிகள்:"
 
 #: templates/relation/check_relations.twig:523
 #, php-format
