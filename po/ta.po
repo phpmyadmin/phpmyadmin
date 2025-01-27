@@ -17085,8 +17085,6 @@ msgid "Analyze partition"
 msgstr "பிரிவினை %s"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Check partition"
 msgstr "பிரிவினை %s"
 
