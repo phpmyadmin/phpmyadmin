@@ -12418,7 +12418,7 @@ msgstr "திறந்த அட்டவணைகளைக் காட்ட�
 
 #: libraries/classes/Server/Status/Data.php:193
 msgid "Show slave hosts"
-msgstr ""
+msgstr "அடிமை புரவலர்களைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/master_replication.twig:9
