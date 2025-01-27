@@ -13312,11 +13312,11 @@ msgstr "குறிமுறை அடுக்குவரிசை:"
 
 #: templates/columns_definitions/column_definitions_form.twig:77
 msgid "Storage Engine:"
-msgstr ""
+msgstr "சேமிப்பக இயந்திரம்:"
 
 #: templates/columns_definitions/column_definitions_form.twig:82
 msgid "Connection:"
-msgstr "இணைப்புகள்"
+msgstr "இணைப்பு:"
 
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
