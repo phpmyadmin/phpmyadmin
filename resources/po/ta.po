@@ -10871,7 +10871,7 @@ msgstr "கோப்பகத்தை பதிவேற்றவும்"
 
 #: src/Config/Descriptions.php:940
 msgid "Use database search"
-msgstr ""
+msgstr "தரவுத்தள தேடலைப் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:941
 msgid "Enable the Developer tab in settings"
