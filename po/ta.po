@@ -14181,7 +14181,7 @@ msgstr "விவரபார்வையை அட்டவணையாக த�
 #: templates/database/import/index.twig:3
 #, php-format
 msgid "Importing into the database \"%s\""
-msgstr ""
+msgstr "\"%s\" தரவுத்தளத்தில் இறக்குமதி செய்கிறது"
 
 #: templates/database/multi_table_query/form.twig:4
 #: templates/database/qbe/index.twig:4
