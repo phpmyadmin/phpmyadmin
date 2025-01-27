@@ -10024,7 +10024,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:912
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' சார்ந்துள்ளது:"
 
 #: libraries/classes/Normalization.php:469
 #, php-format
