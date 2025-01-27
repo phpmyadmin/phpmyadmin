@@ -16770,8 +16770,6 @@ msgid "Rollback when finished"
 msgstr ""
 
 #: templates/sql/query.twig:149
-#, fuzzy
-#| msgid "Bookmark"
 msgid "Bookmark:"
 msgstr "புத்தகக்குறி"
 
