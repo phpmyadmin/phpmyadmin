@@ -10614,7 +10614,7 @@ msgstr "கட்டமைப்பு அங்கீகாரத்திற�
 
 #: src/Config/Descriptions.php:884
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF ச்கீமா: பக்கங்கள் அட்டவணை"
 
 #: src/Config/Descriptions.php:886
 msgid "Server port"
