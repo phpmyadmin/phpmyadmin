@@ -14138,7 +14138,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:296
 msgid "The number of requests to insert a row in a table."
-msgstr ""
+msgstr "ஒரு அட்டவணையில் ஒரு வரிசையைச் செருகுவதற்கான கோரிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:297
 msgid "The number of pages containing data (dirty or clean)."
