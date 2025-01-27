@@ -12550,7 +12550,7 @@ msgstr "அட்டவணை `%s` க்கான கண்காணிப்�
 #: libraries/classes/Tracking.php:877
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr ""
+msgstr "%1$s க்கான கண்காணிப்பு பதிப்பு %2$s இல் செயல்படுத்தப்பட்டது."
 
 #: libraries/classes/Tracking.php:880
 #, php-format
