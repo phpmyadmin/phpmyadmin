@@ -18221,6 +18221,9 @@ msgid ""
 "an index on it. Alternatively, you can define an index below, before "
 "creating the foreign key."
 msgstr ""
+"குறியிடப்பட்ட நெடுவரிசையில் வெளிநாட்டு விசையை உருவாக்குவது தானாகவே ஒரு குறியீட்டை "
+"உருவாக்கும். மாற்றாக, வெளிநாட்டு விசையை உருவாக்குவதற்கு முன், கீழே உள்ள ஒரு குறியீட்டை "
+"நீங்கள் வரையறுக்கலாம்."
 
 #: templates/table/relation/common_form.twig:24
 msgid ""
