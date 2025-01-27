@@ -7623,7 +7623,7 @@ msgstr "இன்னோடிபி இடையகக் குளத்தி�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The number of fsync() operations so far."
-msgstr ""
+msgstr "இதுவரை FSYNC () செயல்பாடுகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid "The current number of pending fsync() operations."
