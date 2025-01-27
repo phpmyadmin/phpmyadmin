@@ -5447,14 +5447,16 @@ msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் பிரதிகளாக கட்டமைக்கப்படவில்லை. நீங்கள் %sconfigure "
+"%s ஐ விரும்புகிறீர்களா?"
 
 #: resources/templates/server/replication/status_table.twig:6
 msgid "Primary status"
-msgstr "தரவிறக்க நிலை"
+msgstr "முதன்மை நிலை"
 
 #: resources/templates/server/replication/status_table.twig:8
 msgid "Replica status"
-msgstr "துணைநிலை நிகழ்நிலை"
+msgstr "பிரதி நிலை"
 
 #: resources/templates/server/replication/status_table.twig:16
 #: resources/templates/server/status/variables/index.twig:75
