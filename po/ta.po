@@ -9072,7 +9072,7 @@ msgstr "இடையக பூல் பயன்பாடு"
 
 #: libraries/classes/Engines/Innodb.php:146
 msgid "pages"
-msgstr ""
+msgstr "பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:160
 msgid "Free pages"
