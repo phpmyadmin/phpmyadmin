@@ -14941,7 +14941,7 @@ msgstr "நீங்கள் ஒரு வழக்கமான வரையற
 #: src/Database/Routines.php:1020
 #, php-format
 msgid "Execution results of routine %s"
-msgstr ""
+msgstr "வழக்கமான %s இன் சாவுஒறுப்பு முடிவுகள்"
 
 #: src/Database/Routines.php:1035
 #, php-format
