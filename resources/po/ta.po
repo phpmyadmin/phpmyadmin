@@ -17691,7 +17691,7 @@ msgstr "சோதனை நோக்கங்களுக்காக மட்�
 
 #: src/Plugins/TwoFactor/WebAuthn.php:176
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr ""
+msgstr "வன்பொருள் பாதுகாப்பு விசை (வெப்அத்ன்/ஃபிடோ 2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
 msgid ""
