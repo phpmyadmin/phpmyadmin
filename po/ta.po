@@ -8839,7 +8839,7 @@ msgstr "தரவைக் கொண்ட பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:168
 msgid "Pages to be flushed"
-msgstr ""
+msgstr "பக்கங்கள் சுத்தப்படுத்தப்பட வேண்டும்"
 
 #: libraries/classes/Engines/Innodb.php:174
 msgid "Busy pages"
