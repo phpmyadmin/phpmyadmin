@@ -9933,7 +9933,7 @@ msgstr "கவிமொ பொருந்தக்கூடிய பயன்�
 
 #: src/Config/Descriptions.php:690
 msgid "Creation/Update/Check dates"
-msgstr ""
+msgstr "உருவாக்கம்/புதுப்பித்தல்/சரிபார்க்கும் தேதிகள்"
 
 #: src/Config/Descriptions.php:691
 msgid "Use delayed inserts"
