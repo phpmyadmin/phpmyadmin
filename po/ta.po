@@ -16759,7 +16759,7 @@ msgstr "பயனர் குழுவை தொகுக்க"
 
 #: templates/server/privileges/privileges_summary.twig:20
 msgid "Column-specific privileges"
-msgstr ""
+msgstr "நெடுவரிசை-குறிப்பிட்ட சலுகைகள்"
 
 #: templates/server/privileges/privileges_summary.twig:54
 msgid "Add privileges on the following database(s):"
