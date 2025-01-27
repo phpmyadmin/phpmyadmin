@@ -1859,7 +1859,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:234
 msgid "Settings for the table structure (list of columns)."
-msgstr ""
+msgstr "அட்டவணை கட்டமைப்பிற்கான அமைப்புகள் (நெடுவரிசைகளின் பட்டியல்)."
 
 #: libraries/classes/Config/Descriptions.php:235
 msgid "Choose how you want tabs to work."
