@@ -13636,23 +13636,23 @@ msgstr "சாவுஒறுப்பு வரிசை"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
-msgstr ""
+msgstr "எடுக்கப்பட்ட நேரம்"
 
 #: templates/console/display.twig:64 templates/table/search/index.twig:146
 msgid "Order by:"
-msgstr "ஏனையது->வரிசை"
+msgstr "வழங்கியவர்:"
 
 #: templates/console/display.twig:64
 msgid "Ungroup queries"
-msgstr "SQL வினவல்கள்"
+msgstr "குழு வினவல்கள்"
 
 #: templates/console/display.twig:84
 msgid "Show trace"
-msgstr "உருவாக்கத்தை காட்டு"
+msgstr "ட்ரேசைக் காட்டு"
 
 #: templates/console/display.twig:84
 msgid "Hide trace"
-msgstr "பலகத்தை மறை"
+msgstr "சுவடு மறை"
 
 #: templates/console/display.twig:112
 msgid "Add bookmark"
