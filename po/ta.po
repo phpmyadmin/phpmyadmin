@@ -10270,7 +10270,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:151
 msgid "Retry to connect"
-msgstr ""
+msgstr "இணைக்க மீண்டும் முயற்சிக்கவும்"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:133
 msgid "Your session has expired. Please log in again."
