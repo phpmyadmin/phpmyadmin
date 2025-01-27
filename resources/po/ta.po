@@ -7743,7 +7743,7 @@ msgstr "key_buffer_size 0"
 #: src/Advisory/Rules.php:402
 #, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr ""
+msgstr "அதிகபட்சம் % myisam key buffeed இதுவரை பயன்படுத்தப்பட்டது"
 
 #: src/Advisory/Rules.php:407 src/Advisory/Rules.php:424
 #, no-php-format
