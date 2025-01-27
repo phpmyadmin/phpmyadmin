@@ -9180,7 +9180,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:59
 msgid "Repair threads"
-msgstr ""
+msgstr "நூல்களை சரிசெய்யவும்"
 
 #: libraries/classes/Engines/Myisam.php:61
 msgid ""
