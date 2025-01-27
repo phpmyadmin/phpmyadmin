@@ -10240,7 +10240,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:386
 msgid "No repeating group"
-msgstr ""
+msgstr "மீண்டும் மீண்டும் குழு இல்லை"
 
 #: libraries/classes/Normalization.php:414
 msgid "Step 2."
