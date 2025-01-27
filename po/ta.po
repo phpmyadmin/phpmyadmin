@@ -14722,7 +14722,7 @@ msgstr ""
 
 #: templates/export.twig:162
 msgid "Defined aliases"
-msgstr ""
+msgstr "வரையறுக்கப்பட்ட மாற்றுப்பெயர்கள்"
 
 #: templates/export.twig:177 templates/export.twig:191
 #: templates/export.twig:204 templates/export.twig:221
