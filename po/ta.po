@@ -8559,7 +8559,7 @@ msgstr[1] "நடைமுறைக்குள் கடைசி அறிக�
 #: libraries/classes/Database/Routines.php:1295
 #: libraries/classes/Database/Routines.php:1302
 msgid "Execute routine"
-msgstr ""
+msgstr "வழக்கத்தை இயக்கவும்"
 
 #: libraries/classes/Database/Routines.php:1535
 msgid "Sorry, we failed to restore the dropped routine."
