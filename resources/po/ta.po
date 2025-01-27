@@ -17213,7 +17213,7 @@ msgstr "பிரதி மீட்டமை வெற்றிகரமாக.
 
 #: src/Replication/ReplicationGui.php:473
 msgid "Error resetting replication."
-msgstr ""
+msgstr "பிரதி மீட்டமைப்பதில் பிழை."
 
 #: src/Replication/ReplicationGui.php:476
 msgid "Success."
