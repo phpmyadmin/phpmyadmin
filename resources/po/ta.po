@@ -8795,7 +8795,7 @@ msgstr "Phpmyadmin டெவலப்பர்களுக்கான அமை
 
 #: src/Config/Descriptions.php:200
 msgid "Customize edit mode."
-msgstr ""
+msgstr "திருத்து பயன்முறையைத் தனிப்பயனாக்குங்கள்."
 
 #: src/Config/Descriptions.php:201
 msgid "Customize default export options."
