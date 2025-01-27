@@ -18183,7 +18183,7 @@ msgstr "புள்ளிகளுக்கு இடையில் நேர�
 
 #: src/Types.php:270
 msgid "A collection of polygons"
-msgstr ""
+msgstr "பலகோணங்களின் தொகுப்பு"
 
 #: src/Types.php:271
 msgid "A collection of geometry objects of any type"
