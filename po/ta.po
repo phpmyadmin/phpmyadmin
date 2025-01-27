@@ -9885,7 +9885,7 @@ msgstr "நடைமுறைகள்"
 #: libraries/classes/Plugins/Export/ExportXml.php:115
 #: libraries/classes/Util.php:2499 templates/database/events/index.twig:6
 msgid "Events"
-msgstr ""
+msgstr "நிகழ்வுகள்"
 
 #: libraries/classes/Menu.php:483 libraries/classes/Util.php:2502
 msgid "Designer"
