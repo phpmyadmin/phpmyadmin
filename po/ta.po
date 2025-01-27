@@ -15854,6 +15854,8 @@ msgid ""
 "Please scan following QR code into the two-factor authentication app on your "
 "device and enter authentication code it generates."
 msgstr ""
+"உங்கள் சாதனத்தில் உள்ள இரண்டு காரணி அங்கீகார பயன்பாட்டில் பின்வரும் QR குறியீட்டை ச்கேன் செய்து"
+", அது உருவாக்கும் அங்கீகாரக் குறியீட்டை உள்ளிடவும்."
 
 #: templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
