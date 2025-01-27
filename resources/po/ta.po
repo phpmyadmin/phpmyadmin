@@ -10100,7 +10100,7 @@ msgstr "கண்காணிப்பை மாற்றுகிறது"
 
 #: src/Config/Descriptions.php:756
 msgid "SQL Query box"
-msgstr ""
+msgstr "கவிமொ வினவல் பெட்டி"
 
 #: src/Config/Descriptions.php:758
 msgid "Startup"
