@@ -2009,6 +2009,8 @@ msgid ""
 "Group items in the navigation tree (determined by the separator defined in "
 "the Databases and Tables tabs above)."
 msgstr ""
+"வழிசெலுத்தல் மரத்தில் உள்ள குழு உருப்படிகள் (மேலே உள்ள தரவுத்தளங்கள் மற்றும் அட்டவணைகள் "
+"தாவல்களில் வரையறுக்கப்பட்ட பிரிப்பானால் தீர்மானிக்கப்படுகிறது)."
 
 #: libraries/classes/Config/Descriptions.php:307
 msgid ""
