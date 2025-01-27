@@ -12841,6 +12841,8 @@ msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
+"சாதொபொகு (சாவாச்கிரிப்ட் ஆப்செக்ட் குறியீட்டு) ஆவணங்களில் தரவை சேமித்து வைத்து "
+"செயல்படுத்துகிறது"
 
 #: libraries/classes/Types.php:440
 msgid ""
