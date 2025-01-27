@@ -12935,6 +12935,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details"
 msgstr ""
+"இந்த செயல்பாட்டைச் செய்ய உங்களுக்கு போதுமான சலுகைகள் இல்லை; மேலும் விவரங்களுக்கு ஆவணங்களைப்"
+" பார்க்கவும்"
 
 #: templates/columns_definitions/column_attributes.twig:116
 #: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
