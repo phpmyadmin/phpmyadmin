@@ -1771,7 +1771,7 @@ msgstr "வடிவம்"
 
 #: resources/templates/database/events/editor_form.twig:96
 msgid "On completion preserve"
-msgstr ""
+msgstr "நிறைவு செய்தவுடன்"
 
 #: resources/templates/database/events/editor_form.twig:102
 #: resources/templates/database/routines/editor_form.twig:148
