@@ -4970,7 +4970,7 @@ msgstr "சேவையகத்தை மூட அனுமதிக்கி�
 #: resources/templates/server/privileges/privileges_table.twig:639
 #: src/Server/Privileges.php:330
 msgid "Gives access to the complete list of databases."
-msgstr ""
+msgstr "தரவுத்தளங்களின் முழுமையான பட்டியலுக்கான அணுகலை வழங்குகிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:664
 #: resources/templates/server/privileges/privileges_table.twig:667
