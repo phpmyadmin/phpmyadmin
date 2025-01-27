@@ -17474,7 +17474,7 @@ msgstr ""
 
 #: templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
-msgstr ""
+msgstr "புக்மார்க்கு செய்யப்பட்ட கவிமொ வினவல்"
 
 #: templates/sql/query.twig:160
 msgid "Bookmark:"
