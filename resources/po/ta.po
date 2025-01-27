@@ -16844,12 +16844,12 @@ msgstr "நோக்குநிலை"
 #: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
 #: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Landscape"
-msgstr ""
+msgstr "நிலப்பரப்பு"
 
 #: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
 #: src/Plugins/Schema/SchemaPdf.php:68
 msgid "Portrait"
-msgstr "புள்ளி"
+msgstr "உருவப்படம்"
 
 #: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
 #: src/Plugins/Schema/SchemaSvg.php:56
