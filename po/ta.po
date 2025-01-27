@@ -13539,8 +13539,6 @@ msgid "Check all"
 msgstr "அனைத்தையும் தெரி"
 
 #: templates/database/events/index.twig:29
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new event"
 msgstr "பதிப்பை உருவாக்கு"
 
