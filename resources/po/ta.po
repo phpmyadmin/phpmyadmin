@@ -8153,7 +8153,7 @@ msgstr "INNODB இடையக பூல் அளவு"
 
 #: src/Advisory/Rules.php:726
 msgid "Your InnoDB buffer pool is fairly small."
-msgstr ""
+msgstr "உங்கள் INNODB இடையக குளம் மிகவும் சிறியது."
 
 #: src/Advisory/Rules.php:728
 #, no-php-format
