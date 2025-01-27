@@ -3874,7 +3874,7 @@ msgstr "துளி காட்சியைச் சேர்க்கவு�
 
 #: libraries/classes/Config/Descriptions.php:920
 msgid "Statements to track"
-msgstr ""
+msgstr "கண்காணிக்க அறிக்கைகள்"
 
 #: libraries/classes/Config/Descriptions.php:921
 msgid "SQL query tracking table"
