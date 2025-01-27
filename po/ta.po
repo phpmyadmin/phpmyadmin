@@ -8855,7 +8855,7 @@ msgstr "இடையக பூல் செயல்பாடு"
 
 #: libraries/classes/Engines/Innodb.php:198
 msgid "Read requests"
-msgstr ""
+msgstr "கோரிக்கைகளைப் படியுங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:204
 msgid "Write requests"
