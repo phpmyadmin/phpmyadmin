@@ -10565,7 +10565,7 @@ msgstr "தகவல்_செமாவின் பயன்பாட்டை 
 
 #: src/Config/Descriptions.php:875
 msgid "Hide databases"
-msgstr ""
+msgstr "தரவுத்தளங்களை மறைக்கவும்"
 
 #: src/Config/Descriptions.php:876
 msgid "SQL query history table"
