@@ -9826,7 +9826,7 @@ msgstr "முதல் வரிசையில் நெடுவரிசை 
 #: src/Config/Descriptions.php:641 src/Config/Descriptions.php:774
 #: src/Config/Descriptions.php:780 src/Plugins/Import/ImportCsv.php:653
 msgid "Columns enclosed with"
-msgstr ""
+msgstr "இணைக்கப்பட்ட நெடுவரிசைகள்"
 
 #: src/Config/Descriptions.php:642 src/Config/Descriptions.php:775
 #: src/Config/Descriptions.php:781 src/Plugins/Import/ImportCsv.php:664
