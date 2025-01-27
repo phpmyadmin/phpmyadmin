@@ -3841,7 +3841,7 @@ msgstr "கவிமொ வினவல் கண்காணிப்பு அ
 
 #: libraries/classes/Config/Descriptions.php:931
 msgid "Automatically create versions"
-msgstr ""
+msgstr "பதிப்புகளை தானாக உருவாக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:932
 msgid "User preferences storage table"
