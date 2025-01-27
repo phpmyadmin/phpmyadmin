@@ -2298,6 +2298,8 @@ msgid ""
 "Whether a DROP TABLE IF EXISTS statement will be added as first line to the "
 "log when creating a table."
 msgstr ""
+"ஒரு அட்டவணையை உருவாக்கும்போது பதிவின் முதல் வரியாக ஒரு துளி அட்டவணை சேர்க்கப்படுமா "
+"என்பது."
 
 #: libraries/classes/Config/Descriptions.php:434
 msgid ""
