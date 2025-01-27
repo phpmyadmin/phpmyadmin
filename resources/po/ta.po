@@ -4552,12 +4552,12 @@ msgstr "பயனர் குழுக்கள்"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:4
 #: resources/templates/server/privileges/user_properties.twig:4
 msgid "Edit privileges:"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகளைத் திருத்தவும்:"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:5
 #: resources/templates/server/privileges/user_properties.twig:5
 msgid "User account"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் கணக்கு"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
@@ -5867,7 +5867,7 @@ msgstr ""
 #: src/Controllers/Server/PrivilegesController.php:430
 #: src/Server/Status/Processes.php:91
 msgid "User"
-msgstr ""
+msgstr "பயனர்"
 
 #: resources/templates/server/variables/index.twig:5
 msgid "Server variables and settings"
