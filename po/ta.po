@@ -15822,8 +15822,6 @@ msgid "Create database"
 msgstr ""
 
 #: templates/server/databases/index.twig:50
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
 msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுகைகளை சரிபார்க்க."
 
