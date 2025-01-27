@@ -7000,7 +7000,7 @@ msgstr "தூண்டுதல் பெயர்"
 #: resources/templates/triggers/editor_form.twig:42
 msgctxt "Trigger action time"
 msgid "Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: resources/templates/triggers/editor_form.twig:52
 #: resources/templates/triggers/list.twig:52
