@@ -2622,7 +2622,7 @@ msgstr "MySQL சேவையகத்திற்கு உள்நுழை�
 
 #: libraries/classes/Config/Descriptions.php:619
 msgid "Allow third party framing"
-msgstr ""
+msgstr "மூன்றாம் தரப்பு ஃப்ரேமிங்கை அனுமதிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:620
 msgid "Show \"Drop database\" link to normal users"
