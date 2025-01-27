@@ -260,7 +260,7 @@ msgstr "MySQL கட்டிடக்கலை"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL 64 பிட் தொகுப்பாக தொகுக்கப்படவில்லை."
 
 #: libraries/advisory_rules_generic.php:174
 msgid ""
