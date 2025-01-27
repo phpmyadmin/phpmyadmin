@@ -2219,6 +2219,7 @@ msgstr ""
 msgid ""
 "See [doc@authentication-modes]authentication types[/doc] for an example."
 msgstr ""
+"எடுத்துக்காட்டுக்கு [DOC@அங்கீகார-முறை] அங்கீகார வகைகளைப் பார்க்கவும் [/doc]."
 
 #: libraries/classes/Config/Descriptions.php:421
 msgid ""
