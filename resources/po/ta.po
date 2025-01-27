@@ -11212,7 +11212,7 @@ msgstr "வழங்கி %d"
 
 #: src/ConfigStorage/Relation.php:1250
 msgid "no description"
-msgstr ""
+msgstr "விளக்கம் இல்லை"
 
 #: src/ConfigStorage/Relation.php:1456
 #, php-format
