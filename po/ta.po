@@ -16945,7 +16945,7 @@ msgstr "பதிவு புள்ளிவிவரங்கள்"
 
 #: templates/server/status/monitor/index.twig:212
 msgid "Selected time range:"
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட நேர வரம்பு:"
 
 #: templates/server/status/monitor/index.twig:220
 msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
