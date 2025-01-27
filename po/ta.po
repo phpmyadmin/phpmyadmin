@@ -16749,7 +16749,7 @@ msgstr "அனைத்து தரவுத்தளங்களையும�
 
 #: templates/server/replication/primary_configuration.twig:10
 msgid "Ignore all databases; Replicate:"
-msgstr ""
+msgstr "அனைத்து தரவுத்தளங்களையும் புறக்கணிக்கவும்; பிரதி:"
 
 #: templates/server/replication/primary_configuration.twig:12
 msgid "Please select databases:"
