@@ -12275,6 +12275,8 @@ msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
 msgstr ""
+"நீங்கள் git பதிப்பைப் பயன்படுத்துகிறீர்கள், இயக்கவும் [KBD] git புல் [/kbd]:-) [br] அண்மைக் "
+"கால நிலையான பதிப்பு %s, %s இல் வெளியிடப்படுகிறது."
 
 #: libraries/classes/Setup/Index.php:194
 msgid "No newer stable version is available"
