@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 01:52+0000\n"
+"PO-Revision-Date: 2025-01-27 01:53+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -9888,7 +9888,7 @@ msgstr "அட்டவணை தலைப்பு சேர்க்கவு�
 
 #: src/Config/Descriptions.php:661 src/Config/Descriptions.php:667
 msgid "Table caption"
-msgstr ""
+msgstr "அட்டவணை தலைப்பு"
 
 #: src/Config/Descriptions.php:662 src/Config/Descriptions.php:668
 msgid "Continued table caption"
