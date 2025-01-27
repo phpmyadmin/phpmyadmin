@@ -11286,7 +11286,7 @@ msgstr "ரெக்காப்ட்சாவிற்கான பொது �
 
 #: src/Config/Descriptions.php:952
 msgid "Private key for reCAPTCHA"
-msgstr ""
+msgstr "ரெக்காப்ட்சாவிற்கான தனிப்பட்ட விசை"
 
 #: src/Config/Descriptions.php:953
 msgid "URL for reCAPTCHA siteverify"
