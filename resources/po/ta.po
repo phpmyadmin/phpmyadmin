@@ -7471,6 +7471,8 @@ msgid ""
 "Consider increasing {sort_buffer_size} and/or {read_rnd_buffer_size}, "
 "depending on your system memory limits."
 msgstr ""
+"உங்கள் கணினி நினைவக வரம்புகளைப் பொறுத்து {sort_buffer_size} மற்றும்/அல்லது "
+"{read_rnd_buffer_size} ஐ அதிகரிப்பதைக் கவனியுங்கள்."
 
 #: src/Advisory/Rules.php:241
 #, php-format
