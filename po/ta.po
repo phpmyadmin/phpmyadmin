@@ -1569,7 +1569,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:92
 msgid "Enter your public key for your domain reCaptcha service."
-msgstr ""
+msgstr "உங்கள் டொமைன் ரெக்காப்ட்சா சேவைக்கு உங்கள் பொது விசையை உள்ளிடவும்."
 
 #: libraries/classes/Config/Descriptions.php:93
 msgid "Enter your private key for your domain reCaptcha service."
