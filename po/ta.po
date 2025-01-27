@@ -17661,7 +17661,7 @@ msgstr "பிரிப்பான்"
 
 #: templates/sql/query.twig:119
 msgid "Show this query here again"
-msgstr ""
+msgstr "இந்த வினவலை மீண்டும் இங்கே காட்டு"
 
 #: templates/sql/query.twig:134
 msgid "Rollback when finished"
