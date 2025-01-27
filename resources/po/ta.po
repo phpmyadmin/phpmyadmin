@@ -15206,7 +15206,7 @@ msgstr ""
 
 #: src/Engines/Pbxt.php:61
 msgid "Log file threshold"
-msgstr ""
+msgstr "பதிவு கோப்பு வாசல்"
 
 #: src/Engines/Pbxt.php:63
 msgid ""
