@@ -17649,7 +17649,7 @@ msgstr "அளவுருக்களை பிணைக்கவும்"
 
 #: templates/sql/query.twig:84
 msgid "Bookmark this SQL query:"
-msgstr ""
+msgstr "இந்த கவிமொ வினவலை புக்மார்க்குங்கள்:"
 
 #: templates/sql/query.twig:100
 msgid "Replace existing bookmark of same name"
