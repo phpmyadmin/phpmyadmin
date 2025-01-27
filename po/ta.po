@@ -9618,6 +9618,7 @@ msgstr "பார்வைக்குச் செல்லுங்கள்: 
 #: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"ஒற்றை அட்டவணை புதுப்பிப்பு மற்றும் நீக்குதல் வினவல்களை மட்டுமே உருவகப்படுத்த முடியும்."
 
 #: libraries/classes/Import.php:1669
 msgid ""
