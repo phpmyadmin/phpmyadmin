@@ -2575,7 +2575,7 @@ msgstr "இவை திருத்து, நகலெடு மற்று�
 
 #: libraries/classes/Config/Descriptions.php:574
 msgid "Whether to show row links even in the absence of a unique key."
-msgstr ""
+msgstr "தனித்துவமான விசை இல்லாத நிலையில் கூட வரிசை இணைப்புகளைக் காட்ட வேண்டுமா."
 
 #: libraries/classes/Config/Descriptions.php:575
 #: libraries/classes/Config/Descriptions.php:858
