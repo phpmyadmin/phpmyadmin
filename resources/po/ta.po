@@ -10652,7 +10652,7 @@ msgstr "முகவரி இன் அடையாளம்"
 
 #: src/Config/Descriptions.php:892
 msgid "Server socket"
-msgstr ""
+msgstr "சேவையக சாக்கெட்"
 
 #: src/Config/Descriptions.php:893
 msgid "Use SSL"
