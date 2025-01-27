@@ -13233,7 +13233,7 @@ msgstr "மதிப்புகளைத் திருத்தவும்"
 #: templates/database/central_columns/main.twig:309
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: templates/columns_definitions/column_attributes.twig:41
 #: templates/database/central_columns/edit_table_row.twig:33
