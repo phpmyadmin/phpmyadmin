@@ -12420,7 +12420,7 @@ msgstr "வார்ப்புரு தற்காலிக சேமிப�
 #: libraries/classes/ThemeManager.php:83
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "இயல்புநிலை கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: libraries/classes/ThemeManager.php:142
 #, php-format
