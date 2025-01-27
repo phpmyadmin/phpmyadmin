@@ -18137,7 +18137,7 @@ msgstr "தரவு பார்வையை அழி (கைவிடு)"
 
 #: templates/table/page_with_secondary_tabs.twig:11
 msgid "Relation view"
-msgstr "தொடர்பு பார்வை"
+msgstr "உறவு பார்வை"
 
 #: templates/table/partition/analyze.twig:2
 msgid "Analyze partition"
@@ -18524,7 +18524,7 @@ msgstr "பெயரை பார்"
 
 #: templates/view_create.twig:79
 msgid "Column names"
-msgstr ""
+msgstr "நெடுவரிசை பெயர்கள்"
 
 #~ msgid "Matched rows:"
 #~ msgstr "பொருந்திய நிரல்வரிசைகள்:"
