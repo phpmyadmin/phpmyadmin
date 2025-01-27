@@ -16822,7 +16822,7 @@ msgstr "%s தரவுத்தளத்தின் ஒழுங்கமை�
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:145
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:494
 msgid "Relational schema"
-msgstr ""
+msgstr "தொடர்புடைய திட்டம்"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:447
 msgid "Table of contents"
