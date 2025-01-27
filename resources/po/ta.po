@@ -14928,7 +14928,7 @@ msgstr ""
 
 #: src/Database/Routines.php:736
 msgid "You must provide a valid return type for the routine."
-msgstr ""
+msgstr "வழக்கத்திற்கு நீங்கள் சரியான வருவாய் வகையை வழங்க வேண்டும்."
 
 #: src/Database/Routines.php:822
 msgid "You must provide a routine name!"
