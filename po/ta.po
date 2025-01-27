@@ -1222,7 +1222,7 @@ msgstr "தெரியவில்லை"
 #: libraries/classes/Charsets/Collation.php:502
 msgctxt "Collation"
 msgid "German (phone book order)"
-msgstr ""
+msgstr "செர்மன் (தொலைபேசி புத்தக ஆர்டர்)"
 
 #: libraries/classes/Charsets/Collation.php:207
 #: libraries/classes/Charsets/Collation.php:499
