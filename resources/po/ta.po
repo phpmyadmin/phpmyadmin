@@ -16830,7 +16830,7 @@ msgstr "உள்ளடக்க அட்டவணை"
 
 #: src/Plugins/SchemaPlugin.php:70
 msgid "Show color"
-msgstr ""
+msgstr "வண்ணத்தைக் காட்டு"
 
 #: src/Plugins/SchemaPlugin.php:72
 msgid "Only show keys"
