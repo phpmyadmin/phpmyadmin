@@ -15956,7 +15956,7 @@ msgstr "பதிவு பெயர்"
 
 #: templates/server/binlog/index.twig:85
 msgid "Position"
-msgstr ""
+msgstr "நிலை"
 
 #: templates/server/binlog/index.twig:87
 #: templates/server/replication/primary_replication.twig:24
