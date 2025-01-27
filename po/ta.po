@@ -14156,7 +14156,7 @@ msgstr "உலகளாவிய"
 #: templates/database/privileges/index.twig:50
 #: templates/table/privileges/index.twig:52
 msgid "database-specific"
-msgstr ""
+msgstr "தரவுத்தள-குறிப்பிட்ட"
 
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
