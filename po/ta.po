@@ -1817,7 +1817,7 @@ msgstr "அட்டவணைகளின் காட்சித்தெர�
 
 #: libraries/classes/Config/Descriptions.php:226
 msgid "Settings that didn't fit anywhere else."
-msgstr ""
+msgstr "வேறு எங்கும் பொருந்தாத அமைப்புகள்."
 
 #: libraries/classes/Config/Descriptions.php:227
 msgid "Authentication settings."
