@@ -6128,7 +6128,7 @@ msgstr "நெடுவரிசைகள்"
 
 #: resources/templates/sql/query.twig:85
 msgid "Bookmark this SQL query:"
-msgstr ""
+msgstr "இந்த கவிமொ வினவலை புக்மார்க்குங்கள்:"
 
 #: resources/templates/sql/query.twig:103
 msgid "Replace existing bookmark of same name"
