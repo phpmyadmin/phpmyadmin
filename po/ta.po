@@ -17455,7 +17455,7 @@ msgstr "ஒவ்வொரு மணிக்கும்"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
-msgstr ""
+msgstr "வினவல் புள்ளிவிவரங்களைக் காண போதுமான பாக்கியம் இல்லை."
 
 #: templates/server/status/status/index.twig:6
 #, php-format
