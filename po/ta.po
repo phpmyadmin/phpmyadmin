@@ -8653,7 +8653,7 @@ msgstr "எழுத்துக்கணம்"
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:417
 #: templates/database/events/editor_form.twig:75
 msgid "Definition"
-msgstr ""
+msgstr "வரையறை"
 
 #: libraries/classes/Database/Routines.php:967
 msgid "Is deterministic"
