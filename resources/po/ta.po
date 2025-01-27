@@ -5378,7 +5378,7 @@ msgstr "மாறக்கூடிய"
 #: resources/templates/server/select/index.twig:4
 #: resources/templates/server/select/index.twig:13
 msgid "Current server:"
-msgstr "நடப்பு வழங்கி:"
+msgstr "தற்போதைய சேவையகம்:"
 
 #: resources/templates/server/select/index.twig:6
 #: resources/templates/setup/home/index.twig:34 src/Config/Descriptions.php:742
@@ -17390,6 +17390,10 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
+"குறிப்பு: MySQL இன் சலுகை அட்டவணைகளிலிருந்து பயனர்களின் சலுகைகளை Phpmyadmin "
+"பெறுகிறது. இந்த அட்டவணைகளின் உள்ளடக்கம் கைமுறையாக மாற்றப்பட்டிருந்தால், சேவையகம் "
+"பயன்படுத்தும் சலுகைகளிலிருந்து வேறுபடலாம். இந்த வழக்கில், சலுகைகள் மீண்டும் ஏற்றப்பட வேண்டும்"
+", ஆனால் தற்போது, உங்களுக்கு மறுஏற்றம் சலுகை இல்லை."
 
 #: src/Server/Privileges.php:2781
 msgid "You have added a new user."
