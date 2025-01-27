@@ -1904,6 +1904,8 @@ msgid ""
 "Default format; be aware that this list depends on location (database, "
 "table) and only SQL is always available."
 msgstr ""
+"இயல்புநிலை வடிவம்; இந்த பட்டியல் இருப்பிடம் (தரவுத்தளம், அட்டவணை) சார்ந்துள்ளது என்பதை "
+"அறிந்து கொள்ளுங்கள், மேலும் கவிமொ மட்டுமே எப்போதும் கிடைக்கும்."
 
 #: libraries/classes/Config/Descriptions.php:254
 #: libraries/classes/Config/Descriptions.php:255
