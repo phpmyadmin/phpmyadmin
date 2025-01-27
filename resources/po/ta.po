@@ -6961,7 +6961,7 @@ msgstr "%1s நிரல்வரிசைகளை %2s அட்டவணைய
 #: resources/templates/table/tracking/main.twig:90
 #: resources/templates/table/tracking/main.twig:91
 msgid "Delete version"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "பதிப்பை நீக்கு"
 
 #: resources/templates/table/tracking/main.twig:99
 #, php-format
@@ -17777,7 +17777,7 @@ msgstr "இயல்புநிலை கருப்பொருள் %s க�
 #: src/Theme/ThemeManager.php:108
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: src/Theme/Theme.php:179
 #, php-format
