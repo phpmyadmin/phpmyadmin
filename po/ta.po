@@ -1886,6 +1886,8 @@ msgid ""
 "If enabled, phpMyAdmin continues computing multiple-statement queries even "
 "if one of the queries failed."
 msgstr ""
+"இயக்கப்பட்டால், வினவல்களில் ஒன்று தோல்வியுற்றாலும் பல-நிலையான வினவல்களைக் கணக்கிடுவதைத் "
+"தொடர்ந்து PHPMYADMIN தொடர்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:246
 msgid ""
