@@ -13277,7 +13277,7 @@ msgstr "இடம்சார்"
 #: templates/columns_definitions/column_attributes.twig:165
 #: templates/table/structure/display_partitions.twig:26
 msgid "Expression"
-msgstr ""
+msgstr "கோவை"
 
 #: templates/columns_definitions/column_attributes.twig:186
 msgid "first"
