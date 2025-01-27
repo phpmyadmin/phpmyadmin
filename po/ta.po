@@ -9092,7 +9092,7 @@ msgstr "பக்கங்கள் சுத்தப்படுத்தப�
 
 #: libraries/classes/Engines/Innodb.php:196
 msgid "Busy pages"
-msgstr ""
+msgstr "பிசியான பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:208
 msgid "Latched pages"
