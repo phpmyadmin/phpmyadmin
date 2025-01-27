@@ -16193,7 +16193,7 @@ msgstr "இயல்நிலை"
 
 #: templates/server/databases/index.twig:6
 msgid "Databases statistics"
-msgstr ""
+msgstr "தரவுத்தள புள்ளிவிவரங்கள்"
 
 #: templates/server/databases/index.twig:23
 #: templates/server/databases/index.twig:61
