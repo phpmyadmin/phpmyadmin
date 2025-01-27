@@ -3263,7 +3263,7 @@ msgstr "தரவுத்தளங்கள்->அட்டவணை கட்
 
 #: libraries/classes/Config/Descriptions.php:781
 msgid "Tabs"
-msgstr ""
+msgstr "தாவல்கள்"
 
 #: libraries/classes/Config/Descriptions.php:782
 msgid "Display relational schema"
