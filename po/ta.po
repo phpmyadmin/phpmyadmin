@@ -7370,7 +7370,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:241
 msgid "The number of failed attempts to connect to the MySQL server."
-msgstr ""
+msgstr "MySQL சேவையகத்துடன் இணைக்க தோல்வியுற்ற முயற்சிகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:243
 msgid ""
