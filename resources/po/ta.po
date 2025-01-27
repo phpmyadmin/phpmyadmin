@@ -5370,10 +5370,12 @@ msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
+"–ரேபோர்ட்-ஓச்ட் = ஓச்ட்_பேம் விருப்பத்துடன் தொடங்கப்பட்ட பிரதிகள் மட்டுமே இந்த பட்டியலில் "
+"தெரியும்."
 
 #: resources/templates/server/replication/replica_configuration.twig:5
 msgid "Primary connection:"
-msgstr "பாதுகாப்பற்ற இணைப்பு"
+msgstr "முதன்மை இணைப்பு:"
 
 #: resources/templates/server/replication/replica_configuration.twig:25
 msgid "Replica SQL Thread not running!"
