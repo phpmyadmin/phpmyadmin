@@ -17796,7 +17796,7 @@ msgstr ""
 #: src/Routing/Routing.php:159 src/Routing/Routing.php:202
 #, php-format
 msgid "Error 404! The page %s was not found."
-msgstr ""
+msgstr "பிழை 404! பக்கம் %s காணப்படவில்லை."
 
 #: src/Routing/Routing.php:167
 msgid "Error 405! Request method not allowed."
