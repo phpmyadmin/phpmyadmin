@@ -1500,7 +1500,7 @@ msgstr "ச்லோவாக்"
 #: libraries/classes/Charsets/Collation.php:567
 msgctxt "Collation"
 msgid "Slovenian"
-msgstr ""
+msgstr "ச்லோவேனியன்"
 
 #: libraries/classes/Charsets/Collation.php:597
 msgctxt "Collation"
