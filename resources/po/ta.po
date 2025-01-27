@@ -11237,6 +11237,7 @@ msgstr "தவறான அங்கீகார வகை!"
 #: src/Config/Validator.php:294
 msgid "Empty username while using [kbd]config[/kbd] authentication method!"
 msgstr ""
+"[KBD] கட்டமைப்பு [/KBD] அங்கீகார முறையைப் பயன்படுத்தும் போது வெற்று பயனர்பெயர்!"
 
 #: src/Config/Validator.php:300
 msgid ""
