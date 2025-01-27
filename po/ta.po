@@ -1470,12 +1470,12 @@ msgstr "லிதுவேனியன்"
 #: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Burmese"
-msgstr ""
+msgstr "பர்மீச்"
 
 #: libraries/classes/Charsets/Collation.php:541
 msgctxt "Collation"
 msgid "Persian"
-msgstr "பதிப்பு"
+msgstr "பெர்சியன்"
 
 #: libraries/classes/Charsets/Collation.php:545
 msgctxt "Collation"
