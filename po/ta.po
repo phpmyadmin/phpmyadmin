@@ -7320,7 +7320,7 @@ msgstr "நெடுவரிசைகள் வெற்றிகரமாக �
 #: libraries/classes/Controllers/Server/PrivilegesController.php:152
 #: libraries/classes/Controllers/Server/UserGroupsController.php:53
 msgid "No Privileges"
-msgstr ""
+msgstr "சலுகைகள் இல்லை"
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:161
 msgid "You do not have the privileges to administrate the users!"
