@@ -3314,7 +3314,7 @@ msgstr "அட்டவணைகளை தனி கோப்புகளாக 
 
 #: resources/templates/export.twig:470
 msgid "Skip tables larger than:"
-msgstr ""
+msgstr "இடங்களை விட பெரிய அட்டவணையைத் தவிர்க்கவும்:"
 
 #: resources/templates/export.twig:472
 msgid "The size is measured in MiB."
