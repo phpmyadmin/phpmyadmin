@@ -5517,7 +5517,7 @@ msgstr "இழுத்துச் சென்றது (மறுசீரம
 #: resources/templates/server/status/monitor/index.twig:23
 #: resources/templates/server/status/processes/index.twig:33
 msgid "Refresh rate"
-msgstr ""
+msgstr "வீதத்தை புதுப்பிக்கவும்"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
