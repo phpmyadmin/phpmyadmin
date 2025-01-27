@@ -11797,7 +11797,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:612
 #: templates/server/privileges/privileges_table.twig:615
 msgid "Allows shutting down the server."
-msgstr ""
+msgstr "சேவையகத்தை மூட அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:391
 #: templates/server/privileges/privileges_table.twig:586
