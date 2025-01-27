@@ -4925,7 +4925,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:533
 #: src/Server/Privileges.php:349
 msgid "Allows to set up events for the event scheduler."
-msgstr ""
+msgstr "நிகழ்வு திட்டமிடுபவருக்கான நிகழ்வுகளை அமைக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:561
 msgid "Administration"
