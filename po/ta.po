@@ -18427,7 +18427,7 @@ msgstr "நிரல் அளவு"
 
 #: templates/table/structure/display_table_stats.twig:147
 msgid "Next autoindex"
-msgstr ""
+msgstr "அடுத்த ஆட்டோஇண்டெக்ச்"
 
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
