@@ -7951,7 +7951,7 @@ msgstr "மெதுவாக ஏவுதல் நேரம்"
 
 #: src/Advisory/Rules.php:549
 msgid "Slow_launch_time is above 2s."
-msgstr ""
+msgstr "Slow_launch_time 2s க்கு மேல் உள்ளது."
 
 #: src/Advisory/Rules.php:551
 msgid ""
