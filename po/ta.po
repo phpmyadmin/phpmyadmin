@@ -4496,6 +4496,9 @@ msgid ""
 "This value should be double checked to ensure that this directory is neither "
 "world accessible nor readable or writable by other users on your server."
 msgstr ""
+"உங்கள் சேவையகத்தில் உள்ள பிற பயனர்களால் இந்த அடைவு உலகத்தை அணுகக்கூடியது அல்லது "
+"படிக்கக்கூடியது அல்லது எழுதக்கூடியது அல்ல என்பதை உறுதிப்படுத்த இந்த மதிப்பு இருமுறை "
+"சரிபார்க்கப்பட வேண்டும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:162
 msgid "You should use SSL connections if your database server supports it."
