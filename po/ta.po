@@ -17841,8 +17841,6 @@ msgstr "கிடைக்கபெறும் உலவியின் கா�
 
 #: templates/transformation_overview.twig:19
 #: templates/transformation_overview.twig:38
-#, fuzzy
-#| msgid "Description"
 msgctxt "for media type transformation"
 msgid "Description"
 msgstr "சிறுகுறிப்பு"
