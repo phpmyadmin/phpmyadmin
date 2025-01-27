@@ -7485,6 +7485,9 @@ msgid ""
 "incremented if you are querying an index column with a range constraint or "
 "if you are doing an index scan."
 msgstr ""
+"முக்கிய வரிசையில் அடுத்த வரிசையைப் படிக்க கோரிக்கைகளின் எண்ணிக்கை. நீங்கள் ஒரு குறியீட்டு "
+"நெடுவரிசையை வரம்பு கட்டுப்பாட்டுடன் வினவினால் அல்லது நீங்கள் ஒரு குறியீட்டு ச்கேன் "
+"செய்கிறீர்கள் என்றால் இது அதிகரிக்கப்படுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:297
 msgid ""
