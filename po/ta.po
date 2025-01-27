@@ -15583,10 +15583,11 @@ msgstr ""
 #: templates/import.twig:172
 msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
+"முதல் ஒன்றிலிருந்து தொடங்கி இந்த எண்ணிக்கையிலான வினவல்களை (SQL க்கு) தவிர்க்கவும்:"
 
 #: templates/import.twig:189
 msgid "Other options:"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "பிற விருப்பங்கள்:"
 
 #: templates/indexes.twig:38
 #: templates/table/structure/display_structure.twig:446
