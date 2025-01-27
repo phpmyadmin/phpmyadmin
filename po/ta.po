@@ -9457,7 +9457,7 @@ msgstr "பதிவேற்றிய கோப்பை நகர்த்த�
 
 #: libraries/classes/File.php:581
 msgid "Cannot read uploaded file."
-msgstr ""
+msgstr "பதிவேற்றிய கோப்பைப் படிக்க முடியாது."
 
 #: libraries/classes/File.php:659
 #, php-format
