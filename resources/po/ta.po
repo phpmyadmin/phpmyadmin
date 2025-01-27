@@ -17010,7 +17010,7 @@ msgstr "உள்ளீட்டு சரம் %s க்கு சரிபா
 
 #: src/Plugins/Transformations/Abs/SQLTransformationsPlugin.php:26
 msgid "Formats text as SQL query with syntax highlighting."
-msgstr ""
+msgstr "தொடரியல் சிறப்பம்சத்துடன் கவிமொ வினவலாக உரையை வடிவமைக்கிறது."
 
 #: src/Plugins/Transformations/Abs/SubstringTransformationsPlugin.php:30
 msgid ""
