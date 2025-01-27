@@ -9868,7 +9868,7 @@ msgstr "தூண்டுதல்கள்"
 #: libraries/classes/Menu.php:415 libraries/classes/Menu.php:423
 #: libraries/classes/Menu.php:431
 msgid "Database seems to be empty!"
-msgstr ""
+msgstr "தரவுத்தளம் காலியாக இருப்பதாக தெரிகிறது!"
 
 #: libraries/classes/Menu.php:418 libraries/classes/Util.php:2493
 msgid "Query"
