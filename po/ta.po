@@ -17358,10 +17358,9 @@ msgstr "%d விநாடிகள்"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:42
-#, fuzzy, php-format
-#| msgid "per minute"
+#, php-format
 msgid "%d minute"
-msgstr "ஒவ்வொரு நிமிடத்திற்கும்"
+msgstr "%d மணித்துளி"
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:44
