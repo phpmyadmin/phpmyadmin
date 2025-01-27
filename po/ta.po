@@ -13910,7 +13910,7 @@ msgstr "உதவி"
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
 msgid "Angular links"
-msgstr ""
+msgstr "கோண இணைப்புகள்"
 
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
