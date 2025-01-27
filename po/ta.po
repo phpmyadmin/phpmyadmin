@@ -12017,6 +12017,10 @@ msgid ""
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
+"குறிப்பு: MySQL இன் சலுகை அட்டவணைகளிலிருந்து பயனர்களின் சலுகைகளை Phpmyadmin "
+"பெறுகிறது. இந்த அட்டவணைகளின் உள்ளடக்கம் கைமுறையாக மாற்றப்பட்டிருந்தால், சேவையகம் "
+"பயன்படுத்தும் சலுகைகளிலிருந்து வேறுபடலாம். இந்த வழக்கில், நீங்கள் தொடர்வதற்கு முன்பு %s "
+"சலுகைகளை %sreload செய்ய வேண்டும்."
 
 #: libraries/classes/Server/Privileges.php:3031
 msgid ""
