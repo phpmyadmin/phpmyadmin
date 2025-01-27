@@ -8166,7 +8166,7 @@ msgstr "பல நிலை"
 #: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
 msgid "binary"
-msgstr ""
+msgstr "இருமம்"
 
 #: src/Charsets/Collation.php:225
 msgctxt "Collation variant"
