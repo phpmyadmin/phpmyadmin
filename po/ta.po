@@ -15686,8 +15686,6 @@ msgid "Displaying column comments:"
 msgstr "கருத்துரைகளை காட்டுக"
 
 #: templates/relation/check_relations.twig:160
-#, fuzzy
-#| msgid "Hide browser transformation"
 msgid "Browser transformation:"
 msgstr "உலவியின் மாற்றுருவாக்கத்தை மறைக்க"
 
