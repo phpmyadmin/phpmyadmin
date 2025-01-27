@@ -7604,7 +7604,7 @@ msgstr "தரவுகளின் மொத்த எண்ணிக்கை.
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:420
 msgid "The total number of data writes."
-msgstr ""
+msgstr "தரவுகளின் மொத்த எண்ணிக்கை எழுதுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The amount of data written so far, in bytes."
