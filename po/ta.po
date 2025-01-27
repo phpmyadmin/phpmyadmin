@@ -7226,7 +7226,7 @@ msgstr "காண்பி"
 
 #: libraries/classes/Controllers/NavigationController.php:46
 msgid "Fatal error: The navigation can only be accessed via AJAX"
-msgstr ""
+msgstr "அபாயகரமான பிழை: வழிசெலுத்தலை அசாக்ச் வழியாக மட்டுமே அணுக முடியும்"
 
 #: libraries/classes/Controllers/NormalizationController.php:40
 #: libraries/classes/Normalization.php:245
