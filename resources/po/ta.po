@@ -9868,7 +9868,7 @@ msgstr "சேவையக பெயர் வார்ப்புரு"
 
 #: src/Config/Descriptions.php:653
 msgid "Table name template"
-msgstr ""
+msgstr "அட்டவணை பெயர் வார்ப்புரு"
 
 #: src/Config/Descriptions.php:657 src/Config/Descriptions.php:670
 #: src/Config/Descriptions.php:679 src/Config/Descriptions.php:717
