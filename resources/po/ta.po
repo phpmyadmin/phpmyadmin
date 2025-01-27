@@ -15450,6 +15450,8 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"பிழை 1045: பயனருக்கு அணுகல் மறுக்கப்பட்டது. கூடுதல் பிழை தகவல்கள் கிடைக்கக்கூடும், ஆனால் "
+"%s உள்ளமைவு கட்டளை மூலம் மறைக்கப்படுகிறது."
 
 #: src/Display/Results.php:2501 src/Display/Results.php:2516
 msgid "The row has been deleted."
@@ -15520,7 +15522,7 @@ msgstr ""
 
 #: src/Engines/Innodb.php:105
 msgid "Buffer Pool"
-msgstr "இடையக குளம்"
+msgstr "இடையகக் குளம்"
 
 #: src/Engines/Innodb.php:105 src/Server/Status/Data.php:187
 msgid "InnoDB Status"
@@ -15798,7 +15800,7 @@ msgstr "வரிசை சுட்டிக்காட்டி (.xtr) கோ
 
 #: src/Engines/Pbxt.php:127
 msgid "Log file count"
-msgstr "பதிவு கோப்பு எண்ணிக்கை"
+msgstr "Log கோப்பு எண்ணுங்கள்"
 
 #: src/Engines/Pbxt.php:129
 msgid ""
@@ -15817,8 +15819,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"PBXT பற்றிய ஆவணங்கள் மற்றும் மேலதிக தகவல்களை %sPRIMEBASE XT முகப்பு பக்கம் %s இல் "
-"காணலாம்."
+"ஆவணப்படுத்துதல் and further செய்தி பற்றி PBXT can be found on the %sPrimeBase XT "
+"வீடு Page%s."
 
 #: src/Error/ErrorHandler.php:105
 msgid "Too many error messages, some are not displayed."
