@@ -16942,6 +16942,8 @@ msgid ""
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
+"எவ்வாறாயினும், இந்த அமைப்பு எளிய கணக்கீடுகளின் அடிப்படையில் பரிந்துரைகளை வழங்குகிறது "
+"மற்றும் கட்டைவிரல் விதியின் அடிப்படையில் உங்கள் கணினிக்கு அவசியமில்லை."
 
 #: templates/server/status/advisor/index.twig:34
 msgid ""
