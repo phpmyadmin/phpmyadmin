@@ -11421,6 +11421,8 @@ msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
+"பைனரி சரமாக சேமிக்கப்பட்ட இணைய பிணையம் முகவரியை இணைய தரநிலையில் (ஐபிவி 4/ஐபிவி 6) "
+"வடிவத்தில் மாற்றுகிறது."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:44
 msgid "Formats text as JSON with syntax highlighting."
