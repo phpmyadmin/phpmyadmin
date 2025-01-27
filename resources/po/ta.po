@@ -7689,7 +7689,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:368
 msgid "Temp disk rate"
-msgstr ""
+msgstr "தற்காலிக வட்டு வீதம்"
 
 #: src/Advisory/Rules.php:374
 msgid ""
