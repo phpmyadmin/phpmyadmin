@@ -7797,9 +7797,7 @@ msgid "No column selected."
 msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, fuzzy, php-format
-#| msgid "%1$d database has been dropped successfully."
-#| msgid_plural "%1$d databases have been dropped successfully."
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] "%1$d தரவுத்தளம் வெற்றிகரமாக கைவிடப்பட்டது."
