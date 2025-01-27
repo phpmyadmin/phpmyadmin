@@ -17389,7 +17389,7 @@ msgstr "மறைக்கப்பட்ட உருப்படிகளை �
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
-msgstr ""
+msgstr "கட்டமைக்கப்பட்ட சேவையகங்கள் எதுவும் இல்லை"
 
 #: templates/setup/home/index.twig:82
 msgid "New server"
