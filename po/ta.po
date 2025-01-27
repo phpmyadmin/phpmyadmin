@@ -16596,6 +16596,7 @@ msgstr "பிழை மேலாண்மை:"
 #: templates/server/replication/slave_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized master and slave!"
 msgstr ""
+"பிழைகளைத் தவிர்ப்பது ஒத்திசைக்கப்படாத மாச்டர் மற்றும் அடிமைக்கு வழிவகுக்கும்!"
 
 #: templates/server/replication/slave_configuration.twig:81
 msgid "Skip current error"
