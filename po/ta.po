@@ -13504,7 +13504,7 @@ msgstr "நீட்டிக்கப்பட்ட செருகல்க�
 
 #: libraries/config.values.php:332
 msgid "both of the above"
-msgstr ""
+msgstr "மேற்கூறிய இரண்டும்"
 
 #: libraries/config.values.php:333
 msgid "neither of the above"
