@@ -1366,7 +1366,7 @@ msgstr "எபிரேய"
 #: libraries/classes/Charsets/Collation.php:418
 msgctxt "Collation"
 msgid "Georgian"
-msgstr ""
+msgstr "சார்சியன்"
 
 #: libraries/classes/Charsets/Collation.php:421
 msgctxt "Collation"
