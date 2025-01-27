@@ -590,7 +590,7 @@ msgstr "key_buffer_size 0"
 #: libraries/advisory_rules_generic.php:371
 #, no-php-format
 msgid "Max % MyISAM key buffer ever used"
-msgstr ""
+msgstr "அதிகபட்சம் % myisam key buffeed இதுவரை பயன்படுத்தப்பட்டது"
 
 #: libraries/advisory_rules_generic.php:376
 #: libraries/advisory_rules_generic.php:393
