@@ -16145,7 +16145,7 @@ msgstr "அட்டவணை %s %s க்கு நகலெடுக்கப�
 
 #: src/Operations.php:965
 msgid "The table name is empty!"
-msgstr ""
+msgstr "அட்டவணை பெயர் காலியாக உள்ளது!"
 
 #: src/Partitioning/Maintenance.php:136
 msgid "This table is a view, it can not be truncated."
