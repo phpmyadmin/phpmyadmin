@@ -12514,7 +12514,7 @@ msgstr "கட்டமைப்பு நிகழ்காப்புப்�
 #: libraries/classes/Tracking.php:658
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "பதிப்பு %s ச்னாப்சாட் (SQL குறியீடு)"
 
 #: libraries/classes/Tracking.php:728
 msgid "Tracking data definition successfully deleted"
