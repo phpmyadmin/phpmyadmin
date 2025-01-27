@@ -4918,7 +4918,7 @@ msgstr "ஆம்"
 #: libraries/classes/Controllers/Table/ReplaceController.php:415
 #: libraries/classes/Core.php:719 templates/preview_sql.twig:3
 msgid "No change"
-msgstr ""
+msgstr "எந்த மாற்றமும் இல்லை"
 
 #: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:109
 msgid "Favorite List is full!"
