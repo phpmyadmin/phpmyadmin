@@ -3165,7 +3165,7 @@ msgstr "%1$s அட்டவணையில் பொருந்தியவை
 #: resources/templates/export.twig:178 resources/templates/export.twig:373
 #: src/Config/Descriptions.php:681 src/Config/Descriptions.php:684
 msgid "Overwrite existing file(s)"
-msgstr ""
+msgstr "இருக்கும் கோப்பு (களை) மேலெழுதவும்"
 
 #: resources/templates/export.twig:189 resources/templates/export.twig:333
 msgid "Rename exported databases/tables/columns"
@@ -9913,7 +9913,7 @@ msgstr "சேவையகத்தில் சேமிக்கவும்"
 
 #: src/Config/Descriptions.php:682
 msgid "Export as separate files"
-msgstr "அட்டவணை தலைப்புகளை தரவேற்றுக"
+msgstr "தனி கோப்புகளாக ஏற்றுமதி செய்யுங்கள்"
 
 #: src/Config/Descriptions.php:685
 msgid "Remember filename template"
