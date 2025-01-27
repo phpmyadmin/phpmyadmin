@@ -12376,7 +12376,7 @@ msgstr "%1$s அட்டவணையானது %2$s ஆக பெயர் �
 
 #: libraries/classes/Table.php:1802
 msgid "Could not save table UI preferences!"
-msgstr ""
+msgstr "அட்டவணை இடைமுகம் விருப்பங்களை சேமிக்க முடியவில்லை!"
 
 #: libraries/classes/Table.php:1828
 #, php-format
