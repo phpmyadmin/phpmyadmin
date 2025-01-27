@@ -13005,7 +13005,7 @@ msgstr "சனி"
 #: libraries/classes/Util.php:731
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "பி.எம்"
 
 #: libraries/classes/Util.php:733
 msgctxt "AM/PM indication in time"
