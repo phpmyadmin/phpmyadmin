@@ -3127,7 +3127,7 @@ msgstr "திருத்து பயன்முறை"
 
 #: libraries/classes/Config/Descriptions.php:754
 msgid "Export defaults"
-msgstr ""
+msgstr "இயல்புநிலைகளை ஏற்றுமதி செய்யுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:755
 msgid "General"
