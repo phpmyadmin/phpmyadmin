@@ -7619,7 +7619,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:358
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr ""
+msgstr "இன்னோடிபி இடையகக் குளத்தில் செய்யப்படும் எண் எழுதுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:359
 msgid "The number of fsync() operations so far."
