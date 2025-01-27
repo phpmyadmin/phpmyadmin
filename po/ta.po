@@ -1723,6 +1723,8 @@ msgid ""
 "Sort order for items in a foreign-key dropdown box; [kbd]content[/kbd] is "
 "the referenced data, [kbd]id[/kbd] is the key value."
 msgstr ""
+"வெளிநாட்டு விசை கீழ்தோன்றும் பெட்டியில் பொருட்களுக்கான வரிசையை வரிசைப்படுத்தவும்; [KBD] "
+"உள்ளடக்கம் [/KBD] என்பது குறிப்பிடப்பட்ட தரவு, [KBD] ஐடி [/KBD] முக்கிய மதிப்பு."
 
 #: libraries/classes/Config/Descriptions.php:190
 msgid ""
