@@ -8161,7 +8161,7 @@ msgstr "அல்லது உணர்திறன்"
 #: src/Charsets/Collation.php:223
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr ""
+msgstr "பல நிலை"
 
 #: src/Charsets/Collation.php:224
 msgctxt "Collation variant"
