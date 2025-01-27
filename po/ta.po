@@ -13461,6 +13461,8 @@ msgid ""
 "For default values, please enter just a single value, without backslash "
 "escaping or quotes, using this format: a"
 msgstr ""
+"இயல்புநிலை மதிப்புகளுக்கு, தயவுசெய்து ஒரு மதிப்பை உள்ளிடவும், பின்வாங்காமல் அல்லது "
+"மேற்கோள்கள் இல்லாமல், இந்த வடிவமைப்பைப் பயன்படுத்தி: அ:"
 
 #: templates/columns_definitions/table_fields_definitions.twig:24
 #: templates/database/central_columns/edit.twig:12
