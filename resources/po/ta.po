@@ -1757,7 +1757,7 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:427
 #: src/Plugins/Export/Helpers/Pdf.php:336
 msgid "Definition"
-msgstr ""
+msgstr "வரையறை"
 
 #: resources/templates/database/events/editor_form.twig:92
 #: resources/templates/database/routines/editor_form.twig:121
