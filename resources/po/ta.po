@@ -9662,7 +9662,7 @@ msgstr "BZIP2"
 
 #: src/Config/Descriptions.php:605
 msgid "CHAR columns editing"
-msgstr ""
+msgstr "கரி நெடுவரிசைகள் திருத்துதல்"
 
 #: src/Config/Descriptions.php:606
 msgid "Enable CodeMirror"
