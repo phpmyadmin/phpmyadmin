@@ -14995,7 +14995,7 @@ msgstr "அனைத்து INNODB தரவுக் கோப்புகள
 
 #: src/Engines/Innodb.php:35
 msgid "Data files"
-msgstr ""
+msgstr "தரவுக் கோப்புகள்"
 
 #: src/Engines/Innodb.php:37
 msgid "Autoextend increment"
