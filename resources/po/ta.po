@@ -9594,7 +9594,7 @@ msgstr "தனித்துவமான விசை இல்லாத நி
 
 #: src/Config/Descriptions.php:560 src/Config/Descriptions.php:838
 msgid "Disable shortcut keys"
-msgstr ""
+msgstr "குறுக்குவழி விசைகளை முடக்கு"
 
 #: src/Config/Descriptions.php:561
 msgid "Use natural order for sorting table and database names."
