@@ -1394,7 +1394,7 @@ msgstr "துருக்கிய"
 #: libraries/classes/Charsets/Collation.php:581
 msgctxt "Collation"
 msgid "Swedish"
-msgstr ""
+msgstr "ச்வீடிச்"
 
 #: libraries/classes/Charsets/Collation.php:436
 #: libraries/classes/Charsets/Collation.php:585
