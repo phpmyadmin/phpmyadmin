@@ -5351,7 +5351,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 #: resources/templates/server/status/variables/index.twig:75
 #: resources/templates/server/variables/index.twig:31
 msgid "Variable"
-msgstr ""
+msgstr "மாறக்கூடிய"
 
 #: resources/templates/server/select/index.twig:4
 #: resources/templates/server/select/index.twig:13
