@@ -17487,8 +17487,6 @@ msgid "Optimize partition"
 msgstr "தொகுப்பு பார்வை"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Rebuild partition"
 msgstr "பிரிவினை %s"
 
