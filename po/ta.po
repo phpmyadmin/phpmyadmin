@@ -2823,7 +2823,7 @@ msgstr "நெடுவரிசைகளுக்குள் சிஆர்�
 #: libraries/classes/Config/Descriptions.php:814
 #: libraries/classes/Plugins/Import/ImportCsv.php:663
 msgid "Columns terminated with"
-msgstr ""
+msgstr "நெடுவரிசைகள் நிறுத்தப்பட்டன"
 
 #: libraries/classes/Config/Descriptions.php:675
 #: libraries/classes/Config/Descriptions.php:802
