@@ -8561,7 +8561,7 @@ msgstr "பிழை அறிக்கைகளை அனுப்புவத�
 
 #: src/Config/ConfigFile.php:618
 msgid "Always send error reports"
-msgstr ""
+msgstr "எப்போதும் பிழை அறிக்கைகளை அனுப்பவும்"
 
 #: src/Config/ConfigFile.php:619
 msgid "Never send error reports"
