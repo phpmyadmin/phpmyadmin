@@ -11797,7 +11797,8 @@ msgstr "%s நிகழ்வின் தரவேற்றம்"
 #, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr ""
+"செயலாக்க கோரிக்கையில் பிழை: தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் நிகழ்வு எதுவும் இல்லை."
 
 #: src/Controllers/Database/ExportController.php:129
 #: src/Controllers/Server/ExportController.php:55
@@ -11901,7 +11902,7 @@ msgstr ""
 #: src/Controllers/Database/RoutinesController.php:370
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் வழக்கமாக இல்லை."
 
 #: src/Controllers/Database/RoutinesController.php:351
 #: src/Controllers/Database/RoutinesController.php:361
@@ -16029,6 +16030,8 @@ msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
+"Ini_get மற்றும்/அல்லது ini_set செயல்பாடுகள் php.ini இல் முடக்கப்பட்டுள்ளன. Phpmyadmin "
+"க்கு இந்த செயல்பாடுகள் தேவை!"
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:58
 msgid ""
