@@ -6289,7 +6289,7 @@ msgstr "தரவிறக்க வேண்டிய கோப்பை தய
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please enter a valid table name."
-msgstr "செல்லுபடியாகும் அட்டவணை பெயரை உள்ளிடவும்."
+msgstr "சரியான அட்டவணை பெயரை உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid database name."
@@ -8225,10 +8225,10 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"ஒரு அட்டவணை பூட்டை உடனடியாக பெற முடியாத மற்றும் காத்திருப்பு தேவைப்பட்டது. இது அதிகமா"
-"க இருந்தால், உங்களுக்கு செயல்திறன் சிக்கல்கள் இருந்தால், நீங்கள் முதலில் உங்கள் கேள்விகளை "
-"மேம்படுத்த வேண்டும், பின்னர் உங்கள் அட்டவணை அல்லது அட்டவணையைப் பிரிக்க வேண்டும் அல்லது "
-"பிரதிகளைப் பயன்படுத்த வேண்டும்."
+"ஒரு அட்டவணை பூட்டை உடனடியாக பெற முடியாத மற்றும் காத்திருப்பு தேவைப்பட்டால் எத்தனை முறை"
+". இது அதிகமாக இருந்தால், உங்களுக்கு செயல்திறன் சிக்கல்கள் இருந்தால், நீங்கள் முதலில் உங்கள் "
+"வினவல்களை மேம்படுத்த வேண்டும், பின்னர் உங்கள் அட்டவணை அல்லது அட்டவணையைப் பிரிக்க வேண்டும் "
+"அல்லது நகலெடுப்பைப் பயன்படுத்த வேண்டும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:657
 msgid ""
@@ -8870,7 +8870,7 @@ msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
-"தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை. இந்த வழக்கத்தைத் திருத்துவதற்கு "
+"தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் வழக்கமாக இல்லை. இந்த வழக்கத்தைத் திருத்துவதற்கு "
 "தேவையான சலுகைகள் உங்களுக்கு இல்லாதிருக்கலாம்."
 
 #: libraries/classes/Database/Routines.php:209
@@ -10539,7 +10539,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:241
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
-"இந்த அட்டவணையில் ஏற்கனவே இல்லாத நெடுவரிசைகளின் மைய பட்டியலை எனக்குக் காட்டுங்கள்"
+"இந்த அட்டவணையில் ஏற்கனவே இல்லாத நெடுவரிசைகளின் மைய பட்டியலை எனக்குக் காட்டு"
 
 #: libraries/classes/Normalization.php:244
 msgid ""
@@ -12277,6 +12277,8 @@ msgid ""
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
+"'%s' என்ற தரவுத்தளத்தை உருவாக்க உங்களுக்கு தேவையான சலுகைகள் இல்லை. Phpmyadmin உள்ளமைவு"
+" சேமிப்பிடத்தை அமைக்க எந்த தரவுத்தளத்தின் 'செயல்பாட்டு' தாவலுக்குச் செல்லலாம்."
 
 #: libraries/classes/Relation.php:2206
 #, php-format
