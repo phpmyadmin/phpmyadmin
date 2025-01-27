@@ -8161,6 +8161,7 @@ msgstr[1] "'%s' பெயர்கள் MySQL ஒதுக்கப்பட்
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
+"அட்டவணை %1$s வெற்றிகரமாக மாற்றப்பட்டுள்ளது. சலுகைகள் சரிசெய்யப்பட்டுள்ளன."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
