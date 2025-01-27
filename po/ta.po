@@ -17850,7 +17850,7 @@ msgstr "கு மதிப்புக்கள்"
 
 #: templates/table/chart/tbl_chart.twig:112
 msgid "Series names are in a column"
-msgstr ""
+msgstr "தொடர் பெயர்கள் ஒரு நெடுவரிசையில் உள்ளன"
 
 #: templates/table/chart/tbl_chart.twig:116
 msgid "Series column:"
@@ -17858,7 +17858,7 @@ msgstr "தொடர் நிரல்வரிசை:"
 
 #: templates/table/chart/tbl_chart.twig:126
 msgid "Value Column:"
-msgstr "மதிப்பு நிரல்வரிசை:"
+msgstr "மதிப்பு நெடுவரிசை:"
 
 #: templates/table/chart/tbl_chart.twig:147
 msgid "Save chart as image"
