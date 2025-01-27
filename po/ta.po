@@ -1678,6 +1678,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:139
 msgid "Autocomplete of the table and column names in the SQL queries."
 msgstr ""
+"கவிமொ வினவல்களில் அட்டவணை மற்றும் நெடுவரிசை பெயர்களின் தன்னியக்க வேறுபாடு."
 
 #: libraries/classes/Config/Descriptions.php:142
 #: libraries/classes/Config/Descriptions.php:146
