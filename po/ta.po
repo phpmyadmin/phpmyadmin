@@ -13509,7 +13509,7 @@ msgstr "நிரல்வரிசையை நகர்த்து"
 #: templates/columns_definitions/table_fields_definitions.twig:75
 #: templates/columns_definitions/table_fields_definitions.twig:86
 msgid "List of available transformations and their options"
-msgstr ""
+msgstr "கிடைக்கக்கூடிய மாற்றங்களின் பட்டியல் மற்றும் அவற்றின் விருப்பங்கள்"
 
 #: templates/columns_definitions/table_fields_definitions.twig:77
 #: templates/transformation_overview.twig:18
