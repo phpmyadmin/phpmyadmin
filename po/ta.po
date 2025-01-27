@@ -12673,7 +12673,7 @@ msgstr "தெரியாத அட்டவணை நிலை:"
 #: libraries/classes/Table.php:1024
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr ""
+msgstr "மூல தரவுத்தளம் `%s` காணப்படவில்லை!"
 
 #: libraries/classes/Table.php:1032
 #, php-format
