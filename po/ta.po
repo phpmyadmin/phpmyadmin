@@ -1908,7 +1908,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:254
 #: libraries/classes/Config/Descriptions.php:255
 msgid "Update data when duplicate keys found on import"
-msgstr ""
+msgstr "இறக்குமதியில் நகல் விசைகள் காணப்படும்போது தரவைப் புதுப்பிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:256
 msgid "Number of queries to skip from start."
