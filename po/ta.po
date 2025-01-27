@@ -16449,6 +16449,8 @@ msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
+"புரவலன் அட்டவணை பயன்படுத்தப்படும்போது, இந்த புலம் புறக்கணிக்கப்பட்டு, அதற்கு பதிலாக புரவலன்"
+" அட்டவணையில் சேமிக்கப்படும் மதிப்புகள் பயன்படுத்தப்படுகின்றன."
 
 #: templates/server/privileges/login_information_fields.twig:45
 #: templates/server/privileges/login_information_fields.twig:53
