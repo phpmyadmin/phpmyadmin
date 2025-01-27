@@ -12059,7 +12059,7 @@ msgstr "நூல்கள்"
 
 #: libraries/classes/Server/Status/Data.php:153
 msgid "Temporary data"
-msgstr ""
+msgstr "தற்காலிக தரவு"
 
 #: libraries/classes/Server/Status/Data.php:154
 msgid "Delayed inserts"
