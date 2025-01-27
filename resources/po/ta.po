@@ -14896,7 +14896,7 @@ msgstr "வழக்கமான %1$s உருவாக்கப்பட்ட
 
 #: src/Database/Routines.php:223
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட வழக்கத்தை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
 #: src/Database/Routines.php:272
 #, php-format
