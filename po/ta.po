@@ -4878,7 +4878,7 @@ msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம்
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
-msgstr ""
+msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
