@@ -1382,7 +1382,7 @@ msgstr "செக்-ச்லோவாக்"
 #: libraries/classes/Charsets/Collation.php:593
 msgctxt "Collation"
 msgid "Ukrainian"
-msgstr ""
+msgstr "உக்ரேனிய"
 
 #: libraries/classes/Charsets/Collation.php:430
 #: libraries/classes/Charsets/Collation.php:589
