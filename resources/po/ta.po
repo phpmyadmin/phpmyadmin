@@ -10074,7 +10074,7 @@ msgstr "பாதுகாப்பு"
 
 #: src/Config/Descriptions.php:750
 msgid "Basic settings"
-msgstr ""
+msgstr "அடிப்படை அமைப்புகள்"
 
 #: src/Config/Descriptions.php:751
 msgid "Authentication"
