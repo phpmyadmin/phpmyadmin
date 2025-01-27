@@ -6643,6 +6643,8 @@ msgid ""
 "You have a previously saved query. Click Get auto-saved query to load the "
 "query."
 msgstr ""
+"உங்களிடம் முன்பு சேமித்த வினவல் உள்ளது. வினவலை ஏற்ற தானாக சேமிக்கப்பட்ட வினவலைப் பெறுங்கள்"
+" என்பதைக் சொடுக்கு செய்க."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
 #, php-format
