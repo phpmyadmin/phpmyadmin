@@ -10755,7 +10755,7 @@ msgstr "கடவுச்சொல் மாற்ற படிவத்தை�
 
 #: src/Config/Descriptions.php:911
 msgid "Show create database form"
-msgstr ""
+msgstr "தரவுத்தள படிவத்தை உருவாக்கு என்பதைக் காட்டு"
 
 #: src/Config/Descriptions.php:912
 msgid "Show table comments"
