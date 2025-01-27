@@ -4208,7 +4208,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Send error reports"
-msgstr ""
+msgstr "பிழை அறிக்கைகளை அனுப்பவும்"
 
 #: libraries/classes/Config/Descriptions.php:975
 msgid "Enter executes queries in console"
