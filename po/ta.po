@@ -17109,7 +17109,7 @@ msgstr "முறைமை அறிவுறுத்துனர்"
 
 #: templates/server/status/advisor/index.twig:9
 msgid "Not enough privilege to view the advisor."
-msgstr ""
+msgstr "ஆலோசகரைப் பார்க்க போதுமான பாக்கியம் இல்லை."
 
 #: templates/server/status/advisor/index.twig:12
 msgid "Instructions"
