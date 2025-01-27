@@ -11571,6 +11571,8 @@ msgid ""
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
 "configuration storage there."
 msgstr ""
+"'%s' என்ற தரவுத்தளத்தை உருவாக்க உங்களுக்கு தேவையான சலுகைகள் இல்லை. Phpmyadmin உள்ளமைவு"
+" சேமிப்பிடத்தை அமைக்க எந்த தரவுத்தளத்தின் 'செயல்பாட்டு' தாவலுக்குச் செல்லலாம்."
 
 #: src/ConfigStorage/UserGroups.php:105
 msgid "View users"
