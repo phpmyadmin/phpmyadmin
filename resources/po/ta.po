@@ -14298,7 +14298,7 @@ msgstr "நிலுவையில் உள்ள பதிவு கோப்
 
 #: src/Controllers/Server/Status/VariablesController.php:360
 msgid "The number of bytes written to the log file."
-msgstr ""
+msgstr "பதிவு கோப்பில் எழுதப்பட்ட பைட்டுகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:361
 msgid "The number of pages created."
