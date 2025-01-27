@@ -2061,7 +2061,7 @@ msgstr "வினவலை புதுப்பி"
 #: resources/templates/database/multi_table_query/form.twig:175
 #: src/Html/Generator.php:545
 msgid "Submit query"
-msgstr "வினவலை சமர்ப்பி"
+msgstr "வினவலை சமர்ப்பிக்கவும்"
 
 #: resources/templates/database/operations/index.twig:2
 #: src/Navigation/Nodes/NodeDatabase.php:51
@@ -15680,16 +15680,16 @@ msgstr ""
 
 #: src/Html/Generator.php:504
 msgid "Skip Explain SQL"
-msgstr ""
+msgstr "கவிமொ ஐ விளக்குங்கள்"
 
 #: src/Html/Generator.php:536
 msgid "Without PHP code"
-msgstr "PHP நிரல் இல்லாமல்"
+msgstr "பிஎச்பி குறியீடு இல்லாமல்"
 
 #: src/Html/Generator.php:621
 msgctxt "Inline edit query"
 msgid "Edit inline"
-msgstr "தொகுப்பு பார்வை"
+msgstr "இன்லைன் திருத்து"
 
 #: src/Html/Generator.php:746
 msgid "Static analysis:"
