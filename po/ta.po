@@ -7967,7 +7967,7 @@ msgstr ""
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
-msgstr ""
+msgstr "ச்லோ_லாஞ்ச்_ டைம் விநாடிகளை விட அதிகமாக எடுத்த நூல்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:487
 msgid ""
