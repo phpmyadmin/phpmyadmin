@@ -7516,6 +7516,10 @@ msgid ""
 "tables are not properly indexed or that your queries are not written to take "
 "advantage of the indexes you have."
 msgstr ""
+"தரவுக் கோப்பில் அடுத்த வரிசையைப் படிக்க கோரிக்கைகளின் எண்ணிக்கை. நீங்கள் நிறைய அட்டவணை ச்கேன்"
+" செய்கிறீர்கள் என்றால் இது அதிகம். பொதுவாக இது உங்கள் அட்டவணைகள் சரியாக குறியிடப்படவில்லை "
+"அல்லது உங்களிடம் உள்ள குறியீடுகளைப் பயன்படுத்த உங்கள் வினவல்கள் எழுதப்படவில்லை என்று இது "
+"அறிவுறுத்துகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:314
 msgid "The number of internal ROLLBACK statements."
