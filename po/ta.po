@@ -15364,8 +15364,6 @@ msgid "MariaDB Documentation"
 msgstr "ஆவணச்சான்று"
 
 #: templates/navigation/main.twig:39 templates/navigation/main.twig:40
-#, fuzzy
-#| msgid "Documentation"
 msgid "MySQL Documentation"
 msgstr "ஆவணச்சான்று"
 
