@@ -9059,7 +9059,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:111
 msgid "Buffer Pool"
-msgstr ""
+msgstr "இடையக குளம்"
 
 #: libraries/classes/Engines/Innodb.php:112
 #: libraries/classes/Server/Status/Data.php:232
