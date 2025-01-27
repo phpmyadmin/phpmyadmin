@@ -435,6 +435,9 @@ msgid ""
 "scan, including join queries that do not use indexes. Add indexes where "
 "applicable."
 msgstr ""
+"பல கேள்விகள் முடிவுகளை வரிசைப்படுத்த வேண்டும் மற்றும்/அல்லது முழு அட்டவணை ச்கேன் செய்ய "
+"வேண்டும் என்பதை இது குறிக்கிறது, இதில் குறியீடுகளைப் பயன்படுத்தாத வினவல்கள் உட்பட. "
+"பொருந்தக்கூடிய இடங்களில் குறியீடுகளைச் சேர்க்கவும்."
 
 #: libraries/advisory_rules_generic.php:283
 #, php-format
