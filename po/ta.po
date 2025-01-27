@@ -7304,7 +7304,7 @@ msgstr "SQL வினவல்"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:114
 msgid "Received"
-msgstr ""
+msgstr "பெறப்பட்டது"
 
 #: libraries/classes/Controllers/Server/Status/StatusController.php:133
 msgid "Sent"
