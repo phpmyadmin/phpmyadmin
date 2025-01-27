@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 02:37+0000\n"
+"PO-Revision-Date: 2025-01-27 02:38+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -7764,6 +7764,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:526
 msgid "The number of requests to write a key block to the cache."
 msgstr ""
+"தற்காலிக சேமிப்பிற்கு ஒரு முக்கிய தொகுதியை எழுதுவதற்கான கோரிக்கைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:529
 msgid "The number of physical writes of a key block to disk."
