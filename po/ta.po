@@ -12826,7 +12826,7 @@ msgstr "புள்ளிகளின் தொகுப்பு"
 
 #: libraries/classes/Types.php:428
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "புள்ளிகளுக்கு இடையில் நேரியல் இடைக்கணிப்பு கொண்ட வளைவுகளின் தொகுப்பு"
 
 #: libraries/classes/Types.php:431
 msgid "A collection of polygons"
