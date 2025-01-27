@@ -1759,7 +1759,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:209
 msgid "Customize browse mode."
-msgstr ""
+msgstr "உலாவு பயன்முறையைத் தனிப்பயனாக்குங்கள்."
 
 #: libraries/classes/Config/Descriptions.php:210
 #: libraries/classes/Config/Descriptions.php:211
