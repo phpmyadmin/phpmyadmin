@@ -13194,7 +13194,7 @@ msgstr "மேற்கூறிய இரண்டும்"
 
 #: libraries/config.values.php:331
 msgid "neither of the above"
-msgstr ""
+msgstr "மேற்கூறிய எதுவும் இல்லை"
 
 #: setup/index.php:33
 msgid "Configuration already exists, setup is disabled!"
