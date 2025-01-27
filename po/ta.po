@@ -17928,7 +17928,7 @@ msgstr "தேடல் நிலைமைகளைச் சேர்க்க�
 
 #: templates/table/search/index.twig:131
 msgid "Number of rows per page"
-msgstr ""
+msgstr "ஒரு பக்கத்திற்கு வரிசைகளின் எண்ணிக்கை"
 
 #: templates/table/search/index.twig:137
 msgid "Display order:"
