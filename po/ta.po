@@ -4309,7 +4309,7 @@ msgstr "அதிகபட்ச %s"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:39
 msgid "Config authentication"
-msgstr ""
+msgstr "உள்ளமைவு ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:43
 msgid "HTTP authentication"
