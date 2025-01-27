@@ -4847,7 +4847,7 @@ msgstr "புதிய காட்சிகளை உருவாக்க அ
 #: src/Server/Privileges.php:303 src/Server/Privileges.php:353
 #: src/Server/Privileges.php:355
 msgid "Allows performing SHOW CREATE VIEW queries."
-msgstr ""
+msgstr "செயல்திறன் நிகழ்ச்சியை உருவாக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:222
 #: resources/templates/server/privileges/privileges_table.twig:225
