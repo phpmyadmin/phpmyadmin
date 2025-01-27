@@ -7666,6 +7666,9 @@ msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
+"எங்களிடம் இருந்த காத்திருப்புகளின் எண்ணிக்கை, ஏனெனில் பதிவு இடையகம் மிகவும் சிறியதாக "
+"இருந்தது, தொடர்வதற்கு முன்பு அது சுத்தப்படுத்தப்படும் வரை நாங்கள் காத்திருக்க "
+"வேண்டியிருந்தது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:375
 msgid "The number of log write requests."
