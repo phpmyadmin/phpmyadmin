@@ -16561,7 +16561,7 @@ msgstr "உலகளாவிய"
 #: templates/server/privileges/privileges_table.twig:262
 #: templates/server/privileges/users_overview.twig:12
 msgid "Global privileges"
-msgstr ""
+msgstr "உலகளாவிய சலுகைகள்"
 
 #: templates/server/privileges/privileges_table.twig:552
 msgid "Administration"
