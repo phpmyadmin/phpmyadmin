@@ -2575,6 +2575,8 @@ msgid ""
 "Queries are executed by pressing Enter (instead of Ctrl+Enter). New lines "
 "will be inserted with Shift+Enter."
 msgstr ""
+"ENTER ஐ அழுத்துவதன் மூலம் வினவல்கள் செயல்படுத்தப்படுகின்றன (CTRL+ENTER க்கு பதிலாக). "
+"புதிய கோடுகள் SHIFT+ENTER உடன் செருகப்படும்."
 
 #: libraries/classes/Config/Descriptions.php:548
 msgid ""
