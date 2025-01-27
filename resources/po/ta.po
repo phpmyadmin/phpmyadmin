@@ -17293,7 +17293,7 @@ msgstr ""
 
 #: src/Server/Privileges.php:274
 msgid "No privileges."
-msgstr ""
+msgstr "சலுகைகள் இல்லை."
 
 #: src/Server/Privileges.php:280
 msgid "Includes all privileges except GRANT."
