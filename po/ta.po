@@ -9026,6 +9026,8 @@ msgid ""
 "The amount of data written to the transaction log before a checkpoint is "
 "performed. The default value is 24MB."
 msgstr ""
+"சோதனைச் சாவடி செய்யப்படுவதற்கு முன்பு பரிவர்த்தனை பதிவுக்கு எழுதப்பட்ட தரவின் அளவு. "
+"இயல்புநிலை மதிப்பு 24MB."
 
 #: libraries/classes/Engines/Pbxt.php:87
 msgid "Data log threshold"
