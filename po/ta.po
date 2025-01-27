@@ -11446,7 +11446,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
-msgstr ""
+msgstr "வன்பொருள் பாதுகாப்பு விசை (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
 msgid ""
@@ -11473,7 +11473,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
 msgid "Simple two-factor authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "எளிய இரண்டு காரணி ஏற்பு"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:59
 msgid "For testing purposes only!"
