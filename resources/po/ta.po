@@ -10863,7 +10863,7 @@ msgstr "இயல்புநிலை தலைப்பு"
 
 #: src/Config/Descriptions.php:938
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "ஐபி அனுமதி/மறுப்பதற்கான நம்பகமான ப்ராக்சிகளின் பட்டியல்"
 
 #: src/Config/Descriptions.php:939
 msgid "Upload directory"
