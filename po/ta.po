@@ -2319,6 +2319,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
+"கவிமொ வினவல் கண்காணிப்பு ஆதரவுக்கு காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [KBD] "
+"PMA__Tracking [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:444
 msgid ""
