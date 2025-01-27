@@ -3230,7 +3230,7 @@ msgstr "உரை கலம்"
 
 #: libraries/classes/Config/Descriptions.php:793
 msgid "Texy! text"
-msgstr ""
+msgstr "டெக்சி! உரை"
 
 #: libraries/classes/Config/Descriptions.php:794
 msgid "Warnings"
