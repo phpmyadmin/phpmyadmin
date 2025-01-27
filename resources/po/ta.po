@@ -7808,6 +7808,8 @@ msgstr ""
 #, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
+"திறந்த அட்டவணை வீதம்: %s, இந்த மதிப்பு ஒரு மணி நேரத்திற்கு 10 க்கும் குறைவாக இருக்க "
+"வேண்டும்"
 
 #: src/Advisory/Rules.php:460
 msgid "Percentage of used open files limit"
