@@ -17767,7 +17767,7 @@ msgstr "வழு."
 #: src/Replication/ReplicationGui.php:522
 #, php-format
 msgid "Unable to connect to primary %s."
-msgstr ""
+msgstr "முதன்மை %s உடன் இணைக்க முடியவில்லை."
 
 #: src/Replication/ReplicationGui.php:532
 msgid ""
