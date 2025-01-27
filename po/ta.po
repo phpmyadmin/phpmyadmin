@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 02:40+0000\n"
+"PO-Revision-Date: 2025-01-27 02:41+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -12659,7 +12659,7 @@ msgstr "இந்த MySQL சேவையகத்திற்கு %s மு�
 #: libraries/classes/StorageEngine.php:378
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
-msgstr ""
+msgstr "இந்த MySQL சேவையகம் %s சேமிப்பக இயந்திரத்தை ஆதரிக்காது."
 
 #: libraries/classes/Table/Maintenance.php:94
 #, php-format
