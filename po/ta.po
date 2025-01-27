@@ -1184,6 +1184,8 @@ msgid ""
 "Cached queries are removed due to low query cache memory from the query "
 "cache."
 msgstr ""
+"வினவல் தற்காலிக சேமிப்பில் இருந்து குறைந்த வினவல் கேச் நினைவகம் காரணமாக தற்காலிக "
+"சேமிப்புகள் அகற்றப்படுகின்றன."
 
 #: libraries/advisory_rules_mysql_before80003.php:79
 msgid ""
