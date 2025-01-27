@@ -325,7 +325,7 @@ msgstr ""
 "{read_rnd_buffer_size} ஐ அதிகரிப்பதைக் கவனியுங்கள்."
 
 #: libraries/advisory_rules_generic.php:213
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
@@ -530,7 +530,7 @@ msgstr ""
 "href = \"https இன் தொடக்கத்தில் குறிப்பிட்டுள்ளபடி : //www.facebook.com/note.php?"
 
 #: libraries/advisory_rules_generic.php:331
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
@@ -614,7 +614,7 @@ msgstr ""
 " என்ன பயன்படுத்தப்படுகின்றன என்பது குறித்த கேள்விகள் மற்றும் எதிர்பார்ப்புகளை ஆராயவும்."
 
 #: libraries/advisory_rules_generic.php:382
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
@@ -626,7 +626,7 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr "MyISAM விசை இடையகத்தின் விழுக்காடு பயன்படுத்தப்படுகிறது"
 
 #: libraries/advisory_rules_generic.php:399
-#, php-format
+#, fuzzy, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr "%% myisam key buffed:%s %%, இந்த மதிப்பு 95 %ுறமாக இருக்க வேண்டும்"
 
@@ -786,7 +786,7 @@ msgid "Increase {thread_cache_size}."
 msgstr "{thread_cache_size} ஐ அதிகரிக்கவும்."
 
 #: libraries/advisory_rules_generic.php:496
-#, php-format
+#, fuzzy, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr "நூல் கேச் செய் விகிதம்:%%%, இந்த மதிப்பு 80 %ுறமாக இருக்க வேண்டும்"
 
@@ -856,7 +856,7 @@ msgstr ""
 "கையாளுபவர்களை சரியாக மூடுவதை உறுதிசெய்க."
 
 #: libraries/advisory_rules_generic.php:537
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
@@ -996,7 +996,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
@@ -1072,7 +1072,7 @@ msgstr ""
 "2007/11/11/03/choosing-indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
 
 #: libraries/advisory_rules_generic.php:697
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
 "rule fires if you are assigning less than 60%%, however this might be "
@@ -1148,7 +1148,7 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr "{query_cache_limit} அதிகரிப்பதைக் கவனியுங்கள்."
 
 #: libraries/advisory_rules_mysql_before80003.php:29
-#, php-format
+#, fuzzy, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr "தற்போதைய வினவல் கேச் இட் வீதம்%s %% 20%எக்சுக்குக் கீழே உள்ளது"
 
@@ -4548,7 +4548,7 @@ msgid "Compressed import will not work due to missing function %s."
 msgstr "செயல்பாடு %s காணாமல் போனதால் சுருக்கப்பட்ட இறக்குமதி இயங்காது."
 
 #: libraries/classes/Config/FormDisplay.php:848
-#, php-format
+#, fuzzy, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr "காணாமல் போன செயல்பாடுகள் காரணமாக சுருக்கப்பட்ட ஏற்றுமதி இயங்காது."
 
@@ -4726,7 +4726,7 @@ msgid "Server %d"
 msgstr "வழங்கி %d"
 
 #: libraries/classes/Config/ServerConfigChecks.php:67
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -4756,7 +4756,7 @@ msgstr ""
 "உங்கள் தரவுத்தள சேவையகம் அதை ஆதரித்தால் நீங்கள் SSL இணைப்புகளைப் பயன்படுத்த வேண்டும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -4814,7 +4814,7 @@ msgstr ""
 "குறியாக்க பயன்படுகிறது; நீங்கள் அதை நினைவில் கொள்ள தேவையில்லை."
 
 #: libraries/classes/Config/ServerConfigChecks.php:385
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
@@ -4825,7 +4825,7 @@ msgstr ""
 "அமர்வு. GC_MAXLIFETIME %5 $ D)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
@@ -8838,7 +8838,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr "அமைப்பாக்கத்தில் உள்ளவாறு அமைத்த கட்டுபாட்டுபயனருக்கான இணைப்பு தோல்வியடைந்தது."
 
 #: libraries/classes/DatabaseInterface.php:2405
-#, php-format
+#, fuzzy, php-format
 msgid "See %sour documentation%s for more information."
 msgstr "மேலும் தகவலுக்கு %உங்கள் ஆவணங்களைக் காண்க."
 
@@ -12604,7 +12604,7 @@ msgid "No newer stable version is available"
 msgstr "புதிய நிலையான பதிப்புகள் ஏதுமில்லை"
 
 #: libraries/classes/Sql.php:504
-#, php-format
+#, fuzzy, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "இயல்புநிலை உலாவி வினவலாக புக்மார்க்குகளைப் பயன்படுத்துதல்."
 
@@ -12806,7 +12806,7 @@ msgid "Structure and data"
 msgstr "கட்டமைப்பு மற்றும் தரவுகள்"
 
 #: libraries/classes/Tracking.php:383 libraries/classes/Tracking.php:451
-#, php-format
+#, fuzzy, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr "%1$s தேதிகளுடன் %2$s முதல் %3$s வரை பயனர் %4 $ s %5 $ s ஐக் காட்டு"
 
@@ -16574,7 +16574,7 @@ msgid "General relation features"
 msgstr "பொது உறவு நற்பொருத்தங்கள்"
 
 #: templates/relation/check_relations.twig:20
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
@@ -16582,13 +16582,13 @@ msgstr ""
 "%'%s' என்ற தரவுத்தளத்தை%உருவாக்கி, அங்கு phpmyadmin உள்ளமைவு சேமிப்பிடத்தை அமைக்கவும்."
 
 #: templates/relation/check_relations.twig:24
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr "தற்போதைய தரவுத்தளத்தில் phpmyadmin உள்ளமைவு சேமிப்பகத்தை%ச்க்ரீட்%s."
 
 #: templates/relation/check_relations.twig:31
-#, php-format
+#, fuzzy, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr "%ச்க்ரீட்%s காணாமல் போன phpmyadmin உள்ளமைவு சேமிப்பு அட்டவணைகள்."
 
