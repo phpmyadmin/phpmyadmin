@@ -3970,7 +3970,7 @@ msgstr "நீங்கள் அமைவுகள் எதுவும் ச
 #: resources/templates/preferences/manage/main.twig:39
 #: resources/templates/preferences/manage/main.twig:103
 msgid "This feature is not supported by your web browser"
-msgstr ""
+msgstr "இந்த அம்சத்தை உங்கள் வலை உலாவியால் ஆதரிக்கவில்லை"
 
 #: resources/templates/preferences/manage/main.twig:43
 msgid "Merge with current configuration"
@@ -3987,11 +3987,11 @@ msgstr ""
 
 #: resources/templates/preferences/manage/main.twig:80
 msgid "Save as JSON file"
-msgstr "கோப்பாக சேமிக்க"
+msgstr "சாதொபொகு கோப்பாக சேமிக்கவும்"
 
 #: resources/templates/preferences/manage/main.twig:84
 msgid "Save as PHP file"
-msgstr "கோப்பாக சேமிக்க"
+msgstr "பிஎச்பி கோப்பாக சேமிக்கவும்"
 
 #: resources/templates/preferences/manage/main.twig:89
 msgid "Save to browser's storage"
