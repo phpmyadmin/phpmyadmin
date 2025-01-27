@@ -16643,7 +16643,7 @@ msgstr ""
 
 #: src/Plugins/Export/ExportXml.php:90
 msgid "Object creation options (all are recommended)"
-msgstr ""
+msgstr "பொருள் உருவாக்கும் விருப்பங்கள் (அனைத்தும் பரிந்துரைக்கப்படுகின்றன)"
 
 #: src/Plugins/Export/ExportXml.php:134
 msgid "Export contents"
