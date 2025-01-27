@@ -3959,7 +3959,7 @@ msgstr "கடைசி புதுப்பிப்பு நேர முத
 
 #: libraries/classes/Config/Descriptions.php:935
 msgid "Show last check timestamp"
-msgstr ""
+msgstr "கடைசி காசோலை நேர முத்திரையைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:936
 msgid "Show table charset"
