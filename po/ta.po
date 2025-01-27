@@ -10299,7 +10299,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:906
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' சார்ந்துள்ளது:"
 
 #: libraries/classes/Normalization.php:485
 #, php-format
