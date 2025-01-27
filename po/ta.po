@@ -3687,7 +3687,7 @@ msgstr "அங்கீகார வகை"
 
 #: libraries/classes/Config/Descriptions.php:886
 msgid "Bookmark table"
-msgstr ""
+msgstr "புக்மார்க்கு அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:887
 msgid "Column information table"
