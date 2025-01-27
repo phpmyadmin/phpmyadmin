@@ -1895,6 +1895,9 @@ msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
+"ச்கிரிப்ட் நேர வரம்புக்கு நெருக்கமாக இருப்பதைக் கண்டறிந்தால் இறக்குமதியின் குறுக்கீட்டை "
+"அனுமதிக்கவும். பெரிய கோப்புகளை இறக்குமதி செய்வதற்கான சிறந்த வழியாக இது இருக்கலாம், "
+"இருப்பினும் இது பரிவர்த்தனைகளை உடைக்கக்கூடும்."
 
 #: libraries/classes/Config/Descriptions.php:251
 msgid ""
