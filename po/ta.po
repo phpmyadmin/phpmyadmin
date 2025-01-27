@@ -11011,7 +11011,7 @@ msgstr "நெடுவரிசை பெயர்கள்: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:106
 msgid "This plugin does not support compressed imports!"
-msgstr ""
+msgstr "இந்த சொருகி சுருக்கப்பட்ட இறக்குமதியை ஆதரிக்காது!"
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:56
 msgid "MediaWiki Table"
