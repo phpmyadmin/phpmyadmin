@@ -9635,7 +9635,7 @@ msgstr "MySQL சேவையகத்திற்கு உள்நுழை�
 
 #: src/Config/Descriptions.php:599
 msgid "Allow third party framing"
-msgstr ""
+msgstr "மூன்றாம் தரப்பு ஃப்ரேமிங்கை அனுமதிக்கவும்"
 
 #: src/Config/Descriptions.php:600
 msgid "Show \"Drop database\" link to normal users"
