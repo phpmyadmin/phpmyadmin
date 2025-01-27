@@ -9773,7 +9773,7 @@ msgstr "புதியது"
 #: templates/database/triggers/editor_form.twig:47
 #: templates/database/triggers/list.twig:50
 msgid "Event"
-msgstr ""
+msgstr "நிகழ்வு"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:26
