@@ -13083,7 +13083,7 @@ msgstr ""
 #: templates/config/form_display/input.twig:58
 #, php-format
 msgid "Set value: %s"
-msgstr ""
+msgstr "மதிப்பை அமைக்கவும்: %s"
 
 #: templates/config/form_display/input.twig:63
 #: templates/config/form_display/input.twig:64
