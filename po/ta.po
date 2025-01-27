@@ -7696,7 +7696,7 @@ msgstr "பதிவு கோப்பில் எழுதப்பட்ட 
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:381
 msgid "The number of pages created."
-msgstr ""
+msgstr "உருவாக்கப்பட்ட பக்கங்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:383
 msgid ""
