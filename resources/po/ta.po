@@ -4814,6 +4814,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"பயனரை மற்ற பயனர்களுக்கு வழங்க அல்லது பிற பயனர்களிடமிருந்து நீக்க பயனர் உங்களை "
+"அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:174
 #: resources/templates/server/privileges/privileges_table.twig:177
@@ -17283,11 +17285,11 @@ msgstr ""
 #: src/Server/Plugins.php:53 src/Server/Privileges.php:634
 #: src/Server/Privileges.php:3138
 msgid "Native MySQL authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "சொந்த MySQL ஏற்பு"
 
 #: src/Server/Plugins.php:58
 msgid "SHA256 password authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "SHA256 கடவுச்சொல் ஏற்பு"
 
 #: src/Server/Plugins.php:63
 msgid "Caching sha2 authentication"
