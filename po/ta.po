@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 01:45+0000\n"
+"PO-Revision-Date: 2025-01-27 01:46+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -4857,6 +4857,8 @@ msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
 msgstr ""
+"$ Cfg ['tempdir'] (%s) அணுக முடியாது. Phpmyadmin வார்ப்புருக்களை கேச் செய்ய "
+"முடியவில்லை, இதன் காரணமாக மெதுவாக இருக்கும்."
 
 #: libraries/classes/Controllers/ImportController.php:109
 msgid "Incomplete params"
@@ -5121,7 +5123,7 @@ msgstr "மீட்டமைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:96
 msgid "Reset all"
-msgstr "அனைத்தையும் மீட்டமை"
+msgstr "அனைத்தையும் மீட்டமைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Missing value in the form!"
@@ -5137,7 +5139,7 @@ msgstr "தயவுசெய்து ஒரு சரியான எண்ண
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Please enter a valid length!"
-msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
+msgstr "சரியான நீளத்தை உள்ளிடவும்!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Add index"
@@ -5203,7 +5205,7 @@ msgstr "செங்குத்து (Y) மதிப்புகள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:126
 msgid "Please enter the SQL query first."
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "முதலில் கவிமொ வினவலை உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:129
 msgid "The host name is empty!"
@@ -5305,7 +5307,7 @@ msgstr "வினவல் இடைமாற்று பயன்படுத�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:164
 msgid "System CPU usage"
-msgstr "மையச்செயலக பயனளவு"
+msgstr "கணினி சிபியு பயன்பாடு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:165
 msgid "System memory"
@@ -5341,19 +5343,19 @@ msgstr "பயன்பாட்டிலுள்ள நினைவகம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:175
 msgid "Total swap"
-msgstr "மொத்த மாற்றிடம்"
+msgstr "மொத்த இடமாற்றம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:176
 msgid "Cached swap"
-msgstr "இடைமாற்று மாற்றிடம்"
+msgstr "தற்காலிக சேமிப்பு இடமாற்று"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:177
 msgid "Used swap"
-msgstr "பயன்பாட்டிலுள்ள மாற்றிடம்"
+msgstr "இடமாற்றம் பயன்படுத்தப்பட்டது"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:178
 msgid "Free swap"
-msgstr "பயன்பாடுத்தபடாத மாற்றிடம்"
+msgstr "இலவச இடமாற்று"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:180
 msgid "Bytes sent"
