@@ -16376,6 +16376,7 @@ msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
+"குறிப்பு: நீங்கள் தற்போது உள்நுழைந்த பயனரின் சலுகைகளைத் திருத்த முயற்சிக்கிறீர்கள்."
 
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
@@ -16651,7 +16652,7 @@ msgstr "இந்த விசயத்துடன் செல்லுபட�
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
 msgid "User accounts overview"
-msgstr "பயனர்கள் கண்ணோட்டம்"
+msgstr "பயனர் கணக்குகள் கண்ணோட்டம்"
 
 #: templates/server/privileges/subnav.twig:11
 #: templates/server/user_groups/user_groups.twig:1
