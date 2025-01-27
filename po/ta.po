@@ -7451,6 +7451,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"உங்கள் உலாவியில் இன்டெக்சிடிபி வேலை செய்யாததால், உங்கள் பக்க அமைப்பை நீங்கள் திறக்கவோ, "
+"சேமிக்கவோ அல்லது நீக்கவோ முடியாது, மேலும் உங்கள் Phpmyadmin உள்ளமைவு சேமிப்பு இதற்காக "
+"கட்டமைக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
 #, php-format
