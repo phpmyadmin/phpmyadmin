@@ -15722,8 +15722,6 @@ msgid "User preferences:"
 msgstr ""
 
 #: templates/relation/check_relations.twig:383
-#, fuzzy
-#| msgid "Configurable menus"
 msgid "Configurable menus:"
 msgstr "உள்ளமைக்கக்கூடிய பட்டிகள்"
 
