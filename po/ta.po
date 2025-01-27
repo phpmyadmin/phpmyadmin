@@ -16483,7 +16483,7 @@ msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக 
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
-msgstr ""
+msgstr "தற்போதைய சேவையகத்திலிருந்து தரவுத்தளங்களை ஏற்றுமதி செய்கிறது"
 
 #: templates/server/import/index.twig:3
 msgid "Importing into the current server"
