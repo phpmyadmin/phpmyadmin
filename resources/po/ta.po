@@ -1519,7 +1519,7 @@ msgstr "பக்கங்களை அழிக்க"
 #: resources/templates/database/designer/main.twig:87
 #: resources/templates/database/structure/show_create.twig:12
 msgid "Create table"
-msgstr ""
+msgstr "அட்டவணையை உருவாக்கவும்"
 
 #: resources/templates/database/designer/main.twig:91
 #: resources/templates/database/designer/main.twig:94
