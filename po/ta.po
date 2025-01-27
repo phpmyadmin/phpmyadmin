@@ -16528,7 +16528,7 @@ msgstr "இந்த சேவையகம் ஒரு பிரதி செ�
 
 #: templates/server/replication/master_replication.twig:16
 msgid "Show connected slaves"
-msgstr ""
+msgstr "இணைக்கப்பட்ட அடிமைகளைக் காட்டு"
 
 #: templates/server/replication/master_replication.twig:38
 msgid ""
