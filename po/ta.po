@@ -4523,6 +4523,11 @@ msgid ""
 "phpMyAdmin panel. Set %1$sauthentication type%2$s to [kbd]cookie[/kbd] or "
 "[kbd]http[/kbd]."
 msgstr ""
+"நீங்கள் [KBD] கட்டமைப்பு [/KBD] அங்கீகார வகையை அமைத்து, ஆட்டோ-லோகினுக்கான பயனர்பெயர் "
+"மற்றும் கடவுச்சொல்லை உள்ளடக்கியுள்ளீர்கள், இது நேரடி ஓச்ட்களுக்கு விரும்பத்தக்க விருப்பமல்ல. "
+"உங்கள் Phpmyadmin முகவரி ஐ அறிந்த அல்லது யூகிக்கும் எவரும் உங்கள் Phpmyadmin பேனலை "
+"நேரடியாக அணுகலாம். %1$sauthentication வகை %2$s [kbd] குக்கீ [/kbd] அல்லது [kbd] "
+"http [/kbd] க்கு அமைக்கவும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:224
 msgid "You allow for connecting to the server without a password."
