@@ -3320,7 +3320,7 @@ msgstr "மல்டிபைட்டுகளாக படியுங்க�
 
 #: libraries/classes/Config/Descriptions.php:823
 msgid "Initial state for sliders"
-msgstr ""
+msgstr "ச்லைடர்களுக்கான ஆரம்ப நிலை"
 
 #: libraries/classes/Config/Descriptions.php:824
 msgid "Number of inserted rows"
