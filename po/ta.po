@@ -8787,7 +8787,7 @@ msgstr "தரவுக் கோப்புகள்"
 
 #: libraries/classes/Engines/Innodb.php:38
 msgid "Autoextend increment"
-msgstr ""
+msgstr "தன்வய எதிர்பார்ப்பு அதிகரிப்பு"
 
 #: libraries/classes/Engines/Innodb.php:40
 msgid ""
