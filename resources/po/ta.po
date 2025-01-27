@@ -9364,7 +9364,7 @@ msgstr "சுருங்குறிக்கு பொருந்தும�
 
 #: src/Config/Descriptions.php:457
 msgid "Hostname where MySQL server is running."
-msgstr ""
+msgstr "MySQL சேவையகம் இயங்கும் ஓச்ட்பெயர்."
 
 #: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
