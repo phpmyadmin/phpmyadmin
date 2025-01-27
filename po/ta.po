@@ -3428,7 +3428,7 @@ msgstr "விரைவான அணுகல் ஐகானுக்கான 
 
 #: libraries/classes/Config/Descriptions.php:846
 msgid "Target for second quick access icon"
-msgstr ""
+msgstr "இரண்டாவது விரைவான அணுகல் ஐகானுக்கான இலக்கு"
 
 #: libraries/classes/Config/Descriptions.php:847
 msgid "Minimum number of items to display the filter box"
