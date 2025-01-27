@@ -13920,6 +13920,8 @@ msgid ""
 "Execute queries on Enter and insert new line with Shift + Enter. To make "
 "this permanent, view settings."
 msgstr ""
+"உயர்த்து + Enter உடன் புதிய வரியை உள்ளிடவும் செருகவும் வினவல்களை இயக்கவும். இதை "
+"நிரந்தரமாக்க, அமைப்புகளைக் காண்க."
 
 #: templates/create_tracking_version.twig:11
 #, php-format
