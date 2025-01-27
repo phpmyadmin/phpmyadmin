@@ -14261,7 +14261,7 @@ msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள�
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
 msgid "Add prefix"
-msgstr ""
+msgstr "முன்னொட்டு சேர்க்கவும்"
 
 #: templates/database/structure/body_for_table_summary.twig:6
 #, php-format
