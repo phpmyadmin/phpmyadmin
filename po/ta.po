@@ -10345,7 +10345,7 @@ msgstr "இதனுடன் பிரிக்கப்பட்ட நெட�
 #: libraries/classes/Plugins/Export/ExportCsv.php:63
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:42
 msgid "Columns enclosed with:"
-msgstr ""
+msgstr "இணைக்கப்பட்ட நெடுவரிசைகள்:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:68
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:49
