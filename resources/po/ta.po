@@ -10139,7 +10139,7 @@ msgstr "Gzip"
 
 #: src/Config/Descriptions.php:768
 msgid "Extra parameters for iconv"
-msgstr ""
+msgstr "ICONV க்கான கூடுதல் அளவுருக்கள்"
 
 #: src/Config/Descriptions.php:769
 msgid "Ignore multiple statement errors"
