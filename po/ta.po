@@ -17352,10 +17352,9 @@ msgstr "%d இரண்டாவது"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:38
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d seconds"
-msgstr "ஒரு வினாடிக்கு"
+msgstr "%d விநாடிகள்"
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:42
