@@ -8923,8 +8923,6 @@ msgstr ""
 "நடைமுறைப்படுத்தப்படாமலிருக்கலாம் அல்லது உள்ளமைப்பால் முடக்கப்பட்டிருக்கலாம்."
 
 #: libraries/classes/FlashMessages.php:24
-#, fuzzy
-#| msgid "Link not found!"
 msgid "Session not found."
 msgstr "இணைப்பை காணவில்லை!"
 
