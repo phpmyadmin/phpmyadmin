@@ -1430,12 +1430,12 @@ msgstr "டேனிச்"
 #: libraries/classes/Charsets/Collation.php:488
 msgctxt "Collation"
 msgid "English"
-msgstr ""
+msgstr "ஆங்கிலம்"
 
 #: libraries/classes/Charsets/Collation.php:492
 msgctxt "Collation"
 msgid "Esperanto"
-msgstr "செயல்பாடுகள்"
+msgstr "எச்பெராண்டோ"
 
 #: libraries/classes/Charsets/Collation.php:496
 msgctxt "Collation"
