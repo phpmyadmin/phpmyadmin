@@ -2877,7 +2877,7 @@ msgstr "எக்செல் பதிப்பு"
 
 #: libraries/classes/Config/Descriptions.php:671
 msgid "Database name template"
-msgstr ""
+msgstr "தரவுத்தள பெயர் வார்ப்புரு"
 
 #: libraries/classes/Config/Descriptions.php:672
 msgid "Server name template"
