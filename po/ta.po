@@ -7556,6 +7556,8 @@ msgid ""
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
+"இன்னோடிபி இடையகக் குளத்தில் இணைக்கப்பட்ட பக்கங்களின் எண்ணிக்கை. இவை தற்போது படிக்கப்பட்ட "
+"அல்லது எழுதப்பட்ட பக்கங்கள் அல்லது வேறு சில காரணங்களால் சுத்தப்படுத்தவோ அகற்றவோ முடியாது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:329
 msgid ""
