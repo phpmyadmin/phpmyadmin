@@ -4566,6 +4566,9 @@ msgid ""
 "may cause random session invalidation (currently session.gc_maxlifetime is "
 "%5$d)."
 msgstr ""
+"%1 $ ச்லோசின் குக்கீ செல்லுபடியாகும் %2 $ %ஐ விட அதிகமாக உள்ளது 3 $ அமர்வுக்கு "
+"அதிகமாகும். GC_MAXLIFETIME %4 $ S சீரற்ற அமர்வு செல்லாததை ஏற்படுத்தக்கூடும் (தற்போது "
+"அமர்வு. GC_MAXLIFETIME %5 $ D)."
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
 #, php-format
