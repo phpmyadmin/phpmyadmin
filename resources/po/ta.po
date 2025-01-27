@@ -10195,7 +10195,7 @@ msgstr "சரியான தசமங்களாக இறக்குமத�
 
 #: src/Config/Descriptions.php:790
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "பகுதி இறக்குமதி: வினவல்களைத் தவிர்க்கவும்"
 
 #: src/Config/Descriptions.php:792
 msgid "Do not use AUTO_INCREMENT for zero values"
