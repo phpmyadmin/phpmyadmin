@@ -5032,6 +5032,7 @@ msgid ""
 "Limits the number of commands that change any table or database the user may "
 "execute per hour."
 msgstr ""
+"எந்தவொரு அட்டவணை அல்லது தரவுத்தளத்தை மாற்றும் கட்டளைகளின் எண்ணிக்கையை கட்டுப்படுத்துகிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:769
 #: resources/templates/server/privileges/privileges_table.twig:776
