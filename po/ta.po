@@ -11537,6 +11537,8 @@ msgid ""
 "Connection to server is disabled, please enable $cfg['AllowArbitraryServer'] "
 "in phpMyAdmin configuration."
 msgstr ""
+"சேவையகத்திற்கான இணைப்பு முடக்கப்பட்டுள்ளது, தயவுசெய்து phpmyadmin உள்ளமைவில் $ cfg "
+"['allowarbitraryserver'] ஐ இயக்கவும்."
 
 #: libraries/classes/ReplicationGui.php:474
 msgid "Replication started successfully."
