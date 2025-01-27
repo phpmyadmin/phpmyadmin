@@ -5664,7 +5664,7 @@ msgstr "விளக்கப்படத்தை கட்டத்தில�
 
 #: resources/templates/server/status/monitor/index.twig:189
 msgid "Log statistics"
-msgstr ""
+msgstr "பதிவு புள்ளிவிவரங்கள்"
 
 #: resources/templates/server/status/monitor/index.twig:191
 msgid "Selected time range:"
