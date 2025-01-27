@@ -5488,7 +5488,7 @@ msgstr "கண்காணிக்கவும்"
 
 #: resources/templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "ஆலோசகர்"
 
 #: resources/templates/server/status/monitor/index.twig:4
 msgid "System monitor"
@@ -5524,16 +5524,16 @@ msgstr ""
 #, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
-msgstr[0] "ஒரு வினாடிக்கு"
-msgstr[1] "ஒரு வினாடிக்கு"
+msgstr[0] "%d இரண்டாவது"
+msgstr[1] "%d விநாடிகள்"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
 #, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "ஒவ்வொரு நிமிடத்திற்கும்"
-msgstr[1] "ஒவ்வொரு நிமிடத்திற்கும்"
+msgstr[0] "%d மணித்துளி"
+msgstr[1] "%d நிமிடங்கள்"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
