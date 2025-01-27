@@ -3275,7 +3275,7 @@ msgstr "உரை கலம்"
 
 #: libraries/classes/Config/Descriptions.php:784
 msgid "Texy! text"
-msgstr ""
+msgstr "டெக்சி! உரை"
 
 #: libraries/classes/Config/Descriptions.php:785
 msgid "Warnings"
