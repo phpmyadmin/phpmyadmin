@@ -9180,7 +9180,7 @@ msgstr ""
 
 #: libraries/classes/File.php:276
 msgid "The uploaded file was only partially uploaded."
-msgstr ""
+msgstr "பதிவேற்றிய கோப்பு ஓரளவு மட்டுமே பதிவேற்றப்பட்டது."
 
 #: libraries/classes/File.php:280
 msgid "Missing a temporary folder."
