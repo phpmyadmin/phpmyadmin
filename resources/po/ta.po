@@ -3661,6 +3661,7 @@ msgstr "புகுபதிவு"
 #: resources/templates/login/form.twig:67
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
+"நீங்கள் ஓச்ட்பெயர்/ஐபி முகவரி மற்றும் விண்வெளியால் பிரிக்கப்பட்ட போர்ட்டை உள்ளிடலாம்."
 
 #: resources/templates/login/form.twig:74
 msgid "Username:"
