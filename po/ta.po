@@ -3135,7 +3135,7 @@ msgstr "பொது"
 
 #: libraries/classes/Config/Descriptions.php:756
 msgid "Import defaults"
-msgstr ""
+msgstr "இயல்புநிலைகளை இறக்குமதி செய்க"
 
 #: libraries/classes/Config/Descriptions.php:757
 msgid "Import / export"
