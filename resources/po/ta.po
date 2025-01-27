@@ -16141,7 +16141,7 @@ msgstr "அட்டவணை %s %s க்கு மாற்றப்பட்�
 #: src/Operations.php:942
 #, php-format
 msgid "Table %s has been copied to %s."
-msgstr ""
+msgstr "அட்டவணை %s %s க்கு நகலெடுக்கப்பட்டுள்ளன."
 
 #: src/Operations.php:965
 msgid "The table name is empty!"
