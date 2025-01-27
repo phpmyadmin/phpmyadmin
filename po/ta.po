@@ -5858,8 +5858,6 @@ msgid "Please select the file you want to import:"
 msgstr "தரவிறக்க வேண்டிய கோப்பை தயவுசெய்து தேர்ந்தெடுக்கவும்:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid table name."
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
