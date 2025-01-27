@@ -16804,7 +16804,7 @@ msgstr "%s அட்டவணை இல்லை!"
 #: src/Plugins/Schema/Svg/SvgRelationSchema.php:72
 #, php-format
 msgid "Schema of the %s database - Page %s"
-msgstr ""
+msgstr "%s தரவுத்தளத்தின் திட்டம் - பக்கம் %s"
 
 #: src/Plugins/Schema/ExportRelationSchema.php:252
 msgid "SCHEMA ERROR: "
