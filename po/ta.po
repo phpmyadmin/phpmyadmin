@@ -12029,7 +12029,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:369
 #: templates/server/privileges/privileges_table.twig:372
 msgid "Allows creating and dropping indexes."
-msgstr ""
+msgstr "குறியீடுகளை உருவாக்க மற்றும் கைவிட அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:296
 #: libraries/classes/Server/Privileges.php:388
