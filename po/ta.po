@@ -7792,6 +7792,9 @@ msgid ""
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
+"வட்டில் இருந்து ஒரு முக்கிய தொகுதியின் உடல் வாசிப்புகளின் எண்ணிக்கை. Key_reads பெரியதா"
+"க இருந்தால், உங்கள் key_buffer_size மதிப்பு மிகவும் சிறியதாக இருக்கலாம். கேச் மிச் "
+"வீதத்தை key_reads/key_read_requests என கணக்கிடலாம்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:421
 msgid ""
