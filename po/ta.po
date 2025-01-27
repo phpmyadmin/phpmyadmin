@@ -10551,7 +10551,7 @@ msgstr "அட்டவணையின் உள்ளடக்கம் @அட
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "(continued)"
-msgstr ""
+msgstr "(தொடர்ந்தது)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:52
 msgid "Structure of table @TABLE@"
