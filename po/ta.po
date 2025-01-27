@@ -10738,7 +10738,7 @@ msgstr "இணைப்புகள்"
 #: libraries/classes/Plugins/Export/ExportSql.php:2134
 #: libraries/classes/Plugins/Export/ExportTexytext.php:539
 msgid "Table structure for table"
-msgstr ""
+msgstr "அட்டவணைக்கான அட்டவணை அமைப்பு"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:594
 #: libraries/classes/Plugins/Export/ExportOdt.php:745
