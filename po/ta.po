@@ -38,7 +38,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:17
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "நேரம் நேரம் %s மட்டுமே"
 
 #: libraries/advisory_rules_generic.php:22
 msgid "Questions below 1,000"
