@@ -4913,7 +4913,7 @@ msgstr "சேமிக்கப்பட்ட நடைமுறைகளை �
 #: resources/templates/server/privileges/privileges_table.twig:476
 #: src/Server/Privileges.php:373
 msgid "Allows altering and dropping stored routines."
-msgstr ""
+msgstr "சேமிக்கப்பட்ட நடைமுறைகளை மாற்றவும் கைவிடவும் அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:486
 #: resources/templates/server/privileges/privileges_table.twig:489
