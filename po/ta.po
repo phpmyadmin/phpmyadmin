@@ -15572,8 +15572,6 @@ msgid "There are no favorite tables."
 msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
 
 #: templates/relation/check_relations.twig:3
-#, fuzzy
-#| msgid "phpMyAdmin documentation"
 msgid "phpMyAdmin configuration storage"
 msgstr "phpMyAdmin ஆவணச்சான்று"
 
