@@ -6165,7 +6165,7 @@ msgstr "பகிரப்பட்டது"
 
 #: resources/templates/sql/query.twig:185
 msgid "View only"
-msgstr ""
+msgstr "பார்க்க மட்டுமே"
 
 #: resources/templates/sql/query.twig:221
 #: src/Controllers/JavaScriptMessagesController.php:131
