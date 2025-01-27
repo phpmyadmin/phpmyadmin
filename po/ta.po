@@ -3681,7 +3681,7 @@ msgstr "Http சாம்ராச்யம்"
 #: libraries/classes/Config/Descriptions.php:885
 #: templates/setup/home/index.twig:50
 msgid "Authentication type"
-msgstr ""
+msgstr "அங்கீகார வகை"
 
 #: libraries/classes/Config/Descriptions.php:886
 msgid "Bookmark table"
