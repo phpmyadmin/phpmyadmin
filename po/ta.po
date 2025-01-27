@@ -57,6 +57,7 @@ msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"சேவையகம் அதிக அளவு வினவல்களைச் செயல்படுத்தும் வரை நீண்ட நேரம் இயக்கட்டும்."
 
 #: libraries/advisory_rules_generic.php:32
 #, php-format
