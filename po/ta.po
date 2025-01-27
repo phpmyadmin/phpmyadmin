@@ -9320,6 +9320,8 @@ msgstr ""
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
+"தொடர்புடைய \"விருப்பங்கள்\" இணைப்பைக் சொடுக்கு செய்வதன் மூலம் அதன் எந்த அமைப்புகளையும் "
+"மாற்றவும்."
 
 #: libraries/classes/Import.php:1271
 msgid "Edit structure by following the \"Structure\" link."
