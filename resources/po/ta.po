@@ -10499,7 +10499,7 @@ msgstr "புரவலன் அங்கீகார கட்டளை"
 
 #: src/Config/Descriptions.php:861
 msgid "Host authorization rules"
-msgstr ""
+msgstr "புரவலன் அங்கீகார விதிகள்"
 
 #: src/Config/Descriptions.php:862
 msgid "Allow logins without a password"
