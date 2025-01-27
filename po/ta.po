@@ -3221,7 +3221,7 @@ msgstr "உள்ளமைவு சேமிப்பு"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "Changes tracking"
-msgstr ""
+msgstr "கண்காணிப்பை மாற்றுகிறது"
 
 #: libraries/classes/Config/Descriptions.php:775 libraries/classes/Menu.php:255
 #: libraries/classes/Menu.php:362 libraries/classes/Menu.php:482
