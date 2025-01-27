@@ -13915,7 +13915,7 @@ msgstr "கோண இணைப்புகள்"
 #: templates/database/designer/main.twig:120
 #: templates/database/designer/main.twig:123
 msgid "Direct links"
-msgstr ""
+msgstr "நேரடி இணைப்புகள்"
 
 #: templates/database/designer/main.twig:127
 #: templates/database/designer/main.twig:129
