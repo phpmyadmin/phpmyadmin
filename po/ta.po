@@ -14927,8 +14927,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: templates/import.twig:62 templates/import.twig:88
-#, fuzzy, php-format
-#| msgid "Select from the web server upload directory <b>%s</b>:"
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
 
