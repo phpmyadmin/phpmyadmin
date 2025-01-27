@@ -10303,8 +10303,6 @@ msgid "Dumping data"
 msgstr "தவறான தரவு"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:213
-#, fuzzy
-#| msgid "Hide search results"
 msgid "Query result data"
 msgstr "தேடல் முடிவுகளை மறை"
 
