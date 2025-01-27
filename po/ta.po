@@ -9903,7 +9903,7 @@ msgstr "பயனர் கணக்குகள்"
 #: libraries/classes/Menu.php:588 libraries/classes/Server/Status/Data.php:152
 #: libraries/classes/Util.php:2482 templates/server/binlog/index.twig:3
 msgid "Binary log"
-msgstr ""
+msgstr "ஈரான் பதிவு"
 
 #: libraries/classes/Menu.php:595 libraries/classes/Server/Status/Data.php:157
 #: libraries/classes/Util.php:2483
