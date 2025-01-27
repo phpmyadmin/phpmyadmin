@@ -1270,7 +1270,7 @@ msgstr "அல்லது உணர்திறன்"
 #: libraries/classes/Charsets/Collation.php:314
 msgctxt "Collation variant"
 msgid "multi-level"
-msgstr ""
+msgstr "பல நிலை"
 
 #: libraries/classes/Charsets/Collation.php:317
 msgctxt "Collation variant"
