@@ -11831,7 +11831,7 @@ msgstr "வழிசெலுத்தல் உருப்படிகளை �
 
 #: libraries/classes/Relation.php:366
 msgid "Saving Query-By-Example searches"
-msgstr ""
+msgstr "வினவல் மூலம் எடுத்துக்காட்டாக தேடல்களைச் சேமிக்கிறது"
 
 #: libraries/classes/Relation.php:377
 msgid "Managing Central list of columns"
