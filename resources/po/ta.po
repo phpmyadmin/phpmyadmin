@@ -4738,7 +4738,7 @@ msgstr "பின்வரும் அட்டவணையின் மீத�
 #: resources/templates/server/privileges/privileges_table.twig:290
 #: src/Server/Privileges.php:317
 msgid "Allows reading data."
-msgstr ""
+msgstr "தரவைப் படிக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:33
 #: resources/templates/server/privileges/privileges_table.twig:60
