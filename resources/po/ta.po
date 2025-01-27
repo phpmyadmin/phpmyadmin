@@ -1689,7 +1689,7 @@ msgstr "ஒரு பக்கத்தை உருவாக்கி அதை
 
 #: resources/templates/database/designer/page_save_as.twig:28
 msgid "New page name"
-msgstr ""
+msgstr "புதிய பக்கத்தின் பெயர்"
 
 #: resources/templates/database/designer/page_selector.twig:2
 msgid "Select page"
