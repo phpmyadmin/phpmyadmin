@@ -7772,6 +7772,9 @@ msgid ""
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
+"முக்கிய தற்காலிக சேமிப்பில் பயன்படுத்தப்பட்ட தொகுதிகளின் எண்ணிக்கை. இந்த மதிப்பு ஒரு உயர் "
+"நீர் அடையாளமாகும், இது ஒரே நேரத்தில் பயன்பாட்டில் இருந்த அதிகபட்ச தொகுதிகளின் எண்ணிக்கையைக்"
+" குறிக்கிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:412
 msgid "Percentage of used key cache (calculated value)"
