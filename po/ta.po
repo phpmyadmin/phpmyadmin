@@ -10597,7 +10597,7 @@ msgstr "பயன்முறைகளை காட்டுக"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:164
 msgid "Put columns names in the first row:"
-msgstr ""
+msgstr "முதல் வரிசையில் நெடுவரிசை பெயர்களை வைக்கவும்:"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:210
 #: libraries/classes/Plugins/Export/ExportSql.php:758
