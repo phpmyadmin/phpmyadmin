@@ -596,7 +596,7 @@ msgstr "அதிகபட்சம் % myisam key buffeed இதுவரை �
 #: libraries/advisory_rules_generic.php:393
 #, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr ""
+msgstr "MyISAM விசை இடையக (குறியீட்டு தற்காலிக சேமிப்பு) % குறைவாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:378
 #: libraries/advisory_rules_generic.php:395
