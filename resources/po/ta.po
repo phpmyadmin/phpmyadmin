@@ -16226,6 +16226,8 @@ msgstr ""
 #: src/Plugins/AuthenticationPlugin.php:313
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"நீங்கள் இரண்டு காரணி அங்கீகாரத்தை இயக்கியுள்ளீர்கள், தயவுசெய்து உங்கள் உள்நுழைவை "
+"உறுதிப்படுத்தவும்."
 
 #: src/Plugins/Export/ExportCsv.php:65
 #: src/Plugins/Import/AbstractImportCsv.php:36
