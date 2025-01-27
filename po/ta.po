@@ -8269,7 +8269,7 @@ msgstr "கவிமொ அறிக்கைகள் செயல்படு�
 #: libraries/classes/Controllers/ThemesController.php:20
 #: templates/themes.twig:1
 msgid "Theme"
-msgstr ""
+msgstr "கருப்பொருள்"
 
 #: libraries/classes/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
