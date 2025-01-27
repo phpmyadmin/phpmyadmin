@@ -9659,7 +9659,7 @@ msgstr "இயல்புநிலை விருப்பங்களுட�
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
-msgstr ""
+msgstr "கடவுச்சொல்_ஆச் () பிஎச்பி செயல்பாடு"
 
 #: libraries/classes/Html/Generator.php:602
 msgid "Skip Explain SQL"
