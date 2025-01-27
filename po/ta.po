@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 03:00+0000\n"
+"PO-Revision-Date: 2025-01-27 03:01+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -643,7 +643,7 @@ msgstr "திறந்தநிலை அட்டவணைகளின் வ�
 
 #: libraries/advisory_rules_generic.php:420
 msgid "The rate of opening tables is high."
-msgstr ""
+msgstr "திறக்கும் அட்டவணையின் வீதம் அதிகமாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:422
 msgid ""
