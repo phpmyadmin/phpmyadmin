@@ -727,7 +727,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:470
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "அட்டவணை பூட்டு காத்திருப்பு வீதம்"
 
 #: libraries/advisory_rules_generic.php:475
 #, php-format
