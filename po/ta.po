@@ -18461,7 +18461,7 @@ msgstr ""
 
 #: templates/table/zoom_search/index.twig:116
 msgid "Use this column to label each point"
-msgstr ""
+msgstr "ஒவ்வொரு புள்ளியையும் லேபிளிட இந்த நெடுவரிசையைப் பயன்படுத்தவும்"
 
 #: templates/table/zoom_search/index.twig:141
 msgid "Maximum rows to plot"
