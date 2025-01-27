@@ -2713,7 +2713,7 @@ msgstr "மறை"
 #: js/messages.php:786
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "பின்"
+msgstr "முந்தைய"
 
 #: js/messages.php:791
 msgctxt "Next month"
