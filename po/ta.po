@@ -2542,7 +2542,7 @@ msgstr "லாங் டெக்ச்ட் நெடுவரிசைகள�
 
 #: libraries/classes/Config/Descriptions.php:569
 msgid "Maximum number of databases displayed in database list."
-msgstr ""
+msgstr "தரவுத்தள பட்டியலில் காட்டப்படும் அதிகபட்ச தரவுத்தளங்களின் எண்ணிக்கை."
 
 #: libraries/classes/Config/Descriptions.php:570
 msgid "Maximum number of tables displayed in table list."
