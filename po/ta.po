@@ -4313,7 +4313,7 @@ msgstr "உள்ளமைவு ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:43
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:46
 msgid "Signon authentication"
