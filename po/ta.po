@@ -17589,7 +17589,7 @@ msgstr "இந்த பக்கத்திற்குச் செல்ல�
 
 #: templates/table/insert/actions_panel.twig:24
 msgid "Edit next row"
-msgstr ""
+msgstr "அடுத்த வரிசையைத் திருத்தவும்"
 
 #: templates/table/insert/actions_panel.twig:32
 msgid ""
