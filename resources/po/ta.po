@@ -4198,6 +4198,7 @@ msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
+"%'%s' என்ற தரவுத்தளத்தை%உருவாக்கி, அங்கு phpmyadmin உள்ளமைவு சேமிப்பிடத்தை அமைக்கவும்."
 
 #: resources/templates/relation/check_relations.twig:24
 #, php-format
@@ -4236,7 +4237,7 @@ msgstr "சரி"
 
 #: resources/templates/relation/check_relations.twig:62
 msgid "General relation features:"
-msgstr "உள்ளமை உறவுமுறைகள்"
+msgstr "பொது உறவு அம்சங்கள்:"
 
 #: resources/templates/relation/check_relations.twig:64
 #: resources/templates/relation/check_relations.twig:89
@@ -4261,7 +4262,7 @@ msgstr "இயக்கப்பட்டது"
 
 #: resources/templates/relation/check_relations.twig:87
 msgid "Display features:"
-msgstr "பயன்முறைகளை காட்டுக"
+msgstr "காட்சி அம்சங்கள்:"
 
 #: resources/templates/relation/check_relations.twig:125
 msgid "Designer and creation of PDFs:"
