@@ -3845,7 +3845,7 @@ msgstr "அட்டவணை:"
 #. l10n: Show or hide the menu using the hamburger style button
 #: resources/templates/menu/main.twig:49
 msgid "Toggle navigation"
-msgstr "அட்டவணை வழிசெலுத்தல் பட்டி"
+msgstr "வழிசெலுத்தலை மாற்றவும்"
 
 #. l10n: Current page
 #: resources/templates/menu/main.twig:59
@@ -7010,7 +7010,7 @@ msgstr "அட்டவணையின் தொடக்கத்தில்"
 #: resources/templates/table/structure/display_structure.twig:558
 #, php-format
 msgid "Create an index on %s columns"
-msgstr ""
+msgstr "%s நெடுவரிசைகளில் ஒரு குறியீட்டை உருவாக்கவும்"
 
 #: resources/templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
