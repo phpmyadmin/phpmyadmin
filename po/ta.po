@@ -1510,7 +1510,7 @@ msgstr "வியட்நாமிய"
 #: libraries/classes/Common.php:245
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "நீங்கள் %s %s அல்லது அதற்குப் பிறகு மேம்படுத்த வேண்டும்."
 
 #: libraries/classes/Common.php:277
 msgid "Error: Token mismatch"
