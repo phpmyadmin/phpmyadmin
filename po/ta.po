@@ -16831,7 +16831,7 @@ msgstr "IO நூலை மட்டும் நிறுத்துங்க�
 
 #: templates/server/replication/replica_configuration.twig:74
 msgid "Error management:"
-msgstr ""
+msgstr "பிழை மேலாண்மை:"
 
 #: templates/server/replication/replica_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
