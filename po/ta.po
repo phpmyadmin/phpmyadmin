@@ -16684,6 +16684,7 @@ msgstr "… பயனர் அட்டவணையில் இருந்த
 msgid ""
 "… revoke all active privileges from the old one and delete it afterwards."
 msgstr ""
+"… பழையவற்றிலிருந்து அனைத்து செயலில் உள்ள சலுகைகளையும் ரத்து செய்து பின்னர் அதை நீக்கவும்."
 
 #: templates/server/privileges/user_properties.twig:140
 msgid ""
