@@ -17473,7 +17473,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 
 #: src/Server/Status/Data.php:172
 msgid "Flush query cache"
-msgstr ""
+msgstr "ஃப்ளச் வினவல் தற்காலிக சேமிப்பு"
 
 #: src/Server/Status/Processes.php:90
 msgid "ID"
