@@ -11237,6 +11237,10 @@ msgid ""
 "of a column which contains the filename. If you use the second option, you "
 "need to set the first option to the empty string."
 msgstr ""
+"நெடுவரிசையின் பைனரி தரவைப் பதிவிறக்க ஒரு இணைப்பைக் காட்டுகிறது. கோப்பு பெயரைக் "
+"குறிப்பிட முதல் விருப்பத்தைப் பயன்படுத்தலாம் அல்லது இரண்டாவது விருப்பத்தை கோப்பு பெயரைக் "
+"கொண்ட நெடுவரிசையின் பெயராகப் பயன்படுத்தலாம். நீங்கள் இரண்டாவது விருப்பத்தைப் பயன்படுத்தினால்"
+", முதல் விருப்பத்தை வெற்று சரத்திற்கு அமைக்க வேண்டும்."
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:41
 msgid ""
