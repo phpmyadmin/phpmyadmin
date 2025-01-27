@@ -16636,7 +16636,7 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:841
 msgid "Requires that a valid X509 certificate with this subject be presented."
-msgstr ""
+msgstr "இந்த விசயத்துடன் செல்லுபடியாகும் x509 சான்றிதழ் வழங்கப்பட வேண்டும்."
 
 #: templates/server/privileges/subnav.twig:5
 #: templates/server/privileges/user_overview.twig:5
