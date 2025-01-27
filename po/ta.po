@@ -9368,7 +9368,7 @@ msgstr "%s செயல்பாடு எதுவென்று தெரி�
 
 #: libraries/classes/Html/Generator.php:242
 msgid "SSL is not being used"
-msgstr ""
+msgstr "எச்.எச்.எல் பயன்படுத்தப்படவில்லை"
 
 #: libraries/classes/Html/Generator.php:247
 msgid "SSL is used with disabled verification"
