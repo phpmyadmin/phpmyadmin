@@ -14862,7 +14862,7 @@ msgstr "%s கண்காணிப்பு செயல்படுத்த�
 
 #: src/Controllers/Table/TrackingController.php:143
 msgid "SQL statements executed."
-msgstr ""
+msgstr "கவிமொ அறிக்கைகள் செயல்படுத்தப்பட்டன."
 
 #: src/Controllers/Table/TrackingController.php:197
 msgid "Tracking versions deleted successfully."
