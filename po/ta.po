@@ -11972,7 +11972,7 @@ msgstr ""
 #: templates/database/privileges/index.twig:102
 #: templates/table/privileges/index.twig:106
 msgid "No user found."
-msgstr ""
+msgstr "எந்த பயனரும் கிடைக்கவில்லை."
 
 #: libraries/classes/Server/Privileges.php:2452
 #, php-format
