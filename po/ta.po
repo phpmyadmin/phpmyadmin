@@ -3469,7 +3469,7 @@ msgstr "சேவையகங்கள் தேர்வு"
 
 #: libraries/classes/Config/Descriptions.php:836
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "விரைவான அணுகல் ஐகானுக்கான இலக்கு"
 
 #: libraries/classes/Config/Descriptions.php:837
 msgid "Target for second quick access icon"
