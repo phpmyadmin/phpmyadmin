@@ -14895,6 +14895,8 @@ msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
+"மொத்தம் (தொடக்கத்திலிருந்து) பிரதி பிரதி பிரதி கவிமொ நூல் பரிவர்த்தனைகளை மறுபரிசீலனை "
+"செய்துள்ளது."
 
 #: src/Controllers/Server/Status/VariablesController.php:463
 msgid "This is ON if this server is a replica that is connected to a primary."
