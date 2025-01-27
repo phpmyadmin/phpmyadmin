@@ -18581,6 +18581,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"ஐபிவி 6 முகவரிகளை சேமிப்பதற்காகவும், ஐபிவி 4 முகவரிகளையும் ஐபிவி 4 முகவரிகளின் "
+"வழக்கமான மேப்பிங் ஐபிவி 6 முகவரிகளில் கருதுகிறது"
 
 #: src/Types.php:276
 msgid "128-bit UUID (Universally Unique Identifier)"
