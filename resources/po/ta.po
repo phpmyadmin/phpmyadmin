@@ -5069,7 +5069,7 @@ msgstr "மரியாட்பில் பயன்படுத்தப்�
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Not used for this MySQL version."
-msgstr ""
+msgstr "இந்த MySQL பதிப்பிற்கு பயன்படுத்தப்படவில்லை."
 
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
@@ -5239,7 +5239,7 @@ msgstr "பயனர்களின் அதே பெயர்களைக் 
 
 #: resources/templates/server/privileges/users_overview.twig:177
 msgid "Save changes"
-msgstr "பக்கத்தை சேமிக்க"
+msgstr "மாற்றங்களைச் சேமிக்கவும்"
 
 #: resources/templates/server/replication/change_primary.twig:7
 msgid "Replica configuration - Change or reconfigure primary server"
