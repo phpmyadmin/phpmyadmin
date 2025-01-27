@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:56+0000\n"
+"PO-Revision-Date: 2025-01-27 02:57+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -14765,7 +14765,7 @@ msgstr "விருப்பமானவைகளில் சேர்க்�
 
 #: templates/database/structure/show_create.twig:2
 msgid "Showing create queries"
-msgstr ""
+msgstr "உருவாக்க வினவல்களைக் காட்டுகிறது"
 
 #: templates/database/structure/show_create.twig:33
 #: templates/display/results/table.twig:300 templates/modals/create_view.twig:5
