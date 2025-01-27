@@ -11550,7 +11550,7 @@ msgstr "பிழை தொடங்கும் பிரதி."
 
 #: libraries/classes/ReplicationGui.php:478
 msgid "Replication stopped successfully."
-msgstr ""
+msgstr "பிரதி வெற்றிகரமாக நிறுத்தப்பட்டது."
 
 #: libraries/classes/ReplicationGui.php:479
 msgid "Error stopping replication."
