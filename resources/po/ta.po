@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:55+0000\n"
+"PO-Revision-Date: 2025-01-27 02:56+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -4437,7 +4437,7 @@ msgstr "புள்ளிவிவரங்களை இயக்கவும�
 
 #: resources/templates/server/databases/index.twig:304
 msgid "No databases"
-msgstr ""
+msgstr "தரவுத்தளங்கள் இல்லை"
 
 #: resources/templates/server/databases/index.twig:314
 #: src/Controllers/JavaScriptMessagesController.php:367
