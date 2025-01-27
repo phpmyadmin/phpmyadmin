@@ -10115,7 +10115,7 @@ msgstr "தரவுத்தளக் கட்டமைப்பு"
 
 #: src/Config/Descriptions.php:761
 msgid "Tabs"
-msgstr ""
+msgstr "தாவல்கள்"
 
 #: src/Config/Descriptions.php:762
 msgid "Display relational schema"
