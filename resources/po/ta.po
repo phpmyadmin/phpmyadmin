@@ -17433,7 +17433,7 @@ msgstr "நூல்கள்"
 
 #: src/Server/Status/Data.php:120
 msgid "Temporary data"
-msgstr ""
+msgstr "தற்காலிக தரவு"
 
 #: src/Server/Status/Data.php:121
 msgid "Delayed inserts"
