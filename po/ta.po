@@ -10632,8 +10632,7 @@ msgid "MediaWiki Table"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:275
-#, fuzzy, php-format
-#| msgid "Invalid rule declaration on line %s."
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr "%sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது."
 
