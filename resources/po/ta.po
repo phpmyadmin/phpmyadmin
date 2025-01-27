@@ -6903,7 +6903,7 @@ msgstr "தொகுப்பு பார்வை"
 
 #: resources/templates/table/structure/display_structure.twig:392
 msgid "Propose table structure"
-msgstr ""
+msgstr "அட்டவணை கட்டமைப்பை முன்மொழியுங்கள்"
 
 #: resources/templates/table/structure/display_structure.twig:409
 msgid "Normalize"
