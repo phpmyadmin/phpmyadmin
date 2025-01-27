@@ -4290,7 +4290,7 @@ msgstr "கிடைக்கவில்லை"
 #: libraries/classes/Config/FormDisplay.php:808
 #, php-format
 msgid "\"%s\" requires %s extension"
-msgstr ""
+msgstr "\" %s\" க்கு %s நீட்டிப்பு தேவைப்படுகிறது"
 
 #: libraries/classes/Config/FormDisplay.php:839
 #, php-format
