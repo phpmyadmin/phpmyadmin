@@ -4140,7 +4140,7 @@ msgstr "ஐபி அனுமதி/மறுப்பதற்கான நம
 
 #: libraries/classes/Config/Descriptions.php:959
 msgid "Upload directory"
-msgstr ""
+msgstr "கோப்பகத்தை பதிவேற்றவும்"
 
 #: libraries/classes/Config/Descriptions.php:960
 msgid "Use database search"
