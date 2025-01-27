@@ -18043,7 +18043,7 @@ msgstr "அட்டவணை கட்டமைப்பை முன்மொ�
 
 #: templates/table/structure/display_structure.twig:361
 msgid "Normalize"
-msgstr ""
+msgstr "இயல்பாக்குங்கள்"
 
 #: templates/table/structure/display_structure.twig:367
 msgid "Track view"
