@@ -13146,7 +13146,7 @@ msgstr "தனித்தன்மை"
 #: templates/table/structure/display_structure.twig:223
 #: templates/table/structure/display_structure.twig:300
 msgid "Fulltext"
-msgstr ""
+msgstr "முழு உரை"
 
 #: templates/columns_definitions/column_attributes.twig:123
 #: templates/table/structure/display_structure.twig:193
