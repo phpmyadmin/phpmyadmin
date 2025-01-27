@@ -12394,7 +12394,7 @@ msgstr ""
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/master_replication.twig:9
 msgid "Show master status"
-msgstr ""
+msgstr "முதன்மை நிலையைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:206
 msgid "Show slave status"
