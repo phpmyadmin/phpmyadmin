@@ -11268,7 +11268,7 @@ msgstr ""
 
 #: src/Config/Validator.php:456
 msgid "Incorrect value:"
-msgstr ""
+msgstr "தவறான மதிப்பு:"
 
 #: src/Config/Validator.php:467
 #, php-format
