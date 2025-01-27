@@ -16858,19 +16858,19 @@ msgstr "எல்லா அட்டவணைகளுக்கும் ஒர�
 
 #: src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
-msgstr ""
+msgstr "கட்டத்தைக் காட்டு"
 
 #: src/Plugins/Schema/SchemaPdf.php:93
 msgid "Order of the tables"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "அட்டவணைகளின் வரிசை"
 
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Ascending)"
-msgstr "ஏறுவரிசை"
+msgstr "பெயர் (ஏறுதல்)"
 
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Descending)"
-msgstr "இறங்குவரிசை"
+msgstr "பெயர் (இறங்கு)"
 
 #: src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:27
 msgid ""
