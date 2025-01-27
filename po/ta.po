@@ -773,7 +773,7 @@ msgstr "{thread_cache_size} ஐ அதிகரிக்கவும்."
 #: libraries/advisory_rules_generic.php:496
 #, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
-msgstr ""
+msgstr "நூல் கேச் செய் விகிதம்:%%%, இந்த மதிப்பு 80 %ுறமாக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:501
 msgid "Threads that are slow to launch"
