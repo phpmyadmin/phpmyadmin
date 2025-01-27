@@ -15252,6 +15252,8 @@ msgid ""
 "Scroll down to fill in the options for the selected format and ignore the "
 "options for other formats."
 msgstr ""
+"தேர்ந்தெடுக்கப்பட்ட வடிவமைப்பிற்கான விருப்பங்களை நிரப்ப கீழே உருட்டவும், பிற வடிவங்களுக்கான "
+"விருப்பங்களை புறக்கணிக்கவும்."
 
 #: templates/export.twig:416 templates/import.twig:215
 msgid "Encoding Conversion:"
