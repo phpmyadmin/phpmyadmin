@@ -9080,7 +9080,7 @@ msgstr "இலவச பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:169
 msgid "Dirty pages"
-msgstr ""
+msgstr "அழுக்கு பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:178
 msgid "Pages containing data"
