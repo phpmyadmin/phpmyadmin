@@ -18474,7 +18474,7 @@ msgstr "இப்போது செயலிழக்கச் செய்ய�
 #: templates/table/tracking/structure_snapshot_columns.twig:5
 msgctxt "Number"
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/table/tracking/report_table.twig:5
 msgid "Date"
