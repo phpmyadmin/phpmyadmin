@@ -7012,7 +7012,7 @@ msgstr "%s செயல்தூண்டியின் தரவேற்ற�
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1380 src/Util.php:1396
 msgid "Triggers"
-msgstr ""
+msgstr "தூண்டுதல்கள்"
 
 #: resources/templates/triggers/list.twig:29
 msgid "Create new trigger"
