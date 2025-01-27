@@ -13500,7 +13500,7 @@ msgstr "சலுகைகளை சரிசெய்யவும்"
 
 #: templates/columns_definitions/table_fields_definitions.twig:59
 msgid "Virtuality"
-msgstr ""
+msgstr "மெய்நிகர்"
 
 #: templates/columns_definitions/table_fields_definitions.twig:65
 msgid "Move column"
