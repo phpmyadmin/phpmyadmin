@@ -6141,7 +6141,7 @@ msgstr "பிரிப்பான்"
 
 #: resources/templates/sql/query.twig:122
 msgid "Show this query here again"
-msgstr ""
+msgstr "இந்த வினவலை மீண்டும் இங்கே காட்டு"
 
 #: resources/templates/sql/query.twig:130 src/Config/Descriptions.php:923
 msgid "Retain query box"
