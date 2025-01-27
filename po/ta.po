@@ -16473,7 +16473,7 @@ msgstr "பதிலி கடவுச்சொல்"
 #: templates/server/privileges/login_information_fields.twig:62
 #: templates/server/replication/primary_add_replica_user.twig:65
 msgid "Re-type"
-msgstr ""
+msgstr "மறு வகை"
 
 #: templates/server/privileges/login_information_fields.twig:68
 msgid "Authentication plugin"
@@ -16732,7 +16732,7 @@ msgstr "உரைபுலத்தின் மூலமாக:"
 
 #: templates/server/replication/primary_add_replica_user.twig:70
 msgid "Generate password:"
-msgstr "கடவுச்சொல்லை இயற்று"
+msgstr "கடவுச்சொல்லை உருவாக்கு:"
 
 #: templates/server/replication/primary_configuration.twig:2
 msgid "Primary configuration"
