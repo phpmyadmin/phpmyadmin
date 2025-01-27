@@ -15742,8 +15742,6 @@ msgid "Remembering designer settings:"
 msgstr ""
 
 #: templates/relation/check_relations.twig:508
-#, fuzzy
-#| msgid "Invalid export type"
 msgid "Saving export templates:"
 msgstr "தகா தரவேற்ற சுட்டுவகை"
 
