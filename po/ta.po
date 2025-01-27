@@ -5514,6 +5514,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
+"நீங்கள் வரிசைகளின் எண்ணிக்கையைக் குறைக்க முயற்சிக்கிறீர்கள், ஆனால் ஏற்கனவே இழக்கப்படும் அந்த "
+"வரிசைகளில் தரவை உள்ளிட்டுள்ளீர்கள். நீங்கள் தொடர விரும்புகிறீர்களா?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:64
 msgid "Do you really want to revoke the selected user(s) ?"
@@ -5611,7 +5613,7 @@ msgstr "மீட்டமைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Reset all"
-msgstr "அனைத்தையும் மீட்டமைக்கவும்"
+msgstr "அனைத்தையும் மீட்டமை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Missing value in the form!"
@@ -5627,7 +5629,7 @@ msgstr "தயவுசெய்து ஒரு சரியான எண்ண
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:105
 msgid "Please enter a valid length!"
-msgstr "சரியான நீளத்தை உள்ளிடவும்!"
+msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:106
 msgid "Add index"
@@ -5640,7 +5642,7 @@ msgstr "தொகுக்குறியீட்டை திருத்த�
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:109
 msgid "Rename index"
-msgstr "தரவுத்தளத்தைப் இப்படி மறுபெயரிடுக"
+msgstr "குறியீட்டை மறுபெயரிடுங்கள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 #: templates/table/index_form.twig:237
@@ -5936,38 +5938,38 @@ msgstr "து"
 #: libraries/classes/Util.php:461
 #: templates/server/status/monitor/index.twig:186
 msgid "KiB"
-msgstr "வினோதமாக"
+msgstr "KiB"
 
 #. l10n: shortcuts for Megabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:194
 #: libraries/classes/Util.php:463
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
-msgstr "Mib"
+msgstr "MiB"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
 #: libraries/classes/Util.php:465
 msgid "GiB"
-msgstr "கிப்"
+msgstr "GiB"
 
 #. l10n: shortcuts for Terabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:196
 #: libraries/classes/Util.php:467
 msgid "TiB"
-msgstr "திப்"
+msgstr "TiB"
 
 #. l10n: shortcuts for Petabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:197
 #: libraries/classes/Util.php:469
 msgid "PiB"
-msgstr "தொடங்கவும்"
+msgstr "PiB"
 
 #. l10n: shortcuts for Exabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:198
 #: libraries/classes/Util.php:471
 msgid "EiB"
-msgstr "Eib"
+msgstr "EiB"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
 #, php-format
@@ -6019,7 +6021,7 @@ msgstr "எதுவுமில்லை"
 #. l10n: SQL Query on modal to show exported query
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:209
 msgid "SQL Query"
-msgstr "SQL வினவல்"
+msgstr "கவிமொ வினவல்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:210
 msgid "Resume monitor"
@@ -6343,11 +6345,11 @@ msgstr "தரவிறக்க வேண்டிய கோப்பை தய
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:312
 msgid "Please enter a valid table name."
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "செல்லுபடியாகும் அட்டவணை பெயரை உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
 msgid "Please enter a valid database name."
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான தரவுத்தள பெயரை உள்ளிடவும்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:314
 msgid "No files available on server for import!"
