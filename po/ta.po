@@ -8362,7 +8362,7 @@ msgstr "நிகழ்வுக்கு சரியான சாவுஒற�
 
 #: libraries/classes/Database/Events.php:440
 msgid "You must provide a valid type for the event."
-msgstr ""
+msgstr "நிகழ்வுக்கு சரியான வகையை நீங்கள் வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Events.php:464
 msgid "You must provide an event definition."
