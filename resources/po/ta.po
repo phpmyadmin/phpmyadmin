@@ -5196,7 +5196,7 @@ msgstr "உரைபுலத்தின் மூலமாக:"
 #: resources/templates/server/replication/primary_replication.twig:25
 #: src/Server/Status/Processes.php:92
 msgid "Host"
-msgstr ""
+msgstr "விருந்தோம்பி"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:70
 msgid "Generate password:"
