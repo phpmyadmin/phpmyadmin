@@ -11676,7 +11676,7 @@ msgstr "சலுகைகள் இல்லை."
 
 #: libraries/classes/Server/Privileges.php:277
 msgid "Includes all privileges except GRANT."
-msgstr ""
+msgstr "கிராண்ட் தவிர அனைத்து சலுகைகளும் அடங்கும்."
 
 #: libraries/classes/Server/Privileges.php:299
 #: libraries/classes/Server/Privileges.php:366
