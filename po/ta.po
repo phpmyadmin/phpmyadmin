@@ -11966,7 +11966,7 @@ msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர�
 #: libraries/classes/Server/Privileges.php:2278
 #, php-format
 msgid "You have updated the privileges for %s."
-msgstr ""
+msgstr "%s க்கான சலுகைகளை நீங்கள் புதுப்பித்துள்ளீர்கள்."
 
 #: libraries/classes/Server/Privileges.php:2365
 #: templates/database/privileges/index.twig:102
