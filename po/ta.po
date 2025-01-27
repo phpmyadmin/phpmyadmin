@@ -16913,7 +16913,7 @@ msgstr "விளக்கப்படத் தலைப்பு"
 
 #: templates/server/status/monitor/index.twig:131
 msgid "Preset chart"
-msgstr ""
+msgstr "முன்னமைக்கப்பட்ட விளக்கப்படம்"
 
 #: templates/server/status/monitor/index.twig:137
 msgid "Status variable(s)"
