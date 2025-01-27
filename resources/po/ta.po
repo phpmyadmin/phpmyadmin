@@ -4642,7 +4642,7 @@ msgstr "பயனர் பெயர்:"
 #: resources/templates/server/privileges/login_information_fields.twig:28
 #: resources/templates/server/replication/primary_add_replica_user.twig:34
 msgid "Any host"
-msgstr ""
+msgstr "எந்த புரவலன்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:29
 #: resources/templates/server/replication/primary_add_replica_user.twig:35
