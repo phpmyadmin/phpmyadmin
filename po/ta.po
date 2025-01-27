@@ -9939,7 +9939,7 @@ msgstr "மிகுதியான நெடுவரிசை இல்லை"
 
 #: libraries/classes/Normalization.php:360
 msgid "Move repeating groups"
-msgstr ""
+msgstr "மீண்டும் மீண்டும் குழுக்களை நகர்த்தவும்"
 
 #: libraries/classes/Normalization.php:363
 msgid ""
