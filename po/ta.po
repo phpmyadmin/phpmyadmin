@@ -14316,8 +14316,6 @@ msgid "All"
 msgstr ""
 
 #: templates/display/results/table.twig:73
-#, fuzzy
-#| msgid "Sort by key"
 msgid "Sort by key:"
 msgstr "குறிப்பெழுத்தின்படி வரிசைபடுத்துக"
 
