@@ -3055,7 +3055,7 @@ msgstr "அமர்வு மதிப்பு"
 
 #: libraries/classes/Config/Descriptions.php:730
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "புறக்கணிப்பு செருகல்களைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:732
 msgid "Syntax to use when inserting data"
