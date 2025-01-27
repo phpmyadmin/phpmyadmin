@@ -15339,7 +15339,7 @@ msgstr "மொழி"
 
 #: templates/home/index.twig:132
 msgid "Theme"
-msgstr ""
+msgstr "கருப்பொருள்"
 
 #: templates/home/index.twig:143
 msgctxt "View all themes"
