@@ -8291,7 +8291,7 @@ msgstr "தெரியவில்லை"
 #: src/Charsets/Collation.php:368
 msgctxt "Collation"
 msgid "Bulgarian"
-msgstr ""
+msgstr "பல்கேரியன்"
 
 #: src/Charsets/Collation.php:380
 msgctxt "Collation"
