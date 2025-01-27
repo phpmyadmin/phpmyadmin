@@ -8241,7 +8241,7 @@ msgstr "அரபு"
 #: src/Charsets/Collation.php:315 src/Charsets/Collation.php:438
 msgctxt "Collation"
 msgid "Korean"
-msgstr ""
+msgstr "கொரிய"
 
 #: src/Charsets/Collation.php:318
 msgctxt "Collation"
