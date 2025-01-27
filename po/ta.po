@@ -17227,8 +17227,6 @@ msgid "Edit partitioning"
 msgstr "தொகுப்பு பார்வை"
 
 #: templates/table/structure/display_structure.twig:71
-#, fuzzy
-#| msgid "Index type:"
 msgid "Media type:"
 msgstr "சுட்டுதொகுப்புக்குறி வகை:"
 
