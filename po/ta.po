@@ -895,7 +895,7 @@ msgstr "கைவிடப்பட்ட நுகர்வாளர்கள�
 #: libraries/advisory_rules_generic.php:573
 #: libraries/advisory_rules_generic.php:587
 msgid "Too many clients are aborted."
-msgstr ""
+msgstr "அதிகமான வாடிக்கையாளர்கள் கைவிடப்படுகிறார்கள்."
 
 #: libraries/advisory_rules_generic.php:575
 #: libraries/advisory_rules_generic.php:589
