@@ -16542,8 +16542,6 @@ msgid "Issue:"
 msgstr "சிக்கல்"
 
 #: templates/server/status/advisor/index.twig:79
-#, fuzzy
-#| msgid "Recommendation"
 msgid "Recommendation:"
 msgstr "பரிந்துரை"
 
