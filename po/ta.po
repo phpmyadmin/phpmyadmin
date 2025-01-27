@@ -7779,6 +7779,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:412
 msgid "Percentage of used key cache (calculated value)"
 msgstr ""
+"பயன்படுத்தப்பட்ட முக்கிய தற்காலிக சேமிப்பின் விழுக்காடு (கணக்கிடப்பட்ட மதிப்பு)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:413
 msgid "The number of requests to read a key block from the cache."
