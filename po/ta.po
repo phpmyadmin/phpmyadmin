@@ -13900,7 +13900,7 @@ msgstr "உறவை உருவாக்குங்கள்"
 #: templates/database/designer/main.twig:105
 #: templates/database/designer/main.twig:108
 msgid "Reload"
-msgstr ""
+msgstr "ஏற்றவும்"
 
 #: templates/database/designer/main.twig:112
 #: templates/database/designer/main.twig:115
