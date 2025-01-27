@@ -10735,7 +10735,7 @@ msgstr "மறைக்கப்பட்ட வழிசெலுத்தல�
 
 #: src/Config/Descriptions.php:907
 msgid "User for config auth"
-msgstr ""
+msgstr "கட்டமைப்பு அங்கீகாரத்திற்கான பயனர்"
 
 #: src/Config/Descriptions.php:908
 msgid "Verbose name of this server"
