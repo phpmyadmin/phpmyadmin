@@ -3159,7 +3159,7 @@ msgstr "வழிசெலுத்தல் மரம்"
 #: libraries/classes/Config/Descriptions.php:762
 #: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
-msgstr ""
+msgstr "சேவையகங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:763
 #: libraries/classes/Controllers/Server/DatabasesController.php:307
