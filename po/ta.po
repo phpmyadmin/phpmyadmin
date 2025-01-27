@@ -14476,7 +14476,7 @@ msgstr "வடிகட்டிகள்"
 #: templates/database/routines/index.twig:6 templates/filter.twig:6
 #: templates/server/status/variables/index.twig:15
 msgid "Containing the word:"
-msgstr ""
+msgstr "வார்த்தையைக் கொண்டுள்ளது:"
 
 #: templates/database/routines/index.twig:23
 msgid "There are no routines to display."
