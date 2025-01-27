@@ -16699,6 +16699,8 @@ msgid ""
 "Make sure you have a unique server-id in your configuration file (my.cnf). "
 "If not, please add the following line into [mysqld] section:"
 msgstr ""
+"உங்கள் உள்ளமைவு கோப்பில் (MY.CNF) தனித்துவமான சேவையக-ஐடி இருப்பதை உறுதிப்படுத்திக் "
+"கொள்ளுங்கள். இல்லையென்றால், பின்வரும் வரியை [mysqld] பிரிவில் சேர்க்கவும்:"
 
 #: templates/server/replication/change_primary.twig:26
 msgid "Port:"
