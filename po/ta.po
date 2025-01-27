@@ -10808,6 +10808,8 @@ msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
+"எக்சாடெசிமல் குறியீட்டில் பைனரி நெடுவரிசைகளை டம்ப் <i> (எடுத்துக்காட்டாக, \"ஏபிசி\" "
+"0x616263 ஆகிறது) </i> ஆகிறது"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:508
 msgid ""
