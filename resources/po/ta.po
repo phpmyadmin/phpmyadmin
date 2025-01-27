@@ -6640,7 +6640,7 @@ msgstr "தரவுத்தளங்கள்->அட்டவணை கட்
 
 #: resources/templates/table/page_with_secondary_tabs.twig:11
 msgid "Relation view"
-msgstr "தொடர்பு பார்வை"
+msgstr "உறவு பார்வை"
 
 #: resources/templates/table/partition/analyze.twig:2
 msgid "Analyze partition"
@@ -7102,7 +7102,7 @@ msgstr "பெயரை பார்"
 
 #: resources/templates/view_create.twig:89
 msgid "Column names"
-msgstr ""
+msgstr "நெடுவரிசை பெயர்கள்"
 
 #: src/Advisory/Advisor.php:207
 #, php-format
