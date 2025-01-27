@@ -14001,7 +14001,7 @@ msgstr "எல்லா அட்டவணைகளையும் மாற்�
 
 #: templates/database/operations/index.twig:220
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "அனைத்து அட்டவணைகள் நெடுவரிசைகள் தின்பண்டங்களை மாற்றவும்"
 
 #: templates/database/privileges/index.twig:9
 #: templates/table/privileges/index.twig:8
