@@ -3512,7 +3512,7 @@ msgstr "ஏற்றப்படுகிறது…"
 
 #: resources/templates/home/index.twig:323
 msgid "Get more themes!"
-msgstr ""
+msgstr "மேலும் கருப்பொருள்களைப் பெறுங்கள்!"
 
 #: resources/templates/home/themes.twig:8
 #, php-format
