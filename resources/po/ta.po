@@ -3246,7 +3246,7 @@ msgstr "வெளியீட்டை ஒரு கோப்பாக சேம
 
 #: resources/templates/export.twig:383
 msgid "File name template:"
-msgstr ""
+msgstr "கோப்பு பெயர் வார்ப்புரு:"
 
 #: resources/templates/export.twig:384
 #, php-format
@@ -4356,7 +4356,7 @@ msgstr "தகவல்"
 
 #: resources/templates/server/collations/index.twig:4
 msgid "Character sets and collations"
-msgstr "எழுத்து கணங்கள் மற்றும் அடுக்குவரிசைகள்"
+msgstr "எழுத்து செட் மற்றும் தொகுதிகள்"
 
 #: resources/templates/server/collations/index.twig:23
 msgctxt "The collation is the default one"
@@ -4429,7 +4429,7 @@ msgstr "உறுதிசெய்க"
 #: resources/templates/server/engines/index.twig:5
 #: resources/templates/server/engines/show.twig:3
 msgid "Storage engines"
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "சேமிப்பக இயந்திரங்கள்"
 
 #: resources/templates/server/engines/index.twig:13
 msgid "Storage Engine"
