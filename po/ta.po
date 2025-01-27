@@ -124,6 +124,8 @@ msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"உங்கள் சூழலைப் பொறுத்து {long_query_time} ஐ குறைந்த மதிப்புக்கு அமைக்க "
+"பரிந்துரைக்கப்படுகிறது. பொதுவாக 1-5 வினாடிகளின் மதிப்பு பரிந்துரைக்கப்படுகிறது."
 
 #: libraries/advisory_rules_generic.php:74
 #, php-format
