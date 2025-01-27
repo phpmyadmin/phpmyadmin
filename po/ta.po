@@ -9047,7 +9047,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:98
 msgid "Garbage threshold"
-msgstr ""
+msgstr "குப்பை வாசல்"
 
 #: libraries/classes/Engines/Pbxt.php:100
 msgid ""
