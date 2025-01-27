@@ -13713,7 +13713,7 @@ msgstr "வரையறுக்கவும்"
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
 msgid "Check all"
-msgstr "அனைத்தையும் தெரி"
+msgstr "அனைத்தையும் சரிபார்க்கவும்"
 
 #: templates/database/events/index.twig:29
 msgid "Create new event"
@@ -14488,7 +14488,7 @@ msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
 
 #: templates/display/results/table.twig:53
 msgid "All"
-msgstr ""
+msgstr "அனைத்தும்"
 
 #: templates/display/results/table.twig:73
 msgid "Sort by key:"
