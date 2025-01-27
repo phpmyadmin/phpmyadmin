@@ -13625,7 +13625,7 @@ msgstr "உங்கள் அமைவுகளின்படி,தற்ப�
 
 #: src/Controllers/JavaScriptMessagesController.php:658
 msgid "Column name successfully copied to clipboard!"
-msgstr ""
+msgstr "நெடுவரிசை பெயர் வெற்றிகரமாக இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது!"
 
 #: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name copying to clipboard failed!"
