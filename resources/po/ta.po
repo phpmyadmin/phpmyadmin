@@ -16416,7 +16416,7 @@ msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:190
 msgid "Additional custom header comment (\\n splits lines):"
-msgstr ""
+msgstr "கூடுதல் தனிப்பயன் தலைப்பு கருத்து (\\ n பி பிரிக்கிறது கோடுகள்):"
 
 #: src/Plugins/Export/ExportSql.php:196
 msgid ""
