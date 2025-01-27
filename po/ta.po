@@ -17636,7 +17636,7 @@ msgstr "அழைப்புக்கள்"
 
 #: templates/sql/profiling_chart.twig:59
 msgid "ø Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"
