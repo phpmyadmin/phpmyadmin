@@ -11056,7 +11056,7 @@ msgstr "அட்டவணை தலைப்புகளை தரவேற்�
 #: libraries/classes/Plugins/Export/ExportOdt.php:246
 #: libraries/classes/Plugins/Export/ExportTexytext.php:179
 msgid "Dumping data for query result"
-msgstr ""
+msgstr "வினவல் முடிவுக்கான தரவை கொட்டுதல்"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:77
 msgid "Report title:"
@@ -11068,7 +11068,7 @@ msgstr "தரவை கொட்டுதல்"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:213
 msgid "Query result data"
-msgstr "தேடல் முடிவுகளை மறை"
+msgstr "வினவல் முடிவு தரவு"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:273
 msgid "View structure"
@@ -11127,7 +11127,8 @@ msgstr "%s அறிக்கையைச் சேர்க்கவும்"
 #: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
-"(அட்டவணை உருவாக்கத்தின் போது குறியீடுகள் உருவாக்கப்படும் என்பதால் குறைந்த செயல்திறன்)"
+"(அட்டவணை உருவாக்கத்தின் போது குறியீடுகள் உருவாக்கப்படும் என்பதால் குறைந்த செயல்திறன் "
+"கொண்டது)"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
 #, php-format
