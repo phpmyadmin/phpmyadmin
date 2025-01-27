@@ -17764,7 +17764,7 @@ msgstr "ஒரு புதிய சேவையகத்தை சேர்"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "ஏதோ தவறு நடந்தது."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -17837,7 +17837,7 @@ msgstr "முடிந்ததும் ரோல்பேக்"
 
 #: templates/sql/query.twig:149
 msgid "Bookmark:"
-msgstr "புத்தகக்குறி"
+msgstr "புக்மார்க்கு:"
 
 #: templates/sql/query.twig:156
 msgid "shared"
@@ -17878,7 +17878,7 @@ msgstr "வளைக்கோடு"
 #: templates/table/chart/tbl_chart.twig:28
 msgctxt "Chart type"
 msgid "Area"
-msgstr "பரப்பளவு"
+msgstr "பகுதி"
 
 #: templates/table/chart/tbl_chart.twig:32
 msgctxt "Chart type"
@@ -17947,7 +17947,9 @@ msgstr "விளக்கப்படத்தை படமாக சேமி�
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr ""
+"@ சேவையகம்@ சேவையக பெயராக மாறும்,@ தரவுத்தளம்@ தரவுத்தள பெயராகவும்,@ அட்டவணை@ அட்டவணை"
+" பெயராகவும் மாறும்."
 
 #: templates/table/export/index.twig:7
 #, php-format
@@ -18034,7 +18036,7 @@ msgstr "குறியீட்டு தேர்வு:"
 
 #: templates/table/index_form.twig:52
 msgid "Advanced options"
-msgstr "செயல்படு விருப்பங்கள்"
+msgstr "மேம்பட்ட விருப்பங்கள்"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
@@ -18063,7 +18065,7 @@ msgstr "%s வரிசைகளுடன் செருகுவதைத் �
 
 #: templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
-msgstr "சரிபார்"
+msgstr "செக்சம்"
 
 #: templates/table/operations/index.twig:9
 msgid "Alter table order by"
