@@ -7771,7 +7771,7 @@ msgstr "%% myisam key buffed:%s %%, இந்த மதிப்பு 95 %ு�
 
 #: src/Advisory/Rules.php:435
 msgid "Percentage of index reads from memory"
-msgstr ""
+msgstr "குறியீட்டின் விழுக்காடு நினைவகத்திலிருந்து வாசிக்கிறது"
 
 #: src/Advisory/Rules.php:440
 #, no-php-format
