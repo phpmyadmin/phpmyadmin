@@ -13326,7 +13326,7 @@ msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
-msgstr ""
+msgstr "பகிர்வு வரையறை:"
 
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
