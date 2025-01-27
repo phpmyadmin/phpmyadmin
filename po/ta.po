@@ -7993,7 +7993,7 @@ msgstr "தரவைப் பெற கவிமொ வினவல் எத�
 
 #: libraries/classes/Controllers/Table/ChartController.php:145
 msgid "No numeric columns present in the table to plot."
-msgstr ""
+msgstr "சூழ்ச்சி செய்ய அட்டவணையில் எண் நெடுவரிசைகள் எதுவும் இல்லை."
 
 #: libraries/classes/Controllers/Table/ChartController.php:208
 msgid "No data to display"
