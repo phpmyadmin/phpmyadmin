@@ -8627,7 +8627,7 @@ msgstr "நீங்கள் ஒரு தூண்டுதல் பெயர
 
 #: libraries/classes/Database/Triggers.php:395
 msgid "You must provide a valid timing for the trigger!"
-msgstr ""
+msgstr "தூண்டுதலுக்கான சரியான நேரத்தை நீங்கள் வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Triggers.php:401
 msgid "You must provide a valid event for the trigger!"
