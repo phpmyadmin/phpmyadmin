@@ -4144,7 +4144,7 @@ msgstr "கோப்பகத்தை பதிவேற்றவும்"
 
 #: libraries/classes/Config/Descriptions.php:960
 msgid "Use database search"
-msgstr ""
+msgstr "தரவுத்தள தேடலைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:961
 msgid "Enable the Developer tab in settings"
