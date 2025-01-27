@@ -2775,7 +2775,7 @@ msgstr "டெக்ச்ட்லிங்கிற்கான இயல்�
 
 #: libraries/classes/Config/Descriptions.php:652
 msgid "Display servers as a list"
-msgstr ""
+msgstr "சேவையகங்களை ஒரு பட்டியலாகக் காண்பி"
 
 #: libraries/classes/Config/Descriptions.php:653
 msgid "Disable multi table maintenance"
