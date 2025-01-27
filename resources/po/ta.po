@@ -9782,7 +9782,7 @@ msgstr "டெக்ச்ட்லிங்கிற்கான இயல்�
 
 #: src/Config/Descriptions.php:632
 msgid "Display servers as a list"
-msgstr ""
+msgstr "சேவையகங்களை ஒரு பட்டியலாகக் காண்பி"
 
 #: src/Config/Descriptions.php:633
 msgid "Disable multi table maintenance"
