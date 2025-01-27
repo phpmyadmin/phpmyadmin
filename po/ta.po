@@ -11389,6 +11389,9 @@ msgid ""
 "prefix like \"https://www.example.com/\". The second option is a title for "
 "the link."
 msgstr ""
+"ஒரு இணைப்பைக் காட்டுகிறது; நெடுவரிசையில் கோப்பு பெயர் உள்ளது. முதல் விருப்பம் "
+"\"https://www.example.com/\" போன்ற முகவரி முன்னொட்டு. இரண்டாவது விருப்பம் இணைப்புக்கா"
+"ன தலைப்பு."
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
