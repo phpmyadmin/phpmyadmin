@@ -1308,7 +1308,7 @@ msgstr "மத்திய ஐரோப்பிய"
 #: libraries/classes/Charsets/Collation.php:555
 msgctxt "Collation"
 msgid "Russian"
-msgstr ""
+msgstr "ரச்ய"
 
 #: libraries/classes/Charsets/Collation.php:379
 msgctxt "Collation"
