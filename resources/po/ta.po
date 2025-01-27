@@ -677,7 +677,7 @@ msgstr "அடுக்கு"
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:603
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:625
 msgid "Attributes"
-msgstr ""
+msgstr "பண்புக்கூறுகள்"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:30
 #: resources/templates/database/central_columns/edit.twig:14
