@@ -110,7 +110,7 @@ msgstr "மதிப்புகளைத் திருத்தவும்"
 #: resources/templates/database/central_columns/main.twig:315
 msgctxt "for default"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: resources/templates/columns_definitions/column_attributes.twig:41
 #: resources/templates/database/central_columns/edit_table_row.twig:33
