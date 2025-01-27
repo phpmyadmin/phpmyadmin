@@ -5186,7 +5186,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:153
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "பூட்டு"
 
 #: resources/templates/server/privileges/users_overview.twig:146
 msgid "Remove selected user accounts"
