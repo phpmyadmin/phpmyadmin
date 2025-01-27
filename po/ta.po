@@ -3609,7 +3609,7 @@ msgstr "பைனரி நெடுவரிசைகளைப் பாது�
 
 #: libraries/classes/Config/Descriptions.php:869
 msgid "Permanent query history"
-msgstr ""
+msgstr "நிரந்தர வினவல் வரலாறு"
 
 #: libraries/classes/Config/Descriptions.php:870
 msgid "Query history length"
