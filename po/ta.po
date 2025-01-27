@@ -11785,7 +11785,7 @@ msgstr "PDF களின் வடிவமைப்பாளர் மற்ற
 
 #: libraries/classes/Relation.php:232
 msgid "Displaying Column Comments"
-msgstr ""
+msgstr "நெடுவரிசை கருத்துகளைக் காண்பிக்கும்"
 
 #: libraries/classes/Relation.php:238
 msgid "Browser transformation"
