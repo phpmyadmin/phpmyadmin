@@ -11370,6 +11370,8 @@ msgid ""
 "File upload functionality for TEXT columns. It does not have a textarea for "
 "input."
 msgstr ""
+"உரை நெடுவரிசைகளுக்கான கோப்பு பதிவேற்ற செயல்பாடு. இதற்கு உள்ளீட்டிற்கான டெக்ச்டாரியா "
+"இல்லை."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextImageLinkTransformationsPlugin.php:31
 msgid ""
