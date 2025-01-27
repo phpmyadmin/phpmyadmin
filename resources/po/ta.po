@@ -11247,7 +11247,7 @@ msgstr "நேர்மறை எண் அல்ல!"
 #: src/Config/Validator.php:574
 #: src/Controllers/JavaScriptMessagesController.php:829
 msgid "Not a non-negative number!"
-msgstr ""
+msgstr "எதிர்மறை அல்லாத எண் அல்ல!"
 
 #: src/Config/Validator.php:613
 #: src/Controllers/JavaScriptMessagesController.php:832
