@@ -6751,8 +6751,6 @@ msgid "up to date"
 msgstr "இன்றுவரை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
 msgstr "ESRI வடிவகோப்பை \"%s\" தரவிறக்குவதில் பிழை நிகழ்ந்துள்ளது."
 
