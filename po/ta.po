@@ -10933,7 +10933,7 @@ msgstr "அட்டவணை:"
 
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:203
 msgid "Purpose:"
-msgstr ""
+msgstr "நோக்கம்:"
 
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:30
 msgid ""
