@@ -15660,7 +15660,7 @@ msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
 #: src/InsertEdit.php:886 src/Sql.php:860
 msgid "Showing SQL query"
-msgstr ""
+msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
 #: src/InsertEdit.php:910 src/Sql.php:840
 #, php-format
