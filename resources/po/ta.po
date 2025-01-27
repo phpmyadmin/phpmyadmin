@@ -14318,7 +14318,7 @@ msgstr "பக்கங்களின் எண்ணிக்கை படி�
 
 #: src/Controllers/Server/Status/VariablesController.php:368
 msgid "The number of pages written."
-msgstr ""
+msgstr "எழுதப்பட்ட பக்கங்களின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:369
 msgid "The number of row locks currently being waited for."
