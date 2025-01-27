@@ -8870,7 +8870,7 @@ msgstr "நிகழ்வு"
 
 #: libraries/classes/Database/Triggers.php:496
 msgid "You must provide a trigger name!"
-msgstr ""
+msgstr "நீங்கள் ஒரு தூண்டுதல் பெயரை வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Triggers.php:503
 msgid "You must provide a valid timing for the trigger!"
