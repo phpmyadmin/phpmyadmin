@@ -10725,7 +10725,7 @@ msgstr "பயனர் அட்டவணை"
 
 #: src/Config/Descriptions.php:905
 msgid "User groups table"
-msgstr ""
+msgstr "பயனர் குழுக்கள் அட்டவணை"
 
 #: src/Config/Descriptions.php:906
 msgid "Hidden navigation items table"
