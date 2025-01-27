@@ -247,6 +247,8 @@ msgid ""
 "Percona documentation is at <a href=\"https://www.percona.com/software/"
 "documentation/\">https://www.percona.com/software/documentation/</a>"
 msgstr ""
+"பெர்கோனா ஆவணம் <a href = \"https://www.percona.com/software/documentation/\"> "
+"https://www.percona.com/software/documentation/ </a> இல் உள்ளது"
 
 #: libraries/advisory_rules_generic.php:164
 msgid "'percona' found in version_comment"
