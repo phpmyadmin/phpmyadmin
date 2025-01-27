@@ -7250,7 +7250,7 @@ msgstr "Phpmyadmin உள்ளமைவு துணுக்கை"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:95
 msgid "Paste it to your config.inc.php"
-msgstr ""
+msgstr "அதை உங்கள் config.inc.php க்கு ஒட்டவும்"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:144
 msgid "Could not import configuration"
