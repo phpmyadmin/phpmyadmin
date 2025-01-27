@@ -1153,7 +1153,7 @@ msgstr "எண்ணிக்கை"
 #: resources/templates/console/display.twig:121
 #: src/Controllers/JavaScriptMessagesController.php:671
 msgid "Time taken:"
-msgstr ""
+msgstr "எடுக்கப்பட்ட நேரம்:"
 
 #: resources/templates/console/display.twig:133
 #: resources/templates/server/status/processes/index.twig:19
