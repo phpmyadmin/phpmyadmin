@@ -9458,7 +9458,7 @@ msgstr "அல்லது"
 
 #: libraries/classes/InsertEdit.php:734
 msgid "web server upload directory:"
-msgstr ""
+msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
 #: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
