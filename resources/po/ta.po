@@ -16854,7 +16854,7 @@ msgstr "உருவப்படம்"
 #: src/Plugins/Schema/SchemaEps.php:57 src/Plugins/Schema/SchemaPdf.php:59
 #: src/Plugins/Schema/SchemaSvg.php:56
 msgid "Same width for all tables"
-msgstr ""
+msgstr "எல்லா அட்டவணைகளுக்கும் ஒரே அகலம்"
 
 #: src/Plugins/Schema/SchemaPdf.php:81
 msgid "Show grid"
