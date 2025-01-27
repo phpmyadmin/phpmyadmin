@@ -8370,7 +8370,7 @@ msgstr ""
 
 #: libraries/classes/Database/Events.php:502
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட நிகழ்வை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
 #: libraries/classes/Database/Events.php:503
 #: libraries/classes/Database/Routines.php:1536
