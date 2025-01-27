@@ -11835,7 +11835,7 @@ msgstr "வினவல் மூலம் எடுத்துக்காட�
 
 #: libraries/classes/Relation.php:377
 msgid "Managing Central list of columns"
-msgstr ""
+msgstr "நெடுவரிசைகளின் மைய பட்டியலை நிர்வகித்தல்"
 
 #: libraries/classes/Relation.php:388
 msgid "Remembering Designer Settings"
