@@ -2020,7 +2020,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:310
 msgid "Whether to show procedures under database in the navigation tree"
-msgstr ""
+msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் நடைமுறைகளைக் காட்ட வேண்டுமா?"
 
 #: libraries/classes/Config/Descriptions.php:313
 msgid "Whether to expand single database in the navigation tree automatically."
@@ -2069,7 +2069,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:325
 msgid "Whether to show events under database in the navigation tree"
-msgstr "மறைத்துள்ள வழிசெலுத்தல் படிமுறை உருப்படிகளை காண்பி."
+msgstr "வழிசெலுத்தல் மரத்தில் தரவுத்தளத்தின் கீழ் நிகழ்வுகளைக் காட்ட வேண்டுமா?"
 
 #: libraries/classes/Config/Descriptions.php:327
 msgid ""
@@ -3532,7 +3532,7 @@ msgstr "மரத்தில் நடைமுறைகளைக் காட�
 
 #: libraries/classes/Config/Descriptions.php:852
 msgid "Show events in tree"
-msgstr "பதிப்புகளை காட்டு"
+msgstr "மரத்தில் நிகழ்வுகளைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:853
 msgid "Expand single database"
