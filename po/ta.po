@@ -9670,7 +9670,7 @@ msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 #: libraries/classes/InsertEdit.php:1787
 #: templates/table/search/input_box.twig:37
 msgid "Edit/Insert"
-msgstr ""
+msgstr "திருத்து/செருகவும்"
 
 #: libraries/classes/InsertEdit.php:1856
 msgid "and then"
