@@ -12883,7 +12883,7 @@ msgstr "கடவுச்சொல் மிக நீளமானது!"
 
 #: libraries/classes/UserPreferences.php:181
 msgid "Could not save configuration"
-msgstr ""
+msgstr "உள்ளமைவைச் சேமிக்க முடியவில்லை"
 
 #: libraries/classes/UserPreferences.php:192
 msgid "The phpMyAdmin configuration storage database could not be accessed."
