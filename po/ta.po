@@ -7391,6 +7391,7 @@ msgstr ""
 msgid ""
 "The number of connection attempts (successful or not) to the MySQL server."
 msgstr ""
+"MySQL சேவையகத்திற்கு இணைப்பு முயற்சிகளின் எண்ணிக்கை (வெற்றிகரமாக அல்லது இல்லை)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:250
 msgid ""
