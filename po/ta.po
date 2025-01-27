@@ -10721,7 +10721,7 @@ msgstr "கூற்றுகளை சேர்க்க:"
 #: libraries/classes/Plugins/Export/ExportSql.php:372
 #, php-format
 msgid "Add %s statement"
-msgstr ""
+msgstr "%s அறிக்கையைச் சேர்க்கவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:318
 msgid "(less efficient as indexes will be generated during table creation)"
