@@ -12654,6 +12654,8 @@ msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
+"டைனின்ட் (1) இன் ஒத்த பெயர், பூச்சியத்தின் மதிப்பு தவறானது என்று கருதப்படுகிறது, "
+"nonzero மதிப்புகள் உண்மையாக கருதப்படுகின்றன"
 
 #: libraries/classes/Types.php:288
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
