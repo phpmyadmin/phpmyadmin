@@ -16967,7 +16967,7 @@ msgstr "வினவல் உரையால் முடிவுகள் த
 
 #: templates/server/status/monitor/index.twig:237
 msgid "Query analyzer"
-msgstr ""
+msgstr "வினவல் பகுப்பாய்வி"
 
 #: templates/server/status/processes/index.twig:14
 msgid "Show only active"
