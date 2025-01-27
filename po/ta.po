@@ -11525,7 +11525,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:88
 msgid "Image preview here"
-msgstr ""
+msgstr "பட முன்னோட்டம் இங்கே"
 
 #: libraries/classes/Plugins/Transformations/Abs/InlineTransformationsPlugin.php:30
 msgid ""
