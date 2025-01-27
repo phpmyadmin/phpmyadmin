@@ -15714,8 +15714,6 @@ msgid "Persistent tables' UI preferences:"
 msgstr ""
 
 #: templates/relation/check_relations.twig:320
-#, fuzzy
-#| msgid "Tracking report"
 msgid "Tracking:"
 msgstr "கண்காணிப்பு அறிக்கை"
 
