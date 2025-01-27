@@ -5156,7 +5156,7 @@ msgstr ""
 #: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:755
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
-msgstr ""
+msgstr "புரவலன்:"
 
 #: resources/templates/server/replication/change_primary.twig:29
 msgid "Port:"
@@ -16392,7 +16392,7 @@ msgstr "அறிக்கையின் தலைப்பு:"
 
 #: src/Plugins/Export/ExportPdf.php:184
 msgid "Dumping data"
-msgstr "தவறான தரவு"
+msgstr "தரவை கொட்டுதல்"
 
 #: src/Plugins/Export/ExportPdf.php:201
 msgid "Query result data"
@@ -16400,7 +16400,7 @@ msgstr "தேடல் முடிவுகளை மறை"
 
 #: src/Plugins/Export/ExportPdf.php:237
 msgid "View structure"
-msgstr "கட்டமைப்பு"
+msgstr "கட்டமைப்பைக் காண்க"
 
 #: src/Plugins/Export/ExportPdf.php:240
 msgid "Stand in"
