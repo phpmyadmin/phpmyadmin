@@ -17257,7 +17257,7 @@ msgstr "அறிக்கைகள்"
 #. l10n: # = Amount of queries
 #: templates/server/status/queries/index.twig:38
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
