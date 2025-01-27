@@ -15034,7 +15034,7 @@ msgstr "இடையக பூல் பயன்பாடு"
 
 #: src/Engines/Innodb.php:135
 msgid "pages"
-msgstr ""
+msgstr "பக்கங்கள்"
 
 #: src/Engines/Innodb.php:143
 msgid "Free pages"
