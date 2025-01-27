@@ -13834,16 +13834,16 @@ msgstr "அனைத்தையும் தெரிவுசெய்க"
 
 #: templates/database/designer/database_tables.twig:37
 msgid "Show/hide columns"
-msgstr "நெடுவரிசைகளை நகர்த்து"
+msgstr "நெடுவரிசைகளைக் காட்டு/மறைக்கவும்"
 
 #: templates/database/designer/database_tables.twig:46
 msgid "See table structure"
-msgstr "தரவுத்தளங்கள்->அட்டவணை கட்டமைப்பு"
+msgstr "அட்டவணை கட்டமைப்பைக் காண்க"
 
 #: templates/database/designer/database_tables.twig:91
 #, php-format
 msgid "Select \"%s\""
-msgstr "அனைத்தையும் தெரிவுசெய்க"
+msgstr "\"%s\" என்பதைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/database/designer/database_tables.twig:109
 #, php-format
@@ -15060,7 +15060,7 @@ msgstr "வெளியீடு:"
 #: templates/export.twig:175 templates/export.twig:370
 #, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
-msgstr "%1$s அட்டவணையில் பொருந்தியவை <strong>%2$s </strong>"
+msgstr "கோப்பகத்தில் சேவையகத்தில் சேமிக்கவும் <strong>%s </strong>"
 
 #: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
@@ -16918,7 +16918,7 @@ msgstr ""
 
 #: templates/server/privileges/users_overview.twig:153
 msgid "Drop the databases that have the same names as the users."
-msgstr ""
+msgstr "பயனர்களின் அதே பெயர்களைக் கொண்ட தரவுத்தளங்களை கைவிடவும்."
 
 #: templates/server/privileges/users_overview.twig:178
 msgid "Save changes"
@@ -18374,7 +18374,7 @@ msgstr "%s நெடுவரிசைகளை சேர்க்க"
 
 #: templates/table/structure/display_structure.twig:445
 msgid "at beginning of table"
-msgstr "திறந்தநிலை அட்டவணைகளின் விழுக்காடு"
+msgstr "அட்டவணையின் தொடக்கத்தில்"
 
 #: templates/table/structure/display_structure.twig:569
 #, php-format
