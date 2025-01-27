@@ -14997,7 +14997,7 @@ msgstr "பிழை அறிக்கையை அனுப்பவும்"
 
 #: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+msgstr "ஒரு வார்ப்புருவைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/export.twig:14
 msgid "Export templates:"
@@ -15173,7 +15173,7 @@ msgstr "வடிவமைப்பு-குறிப்பிட்ட வி�
 
 #: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "குறியீட்டு மாற்றம்:"
 
 #: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
