@@ -14250,7 +14250,7 @@ msgstr "பதிப்பை உருவாக்கு"
 #: templates/database/central_columns/edit.twig:13
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr ""
+msgstr "A_i"
 
 #: templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -14259,7 +14259,7 @@ msgstr "புதிய நெடுவரிசையை சேர்க்க"
 #: templates/database/central_columns/main.twig:24
 #: templates/database/central_columns/main.twig:230
 msgid "Length/Value"
-msgstr "நீளம்/மதிப்புகள்"
+msgstr "நீளம்/மதிப்பு"
 
 #: templates/database/central_columns/main.twig:36
 #: templates/database/central_columns/main.twig:242
@@ -14273,7 +14273,7 @@ msgstr "A_i"
 
 #: templates/database/central_columns/main.twig:131
 msgid "The central list of columns for the current database is empty"
-msgstr "நடப்பு தரவுத்தளத்துக்கான மையநிரல்வரிசைப்பட்டியல் வெறுமையாக உள்ளது."
+msgstr "தற்போதைய தரவுத்தளத்திற்கான நெடுவரிசைகளின் மைய பட்டியல் காலியாக உள்ளது"
 
 #: templates/database/central_columns/main.twig:168
 #: templates/display/results/table.twig:62
@@ -14339,7 +14339,7 @@ msgstr "நெடுவரிசைகளின் எண்ணிக்கை"
 
 #: templates/database/data_dictionary/index.twig:3
 msgid "Database comment:"
-msgstr "தரவுத்தள கருத்துரை"
+msgstr "தரவுத்தள கருத்து:"
 
 #: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:418
@@ -14670,7 +14670,8 @@ msgstr "அணை"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr "@SERVER@ ஆனது வழங்கியின் பெயராக கொள்ளப்படும்"
+msgstr ""
+"@ சேவையகம்@ சேவையக பெயராகவும்,@ தரவுத்தளமாக@ தரவுத்தள பெயராகவும் மாறும்."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
