@@ -8306,7 +8306,7 @@ msgstr "செக்"
 #: src/Charsets/Collation.php:388
 msgctxt "Collation"
 msgid "Danish"
-msgstr ""
+msgstr "டேனிச்"
 
 #: src/Charsets/Collation.php:392
 msgctxt "Collation"
