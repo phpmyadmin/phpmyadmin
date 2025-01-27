@@ -9652,7 +9652,7 @@ msgstr "வரிசை மார்க்கர்"
 
 #: src/Config/Descriptions.php:603
 msgid "Highlight pointer"
-msgstr ""
+msgstr "சுட்டிக்காட்டி சிறப்பம்சமாக"
 
 #: src/Config/Descriptions.php:604
 msgid "Bzip2"
