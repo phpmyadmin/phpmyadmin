@@ -2201,6 +2201,8 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
+"நடு நெடுவரிசைகள் எந்த ஆதரவிற்கும் காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [kbd] "
+"pma__central_columns [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:386
 msgid ""
