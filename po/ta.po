@@ -16134,6 +16134,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
+"உள்ளமைவு கோப்பில் மேம்பட்ட அம்சங்களை இயக்கவும் (<code> config.inc.php </code>), "
+"எடுத்துக்காட்டாக <code> config.sample.inc.php </code> இலிருந்து தொடங்குவதன் மூலம்."
 
 #: templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
