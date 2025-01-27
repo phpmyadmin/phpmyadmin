@@ -10694,10 +10694,12 @@ msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
+"தரவுத்தளங்கள் எப்போது உருவாக்கப்பட்டன, கடைசியாக புதுப்பிக்கப்பட்டன, கடைசியாக "
+"சரிபார்க்கப்பட்டன"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:207
 msgid "Export metadata"
-msgstr "ஒழுங்கமைவை தரவேற்றுக"
+msgstr "ஏற்றுமதி மேனிலை தரவு"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:222
 msgid ""
