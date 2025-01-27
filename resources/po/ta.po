@@ -10705,7 +10705,7 @@ msgstr "கவிமொ வினவல் கண்காணிப்பு அ
 
 #: src/Config/Descriptions.php:902
 msgid "Automatically create versions"
-msgstr ""
+msgstr "பதிப்புகளை தானாக உருவாக்கவும்"
 
 #: src/Config/Descriptions.php:903
 msgid "User preferences storage table"
