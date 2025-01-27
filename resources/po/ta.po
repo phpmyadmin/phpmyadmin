@@ -5960,7 +5960,7 @@ msgstr "அங்கீகார வகை"
 
 #: resources/templates/setup/home/index.twig:80
 msgid "There are no configured servers"
-msgstr ""
+msgstr "கட்டமைக்கப்பட்ட சேவையகங்கள் எதுவும் இல்லை"
 
 #: resources/templates/setup/home/index.twig:89
 msgid "New server"
