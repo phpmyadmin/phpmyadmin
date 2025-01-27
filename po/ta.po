@@ -15230,7 +15230,7 @@ msgstr "அட்டவணை தலைப்புகளை தரவேற்�
 
 #: templates/export.twig:394
 msgid "View output as text"
-msgstr ""
+msgstr "வெளியீட்டை உரையாக காண்க"
 
 #: templates/export.twig:400
 #, php-format
