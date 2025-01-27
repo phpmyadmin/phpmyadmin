@@ -14835,7 +14835,7 @@ msgstr "MySQL சொன்னது: "
 
 #: src/Database/Events.php:116
 msgid "Sorry, we failed to restore the dropped event."
-msgstr ""
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட நிகழ்வை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
 #: src/Database/Events.php:117 src/Database/Routines.php:224
 #: src/Triggers/Triggers.php:108
