@@ -5031,7 +5031,7 @@ msgstr "பயனர் கணக்குகளை உருவாக்க, �
 
 #: resources/templates/server/privileges/privileges_table.twig:734
 msgid "Resource limits"
-msgstr ""
+msgstr "வள வரம்புகள்"
 
 #: resources/templates/server/privileges/privileges_table.twig:737
 msgid "Note: Setting these options to 0 (zero) removes the limit."
