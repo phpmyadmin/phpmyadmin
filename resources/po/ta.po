@@ -5425,7 +5425,7 @@ msgstr "அடுத்த %s பிழைகளைத் தவிர்க்�
 
 #: resources/templates/server/replication/replica_configuration.twig:97
 msgid "Change or reconfigure primary server"
-msgstr ""
+msgstr "முதன்மை சேவையகத்தை மாற்றவும் அல்லது மறுகட்டமைக்கவும்"
 
 #: resources/templates/server/replication/replica_configuration.twig:103
 #, php-format
