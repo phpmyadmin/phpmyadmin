@@ -15170,15 +15170,15 @@ msgstr "அகற்று"
 
 #: templates/export.twig:230
 msgid "Define new aliases"
-msgstr ""
+msgstr "புதிய மாற்றுப்பெயர்களை வரையறுக்கவும்"
 
 #: templates/export.twig:235
 msgid "Select database:"
-msgstr "ஒரு தரவுத்தளத்தை தேர்வுசெய்க"
+msgstr "தரவுத்தளத்தைத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/export.twig:249
 msgid "Select table:"
-msgstr "அட்டவணையை தேர்வுசெய்க"
+msgstr "அட்டவணையைத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/export.twig:255
 msgid "New table name"
@@ -15186,7 +15186,7 @@ msgstr "அட்டவணையின் புதிய பெயர்"
 
 #: templates/export.twig:263
 msgid "Select column:"
-msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
+msgstr "நெடுவரிசையைத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/export.twig:269
 msgid "New column name"
