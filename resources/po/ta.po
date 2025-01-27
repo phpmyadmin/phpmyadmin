@@ -10054,7 +10054,7 @@ msgstr "வழிசெலுத்தல் மரம்"
 
 #: src/Config/Descriptions.php:745
 msgid "Microsoft Office"
-msgstr ""
+msgstr "நுண்மென் ஆபிச்"
 
 #: src/Config/Descriptions.php:747
 msgid "Other core settings"
