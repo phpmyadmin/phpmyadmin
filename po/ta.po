@@ -11247,7 +11247,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:89
 msgid "Import currencies <i>(ex. $5.00 to 5.00)</i>"
-msgstr ""
+msgstr "நாணயங்களை இறக்குமதி <i> (எ.கா. $ 5.00 முதல் 5.00 வரை) </i>"
 
 #: libraries/classes/Plugins/Import/ImportOds.php:159
 #: libraries/classes/Plugins/Import/ImportXml.php:118
