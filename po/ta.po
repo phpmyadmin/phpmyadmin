@@ -2794,7 +2794,7 @@ msgstr "முதல் வரிசையில் நெடுவரிசை 
 #: libraries/classes/Config/Descriptions.php:809
 #: libraries/classes/Plugins/Import/ImportCsv.php:678
 msgid "Columns enclosed with"
-msgstr ""
+msgstr "இணைக்கப்பட்ட நெடுவரிசைகள்"
 
 #: libraries/classes/Config/Descriptions.php:671
 #: libraries/classes/Config/Descriptions.php:804
