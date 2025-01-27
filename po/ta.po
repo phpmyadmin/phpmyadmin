@@ -14911,7 +14911,7 @@ msgstr ""
 
 #: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
-msgstr ""
+msgstr "சாவாச்கிரிப்ட் இந்த புள்ளியைத் தாண்டி இயக்கப்பட வேண்டும்!"
 
 #: templates/header.twig:46
 msgid "Click on the bar to scroll to top of page"
