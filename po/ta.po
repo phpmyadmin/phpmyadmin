@@ -14288,7 +14288,7 @@ msgstr "கடைசி மதிப்புருவை நீக்குக"
 
 #: templates/database/routines/editor_form.twig:75
 msgid "Return type"
-msgstr ""
+msgstr "திரும்ப வகை"
 
 #: templates/database/routines/editor_form.twig:83
 msgid "Return length/values"
