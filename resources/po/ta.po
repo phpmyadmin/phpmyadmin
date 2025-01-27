@@ -17707,7 +17707,7 @@ msgstr "மன்னிக்கவும், கைவிடப்பட்ட 
 #: src/Triggers/Triggers.php:114
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr ""
+msgstr "தூண்டுதல் %1$s மாற்றியமைக்கப்பட்டுள்ளது."
 
 #: src/Triggers/Triggers.php:134
 #, php-format
