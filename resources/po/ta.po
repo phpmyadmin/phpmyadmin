@@ -9719,7 +9719,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:617
 msgid "Default database tab"
-msgstr ""
+msgstr "இயல்புநிலை தரவுத்தள தாவல்"
 
 #: src/Config/Descriptions.php:618
 msgid "Default server tab"
