@@ -15729,6 +15729,8 @@ msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
+"அமர்வு குக்கீ அமைக்கத் தவறிவிட்டது. Phpmyadmin ஐ அணுக HTTPS க்கு பதிலாக HTTP ஐப் "
+"பயன்படுத்துகிறீர்கள்."
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:67
 msgid "Error: Token mismatch"
