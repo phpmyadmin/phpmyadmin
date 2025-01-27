@@ -3901,7 +3901,7 @@ msgstr "கோப்புகளை இங்கு விடுக"
 
 #: resources/templates/navigation/main.twig:88
 msgid "SQL upload"
-msgstr ""
+msgstr "கவிமொ பதிவேற்றம்"
 
 #: resources/templates/navigation/tree/database_select.twig:10
 #: resources/templates/server/databases/index.twig:3
