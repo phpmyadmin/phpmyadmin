@@ -1125,6 +1125,8 @@ msgid ""
 "This might be caused by {query_cache_limit} being too low. Flushing the "
 "query cache might help as well."
 msgstr ""
+"இது {query_cache_limit bours மிகக் குறைவாக இருப்பதால் ஏற்படலாம். வினவல் தற்காலிக "
+"சேமிப்பையும் பறிப்பதும் உதவக்கூடும்."
 
 #: libraries/advisory_rules_mysql_before80003.php:45
 #, php-format
