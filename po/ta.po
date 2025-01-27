@@ -3803,7 +3803,7 @@ msgstr "சேவையக துறைமுகம்"
 
 #: libraries/classes/Config/Descriptions.php:907
 msgid "Recently used table"
-msgstr ""
+msgstr "அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:908
 msgid "Favorites table"
