@@ -16839,7 +16839,7 @@ msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
-msgstr ""
+msgstr "தற்போதைய பிழையைத் தவிர்க்கவும்"
 
 #: templates/server/replication/replica_configuration.twig:87
 #, php-format
