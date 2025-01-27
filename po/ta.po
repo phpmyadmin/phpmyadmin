@@ -8859,7 +8859,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:415
 #: templates/database/triggers/list.twig:24
 msgid "Event"
-msgstr ""
+msgstr "நிகழ்வு"
 
 #: libraries/classes/Database/Triggers.php:496
 msgid "You must provide a trigger name!"
