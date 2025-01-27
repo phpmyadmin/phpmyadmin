@@ -13485,6 +13485,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"ஐபிவி 6 முகவரிகளை சேமிப்பதற்காகவும், ஐபிவி 4 முகவரிகளையும் ஐபிவி 4 முகவரிகளின் "
+"வழக்கமான மேப்பிங் ஐபிவி 6 முகவரிகளில் கருதுகிறது"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13515,7 +13517,7 @@ msgstr "உள்ளமைவைச் சேமிக்க முடியவ�
 
 #: libraries/classes/UserPreferences.php:178
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்கப்பட்டுள்ளது. %sஏனென்று அறிக%s."
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பக தரவுத்தளத்தை அணுக முடியவில்லை."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -13598,7 +13600,7 @@ msgstr "மார்கழி"
 #: libraries/classes/Util.php:770
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "ஞாயிறு"
+msgstr "சூரியன்"
 
 #. l10n: Short week day name for Monday
 #: libraries/classes/Util.php:772 templates/javascript/variables.twig:58
@@ -13924,7 +13926,7 @@ msgstr "இணைப்பு:"
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:128
 msgid "Storage engine"
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "சேமிப்பக இயந்திரம்"
 
 #: templates/columns_definitions/column_definitions_form.twig:136
 msgid "PARTITION definition:"
@@ -13933,7 +13935,7 @@ msgstr "பகிர்வு வரையறை:"
 #: templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "உள்ளிடு மாற்றுருவாக்கம்"
+msgstr "நிகழ்நிலை பரிவர்த்தனை"
 
 #: templates/columns_definitions/column_name.twig:4
 #, php-format
