@@ -15902,8 +15902,6 @@ msgid "Author"
 msgstr ""
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
 msgstr "செயற்படு"
 
