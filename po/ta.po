@@ -7908,7 +7908,7 @@ msgstr "தற்காலிக சேமிப்பில் பதிவு�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:462
 msgid "The total number of blocks in the query cache."
-msgstr ""
+msgstr "வினவல் தற்காலிக சேமிப்பில் மொத்த தொகுதிகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The status of failsafe replication (not yet implemented)."
