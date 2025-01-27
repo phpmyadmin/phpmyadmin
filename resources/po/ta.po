@@ -15734,7 +15734,7 @@ msgstr ""
 
 #: src/Http/Middleware/TokenRequestParamChecking.php:67
 msgid "Error: Token mismatch"
-msgstr ""
+msgstr "பிழை: கிள்ளாக்கு பொருந்தாத தன்மை"
 
 #: src/I18n/LanguageManager.php:968
 msgid "Ignoring unsupported language code."
