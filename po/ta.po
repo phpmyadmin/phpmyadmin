@@ -14079,7 +14079,7 @@ msgstr "நிறைவு செய்தவுடன்"
 
 #: templates/database/events/index.twig:11
 msgid "There are no events to display."
-msgstr ""
+msgstr "காண்பிக்க நிகழ்வுகள் எதுவும் இல்லை."
 
 #: templates/database/events/index.twig:87
 #: templates/database/events/index.twig:90
