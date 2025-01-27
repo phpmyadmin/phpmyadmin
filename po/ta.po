@@ -6115,8 +6115,6 @@ msgid "Show query box"
 msgstr "வினவல் பெட்டியை காண்பி"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit Query"
 msgid "Edit query"
 msgstr "வினவலை சமர்ப்பி"
 
