@@ -10773,7 +10773,7 @@ msgstr "(தொடர்ந்தது)"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Structure of table @TABLE@"
-msgstr ""
+msgstr "அட்டவணையின் அமைப்பு @அட்டவணை @"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:114
 #: libraries/classes/Plugins/Export/ExportOdt.php:91
