@@ -10279,6 +10279,7 @@ msgstr "உங்கள் அமர்வு முடிவுற்றது.
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:248
 msgid "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgstr ""
+"ரெக்காப்ட்சா சரிபார்ப்பைக் காணவில்லை, ஒருவேளை அது ADBLOCK ஆல் தடுக்கப்பட்டிருக்கலாம்?"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:283
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -10296,7 +10297,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 msgid "You are not allowed to log in to this MySQL server!"
-msgstr "MySQL சேவையகத்துக்குள் புகுபதியமுடியவில்லை"
+msgstr "இந்த MySQL சேவையகத்தில் உள்நுழைய உங்களுக்கு இசைவு இல்லை!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
