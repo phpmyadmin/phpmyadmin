@@ -1484,9 +1484,15 @@ export function displayCopyStatus (copyButton: JQuery<HTMLInputElement>|HTMLElem
 
 /**
  * Displaying notification of copy to clipboard action.
+ *
+ * @param {boolean} copyStatus status of copyToClipboard
  */
-export function displayCopyNotification (): void {
-    ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000);
+export function displayCopyNotification (copyStatus: boolean): void {
+    if (copyStatus) {
+        ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000, 'success');
+    } else {
+        ajaxShowMessage(window.Messages.strCopyQueryButtonFailure, 1000, 'error');
+    }
 }
 
 /**

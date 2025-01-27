@@ -194,8 +194,8 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     $('#copy_query').on('click', function (): void {
         const query: string = editor.getDoc().getValue();
 
-        copyToClipboard(query, '<textarea>');
-        displayCopyNotification();
+        const copyStatus = copyToClipboard(query, '<textarea>');
+        displayCopyNotification(copyStatus);
     });
 
     $('#add_column_button').on('click', function () {
