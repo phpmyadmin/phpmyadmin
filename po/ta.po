@@ -1731,6 +1731,8 @@ msgid ""
 "Specify browser's title bar text. Refer to [doc@faq6-27]documentation[/doc] "
 "for magic strings that can be used to get special values."
 msgstr ""
+"உலாவியின் தலைப்பு பார் உரையைக் குறிப்பிடவும். சிறப்பு மதிப்புகளைப் பெற பயன்படுத்தக்கூடிய "
+"மேசிக் சரங்களுக்கு [Doc@faq6-27] ஆவணங்கள் [/doc] ஐப் பார்க்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:195
 msgid ""
