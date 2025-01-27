@@ -8321,7 +8321,7 @@ msgstr "MySQL சொன்னது: "
 #: libraries/classes/Database/Events.php:126
 #, php-format
 msgid "Event %1$s has been modified."
-msgstr ""
+msgstr "நிகழ்வு %1$s மாற்றியமைக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Events.php:146
 #, php-format
