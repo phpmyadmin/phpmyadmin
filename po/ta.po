@@ -3797,7 +3797,7 @@ msgstr "தரவுத்தள பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:906
 msgid "Server port"
-msgstr ""
+msgstr "சேவையக துறைமுகம்"
 
 #: libraries/classes/Config/Descriptions.php:907
 msgid "Recently used table"
