@@ -1633,6 +1633,8 @@ msgid ""
 "Use user-friendly editor for editing SQL queries (CodeMirror) with syntax "
 "highlighting and line numbers."
 msgstr ""
+"தொடரியல் சிறப்பம்சமாக மற்றும் வரி எண்களுடன் கவிமொ வினவல்களை (கோட்மிரர்) திருத்துவதற்கு "
+"பயனர் நட்பு எடிட்டரைப் பயன்படுத்தவும்."
 
 #: libraries/classes/Config/Descriptions.php:123
 msgid ""
