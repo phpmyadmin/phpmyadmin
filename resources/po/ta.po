@@ -3653,7 +3653,7 @@ msgstr "குறியீட்டு %s கைவிடப்பட்டு�
 
 #: resources/templates/javascript/redirect.twig:6
 msgid "Taking you to the target site."
-msgstr "அடுத்த படிநிலைக்கு செல்கிறோம்…"
+msgstr "உங்களை இலக்கு தளத்திற்கு அழைத்துச் செல்கிறது."
 
 #: resources/templates/list_navigator.twig:4 src/BrowseForeigners.php:278
 #: src/Pdf.php:71 src/Pdf.php:91
@@ -6752,7 +6752,7 @@ msgstr "உள் உறவு"
 msgid ""
 "An internal relation is not necessary when a corresponding FOREIGN KEY "
 "relation exists."
-msgstr ""
+msgstr "தொடர்புடைய வெளிநாட்டு முக்கிய உறவு இருக்கும்போது உள் உறவு தேவையில்லை."
 
 #: resources/templates/table/relation/common_form.twig:128
 msgid "Choose column to display:"
