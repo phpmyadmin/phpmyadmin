@@ -1193,6 +1193,9 @@ msgid ""
 "overhead of maintaining the cache is likely to increase with its size, so do "
 "this in small increments and monitor the results."
 msgstr ""
+"நீங்கள் {Query_cache_size ஐ அதிகரிக்க விரும்பலாம், இருப்பினும் தற்காலிக சேமிப்பை "
+"பராமரிப்பதன் மேல்நிலை அதன் அளவுடன் அதிகரிக்க வாய்ப்புள்ளது என்பதை நினைவில் கொள்ளுங்கள், "
+"எனவே இதை சிறிய அதிகரிப்புகளில் செய்து முடிவுகளை கண்காணிக்கவும்."
 
 #: libraries/advisory_rules_mysql_before80003.php:84
 #, php-format
