@@ -10256,6 +10256,8 @@ msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
+"முதன்மை விசை ( %1$s) அட்டவணையில் உள்ள அனைத்து நெடுவரிசைகளையும் கொண்டிருப்பதால், முதன்மை"
+" அல்லாத நெடுவரிசை இல்லாததால் பகுதி சார்புகள் எதுவும் சாத்தியமில்லை."
 
 #: libraries/classes/Normalization.php:443
 #: libraries/classes/Normalization.php:490
