@@ -10105,7 +10105,7 @@ msgstr "கவிமொ வினவல் பெட்டி"
 
 #: src/Config/Descriptions.php:758
 msgid "Startup"
-msgstr ""
+msgstr "தொடங்கு"
 
 #: src/Config/Descriptions.php:759
 msgid "Database structure"
