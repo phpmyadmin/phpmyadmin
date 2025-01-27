@@ -13088,7 +13088,7 @@ msgstr "மதிப்பை அமைக்கவும்: %s"
 #: templates/config/form_display/input.twig:63
 #: templates/config/form_display/input.twig:64
 msgid "Restore default value"
-msgstr ""
+msgstr "இயல்புநிலை மதிப்பை மீட்டெடுக்கவும்"
 
 #: templates/config/form_display/input.twig:79
 #: templates/config/form_display/input.twig:80
