@@ -15143,7 +15143,7 @@ msgstr "சிப்"
 
 #: templates/export.twig:443
 msgid "gzipped"
-msgstr ""
+msgstr "gzipt"
 
 #: templates/export.twig:461
 msgid "Export databases as separate files"
