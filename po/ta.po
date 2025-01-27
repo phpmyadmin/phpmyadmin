@@ -10527,7 +10527,7 @@ msgstr "அட்டவணைக்கான அட்டவணை அமைப�
 #: libraries/classes/Plugins/Export/ExportSql.php:2160
 #: libraries/classes/Plugins/Export/ExportTexytext.php:554
 msgid "Structure for view"
-msgstr ""
+msgstr "பார்வைக்கு அமைப்பு"
 
 #: libraries/classes/Plugins/Export/ExportHtmlword.php:572
 #: libraries/classes/Plugins/Export/ExportOdt.php:738
