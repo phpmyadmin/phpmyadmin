@@ -13293,7 +13293,7 @@ msgstr "%s க்கு அடுத்து"
 #: templates/database/create_table.twig:6
 #: templates/database/operations/index.twig:30
 msgid "Table name"
-msgstr ""
+msgstr "அட்டவணை பெயர்"
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
@@ -13304,7 +13304,7 @@ msgstr "சேர்க்க"
 
 #: templates/columns_definitions/column_definitions_form.twig:40
 msgid "column(s)"
-msgstr "%s நெடுவரிசைகளை சேர்க்க"
+msgstr "நெடுவரிசை (கள்)"
 
 #: templates/columns_definitions/column_definitions_form.twig:74
 msgid "Collation:"
