@@ -16127,7 +16127,7 @@ msgstr "<code>%screate_tables.sql </code> உடன் தேவையான அ
 
 #: templates/relation/check_relations.twig:527
 msgid "Create a pma user and give access to these tables."
-msgstr ""
+msgstr "பி.எம்.ஏ பயனரை உருவாக்கி, இந்த அட்டவணைகளுக்கு அணுகல் கொடுங்கள்."
 
 #: templates/relation/check_relations.twig:531
 msgid ""
