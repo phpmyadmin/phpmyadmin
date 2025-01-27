@@ -1104,7 +1104,7 @@ msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:28
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "{query_cache_limit} அதிகரிப்பதைக் கவனியுங்கள்."
 
 #: libraries/advisory_rules_mysql_before80003.php:29
 #, php-format
