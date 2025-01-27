@@ -13877,7 +13877,7 @@ msgstr "முடிவு"
 
 #: templates/database/events/editor_form.twig:90
 msgid "On completion preserve"
-msgstr ""
+msgstr "நிறைவு செய்தவுடன்"
 
 #: templates/database/events/editor_form.twig:96
 #: templates/database/routines/editor_form.twig:142
