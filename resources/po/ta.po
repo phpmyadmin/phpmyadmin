@@ -2190,7 +2190,7 @@ msgstr ""
 #: resources/templates/server/replication/primary_add_replica_user.twig:24
 #: resources/templates/table/privileges/index.twig:19
 msgid "User name"
-msgstr ""
+msgstr "பயனர் பெயர்"
 
 #: resources/templates/database/privileges/index.twig:18
 #: resources/templates/server/privileges/login_information_fields.twig:26
