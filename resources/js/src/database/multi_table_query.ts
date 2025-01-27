@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { getSqlEditor } from '../modules/functions.ts';
+import { copyToClipboard, getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeBacktick } from '../modules/functions/escape.ts';
@@ -194,7 +194,7 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
     $('#copy_query').on('click', function () {
         const query = editor.getDoc().getValue();
 
-        navigator.clipboard.writeText(query);
+        copyToClipboard(query, '<textarea>');
         ajaxShowMessage(window.Messages.strCopyQueryButtonSuccess, 1000);
     });
 
