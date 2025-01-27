@@ -16603,7 +16603,7 @@ msgstr "அட்டவணைக்கான உறவுகள்"
 
 #: src/Plugins/Export/ExportSql.php:1937
 msgid "It appears your table uses triggers;"
-msgstr ""
+msgstr "உங்கள் அட்டவணை தூண்டுதல்களைப் பயன்படுத்துகிறது;"
 
 #: src/Plugins/Export/ExportSql.php:1967
 #, php-format
