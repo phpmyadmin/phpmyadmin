@@ -10731,7 +10731,7 @@ msgstr "பயனர் குழுக்கள் அட்டவணை"
 
 #: src/Config/Descriptions.php:906
 msgid "Hidden navigation items table"
-msgstr ""
+msgstr "மறைக்கப்பட்ட வழிசெலுத்தல் உருப்படிகள் அட்டவணை"
 
 #: src/Config/Descriptions.php:907
 msgid "User for config auth"
