@@ -11994,7 +11994,7 @@ msgstr "து"
 #. l10n: shortcuts for Gigabyte
 #: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:307
 msgid "GiB"
-msgstr "GiB"
+msgstr "கிப்"
 
 #. l10n: shortcuts for Terabyte
 #: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:309
