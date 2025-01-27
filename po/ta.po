@@ -3090,7 +3090,7 @@ msgstr "பொது"
 
 #: libraries/classes/Config/Descriptions.php:765
 msgid "Import defaults"
-msgstr ""
+msgstr "இயல்புநிலைகளை இறக்குமதி செய்க"
 
 #: libraries/classes/Config/Descriptions.php:766
 msgid "Import / export"
