@@ -179,6 +179,8 @@ msgid ""
 "You should upgrade, as MySQL 5.1 has improved performance, and MySQL 5.5 "
 "even more so."
 msgstr ""
+"MySQL 5.1 செயல்திறனை மேம்படுத்தியதால், நீங்கள் மேம்படுத்த வேண்டும், மேலும் MySQL 5.5 "
+"இன்னும் அதிகமாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
