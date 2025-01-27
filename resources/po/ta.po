@@ -14552,7 +14552,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:458
 msgid "The number of joins that did a full scan of the first table."
-msgstr ""
+msgstr "முதல் அட்டவணையின் முழு ச்கேன் செய்த இணைப்புகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:459
 msgid ""
