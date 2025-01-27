@@ -6895,7 +6895,7 @@ msgstr "முன்னொட்டுடன் அட்டவணையை ந�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Extremely weak"
-msgstr ""
+msgstr "மிகவும் பலவீனமான"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Very weak"
