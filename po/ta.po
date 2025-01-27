@@ -17598,7 +17598,7 @@ msgstr ""
 
 #: templates/table/insert/column_row.twig:15
 msgid "Binary"
-msgstr ""
+msgstr "இருமம்"
 
 #: templates/table/insert/column_row.twig:30
 msgid "Use the NULL value for this column."
