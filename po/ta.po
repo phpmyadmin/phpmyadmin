@@ -2150,6 +2150,9 @@ msgid ""
 "storage; leave blank to use the default port, or the already defined port, "
 "if the controlhost equals host."
 msgstr ""
+"உள்ளமைவு சேமிப்பிடத்தை வைத்திருக்கும் ஓச்டுடன் இணைக்க ஒரு மாற்று துறைமுகம்; கட்டுப்பாட்டு "
+"புரவலன் ஓச்டுக்கு சமமாக இருந்தால் இயல்புநிலை துறைமுகம் அல்லது ஏற்கனவே வரையறுக்கப்பட்ட "
+"போர்ட்டைப் பயன்படுத்த காலியாக விடவும்."
 
 #: libraries/classes/Config/Descriptions.php:366
 msgid ""
