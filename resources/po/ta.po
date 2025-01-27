@@ -9978,7 +9978,7 @@ msgstr "தரவைச் செருகும்போது பயன்ப�
 
 #: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
 msgid "Maximal length of created query"
-msgstr ""
+msgstr "உருவாக்கப்பட்ட வினவலின் அதிகபட்ச நீளம்"
 
 #: src/Config/Descriptions.php:718
 msgid "Export type"
