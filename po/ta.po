@@ -11672,7 +11672,7 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:269
 msgid "No privileges."
-msgstr ""
+msgstr "சலுகைகள் இல்லை."
 
 #: libraries/classes/Server/Privileges.php:277
 msgid "Includes all privileges except GRANT."
