@@ -3135,7 +3135,7 @@ msgstr "முதன்மை பலகம்"
 
 #: libraries/classes/Config/Descriptions.php:774
 msgid "Microsoft Office"
-msgstr ""
+msgstr "நுண்மென் ஆபிச்"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "Other core settings"
