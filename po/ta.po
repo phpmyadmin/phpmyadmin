@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 01:55+0000\n"
+"PO-Revision-Date: 2025-01-27 01:56+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -3321,7 +3321,7 @@ msgstr "செருகும் பிழையை நிறுத்த வே
 #: libraries/classes/Config/Descriptions.php:797
 #: libraries/classes/Config/Descriptions.php:804
 msgid "Add ON DUPLICATE KEY UPDATE"
-msgstr ""
+msgstr "நகல் விசை புதுப்பிப்பில் சேர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:799
 msgid "Format of imported file"
