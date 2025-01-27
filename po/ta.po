@@ -3115,7 +3115,7 @@ msgstr "உலாவு பயன்முறை"
 #: libraries/classes/Config/Forms/User/ExportForm.php:82
 #: libraries/classes/Config/Forms/User/ImportForm.php:35
 msgid "CSV"
-msgstr ""
+msgstr "சிஎச்வி"
 
 #: libraries/classes/Config/Descriptions.php:752
 msgid "Developer"
