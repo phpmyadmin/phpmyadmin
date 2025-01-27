@@ -3805,7 +3805,7 @@ msgstr "நெடுவரிசை அட்டவணையைக் காண�
 
 #: libraries/classes/Config/Descriptions.php:925
 msgid "UI preferences table"
-msgstr ""
+msgstr "இடைமுகம் விருப்பத்தேர்வுகள் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:926
 msgid "Add DROP DATABASE"
