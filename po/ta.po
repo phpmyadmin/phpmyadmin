@@ -2453,6 +2453,8 @@ msgid ""
 "Defines whether or not type fields should be initially displayed in edit/"
 "insert mode."
 msgstr ""
+"வகை புலங்கள் ஆரம்பத்தில் திருத்து/செருகு பயன்முறையில் காட்டப்பட வேண்டுமா இல்லையா என்பதை "
+"வரையறுக்கிறது."
 
 #: libraries/classes/Config/Descriptions.php:496
 msgid ""
