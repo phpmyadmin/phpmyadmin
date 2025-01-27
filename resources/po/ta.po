@@ -17841,7 +17841,7 @@ msgstr "%s ஆக தரவேற்றுக"
 #: src/Tracking/Tracking.php:557
 #, php-format
 msgid "Version %s snapshot (SQL code)"
-msgstr ""
+msgstr "பதிப்பு %s ச்னாப்சாட் (SQL குறியீடு)"
 
 #: src/Tracking/Tracking.php:790
 msgid ""
