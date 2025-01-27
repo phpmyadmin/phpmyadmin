@@ -14609,8 +14609,8 @@ msgstr[1] "%1$s அட்டவணையில் பொருந்தியவ
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
 msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
-msgstr[0] "<b>மொத்தம்:</b> <i>%s</i> பொருத்தம்"
-msgstr[1] "<b>மொத்த:</b> <i>%s</i> பொருத்தங்கள்"
+msgstr[0] "<strong> மொத்தம்: </strong> <em>%எண்ணிக்கை%</em> பொருத்தம்"
+msgstr[1] "<strong> மொத்தம்: </strong> <em>%எண்ணிக்கை%</em> போட்டிகள்"
 
 #: templates/database/structure/add_prefix.twig:7
 #: templates/database/structure/add_prefix.twig:9
@@ -18482,7 +18482,7 @@ msgstr "திகதி"
 
 #: templates/table/tracking/report_table.twig:6
 msgid "Username"
-msgstr ""
+msgstr "பயனர்பெயர்"
 
 #: templates/table/zoom_search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\") for two different columns"
