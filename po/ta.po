@@ -1488,7 +1488,7 @@ msgstr "ருமேனிய"
 #: libraries/classes/Charsets/Collation.php:538
 msgctxt "Collation"
 msgid "Sinhalese"
-msgstr ""
+msgstr "சிங்களம்"
 
 #: libraries/classes/Charsets/Collation.php:542
 msgctxt "Collation"
