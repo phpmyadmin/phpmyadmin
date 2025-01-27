@@ -17802,7 +17802,7 @@ msgstr ""
 
 #: src/Tracking/Tracking.php:203
 msgid "Tracking statements"
-msgstr ""
+msgstr "கண்காணிப்பு அறிக்கைகள்"
 
 #: src/Tracking/Tracking.php:219
 msgid "Delete tracking data row from report"
