@@ -9380,7 +9380,7 @@ msgstr "%s இன் அமைப்பு"
 #: libraries/classes/Import.php:1338
 #, php-format
 msgid "Go to view: %s"
-msgstr ""
+msgstr "பார்வைக்குச் செல்லுங்கள்: %s"
 
 #: libraries/classes/Import.php:1366
 msgid ""
