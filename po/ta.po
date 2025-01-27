@@ -16061,6 +16061,8 @@ msgstr "உலவியின் மாற்றுருவாக்கத்�
 #: templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
+"உங்கள் நெடுவரிசை_இன்ஃபோ அட்டவணையை எவ்வாறு புதுப்பிப்பது என்பது குறித்த ஆவணங்களைப் "
+"பார்க்கவும்."
 
 #: templates/relation/check_relations.twig:195
 msgid "Bookmarked SQL query:"
