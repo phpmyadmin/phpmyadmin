@@ -8249,7 +8249,7 @@ msgstr "{query_cache_limit} அதிகரிப்பதைக் கவனி
 #: src/Advisory/Rules.php:792
 #, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
-msgstr ""
+msgstr "தற்போதைய வினவல் கேச் இட் வீதம்%s %% 20%எக்சுக்குக் கீழே உள்ளது"
 
 #: src/Advisory/Rules.php:797
 msgid "Query Cache usage"
