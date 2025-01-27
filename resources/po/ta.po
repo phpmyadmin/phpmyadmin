@@ -4601,7 +4601,7 @@ msgstr "இந்த வழக்கத்தை மாற்றவும் க
 #: resources/templates/server/privileges/edit_routine_privileges.twig:90
 #: resources/templates/server/privileges/edit_routine_privileges.twig:93
 msgid "Allows executing this routine."
-msgstr ""
+msgstr "இந்த வழக்கத்தை செயல்படுத்த அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/initials_row.twig:1
 msgid "Pagination of user accounts"
