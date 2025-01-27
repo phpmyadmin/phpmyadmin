@@ -16612,6 +16612,8 @@ msgid ""
 "This server is not configured as slave in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் அடிமையாக கட்டமைக்கப்படவில்லை. நீங்கள் %sconfigure "
+"%s ஐ விரும்புகிறீர்களா?"
 
 #: templates/server/replication/status_table.twig:6
 msgid "Master status"
