@@ -11145,7 +11145,7 @@ msgstr "மிகை"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:74
 msgid "Show color"
-msgstr ""
+msgstr "வண்ணத்தைக் காட்டு"
 
 #: libraries/classes/Plugins/SchemaPlugin.php:76
 msgid "Only show keys"
