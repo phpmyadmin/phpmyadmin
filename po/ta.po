@@ -986,7 +986,7 @@ msgstr "மேக்ச் இன்னோடிபி பதிவு அளவ
 
 #: libraries/advisory_rules_generic.php:664
 msgid "The InnoDB log file size is inadequately large."
-msgstr ""
+msgstr "INNODB பதிவு கோப்பு அளவு போதுமானதாக இல்லை."
 
 #: libraries/advisory_rules_generic.php:666
 #, no-php-format
