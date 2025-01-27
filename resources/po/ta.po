@@ -10635,7 +10635,7 @@ msgstr "பல அறிக்கை பிழைகளை புறக்கண
 
 #: src/Config/Descriptions.php:770
 msgid "Enable drag and drop import"
-msgstr ""
+msgstr "இழுவை மற்றும் இறக்குமதியை இயக்கவும்"
 
 #: src/Config/Descriptions.php:771
 msgid "Partial import: allow interrupt"
@@ -10839,7 +10839,7 @@ msgstr "மரத்தில் நிகழ்வுகளைக் காட�
 
 #: src/Config/Descriptions.php:833
 msgid "Expand single database"
-msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
+msgstr "ஒற்றை தரவுத்தளத்தை விரிவாக்குங்கள்"
 
 #: src/Config/Descriptions.php:834
 msgid "Recently used tables"
@@ -11249,7 +11249,7 @@ msgstr "பதிலி கடவுச்சொல்"
 
 #: src/Config/Descriptions.php:946
 msgid "ZIP"
-msgstr "சிப்"
+msgstr "ZIP"
 
 #: src/Config/Descriptions.php:947
 msgid "URL for reCAPTCHA v2 API"
