@@ -10997,7 +10997,7 @@ msgstr "காணாமல் போன செயல்பாடுகள் க
 #: src/Config/FormDisplay.php:820
 #, php-format
 msgid "maximum %s"
-msgstr ""
+msgstr "அதிகபட்ச %s"
 
 #: src/Config/Forms/Setup/ServersForm.php:26
 msgid "Config authentication"
