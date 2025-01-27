@@ -3739,7 +3739,7 @@ msgstr "கவிமொ வினவல் வரலாற்று அட்ட
 
 #: libraries/classes/Config/Descriptions.php:896
 msgid "Server hostname"
-msgstr ""
+msgstr "சேவையக ஓச்ட்பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:897
 msgid "Logout URL"
