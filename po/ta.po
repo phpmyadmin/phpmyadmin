@@ -4683,7 +4683,7 @@ msgstr "தவறான மதிப்பு:"
 #: libraries/classes/Config/Validator.php:460
 #, php-format
 msgid "Incorrect IP address: %s"
-msgstr ""
+msgstr "தவறான ஐபி முகவரி: %s"
 
 #: libraries/classes/Config/Validator.php:523
 #: templates/config/form_display/display.twig:66
