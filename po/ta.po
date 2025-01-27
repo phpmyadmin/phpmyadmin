@@ -2451,7 +2451,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:556
 msgid "Tab that is displayed when entering a database."
-msgstr ""
+msgstr "தரவுத்தளத்தை உள்ளிடும்போது காட்டப்படும் தாவல்."
 
 #: libraries/classes/Config/Descriptions.php:557
 msgid "Tab that is displayed when entering a server."
