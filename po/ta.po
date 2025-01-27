@@ -7915,6 +7915,8 @@ msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
+"மொத்தம் (தொடக்கத்திலிருந்து) பிரதி அடிமை கவிமொ நூல் பரிவர்த்தனைகளை மறுபரிசீலனை "
+"செய்துள்ளது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:623
 msgid "This is ON if this server is a slave that is connected to a master."
