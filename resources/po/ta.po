@@ -8261,7 +8261,7 @@ msgstr "கிரேக்கம்"
 #: src/Charsets/Collation.php:327
 msgctxt "Collation"
 msgid "Czech-Slovak"
-msgstr ""
+msgstr "செக்-ச்லோவாக்"
 
 #: src/Charsets/Collation.php:330 src/Charsets/Collation.php:497
 msgctxt "Collation"
