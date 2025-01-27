@@ -10161,7 +10161,7 @@ msgstr "பகுதி இறக்குமதி: குறுக்கீட
 #: src/Config/Descriptions.php:776 src/Config/Descriptions.php:782
 #: src/Plugins/Import/ImportCsv.php:158 src/Plugins/Import/ImportLdi.php:79
 msgid "Do not abort on INSERT error"
-msgstr ""
+msgstr "செருகும் பிழையை நிறுத்த வேண்டாம்"
 
 #: src/Config/Descriptions.php:777 src/Config/Descriptions.php:784
 msgid "Add ON DUPLICATE KEY UPDATE"
