@@ -12084,7 +12084,7 @@ msgstr "பரிவர்த்தனை ஒருங்கிணைப்ப�
 #: libraries/classes/Server/Status/Data.php:161
 #: templates/server/binlog/index.twig:27
 msgid "Files"
-msgstr ""
+msgstr "கோப்புகள்"
 
 #: libraries/classes/Server/Status/Data.php:180
 msgid "Flush (close) all tables"
