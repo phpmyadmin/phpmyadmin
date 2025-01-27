@@ -948,8 +948,8 @@ msgid ""
 "You are trying to reduce the number of rows, but have already entered data "
 "in those rows which will be lost. Do you wish to continue?"
 msgstr ""
-"நீங்கள் தரவு இருக்கும் வரிசையை குறைக்க முயற்சி செய்கிறீர்கள்,  இதனால் அந்த வரிசையில் "
-"இருக்கும் தரவுகள் அழிந்துவிடும். இதனை தெரிந்த பின்னரும் தொடர விரும்புகிறீர்களா ?"
+"நீங்கள் வரிசைகளின் எண்ணிக்கையைக் குறைக்க முயற்சிக்கிறீர்கள், ஆனால் ஏற்கனவே இழக்கப்படும் அந்த "
+"வரிசைகளில் தரவை உள்ளிட்டுள்ளீர்கள். நீங்கள் தொடர விரும்புகிறீர்களா?"
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
