@@ -15217,7 +15217,7 @@ msgstr "முதன்மை விசை கைவிடப்பட்டத�
 #: templates/table/structure/display_structure.twig:517
 #, php-format
 msgid "Index %s has been dropped."
-msgstr ""
+msgstr "குறியீட்டு %s கைவிடப்பட்டுள்ளன."
 
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
