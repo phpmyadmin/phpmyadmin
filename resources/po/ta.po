@@ -9941,7 +9941,7 @@ msgstr "தாமதமான செருகல்களைப் பயன்�
 
 #: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
 msgid "Disable foreign key checks"
-msgstr ""
+msgstr "வெளிநாட்டு விசை காசோலைகளை முடக்கு"
 
 #: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
 msgid "Export views as tables"
