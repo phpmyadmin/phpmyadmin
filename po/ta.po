@@ -8426,7 +8426,7 @@ msgstr "அமைப்பாக்கத்தில் உள்ளவாற�
 #: libraries/classes/DatabaseInterface.php:2405
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "மேலும் தகவலுக்கு %உங்கள் ஆவணங்களைக் காண்க."
 
 #: libraries/classes/Database/Qbe.php:756
 #: templates/database/qbe/ins_del_and_or_cell.twig:21
