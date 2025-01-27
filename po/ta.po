@@ -10156,7 +10156,7 @@ msgstr "பிரிந்தது "
 
 #: libraries/classes/Normalization.php:281
 msgid "Have a primary key"
-msgstr ""
+msgstr "முதன்மை விசை வேண்டும்"
 
 #: libraries/classes/Normalization.php:287
 msgid "Primary key already exists."
