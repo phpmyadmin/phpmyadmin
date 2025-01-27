@@ -16149,7 +16149,7 @@ msgstr "சேமிப்பக செயல்பொறிகள்"
 
 #: templates/server/engines/index.twig:13
 msgid "Storage Engine"
-msgstr ""
+msgstr "சேமிப்பக இயந்திரம்"
 
 #: templates/server/engines/show.twig:45
 msgid "Unknown storage engine."
