@@ -4979,7 +4979,7 @@ msgstr "தரவுத்தளங்களின் முழுமையா�
 #: resources/templates/server/privileges/privileges_table.twig:667
 #: src/Server/Privileges.php:341
 msgid "Allows locking tables for the current thread."
-msgstr ""
+msgstr "தற்போதைய நூலுக்கான பூட்டுதல் அட்டவணையை அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Allows creating foreign key relations."
