@@ -17205,7 +17205,7 @@ msgstr "பிரதி வெற்றிகரமாக நிறுத்த�
 
 #: src/Replication/ReplicationGui.php:469
 msgid "Error stopping replication."
-msgstr ""
+msgstr "பிரதி நிறுத்துவதில் பிழை."
 
 #: src/Replication/ReplicationGui.php:472
 msgid "Replication resetting successfully."
