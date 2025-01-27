@@ -14123,7 +14123,7 @@ msgstr "அனைத்தையும் சரிபார்க்கவு�
 
 #: templates/database/events/index.twig:121
 msgid "Event scheduler status"
-msgstr ""
+msgstr "நிகழ்வு திட்டமிடல் நிலை"
 
 #: templates/database/events/index.twig:125
 #: templates/database/tracking/tables.twig:47
