@@ -15620,6 +15620,7 @@ msgstr ""
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
+"பின்வரும் கட்டமைப்புகள் உருவாக்கப்பட்டுள்ளன அல்லது மாற்றப்பட்டுள்ளன. இங்கே நீங்கள் முடியும்:"
 
 #: src/Import/Import.php:1222
 msgid "View a structure's contents by clicking on its name."
