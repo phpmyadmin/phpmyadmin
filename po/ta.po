@@ -8007,6 +8007,10 @@ msgid ""
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
+"ஒரு அட்டவணை பூட்டை உடனடியாக பெற முடியாத மற்றும் காத்திருப்பு தேவைப்பட்டது. இது அதிகமா"
+"க இருந்தால், உங்களுக்கு செயல்திறன் சிக்கல்கள் இருந்தால், நீங்கள் முதலில் உங்கள் கேள்விகளை "
+"மேம்படுத்த வேண்டும், பின்னர் உங்கள் அட்டவணை அல்லது அட்டவணையைப் பிரிக்க வேண்டும் அல்லது "
+"பிரதிகளைப் பயன்படுத்த வேண்டும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:504
 msgid ""
