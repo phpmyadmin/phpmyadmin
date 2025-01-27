@@ -17724,7 +17724,7 @@ msgstr "மூல தரவுத்தளம் `%s` காணப்படவ�
 #: src/Table/TableMover.php:303
 #, php-format
 msgid "Target database `%s` was not found!"
-msgstr ""
+msgstr "இலக்கு தரவுத்தளம் `%s` காணப்படவில்லை!"
 
 #: src/Table/Table.php:809
 msgid "Invalid database:"
