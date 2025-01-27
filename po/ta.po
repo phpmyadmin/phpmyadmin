@@ -13584,8 +13584,6 @@ msgid "Export the structure of all tables."
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
 msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
 
