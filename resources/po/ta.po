@@ -4725,12 +4725,12 @@ msgstr "உள்ளக"
 #: resources/templates/server/privileges/login_information_fields.twig:31
 #: resources/templates/server/replication/primary_add_replica_user.twig:37
 msgid "This host"
-msgstr ""
+msgstr "இந்த புரவலன்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:33
 #: resources/templates/server/replication/primary_add_replica_user.twig:39
 msgid "Use host table"
-msgstr "பயனர் அட்டவணை"
+msgstr "புரவலன் அட்டவணையைப் பயன்படுத்தவும்"
 
 #: resources/templates/server/privileges/login_information_fields.twig:40
 #: resources/templates/server/replication/primary_add_replica_user.twig:44
@@ -4757,7 +4757,7 @@ msgstr "கடவுச்சொல்லை மாற்ற வேண்டா�
 #: resources/templates/server/privileges/login_information_fields.twig:50
 #: resources/templates/server/replication/primary_add_replica_user.twig:53
 msgid "No password"
-msgstr "பதிலி கடவுச்சொல்"
+msgstr "கடவுச்சொல் இல்லை"
 
 #: resources/templates/server/privileges/login_information_fields.twig:63
 #: resources/templates/server/replication/primary_add_replica_user.twig:65
@@ -4766,11 +4766,11 @@ msgstr "மறு வகை"
 
 #: resources/templates/server/privileges/login_information_fields.twig:69
 msgid "Authentication plugin"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "அங்கீகார சொருகி"
 
 #: resources/templates/server/privileges/login_information_fields.twig:71
 msgid "Password hashing method"
-msgstr "கடவுச்சொல் கூளமாக்கள்:"
+msgstr "கடவுச்சொல் ஏசிங் முறை"
 
 #: resources/templates/server/privileges/new_user_ajax.twig:52
 #: resources/templates/server/privileges/users_overview.twig:83
