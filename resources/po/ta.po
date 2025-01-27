@@ -10491,7 +10491,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:859
 msgid "Save directory"
-msgstr ""
+msgstr "கோப்பகத்தை சேமிக்கவும்"
 
 #: src/Config/Descriptions.php:860
 msgid "Host authorization order"
