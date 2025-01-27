@@ -11198,8 +11198,6 @@ msgid "SHA256 password authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: libraries/classes/Server/Plugins.php:78
-#, fuzzy
-#| msgid "Authentication"
 msgid "Caching sha2 authentication"
 msgstr "உறுதிப்படுத்தல்"
 
