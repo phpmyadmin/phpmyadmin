@@ -13154,19 +13154,19 @@ msgstr "எப்போதும் பிழை அறிக்கைகளை 
 
 #: libraries/config.values.php:202
 msgid "Never send error reports"
-msgstr ""
+msgstr "பிழை அறிக்கைகளை ஒருபோதும் அனுப்ப வேண்டாம்"
 
 #: libraries/config.values.php:205
 msgid "Server default"
-msgstr "இயல்நிலையை அமைக்க"
+msgstr "சேவையக இயல்புநிலை"
 
 #: libraries/config.values.php:206
 msgid "Enable"
-msgstr "இயலச்செய்க %s"
+msgstr "இயக்கு"
 
 #: libraries/config.values.php:207
 msgid "Disable"
-msgstr "முடக்குக %s"
+msgstr "முடக்கு"
 
 #: libraries/config.values.php:259
 msgid "Quick - display only the minimal options to configure"
