@@ -12094,7 +12094,7 @@ msgstr ""
 #: templates/server/replication/primary_add_replica_user.twig:43
 #: templates/server/replication/primary_replication.twig:25
 msgid "Host"
-msgstr ""
+msgstr "விருந்தோம்பி"
 
 #: libraries/classes/Server/Status/Processes.php:126
 msgid "Command"
