@@ -13939,7 +13939,7 @@ msgstr "இந்த தரவு வரையறை அறிக்கைகள
 
 #: templates/create_tracking_version.twig:59
 msgid "Track these data manipulation statements:"
-msgstr ""
+msgstr "இந்த தரவு கையாளுதல் அறிக்கைகளைக் கண்காணிக்கவும்:"
 
 #: templates/create_tracking_version.twig:76
 msgid "Create version"
