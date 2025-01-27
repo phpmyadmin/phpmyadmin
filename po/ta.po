@@ -14816,7 +14816,7 @@ msgstr ""
 
 #: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "புதிய Phpmyadmin சாளரத்தைத் திறக்கவும்"
 
 #: templates/footer.twig:26 templates/home/index.twig:18
 #: templates/login/form.twig:5
