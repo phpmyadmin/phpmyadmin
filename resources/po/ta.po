@@ -8341,7 +8341,7 @@ msgstr "பாரம்பரிய லத்தீன்"
 #: src/Charsets/Collation.php:430
 msgctxt "Collation"
 msgid "Latvian"
-msgstr ""
+msgstr "லாட்வியன்"
 
 #: src/Charsets/Collation.php:434
 msgctxt "Collation"
