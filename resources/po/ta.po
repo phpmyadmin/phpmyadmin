@@ -10541,7 +10541,7 @@ msgstr "பயனர் கடவுச்சொல்லைக் கட்ட�
 
 #: src/Config/Descriptions.php:871
 msgid "Control user"
-msgstr ""
+msgstr "கட்டுப்பாட்டு பயனரை"
 
 #: src/Config/Descriptions.php:872
 msgid "Control host"
