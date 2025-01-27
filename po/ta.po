@@ -2919,7 +2919,7 @@ msgstr "உறவுகள்"
 
 #: libraries/classes/Config/Descriptions.php:700
 msgid "Export method"
-msgstr ""
+msgstr "ஏற்றுமதி முறை"
 
 #: libraries/classes/Config/Descriptions.php:709
 #: libraries/classes/Config/Descriptions.php:712
