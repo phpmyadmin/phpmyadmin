@@ -5039,7 +5039,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:694
 #: src/Server/Privileges.php:346
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr ""
+msgstr "பிரதிகள் / முதன்மைகள் எங்கே என்று பயனரை கேட்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
@@ -5313,7 +5313,7 @@ msgstr ""
 #: resources/templates/server/replication/primary_replication.twig:9
 #: src/Server/Status/Data.php:163
 msgid "Show primary status"
-msgstr "இரும உள்ளடக்கங்களை காண்பி"
+msgstr "முதன்மை நிலையைக் காட்டு"
 
 #: resources/templates/server/replication/primary_replication.twig:16
 msgid "Show connected replicas"
@@ -17972,11 +17972,11 @@ msgstr "திறந்த அட்டவணைகளைக் காட்ட�
 
 #: src/Server/Status/Data.php:159
 msgid "Show replica hosts"
-msgstr "இரட்டையாக்கப்படாதது"
+msgstr "பிரதி ஓச்ட்களைக் காட்டு"
 
 #: src/Server/Status/Data.php:167
 msgid "Show replica status"
-msgstr "துணைநிலை நிகழ்நிலை"
+msgstr "பிரதி நிலையைக் காட்டு"
 
 #: src/Server/Status/Data.php:172
 msgid "Flush query cache"
@@ -18505,7 +18505,7 @@ msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
-"அதிகபட்சம் 16,777,215 (2^24 - 1) பைட்டுகள் கொண்ட ஒரு குமிழ் நெடுவரிசை, மதிப்பின் "
+"அதிகபட்சமாக 16,777,215 (2^24 - 1) பைட்டுகள் கொண்ட ஒரு குமிழ் நெடுவரிசை, மதிப்பின் "
 "நீளத்தைக் குறிக்கும் மூன்று -பைட் முன்னொட்டுடன் சேமிக்கப்படுகிறது"
 
 #: src/Types.php:254
