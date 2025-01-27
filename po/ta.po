@@ -17163,7 +17163,7 @@ msgstr "பொதுவாக கண்காணிக்கப்படுக�
 
 #: templates/server/status/monitor/index.twig:170
 msgid "or type variable name:"
-msgstr ""
+msgstr "அல்லது மாறி பெயரைத் தட்டச்சு செய்க:"
 
 #: templates/server/status/monitor/index.twig:177
 msgid "Display as differential value"
