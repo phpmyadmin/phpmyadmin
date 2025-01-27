@@ -9896,12 +9896,12 @@ msgstr "தொடர்ச்சியான அட்டவணை தலைப�
 
 #: src/Config/Descriptions.php:663 src/Config/Descriptions.php:669
 msgid "Label key"
-msgstr ""
+msgstr "சிட்டை விசை"
 
 #: src/Config/Descriptions.php:666 src/Config/Descriptions.php:678
 #: src/Config/Descriptions.php:716
 msgid "Relationships"
-msgstr "தொடர்பு பார்வை"
+msgstr "உறவுகள்"
 
 #: src/Config/Descriptions.php:671
 msgid "Export method"
