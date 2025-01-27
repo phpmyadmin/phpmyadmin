@@ -13391,7 +13391,7 @@ msgstr "பிரிவினை %s"
 #: templates/table/operations/index.twig:480
 #: templates/table/structure/display_partitions.twig:24
 msgid "Partition"
-msgstr "பிரிவினை %s"
+msgstr "பிரிவினை"
 
 #: templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -18284,24 +18284,24 @@ msgstr "பிரிந்தவர்:"
 
 #: templates/table/structure/display_partitions.twig:16
 msgid "Sub partitioned by:"
-msgstr ""
+msgstr "துணை பகிர்வு:"
 
 #: templates/table/structure/display_partitions.twig:29
 msgid "Data length"
-msgstr "நிரல் நீளம்"
+msgstr "தரவு நீளம்"
 
 #: templates/table/structure/display_partitions.twig:30
 msgid "Index length"
-msgstr "நிரல் நீளம்"
+msgstr "குறியீட்டு நீளம்"
 
 #: templates/table/structure/display_partitions.twig:194
 msgid "Partition table"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வு அட்டவணை"
 
 #: templates/table/structure/display_partitions.twig:207
 #: templates/table/structure/partition_definition_form.twig:5
 msgid "Edit partitioning"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வைத் திருத்து"
 
 #: templates/table/structure/display_structure.twig:70
 msgid "Media type:"
