@@ -7648,7 +7648,7 @@ msgstr ""
 #: src/Advisory/Rules.php:341
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "தற்போதைய மதிப்புகள் tmp_table_size: %s, max_heap_table_size: %s"
 
 #: src/Advisory/Rules.php:347
 msgid "Percentage of temp tables on disk"
