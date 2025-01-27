@@ -8296,7 +8296,7 @@ msgstr "பல்கேரியன்"
 #: src/Charsets/Collation.php:380
 msgctxt "Collation"
 msgid "Croatian"
-msgstr ""
+msgstr "குரோசியன்"
 
 #: src/Charsets/Collation.php:384
 msgctxt "Collation"
