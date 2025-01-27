@@ -10365,7 +10365,7 @@ msgstr "கோடுகள் நிறுத்தப்பட்டன:"
 #: libraries/classes/Plugins/Export/ExportOdt.php:132
 #: libraries/classes/Plugins/Export/ExportTexytext.php:84
 msgid "Replace NULL with:"
-msgstr ""
+msgstr "பூச்யத்தை மாற்றவும்:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:83
 #: libraries/classes/Plugins/Export/ExportExcel.php:56
