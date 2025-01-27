@@ -5627,7 +5627,7 @@ msgstr "தொடரைத் தேர்ந்தெடுக்கவும�
 
 #: resources/templates/server/status/monitor/index.twig:117
 msgid "Commonly monitored"
-msgstr ""
+msgstr "பொதுவாக கண்காணிக்கப்படுகிறது"
 
 #: resources/templates/server/status/monitor/index.twig:135
 msgid "or type variable name:"
