@@ -8623,7 +8623,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->செய�
 
 #: libraries/classes/Database/Triggers.php:389
 msgid "You must provide a trigger name!"
-msgstr ""
+msgstr "நீங்கள் ஒரு தூண்டுதல் பெயரை வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Triggers.php:395
 msgid "You must provide a valid timing for the trigger!"
