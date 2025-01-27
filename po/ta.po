@@ -309,7 +309,7 @@ msgstr "தற்காலிக அட்டவணைகளை ஏற்பட�
 #: libraries/advisory_rules_generic.php:208
 #: libraries/advisory_rules_generic.php:221
 msgid "Too many sorts are causing temporary tables."
-msgstr ""
+msgstr "பல வகையான தற்காலிக அட்டவணைகளை ஏற்படுத்துகிறது."
 
 #: libraries/advisory_rules_generic.php:210
 #: libraries/advisory_rules_generic.php:223
