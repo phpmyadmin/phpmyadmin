@@ -8565,19 +8565,19 @@ msgstr "எப்போதும் பிழை அறிக்கைகளை 
 
 #: src/Config/ConfigFile.php:619
 msgid "Never send error reports"
-msgstr ""
+msgstr "பிழை அறிக்கைகளை ஒருபோதும் அனுப்ப வேண்டாம்"
 
 #: src/Config/ConfigFile.php:622
 msgid "Server default"
-msgstr "இயல்நிலையை அமைக்க"
+msgstr "சேவையக இயல்புநிலை"
 
 #: src/Config/ConfigFile.php:623
 msgid "Enable"
-msgstr "இயலச்செய்க %s"
+msgstr "இயக்கு"
 
 #: src/Config/ConfigFile.php:624
 msgid "Disable"
-msgstr "முடக்குக %s"
+msgstr "முடக்கு"
 
 #: src/Config/ConfigFile.php:664 src/Config/ConfigFile.php:717
 #: src/Config/ConfigFile.php:729 src/Config/ConfigFile.php:737
