@@ -486,7 +486,7 @@ msgstr "பிரிவினை %s"
 #: resources/templates/table/operations/index.twig:481
 #: resources/templates/table/structure/display_partitions.twig:25
 msgid "Partition"
-msgstr "பிரிவினை %s"
+msgstr "பிரிவினை"
 
 #: resources/templates/columns_definitions/partitions.twig:78
 msgid "Values"
@@ -6787,15 +6787,15 @@ msgstr "பிரிந்தவர்:"
 
 #: resources/templates/table/structure/display_partitions.twig:17
 msgid "Sub partitioned by:"
-msgstr ""
+msgstr "துணை பகிர்வு:"
 
 #: resources/templates/table/structure/display_partitions.twig:30
 msgid "Data length"
-msgstr "நிரல் நீளம்"
+msgstr "தரவு நீளம்"
 
 #: resources/templates/table/structure/display_partitions.twig:31
 msgid "Index length"
-msgstr "நிரல் நீளம்"
+msgstr "குறியீட்டு நீளம்"
 
 #: resources/templates/table/structure/display_partitions.twig:85
 #: src/Operations.php:518
@@ -6829,12 +6829,12 @@ msgstr "துண்டிக்கவும்"
 
 #: resources/templates/table/structure/display_partitions.twig:195
 msgid "Partition table"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வு அட்டவணை"
 
 #: resources/templates/table/structure/display_partitions.twig:208
 #: resources/templates/table/structure/partition_definition_form.twig:3
 msgid "Edit partitioning"
-msgstr "தொகுப்பு பார்வை"
+msgstr "பகிர்வைத் திருத்து"
 
 #: resources/templates/table/structure/display_structure.twig:30
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:11
