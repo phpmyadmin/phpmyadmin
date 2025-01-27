@@ -10693,7 +10693,7 @@ msgstr "துளி காட்சியைச் சேர்க்கவு�
 
 #: src/Config/Descriptions.php:900
 msgid "Statements to track"
-msgstr ""
+msgstr "கண்காணிக்க அறிக்கைகள்"
 
 #: src/Config/Descriptions.php:901
 msgid "SQL query tracking table"
