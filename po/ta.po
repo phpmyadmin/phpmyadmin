@@ -11590,7 +11590,7 @@ msgstr "புதிய தரவுத்தளத்தின் பெயர�
 #: libraries/classes/Plugins/Import/ImportCsv.php:95
 #: libraries/classes/Plugins/Import/ImportCsv.php:113
 msgid "Import these many number of rows (optional):"
-msgstr ""
+msgstr "இந்த பல எண்ணிக்கையிலான வரிசைகளை இறக்குமதி செய்க (விரும்பினால்):"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:103
 #: libraries/classes/Plugins/Import/ImportOds.php:69
@@ -11613,7 +11613,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:128
 msgid "Column names:"
-msgstr "நிரல்வரிசை பெயரை படியெடுக்கவும்."
+msgstr "நெடுவரிசை பெயர்கள்:"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:267
 #: libraries/classes/Plugins/Import/ImportCsv.php:643
@@ -11659,7 +11659,7 @@ msgstr "மீடியாவிகி அட்டவணை"
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:291
 #, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
-msgstr "%sம் வரியில் செல்லுபடியாகாத விதி வரையறை உள்ளது."
+msgstr "வரியில் மீடியாவிகி உள்ளீட்டின் தவறான வடிவம்: <br>%s."
 
 #: libraries/classes/Plugins/Import/ImportOds.php:83
 msgid "Import percentages as proper decimals <i>(ex. 12.00% to .12)</i>"
