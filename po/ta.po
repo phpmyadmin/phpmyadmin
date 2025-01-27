@@ -17487,7 +17487,7 @@ msgstr "'%s' பயனர் குழுவின் பயனர்கள்"
 
 #: templates/server/user_groups/user_listings.twig:3
 msgid "No users were found belonging to this user group."
-msgstr ""
+msgstr "இந்த பயனர் குழுவைச் சேர்ந்தவர்கள் யாரும் காணப்படவில்லை."
 
 #: templates/server/variables/index.twig:5
 msgid "Server variables and settings"
