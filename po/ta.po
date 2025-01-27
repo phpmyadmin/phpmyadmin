@@ -8819,7 +8819,7 @@ msgstr "InnoDB நிகழ்நிலை"
 
 #: libraries/classes/Engines/Innodb.php:135
 msgid "Buffer Pool Usage"
-msgstr ""
+msgstr "இடையக பூல் பயன்பாடு"
 
 #: libraries/classes/Engines/Innodb.php:142
 msgid "pages"
