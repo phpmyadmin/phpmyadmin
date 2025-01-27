@@ -14306,7 +14306,7 @@ msgstr "எழுத்துக்கணம்"
 
 #: templates/database/routines/editor_form.twig:119
 msgid "Is deterministic"
-msgstr ""
+msgstr "தீர்மானகரமானது"
 
 #: templates/database/routines/editor_form.twig:135
 msgid ""
