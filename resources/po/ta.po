@@ -16773,7 +16773,7 @@ msgstr "MySQL இடம்சார் நிரல்நீட்சியா�
 
 #: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
-msgstr ""
+msgstr "இறக்குமதி செய்யப்பட்ட கோப்பில் எந்த தரவும் இல்லை!"
 
 #: src/Plugins/Import/ImportSql.php:63
 msgid "SQL compatibility mode:"
