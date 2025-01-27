@@ -14481,7 +14481,7 @@ msgstr "வினவல் தற்காலிக சேமிப்பிற�
 
 #: src/Controllers/Server/Status/VariablesController.php:429
 msgid "The number of cache hits."
-msgstr ""
+msgstr "கேச் வெற்றிகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:430
 msgid "The number of queries added to the cache."
