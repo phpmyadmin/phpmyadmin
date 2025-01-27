@@ -2811,7 +2811,7 @@ msgstr "வடிவம்"
 
 #: libraries/classes/Config/Descriptions.php:659
 msgid "Compression"
-msgstr ""
+msgstr "சுருக்க"
 
 #: libraries/classes/Config/Descriptions.php:660
 #: libraries/classes/Config/Descriptions.php:667
