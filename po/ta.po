@@ -13967,7 +13967,7 @@ msgstr "எந்த உறவும் இல்லாமல் அட்டவ
 
 #: templates/database/designer/main.twig:223
 msgid "Number of tables:"
-msgstr ""
+msgstr "அட்டவணைகளின் எண்ணிக்கை:"
 
 #: templates/database/designer/main.twig:381
 msgid "Delete relationship"
@@ -14204,21 +14204,21 @@ msgstr "வினவல் சாளரம்"
 #: templates/database/multi_table_query/form.twig:38
 #: templates/database/multi_table_query/form.twig:137
 msgid "select table"
-msgstr "அட்டவணையை தேர்வுசெய்க"
+msgstr "அட்டவணையைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/database/multi_table_query/form.twig:45
 #: templates/database/multi_table_query/form.twig:95
 #: templates/database/multi_table_query/form.twig:145
 msgid "select column"
-msgstr "ஒரு நெடுவரிசையை தேர்ந்தெடுக்கவும்."
+msgstr "நெடுவரிசையைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/database/multi_table_query/form.twig:51
 msgid "Table alias"
-msgstr "அட்டவணைகள்"
+msgstr "அட்டவணை மாற்றுப்பெயர்"
 
 #: templates/database/multi_table_query/form.twig:52
 msgid "Column alias"
-msgstr "நிரல்வரிசை தெரிவு"
+msgstr "நெடுவரிசை மாற்றுப்பெயர்"
 
 #: templates/database/multi_table_query/form.twig:55
 msgid "Use this column in criteria"
