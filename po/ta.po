@@ -16954,7 +16954,7 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:226
 msgid "Remove variable data in INSERT statements for better grouping"
-msgstr ""
+msgstr "சிறந்த குழுவாக செருகும் அறிக்கைகளில் மாறி தரவை அகற்று"
 
 #: templates/server/status/monitor/index.twig:230
 msgid "Choose from which log you want the statistics to be generated from."
