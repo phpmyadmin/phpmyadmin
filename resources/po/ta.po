@@ -16315,7 +16315,7 @@ msgstr "(தொடர்ந்தது)"
 
 #: src/Plugins/Export/ExportLatex.php:70
 msgid "Structure of table @TABLE@"
-msgstr ""
+msgstr "அட்டவணையின் அமைப்பு @அட்டவணை @"
 
 #: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:94
 #: src/Plugins/Export/ExportSql.php:279
