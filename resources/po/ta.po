@@ -14670,7 +14670,7 @@ msgstr "மாறி அமைப்பு  தோல்வியடைந்த
 #: src/Controllers/Setup/ShowConfigController.php:43
 #: src/Controllers/Setup/ValidateController.php:46
 msgid "Configuration already exists, setup is disabled!"
-msgstr ""
+msgstr "உள்ளமைவு ஏற்கனவே உள்ளது, அமைப்பு முடக்கப்பட்டுள்ளது!"
 
 #: src/Controllers/Setup/FormController.php:62
 msgid "Incorrect form specified!"
