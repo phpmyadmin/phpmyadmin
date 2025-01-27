@@ -16571,7 +16571,7 @@ msgstr "கட்டுப்பாட்டு அடிமை:"
 
 #: templates/server/replication/slave_configuration.twig:48
 msgid "Reset slave"
-msgstr ""
+msgstr "அடிமையை மீட்டமைக்கவும்"
 
 #: templates/server/replication/slave_configuration.twig:54
 msgid "Start SQL Thread only"
