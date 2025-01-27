@@ -1423,7 +1423,7 @@ msgstr "செக்"
 #: libraries/classes/Charsets/Collation.php:463
 msgctxt "Collation"
 msgid "Danish"
-msgstr ""
+msgstr "டேனிச்"
 
 #: libraries/classes/Charsets/Collation.php:467
 msgctxt "Collation"
