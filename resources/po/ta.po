@@ -804,6 +804,7 @@ msgstr "ஆவணச்சான்று"
 #: resources/templates/config/form_display/input.twig:15
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
+"இந்த அமைப்பு முடக்கப்பட்டுள்ளது, இது உங்கள் உள்ளமைவுக்கு பயன்படுத்தப்படாது."
 
 #: resources/templates/config/form_display/input.twig:16
 #: resources/templates/relation/check_relations.twig:15
