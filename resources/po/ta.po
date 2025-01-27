@@ -9780,7 +9780,7 @@ msgstr "இறக்குமதிக்கான கோப்புகளை �
 
 #: src/Config/Descriptions.php:581
 msgid "Allow for searching inside the entire database."
-msgstr ""
+msgstr "முழு தரவுத்தளத்திலும் தேட அனுமதிக்கவும்."
 
 #: src/Config/Descriptions.php:582
 msgid "Enables check for latest version on main phpMyAdmin page."
