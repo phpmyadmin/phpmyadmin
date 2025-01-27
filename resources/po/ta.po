@@ -1641,7 +1641,7 @@ msgstr "மதிப்பு"
 #: resources/templates/database/designer/main.twig:854
 #: resources/templates/database/designer/main.twig:1047
 msgid "subquery"
-msgstr ""
+msgstr "துணைக்குழு"
 
 #: resources/templates/database/designer/main.twig:492
 #: resources/templates/database/designer/main.twig:708
