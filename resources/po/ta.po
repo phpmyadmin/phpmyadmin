@@ -9377,7 +9377,7 @@ msgstr "MySQL சேவையகம் இயங்கும் ஓச்ட்�
 
 #: src/Config/Descriptions.php:458 src/Config/Descriptions.php:462
 msgid "Leave empty if not using config auth."
-msgstr ""
+msgstr "கட்டமைப்பு அங்கீகாரத்தைப் பயன்படுத்தாவிட்டால் காலியாக விடவும்."
 
 #: src/Config/Descriptions.php:459
 msgid "Port on which MySQL server is listening, leave empty for default."
