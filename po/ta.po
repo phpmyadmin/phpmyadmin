@@ -11794,6 +11794,8 @@ msgstr "உலாவி மாற்றம்"
 #: libraries/classes/Relation.php:245
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
+"உங்கள் நெடுவரிசை_இன்ஃபோ அட்டவணையை எவ்வாறு புதுப்பிப்பது என்பது குறித்த ஆவணங்களைப் "
+"பார்க்கவும்."
 
 #: libraries/classes/Relation.php:261 templates/sql/query.twig:145
 msgid "Bookmarked SQL query"
