@@ -17114,8 +17114,6 @@ msgid "Use this value"
 msgstr "இம்மதிப்பை பயன்படுத்துக"
 
 #: templates/table/chart/tbl_chart.twig:10
-#, fuzzy
-#| msgid "Chart title"
 msgid "Chart type"
 msgstr "வரைபட தலைப்பு"
 
