@@ -10668,7 +10668,7 @@ msgstr "வடிவமைப்பாளர் மற்றும் பி.ட
 
 #: src/Config/Descriptions.php:895
 msgid "Display columns table"
-msgstr ""
+msgstr "நெடுவரிசை அட்டவணையைக் காண்பி"
 
 #: src/Config/Descriptions.php:896
 msgid "UI preferences table"
