@@ -1060,7 +1060,7 @@ msgstr "புத்தகக்குறிகள்"
 #: resources/templates/console/display.twig:34
 #: resources/templates/console/display.twig:88 src/Config/Descriptions.php:615
 msgid "Debug SQL"
-msgstr ""
+msgstr "பிழைத்திருத்தம் கவிமொ"
 
 #: resources/templates/console/display.twig:43
 msgid "Press Ctrl+Enter to execute query"
