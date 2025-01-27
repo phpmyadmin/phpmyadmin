@@ -9504,8 +9504,6 @@ msgid "New"
 msgstr "புதியது"
 
 #: libraries/classes/Navigation/Nodes/NodeTrigger.php:28
-#, fuzzy
-#| msgid "trigger"
 msgid "Trigger"
 msgstr "புதிய பயனாளரை சேர்க்க->செயல்தூண்டி"
 
