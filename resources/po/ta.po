@@ -9604,7 +9604,7 @@ msgstr ""
 #: src/Config/Descriptions.php:562 src/Config/Descriptions.php:565
 #: src/Config/Descriptions.php:566
 msgid "Use only icons, only text or both."
-msgstr ""
+msgstr "ஐகான்கள், உரை அல்லது இரண்டையும் மட்டுமே பயன்படுத்தவும்."
 
 #: src/Config/Descriptions.php:563
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
