@@ -18505,7 +18505,7 @@ msgstr "சிறுகுறிப்பு"
 
 #: templates/transformation_overview.twig:32
 msgid "Available input transformations"
-msgstr ""
+msgstr "கிடைக்கும் உள்ளீட்டு மாற்றங்கள்"
 
 #: templates/view_create.twig:65
 msgid "VIEW name"
