@@ -16867,7 +16867,7 @@ msgstr "துணைநிலை நிகழ்நிலை"
 #: templates/server/status/variables/index.twig:75
 #: templates/server/variables/index.twig:31
 msgid "Variable"
-msgstr ""
+msgstr "மாறக்கூடிய"
 
 #: templates/server/select/index.twig:7 templates/server/select/index.twig:19
 msgid "Current server:"
