@@ -11282,6 +11282,8 @@ msgid ""
 "Displays the contents of the column as-is, without running it through "
 "htmlspecialchars(). That is, the column is assumed to contain valid HTML."
 msgstr ""
+"HTMLSPecialChars () மூலம் இயக்காமல், நெடுவரிசையின் உள்ளடக்கங்களை IS-IS ஐக் காட்டுகிறது"
+". அதாவது, நெடுவரிசையில் செல்லுபடியாகும் உஉகுமொ இருப்பதாக கருதப்படுகிறது."
 
 #: libraries/classes/Plugins/Transformations/Abs/HexTransformationsPlugin.php:31
 msgid ""
