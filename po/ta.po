@@ -7908,6 +7908,7 @@ msgstr "முதல் அட்டவணையின் முழு ச்க
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:615
 msgid "The number of temporary tables currently open by the slave SQL thread."
 msgstr ""
+"அடிமை கவிமொ நூலால் தற்போது திறக்கப்பட்ட தற்காலிக அட்டவணைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:619
 msgid ""
