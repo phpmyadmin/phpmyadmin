@@ -1764,7 +1764,7 @@ msgstr ""
 #: resources/templates/triggers/editor_form.twig:64
 #: src/Config/Descriptions.php:638 src/Config/Descriptions.php:654
 msgid "Format"
-msgstr ""
+msgstr "வடிவம்"
 
 #: resources/templates/database/events/editor_form.twig:96
 msgid "On completion preserve"
