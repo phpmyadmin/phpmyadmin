@@ -10459,7 +10459,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
-msgstr ""
+msgstr "மறுவடிவமைப்பு இயந்திரம்"
 
 #: src/Config/Descriptions.php:853
 msgid "Remember table's sorting"
