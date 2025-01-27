@@ -14840,7 +14840,7 @@ msgstr "மன்னிக்கவும், கைவிடப்பட்ட 
 #: src/Database/Events.php:117 src/Database/Routines.php:224
 #: src/Triggers/Triggers.php:108
 msgid "The backed up query was:"
-msgstr ""
+msgstr "காப்புப்பிரதி வினவல்:"
 
 #: src/Database/Events.php:123
 #, php-format
