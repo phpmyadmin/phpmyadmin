@@ -1265,7 +1265,7 @@ msgstr "உச்சரிப்பு-உணர்திறன்"
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr ""
+msgstr "அல்லது உணர்திறன்"
 
 #: libraries/classes/Charsets/Collation.php:314
 msgctxt "Collation variant"
