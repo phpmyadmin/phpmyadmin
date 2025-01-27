@@ -10191,7 +10191,7 @@ msgstr "இறக்குமதி நாணயங்கள் ($ 5.00 மு�
 
 #: src/Config/Descriptions.php:789
 msgid "Import percentages as proper decimals (12.00% to .12)"
-msgstr ""
+msgstr "சரியான தசமங்களாக இறக்குமதி சதவீதங்கள் (12.00% முதல் .12 வரை)"
 
 #: src/Config/Descriptions.php:790
 msgid "Partial import: skip queries"
