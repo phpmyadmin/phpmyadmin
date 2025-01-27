@@ -12258,6 +12258,8 @@ msgid ""
 "Reading of version failed. Maybe you're offline or the upgrade server does "
 "not respond."
 msgstr ""
+"பதிப்பின் வாசிப்பு தோல்வியடைந்தது. ஒருவேளை நீங்கள் ஆஃப்லைனில் இருக்கலாம் அல்லது மேம்படுத்தல் "
+"சேவையகம் பதிலளிக்கவில்லை."
 
 #: libraries/classes/Setup/Index.php:152
 msgid "Got invalid version string from server"
