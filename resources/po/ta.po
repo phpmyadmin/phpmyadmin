@@ -5363,7 +5363,7 @@ msgstr "முதன்மை நிலையைக் காட்டு"
 
 #: resources/templates/server/replication/primary_replication.twig:16
 msgid "Show connected replicas"
-msgstr ""
+msgstr "இணைக்கப்பட்ட பிரதிகளைக் காட்டு"
 
 #: resources/templates/server/replication/primary_replication.twig:38
 msgid ""
