@@ -11282,7 +11282,7 @@ msgstr "ரெக்காப்ட்சா வி 2 ஏபிஐக்கா�
 
 #: src/Config/Descriptions.php:951
 msgid "Public key for reCAPTCHA"
-msgstr ""
+msgstr "ரெக்காப்ட்சாவிற்கான பொது விசை"
 
 #: src/Config/Descriptions.php:952
 msgid "Private key for reCAPTCHA"
