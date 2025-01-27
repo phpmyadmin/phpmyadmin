@@ -1897,7 +1897,7 @@ msgstr "பிறழ்வதற்கு சொடுக்குக"
 
 #: resources/templates/database/events/index.twig:132
 msgid "ON"
-msgstr ""
+msgstr "ஆன்"
 
 #: resources/templates/database/events/index.twig:143
 msgid "OFF"
