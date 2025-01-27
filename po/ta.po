@@ -17483,7 +17483,7 @@ msgstr "பயனர் குழுவை தொகுக்க"
 #: templates/server/user_groups/user_listings.twig:1
 #, php-format
 msgid "Users of '%s' user group"
-msgstr ""
+msgstr "'%s' பயனர் குழுவின் பயனர்கள்"
 
 #: templates/server/user_groups/user_listings.twig:3
 msgid "No users were found belonging to this user group."
