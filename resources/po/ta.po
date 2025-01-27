@@ -17457,7 +17457,7 @@ msgstr "பரிவர்த்தனை ஒருங்கிணைப்ப�
 
 #: src/Server/Status/Data.php:149
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "அனைத்து அட்டவணைகளையும் பறிக்கவும் (மூடு)"
 
 #: src/Server/Status/Data.php:153
 msgid "Show open tables"
