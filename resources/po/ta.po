@@ -5270,10 +5270,12 @@ msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
+"இந்த சேவையகம் ஒரு பிரதி செயல்பாட்டில் முதன்மையாக கட்டமைக்கப்படவில்லை. நீங்கள் %sconfigure "
+"%s ஐ விரும்புகிறீர்களா?"
 
 #: resources/templates/server/replication/index.twig:41
 msgid "No privileges"
-msgstr "புதிய பயனாளரை சேர்க்க->தனிச்சலுகையை தொகுக்க:"
+msgstr "சலுகைகள் இல்லை"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:11
 #: resources/templates/server/replication/primary_replication.twig:44
