@@ -2626,7 +2626,7 @@ msgstr "மூன்றாம் தரப்பு ஃப்ரேமிங்�
 
 #: libraries/classes/Config/Descriptions.php:620
 msgid "Show \"Drop database\" link to normal users"
-msgstr ""
+msgstr "சாதாரண பயனர்களுக்கு \"டிராப் டேட்டாபேச்\" இணைப்பைக் காட்டுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:621
 msgid "Blowfish secret"
