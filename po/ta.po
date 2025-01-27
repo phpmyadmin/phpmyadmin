@@ -12092,7 +12092,7 @@ msgstr "அனைத்து அட்டவணைகளையும் பற�
 
 #: libraries/classes/Server/Status/Data.php:184
 msgid "Show open tables"
-msgstr ""
+msgstr "திறந்த அட்டவணைகளைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:193
 msgid "Show replica hosts"
