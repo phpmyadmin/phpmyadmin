@@ -8456,7 +8456,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:75
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:75
 msgid "Maintenance operations on multiple tables are disabled."
-msgstr ""
+msgstr "பல அட்டவணைகளில் பராமரிப்பு செயல்பாடுகள் முடக்கப்பட்டுள்ளன."
 
 #: libraries/classes/Controllers/Table/OperationsController.php:109
 #: libraries/classes/Controllers/Table/OperationsController.php:298
