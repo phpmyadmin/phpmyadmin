@@ -15054,7 +15054,7 @@ msgstr "பக்கங்கள் சுத்தப்படுத்தப�
 
 #: src/Engines/Innodb.php:167
 msgid "Busy pages"
-msgstr ""
+msgstr "பிசியான பக்கங்கள்"
 
 #: src/Engines/Innodb.php:176
 msgid "Latched pages"
