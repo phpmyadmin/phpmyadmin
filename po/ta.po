@@ -9552,7 +9552,7 @@ msgstr "கண்காணிப்பு"
 #: libraries/classes/Util.php:1963 libraries/classes/Util.php:1979
 #: templates/database/triggers/list.twig:3
 msgid "Triggers"
-msgstr ""
+msgstr "தூண்டுதல்கள்"
 
 #: libraries/classes/Menu.php:371 libraries/classes/Menu.php:379
 #: libraries/classes/Menu.php:387
