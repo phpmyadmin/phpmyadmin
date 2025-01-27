@@ -2218,6 +2218,8 @@ msgstr ""
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
+"PDF ச்கீமா ஆதரவுக்கு காலியாக விடுங்கள், பரிந்துரைக்கப்படுகிறது: [KBD] PMA__PDF_PAGES "
+"[/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:394
 msgid ""
