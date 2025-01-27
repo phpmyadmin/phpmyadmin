@@ -16098,7 +16098,7 @@ msgstr "நீங்கள் உங்கள் அனைத்து அமை
 #: templates/preferences/two_factor/main.twig:77
 #: templates/preferences/two_factor/main.twig:98
 msgid "Configure two-factor authentication"
-msgstr ""
+msgstr "இரண்டு காரணி அங்கீகாரத்தை உள்ளமைக்கவும்"
 
 #: templates/preferences/two_factor/configure.twig:12
 msgid "Enable two-factor authentication"
