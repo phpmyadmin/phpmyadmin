@@ -1768,7 +1768,7 @@ msgstr "உலாவு பயன்முறையைத் தனிப்ப�
 #: libraries/classes/Config/Descriptions.php:225
 #: libraries/classes/Config/Descriptions.php:230
 msgid "Customize default options."
-msgstr ""
+msgstr "இயல்புநிலை விருப்பங்களைத் தனிப்பயனாக்குங்கள்."
 
 #: libraries/classes/Config/Descriptions.php:212
 msgid "Settings for phpMyAdmin developers."
