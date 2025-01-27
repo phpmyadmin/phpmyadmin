@@ -7801,6 +7801,8 @@ msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
+"வாசிப்பு கோரிக்கைகளுடன் ஒப்பிடும்போது (கணக்கிடப்பட்ட மதிப்பு) ஒப்பிடும்போது உடல் "
+"வாசிப்புகளின் வீதமாக கணக்கிடப்பட்ட முக்கிய கேச் மிச் மிச்"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The number of requests to write a key block to the cache."
