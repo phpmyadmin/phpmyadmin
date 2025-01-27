@@ -9696,12 +9696,12 @@ msgstr "அனைத்தையும் சரக்கு"
 #: libraries/classes/Navigation/NodeFactory.php:43
 #, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
-msgstr ""
+msgstr "தவறான வகுப்பு பெயர் \"%1$s\", \"முனை\" இயல்புநிலையைப் பயன்படுத்தி"
 
 #: libraries/classes/Navigation/NodeFactory.php:73
 #, php-format
 msgid "Could not load class \"%1$s\""
-msgstr "நிரல்வரிசைகளை சேர்க்க முடியவில்லை!"
+msgstr "\"%1$s\" வகுப்பை ஏற்ற முடியவில்லை"
 
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeColumnContainer.php:26
