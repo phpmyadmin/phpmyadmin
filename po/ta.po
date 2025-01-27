@@ -4665,6 +4665,8 @@ msgstr ""
 msgid ""
 "Empty phpMyAdmin control user while using phpMyAdmin configuration storage!"
 msgstr ""
+"Phpmyadmin கட்டமைப்பு சேமிப்பகத்தைப் பயன்படுத்தும் போது வெற்று Phpmyadmin கட்டுப்பாட்டு "
+"பயனரை!"
 
 #: libraries/classes/Config/Validator.php:358
 msgid ""
