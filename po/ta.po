@@ -4056,7 +4056,7 @@ msgstr "தரவுத்தளம்"
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Default title"
-msgstr ""
+msgstr "இயல்புநிலை தலைப்பு"
 
 #: libraries/classes/Config/Descriptions.php:965
 #: templates/server/status/base.twig:6
