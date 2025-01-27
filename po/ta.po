@@ -9112,7 +9112,7 @@ msgstr "கோரிக்கைகளை எழுதுங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:244
 msgid "Read misses"
-msgstr ""
+msgstr "மிச்சைப் படியுங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:253
 msgid "Write waits"
