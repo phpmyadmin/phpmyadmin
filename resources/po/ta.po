@@ -9065,7 +9065,7 @@ msgstr "தரவுத்தளங்களை வெவ்வேறு மர 
 
 #: src/Config/Descriptions.php:307
 msgid "String that separates tables into different tree levels."
-msgstr ""
+msgstr "அட்டவணையை வெவ்வேறு மர மட்டங்களாக பிரிக்கும் சரம்."
 
 #: src/Config/Descriptions.php:308
 msgid "Highlight server under the mouse cursor."
