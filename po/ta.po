@@ -494,7 +494,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:310
 #, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
-msgstr ""
+msgstr "தற்போதைய மதிப்புகள் tmp_table_size: %s, max_heap_table_size: %s"
 
 #: libraries/advisory_rules_generic.php:316
 msgid "Percentage of temp tables on disk"
