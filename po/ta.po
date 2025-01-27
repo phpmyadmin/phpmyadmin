@@ -10061,6 +10061,8 @@ msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
+"அசல் அட்டவணையை '%1$s' மூன்றாவது சாதாரண வடிவத்தில் வைக்க நாம் பின்வரும் அட்டவணைகளை "
+"உருவாக்க வேண்டும்:"
 
 #: libraries/classes/Normalization.php:695
 msgid "The third step of normalization is complete."
