@@ -7262,7 +7262,7 @@ msgstr "இரண்டு காரணி ஏற்பு அகற்றப்
 
 #: libraries/classes/Controllers/Preferences/TwoFactorController.php:64
 msgid "Two-factor authentication has been configured."
-msgstr ""
+msgstr "இரண்டு காரணி ஏற்பு கட்டமைக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Server/DatabasesController.php:312
 #: libraries/classes/Import.php:144
@@ -11988,7 +11988,7 @@ msgstr "நிகழ்வு திட்டமிடுபவருக்க�
 #: templates/server/privileges/privileges_table.twig:234
 #: templates/server/privileges/privileges_table.twig:238
 msgid "Allows deleting historical rows."
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
+msgstr "வரலாற்று வரிசைகளை நீக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:498
 #: templates/server/privileges/privileges_table.twig:454
