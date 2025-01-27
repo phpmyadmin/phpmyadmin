@@ -14373,7 +14373,7 @@ msgstr "அட்டவணையை சரிபார்"
 #: templates/table/maintenance/checksum.twig:3
 #: templates/table/operations/index.twig:356
 msgid "Checksum table"
-msgstr "அட்டவணையை சரிபார்"
+msgstr "செக்சம் அட்டவணை"
 
 #: templates/database/structure/check_all_tables.twig:22
 #: templates/table/maintenance/optimize.twig:3
@@ -17706,7 +17706,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 
 #: templates/table/operations/index.twig:322
 msgid "Switch to copied table"
-msgstr ""
+msgstr "நகலெடுக்கப்பட்ட அட்டவணைக்கு மாறவும்"
 
 #: templates/table/operations/index.twig:364
 msgid "Defragment table"
