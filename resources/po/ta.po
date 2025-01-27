@@ -9532,7 +9532,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:550
 msgid "How many rows can be inserted at one time."
-msgstr ""
+msgstr "ஒரு நேரத்தில் எத்தனை வரிசைகளை செருக முடியும்."
 
 #: src/Config/Descriptions.php:551
 msgid ""
