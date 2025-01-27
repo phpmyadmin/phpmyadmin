@@ -14866,7 +14866,7 @@ msgstr ""
 
 #: src/Database/Events.php:278
 msgid "You must provide an event name!"
-msgstr ""
+msgstr "நீங்கள் ஒரு நிகழ்வு பெயரை வழங்க வேண்டும்!"
 
 #: src/Database/Events.php:292
 msgid "You must provide a valid interval value for the event."
