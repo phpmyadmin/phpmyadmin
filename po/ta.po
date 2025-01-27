@@ -3361,7 +3361,7 @@ msgstr "சுழிய மதிப்புகளுக்கு AUTO_INCREMEN
 
 #: libraries/classes/Config/Descriptions.php:813
 msgid "Read as multibytes"
-msgstr ""
+msgstr "மல்டிபைட்டுகளாக படியுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:814
 msgid "Initial state for sliders"
