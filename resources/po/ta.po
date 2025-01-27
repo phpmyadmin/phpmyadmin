@@ -8626,7 +8626,7 @@ msgstr "தனிப்பயன் - மேலே உள்ளதைப் ப�
 
 #: src/Config/ConfigFile.php:723
 msgid "complete inserts"
-msgstr ""
+msgstr "முழுமையான செருகல்கள்"
 
 #: src/Config/ConfigFile.php:724
 msgid "extended inserts"
