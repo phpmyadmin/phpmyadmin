@@ -10021,7 +10021,7 @@ msgstr "சிஎச்வி"
 
 #: src/Config/Descriptions.php:732
 msgid "Developer"
-msgstr ""
+msgstr "உருவாக்குநர்"
 
 #: src/Config/Descriptions.php:733
 msgid "Edit mode"
