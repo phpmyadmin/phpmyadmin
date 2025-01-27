@@ -8779,7 +8779,7 @@ msgstr "தரவின் முகப்பு அடைவு"
 
 #: libraries/classes/Engines/Innodb.php:32
 msgid "The common part of the directory path for all InnoDB data files."
-msgstr ""
+msgstr "அனைத்து INNODB தரவுக் கோப்புகளுக்கும் அடைவு பாதையின் பொதுவான பகுதி."
 
 #: libraries/classes/Engines/Innodb.php:35
 msgid "Data files"
