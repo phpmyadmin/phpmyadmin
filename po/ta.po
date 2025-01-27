@@ -6489,6 +6489,8 @@ msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
+"இந்த பக்கத்தில் நீங்கள் மாற்றங்களைச் செய்துள்ளீர்கள் என்பதைக் குறிக்கிறது; மாற்றங்களை கைவிடுவதற்கு"
+" முன்பு உறுதிப்படுத்த நீங்கள் கேட்கப்படுவீர்கள்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:516
 msgid "Select referenced key"
