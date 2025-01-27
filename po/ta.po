@@ -15097,7 +15097,7 @@ msgstr "வார்ப்புரு பெயர்"
 
 #: templates/export.twig:21 templates/server/databases/index.twig:55
 msgid "Create"
-msgstr ""
+msgstr "உருவாக்கு"
 
 #: templates/export.twig:27
 msgid "Existing templates:"
