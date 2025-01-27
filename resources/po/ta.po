@@ -9970,7 +9970,7 @@ msgstr "அமர்வு மதிப்பு"
 
 #: src/Config/Descriptions.php:710
 msgid "Use ignore inserts"
-msgstr ""
+msgstr "புறக்கணிப்பு செருகல்களைப் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:712
 msgid "Syntax to use when inserting data"
