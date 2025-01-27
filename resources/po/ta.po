@@ -4036,7 +4036,7 @@ msgstr ""
 #: resources/templates/preferences/two_factor/confirm.twig:13
 #: resources/templates/preferences/two_factor/main.twig:66
 msgid "Disable two-factor authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "இரண்டு காரணி அங்கீகாரத்தை முடக்கு"
 
 #: resources/templates/preferences/two_factor/main.twig:5
 msgid "Two-factor authentication status"
@@ -4081,7 +4081,7 @@ msgstr ""
 
 #: resources/templates/preferences/two_factor/main.twig:52
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "நீங்கள் இரண்டு காரணி அங்கீகாரத்தை இயக்கியுள்ளீர்கள்."
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
