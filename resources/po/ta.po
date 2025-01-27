@@ -17716,7 +17716,7 @@ msgstr "தூண்டுதல் %1$s உருவாக்கப்பட்
 
 #: src/Triggers/Triggers.php:198
 msgid "You must provide a trigger name!"
-msgstr ""
+msgstr "நீங்கள் ஒரு தூண்டுதல் பெயரை வழங்க வேண்டும்!"
 
 #: src/Triggers/Triggers.php:204
 msgid "You must provide a valid timing for the trigger!"
