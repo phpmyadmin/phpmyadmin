@@ -9388,6 +9388,8 @@ msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
+"பரிவர்த்தனை இயந்திர அட்டவணைகள் கொண்ட கவிமொ வினவல்களை மட்டுமே செருகவும், புதுப்பிக்கவும், "
+"நீக்கவும், மாற்றவும் மீண்டும் உருட்ட முடியும்."
 
 #: libraries/classes/Index.php:620
 #, php-format
