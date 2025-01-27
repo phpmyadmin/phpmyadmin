@@ -11290,6 +11290,8 @@ msgid ""
 "Displays hexadecimal representation of data. Optional first parameter "
 "specifies how often space will be added (defaults to 2 nibbles)."
 msgstr ""
+"தரவின் எக்சாடெசிமல் பிரதிநிதித்துவத்தைக் காட்டுகிறது. விருப்ப முதல் அளவுரு எவ்வளவு "
+"அடிக்கடி இடம் சேர்க்கப்படும் என்பதைக் குறிப்பிடுகிறது (இயல்புநிலைகள் 2 நிபில்களுக்கு)."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:29
 msgid "Displays a link to download this image."
