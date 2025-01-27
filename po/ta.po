@@ -9780,7 +9780,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:638
 #: libraries/classes/Plugins/Export/ExportXml.php:105
 msgid "Functions"
-msgstr ""
+msgstr "செயல்பாடுகள்"
 
 #: libraries/classes/Navigation/Nodes/NodeFunctionContainer.php:33
 msgctxt "Create new function"
