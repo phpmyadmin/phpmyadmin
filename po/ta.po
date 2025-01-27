@@ -16108,7 +16108,7 @@ msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: templates/preferences/two_factor/confirm.twig:5
 msgid "Confirm disabling two-factor authentication"
-msgstr ""
+msgstr "இரண்டு காரணி அங்கீகாரத்தை முடக்குவதை உறுதிப்படுத்தவும்"
 
 #: templates/preferences/two_factor/confirm.twig:9
 msgid ""
