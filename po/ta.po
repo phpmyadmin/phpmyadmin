@@ -13182,7 +13182,7 @@ msgstr "தனிப்பயன் - மேலே உள்ளதைப் ப�
 
 #: libraries/config.values.php:328
 msgid "complete inserts"
-msgstr ""
+msgstr "முழுமையான செருகல்கள்"
 
 #: libraries/config.values.php:329
 msgid "extended inserts"
