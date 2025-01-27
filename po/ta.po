@@ -4503,6 +4503,7 @@ msgstr ""
 #: libraries/classes/Config/ServerConfigChecks.php:162
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"உங்கள் தரவுத்தள சேவையகம் அதை ஆதரித்தால் நீங்கள் SSL இணைப்புகளைப் பயன்படுத்த வேண்டும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
 #, php-format
