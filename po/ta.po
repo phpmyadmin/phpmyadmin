@@ -10195,7 +10195,7 @@ msgstr "அழி"
 
 #: libraries/classes/Operations.php:571
 msgid "Coalesce"
-msgstr "சுருக்கு"
+msgstr "ஒருங்கிணைப்பு"
 
 #: libraries/classes/Operations.php:925
 msgid "Can't move table to same one!"
@@ -17719,7 +17719,7 @@ msgstr "அட்டவணை %s சுத்தப்படுத்தப்�
 
 #: templates/table/operations/index.twig:376
 msgid "Flush the table (FLUSH)"
-msgstr ""
+msgstr "அட்டவணையை பறிக்கவும் (பறிப்பு)"
 
 #: templates/table/operations/index.twig:413
 msgid "Empty the table (TRUNCATE)"
