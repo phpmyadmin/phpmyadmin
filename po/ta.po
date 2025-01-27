@@ -17458,7 +17458,7 @@ msgstr "பயனர் குழுவைத் திருத்து: '%s'"
 
 #: templates/server/user_groups/edit_user_groups.twig:9
 msgid "User group menu assignments"
-msgstr ""
+msgstr "பயனர் குழு பட்டியல் பணிகள்"
 
 #: templates/server/user_groups/edit_user_groups.twig:14
 msgid "Group name:"
