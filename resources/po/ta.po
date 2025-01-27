@@ -2110,7 +2110,7 @@ msgstr "தரவுதளத்தை இப்படி படியெடு�
 #: resources/templates/server/databases/index.twig:24
 #: src/Config/Descriptions.php:885
 msgid "Database name"
-msgstr ""
+msgstr "தரவுத்தள பெயர்"
 
 #: resources/templates/database/operations/index.twig:132
 #: resources/templates/database/structure/copy_form.twig:21
