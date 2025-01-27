@@ -8038,7 +8038,7 @@ msgstr "பாதுகாப்பற்ற இணைப்பு"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:83
 msgid "let the user choose"
-msgstr ""
+msgstr "பயனர் தேர்வு செய்யட்டும்"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:113
 msgid "- none -"
