@@ -12754,7 +12754,7 @@ msgstr "கருப்பொருள் %s கிடைக்கவில்�
 #: libraries/classes/ThemeManager.php:245
 #, php-format
 msgid "Theme path not found for theme %s!"
-msgstr ""
+msgstr "கருப்பொருள் பாதை கருப்பொருள்களுக்கு கிடைக்கவில்லை!"
 
 #: libraries/classes/ThemeManager.php:334
 msgid "Theme:"
