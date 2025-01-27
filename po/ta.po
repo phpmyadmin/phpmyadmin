@@ -15853,6 +15853,8 @@ msgid ""
 "Open the two-factor authentication app on your device to view your "
 "authentication code and verify your identity."
 msgstr ""
+"உங்கள் அங்கீகாரக் குறியீட்டைக் காணவும், உங்கள் அடையாளத்தை சரிபார்க்கவும் உங்கள் சாதனத்தில் இரண்டு"
+" காரணி அங்கீகார பயன்பாட்டைத் திறக்கவும்."
 
 #: templates/login/twofactor/invalid.twig:2
 msgid ""
