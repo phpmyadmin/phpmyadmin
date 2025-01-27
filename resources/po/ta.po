@@ -16612,12 +16612,12 @@ msgstr "பார்வைக்கான கட்டமைப்பு %s ஒ�
 
 #: src/Plugins/Export/ExportSql.php:1994
 msgid "(See below for the actual view)"
-msgstr ""
+msgstr "(உண்மையான பார்வைக்கு கீழே காண்க)"
 
 #: src/Plugins/Export/ExportSql.php:2051
 #, php-format
 msgid "Error reading data for table %s:"
-msgstr "தரவை அல்லது அட்டவணையை அழி"
+msgstr "அட்டவணை %s க்கான தரவைப் படிப்பது பிழை:"
 
 #: src/Plugins/Export/ExportSql.php:2632
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
