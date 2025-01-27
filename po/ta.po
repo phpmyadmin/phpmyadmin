@@ -8299,7 +8299,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:153
 #, php-format
 msgid "The following query has failed: \"%s\""
-msgstr ""
+msgstr "பின்வரும் வினவல் தோல்வியுற்றது: \"%s\""
 
 #: libraries/classes/Database/Events.php:108
 #: libraries/classes/Database/Events.php:117
