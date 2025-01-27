@@ -12645,7 +12645,7 @@ msgstr ""
 #: templates/relation/check_relations.twig:487
 #: templates/relation/check_relations.twig:512
 msgid "Disabled"
-msgstr ""
+msgstr "முடக்கப்பட்டது"
 
 #: libraries/config.values.php:148
 msgid "key"
