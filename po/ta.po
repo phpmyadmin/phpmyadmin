@@ -3921,7 +3921,7 @@ msgstr "கட்டமைப்பு அங்கீகாரத்திற�
 
 #: libraries/classes/Config/Descriptions.php:928
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "இந்த சேவையகத்தின் சொற்களஞ்சியம்"
 
 #: libraries/classes/Config/Descriptions.php:929
 msgid "Allow to display all the rows"
