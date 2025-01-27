@@ -2257,7 +2257,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->தனி�
 #: resources/templates/table/privileges/index.twig:106
 #: src/Server/Privileges.php:2061
 msgid "No user found."
-msgstr ""
+msgstr "எந்த பயனரும் கிடைக்கவில்லை."
 
 #: resources/templates/database/privileges/index.twig:111
 #: resources/templates/database/privileges/index.twig:114
