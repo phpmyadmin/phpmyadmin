@@ -9324,7 +9324,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:451
 msgid "Leave blank if not used."
-msgstr ""
+msgstr "பயன்படுத்தப்படாவிட்டால் காலியாக விடவும்."
 
 #: src/Config/Descriptions.php:452
 msgid "Leave blank for defaults."
