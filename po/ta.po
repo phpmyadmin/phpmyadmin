@@ -14429,8 +14429,6 @@ msgid "Update"
 msgstr "புதுப்பிக்கப்பட்டது"
 
 #: templates/export.twig:72
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Show SQL query"
 msgstr "SQL வினவல்களை காட்டுக"
 
