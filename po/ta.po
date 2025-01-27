@@ -3770,7 +3770,7 @@ msgstr "பிடித்த அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:918
 msgid "Relation table"
-msgstr ""
+msgstr "உறவு அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:919
 msgid "Signon session name"
