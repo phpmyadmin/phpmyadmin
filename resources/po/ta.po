@@ -2173,7 +2173,7 @@ msgstr "எல்லா அட்டவணைகளையும் மாற்�
 
 #: resources/templates/database/operations/index.twig:221
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "அனைத்து அட்டவணைகள் நெடுவரிசைகள் தின்பண்டங்களை மாற்றவும்"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
