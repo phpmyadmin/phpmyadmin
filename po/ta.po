@@ -15468,7 +15468,7 @@ msgstr "%s/நொடி."
 
 #: templates/import/javascript.twig:15
 msgid "About %MIN min. %SEC sec. remaining."
-msgstr ""
+msgstr "சுமார் %நிமிடம். %நொடி நொடி. மீதமுள்ள."
 
 #: templates/import/javascript.twig:16
 msgid "About %SEC sec. remaining."
