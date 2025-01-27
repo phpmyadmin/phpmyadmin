@@ -15814,8 +15814,6 @@ msgid "Authentication plugin"
 msgstr "உறுதிப்படுத்தல்"
 
 #: templates/server/privileges/login_information_fields.twig:70
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password hashing method"
 msgstr "கடவுச்சொல் கூளமாக்கள்:"
 
