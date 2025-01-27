@@ -4907,7 +4907,7 @@ msgstr "தற்காலிக அட்டவணைகளை உருவா�
 #: resources/templates/server/privileges/privileges_table.twig:463
 #: src/Server/Privileges.php:372
 msgid "Allows creating stored routines."
-msgstr ""
+msgstr "சேமிக்கப்பட்ட நடைமுறைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:473
 #: resources/templates/server/privileges/privileges_table.twig:476
