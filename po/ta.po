@@ -2811,7 +2811,7 @@ msgstr "நெடுவரிசைகள் தப்பித்தன"
 #: libraries/classes/Config/Descriptions.php:706
 #: libraries/classes/Config/Descriptions.php:751
 msgid "Replace NULL with"
-msgstr ""
+msgstr "பூச்யத்தை மாற்றவும்"
 
 #: libraries/classes/Config/Descriptions.php:673
 #: libraries/classes/Config/Descriptions.php:679
