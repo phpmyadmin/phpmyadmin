@@ -15169,7 +15169,7 @@ msgstr ""
 
 #: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
-msgstr ""
+msgstr "வடிவமைப்பு-குறிப்பிட்ட விருப்பங்கள்:"
 
 #: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
