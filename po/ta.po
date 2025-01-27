@@ -10968,6 +10968,9 @@ msgid ""
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
+"கோப்பின் ஒவ்வொரு வரிசையிலும் உள்ள தரவு தரவுத்தளத்தில் உள்ள அதே வரிசையில் இல்லை என்றால், "
+"தொடர்புடைய நெடுவரிசை பெயர்களை இங்கே பட்டியலிடுங்கள். நெடுவரிசை பெயர்கள் காற்புள்ளிகளால் "
+"பிரிக்கப்பட வேண்டும் மற்றும் மேற்கோள்களில் இணைக்கப்படக்கூடாது."
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:134
 msgid "Column names:"
