@@ -9196,7 +9196,7 @@ msgstr "கோப்பு பதிவேற்றம் நீட்டிப�
 
 #: libraries/classes/File.php:289
 msgid "Unknown error in file upload."
-msgstr ""
+msgstr "கோப்பு பதிவேற்றத்தில் தெரியாத பிழை."
 
 #: libraries/classes/File.php:422
 msgid "File is a symbolic link"
