@@ -9543,6 +9543,8 @@ msgid ""
 "Textarea size (rows) in edit mode, this value will be emphasized for SQL "
 "query textareas (*2)."
 msgstr ""
+"Textarea அளவு (வரிசைகள்) திருத்து பயன்முறையில், இந்த மதிப்பு கவிமொ வினவல் உரை (*2) "
+"க்கு வலியுறுத்தப்படும்."
 
 #: src/Config/Descriptions.php:508
 msgid ""
