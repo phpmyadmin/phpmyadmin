@@ -6223,7 +6223,7 @@ msgstr "ஆப்பு"
 #: resources/templates/table/chart/tbl_chart.twig:37
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr ""
+msgstr "காலவரிசை"
 
 #: resources/templates/table/chart/tbl_chart.twig:41
 msgctxt "Chart type"
