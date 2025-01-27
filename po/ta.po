@@ -1947,6 +1947,8 @@ msgstr "வழிசெலுத்தல் குழுவில், தரவ
 #: libraries/classes/Config/Descriptions.php:289
 msgid "Link with main panel by highlighting the current database or table."
 msgstr ""
+"தற்போதைய தரவுத்தளம் அல்லது அட்டவணையை முன்னிலைப்படுத்துவதன் மூலம் முதன்மையான பேனலுடன் "
+"இணைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:292
 msgid ""
