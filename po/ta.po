@@ -7475,6 +7475,9 @@ msgid ""
 "The number of requests to read a row based on a key. If this is high, it is "
 "a good indication that your queries and tables are properly indexed."
 msgstr ""
+"ஒரு விசையின் அடிப்படையில் ஒரு வரிசையைப் படிக்க கோரிக்கைகளின் எண்ணிக்கை. இது அதிகமாக "
+"இருந்தால், உங்கள் வினவல்கள் மற்றும் அட்டவணைகள் சரியாக குறியிடப்பட்டுள்ளன என்பதற்கான நல்ல "
+"அறிகுறியாகும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:292
 msgid ""
