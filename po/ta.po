@@ -1549,7 +1549,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:70
 #: libraries/classes/Config/Descriptions.php:71
 msgid "Users cannot set a higher value"
-msgstr ""
+msgstr "பயனர்கள் அதிக மதிப்பை அமைக்க முடியாது"
 
 #: libraries/classes/Config/Descriptions.php:89
 msgid ""
