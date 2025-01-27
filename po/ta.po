@@ -16128,6 +16128,8 @@ msgid ""
 "Two-factor authentication is not available, please install optional "
 "dependencies to enable authentication backends."
 msgstr ""
+"இரண்டு காரணி ஏற்பு கிடைக்கவில்லை, அங்கீகார பின்தளத்தில் செயல்படுத்த விருப்ப சார்புகளை "
+"நிறுவவும்."
 
 #: templates/preferences/two_factor/main.twig:12
 #: templates/preferences/two_factor/main.twig:27
