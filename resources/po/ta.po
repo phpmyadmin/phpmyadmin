@@ -16232,7 +16232,7 @@ msgstr ""
 #: src/Plugins/Export/ExportCsv.php:65
 #: src/Plugins/Import/AbstractImportCsv.php:36
 msgid "Columns separated with:"
-msgstr ""
+msgstr "இதனுடன் பிரிக்கப்பட்ட நெடுவரிசைகள்:"
 
 #: src/Plugins/Export/ExportCsv.php:70
 #: src/Plugins/Import/AbstractImportCsv.php:42
