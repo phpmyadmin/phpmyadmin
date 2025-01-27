@@ -11306,7 +11306,7 @@ msgstr "அமைப்பாக்கம் இல்லா முறைமை�
 
 #: src/Config/Descriptions.php:960
 msgid "Execute queries on Enter and insert new line with Shift+Enter"
-msgstr ""
+msgstr "Shift+Enter உடன் புதிய வரியை உள்ளிடவும் செருகவும் வினவல்களை இயக்கவும்"
 
 #: src/Config/Descriptions.php:962
 msgid "Console height"
