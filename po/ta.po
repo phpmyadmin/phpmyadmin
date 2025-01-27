@@ -10001,7 +10001,7 @@ msgstr[1] "%s முடிவுகள் காணப்பட்டன"
 #: libraries/classes/Navigation/NavigationTree.php:1413
 #: libraries/classes/Navigation/NavigationTree.php:1448
 msgid "Type to filter these, Enter to search all"
-msgstr ""
+msgstr "இவற்றை வடிகட்ட தட்டச்சு செய்க, அனைத்தையும் தேட உள்ளிடவும்"
 
 #: libraries/classes/Navigation/NavigationTree.php:1415
 #: libraries/classes/Navigation/NavigationTree.php:1449
