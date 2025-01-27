@@ -4867,7 +4867,7 @@ msgstr "தூண்டுதல்களை உருவாக்க மற்�
 #: resources/templates/server/privileges/privileges_table.twig:239
 #: src/Server/Privileges.php:361 src/Server/Privileges.php:370
 msgid "Allows deleting historical rows."
-msgstr "விதி நிரைகளை சேர்க்க/ நீக்க"
+msgstr "வரலாற்று வரிசைகளை நீக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:256
 msgid "Global"
@@ -13900,7 +13900,7 @@ msgstr "இரண்டு காரணி ஏற்பு அகற்றப்
 
 #: src/Controllers/Preferences/TwoFactorController.php:60
 msgid "Two-factor authentication has been configured."
-msgstr ""
+msgstr "இரண்டு காரணி ஏற்பு கட்டமைக்கப்பட்டுள்ளது."
 
 #: src/Controllers/SchemaExportController.php:38
 #: src/Controllers/Server/UserGroupsFormController.php:44
