@@ -12749,6 +12749,8 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"கரி வகையைப் போன்றது, ஆனால் பைனரி அல்லாத எழுத்து சரங்களை விட பைனரி பைட் சரங்களை "
+"சேமிக்கிறது"
 
 #: libraries/classes/Types.php:374
 msgid ""
