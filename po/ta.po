@@ -16695,7 +16695,7 @@ msgstr ""
 
 #: templates/server/privileges/users_overview.twig:16
 msgid "User group"
-msgstr ""
+msgstr "பயனர் குழு"
 
 #: templates/server/privileges/users_overview.twig:147
 msgid "Remove selected user accounts"
