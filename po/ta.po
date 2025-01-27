@@ -11822,7 +11822,7 @@ msgstr "இந்த MySQL பதிப்பில் எந்த விளை
 #: templates/server/privileges/privileges_table.twig:625
 #: templates/server/privileges/privileges_table.twig:628
 msgid "Gives access to the complete list of databases."
-msgstr ""
+msgstr "தரவுத்தளங்களின் முழுமையான பட்டியலுக்கான அணுகலை வழங்குகிறது."
 
 #: libraries/classes/Server/Privileges.php:422
 #: templates/server/privileges/privileges_table.twig:572
