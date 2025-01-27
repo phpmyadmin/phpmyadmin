@@ -12004,7 +12004,7 @@ msgstr "திப்"
 #. l10n: shortcuts for Petabyte
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:311
 msgid "PiB"
-msgstr "PiB"
+msgstr "தொடங்கவும்"
 
 #. l10n: shortcuts for Exabyte
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:313
