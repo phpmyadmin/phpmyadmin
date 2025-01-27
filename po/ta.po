@@ -2133,6 +2133,8 @@ msgid ""
 "A special MySQL user configured with limited permissions, more information "
 "available on [doc@linked-tables]documentation[/doc]."
 msgstr ""
+"வரையறுக்கப்பட்ட அனுமதிகளுடன் கட்டமைக்கப்பட்ட ஒரு சிறப்பு MySQL பயனர், "
+"[DOC@இணைக்கப்பட்ட-அட்டவணைகள்] ஆவணங்களில் [/doc] இல் கூடுதல் தகவல்கள் கிடைக்கின்றன."
 
 #: libraries/classes/Config/Descriptions.php:358
 msgid ""
