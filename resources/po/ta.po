@@ -17687,7 +17687,7 @@ msgstr ""
 #: src/StorageEngine.php:415
 #, php-format
 msgid "%s is available on this MySQL server."
-msgstr ""
+msgstr "இந்த MySQL சேவையகத்தில் %s கிடைக்கின்றன."
 
 #: src/StorageEngine.php:416
 #, php-format
