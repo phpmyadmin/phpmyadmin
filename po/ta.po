@@ -12012,7 +12012,7 @@ msgstr "தரவை நீக்க அனுமதிக்கிறது."
 #: templates/server/privileges/privileges_table.twig:337
 #: templates/server/privileges/privileges_table.twig:345
 msgid "Allows creating new tables."
-msgstr ""
+msgstr "புதிய அட்டவணைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:286
 #: templates/server/privileges/privileges_table.twig:124
