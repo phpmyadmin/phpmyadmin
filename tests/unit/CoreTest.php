@@ -14,14 +14,10 @@ use PhpMyAdmin\Url;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Group;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
-use PHPUnit\Framework\Attributes\RequiresPhpExtension;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use stdClass;
 
 use function _pgettext;
 use function hash;
-use function header;
 use function putenv;
 use function serialize;
 use function str_repeat;
@@ -660,50 +656,31 @@ class CoreTest extends AbstractTestCase
         return [[[], []], [['eq' => []], []], [['eq' => ''], []], [['eq' => 'invalid'], []]];
     }
 
-    #[PreserveGlobalState(false)]
-    #[Group('ext-xdebug')]
-    #[RequiresPhpExtension('xdebug')]
-    #[RunInSeparateProcess]
-    public function testDownloadHeader(): void
+    public function testGetDownloadHeaders(): void
     {
-        header('Cache-Control: private, max-age=10800');
+        $headersList = Core::getDownloadHeaders('test.sql', 'text/x-sql', 100, false);
 
-        Core::downloadHeader('test.sql', 'text/x-sql', 100, false);
-
-        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
-        $headersList = \xdebug_get_headers();
-        // phpcs:enable
-
-        self::assertContains('Cache-Control: private, max-age=10800', $headersList);
-        self::assertContains('Content-Description: File Transfer', $headersList);
-        self::assertContains('Content-Disposition: attachment; filename="test.sql"', $headersList);
-        self::assertContains('Content-type: text/x-sql;charset=UTF-8', $headersList);
-        self::assertContains('Content-Transfer-Encoding: binary', $headersList);
-        self::assertContains('Content-Length: 100', $headersList);
-        self::assertNotContains('Content-Encoding: gzip', $headersList);
+        $expected = [
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="test.sql"',
+            'Content-Type' => 'text/x-sql',
+            'Content-Transfer-Encoding' => 'binary',
+            'Content-Length' => '100',
+        ];
+        self::assertSame($expected, $headersList);
     }
 
-    #[PreserveGlobalState(false)]
-    #[Group('ext-xdebug')]
-    #[RequiresPhpExtension('xdebug')]
-    #[RunInSeparateProcess]
-    public function testDownloadHeader2(): void
+    public function testGetDownloadHeaders2(): void
     {
-        header('Cache-Control: private, max-age=10800');
+        $headersList = Core::getDownloadHeaders('test.sql.gz', 'application/x-gzip', 0, false);
 
-        Core::downloadHeader('test.sql.gz', 'application/x-gzip', 0, false);
-
-        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
-        $headersList = \xdebug_get_headers();
-        // phpcs:enable
-
-        self::assertContains('Cache-Control: private, max-age=10800', $headersList);
-        self::assertContains('Content-Description: File Transfer', $headersList);
-        self::assertContains('Content-Disposition: attachment; filename="test.sql.gz"', $headersList);
-        self::assertContains('Content-Type: application/x-gzip', $headersList);
-        self::assertNotContains('Content-Encoding: gzip', $headersList);
-        self::assertContains('Content-Transfer-Encoding: binary', $headersList);
-        self::assertNotContains('Content-Length: 0', $headersList);
+        $expected = [
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="test.sql.gz"',
+            'Content-Type' => 'application/x-gzip',
+            'Content-Transfer-Encoding' => 'binary',
+        ];
+        self::assertSame($expected, $headersList);
     }
 
     public function testGetEnv(): void
