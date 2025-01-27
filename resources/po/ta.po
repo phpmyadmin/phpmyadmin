@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 01:47+0000\n"
+"PO-Revision-Date: 2025-01-27 01:48+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -3060,11 +3060,11 @@ msgstr "அடுத்தமுறை தன்னிச்சையாகவ�
 
 #: resources/templates/error/report_modal.twig:5
 msgid "Submit error report"
-msgstr "பிழை அறிக்கை அளிக்க"
+msgstr "பிழை அறிக்கையை சமர்ப்பிக்கவும்"
 
 #: resources/templates/error/report_modal.twig:12
 msgid "Send error report"
-msgstr "பிழை அறிக்கை அனுப்புக"
+msgstr "பிழை அறிக்கையை அனுப்பவும்"
 
 #: resources/templates/error/simple.twig:2
 msgid "Something went wrong"
@@ -12880,10 +12880,12 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"நீங்கள் உண்மையில் அனைத்து வரிசைகளையும் பார்க்க விரும்புகிறீர்களா? ஒரு பெரிய அட்டவணைக்கு இது"
+" உலாவியை செயலிழக்கச் செய்யலாம்."
 
 #: src/Controllers/JavaScriptMessagesController.php:590
 msgid "Original length"
-msgstr "மெய் சரம்"
+msgstr "அசல் நீளம்"
 
 #: src/Controllers/JavaScriptMessagesController.php:593
 msgid "cancel"
@@ -12916,11 +12918,11 @@ msgstr "கடவுச்சொல்லை இயற்று"
 
 #: src/Controllers/JavaScriptMessagesController.php:611
 msgid "Show panel"
-msgstr "பலகத்தை காட்டு"
+msgstr "குழு காட்டு"
 
 #: src/Controllers/JavaScriptMessagesController.php:612
 msgid "Hide panel"
-msgstr "பலகத்தை மறை"
+msgstr "குழு மறைக்க"
 
 #: src/Controllers/JavaScriptMessagesController.php:614
 #: src/Navigation/NavigationTree.php:1298
@@ -12958,11 +12960,11 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:628
 msgid "Change report settings"
-msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
+msgstr "அறிக்கை அமைப்புகளை மாற்றவும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:629
 msgid "Show report details"
-msgstr "அறிவிக்கை விவரங்களை காட்டுக"
+msgstr "அறிக்கை விவரங்களைக் காட்டு"
 
 #: src/Controllers/JavaScriptMessagesController.php:630
 msgid ""
