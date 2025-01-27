@@ -6990,7 +6990,7 @@ msgstr "இப்போது செயற்படுத்து"
 #: resources/templates/table/tracking/main.twig:103
 #, php-format
 msgid "Deactivate tracking for %s"
-msgstr ""
+msgstr "%s கண்காணிப்பதை செயலிழக்கச் செய்யுங்கள்"
 
 #: resources/templates/table/tracking/main.twig:105
 msgid "Deactivate now"
