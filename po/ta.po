@@ -12055,7 +12055,7 @@ msgstr "வினவல் தற்காலிக சேமிப்பு"
 
 #: libraries/classes/Server/Status/Data.php:151
 msgid "Threads"
-msgstr ""
+msgstr "நூல்கள்"
 
 #: libraries/classes/Server/Status/Data.php:153
 msgid "Temporary data"
