@@ -4931,7 +4931,7 @@ msgstr "நிகழ்வு திட்டமிடுபவருக்க�
 
 #: resources/templates/server/privileges/privileges_table.twig:561
 msgid "Administration"
-msgstr ""
+msgstr "நிர்வாகம்"
 
 #: resources/templates/server/privileges/privileges_table.twig:570
 #: resources/templates/server/privileges/privileges_table.twig:573
