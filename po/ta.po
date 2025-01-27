@@ -7685,8 +7685,6 @@ msgid "Missing parameter:"
 msgstr "மதிப்புருக்கள் காணப்படவில்லை:"
 
 #: libraries/classes/Controllers/Server/UserGroupsFormController.php:60
-#, fuzzy
-#| msgid "The query cache is not enabled."
 msgid "User groups management is not enabled."
 msgstr "வினவல் இடைமாற்று முடக்கப்பட்டுள்ளது."
 
