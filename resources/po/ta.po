@@ -9953,7 +9953,7 @@ msgstr "Phpmyadmin உள்ளமைவு சேமிப்பிலிரு
 
 #: src/Config/Descriptions.php:704
 msgid "Use hexadecimal for BINARY & BLOB"
-msgstr ""
+msgstr "பைனரி மற்றும் குமிழிக்கு எக்சாடெசிமல் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:706
 msgid ""
