@@ -7431,7 +7431,7 @@ msgstr "வாடிக்கையாளர் பாதுகாப்பு �
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr ""
+msgstr "தோல்வியுற்ற பாதுகாப்பு விசை செயல்படுத்தல்."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:695
