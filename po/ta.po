@@ -3339,7 +3339,7 @@ msgstr "அனைத்து குக்கீகளையும் வெள�
 
 #: libraries/classes/Config/Descriptions.php:827
 msgid "Recall user name"
-msgstr ""
+msgstr "பயனர் பெயரை நினைவுகூருங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:828
 msgid "Login cookie store"
