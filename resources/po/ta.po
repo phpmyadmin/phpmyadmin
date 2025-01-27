@@ -8331,7 +8331,7 @@ msgstr "அங்கேரியன்"
 #: src/Charsets/Collation.php:419
 msgctxt "Collation"
 msgid "Icelandic"
-msgstr ""
+msgstr "ஐச்லாந்திய"
 
 #: src/Charsets/Collation.php:426
 msgctxt "Collation"
