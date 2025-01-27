@@ -18163,7 +18163,7 @@ msgstr "எந்தவொரு வகையிலும் ஒரு வடி
 
 #: src/Types.php:265
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "2 பரிமாண இடத்தில் ஒரு புள்ளி"
 
 #: src/Types.php:266
 msgid "A curve with linear interpolation between points"
