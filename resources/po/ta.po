@@ -18187,7 +18187,7 @@ msgstr "பலகோணங்களின் தொகுப்பு"
 
 #: src/Types.php:271
 msgid "A collection of geometry objects of any type"
-msgstr ""
+msgstr "எந்தவொரு வகையிலும் வடிவியல் பொருள்களின் தொகுப்பு"
 
 #: src/Types.php:272
 msgid ""
