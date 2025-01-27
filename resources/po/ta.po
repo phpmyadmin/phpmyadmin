@@ -4576,7 +4576,7 @@ msgstr ""
 #: resources/templates/server/privileges/edit_routine_privileges.twig:47
 #: src/Server/Privileges.php:1580
 msgid "Routine-specific privileges"
-msgstr "தனிசலுகைகளை சரிபார்க்க"
+msgstr "வழக்கமான-குறிப்பிட்ட சலுகைகள்"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:52
 #: resources/templates/server/privileges/privileges_table.twig:11
@@ -5102,7 +5102,7 @@ msgstr "உள்நுழைவு தகவலை மாற்றவும் 
 
 #: resources/templates/server/privileges/user_properties.twig:114
 msgid "Create a new user account with the same privileges and …"
-msgstr ""
+msgstr "அதே சலுகைகளுடன் புதிய பயனர் கணக்கை உருவாக்கவும்…"
 
 #: resources/templates/server/privileges/user_properties.twig:122
 msgid "… keep the old one."
