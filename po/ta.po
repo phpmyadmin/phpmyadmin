@@ -7659,7 +7659,7 @@ msgstr "டபுள் வ்ரைட் செயல்பாடுகளு�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:370
 msgid "The number of doublewrite operations that have been performed."
-msgstr ""
+msgstr "நிகழ்த்தப்பட்ட இரட்டை எழுத்தின் செயல்பாடுகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:372
 msgid ""
