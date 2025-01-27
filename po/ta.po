@@ -10682,6 +10682,8 @@ msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
+"கருத்துகளைக் காண்பி <i> (ஏற்றுமதி நேர முத்திரை, பிஎச்பி பதிப்பு மற்றும் சேவையக பதிப்பு "
+"போன்ற தகவல்களை உள்ளடக்கியது) </i>"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:140
 msgid "Additional custom header comment (\\n splits lines):"
