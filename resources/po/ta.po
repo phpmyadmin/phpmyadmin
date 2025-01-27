@@ -5228,7 +5228,7 @@ msgstr "அனைத்து தரவுத்தளங்களையும�
 
 #: resources/templates/server/replication/primary_configuration.twig:12
 msgid "Please select databases:"
-msgstr ""
+msgstr "தரவுத்தளங்களைத் தேர்ந்தெடுக்கவும்:"
 
 #: resources/templates/server/replication/primary_configuration.twig:15
 msgid ""
