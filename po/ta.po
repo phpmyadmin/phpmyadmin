@@ -11441,6 +11441,8 @@ msgid ""
 "Provides authentication using HOTP and TOTP applications such as FreeOTP, "
 "Google Authenticator or Authy."
 msgstr ""
+"FREEOTP, Google Authenticator அல்லது Autigy போன்ற HOTP மற்றும் TOTP பயன்பாடுகளைப் "
+"பயன்படுத்தி அங்கீகாரத்தை வழங்குகிறது."
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:208
 msgid "Hardware Security Key (FIDO U2F)"
