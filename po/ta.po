@@ -3353,7 +3353,7 @@ msgstr "சரியான தசமங்களாக இறக்குமத�
 
 #: libraries/classes/Config/Descriptions.php:810
 msgid "Partial import: skip queries"
-msgstr ""
+msgstr "பகுதி இறக்குமதி: வினவல்களைத் தவிர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:812
 msgid "Do not use AUTO_INCREMENT for zero values"
