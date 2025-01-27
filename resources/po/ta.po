@@ -5512,7 +5512,7 @@ msgstr ""
 
 #: resources/templates/server/status/monitor/index.twig:18
 msgid "Done dragging (rearranging) charts"
-msgstr ""
+msgstr "இழுத்துச் சென்றது (மறுசீரமைத்தல்) விளக்கப்படங்கள்"
 
 #: resources/templates/server/status/monitor/index.twig:23
 #: resources/templates/server/status/processes/index.twig:33
