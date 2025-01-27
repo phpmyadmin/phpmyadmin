@@ -2206,7 +2206,7 @@ msgstr "கட்டுப்பாட்டின் பெயர்"
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
 #: src/Menu.php:365 src/Util.php:1377 src/Util.php:1393
 msgid "Privileges"
-msgstr ""
+msgstr "சலுகைகள்"
 
 #: resources/templates/database/privileges/index.twig:21
 #: resources/templates/server/privileges/privileges_summary.twig:17
