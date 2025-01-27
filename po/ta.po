@@ -17559,7 +17559,7 @@ msgstr "காலவரிசை"
 #: templates/table/chart/tbl_chart.twig:40
 msgctxt "Chart type"
 msgid "Scatter"
-msgstr ""
+msgstr "சிதறல்"
 
 #: templates/table/chart/tbl_chart.twig:45
 msgid "Stacked"
