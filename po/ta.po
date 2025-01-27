@@ -8024,7 +8024,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:508
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "தற்போது திறந்த இணைப்புகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:510
 msgid ""
