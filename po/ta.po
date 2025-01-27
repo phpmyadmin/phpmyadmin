@@ -11206,8 +11206,6 @@ msgid "Unix Socket based authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
 #: libraries/classes/Server/Plugins.php:88
-#, fuzzy
-#| msgid "Authentication"
 msgid "Old MySQL-4.0 authentication"
 msgstr "உறுதிப்படுத்தல்"
 
