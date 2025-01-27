@@ -13098,15 +13098,15 @@ msgstr "முடக்கப்பட்டது"
 
 #: libraries/config.values.php:148
 msgid "key"
-msgstr ""
+msgstr "விசை"
 
 #: libraries/config.values.php:149
 msgid "display column"
-msgstr "கருத்துரைகளை காட்டுக"
+msgstr "நெடுவரிசை காட்சி"
 
 #: libraries/config.values.php:153
 msgid "Welcome"
-msgstr "%sக்கு வருக"
+msgstr "வரவேற்கிறோம்"
 
 #: libraries/config.values.php:186
 msgid "Open"
