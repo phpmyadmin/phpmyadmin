@@ -9655,7 +9655,7 @@ msgstr "எச்.எச்.எல் பயன்படுத்தப்பட
 
 #: libraries/classes/Html/Generator.php:362
 msgid "The PHP function password_hash() with default options."
-msgstr ""
+msgstr "இயல்புநிலை விருப்பங்களுடன் பிஎச்பி செயல்பாடு கடவுச்சொல்_ஆச் ()."
 
 #: libraries/classes/Html/Generator.php:363
 msgid "password_hash() PHP function"
