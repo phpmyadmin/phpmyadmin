@@ -32,6 +32,8 @@ msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"மிகவும் துல்லியமான சராசரிகளைக் கொண்டிருக்க இந்த பகுப்பாய்வியை இயக்குவதற்கு முன் ஒரு "
+"நாளுக்கு மேல் சேவையகம் இயக்க அனுமதிக்க பரிந்துரைக்கப்படுகிறது"
 
 #: libraries/advisory_rules_generic.php:17
 #, php-format
