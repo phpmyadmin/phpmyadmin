@@ -17346,10 +17346,9 @@ msgstr "வீதத்தை புதுப்பிக்கவும்"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:36
-#, fuzzy, php-format
-#| msgid "per second"
+#, php-format
 msgid "%d second"
-msgstr "ஒரு வினாடிக்கு"
+msgstr "%d இரண்டாவது"
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:38
