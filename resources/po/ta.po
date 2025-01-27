@@ -3280,6 +3280,9 @@ msgid ""
 "formatting strings. Additionally the following transformations will happen: "
 "%s Other text will be kept as is. See the FAQ 6.27 for details."
 msgstr ""
+"இந்த மதிப்பு 'STRFTIME' செயல்பாட்டைப் பயன்படுத்தி விளக்கப்படுகிறது, எனவே நீங்கள் நேர "
+"வடிவமைக்கும் சரங்களைப் பயன்படுத்தலாம். கூடுதலாக பின்வரும் மாற்றங்கள் நடக்கும்: %s மற்ற உரை "
+"அப்படியே வைக்கப்படும். விவரங்களுக்கு கேள்விகள் 6.27 ஐப் பார்க்கவும்."
 
 #: resources/templates/export.twig:394
 msgid "Use this for future exports"
