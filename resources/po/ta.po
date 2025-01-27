@@ -2233,7 +2233,7 @@ msgstr "உலகளாவிய"
 #: resources/templates/database/privileges/index.twig:50
 #: resources/templates/table/privileges/index.twig:52
 msgid "database-specific"
-msgstr ""
+msgstr "தரவுத்தள-குறிப்பிட்ட"
 
 #: resources/templates/database/privileges/index.twig:52
 #: resources/templates/table/privileges/index.twig:54
