@@ -3405,7 +3405,7 @@ msgstr "லாங்டெக்ச்டுக்கு பெரிய உர�
 
 #: libraries/classes/Config/Descriptions.php:822
 msgid "Maximum displayed SQL length"
-msgstr ""
+msgstr "அதிகபட்சம் காட்டப்படும் கவிமொ நீளம்"
 
 #: libraries/classes/Config/Descriptions.php:823
 msgid "Maximum databases"
