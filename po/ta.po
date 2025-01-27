@@ -7871,7 +7871,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:448
 msgid "The amount of free memory for query cache."
-msgstr ""
+msgstr "வினவல் தற்காலிக சேமிப்பிற்கான இலவச நினைவகத்தின் அளவு."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:449
 msgid "The number of cache hits."
