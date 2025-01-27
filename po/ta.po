@@ -14003,7 +14003,7 @@ msgstr "மதிப்பு"
 #: templates/database/designer/main.twig:857
 #: templates/database/designer/main.twig:1050
 msgid "subquery"
-msgstr ""
+msgstr "துணைக்குழு"
 
 #: templates/database/designer/main.twig:495
 #: templates/database/designer/main.twig:711
