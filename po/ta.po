@@ -12075,7 +12075,7 @@ msgstr "இணைகிறது"
 
 #: libraries/classes/Server/Status/Data.php:158
 msgid "Sorting"
-msgstr ""
+msgstr "வரிசைப்படுத்துதல்"
 
 #: libraries/classes/Server/Status/Data.php:160
 msgid "Transaction coordinator"
