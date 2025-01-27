@@ -10543,7 +10543,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportJson.php:93
 msgid "Output unicode characters unescaped"
-msgstr ""
+msgstr "வெளியீடு யூனிகோட் எழுத்துக்கள் வெளியிடப்படாதவை"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Content of table @TABLE@"
