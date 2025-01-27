@@ -3369,7 +3369,7 @@ msgstr "ச்லைடர்களுக்கான ஆரம்ப நில�
 
 #: libraries/classes/Config/Descriptions.php:815
 msgid "Number of inserted rows"
-msgstr ""
+msgstr "செருகப்பட்ட வரிசைகளின் எண்ணிக்கை"
 
 #: libraries/classes/Config/Descriptions.php:816
 msgid "Limit column characters"
