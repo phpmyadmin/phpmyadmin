@@ -9924,6 +9924,10 @@ msgid ""
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
+"Phpmyadmin இன் அண்மைக் கால பதிப்பைப் பற்றிய தகவல்களை மீட்டெடுக்கும்போது அல்லது பிழை "
+"அறிக்கைகளை சமர்ப்பிக்கும் போது பயன்படுத்த வேண்டிய ப்ராக்சியின் முகவரி. Phpmyadmin "
+"நிறுவப்பட்ட சேவையகத்திற்கு இணையத்திற்கு நேரடி அணுகல் இல்லை என்றால் உங்களுக்கு இது தேவை. "
+"வடிவம்: \"ஓச்ட்பெயர்: போர்ட்நம்பர்\"."
 
 #: src/Config/Descriptions.php:523
 msgid ""
