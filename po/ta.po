@@ -1863,7 +1863,7 @@ msgstr "அட்டவணை கட்டமைப்பிற்கான அ�
 
 #: libraries/classes/Config/Descriptions.php:235
 msgid "Choose how you want tabs to work."
-msgstr ""
+msgstr "தாவல்கள் எவ்வாறு செயல்பட வேண்டும் என்பதைத் தேர்வுசெய்க."
 
 #: libraries/classes/Config/Descriptions.php:236
 msgid "Customize text input fields."
