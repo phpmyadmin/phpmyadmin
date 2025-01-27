@@ -3733,6 +3733,8 @@ msgid ""
 "The configured two factor authentication is not available, please install "
 "missing dependencies."
 msgstr ""
+"கட்டமைக்கப்பட்ட இரண்டு காரணி ஏற்பு கிடைக்கவில்லை, தயவுசெய்து காணாமல் போன சார்புகளை "
+"நிறுவவும்."
 
 #: resources/templates/login/twofactor/key_configure.twig:3
 #: resources/templates/login/twofactor/key.twig:3
