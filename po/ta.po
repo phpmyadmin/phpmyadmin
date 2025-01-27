@@ -16114,7 +16114,7 @@ msgstr "கடவுச்சொல் இல்லை"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
-msgstr ""
+msgstr "உள்ளிடவும்:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
