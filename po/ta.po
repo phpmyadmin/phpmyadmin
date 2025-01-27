@@ -4325,7 +4325,7 @@ msgstr "விரைவான"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:29
 msgid "Custom"
-msgstr ""
+msgstr "தனிப்பயன்"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:55
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
