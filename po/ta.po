@@ -16519,7 +16519,7 @@ msgstr "பதிப்பு"
 
 #: templates/server/plugins/index.twig:29
 msgid "Author"
-msgstr ""
+msgstr "நூலாசிரியர்"
 
 #: templates/server/plugins/index.twig:41
 msgid "inactive"
