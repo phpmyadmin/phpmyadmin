@@ -12427,7 +12427,7 @@ msgstr "முதன்மை நிலையைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:206
 msgid "Show slave status"
-msgstr ""
+msgstr "அடிமை நிலையைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:214
 msgid "Flush query cache"
