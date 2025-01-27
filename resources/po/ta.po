@@ -4478,7 +4478,7 @@ msgstr "செருகுநிரல்கள்"
 
 #: resources/templates/server/plugins/index.twig:26
 msgid "Plugin"
-msgstr ""
+msgstr "சொருகு"
 
 #: resources/templates/server/plugins/index.twig:28
 #: resources/templates/table/tracking/main.twig:28
