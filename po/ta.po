@@ -12762,8 +12762,6 @@ msgstr ""
 #: templates/table/relation/common_form.twig:233
 #: templates/table/zoom_search/result_form.twig:26
 #: templates/table/zoom_search/result_form.twig:97
-#, fuzzy
-#| msgid "Loading…"
 msgid "Loading"
 msgstr "ஏற்றப்படுகிறது…"
 
