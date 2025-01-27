@@ -12051,7 +12051,7 @@ msgstr "கையாளுபவர்"
 
 #: libraries/classes/Server/Status/Data.php:150
 msgid "Query cache"
-msgstr ""
+msgstr "வினவல் தற்காலிக சேமிப்பு"
 
 #: libraries/classes/Server/Status/Data.php:151
 msgid "Threads"
