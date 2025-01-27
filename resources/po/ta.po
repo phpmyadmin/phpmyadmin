@@ -16750,6 +16750,8 @@ msgid ""
 "The XML file specified was either malformed or incomplete. Please correct "
 "the issue and try again."
 msgstr ""
+"குறிப்பிடப்பட்ட எக்ச்எம்எல் கோப்பு தவறாக அல்லது முழுமையற்றது. தயவுசெய்து சிக்கலை சரிசெய்து"
+" மீண்டும் முயற்சிக்கவும்."
 
 #: src/Plugins/Import/ImportOds.php:166
 msgid "Could not parse OpenDocument Spreadsheet!"
