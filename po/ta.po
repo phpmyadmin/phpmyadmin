@@ -9577,6 +9577,7 @@ msgstr ""
 #: libraries/classes/Import.php:1341
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
+"ஒரு கட்டமைப்பின் உள்ளடக்கங்களை அதன் பெயரைக் சொடுக்கு செய்வதன் மூலம் காண்க."
 
 #: libraries/classes/Import.php:1344
 msgid ""
