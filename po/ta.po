@@ -8635,7 +8635,7 @@ msgstr "திரும்ப வகை"
 
 #: libraries/classes/Database/Routines.php:922
 msgid "Return length/values"
-msgstr ""
+msgstr "திரும்ப நீளம்/மதிப்புகள்"
 
 #: libraries/classes/Database/Routines.php:928
 msgid "Return options"
