@@ -2424,6 +2424,9 @@ msgid ""
 "authentication mode because the password is hard coded in the configuration "
 "file; this does not limit the ability to execute the same command directly."
 msgstr ""
+"இதை செயல்படுத்துவது [KBD] கட்டமைப்பு [/KBD] அங்கீகார பயன்முறையில் எந்த விளைவையும் "
+"ஏற்படுத்தாது என்பதை நினைவில் கொள்க, ஏனெனில் கடவுச்சொல் உள்ளமைவு கோப்பில் கடினமாக "
+"குறியிடப்பட்டுள்ளது; இது அதே கட்டளையை நேரடியாக இயக்கும் திறனைக் கட்டுப்படுத்தாது."
 
 #: libraries/classes/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
