@@ -2551,7 +2551,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:596
 #: libraries/classes/Config/Descriptions.php:597
 msgid "Use only icons, only text or both."
-msgstr ""
+msgstr "ஐகான்கள், உரை அல்லது இரண்டையும் மட்டுமே பயன்படுத்தவும்."
 
 #: libraries/classes/Config/Descriptions.php:594
 msgid "Use GZip output buffering for increased speed in HTTP transfers."
