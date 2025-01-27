@@ -16799,7 +16799,7 @@ msgstr "விளக்கப்படங்களை இழுப்பதை �
 #: templates/server/status/monitor/index.twig:36
 #: templates/server/status/processes/index.twig:29
 msgid "Refresh rate"
-msgstr ""
+msgstr "வீதத்தை புதுப்பிக்கவும்"
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:36
