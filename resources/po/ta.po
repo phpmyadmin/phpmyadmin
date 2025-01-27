@@ -5635,7 +5635,7 @@ msgstr "அல்லது மாறி பெயரைத் தட்டச்
 
 #: resources/templates/server/status/monitor/index.twig:142
 msgid "Display as differential value"
-msgstr ""
+msgstr "வேறுபட்ட மதிப்பாக காண்பிக்கப்படும்"
 
 #: resources/templates/server/status/monitor/index.twig:147
 msgid "Apply a divisor"
