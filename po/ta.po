@@ -11840,7 +11840,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:428
 #: templates/server/privileges/privileges_table.twig:431
 msgid "Allows creating temporary tables."
-msgstr ""
+msgstr "தற்காலிக அட்டவணைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:435
 #: templates/server/privileges/privileges_table.twig:653
