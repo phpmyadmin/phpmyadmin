@@ -1573,7 +1573,7 @@ msgstr "சிறிய/பெரிய மாற்று"
 #: resources/templates/database/designer/main.twig:150
 #: resources/templates/database/designer/main.twig:153
 msgid "Toggle relationship lines"
-msgstr ""
+msgstr "உறவு கோடுகளை மாற்றவும்"
 
 #: resources/templates/database/designer/main.twig:158
 #: resources/templates/database/designer/main.twig:161
