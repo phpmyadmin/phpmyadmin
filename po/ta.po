@@ -10108,7 +10108,7 @@ msgstr "அட்டவணை வடிவமைப்பை மெருகே�
 
 #: libraries/classes/Normalization.php:956
 msgid "Select up to what step you want to normalize"
-msgstr ""
+msgstr "நீங்கள் எந்த படி இயல்பாக்க விரும்புகிறீர்கள் என்பதைத் தேர்ந்தெடுக்கவும்"
 
 #: libraries/classes/Normalization.php:966
 msgid "Second step of normalization (1NF+2NF)"
