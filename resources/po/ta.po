@@ -5589,7 +5589,7 @@ msgstr ""
 #: resources/templates/server/status/monitor/index.twig:151
 #: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:303
 msgid "KiB"
-msgstr "KiB"
+msgstr "வினோதமாக"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
