@@ -3949,7 +3949,7 @@ msgstr "மீதமுள்ள அமைப்புகளை இறக்க�
 #: resources/templates/preferences/manage/main.twig:3
 #: resources/templates/preferences/manage/main.twig:32
 msgid "Saved on: @DATE@"
-msgstr ""
+msgstr "சேமிக்கப்பட்டது: @தேதி @"
 
 #: resources/templates/preferences/manage/main.twig:19
 msgid "Import from file"
