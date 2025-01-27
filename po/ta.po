@@ -8505,7 +8505,7 @@ msgstr "வழக்கமான %1$s மாற்றியமைக்கப்
 #: libraries/classes/Database/Routines.php:417
 #, php-format
 msgid "Routine %1$s has been modified."
-msgstr ""
+msgstr "வழக்கமான %1$s மாற்றியமைக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Routines.php:823
 msgid "You must provide a name and a type for each routine parameter."
