@@ -8798,7 +8798,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Innodb.php:45
 msgid "Buffer pool size"
-msgstr ""
+msgstr "இடையக பூல் அளவு"
 
 #: libraries/classes/Engines/Innodb.php:46
 msgid ""
