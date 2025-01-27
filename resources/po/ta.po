@@ -7916,7 +7916,7 @@ msgstr "நூல் கேச் திறமையாக இல்லை."
 
 #: src/Advisory/Rules.php:526
 msgid "Increase {thread_cache_size}."
-msgstr ""
+msgstr "{thread_cache_size} ஐ அதிகரிக்கவும்."
 
 #: src/Advisory/Rules.php:527
 #, php-format
