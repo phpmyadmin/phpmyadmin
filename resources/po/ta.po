@@ -16575,7 +16575,7 @@ msgstr "கொட்டப்பட்ட அட்டவணைகளுக்�
 
 #: src/Plugins/Export/ExportSql.php:1650
 msgid "Constraints for table"
-msgstr ""
+msgstr "அட்டவணைக்கான தடைகள்"
 
 #: src/Plugins/Export/ExportSql.php:1676
 msgid "Indexes for dumped tables"
