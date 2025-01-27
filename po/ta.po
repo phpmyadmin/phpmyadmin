@@ -14643,11 +14643,11 @@ msgstr "பெறுநர்"
 
 #: templates/database/structure/check_all_tables.twig:6
 msgid "Check tables having overhead"
-msgstr ""
+msgstr "மேல்நிலை கொண்ட அட்டவணைகளை சரிபார்க்கவும்"
 
 #: templates/database/structure/check_all_tables.twig:10
 msgid "Copy table"
-msgstr "நகல்"
+msgstr "நகல் அட்டவணை"
 
 #: templates/database/structure/check_all_tables.twig:11
 msgid "Show create"
