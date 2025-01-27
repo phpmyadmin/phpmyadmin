@@ -13368,7 +13368,7 @@ msgstr "சிப் காப்பகத்திற்குள் கோப�
 #: libraries/common.inc.php:286
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "நீங்கள் %s %s அல்லது அதற்குப் பிறகு மேம்படுத்த வேண்டும்."
 
 #: libraries/common.inc.php:318
 msgid "Error: Token mismatch"
