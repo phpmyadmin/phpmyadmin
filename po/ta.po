@@ -8553,8 +8553,8 @@ msgstr "வழக்கமான %s இன் சாவுஒறுப்பு 
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "நடைமுறைக்குள் கடைசி அறிக்கையால் பாதிக்கப்பட்ட டி வரிசை."
+msgstr[1] "நடைமுறைக்குள் கடைசி அறிக்கையால் பாதிக்கப்பட்ட %d வரிசைகள்."
 
 #: libraries/classes/Database/Routines.php:1295
 #: libraries/classes/Database/Routines.php:1302
