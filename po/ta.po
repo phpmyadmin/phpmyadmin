@@ -12670,6 +12670,7 @@ msgstr "ஒரு நாளுக்கான வீச்சு, %1$s லிர
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
+"ஒரு தேதி மற்றும் நேர சேர்க்கை, ஆதரிக்கப்பட்ட வரம்பு %1$s முதல் %2$s ஆகும்"
 
 #: libraries/classes/Types.php:306
 msgid ""
