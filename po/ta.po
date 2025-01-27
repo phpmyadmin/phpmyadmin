@@ -11273,6 +11273,9 @@ msgid ""
 "has been deprecated for security reasons. Add all command line options "
 "directly to the definition in %s."
 msgstr ""
+"பாதுகாப்பு காரணங்களுக்காக நீக்கப்பட்ட வெளிப்புற உருமாற்ற கட்டளை வரி விருப்பங்கள் புலத்தை "
+"நீங்கள் பயன்படுத்துகிறீர்கள். அனைத்து கட்டளை வரி விருப்பங்களையும் %s இல் உள்ள வரையறைக்கு "
+"நேரடியாகச் சேர்க்கவும்."
 
 #: libraries/classes/Plugins/Transformations/Abs/FormattedTransformationsPlugin.php:29
 msgid ""
