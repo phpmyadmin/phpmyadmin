@@ -4653,7 +4653,7 @@ msgstr ""
 #: libraries/classes/Config/Validator.php:545
 #: templates/config/form_display/display.twig:64
 msgid "Not a positive number!"
-msgstr ""
+msgstr "நேர்மறை எண் அல்ல!"
 
 #: libraries/classes/Config/Validator.php:567
 #: templates/config/form_display/display.twig:65
