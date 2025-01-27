@@ -10262,7 +10262,7 @@ msgstr ""
 #: libraries/classes/Normalization.php:443
 #: libraries/classes/Normalization.php:490
 msgid "Table is already in second normal form."
-msgstr ""
+msgstr "அட்டவணை ஏற்கனவே இரண்டாவது சாதாரண வடிவத்தில் உள்ளது."
 
 #: libraries/classes/Normalization.php:448
 #, php-format
