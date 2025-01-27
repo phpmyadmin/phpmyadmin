@@ -2468,7 +2468,7 @@ msgstr "அட்டவணை வடிவாக்க செயல்களை 
 
 #: libraries/classes/Config/Descriptions.php:560
 msgid "Whether column comments should be shown in table structure view"
-msgstr ""
+msgstr "நெடுவரிசை கருத்துகள் அட்டவணை கட்டமைப்பு பார்வையில் காட்டப்பட வேண்டுமா"
 
 #: libraries/classes/Config/Descriptions.php:561
 msgid "Show server listing as a list instead of a drop down."
@@ -2737,7 +2737,7 @@ msgstr "தரவுதள வடிவமைப்பு நடவடிக்�
 
 #: libraries/classes/Config/Descriptions.php:643
 msgid "Default transformations for Hex"
-msgstr "உள்ளிடு மாற்றுருவாக்கம்"
+msgstr "எக்சிற்கான இயல்புநிலை மாற்றங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:644
 msgid "Default transformations for Substring"
