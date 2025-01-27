@@ -16042,7 +16042,7 @@ msgstr ""
 #: src/Normalization.php:508
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
-msgstr ""
+msgstr "இயல்பாக்கத்தின் இரண்டாவது படி '%1$s' க்கு அட்டவணைக்கு முடிந்தது."
 
 #: src/Normalization.php:560 src/Normalization.php:720
 #: src/Normalization.php:795
