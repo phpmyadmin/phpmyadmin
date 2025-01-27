@@ -2921,8 +2921,6 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:556
 #: templates/columns_definitions/table_fields_definitions.twig:71
 #: templates/database/data_dictionary/index.twig:31
-#, fuzzy
-#| msgid "Bad type!"
 msgid "Media type"
 msgstr "தகா வகை!"
 
