@@ -6238,14 +6238,14 @@ msgstr "அட்டவணை தேடல்"
 #: resources/templates/table/search/index.twig:10
 #: resources/templates/table/zoom_search/index.twig:10
 msgid "Zoom search"
-msgstr "அணுக்க தேடல்"
+msgstr "பெரிதாக்க தேடல்"
 
 #: resources/templates/table/find_replace/index.twig:16
 #: resources/templates/table/find_replace/index.twig:27
 #: resources/templates/table/search/index.twig:16
 #: resources/templates/table/zoom_search/index.twig:16
 msgid "Find and replace"
-msgstr "தேடிமாற்று நிபந்தனையை மறை"
+msgstr "கண்டுபிடித்து மாற்றவும்"
 
 #: resources/templates/table/find_replace/index.twig:36
 msgid "Replace with:"
@@ -14624,11 +14624,11 @@ msgstr "தகுதியற்ற அட்டவணைப் பெயர்"
 
 #: src/Controllers/Table/RelationController.php:317
 msgid "Display column was successfully updated."
-msgstr ""
+msgstr "காட்சி நெடுவரிசை வெற்றிகரமாக புதுப்பிக்கப்பட்டது."
 
 #: src/Controllers/Table/RelationController.php:351
 msgid "Internal relationships were successfully updated."
-msgstr "உள்ளமை உறவுமுறை சேர்க்கப்பட்டது."
+msgstr "உள் உறவுகள் வெற்றிகரமாக புதுப்பிக்கப்பட்டன."
 
 #: src/Controllers/Table/ReplaceController.php:182
 #, php-format
