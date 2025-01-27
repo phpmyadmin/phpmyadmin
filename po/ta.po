@@ -2447,6 +2447,7 @@ msgstr "கரி/வர்சார் டெக்ச்டேரியாக�
 msgid ""
 "Log SQL queries and their execution time, to be displayed in the console"
 msgstr ""
+"கவிமொ வினவல்கள் மற்றும் அவற்றின் செயல்பாட்டு நேரம், கன்சோலில் காண்பிக்கப்பட வேண்டும்"
 
 #: libraries/classes/Config/Descriptions.php:556
 msgid "Tab that is displayed when entering a database."
