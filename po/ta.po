@@ -4363,7 +4363,7 @@ msgstr ""
 #: libraries/classes/Config.php:1385
 #, php-format
 msgid "Invalid server index: %s"
-msgstr ""
+msgstr "தவறான சேவையக அட்டவணை: %s"
 
 #: libraries/classes/Config.php:1398
 #, php-format
