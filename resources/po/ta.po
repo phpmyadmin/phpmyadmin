@@ -10802,7 +10802,7 @@ msgstr "குறிப்பைக் காட்டு"
 
 #: src/Config/Descriptions.php:920
 msgid "Show phpinfo() link"
-msgstr ""
+msgstr "Phpinfo () இணைப்பைக் காட்டு"
 
 #: src/Config/Descriptions.php:921
 msgid "Show detailed MySQL server information"
