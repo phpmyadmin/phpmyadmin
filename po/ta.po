@@ -11533,7 +11533,7 @@ msgstr "அட்டவணைக்கான AUTO_INCREMENT(தன்னில�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1971
 msgid "MEDIA TYPES FOR TABLE"
-msgstr ""
+msgstr "அட்டவணைக்கான ஊடக வகைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1994
 msgid "RELATIONSHIPS FOR TABLE"
