@@ -15467,7 +15467,7 @@ msgstr ""
 
 #: src/Http/Middleware/RequestProblemChecking.php:35
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "குளோபல்ச் முயற்சியை மேலெழுதும்"
 
 #: src/Http/Middleware/RequestProblemChecking.php:47
 msgid "possible exploit"
