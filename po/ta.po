@@ -4120,7 +4120,7 @@ msgstr "பதிப்பு சோதனை"
 
 #: libraries/classes/Config/Descriptions.php:972
 msgid "Proxy url"
-msgstr ""
+msgstr "பதிலாள் முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:973
 msgid "Proxy username"
