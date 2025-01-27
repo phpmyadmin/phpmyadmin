@@ -8201,7 +8201,7 @@ msgstr "ரச்ய"
 #: src/Charsets/Collation.php:282
 msgctxt "Collation"
 msgid "Simplified Chinese"
-msgstr ""
+msgstr "எளிமைப்படுத்தப்பட்ட சீன"
 
 #: src/Charsets/Collation.php:285
 msgctxt "Collation"
