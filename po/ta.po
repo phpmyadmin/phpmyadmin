@@ -1285,7 +1285,7 @@ msgstr ""
 #: libraries/classes/Charsets/Collation.php:339
 msgctxt "Collation"
 msgid "Binary"
-msgstr ""
+msgstr "இருமம்"
 
 #: libraries/classes/Charsets/Collation.php:352
 #: libraries/classes/Charsets/Collation.php:601
