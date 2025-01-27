@@ -9054,6 +9054,8 @@ msgid ""
 "The percentage of garbage in a data log file before it is compacted. This is "
 "a value between 1 and 99. The default is 50."
 msgstr ""
+"தரவு பதிவு கோப்பில் குப்பைகளின் விழுக்காடு சுருக்கப்படுவதற்கு முன்பு. இது 1 முதல் 99 "
+"க்கு இடையிலான மதிப்பு. இயல்புநிலை 50 ஆகும்."
 
 #: libraries/classes/Engines/Pbxt.php:107
 msgid "Log buffer size"
