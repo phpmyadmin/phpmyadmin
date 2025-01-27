@@ -7200,7 +7200,7 @@ msgstr ""
 #: src/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "நேரம் நேரம் %s மட்டுமே"
 
 #: src/Advisory/Rules.php:47
 msgid "Questions below 1,000"
