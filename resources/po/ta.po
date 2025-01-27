@@ -3832,7 +3832,7 @@ msgstr "வழிசெலுத்தல் பலகத்தை மீளே�
 
 #: resources/templates/navigation/main.twig:67
 msgid "An error has occurred while loading the navigation display"
-msgstr ""
+msgstr "வழிசெலுத்தல் காட்சியை ஏற்றும்போது பிழை ஏற்பட்டது"
 
 #: resources/templates/navigation/main.twig:84
 #: src/Controllers/JavaScriptMessagesController.php:598
@@ -15729,7 +15729,7 @@ msgstr[1] "%1$d வரிசைகள் சேர்க்கப்பட்ட
 
 #: src/Navigation/Navigation.php:215
 msgid "Groups:"
-msgstr "பயனர்குழுவின் பெயர்:"
+msgstr "குழுக்கள்:"
 
 #: src/Navigation/Navigation.php:216
 msgid "Events:"
