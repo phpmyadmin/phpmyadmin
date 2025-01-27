@@ -15142,7 +15142,7 @@ msgstr ""
 
 #: src/Engines/Myisam.php:61
 msgid "Repair threads"
-msgstr ""
+msgstr "நூல்களை சரிசெய்யவும்"
 
 #: src/Engines/Myisam.php:63
 msgid ""
