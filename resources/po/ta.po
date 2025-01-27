@@ -1747,7 +1747,7 @@ msgstr "தொடங்கு"
 #: resources/templates/database/events/editor_form.twig:81
 msgctxt "End of recurring event"
 msgid "End"
-msgstr ""
+msgstr "முடிவு"
 
 #: resources/templates/database/events/editor_form.twig:87
 #: resources/templates/database/routines/editor_form.twig:118
