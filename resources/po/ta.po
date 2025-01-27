@@ -7864,6 +7864,8 @@ msgstr "பல அட்டவணை பூட்டுகள் உடனடி
 #: src/Advisory/Rules.php:495 src/Advisory/Rules.php:505
 msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
+"வினவல்களை மேம்படுத்தவும் மற்றும்/அல்லது பூட்டு காத்திருப்பைக் குறைக்க INNODB ஐப் "
+"பயன்படுத்தவும்."
 
 #: src/Advisory/Rules.php:496
 #, php-format
