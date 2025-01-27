@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-01-27 04:22+0000\n"
+"PO-Revision-Date: 2025-01-27 04:25+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-1/ta/>"
 "\n"
@@ -1946,7 +1946,7 @@ msgid ""
 "features, see [doc@linked-tables]phpMyAdmin configuration storage[/doc] in "
 "documentation."
 msgstr ""
-"கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற Phpmyadmin உள்ளமைவு சேமிப்பகத்தை உள்ளமைக்கவும், "
+"Phpmyadmin உள்ளமைவு சேமிப்பிடத்தை உள்ளமைக்கவும் கூடுதல் அம்சங்களுக்கான அணுகலைப் பெற, "
 "ஆவணத்தில் [DOC@இணைக்கப்பட்ட-அட்டவணைகள்] Phpmyadmin உள்ளமைவு சேமிப்பிடம் [/doc] ஐப் "
 "பார்க்கவும்."
 
@@ -4928,7 +4928,7 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "%உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
+"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயங்களை "
 "ஏற்படுத்தக்கூடும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:475
@@ -5123,7 +5123,7 @@ msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம்
 #: libraries/classes/Controllers/Database/OperationsController.php:363
 #: libraries/classes/Controllers/Table/OperationsController.php:272
 msgid "No collation provided."
-msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
+msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Database/SearchController.php:55
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:89
@@ -7592,8 +7592,8 @@ msgid ""
 "statements from the transaction."
 msgstr ""
 "தற்காலிக பைனரி பதிவு தற்காலிக சேமிப்பைப் பயன்படுத்திய பரிவர்த்தனைகளின் எண்ணிக்கை, ஆனால் "
-"அது பின்லோக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க ஒரு "
-"தற்காலிக கோப்பைப் பயன்படுத்தியது."
+"அது பின்லாக்_கேச்_சைசின் மதிப்பை மீறி, பரிவர்த்தனையிலிருந்து அறிக்கைகளை சேமிக்க தற்காலிக "
+"கோப்பைப் பயன்படுத்தியது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:256
 msgid "The number of transactions that used the temporary binary log cache."
@@ -9128,7 +9128,7 @@ msgstr "நீங்கள் ஒரு வழக்கமான வரையற
 #: libraries/classes/Database/Routines.php:1587
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
-msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயருடன் வழக்கமாக இல்லை."
+msgstr "தரவுத்தள %2$s இல் %1$s என்ற பெயரைக் கொண்ட வழக்கம் இல்லை."
 
 #: libraries/classes/Database/Routines.php:1448
 #, php-format
@@ -9738,7 +9738,7 @@ msgstr "வரிசை சுட்டிக்காட்டி (.xtr) கோ
 
 #: libraries/classes/Engines/Pbxt.php:125
 msgid "Log file count"
-msgstr "Log கோப்பு எண்ணுங்கள்"
+msgstr "பதிவு கோப்பு எண்ணிக்கை"
 
 #: libraries/classes/Engines/Pbxt.php:127
 msgid ""
@@ -9757,8 +9757,8 @@ msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
 msgstr ""
-"ஆவணப்படுத்துதல் and further செய்தி பற்றி PBXT can be found on the %sPrimeBase XT "
-"வீடு Page%s."
+"PBXT பற்றிய ஆவணங்கள் மற்றும் மேலதிக தகவல்களை %sPRIMEBASE XT முகப்பு பக்கம் %s இல் "
+"காணலாம்."
 
 #: libraries/classes/ErrorHandler.php:99
 msgid "Too many error messages, some are not displayed."
@@ -10816,7 +10816,7 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:1056
 msgid "No partial dependencies found!"
-msgstr "பகுதி சார்புகள் எதுவும் கிடைக்கவில்லை!"
+msgstr "பகுதி சார்புநிலைகள் எதுவும் காணப்படவில்லை!"
 
 #: libraries/classes/Operations.php:600
 #: templates/table/structure/display_partitions.twig:84
@@ -11396,7 +11396,7 @@ msgstr "<code> தாமதத்தை செருகவும் </குற�
 #: libraries/classes/Plugins/Export/ExportSql.php:426
 #: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<code> செருகவும் புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
+msgstr "<குறியீடு> செருகு புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
@@ -15920,11 +15920,8 @@ msgstr "முந்தைய"
 
 #. l10n: Next month. Display text for next month link in calendar
 #: templates/javascript/variables.twig:17
-#, fuzzy
-#| msgctxt "Next month"
-#| msgid "Next"
 msgid "Next"
-msgstr "அடுத்த"
+msgstr "அடுத்தது"
 
 #. l10n: Display text for current month link in calendar
 #: templates/javascript/variables.twig:18
