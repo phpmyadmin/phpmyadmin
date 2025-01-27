@@ -4155,7 +4155,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:980
 msgid "Public key for reCaptcha"
-msgstr ""
+msgstr "ரெக்காப்ட்சாவிற்கான பொது விசை"
 
 #: libraries/classes/Config/Descriptions.php:981
 msgid "Private key for reCaptcha"
