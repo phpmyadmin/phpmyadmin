@@ -10495,7 +10495,7 @@ msgstr "கோப்பகத்தை சேமிக்கவும்"
 
 #: src/Config/Descriptions.php:860
 msgid "Host authorization order"
-msgstr ""
+msgstr "புரவலன் அங்கீகார கட்டளை"
 
 #: src/Config/Descriptions.php:861
 msgid "Host authorization rules"
