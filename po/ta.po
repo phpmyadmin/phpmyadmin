@@ -4308,7 +4308,7 @@ msgstr ""
 #: libraries/classes/Relation.php:150 libraries/classes/Relation.php:158
 #: libraries/config.values.php:145 libraries/config.values.php:188
 msgid "Disabled"
-msgstr ""
+msgstr "முடக்கப்பட்டது"
 
 #: libraries/classes/Config/FormDisplayTemplate.php:303
 #: libraries/classes/Controllers/Database/StructureController.php:1453
