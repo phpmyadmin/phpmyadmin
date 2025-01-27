@@ -15508,6 +15508,8 @@ msgid ""
 "A compressed file's name must end in <strong>.[format].[compression]</"
 "strong>. Example: <strong>.sql.zip</strong>"
 msgstr ""
+"சுருக்கப்பட்ட கோப்பின் பெயர் <strong> இல் முடிவடைய வேண்டும். [வடிவம்]. [சுருக்க] </"
+"strong>. எடுத்துக்காட்டு: <strong> .sql.zip </strong>"
 
 #: templates/import.twig:40
 msgid "Upload a file"
