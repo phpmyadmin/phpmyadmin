@@ -12088,7 +12088,7 @@ msgstr "கோப்புகள்"
 
 #: libraries/classes/Server/Status/Data.php:180
 msgid "Flush (close) all tables"
-msgstr ""
+msgstr "அனைத்து அட்டவணைகளையும் பறிக்கவும் (மூடு)"
 
 #: libraries/classes/Server/Status/Data.php:184
 msgid "Show open tables"
