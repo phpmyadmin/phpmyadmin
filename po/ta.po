@@ -18358,7 +18358,7 @@ msgstr "%s இல் ஒரு முதன்மை விசை சேர்�
 #: templates/table/structure/display_structure.twig:216
 #, php-format
 msgid "An index has been added on %s."
-msgstr ""
+msgstr "%s இல் ஒரு குறியீடு சேர்க்கப்பட்டுள்ளது."
 
 #: templates/table/structure/display_structure.twig:238
 msgid "Distinct values"
