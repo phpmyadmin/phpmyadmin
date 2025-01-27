@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:16+0000\n"
+"PO-Revision-Date: 2025-01-27 02:17+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -10301,7 +10301,7 @@ msgstr "இந்த MySQL சேவையகத்தில் உள்நு�
 
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:92
 msgid "Wrong username/password. Access denied."
-msgstr ""
+msgstr "தவறான பயனர்பெயர்/கடவுச்சொல். அணுகல் மறுக்கப்பட்டது."
 
 #: libraries/classes/Plugins/Auth/AuthenticationSignon.php:149
 msgid "Can not find signon authentication script:"
