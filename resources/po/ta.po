@@ -3088,7 +3088,7 @@ msgstr ""
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
 msgid "Select a template"
-msgstr "ஒரு அட்டவணையை தேர்வுசெய்க"
+msgstr "ஒரு வார்ப்புருவைத் தேர்ந்தெடுக்கவும்"
 
 #: resources/templates/export.twig:16
 msgid "Export templates:"
@@ -3304,7 +3304,7 @@ msgstr "வடிவமைப்பு-குறிப்பிட்ட வி�
 
 #: resources/templates/export.twig:487 resources/templates/import.twig:182
 msgid "Encoding Conversion:"
-msgstr ""
+msgstr "குறியீட்டு மாற்றம்:"
 
 #: resources/templates/filter.twig:2
 #: resources/templates/server/status/processes/index.twig:6
