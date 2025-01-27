@@ -8968,7 +8968,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:42
 msgid "Record cache size"
-msgstr ""
+msgstr "கேச் அளவு பதிவு செய்யுங்கள்"
 
 #: libraries/classes/Engines/Pbxt.php:44
 msgid ""
