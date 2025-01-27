@@ -9872,6 +9872,8 @@ msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
+"ஒன்றுக்கு மேற்பட்டதாகப் பிரிக்கக்கூடிய ஒரு நெடுவரிசையைத் தேர்ந்தெடுக்கவும் ('அத்தகைய "
+"நெடுவரிசை இல்லை' என்பதைத் தேர்ந்தெடுப்பதில், அது அடுத்த கட்டத்திற்கு நகரும்)."
 
 #: libraries/classes/Normalization.php:253
 msgid "split into "
