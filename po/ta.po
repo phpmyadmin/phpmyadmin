@@ -6973,7 +6973,7 @@ msgstr "அட்டவணை %s ஏற்கனவே உள்ளன!"
 #: libraries/classes/InsertEdit.php:335
 #: libraries/classes/Navigation/Nodes/NodeDatabaseChild.php:53
 msgid "Hide"
-msgstr ""
+msgstr "மறை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:711
 #: libraries/classes/Controllers/Table/ChangeController.php:194
@@ -14918,7 +14918,7 @@ msgstr ""
 #. l10n: Month-year order for calendar, use either "calendar-month-year" or "calendar-year-month".
 #: templates/javascript/variables.twig:8
 msgid "calendar-month-year"
-msgstr "calendar-month-year"
+msgstr "காலண்டர்-மாத ஆண்டு"
 
 #. l10n: Year suffix for calendar, "none" is empty.
 #: templates/javascript/variables.twig:11
