@@ -3134,7 +3134,7 @@ msgstr ""
 
 #: resources/templates/export.twig:119 src/Plugins/Export/ExportCodegen.php:72
 msgid "Format:"
-msgstr ""
+msgstr "வடிவம்:"
 
 #: resources/templates/export.twig:121
 msgid "File format to export"
