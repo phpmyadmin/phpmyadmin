@@ -10199,7 +10199,7 @@ msgstr "ஒருங்கிணைப்பு"
 
 #: libraries/classes/Operations.php:925
 msgid "Can't move table to same one!"
-msgstr ""
+msgstr "அட்டவணையை ஒரே மாதிரியாக நகர்த்த முடியாது!"
 
 #: libraries/classes/Operations.php:927
 msgid "Can't copy table to same one!"
