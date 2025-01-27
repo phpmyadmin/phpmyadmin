@@ -762,7 +762,7 @@ msgstr "உலாவி காட்சி மாற்றம்"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:81
 msgid "Browser display transformation options"
-msgstr ""
+msgstr "உலாவி காட்சி மாற்ற விருப்பங்கள்"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:82
 #: resources/templates/columns_definitions/table_fields_definitions.twig:93
@@ -2967,7 +2967,7 @@ msgstr "தொடர்புசார் குறிப்பெழுத்�
 
 #: resources/templates/display/results/table.twig:228
 msgid "Display column for relationships"
-msgstr "கருத்துரைகளை காட்டுக"
+msgstr "உறவுகளுக்கு நெடுவரிசையைக் காண்பி"
 
 #: resources/templates/display/results/table.twig:237
 msgid "Show binary contents"
