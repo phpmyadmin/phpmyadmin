@@ -3068,7 +3068,7 @@ msgstr "உருவாக்கப்பட்ட வினவலின் அ�
 
 #: libraries/classes/Config/Descriptions.php:738
 msgid "Export type"
-msgstr ""
+msgstr "ஏற்றுமதி வகை"
 
 #: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/Plugins/Export/ExportSql.php:172
