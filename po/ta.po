@@ -3073,7 +3073,7 @@ msgstr "ஏற்றுமதி வகை"
 #: libraries/classes/Config/Descriptions.php:739
 #: libraries/classes/Plugins/Export/ExportSql.php:172
 msgid "Enclose export in a transaction"
-msgstr ""
+msgstr "ஒரு பரிவர்த்தனையில் ஏற்றுமதியை இணைக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:740
 msgid "Export time in UTC"
