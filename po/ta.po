@@ -4402,7 +4402,7 @@ msgstr "இந்த மதிப்பைத் தனிப்பயனாக�
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:37
 msgid "Config authentication"
-msgstr ""
+msgstr "உள்ளமைவு ஏற்பு"
 
 #: libraries/classes/Config/Forms/Setup/ServersForm.php:41
 msgid "HTTP authentication"
