@@ -10267,7 +10267,7 @@ msgstr "கிளையில் அதிகபட்ச உருப்பட�
 
 #: src/Config/Descriptions.php:806
 msgid "Maximum number of rows to display"
-msgstr ""
+msgstr "காண்பிக்க அதிகபட்ச வரிசைகளின் எண்ணிக்கை"
 
 #: src/Config/Descriptions.php:807
 msgid "Maximum tables"
