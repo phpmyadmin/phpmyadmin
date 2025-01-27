@@ -3826,6 +3826,7 @@ msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
+"உங்கள் WebAuthn/FIDO2 சாதனத்தை இணைக்கவும். சாதனத்தில் பதிவை உறுதிப்படுத்தவும்."
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
 msgid ""
