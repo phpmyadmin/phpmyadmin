@@ -3844,7 +3844,7 @@ msgstr "வடிவமைப்பாளர் மற்றும் பி.ட
 
 #: libraries/classes/Config/Descriptions.php:915
 msgid "Display columns table"
-msgstr ""
+msgstr "நெடுவரிசை அட்டவணையைக் காண்பி"
 
 #: libraries/classes/Config/Descriptions.php:916
 msgid "UI preferences table"
