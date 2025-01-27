@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:29+0000\n"
+"PO-Revision-Date: 2025-01-27 02:30+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -16312,7 +16312,7 @@ msgstr "பயனர் கணக்கிற்கான தரவுத்த�
 
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
-msgstr ""
+msgstr "ஒரே பெயருடன் தரவுத்தளத்தை உருவாக்கி அனைத்து சலுகைகளையும் வழங்கவும்."
 
 #: templates/server/privileges/add_user.twig:19
 msgid "Grant all privileges on wildcard name (username\\_%)."
