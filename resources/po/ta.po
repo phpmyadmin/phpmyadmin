@@ -3522,11 +3522,11 @@ msgstr "எச்சரிக்கை"
 
 #: resources/templates/home/index.twig:299
 msgid "Notice"
-msgstr ""
+msgstr "அறிவிப்பு"
 
 #: resources/templates/home/index.twig:312
 msgid "phpMyAdmin Themes"
-msgstr "phpMyAdmin அகப்பக்கம்"
+msgstr "phpmyadmin கருப்பொருள்கள்"
 
 #: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
@@ -3545,7 +3545,7 @@ msgstr "மேலும் கருப்பொருள்களைப் ப�
 #: resources/templates/home/themes.twig:8
 #, php-format
 msgid "Screenshot of the %s theme."
-msgstr "%s தரவுத்தளத்தின் ஒழுங்கமைவு"
+msgstr "%s கருப்பொருளின் திரை காட்சி."
 
 #. l10n: Choose the theme button in the themes list modal
 #: resources/templates/home/themes.twig:14
@@ -3590,11 +3590,11 @@ msgstr ""
 
 #: resources/templates/import.twig:37
 msgid "Upload a file"
-msgstr "கோப்பை பதிவிறக்கு"
+msgstr "ஒரு கோப்பைப் பதிவேற்றவும்"
 
 #: resources/templates/import.twig:40
 msgid "Select file to import"
-msgstr "தரவிறக்கத்திற்கான கோப்பு:"
+msgstr "இறக்குமதி செய்ய கோப்பைத் தேர்ந்தெடுக்கவும்"
 
 #: resources/templates/import.twig:46 resources/templates/import.twig:72
 #: resources/templates/preferences/manage/main.twig:21
@@ -3613,11 +3613,12 @@ msgstr "பதிவேற்றத்திற்காக நீங்கள�
 #: resources/templates/import.twig:58 resources/templates/import.twig:83
 #, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
-msgstr "வலை சேவையகத்தின் பதிவேற்ற அடைவுகளிலிருந்து <b>%s</b> தேர்ந்தெடுங்கள்:"
+msgstr ""
+"வலை சேவையக பதிவேற்ற கோப்பகத்திலிருந்து [வலுவான]%s [/strong] ஐத் தேர்ந்தெடுக்கவும்:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
 msgid "There are no files to import!"
-msgstr "பதிவேற்றுவதற்கு எந்த கோப்புகளும் இல்லை!"
+msgstr "இறக்குமதி செய்ய கோப்புகள் எதுவும் இல்லை!"
 
 #: resources/templates/import.twig:95
 msgid "File uploads are not allowed on this server."
