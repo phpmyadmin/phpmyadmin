@@ -14049,7 +14049,7 @@ msgstr ""
 
 #: templates/database/designer/page_selector.twig:2
 msgid "Select page"
-msgstr ""
+msgstr "பக்கத்தைத் தேர்ந்தெடுக்கவும்"
 
 #: templates/database/designer/schema_export.twig:4
 msgid "Select Export Relational Type"
