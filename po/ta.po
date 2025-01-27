@@ -16418,8 +16418,6 @@ msgid ""
 msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:34
-#, fuzzy
-#| msgid "Search this table"
 msgid "See replica status table"
 msgstr "இந்த அட்டவணையில் தேடுக"
 
