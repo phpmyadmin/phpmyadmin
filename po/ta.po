@@ -8051,7 +8051,7 @@ msgstr "முடிவுக்கோடு"
 
 #: libraries/classes/Controllers/SqlController.php:396
 msgid "Bookmark not created!"
-msgstr ""
+msgstr "புக்மார்க்கு உருவாக்கப்படவில்லை!"
 
 #: libraries/classes/Controllers/Table/AddFieldController.php:154
 #: libraries/classes/Controllers/Table/IndexesController.php:259
