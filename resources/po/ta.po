@@ -4786,7 +4786,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:329
 #: src/Server/Privileges.php:297 src/Server/Privileges.php:320
 msgid "Allows deleting data."
-msgstr ""
+msgstr "தரவை நீக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:137
 #: resources/templates/server/privileges/privileges_table.twig:140
