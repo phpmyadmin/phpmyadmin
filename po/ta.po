@@ -11622,8 +11622,6 @@ msgid "Show open tables"
 msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Show replica hosts"
 msgstr "இரட்டையாக்கப்படாதது"
 
