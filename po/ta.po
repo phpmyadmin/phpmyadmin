@@ -15058,43 +15058,43 @@ msgstr "வினாடிகள்"
 
 #: templates/javascript/variables.twig:90
 msgid "This field is required"
-msgstr ""
+msgstr "இந்த புலம் தேவை"
 
 #: templates/javascript/variables.twig:91
 msgid "Please fix this field"
-msgstr "உரைபுலத்தின் மூலமாக:"
+msgstr "இந்த புலத்தை சரிசெய்யவும்"
 
 #: templates/javascript/variables.twig:92
 msgid "Please enter a valid email address"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான மின்னஞ்சல் முகவரியை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:93
 msgid "Please enter a valid URL"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் முகவரி ஐ உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:94
 msgid "Please enter a valid date"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "சரியான தேதியை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:95
 msgid "Please enter a valid date ( ISO )"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "செல்லுபடியாகும் தேதியை (ஐஎச்ஓ) உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:96
 msgid "Please enter a valid number"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் எண்ணை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:97
 msgid "Please enter a valid credit card number"
-msgstr "தயவுசெய்து ஒரு சரியான எண்ணை இடுக!"
+msgstr "செல்லுபடியாகும் கடன் அட்டை எண்ணை உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:98
 msgid "Please enter only digits"
-msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
+msgstr "தயவுசெய்து இலக்கங்களை மட்டும் உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:99
 msgid "Please enter the same value again"
-msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
+msgstr "அதே மதிப்பை மீண்டும் உள்ளிடவும்"
 
 #: templates/javascript/variables.twig:100
 msgid "Please enter no more than {0} characters"
