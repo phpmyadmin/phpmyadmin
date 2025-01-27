@@ -2781,7 +2781,7 @@ msgstr "சேவையகங்களை ஒரு பட்டியலாக�
 
 #: libraries/classes/Config/Descriptions.php:653
 msgid "Disable multi table maintenance"
-msgstr ""
+msgstr "பல அட்டவணை பராமரிப்பை முடக்கு"
 
 #: libraries/classes/Config/Descriptions.php:654
 msgid "Maximum execution time"
