@@ -9703,7 +9703,7 @@ msgstr "கட்டமைப்பு கோப்பு அனுமதிக�
 
 #: src/Config/Descriptions.php:613
 msgid "Compress on the fly"
-msgstr ""
+msgstr "பறக்கும்போது சுருக்க"
 
 #: src/Config/Descriptions.php:614
 msgid "Confirm DROP queries"
