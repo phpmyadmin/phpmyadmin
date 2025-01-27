@@ -3729,6 +3729,9 @@ msgid ""
 "can lead to a non working phpMyAdmin or a security risk. Please fix your "
 "server configuration to indicate HTTPS properly."
 msgstr ""
+"சேவையகம் மற்றும் கிளையண்டில் சுட்டிக்காட்டப்பட்ட HTTP களுக்கு இடையே ஒரு பொருத்தமின்மை "
+"உள்ளது. இது வேலை செய்யாத PHPMYADMIN அல்லது பாதுகாப்பு அபாயத்திற்கு வழிவகுக்கும். "
+"HTTP களை சரியாகக் குறிக்க உங்கள் சேவையக உள்ளமைவை சரிசெய்யவும்."
 
 #: resources/templates/login/twofactor/application_configure.twig:3
 msgid ""
@@ -3767,7 +3770,7 @@ msgstr ""
 #: resources/templates/login/twofactor/key.twig:3
 #: resources/templates/preferences/two_factor/main.twig:56
 msgid "Deprecated!"
-msgstr "இரட்டையாக்கப்பட்டது"
+msgstr "மதிப்பிடப்பட்டது!"
 
 #: resources/templates/login/twofactor/key_configure.twig:4
 #: resources/templates/login/twofactor/key.twig:4
