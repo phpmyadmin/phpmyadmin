@@ -3309,7 +3309,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:791
 msgid "Partial import: allow interrupt"
-msgstr ""
+msgstr "பகுதி இறக்குமதி: குறுக்கீட்டை அனுமதிக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:796
 #: libraries/classes/Config/Descriptions.php:802
