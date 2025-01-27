@@ -17832,8 +17832,6 @@ msgid "(current)"
 msgstr ""
 
 #: templates/transformation_overview.twig:1
-#, fuzzy
-#| msgid "Display Features"
 msgid "Available media types"
 msgstr "பயன்முறைகளை காட்டுக"
 
