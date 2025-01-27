@@ -9603,7 +9603,7 @@ msgstr "%s க்கான அமைப்புகளைத் திருத�
 #: libraries/classes/Import.php:1387
 #, php-format
 msgid "Go to table: %s"
-msgstr ""
+msgstr "அட்டவணைக்குச் செல்லுங்கள்: %s"
 
 #: libraries/classes/Import.php:1395
 #, php-format
