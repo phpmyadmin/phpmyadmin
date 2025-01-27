@@ -10754,7 +10754,7 @@ msgstr "தரவேற்ற விருப்பங்கள்"
 #: libraries/classes/Plugins/Export/ExportSql.php:401
 #: libraries/classes/Plugins/Export/ExportSql.php:2337
 msgid "Truncate table before insert"
-msgstr ""
+msgstr "செருகுவதற்கு முன் அட்டவணையை துண்டிக்கவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
