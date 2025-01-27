@@ -8018,6 +8018,9 @@ msgid ""
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
+"நூல் தற்காலிக சேமிப்பில் உள்ள நூல்களின் எண்ணிக்கை. கேச் இட் வீதத்தை நூல்கள்_ரேட்/இணைப்புகளாக "
+"கணக்கிடலாம். இந்த மதிப்பு சிவப்பு நிறமாக இருந்தால், உங்கள் Thread_cache_size ஐ உயர்த்த "
+"வேண்டும்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:508
 msgid "The number of currently open connections."
