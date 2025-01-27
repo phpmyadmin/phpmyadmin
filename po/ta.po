@@ -7925,6 +7925,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:468
 msgid "The number of joins that used a range search on a reference table."
 msgstr ""
+"குறிப்பு அட்டவணையில் வரம்பு தேடலைப் பயன்படுத்திய இணைப்புகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:470
 msgid ""
