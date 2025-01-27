@@ -15049,7 +15049,7 @@ msgstr ""
 
 #: templates/export.twig:145
 msgid "Dump some row(s)"
-msgstr ""
+msgstr "சில வரிசை (களை) கொட்டவும்"
 
 #: templates/export.twig:160
 msgid "Row to begin at:"
