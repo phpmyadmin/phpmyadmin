@@ -3711,7 +3711,7 @@ msgstr "கட்டுப்பாட்டு பயனரை"
 
 #: libraries/classes/Config/Descriptions.php:891
 msgid "Control host"
-msgstr ""
+msgstr "கட்டுப்பாட்டு புரவலன்"
 
 #: libraries/classes/Config/Descriptions.php:892
 msgid "Control port"
