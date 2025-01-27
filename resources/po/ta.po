@@ -7323,7 +7323,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:128
 msgid "slow_query_log is set to 'OFF'"
-msgstr ""
+msgstr "slow_query_log 'ஆஃப்' என அமைக்கப்பட்டுள்ளது"
 
 #: src/Advisory/Rules.php:133
 msgid "Release Series"
