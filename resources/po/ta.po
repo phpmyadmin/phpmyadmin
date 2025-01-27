@@ -14334,7 +14334,7 @@ msgstr "மில்லி விநாடிகளில், வரிசை �
 
 #: src/Controllers/Server/Status/VariablesController.php:372
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr ""
+msgstr "மில்லி விநாடிகளில், வரிசை பூட்டைப் பெற அதிகபட்ச நேரம்."
 
 #: src/Controllers/Server/Status/VariablesController.php:373
 msgid "The number of times a row lock had to be waited for."
