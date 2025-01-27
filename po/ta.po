@@ -10547,7 +10547,7 @@ msgstr "வெளியீடு யூனிகோட் எழுத்து�
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:50
 msgid "Content of table @TABLE@"
-msgstr ""
+msgstr "அட்டவணையின் உள்ளடக்கம் @அட்டவணை @"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:51
 msgid "(continued)"
