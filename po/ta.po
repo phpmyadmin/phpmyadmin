@@ -8368,7 +8368,7 @@ msgstr "நிகழ்வுக்கு சரியான வகையை ந
 
 #: libraries/classes/Database/Events.php:476
 msgid "You must provide an event definition."
-msgstr ""
+msgstr "நீங்கள் ஒரு நிகழ்வு வரையறையை வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Events.php:502
 msgid "Sorry, we failed to restore the dropped event."
