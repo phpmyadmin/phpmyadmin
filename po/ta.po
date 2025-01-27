@@ -10329,6 +10329,8 @@ msgstr "MySQL சேவையகத்துக்குள் புகுப�
 #: libraries/classes/Plugins/AuthenticationPlugin.php:348
 msgid "You have enabled two factor authentication, please confirm your login."
 msgstr ""
+"நீங்கள் இரண்டு காரணி அங்கீகாரத்தை இயக்கியுள்ளீர்கள், தயவுசெய்து உங்கள் உள்நுழைவை "
+"உறுதிப்படுத்தவும்."
 
 #: libraries/classes/Plugins/Export/ExportCodegen.php:80
 #: templates/export.twig:119
