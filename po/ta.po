@@ -18243,7 +18243,7 @@ msgstr "நெடுவரிசைகளைத் தேர்ந்தெட�
 
 #: templates/table/search/index.twig:130
 msgid "Add search conditions (body of the \"where\" clause):"
-msgstr ""
+msgstr "தேடல் நிலைமைகளைச் சேர்க்கவும் (\"எங்கே\" பிரிவின் உடல்):"
 
 #: templates/table/search/index.twig:138
 msgid "Number of rows per page"
