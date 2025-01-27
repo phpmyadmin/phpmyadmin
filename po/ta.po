@@ -6860,7 +6860,7 @@ msgstr "வாதங்களை மறைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:662
 msgid "Time taken:"
-msgstr ""
+msgstr "எடுக்கப்பட்ட நேரம்:"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:664
 msgid ""
