@@ -10815,7 +10815,7 @@ msgstr "SQL வினவல்களை காட்டுக"
 
 #: src/Config/Descriptions.php:924
 msgid "Show statistics"
-msgstr ""
+msgstr "புள்ளிவிவரங்களைக் காட்டு"
 
 #: src/Config/Descriptions.php:925
 msgid "Skip locked tables"
