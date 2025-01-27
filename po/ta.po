@@ -2227,6 +2227,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
+"உறவுகள், புக்மார்க்குகள் மற்றும் PDF அம்சங்களுக்காக பயன்படுத்தப்படும் தரவுத்தளம். முழுமையான "
+"தகவலுக்கு [doc@இணைக்கப்பட்ட-அட்டவணைகள்] PMADB [/doc] ஐப் பார்க்கவும். எந்த ஆதரவும் இல்லாமல்"
+" காலியாக விடவும். பரிந்துரைக்கப்பட்ட: [KBD] Phpmyadmin [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:399
 msgid ""
