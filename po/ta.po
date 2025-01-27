@@ -17007,7 +17007,7 @@ msgstr "கண்காணிக்கவும்"
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
-msgstr ""
+msgstr "ஆலோசகர்"
 
 #: templates/server/status/monitor/index.twig:8
 msgid "Start Monitor"
