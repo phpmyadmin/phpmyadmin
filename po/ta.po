@@ -7990,7 +7990,7 @@ msgstr "வரம்புகளுடன் செய்யப்பட்ட �
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:494
 msgid "The number of sorted rows."
-msgstr ""
+msgstr "வரிசைப்படுத்தப்பட்ட வரிசைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:495
 msgid "The number of sorts that were done by scanning the table."
