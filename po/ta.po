@@ -11953,7 +11953,7 @@ msgstr "வழக்கமான-குறிப்பிட்ட சலுக�
 
 #: libraries/classes/Server/Privileges.php:2173
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "நீக்க பயனர்கள் யாரும் தேர்ந்தெடுக்கப்படவில்லை!"
 
 #: libraries/classes/Server/Privileges.php:2176
 msgid "Reloading the privileges"
