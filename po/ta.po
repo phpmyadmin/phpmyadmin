@@ -18239,7 +18239,7 @@ msgstr ""
 
 #: templates/table/search/index.twig:111
 msgid "Select columns (at least one):"
-msgstr ""
+msgstr "நெடுவரிசைகளைத் தேர்ந்தெடுக்கவும் (குறைந்தது ஒன்று):"
 
 #: templates/table/search/index.twig:130
 msgid "Add search conditions (body of the \"where\" clause):"
