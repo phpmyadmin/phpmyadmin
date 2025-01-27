@@ -15682,8 +15682,6 @@ msgid "User group"
 msgstr ""
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User groups"
 msgid "User group:"
 msgstr "பயனர் குழுக்கள்"
 
