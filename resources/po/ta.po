@@ -15992,6 +15992,8 @@ msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
+"முதன்மை விசை ( %1$s) ஒன்றுக்கு மேற்பட்ட நெடுவரிசைகளைக் கொண்டுள்ளது, எனவே பகுதி "
+"சார்புகளை நாம் கண்டுபிடிக்க வேண்டும்."
 
 #: src/Normalization.php:409 src/Normalization.php:820
 msgid ""
