@@ -17772,7 +17772,7 @@ msgstr ""
 #: src/Theme/ThemeManager.php:66
 #, php-format
 msgid "Default theme %s not found!"
-msgstr ""
+msgstr "இயல்புநிலை கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: src/Theme/ThemeManager.php:108
 #, php-format
