@@ -2274,6 +2274,8 @@ msgid ""
 "Table to describe the display columns, leave blank for no support; "
 "suggested: [kbd]pma__table_info[/kbd]."
 msgstr ""
+"காட்சி நெடுவரிசைகளை விவரிக்க அட்டவணை, எந்த ஆதரவும் இல்லாமல் காலியாக விடவும்; "
+"பரிந்துரைக்கப்பட்ட: [kbd] pma__table_info [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:422
 msgid ""
