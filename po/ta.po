@@ -13688,7 +13688,7 @@ msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
 #: templates/create_tracking_version.twig:15
 #, php-format
 msgid "Create version %1$s"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "பதிப்பு %1$s ஐ உருவாக்கவும்"
 
 #: templates/create_tracking_version.twig:21
 msgid "Track these data definition statements:"
@@ -18393,7 +18393,7 @@ msgstr ""
 
 #: templates/table/structure/display_table_stats.twig:14
 msgid "Space usage"
-msgstr ""
+msgstr "விண்வெளி பயன்பாடு"
 
 #: templates/table/structure/display_table_stats.twig:37
 msgid "Effective"
