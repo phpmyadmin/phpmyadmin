@@ -16294,7 +16294,7 @@ msgstr "பார்வைக்கு அமைப்பு"
 #: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1991
 #: src/Plugins/Export/ExportTexytext.php:475
 msgid "Stand-in structure for view"
-msgstr ""
+msgstr "பார்வைக்கு ச்டாண்ட்-இன் அமைப்பு"
 
 #: src/Plugins/Export/ExportJson.php:86
 msgid "Output pretty-printed JSON (Use human-readable formatting)"
