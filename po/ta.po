@@ -3494,7 +3494,7 @@ msgstr "மரத்தில் குழு பொருட்கள்"
 
 #: libraries/classes/Config/Descriptions.php:843
 msgid "Database tree separator"
-msgstr ""
+msgstr "தரவுத்தள மரம் பிரிப்பான்"
 
 #: libraries/classes/Config/Descriptions.php:844
 msgid "Table tree separator"
