@@ -3993,7 +3993,7 @@ msgstr "தொகு"
 #: libraries/classes/Config/Descriptions.php:956
 #: libraries/classes/Html/Generator.php:658
 msgid "Explain SQL"
-msgstr ""
+msgstr "கவிமொ ஐ விளக்குங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:957
 #: libraries/classes/Export.php:606 libraries/classes/Html/Generator.php:743
@@ -4006,7 +4006,7 @@ msgstr "புதுப்பி"
 #: libraries/classes/Config/Descriptions.php:958
 #: libraries/classes/Html/Generator.php:728
 msgid "Create PHP code"
-msgstr "PHP குறிமுறை உருவாக்கு"
+msgstr "பிஎச்பி குறியீட்டை உருவாக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:959
 msgid "Suhosin warning"
