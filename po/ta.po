@@ -4547,6 +4547,7 @@ msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
+"இந்த அமைப்பில் கிடைக்காத செயல்பாடுகள் (%s)%sZIP சுருக்க%s தேவைப்படுகிறது."
 
 #: libraries/classes/Config/ServerConfigChecks.php:361
 msgid ""
