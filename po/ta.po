@@ -9646,7 +9646,7 @@ msgstr ""
 
 #: libraries/classes/InsertEdit.php:1417
 msgid "Binary - do not edit"
-msgstr ""
+msgstr "பைனரி - திருத்த வேண்டாம்"
 
 #: libraries/classes/InsertEdit.php:1578 templates/import.twig:78
 #: templates/import.twig:108
