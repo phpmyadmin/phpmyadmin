@@ -2938,7 +2938,7 @@ msgstr "தனி கோப்புகளாக ஏற்றுமதி செ
 
 #: libraries/classes/Config/Descriptions.php:714
 msgid "Remember file name template"
-msgstr ""
+msgstr "கோப்பு பெயர் வார்ப்புருவை நினைவில் கொள்ளுங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:715
 #: templates/database/operations/index.twig:166
