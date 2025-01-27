@@ -10517,7 +10517,7 @@ msgstr "அமர்வு நேர மண்டலம்"
 
 #: src/Config/Descriptions.php:865
 msgid "HTTP Realm"
-msgstr ""
+msgstr "Http சாம்ராச்யம்"
 
 #: src/Config/Descriptions.php:867
 msgid "Bookmark table"
