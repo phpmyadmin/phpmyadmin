@@ -3574,7 +3574,7 @@ msgstr "GZIP வெளியீடு இடையக"
 
 #: libraries/classes/Config/Descriptions.php:862
 msgid "Default sorting order"
-msgstr ""
+msgstr "இயல்புநிலை வரிசையாக்க வரிசை"
 
 #: libraries/classes/Config/Descriptions.php:863
 msgid "Persistent connections"
