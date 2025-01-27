@@ -7447,7 +7447,7 @@ msgstr "உள் கமிட் அறிக்கைகளின் எண்
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:273
 msgid "The number of times a row was deleted from a table."
-msgstr ""
+msgstr "ஒரு அட்டவணையில் இருந்து ஒரு வரிசை எத்தனை முறை நீக்கப்பட்டது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:275
 msgid ""
