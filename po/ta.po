@@ -4748,6 +4748,10 @@ msgid ""
 "based protection may not be reliable if your IP belongs to an ISP where "
 "thousands of users, including you, are connected to."
 msgstr ""
+"இது தேவை என்று நீங்கள் நினைத்தால், கூடுதல் பாதுகாப்பு அமைப்புகளைப் பயன்படுத்துங்கள் - %1 $ "
+"சோச்ட் ஏற்பு %2$s அமைப்புகள் மற்றும் %3 $ ச்ட்ரச்ட் செய்யப்பட்ட ப்ராக்சிகள் பட்டியல் %4 $ s. "
+"இருப்பினும், உங்கள் ஐபி ஐ.எச்.பி-க்கு சொந்தமானது என்றால் ஐபி அடிப்படையிலான பாதுகாப்பு "
+"நம்பகமானதாக இருக்காது, அங்கு நீங்கள் உட்பட ஆயிரக்கணக்கான பயனர்கள் இணைக்கப்பட்டுள்ளனர்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
 #, php-format
@@ -4812,7 +4816,7 @@ msgid ""
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 "%உள்நுழைவு குக்கீ செல்லுபடியாகும் தன்மை 1800 வினாடிகளுக்கு (30 நிமிடங்கள்) அமைக்கப்பட "
-"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயங்களை "
+"வேண்டும். 1800 ஐ விட பெரிய மதிப்புகள் ஆள்மாறாட்டம் போன்ற பாதுகாப்பு அபாயத்தை "
 "ஏற்படுத்தக்கூடும்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:433
