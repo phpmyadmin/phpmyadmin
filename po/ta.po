@@ -17230,6 +17230,8 @@ msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
+"குறிப்பு: இங்கே ஆட்டோ புதுப்பிப்பை இயக்குவது வலை சேவையகத்திற்கும் MySQL சேவையகத்திற்கும் "
+"இடையில் அதிக போக்குவரத்தை ஏற்படுத்தக்கூடும்."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
