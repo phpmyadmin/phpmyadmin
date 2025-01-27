@@ -2348,7 +2348,7 @@ msgstr "சுருங்குறிக்கு பொருந்தும�
 
 #: libraries/classes/Config/Descriptions.php:472
 msgid "Hostname where MySQL server is running."
-msgstr ""
+msgstr "MySQL சேவையகம் இயங்கும் ஓச்ட்பெயர்."
 
 #: libraries/classes/Config/Descriptions.php:473
 #: libraries/classes/Config/Descriptions.php:477
