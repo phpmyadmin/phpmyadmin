@@ -10303,7 +10303,7 @@ msgstr "லோகோ இணைப்பு முகவரி"
 
 #: src/Config/Descriptions.php:814
 msgid "Logo link target"
-msgstr ""
+msgstr "லோகோ இணைப்பு இலக்கு"
 
 #: src/Config/Descriptions.php:815
 msgid "Display servers selection"
