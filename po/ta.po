@@ -9471,7 +9471,7 @@ msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
 
 #: libraries/classes/LanguageManager.php:979
 msgid "Ignoring unsupported language code."
-msgstr ""
+msgstr "ஆதரிக்கப்படாத மொழி குறியீட்டை புறக்கணித்தல்."
 
 #: libraries/classes/Linter.php:119
 msgid ""
