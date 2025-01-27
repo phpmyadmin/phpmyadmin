@@ -8111,7 +8111,7 @@ msgstr "தேடுக:"
 
 #: src/Charsets/Collation.php:109 src/Charsets.php:184
 msgid "Unknown"
-msgstr ""
+msgstr "தெரியவில்லை"
 
 #: src/Charsets/Collation.php:141 src/Charsets/Collation.php:406
 msgctxt "Collation"
