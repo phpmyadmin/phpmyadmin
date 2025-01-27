@@ -15807,7 +15807,7 @@ msgstr "புதியது"
 
 #: src/Navigation/Nodes/Node.php:583
 msgid "Expand/Collapse"
-msgstr ""
+msgstr "விரிவாக்கு/சரிவு"
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
