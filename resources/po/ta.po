@@ -17806,7 +17806,7 @@ msgstr "கண்காணிப்பு அறிக்கைகள்"
 
 #: src/Tracking/Tracking.php:219
 msgid "Delete tracking data row from report"
-msgstr ""
+msgstr "அறிக்கையிலிருந்து தரவு வரிசையை கண்காணிக்கவும்"
 
 #: src/Tracking/Tracking.php:229
 msgid "No data"
