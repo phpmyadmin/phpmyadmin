@@ -2906,7 +2906,7 @@ msgstr "டம்ப் டேபிள்"
 #: libraries/classes/Config/Descriptions.php:678
 #: libraries/classes/Plugins/Export/ExportLatex.php:79
 msgid "Include table caption"
-msgstr ""
+msgstr "அட்டவணை தலைப்பு சேர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:680
 #: libraries/classes/Config/Descriptions.php:695
