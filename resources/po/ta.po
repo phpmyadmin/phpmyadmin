@@ -3102,7 +3102,7 @@ msgstr ""
 #: resources/templates/modals/index_dialog_modal.twig:30
 #: resources/templates/table/structure/display_structure.twig:352
 msgid "Go back"
-msgstr ""
+msgstr "திரும்பிச் செல்லுங்கள்"
 
 #: resources/templates/export/template_options.twig:1
 #: resources/templates/export.twig:44
