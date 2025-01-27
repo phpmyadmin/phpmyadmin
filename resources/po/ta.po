@@ -5500,7 +5500,7 @@ msgstr "கண்காணிப்பை இடைநிறுத்துக"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
-msgstr ""
+msgstr "வழிமுறைகள்/அமைப்பு"
 
 #: resources/templates/server/status/monitor/index.twig:16
 msgid "Add chart"
