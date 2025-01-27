@@ -14838,8 +14838,6 @@ msgid "Notice"
 msgstr ""
 
 #: templates/home/index.twig:297
-#, fuzzy
-#| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin அகப்பக்கம்"
 
