@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:36+0000\n"
+"PO-Revision-Date: 2025-01-27 02:37+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -14290,7 +14290,7 @@ msgstr "பதிவு கோப்பில் செய்யப்பட்�
 
 #: src/Controllers/Server/Status/VariablesController.php:358
 msgid "The number of pending log file fsyncs."
-msgstr ""
+msgstr "நிலுவையில் உள்ள பதிவு கோப்பின் எண்ணிக்கை fsyncs."
 
 #: src/Controllers/Server/Status/VariablesController.php:359
 msgid "Pending log file writes."
