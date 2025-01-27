@@ -7332,7 +7332,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/PrivilegesController.php:406
 msgid "User has been added."
-msgstr ""
+msgstr "பயனர் சேர்க்கப்பட்டுள்ளது."
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
 #, php-format
