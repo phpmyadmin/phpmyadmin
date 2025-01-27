@@ -422,7 +422,7 @@ msgstr "%s ஆல் குறிப்பிடப்படுகிறது."
 
 #: resources/templates/columns_definitions/column_name.twig:12
 msgid "Is a foreign key."
-msgstr ""
+msgstr "ஒரு வெளிநாட்டு விசை."
 
 #: resources/templates/columns_definitions/column_name.twig:16
 #: resources/templates/database/data_dictionary/index.twig:22
@@ -4039,7 +4039,7 @@ msgstr "இரண்டு காரணி அங்கீகாரத்தை 
 
 #: resources/templates/preferences/two_factor/configure.twig:12
 msgid "Enable two-factor authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "இரண்டு காரணி அங்கீகாரத்தை இயக்கவும்"
 
 #: resources/templates/preferences/two_factor/confirm.twig:5
 msgid "Confirm disabling two-factor authentication"
