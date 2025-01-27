@@ -13471,8 +13471,6 @@ msgid "Details"
 msgstr ""
 
 #: templates/database/events/editor_form.twig:19
-#, fuzzy
-#| msgid "Constraint name"
 msgid "Event name"
 msgstr "கட்டுப்பாட்டின் பெயர்"
 
