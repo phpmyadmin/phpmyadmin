@@ -9982,7 +9982,7 @@ msgstr "உருவாக்கப்பட்ட வினவலின் அ�
 
 #: src/Config/Descriptions.php:718
 msgid "Export type"
-msgstr ""
+msgstr "ஏற்றுமதி வகை"
 
 #: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
 msgid "Enclose export in a transaction"
