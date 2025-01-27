@@ -13930,7 +13930,7 @@ msgstr "பிறழ்வதற்கு சொடுக்குக"
 
 #: templates/database/events/index.twig:132
 msgid "ON"
-msgstr ""
+msgstr "ஆன்"
 
 #: templates/database/events/index.twig:143
 msgid "OFF"
