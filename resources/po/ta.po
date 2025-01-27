@@ -2353,6 +2353,8 @@ msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
+"இந்த செயல்பாட்டைச் செய்ய உங்களுக்கு போதுமான சலுகைகள் இல்லை; மேலும் விவரங்களுக்கு ஆவணங்களைப்"
+" பார்க்கவும்."
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2394,7 +2396,7 @@ msgstr "தேடு"
 
 #: resources/templates/database/routines/index.twig:36
 msgid "Create new routine"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "புதிய வழக்கத்தை உருவாக்கவும்"
 
 #: resources/templates/database/routines/index.twig:45
 msgid "There are no routines to display."
@@ -2456,7 +2458,7 @@ msgstr "வழக்கமான வெளிப்பாடு"
 #: resources/templates/database/search/main.twig:36
 #: resources/templates/database/structure/copy_form.twig:14
 msgid "Options:"
-msgstr "விருப்பத்தேர்வுகள்"
+msgstr "விருப்பங்கள்:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
@@ -2959,12 +2961,12 @@ msgstr "அனைத்தும்"
 
 #: resources/templates/display/results/table.twig:151
 msgid "Sort by key:"
-msgstr "குறிப்பெழுத்தின்படி வரிசைபடுத்துக"
+msgstr "விசை மூலம் வரிசைப்படுத்துங்கள்:"
 
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
 msgid "Extra options"
-msgstr "செயல்கள்->திருப்பியளிதல் விருப்பங்கள்"
+msgstr "கூடுதல் விருப்பங்கள்"
 
 #: resources/templates/display/results/table.twig:212
 #: src/Display/Results.php:1111
@@ -3141,7 +3143,7 @@ msgstr "SQL வினவல்:"
 #. l10n: Button to show the SQL query on the export page
 #: resources/templates/export.twig:72
 msgid "Show SQL query"
-msgstr "SQL வினவல்களை காட்டுக"
+msgstr "கவிமொ வினவலைக் காட்டு"
 
 #: resources/templates/export.twig:104
 msgid "Export method:"
@@ -3161,7 +3163,7 @@ msgstr "வடிவம்:"
 
 #: resources/templates/export.twig:121
 msgid "File format to export"
-msgstr "தரவிறக்கத்திற்கான கோப்பு:"
+msgstr "ஏற்றுமதி செய்ய கோப்பு வடிவம்"
 
 #: resources/templates/export.twig:133
 msgid "Rows:"
@@ -7140,7 +7142,7 @@ msgstr "தூண்டுதல்கள்"
 
 #: resources/templates/triggers/list.twig:29
 msgid "Create new trigger"
-msgstr "புதிய பயனாளரை சேர்க்க"
+msgstr "புதிய தூண்டுதலை உருவாக்கவும்"
 
 #: resources/templates/triggers/list.twig:40
 msgid "There are no triggers to display."
