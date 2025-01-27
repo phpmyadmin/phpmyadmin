@@ -8413,7 +8413,7 @@ msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1186
 msgid "Failed to set configured collation connection!"
-msgstr ""
+msgstr "கட்டமைக்கப்பட்ட கூட்டு இணைப்பை அமைப்பதில் தோல்வி!"
 
 #: libraries/classes/DatabaseInterface.php:1959
 msgid "Missing connection parameters!"
