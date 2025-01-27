@@ -4938,6 +4938,7 @@ msgstr "நிர்வாகம்"
 msgid ""
 "Allows adding users and privileges without reloading the privilege tables."
 msgstr ""
+"சலுகை அட்டவணைகளை மீண்டும் ஏற்றாமல் பயனர்களையும் சலுகைகளையும் சேர்க்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:583
 #: resources/templates/server/privileges/privileges_table.twig:587
