@@ -11815,7 +11815,7 @@ msgstr "தொடர்ந்து பிடித்த அட்டவணை�
 
 #: libraries/classes/Relation.php:305
 msgid "Persistent tables' UI preferences"
-msgstr ""
+msgstr "தொடர்ச்சியான அட்டவணைகளின் இடைமுகம் விருப்பத்தேர்வுகள்"
 
 #: libraries/classes/Relation.php:327
 msgid "User preferences"
