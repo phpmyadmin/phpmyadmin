@@ -16098,8 +16098,6 @@ msgid "Re-type"
 msgstr ""
 
 #: templates/server/privileges/login_information_fields.twig:68
-#, fuzzy
-#| msgid "Authentication"
 msgid "Authentication plugin"
 msgstr "உறுதிப்படுத்தல்"
 
