@@ -10585,11 +10585,11 @@ msgstr "வெளியேறு முகவரி"
 
 #: src/Config/Descriptions.php:879
 msgid "Maximal number of table preferences to store"
-msgstr ""
+msgstr "சேமிக்க அட்டவணை விருப்பங்களின் அதிகபட்ச எண்ணிக்கை"
 
 #: src/Config/Descriptions.php:880
 msgid "Export templates table"
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "ஏற்றுமதி வார்ப்புருக்கள் அட்டவணை"
 
 #: src/Config/Descriptions.php:881
 msgid "Central columns table"
