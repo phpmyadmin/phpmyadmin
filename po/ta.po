@@ -8643,7 +8643,7 @@ msgstr ""
 
 #: libraries/classes/Database/Triggers.php:434
 msgid "Sorry, we failed to restore the dropped trigger."
-msgstr ""
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட தூண்டுதலை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
 #: libraries/classes/Database/Triggers.php:468
 #, php-format
