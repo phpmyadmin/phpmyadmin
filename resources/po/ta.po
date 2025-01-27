@@ -17142,7 +17142,7 @@ msgstr "அட்டவணைக்கான AUTO_INCREMENT(தன்னில�
 
 #: src/Plugins/Export/ExportSql.php:1757
 msgid "MEDIA TYPES FOR TABLE"
-msgstr ""
+msgstr "அட்டவணைக்கான ஊடக வகைகள்"
 
 #: src/Plugins/Export/ExportSql.php:1787
 msgid "RELATIONSHIPS FOR TABLE"
