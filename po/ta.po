@@ -11379,6 +11379,9 @@ msgid ""
 "option is a URL prefix like \"https://www.example.com/\". The second and "
 "third options are the width and the height in pixels."
 msgstr ""
+"ஒரு படத்தையும் இணைப்பையும் காட்டுகிறது; நெடுவரிசையில் கோப்பு பெயர் உள்ளது. முதல் "
+"விருப்பம் \"https://www.example.com/\" போன்ற முகவரி முன்னொட்டு. இரண்டாவது மற்றும் "
+"மூன்றாவது விருப்பங்கள் பிக்சல்களில் அகலம் மற்றும் உயரம்."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextLinkTransformationsPlugin.php:30
 msgid ""
