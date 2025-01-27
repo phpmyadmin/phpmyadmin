@@ -1262,7 +1262,7 @@ msgstr "பண்புக்கூறு"
 #: resources/templates/database/central_columns/main.twig:44
 #: resources/templates/database/central_columns/main.twig:254
 msgid "A_I"
-msgstr ""
+msgstr "A_i"
 
 #: resources/templates/database/central_columns/main.twig:129
 msgid "The central list of columns for the current database is empty"
