@@ -9204,7 +9204,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:31
 msgid "Index cache size"
-msgstr ""
+msgstr "குறியீட்டு கேச் அளவு"
 
 #: libraries/classes/Engines/Pbxt.php:33
 msgid ""
