@@ -10235,7 +10235,7 @@ msgstr ""
 
 #: libraries/classes/Pdf.php:142
 msgid "Error while creating PDF:"
-msgstr ""
+msgstr "PDF ஐ உருவாக்கும் போது பிழை:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
 msgid "Cannot connect: invalid settings."
