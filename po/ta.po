@@ -1203,6 +1203,8 @@ msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
 msgstr ""
+"செருகப்பட்ட வினவல்களுக்கு அகற்றப்பட்ட வினவல்களின் விகிதம்%s %% ஆகும். இந்த மதிப்பு குறைவா"
+"க உள்ளது, சிறந்தது (இந்த விதிகள் துப்பாக்கி சூடு வரம்பு: 0.1 %%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:91
 msgid "Query cache max size"
