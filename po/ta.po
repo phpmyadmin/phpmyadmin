@@ -8688,7 +8688,7 @@ msgstr "வரையறுக்கவும்"
 
 #: libraries/classes/Database/Routines.php:1001
 msgid "Security type"
-msgstr ""
+msgstr "பாதுகாப்பு வகை"
 
 #: libraries/classes/Database/Routines.php:1010
 msgid "SQL data access"
