@@ -11912,7 +11912,7 @@ msgstr "%s க்கான சலுகைகளை நீங்கள் ரத
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "பயனர்களைப் பார்க்க போதுமான பாக்கியம் இல்லை."
 
 #: libraries/classes/Server/Privileges.php:1505
 #: templates/database/privileges/index.twig:80
