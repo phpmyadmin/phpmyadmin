@@ -17003,7 +17003,7 @@ msgstr "அனைத்து நிலை மாறிகள்"
 
 #: templates/server/status/base.twig:26
 msgid "Monitor"
-msgstr ""
+msgstr "கண்காணிக்கவும்"
 
 #: templates/server/status/base.twig:31
 msgid "Advisor"
