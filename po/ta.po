@@ -17640,12 +17640,12 @@ msgstr "நேரம்"
 
 #: templates/sql/query.twig:44
 msgid "Get auto-saved query"
-msgstr ""
+msgstr "தானாக சேமிக்கப்பட்ட வினவலைப் பெறுங்கள்"
 
 #. l10n: Bind parameters in the SQL query using :parameterName format
 #: templates/sql/query.twig:51
 msgid "Bind parameters"
-msgstr "ஒவ்வாத பண்புகூறுகள்!"
+msgstr "அளவுருக்களை பிணைக்கவும்"
 
 #: templates/sql/query.twig:84
 msgid "Bookmark this SQL query:"
