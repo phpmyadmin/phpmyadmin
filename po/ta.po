@@ -14962,7 +14962,7 @@ msgstr "GIS தரவை காட்சிப்படுத்துக"
 #: templates/encoding/kanji_encoding_form.twig:6
 msgctxt "None encoding conversion"
 msgid "None"
-msgstr ""
+msgstr "எதுவுமில்லை"
 
 #: templates/encoding/kanji_encoding_form.twig:17
 msgid "Convert to Kana"
