@@ -8360,7 +8360,7 @@ msgstr "நிகழ்வுக்கு சரியான இடைவெள�
 
 #: libraries/classes/Database/Events.php:446
 msgid "You must provide a valid execution time for the event."
-msgstr ""
+msgstr "நிகழ்வுக்கு சரியான சாவுஒறுப்பு நேரத்தை நீங்கள் வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Events.php:450
 msgid "You must provide a valid type for the event."
