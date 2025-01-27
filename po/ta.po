@@ -12807,7 +12807,7 @@ msgstr "கட்டமைப்பு மற்றும் தரவுகள�
 #: libraries/classes/Tracking.php:388 libraries/classes/Tracking.php:455
 #, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
-msgstr ""
+msgstr "%1$s தேதிகளுடன் %2$s முதல் %3$s வரை பயனர் %4 $ s %5 $ s ஐக் காட்டு"
 
 #: libraries/classes/Tracking.php:476
 msgid "SQL dump (file download)"
