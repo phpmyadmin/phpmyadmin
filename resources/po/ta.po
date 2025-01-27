@@ -6617,11 +6617,11 @@ msgstr "மூலம் அட்டவணை வரிசையை மாற்
 #: resources/templates/table/operations/index.twig:21
 msgctxt "Alter table order by a single field."
 msgid "(singly)"
-msgstr ""
+msgstr "(ஒற்றை)"
 
 #: resources/templates/table/operations/index.twig:51
 msgid "Move table to (database.table)"
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "அட்டவணையை நகர்த்தவும் (தரவுத்தளம். டேபிள்)"
 
 #: resources/templates/table/operations/index.twig:102
 msgid "Table options"
@@ -6641,7 +6641,7 @@ msgstr "அனைத்து நெடுவரிசை தொகைகளை�
 
 #: resources/templates/table/operations/index.twig:252
 msgid "Copy table to (database.table)"
-msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
+msgstr "அட்டவணையை நகலெடுக்கவும் (தரவுத்தளம். டேபிள்)"
 
 #: resources/templates/table/operations/index.twig:323
 msgid "Switch to copied table"
@@ -6673,7 +6673,7 @@ msgstr "அட்டவணையை வெறுமையாக்கு (கா
 
 #: resources/templates/table/operations/index.twig:432
 msgid "Empty the table (DELETE FROM)"
-msgstr "அட்டவணையை வெறுமையாக்கு (காலி)"
+msgstr "அட்டவணையை வெறுமை செய்யுங்கள் (இருந்து நீக்கு)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
