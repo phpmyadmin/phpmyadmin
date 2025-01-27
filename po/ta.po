@@ -14033,7 +14033,7 @@ msgstr "அட்டவணையை உருவாக்கவும்"
 #: templates/database/create_table.twig:15
 #: templates/database/operations/index.twig:37
 msgid "Number of columns"
-msgstr ""
+msgstr "நெடுவரிசைகளின் எண்ணிக்கை"
 
 #: templates/database/data_dictionary/index.twig:3
 msgid "Database comment:"
