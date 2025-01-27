@@ -17347,7 +17347,7 @@ msgstr "அட்டவணை தெரிவுகள்"
 
 #: templates/table/operations/index.twig:107
 msgid "Rename table to"
-msgstr ""
+msgstr "அட்டவணையை மறுபெயரிடுங்கள்"
 
 #: templates/table/operations/index.twig:122
 msgid "Table comments"
