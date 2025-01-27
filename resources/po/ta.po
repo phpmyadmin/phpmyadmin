@@ -4901,7 +4901,7 @@ msgstr "தரவுத்தளங்கள் மற்றும் அட்�
 #: resources/templates/server/privileges/privileges_table.twig:437
 #: src/Server/Privileges.php:340
 msgid "Allows creating temporary tables."
-msgstr ""
+msgstr "தற்காலிக அட்டவணைகளை உருவாக்க அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:460
 #: resources/templates/server/privileges/privileges_table.twig:463
