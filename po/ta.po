@@ -9674,6 +9674,8 @@ msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
+"வழிசெலுத்தல் குழுவில் பெரிய உருப்படி குழுக்கள் உள்ளன, அவை செயல்திறனை பாதிக்கலாம். "
+"வழிசெலுத்தல் குழுவில் உருப்படி குழுவை முடக்குவதைக் கவனியுங்கள்."
 
 #: libraries/classes/Navigation/NavigationTree.php:832
 msgid "Groups"
