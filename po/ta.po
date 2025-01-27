@@ -14378,7 +14378,7 @@ msgstr ""
 #: templates/database/export/index.twig:7
 #, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr ""
+msgstr "\"%s\" தரவுத்தளத்திலிருந்து அட்டவணையை ஏற்றுமதி செய்தல்"
 
 #: templates/database/import/index.twig:3
 #, php-format
