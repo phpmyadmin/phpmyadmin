@@ -12183,7 +12183,7 @@ msgstr "அடிமைகள் / எசமானர்கள் எங்க�
 #: templates/server/privileges/privileges_table.twig:500
 #: templates/server/privileges/privileges_table.twig:503
 msgid "Allows to set up events for the event scheduler."
-msgstr ""
+msgstr "நிகழ்வு திட்டமிடுபவருக்கான நிகழ்வுகளை அமைக்க அனுமதிக்கிறது."
 
 #. l10n: https://mariadb.com/kb/en/library/grant/#table-privileges "Remove historical rows from a table using the DELETE HISTORY statement"
 #: libraries/classes/Server/Privileges.php:461
