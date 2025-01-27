@@ -9682,7 +9682,7 @@ msgstr "புதிய வரிசையாக செருகவும்"
 
 #: libraries/classes/InsertEdit.php:1898
 msgid "Insert as new row and ignore errors"
-msgstr ""
+msgstr "புதிய வரிசையாக செருகவும், பிழைகளை புறக்கணிக்கவும்"
 
 #: libraries/classes/InsertEdit.php:1901
 msgid "Show insert query"
