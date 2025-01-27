@@ -10798,7 +10798,7 @@ msgstr "செயல்கூற்றின் களங்களை காட�
 
 #: src/Config/Descriptions.php:919
 msgid "Show hint"
-msgstr ""
+msgstr "குறிப்பைக் காட்டு"
 
 #: src/Config/Descriptions.php:920
 msgid "Show phpinfo() link"
