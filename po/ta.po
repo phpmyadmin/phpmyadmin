@@ -11360,6 +11360,10 @@ msgid ""
 "option is the string to append and/or prepend when truncation occurs "
 "(Default: \"…\")."
 msgstr ""
+"ஒரு சரத்தின் ஒரு பகுதியைக் காட்டுகிறது. முதல் விருப்பம் சரத்தின் தொடக்கத்திலிருந்து தவிர்க்"
+"க வேண்டிய எழுத்துகளின் எண்ணிக்கை (இயல்புநிலை 0). இரண்டாவது விருப்பம் திரும்ப வேண்டிய "
+"எழுத்துகளின் எண்ணிக்கை (இயல்புநிலை: சரத்தின் இறுதி வரை). மூன்றாவது விருப்பம் துண்டிப்பு "
+"ஏற்படும் போது சேர்க்க மற்றும்/அல்லது தயாரிக்க சரம் (இயல்புநிலை: \"…\")."
 
 #: libraries/classes/Plugins/Transformations/Abs/TextFileUploadTransformationsPlugin.php:29
 msgid ""
