@@ -11138,7 +11138,7 @@ msgstr "%s மதிப்பு"
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
 #: libraries/classes/Plugins/Export/ExportSql.php:342
 msgid "Use simple view export"
-msgstr ""
+msgstr "எளிய பார்வை ஏற்றுமதியைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:381
 msgid ""
@@ -11160,7 +11160,7 @@ msgstr "செருகுவதற்கு முன் அட்டவணை�
 
 #: libraries/classes/Plugins/Export/ExportSql.php:408
 msgid "Instead of <code>INSERT</code> statements, use:"
-msgstr "<குறியீடு> செருகு </குறியீடு> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
+msgstr "<code> செருக </குறியீடு> அறிக்கைகளுக்கு பதிலாக, பயன்படுத்தவும்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:414
 msgid "<code>INSERT DELAYED</code> statements"
@@ -11169,7 +11169,7 @@ msgstr "<code> தாமதத்தை செருகவும் </குற�
 #: libraries/classes/Plugins/Export/ExportSql.php:426
 #: libraries/classes/Plugins/Export/ExportSql.php:460
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr "<குறியீடு> செருகு புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
+msgstr "<code> செருகவும் புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:440
 msgid "Function to use when dumping data:"
