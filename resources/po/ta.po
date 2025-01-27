@@ -3148,7 +3148,7 @@ msgstr "வரிசைகள்:"
 
 #: resources/templates/export.twig:137
 msgid "Dump all rows"
-msgstr ""
+msgstr "அனைத்து வரிசைகளையும் கொட்டவும்"
 
 #: resources/templates/export.twig:141
 msgid "Dump some row(s)"
