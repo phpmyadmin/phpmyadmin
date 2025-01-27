@@ -6132,7 +6132,7 @@ msgstr "இந்த கவிமொ வினவலை புக்மார்
 
 #: resources/templates/sql/query.twig:103
 msgid "Replace existing bookmark of same name"
-msgstr ""
+msgstr "அதே பெயரில் இருக்கும் புத்தகக்குறியை மாற்றவும்"
 
 #: resources/templates/sql/query.twig:113
 #: resources/templates/sql/query.twig:114
