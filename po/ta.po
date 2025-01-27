@@ -3824,7 +3824,7 @@ msgstr "துளி அட்டவணையைச் சேர்க்கவ�
 
 #: libraries/classes/Config/Descriptions.php:928
 msgid "Add DROP VIEW"
-msgstr ""
+msgstr "துளி காட்சியைச் சேர்க்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:929
 msgid "Statements to track"
