@@ -3654,7 +3654,7 @@ msgstr "இணைப்பு சுருக்க"
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "Control user password"
-msgstr ""
+msgstr "பயனர் கடவுச்சொல்லைக் கட்டுப்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:899
 msgid "Control user"
