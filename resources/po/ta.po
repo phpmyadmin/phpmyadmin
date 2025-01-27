@@ -9788,7 +9788,7 @@ msgstr "சேவையகங்களை ஒரு பட்டியலாக�
 
 #: src/Config/Descriptions.php:633
 msgid "Disable multi table maintenance"
-msgstr ""
+msgstr "பல அட்டவணை பராமரிப்பை முடக்கு"
 
 #: src/Config/Descriptions.php:634
 msgid "Maximum execution time"
