@@ -15433,7 +15433,7 @@ msgstr "phpMyAdmin அகப்பக்கம்"
 
 #: templates/home/index.twig:308
 msgid "Get more themes!"
-msgstr ""
+msgstr "மேலும் கருப்பொருள்களைப் பெறுங்கள்!"
 
 #: templates/home/themes.twig:7
 #, php-format
