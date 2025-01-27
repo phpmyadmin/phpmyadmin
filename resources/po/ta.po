@@ -9615,7 +9615,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:564
 msgid "Use persistent connections to MySQL databases."
-msgstr ""
+msgstr "MySQL தரவுத்தளங்களுக்கு தொடர்ச்சியான இணைப்புகளைப் பயன்படுத்தவும்."
 
 #: src/Config/Descriptions.php:567
 msgid "Disallow BLOB and BINARY columns from editing."
