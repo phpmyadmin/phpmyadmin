@@ -10877,7 +10877,7 @@ msgstr "தரவுத்தள தேடலைப் பயன்படுத�
 
 #: src/Config/Descriptions.php:941
 msgid "Enable the Developer tab in settings"
-msgstr ""
+msgstr "அமைப்புகளில் உருவாக்குபவர் தாவலை இயக்கவும்"
 
 #: src/Config/Descriptions.php:942 src/Setup/Index.php:125
 #: src/Setup/Index.php:152 src/Setup/Index.php:160 src/Setup/Index.php:168
