@@ -17809,7 +17809,7 @@ msgstr "ஆப்பு"
 #: templates/table/chart/tbl_chart.twig:37
 msgctxt "Chart type"
 msgid "Timeline"
-msgstr ""
+msgstr "காலவரிசை"
 
 #: templates/table/chart/tbl_chart.twig:41
 msgctxt "Chart type"
