@@ -980,6 +980,15 @@ msgid ""
 "fine. See also <a href=\"https://mysqldatabaseadministration.blogspot.com/"
 "2007/01/increase-innodblogfilesize-proper-way.html\">this blog entry</a>"
 msgstr ""
+"குறிப்பாக இன்னோடிபி அட்டவணைகளுக்கு நிறைய எழுத்துக்களைக் கொண்ட ஒரு கணினியில் நீங்கள் "
+"{innodb_log_file_size} {innodb_buffer_pool_size of இன் 25% ஆக அமைக்க வேண்டும். "
+"இருப்பினும் இந்த மதிப்பு பெரியது, தரவுத்தள செயலிழக்கும்போது மீட்பு நேரம் நீண்டதாக இருக்கும்"
+", எனவே இந்த மதிப்பு 256 MIB ஐ விட அதிகமாக அமைக்கப்படக்கூடாது. இந்த மாறியின் மதிப்பை "
+"நீங்கள் மாற்ற முடியாது என்பதை நினைவில் கொள்க. நீங்கள் சேவையகத்தை நிறுத்த வேண்டும், INNODB "
+"பதிவு கோப்புகளை அகற்ற வேண்டும், புதிய மதிப்பை My.CNF இல் அமைக்க வேண்டும், சேவையகத்தைத் "
+"தொடங்கவும், பின்னர் எல்லாம் சரியாக நடந்தால் பிழை பதிவுகளை சரிபார்க்கவும். <A href = "
+"\"https://mysqldatabaseadminastry.blogspot.com/2007/01/increase-"
+"indblogfilesize-pay.html\"> இந்த வலைப்பதிவு நுழைவு </a>"
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
