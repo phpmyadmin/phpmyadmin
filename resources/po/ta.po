@@ -17453,7 +17453,7 @@ msgstr "வரிசைப்படுத்துதல்"
 
 #: src/Server/Status/Data.php:127
 msgid "Transaction coordinator"
-msgstr ""
+msgstr "பரிவர்த்தனை ஒருங்கிணைப்பாளர்"
 
 #: src/Server/Status/Data.php:149
 msgid "Flush (close) all tables"
