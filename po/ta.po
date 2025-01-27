@@ -4366,7 +4366,7 @@ msgstr "எம்.எச். எக்செல் க்கான சி.எச
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:116
 msgid "Microsoft Word 2000"
-msgstr ""
+msgstr "நுண்மென் வேர்ட் 2000"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:122
 #: libraries/classes/Config/Forms/User/ImportForm.php:52
