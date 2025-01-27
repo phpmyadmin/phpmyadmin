@@ -1243,7 +1243,7 @@ msgstr "ச்பானிச் (நவீன)"
 #: libraries/classes/Charsets/Collation.php:288
 msgctxt "Collation variant"
 msgid "case-insensitive"
-msgstr ""
+msgstr "வழக்கு-உணர்வற்ற"
 
 #: libraries/classes/Charsets/Collation.php:291
 msgctxt "Collation variant"
