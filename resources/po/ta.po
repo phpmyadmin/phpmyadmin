@@ -15604,7 +15604,7 @@ msgstr "அட்டவணைக்குச் செல்லுங்கள�
 #: src/Import/Import.php:1181
 #, php-format
 msgid "Structure of %s"
-msgstr ""
+msgstr "%s இன் அமைப்பு"
 
 #: src/Import/Import.php:1188 src/Import/Import.php:1237
 #, php-format
