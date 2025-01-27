@@ -2993,7 +2993,7 @@ msgstr "தானாக அதிகரிக்கும் பெறுமத�
 
 #: libraries/classes/Config/Descriptions.php:708
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "பேக்சுவோட்டுகளுடன் அட்டவணை மற்றும் நெடுவரிசை பெயர்களை இணைக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:709
 #: libraries/classes/Config/Descriptions.php:811
