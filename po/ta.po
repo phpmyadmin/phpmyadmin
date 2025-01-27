@@ -1933,6 +1933,8 @@ msgid ""
 "Define whether the previous login should be recalled or not in [kbd]cookie[/"
 "kbd] authentication mode."
 msgstr ""
+"முந்தைய உள்நுழைவை நினைவுகூர வேண்டுமா இல்லையா என்பதை வரையறுக்கவும் [KBD] குக்கீ [/KBD] "
+"அங்கீகார பயன்முறையில்."
 
 #: libraries/classes/Config/Descriptions.php:267
 msgid ""
