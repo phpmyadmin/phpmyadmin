@@ -11022,7 +11022,7 @@ msgstr "தனிப்பயன்"
 
 #: src/Config/Forms/User/ExportForm.php:89
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "எம்.எச். எக்செல் க்கான சி.எச்.வி."
 
 #: src/Config/Forms/User/ExportForm.php:114
 msgid "Microsoft Word 2000"
