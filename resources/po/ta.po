@@ -3144,7 +3144,7 @@ msgstr "தரவிறக்கத்திற்கான கோப்பு:"
 
 #: resources/templates/export.twig:133
 msgid "Rows:"
-msgstr ""
+msgstr "வரிசைகள்:"
 
 #: resources/templates/export.twig:137
 msgid "Dump all rows"
