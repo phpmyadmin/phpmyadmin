@@ -10639,7 +10639,7 @@ msgstr "பிடித்த அட்டவணை"
 
 #: src/Config/Descriptions.php:889
 msgid "Relation table"
-msgstr ""
+msgstr "உறவு அட்டவணை"
 
 #: src/Config/Descriptions.php:890
 msgid "Signon session name"
