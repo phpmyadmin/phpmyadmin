@@ -3329,7 +3329,7 @@ msgstr "செருகப்பட்ட வரிசைகளின் எண�
 
 #: libraries/classes/Config/Descriptions.php:825
 msgid "Limit column characters"
-msgstr ""
+msgstr "நெடுவரிசை எழுத்துக்களை கட்டுப்படுத்துங்கள்"
 
 #: libraries/classes/Config/Descriptions.php:826
 msgid "Delete all cookies on logout"
