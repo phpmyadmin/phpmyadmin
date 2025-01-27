@@ -4304,7 +4304,7 @@ msgstr ""
 #: resources/templates/server/binlog/index.twig:25
 #: src/Server/Status/Data.php:128
 msgid "Files"
-msgstr ""
+msgstr "கோப்புகள்"
 
 #: resources/templates/server/binlog/index.twig:57
 #: resources/templates/server/binlog/index.twig:58
