@@ -14966,8 +14966,6 @@ msgid "Skip this number of queries (for SQL) starting from the first one:"
 msgstr ""
 
 #: templates/import.twig:154
-#, fuzzy
-#| msgid "Options"
 msgid "Other options"
 msgstr "விருப்பத்தேர்வுகள்"
 
