@@ -15898,6 +15898,7 @@ msgstr ""
 #: templates/relation/diagnostic_info.twig:17
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
+"புதுப்பிக்கப்பட்ட உள்ளமைவு கோப்பை ஏற்ற PHPMYADMIN க்கு மீண்டும் பதிவு செய்யுங்கள்."
 
 #: templates/server/binlog/index.twig:10
 msgid "Select binary log to view"
