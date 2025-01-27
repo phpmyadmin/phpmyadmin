@@ -8378,7 +8378,7 @@ msgstr "மன்னிக்கவும், கைவிடப்பட்ட 
 #: libraries/classes/Database/Routines.php:1536
 #: libraries/classes/Database/Triggers.php:435
 msgid "The backed up query was:"
-msgstr ""
+msgstr "காப்புப்பிரதி வினவல்:"
 
 #: libraries/classes/Database/Events.php:534
 #: libraries/classes/Database/Routines.php:151
