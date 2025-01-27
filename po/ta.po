@@ -1784,7 +1784,7 @@ msgstr "இயல்புநிலை ஏற்றுமதி விருப�
 
 #: libraries/classes/Config/Descriptions.php:215
 msgid "Set some commonly used options."
-msgstr ""
+msgstr "பொதுவாகப் பயன்படுத்தப்படும் சில விருப்பங்களை அமைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:216
 msgid "Customize default common import options."
