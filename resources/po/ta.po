@@ -10175,7 +10175,7 @@ msgstr "இறக்குமதி செய்யப்பட்ட கோப�
 
 #: src/Config/Descriptions.php:783 src/Plugins/Import/ImportLdi.php:85
 msgid "Use LOCAL keyword"
-msgstr ""
+msgstr "உள்ளக முக்கிய சொல்லைப் பயன்படுத்தவும்"
 
 #: src/Config/Descriptions.php:786
 msgid "Column names in first row"
