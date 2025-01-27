@@ -2538,7 +2538,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:568
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
+msgstr "லாங் டெக்ச்ட் நெடுவரிசைகளுக்கான டெக்ச்டேரியாவின் இரட்டை அளவு."
 
 #: libraries/classes/Config/Descriptions.php:569
 msgid "Maximum number of databases displayed in database list."
