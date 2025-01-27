@@ -15066,7 +15066,7 @@ msgstr "இடையக பூல் செயல்பாடு"
 
 #: src/Engines/Innodb.php:191
 msgid "Read requests"
-msgstr ""
+msgstr "கோரிக்கைகளைப் படியுங்கள்"
 
 #: src/Engines/Innodb.php:197
 msgid "Write requests"
