@@ -14983,7 +14983,7 @@ msgstr "இணைப்பை காணவில்லை!"
 
 #: src/Engines/Bdb.php:27
 msgid "Version information"
-msgstr ""
+msgstr "பதிப்பு செய்தி"
 
 #: src/Engines/Innodb.php:32
 msgid "Data home directory"
