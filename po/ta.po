@@ -8011,6 +8011,7 @@ msgstr ""
 #: libraries/classes/Sql.php:1045
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
+"MySQL ஒரு வெற்று முடிவு தொகுப்பை (அதாவது சுழிய வரிசைகள்) திருப்பி அளித்தது."
 
 #: libraries/classes/Controllers/Table/IndexesController.php:232
 #: libraries/classes/Table.php:2250
