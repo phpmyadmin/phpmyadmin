@@ -3942,7 +3942,7 @@ msgstr "Phpinfo () இணைப்பைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:950
 msgid "Show detailed MySQL server information"
-msgstr ""
+msgstr "விரிவான MySQL சேவையக தகவலைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:951
 msgid "Show SQL queries"
