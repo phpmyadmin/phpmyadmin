@@ -14730,8 +14730,6 @@ msgid "General settings"
 msgstr "பொதுவான அமைவுகள்"
 
 #: templates/home/index.twig:57
-#, fuzzy
-#| msgid "Server connection collation"
 msgid "Server connection collation:"
 msgstr "சேவையக இணைப்பு குறிமுறை அடுக்குவரிசை"
 
