@@ -751,6 +751,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:484
 msgid "Enable the thread cache by setting {thread_cache_size} > 0."
 msgstr ""
+"{thread_cache_size}> 0 ஐ அமைப்பதன் மூலம் நூல் தற்காலிக சேமிப்பை இயக்கவும்."
 
 #: libraries/advisory_rules_generic.php:485
 msgid "The thread cache is set to 0"
