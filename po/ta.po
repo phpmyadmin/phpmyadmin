@@ -10675,7 +10675,7 @@ msgstr "கட்டமைப்பைக் காண்க"
 
 #: libraries/classes/Plugins/Export/ExportPdf.php:276
 msgid "Stand in"
-msgstr ""
+msgstr "உள்ளே நிற்க"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:133
 msgid ""
