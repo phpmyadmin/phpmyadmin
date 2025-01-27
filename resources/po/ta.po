@@ -14703,7 +14703,7 @@ msgstr "தவறான தரவு"
 #: src/Controllers/Setup/ValidateController.php:69
 #, php-format
 msgid "Wrong data or no validation for %s"
-msgstr ""
+msgstr "தவறான தரவு அல்லது %s க்கு சரிபார்ப்பு இல்லை"
 
 #: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
 #, php-format
