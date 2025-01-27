@@ -7732,7 +7732,7 @@ msgstr "மில்லி விநாடிகளில், வரிசை �
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:393
 msgid "The number of times a row lock had to be waited for."
-msgstr ""
+msgstr "ஒரு வரிசை பூட்டை எத்தனை முறை காத்திருக்க வேண்டியிருந்தது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:394
 msgid "The number of rows deleted from InnoDB tables."
