@@ -12071,7 +12071,7 @@ msgstr "முக்கிய கேச்"
 
 #: libraries/classes/Server/Status/Data.php:156
 msgid "Joins"
-msgstr ""
+msgstr "இணைகிறது"
 
 #: libraries/classes/Server/Status/Data.php:158
 msgid "Sorting"
