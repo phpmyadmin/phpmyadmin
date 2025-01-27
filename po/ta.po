@@ -953,6 +953,7 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
+"INNODB பதிவு கோப்பு அளவு INNODB இடையகக் குளம் தொடர்பாக பொருத்தமான அளவு அல்ல."
 
 #: libraries/advisory_rules_generic.php:622
 #: libraries/advisory_rules_generic.php:651
