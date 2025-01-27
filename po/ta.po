@@ -9431,7 +9431,7 @@ msgstr "வட்டுக்கு கோப்பை எழுதுவதி�
 
 #: libraries/classes/File.php:348
 msgid "File upload stopped by extension."
-msgstr ""
+msgstr "கோப்பு பதிவேற்றம் நீட்டிப்பு மூலம் நிறுத்தப்பட்டது."
 
 #: libraries/classes/File.php:351
 msgid "Unknown error in file upload."
