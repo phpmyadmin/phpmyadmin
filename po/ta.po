@@ -17438,8 +17438,6 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "அட்டவணையை வெறுமையாக்கு (காலி)"
 
 #: templates/table/operations/index.twig:431
-#, fuzzy
-#| msgid "Empty the table (TRUNCATE)"
 msgid "Empty the table (DELETE FROM)"
 msgstr "அட்டவணையை வெறுமையாக்கு (காலி)"
 
