@@ -2775,7 +2775,7 @@ msgstr "முழு தரவுத்தளத்திலும் தேட 
 
 #: libraries/classes/Config/Descriptions.php:597
 msgid "Enables check for latest version on main phpMyAdmin page."
-msgstr ""
+msgstr "முதன்மையான Phpmyadmin பக்கத்தில் அண்மைக் கால பதிப்பை சரிபார்க்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:598
 msgid "The password for authenticating with the proxy."
