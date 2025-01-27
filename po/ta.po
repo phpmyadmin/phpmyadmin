@@ -13361,7 +13361,7 @@ msgstr ""
 
 #: libraries/classes/ZipExtension.php:81
 msgid "No files found inside ZIP archive!"
-msgstr ""
+msgstr "சிப் காப்பகத்திற்குள் கோப்புகள் எதுவும் இல்லை!"
 
 #: libraries/common.inc.php:286
 #, php-format
