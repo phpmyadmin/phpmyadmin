@@ -16984,7 +16984,7 @@ msgstr "வழங்கி பதிலளிக்கவில்லை."
 
 #: src/Query/Utilities.php:100
 msgid "Logout and try as another user."
-msgstr ""
+msgstr "வெளியேறி மற்றொரு பயனராக முயற்சிக்கவும்."
 
 #: src/Query/Utilities.php:105
 msgid "Please check privileges of directory containing database."
