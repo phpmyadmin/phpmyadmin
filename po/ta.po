@@ -17276,7 +17276,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:55
 msgid "Errors occurred while executing rule expressions:"
-msgstr ""
+msgstr "விதி வெளிப்பாடுகளைச் செயல்படுத்தும்போது பிழைகள் ஏற்பட்டன:"
 
 #: templates/server/status/advisor/index.twig:65
 msgid "Possible performance issues"
@@ -17284,23 +17284,23 @@ msgstr "நேரிடகூடிய செயல்திறன் சிக�
 
 #: templates/server/status/advisor/index.twig:78
 msgid "Issue:"
-msgstr "சிக்கல்"
+msgstr "வெளியீடு:"
 
 #: templates/server/status/advisor/index.twig:81
 msgid "Recommendation:"
-msgstr "பரிந்துரை"
+msgstr "பரிந்துரை:"
 
 #: templates/server/status/advisor/index.twig:84
 msgid "Justification:"
-msgstr "விளக்கமளி"
+msgstr "நியாயப்படுத்துதல்:"
 
 #: templates/server/status/advisor/index.twig:87
 msgid "Used variable / formula:"
-msgstr "பயன்படுத்தப்பட்ட மாறி/வாய்ப்பாடு"
+msgstr "பயன்படுத்தப்பட்ட மாறி / சூத்திரம்:"
 
 #: templates/server/status/advisor/index.twig:90
 msgid "Test:"
-msgstr "தேர்வுமுறை"
+msgstr "சோதனை:"
 
 #: templates/server/status/base.twig:16
 msgid "Query statistics"
