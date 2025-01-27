@@ -941,8 +941,7 @@ msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:23
-#, fuzzy, no-php-format
-#| msgid "Query cache efficiency (%%)"
+#, no-php-format
 msgid "Query cache efficiency (%)"
 msgstr "வினவல் இடைமாற்று முறைமை செயல்திறன் (%%)"
 
