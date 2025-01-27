@@ -11457,7 +11457,7 @@ msgstr ""
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
 msgid "Two-factor authentication failed: %s"
-msgstr ""
+msgstr "இரண்டு காரணி ஏற்பு தோல்வியுற்றது: %s"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:78
 msgid "Two-factor authentication failed."
