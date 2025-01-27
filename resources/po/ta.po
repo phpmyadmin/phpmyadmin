@@ -9655,7 +9655,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:573
 msgid "For display Options"
-msgstr "அட்டவணைகளின் காட்சித்தெரிவுகள்."
+msgstr "காட்சி விருப்பங்களுக்கு"
 
 #: src/Config/Descriptions.php:574
 msgid "Directory where exports can be saved on server."
@@ -10478,11 +10478,11 @@ msgstr "தலைப்புகளை மீண்டும் செய்ய�
 
 #: src/Config/Descriptions.php:856
 msgid "Grid editing: trigger action"
-msgstr ""
+msgstr "கட்டம் எடிட்டிங்: தூண்டுதல் செயல்"
 
 #: src/Config/Descriptions.php:857
 msgid "Relational display"
-msgstr "தொடர்புடை நிரல்வரிசை காண்பிக்க"
+msgstr "தொடர்புடைய காட்சி"
 
 #: src/Config/Descriptions.php:858
 msgid "Grid editing: save all edited cells at once"
