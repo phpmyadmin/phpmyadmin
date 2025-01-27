@@ -16019,7 +16019,7 @@ msgstr ""
 #: src/Normalization.php:427 src/Normalization.php:862
 #, php-format
 msgid "'%1$s' depends on:"
-msgstr ""
+msgstr "'%1$s' சார்ந்துள்ளது:"
 
 #: src/Normalization.php:438
 #, php-format
