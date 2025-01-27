@@ -17665,7 +17665,7 @@ msgstr "இந்த வினவலை மீண்டும் இங்கே
 
 #: templates/sql/query.twig:134
 msgid "Rollback when finished"
-msgstr ""
+msgstr "முடிந்ததும் ரோல்பேக்"
 
 #: templates/sql/query.twig:156
 msgid "Bookmarked SQL query"
