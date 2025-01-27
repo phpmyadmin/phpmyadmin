@@ -10311,7 +10311,7 @@ msgstr "சேவையகங்கள் தேர்வு"
 
 #: src/Config/Descriptions.php:816
 msgid "Target for quick access icon"
-msgstr ""
+msgstr "விரைவான அணுகல் ஐகானுக்கான இலக்கு"
 
 #: src/Config/Descriptions.php:817
 msgid "Target for second quick access icon"
