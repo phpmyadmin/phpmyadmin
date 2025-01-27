@@ -5318,8 +5318,6 @@ msgstr "மிகை நிரல்வரிசைகளை நீக்கவ�
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:140
 #: templates/server/privileges/users_overview.twig:100
-#, fuzzy
-#| msgid "User groups"
 msgid "Unlock this account."
 msgstr "பயனர் குழுக்கள்"
 
