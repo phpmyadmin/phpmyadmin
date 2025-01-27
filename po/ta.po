@@ -16903,8 +16903,6 @@ msgid "Table level tabs"
 msgstr "அட்டவணை படிநிலைமட்ட தாவல்கள்"
 
 #: templates/server/user_groups/user_groups.twig:50
-#, fuzzy
-#| msgid "Edit user group"
 msgid "Delete user group"
 msgstr "பயனர் குழுவை தொகுக்க"
 
