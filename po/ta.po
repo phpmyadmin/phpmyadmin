@@ -9214,7 +9214,7 @@ msgstr ""
 
 #: libraries/classes/File.php:485
 msgid "Error while moving uploaded file."
-msgstr ""
+msgstr "பதிவேற்றிய கோப்பை நகர்த்தும்போது பிழை."
 
 #: libraries/classes/File.php:494
 msgid "Cannot read uploaded file."
