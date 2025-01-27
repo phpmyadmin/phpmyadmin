@@ -8072,7 +8072,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:632
 msgid "Is InnoDB disabled?"
-msgstr ""
+msgstr "இன்னோடிபி முடக்கப்பட்டுள்ளதா?"
 
 #: src/Advisory/Rules.php:636
 msgid "You do not have InnoDB enabled."
