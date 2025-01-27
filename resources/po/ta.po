@@ -14938,7 +14938,7 @@ msgstr ""
 
 #: src/Dbal/DatabaseInterface.php:1093
 msgid "Failed to set configured collation connection!"
-msgstr ""
+msgstr "கட்டமைக்கப்பட்ட கூட்டு இணைப்பை அமைப்பதில் தோல்வி!"
 
 #: src/Dbal/DatabaseInterface.php:1626
 msgid "Connection for controluser as defined in your configuration failed."
