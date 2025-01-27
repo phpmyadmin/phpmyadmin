@@ -14856,6 +14856,7 @@ msgstr "நிகழ்வு %1$s உருவாக்கப்பட்டு
 #: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
+"உங்கள் கோரிக்கையை செயலாக்கும்போது ஒன்று அல்லது அதற்கு மேற்பட்ட பிழைகள் ஏற்பட்டுள்ளன:"
 
 #: src/Database/Events.php:270 src/Database/Routines.php:806
 #: src/Triggers/Triggers.php:190
