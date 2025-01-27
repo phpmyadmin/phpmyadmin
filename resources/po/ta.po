@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 04:20+0000\n"
+"PO-Revision-Date: 2025-01-27 04:21+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -9952,6 +9952,8 @@ msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
+"சுழிய உள்ளமைவு பயன்முறையை இயக்கவும், இது phpmyadmin உள்ளமைவு சேமிப்பக அட்டவணைகளை "
+"தானாக அமைக்க அனுமதிக்கிறது."
 
 #: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
@@ -10120,7 +10122,7 @@ msgstr "சேவையகத்தில் ஏற்றுமதியைச�
 msgid ""
 "Defines whether the query box should stay on-screen after its submission."
 msgstr ""
-"வினவல் பெட்டி சமர்ப்பித்தபின் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
+"வினவல் பெட்டி சமர்ப்பித்த பின்னர் திரையில் இருக்க வேண்டுமா என்பதை வரையறுக்கிறது."
 
 #: src/Config/Descriptions.php:576
 msgid "Title of browser window when a database is selected."
