@@ -15879,7 +15879,7 @@ msgstr "பிரிந்தது "
 
 #: src/Normalization.php:249
 msgid "Have a primary key"
-msgstr ""
+msgstr "முதன்மை விசை வேண்டும்"
 
 #: src/Normalization.php:255
 msgid "Primary key already exists."
