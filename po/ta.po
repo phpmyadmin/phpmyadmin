@@ -7180,7 +7180,7 @@ msgstr "சரம்"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:87
 msgid "phpMyAdmin configuration snippet"
-msgstr "phpMyAdmin ஆவணச்சான்று"
+msgstr "Phpmyadmin உள்ளமைவு துணுக்கை"
 
 #: libraries/classes/Controllers/Preferences/ManageController.php:88
 msgid "Paste it to your config.inc.php"
@@ -8011,7 +8011,7 @@ msgstr "மாறி அமைப்பு  தோல்வியடைந்த
 
 #: libraries/classes/Controllers/Setup/FormController.php:30
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "தவறான படிவம் குறிப்பிடப்பட்டுள்ளது!"
 
 #: libraries/classes/Controllers/Setup/HomeController.php:41
 msgid ""
