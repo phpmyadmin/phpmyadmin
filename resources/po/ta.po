@@ -17217,7 +17217,7 @@ msgstr "பிரதி மீட்டமைப்பதில் பிழை.
 
 #: src/Replication/ReplicationGui.php:476
 msgid "Success."
-msgstr ""
+msgstr "வெற்றி."
 
 #: src/Replication/ReplicationGui.php:477
 msgid "Error."
