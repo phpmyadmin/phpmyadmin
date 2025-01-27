@@ -8174,7 +8174,7 @@ msgstr ""
 
 #: libraries/classes/Core.php:1275
 msgid "GLOBALS overwrite attempt"
-msgstr ""
+msgstr "குளோபல்ச் முயற்சியை மேலெழுதும்"
 
 #: libraries/classes/Core.php:1285
 msgid "possible exploit"
