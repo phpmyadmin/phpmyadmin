@@ -9526,7 +9526,7 @@ msgstr "செருகு"
 #: templates/server/sub_page_header.twig:2
 #: templates/table/privileges/index.twig:22
 msgid "Privileges"
-msgstr ""
+msgstr "சலுகைகள்"
 
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:317
 #: libraries/classes/Menu.php:397 libraries/classes/Util.php:1493
