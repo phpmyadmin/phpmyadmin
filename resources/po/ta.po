@@ -13711,7 +13711,7 @@ msgstr "அறியப்படாத பாதுகாப்பு விச�
 #: src/Controllers/JavaScriptMessagesController.php:700
 msgctxt "U2F error"
 msgid "Client does not support security key."
-msgstr ""
+msgstr "வாடிக்கையாளர் பாதுகாப்பு விசையை ஆதரிக்கவில்லை."
 
 #. l10n: error code 4 (from U2F API) on register
 #: src/Controllers/JavaScriptMessagesController.php:702
