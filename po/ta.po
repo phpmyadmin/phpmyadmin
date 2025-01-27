@@ -7608,7 +7608,7 @@ msgstr "தரவுகளின் மொத்த எண்ணிக்கை 
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
 msgid "The amount of data written so far, in bytes."
-msgstr ""
+msgstr "இதுவரை எழுதப்பட்ட தரவுகளின் அளவு, பைட்டுகளில்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:426
 msgid "The number of pages that have been written for doublewrite operations."
