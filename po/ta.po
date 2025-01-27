@@ -326,6 +326,8 @@ msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
 msgstr ""
+"அனைத்து வகையான S %% தற்காலிக அட்டவணைகளை ஏற்படுத்துகிறது, இந்த மதிப்பு 10 %% ஐ விட "
+"குறைவாக இருக்க வேண்டும்."
 
 #: libraries/advisory_rules_generic.php:218
 msgid "Rate of sorts that cause temporary tables"
