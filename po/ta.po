@@ -152,7 +152,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
-msgstr ""
+msgstr "log_slow_queries 'off' என அமைக்கப்பட்டுள்ளது"
 
 #: libraries/advisory_rules_generic.php:98
 msgid ""
