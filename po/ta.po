@@ -13066,7 +13066,7 @@ msgstr "வலது"
 
 #: libraries/config.values.php:143
 msgid "Click"
-msgstr ""
+msgstr "சொடுக்கு செய்க"
 
 #: libraries/config.values.php:144
 msgid "Double click"
