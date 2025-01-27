@@ -11006,7 +11006,7 @@ msgstr "உள்ளமைவு ஏற்பு"
 
 #: src/Config/Forms/Setup/ServersForm.php:30
 msgid "HTTP authentication"
-msgstr ""
+msgstr "HTTP ஏற்பு"
 
 #: src/Config/Forms/Setup/ServersForm.php:33
 msgid "Signon authentication"
