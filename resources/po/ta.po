@@ -5009,7 +5009,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:720
 #: src/Server/Privileges.php:374
 msgid "Allows creating, dropping and renaming user accounts."
-msgstr ""
+msgstr "பயனர் கணக்குகளை உருவாக்க, கைவிடுதல் மற்றும் மறுபெயரிட அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:734
 msgid "Resource limits"
