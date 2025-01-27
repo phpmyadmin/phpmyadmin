@@ -7888,6 +7888,11 @@ msgid ""
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
+"புதிய வினவல்களைத் தேடுவதற்கான நினைவகத்தை விடுவிக்க தற்காலிக சேமிப்பிலிருந்து அகற்றப்பட்"
+"ட வினவல்களின் எண்ணிக்கை. வினவல் தற்காலிக சேமிப்பு அளவைக் கட்டுப்படுத்த இந்த செய்தி "
+"உங்களுக்கு உதவும். வினவல் கேச் தற்காலிக சேமிப்பிலிருந்து எந்த கேள்விகளை அகற்ற வேண்டும் "
+"என்பதை தீர்மானிக்க குறைந்தது அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட (எல்.ஆர்.யூ) மூலோபாயத்தைப் "
+"பயன்படுத்துகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:459
 msgid ""
