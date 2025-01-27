@@ -15211,7 +15211,7 @@ msgstr "முக்கியபெயர்"
 #: templates/indexes.twig:45
 #: templates/table/structure/display_structure.twig:512
 msgid "The primary key has been dropped."
-msgstr ""
+msgstr "முதன்மை விசை கைவிடப்பட்டது."
 
 #: templates/indexes.twig:50
 #: templates/table/structure/display_structure.twig:517
