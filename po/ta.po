@@ -16426,8 +16426,6 @@ msgid "Control replica:"
 msgstr "இரட்டையாக்கப்படாதது"
 
 #: templates/server/replication/replica_configuration.twig:48
-#, fuzzy
-#| msgid "Not replicated"
 msgid "Reset replica"
 msgstr "இரட்டையாக்கப்படாதது"
 
