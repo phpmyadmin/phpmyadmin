@@ -8970,6 +8970,7 @@ msgstr ""
 #: src/Config/Descriptions.php:94
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
+"உங்கள் ரெக்காப்ட்சா வி 2 இணக்கமான பநிஇ பயன்படுத்தும் கோரிக்கை அளவுருவை உள்ளிடவும்."
 
 #: src/Config/Descriptions.php:95
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
