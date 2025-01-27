@@ -10411,7 +10411,7 @@ msgstr "GZIP வெளியீடு இடையக"
 
 #: src/Config/Descriptions.php:842
 msgid "Default sorting order"
-msgstr ""
+msgstr "இயல்புநிலை வரிசையாக்க வரிசை"
 
 #: src/Config/Descriptions.php:843
 msgid "Persistent connections"
