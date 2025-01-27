@@ -10095,7 +10095,7 @@ msgstr "உள்ளமைவு சேமிப்பு"
 
 #: src/Config/Descriptions.php:754
 msgid "Changes tracking"
-msgstr ""
+msgstr "கண்காணிப்பை மாற்றுகிறது"
 
 #: src/Config/Descriptions.php:756
 msgid "SQL Query box"
