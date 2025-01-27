@@ -10535,7 +10535,7 @@ msgstr "இணைப்பு சுருக்க"
 
 #: src/Config/Descriptions.php:870
 msgid "Control user password"
-msgstr ""
+msgstr "பயனர் கடவுச்சொல்லைக் கட்டுப்படுத்தவும்"
 
 #: src/Config/Descriptions.php:871
 msgid "Control user"
