@@ -16804,8 +16804,6 @@ msgstr ""
 #: templates/server/status/queries/index.twig:39
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
-#, fuzzy
-#| msgid "per hour"
 msgid "ø per hour"
 msgstr "ஒவ்வொரு மணிக்கும்"
 
