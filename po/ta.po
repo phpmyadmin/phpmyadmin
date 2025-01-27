@@ -8639,7 +8639,7 @@ msgstr "நீங்கள் செல்லுபடியாகும் அ�
 
 #: libraries/classes/Database/Triggers.php:415
 msgid "You must provide a trigger definition."
-msgstr ""
+msgstr "நீங்கள் ஒரு தூண்டுதல் வரையறையை வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Triggers.php:434
 msgid "Sorry, we failed to restore the dropped trigger."
