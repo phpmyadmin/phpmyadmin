@@ -12320,7 +12320,7 @@ msgstr "பயனர் %s ஏற்கனவே உள்ளன!"
 #: libraries/classes/Server/Privileges.php:2993
 #, php-format
 msgid "Privileges for %s"
-msgstr ""
+msgstr "%s க்கான சலுகைகள்"
 
 #: libraries/classes/Server/Privileges.php:3132
 msgid ""
