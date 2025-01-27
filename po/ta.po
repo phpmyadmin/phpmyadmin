@@ -2328,7 +2328,7 @@ msgstr "உறுதிப்படுத்துதல் பயன்மு�
 
 #: libraries/classes/Config/Descriptions.php:470
 msgid "Compress connection to MySQL server."
-msgstr ""
+msgstr "MySQL சேவையகத்திற்கான இணைப்பை சுருக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:471
 msgid "Hide databases matching regular expression (PCRE)."
