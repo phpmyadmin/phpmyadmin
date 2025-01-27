@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:54+0000\n"
+"PO-Revision-Date: 2025-01-27 02:55+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -13950,12 +13950,12 @@ msgstr "வினவலை உருவாக்குங்கள்"
 #: templates/database/designer/main.twig:177
 #: templates/database/designer/main.twig:181
 msgid "Move Menu"
-msgstr ""
+msgstr "மெனுவை நகர்த்தவும்"
 
 #: templates/database/designer/main.twig:185
 #: templates/database/designer/main.twig:190
 msgid "Pin text"
-msgstr "பகுதியளவு உரை"
+msgstr "முள் உரை"
 
 #: templates/database/designer/main.twig:202
 msgid "Hide/Show all"
@@ -16773,7 +16773,7 @@ msgstr "பின்வரும் அட்டவணையின் மீத�
 
 #: templates/server/privileges/privileges_summary.twig:86
 msgid "Add privileges on the following routine:"
-msgstr "பின்வரும் அட்டவணையின் மீதான தனிச்சலுகையை சேர்க்க:"
+msgstr "பின்வரும் வழக்கத்தில் சலுகைகளைச் சேர்க்கவும்:"
 
 #: templates/server/privileges/privileges_table.twig:35
 #: templates/server/privileges/privileges_table.twig:36
