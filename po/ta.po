@@ -11331,6 +11331,9 @@ msgid ""
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
+"உரையை ஒரு சரத்திற்கு தயாரிக்கிறது மற்றும்/அல்லது சேர்க்கிறது. முதல் விருப்பம் உரை "
+"தயாரிக்கப்பட வேண்டும், இரண்டாவது சேர்க்கப்பட்டுள்ளது (ஒற்றை மேற்கோள்களில் இணைக்கப்பட்டுள்ளது, "
+"இயல்புநிலை வெற்று சரம்)."
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:32
 msgid ""
