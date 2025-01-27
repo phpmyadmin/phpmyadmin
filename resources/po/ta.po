@@ -17297,7 +17297,7 @@ msgstr "சலுகைகள் இல்லை."
 
 #: src/Server/Privileges.php:280
 msgid "Includes all privileges except GRANT."
-msgstr ""
+msgstr "கிராண்ட் தவிர அனைத்து சலுகைகளும் அடங்கும்."
 
 #: src/Server/Privileges.php:893
 #, php-format
