@@ -3715,7 +3715,7 @@ msgstr ""
 
 #: resources/templates/login/twofactor/application_configure.twig:13
 msgid "Secret/key:"
-msgstr ""
+msgstr "ரகசியம்/விசை:"
 
 #: resources/templates/login/twofactor/application_configure.twig:16
 #: resources/templates/login/twofactor/application.twig:2
