@@ -536,7 +536,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:337
 msgid "Temp disk rate"
-msgstr ""
+msgstr "தற்காலிக வட்டு வீதம்"
 
 #: libraries/advisory_rules_generic.php:343
 msgid ""
