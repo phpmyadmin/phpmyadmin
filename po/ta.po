@@ -12348,8 +12348,6 @@ msgstr "மார்கழி"
 
 #. l10n: Short week day name for Sunday
 #: libraries/classes/Util.php:693
-#, fuzzy
-#| msgid "Sun"
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "ஞாயிறு"
