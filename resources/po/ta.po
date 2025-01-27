@@ -10740,7 +10740,7 @@ msgstr "கட்டமைப்பு அங்கீகாரத்திற�
 
 #: src/Config/Descriptions.php:908
 msgid "Verbose name of this server"
-msgstr ""
+msgstr "இந்த சேவையகத்தின் சொற்களஞ்சியம்"
 
 #: src/Config/Descriptions.php:909
 msgid "Allow to display all the rows"
