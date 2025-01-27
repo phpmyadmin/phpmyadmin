@@ -15693,7 +15693,7 @@ msgstr "தொகுப்பு பார்வை"
 
 #: src/Html/Generator.php:746
 msgid "Static analysis:"
-msgstr "நிலையான தரவு"
+msgstr "நிலையான பகுப்பாய்வு:"
 
 #: src/Html/Generator.php:749
 #, php-format
@@ -18241,7 +18241,7 @@ msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம்
 #: src/Util.php:127
 #, php-format
 msgid "Max: %s%s"
-msgstr ""
+msgstr "அதிகபட்சம்: %s %s"
 
 #: src/Util.php:531
 msgctxt "AM/PM indication in time"
