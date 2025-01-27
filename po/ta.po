@@ -16010,7 +16010,7 @@ msgstr ""
 
 #: templates/preferences/manage/error.twig:1
 msgid "Configuration contains incorrect data for some fields."
-msgstr ""
+msgstr "உள்ளமைவில் சில புலங்களுக்கான தவறான தரவு உள்ளது."
 
 #: templates/preferences/manage/error.twig:16
 msgid "Do you want to import remaining settings?"
