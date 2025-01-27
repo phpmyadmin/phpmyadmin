@@ -14249,7 +14249,7 @@ msgstr "இதுவரை, பைட்டுகளில் படித்த
 
 #: src/Controllers/Server/Status/VariablesController.php:344
 msgid "The total number of data reads."
-msgstr ""
+msgstr "தரவுகளின் மொத்த எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:345
 msgid "The total number of data writes."
