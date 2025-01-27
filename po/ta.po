@@ -1398,7 +1398,7 @@ msgstr "ச்வீடிச்"
 #: libraries/classes/Charsets/Collation.php:564
 msgctxt "Collation"
 msgid "Thai"
-msgstr ""
+msgstr "தாய்"
 
 #: libraries/classes/Charsets/Collation.php:425
 msgctxt "Collation"
