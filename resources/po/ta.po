@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 04:30+0000\n"
+"PO-Revision-Date: 2025-01-27 06:58+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -4266,15 +4266,15 @@ msgstr "காட்சி அம்சங்கள்:"
 
 #: resources/templates/relation/check_relations.twig:125
 msgid "Designer and creation of PDFs:"
-msgstr ""
+msgstr "PDFS இன் வடிவமைப்பாளர் மற்றும் உருவாக்கம்:"
 
 #: resources/templates/relation/check_relations.twig:150
 msgid "Displaying column comments:"
-msgstr "கருத்துரைகளை காட்டுக"
+msgstr "நெடுவரிசை கருத்துகளைக் காண்பிக்கும்:"
 
 #: resources/templates/relation/check_relations.twig:160
 msgid "Browser transformation:"
-msgstr "உலவியின் மாற்றுருவாக்கத்தை மறைக்க"
+msgstr "உலாவி மாற்றம்:"
 
 #: resources/templates/relation/check_relations.twig:172
 msgid "Please see the documentation on how to update your column_info table."
@@ -4284,19 +4284,19 @@ msgstr ""
 
 #: resources/templates/relation/check_relations.twig:195
 msgid "Bookmarked SQL query:"
-msgstr "SQL வினவல்:"
+msgstr "புக்மார்க்கு செய்யப்பட்ட கவிமொ வினவல்:"
 
 #: resources/templates/relation/check_relations.twig:220
 msgid "SQL history:"
-msgstr "SQL வினவல்:"
+msgstr "கவிமொ வரலாறு:"
 
 #: resources/templates/relation/check_relations.twig:245
 msgid "Persistent recently used tables:"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "தொடர்ந்து அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணைகள்:"
 
 #: resources/templates/relation/check_relations.twig:270
 msgid "Persistent favorite tables:"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "தொடர்ந்து பிடித்த அட்டவணைகள்:"
 
 #: resources/templates/relation/check_relations.twig:295
 msgid "Persistent tables' UI preferences:"
@@ -5718,13 +5718,13 @@ msgstr "ஒரு வகுப்பியைப் பயன்படுத்�
 #: resources/templates/server/status/monitor/index.twig:151
 #: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:303
 msgid "KiB"
-msgstr "KiB"
+msgstr "வினோதமாக"
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
 #: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:305
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mib"
 
 #: resources/templates/server/status/monitor/index.twig:158
 msgid "Append unit to data values"
@@ -8768,7 +8768,7 @@ msgstr "வியட்நாமிய"
 #: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1052
 #: src/Util.php:1356 src/Util.php:1371 src/Util.php:1388
 msgid "SQL"
-msgstr "SQL"
+msgstr "கவிமொ"
 
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
@@ -11296,7 +11296,7 @@ msgstr "பதிலி கடவுச்சொல்"
 
 #: src/Config/Descriptions.php:946
 msgid "ZIP"
-msgstr "ZIP"
+msgstr "சிப்"
 
 #: src/Config/Descriptions.php:947
 msgid "URL for reCAPTCHA v2 API"
@@ -12646,22 +12646,22 @@ msgstr "து"
 #. l10n: shortcuts for Gigabyte
 #: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:307
 msgid "GiB"
-msgstr "GiB"
+msgstr "கிப்"
 
 #. l10n: shortcuts for Terabyte
 #: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:309
 msgid "TiB"
-msgstr "TiB"
+msgstr "திப்"
 
 #. l10n: shortcuts for Petabyte
 #: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:311
 msgid "PiB"
-msgstr "PiB"
+msgstr "தொடங்கவும்"
 
 #. l10n: shortcuts for Exabyte
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:313
 msgid "EiB"
-msgstr "EiB"
+msgstr "Eib"
 
 #: src/Controllers/JavaScriptMessagesController.php:217
 #, php-format
