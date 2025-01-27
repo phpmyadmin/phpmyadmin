@@ -3699,7 +3699,7 @@ msgstr "இணைப்பு சுருக்க"
 
 #: libraries/classes/Config/Descriptions.php:889
 msgid "Control user password"
-msgstr ""
+msgstr "பயனர் கடவுச்சொல்லைக் கட்டுப்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:890
 msgid "Control user"
