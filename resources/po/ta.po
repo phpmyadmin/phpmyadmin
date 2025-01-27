@@ -3005,7 +3005,7 @@ msgstr "வினவலின் பயன்முடிவுகளின் �
 #: src/Controllers/JavaScriptMessagesController.php:493
 #: src/Export/Export.php:1100
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்"
 
 #: resources/templates/display/results/table.twig:372
 #: resources/templates/table/chart/tbl_chart.twig:2
