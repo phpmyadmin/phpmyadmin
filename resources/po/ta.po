@@ -17826,7 +17826,7 @@ msgstr "பழைய MySQL-4.0 ஏற்பு"
 #: src/Server/Privileges/AccountLocking.php:24
 #: src/Server/Privileges/AccountLocking.php:43
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "கணக்கு பூட்டுதல் ஆதரிக்கப்படவில்லை."
 
 #: src/Server/Privileges.php:274
 msgid "No privileges."
