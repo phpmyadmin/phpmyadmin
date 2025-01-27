@@ -7801,12 +7801,10 @@
     <MixedArrayOffset occurrences="1">
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="24">
+    <MixedAssignment occurrences="22">
       <code>$GLOBALS['offset']</code>
       <code>$active</code>
       <code>$cellValue</code>
-      <code>$charset</code>
-      <code>$collation</code>
       <code>$complete_query</code>
       <code>$count</code>
       <code>$createDb</code>
@@ -7834,11 +7832,7 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="23">
-      <code>$charset</code>
-      <code>$charset</code>
-      <code>$collation</code>
-      <code>$collation</code>
+    <MixedOperand occurrences="19">
       <code>$complete_query</code>
       <code>$display_query</code>
       <code>$executed_queries</code>

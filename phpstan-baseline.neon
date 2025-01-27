@@ -12062,7 +12062,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Core.php
 
 		-
@@ -28861,16 +28861,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Variable property access on SimpleXMLElement\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Variable property access on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -29087,11 +29077,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int\\<0, max\\>, array\\<int\\<0, max\\>, string\\>\\|string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -42927,7 +42912,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 10
+			count: 8
 			path: test/classes/CoreTest.php
 
 		-
@@ -49292,7 +49277,12 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 2 will always evaluate to true\\.$#"
-			count: 2
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
+			count: 1
 			path: test/classes/VersionTest.php
 
 		-
