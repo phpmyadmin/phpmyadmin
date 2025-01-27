@@ -16814,7 +16814,7 @@ msgstr "வள வரம்புகள்"
 
 #: templates/server/privileges/privileges_table.twig:723
 msgid "Note: Setting these options to 0 (zero) removes the limit."
-msgstr ""
+msgstr "குறிப்பு: இந்த விருப்பங்களை 0 (பூச்சியமாக) அமைப்பது வரம்பை நீக்குகிறது."
 
 #: templates/server/privileges/privileges_table.twig:729
 #: templates/server/privileges/privileges_table.twig:736
