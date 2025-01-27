@@ -5976,7 +5976,7 @@ msgstr "முன்னிருப்பு சேவையகம்"
 
 #: resources/templates/setup/home/index.twig:142
 msgid "let the user choose"
-msgstr ""
+msgstr "பயனர் தேர்வு செய்யட்டும்"
 
 #: resources/templates/setup/home/index.twig:149
 msgid "- none -"
