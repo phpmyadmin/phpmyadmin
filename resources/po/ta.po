@@ -9974,7 +9974,7 @@ msgstr "புறக்கணிப்பு செருகல்களைப�
 
 #: src/Config/Descriptions.php:712
 msgid "Syntax to use when inserting data"
-msgstr ""
+msgstr "தரவைச் செருகும்போது பயன்படுத்த தொடரியல்"
 
 #: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
 msgid "Maximal length of created query"
