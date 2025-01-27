@@ -211,7 +211,7 @@ msgstr "எதுவுமில்லை"
 #: resources/templates/database/create_table.twig:6
 #: resources/templates/database/operations/index.twig:31
 msgid "Table name"
-msgstr ""
+msgstr "அட்டவணை பெயர்"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:31
 #: resources/templates/console/display.twig:136
@@ -223,7 +223,7 @@ msgstr "சேர்க்க"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:39
 msgid "column(s)"
-msgstr "%s நெடுவரிசைகளை சேர்க்க"
+msgstr "நெடுவரிசை (கள்)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:42
 #: resources/templates/database/designer/main.twig:1099
