@@ -9059,7 +9059,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:107
 msgid "Log buffer size"
-msgstr ""
+msgstr "பதிவு இடையக அளவு"
 
 #: libraries/classes/Engines/Pbxt.php:109
 msgid ""
