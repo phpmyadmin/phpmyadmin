@@ -4963,7 +4963,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:626
 #: src/Server/Privileges.php:324
 msgid "Allows shutting down the server."
-msgstr ""
+msgstr "சேவையகத்தை மூட அனுமதிக்கிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:636
 #: resources/templates/server/privileges/privileges_table.twig:639
