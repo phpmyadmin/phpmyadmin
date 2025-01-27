@@ -5910,6 +5910,7 @@ msgstr ""
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
+"இந்த MySQL சேவையகம் <b> பிரதி </b> <b> பிரதி </b> செயல்பாட்டில் செயல்படுகிறது."
 
 #: resources/templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -5973,7 +5974,7 @@ msgstr "அட்டவணை படிநிலைமட்ட தாவல்�
 
 #: resources/templates/server/user_groups/user_groups.twig:50
 msgid "Delete user group"
-msgstr "பயனர் குழுவை தொகுக்க"
+msgstr "பயனர் குழுவை நீக்கு"
 
 #: resources/templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -6019,7 +6020,7 @@ msgstr "உள்ளமைவு கோப்பு"
 
 #: resources/templates/setup/config/index.twig:16
 msgid "Generated configuration file"
-msgstr "அமைப்பாக்கம் இல்லா முறைமையை இயலசெய்க"
+msgstr "உருவாக்கப்பட்ட உள்ளமைவு கோப்பு"
 
 #: resources/templates/setup/config/index.twig:22
 #: resources/templates/setup/home/index.twig:168
@@ -6044,7 +6045,7 @@ msgstr "படிவத்தை காட்டு"
 
 #: resources/templates/setup/home/index.twig:23
 msgid "Show hidden messages"
-msgstr "மறைக்கப்பட்ட உருப்படிகளை காட்டு"
+msgstr "மறைக்கப்பட்ட செய்திகளைக் காட்டு"
 
 #: resources/templates/setup/home/index.twig:51 src/Config/Descriptions.php:866
 msgid "Authentication type"
