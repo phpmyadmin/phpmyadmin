@@ -10856,7 +10856,7 @@ msgstr "டெக்ச்டேரியா வரிசைகள்"
 
 #: src/Config/Descriptions.php:935
 msgid "Default title"
-msgstr ""
+msgstr "இயல்புநிலை தலைப்பு"
 
 #: src/Config/Descriptions.php:938
 msgid "List of trusted proxies for IP allow/deny"
