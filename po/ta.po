@@ -4273,7 +4273,7 @@ msgstr "சேவையக இணைப்பு குறிமுறை அட
 #: libraries/classes/Config/FormDisplay.php:605
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "%s க்கான தரவு காணவில்லை"
 
 #: libraries/classes/Config/FormDisplay.php:646
 #: libraries/classes/Config/Validator.php:590
