@@ -7396,7 +7396,7 @@ msgstr "செருகப்பட்ட தாமதமான வரிசை�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:289
 msgid "The number of executed FLUSH statements."
-msgstr ""
+msgstr "செயல்படுத்தப்பட்ட பறிப்பு அறிக்கைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:292
 msgid "The number of internal COMMIT statements."
