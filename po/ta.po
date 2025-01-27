@@ -932,7 +932,7 @@ msgstr "இன்னோடிபி முடக்கப்பட்டுள�
 
 #: libraries/advisory_rules_generic.php:603
 msgid "You do not have InnoDB enabled."
-msgstr ""
+msgstr "உங்களிடம் இன்னோடிபி இயக்கப்பட்டது இல்லை."
 
 #: libraries/advisory_rules_generic.php:604
 msgid "InnoDB is usually the better choice for table engines."
