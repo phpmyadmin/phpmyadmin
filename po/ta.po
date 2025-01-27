@@ -15517,7 +15517,7 @@ msgstr "இறக்குமதி செய்ய கோப்பு:"
 #: templates/import.twig:45
 #, php-format
 msgid "File may be compressed (%s) or uncompressed."
-msgstr ""
+msgstr "கோப்பு சுருக்கப்படலாம் (%s) அல்லது சுருக்கப்படாதது."
 
 #: templates/import.twig:47
 msgid ""
