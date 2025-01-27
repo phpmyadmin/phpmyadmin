@@ -2998,7 +2998,7 @@ msgstr "பேக்சுவோட்டுகளுடன் அட்டவ�
 #: libraries/classes/Config/Descriptions.php:709
 #: libraries/classes/Config/Descriptions.php:811
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "கவிமொ பொருந்தக்கூடிய பயன்முறை"
 
 #: libraries/classes/Config/Descriptions.php:710
 msgid "Creation/Update/Check dates"
