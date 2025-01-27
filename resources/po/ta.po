@@ -6074,7 +6074,7 @@ msgstr "அழைப்புக்கள்"
 #. l10n: Average time
 #: resources/templates/sql/profiling_chart.twig:40
 msgid "ø Time"
-msgstr ""
+msgstr "நேரம்"
 
 #: resources/templates/sql/profiling_chart.twig:66
 msgid "Pie chart with profiling results."
