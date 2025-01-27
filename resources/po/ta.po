@@ -10243,7 +10243,7 @@ msgstr "புகுபதிவு நிலைபதிவுத்துண�
 
 #: src/Config/Descriptions.php:801
 msgid "Bigger textarea for LONGTEXT"
-msgstr ""
+msgstr "லாங்டெக்ச்டுக்கு பெரிய உரை"
 
 #: src/Config/Descriptions.php:802
 msgid "Maximum displayed SQL length"
