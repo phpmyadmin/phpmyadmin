@@ -14328,7 +14328,7 @@ msgstr "கவிமொ தரவு அணுகல்"
 #: templates/database/routines/execute_form.twig:7
 #: templates/database/routines/execute_form.twig:12
 msgid "Routine parameters"
-msgstr ""
+msgstr "வழக்கமான அளவுருக்கள்"
 
 #: templates/database/routines/index.twig:36
 msgid "Create new routine"
