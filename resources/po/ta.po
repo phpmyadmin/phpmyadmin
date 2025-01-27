@@ -7875,7 +7875,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:501
 msgid "Table lock wait rate"
-msgstr ""
+msgstr "அட்டவணை பூட்டு காத்திருப்பு வீதம்"
 
 #: src/Advisory/Rules.php:506
 #, php-format
