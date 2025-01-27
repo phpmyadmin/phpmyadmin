@@ -8356,7 +8356,7 @@ msgstr "நீங்கள் ஒரு நிகழ்வு பெயரை �
 
 #: libraries/classes/Database/Events.php:426
 msgid "You must provide a valid interval value for the event."
-msgstr ""
+msgstr "நிகழ்வுக்கு சரியான இடைவெளி மதிப்பை நீங்கள் வழங்க வேண்டும்."
 
 #: libraries/classes/Database/Events.php:446
 msgid "You must provide a valid execution time for the event."
