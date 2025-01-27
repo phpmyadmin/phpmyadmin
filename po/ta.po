@@ -8852,7 +8852,7 @@ msgstr "புதிய பயனாளரை சேர்க்க->செய�
 
 #: libraries/classes/Database/Triggers.php:393
 msgid "Trigger name"
-msgstr ""
+msgstr "தூண்டுதல் பெயர்"
 
 #: libraries/classes/Database/Triggers.php:416
 msgctxt "Trigger action time"
