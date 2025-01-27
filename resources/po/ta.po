@@ -2329,7 +2329,7 @@ msgstr "எழுத்துக்கணம்"
 
 #: resources/templates/database/routines/editor_form.twig:125
 msgid "Is deterministic"
-msgstr ""
+msgstr "தீர்மானகரமானது"
 
 #: resources/templates/database/routines/editor_form.twig:141
 msgid ""
