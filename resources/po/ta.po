@@ -9685,7 +9685,7 @@ msgstr "உள்ளீட்டு புலத்திற்கான கு�
 
 #: src/Config/Descriptions.php:609
 msgid "Maximum size for input field"
-msgstr ""
+msgstr "உள்ளீட்டு புலத்திற்கான அதிகபட்ச அளவு"
 
 #: src/Config/Descriptions.php:610
 msgid "CHAR textarea columns"
