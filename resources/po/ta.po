@@ -15010,7 +15010,7 @@ msgstr ""
 
 #: src/Engines/Innodb.php:44
 msgid "Buffer pool size"
-msgstr ""
+msgstr "இடையக பூல் அளவு"
 
 #: src/Engines/Innodb.php:45
 msgid ""
