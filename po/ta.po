@@ -2635,7 +2635,7 @@ msgstr "ப்ளோஃபிச் மறைபொருள்"
 
 #: libraries/classes/Config/Descriptions.php:622
 msgid "Row marker"
-msgstr ""
+msgstr "வரிசை மார்க்கர்"
 
 #: libraries/classes/Config/Descriptions.php:623
 msgid "Highlight pointer"
