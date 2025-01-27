@@ -15190,7 +15190,7 @@ msgstr "வெளியீட்டை ஒரு கோப்பாக சேம
 
 #: templates/export.twig:323
 msgid "File name template:"
-msgstr ""
+msgstr "கோப்பு பெயர் வார்ப்புரு:"
 
 #: templates/export.twig:324
 #, php-format
