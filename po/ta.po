@@ -3749,7 +3749,7 @@ msgstr "வெளியேறு முகவரி"
 
 #: libraries/classes/Config/Descriptions.php:898
 msgid "Maximal number of table preferences to store"
-msgstr ""
+msgstr "சேமிக்க அட்டவணை விருப்பங்களின் அதிகபட்ச எண்ணிக்கை"
 
 #: libraries/classes/Config/Descriptions.php:899
 msgid "QBE saved searches table"
