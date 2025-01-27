@@ -8033,6 +8033,9 @@ msgid ""
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
+"இணைப்புகளைக் கையாள உருவாக்கப்பட்ட நூல்களின் எண்ணிக்கை. Treads_created பெரியதாக இருந்தால்"
+", நீங்கள் Thread_cache_size மதிப்பை அதிகரிக்க விரும்பலாம். (பொதுவாக இது ஒரு நல்ல நூல் "
+"செயல்படுத்தல் இருந்தால் இது குறிப்பிடத்தக்க செயல்திறன் மேம்பாட்டைக் கொடுக்காது.)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:516
 msgid "Thread cache hit rate (calculated value)"
