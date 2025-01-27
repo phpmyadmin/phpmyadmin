@@ -15584,10 +15584,9 @@ msgstr "புள்ளி:"
 #: templates/gis_data_editor_form.twig:93
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:186
-#, fuzzy, php-format
-#| msgid "Point %d"
+#, php-format
 msgid "Point %d:"
-msgstr "புள்ளி %d"
+msgstr "புள்ளி %d:"
 
 #: templates/gis_data_editor_form.twig:113
 #, php-format
