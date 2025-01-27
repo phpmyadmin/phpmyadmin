@@ -8847,7 +8847,7 @@ msgstr "பிசியான பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:183
 msgid "Latched pages"
-msgstr ""
+msgstr "இணைக்கப்பட்ட பக்கங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:194
 msgid "Buffer Pool Activity"
