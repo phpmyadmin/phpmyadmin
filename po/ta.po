@@ -2807,7 +2807,7 @@ msgstr "கோப்பின் எழுத்து தொகுப்பு"
 #: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
-msgstr ""
+msgstr "வடிவம்"
 
 #: libraries/classes/Config/Descriptions.php:659
 msgid "Compression"
