@@ -3824,7 +3824,7 @@ msgstr "சிக்னன் அமர்வு பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:911
 msgid "Signon URL"
-msgstr ""
+msgstr "முகவரி இன் அடையாளம்"
 
 #: libraries/classes/Config/Descriptions.php:912
 msgid "Server socket"
