@@ -676,6 +676,8 @@ msgid ""
 "Consider increasing {open_files_limit}, and check the error log when "
 "restarting after changing {open_files_limit}."
 msgstr ""
+"{open_files_limit} ஐ அதிகரிப்பதைக் கருத்தில் கொண்டு, {Open_Files_limit beth ஐ "
+"மாற்றிய பின் மறுதொடக்கம் செய்யும் போது பிழை பதிவைச் சரிபார்க்கவும்."
 
 #: libraries/advisory_rules_generic.php:440
 #, php-format
