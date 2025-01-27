@@ -14041,7 +14041,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:250
 msgid "The number of INSERT DELAYED rows written."
-msgstr ""
+msgstr "செருகப்பட்ட தாமதமான வரிசைகளின் எண்ணிக்கை எழுதப்பட்டது."
 
 #: src/Controllers/Server/Status/VariablesController.php:251
 msgid "The number of executed FLUSH statements."
