@@ -8692,7 +8692,7 @@ msgstr "பாதுகாப்பு வகை"
 
 #: libraries/classes/Database/Routines.php:1010
 msgid "SQL data access"
-msgstr ""
+msgstr "கவிமொ தரவு அணுகல்"
 
 #: libraries/classes/Database/Routines.php:1022
 #: templates/columns_definitions/partitions.twig:85
