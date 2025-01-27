@@ -11670,6 +11670,8 @@ msgstr "வன்பொருள் பாதுகாப்பு விசை 
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F."
 msgstr ""
+"FIDO U2F ஐ ஆதரிக்கும் வன்பொருள் பாதுகாப்பு டோக்கன்களைப் பயன்படுத்தி அங்கீகாரத்தை "
+"வழங்குகிறது."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -11690,7 +11692,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
 msgid "Simple two-factor authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "எளிய இரண்டு காரணி ஏற்பு"
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:59
 msgid "For testing purposes only!"
