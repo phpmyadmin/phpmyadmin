@@ -4267,7 +4267,7 @@ msgstr "%s க்கான தரவு காணவில்லை"
 #: libraries/classes/Config/FormDisplay.php:874
 #: libraries/classes/Config/FormDisplay.php:882
 msgid "unavailable"
-msgstr ""
+msgstr "கிடைக்கவில்லை"
 
 #: libraries/classes/Config/FormDisplay.php:876
 #: libraries/classes/Config/FormDisplay.php:884
