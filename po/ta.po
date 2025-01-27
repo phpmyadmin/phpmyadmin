@@ -9917,6 +9917,9 @@ msgid ""
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
+"உங்களிடம் ஒரு நெடுவரிசை குழு இருக்கிறதா? எடுத்துக்காட்டாக, உங்களிடம் FIRST_NAME, "
+"கடைசி_பெயர் மற்றும் முழு_பெயர் இருந்தால், பின்னர் முதல்_பெயர் மற்றும் லாச்ட்_பேம் ஆகியவற்றை "
+"இணைத்து முழு_பெயரைக் கொடுக்கும், இது தேவையற்றது."
 
 #: libraries/classes/Normalization.php:332
 msgid ""
