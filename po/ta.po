@@ -8943,7 +8943,7 @@ msgstr ""
 
 #: libraries/classes/Engines/Myisam.php:70
 msgid "Sort buffer size"
-msgstr ""
+msgstr "இடையக அளவை வரிசைப்படுத்துங்கள்"
 
 #: libraries/classes/Engines/Myisam.php:72
 msgid ""
