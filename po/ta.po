@@ -5155,8 +5155,6 @@ msgstr "தொகுக்குறியீட்டை திருத்த�
 
 #. l10n: Rename a table Index
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:109
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename index"
 msgstr "தரவுத்தளத்தைப் இப்படி மறுபெயரிடுக"
 
