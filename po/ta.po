@@ -577,7 +577,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:366
 msgid "key_buffer_size is 0"
-msgstr ""
+msgstr "key_buffer_size 0"
 
 #: libraries/advisory_rules_generic.php:371
 #, no-php-format
