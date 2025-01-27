@@ -11991,7 +11991,7 @@ msgstr "தேடலை ஏற்றும்போது பிழை."
 
 #: libraries/classes/Server/Privileges.php:244
 msgid "No privileges."
-msgstr ""
+msgstr "சலுகைகள் இல்லை."
 
 #: libraries/classes/Server/Privileges.php:254
 msgid "Includes all privileges except GRANT."
