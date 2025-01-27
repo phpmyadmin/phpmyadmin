@@ -294,11 +294,11 @@ msgstr "குறிமுறை அடுக்குவரிசை:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:76
 msgid "Storage Engine:"
-msgstr ""
+msgstr "சேமிப்பக இயந்திரம்:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:81
 msgid "Connection:"
-msgstr "இணைப்புகள்"
+msgstr "இணைப்பு:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:112
 #: resources/templates/columns_definitions/partitions.twig:137
