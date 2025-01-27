@@ -5857,7 +5857,7 @@ msgstr "பயனர்குழுவை சேர்க்க"
 #: resources/templates/server/user_groups/edit_user_groups.twig:5
 #, php-format
 msgid "Edit user group: '%s'"
-msgstr ""
+msgstr "பயனர் குழுவைத் திருத்து: '%s'"
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:10
 msgid "User group menu assignments"
