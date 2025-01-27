@@ -11004,7 +11004,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:62
 msgid "Column names: "
-msgstr ""
+msgstr "நெடுவரிசை பெயர்கள்: "
 
 #: libraries/classes/Plugins/Import/ImportLdi.php:106
 msgid "This plugin does not support compressed imports!"
