@@ -10431,7 +10431,7 @@ msgstr "MySQL ஒதுக்கப்பட்ட சொல் எச்சர�
 
 #: src/Config/Descriptions.php:846
 msgid "How to display the menu tabs"
-msgstr ""
+msgstr "பட்டியல் தாவல்களை எவ்வாறு காண்பிப்பது"
 
 #: src/Config/Descriptions.php:847
 msgid "How to display various action links"
