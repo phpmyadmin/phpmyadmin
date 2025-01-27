@@ -6419,7 +6419,7 @@ msgstr "செயல்படு விருப்பங்கள்"
 
 #: resources/templates/table/index_form.twig:67
 msgid "Key block size:"
-msgstr ""
+msgstr "முக்கிய தொகுதி அளவு:"
 
 #: resources/templates/table/index_form.twig:84
 msgid "Index type:"
@@ -6427,7 +6427,7 @@ msgstr "சுட்டுதொகுப்புக்குறி வகை:"
 
 #: resources/templates/table/index_form.twig:101
 msgid "Parser:"
-msgstr "பயனர்:"
+msgstr "பாகுபடுத்தி:"
 
 #: resources/templates/table/index_form.twig:117
 msgid "Comment:"
