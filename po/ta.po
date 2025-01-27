@@ -16563,7 +16563,7 @@ msgstr ""
 
 #: templates/server/replication/slave_configuration.twig:34
 msgid "See slave status table"
-msgstr ""
+msgstr "அடிமை நிலை அட்டவணையைப் பார்க்கவும்"
 
 #: templates/server/replication/slave_configuration.twig:38
 msgid "Control slave:"
