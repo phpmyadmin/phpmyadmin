@@ -14213,7 +14213,7 @@ msgstr "தவிர"
 #: templates/database/designer/main.twig:858
 #: templates/database/designer/main.twig:1051
 msgid "subquery"
-msgstr ""
+msgstr "துணைக்குழு"
 
 #: templates/database/designer/main.twig:496
 #: templates/database/designer/main.twig:712
