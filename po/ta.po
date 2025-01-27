@@ -3568,7 +3568,7 @@ msgstr "நிரந்தர வினவல் வரலாறு"
 
 #: libraries/classes/Config/Descriptions.php:879
 msgid "Query history length"
-msgstr ""
+msgstr "வரலாற்று நீளத்தை வினவவும்"
 
 #: libraries/classes/Config/Descriptions.php:880
 msgid "Recoding engine"
