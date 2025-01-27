@@ -3789,6 +3789,9 @@ msgid ""
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
+"FIDO U2F பநிஇ ஐப் பயன்படுத்தி உங்கள் கணக்கை அங்கீகரிக்க நீங்கள் இன்னும் பயர்பாக்சைப் "
+"பயன்படுத்தலாம், இருப்பினும் அதற்கு பதிலாக WebAuthn அங்கீகாரத்தைப் பயன்படுத்த "
+"பரிந்துரைக்கப்படுகிறது."
 
 #: resources/templates/login/twofactor/key_configure.twig:10
 msgid ""
