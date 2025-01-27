@@ -16760,6 +16760,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"இப்போது, உங்கள் My.CNF இல் [MySQLD] பிரிவின் முடிவில் பின்வரும் வரிகளைச் சேர்த்து, பின்னர்"
+" MySQL சேவையகத்தை மறுதொடக்கம் செய்யுங்கள்."
 
 #: templates/server/replication/primary_configuration.twig:21
 msgid ""
