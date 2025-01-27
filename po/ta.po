@@ -12815,7 +12815,7 @@ msgstr "கவிமொ டம்ப் (கோப்பு பதிவிற�
 
 #: libraries/classes/Tracking.php:478
 msgid "SQL dump"
-msgstr ""
+msgstr "கவிமொ டம்ப்"
 
 #: libraries/classes/Tracking.php:481
 msgid "This option will replace your table and contained data."
