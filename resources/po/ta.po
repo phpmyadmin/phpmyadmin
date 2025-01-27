@@ -7762,7 +7762,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:418
 msgid "Percentage of MyISAM key buffer used"
-msgstr ""
+msgstr "MyISAM விசை இடையகத்தின் விழுக்காடு பயன்படுத்தப்படுகிறது"
 
 #: src/Advisory/Rules.php:430
 #, php-format
