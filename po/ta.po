@@ -12646,6 +12646,8 @@ msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
+"ஒரு பிட்-ஃபீல்ட் வகை (மீ), ஒரு மதிப்புக்கு பிட் மீவை சேமித்தல் (இயல்புநிலை 1, அதிகபட்சம் "
+"64)"
 
 #: libraries/classes/Types.php:284
 msgid ""
