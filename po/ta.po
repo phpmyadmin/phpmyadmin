@@ -368,7 +368,7 @@ msgstr "வரிசைப்படுத்தப்பட்ட வரிச�
 
 #: libraries/advisory_rules_generic.php:246
 msgid "Rate of joins without indexes"
-msgstr ""
+msgstr "குறியீடுகள் இல்லாமல் இணைந்த விகிதம்"
 
 #: libraries/advisory_rules_generic.php:249
 msgid "There are too many joins without indexes."
