@@ -16126,7 +16126,7 @@ msgstr ""
 #: templates/server/privileges/choose_user_group.twig:4
 #: templates/server/privileges/users_overview.twig:16
 msgid "User group"
-msgstr ""
+msgstr "பயனர் குழு"
 
 #: templates/server/privileges/choose_user_group.twig:6
 msgid "User group:"
