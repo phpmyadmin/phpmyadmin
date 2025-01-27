@@ -15625,8 +15625,6 @@ msgid "deleting"
 msgstr "அழித்தல்"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
 msgstr "அழி"
 
