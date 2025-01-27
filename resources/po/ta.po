@@ -6440,7 +6440,7 @@ msgstr "இயல்பாக்கத்தின் முதல் படி 
 
 #: resources/templates/table/normalization/normalization.twig:17
 msgid "Second step of normalization (1NF+2NF)"
-msgstr ""
+msgstr "இயல்பாக்கத்தின் இரண்டாவது படி (1NF+2NF)"
 
 #: resources/templates/table/normalization/normalization.twig:21
 msgid "Third step of normalization (1NF+2NF+3NF)"
