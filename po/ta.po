@@ -723,6 +723,7 @@ msgstr ""
 #, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
+"உடனடி அட்டவணை பூட்டுகள்:%s %%, இந்த மதிப்பு 95 %% க்கு மேல் இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:470
 msgid "Table lock wait rate"
