@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:11+0000\n"
+"PO-Revision-Date: 2025-01-27 02:12+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -5177,6 +5177,7 @@ msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்�
 #: libraries/classes/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
+"ஒற்றை அட்டவணை புதுப்பிப்பு மற்றும் நீக்குதல் வினவல்களை மட்டுமே உருவகப்படுத்த முடியும்."
 
 #: libraries/classes/Controllers/Import/StatusController.php:66
 msgid "Could not load the progress of the import."
