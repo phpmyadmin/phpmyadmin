@@ -10959,6 +10959,8 @@ msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
 msgstr ""
+"கோப்பின் முதல் வரியில் அட்டவணை நெடுவரிசை பெயர்கள் உள்ளன <i> (இது தேர்வு செய்யப்படாவிட்டால்"
+", முதல் வரி தரவின் பகுதியாக மாறும்) </i>"
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:126
 msgid ""
