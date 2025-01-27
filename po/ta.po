@@ -2747,12 +2747,12 @@ msgstr "பல அட்டவணை பராமரிப்பை முடக
 
 #: libraries/classes/Config/Descriptions.php:660
 msgid "Maximum execution time"
-msgstr ""
+msgstr "அதிகபட்ச சாவுஒறுப்பு நேரம்"
 
 #: libraries/classes/Config/Descriptions.php:662 templates/export.twig:293
 #, php-format
 msgid "Use %s statement"
-msgstr "கூற்றுகளை சேர்க்க:"
+msgstr "%s அறிக்கையைப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:665
 msgid "Save as file"
