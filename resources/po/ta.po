@@ -17869,7 +17869,7 @@ msgstr "அட்டவணை `%s` க்கான கண்காணிப்�
 #: src/Tracking/Tracking.php:861
 #, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
-msgstr ""
+msgstr "%1$s க்கான கண்காணிப்பு பதிப்பு %2$s இல் செயல்படுத்தப்பட்டது."
 
 #: src/Tracking/Tracking.php:864
 #, php-format
