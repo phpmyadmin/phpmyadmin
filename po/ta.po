@@ -15961,7 +15961,7 @@ msgstr "நிலை"
 #: templates/server/binlog/index.twig:87
 #: templates/server/replication/primary_replication.twig:24
 msgid "Server ID"
-msgstr ""
+msgstr "சேவையக ஐடி"
 
 #: templates/server/binlog/index.twig:88
 msgid "Original position"
