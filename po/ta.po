@@ -2549,6 +2549,8 @@ msgid ""
 "When disabled, users cannot set any of the options below, regardless of the "
 "checkbox on the right."
 msgstr ""
+"முடக்கப்பட்டால், வலதுபுறத்தில் உள்ள தேர்வுப்பெட்டியைப் பொருட்படுத்தாமல், பயனர்கள் கீழே உள்ள எந்"
+"த விருப்பங்களையும் அமைக்க முடியாது."
 
 #: libraries/classes/Config/Descriptions.php:532
 msgid ""
