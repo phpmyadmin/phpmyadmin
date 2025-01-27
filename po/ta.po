@@ -3550,7 +3550,7 @@ msgstr "விருப்பமான அட்டவணைகள்"
 
 #: libraries/classes/Config/Descriptions.php:856
 msgid "Where to show the table row links"
-msgstr ""
+msgstr "அட்டவணை வரிசை இணைப்புகளை எங்கே காண்பிப்பது"
 
 #: libraries/classes/Config/Descriptions.php:857
 msgid "Show row links anyway"
