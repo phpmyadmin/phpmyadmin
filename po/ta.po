@@ -11261,7 +11261,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportOds.php:170
 msgid "Could not parse OpenDocument Spreadsheet!"
-msgstr ""
+msgstr "Opendocument விரிதாளை அலச முடியவில்லை!"
 
 #: libraries/classes/Plugins/Import/ImportShp.php:65
 msgid "ESRI Shape File"
