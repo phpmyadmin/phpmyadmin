@@ -8836,7 +8836,7 @@ msgstr "அட்டவணைகளின் காட்சித்தெர�
 
 #: src/Config/Descriptions.php:213
 msgid "Settings that didn't fit anywhere else."
-msgstr ""
+msgstr "வேறு எங்கும் பொருந்தாத அமைப்புகள்."
 
 #: src/Config/Descriptions.php:214
 msgid "Authentication settings."
