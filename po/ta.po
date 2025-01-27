@@ -10775,7 +10775,7 @@ msgstr "தரவுகளை குவிக்கும் போது பய
 
 #: libraries/classes/Plugins/Export/ExportSql.php:455
 msgid "Syntax to use when inserting data:"
-msgstr ""
+msgstr "தரவைச் செருகும்போது பயன்படுத்த தொடரியல்:"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:465
 msgid ""
