@@ -1273,7 +1273,7 @@ msgstr "பல நிலை"
 #: libraries/classes/Charsets/Collation.php:307
 msgctxt "Collation variant"
 msgid "binary"
-msgstr ""
+msgstr "இருமம்"
 
 #: libraries/classes/Charsets/Collation.php:310
 msgctxt "Collation variant"
