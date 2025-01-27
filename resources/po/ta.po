@@ -10450,7 +10450,7 @@ msgstr "நிரந்தர வினவல் வரலாறு"
 
 #: src/Config/Descriptions.php:850
 msgid "Query history length"
-msgstr ""
+msgstr "வரலாற்று நீளத்தை வினவவும்"
 
 #: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
