@@ -6954,7 +6954,7 @@ msgstr "இறக்காற்றல்"
 
 #: resources/templates/table/structure/display_table_stats.twig:99
 msgid "partitioned"
-msgstr ""
+msgstr "பகிர்வு"
 
 #: resources/templates/table/structure/display_table_stats.twig:128
 msgid "Row length"
