@@ -7912,7 +7912,7 @@ msgstr "வினவல் தற்காலிக சேமிப்பில�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:463
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr ""
+msgstr "தோல்வியுற்ற நகலெடுப்பின் நிலை (இன்னும் செயல்படுத்தப்படவில்லை)."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:465
 msgid ""
