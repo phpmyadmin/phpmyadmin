@@ -12440,7 +12440,7 @@ msgstr "கண்காணிப்பு அறிக்கை"
 
 #: libraries/classes/Tracking.php:240
 msgid "Tracking statements"
-msgstr ""
+msgstr "கண்காணிப்பு அறிக்கைகள்"
 
 #: libraries/classes/Tracking.php:255
 msgid "Delete tracking data row from report"
