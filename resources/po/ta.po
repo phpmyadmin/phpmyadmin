@@ -10383,7 +10383,7 @@ msgstr "தரவுத்தளம் நகல் எடுக்கபடு�
 
 #: src/Config/Descriptions.php:834
 msgid "Recently used tables"
-msgstr ""
+msgstr "அண்மைக் காலத்தில் பயன்படுத்தப்பட்ட அட்டவணைகள்"
 
 #: src/Config/Descriptions.php:836
 msgid "Where to show the table row links"
