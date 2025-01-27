@@ -11395,7 +11395,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptobinary.php:32
 msgid "Converts an Internet network address in (IPv4/IPv6) format to binary"
-msgstr ""
+msgstr "இணைய பிணையம் முகவரியை (IPv4/IPv6) வடிவமைப்பை பைனரியாக மாற்றுகிறது"
 
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_Iptolong.php:29
 msgid ""
