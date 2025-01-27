@@ -463,24 +463,24 @@ msgstr "முதன்மைநிரல்வரிசைகளிலிரு
 
 #: resources/templates/columns_definitions/partitions.twig:17
 msgid "Partition by:"
-msgstr "பிரிவினை %s"
+msgstr "வழங்கியவர்:"
 
 #: resources/templates/columns_definitions/partitions.twig:32
 #: resources/templates/columns_definitions/partitions.twig:60
 msgid "Expression or column list"
-msgstr "நெடுவரிசை %sகான மதிப்பு.கள்"
+msgstr "வெளிப்பாடு அல்லது நெடுவரிசை பட்டியல்"
 
 #: resources/templates/columns_definitions/partitions.twig:37
 msgid "Partitions:"
-msgstr "பிரிவினை %s"
+msgstr "பகிர்வுகள்:"
 
 #: resources/templates/columns_definitions/partitions.twig:45
 msgid "Subpartition by:"
-msgstr "பிரிவினை %s"
+msgstr "துணை கட்சி:"
 
 #: resources/templates/columns_definitions/partitions.twig:65
 msgid "Subpartitions:"
-msgstr "பிரிவினை %s"
+msgstr "துணைப்பிரிவுகள்:"
 
 #: resources/templates/columns_definitions/partitions.twig:76
 #: resources/templates/table/operations/index.twig:481
@@ -490,15 +490,15 @@ msgstr "பிரிவினை"
 
 #: resources/templates/columns_definitions/partitions.twig:78
 msgid "Values"
-msgstr "X மதிப்புக்கள்"
+msgstr "மதிப்புகள்"
 
 #: resources/templates/columns_definitions/partitions.twig:82
 msgid "Subpartition"
-msgstr "பிரிவினை %s"
+msgstr "துணை கட்சி"
 
 #: resources/templates/columns_definitions/partitions.twig:84
 msgid "Engine"
-msgstr "செயல்பொறிகள்"
+msgstr "விசைப்பொறி"
 
 #: resources/templates/columns_definitions/partitions.twig:85
 #: resources/templates/config/form_display/input.twig:53
@@ -516,27 +516,27 @@ msgstr "கருத்துரை"
 
 #: resources/templates/columns_definitions/partitions.twig:86
 msgid "Data directory"
-msgstr "தரவின் முகப்பு அடைவு"
+msgstr "தரவு அடைவு"
 
 #: resources/templates/columns_definitions/partitions.twig:87
 msgid "Index directory"
-msgstr "தரவின் முகப்பு அடைவு"
+msgstr "குறியீட்டு அடைவு"
 
 #: resources/templates/columns_definitions/partitions.twig:88
 msgid "Max rows"
-msgstr "பொருந்திய நிரல்வரிசைகள்:"
+msgstr "அதிகபட்ச வரிசைகள்"
 
 #: resources/templates/columns_definitions/partitions.twig:89
 msgid "Min rows"
-msgstr "உலாவு"
+msgstr "குறைந்தபட்ச வரிசைகள்"
 
 #: resources/templates/columns_definitions/partitions.twig:90
 msgid "Table space"
-msgstr "அட்டவணை தேடல்"
+msgstr "அட்டவணை இடம்"
 
 #: resources/templates/columns_definitions/partitions.twig:91
 msgid "Node group"
-msgstr "பயனர் குழுக்கள்"
+msgstr "முனை குழு"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:4
 #: resources/templates/database/central_columns/edit.twig:3
@@ -3031,7 +3031,7 @@ msgstr "எதுவுமில்லை"
 #. l10n: This is currently used only in Japanese locales
 #: resources/templates/encoding/kanji_encoding_form.twig:15
 msgid "Convert to Kana"
-msgstr ""
+msgstr "கானாவாக மாற்றவும்"
 
 #: resources/templates/error/generic.twig:37
 #: resources/templates/table/structure/display_structure.twig:361
