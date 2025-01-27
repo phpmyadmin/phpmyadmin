@@ -15876,7 +15876,7 @@ msgstr ""
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"
-msgstr ""
+msgstr "மேம்பட்ட அம்சங்களை அமைப்பதற்கான விரைவான படிகள்:"
 
 #: templates/relation/diagnostic_info.twig:5
 #, php-format
