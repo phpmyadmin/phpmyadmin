@@ -8003,7 +8003,7 @@ msgstr "நூல் கேச் செய் வீதம் (கணக்க�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:675
 msgid "The number of threads that are not sleeping."
-msgstr ""
+msgstr "தூங்காத நூல்களின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/VariablesController.php:219
 msgid "Setting variable failed"
