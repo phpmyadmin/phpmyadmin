@@ -9557,7 +9557,7 @@ msgstr "லாங் டெக்ச்ட் நெடுவரிசைகள�
 
 #: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
-msgstr ""
+msgstr "தரவுத்தள பட்டியலில் காட்டப்படும் அதிகபட்ச தரவுத்தளங்களின் எண்ணிக்கை."
 
 #: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
