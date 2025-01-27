@@ -12540,6 +12540,7 @@ msgstr ""
 #: libraries/classes/Tracking.php:812
 msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
+"கவிமொ அறிக்கைகள் ஏற்றுமதி செய்யப்பட்டன. தயவுசெய்து டம்பை நகலெடுக்கவும் அல்லது இயக்கவும்."
 
 #: libraries/classes/Tracking.php:845
 #, php-format
