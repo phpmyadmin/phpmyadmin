@@ -2498,6 +2498,8 @@ msgstr ""
 msgid ""
 "Mark used tables and make it possible to show databases with locked tables."
 msgstr ""
+"மார்க் பயன்படுத்திய அட்டவணைகள் மற்றும் பூட்டப்பட்ட அட்டவணைகளுடன் தரவுத்தளங்களைக் காண்பிப்பதை "
+"சாத்தியமாக்குகிறது."
 
 #: libraries/classes/Config/Descriptions.php:509
 msgid ""
