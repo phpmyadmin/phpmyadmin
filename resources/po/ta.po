@@ -9474,7 +9474,7 @@ msgstr "சேவையகத்தை உள்ளிடும்போது �
 
 #: src/Config/Descriptions.php:543
 msgid "Tab that is displayed when entering a table."
-msgstr ""
+msgstr "அட்டவணையை உள்ளிடும்போது காட்டப்படும் தாவல்."
 
 #: src/Config/Descriptions.php:544
 msgid "Whether the table structure actions should be hidden."
