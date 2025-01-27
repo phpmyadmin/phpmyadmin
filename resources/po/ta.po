@@ -9565,7 +9565,7 @@ msgstr "தரவுத்தள பட்டியலில் காட்ட�
 
 #: src/Config/Descriptions.php:555
 msgid "Maximum number of tables displayed in table list."
-msgstr ""
+msgstr "அட்டவணை பட்டியலில் காட்டப்படும் அதிகபட்ச அட்டவணைகள்."
 
 #: src/Config/Descriptions.php:556
 msgid "Maximum number of recently used tables; set 0 to disable."
