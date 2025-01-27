@@ -764,7 +764,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:494
 msgid "Thread cache is not efficient."
-msgstr ""
+msgstr "நூல் கேச் திறமையாக இல்லை."
 
 #: libraries/advisory_rules_generic.php:495
 msgid "Increase {thread_cache_size}."
