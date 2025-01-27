@@ -3590,7 +3590,7 @@ msgstr "Phpmyadmin உள்ளமைவு சேமிப்பக அட்�
 
 #: libraries/classes/Config/Descriptions.php:865
 msgid "MySQL reserved word warning"
-msgstr ""
+msgstr "MySQL ஒதுக்கப்பட்ட சொல் எச்சரிக்கை"
 
 #: libraries/classes/Config/Descriptions.php:866
 msgid "How to display the menu tabs"
