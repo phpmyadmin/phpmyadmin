@@ -9810,7 +9810,7 @@ msgstr "கோப்பின் எழுத்து தொகுப்பு"
 
 #: src/Config/Descriptions.php:639
 msgid "Compression"
-msgstr ""
+msgstr "சுருக்க"
 
 #: src/Config/Descriptions.php:640 src/Config/Descriptions.php:647
 #: src/Config/Descriptions.php:655 src/Config/Descriptions.php:659
