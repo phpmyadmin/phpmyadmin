@@ -10391,7 +10391,7 @@ msgstr "அட்டவணை வரிசை இணைப்புகளை எ
 
 #: src/Config/Descriptions.php:837
 msgid "Show row links anyway"
-msgstr ""
+msgstr "வரிசை இணைப்புகளை எப்படியும் காட்டு"
 
 #: src/Config/Descriptions.php:839
 msgid "Natural order"
