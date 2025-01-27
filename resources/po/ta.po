@@ -18246,7 +18246,7 @@ msgstr "அதிகபட்சம்: %s %s"
 #: src/Util.php:531
 msgctxt "AM/PM indication in time"
 msgid "PM"
-msgstr ""
+msgstr "பி.எம்"
 
 #: src/Util.php:533
 msgctxt "AM/PM indication in time"
