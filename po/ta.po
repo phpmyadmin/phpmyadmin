@@ -3793,7 +3793,7 @@ msgstr "PDF ச்கீமா: பக்கங்கள் அட்டவண�
 #: templates/database/operations/index.twig:122
 #: templates/server/databases/index.twig:24
 msgid "Database name"
-msgstr ""
+msgstr "தரவுத்தள பெயர்"
 
 #: libraries/classes/Config/Descriptions.php:906
 msgid "Server port"
