@@ -3108,11 +3108,11 @@ msgstr "தற்போதுள்ள வார்ப்புருக்க�
 
 #: resources/templates/export.twig:40
 msgid "Template:"
-msgstr ""
+msgstr "வார்ப்புரு:"
 
 #: resources/templates/export.twig:53
 msgid "Update"
-msgstr "புதுப்பிக்கப்பட்டது"
+msgstr "புதுப்பிப்பு"
 
 #. l10n: Title of the option on the Export page
 #: resources/templates/export.twig:68
