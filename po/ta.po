@@ -9485,7 +9485,7 @@ msgstr "Git தகவல் காணவில்லை!"
 #: libraries/classes/Footer.php:218 libraries/classes/Footer.php:222
 #: libraries/classes/Footer.php:225
 msgid "Open new phpMyAdmin window"
-msgstr ""
+msgstr "புதிய Phpmyadmin சாளரத்தைத் திறக்கவும்"
 
 #: libraries/classes/Header.php:344
 msgid "Print view"
