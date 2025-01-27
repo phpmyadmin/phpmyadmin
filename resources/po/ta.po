@@ -3551,7 +3551,7 @@ msgstr "தரவிறக்கம்"
 
 #: resources/templates/import.twig:23
 msgid "File to import:"
-msgstr "தரவிறக்கத்திற்கான கோப்பு:"
+msgstr "இறக்குமதி செய்ய கோப்பு:"
 
 #: resources/templates/import.twig:28
 #, php-format
@@ -6378,7 +6378,7 @@ msgstr "இடம்சார் நிரல்வரிசை"
 #: resources/templates/table/import/index.twig:3
 #, php-format
 msgid "Importing into the table \"%s\""
-msgstr ""
+msgstr "\"%s\" என்ற அட்டவணையில் இறக்குமதி செய்கிறது"
 
 #: resources/templates/table/index_form.twig:18
 #: resources/templates/table/index_rename_form.twig:11
