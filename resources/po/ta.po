@@ -14278,7 +14278,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:355
 msgid "The number of log write requests."
-msgstr ""
+msgstr "பதிவு எழுதும் கோரிக்கைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:356
 msgid "The number of physical writes to the log file."
