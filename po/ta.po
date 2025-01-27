@@ -13887,7 +13887,7 @@ msgstr "பக்கங்களை அழிக்க"
 #: templates/database/designer/main.twig:87
 #: templates/database/structure/show_create.twig:11
 msgid "Create table"
-msgstr ""
+msgstr "அட்டவணையை உருவாக்கவும்"
 
 #: templates/database/designer/main.twig:91
 #: templates/database/designer/main.twig:94
