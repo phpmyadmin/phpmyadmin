@@ -1335,7 +1335,7 @@ msgstr "சப்பானியர்கள்"
 #: libraries/classes/Charsets/Collation.php:398
 msgctxt "Collation"
 msgid "Baltic"
-msgstr ""
+msgstr "பால்டிக்"
 
 #: libraries/classes/Charsets/Collation.php:403
 msgctxt "Collation"
