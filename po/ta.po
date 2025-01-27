@@ -11295,7 +11295,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageLinkTransformationsPlugin.php:29
 msgid "Displays a link to download this image."
-msgstr ""
+msgstr "இந்த படத்தைப் பதிவிறக்க ஒரு இணைப்பைக் காட்டுகிறது."
 
 #: libraries/classes/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:31
 msgid ""
