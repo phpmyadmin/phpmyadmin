@@ -14104,7 +14104,7 @@ msgstr "முழுத் திரையில் காண்க"
 
 #: templates/database/designer/main.twig:34
 msgid "Exit fullscreen"
-msgstr ""
+msgstr "முழுத்திரை வெளியேறவும்"
 
 #: templates/database/designer/main.twig:48
 #: templates/database/designer/main.twig:52
@@ -14120,7 +14120,7 @@ msgstr "பக்கங்களை அழிக்க"
 #: templates/database/designer/main.twig:94
 #: templates/database/designer/main.twig:272
 msgid "Create relationship"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "உறவை உருவாக்குங்கள்"
 
 #: templates/database/designer/main.twig:105
 #: templates/database/designer/main.twig:108
