@@ -5897,6 +5897,8 @@ msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
+"இந்த MySQL சேவையகம் <b> முதன்மை </b> மற்றும் <b> பிரதி </b> <b> பிரதி </b> "
+"செயல்பாட்டில் செயல்படுகிறது."
 
 #: resources/templates/server/status/status/index.twig:61
 msgid ""
