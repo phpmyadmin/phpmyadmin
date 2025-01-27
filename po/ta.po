@@ -11868,7 +11868,7 @@ msgstr ""
 #, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr ""
+msgstr "தற்போதைய தரவுத்தளத்தில் phpmyadmin உள்ளமைவு சேமிப்பகத்தை%ச்க்ரீட்%s."
 
 #: libraries/classes/Relation.php:2222
 #, php-format
