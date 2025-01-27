@@ -16351,8 +16351,6 @@ msgid "Generate password:"
 msgstr "கடவுச்சொல்லை இயற்று"
 
 #: templates/server/replication/primary_configuration.twig:2
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Primary configuration"
 msgstr "கண்காணிப்பின் அமைப்பாக்கத்தை தரவிறக்கு"
 
