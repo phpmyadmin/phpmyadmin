@@ -7430,6 +7430,8 @@ msgid ""
 "The number of INSERT DELAYED handler threads in use. Every different table "
 "on which one uses INSERT DELAYED gets its own thread."
 msgstr ""
+"பயன்பாட்டில் உள்ள செருகும் தாமதமான கையாளுதல் நூல்களின் எண்ணிக்கை. ஒருவர் செருகுவதைப் "
+"பயன்படுத்தும் ஒவ்வொரு வெவ்வேறு அட்டவணையும் அதன் சொந்த நூலைப் பெறுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:270
 msgid "The number of INSERT DELAYED rows written."
