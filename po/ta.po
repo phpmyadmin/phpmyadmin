@@ -8292,15 +8292,15 @@ msgstr ""
 #: libraries/classes/Controllers/Table/TrackingController.php:69
 #, php-format
 msgid "Tracking of %s is activated."
-msgstr ""
+msgstr "%s கண்காணிப்பு செயல்படுத்தப்படுகிறது."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:140
 msgid "Tracking versions deleted successfully."
-msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
+msgstr "கண்காணிப்பு பதிப்புகள் வெற்றிகரமாக நீக்கப்பட்டன."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:145
 msgid "No versions selected."
-msgstr "தெரிவுசெய்யப்பட வரிசைகள் இல்லை"
+msgstr "பதிப்புகள் எதுவும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Table/TrackingController.php:174
 msgid "SQL statements executed."
