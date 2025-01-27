@@ -16040,7 +16040,7 @@ msgstr "உள்ளமை உறவுமுறைகள்"
 #: templates/relation/check_relations.twig:485
 #: templates/relation/check_relations.twig:510
 msgid "Enabled"
-msgstr ""
+msgstr "இயக்கப்பட்டது"
 
 #: templates/relation/check_relations.twig:87
 msgid "Display features:"
