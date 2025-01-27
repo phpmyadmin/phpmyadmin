@@ -8785,7 +8785,7 @@ msgstr "மதிப்பு"
 
 #: libraries/classes/Database/Routines.php:1876
 msgid "Sorry, we failed to restore the dropped routine."
-msgstr ""
+msgstr "மன்னிக்கவும், கைவிடப்பட்ட வழக்கத்தை மீட்டெடுக்க நாங்கள் தவறிவிட்டோம்."
 
 #: libraries/classes/Database/Routines.php:1906
 #, php-format
