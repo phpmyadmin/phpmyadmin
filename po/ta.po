@@ -9089,7 +9089,7 @@ msgstr "வரிசை சுட்டிக்காட்டி (.xtr) கோ
 
 #: libraries/classes/Engines/Pbxt.php:127
 msgid "Log file count"
-msgstr ""
+msgstr "பதிவு கோப்பு எண்ணிக்கை"
 
 #: libraries/classes/Engines/Pbxt.php:129
 msgid ""
