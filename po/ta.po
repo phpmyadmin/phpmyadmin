@@ -16926,7 +16926,7 @@ msgstr ""
 
 #: templates/server/status/advisor/index.twig:12
 msgid "Instructions"
-msgstr ""
+msgstr "வழிமுறைகள்"
 
 #: templates/server/status/advisor/index.twig:24
 msgid ""
