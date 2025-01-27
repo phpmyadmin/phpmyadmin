@@ -4423,11 +4423,13 @@ msgid ""
 "Note: Enabling the database statistics here might cause heavy traffic "
 "between the web server and the MySQL server."
 msgstr ""
+"குறிப்பு: இங்கே தரவுத்தள புள்ளிவிவரங்களை இயக்குவது வலை சேவையகத்திற்கும் MySQL "
+"சேவையகத்திற்கும் இடையில் அதிக போக்குவரத்தை ஏற்படுத்தக்கூடும்."
 
 #: resources/templates/server/databases/index.twig:296
 #: resources/templates/server/databases/index.twig:297
 msgid "Enable statistics"
-msgstr "வினவல் புள்ளிவிவரவியல்"
+msgstr "புள்ளிவிவரங்களை இயக்கவும்"
 
 #: resources/templates/server/databases/index.twig:304
 msgid "No databases"
