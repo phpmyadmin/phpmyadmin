@@ -2431,6 +2431,8 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the Creation timestamp for all tables."
 msgstr ""
+"அனைத்து அட்டவணைகளுக்கும் உருவாக்கும் நேர முத்திரையைக் காண்பிக்கும் நெடுவரிசையைக் காட்டவும் "
+"அல்லது மறைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:487
 msgid ""
@@ -3945,7 +3947,7 @@ msgstr "அட்டவணை கருத்துகளைக் காட்�
 
 #: libraries/classes/Config/Descriptions.php:933
 msgid "Show creation timestamp"
-msgstr "செயல்கூற்றின் களங்களை காட்டுக"
+msgstr "படைப்பு நேர முத்திரையைக் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:934
 msgid "Show last update timestamp"
