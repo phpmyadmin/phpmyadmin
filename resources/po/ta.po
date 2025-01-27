@@ -6740,7 +6740,7 @@ msgstr "கட்டுப்பாட்டின் பெயர்"
 
 #: resources/templates/table/search/index.twig:27
 msgid "Do a \"query by example\" (wildcard: \"%\")"
-msgstr ""
+msgstr "ஒரு \"எடுத்துக்காட்டு மூலம் வினவல்\" (வைல்டு கார்டு: \"%\")"
 
 #: resources/templates/table/search/index.twig:110
 msgid "Select columns (at least one):"
