@@ -11688,7 +11688,7 @@ msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:142
 msgid "Login using password only."
-msgstr ""
+msgstr "கடவுச்சொல்லைப் பயன்படுத்தி மட்டுமே உள்நுழைக."
 
 #: libraries/classes/Plugins/TwoFactor/Simple.php:49
 msgid "Simple two-factor authentication"
