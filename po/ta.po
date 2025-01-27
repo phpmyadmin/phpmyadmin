@@ -445,6 +445,8 @@ msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
 msgstr ""
+"நிலையான நிலை சராசரி வாசிப்பு விகிதம்: %s, இந்த மதிப்பு ஒரு மணி நேரத்திற்கு 1 க்கும் "
+"குறைவாக இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:288
 msgid "Rate of reading next table row"
