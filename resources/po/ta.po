@@ -304,7 +304,7 @@ msgstr "இணைப்பு:"
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
 msgid "Storage engine"
-msgstr "சேமிப்பக செயல்பொறிகள்"
+msgstr "சேமிப்பக இயந்திரம்"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:135
 msgid "PARTITION definition:"
@@ -313,7 +313,7 @@ msgstr "பகிர்வு வரையறை:"
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "உள்ளிடு மாற்றுருவாக்கம்"
+msgstr "நிகழ்நிலை பரிவர்த்தனை"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -13904,7 +13904,7 @@ msgstr "மார்கழி"
 #: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
-msgstr "ஞாயிறு"
+msgstr "சூரியன்"
 
 #: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 msgctxt "Short week day name for Monday"
@@ -18586,7 +18586,7 @@ msgstr ""
 
 #: src/Types.php:276
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr ""
+msgstr "128-பிட் UUID (உலகளவில் தனித்துவமான அடையாளங்காட்டி)"
 
 #: src/Types.php:584
 msgctxt "numeric types"
@@ -18617,7 +18617,7 @@ msgstr "உள்ளமைவைச் சேமிக்க முடியவ�
 
 #: src/UserPreferences.php:172
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம் முடக்கப்பட்டுள்ளது. %sஏனென்று அறிக%s."
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பக தரவுத்தளத்தை அணுக முடியவில்லை."
 
 #: src/Util.php:127
 #, php-format
