@@ -11426,7 +11426,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Json.php:44
 msgid "Formats text as JSON with syntax highlighting."
-msgstr ""
+msgstr "தொடரியல் சிறப்பம்சத்துடன் சாதொபொகு ஆக உரையை வடிவமைக்கிறது."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Xml.php:44
 msgid "Formats text as XML with syntax highlighting."
