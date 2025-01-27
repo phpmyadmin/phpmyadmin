@@ -15238,8 +15238,6 @@ msgid "Verify"
 msgstr ""
 
 #: templates/menu/breadcrumbs.twig:27
-#, fuzzy
-#| msgid "Views:"
 msgid "View:"
 msgstr "விவரபார்வைகள்:"
 
