@@ -13916,7 +13916,7 @@ msgstr "உடன் தெரிவுசெய்யப்பட்டது:"
 #: templates/table/privileges/index.twig:117
 #: templates/table/privileges/index.twig:118
 msgid "Check all"
-msgstr "அனைத்தையும் தெரி"
+msgstr "அனைத்தையும் சரிபார்க்கவும்"
 
 #: templates/database/events/index.twig:121
 msgid "Event scheduler status"
@@ -14570,7 +14570,7 @@ msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
 
 #: templates/display/results/table.twig:52
 msgid "All"
-msgstr ""
+msgstr "அனைத்தும்"
 
 #: templates/display/results/table.twig:126
 msgid "Relational key"
