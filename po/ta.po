@@ -6899,7 +6899,7 @@ msgstr "மிகவும் பலவீனமான"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:678
 msgid "Very weak"
-msgstr ""
+msgstr "மிகவும் பலவீனமான"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:679
 msgid "Weak"
