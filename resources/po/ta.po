@@ -9769,7 +9769,7 @@ msgstr "உலாவி சாளரத்தின் தலைப்பு ஒ
 
 #: src/Config/Descriptions.php:579
 msgid "Title of browser window when a table is selected."
-msgstr ""
+msgstr "ஒரு அட்டவணை தேர்ந்தெடுக்கப்படும்போது உலாவி சாளரத்தின் தலைப்பு."
 
 #: src/Config/Descriptions.php:580
 msgid "Directory on server where you can upload files for import."
