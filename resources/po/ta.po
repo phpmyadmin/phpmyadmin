@@ -10487,6 +10487,7 @@ msgstr "தொடர்புடைய காட்சி"
 #: src/Config/Descriptions.php:858
 msgid "Grid editing: save all edited cells at once"
 msgstr ""
+"கட்டம் எடிட்டிங்: அனைத்து திருத்தப்பட்ட கலங்களையும் ஒரே நேரத்தில் சேமிக்கவும்"
 
 #: src/Config/Descriptions.php:859
 msgid "Save directory"
