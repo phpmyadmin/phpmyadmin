@@ -15468,7 +15468,7 @@ msgstr ""
 #: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
 msgid "See %sour documentation%s for more information."
-msgstr ""
+msgstr "மேலும் தகவலுக்கு %உங்கள் ஆவணங்களைக் காண்க."
 
 #: src/Http/Middleware/RequestProblemChecking.php:35
 msgid "GLOBALS overwrite attempt"
