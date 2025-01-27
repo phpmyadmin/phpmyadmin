@@ -17790,6 +17790,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"ரூட்டிங் கேச் எழுத முடியவில்லை, நீங்கள் \"%s\" என்ற கோப்புறை/கோப்பில் அனுமதிகளை சரிசெய்ய "
+"வேண்டும்"
 
 #: src/Routing/Routing.php:159 src/Routing/Routing.php:202
 #, php-format
