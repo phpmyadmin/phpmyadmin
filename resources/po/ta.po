@@ -8730,7 +8730,7 @@ msgstr "வியட்நாமிய"
 #: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1052
 #: src/Util.php:1356 src/Util.php:1371 src/Util.php:1388
 msgid "SQL"
-msgstr "கவிமொ"
+msgstr "SQL"
 
 #: src/Config/ConfigFile.php:545 src/Config/ConfigFile.php:557
 #: src/Config/ConfigFile.php:565
@@ -10510,7 +10510,7 @@ msgstr "வெளிநாட்டு விசை காசோலைகள்"
 
 #: src/Config/Descriptions.php:727
 msgid "First day of calendar"
-msgstr ""
+msgstr "காலெண்டரின் முதல் நாள்"
 
 #: src/Config/Descriptions.php:729
 msgid "Browse mode"
