@@ -9474,6 +9474,7 @@ msgstr "ஒரு பயனர் \"அனைத்தையும் (வரி
 #: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
 msgstr ""
+"எல்லா அட்டவணைகளுக்கும் கருத்துகளைக் காண்பிக்கும் நெடுவரிசையைக் காட்டவும் அல்லது மறைக்கவும்."
 
 #: src/Config/Descriptions.php:485
 msgid "Show or hide a column displaying the charset for all tables."
@@ -10759,7 +10760,7 @@ msgstr "தரவுத்தள படிவத்தை உருவாக்�
 
 #: src/Config/Descriptions.php:912
 msgid "Show table comments"
-msgstr "அட்டவணைக் கருத்துரைகள்"
+msgstr "அட்டவணை கருத்துகளைக் காட்டு"
 
 #: src/Config/Descriptions.php:913
 msgid "Show creation timestamp"
