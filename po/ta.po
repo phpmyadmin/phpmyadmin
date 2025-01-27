@@ -8859,7 +8859,7 @@ msgstr "கோரிக்கைகளைப் படியுங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:204
 msgid "Write requests"
-msgstr ""
+msgstr "கோரிக்கைகளை எழுதுங்கள்"
 
 #: libraries/classes/Engines/Innodb.php:210
 msgid "Read misses"
