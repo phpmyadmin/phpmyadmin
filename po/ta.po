@@ -3832,7 +3832,7 @@ msgstr "சேவையக சாக்கெட்"
 
 #: libraries/classes/Config/Descriptions.php:913
 msgid "Use SSL"
-msgstr ""
+msgstr "SSL ஐப் பயன்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:914
 msgid "Designer and PDF schema: table coordinates"
