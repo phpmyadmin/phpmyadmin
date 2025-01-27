@@ -14218,7 +14218,7 @@ msgstr "துணைக்குழு"
 #: templates/database/designer/main.twig:496
 #: templates/database/designer/main.twig:712
 msgid "Rename to"
-msgstr ""
+msgstr "மறுபெயரிடுங்கள்"
 
 #: templates/database/designer/main.twig:502
 #: templates/database/designer/main.twig:720
