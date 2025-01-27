@@ -9801,7 +9801,7 @@ msgstr "விரிவாக்கு/சரிவு"
 #: libraries/classes/Plugins/Export/ExportSql.php:627
 #: libraries/classes/Plugins/Export/ExportXml.php:110
 msgid "Procedures"
-msgstr ""
+msgstr "நடைமுறைகள்"
 
 #: libraries/classes/Navigation/Nodes/NodeProcedureContainer.php:33
 msgctxt "Create new procedure"
