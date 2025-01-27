@@ -15779,8 +15779,6 @@ msgstr "மெதுவான வினவல்களின் விழுக�
 
 #: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Show full queries"
 msgstr "SQL வினவல்களை காட்டுக"
 
