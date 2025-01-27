@@ -10968,7 +10968,7 @@ msgstr "சேவையக இணைப்பு குறிமுறை அட
 #: src/Config/FormDisplay.php:581
 #, php-format
 msgid "Missing data for %s"
-msgstr ""
+msgstr "%s க்கான தரவு காணவில்லை"
 
 #: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:831
