@@ -3232,7 +3232,7 @@ msgstr "கண்காணிப்பை மாற்றுகிறது"
 #: libraries/config.values.php:62 libraries/config.values.php:76
 #: libraries/config.values.php:167 libraries/config.values.php:177
 msgid "SQL"
-msgstr "SQL"
+msgstr "கவிமொ"
 
 #: libraries/classes/Config/Descriptions.php:776
 msgid "SQL Query box"
