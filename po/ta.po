@@ -12431,7 +12431,7 @@ msgstr "அடிமை நிலையைக் காட்டு"
 
 #: libraries/classes/Server/Status/Data.php:214
 msgid "Flush query cache"
-msgstr ""
+msgstr "ஃப்ளச் வினவல் தற்காலிக சேமிப்பு"
 
 #: libraries/classes/Server/UserGroups.php:117
 msgid "View users"
