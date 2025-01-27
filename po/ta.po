@@ -13093,7 +13093,7 @@ msgstr "இயல்புநிலை மதிப்பை மீட்டெ�
 #: templates/config/form_display/input.twig:79
 #: templates/config/form_display/input.twig:80
 msgid "Allow users to customize this value"
-msgstr ""
+msgstr "இந்த மதிப்பைத் தனிப்பயனாக்க பயனர்களை அனுமதிக்கவும்"
 
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:84 templates/console/display.twig:175
