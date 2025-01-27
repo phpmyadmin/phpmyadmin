@@ -14695,10 +14695,8 @@ msgstr "பல அட்டவணை வினவல்"
 
 #: templates/database/multi_table_query/form.twig:10
 #: templates/database/qbe/index.twig:10
-#, fuzzy
-#| msgid "Query failed"
 msgid "Query by example"
-msgstr "வினவல் தோல்வியடைந்தது"
+msgstr "எடுத்துக்காட்டு மூலம் வினவல்"
 
 #: templates/database/multi_table_query/form.twig:15
 msgid "Query window"
