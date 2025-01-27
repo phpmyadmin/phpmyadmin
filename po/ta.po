@@ -13187,8 +13187,6 @@ msgstr "செயல்"
 
 #: templates/database/create_table.twig:3
 #: templates/database/operations/index.twig:27
-#, fuzzy
-#| msgid "Create trigger"
 msgid "Create new table"
 msgstr "புதிய பயனாளரை சேர்க்க"
 
