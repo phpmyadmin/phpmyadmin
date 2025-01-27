@@ -3835,7 +3835,7 @@ msgstr "கண்காணிக்க அறிக்கைகள்"
 
 #: libraries/classes/Config/Descriptions.php:930
 msgid "SQL query tracking table"
-msgstr ""
+msgstr "கவிமொ வினவல் கண்காணிப்பு அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:931
 msgid "Automatically create versions"
