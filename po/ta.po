@@ -17155,7 +17155,7 @@ msgstr "நிகழ்நிலை மாறி(கள்)"
 
 #: templates/server/status/monitor/index.twig:149
 msgid "Select series:"
-msgstr ""
+msgstr "தொடரைத் தேர்ந்தெடுக்கவும்:"
 
 #: templates/server/status/monitor/index.twig:152
 msgid "Commonly monitored"
