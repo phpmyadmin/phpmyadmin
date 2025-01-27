@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:30+0000\n"
+"PO-Revision-Date: 2025-01-27 02:31+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -17338,7 +17338,7 @@ msgstr "நீக்க பயனர்கள் யாரும் தேர்
 
 #: src/Server/Privileges.php:1886
 msgid "Reloading the privileges"
-msgstr ""
+msgstr "சலுகைகளை மீண்டும் ஏற்றுகிறது"
 
 #: src/Server/Privileges.php:1911
 msgid "The selected users have been deleted successfully."
