@@ -5862,8 +5862,6 @@ msgid "Please enter a valid table name."
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:313
-#, fuzzy
-#| msgid "Please enter a valid page name"
 msgid "Please enter a valid database name."
 msgstr "தயவுசெய்து ஒரு சரியான பக்கத்தின் பெயரை இடுக"
 
