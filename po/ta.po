@@ -8779,7 +8779,7 @@ msgstr "செயல்கூறு"
 #: templates/table/zoom_search/index.twig:42
 #: templates/table/zoom_search/result_form.twig:34
 msgid "Value"
-msgstr ""
+msgstr "மதிப்பு"
 
 #: libraries/classes/Database/Routines.php:1876
 msgid "Sorry, we failed to restore the dropped routine."
