@@ -8794,6 +8794,7 @@ msgid ""
 "The increment size for extending the size of an autoextending tablespace "
 "when it becomes full."
 msgstr ""
+"ஒரு ஆட்டோ எக்ச்ட்ரெண்டிங் டேபிள்ச்பேச் நிரம்பும்போது அதை நீட்டிப்பதற்கான அதிகரிப்பு அளவு."
 
 #: libraries/classes/Engines/Innodb.php:45
 msgid "Buffer pool size"
