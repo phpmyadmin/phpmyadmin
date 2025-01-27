@@ -7437,7 +7437,7 @@ msgstr "தோல்வியுற்ற பாதுகாப்பு வி�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Invalid security key."
-msgstr ""
+msgstr "தவறான பாதுகாப்பு விசை."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:698
 msgid ""
