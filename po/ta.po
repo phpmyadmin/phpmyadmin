@@ -7504,6 +7504,10 @@ msgid ""
 "probably have a lot of queries that require MySQL to scan whole tables or "
 "you have joins that don't use keys properly."
 msgstr ""
+"ஒரு நிலையான நிலையின் அடிப்படையில் ஒரு வரிசையைப் படிக்க கோரிக்கைகளின் எண்ணிக்கை. முடிவை"
+" வரிசைப்படுத்த வேண்டிய நிறைய கேள்விகளை நீங்கள் செய்கிறீர்கள் என்றால் இது அதிகம். MySQL முழு"
+" அட்டவணைகளையும் ச்கேன் செய்ய வேண்டிய நிறைய கேள்விகள் உங்களிடம் இருக்கலாம் அல்லது விசைகளை "
+"சரியாகப் பயன்படுத்தாத நீங்கள் இணைகிறீர்கள்."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:308
 msgid ""
