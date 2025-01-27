@@ -9014,6 +9014,8 @@ msgid ""
 "The size of the global transaction log buffer (the engine allocates 2 "
 "buffers of this size). The default is 1MB."
 msgstr ""
+"உலகளாவிய பரிவர்த்தனை பதிவு இடையகத்தின் அளவு (இயந்திரம் இந்த அளவின் 2 இடையகங்களை "
+"ஒதுக்குகிறது). இயல்புநிலை 1MB."
 
 #: libraries/classes/Engines/Pbxt.php:78
 msgid "Checkpoint frequency"
