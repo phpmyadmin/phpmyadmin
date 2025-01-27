@@ -4555,6 +4555,9 @@ msgid ""
 "authentication, so a key was automatically generated for you. It is used to "
 "encrypt cookies; you don't need to remember it."
 msgstr ""
+"உங்களிடம் ப்ளோஃபிச் ரகசிய தொகுப்பு இல்லை மற்றும் [KBD] குக்கீ [/KBD] அங்கீகாரத்தை "
+"இயக்கியுள்ளீர்கள், எனவே ஒரு விசை தானாகவே உங்களுக்காக உருவாக்கப்பட்டது. இது குக்கீகளை "
+"குறியாக்க பயன்படுகிறது; நீங்கள் அதை நினைவில் கொள்ள தேவையில்லை."
 
 #: libraries/classes/Config/ServerConfigChecks.php:385
 #, php-format
