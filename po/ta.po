@@ -7676,7 +7676,7 @@ msgstr "பதிவு எழுதும் கோரிக்கைகளி�
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:376
 msgid "The number of physical writes to the log file."
-msgstr ""
+msgstr "பதிவு கோப்பில் இயற்பியல் எழுதுகிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:377
 msgid "The number of fsync() writes done to the log file."
