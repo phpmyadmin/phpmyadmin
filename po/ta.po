@@ -3784,7 +3784,7 @@ msgstr "கட்டமைப்பு அங்கீகாரத்திற�
 
 #: libraries/classes/Config/Descriptions.php:904
 msgid "PDF schema: pages table"
-msgstr ""
+msgstr "PDF ச்கீமா: பக்கங்கள் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:905
 #: templates/database/operations/index.twig:122
