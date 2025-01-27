@@ -2758,7 +2758,7 @@ msgstr "உலாவி சாளரத்தின் தலைப்பு ஒ
 
 #: libraries/classes/Config/Descriptions.php:594
 msgid "Title of browser window when a table is selected."
-msgstr ""
+msgstr "ஒரு அட்டவணை தேர்ந்தெடுக்கப்படும்போது உலாவி சாளரத்தின் தலைப்பு."
 
 #: libraries/classes/Config/Descriptions.php:595
 msgid "Directory on server where you can upload files for import."
