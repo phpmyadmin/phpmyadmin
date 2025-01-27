@@ -12691,6 +12691,9 @@ msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
+"நான்கு இலக்க (4, இயல்புநிலை) அல்லது இரண்டு இலக்க (2) வடிவத்தில் ஒரு வருடம், "
+"அனுமதிக்கக்கூடிய மதிப்புகள் 70 (1970) முதல் 69 (2069) அல்லது 1901 முதல் 2155 மற்றும் "
+"0000 வரை"
 
 #: libraries/classes/Types.php:327
 msgid ""
