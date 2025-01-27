@@ -13789,7 +13789,7 @@ msgstr "அதுபோல் நிரல்வரிசை இல்லை"
 #: src/Normalization.php:225 src/Types.php:630
 msgctxt "string types"
 msgid "String"
-msgstr ""
+msgstr "சரம்"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
 #: src/Controllers/Operations/TableController.php:275
