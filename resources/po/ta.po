@@ -6779,11 +6779,11 @@ msgstr "பகிர்வுகள்"
 
 #: resources/templates/table/structure/display_partitions.twig:9
 msgid "No partitioning defined!"
-msgstr ""
+msgstr "பகிர்வு எதுவும் வரையறுக்கப்படவில்லை!"
 
 #: resources/templates/table/structure/display_partitions.twig:12
 msgid "Partitioned by:"
-msgstr "பிரிவினை %s"
+msgstr "பிரிந்தவர்:"
 
 #: resources/templates/table/structure/display_partitions.twig:17
 msgid "Sub partitioned by:"
