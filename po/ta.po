@@ -1793,6 +1793,7 @@ msgstr "இயல்புநிலை பொதுவான இறக்கு�
 #: libraries/classes/Config/Descriptions.php:217
 msgid "Set import and export directories and compression options."
 msgstr ""
+"இறக்குமதி மற்றும் ஏற்றுமதி கோப்பகங்கள் மற்றும் சுருக்க விருப்பங்களை அமைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:219
 msgid "Databases display options."
