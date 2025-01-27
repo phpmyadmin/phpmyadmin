@@ -4173,7 +4173,7 @@ msgstr "பிழை அறிக்கைகளை அனுப்பவும�
 
 #: libraries/classes/Config/Descriptions.php:984
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "கன்சோலில் வினவல்களை இயக்கவும்"
 
 #: libraries/classes/Config/Descriptions.php:985
 msgid "Enable Zero Configuration mode"
