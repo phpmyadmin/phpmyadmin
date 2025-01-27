@@ -13091,7 +13091,7 @@ msgstr "நல்லது"
 
 #: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Strong"
-msgstr ""
+msgstr "வலுவான"
 
 #. l10n: error code 5 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:694
@@ -13147,7 +13147,7 @@ msgstr ""
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
-msgstr "%s இந்த அட்டவணை ஏற்கனவே உள்ளது!"
+msgstr "அட்டவணை %s ஏற்கனவே உள்ளன!"
 
 #: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:244
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
