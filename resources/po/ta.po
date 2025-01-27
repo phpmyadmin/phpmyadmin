@@ -6365,7 +6365,7 @@ msgstr ""
 
 #: resources/templates/table/insert/actions_panel.twig:16
 msgid "and then"
-msgstr ""
+msgstr "பின்னர்"
 
 #: resources/templates/table/insert/actions_panel.twig:20
 msgid "Go back to previous page"
