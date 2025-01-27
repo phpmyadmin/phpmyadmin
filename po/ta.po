@@ -1081,6 +1081,10 @@ msgid ""
 "and setting {query_cache_type} to 'ON'. <b>Note:</b> If you are using "
 "memcached, ignore this recommendation."
 msgstr ""
+"வினவல் தற்காலிக சேமிப்பு சரியாக உள்ளமைக்கப்பட்டால் செயல்திறனை பெரிதும் மேம்படுத்துவதாக "
+"அறியப்படுகிறது. {query_cache_size} ஐ 2 இலக்க MIB மதிப்புக்கு அமைத்து "
+"{query_cache_type} பெறுநர் 'on' ஐ அமைப்பதன் மூலம் அதை இயக்கவும். <b> குறிப்பு: </b> "
+"நீங்கள் மெம்காச் பயன்படுத்துகிறீர்கள் என்றால், இந்த பரிந்துரையை புறக்கணிக்கவும்."
 
 #: libraries/advisory_rules_mysql_before80003.php:18
 msgid "query_cache_size is set to 0 or query_cache_type is set to 'OFF'"
