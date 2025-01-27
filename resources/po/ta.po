@@ -13884,7 +13884,7 @@ msgstr "PhpMyAdmin கட்டமைப்பு சேமிப்பகம்
 
 #: src/Controllers/Preferences/ManageController.php:85
 msgid "phpMyAdmin configuration snippet"
-msgstr "phpMyAdmin ஆவணச்சான்று"
+msgstr "Phpmyadmin உள்ளமைவு துணுக்கை"
 
 #: src/Controllers/Preferences/ManageController.php:86
 msgid "Paste it to your config.inc.php"
@@ -14671,7 +14671,7 @@ msgstr ""
 
 #: src/Controllers/Setup/FormController.php:62
 msgid "Incorrect form specified!"
-msgstr ""
+msgstr "தவறான படிவம் குறிப்பிடப்பட்டுள்ளது!"
 
 #: src/Controllers/Setup/HomeController.php:74
 msgid ""
