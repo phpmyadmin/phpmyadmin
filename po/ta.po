@@ -3673,7 +3673,7 @@ msgstr "கட்டுப்பாட்டு புரவலன்"
 
 #: libraries/classes/Config/Descriptions.php:901
 msgid "Control port"
-msgstr ""
+msgstr "கட்டுப்பாட்டு துறை"
 
 #: libraries/classes/Config/Descriptions.php:902
 msgid "Disable use of INFORMATION_SCHEMA"
