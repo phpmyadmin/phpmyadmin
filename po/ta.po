@@ -2901,7 +2901,7 @@ msgstr "அட்டவணை பெயர் வார்ப்புரு"
 #: libraries/classes/Plugins/Export/ExportSql.php:240
 #: libraries/classes/Plugins/Export/ExportTexytext.php:55
 msgid "Dump table"
-msgstr ""
+msgstr "டம்ப் டேபிள்"
 
 #: libraries/classes/Config/Descriptions.php:678
 #: libraries/classes/Plugins/Export/ExportLatex.php:79
