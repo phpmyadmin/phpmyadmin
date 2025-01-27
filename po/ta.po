@@ -1038,6 +1038,10 @@ msgid ""
 "perfectly adequate for your system if you don't have much InnoDB tables or "
 "other services running on the same machine."
 msgstr ""
+"நீங்கள் தற்போது உங்கள் நினைவகத்தின்%s %% ஐ இன்னோடிபி இடையகக் குளத்திற்கு பயன்படுத்துகிறீர்கள்"
+". நீங்கள் 60 %ுறத்திற்கும் குறைவாக ஒதுக்குகிறீர்கள் என்றால் இந்த விதி சுடுகிறது, இருப்பினும்"
+" உங்களிடம் அதிக இன்னோடிபி அட்டவணைகள் அல்லது ஒரே கணினியில் இயங்கும் பிற சேவைகள் "
+"இல்லையென்றால் இது உங்கள் கணினிக்கு போதுமானதாக இருக்கும்."
 
 #: libraries/advisory_rules_generic.php:707
 msgid "MyISAM concurrent inserts"
