@@ -9639,7 +9639,7 @@ msgstr "முடக்கப்பட்ட சரிபார்ப்பு�
 
 #: libraries/classes/Html/Generator.php:253
 msgid "SSL is used without certification authority"
-msgstr ""
+msgstr "சான்றிதழ் ஆணையம் இல்லாமல் SSL பயன்படுத்தப்படுகிறது"
 
 #: libraries/classes/Html/Generator.php:256
 msgid "SSL is used"
