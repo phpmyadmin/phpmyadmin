@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:27+0000\n"
+"PO-Revision-Date: 2025-01-27 02:28+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -11810,6 +11810,7 @@ msgstr "அனைத்து பயனர்களின் செயல்ம�
 #: templates/server/privileges/privileges_table.twig:340
 msgid "Allows importing data from and exporting data into files."
 msgstr ""
+"தரவை இறக்குமதி செய்வதற்கும் தரவை கோப்புகளில் ஏற்றுமதி செய்வதற்கும் அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:401
 #: templates/server/privileges/privileges_table.twig:96
