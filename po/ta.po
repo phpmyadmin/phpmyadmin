@@ -8631,7 +8631,7 @@ msgstr "கடைசி மதிப்புருவை நீக்குக"
 
 #: libraries/classes/Database/Routines.php:916
 msgid "Return type"
-msgstr ""
+msgstr "திரும்ப வகை"
 
 #: libraries/classes/Database/Routines.php:922
 msgid "Return length/values"
