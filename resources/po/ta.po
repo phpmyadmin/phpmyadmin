@@ -7054,7 +7054,7 @@ msgstr "எப்படி பயன்படுத்துவது"
 
 #: resources/templates/table/zoom_search/result_form.twig:12
 msgid "Reset zoom"
-msgstr ""
+msgstr "பெரிதாக்கு மீட்டமைக்கவும்"
 
 #: resources/templates/transformation_overview.twig:1
 msgid "Available media types"
