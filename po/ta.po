@@ -14028,7 +14028,7 @@ msgstr "செயல்"
 #: templates/database/operations/index.twig:29
 #: templates/database/structure/show_create.twig:11
 msgid "Create table"
-msgstr ""
+msgstr "அட்டவணையை உருவாக்கவும்"
 
 #: templates/database/create_table.twig:15
 #: templates/database/operations/index.twig:37
