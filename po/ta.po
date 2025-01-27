@@ -11161,13 +11161,13 @@ msgstr "நோக்குநிலை"
 #: libraries/classes/Plugins/Schema/SchemaEps.php:66
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:68
 msgid "Landscape"
-msgstr ""
+msgstr "நிலப்பரப்பு"
 
 #: libraries/classes/Plugins/Schema/SchemaDia.php:59
 #: libraries/classes/Plugins/Schema/SchemaEps.php:67
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:69
 msgid "Portrait"
-msgstr "புள்ளி"
+msgstr "உருவப்படம்"
 
 #: libraries/classes/Plugins/Schema/SchemaEps.php:56
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:58
