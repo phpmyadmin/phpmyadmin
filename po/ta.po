@@ -14718,7 +14718,7 @@ msgstr "நிரல்வரிசைகளை முதன்மைபட்�
 
 #: templates/database/structure/check_all_tables.twig:34
 msgid "Remove columns from central list"
-msgstr ""
+msgstr "நடு பட்டியலிலிருந்து நெடுவரிசைகளை அகற்று"
 
 #: templates/database/structure/check_all_tables.twig:35
 msgid "Make consistent with central list"
