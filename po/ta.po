@@ -2873,7 +2873,7 @@ msgstr "கோடுகள் நிறுத்தப்பட்டன"
 
 #: libraries/classes/Config/Descriptions.php:668
 msgid "Excel edition"
-msgstr ""
+msgstr "எக்செல் பதிப்பு"
 
 #: libraries/classes/Config/Descriptions.php:671
 msgid "Database name template"
