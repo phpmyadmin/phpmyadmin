@@ -10719,6 +10719,8 @@ msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
 msgstr ""
+"%s வினாடிகளின் செயலற்ற தன்மை காரணமாக நீங்கள் தானாகவே பதிவு செய்யப்பட்டுள்ளீர்கள். நீங்கள் "
+"மீண்டும் உள்நுழைந்ததும், நீங்கள் விட்டுச்சென்ற வேலையை மீண்டும் தொடங்க முடியும்."
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:202
 #: libraries/classes/Plugins/AuthenticationPlugin.php:205
@@ -10992,7 +10994,7 @@ msgstr "கருத்துரைகளை காட்டுக"
 #: libraries/classes/Plugins/Export/ExportOdt.php:109
 #: libraries/classes/Plugins/Export/ExportSql.php:162
 msgid "Display media types"
-msgstr "பயன்முறைகளை காட்டுக"
+msgstr "ஊடக வகைகளைக் காண்பி"
 
 #: libraries/classes/Plugins/Export/ExportLatex.php:164
 msgid "Put columns names in the first row:"
