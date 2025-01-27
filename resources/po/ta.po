@@ -8979,7 +8979,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:96
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr ""
+msgstr "உங்கள் டொமைனில் ரெக்காப்ட்சா சேவைக்கு உங்கள் பொது விசையை உள்ளிடவும்."
 
 #: src/Config/Descriptions.php:97
 msgid "Enter your private key for your domain reCAPTCHA service."
