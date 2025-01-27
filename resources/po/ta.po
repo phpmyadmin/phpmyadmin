@@ -9527,6 +9527,8 @@ msgid ""
 "of the PHP setting session.gc_maxlifetime is less than the value of "
 "`LoginCookieValidity`."
 msgstr ""
+"பிஎச்பி அமைத்தல் அமர்வின் மதிப்பு `logincookievalidity` இன் மதிப்பை விட குறைவாக "
+"இருந்தால் முதன்மையான பக்கத்தில் காட்டப்படும் இயல்புநிலை எச்சரிக்கையை முடக்கு."
 
 #: src/Config/Descriptions.php:502
 msgid ""
@@ -10838,7 +10840,7 @@ msgstr "சுஓசின் எச்சரிக்கை"
 
 #: src/Config/Descriptions.php:931
 msgid "Login cookie validity warning"
-msgstr "புகுபதிவு நிலைபதிவுத்துணுக்கு செல்லுங்காலம்"
+msgstr "உள்நுழைவு குக்கீ செல்லுபடியாகும் எச்சரிக்கை"
 
 #: src/Config/Descriptions.php:932
 msgid "Textarea columns"
