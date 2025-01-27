@@ -9960,7 +9960,7 @@ msgstr "குழுக்கள்:"
 
 #: libraries/classes/Navigation/Navigation.php:224
 msgid "Events:"
-msgstr ""
+msgstr "நிகழ்வுகள்:"
 
 #: libraries/classes/Navigation/Navigation.php:225
 msgid "Functions:"
@@ -15538,7 +15538,7 @@ msgstr "முகப்புப்பக்கம்"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Empty session data"
-msgstr "தவறான தரவு"
+msgstr "வெற்று அமர்வு தரவு"
 
 #: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Log out"
@@ -15558,7 +15558,7 @@ msgstr "ஆவணச்சான்று"
 
 #: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
-msgstr "வழிசெலுத்தல் பலகம்"
+msgstr "வழிசெலுத்தல் குழு அமைப்புகள்"
 
 #: templates/navigation/main.twig:47 templates/navigation/main.twig:48
 msgid "Reload navigation panel"
