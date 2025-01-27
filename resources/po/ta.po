@@ -14888,6 +14888,7 @@ msgstr "முதல் அட்டவணையின் முழு ச்க
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
+"தற்போது பிரதி கவிமொ நூலால் திறக்கப்பட்ட தற்காலிக அட்டவணைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:461
 msgid ""
