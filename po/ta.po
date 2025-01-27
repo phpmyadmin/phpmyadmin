@@ -4362,7 +4362,7 @@ msgstr "தரவு"
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:91
 msgid "CSV for MS Excel"
-msgstr ""
+msgstr "எம்.எச். எக்செல் க்கான சி.எச்.வி."
 
 #: libraries/classes/Config/Forms/User/ExportForm.php:116
 msgid "Microsoft Word 2000"
