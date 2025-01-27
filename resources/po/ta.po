@@ -5045,7 +5045,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:707
 #: src/Server/Privileges.php:342
 msgid "Needed for the replication replicas."
-msgstr ""
+msgstr "பிரதி பிரதிகளுக்கு தேவை."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
