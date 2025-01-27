@@ -7485,7 +7485,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:247
 msgid "Rate of sorts that cause temporary tables"
-msgstr ""
+msgstr "தற்காலிக அட்டவணைகளை ஏற்படுத்தும் வகையான விகிதம்"
 
 #: src/Advisory/Rules.php:255
 #, php-format
