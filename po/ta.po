@@ -12579,6 +12579,8 @@ msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
+"2 -பைட் முழு எண், கையொப்பமிடப்பட்ட வரம்பு -32,768 முதல் 32,767 வரை, கையொப்பமிடாத "
+"வரம்பு 0 முதல் 65,535 வரை"
 
 #: libraries/classes/Types.php:238
 msgid ""
