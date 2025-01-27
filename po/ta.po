@@ -10239,7 +10239,7 @@ msgstr "PDF ஐ உருவாக்கும் போது பிழை:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:81
 msgid "Cannot connect: invalid settings."
-msgstr ""
+msgstr "இணைக்க முடியாது: தவறான அமைப்புகள்."
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:95
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:87
