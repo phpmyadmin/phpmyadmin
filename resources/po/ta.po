@@ -5167,7 +5167,7 @@ msgstr "புரவலன்:"
 
 #: resources/templates/server/replication/change_primary.twig:29
 msgid "Port:"
-msgstr ""
+msgstr "போர்ட்:"
 
 #: resources/templates/server/replication/index.twig:21
 #, php-format
