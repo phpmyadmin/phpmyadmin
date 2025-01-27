@@ -7580,6 +7580,8 @@ msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
+"\"சீரற்ற\" வாசிப்பு-முன்னோக்கி இன்னோடிபி தொடங்கப்பட்டது. ஒரு வினவல் ஒரு அட்டவணையின் பெரி"
+"ய பகுதியை ச்கேன் செய்யும்போது ஆனால் சீரற்ற வரிசையில் இது நிகழ்கிறது."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:342
 msgid ""
