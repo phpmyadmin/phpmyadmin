@@ -12177,7 +12177,7 @@ msgstr "பிரதி அடிமைகளுக்கு தேவை."
 #: templates/server/privileges/privileges_table.twig:657
 #: templates/server/privileges/privileges_table.twig:660
 msgid "Allows the user to ask where the slaves / masters are."
-msgstr ""
+msgstr "அடிமைகள் / எசமானர்கள் எங்கே என்று கேட்க பயனரை அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:432
 #: templates/server/privileges/privileges_table.twig:500
