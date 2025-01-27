@@ -17293,8 +17293,6 @@ msgid "Index choice:"
 msgstr "சுட்டுதொகுப்புக்குறி பெயர்:"
 
 #: templates/table/index_form.twig:57
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced options"
 msgstr "செயல்படு விருப்பங்கள்"
 
