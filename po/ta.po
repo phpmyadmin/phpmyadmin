@@ -17615,7 +17615,7 @@ msgstr "பைனரி - திருத்த வேண்டாம்"
 #: templates/table/insert/column_row.twig:123
 #: templates/table/search/input_box.twig:38
 msgid "Edit/Insert"
-msgstr ""
+msgstr "திருத்து/செருகவும்"
 
 #: templates/table/insert/continue_insertion_form.twig:18
 #, php-format
