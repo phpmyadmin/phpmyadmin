@@ -8352,7 +8352,7 @@ msgstr ""
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
-msgstr ""
+msgstr "நீங்கள் ஒரு நிகழ்வு பெயரை வழங்க வேண்டும்!"
 
 #: libraries/classes/Database/Events.php:426
 msgid "You must provide a valid interval value for the event."
