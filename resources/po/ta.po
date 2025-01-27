@@ -8475,7 +8475,7 @@ msgstr "இரு சார்பிலும்"
 
 #: src/Config/ConfigFile.php:549
 msgid "Nowhere"
-msgstr ""
+msgstr "எங்கும்"
 
 #: src/Config/ConfigFile.php:550
 msgid "Left"
