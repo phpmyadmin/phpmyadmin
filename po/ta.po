@@ -14951,10 +14951,8 @@ msgid "Add/Delete criteria rows:"
 msgstr "அளவுகோல் வரிசைகளைச் சேர்க்கவும்/நீக்கவும்:"
 
 #: templates/database/qbe/selection_form.twig:67
-#, fuzzy
-#| msgid "Add/Delete columns"
 msgid "Add/Delete columns:"
-msgstr "நெடுவரிசைகள்  சேர்க்க/ நீக்க"
+msgstr "நெடுவரிசைகளைச் சேர்க்கவும்/நீக்கு:"
 
 #: templates/database/qbe/selection_form.twig:86
 #: templates/database/qbe/selection_form.twig:88
