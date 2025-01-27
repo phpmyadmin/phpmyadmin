@@ -9496,7 +9496,7 @@ msgstr "செயல்பாட்டு புலங்களை திரு�
 
 #: src/Config/Descriptions.php:487
 msgid "Whether to show hint or not."
-msgstr ""
+msgstr "குறிப்பைக் காட்ட வேண்டுமா இல்லையா."
 
 #: src/Config/Descriptions.php:488
 msgid ""
