@@ -2782,7 +2782,7 @@ msgstr "முதன்மையான Phpmyadmin பக்கத்தில்
 
 #: libraries/classes/Config/Descriptions.php:598
 msgid "The password for authenticating with the proxy."
-msgstr ""
+msgstr "ப்ராக்சியுடன் அங்கீகரிப்பதற்கான கடவுச்சொல்."
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Enable ZIP compression for import and export operations."
