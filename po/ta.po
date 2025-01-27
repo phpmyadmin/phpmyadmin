@@ -18161,7 +18161,7 @@ msgstr ""
 
 #: templates/table/operations/view.twig:12
 msgid "Rename view to"
-msgstr ""
+msgstr "பார்வையை மறுபெயரிடுங்கள்"
 
 #: templates/table/operations/view.twig:37
 msgid "Delete the view (DROP)"
