@@ -2786,7 +2786,7 @@ msgstr "ப்ராக்சியுடன் அங்கீகரிப்�
 
 #: libraries/classes/Config/Descriptions.php:599
 msgid "Enable ZIP compression for import and export operations."
-msgstr ""
+msgstr "இறக்குமதி மற்றும் ஏற்றுமதி நடவடிக்கைகளுக்கு சிப் சுருக்கத்தை இயக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:600
 msgid "Choose the default action when sending error reports."
