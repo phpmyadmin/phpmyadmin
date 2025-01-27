@@ -18013,7 +18013,7 @@ msgstr "கருத்துரை:"
 
 #: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 msgid "Drag to reorder"
-msgstr ""
+msgstr "மறுவரிசைப்படுத்த இழுக்கவும்"
 
 #: templates/table/insert/actions_panel.twig:9
 msgid "Insert as new row"
