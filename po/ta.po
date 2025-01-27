@@ -256,7 +256,7 @@ msgstr "பதிப்பு_மென்ட்டில் 'பெர்கோ
 
 #: libraries/advisory_rules_generic.php:168
 msgid "MySQL Architecture"
-msgstr ""
+msgstr "MySQL கட்டிடக்கலை"
 
 #: libraries/advisory_rules_generic.php:172
 msgid "MySQL is not compiled as a 64-bit package."
