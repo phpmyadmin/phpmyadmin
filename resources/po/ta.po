@@ -6995,7 +6995,7 @@ msgstr ""
 
 #: resources/templates/triggers/editor_form.twig:28
 msgid "Trigger name"
-msgstr ""
+msgstr "தூண்டுதல் பெயர்"
 
 #: resources/templates/triggers/editor_form.twig:42
 msgctxt "Trigger action time"
