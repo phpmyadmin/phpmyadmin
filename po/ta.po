@@ -11202,8 +11202,6 @@ msgid "Caching sha2 authentication"
 msgstr "உறுதிப்படுத்தல்"
 
 #: libraries/classes/Server/Plugins.php:83
-#, fuzzy
-#| msgid "Change password"
 msgid "Unix Socket based authentication"
 msgstr "கடவுச்சொல்லை மாற்றவும்"
 
