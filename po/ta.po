@@ -8606,7 +8606,7 @@ msgstr "வழக்கமான வெளிப்பாடு"
 #: libraries/classes/Database/Triggers.php:140
 #, php-format
 msgid "Trigger %1$s has been modified."
-msgstr ""
+msgstr "தூண்டுதல் %1$s மாற்றியமைக்கப்பட்டுள்ளது."
 
 #: libraries/classes/Database/Triggers.php:160
 #, php-format
