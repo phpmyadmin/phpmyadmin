@@ -15665,7 +15665,7 @@ msgstr "கவிமொ வினவலைக் காட்டுகிறத�
 #: src/InsertEdit.php:910 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
-msgstr ""
+msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
 
 #: src/Linter.php:112
 msgid ""
