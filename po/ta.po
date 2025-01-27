@@ -9657,8 +9657,6 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:820
-#, fuzzy
-#| msgid "Group name:"
 msgid "Groups"
 msgstr "பயனர்குழுவின் பெயர்:"
 
