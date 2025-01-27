@@ -7817,6 +7817,7 @@ msgstr "வட்டுக்கு ஒரு முக்கிய தொகு
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
+"எழுதும் கோரிக்கைகளுடன் ஒப்பிடும்போது உடல் எழுத்துக்களின் விழுக்காடு (கணக்கிடப்பட்ட மதிப்பு)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:427
 msgid ""
