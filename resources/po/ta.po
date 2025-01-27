@@ -9553,7 +9553,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:553
 msgid "Double size of textarea for LONGTEXT columns."
-msgstr ""
+msgstr "லாங் டெக்ச்ட் நெடுவரிசைகளுக்கான டெக்ச்டேரியாவின் இரட்டை அளவு."
 
 #: src/Config/Descriptions.php:554
 msgid "Maximum number of databases displayed in database list."
