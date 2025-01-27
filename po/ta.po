@@ -6891,7 +6891,7 @@ msgstr "அட்டவணையை முன்னொட்டுடன் ம�
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:674
 #: templates/database/structure/check_all_tables.twig:28
 msgid "Copy table with prefix"
-msgstr ""
+msgstr "முன்னொட்டுடன் அட்டவணையை நகலெடுக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:677
 msgid "Extremely weak"
