@@ -15963,7 +15963,7 @@ msgstr "\"%s\" தரவுத்தளத்தின் தனிசலுக�
 #: templates/server/replication/index.twig:18
 #: templates/server/replication/master_replication.twig:3
 msgid "Master replication"
-msgstr ""
+msgstr "முதன்மை பிரதி"
 
 #: templates/server/databases/index.twig:163
 #: templates/server/replication/slave_configuration.twig:2
