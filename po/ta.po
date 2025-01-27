@@ -1478,7 +1478,7 @@ msgstr "பெர்சியன்"
 #: libraries/classes/Charsets/Collation.php:524
 msgctxt "Collation"
 msgid "Polish"
-msgstr ""
+msgstr "போலீச்"
 
 #: libraries/classes/Charsets/Collation.php:531
 msgctxt "Collation"
