@@ -9209,6 +9209,8 @@ msgstr "கோப்பை வாசிக்க இயலவில்லை!
 #: libraries/classes/File.php:465
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
+"பதிவேற்றிய கோப்பை நகர்த்துவதில் பிழை, [DOC@FAQ1-11] கேள்விகள் 1.11 [/doc] ஐப் "
+"பார்க்கவும்."
 
 #: libraries/classes/File.php:485
 msgid "Error while moving uploaded file."
