@@ -1238,6 +1238,7 @@ msgstr "வினவல் இடைமாற்று விளைவின் 
 msgid ""
 "The max size of the result set in the query cache is the default of 1 MiB."
 msgstr ""
+"வினவல் தற்காலிக சேமிப்பில் அமைக்கப்பட்ட முடிவின் அதிகபட்ச அளவு 1 MIB இன் இயல்புநிலை."
 
 #: libraries/advisory_rules_mysql_before80003.php:113
 msgid ""
