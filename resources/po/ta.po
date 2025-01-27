@@ -15971,7 +15971,7 @@ msgstr "படி 2."
 
 #: src/Normalization.php:373
 msgid "Find partial dependencies"
-msgstr ""
+msgstr "பகுதி சார்புகளைக் கண்டறியவும்"
 
 #: src/Normalization.php:394
 #, php-format
