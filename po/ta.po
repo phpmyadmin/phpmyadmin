@@ -17242,7 +17242,7 @@ msgstr ""
 #: templates/server/status/status/index.twig:6
 #, php-format
 msgid "Network traffic since startup: %s"
-msgstr ""
+msgstr "தொடக்கத்திலிருந்து பிணைய போக்குவரத்து: %s"
 
 #: templates/server/status/status/index.twig:7
 #, php-format
