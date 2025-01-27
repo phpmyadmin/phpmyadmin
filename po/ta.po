@@ -16010,8 +16010,6 @@ msgid "Allows executing this routine."
 msgstr ""
 
 #: templates/server/privileges/initials_row.twig:1
-#, fuzzy
-#| msgid "Database operations"
 msgid "Pagination of user accounts"
 msgstr "தரவுதள நடவடிக்கைகள்"
 
