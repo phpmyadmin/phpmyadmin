@@ -5461,7 +5461,7 @@ msgstr "வினோதமாக"
 #: libraries/classes/Util.php:463
 #: templates/server/status/monitor/index.twig:187
 msgid "MiB"
-msgstr "MiB"
+msgstr "Mib"
 
 #. l10n: shortcuts for Gigabyte
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:195
