@@ -912,6 +912,8 @@ msgstr ""
 #, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
+"அனைத்து வாடிக்கையாளர்களிலும்%s %% கைவிடப்படுகிறது. இந்த மதிப்பு 2 %% க்குக் குறைவாக "
+"இருக்க வேண்டும்"
 
 #: libraries/advisory_rules_generic.php:584
 msgid "Rate of aborted clients"
