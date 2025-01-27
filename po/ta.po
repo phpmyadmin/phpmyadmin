@@ -18229,6 +18229,8 @@ msgstr ""
 msgid ""
 "Only columns with index will be displayed. You can define an index below."
 msgstr ""
+"குறியீட்டைக் கொண்ட நெடுவரிசைகள் மட்டுமே காண்பிக்கப்படும். கீழே ஒரு குறியீட்டை நீங்கள் "
+"வரையறுக்கலாம்."
 
 #: templates/table/relation/common_form.twig:28
 msgid "Foreign key constraint"
@@ -18241,7 +18243,7 @@ msgstr "+கட்டுப்பாட்டை சேர்க்க"
 #: templates/table/relation/common_form.twig:106
 #: templates/table/relation/common_form.twig:114
 msgid "Internal relationships"
-msgstr "உள்ளமை உறவுமுறைகள்"
+msgstr "உள் உறவுகள்"
 
 #: templates/table/relation/common_form.twig:122
 msgid "Internal relation"
