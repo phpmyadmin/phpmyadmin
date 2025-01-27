@@ -2769,7 +2769,7 @@ msgstr "இறக்குமதிக்கான கோப்புகளை �
 
 #: libraries/classes/Config/Descriptions.php:596
 msgid "Allow for searching inside the entire database."
-msgstr ""
+msgstr "முழு தரவுத்தளத்திலும் தேட அனுமதிக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:597
 msgid "Enables check for latest version on main phpMyAdmin page."
