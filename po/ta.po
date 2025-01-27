@@ -9169,6 +9169,7 @@ msgstr "கோப்பு பதிவேற்றிய கோப்பு அ
 #: libraries/classes/File.php:266
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
+"பதிவேற்றிய கோப்பு php.ini இல் உள்ள பதிவேற்றம்_மாக்ச்_பைல்ச்ச் டைரெக்டிவ் மீறுகிறது."
 
 #: libraries/classes/File.php:271
 msgid ""
