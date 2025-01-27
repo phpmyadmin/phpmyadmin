@@ -16259,7 +16259,7 @@ msgstr "பூச்யத்தை மாற்றவும்:"
 
 #: src/Plugins/Export/ExportCsv.php:90 src/Plugins/Export/ExportExcel.php:74
 msgid "Remove carriage return/line feed characters within columns"
-msgstr ""
+msgstr "நெடுவரிசைகளுக்குள் வண்டி வருவாய்/வரி தீவன எழுத்துகளை அகற்று"
 
 #: src/Plugins/Export/ExportExcel.php:84
 msgid "Excel edition:"
