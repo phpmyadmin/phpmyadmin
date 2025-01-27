@@ -3288,7 +3288,7 @@ msgstr "முனையம்"
 
 #: libraries/classes/Config/Descriptions.php:787
 msgid "GZip"
-msgstr ""
+msgstr "Gzip"
 
 #: libraries/classes/Config/Descriptions.php:788
 msgid "Extra parameters for iconv"
