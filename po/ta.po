@@ -2035,7 +2035,7 @@ msgstr "வழிசெலுத்தல் குழுவில் லோக�
 
 #: libraries/classes/Config/Descriptions.php:318
 msgid "Display server choice at the top of the navigation panel."
-msgstr ""
+msgstr "வழிசெலுத்தல் குழுவின் மேலே சேவையக தேர்வைக் காண்பி."
 
 #: libraries/classes/Config/Descriptions.php:319
 msgid "String that separates databases into different tree levels."
