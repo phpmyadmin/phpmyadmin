@@ -1538,7 +1538,7 @@ msgstr "காட்டுவதற்க்கான நிரல்வரி�
 #: resources/templates/database/designer/main.twig:105
 #: resources/templates/database/designer/main.twig:108
 msgid "Reload"
-msgstr ""
+msgstr "ஏற்றவும்"
 
 #: resources/templates/database/designer/main.twig:112
 #: resources/templates/database/designer/main.twig:115
