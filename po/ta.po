@@ -16014,7 +16014,7 @@ msgstr "உள்ளமைவில் சில புலங்களுக்�
 
 #: templates/preferences/manage/error.twig:16
 msgid "Do you want to import remaining settings?"
-msgstr ""
+msgstr "மீதமுள்ள அமைப்புகளை இறக்குமதி செய்ய விரும்புகிறீர்களா?"
 
 #: templates/preferences/manage/main.twig:3
 #: templates/preferences/manage/main.twig:33
