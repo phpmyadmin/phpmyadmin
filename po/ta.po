@@ -12425,7 +12425,7 @@ msgstr "இயல்புநிலை கருப்பொருள் %s க�
 #: libraries/classes/ThemeManager.php:142
 #, php-format
 msgid "Theme %s not found!"
-msgstr ""
+msgstr "கருப்பொருள் %s கிடைக்கவில்லை!"
 
 #: libraries/classes/Theme.php:168
 #, php-format
@@ -18342,7 +18342,7 @@ msgstr ""
 #: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
 msgid "Delete version"
-msgstr "பதிப்பை உருவாக்கு"
+msgstr "பதிப்பை நீக்கு"
 
 #: templates/table/tracking/main.twig:102
 #, php-format
