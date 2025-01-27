@@ -16395,7 +16395,7 @@ msgstr ""
 #: templates/server/privileges/edit_routine_privileges.twig:76
 #: templates/server/privileges/edit_routine_privileges.twig:79
 msgid "Allows altering and dropping this routine."
-msgstr ""
+msgstr "இந்த வழக்கத்தை மாற்றவும் கைவிடவும் அனுமதிக்கிறது."
 
 #: templates/server/privileges/edit_routine_privileges.twig:88
 #: templates/server/privileges/edit_routine_privileges.twig:91
