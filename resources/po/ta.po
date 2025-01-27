@@ -16194,7 +16194,7 @@ msgstr ""
 
 #: src/Plugins/Auth/AuthenticationCookie.php:271
 msgid "Failed to connect to the reCAPTCHA service!"
-msgstr ""
+msgstr "ரெக்காப்ட்சா சேவையுடன் இணைக்கத் தவறிவிட்டது!"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:273
 msgid "Entered captcha is wrong, try again!"
