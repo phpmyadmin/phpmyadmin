@@ -12733,8 +12733,6 @@ msgstr "இணைப்புகள்"
 #: templates/columns_definitions/column_definitions_form.twig:113
 #: templates/columns_definitions/partitions.twig:137
 #: templates/table/operations/index.twig:133
-#, fuzzy
-#| msgid "Storage Engines"
 msgid "Storage engine"
 msgstr "சேமிப்பக செயல்பொறிகள்"
 
