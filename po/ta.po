@@ -16332,7 +16332,7 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:528
 msgid "Administration"
-msgstr ""
+msgstr "நிர்வாகம்"
 
 #: templates/server/privileges/privileges_table.twig:535
 #: templates/server/privileges/privileges_table.twig:538
