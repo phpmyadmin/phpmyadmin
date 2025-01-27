@@ -10332,7 +10332,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:822
 msgid "Group items in the tree"
-msgstr ""
+msgstr "மரத்தில் குழு பொருட்கள்"
 
 #: src/Config/Descriptions.php:823
 msgid "Database tree separator"
