@@ -12394,6 +12394,9 @@ msgid ""
 "after you refresh this page. Please check if the table structure has been "
 "changed."
 msgstr ""
+"இடைமுகம் சொத்து \"%s\" ஐ சேமிக்க முடியாது. இந்த பக்கத்தை நீங்கள் புதுப்பித்த பிறகு "
+"செய்யப்பட்ட மாற்றங்கள் தொடர்ந்து இருக்காது. அட்டவணை அமைப்பு மாற்றப்பட்டுள்ளதா என்பதை "
+"சரிபார்க்கவும்."
 
 #: libraries/classes/Table.php:2122
 msgid "Can't rename index to PRIMARY!"
