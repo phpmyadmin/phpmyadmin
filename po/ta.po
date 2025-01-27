@@ -18375,7 +18375,7 @@ msgstr "தொகுப்பு பார்வை"
 
 #: templates/table/structure/display_structure.twig:403
 msgid "Propose table structure"
-msgstr ""
+msgstr "அட்டவணை கட்டமைப்பை முன்மொழியுங்கள்"
 
 #: templates/table/structure/display_structure.twig:420
 msgid "Normalize"
