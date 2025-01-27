@@ -14702,7 +14702,7 @@ msgstr "அட்டவணையை திருத்து"
 
 #: templates/database/structure/check_all_tables.twig:25
 msgid "Prefix"
-msgstr ""
+msgstr "முன்னொட்டு"
 
 #: templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
