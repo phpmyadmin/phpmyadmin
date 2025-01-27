@@ -13831,7 +13831,7 @@ msgstr "%s %s"
 #: src/Controllers/JavaScriptMessagesController.php:819
 #, php-format
 msgid "%s/sec."
-msgstr ""
+msgstr "%s/நொடி."
 
 #: src/Controllers/JavaScriptMessagesController.php:820
 msgid "About %MIN min. %SEC sec. remaining."
