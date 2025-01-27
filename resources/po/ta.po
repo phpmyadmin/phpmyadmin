@@ -14901,7 +14901,7 @@ msgstr "மன்னிக்கவும், கைவிடப்பட்ட 
 #: src/Database/Routines.php:272
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr ""
+msgstr "வழக்கமான %1$s மாற்றியமைக்கப்பட்டுள்ளது. சலுகைகள் சரிசெய்யப்பட்டுள்ளன."
 
 #: src/Database/Routines.php:277
 #, php-format
