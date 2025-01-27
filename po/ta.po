@@ -8490,7 +8490,7 @@ msgstr ""
 #: libraries/classes/Database/Routines.php:990
 #, php-format
 msgid "Invalid routine type: \"%s\""
-msgstr ""
+msgstr "தவறான வழக்கமான வகை: \"%s\""
 
 #: libraries/classes/Database/Routines.php:253
 #, php-format
