@@ -8191,7 +8191,7 @@ msgstr ""
 #: libraries/classes/Core.php:203 libraries/classes/ZipExtension.php:62
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
-msgstr ""
+msgstr "%s நீட்டிப்பு இல்லை. உங்கள் பிஎச்பி உள்ளமைவை சரிபார்க்கவும்."
 
 #: libraries/classes/Database/CentralColumns.php:293
 #: libraries/classes/Database/CentralColumns.php:399
