@@ -9723,7 +9723,7 @@ msgstr "இயல்புநிலை தரவுத்தள தாவல்"
 
 #: src/Config/Descriptions.php:618
 msgid "Default server tab"
-msgstr ""
+msgstr "இயல்புநிலை சேவையக தாவல்"
 
 #: src/Config/Descriptions.php:619
 msgid "Default table tab"
