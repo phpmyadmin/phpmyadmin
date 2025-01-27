@@ -16484,7 +16484,7 @@ msgstr "<code> தாமதத்தை செருகவும் </குற�
 
 #: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
 msgid "<code>INSERT IGNORE</code> statements"
-msgstr ""
+msgstr "<குறியீடு> செருகு புறக்கணிக்கவும் </குறியீடு> அறிக்கைகள்"
 
 #: src/Plugins/Export/ExportSql.php:453
 msgid "Function to use when dumping data:"
