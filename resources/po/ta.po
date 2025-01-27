@@ -17445,7 +17445,7 @@ msgstr "முக்கிய கேச்"
 
 #: src/Server/Status/Data.php:123
 msgid "Joins"
-msgstr ""
+msgstr "இணைகிறது"
 
 #: src/Server/Status/Data.php:125
 msgid "Sorting"
