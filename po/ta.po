@@ -10605,7 +10605,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportCodegen.php:87
 #: templates/export.twig:94 templates/import.twig:198
 msgid "Format:"
-msgstr ""
+msgstr "வடிவம்:"
 
 #: libraries/classes/Plugins/Export/ExportCsv.php:61
 #: libraries/classes/Plugins/Import/AbstractImportCsv.php:54
