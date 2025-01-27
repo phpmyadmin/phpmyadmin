@@ -1928,7 +1928,7 @@ msgstr ""
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr ""
+msgstr "ஒரு மூல வினவலை ஏற்றுமதி செய்கிறது"
 
 #: resources/templates/database/export/index.twig:7
 #, php-format
@@ -1963,11 +1963,11 @@ msgstr "தரவு"
 
 #: resources/templates/database/export/index.twig:30
 msgid "Export the structure of all tables."
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "அனைத்து அட்டவணைகளின் கட்டமைப்பையும் ஏற்றுமதி செய்யுங்கள்."
 
 #: resources/templates/database/export/index.twig:33
 msgid "Export the data of all tables."
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "அனைத்து அட்டவணைகளின் தரவை ஏற்றுமதி செய்யுங்கள்."
 
 #: resources/templates/database/import/index.twig:3
 #, php-format
