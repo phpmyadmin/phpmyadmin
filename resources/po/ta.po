@@ -14630,7 +14630,7 @@ msgstr ""
 
 #: src/Controllers/Server/Status/VariablesController.php:488
 msgid "The number of currently open connections."
-msgstr ""
+msgstr "தற்போது திறந்த இணைப்புகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:490
 msgid ""
