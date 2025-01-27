@@ -9462,7 +9462,7 @@ msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
 #: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
-msgstr ""
+msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
 #: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:959
 #, php-format
