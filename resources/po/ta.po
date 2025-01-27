@@ -11088,6 +11088,7 @@ msgstr ""
 #: src/Config/ServerConfigChecks.php:142
 msgid "You should use SSL connections if your database server supports it."
 msgstr ""
+"உங்கள் தரவுத்தள சேவையகம் அதை ஆதரித்தால் நீங்கள் SSL இணைப்புகளைப் பயன்படுத்த வேண்டும்."
 
 #: src/Config/ServerConfigChecks.php:149
 #, php-format
