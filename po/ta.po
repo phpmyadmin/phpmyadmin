@@ -2295,6 +2295,8 @@ msgid ""
 "Leave blank for no user preferences storage in database, suggested: "
 "[kbd]pma__userconfig[/kbd]."
 msgstr ""
+"தரவுத்தளத்தில் பயனர் விருப்பத்தேர்வுகள் சேமிப்பதற்காக காலியாக விடவும், "
+"பரிந்துரைக்கப்படுகிறது: [KBD] PMA__userconfig [/KBD]."
 
 #: libraries/classes/Config/Descriptions.php:459
 msgid ""
