@@ -8950,6 +8950,8 @@ msgid ""
 "The buffer that is allocated when sorting MyISAM indexes during a REPAIR "
 "TABLE or when creating indexes with CREATE INDEX or ALTER TABLE."
 msgstr ""
+"பழுதுபார்க்கும் அட்டவணையின் போது MyISAM குறியீடுகளை வரிசைப்படுத்தும் போது அல்லது "
+"குறியீட்டு அல்லது மாற்று அட்டவணையுடன் குறியீடுகளை உருவாக்கும்போது ஒதுக்கப்பட்டுள்ள இடையகம்."
 
 #: libraries/classes/Engines/Pbxt.php:33
 msgid "Index cache size"
