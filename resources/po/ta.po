@@ -5023,6 +5023,8 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:750
 msgid "Limits the number of queries the user may send to the server per hour."
 msgstr ""
+"பயனர் ஒரு மணி நேரத்திற்கு சேவையகத்திற்கு அனுப்பக்கூடிய வினவல்களின் எண்ணிக்கையை "
+"கட்டுப்படுத்துகிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:756
 #: resources/templates/server/privileges/privileges_table.twig:763
