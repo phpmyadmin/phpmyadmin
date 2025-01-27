@@ -1625,6 +1625,8 @@ msgid ""
 "columns; [kbd]input[/kbd] - allows limiting of input length, [kbd]textarea[/"
 "kbd] - allows newlines in columns."
 msgstr ""
+"கரி மற்றும் VARCHAR நெடுவரிசைகளுக்கு எந்த வகை திருத்துதல் கட்டுப்பாடுகள் பயன்படுத்தப்பட "
+"வேண்டும் என்பதை வரையறுக்கிறது; ."
 
 #: libraries/classes/Config/Descriptions.php:118
 msgid ""
