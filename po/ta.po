@@ -4678,7 +4678,7 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:449
 msgid "Incorrect value:"
-msgstr ""
+msgstr "தவறான மதிப்பு:"
 
 #: libraries/classes/Config/Validator.php:460
 #, php-format
