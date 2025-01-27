@@ -4126,7 +4126,7 @@ msgstr ""
 #: resources/templates/preferences/two_factor/main.twig:26
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
-msgstr ""
+msgstr "மேலும் அங்கீகார பின்தளத்தில் செயல்படுத்த விருப்ப சார்புகளை நிறுவவும்."
 
 #: resources/templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -4159,7 +4159,7 @@ msgstr "அண்மைகாலத்திய அட்டவணைகள் �
 
 #: resources/templates/relation/check_relations.twig:3
 msgid "phpMyAdmin configuration storage"
-msgstr "phpMyAdmin ஆவணச்சான்று"
+msgstr "Phpmyadmin உள்ளமைவு சேமிப்பு"
 
 #: resources/templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
