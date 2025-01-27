@@ -12276,7 +12276,7 @@ msgstr "இயல்புநிலை உலாவி வினவலாக ப
 
 #: libraries/classes/Sql.php:976
 msgid "Showing as PHP code"
-msgstr ""
+msgstr "பிஎச்பி குறியீடாகக் காட்டுகிறது"
 
 #: libraries/classes/Sql.php:1351
 #, php-format
@@ -12284,8 +12284,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
-"இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், தேர்வுபெட்டி, "
-"தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
+"தற்போதைய தேர்வில் தனித்துவமான நெடுவரிசை இல்லை. கட்டம் திருத்து, தேர்வுப்பெட்டி, திருத்து"
+", நகலெடுத்து நீக்குதல் நற்பொருத்தங்கள் கிடைக்கவில்லை. %s"
 
 #: libraries/classes/Sql.php:1365
 #, php-format
@@ -12293,8 +12293,8 @@ msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
-"இவ்வட்டவணையில் தனித்தநிரல்வரிசை இல்லை.சேமித்த பின்னர் நெய்யரியில் தொகுத்தல், தேர்வுபெட்டி, "
-"தொகுத்தல், படியெடுத்தல், மற்றும் நீக்கல் வசதிகள் செயல்படாமல் போகலாம்."
+"தற்போதைய தேர்வில் தனித்துவமான நெடுவரிசை இல்லை. கட்டம் திருத்து, திருத்த, நகலெடுத்து "
+"நீக்குதல் நற்பொருத்தங்கள் விரும்பத்தகாத நடத்தை ஏற்படலாம். %s"
 
 #: libraries/classes/SqlQueryForm.php:149
 #, php-format
