@@ -16745,7 +16745,7 @@ msgstr ""
 
 #: templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
-msgstr ""
+msgstr "அனைத்து தரவுத்தளங்களையும் பிரதிபலிக்கவும்; புறக்கணிக்கவும்:"
 
 #: templates/server/replication/primary_configuration.twig:10
 msgid "Ignore all databases; Replicate:"
