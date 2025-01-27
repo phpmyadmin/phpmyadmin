@@ -6660,10 +6660,12 @@ msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
+"நீங்கள் உண்மையில் அனைத்து வரிசைகளையும் பார்க்க விரும்புகிறீர்களா? ஒரு பெரிய அட்டவணைக்கு இது"
+" உலாவியை செயலிழக்கச் செய்யலாம்."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:571
 msgid "Original length"
-msgstr "மெய் சரம்"
+msgstr "அசல் நீளம்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:574
 msgid "cancel"
@@ -6726,11 +6728,11 @@ msgstr "மேலும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:600
 msgid "Show panel"
-msgstr "பலகத்தை காட்டு"
+msgstr "குழு காட்டு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:601
 msgid "Hide panel"
-msgstr "பலகத்தை மறை"
+msgstr "குழு மறைக்க"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:603
 #: libraries/classes/Navigation/NavigationTree.php:1355
@@ -6769,11 +6771,11 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:617
 msgid "Change report settings"
-msgstr "அறிக்கை அமைப்புக்களை மாற்றுக"
+msgstr "அறிக்கை அமைப்புகளை மாற்றவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:618
 msgid "Show report details"
-msgstr "அறிவிக்கை விவரங்களை காட்டுக"
+msgstr "அறிக்கை விவரங்களைக் காட்டு"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:619
 msgid ""
@@ -14317,11 +14319,11 @@ msgstr ""
 
 #: templates/error/report_modal.twig:5
 msgid "Submit error report"
-msgstr "பிழை அறிக்கை அளிக்க"
+msgstr "பிழை அறிக்கையை சமர்ப்பிக்கவும்"
 
 #: templates/error/report_modal.twig:12
 msgid "Send error report"
-msgstr "பிழை அறிக்கை அனுப்புக"
+msgstr "பிழை அறிக்கையை அனுப்பவும்"
 
 #: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
