@@ -17019,7 +17019,7 @@ msgstr "வழிமுறைகள்/அமைப்பு"
 
 #: templates/server/status/monitor/index.twig:20
 msgid "Done dragging (rearranging) charts"
-msgstr ""
+msgstr "இழுத்துச் சென்றது (மறுசீரமைத்தல்) விளக்கப்படங்கள்"
 
 #: templates/server/status/monitor/index.twig:27
 msgid "Add chart"
