@@ -2517,7 +2517,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:565
 msgid "How many rows can be inserted at one time."
-msgstr ""
+msgstr "ஒரு நேரத்தில் எத்தனை வரிசைகளை செருக முடியும்."
 
 #: libraries/classes/Config/Descriptions.php:566
 msgid ""
