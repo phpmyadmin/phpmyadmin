@@ -15944,8 +15944,6 @@ msgstr ""
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Row length"
 msgctxt "Password strength"
 msgid "Strength:"
 msgstr "நிரல் நீளம்"
