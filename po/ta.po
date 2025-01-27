@@ -9678,7 +9678,7 @@ msgstr "பின்னர்"
 
 #: libraries/classes/InsertEdit.php:1895
 msgid "Insert as new row"
-msgstr ""
+msgstr "புதிய வரிசையாக செருகவும்"
 
 #: libraries/classes/InsertEdit.php:1898
 msgid "Insert as new row and ignore errors"
