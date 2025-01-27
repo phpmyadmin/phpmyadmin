@@ -4987,6 +4987,7 @@ msgstr "நிறைவரிசைகள் %1$s - %2$s காட்டப்�
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
+"\"%s\" என்ற பக்கம் ஏற்கனவே உள்ளது, தயவுசெய்து அதை வேறு ஏதாவது மறுபெயரிடுங்கள்."
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
@@ -5015,7 +5016,7 @@ msgstr ""
 #: libraries/classes/Controllers/Database/Operations/CollationController.php:48
 #: libraries/classes/Controllers/Table/OperationsController.php:258
 msgid "No collation provided."
-msgstr "எந்த தொகுப்பும் வழங்கப்படவில்லை."
+msgstr "எந்த கூட்டு வழங்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Database/OperationsController.php:90
 #: libraries/classes/Controllers/Table/CreateController.php:72
@@ -5068,7 +5069,7 @@ msgstr "அணுகல் மறுக்கப்பட்டது!"
 #: libraries/classes/Controllers/Table/Maintenance/OptimizeController.php:54
 #: libraries/classes/Controllers/Table/Maintenance/RepairController.php:54
 msgid "No table selected."
-msgstr "எந்த அட்டவணைகளும்  தேர்ந்தெடுக்கப்படவில்லை."
+msgstr "எந்த அட்டவணையும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/AddController.php:53
 #: libraries/classes/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:53
