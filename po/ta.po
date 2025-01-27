@@ -13383,8 +13383,6 @@ msgid "Number of columns"
 msgstr ""
 
 #: templates/database/data_dictionary/index.twig:3
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
 msgstr "தரவுத்தள கருத்துரை"
 
