@@ -2696,7 +2696,7 @@ msgstr "பறக்கும்போது சுருக்க"
 
 #: libraries/classes/Config/Descriptions.php:634
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "துளி வினவல்களை உறுதிப்படுத்தவும்"
 
 #: libraries/classes/Config/Descriptions.php:635
 #: templates/console/display.twig:11 templates/console/display.twig:64
