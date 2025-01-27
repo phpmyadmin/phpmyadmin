@@ -17461,7 +17461,7 @@ msgstr "அனைத்து அட்டவணைகளையும் பற�
 
 #: src/Server/Status/Data.php:153
 msgid "Show open tables"
-msgstr ""
+msgstr "திறந்த அட்டவணைகளைக் காட்டு"
 
 #: src/Server/Status/Data.php:159
 msgid "Show replica hosts"
