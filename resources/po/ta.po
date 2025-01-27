@@ -1810,7 +1810,7 @@ msgstr ""
 #: resources/templates/table/privileges/index.twig:117
 #: resources/templates/triggers/list.twig:14
 msgid "Check all"
-msgstr "அனைத்தையும் தெரி"
+msgstr "அனைத்தையும் சரிபார்க்கவும்"
 
 #: resources/templates/database/events/index.twig:17
 #: resources/templates/database/events/index.twig:18
@@ -2934,7 +2934,7 @@ msgstr "நிரைவரிசைகளின் எண்ணிக்கை:"
 
 #: resources/templates/display/results/table.twig:125
 msgid "All"
-msgstr ""
+msgstr "அனைத்தும்"
 
 #: resources/templates/display/results/table.twig:151
 msgid "Sort by key:"
