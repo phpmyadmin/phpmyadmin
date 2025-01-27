@@ -3509,7 +3509,7 @@ msgstr "அட்டவணை வரிசை இணைப்புகளை எ
 
 #: libraries/classes/Config/Descriptions.php:866
 msgid "Show row links anyway"
-msgstr ""
+msgstr "வரிசை இணைப்புகளை எப்படியும் காட்டு"
 
 #: libraries/classes/Config/Descriptions.php:868
 msgid "Natural order"
