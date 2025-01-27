@@ -10284,6 +10284,9 @@ msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
+"முதன்மை விசை இல்லை; தயவுசெய்து ஒன்றைச் சேர்க்கவும். <br> குறிப்பு: ஒரு முதன்மை விசை "
+"என்பது அனைத்து வரிசைகளையும் தனித்தனியாக அடையாளம் காணும் ஒரு நெடுவரிசை (அல்லது "
+"நெடுவரிசைகளின் சேர்க்கை) ஆகும்."
 
 #: libraries/classes/Normalization.php:294
 msgid "Add a primary key on existing column(s)"
