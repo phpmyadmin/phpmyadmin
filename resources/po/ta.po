@@ -4564,7 +4564,7 @@ msgstr "பயனர் குழுக்கள்"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
 #: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
-msgstr "%s களத்தை சேர்க்க->செயல்முறை"
+msgstr "வழக்கமான"
 
 #: resources/templates/server/privileges/edit_routine_privileges.twig:34
 #: resources/templates/server/privileges/user_properties.twig:53
@@ -5044,7 +5044,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:782
 #: resources/templates/server/privileges/privileges_table.twig:789
 msgid "Limits the number of simultaneous connections the user may have."
-msgstr ""
+msgstr "பயனருக்கு ஒரே நேரத்தில் இணைப்புகளின் எண்ணிக்கையை கட்டுப்படுத்துகிறது."
 
 #: resources/templates/server/privileges/privileges_table.twig:802
 msgid "Does not require SSL-encrypted connections."
