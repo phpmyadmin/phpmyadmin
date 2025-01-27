@@ -7286,7 +7286,7 @@ msgstr ""
 #: templates/server/replication/master_add_slave_user.twig:43
 #: templates/server/replication/master_replication.twig:25
 msgid "Host"
-msgstr ""
+msgstr "விருந்தோம்பி"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:163
 msgid "Command"
