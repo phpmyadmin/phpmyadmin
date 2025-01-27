@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:51+0000\n"
+"PO-Revision-Date: 2025-01-27 02:52+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -15027,7 +15027,7 @@ msgstr "ஏற்றுமதி முறை:"
 
 #: templates/export.twig:108
 msgid "Quick - display only the minimal options"
-msgstr ""
+msgstr "விரைவாக - குறைந்தபட்ச விருப்பங்களை மட்டுமே காண்பி"
 
 #: templates/export.twig:112
 msgid "Custom - display all possible options"
