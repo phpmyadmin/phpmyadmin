@@ -15031,7 +15031,7 @@ msgstr "விரைவாக - குறைந்தபட்ச விரு�
 
 #: templates/export.twig:112
 msgid "Custom - display all possible options"
-msgstr ""
+msgstr "தனிப்பயன் - சாத்தியமான அனைத்து விருப்பங்களையும் காண்பி"
 
 #: templates/export.twig:121
 msgid "File format to export"
