@@ -11694,8 +11694,6 @@ msgstr "இரட்டையாக்கப்படாதது"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show binary contents"
 msgid "Show primary status"
 msgstr "இரும உள்ளடக்கங்களை காண்பி"
 
