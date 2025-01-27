@@ -2567,7 +2567,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:572
 msgid "Maximum number of favorite tables; set 0 to disable."
-msgstr ""
+msgstr "பிடித்த அட்டவணைகளின் அதிகபட்ச எண்ணிக்கை; முடக்க 0 ஐ அமைக்கவும்."
 
 #: libraries/classes/Config/Descriptions.php:573
 msgid "These are Edit, Copy and Delete links."
