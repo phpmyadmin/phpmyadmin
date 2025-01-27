@@ -12221,11 +12221,11 @@ msgstr "சேமிக்கப்பட்ட நடைமுறைகளை �
 #: libraries/classes/Server/Privileges.php:868
 #: libraries/classes/Server/Privileges.php:3965
 msgid "Native MySQL authentication"
-msgstr "உறுதிப்படுத்தல்"
+msgstr "சொந்த MySQL ஏற்பு"
 
 #: libraries/classes/Server/Privileges.php:796
 msgid "SHA256 password authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "SHA256 கடவுச்சொல் ஏற்பு"
 
 #: libraries/classes/Server/Privileges.php:1165
 #, php-format
@@ -16320,6 +16320,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"பயனரை மற்ற பயனர்களுக்கு வழங்க அல்லது பிற பயனர்களிடமிருந்து நீக்க பயனர் உங்களை "
+"அனுமதிக்கிறது."
 
 #: templates/server/privileges/privileges_table.twig:231
 msgid "Global"
