@@ -14752,8 +14752,6 @@ msgid "Theme"
 msgstr ""
 
 #: templates/home/index.twig:143
-#, fuzzy
-#| msgid "View image"
 msgctxt "View all themes"
 msgid "View all"
 msgstr "படத்தை பார்"
