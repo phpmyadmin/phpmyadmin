@@ -11574,7 +11574,7 @@ msgstr "வழு."
 
 #: libraries/classes/ReplicationGui.php:532
 msgid "Unknown error"
-msgstr ""
+msgstr "தெரியாத பிழை"
 
 #: libraries/classes/ReplicationGui.php:545
 #, php-format
