@@ -7059,8 +7059,7 @@ msgid "The account %s@%s has been successfully locked."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, fuzzy, php-format
-#| msgid "The columns have been moved successfully."
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
 msgstr "நெடுவரிசைகள் வெற்றிகரமாக நகர்த்தப்பட்டன."
 
