@@ -15692,11 +15692,11 @@ msgstr "வினவல்"
 
 #: src/Menu.php:398 src/Util.php:1382
 msgid "Designer"
-msgstr ""
+msgstr "வடிவமைப்பாளர்"
 
 #: src/Menu.php:459
 msgid "User accounts"
-msgstr "பயனர் குழுக்கள்"
+msgstr "பயனர் கணக்குகள்"
 
 #: src/Menu.php:508 src/Util.php:1365
 msgid "Charsets"
