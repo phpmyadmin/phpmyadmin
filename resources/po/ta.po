@@ -10648,7 +10648,7 @@ msgstr "சிக்னன் அமர்வு பெயர்"
 
 #: src/Config/Descriptions.php:891
 msgid "Signon URL"
-msgstr ""
+msgstr "முகவரி இன் அடையாளம்"
 
 #: src/Config/Descriptions.php:892
 msgid "Server socket"
