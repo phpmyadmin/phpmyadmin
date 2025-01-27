@@ -11961,7 +11961,7 @@ msgstr "சலுகைகளை மீண்டும் ஏற்றுகி�
 
 #: libraries/classes/Server/Privileges.php:2201
 msgid "The selected users have been deleted successfully."
-msgstr ""
+msgstr "தேர்ந்தெடுக்கப்பட்ட பயனர்கள் வெற்றிகரமாக நீக்கப்பட்டுள்ளனர்."
 
 #: libraries/classes/Server/Privileges.php:2278
 #, php-format
