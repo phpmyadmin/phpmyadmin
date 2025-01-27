@@ -3309,7 +3309,7 @@ msgstr "வடிகட்டிகள்"
 #: resources/templates/filter.twig:4
 #: resources/templates/server/status/variables/index.twig:12
 msgid "Containing the word:"
-msgstr ""
+msgstr "வார்த்தையைக் கொண்டுள்ளது:"
 
 #: resources/templates/gis_data_editor_form.twig:26
 msgid "Geometry type:"
