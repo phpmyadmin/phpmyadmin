@@ -17499,7 +17499,7 @@ msgstr "ஐடி"
 
 #: src/Server/Status/Processes.php:94
 msgid "Command"
-msgstr ""
+msgstr "கட்டளை"
 
 #: src/Server/Status/Processes.php:100
 msgid "Progress"
