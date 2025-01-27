@@ -13027,7 +13027,7 @@ msgstr "உங்களுக்கு உண்மையிலேயே பு�
 
 #: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Some error occurred while getting SQL debug info."
-msgstr ""
+msgstr "கவிமொ பிழைத்திருத்த தகவலைப் பெறும்போது சில பிழை ஏற்பட்டது."
 
 #: src/Controllers/JavaScriptMessagesController.php:667
 #, php-format
