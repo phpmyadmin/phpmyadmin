@@ -12063,7 +12063,7 @@ msgstr "தற்காலிக தரவு"
 
 #: libraries/classes/Server/Status/Data.php:154
 msgid "Delayed inserts"
-msgstr ""
+msgstr "தாமதமான செருகல்கள்"
 
 #: libraries/classes/Server/Status/Data.php:155
 msgid "Key cache"
