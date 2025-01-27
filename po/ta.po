@@ -13028,7 +13028,7 @@ msgstr "வரிசைப்படுத்து"
 
 #: libraries/classes/ZipExtension.php:73 libraries/classes/ZipExtension.php:119
 msgid "Error in ZIP archive:"
-msgstr ""
+msgstr "சிப் காப்பகத்தில் பிழை:"
 
 #: libraries/classes/ZipExtension.php:83
 msgid "No files found inside ZIP archive!"
