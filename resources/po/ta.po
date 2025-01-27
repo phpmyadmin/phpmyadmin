@@ -16539,7 +16539,7 @@ msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:593
 msgid "It appears your database uses routines;"
-msgstr ""
+msgstr "உங்கள் தரவுத்தளம் நடைமுறைகளைப் பயன்படுத்துகிறது என்று தோன்றுகிறது;"
 
 #: src/Plugins/Export/ExportSql.php:596 src/Plugins/Export/ExportSql.php:1508
 #: src/Plugins/Export/ExportSql.php:1940
