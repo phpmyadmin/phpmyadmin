@@ -11201,6 +11201,8 @@ msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
+"பூலியன் மதிப்புகளை உரையாக மாற்றுகிறது (இயல்புநிலை 'டி' மற்றும் 'எஃப்'). முதல் விருப்பம்"
+" உண்மை, தவறானது. Nonzero = உண்மை."
 
 #: libraries/classes/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:39
 msgid ""
