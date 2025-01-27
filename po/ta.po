@@ -15910,8 +15910,6 @@ msgid "disabled"
 msgstr "முடக்கப்பட்டது"
 
 #: templates/server/plugins/index.twig:45
-#, fuzzy
-#| msgid "Deleting"
 msgid "deleting"
 msgstr "அழித்தல்"
 
