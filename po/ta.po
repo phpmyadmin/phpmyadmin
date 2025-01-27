@@ -2702,7 +2702,7 @@ msgstr "துளி வினவல்களை உறுதிப்படு�
 #: libraries/classes/Config/Descriptions.php:635
 #: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
-msgstr ""
+msgstr "பிழைத்திருத்தம் கவிமொ"
 
 #: libraries/classes/Config/Descriptions.php:636
 #: libraries/classes/Plugins/Schema/SchemaDia.php:66
