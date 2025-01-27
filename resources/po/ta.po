@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 01:53+0000\n"
+"PO-Revision-Date: 2025-01-27 01:54+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -9503,7 +9503,7 @@ msgstr "குறைவான உருப்படிகள் இருந்�
 
 #: src/Config/Descriptions.php:548
 msgid "Default value for foreign key checks checkbox for some queries."
-msgstr ""
+msgstr "சில வினவல்களுக்கான வெளிநாட்டு விசை காசோலைகளுக்கான இயல்புநிலை மதிப்பு."
 
 #: src/Config/Descriptions.php:549
 msgid "Uncheck the checkbox to disable drag and drop import"
@@ -10004,7 +10004,7 @@ msgstr "வெளிநாட்டு முக்கிய வரம்பு"
 
 #: src/Config/Descriptions.php:726
 msgid "Foreign key checks"
-msgstr "அயல் குறியெண் சரிபார்க்க:"
+msgstr "வெளிநாட்டு விசை காசோலைகள்"
 
 #: src/Config/Descriptions.php:727
 msgid "First day of calendar"
