@@ -9925,7 +9925,7 @@ msgstr ""
 
 #: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
-msgstr ""
+msgstr "பேக்சுவோட்டுகளுடன் அட்டவணை மற்றும் நெடுவரிசை பெயர்களை இணைக்கவும்"
 
 #: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
 msgid "SQL compatibility mode"
