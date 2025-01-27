@@ -6353,7 +6353,7 @@ msgstr "%s நிரல்வரிசை(களை) சுட்டுதொக
 
 #: resources/templates/table/insert/actions_panel.twig:10
 msgid "Insert as new row"
-msgstr ""
+msgstr "புதிய வரிசையாக செருகவும்"
 
 #: resources/templates/table/insert/actions_panel.twig:11
 msgid "Insert as new row and ignore errors"
