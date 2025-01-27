@@ -12128,7 +12128,7 @@ msgstr "கட்டளை"
 
 #: libraries/classes/Server/Status/Processes.php:141
 msgid "Progress"
-msgstr ""
+msgstr "முன்னேற்றம்"
 
 #: libraries/classes/Setup/Index.php:130
 msgid ""
@@ -17223,7 +17223,7 @@ msgstr "வினவல் பகுப்பாய்வி"
 
 #: templates/server/status/processes/index.twig:14
 msgid "Show only active"
-msgstr "செயல்பாடற்ற"
+msgstr "செயலில் மட்டும் காட்டு"
 
 #: templates/server/status/processes/index.twig:28
 msgid ""
