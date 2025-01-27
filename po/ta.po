@@ -13077,6 +13077,7 @@ msgstr "உள்ளீடு மாற்றுருவாக்க விர�
 #: templates/config/form_display/input.twig:15
 msgid "This setting is disabled, it will not be applied to your configuration."
 msgstr ""
+"இந்த அமைப்பு முடக்கப்பட்டுள்ளது, இது உங்கள் உள்ளமைவுக்கு பயன்படுத்தப்படாது."
 
 #: templates/config/form_display/input.twig:57
 #: templates/config/form_display/input.twig:58
