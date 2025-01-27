@@ -4136,7 +4136,7 @@ msgstr "அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:958
 msgid "List of trusted proxies for IP allow/deny"
-msgstr ""
+msgstr "ஐபி அனுமதி/மறுப்பதற்கான நம்பகமான ப்ராக்சிகளின் பட்டியல்"
 
 #: libraries/classes/Config/Descriptions.php:959
 msgid "Upload directory"
