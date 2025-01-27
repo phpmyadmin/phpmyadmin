@@ -15850,7 +15850,7 @@ msgstr "அனைத்து நெடுவரிசைகளையும் �
 #: src/Normalization.php:203 src/Normalization.php:252
 #: src/Normalization.php:298 src/Normalization.php:330
 msgid "Step 1."
-msgstr ""
+msgstr "படி 1."
 
 #: src/Normalization.php:206
 msgid ""
