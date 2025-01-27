@@ -1463,7 +1463,7 @@ msgstr "லாட்வியன்"
 #: libraries/classes/Charsets/Collation.php:509
 msgctxt "Collation"
 msgid "Lithuanian"
-msgstr ""
+msgstr "லிதுவேனியன்"
 
 #: libraries/classes/Charsets/Collation.php:517
 msgctxt "Collation"
