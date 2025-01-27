@@ -6813,8 +6813,6 @@ msgid "Column name copying to clipboard failed!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:651
-#, fuzzy
-#| msgid "Successfully deleted the page"
 msgid "Successfully copied!"
 msgstr "பக்கம் நீக்கப்பட்டது"
 
