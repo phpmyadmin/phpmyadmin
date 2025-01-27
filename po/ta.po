@@ -3916,7 +3916,7 @@ msgstr "மறைக்கப்பட்ட வழிசெலுத்தல�
 
 #: libraries/classes/Config/Descriptions.php:927
 msgid "User for config auth"
-msgstr ""
+msgstr "கட்டமைப்பு அங்கீகாரத்திற்கான பயனர்"
 
 #: libraries/classes/Config/Descriptions.php:928
 msgid "Verbose name of this server"
