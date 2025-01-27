@@ -11414,6 +11414,7 @@ msgstr "தொடரியல் கவிமொ க்கான கோட்ம
 #: libraries/classes/Plugins/Transformations/Input/Text_Plain_XmlEditor.php:26
 msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr ""
+"எக்ச்எம்எல் (மற்றும் HTML) க்கான CODEMIRROR எடிட்டரை தொடரியல் முன்னிலைப்படுத்தியது."
 
 #: libraries/classes/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:29
 msgid ""
