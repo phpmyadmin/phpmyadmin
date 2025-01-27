@@ -14980,6 +14980,8 @@ msgid ""
 "Can you tell us the steps leading to this error? It decisively helps in "
 "debugging:"
 msgstr ""
+"இந்த பிழைக்கு வழிவகுக்கும் படிகளை எங்களிடம் கூற முடியுமா? பிழைத்திருத்தத்திற்கு இது "
+"தீர்க்கமாக உதவுகிறது:"
 
 #: templates/error/report_form.twig:18
 msgid "You may examine the data in the error report:"
