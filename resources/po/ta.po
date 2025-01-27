@@ -14746,7 +14746,7 @@ msgstr "காட்டுவதற்கு தரவு இல்லை"
 #: src/Controllers/Table/GetFieldController.php:51
 #, php-format
 msgid "'%s' database does not exist."
-msgstr ""
+msgstr "'%s' தரவுத்தளம் இல்லை."
 
 #: src/Controllers/Table/CreateController.php:70
 #, php-format
