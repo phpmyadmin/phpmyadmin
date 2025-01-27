@@ -16808,7 +16808,7 @@ msgstr "%s தரவுத்தளத்தின் திட்டம் - �
 
 #: src/Plugins/Schema/ExportRelationSchema.php:252
 msgid "SCHEMA ERROR: "
-msgstr ""
+msgstr "ச்கீமா பிழை: "
 
 #: src/Plugins/Schema/Pdf/Pdf.php:251
 msgid "PDF export page"
