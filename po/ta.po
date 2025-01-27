@@ -1057,6 +1057,15 @@ msgid ""
 "href=\"https://www.percona.com/blog/2007/11/03/choosing-"
 "innodb_buffer_pool_size/\">this article</a>"
 msgstr ""
+"INNODB இடையகக் குளம் INNODB அட்டவணைகளுக்கான செயல்திறனில் ஆழமான தாக்கத்தை "
+"ஏற்படுத்துகிறது. உங்கள் மீதமுள்ள அனைத்து நினைவகத்தையும் இந்த இடையகத்திற்கு ஒதுக்குங்கள். "
+"சேமிப்பக இயந்திரமாக மட்டுமே இன்னோடிபியைப் பயன்படுத்தும் தரவுத்தள சேவையகங்களுக்கு, வேறு "
+"எந்த சேவைகளும் (எ.கா. ஒரு வலை சேவையகம்) இயங்கவில்லை, இது உங்களுக்கு கிடைக்கக்கூடிய "
+"நினைவகத்தில் 80% வரை அமைக்கலாம். அவ்வாறு இல்லையென்றால், உங்கள் பிற சேவைகள் மற்றும் "
+"இன்-இன்-இன் அல்லாத-அட்டவணைகளின் நினைவக நுகர்வு கவனமாக மதிப்பிட வேண்டும், அதற்கேற்ப இந்த "
+"மாறியை அமைக்க வேண்டும். இது மிக அதிகமாக அமைக்கப்பட்டால், உங்கள் கணினி மாற்றத் தொடங்கும், "
+"இது செயல்திறனை கணிசமாகக் குறைக்கிறது. <A href = \"https://www.percona.com/blog/"
+"2007/11/11/03/choosing-indb_buffer_pool_size/\"> இந்த கட்டுரை </a>"
 
 #: libraries/advisory_rules_generic.php:697
 #, php-format
@@ -1123,7 +1132,7 @@ msgstr ""
 #: libraries/advisory_rules_mysql_before80003.php:23
 #, no-php-format
 msgid "Query cache efficiency (%)"
-msgstr "வினவல் இடைமாற்று முறைமை செயல்திறன் (%%)"
+msgstr "வினவல் கேச் செயல்திறன் (%)"
 
 #: libraries/advisory_rules_mysql_before80003.php:27
 msgid "Query cache not running efficiently, it has a low hit rate."
