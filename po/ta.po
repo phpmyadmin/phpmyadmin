@@ -13146,7 +13146,7 @@ msgstr "ஞாயிறு"
 
 #: libraries/config.values.php:200
 msgid "Ask before sending error reports"
-msgstr ""
+msgstr "பிழை அறிக்கைகளை அனுப்புவதற்கு முன் கேளுங்கள்"
 
 #: libraries/config.values.php:201
 msgid "Always send error reports"
