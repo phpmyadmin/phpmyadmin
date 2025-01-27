@@ -11750,7 +11750,7 @@ msgstr ""
 #: templates/server/privileges/privileges_table.twig:537
 #: templates/server/privileges/privileges_table.twig:540
 msgid "Allows creating and dropping triggers."
-msgstr ""
+msgstr "தூண்டுதல்களை உருவாக்க மற்றும் கைவிட அனுமதிக்கிறது."
 
 #: libraries/classes/Server/Privileges.php:351
 #: templates/server/privileges/privileges_table.twig:15
