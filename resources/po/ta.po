@@ -1674,7 +1674,7 @@ msgstr "செயல்படு விருப்பங்கள்"
 #: resources/templates/sql/query.twig:181
 #: src/Controllers/JavaScriptMessagesController.php:563
 msgid "Submit"
-msgstr ""
+msgstr "சமர்ப்பிக்கவும்"
 
 #: resources/templates/database/designer/page_save_as.twig:18
 msgid "Save to selected page"
