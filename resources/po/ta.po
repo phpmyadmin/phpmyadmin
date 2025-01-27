@@ -10203,7 +10203,7 @@ msgstr "சுழிய மதிப்புகளுக்கு AUTO_INCREMEN
 
 #: src/Config/Descriptions.php:793
 msgid "Read as multibytes"
-msgstr ""
+msgstr "மல்டிபைட்டுகளாக படியுங்கள்"
 
 #: src/Config/Descriptions.php:794
 msgid "Initial state for sliders"
