@@ -548,6 +548,14 @@ msgid ""
 "mentioned in the <a href=\"https://dev.mysql.com/doc/refman/8.0/en/internal-"
 "temporary-tables.html\">MySQL Documentation</a>"
 msgstr ""
+"{max_heap_table_size} மற்றும் {tmp_table_size fork ஐ அதிகரிப்பது உதவக்கூடும். "
+"இருப்பினும் சில தற்காலிக அட்டவணைகள் எப்போதும் வட்டுக்கு எழுதப்படுகின்றன, இந்த மாறிகளின் "
+"மதிப்பிலிருந்து சுயாதீனமாக. இவற்றை அகற்ற நீங்கள் அந்த நிலைமைகளைத் தவிர்ப்பதற்கு உங்கள் "
+"கேள்விகளை மீண்டும் எழுத வேண்டும் (ஒரு தற்காலிக அட்டவணைக்குள்: ஒரு குமிழ் அல்லது உரை "
+"நெடுவரிசையின் இருப்பு அல்லது 512 பைட்டுகளை விட பெரிய நெடுவரிசையின் இருப்பு) <a "
+"href = "
+"\"https: // dev.mysql.com/doc/refman/8.0/en/internal-temperory-tables.html\""
+">mysql ஆவணங்கள் </a>"
 
 #: libraries/advisory_rules_generic.php:352
 #, php-format
