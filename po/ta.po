@@ -2185,6 +2185,8 @@ msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
+"QBE சேமித்த தேடல் ஆதரவுக்கு காலியாக விடவும், பரிந்துரைக்கப்படுகிறது: [KBD] "
+"PMA__SavedSearses [/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:380
 msgid ""
@@ -3757,7 +3759,7 @@ msgstr "QBE சேமித்த தேடல் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:900
 msgid "Export templates table"
-msgstr "விவரபார்வையை அட்டவணையாக தரவாக்குக"
+msgstr "ஏற்றுமதி வார்ப்புருக்கள் அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:901
 msgid "Central columns table"
