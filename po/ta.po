@@ -17541,7 +17541,7 @@ msgstr ""
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
 msgid "Questions since startup:"
-msgstr ""
+msgstr "தொடக்கத்திலிருந்து கேள்விகள்:"
 
 #: templates/server/status/queries/index.twig:20
 msgid "per hour:"
@@ -17568,7 +17568,7 @@ msgstr "#"
 #: templates/server/status/status/index.twig:18
 #: templates/server/status/status/index.twig:38
 msgid "ø per hour"
-msgstr "ஒவ்வொரு மணிக்கும்"
+msgstr "ஒரு மணி நேரத்திற்கு"
 
 #: templates/server/status/queries/index.twig:59
 msgid "Not enough privilege to view query statistics."
@@ -17728,7 +17728,7 @@ msgstr "படிவத்தை காட்டு"
 
 #: templates/setup/home/index.twig:23
 msgid "Show hidden messages"
-msgstr "மறைக்கப்பட்ட உருப்படிகளை காட்டு"
+msgstr "மறைக்கப்பட்ட செய்திகளைக் காட்டு"
 
 #: templates/setup/home/index.twig:73
 msgid "There are no configured servers"
