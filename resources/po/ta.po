@@ -10561,7 +10561,7 @@ msgstr "கட்டுப்பாட்டு துறை"
 
 #: src/Config/Descriptions.php:874
 msgid "Disable use of INFORMATION_SCHEMA"
-msgstr ""
+msgstr "தகவல்_செமாவின் பயன்பாட்டை முடக்கு"
 
 #: src/Config/Descriptions.php:875
 msgid "Hide databases"
