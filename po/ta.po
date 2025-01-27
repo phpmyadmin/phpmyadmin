@@ -12340,7 +12340,7 @@ msgstr "இந்த MySQL சேவையகம் %s சேமிப்பக 
 
 #: libraries/classes/Table/Indexes.php:58 libraries/classes/Table.php:2110
 msgid "The name of the primary key must be \"PRIMARY\"!"
-msgstr ""
+msgstr "முதன்மை விசையின் பெயர் \"முதன்மை\" ஆக இருக்க வேண்டும்!"
 
 #: libraries/classes/Table/Maintenance.php:122
 #, php-format
