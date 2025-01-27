@@ -14873,7 +14873,7 @@ msgstr "Git திருத்தபதிப்பு:"
 
 #: templates/home/git_info.twig:13
 msgid "no branch"
-msgstr ""
+msgstr "கிளை இல்லை"
 
 #: templates/home/git_info.twig:15 templates/home/git_info.twig:22
 #, php-format
