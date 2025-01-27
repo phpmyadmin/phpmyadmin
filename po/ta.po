@@ -15969,7 +15969,7 @@ msgstr "pmadbஇன் அமைப்பாக்கம்…"
 #: templates/relation/check_relations.twig:477
 #: templates/relation/check_relations.twig:502
 msgid "not OK"
-msgstr ""
+msgstr "சரி இல்லை"
 
 #: templates/relation/check_relations.twig:14
 msgid "General relation features"
