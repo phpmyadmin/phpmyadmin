@@ -15272,8 +15272,6 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
 msgstr "இரட்டையாக்கப்பட்டது"
 
