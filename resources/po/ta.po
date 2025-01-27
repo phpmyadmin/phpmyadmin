@@ -9709,7 +9709,7 @@ msgstr "பறக்கும்போது சுருக்க"
 
 #: src/Config/Descriptions.php:614
 msgid "Confirm DROP queries"
-msgstr ""
+msgstr "துளி வினவல்களை உறுதிப்படுத்தவும்"
 
 #: src/Config/Descriptions.php:616 src/Plugins/Schema/SchemaDia.php:64
 #: src/Plugins/Schema/SchemaPdf.php:74
