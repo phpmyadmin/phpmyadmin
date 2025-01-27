@@ -15137,7 +15137,7 @@ msgstr "தொடங்குவதற்கு வரிசை:"
 
 #: templates/export.twig:130
 msgid "Dump all rows"
-msgstr ""
+msgstr "அனைத்து வரிசைகளையும் கொட்டவும்"
 
 #: templates/export.twig:138 templates/export.twig:279
 msgid "Output:"
