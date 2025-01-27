@@ -5169,18 +5169,18 @@ msgstr "பயனர் குழு"
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:156
 msgid "Unlock this account."
-msgstr "பயனர் குழுக்கள்"
+msgstr "இந்த கணக்கைத் திறக்கவும்."
 
 #: resources/templates/server/privileges/users_overview.twig:100
 #: src/Controllers/JavaScriptMessagesController.php:155
 msgid "Lock this account."
-msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
+msgstr "இந்த கணக்கை பூட்டவும்."
 
 #: resources/templates/server/privileges/users_overview.twig:102
 #: src/Controllers/JavaScriptMessagesController.php:154
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "திறக்க"
 
 #: resources/templates/server/privileges/users_overview.twig:105
 #: src/Controllers/JavaScriptMessagesController.php:153
@@ -12919,7 +12919,7 @@ msgstr "தரவிறக்க வேண்டிய கோப்பை தய
 
 #: src/Controllers/JavaScriptMessagesController.php:330
 msgid "Please enter a valid table name."
-msgstr "செல்லுபடியாகும் அட்டவணை பெயரை உள்ளிடவும்."
+msgstr "சரியான அட்டவணை பெயரை உள்ளிடவும்."
 
 #: src/Controllers/JavaScriptMessagesController.php:331
 msgid "Please enter a valid database name."
@@ -13076,7 +13076,7 @@ msgstr "வினவல் பெட்டியை காண்பி"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
 msgid "Edit query"
-msgstr "வினவலை சமர்ப்பி"
+msgstr "வினவலைத் திருத்து"
 
 #: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
@@ -13445,7 +13445,8 @@ msgstr "நெடுவரிசை பெயர்"
 
 #: src/Controllers/JavaScriptMessagesController.php:566
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "தொகுப்பதை நிறுத்த Esc அழுத்தவும்."
+msgstr ""
+"திருத்துதல் ரத்து செய்ய எச்கேப் அழுத்தவும். <br>- சிப்ட்+ஒரு புதிய வரிக்கு உள்ளிடவும்."
 
 #: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -13570,7 +13571,7 @@ msgstr "இன்றுவரை"
 
 #: src/Controllers/JavaScriptMessagesController.php:624
 msgid "There was an error in loading the Git information."
-msgstr "ESRI வடிவகோப்பை \"%s\" தரவிறக்குவதில் பிழை நிகழ்ந்துள்ளது."
+msgstr "அறிவிலி தகவல்களை ஏற்றுவதில் பிழை ஏற்பட்டது."
 
 #: src/Controllers/JavaScriptMessagesController.php:627
 msgid ""
