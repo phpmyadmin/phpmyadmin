@@ -9929,7 +9929,7 @@ msgstr "பேக்சுவோட்டுகளுடன் அட்டவ�
 
 #: src/Config/Descriptions.php:689 src/Config/Descriptions.php:791
 msgid "SQL compatibility mode"
-msgstr ""
+msgstr "கவிமொ பொருந்தக்கூடிய பயன்முறை"
 
 #: src/Config/Descriptions.php:690
 msgid "Creation/Update/Check dates"
