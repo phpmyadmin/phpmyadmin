@@ -2523,6 +2523,7 @@ msgstr "ஒரு நேரத்தில் எத்தனை வரிசை
 msgid ""
 "Maximum number of characters shown in any non-numeric column on browse view."
 msgstr ""
+"உலாவல் பார்வையில் எந்த-மொமரிக் அல்லாத நெடுவரிசையில் காட்டப்பட்டுள்ள அதிகபட்ச எழுத்துக்கள்."
 
 #: libraries/classes/Config/Descriptions.php:567
 msgid "Define how long (in seconds) a login cookie is valid."
