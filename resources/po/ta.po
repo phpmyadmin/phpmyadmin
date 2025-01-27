@@ -15090,7 +15090,7 @@ msgstr "எழுது % காத்திருக்கிறது"
 
 #: src/Engines/Myisam.php:28
 msgid "Data pointer size"
-msgstr ""
+msgstr "தரவு சுட்டிக்காட்டி அளவு"
 
 #: src/Engines/Myisam.php:30
 msgid ""
