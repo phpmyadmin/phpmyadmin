@@ -8898,6 +8898,8 @@ msgid ""
 "The mode for automatic recovery of crashed MyISAM tables, as set via the --"
 "myisam-recover server startup option."
 msgstr ""
+"--Myisam-recover சேவையக தொடக்க விருப்பம் வழியாக அமைக்கப்பட்டபடி, செயலிழந்த MyISAM "
+"அட்டவணைகளை தானாக மீட்டெடுப்பதற்கான பயன்முறை."
 
 #: libraries/classes/Engines/Myisam.php:43
 msgid "Maximum size for temporary sort files"
