@@ -7464,7 +7464,7 @@ msgstr "தற்காலிக அட்டவணைகளை ஏற்பட�
 
 #: src/Advisory/Rules.php:235 src/Advisory/Rules.php:250
 msgid "Too many sorts are causing temporary tables."
-msgstr ""
+msgstr "பல வகையான தற்காலிக அட்டவணைகளை ஏற்படுத்துகிறது."
 
 #: src/Advisory/Rules.php:237 src/Advisory/Rules.php:252
 msgid ""
