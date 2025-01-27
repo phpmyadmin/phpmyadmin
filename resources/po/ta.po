@@ -7431,7 +7431,7 @@ msgstr ""
 #: src/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "இந்த ஓச்டில் கிடைக்கும் நினைவகம்: %s"
 
 #: src/Advisory/Rules.php:211
 msgid "Query caching method"
