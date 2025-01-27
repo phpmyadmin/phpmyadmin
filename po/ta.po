@@ -4484,6 +4484,12 @@ msgid ""
 "protection with trusted proxies list may not be reliable if your IP belongs "
 "to an ISP where thousands of users, including you, are connected to."
 msgstr ""
+"இந்த %soption %s முடக்கப்பட வேண்டும், ஏனெனில் இது எந்தவொரு MySQL சேவையகத்திற்கும் "
+"உள்நுழைவதைத் தாக்குபவர்களை அனுமதிக்கிறது. இது தேவை என்று நீங்கள் நினைத்தால், %sRESTRICT "
+"உள்நுழைவை MySQL சேவையகம் %s அல்லது %ச்ட்ரச்டட் ப்ராக்சீச் பட்டியல் %s க்கு பயன்படுத்தவும். "
+"இருப்பினும், உங்கள் ஐபி ஒரு ஐஎச்பிக்கு சொந்தமானது என்றால், நம்பகமான ப்ராக்சீச் பட்டியலுடன் "
+"ஐபி அடிப்படையிலான பாதுகாப்பு நம்பகமானதாக இருக்காது, அங்கு நீங்கள் உட்பட ஆயிரக்கணக்கான "
+"பயனர்கள் இணைக்கப்பட்டுள்ளனர்."
 
 #: libraries/classes/Config/ServerConfigChecks.php:92
 msgid ""
