@@ -147,6 +147,8 @@ msgid ""
 "Enable slow query logging by setting {log_slow_queries} to 'ON'. This will "
 "help troubleshooting badly performing queries."
 msgstr ""
+"{log_slow_queries} பெறுநர் 'on' ஐ அமைப்பதன் மூலம் மெதுவான வினவல் உள்நுழைவை இயக்கவும்"
+". இது மோசமாக செயல்படும் வினவல்களை சரிசெய்ய உதவும்."
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
