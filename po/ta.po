@@ -396,7 +396,7 @@ msgstr "முதல் குறியீட்டெண்ணை கண்ட�
 
 #: libraries/advisory_rules_generic.php:262
 msgid "The rate of reading the first index entry is high."
-msgstr ""
+msgstr "முதல் குறியீட்டு உள்ளீட்டைப் படிக்கும் விகிதம் அதிகமாக உள்ளது."
 
 #: libraries/advisory_rules_generic.php:264
 msgid ""
