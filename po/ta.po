@@ -8176,8 +8176,7 @@ msgid "Export of event %s"
 msgstr "%s நிகழ்வின் தரவேற்றம்"
 
 #: libraries/classes/Database/Events.php:589
-#, fuzzy, php-format
-#| msgid "No tables found in database."
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr "அட்டவணைகள் எதுவும் இத்தரவுத்தளத்தில் காணப்படவில்லை."
