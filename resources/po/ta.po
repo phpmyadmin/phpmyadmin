@@ -72,7 +72,7 @@ msgstr "செல்பதிகை"
 #: resources/templates/base.twig:108
 #: src/Controllers/JavaScriptMessagesController.php:345
 msgid "Page-related settings"
-msgstr "அமைப்புக்களை மாற்று"
+msgstr "பக்கம் தொடர்பான அமைப்புகள்"
 
 #: resources/templates/base.twig:110
 msgid "Click on the bar to scroll to top of page"
@@ -2655,7 +2655,7 @@ msgstr ""
 #: resources/templates/table/delete/confirm.twig:25
 #: src/Controllers/JavaScriptMessagesController.php:376
 msgid "Enable foreign key checks"
-msgstr "அயல் குறியெண் சரிபார்க்க:"
+msgstr "வெளிநாட்டு விசை காசோலைகளை இயக்கவும்"
 
 #: resources/templates/database/structure/favorite_anchor.twig:4
 #: resources/templates/recent_favorite_table_favorite.twig:12
@@ -3196,7 +3196,7 @@ msgstr "அட்டவணை"
 #: src/Controllers/JavaScriptMessagesController.php:301
 msgctxt "Alias"
 msgid "Column"
-msgstr "நிரல்வரிசை"
+msgstr "நெடுவரிசை"
 
 #: resources/templates/export.twig:265
 msgid "Define new aliases"
@@ -12009,7 +12009,7 @@ msgstr "தொடங்கவும்"
 #. l10n: shortcuts for Exabyte
 #: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:313
 msgid "EiB"
-msgstr "EiB"
+msgstr "Eib"
 
 #: src/Controllers/JavaScriptMessagesController.php:217
 #, php-format
@@ -12313,7 +12313,7 @@ msgstr "தரவிறக்குவதற்கு வழங்கியி�
 
 #: src/Controllers/JavaScriptMessagesController.php:334
 msgid "Analyse query"
-msgstr "வினவலை பகுத்தாய்க"
+msgstr "வினவலை பகுப்பாய்வு செய்யுங்கள்"
 
 #: src/Controllers/JavaScriptMessagesController.php:337
 msgid "Formatting SQL…"
@@ -12321,25 +12321,25 @@ msgstr "SQL சரியமைக்கபடுகிறது…"
 
 #: src/Controllers/JavaScriptMessagesController.php:338
 msgid "No parameters found!"
-msgstr "ஒவ்வாத பண்புகூறுகள்!"
+msgstr "அளவுருக்கள் எதுவும் கிடைக்கவில்லை!"
 
 #: src/Controllers/JavaScriptMessagesController.php:350
 msgid "Request aborted!!"
-msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
+msgstr "கோரிக்கை நிறுத்தப்பட்டது !!"
 
 #: src/Controllers/JavaScriptMessagesController.php:351
 msgid "Processing request"
-msgstr "வேண்டுகோள் செயல்முறைப்படுத்தபடுகின்றது"
+msgstr "செயலாக்க கோரிக்கை"
 
 #: src/Controllers/JavaScriptMessagesController.php:352
 msgid "Request failed!!"
-msgstr "வேண்டுகோள் கைவிடப்பட்டது!!"
+msgstr "கோரிக்கை தோல்வியடைந்தது !!"
 
 #: src/Controllers/JavaScriptMessagesController.php:353
 #: src/Controllers/Sql/EnumValuesController.php:36
 #: src/Controllers/Sql/SetValuesController.php:39
 msgid "Error in processing request"
-msgstr "வேண்டுகோள் செயலாக்கதில் பிழை:"
+msgstr "செயலாக்க கோரிக்கையில் பிழை"
 
 #: src/Controllers/JavaScriptMessagesController.php:354
 #, php-format
@@ -12361,15 +12361,15 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:362
 msgid "No accounts selected."
-msgstr "எந்த நிரல்வரிசையும் தெரிவுசெய்யப்படவில்லை."
+msgstr "கணக்குகள் எதுவும் தேர்ந்தெடுக்கப்படவில்லை."
 
 #: src/Controllers/JavaScriptMessagesController.php:363
 msgid "Dropping column"
-msgstr "நிரல்வரிசை கைவிடப்படுகிறது"
+msgstr "சொட்டு நெடுவரிசை"
 
 #: src/Controllers/JavaScriptMessagesController.php:364
 msgid "Adding primary key"
-msgstr "முதனிலை குறிப்பெழுத்து சேர்க்க"
+msgstr "முதன்மை விசையைச் சேர்ப்பது"
 
 #: src/Controllers/JavaScriptMessagesController.php:366
 msgid "Click to dismiss this notification"
@@ -12377,15 +12377,15 @@ msgstr "இந்த அறிவுறுத்தலை நீக்க சொ
 
 #: src/Controllers/JavaScriptMessagesController.php:370
 msgid "Renaming databases"
-msgstr "தரவுத்தளங்கங்களின் பெயர் மாற்றப்படுகின்றது"
+msgstr "தரவுத்தளங்களை மறுபெயரிடுதல்"
 
 #: src/Controllers/JavaScriptMessagesController.php:371
 msgid "Copying database"
-msgstr "தரவுத்தளம் நகல் எடுக்கபடுகின்றது"
+msgstr "தரவுத்தளத்தை நகலெடுக்கும்"
 
 #: src/Controllers/JavaScriptMessagesController.php:372
 msgid "Changing charset"
-msgstr "எழுத்துத்தொகுதி மாற்றப்படுகின்றது"
+msgstr "மாற்றும் சார்சனை"
 
 #: src/Controllers/JavaScriptMessagesController.php:379
 msgid "Failed to get real row count."
@@ -12468,7 +12468,7 @@ msgstr "%d என்பது சரியான நிரைவரிசை எ
 #: src/Controllers/JavaScriptMessagesController.php:411
 #, php-format
 msgid "Variable %d:"
-msgstr "மாறிகள்"
+msgstr "மாறி %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
 #: src/Normalization.php:949
@@ -12576,7 +12576,7 @@ msgstr "பின்வரும் நடவடிக்கைகள் செ�
 #: src/Controllers/JavaScriptMessagesController.php:446
 #, php-format
 msgid "DROP columns %s from the table %s"
-msgstr "%1s நிரல்வரிசைகளை %2s அட்டவணையிலிருந்து கைவிடுக"
+msgstr "அட்டவணை %s இலிருந்து %s நெடுவரிசைகளை விடுங்கள்"
 
 #: src/Controllers/JavaScriptMessagesController.php:447
 msgid "Create the following table"
@@ -12688,11 +12688,11 @@ msgstr "பல்கோணி"
 
 #: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Inner ring"
-msgstr "உள்ப்புற வளையம்"
+msgstr "உள் வளையம்"
 
 #: src/Controllers/JavaScriptMessagesController.php:502
 msgid "Outer ring"
-msgstr "வெளிப்புற வளையம்:"
+msgstr "வெளிப்புற வளையம்"
 
 #: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Add a point"
