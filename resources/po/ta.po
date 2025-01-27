@@ -15625,6 +15625,7 @@ msgstr ""
 #: src/Import/Import.php:1222
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
+"ஒரு கட்டமைப்பின் உள்ளடக்கங்களை அதன் பெயரைக் சொடுக்கு செய்வதன் மூலம் காண்க."
 
 #: src/Import/Import.php:1223
 msgid ""
