@@ -10127,7 +10127,7 @@ msgstr "இயல்பாக்கத்தின் முதல் படி 
 #: libraries/classes/Normalization.php:333
 #: libraries/classes/Normalization.php:370
 msgid "Step 1."
-msgstr ""
+msgstr "படி 1."
 
 #: libraries/classes/Normalization.php:234
 msgid ""
