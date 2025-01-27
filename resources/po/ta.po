@@ -9693,7 +9693,7 @@ msgstr "கரி டெக்ச்டேரியா நெடுவரிச�
 
 #: src/Config/Descriptions.php:611
 msgid "CHAR textarea rows"
-msgstr ""
+msgstr "கரி டெக்ச்டேரியா வரிசைகள்"
 
 #: src/Config/Descriptions.php:612
 msgid "Check config file permissions"
