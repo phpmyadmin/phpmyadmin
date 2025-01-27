@@ -1289,7 +1289,7 @@ msgstr "இருமம்"
 #: libraries/classes/Charsets/Collation.php:580
 msgctxt "Collation"
 msgid "Unicode"
-msgstr ""
+msgstr "ஒருங்குறி"
 
 #: libraries/classes/Charsets/Collation.php:348
 #: libraries/classes/Charsets/Collation.php:527
