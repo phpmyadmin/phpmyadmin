@@ -8273,7 +8273,7 @@ msgstr "கருப்பொருள்"
 
 #: libraries/classes/Controllers/UserPasswordController.php:51
 msgid "You don't have sufficient privileges to be here right now!"
-msgstr ""
+msgstr "இப்போது இங்கே இருக்க உங்களுக்கு போதுமான சலுகைகள் இல்லை!"
 
 #: libraries/classes/Controllers/ViewCreateController.php:84
 msgid "View name can not be empty!"
