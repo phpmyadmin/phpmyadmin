@@ -14657,7 +14657,7 @@ msgstr "அட்டவணையை கண்காணி"
 
 #: templates/database/triggers/editor_form.twig:23
 msgid "Trigger name"
-msgstr ""
+msgstr "தூண்டுதல் பெயர்"
 
 #: templates/database/triggers/editor_form.twig:37
 msgctxt "Trigger action time"
