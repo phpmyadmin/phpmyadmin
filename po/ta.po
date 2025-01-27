@@ -12857,7 +12857,7 @@ msgstr ""
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
 msgid "Numeric"
-msgstr ""
+msgstr "எண் வரிசை"
 
 #: libraries/classes/Types.php:809
 msgctxt "date and time types"
