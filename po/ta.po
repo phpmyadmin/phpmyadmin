@@ -1574,6 +1574,9 @@ msgid ""
 "inside a frame, and is a potential [strong]security hole[/strong] allowing "
 "cross-frame scripting (XSS) attacks."
 msgstr ""
+"இதை இயக்குவது வேறு டொமைனில் அமைந்துள்ள ஒரு பக்கத்தை ஒரு சட்டகத்திற்குள் Phpmyadmin ஐ "
+"அழைக்க அனுமதிக்கிறது, மேலும் இது குறுக்கு-சட்ட ச்கிரிப்டிங் (எக்ச்எச்எச்) தாக்குதல்களை "
+"அனுமதிக்கும் சாத்தியமான [வலுவான] பாதுகாப்பு துளை [/வலுவானது."
 
 #: libraries/classes/Config/Descriptions.php:102
 msgid ""
