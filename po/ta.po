@@ -9085,7 +9085,7 @@ msgstr "வரிசை கோப்பு அளவு வளரும்"
 
 #: libraries/classes/Engines/Pbxt.php:123
 msgid "The grow size of the row pointer (.xtr) files."
-msgstr ""
+msgstr "வரிசை சுட்டிக்காட்டி (.xtr) கோப்புகளின் வளரும் அளவு."
 
 #: libraries/classes/Engines/Pbxt.php:127
 msgid "Log file count"
