@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-01-27 02:40+0000\n"
+"PO-Revision-Date: 2025-01-27 02:41+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/5-2/ta/>"
 "\n"
@@ -12354,7 +12354,7 @@ msgstr "தெரியாத அட்டவணை நிலை:"
 #: libraries/classes/Table.php:1011
 #, php-format
 msgid "Source database `%s` was not found!"
-msgstr ""
+msgstr "மூல தரவுத்தளம் `%s` காணப்படவில்லை!"
 
 #: libraries/classes/Table.php:1020
 #, php-format
