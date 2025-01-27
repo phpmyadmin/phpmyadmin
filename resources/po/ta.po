@@ -15967,7 +15967,7 @@ msgstr "மீண்டும் மீண்டும் குழு இல்
 
 #: src/Normalization.php:373
 msgid "Step 2."
-msgstr ""
+msgstr "படி 2."
 
 #: src/Normalization.php:373
 msgid "Find partial dependencies"
