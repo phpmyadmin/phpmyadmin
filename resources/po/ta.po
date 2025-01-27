@@ -9801,7 +9801,7 @@ msgstr "இறக்குமதி மற்றும் ஏற்றுமத�
 
 #: src/Config/Descriptions.php:585
 msgid "Choose the default action when sending error reports."
-msgstr ""
+msgstr "பிழை அறிக்கைகளை அனுப்பும்போது இயல்புநிலை செயலைத் தேர்வுசெய்க."
 
 #: src/Config/Descriptions.php:597
 msgid "Allow login to any MySQL server"
