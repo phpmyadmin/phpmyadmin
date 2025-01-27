@@ -17334,7 +17334,7 @@ msgstr "ரத்து செய்யுங்கள்"
 
 #: src/Server/Privileges.php:1883
 msgid "No users selected for deleting!"
-msgstr ""
+msgstr "நீக்க பயனர்கள் யாரும் தேர்ந்தெடுக்கப்படவில்லை!"
 
 #: src/Server/Privileges.php:1886
 msgid "Reloading the privileges"
