@@ -14600,7 +14600,7 @@ msgstr "வரிசைப்படுத்தப்பட்ட வரிச�
 
 #: src/Controllers/Server/Status/VariablesController.php:475
 msgid "The number of sorts that were done by scanning the table."
-msgstr ""
+msgstr "அட்டவணையை ச்கேன் செய்வதன் மூலம் செய்யப்பட்ட வகைகளின் எண்ணிக்கை."
 
 #: src/Controllers/Server/Status/VariablesController.php:476
 msgid "The number of times that a table lock was acquired immediately."
