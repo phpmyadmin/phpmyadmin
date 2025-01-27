@@ -2479,7 +2479,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:501
 msgid "Display the function fields in edit/insert mode."
-msgstr ""
+msgstr "செயல்பாட்டு புலங்களை திருத்து/செருகு பயன்முறையில் காண்பி."
 
 #: libraries/classes/Config/Descriptions.php:502
 msgid "Whether to show hint or not."
