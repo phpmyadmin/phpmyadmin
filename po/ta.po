@@ -2767,7 +2767,7 @@ msgstr "கோப்பின் எழுத்து தொகுப்பு"
 #: libraries/classes/Config/Descriptions.php:683 templates/sql/query.twig:41
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
-msgstr ""
+msgstr "வடிவம்"
 
 #: libraries/classes/Config/Descriptions.php:668
 msgid "Compression"
