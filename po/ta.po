@@ -3847,7 +3847,7 @@ msgstr "பதிப்புகளை தானாக உருவாக்க�
 
 #: libraries/classes/Config/Descriptions.php:932
 msgid "User preferences storage table"
-msgstr ""
+msgstr "பயனர் விருப்பத்தேர்வுகள் சேமிப்பக அட்டவணை"
 
 #: libraries/classes/Config/Descriptions.php:933
 msgid "Users table"
