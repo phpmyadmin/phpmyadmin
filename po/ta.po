@@ -7273,7 +7273,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:147
 msgid "ID"
-msgstr ""
+msgstr "ஐடி"
 
 #: libraries/classes/Controllers/Server/Status/ProcessesController.php:151
 #: libraries/classes/Server/Privileges.php:3002
