@@ -11177,7 +11177,7 @@ msgstr "எல்லா அட்டவணைகளுக்கும் ஒர�
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:83
 msgid "Show grid"
-msgstr ""
+msgstr "கட்டத்தைக் காட்டு"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:89
 #: templates/database/structure/index.twig:21
@@ -11186,15 +11186,15 @@ msgstr "தரவு அகராதி"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:95
 msgid "Order of the tables"
-msgstr "விருப்பமான அட்டவணைகள் ஏதுமில்லை."
+msgstr "அட்டவணைகளின் வரிசை"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:100
 msgid "Name (Ascending)"
-msgstr "ஏறுவரிசை"
+msgstr "பெயர் (ஏறுதல்)"
 
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:101
 msgid "Name (Descending)"
-msgstr "இறங்குவரிசை"
+msgstr "பெயர் (இறங்கு)"
 
 #: libraries/classes/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:28
 msgid ""
