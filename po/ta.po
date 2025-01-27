@@ -16565,7 +16565,7 @@ msgstr ""
 
 #: templates/server/privileges/privileges_table.twig:552
 msgid "Administration"
-msgstr ""
+msgstr "நிர்வாகம்"
 
 #: templates/server/privileges/privileges_table.twig:559
 #: templates/server/privileges/privileges_table.twig:562
