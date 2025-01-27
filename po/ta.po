@@ -130,7 +130,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:74
 #, php-format
 msgid "long_query_time is currently set to %ds."
-msgstr ""
+msgstr "long_query_time தற்போது %ds ஆக அமைக்கப்பட்டுள்ளது."
 
 #: libraries/advisory_rules_generic.php:79
 #: libraries/advisory_rules_generic.php:92
