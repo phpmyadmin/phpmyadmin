@@ -1809,7 +1809,7 @@ msgstr "வழிசெலுத்தல் மரத்தைத் தனி�
 
 #: libraries/classes/Config/Descriptions.php:222
 msgid "Servers display options."
-msgstr ""
+msgstr "சேவையகங்கள் காட்சி விருப்பங்கள்."
 
 #: libraries/classes/Config/Descriptions.php:223
 msgid "Tables display options."
