@@ -6999,7 +6999,7 @@ msgstr ""
 #: src/Plugins/Export/ExportTexytext.php:426
 #: src/Plugins/Export/Helpers/Pdf.php:334
 msgid "Event"
-msgstr ""
+msgstr "நிகழ்வு"
 
 #: resources/templates/triggers/export.twig:2
 #: src/Controllers/Triggers/IndexController.php:233
