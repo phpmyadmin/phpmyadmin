@@ -1667,7 +1667,7 @@ msgstr ""
 #: resources/templates/table/search/index.twig:41
 #: resources/templates/table/zoom_search/index.twig:39
 msgid "Operator"
-msgstr ""
+msgstr "ஆபரேட்டர்"
 
 #: resources/templates/database/designer/main.twig:1087
 msgid "Active options"
