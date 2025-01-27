@@ -4590,8 +4590,6 @@ msgstr ""
 #: libraries/classes/Controllers/Table/MaintenanceController.php:117
 #: libraries/classes/Controllers/Table/MaintenanceController.php:153
 #: libraries/classes/Controllers/Table/MaintenanceController.php:188
-#, fuzzy
-#| msgid "No tables selected."
 msgid "No table selected."
 msgstr "எந்த அட்டவணைகளும்  தேர்ந்தெடுக்கப்படவில்லை."
 
@@ -5123,7 +5121,7 @@ msgstr "மீட்டமைக்கவும்"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:96
 msgid "Reset all"
-msgstr "அனைத்தையும் தொடக்கத்தில் இருந்தது போல மாற்ற"
+msgstr "அனைத்தையும் மீட்டமை"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:99
 msgid "Missing value in the form!"
@@ -5139,7 +5137,7 @@ msgstr "தயவுசெய்து ஒரு சரியான எண்ண
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
 msgid "Please enter a valid length!"
-msgstr "தயவுசெய்து ஒரு சரியான நீள அளவை இடுக!"
+msgstr "தயவுசெய்து ஒரு சரியான நீளத்தை இடுக!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Add index"
