@@ -10907,7 +10907,7 @@ msgstr "உங்கள் அட்டவணை தூண்டுதல்க�
 #: libraries/classes/Plugins/Export/ExportSql.php:2175
 #, php-format
 msgid "Structure for view %s exported as a table"
-msgstr ""
+msgstr "பார்வைக்கான கட்டமைப்பு %s ஒரு அட்டவணையாக ஏற்றுமதி செய்யப்படுகின்றன"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2202
 msgid "(See below for the actual view)"
