@@ -17874,12 +17874,12 @@ msgstr "%1$s க்கான கண்காணிப்பு பதிப்�
 #: src/Tracking/Tracking.php:864
 #, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
-msgstr ""
+msgstr "%1$s க்கான கண்காணிப்பு பதிப்பு %2$s இல் செயலிழக்கப்பட்டது."
 
 #: src/Tracking/Tracking.php:959
 #, php-format
 msgid "Version %1$s of %2$s was deleted."
-msgstr "%2$s ன் %1$s பதிப்பை உருவாக்குக"
+msgstr "பதிப்பு %1$s %2$s நீக்கப்பட்டது."
 
 #: src/Tracking/Tracking.php:990
 #, php-format
