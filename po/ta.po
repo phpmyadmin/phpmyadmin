@@ -4763,6 +4763,7 @@ msgstr "அட்டவணைகள் எதுவும் இத்தரவ�
 #: libraries/classes/Controllers/Table/ExportController.php:104
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
+"ஏற்றுமதி செருகுநிரல்களை ஏற்ற முடியவில்லை, தயவுசெய்து உங்கள் நிறுவலை சரிபார்க்கவும்!"
 
 #: libraries/classes/Controllers/Database/ImportController.php:72
 #: libraries/classes/Controllers/Import/ImportController.php:570
