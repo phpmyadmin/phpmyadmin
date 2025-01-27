@@ -7448,6 +7448,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple replicas."
 msgstr ""
+"நீங்கள் MySQL வினவல் தற்காலிக சேமிப்பை மிகவும் அதிக போக்குவரத்து தரவுத்தளத்துடன் "
+"பயன்படுத்துகிறீர்கள். <A href = "
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\"> Memcached </"
+"a> ஐப் பயன்படுத்துவதைக் கருத்தில் கொள்ளலாம் உங்களிடம் பல பிரதிகள் இருந்தால்."
 
 #: src/Advisory/Rules.php:223
 #, php-format
