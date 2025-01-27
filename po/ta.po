@@ -17424,7 +17424,7 @@ msgstr "பகிரப்பட்டது"
 
 #: templates/sql/query.twig:169
 msgid "View only"
-msgstr ""
+msgstr "பார்க்க மட்டுமே"
 
 #: templates/start_and_number_of_rows_panel.twig:3
 msgid "Start row:"
