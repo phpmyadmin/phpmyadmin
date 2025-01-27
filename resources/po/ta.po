@@ -9860,7 +9860,7 @@ msgstr "எக்செல் பதிப்பு"
 
 #: src/Config/Descriptions.php:651
 msgid "Database name template"
-msgstr ""
+msgstr "தரவுத்தள பெயர் வார்ப்புரு"
 
 #: src/Config/Descriptions.php:652
 msgid "Server name template"
