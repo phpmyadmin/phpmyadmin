@@ -13935,7 +13935,7 @@ msgstr "பதிப்பு %1$s ஐ உருவாக்கவும்"
 
 #: templates/create_tracking_version.twig:20
 msgid "Track these data definition statements:"
-msgstr ""
+msgstr "இந்த தரவு வரையறை அறிக்கைகளைக் கண்காணிக்கவும்:"
 
 #: templates/create_tracking_version.twig:59
 msgid "Track these data manipulation statements:"
