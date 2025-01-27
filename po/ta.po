@@ -7414,6 +7414,8 @@ msgid ""
 "The number of in-memory temporary tables created automatically by the server "
 "while executing statements."
 msgstr ""
+"அறிக்கைகளை இயக்கும் போது சேவையகத்தால் தானாக உருவாக்கப்பட்ட நினைவக தற்காலிக அட்டவணைகளின் "
+"எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:262
 msgid ""
