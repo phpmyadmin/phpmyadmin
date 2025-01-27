@@ -17561,7 +17561,7 @@ msgstr ""
 
 #: templates/table/insert/actions_panel.twig:9
 msgid "Insert as new row"
-msgstr ""
+msgstr "புதிய வரிசையாக செருகவும்"
 
 #: templates/table/insert/actions_panel.twig:10
 msgid "Insert as new row and ignore errors"
