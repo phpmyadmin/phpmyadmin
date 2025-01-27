@@ -17075,6 +17075,8 @@ msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
+"விளக்கப்படங்களின் ஏற்பாடு உலாவிகள் உள்ளக சேமிப்பகத்தில் சேமிக்கப்படுகிறது. உங்களிடம் சிக்கலா"
+"ன அமைவு இருந்தால் அதை ஏற்றுமதி செய்ய விரும்பலாம்."
 
 #: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
