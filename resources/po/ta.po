@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-26 00:24+0000\n"
-"PO-Revision-Date: 2025-01-27 02:04+0000\n"
+"PO-Revision-Date: 2025-01-27 02:05+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "ta/>\n"
@@ -1132,7 +1132,7 @@ msgstr "ஏனையது->வரிசை"
 
 #: resources/templates/console/display.twig:103 src/Config/Descriptions.php:964
 msgid "Group queries"
-msgstr "SQL வினவல்கள்"
+msgstr "குழு வினவல்கள்"
 
 #: resources/templates/console/display.twig:106
 msgid "Ungroup queries"
@@ -1206,7 +1206,7 @@ msgstr "துவக்கத்தின் போது வினவல் வ
 
 #: resources/templates/console/display.twig:193 src/Config/Descriptions.php:959
 msgid "Show current browsing query"
-msgstr "தற்போது உலவும் வினவலை காண்பிக்க"
+msgstr "தற்போதைய உலாவல் வினவலைக் காட்டு"
 
 #: resources/templates/console/display.twig:197
 msgid ""
@@ -1216,7 +1216,7 @@ msgstr ""
 
 #: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
-msgstr "பிரதியான தரவுதளத்துக்கு மாறு"
+msgstr "இருண்ட கருப்பொருளுக்கு மாறவும்"
 
 #: resources/templates/create_tracking_version.twig:10
 #, php-format
@@ -10939,7 +10939,7 @@ msgstr "பிழை அறிக்கைகளை அனுப்பவும�
 
 #: src/Config/Descriptions.php:955
 msgid "Enter executes queries in console"
-msgstr ""
+msgstr "கன்சோலில் வினவல்களை இயக்கவும்"
 
 #: src/Config/Descriptions.php:956
 msgid "Enable Zero Configuration mode"
@@ -10951,15 +10951,15 @@ msgstr ""
 
 #: src/Config/Descriptions.php:962
 msgid "Console height"
-msgstr "முனையம்"
+msgstr "கன்சோல் உயரம்"
 
 #: src/Config/Descriptions.php:963
 msgid "Console mode"
-msgstr "முனையம்"
+msgstr "கன்சோல் பயன்முறை"
 
 #: src/Config/Descriptions.php:966
 msgid "Order by"
-msgstr "ஏனையது->வரிசை"
+msgstr "வழங்கியவர்"
 
 #: src/Config/Descriptions.php:967
 msgid "Server connection collation"
