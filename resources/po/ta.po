@@ -5383,7 +5383,7 @@ msgstr "பிரதி கவிமொ நூல் இயங்கவில்
 
 #: resources/templates/server/replication/replica_configuration.twig:28
 msgid "Replica IO Thread not running!"
-msgstr ""
+msgstr "பிரதி io நூல் இயங்கவில்லை!"
 
 #: resources/templates/server/replication/replica_configuration.twig:31
 msgid ""
