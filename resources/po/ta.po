@@ -15078,7 +15078,7 @@ msgstr "மிச்சைப் படியுங்கள்"
 
 #: src/Engines/Innodb.php:209
 msgid "Write waits"
-msgstr ""
+msgstr "காத்திருப்பதை எழுதுங்கள்"
 
 #: src/Engines/Innodb.php:215
 msgid "Read misses in %"
