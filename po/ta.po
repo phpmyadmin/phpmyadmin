@@ -16074,7 +16074,7 @@ msgstr ""
 #: templates/preferences/two_factor/confirm.twig:13
 #: templates/preferences/two_factor/main.twig:46
 msgid "Disable two-factor authentication"
-msgstr "கடவுச்சொல்லை மாற்றவும்"
+msgstr "இரண்டு காரணி அங்கீகாரத்தை முடக்கு"
 
 #: templates/preferences/two_factor/main.twig:5
 msgid "Two-factor authentication status"
@@ -16113,7 +16113,7 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:41
 msgid "You have enabled two factor authentication."
-msgstr ""
+msgstr "நீங்கள் இரண்டு காரணி அங்கீகாரத்தை இயக்கியுள்ளீர்கள்."
 
 #: templates/relation/diagnostic_info.twig:1
 msgid "Quick steps to set up advanced features:"
