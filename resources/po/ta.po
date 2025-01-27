@@ -8244,7 +8244,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:791
 msgid "Consider increasing {query_cache_limit}."
-msgstr ""
+msgstr "{query_cache_limit} அதிகரிப்பதைக் கவனியுங்கள்."
 
 #: src/Advisory/Rules.php:792
 #, php-format
