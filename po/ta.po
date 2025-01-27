@@ -7795,7 +7795,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:546
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr ""
+msgstr "செருகும் தாமதமான வரிசையில் எழுத காத்திருக்கும் வரிசைகளின் எண்ணிக்கை."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:549
 msgid ""
