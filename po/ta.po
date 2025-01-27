@@ -16549,7 +16549,7 @@ msgstr "முதன்மை இணைப்பு:"
 
 #: templates/server/replication/slave_configuration.twig:25
 msgid "Slave SQL Thread not running!"
-msgstr ""
+msgstr "அடிமை கவிமொ நூல் இயங்கவில்லை!"
 
 #: templates/server/replication/slave_configuration.twig:28
 msgid "Slave IO Thread not running!"
