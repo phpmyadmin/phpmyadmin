@@ -11620,7 +11620,7 @@ msgstr ""
 
 #: libraries/classes/SavedSearches.php:239
 msgid "Please provide a name for this bookmarked search."
-msgstr ""
+msgstr "இந்த புக்மார்க்கு செய்யப்பட்ட தேடலுக்கு ஒரு பெயரை வழங்கவும்."
 
 #: libraries/classes/SavedSearches.php:255
 msgid "Missing information to save the bookmarked search."
