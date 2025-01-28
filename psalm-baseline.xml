@@ -9859,6 +9859,9 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="tests/unit/Advisory/RulesTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[self::assertContainsOnly('string', $rule)]]></code>
+    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[providerForTestRules]]></code>
     </PossiblyUnusedMethod>
@@ -9890,6 +9893,13 @@
     <PossiblyUnusedMethod>
       <code><![CDATA[providerTestBuildDescription]]></code>
     </PossiblyUnusedMethod>
+  </file>
+  <file src="tests/unit/CharsetsTest.php">
+    <DeprecatedMethod>
+      <code><![CDATA[self::assertContainsOnly('array', $collations)]]></code>
+      <code><![CDATA[self::assertContainsOnly('array', $collations)]]></code>
+      <code><![CDATA[self::assertContainsOnly('array', $collations)]]></code>
+    </DeprecatedMethod>
   </file>
   <file src="tests/unit/Command/SetVersionCommandTest.php">
     <PossiblyUnusedMethod>
@@ -11148,6 +11158,7 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
+      <code><![CDATA[self::isType('object')]]></code>
     </DeprecatedMethod>
     <InaccessibleProperty>
       <code><![CDATA[$config->config->debug->sql]]></code>

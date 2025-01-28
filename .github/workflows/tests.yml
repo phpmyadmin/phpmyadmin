@@ -20,12 +20,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { php-version: '82', experimental: false, arch: 'amd64', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'arm64/v8', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 'arm/v7', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '82', experimental: false, arch: 'i386', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
-          - { php-version: '82', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: 'extension-iconv' }
-          - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: 'extension-iconv,32bit-incompatible' }
+          - { php-version: '82', experimental: false, arch: 'amd64', exclude-phpunit-groups: '--exclude-group extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 'arm64/v8', exclude-phpunit-groups: '--exclude-group extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 'arm/v7', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
+          - { php-version: '82', experimental: false, arch: 'i386', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
+          - { php-version: '82', experimental: true, arch: 'ppc64le', exclude-phpunit-groups: '--exclude-group extension-iconv' }
+          - { php-version: '82', experimental: false, arch: 's390x', exclude-phpunit-groups: '--exclude-group extension-iconv --exclude-group 32bit-incompatible' }
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
           composer config version "$(php -r "define('VERSION_SUFFIX', ''); require_once('src/Version.php'); echo \PhpMyAdmin\Version::VERSION;")" && \
           composer install && \
           ./bin/generate-mo && \
-          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit --exclude-group=%s" \
+          php\$V -d memory_limit=512M ./vendor/bin/phpunit --no-logging --no-coverage --testsuite unit %s" \
           "${{ matrix.php-version }}" "${{ matrix.exclude-phpunit-groups }}" > ./do-tests.sh
 
       - name: Set up multi arch support

@@ -17197,6 +17197,15 @@ parameters:
 			path: tests/unit/Advisory/AdvisorTest.php
 
 		-
+			message: '''
+				#^Call to deprecated method assertContainsOnly\(\) of class PHPUnit\\Framework\\Assert\:
+				https\://github\.com/sebastianbergmann/phpunit/issues/6055$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
+			path: tests/unit/Advisory/RulesTest.php
+
+		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''formula'' and array\{id\: non\-empty\-string, name\: string, precondition\?\: non\-empty\-string, formula\: non\-empty\-string, test\: non\-empty\-string, issue\: string, recommendation\: string, justification\: string, \.\.\.\} will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -17279,6 +17288,15 @@ parameters:
 			identifier: phpunit.callParent
 			count: 1
 			path: tests/unit/CacheTest.php
+
+		-
+			message: '''
+				#^Call to deprecated method assertContainsOnly\(\) of class PHPUnit\\Framework\\Assert\:
+				https\://github\.com/sebastianbergmann/phpunit/issues/6055$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 3
+			path: tests/unit/CharsetsTest.php
 
 		-
 			message: '#^Class PhpMyAdmin\\Tests\\Command\\SetVersionCommandTest has an uninitialized property \$command\. Give it default value or assign it in the constructor\.$#'
@@ -17815,7 +17833,7 @@ parameters:
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\|ArrayAccess, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
@@ -18631,7 +18649,7 @@ parameters:
 			path: tests/unit/CoreTest.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\|ArrayAccess, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 9
 			path: tests/unit/CoreTest.php
@@ -18796,6 +18814,15 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
+			path: tests/unit/DatabaseInterfaceTest.php
+
+		-
+			message: '''
+				#^Call to deprecated method isType\(\) of class PHPUnit\\Framework\\Assert\:
+				https\://github\.com/sebastianbergmann/phpunit/issues/6052$#
+			'''
+			identifier: staticMethod.deprecated
+			count: 1
 			path: tests/unit/DatabaseInterfaceTest.php
 
 		-
@@ -20518,7 +20545,7 @@ parameters:
 			path: tests/unit/UtilTest.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\|ArrayAccess, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: tests/unit/UtilTest.php
@@ -20596,7 +20623,7 @@ parameters:
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-
-			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\|ArrayAccess, mixed given\.$#'
+			message: '#^Parameter \#2 \$array of static method PHPUnit\\Framework\\Assert\:\:assertArrayNotHasKey\(\) expects array\<mixed\>\|ArrayAccess\<\(int\|string\), mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: tests/unit/Utils/SessionCacheTest.php
