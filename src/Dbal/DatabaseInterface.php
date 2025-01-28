@@ -1603,7 +1603,7 @@ class DatabaseInterface
         try {
             $result = $this->extension->connect($server);
         } catch (ConnectionException $exception) {
-            trigger_error($exception->getMessage(), E_USER_WARNING);
+            $errorHandler->addError($exception->getMessage(), E_USER_WARNING, __FILE__, __LINE__);
 
             return null;
         }
