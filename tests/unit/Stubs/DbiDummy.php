@@ -254,6 +254,14 @@ class DbiDummy implements DbiExtension
     }
 
     /**
+     * Returns the error code for the most recent connection attempt.
+     */
+    public function getConnectionErrorNumber(): int
+    {
+        return 0;
+    }
+
+    /**
      * returns the number of rows affected by last query
      *
      * @psalm-return int|numeric-string

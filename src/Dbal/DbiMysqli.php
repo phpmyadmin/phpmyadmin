@@ -16,6 +16,7 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
+use function mysqli_connect_errno;
 use function mysqli_get_client_info;
 use function mysqli_init;
 use function mysqli_report;
@@ -252,6 +253,14 @@ class DbiMysqli implements DbiExtension
         DatabaseInterface::$errorNumber = $errorNumber;
 
         return Utilities::formatError($errorNumber, $errorMessage);
+    }
+
+    /**
+     * Returns the error code for the most recent connection attempt.
+     */
+    public function getConnectionErrorNumber(): int
+    {
+        return mysqli_connect_errno();
     }
 
     /**

@@ -1699,6 +1699,11 @@ class DatabaseInterface
         return $this->extension->getError($this->connections[$connectionType->value]);
     }
 
+    public function getConnectionErrorNumber(): int
+    {
+        return $this->extension->getConnectionErrorNumber();
+    }
+
     /**
      * returns last inserted auto_increment id for given $link
      */

@@ -75,6 +75,11 @@ interface DbiExtension
     public function getError(Connection $connection): string;
 
     /**
+     * Returns the error code for the most recent connection attempt.
+     */
+    public function getConnectionErrorNumber(): int;
+
+    /**
      * returns the number of rows affected by last query
      *
      * @psalm-return int|numeric-string
