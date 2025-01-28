@@ -24,7 +24,7 @@ English
 +++++++
 
 - `Having fun with phpMyAdmin's MIME-transformations & PDF-features <https://garv.in/tops/texte/mimetutorial>`_
-- `Learning SQL Using phpMyAdmin (old tutorial) <http://www.php-editors.com/articles/sql_phpmyadmin.php>`_
+- `Learning SQL Using phpMyAdmin (old tutorial) <https://www.php-editors.com/articles/sql_phpmyadmin.php>`_
 
 Русский (Russian)
 +++++++++++++++++
