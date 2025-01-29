@@ -11,6 +11,7 @@ use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Plugins\Export\ExportSql;
@@ -855,11 +856,13 @@ SQL;
 
         $this->object->setExportOptions($request, []);
 
-        $result = $this->object->getTableDef('db', 'table', true, false);
+        $this->expectException(ExportException::class);
+        $this->expectExceptionMessage('Error reading structure for table db.table: error occurred');
+
+        $this->object->getTableDef('db', 'table', true, false);
 
         $dbiDummy->assertAllQueriesConsumed();
         $dbiDummy->assertAllErrorCodesConsumed();
-        self::assertStringContainsString('-- Error reading structure for table db.table: error occurred', $result);
     }
 
     public function testGetTableComments(): void
@@ -1257,15 +1260,12 @@ SQL;
 
         $this->object->setExportOptions($request, []);
 
-        ob_start();
+        $this->expectException(ExportException::class);
+        $this->expectExceptionMessage('Error reading data for table db.table: err');
+
         self::assertTrue(
             $this->object->exportData('db', 'table', 'SELECT'),
         );
-        $result = ob_get_clean();
-
-        self::assertIsString($result);
-
-        self::assertStringContainsString('-- Error reading data for table db.table: err', $result);
     }
 
     public function testMakeCreateTableMSSQLCompatible(): void
