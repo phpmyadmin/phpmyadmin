@@ -20,7 +20,7 @@ interface DbiExtension
      *
      * @throws ConnectionException
      */
-    public function connect(Server $server): Connection|null;
+    public function connect(Server $server): Connection;
 
     /**
      * selects given database

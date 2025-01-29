@@ -92,7 +92,7 @@ class DbiDummy implements DbiExtension
         $this->init();
     }
 
-    public function connect(Server $server): Connection|null
+    public function connect(Server $server): Connection
     {
         return new Connection(new stdClass());
     }

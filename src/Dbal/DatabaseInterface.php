@@ -60,7 +60,6 @@ use function strtoupper;
 use function strtr;
 use function substr;
 use function syslog;
-use function trigger_error;
 use function uasort;
 use function uksort;
 use function usort;
@@ -1617,27 +1616,13 @@ class DatabaseInterface
 
         $errorHandler->setHideLocation(false);
 
-        if ($result !== null) {
-            $this->connections[$target->value] = $result;
-            /* Run post connect for user connections */
-            if ($target === ConnectionType::User) {
-                $this->postConnect($currentServer);
-            }
-
-            return $result;
+        $this->connections[$target->value] = $result;
+        /* Run post connect for user connections */
+        if ($target === ConnectionType::User) {
+            $this->postConnect($currentServer);
         }
 
-        if ($connectionType === ConnectionType::ControlUser) {
-            $errorHandler = ErrorHandler::getInstance();
-            $errorHandler->addError(
-                __('Connection for controluser as defined in your configuration failed.'),
-                E_USER_WARNING,
-                __FILE__,
-                __LINE__,
-            );
-        }
-
-        return null;
+        return $result;
     }
 
     /**

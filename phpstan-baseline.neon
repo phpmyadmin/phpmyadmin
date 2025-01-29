@@ -20176,12 +20176,6 @@ parameters:
 			path: tests/unit/SqlTest.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Tests\\Stubs\\DbiDummy\:\:connect\(\) never returns null so it can be removed from the return type\.$#'
-			identifier: return.unusedType
-			count: 1
-			path: tests/unit/Stubs/DbiDummy.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
