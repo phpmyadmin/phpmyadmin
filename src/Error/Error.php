@@ -326,6 +326,10 @@ class Error extends Message
      */
     public static function formatBacktrace(array $backtrace): string
     {
+        if ($backtrace === []) {
+            return '';
+        }
+
         $retval = '<ol class="list-group">';
 
         foreach ($backtrace as $step) {
