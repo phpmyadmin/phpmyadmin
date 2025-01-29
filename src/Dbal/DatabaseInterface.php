@@ -1046,20 +1046,24 @@ class DatabaseInterface
                 . $this->quoteString($currentServer->sessionTimeZone);
 
             if (! $this->tryQuery($sqlQueryTz)) {
-                $errorMessageTz = sprintf(
-                    __(
-                        'Unable to use timezone "%1$s" for server %2$d. '
-                        . 'Please check your configuration setting for '
-                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
-                        . 'phpMyAdmin is currently using the default time zone '
-                        . 'of the database server.',
+                $errorHandler = ErrorHandler::getInstance();
+                $errorHandler->addError(
+                    sprintf(
+                        __(
+                            'Unable to use timezone "%1$s" for server %2$d. '
+                            . 'Please check your configuration setting for '
+                            . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                            . 'phpMyAdmin is currently using the default time zone '
+                            . 'of the database server.',
+                        ),
+                        $currentServer->sessionTimeZone,
+                        Current::$server,
+                        Current::$server,
                     ),
-                    $currentServer->sessionTimeZone,
-                    Current::$server,
-                    Current::$server,
+                    E_USER_WARNING,
+                    __FILE__,
+                    __LINE__,
                 );
-
-                trigger_error($errorMessageTz, E_USER_WARNING);
             }
         }
 
@@ -1089,9 +1093,12 @@ class DatabaseInterface
         );
 
         if ($result === false) {
-            trigger_error(
+            $errorHandler = ErrorHandler::getInstance();
+            $errorHandler->addError(
                 __('Failed to set configured collation connection!'),
                 E_USER_WARNING,
+                __FILE__,
+                __LINE__,
             );
 
             return;
@@ -1621,11 +1628,12 @@ class DatabaseInterface
         }
 
         if ($connectionType === ConnectionType::ControlUser) {
-            trigger_error(
-                __(
-                    'Connection for controluser as defined in your configuration failed.',
-                ),
+            $errorHandler = ErrorHandler::getInstance();
+            $errorHandler->addError(
+                __('Connection for controluser as defined in your configuration failed.'),
                 E_USER_WARNING,
+                __FILE__,
+                __LINE__,
             );
         }
 
