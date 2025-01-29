@@ -1681,9 +1681,9 @@ class DbiDummy implements DbiExtension
                     . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\'',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
-                    ['id', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
-                    ['name', 'varchar(20)', null, 'NO', '', 'NULL', '', '', ''],
-                    ['datetimefield', 'datetime', null, 'NO', '', 'NULL', '', '', ''],
+                    ['id', 'int(11)', null, 'NO', 'PRI', "'NULL'", 'auto_increment', '', ''],
+                    ['name', 'varchar(20)', null, 'NO', '', "'NULL'", '', '', ''],
+                    ['datetimefield', 'datetime', null, 'NO', '', "'NULL'", '', '', ''],
                 ],
             ],
             [
