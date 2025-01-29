@@ -12,6 +12,7 @@ use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Favorites\RecentFavoriteTables;
 use PhpMyAdmin\Favorites\TableType;
 use PhpMyAdmin\Html\Generator;
@@ -67,11 +68,8 @@ use function strnatcasecmp;
 use function strrpos;
 use function strstr;
 use function substr;
-use function trigger_error;
 use function trim;
 use function usort;
-
-use const E_USER_WARNING;
 
 /**
  * Displays a collapsible of database objects in the navigation frame
@@ -739,13 +737,12 @@ class NavigationTree
         foreach ($prefixes as $key => $value) {
             // warn about large groups
             if ($value > 500 && ! $this->largeGroupWarning) {
-                trigger_error(
+                ErrorHandler::getInstance()->addUserError(
                     __(
                         'There are large item groups in navigation panel which '
                         . 'may affect the performance. Consider disabling item '
                         . 'grouping in the navigation panel.',
                     ),
-                    E_USER_WARNING,
                 );
                 $this->largeGroupWarning = true;
             }
