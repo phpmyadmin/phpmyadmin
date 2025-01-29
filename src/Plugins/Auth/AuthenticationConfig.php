@@ -23,9 +23,6 @@ use function ob_get_clean;
 use function ob_start;
 use function sprintf;
 
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
-
 /**
  * Handles the config authentication method
  */
@@ -92,7 +89,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             <td>';
         $config = Config::getInstance();
         if ($failure->failureType === AuthenticationFailure::ALLOW_DENIED) {
-            $errorHandler->addError($failure->getMessage(), E_USER_NOTICE, __FILE__, __LINE__);
+            $errorHandler->addNotice($failure->getMessage());
         } else {
             // Check whether user has configured something
             if ($config->sourceMtime == 0) {
@@ -113,7 +110,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 //  rejected the connection, which is not really what happened)
                 // 2002 is the error given by mysqli
                 // 2003 is the error given by mysql
-                $errorHandler->addError(
+                $errorHandler->addUserError(
                     __(
                         'phpMyAdmin tried to connect to the MySQL server, and the'
                         . ' server rejected the connection. You should check the'
@@ -121,9 +118,6 @@ class AuthenticationConfig extends AuthenticationPlugin
                         . ' make sure that they correspond to the information given'
                         . ' by the administrator of the MySQL server.',
                     ),
-                    E_USER_WARNING,
-                    __FILE__,
-                    __LINE__,
                 );
             }
         }

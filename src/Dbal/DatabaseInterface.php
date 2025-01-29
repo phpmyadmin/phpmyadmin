@@ -64,7 +64,6 @@ use function uasort;
 use function uksort;
 use function usort;
 
-use const E_USER_WARNING;
 use const LOG_INFO;
 use const LOG_NDELAY;
 use const LOG_PID;
@@ -1046,7 +1045,7 @@ class DatabaseInterface
 
             if (! $this->tryQuery($sqlQueryTz)) {
                 $errorHandler = ErrorHandler::getInstance();
-                $errorHandler->addError(
+                $errorHandler->addUserError(
                     sprintf(
                         __(
                             'Unable to use timezone "%1$s" for server %2$d. '
@@ -1059,9 +1058,6 @@ class DatabaseInterface
                         Current::$server,
                         Current::$server,
                     ),
-                    E_USER_WARNING,
-                    __FILE__,
-                    __LINE__,
                 );
             }
         }
@@ -1093,12 +1089,7 @@ class DatabaseInterface
 
         if ($result === false) {
             $errorHandler = ErrorHandler::getInstance();
-            $errorHandler->addError(
-                __('Failed to set configured collation connection!'),
-                E_USER_WARNING,
-                __FILE__,
-                __LINE__,
-            );
+            $errorHandler->addUserError(__('Failed to set configured collation connection!'));
 
             return;
         }
@@ -1609,7 +1600,7 @@ class DatabaseInterface
         try {
             $result = $this->extension->connect($server);
         } catch (ConnectionException $exception) {
-            $errorHandler->addError($exception->getMessage(), E_USER_WARNING, __FILE__, __LINE__);
+            $errorHandler->addUserError($exception->getMessage());
 
             return null;
         }

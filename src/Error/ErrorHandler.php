@@ -314,6 +314,30 @@ class ErrorHandler
         }
     }
 
+    public function addUserError(string $message, bool $escape = true): void
+    {
+        // The file name and line number are not relevant for user errors
+        $error = new Error(
+            E_USER_WARNING,
+            $escape ? htmlspecialchars($message) : $message,
+            __FILE__,
+            __LINE__,
+        );
+        $this->errors[$error->getHash()] = $error;
+    }
+
+    public function addNotice(string $message, bool $escape = true): void
+    {
+        // The file name and line number are not relevant for user errors
+        $error = new Error(
+            E_USER_NOTICE,
+            $escape ? htmlspecialchars($message) : $message,
+            __FILE__,
+            __LINE__,
+        );
+        $this->errors[$error->getHash()] = $error;
+    }
+
     /**
      * display fatal error and exit
      *
