@@ -616,8 +616,9 @@ class Results
 
         $isLastPage = $this->unlimNumRows !== -1 && $this->unlimNumRows !== false
             && ($isShowingAll
-                || (int) $_SESSION['tmpval']['pos'] + (int) $_SESSION['tmpval']['max_rows']
-                >= $this->unlimNumRows
+                || ($this->isExactCount()
+                    && (int) $_SESSION['tmpval']['pos'] + (int) $_SESSION['tmpval']['max_rows']
+                    >= $this->unlimNumRows)
                 || $this->numRows < $_SESSION['tmpval']['max_rows']);
 
         $onsubmit = ' onsubmit="return '
@@ -661,6 +662,15 @@ class Results
             'is_last_page_known' => $this->unlimNumRows !== false,
             'onsubmit' => $onsubmit,
         ];
+    }
+
+    private function isExactCount(): bool
+    {
+        // If we have the full page of rows, we don't know
+        // if there are more unless unlimNumRows is smaller than MaxExactCount
+        return $this->unlimNumRows < $this->config->settings['MaxExactCount']
+            || $_SESSION['tmpval']['max_rows'] === self::ALL_ROWS
+            || $this->numRows < $_SESSION['tmpval']['max_rows'];
     }
 
     /**
@@ -3383,7 +3393,7 @@ class Results
             }
         } elseif ($_SESSION['tmpval']['max_rows'] === self::ALL_ROWS || $posNext > $total) {
             $firstShownRec = $_SESSION['tmpval']['pos'];
-            $lastShownRec = $total - 1;
+            $lastShownRec = $firstShownRec + $this->numRows - 1;
         } else {
             $firstShownRec = $_SESSION['tmpval']['pos'];
             $lastShownRec = $posNext - 1;
