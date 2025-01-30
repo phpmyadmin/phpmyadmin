@@ -78,6 +78,7 @@ use function strnatcasecmp;
 use function strrev;
 use function strtolower;
 use function strtr;
+use function substr;
 use function trim;
 use function uksort;
 
@@ -2012,5 +2013,14 @@ class Util
         }
 
         return $size;
+    }
+
+    public static function unquoteDefaultValue(string $value): string
+    {
+        if (! str_starts_with($value, "'")) {
+            return $value;
+        }
+
+        return strtr(substr($value, 1, -1), ["''" => "'", "\\'" => "'", '\\\\' => '\\']);
     }
 }

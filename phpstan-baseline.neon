@@ -8935,7 +8935,7 @@ parameters:
 			path: src/InsertEdit.php
 
 		-
-			message: '#^Parameter \#1 \$defaultValue of method PhpMyAdmin\\InsertEdit\:\:getSpecialCharsForInsertingMode\(\) expects string\|null, mixed given\.$#'
+			message: '#^Parameter \#1 \$defaultValue of method PhpMyAdmin\\InsertEdit\:\:getDefaultValue\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/InsertEdit.php

@@ -892,7 +892,10 @@ class DatabaseInterface
                 $column['Collation'],
                 $column['Null'] === 'YES',
                 $column['Key'],
-                $column['Default'],
+                // null means lack of default value, 'NULL' means default value is NULL
+                $column['Default'] === null || $column['Default'] === 'NULL'
+                    ? null
+                    : Util::unquoteDefaultValue($column['Default']),
                 $column['Extra'],
                 $column['Privileges'],
                 $column['Comment'],

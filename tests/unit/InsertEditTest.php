@@ -1182,10 +1182,10 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Test for getSpecialCharsForInsertingMode
+     * Test for getDefaultValue
      */
     #[DataProvider('providerForTestGetSpecialCharsForInsertingMode')]
-    public function testGetSpecialCharsForInsertingMode(
+    public function testGetDefaultValue(
         string|null $defaultValue,
         string $trueType,
         string $expected,
@@ -1198,7 +1198,7 @@ class InsertEditTest extends AbstractTestCase
         $result = $this->callFunction(
             $this->insertEdit,
             InsertEdit::class,
-            'getSpecialCharsForInsertingMode',
+            'getDefaultValue',
             [$defaultValue, $trueType],
         );
 
@@ -1206,7 +1206,7 @@ class InsertEditTest extends AbstractTestCase
     }
 
     /**
-     * Data provider for test getSpecialCharsForInsertingMode()
+     * Data provider for test getDefaultValue()
      *
      * @return array<string, array{string|null, string, string}>
      */
@@ -1246,17 +1246,17 @@ class InsertEditTest extends AbstractTestCase
             'any text with escape text default' => [
                 '"lorem\"ipsem"',
                 'text',
-                'lorem&quot;ipsem',
+                '"lorem\"ipsem"',
             ],
             'varchar with html special chars' => [
                 'hello world<br><b>lorem</b> ipsem',
                 'varchar',
-                'hello world&lt;br&gt;&lt;b&gt;lorem&lt;/b&gt; ipsem',
+                'hello world<br><b>lorem</b> ipsem',
             ],
             'text with html special chars' => [
                 '\'</textarea><script>alert(1)</script>\'',
                 'text',
-                '&lt;/textarea&gt;&lt;script&gt;alert(1)&lt;/script&gt;',
+                '\'</textarea><script>alert(1)</script>\'',
             ],
         ];
     }
