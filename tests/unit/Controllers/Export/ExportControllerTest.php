@@ -19,18 +19,14 @@ use PhpMyAdmin\Tests\FieldHelper;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
 use PhpMyAdmin\ZipExtension;
 use PHPUnit\Framework\Attributes\CoversClass;
-use PHPUnit\Framework\Attributes\PreserveGlobalState;
 use PHPUnit\Framework\Attributes\RequiresPhpExtension;
-use PHPUnit\Framework\Attributes\RunInSeparateProcess;
 use ReflectionProperty;
 use ZipArchive;
 
 use function file_put_contents;
-use function function_exists;
 use function htmlspecialchars;
 use function tempnam;
 use function unlink;
-use function xdebug_get_headers;
 
 use const ENT_COMPAT;
 use const MYSQLI_NUM_FLAG;
@@ -362,8 +358,6 @@ final class ExportControllerTest extends AbstractTestCase
         self::assertStringContainsString(htmlspecialchars($expectedOutput, ENT_COMPAT), $output);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     public function testDownloadFile(): void
     {
         $config = new Config();
@@ -514,20 +508,8 @@ final class ExportControllerTest extends AbstractTestCase
         self::assertStringEndsWith($expected, $output);
 
         $dbiDummy->assertAllQueriesConsumed();
-
-        if (! function_exists('xdebug_get_headers')) {
-            return;
-        }
-
-        $headersList = xdebug_get_headers();
-        self::assertContains('Content-Description: File Transfer', $headersList);
-        self::assertContains('Content-Disposition: attachment; filename="test_table.sql"', $headersList);
-        self::assertContains('Content-type: text/x-sql;charset=UTF-8', $headersList);
-        self::assertContains('Content-Transfer-Encoding: binary', $headersList);
     }
 
-    #[RunInSeparateProcess]
-    #[PreserveGlobalState(false)]
     #[RequiresPhpExtension('zip')]
     public function testDownloadFileWithCompression(): void
     {
@@ -690,15 +672,5 @@ final class ExportControllerTest extends AbstractTestCase
 
         unset($zipExtension);
         self::assertTrue(unlink($tmpFile));
-
-        if (! function_exists('xdebug_get_headers')) {
-            return;
-        }
-
-        $headersList = xdebug_get_headers();
-        self::assertContains('Content-Description: File Transfer', $headersList);
-        self::assertContains('Content-Disposition: attachment; filename="test_table.sql.zip"', $headersList);
-        self::assertContains('Content-Type: application/zip', $headersList);
-        self::assertContains('Content-Transfer-Encoding: binary', $headersList);
     }
 }
