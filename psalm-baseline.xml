@@ -6062,7 +6062,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="68">
+    <MixedArrayAccess occurrences="69">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6074,6 +6074,7 @@
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
+      <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
@@ -6208,7 +6209,7 @@
       <code>$row[$sortedColumnIndex]</code>
       <code>$row[$sortedColumnIndex]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="48">
+    <MixedAssignment occurrences="49">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -6233,6 +6234,7 @@
       <code>$i</code>
       <code>$identifier</code>
       <code>$index</code>
+      <code>$lastShownRec</code>
       <code>$lastShownRec</code>
       <code>$lastShownRec</code>
       <code>$linkingUrlParams[$new_param['param_info']]</code>
@@ -6262,7 +6264,7 @@
       <code>new $className()</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="14">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -6273,6 +6275,7 @@
       <code>$displaySize[0]</code>
       <code>$displaySize[1]</code>
       <code>$file</code>
+      <code>$firstShownRec</code>
       <code>$firstShownRec</code>
       <code>$firstShownRec</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
