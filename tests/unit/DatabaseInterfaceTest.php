@@ -762,7 +762,7 @@ class DatabaseInterfaceTest extends AbstractTestCase
         $resultStub = self::createStub(ResultInterface::class);
         $dummyDbi = $this->createMock(DbiExtension::class);
         $dummyDbi->expects(self::once())->method('executeQuery')
-            ->with(self::isType('object'), self::equalTo($query), self::equalTo(['root', 'localhost']))
+            ->with(self::isObject(), self::equalTo($query), self::equalTo(['root', 'localhost']))
             ->willReturn($resultStub);
         $dbi = $this->createDatabaseInterface($dummyDbi);
         $stmt = $dbi->executeQuery($query, ['root', 'localhost'], ConnectionType::ControlUser);
