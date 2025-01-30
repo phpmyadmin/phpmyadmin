@@ -27,7 +27,7 @@ class RulesTest extends TestCase
             self::assertArrayHasKey('issue', $rule);
             self::assertArrayHasKey('recommendation', $rule);
             self::assertArrayHasKey('justification', $rule);
-            self::assertContainsOnly('string', $rule);
+            self::assertContainsOnlyString($rule);
         }
     }
 

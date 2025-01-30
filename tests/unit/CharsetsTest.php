@@ -94,7 +94,7 @@ class CharsetsTest extends AbstractTestCase
         $dbi = $this->createDatabaseInterface();
         $collations = Charsets::getCollations($dbi, false);
         self::assertCount(4, $collations);
-        self::assertContainsOnly('array', $collations);
+        self::assertContainsOnlyArray($collations);
         foreach ($collations as $collation) {
             self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
@@ -106,7 +106,7 @@ class CharsetsTest extends AbstractTestCase
         $dbi->setVersion(['@@version' => '10.10.0-MariaDB']);
         $collations = Charsets::getCollations($dbi, false);
         self::assertCount(4, $collations);
-        self::assertContainsOnly('array', $collations);
+        self::assertContainsOnlyArray($collations);
         foreach ($collations as $collation) {
             self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
@@ -130,7 +130,7 @@ class CharsetsTest extends AbstractTestCase
 
         $collations = Charsets::getCollations($dbi, true);
         self::assertCount(4, $collations);
-        self::assertContainsOnly('array', $collations);
+        self::assertContainsOnlyArray($collations);
         foreach ($collations as $collation) {
             self::assertContainsOnlyInstancesOf(Charsets\Collation::class, $collation);
         }
