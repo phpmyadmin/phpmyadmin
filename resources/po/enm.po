@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-26 00:24+0000\n"
+"POT-Creation-Date: 2025-02-02 00:25+0000\n"
 "PO-Revision-Date: 2022-02-20 13:11+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: English (Middle) <https://hosted.weblate.org/projects/"
@@ -61,7 +61,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
-#: src/Util.php:1361
+#: src/Util.php:1362
 msgid "Settings"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:929 src/Plugins/Export/ExportSql.php:2040
+#: src/Display/Results.php:939 src/Plugins/Export/ExportSql.php:2043
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr ""
@@ -552,8 +552,8 @@ msgstr ""
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1051 src/Util.php:1370
-#: src/Util.php:1387
+#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1371
+#: src/Util.php:1388
 msgid "Structure"
 msgstr ""
 
@@ -595,7 +595,7 @@ msgstr ""
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:260
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:257
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:339
 #: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
@@ -967,7 +967,7 @@ msgstr ""
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2466 src/Html/Generator.php:520
+#: src/Display/Results.php:2476 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
 msgstr ""
@@ -986,7 +986,7 @@ msgstr ""
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:408
-#: src/Display/Results.php:2525 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2535 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr ""
 
@@ -1714,7 +1714,7 @@ msgstr ""
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1357
+#: src/Server/Status/Processes.php:96 src/Util.php:1358
 msgid "Status"
 msgstr ""
 
@@ -1781,8 +1781,8 @@ msgstr ""
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:997 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1379
+#: src/Plugins/Export/ExportSql.php:998 src/Plugins/Export/ExportXml.php:96
+#: src/Util.php:1380
 msgid "Events"
 msgstr ""
 
@@ -1844,7 +1844,7 @@ msgstr ""
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1359 src/Util.php:1374 src/Util.php:1391
+#: src/Util.php:1360 src/Util.php:1375 src/Util.php:1392
 msgid "Export"
 msgstr ""
 
@@ -1997,7 +1997,7 @@ msgid "criteria"
 msgstr ""
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1880
+#: src/Util.php:1881
 msgid "Sort"
 msgstr ""
 
@@ -2008,8 +2008,8 @@ msgstr ""
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1457
-#: src/Display/Results.php:1464 src/Util.php:1888 src/Util.php:1905
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1467
+#: src/Display/Results.php:1474 src/Util.php:1889 src/Util.php:1906
 msgid "Ascending"
 msgstr ""
 
@@ -2020,8 +2020,8 @@ msgstr ""
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1452
-#: src/Display/Results.php:1469 src/Util.php:1893 src/Util.php:1910
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1462
+#: src/Display/Results.php:1479 src/Util.php:1894 src/Util.php:1911
 msgid "Descending"
 msgstr ""
 
@@ -2204,7 +2204,7 @@ msgstr ""
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1377 src/Util.php:1393
+#: src/Menu.php:365 src/Util.php:1378 src/Util.php:1394
 msgid "Privileges"
 msgstr ""
 
@@ -2350,13 +2350,13 @@ msgstr ""
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:259
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:256
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr ""
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1378
+#: src/Util.php:1379
 msgid "Routines"
 msgstr ""
 
@@ -2368,8 +2368,8 @@ msgstr ""
 #: resources/templates/server/databases/index.twig:77
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
-#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1053
-#: src/Util.php:1372 src/Util.php:1389
+#: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1054
+#: src/Util.php:1373 src/Util.php:1390
 msgid "Search"
 msgstr ""
 
@@ -2469,7 +2469,7 @@ msgstr[1] ""
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1055 src/Util.php:1386
+#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1387
 msgid "Browse"
 msgstr ""
 
@@ -2494,7 +2494,7 @@ msgstr[1] ""
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1363
+#: src/Server/Status/Data.php:124 src/Util.php:1364
 msgid "Replication"
 msgstr ""
 
@@ -2598,7 +2598,7 @@ msgid "Copy table with prefix"
 msgstr ""
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1383
+#: src/Menu.php:405 src/Util.php:1384
 msgid "Central columns"
 msgstr ""
 
@@ -2626,7 +2626,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
-#: src/Plugins/Export/ExportSql.php:928 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:929 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:176
 msgid "Database:"
 msgstr ""
@@ -2743,7 +2743,7 @@ msgstr ""
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1054 src/Util.php:1390
+#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1391
 msgid "Insert"
 msgstr ""
 
@@ -2944,12 +2944,12 @@ msgid "Extra options"
 msgstr ""
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1111
+#: src/Display/Results.php:1121
 msgid "Partial texts"
 msgstr ""
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1115
+#: src/Display/Results.php:1125
 msgid "Full texts"
 msgstr ""
 
@@ -2990,7 +2990,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:494
-#: src/Display/Results.php:2470 src/Html/Generator.php:83
+#: src/Display/Results.php:2480 src/Html/Generator.php:83
 msgid "Copy"
 msgstr ""
 
@@ -3031,7 +3031,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:458
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:455
 #: src/Message.php:138
 msgid "Error"
 msgstr ""
@@ -3421,7 +3421,7 @@ msgid "Server connection:"
 msgstr ""
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:766
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:767
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr ""
@@ -3530,8 +3530,8 @@ msgstr ""
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1360 src/Util.php:1375
-#: src/Util.php:1392
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1361 src/Util.php:1376
+#: src/Util.php:1393
 msgid "Import"
 msgstr ""
 
@@ -3568,7 +3568,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr ""
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:459
+#: src/InsertEdit.php:456
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 
@@ -3843,7 +3843,7 @@ msgstr ""
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1355
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1356
 msgid "Databases"
 msgstr ""
 
@@ -4065,7 +4065,7 @@ msgstr ""
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/Operations/TableController.php:345
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:287 src/Core.php:499
+#: src/Controllers/Table/ReplaceController.php:287 src/Core.php:517
 msgid "No change"
 msgstr ""
 
@@ -4275,7 +4275,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1362
+#: src/Server/Status/Data.php:119 src/Util.php:1363
 msgid "Binary log"
 msgstr ""
 
@@ -4413,7 +4413,7 @@ msgstr ""
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1364
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1365
 msgid "Variables"
 msgstr ""
 
@@ -4434,7 +4434,7 @@ msgid "Importing into the current server"
 msgstr ""
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1366
+#: src/Util.php:1367
 msgid "Plugins"
 msgstr ""
 
@@ -4724,7 +4724,7 @@ msgstr ""
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:467
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:464
 msgid "Or"
 msgstr ""
 
@@ -5140,7 +5140,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:755
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:756
 #: src/Plugins/Export/ExportXml.php:206
 msgid "Host:"
 msgstr ""
@@ -5577,13 +5577,13 @@ msgstr ""
 
 #. l10n: shortcuts for Kilobyte
 #: resources/templates/server/status/monitor/index.twig:151
-#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:303
+#: src/Controllers/JavaScriptMessagesController.php:211 src/Util.php:304
 msgid "KiB"
 msgstr ""
 
 #. l10n: shortcuts for Megabyte
 #: resources/templates/server/status/monitor/index.twig:152
-#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:305
+#: src/Controllers/JavaScriptMessagesController.php:212 src/Util.php:306
 msgid "MiB"
 msgstr ""
 
@@ -5652,7 +5652,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2544
+#: src/Display/Results.php:2554
 msgid "Kill"
 msgstr ""
 
@@ -6023,7 +6023,7 @@ msgstr ""
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1027 src/Display/Results.php:3120
+#: src/Database/Routines.php:1027 src/Display/Results.php:3130
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr ""
@@ -6329,7 +6329,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:492
 #: src/Controllers/JavaScriptMessagesController.php:644
-#: src/Error/ErrorHandler.php:412 src/InsertEdit.php:1461
+#: src/Error/ErrorHandler.php:412 src/InsertEdit.php:1457
 msgid "Ignore"
 msgstr ""
 
@@ -6533,7 +6533,7 @@ msgstr ""
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1056 src/Util.php:1376 src/Util.php:1394
+#: src/Menu.php:358 src/Util.php:1057 src/Util.php:1377 src/Util.php:1395
 msgid "Operations"
 msgstr ""
 
@@ -6994,9 +6994,9 @@ msgstr ""
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:495
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
-#: src/Plugins/Export/ExportSql.php:1909
+#: src/Plugins/Export/ExportSql.php:1911
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1380 src/Util.php:1396
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1381 src/Util.php:1397
 msgid "Triggers"
 msgstr ""
 
@@ -8381,8 +8381,8 @@ msgstr ""
 #: src/Config/ConfigFile.php:520 src/Config/ConfigFile.php:534
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
-#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1052
-#: src/Util.php:1356 src/Util.php:1371 src/Util.php:1388
+#: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1053
+#: src/Util.php:1357 src/Util.php:1372 src/Util.php:1389
 msgid "SQL"
 msgstr ""
 
@@ -11329,7 +11329,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3397
+#: src/Display/Results.php:3407
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -11795,14 +11795,14 @@ msgid "Other"
 msgstr ""
 
 #. l10n: Thousands separator
-#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:391
-#: src/Util.php:423
+#: src/Controllers/JavaScriptMessagesController.php:167 src/Util.php:392
+#: src/Util.php:424
 msgid ","
 msgstr ""
 
 #. l10n: Decimal separator
-#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:389
-#: src/Util.php:421
+#: src/Controllers/JavaScriptMessagesController.php:169 src/Util.php:390
+#: src/Util.php:422
 msgid "."
 msgstr ""
 
@@ -11899,27 +11899,27 @@ msgid "Bytes received"
 msgstr ""
 
 #. l10n: shortcuts for Byte
-#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:301
+#: src/Controllers/JavaScriptMessagesController.php:210 src/Util.php:302
 msgid "B"
 msgstr ""
 
 #. l10n: shortcuts for Gigabyte
-#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:307
+#: src/Controllers/JavaScriptMessagesController.php:213 src/Util.php:308
 msgid "GiB"
 msgstr ""
 
 #. l10n: shortcuts for Terabyte
-#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:309
+#: src/Controllers/JavaScriptMessagesController.php:214 src/Util.php:310
 msgid "TiB"
 msgstr ""
 
 #. l10n: shortcuts for Petabyte
-#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:311
+#: src/Controllers/JavaScriptMessagesController.php:215 src/Util.php:312
 msgid "PiB"
 msgstr ""
 
 #. l10n: shortcuts for Exabyte
-#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:313
+#: src/Controllers/JavaScriptMessagesController.php:216 src/Util.php:314
 msgid "EiB"
 msgstr ""
 
@@ -13010,7 +13010,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:244
+#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:241
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr ""
@@ -13075,97 +13075,97 @@ msgctxt "Month name"
 msgid "December"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:497
+#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
 msgctxt "Short month name for May"
 msgid "May"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:511
+#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:512
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr ""
@@ -14219,7 +14219,7 @@ msgstr ""
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:161 src/Sql.php:863
+#: src/InsertEdit.php:158 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr ""
 
@@ -14547,7 +14547,7 @@ msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/Dbal/DatabaseInterface.php:1051
+#: src/Dbal/DatabaseInterface.php:1054
 #, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
@@ -14555,11 +14555,11 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1093
+#: src/Dbal/DatabaseInterface.php:1096
 msgid "Failed to set configured collation connection!"
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1626
+#: src/Dbal/DatabaseInterface.php:1629
 msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
@@ -14570,31 +14570,31 @@ msgid ""
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2501 src/Display/Results.php:2516
+#: src/Display/Results.php:2511 src/Display/Results.php:2526
 msgid "The row has been deleted."
 msgstr ""
 
-#: src/Display/Results.php:3406
+#: src/Display/Results.php:3416
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: src/Display/Results.php:3420
+#: src/Display/Results.php:3430
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3425
+#: src/Display/Results.php:3435
 #, php-format
 msgid "%s total"
 msgstr ""
 
-#: src/Display/Results.php:3438 src/Sql.php:869
+#: src/Display/Results.php:3448 src/Sql.php:869
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: src/Display/Results.php:3734
+#: src/Display/Results.php:3744
 msgid "Link not found!"
 msgstr ""
 
@@ -15208,15 +15208,15 @@ msgid ""
 "removed."
 msgstr ""
 
-#: src/InsertEdit.php:468
+#: src/InsertEdit.php:465
 msgid "web server upload directory:"
 msgstr ""
 
-#: src/InsertEdit.php:886 src/Sql.php:860
+#: src/InsertEdit.php:882 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr ""
 
-#: src/InsertEdit.php:910 src/Sql.php:840
+#: src/InsertEdit.php:906 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
@@ -15231,7 +15231,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1381 src/Util.php:1395
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1382 src/Util.php:1396
 msgid "Tracking"
 msgstr ""
 
@@ -15239,11 +15239,11 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: src/Menu.php:335 src/Util.php:1373
+#: src/Menu.php:335 src/Util.php:1374
 msgid "Query"
 msgstr ""
 
-#: src/Menu.php:398 src/Util.php:1382
+#: src/Menu.php:398 src/Util.php:1383
 msgid "Designer"
 msgstr ""
 
@@ -15251,11 +15251,11 @@ msgstr ""
 msgid "User accounts"
 msgstr ""
 
-#: src/Menu.php:508 src/Util.php:1365
+#: src/Menu.php:508 src/Util.php:1366
 msgid "Charsets"
 msgstr ""
 
-#: src/Menu.php:513 src/Util.php:1367
+#: src/Menu.php:513 src/Util.php:1368
 msgid "Engines"
 msgstr ""
 
@@ -15342,7 +15342,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:644 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:645 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr ""
 
@@ -15362,7 +15362,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:633 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:634 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr ""
 
@@ -15776,25 +15776,25 @@ msgid "Data dump options"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:192
-#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2155
+#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2158
 #: src/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:486
-#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1895
+#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1897
 #: src/Plugins/Export/ExportTexytext.php:458
 msgid "Table structure for table"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:503
-#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1952
+#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1955
 #: src/Plugins/Export/ExportTexytext.php:471
 msgid "Structure for view"
 msgstr ""
 
 #: src/Plugins/Export/ExportHtmlword.php:509
-#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1991
+#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1994
 #: src/Plugins/Export/ExportTexytext.php:475
 msgid "Stand-in structure for view"
 msgstr ""
@@ -15857,17 +15857,17 @@ msgstr ""
 msgid "Put columns names in the first row:"
 msgstr ""
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:762
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:763
 #: src/Plugins/Export/ExportXml.php:213
 msgid "Generation Time:"
 msgstr ""
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:768
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:769
 #: src/Plugins/Export/ExportXml.php:216
 msgid "PHP Version:"
 msgstr ""
 
-#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2040
+#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2043
 msgid "Data:"
 msgstr ""
 
@@ -15964,7 +15964,7 @@ msgstr ""
 msgid "Data creation options"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2118
+#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2121
 msgid "Truncate table before insert"
 msgstr ""
 
@@ -16026,104 +16026,104 @@ msgid ""
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:593
+#: src/Plugins/Export/ExportSql.php:594
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:596 src/Plugins/Export/ExportSql.php:1508
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportSql.php:1510
+#: src/Plugins/Export/ExportSql.php:1943
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1053
+#: src/Plugins/Export/ExportSql.php:1054
 msgid "Metadata"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1114
+#: src/Plugins/Export/ExportSql.php:1115
 #, php-format
 msgid "Metadata for table %s"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1121
+#: src/Plugins/Export/ExportSql.php:1122
 #, php-format
 msgid "Metadata for database %s"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1420
+#: src/Plugins/Export/ExportSql.php:1421
 #, php-format
 msgid "Error reading structure for table %s:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1505
+#: src/Plugins/Export/ExportSql.php:1507
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1649
+#: src/Plugins/Export/ExportSql.php:1651
 msgid "Constraints for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1650
+#: src/Plugins/Export/ExportSql.php:1652
 msgid "Constraints for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1676
+#: src/Plugins/Export/ExportSql.php:1678
 msgid "Indexes for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1677
+#: src/Plugins/Export/ExportSql.php:1679
 msgid "Indexes for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1700
+#: src/Plugins/Export/ExportSql.php:1702
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1701
+#: src/Plugins/Export/ExportSql.php:1703
 msgid "AUTO_INCREMENT for table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1757
+#: src/Plugins/Export/ExportSql.php:1759
 msgid "MEDIA TYPES FOR TABLE"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1787
+#: src/Plugins/Export/ExportSql.php:1789
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1937
+#: src/Plugins/Export/ExportSql.php:1940
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1967
+#: src/Plugins/Export/ExportSql.php:1970
 #, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1994
+#: src/Plugins/Export/ExportSql.php:1997
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2051
+#: src/Plugins/Export/ExportSql.php:2054
 #, php-format
 msgid "Error reading data for table %s:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2632
+#: src/Plugins/Export/ExportSql.php:2635
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 msgid "Creation:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2640
+#: src/Plugins/Export/ExportSql.php:2643
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 msgid "Last update:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2648
+#: src/Plugins/Export/ExportSql.php:2651
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 msgid "Last check:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2669
+#: src/Plugins/Export/ExportSql.php:2672
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -16367,7 +16367,7 @@ msgstr ""
 
 #. l10n: See https://www.php.net/manual/en/function.strftime.php
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:129
-#: src/Util.php:522
+#: src/Util.php:523
 msgid "%B %d, %Y at %I:%M %p"
 msgstr ""
 
@@ -17401,27 +17401,27 @@ msgstr ""
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
 
-#: src/Util.php:127
+#: src/Util.php:128
 #, php-format
 msgid "Max: %s%s"
 msgstr ""
 
-#: src/Util.php:531
+#: src/Util.php:532
 msgctxt "AM/PM indication in time"
 msgid "PM"
 msgstr ""
 
-#: src/Util.php:533
+#: src/Util.php:534
 msgctxt "AM/PM indication in time"
 msgid "AM"
 msgstr ""
 
-#: src/Util.php:605
+#: src/Util.php:606
 #, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
-#: src/Util.php:1358
+#: src/Util.php:1359
 msgid "Users"
 msgstr ""
 
