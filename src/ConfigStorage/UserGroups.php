@@ -255,8 +255,8 @@ class UserGroups
      * Returns HTML for checkbox groups to choose
      * tabs of 'server', 'db' or 'table' levels.
      *
-     * @param string  $title    title of the checkbox group
-     * @param mixed[] $selected array of selected allowed tabs
+     * @param string   $title    title of the checkbox group
+     * @param string[] $selected array of selected allowed tabs
      *
      * @return string HTML for checkbox groups
      */
@@ -266,7 +266,7 @@ class UserGroups
         $tabDetails = [];
         foreach ($tabs as $tab => $tabName) {
             $tabDetail = [];
-            $tabDetail['in_array'] = in_array($tab, $selected) ? ' checked' : '';
+            $tabDetail['in_array'] = in_array($tab, $selected, true) ? ' checked' : '';
             $tabDetail['tab'] = $tab;
             $tabDetail['tab_name'] = $tabName;
             $tabDetails[] = $tabDetail;

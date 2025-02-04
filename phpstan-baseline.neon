@@ -1750,12 +1750,6 @@ parameters:
 			path: src/ConfigStorage/UserGroups.php
 
 		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/ConfigStorage/UserGroups.php
-
-		-
 			message: '#^Only booleans are allowed in &&, int\|string given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
