@@ -49,14 +49,12 @@ final class ShowConfigController implements InvocableController
         $formDisplay = new ConfigForm($configFile);
         $formDisplay->save(['Config']);
 
-        /** @var mixed $eol */
-        $eol = $request->getParsedBodyParam('eol');
+        $eol = $request->getParsedBodyParamAsStringOrNull('eol');
         if ($eol !== null) {
             $_SESSION['eol'] = $eol === 'unix' ? 'unix' : 'win';
         }
 
-        /** @var mixed $submitClear */
-        $submitClear = $request->getParsedBodyParam('submit_clear');
+        $submitClear = $request->getParsedBodyParamAsStringOrNull('submit_clear');
         if (is_string($submitClear) && $submitClear !== '') {
             // Clear current config and return to main page
             $configFile->resetConfigData();
@@ -65,8 +63,7 @@ final class ShowConfigController implements InvocableController
                 ->withHeader('Location', '../setup/index.php' . Url::getCommonRaw(['route' => '/setup']));
         }
 
-        /** @var mixed $submitDownload */
-        $submitDownload = $request->getParsedBodyParam('submit_download');
+        $submitDownload = $request->getParsedBodyParamAsStringOrNull('submit_download');
         if (is_string($submitDownload) && $submitDownload !== '') {
             $response = $this->responseFactory->createResponse();
             // Output generated config file
