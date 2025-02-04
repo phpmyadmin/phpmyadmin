@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-02 00:25+0000\n"
-"PO-Revision-Date: 2025-01-20 13:00+0000\n"
+"PO-Revision-Date: 2025-02-05 16:02+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -13480,10 +13480,8 @@ msgid "Double-click to copy column name."
 msgstr "Double-click to copy column name."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Click the drop-down arrow<br>to toggle column's visibility."
+msgstr "Click the drop-down arrow to toggle column's visibility."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
