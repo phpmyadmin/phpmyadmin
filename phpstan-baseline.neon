@@ -328,12 +328,6 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: '#^Parameter \#1 \$description of method PhpMyAdmin\\BrowseForeigners\:\:getDescriptionAndTitle\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/BrowseForeigners.php
-
-		-
 			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, Default collation\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1

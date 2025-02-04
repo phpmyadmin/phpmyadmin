@@ -71,10 +71,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/BrowseForeigners.php">
-    <MixedArgument>
-      <code><![CDATA[$descriptions[$indexByDescription]]]></code>
-      <code><![CDATA[$descriptions[$indexByKeyname]]]></code>
-    </MixedArgument>
     <MixedArrayOffset>
       <code><![CDATA[$relrow[$foreignData->foreignField]]]></code>
     </MixedArrayOffset>
