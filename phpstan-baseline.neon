@@ -1888,12 +1888,6 @@ parameters:
 			path: src/Controllers/Database/DataDictionaryController.php
 
 		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
 			message: '#^Binary operation "\." between mixed and ''\.'' results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -16117,12 +16111,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '', '' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '#^Binary operation "\." between non\-empty\-string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -16150,48 +16138,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 9
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Cardinality'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Column_name'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Comment'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Key_name'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Non_unique'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Seq_in_index'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Sub_part'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: src/Util.php
 
 		-
@@ -16227,7 +16173,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 4
+			count: 3
 			path: src/Util.php
 
 		-

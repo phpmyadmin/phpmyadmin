@@ -1483,57 +1483,6 @@ class Util
     }
 
     /**
-     * Process the index data.
-     *
-     * @param mixed[] $indexes index data
-     *
-     * @return mixed[] processes index data
-     */
-    public static function processIndexData(array $indexes): array
-    {
-        $lastIndex = '';
-
-        $primary = '';
-        $pkArray = []; // will be use to emphasis prim. keys in the table
-        $indexesInfo = [];
-        $indexesData = [];
-
-        // view
-        foreach ($indexes as $row) {
-            // Backups the list of primary keys
-            if ($row['Key_name'] === 'PRIMARY') {
-                $primary .= $row['Column_name'] . ', ';
-                $pkArray[$row['Column_name']] = 1;
-            }
-
-            // Retains keys informations
-            if ($row['Key_name'] != $lastIndex) {
-                $lastIndex = $row['Key_name'];
-            }
-
-            $indexesInfo[$row['Key_name']]['Sequences'][] = $row['Seq_in_index'];
-            $indexesInfo[$row['Key_name']]['Non_unique'] = $row['Non_unique'];
-            if (isset($row['Cardinality'])) {
-                $indexesInfo[$row['Key_name']]['Cardinality'] = $row['Cardinality'];
-            }
-
-            // I don't know what does following column mean....
-            // $indexes_info[$row['Key_name']]['Packed']          = $row['Packed'];
-
-            $indexesInfo[$row['Key_name']]['Comment'] = $row['Comment'];
-
-            $indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name'] = $row['Column_name'];
-            if (! isset($row['Sub_part'])) {
-                continue;
-            }
-
-            $indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part'] = $row['Sub_part'];
-        }
-
-        return [$primary, $pkArray, $indexesInfo, $indexesData];
-    }
-
-    /**
      * Gets the list of tables in the current db and information about these tables if possible.
      *
      * @return array<int, array|int>

@@ -779,6 +779,9 @@
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
+    <MixedArrayOffset>
+      <code><![CDATA[$pkArray[$row['Column_name']]]]></code>
+    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$relation]]></code>
     </MixedAssignment>
@@ -9414,58 +9417,19 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$row['Cardinality']]]></code>
-      <code><![CDATA[$row['Column_name']]]></code>
-      <code><![CDATA[$row['Column_name']]]></code>
-      <code><![CDATA[$row['Column_name']]]></code>
-      <code><![CDATA[$row['Comment']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Non_unique']]]></code>
-      <code><![CDATA[$row['Seq_in_index']]]></code>
-      <code><![CDATA[$row['Seq_in_index']]]></code>
-      <code><![CDATA[$row['Seq_in_index']]]></code>
-      <code><![CDATA[$row['Sub_part']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$indexesData[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$pkArray[$row['Column_name']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name']]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Cardinality']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Comment']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Non_unique']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Sequences'][]]]></code>
-      <code><![CDATA[$lastIndex]]></code>
-      <code><![CDATA[$row]]></code>
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$row['Column_name']]]></code>
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
