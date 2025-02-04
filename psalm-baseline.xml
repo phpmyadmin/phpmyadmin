@@ -4494,7 +4494,6 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$this->dumpBufferObjects[$objectName]]]></code>
       <code><![CDATA[$tmpSelect]]></code>
     </MixedOperand>
     <PossiblyNullArgument>
@@ -9670,18 +9669,10 @@
       <code><![CDATA[$regex]]></code>
       <code><![CDATA[$specificEntry]]></code>
     </ArgumentTypeCoercion>
-    <MixedArgument>
-      <code><![CDATA[$dump]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$name]]></code>
       <code><![CDATA[$table]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$dump]]></code>
-      <code><![CDATA[$newData[$newName]]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tempName]]></code>
       <code><![CDATA[$tempName]]></code>

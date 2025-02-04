@@ -73,7 +73,7 @@ class Export
 
     public int $dumpBufferLength = 0;
 
-    /** @var mixed[] */
+    /** @var string[] */
     public array $dumpBufferObjects = [];
 
     public static bool $asFile = false;
@@ -446,9 +446,9 @@ class Export
     /**
      * Compress the export buffer
      *
-     * @param mixed[]|string $dumpBuffer  the current dump buffer
-     * @param string         $compression the compression mode
-     * @param string         $filename    the filename
+     * @param string[]|string $dumpBuffer  the current dump buffer
+     * @param string          $compression the compression mode
+     * @param string          $filename    the filename
      */
     public function compress(array|string $dumpBuffer, string $compression, string $filename): array|string|bool
     {

@@ -7042,12 +7042,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Binary operation "\.\=" between mixed and non\-empty\-string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16738,25 +16732,7 @@ parameters:
 			path: src/ZipExtension.php
 
 		-
-			message: '#^Parameter \#1 \$data of function gzcompress expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
 			message: '#^Parameter \#1 \$keys of function array_combine expects array\<int\|string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: '#^Parameter \#1 \$string of function crc32 expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: '#^Parameter \#1 \$string of function strlen expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/ZipExtension.php
