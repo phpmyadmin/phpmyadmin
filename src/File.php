@@ -249,11 +249,12 @@ class File
             return false;
         }
 
-        $file = $this->fetchUploadedFromTblChangeRequestMultiple($_FILES['fields_upload'], $rownumber, $key);
+        $error = $_FILES['fields_upload']['error']['multi_edit'][$rownumber][$key];
+        $tempName = $_FILES['fields_upload']['tmp_name']['multi_edit'][$rownumber][$key];
 
-        switch ($file['error']) {
+        switch ($error) {
             case UPLOAD_ERR_OK:
-                return $this->setUploadedFile($file['tmp_name']);
+                return $this->setUploadedFile($tempName);
 
             case UPLOAD_ERR_NO_FILE:
                 break;
@@ -286,45 +287,6 @@ class File
         }
 
         return false;
-    }
-
-    /**
-     * strips some dimension from the multi-dimensional array from $_FILES
-     *
-     * <code>
-     * $file['name']['multi_edit'][$rownumber][$key] = [value]
-     * $file['type']['multi_edit'][$rownumber][$key] = [value]
-     * $file['size']['multi_edit'][$rownumber][$key] = [value]
-     * $file['tmp_name']['multi_edit'][$rownumber][$key] = [value]
-     * $file['error']['multi_edit'][$rownumber][$key] = [value]
-     *
-     * // becomes:
-     *
-     * $file['name'] = [value]
-     * $file['type'] = [value]
-     * $file['size'] = [value]
-     * $file['tmp_name'] = [value]
-     * $file['error'] = [value]
-     * </code>
-     *
-     * @param mixed[] $file      the array
-     * @param string  $rownumber number of row to process
-     * @param string  $key       key to process
-     *
-     * @return mixed[]
-     */
-    public function fetchUploadedFromTblChangeRequestMultiple(
-        array $file,
-        string $rownumber,
-        string $key,
-    ): array {
-        return [
-            'name' => $file['name']['multi_edit'][$rownumber][$key],
-            'type' => $file['type']['multi_edit'][$rownumber][$key],
-            'size' => $file['size']['multi_edit'][$rownumber][$key],
-            'tmp_name' => $file['tmp_name']['multi_edit'][$rownumber][$key],
-            'error' => $file['error']['multi_edit'][$rownumber][$key],
-        ];
     }
 
     /**

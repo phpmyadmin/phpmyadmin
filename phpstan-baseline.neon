@@ -7342,9 +7342,15 @@ parameters:
 			path: src/File.php
 
 		-
+			message: '#^Cannot access offset ''error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/File.php
+
+		-
 			message: '#^Cannot access offset ''multi_edit'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 7
+			count: 4
 			path: src/File.php
 
 		-
@@ -7354,9 +7360,15 @@ parameters:
 			path: src/File.php
 
 		-
+			message: '#^Cannot access offset ''tmp_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/File.php
+
+		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 13
+			count: 7
 			path: src/File.php
 
 		-
@@ -7403,12 +7415,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$file of function bzopen expects resource\|string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/File.php
-
-		-
-			message: '#^Parameter \#1 \$file of method PhpMyAdmin\\File\:\:fetchUploadedFromTblChangeRequestMultiple\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/File.php

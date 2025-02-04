@@ -4584,8 +4584,12 @@
     <FalsableReturnStatement>
       <code><![CDATA[$this->compression ?? $this->detectCompression()]]></code>
     </FalsableReturnStatement>
+    <InvalidArrayAccess>
+      <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit']]]></code>
+    </InvalidArrayAccess>
     <InvalidArrayOffset>
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit']]]></code>
     </InvalidArrayOffset>
     <InvalidFalsableReturnType>
       <code><![CDATA[string]]></code>
@@ -4594,25 +4598,18 @@
       <code><![CDATA[$this->handle]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$file['tmp_name']]]></code>
+      <code><![CDATA[$tempName]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$file['error']['multi_edit']]]></code>
-      <code><![CDATA[$file['error']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['error']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['name']['multi_edit']]]></code>
-      <code><![CDATA[$file['name']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['name']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['size']['multi_edit']]]></code>
-      <code><![CDATA[$file['size']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['size']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['tmp_name']['multi_edit']]]></code>
-      <code><![CDATA[$file['tmp_name']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['tmp_name']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['type']['multi_edit']]]></code>
-      <code><![CDATA[$file['type']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['type']['multi_edit'][$rownumber][$key]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit'][$rownumber]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit'][$rownumber][$key]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit'][$rownumber]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit'][$rownumber][$key]]]></code>
     </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[$tempName]]></code>
+    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
