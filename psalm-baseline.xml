@@ -125,10 +125,6 @@
   </file>
   <file src="src/Command/TwigLintCommand.php">
     <MixedArgument>
-      <code><![CDATA[$info['exception']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['template']]]></code>
       <code><![CDATA[static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
                     if ($level === E_USER_DEPRECATED) {
                         $templateLine = 0;
@@ -142,19 +138,12 @@
                     return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
                 }]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$info['exception']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['template']]]></code>
-      <code><![CDATA[$info['valid']]]></code>
-      <code><![CDATA[$info['valid']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$info]]></code>
       <code><![CDATA[$showDeprecations]]></code>
     </MixedAssignment>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$info['exception']]]></code>
+    </PossiblyUndefinedArrayOffset>
     <UndefinedVariable>
       <code><![CDATA[$prevErrorHandler]]></code>
     </UndefinedVariable>

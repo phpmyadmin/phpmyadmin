@@ -137,7 +137,7 @@ class TwigLintCommand extends Command
         return $this->display($output, $io, $filesInfo);
     }
 
-    /** @return mixed[] */
+    /** @return array{template: string, file: string, valid: bool, line?:int, exception?:Error}[] */
     protected function getFilesInfo(string $templatesPath): array
     {
         $filesInfo = [];
@@ -157,7 +157,7 @@ class TwigLintCommand extends Command
         return (string) file_get_contents($filePath);
     }
 
-    /** @return mixed[] */
+    /** @return array{template: string, file: string, valid: bool, line?:int, exception?:Error} */
     private function validate(string $template, string $file): array
     {
         $twig = Template::getTwigEnvironment(null, false);
@@ -184,7 +184,7 @@ class TwigLintCommand extends Command
         return ['template' => $template, 'file' => $file, 'valid' => true];
     }
 
-    /** @param mixed[] $filesInfo */
+    /** @param array{template: string, file: string, valid: bool, line?:int, exception?:Error}[] $filesInfo */
     private function display(OutputInterface $output, SymfonyStyle $io, array $filesInfo): int
     {
         $errors = 0;
