@@ -5795,7 +5795,6 @@
       <code><![CDATA[$arr['foreign_table']]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$query]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$master]]></code>
@@ -5844,7 +5843,6 @@
       <code><![CDATA[$oldPriv]]></code>
       <code><![CDATA[$oldPriv]]></code>
       <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$query]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$oldPriv[$i]]]></code>

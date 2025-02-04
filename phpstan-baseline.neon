@@ -9691,12 +9691,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Binary operation "\." between "\\n" and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Operations.php
-
-		-
 			message: '#^Binary operation "\." between '', "'' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -9802,12 +9796,6 @@ parameters:
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 8
-			path: src/Operations.php
-
-		-
-			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:query\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Operations.php
 
 		-

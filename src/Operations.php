@@ -166,7 +166,7 @@ class Operations
      * @param bool     $move   whether database name is empty or not
      * @param string   $db     database name
      *
-     * @return mixed[] SQL queries for the constraints
+     * @return string[] SQL queries for the constraints
      */
     public function copyTables(array $tables, bool $move, string $db, DatabaseName $newDatabaseName): array
     {
@@ -438,7 +438,7 @@ class Operations
     /**
      * Create all accumulated constraints
      *
-     * @param mixed[] $sqlConstraints array of sql constraints for the database
+     * @param string[] $sqlConstraints array of sql constraints for the database
      */
     public function createAllAccumulatedConstraints(array $sqlConstraints, DatabaseName $newDatabaseName): void
     {
