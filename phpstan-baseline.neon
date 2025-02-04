@@ -397,12 +397,6 @@ parameters:
 			path: src/Command/FixPoTwigCommand.php
 
 		-
-			message: '#^Offset ''exception'' might not exist on array\{template\: string, file\: string, valid\: false, line\?\: int, exception\?\: Twig\\Error\\Error\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
 			message: '#^Only booleans are allowed in a ternary operator condition, \(callable\)\|null given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1

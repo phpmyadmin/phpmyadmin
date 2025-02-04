@@ -141,9 +141,6 @@
     <MixedAssignment>
       <code><![CDATA[$showDeprecations]]></code>
     </MixedAssignment>
-    <PossiblyUndefinedArrayOffset>
-      <code><![CDATA[$info['exception']]]></code>
-    </PossiblyUndefinedArrayOffset>
     <UndefinedVariable>
       <code><![CDATA[$prevErrorHandler]]></code>
     </UndefinedVariable>
