@@ -14479,12 +14479,6 @@ parameters:
 			path: src/Server/SysInfo/WindowsNt.php
 
 		-
-			message: '#^Cannot call method getMessage\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Session.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 5
@@ -14492,12 +14486,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$id of function session_id expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Session.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Session.php
@@ -14716,18 +14704,6 @@ parameters:
 			message: '#^Cannot access property \$expr on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Cannot access property \$name on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Cannot access property \$table on mixed\.$#'
-			identifier: property.nonObject
-			count: 4
 			path: src/Sql.php
 
 		-

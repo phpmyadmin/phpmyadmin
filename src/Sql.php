@@ -145,7 +145,7 @@ class Sql
     /**
      * Verify whether the result set has columns from just one table
      *
-     * @param mixed[] $fieldsMeta meta fields
+     * @param FieldMetadata[] $fieldsMeta meta fields
      */
     private function resultSetHasJustOneTable(array $fieldsMeta): bool
     {
@@ -170,9 +170,9 @@ class Sql
      * Verify whether the result set contains all the columns
      * of at least one unique key
      *
-     * @param string  $db         database name
-     * @param string  $table      table name
-     * @param mixed[] $fieldsMeta meta fields
+     * @param string          $db         database name
+     * @param string          $table      table name
+     * @param FieldMetadata[] $fieldsMeta meta fields
      */
     private function resultSetContainsUniqueKey(string $db, string $table, array $fieldsMeta): bool
     {

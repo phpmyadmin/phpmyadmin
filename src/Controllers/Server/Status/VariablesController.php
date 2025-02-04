@@ -206,7 +206,7 @@ final class VariablesController extends AbstractController implements InvocableC
     /**
      * Returns a list of variable descriptions
      *
-     * @return mixed[]
+     * @return array<string, string>
      */
     private function getDescriptions(): array
     {

@@ -8531,14 +8531,7 @@
   <file src="src/Session.php">
     <MixedArgument>
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
-      <code><![CDATA[$error->getMessage()]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$error]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getMessage]]></code>
-    </MixedMethodCall>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty(ini_get('session.auto_start'))]]></code>
       <code><![CDATA[empty(session_id())]]></code>
@@ -8641,11 +8634,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$maxRows]]></code>
-      <code><![CDATA[$oneFieldMeta]]></code>
-      <code><![CDATA[$oneMeta]]></code>
       <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$prevTable]]></code>
-      <code><![CDATA[$resultSetColumnNames[]]]></code>
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
@@ -8657,8 +8646,6 @@
       <code><![CDATA[$maxRows]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
-      <code><![CDATA[$oneFieldMeta->table]]></code>
-      <code><![CDATA[$oneMeta->name]]></code>
       <code><![CDATA[$statementInfo->statement->where[0]->expr]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
