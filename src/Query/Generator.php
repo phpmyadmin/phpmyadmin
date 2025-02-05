@@ -155,7 +155,7 @@ class Generator
             . ' AND `TABLE_NAME` ' . Util::getCollateForIS()
             . ' = ' . $quotedTable
             . ($quotedColumn !== null ? ' AND `COLUMN_NAME` = ' . $quotedColumn : '')
-            . ' ORDER BY ordinal_position';
+            . ' ORDER BY `ORDINAL_POSITION`';
     }
 
     public static function getColumnNamesAndTypes(
