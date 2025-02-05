@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-02 00:25+0000\n"
-"PO-Revision-Date: 2024-10-15 16:16+0000\n"
+"PO-Revision-Date: 2025-02-06 17:02+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "nl/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -13434,16 +13434,12 @@ msgid "No dependencies selected!"
 msgstr "Er zijn geen afhankelijkheden geselecteerd!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Gebruik deze waarde"
+msgstr "Geef eerste waarde in"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Sessievariabelen"
+msgstr "Geef tweede waarde in"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
@@ -13713,10 +13709,8 @@ msgid "Double-click to copy column name."
 msgstr "Dubbelklik om kolomnaam te kopiëren."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Klik op het pijltje<br>om de zichtbaarheid van de kolom te wijzigen."
+msgstr "Klik op het pijltje om de zichtbaarheid van de kolom te wijzigen."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
@@ -17754,6 +17748,8 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Toont een downloadlink van de binaire data van de kolom. Je kunt deze optie "
+"gebruiken om de bestandsnaam te specificeren."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
 msgid ""
