@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2024-12-19 00:14+0000\n"
+"PO-Revision-Date: 2025-02-06 17:01+0000\n"
 "Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -14720,10 +14720,8 @@ msgid "Export the structure of all tables."
 msgstr "Permite alterar a estrutura de tabelas existentes."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Exportar visualizações como tabelas"
+msgstr "Exportar dados de todas as tabelas."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -16441,10 +16439,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Replicado"
+msgstr "Obsoleto!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4
