@@ -114,7 +114,7 @@ final class DataDictionaryController implements InvocableController
     /**
      * @param mixed[][] $indexes index data
      *
-     * @return array<string,true> The list of primary key columns
+     * @return array<true> The list of primary key columns
      */
     private function getPrimaryKeys(array $indexes): array
     {
