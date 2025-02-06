@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2025-02-06 17:01+0000\n"
+"PO-Revision-Date: 2025-02-07 22:02+0000\n"
 "Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/pt/>\n"
@@ -3450,10 +3450,8 @@ msgid "Remember filename template"
 msgstr "Lembrar modelo do nome de ficheiros"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Remover colunas da lista central"
+msgstr "Remover cláusula DEFINER das definições"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -5649,10 +5647,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Deseja realmente remover o particionamento?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Deseja realmente revogar o(s) utilizador(es) selecionado(s)?"
+msgstr "Deseja realmente redefinir a réplica (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -6712,10 +6708,8 @@ msgid "Show query box"
 msgstr "Mostrar Caixa do query"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Executar consulta"
+msgstr "Editar consulta"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3033
@@ -7379,10 +7373,8 @@ msgid "up to date"
 msgstr "atualizada"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Um erro ocorreu ao importar o ficheiro do tipo shape ESRI: \"%s\"."
+msgstr "Ocorreu um erro ao carregar informações do Git."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
@@ -8360,33 +8352,23 @@ msgstr ""
 "tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
-"A quantidade de tabelas temporárias abertas atualmente pelo thread SQL do "
-"slave."
+"A quantidade de tabelas temporárias abertas atualmente pelo processo SQL da "
+"réplica."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Número total de vezes (desde o início) que o processo de replicação SQL "
-"slave tentou refazer transações."
+"Número total de vezes (desde o início) que o processo de replicação da "
+"réplica SQL tentou refazer transações."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr ""
-"Isto está LIGADO se este servidor é um slave que está conectado a um master."
+msgstr "Isto está LIGADO se este servidor for uma réplica ligada a um primário."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -10880,16 +10862,12 @@ msgstr ""
 "O valor digitado na imagem de verificação está errado, tente novamente!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:297
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
-"A sua palavra-passe é comprida demais. Para evitar ataques de negação de "
-"serviço, o phpMyAdmin restringe as palavras-passe a menos de 1000 caracteres."
+"A sua palavra-passe é comprida demais. Para evitar ataques de recusa de "
+"serviço, o phpMyAdmin restringe as palavras-passe a menos de 2000 caracteres."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 msgid "You are not allowed to log in to this MySQL server!"
@@ -12061,16 +12039,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Chave de Segurança de Hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Fornece autenticação usando tokens de segurança de hardware suportando FIDO "
-"U2F, como a Yubikey."
+"Fornece autenticação usando tokens de segurança de hardware com suporte a "
+"FIDO U2F, como a Yubikey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12098,22 +12072,16 @@ msgid "For testing purposes only!"
 msgstr "Apenas para fins de teste!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Chave de Segurança de Hardware (FIDO U2F)"
+msgstr "Chave de segurança por hardware (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Fornece autenticação usando tokens de segurança de hardware suportando FIDO "
-"U2F, como a Yubikey."
+"Fornece autenticação usando tokens de segurança de hardware com suporte ao "
+"protocolo the WebAuthn/FIDO2, tal como a Yubikey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -12204,20 +12172,16 @@ msgid "Unknown error"
 msgstr "Erro desconhecido"
 
 #: libraries/classes/ReplicationGui.php:545
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Não foi possível conectar ao master %s."
+msgstr "Não foi possível ligar ao primário %s."
 
 #: libraries/classes/ReplicationGui.php:555
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Não foi possível ler a posição do master log. Possívelmente é um problema de "
-"permissões no master."
+"Não foi possível ler a posição do historial do primário. Possivelmente é um "
+"problema de permissões no primário."
 
 #: libraries/classes/ReplicationGui.php:573
 msgid "Unable to change primary!"
@@ -12477,18 +12441,15 @@ msgstr "Permite bloquear tabelas para a thread atual."
 #: libraries/classes/Server/Privileges.php:440
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Necessário para a replicação dos slaves."
+msgstr "Necessário para a replicação das réplicas."
 
 #: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Permitir que o utilizador pergunte onde os slaves / masters estão."
+msgstr ""
+"Permitir que o utilizador pergunte onde estão as réplicas e os primários."
 
 #: libraries/classes/Server/Privileges.php:455
 #: templates/server/privileges/privileges_table.twig:524
@@ -12726,23 +12687,17 @@ msgid "Show open tables"
 msgstr "Ver tabelas abertas"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Mostrar anfitriões secundários"
+msgstr "Mostrar anfitriões réplicas"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Ver estado do master"
+msgstr "Ver estado do primário"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Ver estado do secundário"
+msgstr "Ver estado da réplica"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -13385,10 +13340,8 @@ msgstr ""
 "assumindo o mapeamento convencional de endereços IPv4 em endereços IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Guarda um Identificador Universal Único (UUID)"
+msgstr "Guarda um UUID de 128-bit (Identificador Universal Único)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
