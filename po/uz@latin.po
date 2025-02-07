@@ -4,33 +4,32 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-02-17 10:36+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
-"Language-Team: Uzbek (latin) <https://hosted.weblate.org/projects/phpmyadmin/"
-"4-9/uz_Latn/>\n"
+"PO-Revision-Date: 2025-02-08 02:06+0000\n"
+"Last-Translator: B N <bekturk333@gmail.com>\n"
+"Language-Team: Uzbek (Latin script) <https://hosted.weblate.org/projects/"
+"phpmyadmin/4-9/uz_Latn/>\n"
 "Language: uz@latin\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
-#, fuzzy
-#| msgid "Bar type"
 msgid "Bad type!"
-msgstr "So‘rov turi"
+msgstr "Noto‘g‘ri tur!"
 
 #: changelog.php:39 license.php:34
-#, php-format
+#, fuzzy, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
-"Ushbu tizimda %s fayli mavzhud emas, marhamat, qo'shimcha ma`lumotlarni "
-"olish uchun %s saytiga tashrif buyuring."
+"Ushbu tizimda %s fayli mavjud emas, marhamat, qo'shimcha ma`lumotlarni olish "
+"uchun %s saytiga tashrif buyuring."
 
 #: db_central_columns.php:129
+#, fuzzy
 msgid "The central list of columns for the current database is empty."
 msgstr "Joriy ma'lumotlar bazasi uchun markaziy ro'yxat ustunlari  bo`m-bo'sh."
 
@@ -148,8 +147,9 @@ msgstr "Null"
 #: templates/table/structure/table_structure_header.twig:10
 #: templates/columns_definitions/table_fields_definitions.twig:20
 #: templates/table/tracking/structure_snapshot_columns.twig:10
+#, fuzzy
 msgid "Default"
-msgstr "Andoza"
+msgstr "Odatiy"
 
 #: db_datadict.php:122 libraries/classes/Plugins/Export/ExportHtmlword.php:400
 #: libraries/classes/Plugins/Export/ExportLatex.php:531
@@ -6270,14 +6270,15 @@ msgid "Logout URL"
 msgstr "Chiqish URL"
 
 #: libraries/classes/Config/Descriptions.php:1063
+#, fuzzy
 msgid ""
 "Limits number of table preferences which are stored in database, the oldest "
 "records are automatically removed."
 msgstr ""
+"Ma’lumotlar bazasida saqlanadigan jadval sozlamalari sonini cheklaydi, eng "
+"eski yozuvlar avtomatik ravishda o‘chirib tashlanadi."
 
 #: libraries/classes/Config/Descriptions.php:1067
-#, fuzzy
-#| msgid "Maximum number of tables displayed in table list"
 msgid "Maximal number of table preferences to store"
 msgstr "Jadvallar ro‘yxatida ko‘rsatiladigan jadvallarning maksimal soni"
 
@@ -6288,21 +6289,18 @@ msgid "QBE saved searches table"
 msgstr "Tobе sеrvеr statusi jadvalini ko‘rish"
 
 #: libraries/classes/Config/Descriptions.php:1072
-#, fuzzy
-#| msgid ""
-#| "Leave blank for no PDF schema support, suggested: [kbd]pma_pdf_pages[/kbd]"
 msgid ""
 "Leave blank for no QBE saved searches support, suggested: "
 "[kbd]pma__savedsearches[/kbd]."
 msgstr ""
-"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_pdf_pages\"[/kbd]"
+"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: [kbd]"
+"\"pma_pdf_pages\"[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1076
 #, fuzzy
 #| msgid "Export views"
 msgid "Export templates table"
-msgstr "Ko‘rinishlarni eksport qilish"
+msgstr "Shablonlar jadvalini eksport qilish"
 
 #: libraries/classes/Config/Descriptions.php:1079
 #, fuzzy
@@ -6319,7 +6317,7 @@ msgstr ""
 #, fuzzy
 #| msgid "CHAR textarea columns"
 msgid "Central columns table"
-msgstr "CHAR maydonidagi ustunlar soni"
+msgstr "Markaziy ustunlar jadvali\""
 
 #: libraries/classes/Config/Descriptions.php:1086
 #, fuzzy
@@ -6330,22 +6328,18 @@ msgid ""
 "Leave blank for no central columns support, suggested: "
 "[kbd]pma__central_columns[/kbd]."
 msgstr ""
-"PDF-sxemadan foydalanmaslik uchun bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_table_coords\"[/kbd]"
+"Markaziy ustunlar qo‘llab-quvvatlanmasligi uchun bo‘sh qoldiring, tavsiya "
+"etiladi: [kbd]pma__central_columns[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1091
-#, fuzzy
-#| msgid ""
-#| " can use MySQL wildcard characters (% and _), escape them if you want use "
-#| "their literal instances, i.e. use 'my\\_db' and not 'my_db'"
 msgid ""
 "You can use MySQL wildcard characters (% and _), escape them if you want to "
 "use their literal instances, i.e. use [kbd]'my\\_db'[/kbd] and not "
 "[kbd]'my_db'[/kbd]."
 msgstr ""
 "Maxsus MySQL belgilardan (% va _) foydalanishingiz mumkin, buning uchun ular "
-"oldiga teskari egri chiziq (\\) qo‘yishingiz kerak, masalan \\\"my\\_db\\"
-"\" (lekin \"my_db\" emas)"
+"oldiga teskari egri chiziq (\\) qo‘yishingiz kerak, masalan \\\"my\\_db\\\" ("
+"lekin \"my_db\" emas)"
 
 #: libraries/classes/Config/Descriptions.php:1096
 msgid "Show only listed databases"
@@ -6353,15 +6347,14 @@ msgstr "Faqat ro‘yxatdagi bazalarni ko‘rsatish"
 
 #: libraries/classes/Config/Descriptions.php:1098
 #: libraries/classes/Config/Descriptions.php:1244
-#, fuzzy
-#| msgid "Leave empty if not using config auth"
 msgid "Leave empty if not using config auth."
 msgstr ""
 "Agar \"config\" autentifikatsiya usulidan foydalanmasangiz, bo‘sh qoldiring"
 
 #: libraries/classes/Config/Descriptions.php:1100
+#, fuzzy
 msgid "Password for config auth"
-msgstr "\"config\" autentifikatsiya usuli paroli"
+msgstr "Sozlamalar autentifikatsiyasi uchun parol"
 
 #: libraries/classes/Config/Descriptions.php:1102
 #, fuzzy
@@ -6370,35 +6363,30 @@ msgstr "\"config\" autentifikatsiya usuli paroli"
 msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__pdf_pages[/kbd]."
 msgstr ""
-"Agar PDF-sxema ishlatmasangiz, bo‘sh qoldiring, asl qiymati: "
-"[kbd]\"pma_pdf_pages\"[/kbd]"
+"PDF sxemasi qo‘llab-quvvatlanmasa bo‘sh qoldiring, tavsiya etiladi: [kbd]"
+"pma__pdf_pages[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1104
 msgid "PDF schema: pages table"
 msgstr "PDF-sxema: sahifalar jadvali"
 
 #: libraries/classes/Config/Descriptions.php:1107
-#, fuzzy
-#| msgid ""
-#| "Database used for relations, bookmarks, and PDF features. See [a@https://"
-#| "wiki.phpmyadmin.net/pma/pmadb]pmadb[/a] for complete information. Leave "
-#| "blank for no support. Suggested: [kbd]phpmyadmin[/kbd]"
 msgid ""
 "Database used for relations, bookmarks, and PDF features. See [doc@linked-"
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
 "Aloqalar, xatcho‘plar va PDF imkoniyatlari uchun ishlatiladigan baza.  "
-"Batafsil ma`lumot uchun [a@https://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\"[/"
-"a]ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: "
-"[kbd]\"phpmyadmin\"[/kbd]"
+"Batafsil ma`lumot uchun [a@https://wiki.phpmyadmin.net/pma/pmadb]\"pmadb\""
+"[/a]ga qarang. Agar foydalanmasangiz, bo‘sh qoldiring. Asl qiymati: [kbd]"
+"\"phpmyadmin\"[/kbd]"
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
 #, fuzzy
 #| msgid "database name"
 msgid "Database name"
-msgstr "ma`lumotlar bazasi nomi"
+msgstr "Ma`lumotlar bazasi nomi"
 
 #: libraries/classes/Config/Descriptions.php:1114
 #, fuzzy
