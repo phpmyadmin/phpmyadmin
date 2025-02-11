@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-09 00:24+0000\n"
-"PO-Revision-Date: 2024-09-01 16:52+0000\n"
+"PO-Revision-Date: 2025-02-11 21:46+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -5793,7 +5793,7 @@ msgstr ""
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:10
 msgid "User group menu assignments"
-msgstr "მომხმარებლის ჯგუფის მენიუს მინიჭებები"
+msgstr "მომხმარებლის ჯგუფის მინიჭებები"
 
 #: resources/templates/server/user_groups/edit_user_groups.twig:15
 msgid "Group name:"
@@ -6513,7 +6513,7 @@ msgstr "ცხრილის დაცარიელება (DELETE FROM)"
 #: src/Controllers/Database/StructureController.php:356
 #, php-format
 msgid "View %s has been dropped."
-msgstr "ხედი %s წაიშალა."
+msgstr "ხედი %s მოცილებულია."
 
 #: resources/templates/table/operations/index.twig:452
 #: src/Controllers/Database/StructureController.php:356
@@ -13084,7 +13084,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:698
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr ""
+msgstr "უცნობი უსაფრთხოების გასაღების შეცდომა."
 
 #. l10n: error code 3 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:700
@@ -13096,7 +13096,7 @@ msgstr ""
 #: src/Controllers/JavaScriptMessagesController.php:702
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr ""
+msgstr "უსაფრთხოების გასაღების გააქტიურება ჩავარდა."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: src/Controllers/JavaScriptMessagesController.php:704
@@ -13499,7 +13499,7 @@ msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:823
 msgid "Uploading your import file…"
-msgstr "თქვენი შემოსატანი ფაილის ატვირთვა…"
+msgstr "თქვენი შეტანის ფაილის ატვირთვა…"
 
 #: src/Controllers/JavaScriptMessagesController.php:825
 msgid ""
@@ -14258,7 +14258,7 @@ msgstr ""
 #: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "სანიშნი %s შეიქმნა."
+msgstr "სანიშნე %1$ შეიქმნა."
 
 #: src/Controllers/Sql/SqlController.php:220
 msgid "Bookmark not created!"
@@ -15326,7 +15326,7 @@ msgstr ""
 
 #: src/InsertEdit.php:465
 msgid "web server upload directory:"
-msgstr "ვებსერვერის ატვირთვის საქაღალდე:"
+msgstr "ვებსერერის ატვირთვის საქაღალდე:"
 
 #: src/InsertEdit.php:882 src/Sql.php:860
 msgid "Showing SQL query"
@@ -16180,7 +16180,7 @@ msgstr ""
 
 #: src/Plugins/Export/ExportSql.php:1678
 msgid "Indexes for dumped tables"
-msgstr "ინდექსები გამოტანილი ცხრილებისთვის"
+msgstr "ინდექსები დამპის ცხრილებისთვის"
 
 #: src/Plugins/Export/ExportSql.php:1679
 msgid "Indexes for table"
@@ -17509,7 +17509,7 @@ msgstr "პროფილი განახლდა."
 
 #: src/UserPassword.php:48
 msgid "Password is too long!"
-msgstr "პაროლი ძალიან გრძელია!"
+msgstr "პაროლი მეტისმეტად გრძელია!"
 
 #: src/UserPreferences.php:161
 msgid "Could not save configuration"
