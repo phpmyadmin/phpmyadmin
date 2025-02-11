@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-09-01 05:09+0000\n"
+"PO-Revision-Date: 2025-02-11 21:46+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4999,9 +4999,9 @@ msgstr ""
 "ინფორმაციისთვის."
 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:138
-#, fuzzy, php-format
+#, php-format
 msgid "Showing rows %1$s - %2$s."
-msgstr "Create relation"
+msgstr "ნაჩვენებია მწკრივები %1$s - %2$s."
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: libraries/classes/Controllers/Database/DesignerController.php:97
@@ -5102,10 +5102,9 @@ msgstr ""
 #: libraries/classes/Controllers/Database/StructureController.php:570
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/view.twig:28
-#, fuzzy, php-format
-#| msgid "Field %s has been dropped."
+#, php-format
 msgid "View %s has been dropped."
-msgstr "Field %s has been dropped"
+msgstr "ხედი %s მოცილებულია."
 
 #: libraries/classes/Controllers/Database/StructureController.php:571
 #: templates/table/operations/index.twig:410
@@ -5351,10 +5350,9 @@ msgstr ""
 #: libraries/classes/Controllers/ImportController.php:662
 #: libraries/classes/Controllers/SqlController.php:389
 #: libraries/classes/Sql.php:1240
-#, fuzzy, php-format
-#| msgid "Table %1$s has been created."
+#, php-format
 msgid "Bookmark %s has been created."
-msgstr "Table %1$s has been created."
+msgstr "სანიშნე %1$ შეიქმნა."
 
 #: libraries/classes/Controllers/ImportController.php:672
 #, php-format
@@ -5437,10 +5435,8 @@ msgid "Delete tracking data for these versions?"
 msgstr "Allows inserting and replacing data."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "Allows inserting and replacing data."
 msgid "Delete entry from tracking report?"
-msgstr "Allows inserting and replacing data."
+msgstr "წავშალო ჩანაწერი ტრეკინგის ანგარიშიდან?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Deleting tracking data"
@@ -5584,16 +5580,12 @@ msgid "Select at least one of the options!"
 msgstr "ერთი სიტყვა მაინც"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:101
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid number!"
-msgstr "პორტის ნომერი არასწორია"
+msgstr "შეიყვანეთ სწორი რიცხვი!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:102
-#, fuzzy
-#| msgid "Not a valid port number"
 msgid "Please enter a valid length!"
-msgstr "პორტის ნომერი არასწორია"
+msgstr "შეიყვანეთ სწორი სიგრძე!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:103
 msgid "Add index"
@@ -7438,10 +7430,9 @@ msgstr "Export type"
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
-#, fuzzy
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr "Export type"
+msgstr "უცნობი უსაფრთხოების გასაღების შეცდომა."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:722
@@ -7451,10 +7442,9 @@ msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr "Export type"
+msgstr "უსაფრთხოების გასაღების გააქტიურება ჩავარდა."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:726
@@ -10007,9 +9997,9 @@ msgid "Edit settings for %s"
 msgstr "Missing data for %s"
 
 #: libraries/classes/Import.php:1387
-#, fuzzy, php-format
+#, php-format
 msgid "Go to table: %s"
-msgstr "მონაცემთა ბაზები არაა"
+msgstr "გადასვლა ცხრილზე: %s"
 
 #: libraries/classes/Import.php:1395
 #, php-format
@@ -10017,10 +10007,9 @@ msgid "Structure of %s"
 msgstr "%s-ის სტრუქტურა"
 
 #: libraries/classes/Import.php:1413
-#, fuzzy, php-format
-#| msgid "Export views"
+#, php-format
 msgid "Go to view: %s"
-msgstr "Export defaults"
+msgstr "გადასვლა ხედზე: %s"
 
 #: libraries/classes/Import.php:1437
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
@@ -10069,10 +10058,8 @@ msgid "Or"
 msgstr "ან"
 
 #: libraries/classes/InsertEdit.php:1584
-#, fuzzy
-#| msgid "web server upload directory"
 msgid "web server upload directory:"
-msgstr "web server upload directory"
+msgstr "ვებსერერის ატვირთვის საქაღალდე:"
 
 #: libraries/classes/InsertEdit.php:1787
 #: templates/table/search/input_box.twig:37
@@ -10569,10 +10556,8 @@ msgid "Have a primary key"
 msgstr ""
 
 #: libraries/classes/Normalization.php:287
-#, fuzzy
-#| msgid "Table %s already exists!"
 msgid "Primary key already exists."
-msgstr "ცხრილი %s უკვე არსებობს!"
+msgstr "ძირითადი გასაღები უკვე არსებობს."
 
 #: libraries/classes/Normalization.php:292
 msgid ""
@@ -10766,10 +10751,8 @@ msgid "Table is already in Third normal form!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:949
-#, fuzzy
-#| msgid "Propose table structure"
 msgid "Improve table structure (Normalization):"
-msgstr "ცხრილის სტრუქტურის შეთავაზება"
+msgstr "ცხრილის სტრუქტურის გაუმჯობესება (ნორმალიზაცია):"
 
 #: libraries/classes/Normalization.php:950
 msgid "Select up to what step you want to normalize"
@@ -10895,10 +10878,8 @@ msgid "The table name is empty!"
 msgstr "ცხრილის სახელი ცარიელია!"
 
 #: libraries/classes/Pdf.php:158
-#, fuzzy
-#| msgid "Allows reading data."
 msgid "Error while creating PDF:"
-msgstr "Allows reading data."
+msgstr "შეცდომა PDF-ის შექმნისას:"
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:80
 msgid "Cannot connect: invalid settings."
@@ -11454,10 +11435,9 @@ msgid "Metadata"
 msgstr "მეტამონაცემები"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1134
-#, fuzzy, php-format
-#| msgid "Dumping data for table"
+#, php-format
 msgid "Metadata for table %s"
-msgstr "Dumping data for table"
+msgstr "მეტამონაცემები ცხრილისთვის %s"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1141
 #, fuzzy, php-format
@@ -11499,10 +11479,8 @@ msgid "Constraints for table"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1860
-#, fuzzy
-#| msgid "Inside table(s):"
 msgid "Indexes for dumped tables"
-msgstr "ცხრილ(ებ)ში:"
+msgstr "ინდექსები დამპის ცხრილებისთვის"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1861
 msgid "Indexes for table"
@@ -13481,10 +13459,8 @@ msgid "The profile has been updated."
 msgstr "პროფილი განახლდა."
 
 #: libraries/classes/UserPassword.php:48
-#, fuzzy
-#| msgid "Password Hashing"
 msgid "Password is too long!"
-msgstr "Password Hashing"
+msgstr "პაროლი მეტისმეტად გრძელია!"
 
 #: libraries/classes/UserPreferences.php:169
 #, fuzzy
@@ -16003,10 +15979,8 @@ msgid "The file is being processed, please be patient."
 msgstr ""
 
 #: templates/import/javascript.twig:29
-#, fuzzy
-#| msgid "Format of imported file"
 msgid "Uploading your import file…"
-msgstr "შემოტანილი ფაილების ფორმატი"
+msgstr "თქვენი შეტანის ფაილის ატვირთვა…"
 
 #: templates/import/javascript.twig:153
 msgid ""
@@ -16522,10 +16496,8 @@ msgstr "Host authentication order"
 
 #: templates/preferences/header.twig:55
 #: templates/preferences/manage/main.twig:72
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration has been saved."
-msgstr "ცვლილებები შენახულია"
+msgstr "კონფიგურაცია შენახულია."
 
 #: templates/preferences/header.twig:60
 #, php-format
@@ -17723,10 +17695,8 @@ msgid "Commonly monitored"
 msgstr ""
 
 #: templates/server/status/monitor/index.twig:163
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "or type variable name:"
-msgstr "ცხრილის არასწორი სახელი"
+msgstr "ან აკრიფეთ ცვლადის სახელი:"
 
 #: templates/server/status/monitor/index.twig:170
 msgid "Display as differential value"
@@ -17913,10 +17883,8 @@ msgid "Edit user group: '%s'"
 msgstr ""
 
 #: templates/server/user_groups/edit_user_groups.twig:9
-#, fuzzy
-#| msgid "No privileges."
 msgid "User group menu assignments"
-msgstr "პრივილეგიები არაა."
+msgstr "მომხმარებლის ჯგუფის მინიჭებები"
 
 #: templates/server/user_groups/edit_user_groups.twig:14
 msgid "Group name:"
@@ -18586,10 +18554,8 @@ msgid ""
 msgstr ""
 
 #: templates/table/relation/common_form.twig:205
-#, fuzzy
-#| msgid "Choose field to display"
 msgid "Choose column to display:"
-msgstr "აირჩიეთ საჩვენებელი ველი"
+msgstr "აირჩიეთ საჩვენებელი სვეტი:"
 
 #: templates/table/relation/foreign_key_row.twig:15
 #, fuzzy, php-format
