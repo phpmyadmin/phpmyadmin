@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-09-01 05:09+0000\n"
+"PO-Revision-Date: 2025-02-11 21:46+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/4-9/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -576,7 +576,7 @@ msgstr ""
 #: import.php:587 libraries/classes/Sql.php:827 libraries/classes/Sql.php:1631
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "სანიშნი %s შეიქმნა."
+msgstr "სანიშნე %1$ შეიქმნა."
 
 #: import.php:597
 #, php-format
@@ -6228,7 +6228,7 @@ msgstr ""
 #: tbl_operations.php:453 view_operations.php:130
 #, php-format
 msgid "View %s has been dropped."
-msgstr "ხედი %s წაიშალა."
+msgstr "ხედი %s მოცილებულია."
 
 #: libraries/classes/Controllers/Database/DatabaseStructureController.php:589
 #: tbl_operations.php:454
@@ -7618,7 +7618,7 @@ msgstr "ან"
 
 #: libraries/classes/InsertEdit.php:1501
 msgid "web server upload directory:"
-msgstr "ვებსერვერის ატვირთვის საქაღალდე:"
+msgstr "ვებსერერის ატვირთვის საქაღალდე:"
 
 #: libraries/classes/InsertEdit.php:1703
 #: templates/table/search/input_box.twig:38
@@ -9150,7 +9150,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1755
 msgid "Indexes for dumped tables"
-msgstr "ინდექსები გამოტანილი ცხრილებისთვის"
+msgstr "ინდექსები დამპის ცხრილებისთვის"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1756
 msgid "Indexes for table"
@@ -12205,7 +12205,7 @@ msgstr ""
 
 #: libraries/classes/Server/UserGroups.php:244
 msgid "User group menu assignments"
-msgstr "მომხმარებლის ჯგუფის მენიუს მინიჭებები"
+msgstr "მომხმარებლის ჯგუფის მინიჭებები"
 
 #: libraries/classes/Server/UserGroups.php:252
 msgid "Group name:"
@@ -12855,7 +12855,7 @@ msgstr "პროფილი განახლდა."
 
 #: libraries/classes/UserPassword.php:74
 msgid "Password is too long!"
-msgstr "პაროლი ძალიან გრძელია!"
+msgstr "პაროლი მეტისმეტად გრძელია!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
@@ -14539,7 +14539,7 @@ msgstr ""
 
 #: templates/display/import/javascript.twig:36
 msgid "Uploading your import file…"
-msgstr "თქვენი შემოსატანი ფაილის ატვირთვა…"
+msgstr "თქვენი შეტანის ფაილის ატვირთვა…"
 
 #: templates/display/import/javascript.twig:161
 msgid ""
