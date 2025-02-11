@@ -461,7 +461,11 @@ class Monitor
     {
         if (isset($name, $value)) {
             if (preg_match('/[^a-zA-Z0-9_]+/', $name) !== 1) {
-                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $this->dbi->quoteString($value));
+                if (! is_numeric($value)) {
+                    $value = $this->dbi->quoteString($value);
+                }
+
+                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $value);
             }
         }
 
