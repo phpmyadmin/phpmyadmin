@@ -4087,6 +4087,7 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
+      <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pftext']]]></code>
@@ -4293,38 +4294,12 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <MixedArgument>
-      <code><![CDATA[self::$enginemap[$engine][0]]]></code>
-      <code><![CDATA[self::$enginemap[$engine][0]]]></code>
-      <code><![CDATA[self::$enginemap[$engine][2]]]></code>
-    </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[self::$enginemap[$engine][0]]]></code>
-      <code><![CDATA[self::$enginemap[$engine][0]]]></code>
-      <code><![CDATA[self::$enginemap[$engine][1]]]></code>
-      <code><![CDATA[self::$enginemap[$engine][1]]]></code>
-      <code><![CDATA[self::$enginemap[$engine][2]]]></code>
-    </MixedArrayAccess>
-    <MixedArrayOffset>
-      <code><![CDATA[self::$enginemap[$engine]]]></code>
-      <code><![CDATA[self::$enginemap[$engine]]]></code>
-    </MixedArrayOffset>
-    <MixedAssignment>
-      <code><![CDATA[$engine]]></code>
-      <code><![CDATA[self::$engine]]></code>
-      <code><![CDATA[self::$engine]]></code>
-    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[Config::getInstance()->getUploadTempDir()]]></code>
     </PossiblyNullArgument>
     <PossiblyUnusedMethod>
       <code><![CDATA[setKanjiEncodings]]></code>
     </PossiblyUnusedMethod>
-    <RedundantConditionGivenDocblockType>
-      <code><![CDATA[is_string($config->settings['IconvExtraParams'])]]></code>
-      <code><![CDATA[isset($config->settings['IconvExtraParams'])
-            && is_string($config->settings['IconvExtraParams'])]]></code>
-    </RedundantConditionGivenDocblockType>
   </file>
   <file src="src/Engines/Innodb.php">
     <DeprecatedMethod>

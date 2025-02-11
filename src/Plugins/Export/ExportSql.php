@@ -571,6 +571,7 @@ class ExportSql extends ExportPlugin
                 $definition = Routines::getProcedureDefinition($dbi, $db, $routine);
             }
 
+            $flag = false;
             $createQuery = $this->replaceWithAliases($delimiter, $definition, $aliases, $db, $flag);
             if ($createQuery !== '' && Config::getInstance()->settings['Export']['remove_definer_from_definitions']) {
                 // Remove definer clause from routine definitions
@@ -1496,6 +1497,7 @@ class ExportSql extends ExportPlugin
             }
 
             // Substitute aliases in `CREATE` query.
+            $flag = false;
             $createQuery = $this->replaceWithAliases(null, $createQuery, $aliases, $db, $flag);
 
             // One warning per view.
@@ -1916,6 +1918,7 @@ class ExportSql extends ExportPlugin
                             $triggerQuery .= $trigger->getDropSql() . ';' . "\n";
                         }
 
+                        $flag = false;
                         $triggerQuery .= 'DELIMITER ' . $delimiter . "\n";
                         $triggerQuery .= $this->replaceWithAliases(
                             $delimiter,
@@ -2394,7 +2397,7 @@ class ExportSql extends ExportPlugin
      * @param string      $sqlQuery  SQL query in which aliases are to be substituted
      * @param mixed[]     $aliases   Alias information for db/table/column
      * @param string      $db        the database name
-     * @param bool|null   $flag      the flag denoting whether any replacement was done
+     * @param bool        $flag      the flag denoting whether any replacement was done
      *
      * @return string query replaced with aliases
      */
@@ -2403,7 +2406,7 @@ class ExportSql extends ExportPlugin
         string $sqlQuery,
         array $aliases,
         string $db,
-        bool|null &$flag = null,
+        bool &$flag,
     ): string {
         $flag = false;
 

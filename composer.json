@@ -75,7 +75,7 @@
         "symfony/expression-language": "^7.1",
         "symfony/polyfill-ctype": "^1.24",
         "symfony/polyfill-mbstring": "^1.24",
-        "twig/twig": "^3.9",
+        "twig/twig": "^3.19",
         "webmozart/assert": "^1.10",
         "williamdes/mariadb-mysql-kbs": "^1.2"
     },
@@ -113,13 +113,13 @@
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpstan/phpstan-webmozart-assert": "^2.0",
-        "phpunit/phpunit": "^10.4",
+        "phpunit/phpunit": "^11.5",
         "pragmarx/google2fa-qrcode": "^3.0",
         "psalm/plugin-phpunit": "^0.19",
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^7.1",
         "tecnickcom/tcpdf": "^6.4.4",
-        "vimeo/psalm": "^6",
+        "vimeo/psalm": "^6.0",
         "web-auth/webauthn-lib": "^4.9"
     },
     "extra": {
