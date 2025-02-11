@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2024-09-01 05:09+0000\n"
+"PO-Revision-Date: 2025-02-11 21:46+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
 "ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -4691,7 +4691,7 @@ msgstr "წარმატება!"
 #: templates/table/operations/view.twig:32
 #, php-format
 msgid "View %s has been dropped."
-msgstr "ხედი %s წაიშალა."
+msgstr "ხედი %s მოცილებულია."
 
 #: libraries/classes/Controllers/Database/StructureController.php:365
 #: templates/table/operations/index.twig:451
@@ -6899,7 +6899,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:689
 msgctxt "U2F error"
 msgid "Unknown security key error."
-msgstr ""
+msgstr "უცნობი უსაფრთხოების გასაღების შეცდომა."
 
 #. l10n: error code 3 (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:691
@@ -6911,7 +6911,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:693
 msgctxt "U2F error"
 msgid "Failed security key activation."
-msgstr ""
+msgstr "უსაფრთხოების გასაღების გააქტიურება ჩავარდა."
 
 #. l10n: error code 4 (from U2F API) on authanticate
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:695
@@ -7700,7 +7700,7 @@ msgstr "დაუცველი კავშირი"
 #: libraries/classes/Sql.php:1168
 #, php-format
 msgid "Bookmark %s has been created."
-msgstr "სანიშნი %s შეიქმნა."
+msgstr "სანიშნე %1$ შეიქმნა."
 
 #: libraries/classes/Controllers/Sql/SqlController.php:242
 msgid "Bookmark not created!"
@@ -9124,7 +9124,7 @@ msgstr "ან"
 
 #: libraries/classes/InsertEdit.php:734
 msgid "web server upload directory:"
-msgstr "ვებსერვერის ატვირთვის საქაღალდე:"
+msgstr "ვებსერერის ატვირთვის საქაღალდე:"
 
 #: libraries/classes/InsertEdit.php:1344 libraries/classes/Sql.php:979
 msgid "Showing SQL query"
@@ -10473,7 +10473,7 @@ msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1818
 msgid "Indexes for dumped tables"
-msgstr "ინდექსები გამოტანილი ცხრილებისთვის"
+msgstr "ინდექსები დამპის ცხრილებისთვის"
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1819
 msgid "Indexes for table"
@@ -12195,7 +12195,7 @@ msgstr "პროფილი განახლდა."
 
 #: libraries/classes/UserPassword.php:50
 msgid "Password is too long!"
-msgstr "პაროლი ძალიან გრძელია!"
+msgstr "პაროლი მეტისმეტად გრძელია!"
 
 #: libraries/classes/UserPreferences.php:181
 msgid "Could not save configuration"
@@ -14763,7 +14763,7 @@ msgstr ""
 
 #: templates/import/javascript.twig:29
 msgid "Uploading your import file…"
-msgstr "თქვენი შემოსატანი ფაილის ატვირთვა…"
+msgstr "თქვენი შეტანის ფაილის ატვირთვა…"
 
 #: templates/import/javascript.twig:152
 msgid ""
@@ -16752,7 +16752,7 @@ msgstr ""
 
 #: templates/server/user_groups/edit_user_groups.twig:9
 msgid "User group menu assignments"
-msgstr "მომხმარებლის ჯგუფის მენიუს მინიჭებები"
+msgstr "მომხმარებლის ჯგუფის მინიჭებები"
 
 #: templates/server/user_groups/edit_user_groups.twig:14
 msgid "Group name:"
