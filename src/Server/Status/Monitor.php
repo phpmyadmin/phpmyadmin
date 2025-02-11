@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 use function array_sum;
 use function count;
 use function implode;
+use function is_numeric;
 use function json_decode;
 use function mb_strlen;
 use function mb_strpos;
