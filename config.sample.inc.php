@@ -10,8 +10,9 @@
 declare(strict_types=1);
 
 /**
- * This is needed for cookie based authentication to encrypt the cookie.
- * Needs to be a 32-bytes long string of random bytes. See FAQ 2.10.
+ * This is needed for cookie-based authentication to encrypt the cookie.
+ * Needs to be a 32-byte long binary string (use `random_bytes(32)`)
+ * or a 64-character hexadecimal string (use `bin2hex(random_bytes(32))`).
  */
 $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
 
