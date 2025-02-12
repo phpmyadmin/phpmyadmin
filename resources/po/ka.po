@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-09 00:24+0000\n"
-"PO-Revision-Date: 2025-02-12 12:49+0000\n"
+"PO-Revision-Date: 2025-02-13 14:02+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -12612,16 +12612,12 @@ msgid "No dependencies selected!"
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "გამოიყენეთ ეს ველი"
+msgstr "შეიყვანეთ პირველი მნიშვნელობა"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "სესიის მნიშვნელობა"
+msgstr "შეიყვანეთ მეორე მნიშვნელობა"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
