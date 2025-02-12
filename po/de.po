@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2024-11-13 04:04+0000\n"
-"Last-Translator: Eric Marcel Black Stiller <marcelstiller2005@gmail.com>\n"
+"PO-Revision-Date: 2025-02-13 15:02+0000\n"
+"Last-Translator: M393 <maximilian.kroeg@geocept.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/5-2/de/"
 ">\n"
 "Language: de\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -148,7 +148,7 @@ msgid ""
 "help troubleshooting badly performing queries."
 msgstr ""
 "Loggen von langsamen Abfragen einschalten, indem {log_slow_queries} auf 'ON' "
-"gesetzt wird. Das hilft beim Erkennen von grauenhaft langsamen Abfragen."
+"gesetzt wird. Das hilft beim Erkennen von schlecht optimierten Abfragen."
 
 #: libraries/advisory_rules_generic.php:88
 msgid "log_slow_queries is set to 'OFF'"
@@ -299,11 +299,11 @@ msgid ""
 "5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query cache, "
 "especially if you have multiple replicas."
 msgstr ""
-"Sie verwenden den MySQL-Abfrage-Cache mit einer Datenbank mit ziemlich hohem "
-"Datenverkehr. Es könnte eine Überlegung wert sein, ein <a href=\"https://"
-"dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> anstelle "
-"des MySQL-Abfragecaches zu verwenden, insbesondere wenn Sie mehrere haben "
-"Repliken."
+"Sie verwenden den MySQL-Abfrage-Cache mit einer Datenbank mit hohem "
+"Datenverkehr. Es könnte eine Überlegung wert sein, ein <a href="
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\">memcached</a> "
+"anstelle des MySQL-Abfrage-Caches zu verwenden, insbesondere wenn Sie "
+"mehrere Replikas haben."
 
 #: libraries/advisory_rules_generic.php:196
 #, php-format
@@ -351,8 +351,8 @@ msgstr "Prozentwert der Sortierungen, die temporäre Tabellen verursachen"
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
-"Durchschnitt temporäre Tabellen: %s, dieser Wert sollte kleiner als 1 pro "
-"Stunde sein."
+"Temporäre Tabellen durchschnittlich: %s, dieser Wert sollte kleiner als 1 "
+"pro Stunde sein."
 
 #: libraries/advisory_rules_generic.php:231
 msgid "Sort rows"
@@ -989,7 +989,7 @@ msgid ""
 "The InnoDB log file size is not an appropriate size, in relation to the "
 "InnoDB buffer pool."
 msgstr ""
-"Die InnoDB Protokollgröße ist nicht angemessen in Bezug zu der InnoDB "
+"Die InnoDB Protokollgröße ist unangemessen im Vergleich mit der InnoDB "
 "Pufferpoolgröße."
 
 #: libraries/advisory_rules_generic.php:615
@@ -1034,7 +1034,7 @@ msgstr "Max InnoDB Protokollgröße"
 
 #: libraries/advisory_rules_generic.php:664
 msgid "The InnoDB log file size is inadequately large."
-msgstr "Die InnoDB Protokollgröße ist nicht ausreichend groß."
+msgstr "Die InnoDB Protokollgröße ist unangemessen groß."
 
 #: libraries/advisory_rules_generic.php:666
 #, no-php-format
@@ -17907,7 +17907,7 @@ msgstr "Empfehlung:"
 
 #: templates/server/status/advisor/index.twig:82
 msgid "Justification:"
-msgstr "Ausrichtung:"
+msgstr "Begründung:"
 
 #: templates/server/status/advisor/index.twig:85
 msgid "Used variable / formula:"
