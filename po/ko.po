@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-10-17 16:16+0000\n"
-"Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
+"PO-Revision-Date: 2025-02-16 10:48+0000\n"
+"Last-Translator: kim8ccf3a4116ec4691 <kim@yong.biz>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/4-9/ko/"
 ">\n"
 "Language: ko\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.10\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -2661,12 +2661,12 @@ msgstr "강력함"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr "보안 키 활성 시간이 초과되었습니다."
+msgstr "보안 키 활성화를 기다리는 동안 시간이 초과되었습니다."
 
 #: js/messages.php:752
 #, php-format
 msgid "Failed security key activation (%s)."
-msgstr "보안 키를 활성화는데 실패였습니다(%s)."
+msgstr "보안 키를 활성화에 실패였습니다(%s)."
 
 #: js/messages.php:755
 #, php-format
