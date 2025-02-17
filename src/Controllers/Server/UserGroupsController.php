@@ -54,8 +54,7 @@ final class UserGroupsController implements InvocableController
             'is_super_user' => $this->dbi->isSuperUser(),
         ]);
 
-        /** @var mixed $userGroup */
-        $userGroup = $request->getParsedBodyParam('userGroup');
+        $userGroup = $request->getParsedBodyParamAsStringOrNull('userGroup');
         if ($request->hasBodyParam('deleteUserGroup') && is_string($userGroup) && $userGroup !== '') {
             UserGroups::delete($this->dbi, $configurableMenusFeature, $userGroup);
         }

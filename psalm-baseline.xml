@@ -71,10 +71,6 @@
     </PossiblyNullArgument>
   </file>
   <file src="src/BrowseForeigners.php">
-    <MixedArgument>
-      <code><![CDATA[$descriptions[$indexByDescription]]]></code>
-      <code><![CDATA[$descriptions[$indexByKeyname]]]></code>
-    </MixedArgument>
     <MixedArrayOffset>
       <code><![CDATA[$relrow[$foreignData->foreignField]]]></code>
     </MixedArrayOffset>
@@ -129,10 +125,6 @@
   </file>
   <file src="src/Command/TwigLintCommand.php">
     <MixedArgument>
-      <code><![CDATA[$info['exception']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['template']]]></code>
       <code><![CDATA[static function (int $level, string $message, string $file, int $line) use (&$prevErrorHandler) {
                     if ($level === E_USER_DEPRECATED) {
                         $templateLine = 0;
@@ -146,17 +138,7 @@
                     return $prevErrorHandler ? $prevErrorHandler($level, $message, $file, $line) : false;
                 }]]></code>
     </MixedArgument>
-    <MixedArrayAccess>
-      <code><![CDATA[$info['exception']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['file']]]></code>
-      <code><![CDATA[$info['template']]]></code>
-      <code><![CDATA[$info['valid']]]></code>
-      <code><![CDATA[$info['valid']]]></code>
-    </MixedArrayAccess>
     <MixedAssignment>
-      <code><![CDATA[$info]]></code>
       <code><![CDATA[$showDeprecations]]></code>
     </MixedAssignment>
     <UndefinedVariable>
@@ -783,6 +765,9 @@
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
+    <MixedArrayOffset>
+      <code><![CDATA[$pkArray[$row['Column_name']]]]></code>
+    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$relation]]></code>
     </MixedAssignment>
@@ -4478,7 +4463,6 @@
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$this->dumpBufferObjects[$objectName]]]></code>
       <code><![CDATA[$tmpSelect]]></code>
     </MixedOperand>
     <PossiblyNullArgument>
@@ -4571,8 +4555,12 @@
     <FalsableReturnStatement>
       <code><![CDATA[$this->compression ?? $this->detectCompression()]]></code>
     </FalsableReturnStatement>
+    <InvalidArrayAccess>
+      <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit']]]></code>
+    </InvalidArrayAccess>
     <InvalidArrayOffset>
       <code><![CDATA[$_FILES['fields_upload']['name']['multi_edit']]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit']]]></code>
     </InvalidArrayOffset>
     <InvalidFalsableReturnType>
       <code><![CDATA[string]]></code>
@@ -4581,25 +4569,18 @@
       <code><![CDATA[$this->handle]]></code>
     </InvalidPropertyAssignmentValue>
     <MixedArgument>
-      <code><![CDATA[$file['tmp_name']]]></code>
+      <code><![CDATA[$tempName]]></code>
     </MixedArgument>
     <MixedArrayAccess>
-      <code><![CDATA[$file['error']['multi_edit']]]></code>
-      <code><![CDATA[$file['error']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['error']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['name']['multi_edit']]]></code>
-      <code><![CDATA[$file['name']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['name']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['size']['multi_edit']]]></code>
-      <code><![CDATA[$file['size']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['size']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['tmp_name']['multi_edit']]]></code>
-      <code><![CDATA[$file['tmp_name']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['tmp_name']['multi_edit'][$rownumber][$key]]]></code>
-      <code><![CDATA[$file['type']['multi_edit']]]></code>
-      <code><![CDATA[$file['type']['multi_edit'][$rownumber]]]></code>
-      <code><![CDATA[$file['type']['multi_edit'][$rownumber][$key]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit'][$rownumber]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['error']['multi_edit'][$rownumber][$key]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit'][$rownumber]]]></code>
+      <code><![CDATA[$_FILES['fields_upload']['tmp_name']['multi_edit'][$rownumber][$key]]]></code>
     </MixedArrayAccess>
+    <MixedAssignment>
+      <code><![CDATA[$error]]></code>
+      <code><![CDATA[$tempName]]></code>
+    </MixedAssignment>
     <PossiblyNullArgument>
       <code><![CDATA[$this->getName()]]></code>
       <code><![CDATA[$this->getName()]]></code>
@@ -5778,7 +5759,6 @@
       <code><![CDATA[$arr['foreign_table']]]></code>
       <code><![CDATA[$foreignTable]]></code>
       <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$query]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$master]]></code>
@@ -5827,7 +5807,6 @@
       <code><![CDATA[$oldPriv]]></code>
       <code><![CDATA[$oldPriv]]></code>
       <code><![CDATA[$oldPriv]]></code>
-      <code><![CDATA[$query]]></code>
     </MixedAssignment>
     <MixedOperand>
       <code><![CDATA[$oldPriv[$i]]]></code>
@@ -8523,14 +8502,7 @@
   <file src="src/Session.php">
     <MixedArgument>
       <code><![CDATA[$config->getCookie('phpMyAdmin')]]></code>
-      <code><![CDATA[$error->getMessage()]]></code>
     </MixedArgument>
-    <MixedAssignment>
-      <code><![CDATA[$error]]></code>
-    </MixedAssignment>
-    <MixedMethodCall>
-      <code><![CDATA[getMessage]]></code>
-    </MixedMethodCall>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty(ini_get('session.auto_start'))]]></code>
       <code><![CDATA[empty(session_id())]]></code>
@@ -8633,11 +8605,7 @@
     </MixedArrayAssignment>
     <MixedAssignment>
       <code><![CDATA[$maxRows]]></code>
-      <code><![CDATA[$oneFieldMeta]]></code>
-      <code><![CDATA[$oneMeta]]></code>
       <code><![CDATA[$pos]]></code>
-      <code><![CDATA[$prevTable]]></code>
-      <code><![CDATA[$resultSetColumnNames[]]]></code>
       <code><![CDATA[$sortCol]]></code>
       <code><![CDATA[$unlimNumRows]]></code>
     </MixedAssignment>
@@ -8649,8 +8617,6 @@
       <code><![CDATA[$maxRows]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
-      <code><![CDATA[$oneFieldMeta->table]]></code>
-      <code><![CDATA[$oneMeta->name]]></code>
       <code><![CDATA[$statementInfo->statement->where[0]->expr]]></code>
     </MixedPropertyFetch>
     <MixedReturnStatement>
@@ -9419,58 +9385,19 @@
     </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
-      <code><![CDATA[$row['Cardinality']]]></code>
-      <code><![CDATA[$row['Column_name']]]></code>
-      <code><![CDATA[$row['Column_name']]]></code>
-      <code><![CDATA[$row['Column_name']]]></code>
-      <code><![CDATA[$row['Comment']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Key_name']]]></code>
-      <code><![CDATA[$row['Non_unique']]]></code>
-      <code><![CDATA[$row['Seq_in_index']]]></code>
-      <code><![CDATA[$row['Seq_in_index']]]></code>
-      <code><![CDATA[$row['Seq_in_index']]]></code>
-      <code><![CDATA[$row['Sub_part']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['table_limit_offset_db']]]></code>
     </MixedArrayAssignment>
-    <MixedArrayOffset>
-      <code><![CDATA[$indexesData[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]]]></code>
-      <code><![CDATA[$pkArray[$row['Column_name']]]]></code>
-    </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$array]]></code>
       <code><![CDATA[$columnNames[]]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Column_name']]]></code>
-      <code><![CDATA[$indexesData[$row['Key_name']][$row['Seq_in_index']]['Sub_part']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Cardinality']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Comment']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Non_unique']]]></code>
-      <code><![CDATA[$indexesInfo[$row['Key_name']]['Sequences'][]]]></code>
-      <code><![CDATA[$lastIndex]]></code>
-      <code><![CDATA[$row]]></code>
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
     </MixedAssignment>
     <MixedOperand>
-      <code><![CDATA[$row['Column_name']]]></code>
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$unit]]></code>
       <code><![CDATA[$value]]></code>
@@ -9711,18 +9638,10 @@
       <code><![CDATA[$regex]]></code>
       <code><![CDATA[$specificEntry]]></code>
     </ArgumentTypeCoercion>
-    <MixedArgument>
-      <code><![CDATA[$dump]]></code>
-    </MixedArgument>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[$name]]></code>
       <code><![CDATA[$table]]></code>
     </MixedArgumentTypeCoercion>
-    <MixedAssignment>
-      <code><![CDATA[$dump]]></code>
-      <code><![CDATA[$newData[$newName]]]></code>
-      <code><![CDATA[$value]]></code>
-    </MixedAssignment>
     <PossiblyInvalidArgument>
       <code><![CDATA[$tempName]]></code>
       <code><![CDATA[$tempName]]></code>

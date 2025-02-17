@@ -71,17 +71,15 @@ class TwigLintCommandTest extends AbstractTestCase
         sort($filesInfos, SORT_REGULAR);
 
         self::assertSame([
-            ['template' => '', 'file' => $path . DIRECTORY_SEPARATOR . 'one.txt', 'valid' => true],
-            ['template' => '', 'file' => $path . DIRECTORY_SEPARATOR . 'two.md', 'valid' => true],
+            ['template' => '', 'file' => $path . DIRECTORY_SEPARATOR . 'one.txt'],
+            ['template' => '', 'file' => $path . DIRECTORY_SEPARATOR . 'two.md'],
             [
                 'template' => '0000' . "\n",
                 'file' => $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'zero.txt',
-                'valid' => true,
             ],
             [
                 'template' => 'key=value' . "\n",
                 'file' => $path . DIRECTORY_SEPARATOR . 'subfolder' . DIRECTORY_SEPARATOR . 'one.ini',
-                'valid' => true,
             ],
         ], $filesInfos);
     }
@@ -108,12 +106,10 @@ class TwigLintCommandTest extends AbstractTestCase
         ]);
 
         self::assertEquals([
-            ['template' => '{{ file }}', 'file' => 'foo.twig', 'valid' => true],
+            ['template' => '{{ file }}', 'file' => 'foo.twig'],
             [
                 'template' => '{{ file }',
                 'file' => 'foo-invalid.twig',
-                'valid' => false,
-                'line' => 1,
                 'exception' => new SyntaxError('Unexpected "}".', 1, new Source(
                     '{{ file }',
                     'foo-invalid.twig',

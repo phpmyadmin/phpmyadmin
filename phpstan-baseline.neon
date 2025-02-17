@@ -328,12 +328,6 @@ parameters:
 			path: src/BrowseForeigners.php
 
 		-
-			message: '#^Parameter \#1 \$description of method PhpMyAdmin\\BrowseForeigners\:\:getDescriptionAndTitle\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 2
-			path: src/BrowseForeigners.php
-
-		-
 			message: '#^Parameter \#1 \$state of static method PhpMyAdmin\\Charsets\\Charset\:\:fromServer\(\) expects array\{Charset\?\: string, Description\?\: string, Default collation\?\: string, Maxlen\?\: string\}, array\<string\|null\> given\.$#'
 			identifier: argument.type
 			count: 1
@@ -403,49 +397,13 @@ parameters:
 			path: src/Command/FixPoTwigCommand.php
 
 		-
-			message: '#^Cannot access offset ''exception'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Cannot access offset ''file'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Cannot access offset ''template'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Cannot access offset ''valid'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Only booleans are allowed in &&, mixed given on the left side\.$#'
-			identifier: booleanAnd.leftNotBoolean
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
-			identifier: booleanNot.exprNotBoolean
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
 			message: '#^Only booleans are allowed in a ternary operator condition, \(callable\)\|null given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1
 			path: src/Command/TwigLintCommand.php
 
 		-
-			message: '#^Only booleans are allowed in a ternary operator condition, mixed given\.$#'
+			message: '#^Only booleans are allowed in a ternary operator condition, string given\.$#'
 			identifier: ternary.condNotBoolean
 			count: 1
 			path: src/Command/TwigLintCommand.php
@@ -458,30 +416,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$callback of function set_error_handler expects \(callable\(int, string, string, int\)\: bool\)\|null, Closure\(int, string, string, int\)\: mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Parameter \#2 \$template of method PhpMyAdmin\\Command\\TwigLintCommand\:\:renderException\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Parameter \#2 \.\.\.\$values of function sprintf expects bool\|float\|int\|string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Parameter \#3 \$exception of method PhpMyAdmin\\Command\\TwigLintCommand\:\:renderException\(\) expects Twig\\Error\\Error, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Command/TwigLintCommand.php
-
-		-
-			message: '#^Parameter \#4 \$file of method PhpMyAdmin\\Command\\TwigLintCommand\:\:renderException\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Command/TwigLintCommand.php
@@ -1816,12 +1750,6 @@ parameters:
 			path: src/ConfigStorage/UserGroups.php
 
 		-
-			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
-			identifier: function.strict
-			count: 1
-			path: src/ConfigStorage/UserGroups.php
-
-		-
 			message: '#^Only booleans are allowed in &&, int\|string given on the right side\.$#'
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
@@ -1890,12 +1818,6 @@ parameters:
 		-
 			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
-			path: src/Controllers/Database/DataDictionaryController.php
-
-		-
-			message: '#^Cannot access offset string on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: src/Controllers/Database/DataDictionaryController.php
 
@@ -7048,12 +6970,6 @@ parameters:
 			path: src/Export/Export.php
 
 		-
-			message: '#^Binary operation "\.\=" between mixed and non\-empty\-string results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Export/Export.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -7342,9 +7258,15 @@ parameters:
 			path: src/File.php
 
 		-
+			message: '#^Cannot access offset ''error'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/File.php
+
+		-
 			message: '#^Cannot access offset ''multi_edit'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 7
+			count: 4
 			path: src/File.php
 
 		-
@@ -7354,9 +7276,15 @@ parameters:
 			path: src/File.php
 
 		-
+			message: '#^Cannot access offset ''tmp_name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: src/File.php
+
+		-
 			message: '#^Cannot access offset string on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 13
+			count: 7
 			path: src/File.php
 
 		-
@@ -7403,12 +7331,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$file of function bzopen expects resource\|string, string\|null given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/File.php
-
-		-
-			message: '#^Parameter \#1 \$file of method PhpMyAdmin\\File\:\:fetchUploadedFromTblChangeRequestMultiple\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/File.php
@@ -9685,12 +9607,6 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Binary operation "\." between "\\n" and mixed results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Operations.php
-
-		-
 			message: '#^Binary operation "\." between '', "'' and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -9796,12 +9712,6 @@ parameters:
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 8
-			path: src/Operations.php
-
-		-
-			message: '#^Parameter \#1 \$query of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:query\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
 			path: src/Operations.php
 
 		-
@@ -14485,12 +14395,6 @@ parameters:
 			path: src/Server/SysInfo/WindowsNt.php
 
 		-
-			message: '#^Cannot call method getMessage\(\) on mixed\.$#'
-			identifier: method.nonObject
-			count: 1
-			path: src/Session.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 5
@@ -14498,12 +14402,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#1 \$id of function session_id expects string\|null, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Session.php
-
-		-
-			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Session.php
@@ -14722,18 +14620,6 @@ parameters:
 			message: '#^Cannot access property \$expr on mixed\.$#'
 			identifier: property.nonObject
 			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Cannot access property \$name on mixed\.$#'
-			identifier: property.nonObject
-			count: 1
-			path: src/Sql.php
-
-		-
-			message: '#^Cannot access property \$table on mixed\.$#'
-			identifier: property.nonObject
-			count: 4
 			path: src/Sql.php
 
 		-
@@ -16147,12 +16033,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Binary operation "\." between mixed and '', '' results in an error\.$#'
-			identifier: binaryOp.invalid
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '#^Binary operation "\." between non\-empty\-string and array\<string\>\|string\|false results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
@@ -16180,48 +16060,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 9
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Cardinality'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Column_name'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Comment'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Key_name'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Non_unique'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Seq_in_index'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: src/Util.php
-
-		-
-			message: '#^Cannot access offset ''Sub_part'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 1
 			path: src/Util.php
 
 		-
@@ -16257,7 +16095,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
-			count: 4
+			count: 3
 			path: src/Util.php
 
 		-
@@ -16822,25 +16660,7 @@ parameters:
 			path: src/ZipExtension.php
 
 		-
-			message: '#^Parameter \#1 \$data of function gzcompress expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
 			message: '#^Parameter \#1 \$keys of function array_combine expects array\<int\|string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: '#^Parameter \#1 \$string of function crc32 expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/ZipExtension.php
-
-		-
-			message: '#^Parameter \#1 \$string of function strlen expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/ZipExtension.php

@@ -46,7 +46,7 @@ final class DataDictionaryController implements InvocableController
             $showComment = (string) $this->dbi->getTable(Current::$database, $tableName)
                 ->getStatusInfo('TABLE_COMMENT');
 
-            [, $primaryKeys] = Util::processIndexData(
+            $primaryKeys = $this->getPrimaryKeys(
                 $this->dbi->getTableIndexes(Current::$database, $tableName),
             );
 
@@ -109,5 +109,24 @@ final class DataDictionaryController implements InvocableController
         ]);
 
         return $this->response->response();
+    }
+
+    /**
+     * @param mixed[][] $indexes index data
+     *
+     * @return array<true> The list of primary key columns
+     */
+    private function getPrimaryKeys(array $indexes): array
+    {
+        $pkArray = [];
+        foreach ($indexes as $row) {
+            if ($row['Key_name'] !== 'PRIMARY') {
+                continue;
+            }
+
+            $pkArray[$row['Column_name']] = true;
+        }
+
+        return $pkArray;
     }
 }

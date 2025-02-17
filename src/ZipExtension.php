@@ -194,8 +194,8 @@ class ZipExtension
      * or if $data is an array and $name is an array, but they don't have the
      * same amount of elements.
      *
-     * @param mixed[]|string $data contents of the file/files
-     * @param mixed[]|string $name name of the file/files in the archive
+     * @param string[]|string $data contents of the file/files
+     * @param mixed[]|string  $name name of the file/files in the archive
      *
      * @return string|false the ZIP file contents, or false if there was an error.
      */

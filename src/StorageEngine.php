@@ -100,7 +100,6 @@ class StorageEngine
             if (! $dbi->isMariaDB() && $dbi->getVersion() >= 50708) {
                 $disabled = (string) SessionCache::get(
                     'disabled_storage_engines',
-                    /** @return mixed|false */
                     static fn () => DatabaseInterface::getInstance()->fetchValue(
                         'SELECT @@disabled_storage_engines',
                     ),
@@ -207,7 +206,7 @@ class StorageEngine
         return [$dataLength, $indexLength];
     }
 
-    /** @return array<int|string, array<string, mixed>> */
+    /** @return array<string, array{name: string, comment: string, is_default: bool}> */
     public static function getArray(): array
     {
         $engines = [];

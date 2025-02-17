@@ -15,6 +15,7 @@ use Twig\Error\Error;
 use Twig\Loader\ArrayLoader;
 use Twig\Source;
 
+use function array_key_exists;
 use function array_push;
 use function closedir;
 use function count;
@@ -137,7 +138,7 @@ class TwigLintCommand extends Command
         return $this->display($output, $io, $filesInfo);
     }
 
-    /** @return mixed[] */
+    /** @return array{template: string, file: string, exception?:Error}[] */
     protected function getFilesInfo(string $templatesPath): array
     {
         $filesInfo = [];
@@ -157,7 +158,7 @@ class TwigLintCommand extends Command
         return (string) file_get_contents($filePath);
     }
 
-    /** @return mixed[] */
+    /** @return array{template: string, file: string, exception?:Error} */
     private function validate(string $template, string $file): array
     {
         $twig = Template::getTwigEnvironment(null, false);
@@ -175,24 +176,22 @@ class TwigLintCommand extends Command
             return [
                 'template' => $template,
                 'file' => $file,
-                'line' => $e->getTemplateLine(),
-                'valid' => false,
                 'exception' => $e,
             ];
         }
 
-        return ['template' => $template, 'file' => $file, 'valid' => true];
+        return ['template' => $template, 'file' => $file];
     }
 
-    /** @param mixed[] $filesInfo */
+    /** @param array{template: string, file: string, exception?:Error}[] $filesInfo */
     private function display(OutputInterface $output, SymfonyStyle $io, array $filesInfo): int
     {
         $errors = 0;
 
         foreach ($filesInfo as $info) {
-            if ($info['valid'] && $output->isVerbose()) {
+            if (! array_key_exists('exception', $info) && $output->isVerbose()) {
                 $io->comment('<info>OK</info>' . ($info['file'] ? sprintf(' in %s', $info['file']) : ''));
-            } elseif (! $info['valid']) {
+            } elseif (array_key_exists('exception', $info)) {
                 ++$errors;
                 $this->renderException($io, $info['template'], $info['exception'], $info['file']);
             }

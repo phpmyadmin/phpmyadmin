@@ -158,8 +158,7 @@ final class TableController implements InvocableController
             $this->response->addJSON('message', $message);
 
             if ($message->isSuccess()) {
-                /** @var mixed $targetDbParam */
-                $targetDbParam = $request->getParsedBodyParam('target_db');
+                $targetDbParam = $request->getParsedBodyParamAsStringOrNull('target_db');
                 if ($request->hasBodyParam('submit_move') && is_string($targetDbParam)) {
                     Current::$database = $targetDbParam; // Used in Header::getJsParams()
                 }
@@ -180,8 +179,7 @@ final class TableController implements InvocableController
          * Updates table comment, type and options if required
          */
         if ($request->hasBodyParam('submitoptions')) {
-            /** @var mixed $newName */
-            $newName = $request->getParsedBodyParam('new_name');
+            $newName = $request->getParsedBodyParamAsStringOrNull('new_name');
             if (is_string($newName)) {
                 if ($this->dbi->getLowerCaseNames() === 1) {
                     $newName = mb_strtolower($newName);
@@ -193,13 +191,12 @@ final class TableController implements InvocableController
 
                 if ($pmaTable->rename($newName)) {
                     if ($request->getParsedBodyParam('adjust_privileges')) {
-                        /** @var mixed $dbParam */
-                        $dbParam = $request->getParsedBodyParam('db');
+                        $dbParam = $request->getParsedBodyParamAsString('db', '');
                         $this->operations->adjustPrivilegesRenameOrMoveTable(
                             $userPrivileges,
                             $oldDb,
                             $oldTable,
-                            is_string($dbParam) ? $dbParam : '',
+                            $dbParam,
                             $newName,
                         );
                     }
@@ -218,8 +215,7 @@ final class TableController implements InvocableController
                 }
             }
 
-            /** @var mixed $newTableStorageEngine */
-            $newTableStorageEngine = $request->getParsedBodyParam('new_tbl_storage_engine');
+            $newTableStorageEngine = $request->getParsedBodyParamAsStringOrNull('new_tbl_storage_engine');
             $newTblStorageEngine = '';
             if (
                 is_string($newTableStorageEngine) && $newTableStorageEngine !== ''
@@ -258,8 +254,7 @@ final class TableController implements InvocableController
                 $warningMessages = $this->operations->getWarningMessagesArray($newTableStorageEngine);
             }
 
-            /** @var mixed $tableCollationParam */
-            $tableCollationParam = $request->getParsedBodyParam('tbl_collation');
+            $tableCollationParam = $request->getParsedBodyParamAsStringOrNull('tbl_collation');
             if (
                 is_string($tableCollationParam) && $tableCollationParam !== ''
                 && $request->getParsedBodyParam('change_all_collations')
@@ -267,7 +262,7 @@ final class TableController implements InvocableController
                 $this->operations->changeAllColumnsCollation(Current::$database, Current::$table, $tableCollationParam);
             }
 
-            if ($tableCollationParam !== null && (! is_string($tableCollationParam) || $tableCollationParam === '')) {
+            if ($tableCollationParam === '') {
                 if ($request->isAjax()) {
                     $this->response->setRequestStatus(false);
                     $this->response->addJSON(
@@ -280,26 +275,23 @@ final class TableController implements InvocableController
             }
         }
 
-        /** @var mixed $orderField */
-        $orderField = $request->getParsedBodyParam('order_field');
+        $orderField = $request->getParsedBodyParamAsStringOrNull('order_field');
 
         /**
          * Reordering the table has been requested by the user
          */
         if ($request->hasBodyParam('submitorderby') && is_string($orderField) && $orderField !== '') {
-            /** @var mixed $orderOrder */
-            $orderOrder = $request->getParsedBodyParam('order_order');
+            $orderOrder = $request->getParsedBodyParamAsString('order_order', '');
             Current::$sqlQuery = QueryGenerator::getQueryForReorderingTable(
                 Current::$table,
                 urldecode($orderField),
-                is_string($orderOrder) ? $orderOrder : '',
+                $orderOrder,
             );
             $this->dbi->query(Current::$sqlQuery);
             $result = true;
         }
 
-        /** @var mixed $partitionOperation */
-        $partitionOperation = $request->getParsedBodyParam('partition_operation');
+        $partitionOperation = $request->getParsedBodyParamAsStringOrNull('partition_operation');
 
         /**
          * A partition operation has been requested by the user
