@@ -78,8 +78,8 @@ final class ReplicationController implements InvocableController
 
         if ($primaryInfo['status']) {
             $primaryAddUser = $request->getParsedBodyParamAsStringOrNull('primary_add_user');
-            $username = $request->getParsedBodyParamAsString('username');
-            $hostname = $request->getParsedBodyParamAsString('hostname');
+            $username = $request->getParsedBodyParamAsStringOrNull('username');
+            $hostname = $request->getParsedBodyParamAsStringOrNull('hostname');
 
             $primaryReplicationHtml = $this->replicationGui->getHtmlForPrimaryReplication(
                 $primaryConnection,

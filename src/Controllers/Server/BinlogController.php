@@ -35,7 +35,7 @@ final class BinlogController implements InvocableController
 
     public function __invoke(ServerRequest $request): Response
     {
-        $log = $request->getParsedBodyParamAsString('log');
+        $log = $request->getParsedBodyParamAsString('log', '');
         $position = (int) $request->getParsedBodyParamAsString('pos', '');
 
         if ($this->dbi->isSuperUser()) {
