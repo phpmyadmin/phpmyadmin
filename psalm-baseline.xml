@@ -4023,15 +4023,6 @@
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$sortExpressionNoDirection]]></code>
     </InvalidArgument>
-    <InvalidArrayOffset>
-      <code><![CDATA[$delUrlParams]]></code>
-    </InvalidArrayOffset>
-    <InvalidReturnStatement>
-      <code><![CDATA[[$deleteUrl, $deleteString, $jsConf, $urlParams]]]></code>
-    </InvalidReturnStatement>
-    <InvalidReturnType>
-      <code><![CDATA[array{?string, ?string, ?string}]]></code>
-    </InvalidReturnType>
     <MixedArgument>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']]]></code>
@@ -4221,14 +4212,6 @@
       <code><![CDATA[$this->numRows > 0 ? $this->numRows - 1 : 0]]></code>
       <code><![CDATA[$this->numRows > 0 ? $this->numRows - 1 : 0]]></code>
     </PossiblyInvalidArgument>
-    <PossiblyInvalidOperand>
-      <code><![CDATA[$editCopyUrlParams]]></code>
-      <code><![CDATA[$editCopyUrlParams]]></code>
-      <code><![CDATA[$editCopyUrlParams]]></code>
-      <code><![CDATA[$editCopyUrlParams]]></code>
-      <code><![CDATA[$editCopyUrlParams]]></code>
-      <code><![CDATA[$editCopyUrlParams]]></code>
-    </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$oneKey->refTableName]]></code>
       <code><![CDATA[$statementInfo->parser->list]]></code>

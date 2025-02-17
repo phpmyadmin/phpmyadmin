@@ -6475,12 +6475,6 @@ parameters:
 			path: src/Display/Results.php
 
 		-
-			message: '#^Offset 3 does not exist on array\{string\|null, string\|null, string\|null\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Display/Results.php
-
-		-
 			message: '#^Only booleans are allowed in &&, array\<mixed\>\|bool given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
