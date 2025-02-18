@@ -659,7 +659,9 @@ AJAX.registerOnload('sql.js', function () {
      */
     $(document).on('makeGrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
-            window.makeGrid(this);
+            if ($(this).find('td.grid_edit').length > 0) {
+                window.makeGrid(this);
+            }
         });
     });
 
