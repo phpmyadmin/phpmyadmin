@@ -40,6 +40,6 @@
 
 {% if criteria_tables|length > 1 %}
     <p>
-        {{ t('<strong>Total:</strong> <em>%s</em> match', '<strong>Total:</strong> <em>%s</em> matches', result_total)|format(count)|raw }}
+        {{ t('<strong>Total:</strong> <em>%s</em> match', '<strong>Total:</strong> <em>%s</em> matches', result_total)|format(result_total)|raw }}
     </p>
 {% endif %}
