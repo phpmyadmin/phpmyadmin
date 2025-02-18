@@ -15,6 +15,7 @@ use PhpMyAdmin\Util;
 use function array_sum;
 use function count;
 use function implode;
+use function is_numeric;
 use function json_decode;
 use function mb_strlen;
 use function mb_strpos;
@@ -461,7 +462,11 @@ class Monitor
     {
         if (isset($name, $value)) {
             if (preg_match('/[^a-zA-Z0-9_]+/', $name) !== 1) {
-                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $this->dbi->quoteString($value));
+                if (! is_numeric($value)) {
+                    $value = $this->dbi->quoteString($value);
+                }
+
+                $this->dbi->query('SET GLOBAL ' . $name . ' = ' . $value);
             }
         }
 
