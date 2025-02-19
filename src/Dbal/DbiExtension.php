@@ -20,7 +20,7 @@ interface DbiExtension
      *
      * @throws ConnectionException
      */
-    public function connect(Server $server): Connection|null;
+    public function connect(Server $server): Connection;
 
     /**
      * selects given database
@@ -73,6 +73,11 @@ interface DbiExtension
      * Returns last error message or an empty string if no errors occurred.
      */
     public function getError(Connection $connection): string;
+
+    /**
+     * Returns the error code for the most recent connection attempt.
+     */
+    public function getConnectionErrorNumber(): int;
 
     /**
      * returns the number of rows affected by last query

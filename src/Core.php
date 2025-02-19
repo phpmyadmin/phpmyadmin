@@ -45,7 +45,6 @@ use function unserialize;
 use function urldecode;
 
 use const DATE_RFC1123;
-use const E_USER_WARNING;
 use const FILTER_VALIDATE_IP;
 
 /**
@@ -115,7 +114,7 @@ class Core
             throw new MissingExtensionException(Sanitize::convertBBCode($message));
         }
 
-        ErrorHandler::getInstance()->addError($message, E_USER_WARNING, '', 0, false);
+        ErrorHandler::getInstance()->addUserError($message, false);
     }
 
     /**

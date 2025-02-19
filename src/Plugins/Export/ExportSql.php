@@ -15,6 +15,7 @@ use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Exceptions\ExportException;
 use PhpMyAdmin\Export\Export;
 use PhpMyAdmin\Export\StructureOrData;
 use PhpMyAdmin\Http\ServerRequest;
@@ -44,7 +45,6 @@ use PhpMyAdmin\Version;
 use function __;
 use function array_keys;
 use function bin2hex;
-use function defined;
 use function explode;
 use function implode;
 use function in_array;
@@ -62,9 +62,7 @@ use function str_contains;
 use function str_repeat;
 use function str_replace;
 use function strtoupper;
-use function trigger_error;
 
-use const E_USER_ERROR;
 use const PHP_VERSION;
 
 /**
@@ -1420,11 +1418,8 @@ class ExportSql extends ExportPlugin
         if ($tmpError !== '') {
             $message = sprintf(__('Error reading structure for table %s:'), $db . '.' . $table);
             $message .= ' ' . $tmpError;
-            if (! defined('TESTSUITE')) {
-                trigger_error($message, E_USER_ERROR);
-            }
 
-            return $this->exportComment($message);
+            throw new ExportException($message);
         }
 
         // Old mode is stored so it can be restored once exporting is done.
@@ -2053,13 +2048,8 @@ class ExportSql extends ExportPlugin
         if ($tmpError !== '') {
             $message = sprintf(__('Error reading data for table %s:'), $db . '.' . $table);
             $message .= ' ' . $tmpError;
-            if (! defined('TESTSUITE')) {
-                trigger_error($message, E_USER_ERROR);
-            }
 
-            return $this->export->outputHandler(
-                $this->exportComment($message),
-            );
+            throw new ExportException($message);
         }
 
         if ($result === false) {

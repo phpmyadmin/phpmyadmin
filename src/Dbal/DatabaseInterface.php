@@ -60,12 +60,10 @@ use function strtoupper;
 use function strtr;
 use function substr;
 use function syslog;
-use function trigger_error;
 use function uasort;
 use function uksort;
 use function usort;
 
-use const E_USER_WARNING;
 use const LOG_INFO;
 use const LOG_NDELAY;
 use const LOG_PID;
@@ -1049,20 +1047,21 @@ class DatabaseInterface
                 . $this->quoteString($currentServer->sessionTimeZone);
 
             if (! $this->tryQuery($sqlQueryTz)) {
-                $errorMessageTz = sprintf(
-                    __(
-                        'Unable to use timezone "%1$s" for server %2$d. '
-                        . 'Please check your configuration setting for '
-                        . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
-                        . 'phpMyAdmin is currently using the default time zone '
-                        . 'of the database server.',
+                $errorHandler = ErrorHandler::getInstance();
+                $errorHandler->addUserError(
+                    sprintf(
+                        __(
+                            'Unable to use timezone "%1$s" for server %2$d. '
+                            . 'Please check your configuration setting for '
+                            . '[em]$cfg[\'Servers\'][%3$d][\'SessionTimeZone\'][/em]. '
+                            . 'phpMyAdmin is currently using the default time zone '
+                            . 'of the database server.',
+                        ),
+                        $currentServer->sessionTimeZone,
+                        Current::$server,
+                        Current::$server,
                     ),
-                    $currentServer->sessionTimeZone,
-                    Current::$server,
-                    Current::$server,
                 );
-
-                trigger_error($errorMessageTz, E_USER_WARNING);
             }
         }
 
@@ -1092,10 +1091,8 @@ class DatabaseInterface
         );
 
         if ($result === false) {
-            trigger_error(
-                __('Failed to set configured collation connection!'),
-                E_USER_WARNING,
-            );
+            $errorHandler = ErrorHandler::getInstance();
+            $errorHandler->addUserError(__('Failed to set configured collation connection!'));
 
             return;
         }
@@ -1606,33 +1603,20 @@ class DatabaseInterface
         try {
             $result = $this->extension->connect($server);
         } catch (ConnectionException $exception) {
-            trigger_error($exception->getMessage(), E_USER_WARNING);
+            $errorHandler->addUserError($exception->getMessage());
 
             return null;
         }
 
         $errorHandler->setHideLocation(false);
 
-        if ($result !== null) {
-            $this->connections[$target->value] = $result;
-            /* Run post connect for user connections */
-            if ($target === ConnectionType::User) {
-                $this->postConnect($currentServer);
-            }
-
-            return $result;
+        $this->connections[$target->value] = $result;
+        /* Run post connect for user connections */
+        if ($target === ConnectionType::User) {
+            $this->postConnect($currentServer);
         }
 
-        if ($connectionType === ConnectionType::ControlUser) {
-            trigger_error(
-                __(
-                    'Connection for controluser as defined in your configuration failed.',
-                ),
-                E_USER_WARNING,
-            );
-        }
-
-        return null;
+        return $result;
     }
 
     /**
@@ -1700,6 +1684,11 @@ class DatabaseInterface
         }
 
         return $this->extension->getError($this->connections[$connectionType->value]);
+    }
+
+    public function getConnectionErrorNumber(): int
+    {
+        return $this->extension->getConnectionErrorNumber();
     }
 
     /**

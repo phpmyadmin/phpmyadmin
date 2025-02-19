@@ -16,8 +16,8 @@ use PhpMyAdmin\Query\Utilities;
 
 use function __;
 use function defined;
+use function mysqli_connect_errno;
 use function mysqli_get_client_info;
-use function mysqli_init;
 use function mysqli_report;
 use function sprintf;
 use function str_contains;
@@ -39,15 +39,11 @@ use const MYSQLI_USE_RESULT;
  */
 class DbiMysqli implements DbiExtension
 {
-    public function connect(Server $server): Connection|null
+    public function connect(Server $server): Connection
     {
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
-        $mysqli = mysqli_init();
-
-        if ($mysqli === false) {
-            return null;
-        }
+        $mysqli = new mysqli();
 
         $clientFlags = 0;
 
@@ -252,6 +248,14 @@ class DbiMysqli implements DbiExtension
         DatabaseInterface::$errorNumber = $errorNumber;
 
         return Utilities::formatError($errorNumber, $errorMessage);
+    }
+
+    /**
+     * Returns the error code for the most recent connection attempt.
+     */
+    public function getConnectionErrorNumber(): int
+    {
+        return mysqli_connect_errno();
     }
 
     /**

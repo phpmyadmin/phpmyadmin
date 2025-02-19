@@ -197,34 +197,24 @@ class ErrorHandler
         string $errfile,
         int $errline,
     ): bool {
-        if (function_exists('error_reporting')) {
-            /**
-             * Check if Error Control Operator (@) was used, but still show
-             * user errors even in this case.
-             * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
-             */
-            $isSilenced = (error_reporting() & $errno) === 0;
-
-            $config = Config::getInstance();
-            if (
-                $config->config->environment === 'development'
-                && ! $isSilenced
-            ) {
-                throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-            }
-
-            if (
-                $isSilenced &&
-                $this->errorReporting != 0 &&
-                ($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) === 0
-            ) {
-                return false;
-            }
-        } elseif (($errno & (E_USER_WARNING | E_USER_ERROR | E_USER_NOTICE | E_USER_DEPRECATED)) === 0) {
+        if (! function_exists('error_reporting')) {
             return false;
         }
 
-        $this->addError($errstr, $errno, $errfile, $errline);
+        /**
+         * Check if Error Control Operator (@) was used.
+         * See: https://github.com/phpmyadmin/phpmyadmin/issues/16729
+         */
+        $isSilenced = (error_reporting() & $errno) === 0;
+
+        $config = Config::getInstance();
+        if ($config->config->environment === 'development' && ! $isSilenced) {
+            throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+        }
+
+        if (! $isSilenced || $this->errorReporting === 0) {
+            $this->addError($errstr, $errno, $errfile, $errline);
+        }
 
         return false;
     }
@@ -312,6 +302,30 @@ class ErrorHandler
                 // FATAL error, display it and exit
                 $this->dispFatalError($error);
         }
+    }
+
+    public function addUserError(string $message, bool $escape = true): void
+    {
+        // The file name and line number are not relevant for user errors
+        $error = new Error(
+            E_USER_WARNING,
+            $escape ? htmlspecialchars($message) : $message,
+            __FILE__,
+            __LINE__,
+        );
+        $this->errors[$error->getHash()] = $error;
+    }
+
+    public function addNotice(string $message, bool $escape = true): void
+    {
+        // The file name and line number are not relevant for user errors
+        $error = new Error(
+            E_USER_NOTICE,
+            $escape ? htmlspecialchars($message) : $message,
+            __FILE__,
+            __LINE__,
+        );
+        $this->errors[$error->getHash()] = $error;
     }
 
     /**

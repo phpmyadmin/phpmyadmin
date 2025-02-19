@@ -18,6 +18,7 @@ use PhpMyAdmin\Controllers\Setup\ShowConfigController;
 use PhpMyAdmin\Controllers\Setup\ValidateController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Http\Factory\ResponseFactory;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
@@ -42,12 +43,10 @@ use function mb_strrpos;
 use function mb_substr;
 use function rawurldecode;
 use function sprintf;
-use function trigger_error;
 use function urldecode;
 use function var_export;
 
 use const CACHE_DIR;
-use const E_USER_WARNING;
 
 /**
  * Class used to warm up the routing cache and manage routing.
@@ -119,7 +118,7 @@ class Routing
                 && ! self::writeCache(sprintf('<?php return %s;', var_export($dispatchData, true)))
             ) {
                 $_SESSION['isRoutesCacheFileValid'] = false;
-                trigger_error(
+                ErrorHandler::getInstance()->addUserError(
                     sprintf(
                         __(
                             'The routing cache could not be written, '
@@ -127,7 +126,6 @@ class Routing
                         ),
                         self::ROUTES_CACHE_FILE,
                     ),
-                    E_USER_WARNING,
                 );
             }
         }

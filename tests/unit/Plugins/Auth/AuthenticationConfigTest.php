@@ -109,17 +109,6 @@ class AuthenticationConfigTest extends AbstractTestCase
         );
 
         self::assertStringContainsString(
-            '<strong>MySQL said: </strong><a href="index.php?route=/url&url=https%3A%2F%2F' .
-            'dev.mysql.com%2Fdoc%2Frefman%2F5.5%2Fen%2Fserver-error-reference.html"' .
-            ' target="mysql_doc">' .
-            '<img src="themes/dot.gif" title="Documentation" alt="Documentation" ' .
-            'class="icon ic_b_help"></a>',
-            $html,
-        );
-
-        self::assertStringContainsString('Cannot connect: invalid settings.', $html);
-
-        self::assertStringContainsString(
             '<a href="index.php?route=/&server=2&lang=en" '
             . 'class="btn btn-primary mt-1 mb-1 disableAjax">Retry to connect</a>',
             $html,

@@ -11,7 +11,6 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Exceptions\AuthenticationFailure;
-use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Plugins\AuthenticationPlugin;
 use PhpMyAdmin\ResponseRenderer;
@@ -23,10 +22,6 @@ use function count;
 use function ob_get_clean;
 use function ob_start;
 use function sprintf;
-use function trigger_error;
-
-use const E_USER_NOTICE;
-use const E_USER_WARNING;
 
 /**
  * Handles the config authentication method
@@ -70,11 +65,8 @@ class AuthenticationConfig extends AuthenticationPlugin
     public function showFailure(AuthenticationFailure $failure): Response
     {
         $this->logFailure($failure);
-
-        $connError = DatabaseInterface::getInstance()->getError();
-        if ($connError === '' || $connError === '0') {
-            $connError = __('Cannot connect: invalid settings.');
-        }
+        $dbi = DatabaseInterface::getInstance();
+        $errorHandler = ErrorHandler::getInstance();
 
         /* HTML header */
         $responseRenderer = ResponseRenderer::getInstance();
@@ -97,7 +89,7 @@ class AuthenticationConfig extends AuthenticationPlugin
             <td>';
         $config = Config::getInstance();
         if ($failure->failureType === AuthenticationFailure::ALLOW_DENIED) {
-            trigger_error($failure->getMessage(), E_USER_NOTICE);
+            $errorHandler->addNotice($failure->getMessage());
         } else {
             // Check whether user has configured something
             if ($config->sourceMtime == 0) {
@@ -110,11 +102,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                     '<a href="setup/">',
                     '</a>',
                 ) , '</p>' , "\n";
-            } elseif (
-                DatabaseInterface::$errorNumber === null
-                || DatabaseInterface::$errorNumber !== 2002
-                && DatabaseInterface::$errorNumber !== 2003
-            ) {
+            } elseif ($dbi->getConnectionErrorNumber() !== 2002 && $dbi->getConnectionErrorNumber() !== 2003) {
                 // if we display the "Server not responding" error, do not confuse
                 // users by telling them they have a settings problem
                 // (note: it's true that they could have a badly typed host name,
@@ -122,7 +110,7 @@ class AuthenticationConfig extends AuthenticationPlugin
                 //  rejected the connection, which is not really what happened)
                 // 2002 is the error given by mysqli
                 // 2003 is the error given by mysql
-                trigger_error(
+                $errorHandler->addUserError(
                     __(
                         'phpMyAdmin tried to connect to the MySQL server, and the'
                         . ' server rejected the connection. You should check the'
@@ -130,14 +118,11 @@ class AuthenticationConfig extends AuthenticationPlugin
                         . ' make sure that they correspond to the information given'
                         . ' by the administrator of the MySQL server.',
                     ),
-                    E_USER_WARNING,
                 );
             }
-
-            echo Generator::mysqlDie($connError, '', true, '', false);
         }
 
-        ErrorHandler::getInstance()->dispUserErrors();
+        $errorHandler->dispUserErrors();
         echo '</td>
         </tr>
         <tr>

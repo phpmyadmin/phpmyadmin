@@ -16,6 +16,7 @@ namespace PhpMyAdmin\Config;
 
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Config\Forms\User\UserFormList;
+use PhpMyAdmin\Error\ErrorHandler;
 use PhpMyAdmin\Html\MySQLDocumentation;
 use PhpMyAdmin\Util;
 
@@ -37,10 +38,7 @@ use function sprintf;
 use function str_ends_with;
 use function str_replace;
 use function str_starts_with;
-use function trigger_error;
 use function trim;
-
-use const E_USER_WARNING;
 
 /**
  * Form management class, displays and processes forms
@@ -391,7 +389,7 @@ class FormDisplay
                 return $htmlOutput;
 
             case 'NULL':
-                trigger_error('Field ' . $systemPath . ' has no type', E_USER_WARNING);
+                ErrorHandler::getInstance()->addUserError('Field ' . $systemPath . ' has no type');
 
                 return null;
         }
