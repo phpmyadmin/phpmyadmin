@@ -666,7 +666,7 @@ class Table implements Stringable
             // count could bring down a server, so we offer an
             // alternative: setting MaxExactCountViews to 0 will bypass
             // completely the record counting for views
-            $rowCount = false;
+            return -1;
         } else {
             // Counting all rows of a VIEW could be too long,
             // so use a LIMIT clause.
@@ -679,6 +679,10 @@ class Table implements Stringable
             );
             if ($result) {
                 $rowCount = $result->numRows();
+                if ((int) $rowCount === $config->settings['MaxExactCountViews']) {
+                    // If we reached the limit, we can't be sure how many rows there are
+                    return -1;
+                }
             }
         }
 
@@ -688,7 +692,7 @@ class Table implements Stringable
             return (int) $rowCount;
         }
 
-        return 0;
+        return -1;
     }
 
     /**
