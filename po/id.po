@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
 "PO-Revision-Date: 2025-02-21 14:58+0000\n"
-"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
+"Last-Translator: Neoubs <corneliuscheka@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
 "Language: id\n"
@@ -2309,7 +2309,7 @@ msgstr "nilai/subKueri kosong"
 #: js/messages.php:565 templates/database/designer/side_menu.twig:34
 #: templates/database/designer/side_menu.twig:37
 msgid "Add tables from other databases"
-msgstr "Tambahkan tabel dari database lainya"
+msgstr "Tambahkan tabel dari database-database lain"
 
 #: js/messages.php:566
 msgid "Page name"
