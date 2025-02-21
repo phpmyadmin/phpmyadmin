@@ -15,6 +15,7 @@ use PhpMyAdmin\Dbal\ResultInterface;
 use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Index;
+use PhpMyAdmin\IndexColumn;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\MessageType;
 use PhpMyAdmin\Plugins\Transformations\Output\Text_Octetstream_Sql;
@@ -23,8 +24,11 @@ use PhpMyAdmin\Plugins\Transformations\Output\Text_Plain_Sql;
 use PhpMyAdmin\Plugins\Transformations\Text_Plain_Link;
 use PhpMyAdmin\Plugins\TransformationsInterface;
 use PhpMyAdmin\ResponseRenderer;
+use PhpMyAdmin\SqlParser\Components\OrderKeyword;
+use PhpMyAdmin\SqlParser\Lexer;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\SelectStatement;
+use PhpMyAdmin\SqlParser\TokenType;
 use PhpMyAdmin\SqlParser\Utils\Query;
 use PhpMyAdmin\SqlParser\Utils\StatementInfo;
 use PhpMyAdmin\SqlParser\Utils\StatementType;
@@ -40,7 +44,7 @@ use PhpMyAdmin\Utils\Gis;
 
 use function __;
 use function array_filter;
-use function array_keys;
+use function array_map;
 use function array_merge;
 use function array_shift;
 use function bin2hex;
@@ -54,6 +58,7 @@ use function in_array;
 use function is_array;
 use function is_int;
 use function is_numeric;
+use function is_string;
 use function json_encode;
 use function max;
 use function mb_check_encoding;
@@ -67,7 +72,6 @@ use function pack;
 use function preg_match;
 use function random_int;
 use function str_contains;
-use function str_ends_with;
 use function str_replace;
 use function strcasecmp;
 use function strip_tags;
@@ -677,21 +681,15 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param mixed[]            $sortExpression            sort expression
-     * @param array<int, string> $sortExpressionNoDirection sort expression
-     *                                                        without direction
-     * @param mixed[]            $sortDirection             sort direction
-     * @param bool               $isLimitedDisplay          with limited operations
-     *                                                        or not
+     * @param list<SortExpression> $sortExpressions
+     * @param bool                 $isLimitedDisplay with limited operations or not
      *
      * @return string html content
      */
     private function getTableHeadersForColumns(
         bool $hasSortLink,
         StatementInfo $statementInfo,
-        array $sortExpression,
-        array $sortExpressionNoDirection,
-        array $sortDirection,
+        array $sortExpressions,
         bool $isLimitedDisplay,
     ): string {
         // required to generate sort links that will remember whether the
@@ -727,12 +725,10 @@ class Results
             if ($hasSortLink && ! $isLimitedDisplay) {
                 $sortedHeaderData = $this->getOrderLinkAndSortedHeaderHtml(
                     $this->fieldsMeta[$i],
-                    $sortExpression,
-                    $sortExpressionNoDirection,
+                    $sortExpressions,
                     $statementInfo,
                     $sessionMaxRows,
                     $comments,
-                    $sortDirection,
                     $colVisib,
                     $colVisibCurrent,
                 );
@@ -777,10 +773,8 @@ class Results
      *
      * @see getTable()
      *
-     * @param mixed[]            $sortExpression            sort expression
-     * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param mixed[]            $sortDirection             sort direction
-     * @param bool               $isLimitedDisplay          with limited operations or not
+     * @param list<SortExpression> $sortExpressions
+     * @param bool                 $isLimitedDisplay with limited operations or not
      *
      * @psalm-return array{
      *   column_order: array,
@@ -794,9 +788,7 @@ class Results
     private function getTableHeaders(
         DisplayParts $displayParts,
         StatementInfo $statementInfo,
-        array $sortExpression = [],
-        array $sortExpressionNoDirection = [],
-        array $sortDirection = [],
+        array $sortExpressions = [],
         bool $isLimitedDisplay = false,
     ): array {
         // Output data needed for column reordering and show/hide column
@@ -833,9 +825,7 @@ class Results
         $tableHeadersForColumns = $this->getTableHeadersForColumns(
             $displayParts->hasSortLink,
             $statementInfo,
-            $sortExpression,
-            $sortExpressionNoDirection,
-            $sortDirection,
+            $sortExpressions,
             $isLimitedDisplay,
         );
 
@@ -861,14 +851,14 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param mixed[]|null $sortExpression   the sort expression
-     * @param string       $unsortedSqlQuery the unsorted sql query
+     * @param string[] $sortExpression   the sort expression
+     * @param string   $unsortedSqlQuery the unsorted sql query
      *
      * @return mixed[][]
      * @psalm-return array{hidden_fields?:array, options?:array}
      */
     private function getSortByKeyDropDown(
-        array|null $sortExpression,
+        array $sortExpression,
         string $unsortedSqlQuery,
     ): array {
         // grab indexes data:
@@ -892,17 +882,19 @@ class Results
         }
 
         $isIndexUsed = false;
-        $localOrder = is_array($sortExpression) ? implode(', ', $sortExpression) : '';
+        $localOrder = implode(', ', $sortExpression);
 
         $options = [];
         foreach ($indexes as $index) {
-            $ascSort = '`'
-                . implode('` ASC, `', array_keys($index->getColumns()))
-                . '` ASC';
+            $ascSort = implode(', ', array_map(
+                static fn (IndexColumn $indexName) => Util::backquote($indexName->getName()) . ' ASC',
+                $index->getColumns(),
+            ));
 
-            $descSort = '`'
-                . implode('` DESC, `', array_keys($index->getColumns()))
-                . '` DESC';
+            $descSort = implode(', ', array_map(
+                static fn (IndexColumn $indexName) => Util::backquote($indexName->getName()) . ' DESC',
+                $index->getColumns(),
+            ));
 
             $isIndexUsed = $isIndexUsed
                 || $localOrder === $ascSort
@@ -1160,15 +1152,13 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param FieldMetadata      $fieldsMeta                set of field properties
-     * @param mixed[]            $sortExpression            sort expression
-     * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param int                $sessionMaxRows            maximum rows resulted by sql
-     * @param string             $comments                  comment for row
-     * @param mixed[]            $sortDirection             sort direction
-     * @param bool|mixed[]       $colVisib                  column is visible(false)
-     *                                                      or column isn't visible(string array)
-     * @param int|string|null    $colVisibElement           element of $col_visib array
+     * @param FieldMetadata        $fieldsMeta      set of field properties
+     * @param list<SortExpression> $sortExpressions
+     * @param int                  $sessionMaxRows  maximum rows resulted by sql
+     * @param string               $comments        comment for row
+     * @param bool|mixed[]         $colVisib        column is visible(false)
+     *                                              or column isn't visible(string array)
+     * @param int|string|null      $colVisibElement element of $col_visib array
      *
      * @return array{
      *   column_name: string,
@@ -1182,12 +1172,10 @@ class Results
      */
     private function getOrderLinkAndSortedHeaderHtml(
         FieldMetadata $fieldsMeta,
-        array $sortExpression,
-        array $sortExpressionNoDirection,
+        array $sortExpressions,
         StatementInfo $statementInfo,
         int $sessionMaxRows,
         string $comments,
-        array $sortDirection,
         bool|array $colVisib,
         int|string|null $colVisibElement,
     ): array {
@@ -1199,17 +1187,15 @@ class Results
 
         $sortTable = $fieldsMeta->table !== ''
             && $fieldsMeta->orgname === $fieldsMeta->name
-            ? Util::backquote($fieldsMeta->table) . '.'
+            ? $fieldsMeta->table
             : '';
 
         // Generates the orderby clause part of the query which is part
         // of URL
         [$singleSortOrder, $multiSortOrder, $orderImg] = $this->getSingleAndMultiSortUrls(
-            $sortExpression,
-            $sortExpressionNoDirection,
+            $sortExpressions,
             $sortTable,
             $fieldsMeta->name,
-            $sortDirection,
             $fieldsMeta,
         );
 
@@ -1262,116 +1248,97 @@ class Results
     /**
      * Prepare parameters and html for sorted table header fields
      *
-     * @param mixed[]            $sortExpression            sort expression
-     * @param array<int, string> $sortExpressionNoDirection sort expression without direction
-     * @param string             $sortTable                 The name of the table to which
-     *                                                      the current column belongs to
-     * @param string             $nameToUseInSort           The current column under
-     *                                                      consideration
-     * @param string[]           $sortDirection             sort direction
-     * @param FieldMetadata      $fieldsMeta                set of field properties
+     * @param list<SortExpression> $sortExpressions
+     * @param string               $currentTable    The name of the table to which
+     *                                           the current column belongs to
+     * @param string               $currentColumn   The current column under consideration
+     * @param FieldMetadata        $fieldsMeta      set of field properties
      *
      * @return string[]   3 element array - $single_sort_order, $sort_order, $order_img
      */
     private function getSingleAndMultiSortUrls(
-        array $sortExpression,
-        array $sortExpressionNoDirection,
-        string $sortTable,
-        string $nameToUseInSort,
-        array $sortDirection,
+        array $sortExpressions,
+        string $currentTable,
+        string $currentColumn,
         FieldMetadata $fieldsMeta,
     ): array {
         // Check if the current column is in the order by clause
-        $isInSort = $this->isInSorted($sortExpression, $sortExpressionNoDirection, $sortTable, $nameToUseInSort);
-        $currentName = $nameToUseInSort;
-        if ($sortExpressionNoDirection[0] == '' || ! $isInSort) {
-            $specialIndex = $sortExpressionNoDirection[0] == ''
-                ? 0
-                : count($sortExpressionNoDirection);
-            $sortExpressionNoDirection[$specialIndex] = Util::backquote($currentName);
-            // Set the direction to the config value
-            $sortDirection[$specialIndex] = $this->config->settings['Order'];
-            // Or perform SMART mode
+        $isInSort = $this->isInSorted($sortExpressions, $currentTable, $currentColumn);
+        if ($sortExpressions === [] || ! $isInSort) {
+            $tableName = $currentTable === '' ? '' : Util::backquote($currentTable) . '.';
+            $expression = $tableName . Util::backquote($currentColumn);
+            // Set the direction to the config value or perform SMART mode
             if ($this->config->settings['Order'] === self::SMART_SORT_ORDER) {
-                $isTimeOrDate = $fieldsMeta->isType(FieldMetadata::TYPE_TIME)
-                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATE)
-                    || $fieldsMeta->isType(FieldMetadata::TYPE_DATETIME)
-                    || $fieldsMeta->isType(FieldMetadata::TYPE_TIMESTAMP);
-                $sortDirection[$specialIndex] = $isTimeOrDate ? self::DESCENDING_SORT_DIR : self::ASCENDING_SORT_DIR;
+                $direction = $fieldsMeta->isDateTimeType()
+                    ? self::DESCENDING_SORT_DIR
+                    : self::ASCENDING_SORT_DIR;
+            } else {
+                $direction = $this->config->settings['Order'];
             }
+
+            $sortExpressions[] = new SortExpression(
+                $currentTable === '' ? null : $currentTable,
+                $currentColumn,
+                $direction,
+                $expression,
+            );
         }
 
-        $sortExpressionNoDirection = array_filter($sortExpressionNoDirection);
         $singleSortOrder = '';
         $sortOrderColumns = [];
-        foreach ($sortExpressionNoDirection as $index => $expression) {
-            $sortOrder = '';
-            // check if this is the first clause,
-            // if it is then we have to add "order by"
-            $isFirstClause = $index === 0;
-            $nameToUseInSort = $expression;
-            $sortTableNew = $sortTable;
-            // Test to detect if the column name is a standard name
-            // Standard name has the table name prefixed to the column name
-            if (str_contains($nameToUseInSort, '.') && ! str_contains($nameToUseInSort, '(')) {
-                $matches = explode('.', $nameToUseInSort);
-                // Matches[0] has the table name
-                // Matches[1] has the column name
-                $nameToUseInSort = $matches[1];
-                $sortTableNew = $matches[0];
-            }
-
-            // $name_to_use_in_sort might contain a space due to
-            // formatting of function expressions like "COUNT(name )"
-            // so we remove the space in this situation
-            $nameToUseInSort = str_replace([' )', '``'], [')', '`'], $nameToUseInSort);
-            $nameToUseInSort = trim($nameToUseInSort, '`');
-
+        foreach ($sortExpressions as $index => $expression) {
             // If this the first column name in the order by clause add
             // order by clause to the  column name
-            $sortOrder .= $isFirstClause ? "\nORDER BY " : '';
+            $sortOrder = $index === 0 ? 'ORDER BY ' : '';
 
-            // Again a check to see if the given column is a aggregate column
-            if (str_contains($nameToUseInSort, '(')) {
-                $sortOrder .= $nameToUseInSort;
+            $tableOfColumn = $currentTable;
+            $column = '';
+
+            // Test to detect if the column name is a standard name
+            // Standard name has the table name prefixed to the column name
+            if ($expression->columnName === null) {
+                $sortOrder .= $expression->expression;
+            } elseif ($expression->tableName !== null) {
+                $column = $expression->columnName;
+                $sortOrder .= Util::backquote($expression->tableName) . '.' . Util::backquote($column);
+                $tableOfColumn = $expression->tableName;
             } else {
-                if ($sortTableNew !== '' && ! str_ends_with($sortTableNew, '.')) {
-                    $sortTableNew .= '.';
-                }
-
-                $sortOrder .= $sortTableNew . Util::backquote($nameToUseInSort);
+                $column = $expression->columnName;
+                $sortOrder .= Util::backquote($column);
             }
 
             // Incase this is the current column save $single_sort_order
-            if ($currentName === $nameToUseInSort) {
-                $singleSortOrder = "\n" . 'ORDER BY ';
-
-                if (! str_contains($currentName, '(')) {
-                    $singleSortOrder .= $sortTable;
+            if ($currentColumn === $column && $currentTable === $tableOfColumn) {
+                $singleSortOrder = 'ORDER BY ';
+                if ($currentTable !== '') {
+                    $singleSortOrder .= Util::backquote($currentTable) . '.';
                 }
 
-                $singleSortOrder .= Util::backquote($currentName) . ' ';
+                $singleSortOrder .= Util::backquote($currentColumn) . ' ';
 
                 if ($isInSort) {
-                    [$singleSortOrder, $orderImg] = $this->getSortingUrlParams(
-                        $sortDirection[$index],
-                        $singleSortOrder,
-                    );
+                    $singleSortOrder .= match ($expression->direction) {
+                        self::ASCENDING_SORT_DIR => self::DESCENDING_SORT_DIR,
+                        self::DESCENDING_SORT_DIR => self::ASCENDING_SORT_DIR,
+                    };
                 } else {
-                    $singleSortOrder .= strtoupper($sortDirection[$index]);
+                    $singleSortOrder .= $expression->direction;
                 }
             }
 
             $sortOrder .= ' ';
-            if ($currentName === $nameToUseInSort && $isInSort) {
+            if ($currentColumn === $column && $currentTable === $tableOfColumn && $isInSort) {
                 // We need to generate the arrow button and related html
-                [$sortOrder, $orderImg] = $this->getSortingUrlParams($sortDirection[$index], $sortOrder);
+                $orderImg = $this->getSortingUrlParams($expression->direction);
                 $orderImg .= ' <small>' . ($index + 1) . '</small>';
+                $sortOrder .= match ($expression->direction) {
+                    self::ASCENDING_SORT_DIR => self::DESCENDING_SORT_DIR,
+                    self::DESCENDING_SORT_DIR => self::ASCENDING_SORT_DIR,
+                };
             } else {
-                $sortOrder .= strtoupper($sortDirection[$index]);
+                $sortOrder .= $expression->direction;
             }
 
-            // Separate columns by a comma
             $sortOrderColumns[] = $sortOrder;
         }
 
@@ -1383,79 +1350,38 @@ class Results
      *
      * @see getTableHeaders()
      *
-     * @param mixed[] $sortExpression            sort expression
-     * @param mixed[] $sortExpressionNoDirection sort expression without direction
-     * @param string  $sortTable                 the table name
-     * @param string  $nameToUseInSort           the sorting column name
+     * @param list<SortExpression> $sortExpressions
      */
     private function isInSorted(
-        array $sortExpression,
-        array $sortExpressionNoDirection,
-        string $sortTable,
-        string $nameToUseInSort,
+        array $sortExpressions,
+        string $currentTable,
+        string $currentColumn,
     ): bool {
-        $indexInExpression = 0;
-
-        foreach ($sortExpressionNoDirection as $index => $clause) {
-            if (str_contains($clause, '.')) {
-                $fragments = explode('.', $clause);
-                $clause2 = $fragments[0] . '.' . str_replace('`', '', $fragments[1]);
-            } else {
-                $clause2 = $sortTable . str_replace('`', '', $clause);
+        foreach ($sortExpressions as $sortExpression) {
+            if ($sortExpression->columnName === null) {
+                continue;
             }
 
-            if ($clause2 === $sortTable . $nameToUseInSort) {
-                $indexInExpression = $index;
-                break;
+            if ($sortExpression->tableName !== null) {
+                if ($currentTable === $sortExpression->tableName && $currentColumn === $sortExpression->columnName) {
+                    return true;
+                }
+            } elseif ($currentColumn === $sortExpression->columnName) {
+                return true;
             }
         }
 
-        if (empty($sortExpression[$indexInExpression])) {
-            return false;
-        }
-
-        // Field name may be preceded by a space, or any number
-        // of characters followed by a dot (tablename.fieldname)
-        // so do a direct comparison for the sort expression;
-        // this avoids problems with queries like
-        // "SELECT id, count(id)..." and clicking to sort
-        // on id or on count(id).
-        // Another query to test this:
-        // SELECT p.*, FROM_UNIXTIME(p.temps) FROM mytable AS p
-        // (and try clicking on each column's header twice)
-        $noSortTable = $sortTable === '' || ! str_contains($sortExpressionNoDirection[$indexInExpression], $sortTable);
-        $noOpenParenthesis = ! str_contains($sortExpressionNoDirection[$indexInExpression], '(');
-        if ($sortTable !== '' && $noSortTable && $noOpenParenthesis) {
-            $newSortExpressionNoDirection = $sortTable
-                . $sortExpressionNoDirection[$indexInExpression];
-        } else {
-            $newSortExpressionNoDirection = $sortExpressionNoDirection[$indexInExpression];
-        }
-
-        //Back quotes are removed in next comparison, so remove them from value
-        //to compare.
-        $nameToUseInSort = str_replace('`', '', $nameToUseInSort);
-
-        $sortName = str_replace('`', '', $sortTable) . $nameToUseInSort;
-
-        return $sortName == str_replace('`', '', $newSortExpressionNoDirection)
-            || $sortName == str_replace('`', '', $sortExpressionNoDirection[$indexInExpression]);
+        return false;
     }
 
     /**
      * Get sort url parameters - sort order and order image
      *
      * @see     getSingleAndMultiSortUrls()
-     *
-     * @param string $sortDirection the sort direction
-     * @param string $sortOrder     the sorting order
-     *
-     * @return string[]             2 element array - $sort_order, $order_img
      */
-    private function getSortingUrlParams(string $sortDirection, string $sortOrder): array
+    private function getSortingUrlParams(string $sortDirection): string
     {
-        if (strtoupper(trim($sortDirection)) === self::DESCENDING_SORT_DIR) {
-            $sortOrder .= self::ASCENDING_SORT_DIR;
+        if ($sortDirection === self::DESCENDING_SORT_DIR) {
             $orderImg = ' ' . Generator::getImage(
                 's_desc',
                 __('Descending'),
@@ -1467,7 +1393,6 @@ class Results
                 ['class' => 'soimg hide', 'title' => ''],
             );
         } else {
-            $sortOrder .= self::DESCENDING_SORT_DIR;
             $orderImg = ' ' . Generator::getImage(
                 's_asc',
                 __('Ascending'),
@@ -1480,7 +1405,7 @@ class Results
             );
         }
 
-        return [$sortOrder, $orderImg];
+        return $orderImg;
     }
 
     /**
@@ -3056,26 +2981,16 @@ class Results
         // 1.3 Extract sorting expressions.
         //     we need $sort_expression and $sort_expression_nodirection
         //     even if there are many table references
-        $sortExpression = [];
-        $sortExpressionNoDirection = [];
-        $sortDirection = [];
+        $sortExpressions = [];
 
         if ($statement !== null && ! empty($statement->order)) {
-            foreach ($statement->order as $o) {
-                $sortExpression[] = $o->expr->expr . ' ' . $o->type->value;
-                $sortExpressionNoDirection[] = $o->expr->expr;
-                $sortDirection[] = $o->type->value;
-            }
-        } else {
-            $sortExpression[] = '';
-            $sortExpressionNoDirection[] = '';
-            $sortDirection[] = '';
+            $sortExpressions = $this->extractSortingExpressions($statement->order);
         }
 
         // 1.4 Prepares display of first and last value of the sorted column
         $sortedColumnMessage = '';
-        foreach ($sortExpressionNoDirection as $expression) {
-            $sortedColumnMessage .= $this->getSortedColumnMessage($dtResult, $expression);
+        foreach ($sortExpressions as $expression) {
+            $sortedColumnMessage .= $this->getSortedColumnMessage($dtResult, $expression->expression);
         }
 
         // 2. ----- Prepare to display the top of the page -----
@@ -3121,6 +3036,11 @@ class Results
 
             // Data is sorted by indexes only if there is only one table.
             if ($this->isSelect($statementInfo)) {
+                $sortExpression = [];
+                foreach ($sortExpressions as $expression) {
+                    $sortExpression[] = $expression->expression . ' ' . $expression->direction;
+                }
+
                 $sortByKeyData = $this->getSortByKeyDropDown($sortExpression, $unsortedSqlQuery);
             }
         }
@@ -3155,14 +3075,7 @@ class Results
         // end 2b
 
         // 3. ----- Prepare the results table -----
-        $headers = $this->getTableHeaders(
-            $displayParts,
-            $statementInfo,
-            $sortExpression,
-            $sortExpressionNoDirection,
-            $sortDirection,
-            $isLimitedDisplay,
-        );
+        $headers = $this->getTableHeaders($displayParts, $statementInfo, $sortExpressions, $isLimitedDisplay);
 
         $body = $this->getTableBody($dtResult, $displayParts, $map, $statementInfo, $isLimitedDisplay);
 
@@ -3880,5 +3793,80 @@ class Results
         }
 
         return $str;
+    }
+
+    /** @return array{table:string|null, column:string|null} */
+    private function parseStringIntoTableAndColumn(string $nameToUseInSort): array
+    {
+        $lexer = new Lexer($nameToUseInSort);
+
+        if (
+            $lexer->list->count === 6
+            && ($lexer->list[2]->type === TokenType::Symbol || $lexer->list[2]->type === TokenType::None)
+            && is_string($lexer->list[2]->value)
+            && ($lexer->list[4]->type === TokenType::Symbol || $lexer->list[4]->type === TokenType::None)
+            && is_string($lexer->list[4]->value)
+        ) {
+            // If a database name, table name, and column name were provided
+            return ['table' => $lexer->list[2]->value, 'column' => $lexer->list[4]->value];
+        }
+
+        if (
+            $lexer->list->count === 4
+            && ($lexer->list[0]->type === TokenType::Symbol || $lexer->list[0]->type === TokenType::None)
+            && is_string($lexer->list[0]->value)
+            && ($lexer->list[2]->type === TokenType::Symbol || $lexer->list[2]->type === TokenType::None)
+            && is_string($lexer->list[2]->value)
+        ) {
+            // If a table name and column name were provided
+            return ['table' => $lexer->list[0]->value, 'column' => $lexer->list[2]->value];
+        }
+
+        if (
+            $lexer->list->count === 2
+            && ($lexer->list[0]->type === TokenType::Symbol || $lexer->list[0]->type === TokenType::None)
+            && is_string($lexer->list[0]->value)
+        ) {
+            // If only a column name was provided
+            return ['table' => null, 'column' => $lexer->list[0]->value];
+        }
+
+        // If some other expression was provided
+        return ['table' => null, 'column' => null];
+    }
+
+    /**
+     * @param OrderKeyword[] $orderKeywords
+     *
+     * @return list<SortExpression>
+     */
+    private function extractSortingExpressions(array $orderKeywords): array
+    {
+        $expressions = [];
+        foreach ($orderKeywords as $o) {
+            if ((string) (int) $o->expr->expr === $o->expr->expr) {
+                // If a numerical column index is used, we need to convert it to a column name
+                $field = $this->fieldsMeta[(int) $o->expr->expr - 1];
+                $normalizedExpression = '';
+                $tableName = null;
+                if ($field->table !== '') {
+                    $tableName = $field->table;
+                    $normalizedExpression = Util::backquote($field->table) . '.';
+                }
+
+                $columnName = $field->name;
+                $normalizedExpression .= Util::backquote($field->name);
+            } else {
+                $normalizedExpression = $o->expr->expr ?? '';
+                [
+                    'table' => $tableName,
+                    'column' => $columnName,
+                ] = $this->parseStringIntoTableAndColumn($normalizedExpression);
+            }
+
+            $expressions[] = new SortExpression($tableName, $columnName, $o->type->value, $normalizedExpression);
+        }
+
+        return $expressions;
     }
 }

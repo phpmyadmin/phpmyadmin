@@ -4007,39 +4007,29 @@
     <InvalidArgument>
       <code><![CDATA[$linkingUrlParams]]></code>
       <code><![CDATA[$linkingUrlParams]]></code>
-      <code><![CDATA[$sortExpressionNoDirection]]></code>
     </InvalidArgument>
     <MixedArgument>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos'] / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['query']]]></code>
-      <code><![CDATA[$clause]]></code>
       <code><![CDATA[$colOrder]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
       <code><![CDATA[$expr->alias]]></code>
       <code><![CDATA[$field->table]]></code>
-      <code><![CDATA[$newSortExpressionNoDirection]]></code>
       <code><![CDATA[$rel['foreign_db']]]></code>
       <code><![CDATA[$rel['foreign_db']]]></code>
       <code><![CDATA[$rel['foreign_field']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
       <code><![CDATA[$rel['foreign_table']]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
       <code><![CDATA[$statementInfo->statement->from]]></code>
       <code><![CDATA[$urlParams['where_clause']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[(int) $this->unlimNumRows / $_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[empty($field->database) ? $this->db : $field->database]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$sortDirection]]></code>
-      <code><![CDATA[$sortExpression]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['display_binary']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['display_binary']]]></code>
@@ -4156,7 +4146,6 @@
       <code><![CDATA[$_SESSION['tmpval']['query'][$sqlMd5]]]></code>
       <code><![CDATA[$_SESSION['tmpval']['relational_display']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
-      <code><![CDATA[$clause]]></code>
       <code><![CDATA[$colOrder]]></code>
       <code><![CDATA[$colVisib]]></code>
       <code><![CDATA[$colVisibCurrent]]></code>
@@ -4168,7 +4157,6 @@
       <code><![CDATA[$i]]></code>
       <code><![CDATA[$identifier]]></code>
       <code><![CDATA[$meta->name]]></code>
-      <code><![CDATA[$newSortExpressionNoDirection]]></code>
       <code><![CDATA[$query]]></code>
       <code><![CDATA[$relationalDisplay]]></code>
       <code><![CDATA[$value]]></code>
@@ -4178,7 +4166,6 @@
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['repeat_cells']]]></code>
-      <code><![CDATA[$sortExpressionNoDirection[$indexInExpression]]]></code>
     </MixedOperand>
     <MixedPropertyFetch>
       <code><![CDATA[$expr->alias]]></code>
@@ -4210,9 +4197,18 @@
     </PossiblyNullArrayAccess>
     <PossiblyNullOperand>
       <code><![CDATA[$dispval]]></code>
-      <code><![CDATA[$o->expr->expr]]></code>
     </PossiblyNullOperand>
     <PossiblyNullPropertyFetch>
+      <code><![CDATA[$lexer->list[0]->type]]></code>
+      <code><![CDATA[$lexer->list[0]->type]]></code>
+      <code><![CDATA[$lexer->list[0]->value]]></code>
+      <code><![CDATA[$lexer->list[0]->value]]></code>
+      <code><![CDATA[$lexer->list[2]->type]]></code>
+      <code><![CDATA[$lexer->list[2]->type]]></code>
+      <code><![CDATA[$lexer->list[2]->value]]></code>
+      <code><![CDATA[$lexer->list[2]->value]]></code>
+      <code><![CDATA[$lexer->list[4]->type]]></code>
+      <code><![CDATA[$lexer->list[4]->value]]></code>
       <code><![CDATA[$o->expr->expr]]></code>
       <code><![CDATA[$order->expr->column]]></code>
     </PossiblyNullPropertyFetch>
