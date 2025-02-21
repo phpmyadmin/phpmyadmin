@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2022-12-30 07:48+0000\n"
-"Last-Translator: Iwan Haryatno <iwnharry61@gmail.com>\n"
+"PO-Revision-Date: 2025-02-21 14:58+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
 "Language: id\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 "X-Poedit-Basepath: ../../..\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
@@ -339,11 +339,11 @@ msgstr "Anda harus memilih paling sedikit satu kolom untuk ditampilkan!"
 
 #: db_qbe.php:145 templates/database/multi_table_query/form.twig:3
 msgid "Multi-table query"
-msgstr "Kueri multi-tabel"
+msgstr "Multi-tabel query"
 
 #: db_qbe.php:149 templates/database/multi_table_query/form.twig:3
 msgid "Query by example"
-msgstr "Kueri melalui contoh"
+msgstr "Kueri dengan contoh"
 
 #: db_qbe.php:168
 #, php-format
@@ -545,8 +545,8 @@ msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Pilih \"ST_GeomFromText\" dari kolom \"Fungsi\" dan tempel string dibawahnya "
-"ke dalam isian \"Nilai\"."
+"Pilih \"ST_GeomFromText\" dari kolom \"Fungsi\" dan rekatkan string "
+"dibawahnya ke dalam isian \"Nilai\"."
 
 #: import.php:73
 msgid "Succeeded"
@@ -886,7 +886,7 @@ msgstr ""
 
 #: js/messages.php:49
 msgid "You are about to DESTROY a complete table!"
-msgstr "Anda akan MENGHANCURKAN sebuah tabel lengkap!"
+msgstr "Anda akan MENGHAPUS sebuah tabel lengkap!"
 
 #: js/messages.php:51
 msgid "You are about to TRUNCATE a complete table!"
@@ -894,19 +894,19 @@ msgstr "Anda akan MENGOSONGKAN sebuah tabel lengkap!"
 
 #: js/messages.php:52
 msgid "Delete tracking data for this table?"
-msgstr "Hapus data pelacakan tabel ini?"
+msgstr "Hapus data pelacakan untuk tabel ini?"
 
 #: js/messages.php:54
 msgid "Delete tracking data for these tables?"
-msgstr "Hapus data pelacakan tabel ini?"
+msgstr "Hapus data pelacakan untuk tabel-tabel ini?"
 
 #: js/messages.php:56
 msgid "Delete tracking data for this version?"
-msgstr "Hapus data pelacakan versi ini?"
+msgstr "Hapus data pelacakan untuk versi ini?"
 
 #: js/messages.php:58
 msgid "Delete tracking data for these versions?"
-msgstr "Hapus data pelacakan versi ini?"
+msgstr "Hapus data pelacakan untuk versi ini?"
 
 #: js/messages.php:59
 msgid "Delete entry from tracking report?"
@@ -926,12 +926,12 @@ msgstr "Penghapusan Foreign Key."
 
 #: js/messages.php:64
 msgid "This operation could take a long time. Proceed anyway?"
-msgstr "Operasi ini bisa makan waktu lama. Tetap lanjutkan?"
+msgstr "Operasi ini bisa memakan waktu lama. Tetap lanjutkan?"
 
 #: js/messages.php:66
 #, php-format
 msgid "Do you really want to delete user group \"%s\"?"
-msgstr "Anda yakin akan menghapus grup pengguna \"%s\"?"
+msgstr "Anda yakin ingin menghapus grup pengguna \"%s\"?"
 
 #: js/messages.php:68
 #, php-format
@@ -941,7 +941,7 @@ msgstr "Anda yakin ingin menghapus pencarian \"%s\"?"
 #: js/messages.php:70
 msgid "You have unsaved changes; are you sure you want to leave this page?"
 msgstr ""
-"Anda punya perubahan yang belum disimpan; Anda yakin hendak meninggalkan "
+"Anda memiliki perubahan yang belum disimpan; Anda yakin hendak meninggalkan "
 "halaman ini?"
 
 #: js/messages.php:72
@@ -955,11 +955,11 @@ msgstr ""
 
 #: js/messages.php:74
 msgid "Do you really want to revoke the selected user(s) ?"
-msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
+msgstr "Anda yakin ingin menghapus pengguna yang dipilih?"
 
 #: js/messages.php:76
 msgid "Do you really want to delete this central column?"
-msgstr "Anda yakin hendak menghapus kolom utama ini?"
+msgstr "Anda yakin ingin menghapus kolom utama ini?"
 
 #: js/messages.php:78
 msgid "Do you really want to delete the selected items?"
@@ -970,20 +970,20 @@ msgid ""
 "Do you really want to DROP the selected partition(s)? This will also DELETE "
 "the data related to the selected partition(s)!"
 msgstr ""
-"Anda yakin akan melakukan DROP partisi terpilih? Ini juga akan melakukan "
-"fungsi DELETE data yang berelasi pada partisi terpilih!"
+"Apakah Anda yakin akan MENGHAPUS partisi yang terpilih? Ini juga akan "
+"MENGHAPUS data yang berkaitan dengan partisi yang terpilih!"
 
 #: js/messages.php:84
 msgid "Do you really want to TRUNCATE the selected partition(s)?"
-msgstr "Apakah anda yakin melakukan TRUNCATE pada partisi terpilih?"
+msgstr "Apakah Anda yakin ingin melakukan TRUNCATE pada partisi terpilih?"
 
 #: js/messages.php:86
 msgid "Do you really want to remove partitioning?"
-msgstr "Anda yakin ingin menghapus partisi?"
+msgstr "Apakah Anda yakin ingin menghapus partisi?"
 
 #: js/messages.php:87
 msgid "Do you really want to RESET SLAVE?"
-msgstr "Apakah Anda yakin akan melakukan RESET SLAVE?"
+msgstr "Apakah Anda yakin ingin melakukan RESET SLAVE?"
 
 #: js/messages.php:89
 msgid ""
@@ -2712,7 +2712,7 @@ msgstr "Kuat"
 
 #: js/messages.php:751
 msgid "Timed out waiting for security key activation."
-msgstr "Waktu tunggu untuk menunggu aktivasi kunci keamanan sudah habis"
+msgstr "Waktu tunggu untuk aktivasi kunci keamanan."
 
 #: js/messages.php:752
 #, php-format
@@ -3552,7 +3552,7 @@ msgstr "tidak peka aksen"
 #: libraries/classes/Charsets.php:679
 msgctxt "Collation variant"
 msgid "kana-sensitive"
-msgstr "kana-sensitif"
+msgstr "tidak peka kana"
 
 #: libraries/classes/Charsets.php:683
 msgctxt "Collation variant"
@@ -5225,7 +5225,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:988
 msgid "HTTP Basic Auth Realm name to display when doing HTTP Auth."
 msgstr ""
-"Nama HTTP Basic Auth Realm untuk ditampilkan ketika melakukan HTTP Auth."
+"nama HTTP Basic Auth Realm untuk ditampilkan ketika melakukan HTTP Auth."
 
 #: libraries/classes/Config/Descriptions.php:990
 msgid "HTTP Realm"
@@ -5392,8 +5392,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Biarkan kosong agar tidak mendukung templat, saran: "
-"[kbd]pma__export_templates[/kbd]."
+"Biarkan kosong agar tidak mendukung templat ekspor apapun, saran: [kbd]"
+"pma__export_templates[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1083
 msgid "Central columns table"
@@ -5447,9 +5447,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat [doc@linked-"
-"tables]pmadb[/doc] untuk informasi yang lengkap. Jika tidak menginginkan "
-"dukungan tersebut, biarkan kosong. Disarankan: [kbd]phpmyadmin[/kbd]."
+"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat "
+"[doc@linked-tables[/doc]  untuk informasi lengkap. Biarkan kosong agar tanpa "
+"dukungan tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
@@ -5470,8 +5470,8 @@ msgid ""
 "Leave blank for no \"persistent\" recently used tables across sessions, "
 "suggested: [kbd]pma__recent[/kbd]."
 msgstr ""
-"Biarkan kosong untuk tidak menyimpan preferensi pengguna dalam basis data, "
-"saran: [kbd]pma_userconfig[/kbd]"
+"Leave blank for no \"persistent\" recently used tables across sessions, "
+"suggested: [kbd]pma__recent[/kbd]."
 
 #: libraries/classes/Config/Descriptions.php:1123
 msgid "Recently used table"
