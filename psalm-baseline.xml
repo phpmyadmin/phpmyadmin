@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.7.0@11a32693fb9e33d4f0505de17af41c8fcac698a7">
+<files psalm-version="6.8.6@34ba9e1e5ea2e7396d3e2e644ee3e3a1d4336603">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>
@@ -172,6 +172,7 @@
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs']['LoginCookieValidity']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_mtime']]]></code>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]['userprefs_type']]]></code>
+      <code><![CDATA[$configData['lang']]]></code>
     </MixedArrayAccess>
     <MixedArrayAssignment>
       <code><![CDATA[$_SESSION['cache'][$cacheKey]]]></code>
