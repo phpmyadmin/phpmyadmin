@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-02-16 00:25+0000\n"
+"POT-Creation-Date: 2025-02-23 00:25+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Serbian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -222,7 +222,7 @@ msgstr "После %s"
 #: resources/templates/table/zoom_search/index.twig:120
 #: src/Config/ConfigFile.php:554
 #: src/Controllers/JavaScriptMessagesController.php:225
-#: src/Display/Results.php:939 src/Plugins/Export/ExportSql.php:2043
+#: src/Display/Results.php:930 src/Plugins/Export/ExportSql.php:2038
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "None"
 msgstr "нема"
@@ -1078,7 +1078,7 @@ msgstr "у упиту"
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
 #: src/Controllers/JavaScriptMessagesController.php:406
-#: src/Display/Results.php:2476 src/Html/Generator.php:520
+#: src/Display/Results.php:1805 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
 msgstr "Промени"
@@ -1097,7 +1097,7 @@ msgstr "Промени"
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
 #: src/Controllers/JavaScriptMessagesController.php:408
-#: src/Display/Results.php:2535 src/Tracking/Tracking.php:224
+#: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Обриши"
 
@@ -1158,7 +1158,7 @@ msgstr "SQL историјат"
 #: src/Plugins/Export/ExportMediawiki.php:48
 #: src/Plugins/Export/ExportOds.php:58 src/Plugins/Export/ExportOdt.php:69
 #: src/Plugins/Export/ExportPdf.php:66 src/Plugins/Export/ExportPhparray.php:45
-#: src/Plugins/Export/ExportSql.php:168
+#: src/Plugins/Export/ExportSql.php:166
 #: src/Plugins/Export/ExportTexytext.php:55 src/Plugins/Export/ExportXml.php:72
 #: src/Plugins/Export/ExportYaml.php:44 src/Plugins/Import/ImportCsv.php:87
 #: src/Plugins/Import/ImportLdi.php:62
@@ -2030,7 +2030,7 @@ msgstr ""
 #: resources/templates/database/events/index.twig:3 src/Menu.php:377
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
-#: src/Plugins/Export/ExportSql.php:998 src/Plugins/Export/ExportXml.php:96
+#: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
 #: src/Util.php:1380
 #, fuzzy
 msgid "Events"
@@ -2271,7 +2271,7 @@ msgid "criteria"
 msgstr "Критеријум"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1881
+#: src/Util.php:1830
 msgid "Sort"
 msgstr "Сортирање"
 
@@ -2282,8 +2282,8 @@ msgstr "Сортирање"
 #: resources/templates/server/status/processes/list.twig:14
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1467
-#: src/Display/Results.php:1474 src/Util.php:1889 src/Util.php:1906
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
+#: src/Display/Results.php:1398 src/Util.php:1838 src/Util.php:1855
 msgid "Ascending"
 msgstr "Растући"
 
@@ -2294,8 +2294,8 @@ msgstr "Растући"
 #: resources/templates/server/status/processes/list.twig:12
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
-#: src/Config/ConfigFile.php:554 src/Display/Results.php:1462
-#: src/Display/Results.php:1479 src/Util.php:1894 src/Util.php:1911
+#: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
+#: src/Display/Results.php:1403 src/Util.php:1843 src/Util.php:1860
 msgid "Descending"
 msgstr "Опадајући"
 
@@ -2861,7 +2861,7 @@ msgid "Sum"
 msgstr "Укупно"
 
 #: resources/templates/database/structure/body_for_table_summary.twig:37
-#: src/StorageEngine.php:414
+#: src/StorageEngine.php:413
 #, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr "%s је подразумевани погон складиштења на овом MySQL серверу."
@@ -3009,7 +3009,7 @@ msgstr ""
 
 #: resources/templates/database/structure/copy_form.twig:5
 #: resources/templates/menu/main.twig:16 src/Plugins/Export/ExportLatex.php:260
-#: src/Plugins/Export/ExportSql.php:929 src/Plugins/Export/ExportXml.php:366
+#: src/Plugins/Export/ExportSql.php:927 src/Plugins/Export/ExportXml.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:176
 #, fuzzy
 #| msgid "Database"
@@ -3113,7 +3113,7 @@ msgstr "Поглед"
 #: resources/templates/database/structure/structure_table_row.twig:122
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
-#: src/Controllers/Operations/TableController.php:329
+#: src/Controllers/Operations/TableController.php:321
 #: src/Controllers/Table/StructureController.php:149
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
@@ -3371,14 +3371,14 @@ msgid "Extra options"
 msgstr "Опције табеле"
 
 #: resources/templates/display/results/table.twig:212
-#: src/Display/Results.php:1121
+#: src/Display/Results.php:1112
 #, fuzzy
 #| msgid "Partial Texts"
 msgid "Partial texts"
 msgstr "Део текста"
 
 #: resources/templates/display/results/table.twig:216
-#: src/Display/Results.php:1125
+#: src/Display/Results.php:1116
 #, fuzzy
 #| msgid "Full Texts"
 msgid "Full texts"
@@ -3426,7 +3426,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
 #: src/Controllers/JavaScriptMessagesController.php:494
-#: src/Display/Results.php:2480 src/Html/Generator.php:83
+#: src/Display/Results.php:1806 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Копирај"
 
@@ -3493,7 +3493,7 @@ msgstr ""
 msgid "You may examine the data in the error report:"
 msgstr ""
 
-#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:406
+#: resources/templates/error/report_form.twig:23 src/Error/ErrorHandler.php:420
 #, fuzzy
 #| msgid "Automatic recovery mode"
 msgid "Automatically send report next time"
@@ -3956,7 +3956,7 @@ msgid "Server connection:"
 msgstr "макс. истовремених веза"
 
 #: resources/templates/home/index.twig:194
-#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:767
+#: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:215
 #, fuzzy
 #| msgid "Server version"
@@ -4259,7 +4259,7 @@ msgid "Server choice:"
 msgstr "Избор сервера"
 
 #: resources/templates/login/header.twig:10
-#: src/Plugins/Auth/AuthenticationConfig.php:91
+#: src/Plugins/Auth/AuthenticationConfig.php:83
 #: src/Plugins/Auth/AuthenticationHttp.php:87
 #, php-format
 msgid "Welcome to %s"
@@ -4704,9 +4704,9 @@ msgstr ""
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
 #: src/Controllers/Database/Structure/EmptyTableController.php:49
-#: src/Controllers/Operations/TableController.php:345
+#: src/Controllers/Operations/TableController.php:337
 #: src/Controllers/Table/DropColumnController.php:61
-#: src/Controllers/Table/ReplaceController.php:287 src/Core.php:517
+#: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
 msgid "No change"
 msgstr "Нема измена"
 
@@ -5966,7 +5966,7 @@ msgstr ""
 
 #: resources/templates/server/replication/change_primary.twig:25
 #: resources/templates/server/replication/primary_add_replica_user.twig:29
-#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:756
+#: src/Plugins/Export/ExportLatex.php:225 src/Plugins/Export/ExportSql.php:754
 #: src/Plugins/Export/ExportXml.php:206
 #, fuzzy
 #| msgid "Host"
@@ -6552,7 +6552,7 @@ msgid "Start auto refresh"
 msgstr ""
 
 #: resources/templates/server/status/processes/list.twig:44
-#: src/Display/Results.php:2554
+#: src/Display/Results.php:2447
 msgid "Kill"
 msgstr "Обустави"
 
@@ -6976,7 +6976,7 @@ msgstr "Профилисање"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:139
-#: src/Database/Routines.php:1027 src/Display/Results.php:3130
+#: src/Database/Routines.php:1027 src/Display/Results.php:3013
 #: src/Message.php:122
 #, fuzzy
 #| msgid "Your SQL query has been executed successfully."
@@ -7349,7 +7349,7 @@ msgstr ""
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:492
 #: src/Controllers/JavaScriptMessagesController.php:644
-#: src/Error/ErrorHandler.php:412 src/InsertEdit.php:1457
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1457
 msgid "Ignore"
 msgstr "Игнориши"
 
@@ -8153,7 +8153,7 @@ msgstr "Тип извоза"
 #: src/Navigation/Nodes/NodeTriggerContainer.php:25
 #: src/Plugins/Export/ExportHtmlword.php:495
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
-#: src/Plugins/Export/ExportSql.php:1911
+#: src/Plugins/Export/ExportSql.php:1906
 #: src/Plugins/Export/ExportTexytext.php:465
 #: src/Plugins/Export/ExportXml.php:116 src/Util.php:1381 src/Util.php:1397
 msgid "Triggers"
@@ -9942,7 +9942,7 @@ msgstr "Онемогућено"
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportSql.php:265
 #: src/Plugins/Export/ExportTexytext.php:70
 #, fuzzy
 msgid "structure"
@@ -9954,7 +9954,7 @@ msgstr "Структура"
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportSql.php:265
 #: src/Plugins/Export/ExportTexytext.php:70
 msgid "data"
 msgstr ""
@@ -9965,7 +9965,7 @@ msgstr ""
 #: src/Plugins/Export/ExportLatex.php:113
 #: src/Plugins/Export/ExportMediawiki.php:68
 #: src/Plugins/Export/ExportOdt.php:84 src/Plugins/Export/ExportPdf.php:91
-#: src/Plugins/Export/ExportSql.php:267
+#: src/Plugins/Export/ExportSql.php:265
 #: src/Plugins/Export/ExportTexytext.php:70
 #, fuzzy
 #| msgid "Structure and data"
@@ -10140,7 +10140,7 @@ msgid ""
 msgstr ""
 
 #: src/Config/Descriptions.php:171 src/Config/Descriptions.php:708
-#: src/Plugins/Export/ExportSql.php:367
+#: src/Plugins/Export/ExportSql.php:365
 msgid "Exclude definition of current user"
 msgstr ""
 
@@ -11386,7 +11386,7 @@ msgstr "Шаблон имена датотеке"
 #: src/Plugins/Export/ExportMediawiki.php:58
 #: src/Plugins/Export/ExportMediawiki.php:64
 #: src/Plugins/Export/ExportOdt.php:79 src/Plugins/Export/ExportPdf.php:87
-#: src/Plugins/Export/ExportSql.php:263
+#: src/Plugins/Export/ExportSql.php:261
 #: src/Plugins/Export/ExportTexytext.php:65
 #, fuzzy
 #| msgid "%s table(s)"
@@ -11459,11 +11459,11 @@ msgstr "Датуми креирања/ажурирања/провере"
 msgid "Use delayed inserts"
 msgstr "Користи одложена уметања"
 
-#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:232
+#: src/Config/Descriptions.php:692 src/Plugins/Export/ExportSql.php:230
 msgid "Disable foreign key checks"
 msgstr "Искључи провере страних кључева"
 
-#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:242
+#: src/Config/Descriptions.php:693 src/Plugins/Export/ExportSql.php:240
 #, fuzzy
 #| msgid "Create table on database %s"
 msgid "Export views as tables"
@@ -11485,7 +11485,7 @@ msgid ""
 "creation)"
 msgstr ""
 
-#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:373
+#: src/Config/Descriptions.php:709 src/Plugins/Export/ExportSql.php:371
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s view"
@@ -11499,7 +11499,7 @@ msgstr "Игнориши дупликате при уметању"
 msgid "Syntax to use when inserting data"
 msgstr ""
 
-#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:500
+#: src/Config/Descriptions.php:713 src/Plugins/Export/ExportSql.php:498
 msgid "Maximal length of created query"
 msgstr "Максимална дужина направљеног упита"
 
@@ -11508,7 +11508,7 @@ msgstr "Максимална дужина направљеног упита"
 msgid "Export type"
 msgstr "Тип извоза"
 
-#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:222
+#: src/Config/Descriptions.php:719 src/Plugins/Export/ExportSql.php:220
 msgid "Enclose export in a transaction"
 msgstr "Обави извоз у трансакцији"
 
@@ -11813,7 +11813,7 @@ msgstr "Опције за извоз базе"
 
 #: src/Config/Descriptions.php:811
 #: src/Controllers/JavaScriptMessagesController.php:613
-#: src/Navigation/NavigationTree.php:1295
+#: src/Navigation/NavigationTree.php:1292
 #, fuzzy
 msgid "Link with main panel"
 msgstr "Опције за извоз базе"
@@ -12458,38 +12458,38 @@ msgstr ""
 msgid "Server connection collation"
 msgstr "Сортирање за MySQL везу"
 
-#: src/Config/FormDisplay.php:581
+#: src/Config/FormDisplay.php:579
 #, php-format
 msgid "Missing data for %s"
 msgstr ""
 
-#: src/Config/FormDisplay.php:621 src/Config/Validator.php:595
+#: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
 #: src/Controllers/JavaScriptMessagesController.php:831
 msgid "Incorrect value!"
 msgstr ""
 
-#: src/Config/FormDisplay.php:767
+#: src/Config/FormDisplay.php:765
 #, fuzzy
 #| msgid "Variable"
 msgid "unavailable"
 msgstr "Променљива"
 
-#: src/Config/FormDisplay.php:769
+#: src/Config/FormDisplay.php:767
 #, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
-#: src/Config/FormDisplay.php:791
+#: src/Config/FormDisplay.php:789
 #, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:800
+#: src/Config/FormDisplay.php:798
 #, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
-#: src/Config/FormDisplay.php:820
+#: src/Config/FormDisplay.php:818
 #, php-format
 msgid "maximum %s"
 msgstr ""
@@ -13077,7 +13077,7 @@ msgid "Success!"
 msgstr ""
 
 #: src/Controllers/Database/StructureController.php:569
-#: src/Display/Results.php:3407
+#: src/Display/Results.php:3286
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -14830,7 +14830,7 @@ msgid "Hide panel"
 msgstr "Додај ново поље"
 
 #: src/Controllers/JavaScriptMessagesController.php:614
-#: src/Navigation/NavigationTree.php:1298
+#: src/Navigation/NavigationTree.php:1295
 #, fuzzy
 msgid "Unlink from main panel"
 msgstr "Опције за извоз базе"
@@ -14898,7 +14898,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:647
-#: src/Error/ErrorHandler.php:417
+#: src/Error/ErrorHandler.php:431
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
@@ -15600,7 +15600,7 @@ msgid "String"
 msgstr "Линије се завршавају са"
 
 #: src/Controllers/Operations/Database/CollationController.php:40
-#: src/Controllers/Operations/TableController.php:275
+#: src/Controllers/Operations/TableController.php:270
 msgid "No collation provided."
 msgstr ""
 
@@ -16709,7 +16709,7 @@ msgstr "Није Вам дозвољено да будете овде!"
 msgid "View name can not be empty!"
 msgstr ""
 
-#: src/Core.php:105 src/ZipExtension.php:57
+#: src/Core.php:104 src/ZipExtension.php:57
 #, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
@@ -16970,55 +16970,49 @@ msgid ""
 "phpMyAdmin is currently using the default time zone of the database server."
 msgstr ""
 
-#: src/Dbal/DatabaseInterface.php:1096
+#: src/Dbal/DatabaseInterface.php:1095
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Failed to set configured collation connection!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Dbal/DatabaseInterface.php:1629
-msgid "Connection for controluser as defined in your configuration failed."
-msgstr ""
-"Конекција за controluser-а, онако како је дефинисана у вашој конфигурацији, "
-"није успела."
-
-#: src/Dbal/DbiMysqli.php:120
+#: src/Dbal/DbiMysqli.php:116
 #, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: src/Display/Results.php:2511 src/Display/Results.php:2526
+#: src/Display/Results.php:2404 src/Display/Results.php:2419
 #, fuzzy
 #| msgid "The row has been deleted."
 msgid "The row has been deleted."
 msgstr "Ред је обрисан"
 
-#: src/Display/Results.php:3416
+#: src/Display/Results.php:3295
 #, fuzzy, php-format
 #| msgid "Showing rows"
 msgid "Showing rows %1s - %2s"
 msgstr "Приказ записа"
 
-#: src/Display/Results.php:3430
+#: src/Display/Results.php:3309
 #, php-format
 msgid "%1$s total, %2$s in query"
 msgstr ""
 
-#: src/Display/Results.php:3435
+#: src/Display/Results.php:3314
 #, fuzzy, php-format
 #| msgid "total"
 msgid "%s total"
 msgstr "укупно"
 
-#: src/Display/Results.php:3448 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:869
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
 msgstr "Упит је трајао %01.4f секунди"
 
-#: src/Display/Results.php:3744
+#: src/Display/Results.php:3623
 #, fuzzy
 #| msgid "Link not found"
 msgid "Link not found!"
@@ -17344,7 +17338,7 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: src/Error/ErrorHandler.php:401
+#: src/Error/ErrorHandler.php:415
 #, fuzzy
 #| msgid "Import"
 msgid "Report"
@@ -17358,7 +17352,7 @@ msgstr "Не могу да се пријавим на MySQL сервер"
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
-#: src/Plugins/Auth/AuthenticationConfig.php:84
+#: src/Plugins/Auth/AuthenticationConfig.php:76
 #: src/Plugins/Auth/AuthenticationHttp.php:82
 msgid "Access denied!"
 msgstr "Приступ одбијен!"
@@ -17420,13 +17414,13 @@ msgstr "Не могу да учитам подразумевану конфиг�
 msgid "File was not an uploaded file."
 msgstr ""
 
-#: src/File.php:262
+#: src/File.php:263
 msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini."
 msgstr ""
 "Послата датотека превазилази вредност директиве upload_max_filesize у php."
 "ini."
 
-#: src/File.php:267
+#: src/File.php:268
 msgid ""
 "The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in "
 "the HTML form."
@@ -17434,52 +17428,52 @@ msgstr ""
 "Послата датотека превазилази вредност директиве MAX_FILE_SIZE која је "
 "наведена у HTML форми."
 
-#: src/File.php:272
+#: src/File.php:273
 msgid "The uploaded file was only partially uploaded."
 msgstr "Послата датотека је само делимично примљена."
 
-#: src/File.php:276
+#: src/File.php:277
 msgid "Missing a temporary folder."
 msgstr "Недостаје привремени директоријум."
 
-#: src/File.php:279
+#: src/File.php:280
 msgid "Failed to write file to disk."
 msgstr "Неуспело уписивање датотеке на диск."
 
-#: src/File.php:282
+#: src/File.php:283
 msgid "File upload stopped by extension."
 msgstr "Пријем датотеке заустављен због екстензије."
 
-#: src/File.php:285
+#: src/File.php:286
 msgid "Unknown error in file upload."
 msgstr "Непозната грешка при слању датотеке."
 
-#: src/File.php:412
+#: src/File.php:374
 msgid "File is a symbolic link"
 msgstr ""
 
-#: src/File.php:419 src/File.php:510
+#: src/File.php:381 src/File.php:472
 #, fuzzy
 #| msgid "File could not be read"
 msgid "File could not be read!"
 msgstr "Датотеку није могуће прочитати"
 
-#: src/File.php:455
+#: src/File.php:417
 #, fuzzy
 #| msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]"
 msgid "Error moving the uploaded file, see [doc@faq1-11]FAQ 1.11[/doc]."
 msgstr ""
 "Грешка у премештању примљене датотеке, погледајте [doc@faq1-11]FAQ 1.11[/doc]"
 
-#: src/File.php:475
+#: src/File.php:437
 msgid "Error while moving uploaded file."
 msgstr ""
 
-#: src/File.php:484
+#: src/File.php:446
 msgid "Cannot read uploaded file."
 msgstr ""
 
-#: src/File.php:561
+#: src/File.php:523
 #, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
@@ -17803,19 +17797,19 @@ msgstr "Процедуре"
 msgid "Views:"
 msgstr "Поглед"
 
-#: src/Navigation/NavigationTree.php:744
+#: src/Navigation/NavigationTree.php:742
 msgid ""
 "There are large item groups in navigation panel which may affect the "
 "performance. Consider disabling item grouping in the navigation panel."
 msgstr ""
 
-#: src/Navigation/NavigationTree.php:808
+#: src/Navigation/NavigationTree.php:805
 #, fuzzy
 #| msgid "Column names"
 msgid "Groups"
 msgstr "Имена колона"
 
-#: src/Navigation/NavigationTree.php:915
+#: src/Navigation/NavigationTree.php:912
 #, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
@@ -17823,7 +17817,7 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 
-#: src/Navigation/NavigationTree.php:1290
+#: src/Navigation/NavigationTree.php:1287
 msgid "Collapse all"
 msgstr ""
 
@@ -17850,7 +17844,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeFunctionContainer.php:22
 #: src/Navigation/Nodes/NodeFunctionContainer.php:24
-#: src/Plugins/Export/ExportSql.php:645 src/Plugins/Export/ExportXml.php:101
+#: src/Plugins/Export/ExportSql.php:643 src/Plugins/Export/ExportXml.php:101
 msgid "Functions"
 msgstr "Функције"
 
@@ -17870,7 +17864,7 @@ msgstr ""
 
 #: src/Navigation/Nodes/NodeProcedureContainer.php:22
 #: src/Navigation/Nodes/NodeProcedureContainer.php:24
-#: src/Plugins/Export/ExportSql.php:634 src/Plugins/Export/ExportXml.php:106
+#: src/Plugins/Export/ExportSql.php:632 src/Plugins/Export/ExportXml.php:106
 msgid "Procedures"
 msgstr "Процедуре"
 
@@ -18197,11 +18191,7 @@ msgstr ""
 msgid "Error while creating PDF:"
 msgstr "Дозвољава читање података."
 
-#: src/Plugins/Auth/AuthenticationConfig.php:76
-msgid "Cannot connect: invalid settings."
-msgstr "Не могу да се повежем: неисправна подешавања."
-
-#: src/Plugins/Auth/AuthenticationConfig.php:106
+#: src/Plugins/Auth/AuthenticationConfig.php:98
 #, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
@@ -18210,7 +18200,7 @@ msgstr ""
 "Вероватан разлог за ово је да нисте направили конфигурациону датотеку. "
 "Можете користити %1$sскрипт за инсталацију%2$s да бисте је направили."
 
-#: src/Plugins/Auth/AuthenticationConfig.php:127
+#: src/Plugins/Auth/AuthenticationConfig.php:115
 msgid ""
 "phpMyAdmin tried to connect to the MySQL server, and the server rejected the "
 "connection. You should check the host, username and password in your "
@@ -18222,7 +18212,7 @@ msgstr ""
 "php и уверите се да одговарају подацима које сте добили од администратора "
 "MySQL сервера."
 
-#: src/Plugins/Auth/AuthenticationConfig.php:148
+#: src/Plugins/Auth/AuthenticationConfig.php:133
 msgid "Retry to connect"
 msgstr ""
 
@@ -18328,25 +18318,25 @@ msgid "Data dump options"
 msgstr "Опције за извоз базе"
 
 #: src/Plugins/Export/ExportHtmlword.php:192
-#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2158
+#: src/Plugins/Export/ExportOdt.php:244 src/Plugins/Export/ExportSql.php:2148
 #: src/Plugins/Export/ExportTexytext.php:177
 msgid "Dumping data for table"
 msgstr "Приказ података табеле"
 
 #: src/Plugins/Export/ExportHtmlword.php:486
-#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1897
+#: src/Plugins/Export/ExportOdt.php:616 src/Plugins/Export/ExportSql.php:1892
 #: src/Plugins/Export/ExportTexytext.php:458
 msgid "Table structure for table"
 msgstr "Структура табеле"
 
 #: src/Plugins/Export/ExportHtmlword.php:503
-#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1955
+#: src/Plugins/Export/ExportOdt.php:636 src/Plugins/Export/ExportSql.php:1950
 #: src/Plugins/Export/ExportTexytext.php:471
 msgid "Structure for view"
 msgstr "Структура за поглед (view)"
 
 #: src/Plugins/Export/ExportHtmlword.php:509
-#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1994
+#: src/Plugins/Export/ExportOdt.php:644 src/Plugins/Export/ExportSql.php:1989
 #: src/Plugins/Export/ExportTexytext.php:475
 msgid "Stand-in structure for view"
 msgstr "Структура која замењује поглед"
@@ -18376,7 +18366,7 @@ msgid "Structure of table @TABLE@"
 msgstr "Структура табеле __TABLE__"
 
 #: src/Plugins/Export/ExportLatex.php:123 src/Plugins/Export/ExportOdt.php:94
-#: src/Plugins/Export/ExportSql.php:279
+#: src/Plugins/Export/ExportSql.php:277
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Object creation options"
@@ -18404,7 +18394,7 @@ msgid "Label key:"
 msgstr "Ознака кључа"
 
 #: src/Plugins/Export/ExportLatex.php:149 src/Plugins/Export/ExportOdt.php:102
-#: src/Plugins/Export/ExportSql.php:204
+#: src/Plugins/Export/ExportSql.php:202
 #, fuzzy
 #| msgid "Disable foreign key checks"
 msgid "Display foreign key relationships"
@@ -18417,7 +18407,7 @@ msgid "Display comments"
 msgstr "Приказујем коментаре колоне"
 
 #: src/Plugins/Export/ExportLatex.php:162 src/Plugins/Export/ExportOdt.php:115
-#: src/Plugins/Export/ExportSql.php:212
+#: src/Plugins/Export/ExportSql.php:210
 #, fuzzy
 #| msgid "Available MIME types"
 msgid "Display media types"
@@ -18429,21 +18419,21 @@ msgstr "Доступни MIME-типови"
 msgid "Put columns names in the first row:"
 msgstr "Стави имена поља у први ред"
 
-#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:763
+#: src/Plugins/Export/ExportLatex.php:231 src/Plugins/Export/ExportSql.php:761
 #: src/Plugins/Export/ExportXml.php:213
 #, fuzzy
 #| msgid "Generation Time"
 msgid "Generation Time:"
 msgstr "Време креирања"
 
-#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:769
+#: src/Plugins/Export/ExportLatex.php:234 src/Plugins/Export/ExportSql.php:767
 #: src/Plugins/Export/ExportXml.php:216
 #, fuzzy
 #| msgid "PHP Version"
 msgid "PHP Version:"
 msgstr "верзија PHP-a"
 
-#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2043
+#: src/Plugins/Export/ExportLatex.php:320 src/Plugins/Export/ExportSql.php:2038
 #, fuzzy
 #| msgid "Data"
 msgid "Data:"
@@ -18502,257 +18492,257 @@ msgstr "Структура"
 msgid "Stand in"
 msgstr "и онда"
 
-#: src/Plugins/Export/ExportSql.php:183
+#: src/Plugins/Export/ExportSql.php:181
 msgid ""
 "Display comments <i>(includes info such as export timestamp, PHP version, "
 "and server version)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:190
+#: src/Plugins/Export/ExportSql.php:188
 #, fuzzy
 #| msgid "Add custom comment into header (\\n splits lines)"
 msgid "Additional custom header comment (\\n splits lines):"
 msgstr "Додај коментар у заглавље (\\n раздваја линије)"
 
-#: src/Plugins/Export/ExportSql.php:196
+#: src/Plugins/Export/ExportSql.php:194
 msgid ""
 "Include a timestamp of when databases were created, last updated, and last "
 "checked"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:249
+#: src/Plugins/Export/ExportSql.php:247
 #, fuzzy
 #| msgid "Export type"
 msgid "Export metadata"
 msgstr "Тип извоза"
 
-#: src/Plugins/Export/ExportSql.php:287
+#: src/Plugins/Export/ExportSql.php:285
 #, fuzzy
 #| msgid "Statements"
 msgid "Add statements:"
 msgstr "Име"
 
-#: src/Plugins/Export/ExportSql.php:295 src/Plugins/Export/ExportSql.php:304
-#: src/Plugins/Export/ExportSql.php:321 src/Plugins/Export/ExportSql.php:330
-#: src/Plugins/Export/ExportSql.php:354 src/Plugins/Export/ExportSql.php:382
-#: src/Plugins/Export/ExportSql.php:391
+#: src/Plugins/Export/ExportSql.php:293 src/Plugins/Export/ExportSql.php:302
+#: src/Plugins/Export/ExportSql.php:319 src/Plugins/Export/ExportSql.php:328
+#: src/Plugins/Export/ExportSql.php:352 src/Plugins/Export/ExportSql.php:380
+#: src/Plugins/Export/ExportSql.php:389
 #, fuzzy, php-format
 #| msgid "Statements"
 msgid "Add %s statement"
 msgstr "Име"
 
-#: src/Plugins/Export/ExportSql.php:337
+#: src/Plugins/Export/ExportSql.php:335
 msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:344
+#: src/Plugins/Export/ExportSql.php:342
 #, fuzzy, php-format
 #| msgid "Session value"
 msgid "%s value"
 msgstr "Вредност сесије"
 
 #. l10n: Allow simplifying exported view syntax to only "CREATE VIEW"
-#: src/Plugins/Export/ExportSql.php:361
+#: src/Plugins/Export/ExportSql.php:359
 msgid "Use simple view export"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:400
+#: src/Plugins/Export/ExportSql.php:398
 msgid ""
 "Enclose table and column names with backquotes <i>(Protects column and table "
 "names formed with special characters or keywords)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:415
+#: src/Plugins/Export/ExportSql.php:413
 #, fuzzy
 #| msgid "Transformation options"
 msgid "Data creation options"
 msgstr "Опције трансформације"
 
-#: src/Plugins/Export/ExportSql.php:420 src/Plugins/Export/ExportSql.php:2121
+#: src/Plugins/Export/ExportSql.php:418 src/Plugins/Export/ExportSql.php:2111
 msgid "Truncate table before insert"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:427
+#: src/Plugins/Export/ExportSql.php:425
 msgid "Instead of <code>INSERT</code> statements, use:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:433
+#: src/Plugins/Export/ExportSql.php:431
 msgid "<code>INSERT DELAYED</code> statements"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:442 src/Plugins/Export/ExportSql.php:469
+#: src/Plugins/Export/ExportSql.php:440 src/Plugins/Export/ExportSql.php:467
 msgid "<code>INSERT IGNORE</code> statements"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:453
+#: src/Plugins/Export/ExportSql.php:451
 msgid "Function to use when dumping data:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:464
+#: src/Plugins/Export/ExportSql.php:462
 msgid "Syntax to use when inserting data:"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:474
+#: src/Plugins/Export/ExportSql.php:472
 msgid ""
 "include column names in every <code>INSERT</code> statement <br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name (col_A,col_B,col_C) VALUES "
 "(1,2,3)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:479
+#: src/Plugins/Export/ExportSql.php:477
 msgid ""
 "insert multiple rows in every <code>INSERT</code> statement<br> &nbsp; "
 "&nbsp; &nbsp; Example: <code>INSERT INTO tbl_name VALUES (1,2,3), (4,5,6), "
 "(7,8,9)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:484
+#: src/Plugins/Export/ExportSql.php:482
 msgid ""
 "both of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name (col_A,col_B,col_C) VALUES (1,2,3), (4,5,6), (7,8,9)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:489
+#: src/Plugins/Export/ExportSql.php:487
 msgid ""
 "neither of the above<br> &nbsp; &nbsp; &nbsp; Example: <code>INSERT INTO "
 "tbl_name VALUES (1,2,3)</code>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:508
+#: src/Plugins/Export/ExportSql.php:506
 msgid ""
 "Dump binary columns in hexadecimal notation <i>(for example, \"abc\" becomes "
 "0x616263)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:517
+#: src/Plugins/Export/ExportSql.php:515
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:594
+#: src/Plugins/Export/ExportSql.php:592
 msgid "It appears your database uses routines;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:597 src/Plugins/Export/ExportSql.php:1510
-#: src/Plugins/Export/ExportSql.php:1943
+#: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1505
+#: src/Plugins/Export/ExportSql.php:1938
 msgid "alias export may not work reliably in all cases."
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1054
+#: src/Plugins/Export/ExportSql.php:1052
 #, fuzzy
 #| msgid "Export type"
 msgid "Metadata"
 msgstr "Тип извоза"
 
-#: src/Plugins/Export/ExportSql.php:1115
+#: src/Plugins/Export/ExportSql.php:1113
 #, fuzzy, php-format
 #| msgid "Dumping data for table"
 msgid "Metadata for table %s"
 msgstr "Приказ података табеле"
 
-#: src/Plugins/Export/ExportSql.php:1122
+#: src/Plugins/Export/ExportSql.php:1120
 #, fuzzy, php-format
 #| msgid "Create table on database %s"
 msgid "Metadata for database %s"
 msgstr "Направи нову табелу у бази %s"
 
-#: src/Plugins/Export/ExportSql.php:1421
+#: src/Plugins/Export/ExportSql.php:1419
 #, fuzzy, php-format
 #| msgid "Table structure for table"
 msgid "Error reading structure for table %s:"
 msgstr "Структура табеле"
 
-#: src/Plugins/Export/ExportSql.php:1507
+#: src/Plugins/Export/ExportSql.php:1502
 msgid "It appears your database uses views;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1651
+#: src/Plugins/Export/ExportSql.php:1646
 msgid "Constraints for dumped tables"
 msgstr "Ограничења за извезене табеле"
 
-#: src/Plugins/Export/ExportSql.php:1652
+#: src/Plugins/Export/ExportSql.php:1647
 msgid "Constraints for table"
 msgstr "Ограничења за табеле"
 
-#: src/Plugins/Export/ExportSql.php:1678
+#: src/Plugins/Export/ExportSql.php:1673
 #, fuzzy
 #| msgid "Constraints for dumped tables"
 msgid "Indexes for dumped tables"
 msgstr "Ограничења за извезене табеле"
 
-#: src/Plugins/Export/ExportSql.php:1679
+#: src/Plugins/Export/ExportSql.php:1674
 #, fuzzy
 #| msgid "Inside table(s):"
 msgid "Indexes for table"
 msgstr "Унутар табела:"
 
-#: src/Plugins/Export/ExportSql.php:1702
+#: src/Plugins/Export/ExportSql.php:1697
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for dumped tables"
 msgstr "Додај AUTO_INCREMENT вредност"
 
-#: src/Plugins/Export/ExportSql.php:1703
+#: src/Plugins/Export/ExportSql.php:1698
 #, fuzzy
 #| msgid "Add AUTO_INCREMENT value"
 msgid "AUTO_INCREMENT for table"
 msgstr "Додај AUTO_INCREMENT вредност"
 
-#: src/Plugins/Export/ExportSql.php:1759
+#: src/Plugins/Export/ExportSql.php:1754
 #, fuzzy
 #| msgid "MIME TYPES FOR TABLE"
 msgid "MEDIA TYPES FOR TABLE"
 msgstr "MIME ТИПОВИ ЗА ТАБЕЛУ"
 
-#: src/Plugins/Export/ExportSql.php:1789
+#: src/Plugins/Export/ExportSql.php:1784
 #, fuzzy
 #| msgid "RELATIONS FOR TABLE"
 msgid "RELATIONSHIPS FOR TABLE"
 msgstr "РЕЛАЦИЈЕ ТАБЕЛЕ"
 
-#: src/Plugins/Export/ExportSql.php:1940
+#: src/Plugins/Export/ExportSql.php:1935
 msgid "It appears your table uses triggers;"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:1970
+#: src/Plugins/Export/ExportSql.php:1965
 #, fuzzy, php-format
 #| msgid "Structure for view"
 msgid "Structure for view %s exported as a table"
 msgstr "Структура за поглед (view)"
 
-#: src/Plugins/Export/ExportSql.php:1997
+#: src/Plugins/Export/ExportSql.php:1992
 msgid "(See below for the actual view)"
 msgstr ""
 
-#: src/Plugins/Export/ExportSql.php:2054
+#: src/Plugins/Export/ExportSql.php:2049
 #, fuzzy, php-format
 #| msgid "Allows reading data."
 msgid "Error reading data for table %s:"
 msgstr "Дозвољава читање података."
 
-#: src/Plugins/Export/ExportSql.php:2635
+#: src/Plugins/Export/ExportSql.php:2625
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:565
 #, fuzzy
 #| msgid "Creation"
 msgid "Creation:"
 msgstr "Направљено"
 
-#: src/Plugins/Export/ExportSql.php:2643
+#: src/Plugins/Export/ExportSql.php:2633
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:576
 #, fuzzy
 #| msgid "Last update"
 msgid "Last update:"
 msgstr "Последња измена"
 
-#: src/Plugins/Export/ExportSql.php:2651
+#: src/Plugins/Export/ExportSql.php:2641
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:587
 #, fuzzy
 #| msgid "Last check"
 msgid "Last check:"
 msgstr "Последња провера"
 
-#: src/Plugins/Export/ExportSql.php:2672
+#: src/Plugins/Export/ExportSql.php:2662
 msgid ""
 "Database system or older MySQL server to maximize output compatibility with:"
 msgstr ""
@@ -19398,19 +19388,19 @@ msgstr ""
 msgid "Primary server changed successfully to %s."
 msgstr "Привилегије су успешно поново учитане."
 
-#: src/Routing/Routing.php:125
+#: src/Routing/Routing.php:124
 #, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
-#: src/Routing/Routing.php:159 src/Routing/Routing.php:202
+#: src/Routing/Routing.php:157 src/Routing/Routing.php:200
 #, fuzzy, php-format
 msgid "Error 404! The page %s was not found."
 msgstr "Претраживање базе"
 
-#: src/Routing/Routing.php:167
+#: src/Routing/Routing.php:165
 msgid "Error 405! Request method not allowed."
 msgstr ""
 
@@ -19686,22 +19676,22 @@ msgstr "Изврши SQL упит(е) на бази %s"
 msgid "Run SQL query/queries on table %s"
 msgstr "Изврши SQL упит(е) на бази %s"
 
-#: src/StorageEngine.php:318
+#: src/StorageEngine.php:317
 msgid ""
 "There is no detailed status information available for this storage engine."
 msgstr "Нема детаљнијих информација о статусу за овај погон складиштења."
 
-#: src/StorageEngine.php:415
+#: src/StorageEngine.php:414
 #, php-format
 msgid "%s is available on this MySQL server."
 msgstr "%s је доступан на овом MySQL серверу."
 
-#: src/StorageEngine.php:416
+#: src/StorageEngine.php:415
 #, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr "%s је онемогућен на овом MySQL серверу."
 
-#: src/StorageEngine.php:417
+#: src/StorageEngine.php:416
 #, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr "Овај MySQL сервер не подржава %s погон складиштења."
@@ -19734,38 +19724,38 @@ msgstr "Претраживање базе"
 msgid "Target database `%s` was not found!"
 msgstr "Није пронађена тема %s!"
 
-#: src/Table/Table.php:809
+#: src/Table/Table.php:813
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Неисправна база података"
 
-#: src/Table/Table.php:827
+#: src/Table/Table.php:831
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Неисправан назив табеле"
 
-#: src/Table/Table.php:872
+#: src/Table/Table.php:876
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Табели %s промењено име у %s"
 
-#: src/Table/Table.php:1108
+#: src/Table/Table.php:1112
 #, fuzzy
 #| msgid "Could not load default configuration from: \"%1$s\""
 msgid "Could not save table UI preferences!"
 msgstr "Не могу да учитам подразумевану конфигурацију из: \"%1$s\""
 
-#: src/Table/Table.php:1130
+#: src/Table/Table.php:1134
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1248
+#: src/Table/Table.php:1252
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19773,7 +19763,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1569
+#: src/Table/Table.php:1573
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
@@ -20248,6 +20238,14 @@ msgstr "Грешка у ZIP архиви:"
 #: src/ZipExtension.php:74
 msgid "No files found inside ZIP archive!"
 msgstr "У ZIP архиви нема датотека!"
+
+#~ msgid "Connection for controluser as defined in your configuration failed."
+#~ msgstr ""
+#~ "Конекција за controluser-а, онако како је дефинисана у вашој "
+#~ "конфигурацији, није успела."
+
+#~ msgid "Cannot connect: invalid settings."
+#~ msgstr "Не могу да се повежем: неисправна подешавања."
 
 #, fuzzy
 #~| msgid "Could not load default configuration from: \"%1$s\""
