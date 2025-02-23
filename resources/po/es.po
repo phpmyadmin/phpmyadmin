@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-23 00:25+0000\n"
-"PO-Revision-Date: 2023-03-13 13:06+0000\n"
-"Last-Translator: William Desportes <williamdes@wdes.fr>\n"
+"PO-Revision-Date: 2025-02-23 17:45+0000\n"
+"Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
 "Language: es\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16.2-dev\n"
+"X-Generator: Weblate 5.10.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -50,7 +50,7 @@ msgstr "Configuraciones de apariencia"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Modo de color para el tema"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
 #, fuzzy
@@ -62,7 +62,7 @@ msgstr "Derecha"
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 # This is the text showed in the tab
 #: resources/templates/base.twig:95
@@ -2480,7 +2480,7 @@ msgstr "Opciones:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "incluye coincidencias hexadecimales"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -3380,7 +3380,7 @@ msgstr "Geometría %d:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Identificador de Sistema de Referencia Espacial"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -5971,7 +5971,7 @@ msgstr "ø por hora"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Gráfica de pastel con las sentencias más frecuentes."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -6318,7 +6318,7 @@ msgstr "consulta SQL"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Formatea como una sola línea"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6483,7 +6483,7 @@ msgstr "Valor de columna:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "La gráfica generada"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6689,7 +6689,7 @@ msgstr "Editar/Insertar"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
 msgid "Amount of rows to insert"
-msgstr ""
+msgstr "Cantidad de filas a insertar"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -9728,6 +9728,8 @@ msgstr ""
 #: src/Config/Descriptions.php:331
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
+"Permitir que los usuarios creen favoritos que estén disponibles a todos los "
+"otros usuarios"
 
 #: src/Config/Descriptions.php:333
 msgid ""
@@ -11205,7 +11207,7 @@ msgstr "Longitud del histórico de consultas"
 
 #: src/Config/Descriptions.php:851
 msgid "Allow shared bookmarks between users"
-msgstr ""
+msgstr "Permite compartir favoritos entre usuarios"
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
@@ -12022,7 +12024,7 @@ msgstr "Mostrando filas %1$s - %2$s."
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
-"Ya existe una página llamada \"%s\", por favor, cámbiale el nombre por otro."
+"Ya existe una página llamada \"%s\", por favor cambie el nombre por otro."
 
 #: src/Controllers/Database/DesignerController.php:169
 #: src/Controllers/Database/DesignerController.php:174
@@ -13405,10 +13407,8 @@ msgid "Show query box"
 msgstr "Mostrar ventana de consultas SQL"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Ejecutar la consulta"
+msgstr "Editar la consulta"
 
 #: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
@@ -13923,10 +13923,8 @@ msgid "up to date"
 msgstr "actualizada"
 
 #: src/Controllers/JavaScriptMessagesController.php:624
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Hubo un error importando el archivo de forma ESRI: \"%s\"."
+msgstr "Hubo un error al cargar la información de Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:627
 msgid ""
@@ -17235,10 +17233,8 @@ msgid "The table name is empty!"
 msgstr "¡El nombre de la tabla está vacío!"
 
 #: src/Partitioning/Maintenance.php:136
-#, fuzzy
-#| msgid "This is a read-only variable and can not be edited"
 msgid "This table is a view, it can not be truncated."
-msgstr "Esta es una variable de sólo lectura y no puede ser editada"
+msgstr "Esta tabla es una vista, no puede ser truncada."
 
 #: src/Pdf.php:146
 msgid "Error while creating PDF:"
@@ -17294,7 +17290,7 @@ msgid ""
 "restricts passwords to less than 2000 characters."
 msgstr ""
 "Tu contraseña es muy larga. Para evitar ataques DoS, phpMyAdmin limita las "
-"contraseñas a 2.000 caracteres."
+"contraseñas hasta menos de 2.000 caracteres."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
