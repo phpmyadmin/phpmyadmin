@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-02-23 15:40+0000\n"
-"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
+"PO-Revision-Date: 2025-02-24 01:46+0000\n"
+"Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/5-1/"
 "es/>\n"
 "Language: es\n"
@@ -5152,7 +5152,8 @@ msgstr "Mostrando filas %1$s - %2$s."
 #, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
-msgstr "Ya existe una página llamada %s, cambie el nombre por otro."
+msgstr ""
+"Ya existe una página llamada \"%s\", por favor cambie el nombre por otro."
 
 #: libraries/classes/Controllers/Database/ExportController.php:78
 #: libraries/classes/Controllers/Database/TrackingController.php:128
@@ -7535,6 +7536,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
+"Usted no puede abrir, guardar o borrar su diseño de página, ya que IndexedDB "
+"no esta funcionando en su navegador y su configuración de almacenamiento de "
+"phpMyAdmin no esta configurada para esto."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:735
 #, php-format
@@ -9494,6 +9498,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
+"Error 1045: Acceso denegado al usuario. Información adicional del error "
+"puede estar disponible, pero es ocultada por la directiva de configuración "
+"%s."
 
 #: libraries/classes/Display/Results.php:907
 #: libraries/classes/Html/Generator.php:1254
@@ -13771,13 +13778,10 @@ msgid "Could not save configuration"
 msgstr "No se pudo guardar la configuración"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid ""
-#| "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"%sCrear%s las tablas de almacenamiento de configuración de phpMyAdmin en la "
-"base de datos actual."
+"La base de datos de configuración de almacenamiento de phpMyAdmin no es "
+"accesible."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -18087,7 +18091,7 @@ msgstr "Añadir un nuevo servidor"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Algo salió mal."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
