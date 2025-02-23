@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-23 00:25+0000\n"
-"PO-Revision-Date: 2025-02-23 17:45+0000\n"
+"PO-Revision-Date: 2025-02-24 01:46+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/es/>\n"
@@ -20,10 +20,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "¡Pasado este punto, debe tener Javascript activado!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Agregar cuenta de usuario"
+msgstr "Abre cuenta de usuario"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -31,33 +29,25 @@ msgid "phpMyAdmin documentation"
 msgstr "Documentación de phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MariaDB Documentation"
 msgid "MariaDB documentation"
 msgstr "Documentación de MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
-#| msgid "MySQL Documentation"
 msgid "MySQL documentation"
 msgstr "Documentación de MySQL"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Configuraciones de apariencia"
+msgstr "Apariencia:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
 msgstr "Modo de color para el tema"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Derecha"
+msgstr "Claro"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
@@ -1217,10 +1207,8 @@ msgid "OK"
 msgstr "OK"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
-#| msgid "Restore default value"
 msgid "Restore default values"
-msgstr "Restaurar valor predeterminado"
+msgstr "Restaurar valores predeterminados"
 
 #: resources/templates/console/display.twig:185 src/Config/Descriptions.php:958
 msgid "Always expand query messages"
@@ -1724,10 +1712,8 @@ msgid "Select page"
 msgstr "Seleccionar página"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
-#| msgid "Select Export Relational Type"
 msgid "Select export relational type:"
-msgstr "Seleccionar tipo de exportación relacional"
+msgstr "Seleccionar tipo de exportación relacional:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -2515,13 +2501,11 @@ msgid "Browse"
 msgstr "Examinar"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Total:</strong> <em>%count%</em> resultado"
-msgstr[1] "<strong>Total:</strong> <em>%count%</em> resultados"
+msgstr[0] "<strong>Total:</strong> <em>%s</em> resultado"
+msgstr[1] "<strong>Total:</strong> <em>%s</em> resultados"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3373,10 +3357,8 @@ msgid "Containing the word:"
 msgstr "Que contengan la palabra:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometría %d:"
+msgstr "Tipo de geometría:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
@@ -3966,10 +3948,8 @@ msgid "Clear fast filter"
 msgstr "Vaciar filtro rápido"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
-#| msgid "Recently used tables"
 msgid "Recently visited tables"
-msgstr "Tablas recientemente utilizadas"
+msgstr "Tablas recientemente visitadas"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -5322,10 +5302,8 @@ msgid "Save changes"
 msgstr "Guardar cambios"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
-#| msgid "Change or reconfigure primary server"
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Cambiar o reconfigurar el servidor principal"
+msgstr "Configuración de replica - Cambiar o reconfigurar el servidor principal"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5667,14 +5645,10 @@ msgid "Advisor"
 msgstr "Consejero"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
-#| msgid "System memory"
 msgid "System monitor"
-msgstr "Memoria de sistema"
+msgstr "Monitor de sistema"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
-#| msgid "Start Monitor"
 msgid "Start monitor"
 msgstr "Iniciar monitorización"
 
@@ -5701,21 +5675,19 @@ msgstr "Velocidad de actualización"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
-#| msgid "%d second"
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d segundo"
-msgstr[1] "%d segundo"
+msgstr[1] "%d segundos"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
-#| msgid "%d minute"
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
 msgstr[0] "%d minuto"
-msgstr[1] "%d minuto"
+msgstr[1] "%d minutos"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5773,22 +5745,14 @@ msgstr ""
 "de rueda dentada en cada gráfico."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
-#| msgid ""
-#| "To display queries from the logs, select the relevant time span on any "
-#| "chart by holding down the left mouse button and panning over the chart. "
-#| "Once confirmed, this will load a table of grouped queries, there you may "
-#| "click on any occurring SELECT statements to further analyze them."
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"Para mostrar las consultas de los registros, seleccione el intervalo de "
-"tiempo correspondiente en cualquier gráfico manteniendo pulsado el botón "
-"izquierdo y arrastrando sobre el gráfico. Una vez confirmado, esto cargará "
-"una tabla de consultas agrupadas donde podrá pulsar en cualquier sentencia "
-"SELECT para analizarla."
+"Para mostrar las consultas de los registros, pulse sobre el gráfico. Una vez "
+"confirmado, esto cargará una tabla de consultas agrupadas donde podrá pulsar "
+"en cualquier sentencia SELECT para analizarla."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -5934,24 +5898,21 @@ msgstr "Preguntas desde el inicio:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
-#| msgid "ø per hour"
+#, php-format
 msgid "ø per hour: %s"
-msgstr "ø por hora"
+msgstr "ø por hora: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
-#| msgid "per minute:"
+#, php-format
 msgid "ø per minute: %s"
-msgstr "por minuto:"
+msgstr "ø por minuto: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
-#| msgid "per second:"
+#, php-format
 msgid "ø per second: %s"
-msgstr "por segundo:"
+msgstr "ø por segundo: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -6284,10 +6245,8 @@ msgid "ø Time"
 msgstr "ø de Tiempo"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
-#| msgid "Profiling results"
 msgid "Pie chart with profiling results."
-msgstr "Perfilando resultados"
+msgstr "Gráfica de pastel perfilando resultados."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
@@ -6725,10 +6684,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Tercer paso de la normalización (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
-#| msgid "Table options"
 msgid "Table operations"
-msgstr "Opciones de la tabla"
+msgstr "Operaciones de la tabla"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -9005,56 +8962,42 @@ msgstr "Ocultos"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:748
-#, fuzzy
-#| msgid "Monday"
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Lunes"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:749
-#, fuzzy
-#| msgid "Tuesday"
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Martes"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:750
-#, fuzzy
-#| msgid "Wednesday"
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Miércoles"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:751
-#, fuzzy
-#| msgid "Thursday"
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Jueves"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:752
-#, fuzzy
-#| msgid "Friday"
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Viernes"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:753
-#, fuzzy
-#| msgid "Saturday"
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sábado"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
-#| msgid "Sunday"
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Domingo"
@@ -12000,18 +11943,14 @@ msgid "Succeeded"
 msgstr "Exitoso"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
-#| msgid "Table %1$s has been altered successfully."
 msgid "Console settings has been updated successfully."
-msgstr "Los cambios en la Tabla %1$s se hicieron exitosamente."
+msgstr "Los ajustes a la consola se actualizaron exitosamente."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
-#| msgid "Unexpected character."
 msgid "Unexpected parameter value."
-msgstr "Caracter inesperado."
+msgstr "Valor de parámetro inesperado."
 
 #: src/Controllers/Database/CentralColumnsController.php:145
 #, php-format
@@ -12557,13 +12496,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "¡Está a punto de DESTRUIR una base de datos completa!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
-#| msgid ""
-#| "Cannot rename database to the same name. Change the name and try again"
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
 "No puede renombrar la base de datos al mismo nombre. Cambie el nombre e "
-"inténtelo de nuevo"
+"inténtelo de nuevo."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12787,6 +12723,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Usted intenta configurar esta cuenta para iniciar sesión sin contraseña, "
+"pero la directiva de configuración <code>AllowNoPassword</code> es falsa. Si "
+"procede, la cuenta no podrá iniciar sesión mediante phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
@@ -12831,10 +12770,8 @@ msgid "Connections / Processes"
 msgstr "Conexiones / Procesos"
 
 #: src/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
-#| msgid "Number of tables:"
 msgid "Number of statements"
-msgstr "Número de tablas:"
+msgstr "Número de sentencias"
 
 #: src/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
@@ -13554,16 +13491,12 @@ msgid "No dependencies selected!"
 msgstr "¡No se seleccionaron dependencias!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Use este valor"
+msgstr "Introduzca primer valor"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Valor de la sesión"
+msgstr "Introduzca segundo valor"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
@@ -13828,12 +13761,9 @@ msgid "Double-click to copy column name."
 msgstr "Haga doble click para copiar el nombre de la columna."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr ""
-"Haga clic en la flecha desplegable<br>para cambiar la visibilidad de la "
-"columna."
+"Haga clic en la flecha desplegable para cambiar la visibilidad de la columna."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
@@ -14124,9 +14054,9 @@ msgid ""
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
-"No puede abrir, guardar o eliminar el diseño de su página, ya que IndexedDB "
-"no funciona en su navegador y su almacenamiento de configuración de "
-"phpMyAdmin no está configurado para esto."
+"Usted no puede abrir, guardar o borrar su diseño de página, ya que IndexedDB "
+"no esta funcionando en su navegador y su configuración de almacenamiento de "
+"phpMyAdmin no esta configurada para esto."
 
 #: src/Controllers/JavaScriptMessagesController.php:717
 #, php-format
@@ -14141,169 +14071,121 @@ msgid "Hide"
 msgstr "Ocultar"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
-#| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "Enero"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
-#| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "Febrero"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
-#| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "Marzo"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
-#| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "Abril"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
-#| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "Mayo"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
-#| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "Junio"
 
 #: src/Controllers/JavaScriptMessagesController.php:729
-#, fuzzy
-#| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "Julio"
 
 #: src/Controllers/JavaScriptMessagesController.php:730
-#, fuzzy
-#| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "Agosto"
 
 #: src/Controllers/JavaScriptMessagesController.php:731
-#, fuzzy
-#| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "Septiembre"
 
 #: src/Controllers/JavaScriptMessagesController.php:732
-#, fuzzy
-#| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "Octubre"
 
 #: src/Controllers/JavaScriptMessagesController.php:733
-#, fuzzy
-#| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "Noviembre"
 
 #: src/Controllers/JavaScriptMessagesController.php:734
-#, fuzzy
-#| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "Diciembre"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
-#, fuzzy
-#| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Ene"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
-#, fuzzy
-#| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
-#, fuzzy
-#| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
-#, fuzzy
-#| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Abr"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
-#, fuzzy
-#| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
-msgstr "Mayo"
+msgstr "May"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
-#, fuzzy
-#| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
 #: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
-#, fuzzy
-#| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
 #: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
-#, fuzzy
-#| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Ago"
 
 #: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
-#, fuzzy
-#| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
 #: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
-#, fuzzy
-#| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Oct"
 
 #: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
-#, fuzzy
-#| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
-#, fuzzy
-#| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Dic"
@@ -14314,180 +14196,129 @@ msgid "Sun"
 msgstr "Dom"
 
 #: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
-#, fuzzy
-#| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Lun"
 
 #: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
-#, fuzzy
-#| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
-#, fuzzy
-#| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Mie"
 
 #: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
-#, fuzzy
-#| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Jue"
 
 #: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
-#, fuzzy
-#| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Vie"
 
 #: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
-#, fuzzy
-#| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sab"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
-#| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Do"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
-#| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Lu"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
-#, fuzzy
-#| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ma"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
-#| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Mi"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
-#| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Ju"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
-#| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Vi"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
-#| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
-#| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Sem"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
-#| msgid "calendar-month-year"
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-year-month"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
-#| msgid "none"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "ninguno"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
-#| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Tiempo"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
-#, fuzzy
-#| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Hora"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
-#, fuzzy
-#| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minuto"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
-#, fuzzy
-#| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Segundo"
 
 #: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
-#| msgid "%d second"
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "%d segundo"
+msgstr "Milisegundo"
 
 #: src/Controllers/JavaScriptMessagesController.php:777
-#, fuzzy
-#| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "por segundo"
+msgstr "Microsegundo"
 
 #: src/Controllers/JavaScriptMessagesController.php:778
-#, fuzzy
-#| msgctxt "Chart type"
-#| msgid "Timeline"
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Línea temporal"
+msgstr "Zona horaria"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:782
-#, fuzzy
-#| msgid "Prev"
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Anterior"
 
 #. l10n: Display text for next month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:784
-#, fuzzy
-#| msgid "Next"
 msgctxt "Next month"
 msgid "Next"
 msgstr "Siguiente"
@@ -14743,10 +14574,8 @@ msgstr ""
 "cerrado."
 
 #: src/Controllers/Server/Status/QueriesController.php:89
-#, fuzzy
-#| msgid "Add statements:"
 msgid "Other statements"
-msgstr "Agregar sentencias:"
+msgstr "Otras sentencias"
 
 #: src/Controllers/Server/Status/StatusController.php:129
 msgid "Received"
@@ -15620,10 +15449,8 @@ msgstr ""
 "MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas)."
 
 #: src/Controllers/Table/GisVisualizationController.php:98
-#, fuzzy
-#| msgid "Not used for this MySQL version."
 msgid "No spatial column found for this SQL query."
-msgstr "No se usa para esta version de MySQL."
+msgstr "No se encontró columna espacial para esta consulta SQL."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:65
 #: src/Controllers/Table/Maintenance/CheckController.php:65
@@ -15644,10 +15471,8 @@ msgid "The partition name must be a non-empty string."
 msgstr "El nombre de la partición debe ser una cadena no vacía."
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
-#| msgid "Invalid table name"
 msgid "Invalid database or table name."
-msgstr "El nombre de la tabla no es válido"
+msgstr "El nombre de la base de datos o tabla no es válido."
 
 #: src/Controllers/Table/RelationController.php:317
 msgid "Display column was successfully updated."
@@ -15663,11 +15488,8 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Fila: %1$s, Columna: %2$s, Error: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:24
-#, fuzzy
-#| msgctxt "U2F error"
-#| msgid "Invalid request sent to security key."
 msgid "Invalid request parameter."
-msgstr "Solicitud inválida enviada a la clave de seguridad."
+msgstr "Parámetro de solicitud inválido."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
@@ -15983,9 +15805,9 @@ msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
-"Error 1045: Acceso denegado para el usuario. Puede haber información "
-"adicional del error disponible, pero está oculta debido a la directiva de "
-"configuración %s."
+"Error 1045: Acceso denegado al usuario. Información adicional del error "
+"puede estar disponible, pero es ocultada por la directiva de configuración "
+"%s."
 
 #: src/Display/Results.php:2404 src/Display/Results.php:2419
 msgid "The row has been deleted."
@@ -15997,16 +15819,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Mostrando filas %1s - %2s"
 
 #: src/Display/Results.php:3309
-#, fuzzy, php-format
-#| msgid "%1$d total, %2$d in query"
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "%1$d en total, %2$d en la consulta"
+msgstr "%1$s en total, %2$s en la consulta"
 
 #: src/Display/Results.php:3314
-#, fuzzy, php-format
-#| msgid "%d total"
+#, php-format
 msgid "%s total"
-msgstr "total de %d"
+msgstr "total de %s"
 
 #: src/Display/Results.php:3327 src/Sql.php:869
 #, php-format
@@ -16379,10 +16199,8 @@ msgid "Report"
 msgstr "Reportar"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "El servidor MySQL no autorizó su acceso"
+msgstr "El servidor de base de datos no autorizó su acceso."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16392,15 +16210,11 @@ msgid "Access denied!"
 msgstr "¡Acceso denegado!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
 "El inicio de sesión sin contraseña está prohibido por la configuración (ver "
-"AllowNoPassword)"
+"AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16645,34 +16459,26 @@ msgid "The table name cannot end with a space character."
 msgstr "El nombre de la tabla no puede terminar con un carácter de espacio."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
-#| msgid "View name can not be empty!"
 msgid "The trigger name must not be empty."
-msgstr "El nombre de la vista no puede estar vacío.!"
+msgstr "El nombre del disparador no debe estar vacío."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
-#| msgid "The table name cannot be longer than %d characters."
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "El nombre de la tabla no puede tener más de %d caracteres."
+msgstr "El nombre del disparador no puede tener más de %d caracteres."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
-#| msgid "The table name cannot end with a space character."
 msgid "The trigger name cannot end with a space character."
-msgstr "El nombre de la tabla no puede terminar con un carácter de espacio."
+msgstr "El nombre del disparador no puede terminar con un carácter de espacio."
 
 #: src/Import/Import.php:951
-#, fuzzy
-#| msgid ""
-#| "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing "
-#| "transactional engine tables can be rolled back."
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Sólo se pueden deshacer («rollback») consultas SQL INSERT, UPDATE, DELETE y "
-"REPLACE que contengan tablas de motores transaccionales."
+"Sólo se pueden deshacer («rollback») consultas SQL INSERT, UPDATE, DELETE, "
+"REPLACE y SET (sin opciones como GLOBAL) que contengan tablas de motores "
+"transaccionales."
 
 #: src/Import/Import.php:1173
 #, php-format
@@ -17270,11 +17076,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Su sesión expiró. Inicie sesión nuevamente."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:236
-#, fuzzy
-#| msgid ""
-#| "Missing reCAPTCHA verification, maybe it has been blocked by adblock?"
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Falta verificación reCAPTCHA, ¿tal vez ha sido bloqueado por adblock?"
+msgstr "Falta verificación Captcha, ¿tal vez ha sido bloqueado por adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:271
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17302,10 +17105,9 @@ msgstr ""
 "El nombre de usuario o la contraseña es incorrecto. El acceso fue denegado."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:129
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "No se pudo encontrar el script de autenticación «signon»:"
+msgstr "No se pudo encontrar el script de autenticación «signon»: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -18017,20 +17819,10 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Muestra un enlace para descargar los datos binarios de la columna. Puede "
+"usar esta opción para establecer el nombre del fichero."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
-#| msgid ""
-#| "LINUX ONLY: Launches an external application and feeds it the column data "
-#| "via standard input. Returns the standard output of the application. The "
-#| "default is Tidy, to pretty-print HTML code. For security reasons, you "
-#| "have to manually edit the file libraries/classes/Plugins/Transformations/"
-#| "Abs/ExternalTransformationsPlugin.php and list the tools you want to make "
-#| "available. The first option is then the number of the program you want to "
-#| "use. The second option should be blank for historical reasons. The third "
-#| "option, if set to 1, will convert the output using htmlspecialchars() "
-#| "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
-#| "ensure that the output appears all on one line (Default 1)."
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -18047,7 +17839,7 @@ msgstr ""
 "columna mediante entrada estándar. Devuelve la salida estándar de la "
 "aplicación. El valor predeterminado es Tidy para mostrar código HTML "
 "agradable para la impresión. Por razones de seguridad, debe editar "
-"manualmente el archivo libraries/classes/Plugins/Transformations/Abs/"
+"manualmente el archivo src/Plugins/Transformations/Abs/"
 "ExternalTransformationsPlugin.php y agregar las herramientas que permitirá "
 "ejecutar. La primera opción será el número del programa que querrá utilizar. "
 "La segunda debería ser en blanco por razones históricas. Si el tercer "
@@ -19231,8 +19023,8 @@ msgstr "No se pudo guardar la configuración"
 #: src/UserPreferences.php:172
 msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
-"No se pudo acceder a la base de datos de almacenamiento de configuración de "
-"phpMyAdmin."
+"La base de datos de configuración de almacenamiento de phpMyAdmin no es "
+"accesible."
 
 #: src/Util.php:128
 #, php-format
