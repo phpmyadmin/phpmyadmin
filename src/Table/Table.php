@@ -1750,7 +1750,7 @@ class Table implements Stringable
     {
         return (int) $this->dbi->fetchValue(
             'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.'
-            . Util::backquote($this->name)
+            . Util::backquote($this->name),
         );
     }
 
