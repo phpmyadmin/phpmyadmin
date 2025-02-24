@@ -2271,17 +2271,17 @@ class DbiDummy implements DbiExtension
                 'result' => [['City'], ['Country'], ['CountryLanguage']],
             ],
             [
-                'query' => 'SELECT COUNT(*) AS `row_count` FROM `world`.`City`',
+                'query' => 'SELECT COUNT(*) FROM `world`.`City`',
                 'columns' => ['row_count'],
                 'result' => [['4079']],
             ],
             [
-                'query' => 'SELECT COUNT(*) AS `row_count` FROM `world`.`Country`',
+                'query' => 'SELECT COUNT(*) FROM `world`.`Country`',
                 'columns' => ['row_count'],
                 'result' => [['239']],
             ],
             [
-                'query' => 'SELECT COUNT(*) AS `row_count` FROM `world`.`CountryLanguage`',
+                'query' => 'SELECT COUNT(*) FROM `world`.`CountryLanguage`',
                 'columns' => ['row_count'],
                 'result' => [['984']],
             ],

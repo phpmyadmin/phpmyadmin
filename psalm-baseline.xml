@@ -1175,9 +1175,6 @@
     <PossiblyInvalidCast>
       <code><![CDATA[$parameters['table']]]></code>
     </PossiblyInvalidCast>
-    <PossiblyNullArgument>
-      <code><![CDATA[$rowCount]]></code>
-    </PossiblyNullArgument>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>

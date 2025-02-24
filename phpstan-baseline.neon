@@ -3256,12 +3256,6 @@ parameters:
 			path: src/Controllers/Server/Status/StatusController.php
 
 		-
-			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Util\:\:formatNumber\(\) expects float\|int\|string, mixed given\.$#'
-			identifier: argument.type
-			count: 5
-			path: src/Controllers/Server/Status/StatusController.php
-
-		-
 			message: '#^Binary operation "\*" between 0\.01 and float\|int\|string results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1

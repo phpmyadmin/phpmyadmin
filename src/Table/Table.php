@@ -1746,23 +1746,12 @@ class Table implements Stringable
     /**
      * Returns the real row count for a table
      */
-    public function getRealRowCountTable(): int|null
+    public function getRealRowCountTable(): int
     {
-        // SQL query to get row count for a table.
-        $result = $this->dbi->fetchSingleRow(
-            sprintf(
-                'SELECT COUNT(*) AS %s FROM %s.%s',
-                Util::backquote('row_count'),
-                Util::backquote($this->dbName),
-                Util::backquote($this->name),
-            ),
+        return (int) $this->dbi->fetchValue(
+            'SELECT COUNT(*) FROM ' . Util::backquote($this->dbName) . '.'
+            . Util::backquote($this->name)
         );
-
-        if ($result === []) {
-            return null;
-        }
-
-        return (int) $result['row_count'];
     }
 
     /**
