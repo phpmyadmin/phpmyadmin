@@ -96,8 +96,8 @@ class Types
     public function getTextOperators()
     {
         return [
-            'LIKE %...%',
             'LIKE',
+            'LIKE %...%',
             'NOT LIKE',
             'NOT LIKE %...%',
             '=',
