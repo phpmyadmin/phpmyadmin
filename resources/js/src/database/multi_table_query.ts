@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { AJAX } from '../modules/ajax.ts';
-import { getSqlEditor } from '../modules/functions.ts';
+import { copyToClipboard, displayCopyNotification, getSqlEditor } from '../modules/functions.ts';
 import { CommonParams } from '../modules/common.ts';
 import { ajaxShowMessage } from '../modules/ajax-message.ts';
 import { escapeBacktick } from '../modules/functions/escape.ts';
@@ -34,6 +34,7 @@ AJAX.registerTeardown('database/multi_table_query.js', function () {
     });
 
     $('#update_query_button').off('click');
+    $('#copy_query').off('click');
     $('#add_column_button').off('click');
     $('body').off('click', 'input.add-option');
     $('body').off('click', 'input.remove-option');
@@ -182,6 +183,19 @@ AJAX.registerOnload('database/multi_table_query.js', function () {
                 $('#slide-handle').trigger('click');// Collapse search criteria area
             }
         });
+    });
+
+    editor.getDoc().on('change', function (): void {
+        const query: string = editor.getDoc().getValue();
+
+        $('#copy_query').prop('disabled', query === '');
+    });
+
+    $('#copy_query').on('click', function (): void {
+        const query: string = editor.getDoc().getValue();
+
+        const copyStatus = copyToClipboard(query, '<textarea>');
+        displayCopyNotification(copyStatus);
     });
 
     $('#add_column_button').on('click', function () {
