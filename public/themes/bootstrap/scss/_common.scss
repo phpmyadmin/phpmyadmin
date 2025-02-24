@@ -1355,6 +1355,7 @@ input#auto_increment_opt {
 
   input {
     &[type=submit] {
+      color: var(--bs-body-color);
       background: none;
       border: 0;
       filter: none;
@@ -1366,7 +1367,8 @@ input#auto_increment_opt {
         color: $white;
         cursor: pointer;
         text-shadow: none;
-        background: linear-gradient(#333, #555);
+        background-color: var(--bs-btn-hover-bg);
+        border-color: var(--bs-btn-hover-border-color);
       }
     }
 
