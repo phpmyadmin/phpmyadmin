@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-02-23 00:25+0000\n"
+"POT-Creation-Date: 2025-02-27 17:35+0000\n"
 "PO-Revision-Date: 2025-02-24 01:46+0000\n"
 "Last-Translator: Salvador Peña <salvadorp74@hotmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -5303,7 +5303,8 @@ msgstr "Guardar cambios"
 
 #: resources/templates/server/replication/change_primary.twig:7
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Configuración de replica - Cambiar o reconfigurar el servidor principal"
+msgstr ""
+"Configuración de replica - Cambiar o reconfigurar el servidor principal"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -16427,7 +16428,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "Error: no coincide un «token»"
 
-#: src/I18n/LanguageManager.php:968
+#: src/I18n/LanguageManager.php:969
 msgid "Ignoring unsupported language code."
 msgstr "Ignorando código de idioma no compatible."
 

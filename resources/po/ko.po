@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-02-23 00:25+0000\n"
+"POT-Creation-Date: 2025-02-27 17:35+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -15868,7 +15868,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "오류: 토큰 불일치"
 
-#: src/I18n/LanguageManager.php:968
+#: src/I18n/LanguageManager.php:969
 msgid "Ignoring unsupported language code."
 msgstr "지원되지 않는 언어의 코드는 무시합니다."
 

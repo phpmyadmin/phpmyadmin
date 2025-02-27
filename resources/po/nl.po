@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-02-23 00:25+0000\n"
+"POT-Creation-Date: 2025-02-27 17:35+0000\n"
 "PO-Revision-Date: 2025-02-06 17:02+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -16354,7 +16354,7 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr "Fout: token niet hetzelfde"
 
-#: src/I18n/LanguageManager.php:968
+#: src/I18n/LanguageManager.php:969
 msgid "Ignoring unsupported language code."
 msgstr "Niet ondersteunde taal code wordt genegeerd."
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-02-23 00:25+0000\n"
+"POT-Creation-Date: 2025-02-27 17:35+0000\n"
 "PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -15504,7 +15504,7 @@ msgstr "无法设置会话cookie。也许您使用HTTP而不是HTTPS来访问php
 msgid "Error: Token mismatch"
 msgstr "错误：令牌不符"
 
-#: src/I18n/LanguageManager.php:968
+#: src/I18n/LanguageManager.php:969
 msgid "Ignoring unsupported language code."
 msgstr "省略不支持的语言代码。"
 
