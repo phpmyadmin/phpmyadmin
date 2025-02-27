@@ -5,9 +5,9 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-12 15:57-0300\n"
+"POT-Creation-Date: 2025-02-27 14:25-0300\n"
 "PO-Revision-Date: 2025-02-27 16:44+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Asturian <https://hosted.weblate.org/projects/phpmyadmin/5-2/"
@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:17
-#, possible-php-format
+#, php-format
 msgid "The uptime is only %s"
 msgstr ""
 
@@ -55,7 +55,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:32
-#, possible-php-format
+#, php-format
 msgid "Current amount of Questions: %s"
 msgstr ""
 
@@ -76,7 +76,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:45
-#, possible-php-format
+#, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr ""
 
@@ -90,7 +90,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:58
-#, possible-php-format
+#, php-format
 msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
@@ -113,7 +113,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:74
-#, possible-php-format
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr ""
 
@@ -164,7 +164,7 @@ msgstr ""
 #: libraries/advisory_rules_generic.php:113
 #: libraries/advisory_rules_generic.php:127
 #: libraries/advisory_rules_generic.php:138
-#, possible-php-format
+#, php-format
 msgid "Current version: %s"
 msgstr ""
 
@@ -241,7 +241,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:178
-#, possible-php-format
+#, php-format
 msgid "Available memory on this host: %s"
 msgstr ""
 
@@ -262,7 +262,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:196
-#, possible-php-format
+#, php-format
 msgid ""
 "The query cache is enabled and the server receives %d queries per second. "
 "This rule fires if there is more than 100 queries per second."
@@ -285,7 +285,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:213
-#, possible-php-format
+#, php-format
 msgid ""
 "%s%% of all sorts cause temporary tables, this value should be lower than "
 "10%%."
@@ -296,7 +296,7 @@ msgid "Rate of sorts that cause temporary tables"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:226
-#, possible-php-format
+#, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
 msgstr ""
@@ -318,7 +318,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:240
-#, possible-php-format
+#, php-format
 msgid "Sorted rows average: %s"
 msgstr ""
 
@@ -337,7 +337,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:254
-#, possible-php-format
+#, php-format
 msgid "Table joins average: %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -360,7 +360,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:270
-#, possible-php-format
+#, php-format
 msgid "Index scans average: %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -380,7 +380,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:283
-#, possible-php-format
+#, php-format
 msgid ""
 "Rate of reading fixed position average: %s, this value should be less than 1 "
 "per hour"
@@ -401,7 +401,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:295
-#, possible-php-format
+#, php-format
 msgid ""
 "Rate of reading next table row: %s, this value should be less than 1 per hour"
 msgstr ""
@@ -423,7 +423,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:310
-#, possible-php-format
+#, php-format
 msgid "Current values are tmp_table_size: %s, max_heap_table_size: %s"
 msgstr ""
 
@@ -450,7 +450,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:331
-#, possible-php-format
+#, php-format
 msgid ""
 "%s%% of all temporary tables are being written to disk, this value should be "
 "below 25%%"
@@ -472,7 +472,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:352
-#, possible-php-format
+#, php-format
 msgid ""
 "Rate of temporary tables being written to disk: %s, this value should be "
 "less than 1 per hour"
@@ -516,7 +516,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:382
-#, possible-php-format
+#, php-format
 msgid ""
 "max %% MyISAM key buffer ever used: %s%%, this value should be above 95%%"
 msgstr ""
@@ -526,7 +526,7 @@ msgid "Percentage of MyISAM key buffer used"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:399
-#, possible-php-format
+#, php-format
 msgid "%% MyISAM key buffer used: %s%%, this value should be above 95%%"
 msgstr ""
 
@@ -544,7 +544,7 @@ msgid "You may need to increase {key_buffer_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:411
-#, possible-php-format
+#, php-format
 msgid "Index reads from memory: %s%%, this value should be above 95%%"
 msgstr ""
 
@@ -563,7 +563,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:424
-#, possible-php-format
+#, php-format
 msgid "Opened table rate: %s, this value should be less than 10 per hour"
 msgstr ""
 
@@ -585,7 +585,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:440
-#, possible-php-format
+#, php-format
 msgid ""
 "The number of opened files is at %s%% of the limit. It should be below 85%%"
 msgstr ""
@@ -599,7 +599,7 @@ msgid "The rate of opening files is high."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:453
-#, possible-php-format
+#, php-format
 msgid "Opened files rate: %s, this value should be less than 5 per hour"
 msgstr ""
 
@@ -619,7 +619,7 @@ msgid "Optimize queries and/or use InnoDB to reduce lock wait."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:465
-#, possible-php-format
+#, php-format
 msgid "Immediate table locks: %s%%, this value should be above 95%%"
 msgstr ""
 
@@ -628,7 +628,7 @@ msgid "Table lock wait rate"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:475
-#, possible-php-format
+#, php-format
 msgid "Table lock wait rate: %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -664,7 +664,7 @@ msgid "Increase {thread_cache_size}."
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:496
-#, possible-php-format
+#, php-format
 msgid "Thread cache hitrate: %s%%, this value should be above 80%%"
 msgstr ""
 
@@ -683,7 +683,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:510
-#, possible-php-format
+#, php-format
 msgid "%s thread(s) took longer than %s seconds to start, it should be 0"
 msgstr ""
 
@@ -702,7 +702,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:522
-#, possible-php-format
+#, php-format
 msgid "slow_launch_time is set to %s"
 msgstr ""
 
@@ -724,7 +724,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:537
-#, possible-php-format
+#, php-format
 msgid ""
 "Max_used_connections is at %s%% of max_connections, it should be below 80%%"
 msgstr ""
@@ -747,7 +747,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:551
-#, possible-php-format
+#, php-format
 msgid "%s%% of all connections are aborted. This value should be below 1%%"
 msgstr ""
 
@@ -756,7 +756,7 @@ msgid "Rate of aborted connections"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:565
-#, possible-php-format
+#, php-format
 msgid ""
 "Aborted connections rate is at %s, this value should be less than 1 per hour"
 msgstr ""
@@ -779,7 +779,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:579
-#, possible-php-format
+#, php-format
 msgid "%s%% of all clients are aborted. This value should be below 2%%"
 msgstr ""
 
@@ -788,7 +788,7 @@ msgid "Rate of aborted clients"
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:593
-#, possible-php-format
+#, php-format
 msgid "Aborted client rate is at %s, this value should be less than 1 per hour"
 msgstr ""
 
@@ -837,7 +837,7 @@ msgstr ""
 
 #: libraries/advisory_rules_generic.php:626
 #: libraries/advisory_rules_generic.php:653
-#, possible-php-format
+#, php-format
 msgid ""
 "Your InnoDB log size is at %s%% in relation to the InnoDB buffer pool size, "
 "it should not be below 20%%"
@@ -866,7 +866,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:676
-#, possible-php-format
+#, php-format
 msgid "Your absolute InnoDB log size is %s MiB"
 msgstr ""
 
@@ -894,7 +894,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_generic.php:697
-#, possible-php-format
+#, php-format
 msgid ""
 "You are currently using %s%% of your memory for the InnoDB buffer pool. This "
 "rule fires if you are assigning less than 60%%, however this might be "
@@ -955,7 +955,7 @@ msgid "Consider increasing {query_cache_limit}."
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:29
-#, possible-php-format
+#, php-format
 msgid "The current query cache hit rate of %s%% is below 20%%"
 msgstr ""
 
@@ -975,7 +975,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:45
-#, possible-php-format
+#, php-format
 msgid ""
 "The current ratio of free query cache memory to total query cache size is "
 "%s%%. It should be above 80%%"
@@ -1002,7 +1002,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:66
-#, possible-php-format
+#, php-format
 msgid ""
 "The cache is currently fragmented by %s%% , with 100%% fragmentation meaning "
 "that the query cache is an alternating pattern of free and used blocks. This "
@@ -1027,7 +1027,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:84
-#, possible-php-format
+#, php-format
 msgid ""
 "The ratio of removed queries to inserted queries is %s%%. The lower this "
 "value is, the better (This rules firing limit: 0.1%%)"
@@ -1050,7 +1050,7 @@ msgid ""
 msgstr ""
 
 #: libraries/advisory_rules_mysql_before80003.php:102
-#, possible-php-format
+#, php-format
 msgid "Current query cache size: %s"
 msgstr ""
 
@@ -1080,27 +1080,27 @@ msgid "query_cache_limit is set to 1 MiB"
 msgstr ""
 
 #: libraries/classes/Advisor.php:234
-#, possible-php-format
+#, php-format
 msgid "Error when evaluating: %s"
 msgstr ""
 
 #: libraries/classes/Advisor.php:261
-#, possible-php-format
+#, php-format
 msgid "Failed evaluating precondition for rule '%s'."
 msgstr ""
 
 #: libraries/classes/Advisor.php:281
-#, possible-php-format
+#, php-format
 msgid "Failed calculating value for rule '%s'."
 msgstr ""
 
 #: libraries/classes/Advisor.php:300
-#, possible-php-format
+#, php-format
 msgid "Failed running test for rule '%s'."
 msgstr ""
 
 #: libraries/classes/Advisor.php:328
-#, possible-php-format
+#, php-format
 msgid "Failed formatting string for rule '%s'."
 msgstr ""
 
@@ -1142,8 +1142,7 @@ msgstr ""
 #: templates/database/search/main.twig:74
 #: templates/database/triggers/editor_form.twig:69
 #: templates/display/results/table.twig:193
-#: templates/gis_data_editor_form.twig:236
-#: templates/header_location.twig:18
+#: templates/gis_data_editor_form.twig:236 templates/header_location.twig:18
 #: templates/modals/create_view.twig:10
 #: templates/modals/enum_set_editor.twig:10
 #: templates/modals/index_dialog_modal.twig:10
@@ -1163,8 +1162,7 @@ msgstr ""
 #: templates/server/replication/replica_configuration.twig:16
 #: templates/server/replication/replica_configuration.twig:88
 #: templates/server/user_groups/edit_user_groups.twig:21
-#: templates/sql/query.twig:147
-#: templates/sql/query.twig:198
+#: templates/sql/query.twig:147 templates/sql/query.twig:198
 #: templates/table/find_replace/index.twig:62
 #: templates/table/index_form.twig:245
 #: templates/table/insert/actions_panel.twig:37
@@ -1175,21 +1173,18 @@ msgstr ""
 #: templates/table/operations/index.twig:328
 #: templates/table/operations/index.twig:505
 #: templates/table/operations/view.twig:20
-#: templates/table/search/index.twig:172
-#: templates/table/search/index.twig:196
+#: templates/table/search/index.twig:172 templates/table/search/index.twig:196
 #: templates/table/start_and_number_of_rows_fieldset.twig:15
 #: templates/table/structure/display_structure.twig:343
 #: templates/table/structure/display_structure.twig:454
 #: templates/table/structure/display_structure.twig:572
-#: templates/table/zoom_search/index.twig:155
-#: templates/view_create.twig:116
+#: templates/table/zoom_search/index.twig:155 templates/view_create.twig:116
 msgid "Go"
 msgstr ""
 
 #: libraries/classes/BrowseForeigners.php:221
 #: libraries/classes/BrowseForeigners.php:225
-#: templates/database/data_dictionary/index.twig:73
-#: templates/indexes.twig:16
+#: templates/database/data_dictionary/index.twig:73 templates/indexes.twig:16
 #: templates/table/structure/display_structure.twig:475
 #: templates/table/tracking/structure_snapshot_indexes.twig:5
 msgid "Keyname"
@@ -1514,7 +1509,7 @@ msgid "Vietnamese"
 msgstr ""
 
 #: libraries/classes/Common.php:245
-#, possible-php-format
+#, php-format
 msgid "You should upgrade to %s %s or later."
 msgstr ""
 
@@ -1522,30 +1517,30 @@ msgstr ""
 msgid "Error: Token mismatch"
 msgstr ""
 
-#: libraries/classes/Common.php:491
+#: libraries/classes/Common.php:498
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
 msgstr ""
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:559
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
 "corrupted!"
 msgstr ""
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:576
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
 msgstr ""
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:587
 msgid "GLOBALS overwrite attempt"
 msgstr ""
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:597
 msgid "possible exploit"
 msgstr ""
 
@@ -2676,8 +2671,7 @@ msgid "Confirm DROP queries"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:635
-#: templates/console/display.twig:11
-#: templates/console/display.twig:64
+#: templates/console/display.twig:11 templates/console/display.twig:64
 msgid "Debug SQL"
 msgstr ""
 
@@ -2773,10 +2767,8 @@ msgid "Character set of the file"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:658
-#: libraries/classes/Config/Descriptions.php:674
-#: templates/import.twig:165
-#: templates/import.twig:167
-#: templates/sql/query.twig:40
+#: libraries/classes/Config/Descriptions.php:674 templates/import.twig:165
+#: templates/import.twig:167 templates/sql/query.twig:40
 #: templates/table/structure/display_table_stats.twig:84
 msgid "Format"
 msgstr ""
@@ -2939,8 +2931,7 @@ msgid "Save on server"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:701
-#: libraries/classes/Config/Descriptions.php:704
-#: templates/export.twig:182
+#: libraries/classes/Config/Descriptions.php:704 templates/export.twig:182
 #: templates/export.twig:377
 msgid "Overwrite existing file(s)"
 msgstr ""
@@ -3004,7 +2995,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:735
 #: templates/database/operations/index.twig:155
 #: templates/table/operations/index.twig:295
-#, possible-php-format
+#, php-format
 msgid "Add %s"
 msgstr ""
 
@@ -3020,7 +3011,7 @@ msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:729
 #: libraries/classes/Plugins/Export/ExportSql.php:354
-#, possible-php-format
+#, php-format
 msgid "%s view"
 msgstr ""
 
@@ -3070,8 +3061,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:759 libraries/classes/Menu.php:477
 #: libraries/classes/Util.php:1938 libraries/config.values.php:155
 #: templates/navigation/tree/database_select.twig:10
-#: templates/server/databases/index.twig:3
-#: templates/server/export/index.twig:7
+#: templates/server/databases/index.twig:3 templates/server/export/index.twig:7
 #: templates/server/export/index.twig:14
 #: templates/server/privileges/user_properties.twig:20
 msgid "Databases"
@@ -3126,8 +3116,7 @@ msgid "Navigation tree"
 msgstr ""
 
 #: libraries/classes/Config/Descriptions.php:762
-#: templates/server/select/index.twig:9
-#: templates/setup/home/index.twig:34
+#: templates/server/select/index.twig:9 templates/setup/home/index.twig:34
 msgid "Servers"
 msgstr ""
 
@@ -3672,7 +3661,6 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:905
 #: templates/database/operations/index.twig:122
 #: templates/server/databases/index.twig:24
-#: templates/server/databases/index.twig:24
 msgid "Database name"
 msgstr ""
 
@@ -3825,8 +3813,7 @@ msgstr ""
 msgid "Show SQL queries"
 msgstr ""
 
-#: libraries/classes/Config/Descriptions.php:943
-#: templates/sql/query.twig:127
+#: libraries/classes/Config/Descriptions.php:943 templates/sql/query.twig:127
 msgid "Retain query box"
 msgstr ""
 
@@ -3841,30 +3828,26 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2965
+#: libraries/classes/Display/Results.php:2978
 #: libraries/classes/Html/Generator.php:614
 #: libraries/classes/Html/Generator.php:868
-#: templates/console/bookmark_content.twig:7
-#: templates/console/display.twig:31
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 #: templates/database/central_columns/main.twig:265
 #: templates/database/central_columns/main.twig:376
 #: templates/database/central_columns/main.twig:377
 #: templates/database/events/index.twig:76
 #: templates/database/events/index.twig:79
-#: templates/database/events/row.twig:23
-#: templates/database/events/row.twig:26
+#: templates/database/events/row.twig:23 templates/database/events/row.twig:26
 #: templates/database/routines/row.twig:20
 #: templates/database/routines/row.twig:23
 #: templates/database/structure/structure_table_row.twig:66
 #: templates/database/triggers/row.twig:28
 #: templates/database/triggers/row.twig:31
 #: templates/display/results/table.twig:230
-#: templates/display/results/table.twig:231
-#: templates/indexes.twig:34
+#: templates/display/results/table.twig:231 templates/indexes.twig:34
 #: templates/server/variables/index.twig:41
-#: templates/server/variables/index.twig:44
-#: templates/setup/home/index.twig:63
+#: templates/server/variables/index.twig:44 templates/setup/home/index.twig:63
 #: templates/table/structure/display_structure.twig:497
 msgid "Edit"
 msgstr ""
@@ -3910,10 +3893,8 @@ msgstr ""
 #: libraries/classes/Server/Privileges.php:1819
 #: libraries/classes/Server/Privileges.php:1821
 #: libraries/classes/Server/Status/Processes.php:122
-#: templates/console/bookmark_content.twig:7
-#: templates/console/display.twig:40
-#: templates/console/display.twig:184
-#: templates/server/databases/index.twig:106
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:40
+#: templates/console/display.twig:184 templates/server/databases/index.twig:106
 #: templates/server/privileges/edit_routine_privileges.twig:17
 #: templates/server/privileges/privileges_table.twig:257
 #: templates/server/privileges/user_properties.twig:22
@@ -4090,7 +4071,7 @@ msgid "Server connection collation"
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:605
-#, possible-php-format
+#, php-format
 msgid "Missing data for %s"
 msgstr ""
 
@@ -4107,22 +4088,22 @@ msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:799
 #: libraries/classes/Config/FormDisplay.php:808
-#, possible-php-format
+#, php-format
 msgid "\"%s\" requires %s extension"
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:839
-#, possible-php-format
+#, php-format
 msgid "Compressed import will not work due to missing function %s."
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:848
-#, possible-php-format
+#, php-format
 msgid "Compressed export will not work due to missing function %s."
 msgstr ""
 
 #: libraries/classes/Config/FormDisplay.php:867
-#, possible-php-format
+#, php-format
 msgid "maximum %s"
 msgstr ""
 
@@ -4150,7 +4131,7 @@ msgstr ""
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Import.php:1308 libraries/classes/Menu.php:247
+#: libraries/classes/Import.php:1307 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
@@ -4201,8 +4182,7 @@ msgstr ""
 #: libraries/classes/Menu.php:277 libraries/classes/Menu.php:382
 #: libraries/classes/Menu.php:510 libraries/classes/Server/Privileges.php:1513
 #: libraries/classes/Util.php:1942 libraries/classes/Util.php:1957
-#: libraries/classes/Util.php:1974
-#: templates/database/events/index.twig:17
+#: libraries/classes/Util.php:1974 templates/database/events/index.twig:17
 #: templates/database/events/index.twig:18
 #: templates/database/events/index.twig:88
 #: templates/database/events/row.twig:36
@@ -4219,10 +4199,8 @@ msgstr ""
 #: templates/database/triggers/row.twig:41
 #: templates/display/results/table.twig:243
 #: templates/display/results/table.twig:244
-#: templates/display/results/table.twig:275
-#: templates/export.twig:3
-#: templates/export.twig:499
-#: templates/preferences/header.twig:42
+#: templates/display/results/table.twig:275 templates/export.twig:3
+#: templates/export.twig:499 templates/preferences/header.twig:42
 #: templates/preferences/manage/main.twig:68
 #: templates/server/privileges/new_user_ajax.twig:63
 #: templates/server/privileges/users_overview.twig:95
@@ -4249,8 +4227,7 @@ msgstr ""
 #: libraries/classes/Menu.php:286 libraries/classes/Menu.php:392
 #: libraries/classes/Menu.php:515 libraries/classes/Util.php:1943
 #: libraries/classes/Util.php:1958 libraries/classes/Util.php:1975
-#: templates/import.twig:3
-#: templates/import.twig:199
+#: templates/import.twig:3 templates/import.twig:199
 #: templates/preferences/header.twig:48
 #: templates/preferences/manage/main.twig:11
 #: templates/server/status/monitor/index.twig:78
@@ -4266,7 +4243,7 @@ msgid "Cannot save settings, submitted configuration form contains errors!"
 msgstr ""
 
 #: libraries/classes/Config.php:652
-#, possible-php-format
+#, php-format
 msgid "Existing configuration file (%s) is not readable."
 msgstr ""
 
@@ -4285,17 +4262,17 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config.php:1234
-#, possible-php-format
+#, php-format
 msgid "Invalid server index: %s"
 msgstr ""
 
 #: libraries/classes/Config.php:1247
-#, possible-php-format
+#, php-format
 msgid "Server %d"
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:67
-#, possible-php-format
+#, php-format
 msgid ""
 "This %soption%s should be disabled as it allows attackers to bruteforce "
 "login to any MySQL server. If you feel this is necessary, use %srestrict "
@@ -4315,7 +4292,7 @@ msgid "You should use SSL connections if your database server supports it."
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:169
-#, possible-php-format
+#, php-format
 msgid ""
 "If you feel this is necessary, use additional protection settings - %1$shost "
 "authentication%2$s settings and %3$strusted proxies list%4$s. However, IP-"
@@ -4324,7 +4301,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:195
-#, possible-php-format
+#, php-format
 msgid ""
 "You set the [kbd]config[/kbd] authentication type and included username and "
 "password for auto-login, which is not a desirable option for live hosts. "
@@ -4338,14 +4315,14 @@ msgid "You allow for connecting to the server without a password."
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:307
-#, possible-php-format
+#, php-format
 msgid ""
 "%sZip decompression%s requires functions (%s) which are unavailable on this "
 "system."
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:328
-#, possible-php-format
+#, php-format
 msgid ""
 "%sZip compression%s requires functions (%s) which are unavailable on this "
 "system."
@@ -4359,7 +4336,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:385
-#, possible-php-format
+#, php-format
 msgid ""
 "%1$sLogin cookie validity%2$s greater than %3$ssession.gc_maxlifetime%4$s "
 "may cause random session invalidation (currently session.gc_maxlifetime is "
@@ -4367,28 +4344,28 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:407
-#, possible-php-format
+#, php-format
 msgid ""
 "%sLogin cookie validity%s should be set to 1800 seconds (30 minutes) at "
 "most. Values larger than 1800 may pose a security risk such as impersonation."
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:433
-#, possible-php-format
+#, php-format
 msgid ""
 "If using [kbd]cookie[/kbd] authentication and %sLogin cookie store%s is not "
 "0, %sLogin cookie validity%s must be set to a value less or equal to it."
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:472
-#, possible-php-format
+#, php-format
 msgid ""
 "%1$sBzip2 compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
 msgstr ""
 
 #: libraries/classes/Config/ServerConfigChecks.php:503
-#, possible-php-format
+#, php-format
 msgid ""
 "%1$sGZip compression and decompression%2$s requires functions (%3$s) which "
 "are unavailable on this system."
@@ -4399,7 +4376,7 @@ msgid "no description"
 msgstr ""
 
 #: libraries/classes/ConfigStorage/Relation.php:1567
-#, possible-php-format
+#, php-format
 msgid ""
 "You do not have necessary privileges to create a database named '%s'. You "
 "may go to 'Operations' tab of any database to set up the phpMyAdmin "
@@ -4460,7 +4437,7 @@ msgid "Incorrect value:"
 msgstr ""
 
 #: libraries/classes/Config/Validator.php:460
-#, possible-php-format
+#, php-format
 msgid "Incorrect IP address: %s"
 msgstr ""
 
@@ -4481,12 +4458,12 @@ msgstr ""
 
 #: libraries/classes/Config/Validator.php:608
 #: templates/config/form_display/display.twig:68
-#, possible-php-format
+#, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr ""
 
 #: libraries/classes/Console.php:92
-#, possible-php-format
+#, php-format
 msgid "Showing %1$d bookmark (both private and shared)"
 msgid_plural "Showing %1$d bookmarks (both private and shared)"
 msgstr[0] ""
@@ -4502,34 +4479,34 @@ msgstr ""
 
 #: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:342
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:73
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr ""
 
 #: libraries/classes/Controllers/ChangeLogController.php:41
 #: libraries/classes/Controllers/LicenseController.php:36
-#, possible-php-format
+#, php-format
 msgid ""
 "The %s file is not available on this system, please visit %s for more "
 "information."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/CentralColumnsController.php:140
-#, possible-php-format
+#, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr ""
 
 #. l10n: The user tries to save a page with an existing name in Designer
 #: libraries/classes/Controllers/Database/DesignerController.php:92
-#, possible-php-format
+#, php-format
 msgid ""
 "There already exists a page named \"%s\" please rename it to something else."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
-#: libraries/classes/Controllers/Export/ExportController.php:442
+#: libraries/classes/Controllers/Export/ExportController.php:443
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -4564,17 +4541,17 @@ msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:177
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:187
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/OperationsController.php:296
-#, possible-php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
 msgstr ""
@@ -4615,26 +4592,26 @@ msgstr ""
 #: libraries/classes/Controllers/Database/StructureController.php:365
 #: templates/table/operations/index.twig:451
 #: templates/table/operations/view.twig:32
-#, possible-php-format
+#, php-format
 msgid "View %s has been dropped."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:365
 #: templates/table/operations/index.twig:451
-#, possible-php-format
+#, php-format
 msgid "Table %s has been dropped."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:412
 #: templates/table/operations/index.twig:410
 #: templates/table/operations/index.twig:428
-#, possible-php-format
+#, php-format
 msgid "Table %s has been emptied."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/StructureController.php:575
-#: libraries/classes/Display/Results.php:3976
-#, possible-php-format
+#: libraries/classes/Display/Results.php:3989
+#, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
 "%sdocumentation%s."
@@ -4664,8 +4641,7 @@ msgstr ""
 #: templates/database/designer/main.twig:1117
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:19
-#: templates/database/structure/empty_form.twig:19
-#: templates/indexes.twig:65
+#: templates/database/structure/empty_form.twig:19 templates/indexes.twig:65
 #: templates/preferences/autoload.twig:11
 #: templates/preferences/manage/error.twig:18
 #: templates/server/privileges/new_user_ajax.twig:20
@@ -4692,12 +4668,11 @@ msgstr ""
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:415
-#: libraries/classes/Core.php:719
-#: templates/preview_sql.twig:3
+#: libraries/classes/Core.php:737 templates/preview_sql.twig:3
 msgid "No change"
 msgstr ""
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:109
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr ""
 
@@ -4707,7 +4682,7 @@ msgid "Tracking data deleted successfully."
 msgstr ""
 
 #: libraries/classes/Controllers/Database/TrackingController.php:90
-#, possible-php-format
+#, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr ""
@@ -4760,7 +4735,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:200
-#, possible-php-format
+#, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
 "extended features have been deactivated. %sFind out why%s. "
@@ -4801,7 +4776,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:338
-#, possible-php-format
+#, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
 "necessary. It should only be %d bytes long. Please refer to the "
@@ -4817,14 +4792,14 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:377
-#, possible-php-format
+#, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
 "issues."
 msgstr ""
 
 #: libraries/classes/Controllers/HomeController.php:391
-#, possible-php-format
+#, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
 "templates and will be slow because of this."
@@ -4857,7 +4832,7 @@ msgid "Failed"
 msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:217
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
 "%sdocumentation%s for a workaround for this limit."
@@ -4881,14 +4856,14 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:618
-#, possible-php-format
+#, php-format
 msgid "Import has been successfully finished, %d query executed."
 msgid_plural "Import has been successfully finished, %d queries executed."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Controllers/Import/ImportController.php:655
-#, possible-php-format
+#, php-format
 msgid ""
 "Script timeout passed, if you want to finish import, please %sresubmit the "
 "same file%s and import will resume."
@@ -4919,7 +4894,7 @@ msgid "Confirm"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:40
-#, possible-php-format
+#, php-format
 msgid "Do you really want to execute \"%s\"?"
 msgstr ""
 
@@ -4980,12 +4955,12 @@ msgid "This operation could take a long time. Proceed anyway?"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:57
-#, possible-php-format
+#, php-format
 msgid "Do you really want to delete user group \"%s\"?"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:58
-#, possible-php-format
+#, php-format
 msgid "Do you really want to delete the search \"%s\"?"
 msgstr ""
 
@@ -5110,7 +5085,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:110
 #: templates/table/index_form.twig:237
-#, possible-php-format
+#, php-format
 msgid "Add %s column(s) to index"
 msgstr ""
 
@@ -5149,8 +5124,7 @@ msgid "Simulate query"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:121
-#: libraries/classes/Html/Generator.php:840
-#: templates/export.twig:67
+#: libraries/classes/Html/Generator.php:840 templates/export.twig:67
 msgid "SQL query:"
 msgstr ""
 
@@ -5191,18 +5165,12 @@ msgstr ""
 #: libraries/classes/Tracking.php:237 libraries/classes/Tracking.php:641
 #: templates/columns_definitions/column_definitions_form.twig:176
 #: templates/columns_definitions/column_definitions_form.twig:181
-#: templates/error/report_modal.twig:14
-#: templates/export_modal.twig:6
-#: templates/export_modal.twig:10
-#: templates/export.twig:82
-#: templates/export.twig:92
-#: templates/export.twig:194
-#: templates/home/index.twig:298
-#: templates/home/index.twig:306
-#: templates/modals/build_query.twig:6
-#: templates/modals/build_query.twig:16
-#: templates/modals/create_view.twig:6
-#: templates/modals/create_view.twig:11
+#: templates/error/report_modal.twig:14 templates/export_modal.twig:6
+#: templates/export_modal.twig:10 templates/export.twig:82
+#: templates/export.twig:92 templates/export.twig:194
+#: templates/home/index.twig:298 templates/home/index.twig:306
+#: templates/modals/build_query.twig:6 templates/modals/build_query.twig:16
+#: templates/modals/create_view.twig:6 templates/modals/create_view.twig:11
 #: templates/modals/enum_set_editor.twig:6
 #: templates/modals/enum_set_editor.twig:11
 #: templates/modals/index_dialog_modal.twig:6
@@ -5222,8 +5190,7 @@ msgstr ""
 #: templates/server/status/monitor/index.twig:218
 #: templates/server/user_groups/user_groups.twig:51
 #: templates/server/user_groups/user_groups.twig:55
-#: templates/sql/query.twig:219
-#: templates/sql/query.twig:224
+#: templates/sql/query.twig:219 templates/sql/query.twig:224
 #: templates/table/insert/actions_panel.twig:47
 #: templates/table/insert/actions_panel.twig:52
 #: templates/table/relation/common_form.twig:234
@@ -5440,7 +5407,7 @@ msgid "EiB"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:199
-#, possible-php-format
+#, php-format
 msgid "%d table(s)"
 msgstr ""
 
@@ -5470,15 +5437,14 @@ msgid "Please add at least one variable to the series!"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1274
 #: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
 #: templates/columns_definitions/column_attributes.twig:217
 #: templates/columns_definitions/column_attributes.twig:240
 #: templates/database/central_columns/main.twig:305
-#: templates/database/designer/main.twig:588
-#: templates/export.twig:433
+#: templates/database/designer/main.twig:588 templates/export.twig:433
 #: templates/server/privileges/privileges_summary.twig:30
 #: templates/server/status/monitor/index.twig:211
 #: templates/server/status/processes/list.twig:72
@@ -5534,7 +5500,7 @@ msgid "log_output is set to TABLE."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:222
-#, possible-php-format
+#, php-format
 msgid ""
 "slow_query_log is enabled, but the server logs only queries that take longer "
 "than %d seconds. It is advisable to set this long_query_time 0-2 seconds, "
@@ -5542,7 +5508,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:226
-#, possible-php-format
+#, php-format
 msgid "long_query_time is set to %d second(s)."
 msgstr ""
 
@@ -5554,25 +5520,25 @@ msgstr ""
 
 #. l10n: %s is FILE or TABLE
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:231
-#, possible-php-format
+#, php-format
 msgid "Set log_output to %s"
 msgstr ""
 
 #. l10n: Enable in this context means setting a status variable to ON
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:233
-#, possible-php-format
+#, php-format
 msgid "Enable %s"
 msgstr ""
 
 #. l10n: Disable in this context means setting a status variable to OFF
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:235
-#, possible-php-format
+#, php-format
 msgid "Disable %s"
 msgstr ""
 
 #. l10n: %d seconds
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:237
-#, possible-php-format
+#, php-format
 msgid "Set long_query_time to %d seconds."
 msgstr ""
 
@@ -5600,7 +5566,7 @@ msgid "Differential"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:247
-#, possible-php-format
+#, php-format
 msgid "Divided by %s"
 msgstr ""
 
@@ -5688,8 +5654,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/Helpers/Pdf.php:361
 #: libraries/classes/Server/Status/Processes.php:130
 #: templates/database/triggers/list.twig:49
-#: templates/javascript/variables.twig:81
-#: templates/sql/profiling_chart.twig:17
+#: templates/javascript/variables.twig:81 templates/sql/profiling_chart.twig:17
 msgid "Time"
 msgstr ""
 
@@ -5837,8 +5802,7 @@ msgstr ""
 #: templates/database/structure/bulk_action_modal.twig:11
 #: templates/database/structure/check_all_tables.twig:49
 #: templates/database/structure/check_all_tables.twig:55
-#: templates/error/report_modal.twig:6
-#: templates/error/report_modal.twig:11
+#: templates/error/report_modal.twig:6 templates/error/report_modal.twig:11
 #: templates/server/databases/index.twig:319
 #: templates/server/databases/index.twig:323
 #: templates/server/variables/index.twig:15
@@ -5857,8 +5821,7 @@ msgid "Apply"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:331
-#: templates/home/index.twig:302
-#: templates/modals/index_dialog_modal.twig:26
+#: templates/home/index.twig:302 templates/modals/index_dialog_modal.twig:26
 #: templates/navigation/main.twig:58
 #: templates/server/privileges/users_overview.twig:173
 #: templates/server/status/monitor/index.twig:95
@@ -5885,12 +5848,12 @@ msgid "Error in processing request"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:336
-#, possible-php-format
+#, php-format
 msgid "Error code: %s"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:337
-#, possible-php-format
+#, php-format
 msgid "Error text: %s"
 msgstr ""
 
@@ -5913,8 +5876,7 @@ msgid "Adding primary key"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:347
-#: templates/console/display.twig:129
-#: templates/database/designer/main.twig:337
+#: templates/console/display.twig:129 templates/database/designer/main.twig:337
 #: templates/database/designer/main.twig:666
 #: templates/database/designer/main.twig:730
 #: templates/database/designer/main.twig:869
@@ -5956,8 +5918,7 @@ msgstr ""
 #: templates/database/designer/main.twig:1118
 #: templates/database/privileges/index.twig:69
 #: templates/database/structure/drop_form.twig:20
-#: templates/database/structure/empty_form.twig:20
-#: templates/indexes.twig:65
+#: templates/database/structure/empty_form.twig:20 templates/indexes.twig:65
 #: templates/preferences/autoload.twig:12
 #: templates/preferences/manage/error.twig:19
 #: templates/server/privileges/new_user_ajax.twig:22
@@ -5981,10 +5942,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:357
 #: templates/database/structure/drop_form.twig:16
-#: templates/database/structure/empty_form.twig:16
-#: templates/import.twig:159
-#: templates/sql/query.twig:142
-#: templates/table/delete/confirm.twig:25
+#: templates/database/structure/empty_form.twig:16 templates/import.twig:159
+#: templates/sql/query.twig:142 templates/table/delete/confirm.twig:25
 msgid "Enable foreign key checks"
 msgstr ""
 
@@ -6013,7 +5972,7 @@ msgid "Deleting"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:368
-#, possible-php-format
+#, php-format
 msgid "Delete the matches for the %s table?"
 msgstr ""
 
@@ -6026,7 +5985,7 @@ msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:376
-#, possible-php-format
+#, php-format
 msgid "Values for column %s"
 msgstr ""
 
@@ -6039,7 +5998,7 @@ msgid "Enter each value in a separate field."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:379
-#, possible-php-format
+#, php-format
 msgid "Add %d value(s)"
 msgstr ""
 
@@ -6061,9 +6020,8 @@ msgid "Edit query"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3033
-#: libraries/classes/Tracking.php:260
-#: templates/console/bookmark_content.twig:7
+#: libraries/classes/Display/Results.php:3046
+#: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
 #: templates/database/central_columns/main.twig:381
@@ -6071,17 +6029,15 @@ msgstr ""
 #: templates/database/qbe/ins_del_and_or_cell.twig:18
 #: templates/database/search/results.twig:43
 #: templates/display/results/table.twig:238
-#: templates/display/results/table.twig:239
-#: templates/export.twig:54
+#: templates/display/results/table.twig:239 templates/export.twig:54
 #: templates/server/user_groups/user_groups.twig:37
 #: templates/server/user_groups/user_groups.twig:56
-#: templates/setup/home/index.twig:68
-#: templates/sql/query.twig:186
+#: templates/setup/home/index.twig:68 templates/sql/query.twig:186
 msgid "Delete"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:390
-#, possible-php-format
+#, php-format
 msgid "%d is not valid row number."
 msgstr ""
 
@@ -6103,7 +6059,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:396
-#, possible-php-format
+#, php-format
 msgid "Variable %d:"
 msgstr ""
 
@@ -6121,7 +6077,7 @@ msgid "Search this list"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:403
-#, possible-php-format
+#, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
@@ -6145,7 +6101,7 @@ msgid "Taking you to next step…"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:412
-#, possible-php-format
+#, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
@@ -6189,8 +6145,7 @@ msgstr ""
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:423
 #: libraries/classes/Export.php:589 libraries/classes/Html/Generator.php:940
 #: libraries/classes/Plugins/Schema/ExportRelationSchema.php:292
-#: templates/import_status.twig:2
-#: templates/user_password.twig:2
+#: templates/import_status.twig:2 templates/user_password.twig:2
 msgid "Back"
 msgstr ""
 
@@ -6217,7 +6172,7 @@ msgid "The following actions will be performed:"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:431
-#, possible-php-format
+#, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
@@ -6317,9 +6272,8 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:422 libraries/classes/InsertEdit.php:2012
-#: templates/table/index_form.twig:167
-#: templates/table/index_form.twig:203
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2012
+#: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr ""
 
@@ -6329,7 +6283,7 @@ msgid "Copy to clipboard"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
-#: libraries/classes/Display/Results.php:2969
+#: libraries/classes/Display/Results.php:2982
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:234
 #: templates/display/results/table.twig:235
@@ -6357,7 +6311,7 @@ msgid "Point"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:481
-#, possible-php-format
+#, php-format
 msgid "Point %d"
 msgstr ""
 
@@ -6522,7 +6476,7 @@ msgid "Modifications have been saved"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
-#, possible-php-format
+#, php-format
 msgid "%d object(s) created."
 msgstr ""
 
@@ -6531,8 +6485,7 @@ msgid "Column name"
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:544
-#: templates/modals/build_query.twig:17
-#: templates/sql/query.twig:178
+#: templates/modals/build_query.twig:17 templates/sql/query.twig:178
 msgid "Submit"
 msgstr ""
 
@@ -6667,7 +6620,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:607
 #: libraries/classes/Setup/Index.php:177
-#, possible-php-format
+#, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
 "upgrading. The newest version is %s, released on %s."
@@ -6707,7 +6660,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:622
-#, possible-php-format
+#, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
@@ -6723,7 +6676,7 @@ msgid "Please look at the bottom of this window."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:427
+#: libraries/classes/ErrorHandler.php:432
 msgid "Ignore All"
 msgstr ""
 
@@ -6761,12 +6714,12 @@ msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:658
-#, possible-php-format
+#, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:659
-#, possible-php-format
+#, php-format
 msgid "%s argument(s) passed"
 msgstr ""
 
@@ -6878,7 +6831,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:708
-#, possible-php-format
+#, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
@@ -6950,8 +6903,7 @@ msgstr ""
 #: libraries/classes/Controllers/Server/DatabasesController.php:322
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:25
 #: libraries/classes/Navigation/Nodes/NodeIndexContainer.php:26
-#: templates/database/data_dictionary/index.twig:68
-#: templates/indexes.twig:3
+#: templates/database/data_dictionary/index.twig:68 templates/indexes.twig:3
 #: templates/table/structure/display_structure.twig:462
 #: templates/table/tracking/structure_snapshot_indexes.twig:1
 msgid "Indexes"
@@ -6971,24 +6923,24 @@ msgid "Overhead"
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Databases/CreateController.php:87
-#, possible-php-format
+#, php-format
 msgid "Database %1$s has been created."
 msgstr ""
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
-#, possible-php-format
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:98
+#, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Controllers/Server/Privileges/AccountLockController.php:47
-#, possible-php-format
+#, php-format
 msgid "The account %s@%s has been successfully locked."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Privileges/AccountUnlockController.php:47
-#, possible-php-format
+#, php-format
 msgid "The account %s@%s has been successfully unlocked."
 msgstr ""
 
@@ -7012,12 +6964,12 @@ msgid "User has been added."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:42
-#, possible-php-format
+#, php-format
 msgid "Thread %s was successfully killed."
 msgstr ""
 
 #: libraries/classes/Controllers/Server/Status/Processes/KillController.php:48
-#, possible-php-format
+#, php-format
 msgid ""
 "phpMyAdmin was unable to kill thread %s. It probably has already been closed."
 msgstr ""
@@ -7643,7 +7595,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Sql/SqlController.php:235
 #: libraries/classes/Sql.php:1168
-#, possible-php-format
+#, php-format
 msgid "Bookmark %s has been created."
 msgstr ""
 
@@ -7655,7 +7607,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/Structure/PartitioningController.php:275
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:231
 #: libraries/classes/Table/Indexes.php:85
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr ""
 
@@ -7680,12 +7632,12 @@ msgstr ""
 
 #: libraries/classes/Controllers/Table/CreateController.php:84
 #: libraries/classes/Controllers/Table/GetFieldController.php:55
-#, possible-php-format
+#, php-format
 msgid "'%s' database does not exist."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/CreateController.php:94
-#, possible-php-format
+#, php-format
 msgid "Table %s already exists!"
 msgstr ""
 
@@ -7706,7 +7658,7 @@ msgstr ""
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1222
-#: libraries/classes/Display/Results.php:3691 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3704 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr ""
@@ -7726,7 +7678,7 @@ msgid "No column selected."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/DropColumnController.php:80
-#, possible-php-format
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
 msgstr[0] ""
@@ -7787,12 +7739,12 @@ msgid "Internal relationships were successfully updated."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/ReplaceController.php:294
-#, possible-php-format
+#, php-format
 msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr ""
 
 #: libraries/classes/Controllers/Table/Structure/ChangeController.php:91
-#, possible-php-format
+#, php-format
 msgid "Failed to get description of column %s!"
 msgstr ""
 
@@ -7829,20 +7781,20 @@ msgid "Query error"
 msgstr ""
 
 #: libraries/classes/Controllers/Table/Structure/ReservedWordCheckController.php:48
-#, possible-php-format
+#, php-format
 msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Controllers/Table/Structure/SaveController.php:226
-#, possible-php-format
+#, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
 msgstr ""
 
 #: libraries/classes/Controllers/Table/TrackingController.php:69
-#, possible-php-format
+#, php-format
 msgid "Tracking of %s is activated."
 msgstr ""
 
@@ -7867,7 +7819,7 @@ msgid "View name can not be empty!"
 msgstr ""
 
 #: libraries/classes/Core.php:203 libraries/classes/ZipExtension.php:62
-#, possible-php-format
+#, php-format
 msgid "The %s extension is missing. Please check your PHP configuration."
 msgstr ""
 
@@ -7880,7 +7832,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:351
-#, possible-php-format
+#, php-format
 msgid "Could not add %1$s as they already exist in central list!"
 msgstr ""
 
@@ -7889,7 +7841,7 @@ msgid "Could not add columns!"
 msgstr ""
 
 #: libraries/classes/Database/CentralColumns.php:451
-#, possible-php-format
+#, php-format
 msgid ""
 "Couldn't remove Column(s) %1$s as they don't exist in central columns list!"
 msgstr ""
@@ -7969,7 +7921,7 @@ msgstr ""
 #: libraries/classes/Database/Triggers.php:117
 #: libraries/classes/Database/Triggers.php:126
 #: libraries/classes/Database/Triggers.php:153
-#, possible-php-format
+#, php-format
 msgid "The following query has failed: \"%s\""
 msgstr ""
 
@@ -7991,12 +7943,12 @@ msgid "MySQL said: "
 msgstr ""
 
 #: libraries/classes/Database/Events.php:126
-#, possible-php-format
+#, php-format
 msgid "Event %1$s has been modified."
 msgstr ""
 
 #: libraries/classes/Database/Events.php:146
-#, possible-php-format
+#, php-format
 msgid "Event %1$s has been created."
 msgstr ""
 
@@ -8059,23 +8011,23 @@ msgid "Error in processing request:"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:536
-#, possible-php-format
+#, php-format
 msgid "No event with name %1$s found in database %2$s."
 msgstr ""
 
 #: libraries/classes/Database/Events.php:568
-#, possible-php-format
+#, php-format
 msgid "Export of event %s"
 msgstr ""
 
 #: libraries/classes/Database/Events.php:589
-#, possible-php-format
+#, php-format
 msgid ""
 "Error in processing request: No event with name %1$s found in database %2$s."
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:1141
-#, possible-php-format
+#, php-format
 msgid ""
 "Unable to use timezone \"%1$s\" for server %2$d. Please check your "
 "configuration setting for [em]$cfg['Servers'][%3$d]['SessionTimeZone'][/em]. "
@@ -8095,7 +8047,7 @@ msgid "Connection for controluser as defined in your configuration failed."
 msgstr ""
 
 #: libraries/classes/DatabaseInterface.php:2405
-#, possible-php-format
+#, php-format
 msgid "See %sour documentation%s for more information."
 msgstr ""
 
@@ -8146,7 +8098,7 @@ msgid "Edit routine"
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:154
-#, possible-php-format
+#, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
@@ -8154,22 +8106,22 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:206
 #: libraries/classes/Database/Routines.php:990
-#, possible-php-format
+#, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:253
-#, possible-php-format
+#, php-format
 msgid "Routine %1$s has been created."
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:412
-#, possible-php-format
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:417
-#, possible-php-format
+#, php-format
 msgid "Routine %1$s has been modified."
 msgstr ""
 
@@ -8178,7 +8130,7 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:841
-#, possible-php-format
+#, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr ""
 
@@ -8203,17 +8155,17 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:1143
 #: libraries/classes/Database/Routines.php:1312
-#, possible-php-format
+#, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:1182
-#, possible-php-format
+#, php-format
 msgid "Execution results of routine %s"
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:1230
-#, possible-php-format
+#, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
 msgstr[0] ""
@@ -8229,12 +8181,12 @@ msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:1565
-#, possible-php-format
+#, php-format
 msgid "Export of routine %s"
 msgstr ""
 
 #: libraries/classes/Database/Routines.php:1587
-#, possible-php-format
+#, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
 "%2$s. You might be lacking the necessary privileges to view/export this "
@@ -8267,12 +8219,12 @@ msgid "as regular expression"
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:140
-#, possible-php-format
+#, php-format
 msgid "Trigger %1$s has been modified."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:160
-#, possible-php-format
+#, php-format
 msgid "Trigger %1$s has been created."
 msgstr ""
 
@@ -8309,18 +8261,18 @@ msgid "Sorry, we failed to restore the dropped trigger."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:468
-#, possible-php-format
+#, php-format
 msgid "No trigger with name %1$s found in database %2$s."
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:502
 #: templates/database/triggers/export.twig:2
-#, possible-php-format
+#, php-format
 msgid "Export of trigger %s"
 msgstr ""
 
 #: libraries/classes/Database/Triggers.php:520
-#, possible-php-format
+#, php-format
 msgid ""
 "Error in processing request: No trigger with name %1$s found in database "
 "%2$s."
@@ -8331,56 +8283,50 @@ msgid "SSL connection enforced by server, automatically enabling it."
 msgstr ""
 
 #: libraries/classes/Dbal/DbiMysqli.php:164
-#, possible-php-format
+#, php-format
 msgid ""
 "Error 1045: Access denied for user. Additional error information may be "
 "available, but is being hidden by the %s configuration directive."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:897
-#: templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:904
-#: templates/list_navigator.twig:16
-#: templates/list_navigator.twig:21
-#: templates/server/binlog/index.twig:47
+#: libraries/classes/Display/Results.php:917 templates/list_navigator.twig:16
+#: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:930
-#: templates/list_navigator.twig:33
-#: templates/list_navigator.twig:35
-#: templates/server/binlog/index.twig:72
+#: libraries/classes/Display/Results.php:943 templates/list_navigator.twig:33
+#: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:960
-#: templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:973 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1481
 #: templates/display/results/table.twig:132
 msgid "Partial texts"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1485
 #: templates/display/results/table.twig:136
 msgid "Full texts"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1815
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1828
+#: libraries/classes/Display/Results.php:1854 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -8393,8 +8339,8 @@ msgstr ""
 msgid "Descending"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1833 libraries/classes/Util.php:2559
+#: libraries/classes/Display/Results.php:1836
+#: libraries/classes/Display/Results.php:1846 libraries/classes/Util.php:2559
 #: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -8407,41 +8353,41 @@ msgstr ""
 msgid "Ascending"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3009
-#: libraries/classes/Display/Results.php:3024
+#: libraries/classes/Display/Results.php:3022
+#: libraries/classes/Display/Results.php:3037
 msgid "The row has been deleted."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3056
+#: libraries/classes/Display/Results.php:3069
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3624
+#: libraries/classes/Display/Results.php:3637
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3985
-#, possible-php-format
+#: libraries/classes/Display/Results.php:3998
+#, php-format
 msgid "Showing rows %1s - %2s"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:3999
-#, possible-php-format
+#: libraries/classes/Display/Results.php:4012
+#, php-format
 msgid "%1$d total, %2$d in query"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4004
-#, possible-php-format
+#: libraries/classes/Display/Results.php:4017
+#, php-format
 msgid "%d total"
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4017 libraries/classes/Sql.php:988
-#, possible-php-format
+#: libraries/classes/Display/Results.php:4030 libraries/classes/Sql.php:988
+#, php-format
 msgid "Query took %01.4f seconds."
 msgstr ""
 
-#: libraries/classes/Display/Results.php:4348
+#: libraries/classes/Display/Results.php:4361
 msgid "Link not found!"
 msgstr ""
 
@@ -8738,16 +8684,14 @@ msgstr ""
 #: libraries/classes/Html/Generator.php:745
 #: libraries/classes/Html/MySQLDocumentation.php:50
 #: libraries/classes/Sanitize.php:203
-#: templates/config/form_display/input.twig:10
-#: templates/home/index.twig:246
-#: templates/server/variables/index.twig:17
-#: templates/setup/home/index.twig:113
+#: templates/config/form_display/input.twig:10 templates/home/index.twig:246
+#: templates/server/variables/index.twig:17 templates/setup/home/index.twig:113
 #: templates/setup/home/index.twig:131
 msgid "Documentation"
 msgstr ""
 
 #: libraries/classes/Engines/Pbxt.php:185
-#, possible-php-format
+#, php-format
 msgid ""
 "Documentation and further information about PBXT can be found on the "
 "%sPrimeBase XT Home Page%s."
@@ -8757,34 +8701,33 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:411
+#: libraries/classes/ErrorHandler.php:416
 msgid "Report"
 msgstr ""
 
-#: libraries/classes/ErrorHandler.php:416
-#: templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:421 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr ""
 
 #: libraries/classes/Export.php:160 libraries/classes/Export.php:196
 #: libraries/classes/Export.php:470
-#, possible-php-format
+#, php-format
 msgid "Insufficient space to save the file %s."
 msgstr ""
 
 #: libraries/classes/Export.php:419
-#, possible-php-format
+#, php-format
 msgid ""
 "File %s already exists on server, change filename or check overwrite option."
 msgstr ""
 
 #: libraries/classes/Export.php:426 libraries/classes/Export.php:436
-#, possible-php-format
+#, php-format
 msgid "The web server does not have permission to save the file %s."
 msgstr ""
 
 #: libraries/classes/Export.php:476
-#, possible-php-format
+#, php-format
 msgid "Dump has been saved to file %s."
 msgstr ""
 
@@ -8848,7 +8791,7 @@ msgid "Cannot read uploaded file."
 msgstr ""
 
 #: libraries/classes/File.php:571
-#, possible-php-format
+#, php-format
 msgid ""
 "You attempted to load file with unsupported compression (%s). Either support "
 "for it is not implemented or disabled by your configuration."
@@ -8859,12 +8802,12 @@ msgid "Session not found."
 msgstr ""
 
 #: libraries/classes/Html/Generator.php:146
-#, possible-php-format
+#, php-format
 msgid "Jump to database “%s”."
 msgstr ""
 
 #: libraries/classes/Html/Generator.php:174
-#, possible-php-format
+#, php-format
 msgid "The %s functionality is affected by a known bug, see %s"
 msgstr ""
 
@@ -8906,10 +8849,8 @@ msgstr ""
 msgid "Submit query"
 msgstr ""
 
-#: libraries/classes/Html/Generator.php:686
-#: templates/console/display.twig:31
-#: templates/console/display.twig:175
-#: templates/sql/profiling_chart.twig:2
+#: libraries/classes/Html/Generator.php:686 templates/console/display.twig:31
+#: templates/console/display.twig:175 templates/sql/profiling_chart.twig:2
 msgid "Profiling"
 msgstr ""
 
@@ -8923,7 +8864,7 @@ msgid "Static analysis:"
 msgstr ""
 
 #: libraries/classes/Html/Generator.php:826
-#, possible-php-format
+#, php-format
 msgid "%d errors were found during analysis."
 msgstr ""
 
@@ -8931,25 +8872,25 @@ msgstr ""
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: libraries/classes/Import.php:1267
+#: libraries/classes/Import.php:1266
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr ""
 
-#: libraries/classes/Import.php:1269
+#: libraries/classes/Import.php:1268
 msgid "View a structure's contents by clicking on its name."
 msgstr ""
 
-#: libraries/classes/Import.php:1270
+#: libraries/classes/Import.php:1269
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1271
+#: libraries/classes/Import.php:1270
 msgid "Edit structure by following the \"Structure\" link."
 msgstr ""
 
-#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1309
+#: libraries/classes/Import.php:1274 libraries/classes/Import.php:1308
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -8972,47 +8913,46 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportShp.php:70
 #: libraries/classes/Plugins/Import/ImportSql.php:46
 #: libraries/classes/Plugins/Import/ImportXml.php:51
-#: templates/console/display.twig:7
-#: templates/console/display.twig:140
+#: templates/console/display.twig:7 templates/console/display.twig:140
 #: templates/database/designer/database_tables.twig:114
 #: templates/database/routines/editor_form.twig:53
 #: templates/table/structure/display_table_stats.twig:97
 msgid "Options"
 msgstr ""
 
-#: libraries/classes/Import.php:1278
-#, possible-php-format
+#: libraries/classes/Import.php:1277
+#, php-format
 msgid "Go to database: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
-#, possible-php-format
+#: libraries/classes/Import.php:1283 libraries/classes/Import.php:1326
+#, php-format
 msgid "Edit settings for %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1312
-#, possible-php-format
+#: libraries/classes/Import.php:1311
+#, php-format
 msgid "Go to table: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1320
-#, possible-php-format
+#: libraries/classes/Import.php:1319
+#, php-format
 msgid "Structure of %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1338
-#, possible-php-format
+#: libraries/classes/Import.php:1337
+#, php-format
 msgid "Go to view: %s"
 msgstr ""
 
-#: libraries/classes/Import.php:1366
+#: libraries/classes/Import.php:1365
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
 msgstr ""
 
 #: libraries/classes/Index.php:620
-#, possible-php-format
+#, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
 "removed."
@@ -9049,8 +8989,7 @@ msgstr ""
 #: templates/database/routines/editor_form.twig:51
 #: templates/database/routines/execute_form.twig:16
 #: templates/database/routines/index.twig:53
-#: templates/database/structure/table_header.twig:30
-#: templates/indexes.twig:17
+#: templates/database/structure/table_header.twig:30 templates/indexes.twig:17
 #: templates/table/privileges/index.twig:21
 #: templates/table/search/index.twig:39
 #: templates/table/structure/display_structure.twig:22
@@ -9061,8 +9000,7 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: libraries/classes/InsertEdit.php:725
-#: templates/import.twig:60
+#: libraries/classes/InsertEdit.php:725 templates/import.twig:60
 #: templates/import.twig:85
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
@@ -9086,11 +9024,11 @@ msgid "Showing SQL query"
 msgstr ""
 
 #: libraries/classes/InsertEdit.php:1368 libraries/classes/Sql.php:959
-#, possible-php-format
+#, php-format
 msgid "Inserted row id: %1$d"
 msgstr ""
 
-#: libraries/classes/LanguageManager.php:979
+#: libraries/classes/LanguageManager.php:980
 msgid "Ignoring unsupported language code."
 msgstr ""
 
@@ -9100,7 +9038,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Linter.php:171
-#, possible-php-format
+#, php-format
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
@@ -9108,8 +9046,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeTable.php:313
 #: libraries/classes/Util.php:1492 libraries/classes/Util.php:1969
 #: libraries/config.values.php:68 libraries/config.values.php:82
-#: libraries/config.values.php:183
-#: templates/database/search/results.twig:34
+#: libraries/config.values.php:183 templates/database/search/results.twig:34
 #: templates/database/structure/structure_table_row.twig:43
 #: templates/table/structure/display_structure.twig:282
 msgid "Browse"
@@ -9120,13 +9057,10 @@ msgstr ""
 #: libraries/classes/Util.php:1490 libraries/classes/Util.php:1955
 #: libraries/classes/Util.php:1972 libraries/config.values.php:64
 #: libraries/config.values.php:78 libraries/config.values.php:169
-#: libraries/config.values.php:179
-#: templates/database/routines/index.twig:28
-#: templates/database/routines/index.twig:29
+#: libraries/config.values.php:179 templates/database/routines/index.twig:28
 #: templates/database/routines/index.twig:29
 #: templates/database/structure/structure_table_row.twig:53
 #: templates/server/databases/index.twig:76
-#: templates/server/databases/index.twig:77
 #: templates/server/databases/index.twig:77
 msgid "Search"
 msgstr ""
@@ -9155,8 +9089,7 @@ msgstr ""
 #: libraries/classes/Menu.php:307 libraries/classes/Menu.php:317
 #: libraries/classes/Menu.php:397 libraries/classes/Util.php:1493
 #: libraries/classes/Util.php:1959 libraries/classes/Util.php:1977
-#: libraries/config.values.php:171
-#: templates/table/operations/view.twig:8
+#: libraries/config.values.php:171 templates/table/operations/view.twig:8
 msgid "Operations"
 msgstr ""
 
@@ -9198,8 +9131,7 @@ msgstr ""
 #: libraries/classes/Navigation/Nodes/NodeEventContainer.php:26
 #: libraries/classes/Plugins/Export/ExportSql.php:1026
 #: libraries/classes/Plugins/Export/ExportXml.php:100
-#: libraries/classes/Util.php:1962
-#: templates/database/events/index.twig:3
+#: libraries/classes/Util.php:1962 templates/database/events/index.twig:3
 msgid "Events"
 msgstr ""
 
@@ -9217,8 +9149,7 @@ msgid "User accounts"
 msgstr ""
 
 #: libraries/classes/Menu.php:535 libraries/classes/Server/Status/Data.php:152
-#: libraries/classes/Util.php:1945
-#: templates/server/binlog/index.twig:3
+#: libraries/classes/Util.php:1945 templates/server/binlog/index.twig:3
 msgid "Binary log"
 msgstr ""
 
@@ -9232,8 +9163,7 @@ msgstr ""
 
 #: libraries/classes/Menu.php:548 libraries/classes/Server/Status/Data.php:229
 #: libraries/classes/Util.php:1947 libraries/config.values.php:159
-#: templates/server/engines/show.twig:18
-#: templates/server/engines/show.twig:21
+#: templates/server/engines/show.twig:18 templates/server/engines/show.twig:21
 #: templates/sql/query.twig:191
 msgid "Variables"
 msgstr ""
@@ -9252,21 +9182,21 @@ msgid "Plugins"
 msgstr ""
 
 #: libraries/classes/Message.php:252
-#, possible-php-format
+#, php-format
 msgid "%1$d row affected."
 msgid_plural "%1$d rows affected."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Message.php:273
-#, possible-php-format
+#, php-format
 msgid "%1$d row deleted."
 msgid_plural "%1$d rows deleted."
 msgstr[0] ""
 msgstr[1] ""
 
 #: libraries/classes/Message.php:294
-#, possible-php-format
+#, php-format
 msgid "%1$d row inserted."
 msgid_plural "%1$d rows inserted."
 msgstr[0] ""
@@ -9308,7 +9238,7 @@ msgid "Groups"
 msgstr ""
 
 #: libraries/classes/Navigation/NavigationTree.php:945
-#, possible-php-format
+#, php-format
 msgid "%s result found"
 msgid_plural "%s results found"
 msgstr[0] ""
@@ -9320,12 +9250,12 @@ msgstr ""
 
 #. l10n: The word "Node" must not be translated here
 #: libraries/classes/Navigation/NodeFactory.php:43
-#, possible-php-format
+#, php-format
 msgid "Invalid class name \"%1$s\", using default of \"Node\""
 msgstr ""
 
 #: libraries/classes/Navigation/NodeFactory.php:73
-#, possible-php-format
+#, php-format
 msgid "Could not load class \"%1$s\""
 msgstr ""
 
@@ -9353,8 +9283,7 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:701
 #: templates/columns_definitions/column_name.twig:16
 #: templates/database/data_dictionary/index.twig:22
-#: templates/database/data_dictionary/index.twig:77
-#: templates/indexes.twig:20
+#: templates/database/data_dictionary/index.twig:77 templates/indexes.twig:20
 #: templates/table/index_form.twig:141
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:5
 #: templates/table/operations/index.twig:13
@@ -9585,7 +9514,7 @@ msgid "Find partial dependencies"
 msgstr ""
 
 #: libraries/classes/Normalization.php:425
-#, possible-php-format
+#, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
@@ -9597,7 +9526,7 @@ msgid "Table is already in second normal form."
 msgstr ""
 
 #: libraries/classes/Normalization.php:436
-#, possible-php-format
+#, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
@@ -9623,26 +9552,26 @@ msgstr ""
 
 #: libraries/classes/Normalization.php:458
 #: libraries/classes/Normalization.php:912
-#, possible-php-format
+#, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
 #: libraries/classes/Normalization.php:469
-#, possible-php-format
+#, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
 #: libraries/classes/Normalization.php:497
-#, possible-php-format
+#, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
 #: libraries/classes/Normalization.php:535
-#, possible-php-format
+#, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
@@ -9653,7 +9582,7 @@ msgid "Error in processing!"
 msgstr ""
 
 #: libraries/classes/Normalization.php:638
-#, possible-php-format
+#, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
@@ -9664,7 +9593,7 @@ msgid "The third step of normalization is complete."
 msgstr ""
 
 #: libraries/classes/Normalization.php:815
-#, possible-php-format
+#, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr ""
 
@@ -9756,13 +9685,11 @@ msgstr ""
 msgid "Truncate"
 msgstr ""
 
-#: libraries/classes/Operations.php:569
-#: templates/database/events/index.twig:20
+#: libraries/classes/Operations.php:569 templates/database/events/index.twig:20
 #: templates/database/events/index.twig:21
 #: templates/database/events/index.twig:98
 #: templates/database/events/index.twig:104
-#: templates/database/events/row.twig:47
-#: templates/database/events/row.twig:53
+#: templates/database/events/row.twig:47 templates/database/events/row.twig:53
 #: templates/database/routines/index.twig:20
 #: templates/database/routines/index.twig:21
 #: templates/database/routines/parameter_row.twig:51
@@ -9772,8 +9699,7 @@ msgstr ""
 #: templates/database/triggers/list.twig:20
 #: templates/database/triggers/list.twig:21
 #: templates/database/triggers/row.twig:52
-#: templates/database/triggers/row.twig:58
-#: templates/indexes.twig:58
+#: templates/database/triggers/row.twig:58 templates/indexes.twig:58
 #: templates/server/databases/index.twig:67
 #: templates/server/databases/index.twig:68
 #: templates/server/databases/index.twig:324
@@ -9798,22 +9724,22 @@ msgid "Can't copy table to same one!"
 msgstr ""
 
 #: libraries/classes/Operations.php:951
-#, possible-php-format
+#, php-format
 msgid "Table %s has been moved to %s. Privileges have been adjusted."
 msgstr ""
 
 #: libraries/classes/Operations.php:957
-#, possible-php-format
+#, php-format
 msgid "Table %s has been copied to %s. Privileges have been adjusted."
 msgstr ""
 
 #: libraries/classes/Operations.php:964
-#, possible-php-format
+#, php-format
 msgid "Table %s has been moved to %s."
 msgstr ""
 
 #: libraries/classes/Operations.php:968
-#, possible-php-format
+#, php-format
 msgid "Table %s has been copied to %s."
 msgstr ""
 
@@ -9836,12 +9762,12 @@ msgstr ""
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:95
 #: libraries/classes/Plugins/Auth/AuthenticationHttp.php:87
 #: templates/login/header.twig:10
-#, possible-php-format
+#, php-format
 msgid "Welcome to %s"
 msgstr ""
 
 #: libraries/classes/Plugins/Auth/AuthenticationConfig.php:109
-#, possible-php-format
+#, php-format
 msgid ""
 "You probably did not create a configuration file. You might want to use the "
 "%1$ssetup script%2$s to create one."
@@ -9899,7 +9825,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/AuthenticationPlugin.php:189
-#, possible-php-format
+#, php-format
 msgid ""
 "You have been automatically logged out due to inactivity of %s seconds. Once "
 "you log in again, you should be able to resume the work where you left off."
@@ -10027,8 +9953,7 @@ msgstr ""
 #: templates/database/central_columns/main.twig:40
 #: templates/database/central_columns/main.twig:244
 #: templates/database/data_dictionary/index.twig:24
-#: templates/database/data_dictionary/index.twig:80
-#: templates/indexes.twig:23
+#: templates/database/data_dictionary/index.twig:80 templates/indexes.twig:23
 #: templates/table/insert/get_head_and_foot_of_insert_row_table.twig:8
 #: templates/table/structure/display_structure.twig:25
 #: templates/table/structure/display_structure.twig:482
@@ -10083,8 +10008,7 @@ msgstr ""
 #: templates/database/routines/editor_form.twig:50
 #: templates/database/routines/execute_form.twig:15
 #: templates/database/routines/index.twig:52
-#: templates/database/triggers/list.twig:45
-#: templates/setup/home/index.twig:49
+#: templates/database/triggers/list.twig:45 templates/setup/home/index.twig:49
 #: templates/table/structure/display_structure.twig:21
 msgid "Name"
 msgstr ""
@@ -10296,7 +10220,7 @@ msgstr ""
 #: libraries/classes/Plugins/Export/ExportSql.php:335
 #: libraries/classes/Plugins/Export/ExportSql.php:363
 #: libraries/classes/Plugins/Export/ExportSql.php:372
-#, possible-php-format
+#, php-format
 msgid "Add %s statement"
 msgstr ""
 
@@ -10305,7 +10229,7 @@ msgid "(less efficient as indexes will be generated during table creation)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:325
-#, possible-php-format
+#, php-format
 msgid "%s value"
 msgstr ""
 
@@ -10403,12 +10327,12 @@ msgid "Metadata"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1146
-#, possible-php-format
+#, php-format
 msgid "Metadata for table %s"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1153
-#, possible-php-format
+#, php-format
 msgid "Metadata for database %s"
 msgstr ""
 
@@ -10428,7 +10352,7 @@ msgid "Last check:"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:1541
-#, possible-php-format
+#, php-format
 msgid "Error reading structure for table %s:"
 msgstr ""
 
@@ -10473,7 +10397,7 @@ msgid "It appears your table uses triggers;"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2175
-#, possible-php-format
+#, php-format
 msgid "Structure for view %s exported as a table"
 msgstr ""
 
@@ -10482,7 +10406,7 @@ msgid "(See below for the actual view)"
 msgstr ""
 
 #: libraries/classes/Plugins/Export/ExportSql.php:2270
-#, possible-php-format
+#, php-format
 msgid "Error reading data for table %s:"
 msgstr ""
 
@@ -10541,12 +10465,12 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:272
 #: libraries/classes/Plugins/Import/ImportCsv.php:631
-#, possible-php-format
+#, php-format
 msgid "Invalid format of CSV input on line %d."
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:490
-#, possible-php-format
+#, php-format
 msgid "Invalid column count in CSV input on line %d."
 msgstr ""
 
@@ -10554,12 +10478,12 @@ msgstr ""
 #: libraries/classes/Plugins/Import/ImportCsv.php:664
 #: libraries/classes/Plugins/Import/ImportCsv.php:675
 #: libraries/classes/Plugins/Import/ImportCsv.php:682
-#, possible-php-format
+#, php-format
 msgid "Invalid parameter for CSV import: %s"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:813
-#, possible-php-format
+#, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
@@ -10578,7 +10502,7 @@ msgid "MediaWiki Table"
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportMediawiki.php:275
-#, possible-php-format
+#, php-format
 msgid "Invalid format of mediawiki input on line: <br>%s."
 msgstr ""
 
@@ -10608,12 +10532,12 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportShp.php:101
 #: libraries/classes/Plugins/Import/ImportShp.php:163
-#, possible-php-format
+#, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportShp.php:193
-#, possible-php-format
+#, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
 msgstr ""
 
@@ -10645,13 +10569,13 @@ msgstr ""
 #: libraries/classes/Plugins/Schema/Eps/TableStatsEps.php:87
 #: libraries/classes/Plugins/Schema/Pdf/TableStatsPdf.php:90
 #: libraries/classes/Plugins/Schema/Svg/TableStatsSvg.php:87
-#, possible-php-format
+#, php-format
 msgid "The %s table doesn't exist!"
 msgstr ""
 
 #: libraries/classes/Plugins/Schema/Eps/EpsRelationSchema.php:62
 #: libraries/classes/Plugins/Schema/Svg/SvgRelationSchema.php:78
-#, possible-php-format
+#, php-format
 msgid "Schema of the %s database - Page %s"
 msgstr ""
 
@@ -10664,7 +10588,7 @@ msgid "PDF export page"
 msgstr ""
 
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:135
-#, possible-php-format
+#, php-format
 msgid "Schema of the %s database"
 msgstr ""
 
@@ -10799,7 +10723,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:121
-#, possible-php-format
+#, php-format
 msgid ""
 "You are using the external transformation command line options field, which "
 "has been deprecated for security reasons. Add all command line options "
@@ -10858,7 +10782,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:54
-#, possible-php-format
+#, php-format
 msgid "Validation failed for the input string %s."
 msgstr ""
 
@@ -10952,7 +10876,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
-#, possible-php-format
+#, php-format
 msgid "Two-factor authentication failed: %s"
 msgstr ""
 
@@ -11071,7 +10995,7 @@ msgid "Unknown error"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:545
-#, possible-php-format
+#, php-format
 msgid "Unable to connect to primary %s."
 msgstr ""
 
@@ -11085,19 +11009,19 @@ msgid "Unable to change primary!"
 msgstr ""
 
 #: libraries/classes/ReplicationGui.php:577
-#, possible-php-format
+#, php-format
 msgid "Primary server changed successfully to %s."
 msgstr ""
 
 #: libraries/classes/Routing.php:109
-#, possible-php-format
+#, php-format
 msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
 
 #: libraries/classes/Routing.php:168
-#, possible-php-format
+#, php-format
 msgid "Error 404! The page %s was not found."
 msgstr ""
 
@@ -11380,12 +11304,12 @@ msgid "Allows executing stored routines."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1083
-#, possible-php-format
+#, php-format
 msgid "The password for %s was changed successfully."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:1131
-#, possible-php-format
+#, php-format
 msgid "You have revoked the privileges for %s."
 msgstr ""
 
@@ -11445,7 +11369,7 @@ msgid "The selected users have been deleted successfully."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2278
-#, possible-php-format
+#, php-format
 msgid "You have updated the privileges for %s."
 msgstr ""
 
@@ -11456,7 +11380,7 @@ msgid "No user found."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2452
-#, possible-php-format
+#, php-format
 msgid "Deleting %s"
 msgstr ""
 
@@ -11465,12 +11389,12 @@ msgid "The privileges were reloaded successfully."
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2585
-#, possible-php-format
+#, php-format
 msgid "The user %s already exists!"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2860
-#, possible-php-format
+#, php-format
 msgid "Privileges for %s"
 msgstr ""
 
@@ -11488,7 +11412,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:3015
-#, possible-php-format
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -11511,8 +11435,7 @@ msgstr ""
 
 #: libraries/classes/Server/Status/Data.php:146
 #: libraries/classes/Server/Status/Processes.php:147
-#: templates/database/qbe/selection_form.twig:109
-#: templates/sql/query.twig:20
+#: templates/database/qbe/selection_form.twig:109 templates/sql/query.twig:20
 msgid "SQL query"
 msgstr ""
 
@@ -11616,7 +11539,7 @@ msgid "Unparsable version string"
 msgstr ""
 
 #: libraries/classes/Setup/Index.php:186
-#, possible-php-format
+#, php-format
 msgid ""
 "You are using Git version, run [kbd]git pull[/kbd] :-)[br]The latest stable "
 "version is %s, released on %s."
@@ -11627,7 +11550,7 @@ msgid "No newer stable version is available"
 msgstr ""
 
 #: libraries/classes/Sql.php:504
-#, possible-php-format
+#, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
@@ -11636,31 +11559,31 @@ msgid "Showing as PHP code"
 msgstr ""
 
 #: libraries/classes/Sql.php:1351
-#, possible-php-format
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
 "Edit, Copy and Delete features are not available. %s"
 msgstr ""
 
 #: libraries/classes/Sql.php:1365
-#, possible-php-format
+#, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
 "and Delete features may result in undesired behavior. %s"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:149
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:165
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on database %s"
 msgstr ""
 
 #: libraries/classes/SqlQueryForm.php:180
-#, possible-php-format
+#, php-format
 msgid "Run SQL query/queries on table %s"
 msgstr ""
 
@@ -11671,22 +11594,22 @@ msgstr ""
 
 #: libraries/classes/StorageEngine.php:470
 #: templates/database/structure/body_for_table_summary.twig:46
-#, possible-php-format
+#, php-format
 msgid "%s is the default storage engine on this MySQL server."
 msgstr ""
 
 #: libraries/classes/StorageEngine.php:473
-#, possible-php-format
+#, php-format
 msgid "%s is available on this MySQL server."
 msgstr ""
 
 #: libraries/classes/StorageEngine.php:476
-#, possible-php-format
+#, php-format
 msgid "%s has been disabled for this MySQL server."
 msgstr ""
 
 #: libraries/classes/StorageEngine.php:480
-#, possible-php-format
+#, php-format
 msgid "This MySQL server does not support the %s storage engine."
 msgstr ""
 
@@ -11694,8 +11617,8 @@ msgstr ""
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr ""
 
-#: libraries/classes/Table/Maintenance.php:122
-#, possible-php-format
+#: libraries/classes/Table/Maintenance.php:123
+#, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr ""
 
@@ -11704,12 +11627,12 @@ msgid "Unknown table status:"
 msgstr ""
 
 #: libraries/classes/Table.php:1011
-#, possible-php-format
+#, php-format
 msgid "Source database `%s` was not found!"
 msgstr ""
 
 #: libraries/classes/Table.php:1020
-#, possible-php-format
+#, php-format
 msgid "Target database `%s` was not found!"
 msgstr ""
 
@@ -11722,7 +11645,7 @@ msgid "Invalid table name:"
 msgstr ""
 
 #: libraries/classes/Table.php:1557
-#, possible-php-format
+#, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr ""
 
@@ -11731,14 +11654,14 @@ msgid "Could not save table UI preferences!"
 msgstr ""
 
 #: libraries/classes/Table.php:1828
-#, possible-php-format
+#, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
 #: libraries/classes/Table.php:1963
-#, possible-php-format
+#, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
 "after you refresh this page. Please check if the table structure has been "
@@ -11754,27 +11677,27 @@ msgid "No index parts defined!"
 msgstr ""
 
 #: libraries/classes/Table.php:2444
-#, possible-php-format
+#, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""
 
 #: libraries/classes/Template.php:135
-#, possible-php-format
+#, php-format
 msgid "Error while working with template cache: %s"
 msgstr ""
 
 #: libraries/classes/ThemeManager.php:83
-#, possible-php-format
+#, php-format
 msgid "Default theme %s not found!"
 msgstr ""
 
 #: libraries/classes/ThemeManager.php:142
-#, possible-php-format
+#, php-format
 msgid "Theme %s not found!"
 msgstr ""
 
 #: libraries/classes/Theme.php:168
-#, possible-php-format
+#, php-format
 msgid "No valid image path for theme %s found!"
 msgstr ""
 
@@ -11818,7 +11741,7 @@ msgid "Structure and data"
 msgstr ""
 
 #: libraries/classes/Tracking.php:383 libraries/classes/Tracking.php:451
-#, possible-php-format
+#, php-format
 msgid "Show %1$s with dates from %2$s to %3$s by user %4$s %5$s"
 msgstr ""
 
@@ -11839,7 +11762,7 @@ msgid "SQL execution"
 msgstr ""
 
 #: libraries/classes/Tracking.php:483
-#, possible-php-format
+#, php-format
 msgid "Export as %s"
 msgstr ""
 
@@ -11858,7 +11781,7 @@ msgid "Structure snapshot"
 msgstr ""
 
 #: libraries/classes/Tracking.php:658
-#, possible-php-format
+#, php-format
 msgid "Version %s snapshot (SQL code)"
 msgstr ""
 
@@ -11885,27 +11808,27 @@ msgid "SQL statements exported. Please copy the dump or execute it."
 msgstr ""
 
 #: libraries/classes/Tracking.php:845
-#, possible-php-format
+#, php-format
 msgid "Tracking report for table `%s`"
 msgstr ""
 
 #: libraries/classes/Tracking.php:877
-#, possible-php-format
+#, php-format
 msgid "Tracking for %1$s was activated at version %2$s."
 msgstr ""
 
 #: libraries/classes/Tracking.php:880
-#, possible-php-format
+#, php-format
 msgid "Tracking for %1$s was deactivated at version %2$s."
 msgstr ""
 
 #: libraries/classes/Tracking.php:979
-#, possible-php-format
+#, php-format
 msgid "Version %1$s of %2$s was deleted."
 msgstr ""
 
 #: libraries/classes/Tracking.php:1010
-#, possible-php-format
+#, php-format
 msgid "Version %1$s was created, tracking for %2$s is active."
 msgstr ""
 
@@ -11980,12 +11903,12 @@ msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
 #: libraries/classes/Types.php:292
-#, possible-php-format
+#, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr ""
 
 #: libraries/classes/Types.php:299
-#, possible-php-format
+#, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 
@@ -11996,7 +11919,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:313
-#, possible-php-format
+#, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr ""
 
@@ -12013,7 +11936,7 @@ msgid ""
 msgstr ""
 
 #: libraries/classes/Types.php:334
-#, possible-php-format
+#, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
@@ -12174,35 +12097,31 @@ msgid "The phpMyAdmin configuration storage database could not be accessed."
 msgstr ""
 
 #: libraries/classes/Util.php:132
-#, possible-php-format
+#, php-format
 msgid "Max: %s%s"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for January
-#: libraries/classes/Util.php:667
-#: templates/javascript/variables.twig:34
+#: libraries/classes/Util.php:667 templates/javascript/variables.twig:34
 msgid "Jan"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for February
-#: libraries/classes/Util.php:669
-#: templates/javascript/variables.twig:35
+#: libraries/classes/Util.php:669 templates/javascript/variables.twig:35
 msgid "Feb"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for March
-#: libraries/classes/Util.php:671
-#: templates/javascript/variables.twig:36
+#: libraries/classes/Util.php:671 templates/javascript/variables.twig:36
 msgid "Mar"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for April
-#: libraries/classes/Util.php:673
-#: templates/javascript/variables.twig:37
+#: libraries/classes/Util.php:673 templates/javascript/variables.twig:37
 msgid "Apr"
 msgstr ""
 
@@ -12214,50 +12133,43 @@ msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for June
-#: libraries/classes/Util.php:677
-#: templates/javascript/variables.twig:39
+#: libraries/classes/Util.php:677 templates/javascript/variables.twig:39
 msgid "Jun"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for July
-#: libraries/classes/Util.php:679
-#: templates/javascript/variables.twig:40
+#: libraries/classes/Util.php:679 templates/javascript/variables.twig:40
 msgid "Jul"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for August
-#: libraries/classes/Util.php:681
-#: templates/javascript/variables.twig:41
+#: libraries/classes/Util.php:681 templates/javascript/variables.twig:41
 msgid "Aug"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for September
-#: libraries/classes/Util.php:683
-#: templates/javascript/variables.twig:42
+#: libraries/classes/Util.php:683 templates/javascript/variables.twig:42
 msgid "Sep"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for October
-#: libraries/classes/Util.php:685
-#: templates/javascript/variables.twig:43
+#: libraries/classes/Util.php:685 templates/javascript/variables.twig:43
 msgid "Oct"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for November
-#: libraries/classes/Util.php:687
-#: templates/javascript/variables.twig:44
+#: libraries/classes/Util.php:687 templates/javascript/variables.twig:44
 msgid "Nov"
 msgstr ""
 
 #. l10n: Short month name
 #. l10n: Short month name for December
-#: libraries/classes/Util.php:689
-#: templates/javascript/variables.twig:45
+#: libraries/classes/Util.php:689 templates/javascript/variables.twig:45
 msgid "Dec"
 msgstr ""
 
@@ -12268,38 +12180,32 @@ msgid "Sun"
 msgstr ""
 
 #. l10n: Short week day name for Monday
-#: libraries/classes/Util.php:695
-#: templates/javascript/variables.twig:58
+#: libraries/classes/Util.php:695 templates/javascript/variables.twig:58
 msgid "Mon"
 msgstr ""
 
 #. l10n: Short week day name for Tuesday
-#: libraries/classes/Util.php:697
-#: templates/javascript/variables.twig:59
+#: libraries/classes/Util.php:697 templates/javascript/variables.twig:59
 msgid "Tue"
 msgstr ""
 
 #. l10n: Short week day name for Wednesday
-#: libraries/classes/Util.php:699
-#: templates/javascript/variables.twig:60
+#: libraries/classes/Util.php:699 templates/javascript/variables.twig:60
 msgid "Wed"
 msgstr ""
 
 #. l10n: Short week day name for Thursday
-#: libraries/classes/Util.php:701
-#: templates/javascript/variables.twig:61
+#: libraries/classes/Util.php:701 templates/javascript/variables.twig:61
 msgid "Thu"
 msgstr ""
 
 #. l10n: Short week day name for Friday
-#: libraries/classes/Util.php:703
-#: templates/javascript/variables.twig:62
+#: libraries/classes/Util.php:703 templates/javascript/variables.twig:62
 msgid "Fri"
 msgstr ""
 
 #. l10n: Short week day name for Saturday
-#: libraries/classes/Util.php:705
-#: templates/javascript/variables.twig:63
+#: libraries/classes/Util.php:705 templates/javascript/variables.twig:63
 msgid "Sat"
 msgstr ""
 
@@ -12314,7 +12220,7 @@ msgid "AM"
 msgstr ""
 
 #: libraries/classes/Util.php:804
-#, possible-php-format
+#, php-format
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr ""
 
@@ -12415,38 +12321,31 @@ msgstr ""
 msgid "Closed"
 msgstr ""
 
-#: libraries/config.values.php:191
-#: templates/javascript/variables.twig:49
+#: libraries/config.values.php:191 templates/javascript/variables.twig:49
 msgid "Monday"
 msgstr ""
 
-#: libraries/config.values.php:192
-#: templates/javascript/variables.twig:50
+#: libraries/config.values.php:192 templates/javascript/variables.twig:50
 msgid "Tuesday"
 msgstr ""
 
-#: libraries/config.values.php:193
-#: templates/javascript/variables.twig:51
+#: libraries/config.values.php:193 templates/javascript/variables.twig:51
 msgid "Wednesday"
 msgstr ""
 
-#: libraries/config.values.php:194
-#: templates/javascript/variables.twig:52
+#: libraries/config.values.php:194 templates/javascript/variables.twig:52
 msgid "Thursday"
 msgstr ""
 
-#: libraries/config.values.php:195
-#: templates/javascript/variables.twig:53
+#: libraries/config.values.php:195 templates/javascript/variables.twig:53
 msgid "Friday"
 msgstr ""
 
-#: libraries/config.values.php:196
-#: templates/javascript/variables.twig:54
+#: libraries/config.values.php:196 templates/javascript/variables.twig:54
 msgid "Saturday"
 msgstr ""
 
-#: libraries/config.values.php:197
-#: templates/javascript/variables.twig:48
+#: libraries/config.values.php:197 templates/javascript/variables.twig:48
 msgid "Sunday"
 msgstr ""
 
@@ -12511,7 +12410,7 @@ msgid "Wrong data"
 msgstr ""
 
 #: setup/validate.php:38
-#, possible-php-format
+#, php-format
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
@@ -12544,8 +12443,7 @@ msgid ""
 msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:116
-#: templates/database/data_dictionary/index.twig:75
-#: templates/indexes.twig:18
+#: templates/database/data_dictionary/index.twig:75 templates/indexes.twig:18
 #: templates/table/structure/display_structure.twig:152
 #: templates/table/structure/display_structure.twig:160
 #: templates/table/structure/display_structure.twig:298
@@ -12579,7 +12477,7 @@ msgstr ""
 
 #: templates/columns_definitions/column_attributes.twig:191
 #: templates/table/structure/display_structure.twig:450
-#, possible-php-format
+#, php-format
 msgid "after %s"
 msgstr ""
 
@@ -12591,10 +12489,8 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:32
 #: templates/console/display.twig:99
-#: templates/database/central_columns/main.twig:196
-#: templates/export.twig:285
-#: templates/export.twig:301
-#: templates/export.twig:317
+#: templates/database/central_columns/main.twig:196 templates/export.twig:285
+#: templates/export.twig:301 templates/export.twig:317
 msgid "Add"
 msgstr ""
 
@@ -12637,10 +12533,8 @@ msgstr ""
 
 #: templates/columns_definitions/column_definitions_form.twig:175
 #: templates/database/designer/main.twig:1097
-#: templates/database/designer/main.twig:1112
-#: templates/export_modal.twig:5
-#: templates/export.twig:81
-#: templates/modals/build_query.twig:5
+#: templates/database/designer/main.twig:1112 templates/export_modal.twig:5
+#: templates/export.twig:81 templates/modals/build_query.twig:5
 #: templates/modals/index_dialog_modal.twig:5
 #: templates/modals/preview_sql_confirmation.twig:5
 #: templates/modals/preview_sql_modal.twig:5
@@ -12652,7 +12546,7 @@ msgid "Loading"
 msgstr ""
 
 #: templates/columns_definitions/column_name.twig:4
-#, possible-php-format
+#, php-format
 msgid "Referenced by %s."
 msgstr ""
 
@@ -12708,8 +12602,7 @@ msgstr ""
 #: templates/database/data_dictionary/index.twig:81
 #: templates/database/events/editor_form.twig:102
 #: templates/database/routines/editor_form.twig:167
-#: templates/database/structure/table_header.twig:46
-#: templates/indexes.twig:24
+#: templates/database/structure/table_header.twig:46 templates/indexes.twig:24
 #: templates/table/structure/display_partitions.twig:31
 #: templates/table/structure/display_structure.twig:483
 #: templates/table/tracking/structure_snapshot_columns.twig:12
@@ -12769,8 +12662,7 @@ msgstr ""
 #: templates/database/operations/index.twig:194
 #: templates/database/operations/index.twig:198
 #: templates/database/structure/table_header.twig:31
-#: templates/home/index.twig:64
-#: templates/indexes.twig:22
+#: templates/home/index.twig:64 templates/indexes.twig:22
 #: templates/server/databases/index.twig:29
 #: templates/server/databases/index.twig:30
 #: templates/server/databases/index.twig:123
@@ -12842,7 +12734,7 @@ msgstr ""
 
 #: templates/config/form_display/input.twig:57
 #: templates/config/form_display/input.twig:58
-#, possible-php-format
+#, php-format
 msgid "Set value: %s"
 msgstr ""
 
@@ -12856,28 +12748,22 @@ msgstr ""
 msgid "Allow users to customize this value"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7
-#: templates/console/display.twig:31
-#: templates/console/display.twig:84
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Collapse"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7
-#: templates/console/display.twig:31
-#: templates/console/display.twig:84
-#: templates/console/display.twig:175
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
+#: templates/console/display.twig:84 templates/console/display.twig:175
 msgid "Expand"
 msgstr ""
 
-#: templates/console/bookmark_content.twig:7
-#: templates/console/display.twig:31
+#: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
 #: templates/console/display.twig:175
 msgid "Requery"
 msgstr ""
 
-#: templates/console/display.twig:7
-#: templates/setup/home/index.twig:166
+#: templates/console/display.twig:7 templates/setup/home/index.twig:166
 #: templates/sql/query.twig:38
 msgid "Clear"
 msgstr ""
@@ -12886,8 +12772,7 @@ msgstr ""
 msgid "History"
 msgstr ""
 
-#: templates/console/display.twig:11
-#: templates/console/display.twig:99
+#: templates/console/display.twig:11 templates/console/display.twig:99
 msgid "Bookmarks"
 msgstr ""
 
@@ -12899,23 +12784,19 @@ msgstr ""
 msgid "Press Enter to execute query"
 msgstr ""
 
-#: templates/console/display.twig:31
-#: templates/console/display.twig:175
+#: templates/console/display.twig:31 templates/console/display.twig:175
 msgid "Explain"
 msgstr ""
 
-#: templates/console/display.twig:40
-#: templates/console/display.twig:184
+#: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Bookmark"
 msgstr ""
 
-#: templates/console/display.twig:40
-#: templates/console/display.twig:184
+#: templates/console/display.twig:40 templates/console/display.twig:184
 msgid "Query failed"
 msgstr ""
 
-#: templates/console/display.twig:42
-#: templates/console/display.twig:184
+#: templates/console/display.twig:42 templates/console/display.twig:184
 msgid "Queried time"
 msgstr ""
 
@@ -12935,8 +12816,7 @@ msgstr ""
 msgid "Order:"
 msgstr ""
 
-#: templates/console/display.twig:64
-#: templates/console/display.twig:84
+#: templates/console/display.twig:64 templates/console/display.twig:84
 #: templates/table/find_replace/replace_preview.twig:16
 msgid "Count"
 msgstr ""
@@ -12945,13 +12825,11 @@ msgstr ""
 msgid "Execution order"
 msgstr ""
 
-#: templates/console/display.twig:64
-#: templates/console/display.twig:84
+#: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
 msgstr ""
 
-#: templates/console/display.twig:64
-#: templates/table/search/index.twig:146
+#: templates/console/display.twig:64 templates/table/search/index.twig:146
 msgid "Order by:"
 msgstr ""
 
@@ -12994,12 +12872,12 @@ msgid ""
 msgstr ""
 
 #: templates/create_tracking_version.twig:10
-#, possible-php-format
+#, php-format
 msgid "Create version %1$s of %2$s"
 msgstr ""
 
 #: templates/create_tracking_version.twig:15
-#, possible-php-format
+#, php-format
 msgid "Create version %1$s"
 msgstr ""
 
@@ -13074,8 +12952,7 @@ msgstr ""
 #: templates/database/privileges/index.twig:22
 #: templates/database/structure/table_header.twig:22
 #: templates/database/tracking/tables.twig:18
-#: templates/database/tracking/tables.twig:154
-#: templates/indexes.twig:15
+#: templates/database/tracking/tables.twig:154 templates/indexes.twig:15
 #: templates/server/databases/index.twig:163
 #: templates/server/privileges/privileges_summary.twig:22
 #: templates/server/privileges/users_overview.twig:22
@@ -13101,8 +12978,7 @@ msgid "Number of columns"
 msgstr ""
 
 #: templates/database/create_table.twig:14
-#: templates/database/operations/index.twig:39
-#: templates/export.twig:27
+#: templates/database/operations/index.twig:39 templates/export.twig:27
 #: templates/server/databases/index.twig:46
 msgid "Create"
 msgstr ""
@@ -13119,30 +12995,26 @@ msgstr ""
 msgid "Print"
 msgstr ""
 
-#: templates/database/data_dictionary/index.twig:76
-#: templates/indexes.twig:19
+#: templates/database/data_dictionary/index.twig:76 templates/indexes.twig:19
 #: templates/table/structure/display_structure.twig:478
 #: templates/table/tracking/structure_snapshot_indexes.twig:8
 msgid "Packed"
 msgstr ""
 
-#: templates/database/data_dictionary/index.twig:78
-#: templates/indexes.twig:21
+#: templates/database/data_dictionary/index.twig:78 templates/indexes.twig:21
 #: templates/table/structure/display_structure.twig:480
 #: templates/table/tracking/structure_snapshot_indexes.twig:10
 msgid "Cardinality"
 msgstr ""
 
-#: templates/database/data_dictionary/index.twig:117
-#: templates/indexes.twig:92
+#: templates/database/data_dictionary/index.twig:117 templates/indexes.twig:92
 #: templates/table/structure/display_structure.twig:559
 msgid "No index defined!"
 msgstr ""
 
 #: templates/database/designer/database_tables.twig:31
 #: templates/database/export/index.twig:28
-#: templates/database/search/main.twig:43
-#: templates/server/export/index.twig:10
+#: templates/database/search/main.twig:43 templates/server/export/index.twig:10
 #: templates/server/privileges/privileges_table.twig:28
 #: templates/server/privileges/privileges_table.twig:55
 #: templates/server/privileges/privileges_table.twig:82
@@ -13160,12 +13032,12 @@ msgid "See table structure"
 msgstr ""
 
 #: templates/database/designer/database_tables.twig:91
-#, possible-php-format
+#, php-format
 msgid "Select \"%s\""
 msgstr ""
 
 #: templates/database/designer/database_tables.twig:109
-#, possible-php-format
+#, php-format
 msgid "Add an option for column \"%s\"."
 msgstr ""
 
@@ -13376,8 +13248,7 @@ msgstr ""
 
 #: templates/database/events/editor_form.twig:10
 #: templates/database/routines/editor_form.twig:11
-#: templates/database/triggers/editor_form.twig:14
-#: templates/view_create.twig:8
+#: templates/database/triggers/editor_form.twig:14 templates/view_create.twig:8
 msgid "Details"
 msgstr ""
 
@@ -13392,7 +13263,7 @@ msgstr ""
 
 #: templates/database/events/editor_form.twig:48
 #: templates/database/routines/editor_form.twig:38
-#, possible-php-format
+#, php-format
 msgid "Change to %s"
 msgstr ""
 
@@ -13433,10 +13304,8 @@ msgstr ""
 #: templates/database/structure/check_all_tables.twig:4
 #: templates/database/triggers/list.twig:14
 #: templates/display/results/table.twig:226
-#: templates/display/results/table.twig:227
-#: templates/select_all.twig:4
-#: templates/select_all.twig:5
-#: templates/server/databases/index.twig:64
+#: templates/display/results/table.twig:227 templates/select_all.twig:4
+#: templates/select_all.twig:5 templates/server/databases/index.twig:64
 #: templates/server/privileges/edit_routine_privileges.twig:57
 #: templates/server/privileges/privileges_table.twig:268
 #: templates/server/privileges/privileges_table.twig:269
@@ -13483,13 +13352,12 @@ msgid ""
 msgstr ""
 
 #. l10n: A query that the user has written freely
-#: templates/database/export/index.twig:5
-#: templates/table/export/index.twig:5
+#: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 msgid "Exporting a raw query"
 msgstr ""
 
 #: templates/database/export/index.twig:7
-#, possible-php-format
+#, php-format
 msgid "Exporting tables from \"%s\" database"
 msgstr ""
 
@@ -13502,7 +13370,7 @@ msgid "Export the data of all tables."
 msgstr ""
 
 #: templates/database/import/index.twig:3
-#, possible-php-format
+#, php-format
 msgid "Importing into the database \"%s\""
 msgstr ""
 
@@ -13583,8 +13451,7 @@ msgstr ""
 msgid "Rename database to"
 msgstr ""
 
-#: templates/database/operations/index.twig:58
-#: templates/export.twig:282
+#: templates/database/operations/index.twig:58 templates/export.twig:282
 msgid "New database name"
 msgstr ""
 
@@ -13603,7 +13470,7 @@ msgid "Remove database"
 msgstr ""
 
 #: templates/database/operations/index.twig:89
-#, possible-php-format
+#, php-format
 msgid "Database %s has been dropped."
 msgstr ""
 
@@ -13639,7 +13506,7 @@ msgstr ""
 
 #: templates/database/privileges/index.twig:9
 #: templates/table/privileges/index.twig:8
-#, possible-php-format
+#, php-format
 msgid "Users having access to \"%s\""
 msgstr ""
 
@@ -13701,10 +13568,8 @@ msgstr ""
 #: templates/database/privileges/index.twig:115
 #: templates/database/structure/check_all_tables.twig:2
 #: templates/database/structure/check_all_tables.twig:9
-#: templates/database/structure/check_all_tables.twig:9
 #: templates/display/results/table.twig:225
-#: templates/display/results/table.twig:228
-#: templates/select_all.twig:2
+#: templates/display/results/table.twig:228 templates/select_all.twig:2
 #: templates/select_all.twig:6
 #: templates/server/privileges/users_overview.twig:120
 #: templates/server/privileges/users_overview.twig:123
@@ -13732,7 +13597,7 @@ msgid "Add user account"
 msgstr ""
 
 #: templates/database/qbe/index.twig:16
-#, possible-php-format
+#, php-format
 msgid "Switch to %svisual builder%s"
 msgstr ""
 
@@ -13795,7 +13660,7 @@ msgid "Use tables"
 msgstr ""
 
 #: templates/database/qbe/selection_form.twig:107
-#, possible-php-format
+#, php-format
 msgid "SQL query on database <b>%s</b>:"
 msgstr ""
 
@@ -13906,8 +13771,7 @@ msgstr ""
 msgid "Inside tables:"
 msgstr ""
 
-#: templates/database/search/main.twig:46
-#: templates/server/export/index.twig:11
+#: templates/database/search/main.twig:46 templates/server/export/index.twig:11
 #: templates/server/replication/database_multibox.twig:8
 msgid "Unselect all"
 msgstr ""
@@ -13917,7 +13781,7 @@ msgid "Inside column:"
 msgstr ""
 
 #: templates/database/search/results.twig:12
-#, possible-php-format
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
 msgstr[0] ""
@@ -13935,7 +13799,7 @@ msgid "Add prefix"
 msgstr ""
 
 #: templates/database/structure/body_for_table_summary.twig:6
-#, possible-php-format
+#, php-format
 msgid "%s table"
 msgid_plural "%s tables"
 msgstr[0] ""
@@ -14081,10 +13945,8 @@ msgid "Showing create queries"
 msgstr ""
 
 #: templates/database/structure/show_create.twig:33
-#: templates/display/results/table.twig:300
-#: templates/modals/create_view.twig:5
-#: templates/sql/no_results_returned.twig:13
-#: templates/view_create.twig:11
+#: templates/display/results/table.twig:300 templates/modals/create_view.twig:5
+#: templates/sql/no_results_returned.twig:13 templates/view_create.twig:11
 msgid "Create view"
 msgstr ""
 
@@ -14157,14 +14019,12 @@ msgid "Updated"
 msgstr ""
 
 #: templates/database/tracking/tables.twig:61
-#: templates/table/tracking/main.twig:10
-#: templates/table/tracking/main.twig:53
+#: templates/table/tracking/main.twig:10 templates/table/tracking/main.twig:53
 msgid "active"
 msgstr ""
 
 #: templates/database/tracking/tables.twig:73
-#: templates/table/tracking/main.twig:12
-#: templates/table/tracking/main.twig:56
+#: templates/table/tracking/main.twig:12 templates/table/tracking/main.twig:56
 msgid "not active"
 msgstr ""
 
@@ -14214,8 +14074,7 @@ msgstr ""
 msgid "Restore column order"
 msgstr ""
 
-#: templates/display/results/table.twig:49
-#: templates/export.twig:149
+#: templates/display/results/table.twig:49 templates/export.twig:149
 #: templates/table/start_and_number_of_rows_fieldset.twig:9
 msgid "Number of rows:"
 msgstr ""
@@ -14309,8 +14168,7 @@ msgstr ""
 msgid "Send error report"
 msgstr ""
 
-#: templates/export/template_options.twig:1
-#: templates/export.twig:42
+#: templates/export/template_options.twig:1 templates/export.twig:42
 msgid "Select a template"
 msgstr ""
 
@@ -14322,8 +14180,7 @@ msgstr ""
 msgid "New template:"
 msgstr ""
 
-#: templates/export.twig:21
-#: templates/export.twig:24
+#: templates/export.twig:21 templates/export.twig:24
 msgid "Template name"
 msgstr ""
 
@@ -14375,19 +14232,16 @@ msgstr ""
 msgid "Row to begin at:"
 msgstr ""
 
-#: templates/export.twig:170
-#: templates/export.twig:332
+#: templates/export.twig:170 templates/export.twig:332
 msgid "Output:"
 msgstr ""
 
-#: templates/export.twig:175
-#: templates/export.twig:370
-#, possible-php-format
+#: templates/export.twig:175 templates/export.twig:370
+#, php-format
 msgid "Save on server in the directory <strong>%s</strong>"
 msgstr ""
 
-#: templates/export.twig:193
-#: templates/export.twig:337
+#: templates/export.twig:193 templates/export.twig:337
 msgid "Rename exported databases/tables/columns"
 msgstr ""
 
@@ -14395,10 +14249,8 @@ msgstr ""
 msgid "Defined aliases"
 msgstr ""
 
-#: templates/export.twig:216
-#: templates/export.twig:230
-#: templates/export.twig:243
-#: templates/export.twig:260
+#: templates/export.twig:216 templates/export.twig:230
+#: templates/export.twig:243 templates/export.twig:260
 msgid "Remove"
 msgstr ""
 
@@ -14427,7 +14279,7 @@ msgid "New column name"
 msgstr ""
 
 #: templates/export.twig:347
-#, possible-php-format
+#, php-format
 msgid "Use %s statement"
 msgstr ""
 
@@ -14444,7 +14296,7 @@ msgid "File name template:"
 msgstr ""
 
 #: templates/export.twig:388
-#, possible-php-format
+#, php-format
 msgid ""
 "This value is interpreted using the 'strftime' function, so you can use time "
 "formatting strings. Additionally the following transformations will happen: "
@@ -14455,8 +14307,7 @@ msgstr ""
 msgid "Use this for future exports"
 msgstr ""
 
-#: templates/export.twig:409
-#: templates/import.twig:103
+#: templates/export.twig:409 templates/import.twig:103
 msgid "Character set of the file:"
 msgstr ""
 
@@ -14488,41 +14339,34 @@ msgstr ""
 msgid "The size is measured in MiB."
 msgstr ""
 
-#: templates/export.twig:482
-#: templates/import.twig:182
+#: templates/export.twig:482 templates/import.twig:182
 msgid "Format-specific options:"
 msgstr ""
 
-#: templates/export.twig:491
-#: templates/import.twig:191
+#: templates/export.twig:491 templates/import.twig:191
 msgid "Encoding Conversion:"
 msgstr ""
 
-#: templates/filter.twig:2
-#: templates/server/status/processes/index.twig:6
+#: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
 msgid "Filters"
 msgstr ""
 
-#: templates/filter.twig:4
-#: templates/server/status/variables/index.twig:12
+#: templates/filter.twig:4 templates/server/status/variables/index.twig:12
 msgid "Containing the word:"
 msgstr ""
 
-#: templates/footer.twig:7
-#: templates/footer.twig:9
-#: templates/footer.twig:11
+#: templates/footer.twig:7 templates/footer.twig:9 templates/footer.twig:11
 msgid "Open new phpMyAdmin window"
 msgstr ""
 
-#: templates/footer.twig:26
-#: templates/home/index.twig:18
+#: templates/footer.twig:26 templates/home/index.twig:18
 #: templates/login/form.twig:5
 msgid "phpMyAdmin Demo Server"
 msgstr ""
 
 #: templates/footer.twig:34
-#, possible-php-format
+#, php-format
 msgid "Currently running Git revision %1$s from the %2$s branch."
 msgstr ""
 
@@ -14531,7 +14375,7 @@ msgid "Git information missing!"
 msgstr ""
 
 #: templates/gis_data_editor_form.twig:4
-#, possible-php-format
+#, php-format
 msgid "Value for the column \"%s\""
 msgstr ""
 
@@ -14546,7 +14390,7 @@ msgid "SRID:"
 msgstr ""
 
 #: templates/gis_data_editor_form.twig:62
-#, possible-php-format
+#, php-format
 msgid "Geometry %d:"
 msgstr ""
 
@@ -14557,12 +14401,12 @@ msgstr ""
 #: templates/gis_data_editor_form.twig:106
 #: templates/gis_data_editor_form.twig:151
 #: templates/gis_data_editor_form.twig:207
-#, possible-php-format
+#, php-format
 msgid "Point %d:"
 msgstr ""
 
 #: templates/gis_data_editor_form.twig:130
-#, possible-php-format
+#, php-format
 msgid "Linestring %d:"
 msgstr ""
 
@@ -14573,7 +14417,7 @@ msgstr ""
 
 #: templates/gis_data_editor_form.twig:134
 #: templates/gis_data_editor_form.twig:193
-#, possible-php-format
+#, php-format
 msgid "Inner ring %d:"
 msgstr ""
 
@@ -14582,7 +14426,7 @@ msgid "Add a linestring"
 msgstr ""
 
 #: templates/gis_data_editor_form.twig:178
-#, possible-php-format
+#, php-format
 msgid "Polygon %d:"
 msgstr ""
 
@@ -14604,8 +14448,7 @@ msgid ""
 "below into the \"Value\" field."
 msgstr ""
 
-#: templates/header.twig:35
-#: templates/login/header.twig:13
+#: templates/header.twig:35 templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr ""
 
@@ -14621,25 +14464,23 @@ msgstr ""
 msgid "no branch"
 msgstr ""
 
-#: templates/home/git_info.twig:15
-#: templates/home/git_info.twig:22
-#, possible-php-format
+#: templates/home/git_info.twig:15 templates/home/git_info.twig:22
+#, php-format
 msgid "from %s branch"
 msgstr ""
 
 #: templates/home/git_info.twig:25
-#, possible-php-format
+#, php-format
 msgid "committed on %s by %s"
 msgstr ""
 
 #: templates/home/git_info.twig:32
-#, possible-php-format
+#, php-format
 msgid "authored on %s by %s"
 msgstr ""
 
-#: templates/home/index.twig:22
-#: templates/login/form.twig:8
-#, possible-php-format
+#: templates/home/index.twig:22 templates/login/form.twig:8
+#, php-format
 msgid ""
 "You are using the demo server. You can do anything here, but please do not "
 "change root, debian-sys-maint and pma users. More information is available "
@@ -14654,8 +14495,7 @@ msgstr ""
 msgid "Server connection collation:"
 msgstr ""
 
-#: templates/home/index.twig:83
-#: templates/preferences/manage/main.twig:56
+#: templates/home/index.twig:83 templates/preferences/manage/main.twig:56
 msgid "More settings"
 msgstr ""
 
@@ -14663,12 +14503,9 @@ msgstr ""
 msgid "Appearance settings"
 msgstr ""
 
-#: templates/home/index.twig:104
-#: templates/home/index.twig:105
-#: templates/login/form.twig:23
-#: templates/login/form.twig:24
-#: templates/setup/home/index.twig:8
-#: templates/setup/home/index.twig:9
+#: templates/home/index.twig:104 templates/home/index.twig:105
+#: templates/login/form.twig:23 templates/login/form.twig:24
+#: templates/setup/home/index.twig:8 templates/setup/home/index.twig:9
 msgid "Language"
 msgstr ""
 
@@ -14685,8 +14522,7 @@ msgstr ""
 msgid "Database server"
 msgstr ""
 
-#: templates/home/index.twig:163
-#: templates/login/form.twig:65
+#: templates/home/index.twig:163 templates/login/form.twig:65
 #: templates/menu/breadcrumbs.twig:7
 msgid "Server:"
 msgstr ""
@@ -14751,13 +14587,11 @@ msgstr ""
 msgid "List of changes"
 msgstr ""
 
-#: templates/home/index.twig:271
-#: templates/server/plugins/index.twig:30
+#: templates/home/index.twig:271 templates/server/plugins/index.twig:30
 msgid "License"
 msgstr ""
 
-#: templates/home/index.twig:282
-#: templates/setup/error.twig:2
+#: templates/home/index.twig:282 templates/setup/error.twig:2
 msgid "Warning"
 msgstr ""
 
@@ -14774,7 +14608,7 @@ msgid "Get more themes!"
 msgstr ""
 
 #: templates/home/themes.twig:7
-#, possible-php-format
+#, php-format
 msgid "Screenshot of the %s theme."
 msgstr ""
 
@@ -14791,12 +14625,12 @@ msgid ""
 msgstr ""
 
 #: templates/import/javascript.twig:13
-#, possible-php-format
+#, php-format
 msgid "%s of %s"
 msgstr ""
 
 #: templates/import/javascript.twig:14
-#, possible-php-format
+#, php-format
 msgid "%s/sec."
 msgstr ""
 
@@ -14827,7 +14661,7 @@ msgid "File to import:"
 msgstr ""
 
 #: templates/import.twig:31
-#, possible-php-format
+#, php-format
 msgid "File may be compressed (%s) or uncompressed."
 msgstr ""
 
@@ -14845,25 +14679,21 @@ msgstr ""
 msgid "Select file to import"
 msgstr ""
 
-#: templates/import.twig:50
-#: templates/import.twig:77
+#: templates/import.twig:50 templates/import.twig:77
 #: templates/preferences/manage/main.twig:22
 msgid "Browse your computer:"
 msgstr ""
 
-#: templates/import.twig:55
-#: templates/import.twig:82
+#: templates/import.twig:55 templates/import.twig:82
 msgid "You may also drag and drop a file on any page."
 msgstr ""
 
-#: templates/import.twig:62
-#: templates/import.twig:88
-#, possible-php-format
+#: templates/import.twig:62 templates/import.twig:88
+#, php-format
 msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr ""
 
-#: templates/import.twig:69
-#: templates/import.twig:96
+#: templates/import.twig:69 templates/import.twig:96
 msgid "There are no files to import!"
 msgstr ""
 
@@ -14876,7 +14706,7 @@ msgid "Partial import:"
 msgstr ""
 
 #: templates/import.twig:131
-#, possible-php-format
+#, php-format
 msgid ""
 "Previous import timed out, after resubmitting will continue from position %d."
 msgstr ""
@@ -14913,7 +14743,7 @@ msgstr ""
 
 #: templates/indexes.twig:50
 #: templates/table/structure/display_structure.twig:517
-#, possible-php-format
+#, php-format
 msgid "Index %s has been dropped."
 msgstr ""
 
@@ -15133,15 +14963,12 @@ msgid ""
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: templates/login/form.twig:58
-#: templates/login/form.twig:117
-#: templates/login/form.twig:121
-#: templates/login/form.twig:124
+#: templates/login/form.twig:58 templates/login/form.twig:117
+#: templates/login/form.twig:121 templates/login/form.twig:124
 msgid "Log in"
 msgstr ""
 
-#: templates/login/form.twig:64
-#: templates/login/form.twig:69
+#: templates/login/form.twig:64 templates/login/form.twig:69
 msgid "You can enter hostname/IP address and port separated by space."
 msgstr ""
 
@@ -15269,43 +15096,35 @@ msgstr ""
 msgid "Unhide"
 msgstr ""
 
-#: templates/navigation/main.twig:25
-#: templates/navigation/main.twig:26
+#: templates/navigation/main.twig:25 templates/navigation/main.twig:26
 msgid "Home"
 msgstr ""
 
-#: templates/navigation/main.twig:30
-#: templates/navigation/main.twig:31
+#: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Empty session data"
 msgstr ""
 
-#: templates/navigation/main.twig:30
-#: templates/navigation/main.twig:31
+#: templates/navigation/main.twig:30 templates/navigation/main.twig:31
 msgid "Log out"
 msgstr ""
 
-#: templates/navigation/main.twig:35
-#: templates/navigation/main.twig:36
+#: templates/navigation/main.twig:35 templates/navigation/main.twig:36
 msgid "phpMyAdmin documentation"
 msgstr ""
 
-#: templates/navigation/main.twig:39
-#: templates/navigation/main.twig:40
+#: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MariaDB Documentation"
 msgstr ""
 
-#: templates/navigation/main.twig:39
-#: templates/navigation/main.twig:40
+#: templates/navigation/main.twig:39 templates/navigation/main.twig:40
 msgid "MySQL Documentation"
 msgstr ""
 
-#: templates/navigation/main.twig:43
-#: templates/navigation/main.twig:44
+#: templates/navigation/main.twig:43 templates/navigation/main.twig:44
 msgid "Navigation panel settings"
 msgstr ""
 
-#: templates/navigation/main.twig:47
-#: templates/navigation/main.twig:48
+#: templates/navigation/main.twig:47 templates/navigation/main.twig:48
 msgid "Reload navigation panel"
 msgstr ""
 
@@ -15354,7 +15173,7 @@ msgid "Configuration has been saved."
 msgstr ""
 
 #: templates/preferences/header.twig:60
-#, possible-php-format
+#, php-format
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
@@ -15399,7 +15218,7 @@ msgid "Merge with current configuration"
 msgstr ""
 
 #: templates/preferences/manage/main.twig:59
-#, possible-php-format
+#, php-format
 msgid ""
 "You can set more settings by modifying config.inc.php, eg. by using %sSetup "
 "script%s."
@@ -15537,20 +15356,20 @@ msgid "General relation features"
 msgstr ""
 
 #: templates/relation/check_relations.twig:20
-#, possible-php-format
+#, php-format
 msgid ""
 "%sCreate%s a database named '%s' and setup the phpMyAdmin configuration "
 "storage there."
 msgstr ""
 
 #: templates/relation/check_relations.twig:24
-#, possible-php-format
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
 msgstr ""
 
 #: templates/relation/check_relations.twig:31
-#, possible-php-format
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
 msgstr ""
 
@@ -15680,7 +15499,7 @@ msgid "Quick steps to set up advanced features:"
 msgstr ""
 
 #: templates/relation/check_relations.twig:523
-#, possible-php-format
+#, php-format
 msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr ""
 
@@ -15702,14 +15521,12 @@ msgstr ""
 msgid "Select binary log to view"
 msgstr ""
 
-#: templates/server/binlog/index.twig:59
-#: templates/server/binlog/index.twig:60
+#: templates/server/binlog/index.twig:59 templates/server/binlog/index.twig:60
 #: templates/server/status/processes/list.twig:20
 msgid "Truncate shown queries"
 msgstr ""
 
-#: templates/server/binlog/index.twig:63
-#: templates/server/binlog/index.twig:64
+#: templates/server/binlog/index.twig:63 templates/server/binlog/index.twig:64
 #: templates/server/status/processes/list.twig:26
 msgid "Show full queries"
 msgstr ""
@@ -15769,12 +15586,12 @@ msgid "Replica replication"
 msgstr ""
 
 #: templates/server/databases/index.twig:181
-#, possible-php-format
+#, php-format
 msgid "Jump to database '%s'"
 msgstr ""
 
 #: templates/server/databases/index.twig:242
-#, possible-php-format
+#, php-format
 msgid "Check privileges for database \"%s\"."
 msgstr ""
 
@@ -15797,8 +15614,7 @@ msgstr ""
 msgid "No databases"
 msgstr ""
 
-#: templates/server/engines/index.twig:5
-#: templates/server/engines/show.twig:3
+#: templates/server/engines/index.twig:5 templates/server/engines/show.twig:3
 msgid "Storage engines"
 msgstr ""
 
@@ -15826,8 +15642,7 @@ msgstr ""
 msgid "Plugin"
 msgstr ""
 
-#: templates/server/plugins/index.twig:28
-#: templates/table/tracking/main.twig:28
+#: templates/server/plugins/index.twig:28 templates/table/tracking/main.twig:28
 msgid "Version"
 msgstr ""
 
@@ -15864,7 +15679,7 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr ""
 
 #: templates/server/privileges/add_user.twig:24
-#, possible-php-format
+#, php-format
 msgid "Grant all privileges on database %s."
 msgstr ""
 
@@ -16261,7 +16076,7 @@ msgid "Port:"
 msgstr ""
 
 #: templates/server/replication/index.twig:21
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -16396,12 +16211,12 @@ msgid "Skip current error"
 msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:87
-#, possible-php-format
+#, php-format
 msgid "Skip next %s errors."
 msgstr ""
 
 #: templates/server/replication/replica_configuration.twig:107
-#, possible-php-format
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
@@ -16421,8 +16236,7 @@ msgstr ""
 msgid "Variable"
 msgstr ""
 
-#: templates/server/select/index.twig:7
-#: templates/server/select/index.twig:19
+#: templates/server/select/index.twig:7 templates/server/select/index.twig:19
 msgid "Current server:"
 msgstr ""
 
@@ -16537,25 +16351,25 @@ msgstr ""
 
 #: templates/server/status/monitor/index.twig:43
 #: templates/server/status/processes/index.twig:40
-#, possible-php-format
+#, php-format
 msgid "%d second"
 msgstr ""
 
 #: templates/server/status/monitor/index.twig:45
 #: templates/server/status/processes/index.twig:42
-#, possible-php-format
+#, php-format
 msgid "%d seconds"
 msgstr ""
 
 #: templates/server/status/monitor/index.twig:49
 #: templates/server/status/processes/index.twig:46
-#, possible-php-format
+#, php-format
 msgid "%d minute"
 msgstr ""
 
 #: templates/server/status/monitor/index.twig:51
 #: templates/server/status/processes/index.twig:48
-#, possible-php-format
+#, php-format
 msgid "%d minutes"
 msgstr ""
 
@@ -16745,12 +16559,12 @@ msgid "Not enough privilege to view query statistics."
 msgstr ""
 
 #: templates/server/status/status/index.twig:6
-#, possible-php-format
+#, php-format
 msgid "Network traffic since startup: %s"
 msgstr ""
 
 #: templates/server/status/status/index.twig:7
-#, possible-php-format
+#, php-format
 msgid "This MySQL server has been running for %1$s. It started up on %2$s."
 msgstr ""
 
@@ -16811,7 +16625,7 @@ msgid "Add user group"
 msgstr ""
 
 #: templates/server/user_groups/edit_user_groups.twig:4
-#, possible-php-format
+#, php-format
 msgid "Edit user group: '%s'"
 msgstr ""
 
@@ -16840,7 +16654,7 @@ msgid "Delete user group"
 msgstr ""
 
 #: templates/server/user_groups/user_listings.twig:1
-#, possible-php-format
+#, php-format
 msgid "Users of '%s' user group"
 msgstr ""
 
@@ -16861,17 +16675,15 @@ msgid "Session value"
 msgstr ""
 
 #: templates/server/variables/index.twig:80
-#, possible-php-format
+#, php-format
 msgid "Not enough privilege to view server variables and settings. %s"
 msgstr ""
 
-#: templates/setup/base.twig:29
-#: templates/setup/home/index.twig:20
+#: templates/setup/base.twig:29 templates/setup/home/index.twig:20
 msgid "Overview"
 msgstr ""
 
-#: templates/setup/config/index.twig:4
-#: templates/setup/home/index.twig:98
+#: templates/setup/config/index.twig:4 templates/setup/home/index.twig:98
 msgid "Configuration file"
 msgstr ""
 
@@ -16879,8 +16691,7 @@ msgstr ""
 msgid "Generated configuration file"
 msgstr ""
 
-#: templates/setup/config/index.twig:22
-#: templates/setup/home/index.twig:165
+#: templates/setup/config/index.twig:22 templates/setup/home/index.twig:165
 msgid "Download"
 msgstr ""
 
@@ -16960,8 +16771,7 @@ msgstr ""
 msgid "Something went wrong."
 msgstr ""
 
-#: templates/sql/bookmark.twig:11
-#: templates/sql/bookmark.twig:29
+#: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
 msgstr ""
 
@@ -16969,8 +16779,7 @@ msgstr ""
 msgid "Label:"
 msgstr ""
 
-#: templates/sql/bookmark.twig:22
-#: templates/sql/query.twig:93
+#: templates/sql/bookmark.twig:22 templates/sql/query.twig:93
 msgid "Let every user access this bookmark"
 msgstr ""
 
@@ -16978,8 +16787,7 @@ msgstr ""
 msgid "Detailed profile"
 msgstr ""
 
-#: templates/sql/profiling_chart.twig:13
-#: templates/sql/profiling_chart.twig:43
+#: templates/sql/profiling_chart.twig:13 templates/sql/profiling_chart.twig:43
 msgid "State"
 msgstr ""
 
@@ -17020,8 +16828,7 @@ msgstr ""
 msgid "Replace existing bookmark of same name"
 msgstr ""
 
-#: templates/sql/query.twig:110
-#: templates/sql/query.twig:111
+#: templates/sql/query.twig:110 templates/sql/query.twig:111
 msgid "Delimiter"
 msgstr ""
 
@@ -17152,13 +16959,12 @@ msgid ""
 msgstr ""
 
 #: templates/table/export/index.twig:7
-#, possible-php-format
+#, php-format
 msgid "Exporting rows from \"%s\" table"
 msgstr ""
 
 #: templates/table/find_replace/index.twig:4
-#: templates/table/search/index.twig:4
-#: templates/table/zoom_search/index.twig:4
+#: templates/table/search/index.twig:4 templates/table/zoom_search/index.twig:4
 msgid "Table search"
 msgstr ""
 
@@ -17216,17 +17022,15 @@ msgid "Spatial column"
 msgstr ""
 
 #: templates/table/import/index.twig:3
-#, possible-php-format
+#, php-format
 msgid "Importing into the table \"%s\""
 msgstr ""
 
-#: templates/table/index_form.twig:18
-#: templates/table/index_rename_form.twig:11
+#: templates/table/index_form.twig:18 templates/table/index_rename_form.twig:11
 msgid "Index name:"
 msgstr ""
 
-#: templates/table/index_form.twig:19
-#: templates/table/index_rename_form.twig:12
+#: templates/table/index_form.twig:19 templates/table/index_rename_form.twig:12
 msgid ""
 "\"PRIMARY\" <b>must</b> be the name of and <b>only of</b> a primary key!"
 msgstr ""
@@ -17255,8 +17059,7 @@ msgstr ""
 msgid "Comment:"
 msgstr ""
 
-#: templates/table/index_form.twig:162
-#: templates/table/index_form.twig:199
+#: templates/table/index_form.twig:162 templates/table/index_form.twig:199
 msgid "Drag to reorder"
 msgstr ""
 
@@ -17319,7 +17122,7 @@ msgid "Edit/Insert"
 msgstr ""
 
 #: templates/table/insert/continue_insertion_form.twig:18
-#, possible-php-format
+#, php-format
 msgid "Continue insertion with %s rows"
 msgstr ""
 
@@ -17369,7 +17172,7 @@ msgid "Defragment table"
 msgstr ""
 
 #: templates/table/operations/index.twig:372
-#, possible-php-format
+#, php-format
 msgid "Table %s has been flushed."
 msgstr ""
 
@@ -17498,7 +17301,7 @@ msgid "Choose column to display:"
 msgstr ""
 
 #: templates/table/relation/foreign_key_row.twig:15
-#, possible-php-format
+#, php-format
 msgid "Foreign key constraint %s has been dropped"
 msgstr ""
 
@@ -17592,12 +17395,12 @@ msgid "Change"
 msgstr ""
 
 #: templates/table/structure/display_structure.twig:116
-#, possible-php-format
+#, php-format
 msgid "Column %s has been dropped."
 msgstr ""
 
 #: templates/table/structure/display_structure.twig:142
-#, possible-php-format
+#, php-format
 msgid "A primary key has been added on %s."
 msgstr ""
 
@@ -17605,7 +17408,7 @@ msgstr ""
 #: templates/table/structure/display_structure.twig:172
 #: templates/table/structure/display_structure.twig:197
 #: templates/table/structure/display_structure.twig:216
-#, possible-php-format
+#, php-format
 msgid "An index has been added on %s."
 msgstr ""
 
@@ -17651,7 +17454,7 @@ msgid "Track view"
 msgstr ""
 
 #: templates/table/structure/display_structure.twig:440
-#, possible-php-format
+#, php-format
 msgid "Add %s column(s)"
 msgstr ""
 
@@ -17660,7 +17463,7 @@ msgid "at beginning of table"
 msgstr ""
 
 #: templates/table/structure/display_structure.twig:569
-#, possible-php-format
+#, php-format
 msgid "Create an index on %s columns"
 msgstr ""
 
@@ -17700,14 +17503,13 @@ msgstr ""
 msgid "Next autoindex"
 msgstr ""
 
-#: templates/table/tracking/main.twig:64
-#: templates/table/tracking/main.twig:91
+#: templates/table/tracking/main.twig:64 templates/table/tracking/main.twig:91
 #: templates/table/tracking/main.twig:92
 msgid "Delete version"
 msgstr ""
 
 #: templates/table/tracking/main.twig:102
-#, possible-php-format
+#, php-format
 msgid "Activate tracking for %s"
 msgstr ""
 
@@ -17716,7 +17518,7 @@ msgid "Activate now"
 msgstr ""
 
 #: templates/table/tracking/main.twig:106
-#, possible-php-format
+#, php-format
 msgid "Deactivate tracking for %s"
 msgstr ""
 
