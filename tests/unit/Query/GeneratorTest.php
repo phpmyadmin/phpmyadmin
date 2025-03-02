@@ -22,7 +22,8 @@ class GeneratorTest extends AbstractTestCase
                 . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`,'
                 . ' `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mydb\''
-                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\'',
+                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             Generator::getColumns(
                 "'mydb'",
                 "'mytable'",
@@ -33,7 +34,8 @@ class GeneratorTest extends AbstractTestCase
                 . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`,'
                 . ' `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mydb\''
-                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\' AND `COLUMN_NAME` = \'_idcolumn\'',
+                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\' AND `COLUMN_NAME` = \'_idcolumn\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             Generator::getColumns(
                 "'mydb'",
                 "'mytable'",
@@ -45,7 +47,8 @@ class GeneratorTest extends AbstractTestCase
                 . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`,'
                 . ' `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mydb\''
-                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\'',
+                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             Generator::getColumns(
                 "'mydb'",
                 "'mytable'",
@@ -57,7 +60,8 @@ class GeneratorTest extends AbstractTestCase
                 . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`,'
                 . ' `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mydb\''
-                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\' AND `COLUMN_NAME` = \'_idcolumn\'',
+                . ' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\' AND `COLUMN_NAME` = \'_idcolumn\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             Generator::getColumns(
                 "'mydb'",
                 "'mytable'",
