@@ -583,7 +583,7 @@ class DbiDummy implements DbiExtension
                 'query' => 'SELECT 1 FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`'
                     . " WHERE `PRIVILEGE_TYPE` = 'CREATE USER'"
                     . " AND '''pma_test''@''localhost''' LIKE `GRANTEE`"
-                    . " UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci"
+                    . " UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y'"
                     . " AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1",
                 'result' => [['1']],
             ],
@@ -598,7 +598,7 @@ class DbiDummy implements DbiExtension
                     . ' FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES`) t'
                     . " WHERE `IS_GRANTABLE` = 'YES'"
                     . " AND '''pma_test''@''localhost''' LIKE `GRANTEE`"
-                    . " UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y' COLLATE utf8mb4_general_ci"
+                    . " UNION SELECT 1 FROM mysql.user WHERE `create_user_priv` = 'Y'"
                     . " AND 'pma_test' LIKE `User` AND '' LIKE `Host` LIMIT 1",
                 'result' => [['1']],
             ],
