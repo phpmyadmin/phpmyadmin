@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2024-11-03 19:25+0000\n"
+"PO-Revision-Date: 2025-03-07 10:59+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/vi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -115,6 +115,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} được đặt thành 10 giây trở lên, do đó chỉ các truy vấn "
+"chậm mất trên 10 giây được ghi lại."
 
 #: libraries/advisory_rules_generic.php:73
 msgid ""
@@ -227,6 +229,10 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Nếu bạn không biên dịch từ nguồn, bạn có thể đang sử dụng gói được sửa đổi "
+"bởi một phân phối. Hướng dẫn MySQL chỉ chính xác cho các nhị phân MySQL "
+"chính thức, không phải bất kỳ phân phối gói nào (như Redhat, Debian/Ubuntu, "
+"v.v.)."
 
 #: libraries/advisory_rules_generic.php:154
 msgid "'source' found in version_comment"
@@ -288,6 +294,10 @@ msgid ""
 "refman/5.6/en/ha-memcached.html\">memcached</a> instead of the MySQL Query "
 "cache, especially if you have multiple slaves."
 msgstr ""
+"Bạn đang sử dụng bộ nhớ cache truy vấn MySQL với cơ sở dữ liệu lưu lượng khá "
+"cao. Có thể đáng để xem xét sử dụng <a href = "
+"\"https://dev.mysql.com/doc/refman/5.6/en/ha-memcached.html\"> MEMCACHED </"
+"a> thay vì bộ đệm truy vấn MySQL, đặc biệt là nếu bạn có nhiều lệ thuộc."
 
 #: libraries/advisory_rules_generic.php:198
 #, php-format
@@ -332,7 +342,7 @@ msgstr "Tỉ lệ sắp xếp phát sinh bảng tạm"
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
+msgstr "Bảng tạm thời trung bình: %s, giá trị này phải ít hơn 1 mỗi giờ."
 
 #: libraries/advisory_rules_generic.php:233
 msgid "Sort rows"
@@ -12131,16 +12141,17 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Không thể viết bộ đệm định tuyến, bạn cần điều chỉnh quyền trên thư mục/tệp "
+"\"%s\""
 
 #: libraries/classes/Routing.php:169
-#, fuzzy, php-format
-#| msgid "Source database `%s` was not found!"
+#, php-format
 msgid "Error 404! The page %s was not found."
-msgstr "Không tìm thấy cơ sở dữ liệu nguồn “%s“!"
+msgstr "Lỗi 404! Không tìm thấy trang %s."
 
 #: libraries/classes/Routing.php:180
 msgid "Error 405! Request method not allowed."
-msgstr ""
+msgstr "Lỗi 405! Yêu cầu phương thức không cho phép."
 
 #: libraries/classes/SavedSearches.php:282
 msgid "Please provide a name for this bookmarked search."
@@ -12366,10 +12377,8 @@ msgstr "Cho phép cài đặt các sự kiện cho lịch biểu sự kiện."
 #: libraries/classes/Server/Privileges.php:470
 #: templates/server/privileges/privileges_table.twig:210
 #: templates/server/privileges/privileges_table.twig:214
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Cho phép xóa dữ liệu."
+msgstr "Cho phép xóa các hàng lịch sử."
 
 #: libraries/classes/Server/Privileges.php:475
 #: templates/server/privileges/privileges_table.twig:430
@@ -12697,10 +12706,9 @@ msgstr ""
 "Sửa, Chép và Xóa có lẽ có kết quả trong ứng xử không đòi hỏi. %s"
 
 #: libraries/classes/SqlQueryForm.php:152
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Chạy (các) truy vấn SQL trên máy chủ %s"
+msgstr "Chạy (các) truy vấn SQL trên máy chủ “%s”"
 
 #: libraries/classes/SqlQueryForm.php:171
 #, php-format
@@ -13086,19 +13094,17 @@ msgid "A date, supported range is %1$s to %2$s"
 msgstr "Kiểu ngày, vùng được hỗ trợ là từ %1$s đến %2$s"
 
 #: libraries/classes/Types.php:274
-#, fuzzy, php-format
+#, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Một sự tổ hợp của ngày và giờ, phạm vi được hỗ trợ là %1$s đến %2$s"
+msgstr "Một sự kết hợp ngày và giờ, phạm vi hỗ trợ là %1$s đến %2$s"
 
 #: libraries/classes/Types.php:280
-#, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Một timestamp, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 03:14:07 "
-"UTC, được lưu trữ dưới dạng số giây kể từ kỷ nguyên (1970-01-01 00:00:00 "
-"UTC )"
+"Một dấu thời gian, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 03:14:"
+"07 UTC, được lưu dưới dạng số giây kể từ thời (1970-01-01 00:00:00 UTC )"
 
 #: libraries/classes/Types.php:286
 #, php-format
@@ -13164,12 +13170,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Tương tự như loại CHAR, nhưng lưu trữ chuỗi byte nhị phân hơn là chuỗi ký tự "
+"không nhị phân"
 
 #: libraries/classes/Types.php:340
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Tương tự như loại VARCHAR, nhưng lưu chuỗi byte nhị phân chứ không phải "
+"chuỗi ký tự không nhị phân"
 
 #: libraries/classes/Types.php:345
 msgid ""
@@ -13200,22 +13210,24 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Một bảng liệt kê, được chọn từ danh sách lên tới 65,535 giá trị hoặc giá trị "
+"lỗi '' đặc biệt"
 
 #: libraries/classes/Types.php:371
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Một giá trị duy nhất được chọn từ một bộ lên tới 64 thành viên"
 
 #: libraries/classes/Types.php:373
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Một loại có thể lưu trữ một hình học thuộc bất kỳ loại nào"
 
 #: libraries/classes/Types.php:375
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Một điểm trong không gian 2 chiều"
 
 #: libraries/classes/Types.php:377
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Một đường cong với phép nội suy tuyến tính giữa các điểm"
 
 #: libraries/classes/Types.php:379
 msgid "A polygon"
@@ -13227,7 +13239,7 @@ msgstr "Một tập hợp tọa độ"
 
 #: libraries/classes/Types.php:384
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Một tập hợp các đường cong với phép nội suy tuyến tính giữa các điểm"
 
 #: libraries/classes/Types.php:387
 msgid "A collection of polygons"
@@ -13250,6 +13262,8 @@ msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
+"Dự định lưu trữ địa chỉ IPv6, cũng như địa chỉ IPv4 giả sử ánh xạ thông "
+"thường của địa chỉ IPv4 vào địa chỉ IPv6"
 
 #: libraries/classes/Types.php:723
 msgctxt "numeric types"
@@ -13271,20 +13285,16 @@ msgid "The profile has been updated."
 msgstr "Hồ sơ đã được cập nhật."
 
 #: libraries/classes/UserPassword.php:48
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Mã băm mật khẩu:"
+msgstr "Mật khẩu quá dài!"
 
 #: libraries/classes/UserPreferences.php:169
 msgid "Could not save configuration"
 msgstr "Không thể ghi lại cấu hình"
 
 #: libraries/classes/UserPreferences.php:178
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "The phpMyAdmin configuration storage database could not be accessed."
-msgstr "Thiếu các bảng lưu trữ cấu hình phpMyAdmin"
+msgstr "Không thể truy cập cơ sở dữ liệu lưu trữ cấu hình PHPMyAdmin."
 
 #: libraries/classes/Util.php:138
 #, php-format
@@ -16008,7 +16018,7 @@ msgstr ""
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Xác nhận"
 
 #: templates/menu/breadcrumbs.twig:27
 msgid "View:"
@@ -16210,7 +16220,7 @@ msgstr ""
 
 #: templates/preferences/two_factor/main.twig:12
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Các gói composer sau bị thiếu:"
 
 #: templates/preferences/two_factor/main.twig:20
 msgid "Two-factor authentication is available and configured for this account."
@@ -16317,10 +16327,8 @@ msgid "Create database"
 msgstr "Tạo cơ sở dữ liệu"
 
 #: templates/server/databases/index.twig:72
-#, fuzzy
-#| msgid "Check privileges for database \"%s\"."
 msgid "No privileges to create databases"
-msgstr "Kiểm tra đặc quyền dành cho cơ sở dữ liệu \"%s\"."
+msgstr "Không có đặc quyền để tạo cơ sở dữ liệu"
 
 #: templates/server/databases/index.twig:159
 #: templates/server/replication/index.twig:18
@@ -16382,10 +16390,8 @@ msgid "Unknown storage engine."
 msgstr "Máy lưu trữ"
 
 #: templates/server/export/index.twig:32
-#, fuzzy
-#| msgid "@SERVER@ will become the server name"
 msgid "@SERVER@ will become the server name."
-msgstr "@SERVER@ sẽ thay thế bởi tên máy chủ"
+msgstr "@SERVER@ sẽ trở thành tên máy chủ."
 
 #: templates/server/export/index.twig:3
 msgid "Exporting databases from the current server"
@@ -16412,10 +16418,8 @@ msgid "Author"
 msgstr "Tác giả"
 
 #: templates/server/plugins/index.twig:41
-#, fuzzy
-#| msgid "active"
 msgid "inactive"
-msgstr "tích cực"
+msgstr "không hoạt động"
 
 #: templates/server/plugins/index.twig:43
 msgid "disabled"
@@ -16428,10 +16432,8 @@ msgid "deleting"
 msgstr "Đang xóa"
 
 #: templates/server/plugins/index.twig:47
-#, fuzzy
-#| msgid "Delete"
 msgid "deleted"
-msgstr "Xóa bỏ"
+msgstr "đã xóa"
 
 #: templates/server/privileges/add_user.twig:12
 msgid "Database for user account"
@@ -16457,15 +16459,13 @@ msgstr "Không Mật khẩu"
 
 #: templates/server/privileges/change_password.twig:24
 msgid "Enter:"
-msgstr ""
+msgstr "Nhập:"
 
 #: templates/server/privileges/change_password.twig:28
 #: templates/server/privileges/login_information_fields.twig:54
-#, fuzzy
-#| msgid "Data length"
 msgctxt "Password strength"
 msgid "Strength:"
-msgstr "Độ dài dữ liệu"
+msgstr "Độ dài:"
 
 #: templates/server/privileges/change_password.twig:32
 #: templates/server/privileges/login_information_fields.twig:60
@@ -16493,10 +16493,8 @@ msgid "User group"
 msgstr "Nhóm người dùng"
 
 #: templates/server/privileges/choose_user_group.twig:6
-#, fuzzy
-#| msgid "User group"
 msgid "User group:"
-msgstr "Nhóm người dùng"
+msgstr "Nhóm người dùng:"
 
 #: templates/server/privileges/edit_routine_privileges.twig:4
 #: templates/server/privileges/user_properties.twig:4
@@ -16645,19 +16643,14 @@ msgid "Password hashing method"
 msgstr "Phương thức băm mật khẩu"
 
 #: templates/server/privileges/login_information_fields.twig:83
-#, fuzzy
-#| msgid ""
-#| "This method requires using an '<i>SSL connection</i>' or an "
-#| "'<i>unencrypted connection that encrypts the password using RSA</i>'; "
-#| "while connecting to the server."
 msgid ""
 "This method requires using an '<em>SSL connection</em>' or an "
 "'<em>unencrypted connection that encrypts the password using RSA</em>'; "
 "while connecting to the server."
 msgstr ""
-"Phương thức này yêu cầu dùng một '<i>kết nối SSL</i>' hoặc một '<i>kết nối "
-"không mã hóa cái mà mã hóa mật khẩu dùng RSA</i>'; trong khi kết nối đến máy "
-"phục vụ."
+"Phương thức này yêu cầu dùng một '<em>kết nối SSL</em>' hoặc một '<em>kết "
+"nối không mã hóa cái mà mã hóa mật khẩu dùng RSA</em>'; trong khi kết nối "
+"đến máy chủ."
 
 #: templates/server/privileges/new_user_ajax.twig:52
 #: templates/server/privileges/users_overview.twig:80
@@ -16706,6 +16699,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Cho phép người dùng cung cấp cho người dùng khác hoặc xóa khỏi người dùng "
+"khác các đặc quyền mà người dùng sở hữu."
 
 #: templates/server/privileges/privileges_table.twig:231
 msgid "Global"
@@ -16728,20 +16723,16 @@ msgstr ""
 "Cho phép thêm tài khoản và đặc quyền mà không cần tải lại bảng đặc quyền."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Allows creating stored routines."
 msgid "Allows creating foreign key relations."
-msgstr "Cho phép tạo thủ tục lưu trữ."
+msgstr "Cho phép tạo quan hệ khóa ngoại."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr ""
+msgstr "Không được dùng trên Mariadb."
 
 #: templates/server/privileges/privileges_table.twig:646
-#, fuzzy
-#| msgid "Has no effect in this MySQL version."
 msgid "Not used for this MySQL version."
-msgstr "Chưa có hiệu quả trong phiên bản MySQL này."
+msgstr "Không được dùng cho phiên bản MySQL này."
 
 #: templates/server/privileges/privileges_table.twig:697
 msgid "Resource limits"
@@ -16889,10 +16880,8 @@ msgstr ""
 "tạo bản sao. Bạn có muốn <a href=\"%s\">cấu hình</a> nó?"
 
 #: templates/server/replication/index.twig:43
-#, fuzzy
-#| msgid "No privileges."
 msgid "No privileges"
-msgstr "Không có đặc quyền."
+msgstr "Không có quyền"
 
 #: templates/server/replication/master_add_slave_user.twig:6
 #: templates/server/replication/master_replication.twig:44
@@ -16939,6 +16928,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Bây giờ, hãy thêm các dòng sau ở cuối phần [mysqld] trong my.cnf của bạn và "
+"vui lòng khởi động lại máy chủ MySQL sau đó."
 
 #: templates/server/replication/master_configuration.twig:21
 msgid ""
@@ -17594,7 +17585,7 @@ msgstr "Thêm máy chủ mới"
 
 #: templates/setup/servers/index.twig:17
 msgid "Something went wrong."
-msgstr ""
+msgstr "Có gì đó đã sai."
 
 #: templates/sql/bookmark.twig:11 templates/sql/bookmark.twig:29
 msgid "Bookmark this SQL query"
@@ -17776,12 +17767,12 @@ msgid "Save chart as image"
 msgstr "Lưu biểu đồ thành ảnh"
 
 #: templates/table/export/index.twig:12
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name, @DATABASE@ will become the database "
 "name and @TABLE@ will become the table name."
-msgstr ", @DATABASE@ sẽ được thay bằng tên cơ sở dữ liệu"
+msgstr ""
+"@SERVER@ sẽ trở thành tên máy chủ, @DATABASE@ sẽ trở thành tên cơ sở dữ liệu "
+"và @TABLE@ sẽ trở thành tên bảng."
 
 #: templates/table/export/index.twig:7
 #, php-format
@@ -17865,10 +17856,8 @@ msgid "Index choice:"
 msgstr "Chọn chỉ mục:"
 
 #: templates/table/index_form.twig:52
-#, fuzzy
-#| msgid "Active options"
 msgid "Advanced options"
-msgstr "Tùy chọn đang kích hoạt"
+msgstr "Tùy chọn nâng cao"
 
 #: templates/table/index_form.twig:59
 msgid "Key block size:"
@@ -17913,10 +17902,8 @@ msgid "(singly)"
 msgstr "(đơn)"
 
 #: templates/table/operations/index.twig:50
-#, fuzzy
-#| msgid "Move table to (database<b>.</b>table)"
 msgid "Move table to (database.table)"
-msgstr "Di chuyển bảng đến (cơ sở dữ liệu<b>.</b>bảng)"
+msgstr "Di chuyển bảng đến (database.table)"
 
 #: templates/table/operations/index.twig:103
 msgid "Table options"
@@ -17935,10 +17922,8 @@ msgid "Change all column collations"
 msgstr "Thay đổi mọi bảng mã đối chiếu cột"
 
 #: templates/table/operations/index.twig:227
-#, fuzzy
-#| msgid "Copy table to (database<b>.</b>table)"
 msgid "Copy table to (database.table)"
-msgstr "Chép bảng đến (cơ sở dữ liệu<b>.</b>bảng)"
+msgstr "Chép bảng đến (database.table)"
 
 #: templates/table/operations/index.twig:300
 msgid "Switch to copied table"
@@ -17975,10 +17960,8 @@ msgid "Remove partitioning"
 msgstr "Xóa phân vùng"
 
 #: templates/table/operations/index.twig:471
-#, fuzzy
-#| msgid "Check referential integrity:"
 msgid "Check referential integrity"
-msgstr "Kiểm tra tính nguyên vẹn dữ liệu của đĩa"
+msgstr "Kiểm tra tính toàn vẹn tham chiếu"
 
 #: templates/table/operations/view.twig:11
 msgid "Rename view to"
@@ -17993,40 +17976,28 @@ msgid "Relation view"
 msgstr "Hiển thị quan hệ"
 
 #: templates/table/partition/analyze.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Analyze partition"
-msgstr "đã phân vùng"
+msgstr "Phân tích phân vùng"
 
 #: templates/table/partition/check.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Check partition"
-msgstr "đã phân vùng"
+msgstr "Kiểm tra phân vùng"
 
 #: templates/table/partition/drop.twig:2
-#, fuzzy
-#| msgid "partitioned"
 msgid "Drop partition"
-msgstr "đã phân vùng"
+msgstr "Bỏ phân vùng"
 
 #: templates/table/partition/optimize.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Optimize partition"
-msgstr "Xóa phân vùng"
+msgstr "Tối ưu hóa phân vùng"
 
 #: templates/table/partition/rebuild.twig:2
-#, fuzzy
-#| msgid "Subpartition"
 msgid "Rebuild partition"
-msgstr "Phân vùng con"
+msgstr "Dựng lại phân vùng"
 
 #: templates/table/partition/repair.twig:2
-#, fuzzy
-#| msgid "Remove partitioning"
 msgid "Repair partition"
-msgstr "Xóa phân vùng"
+msgstr "Sửa chữa phân vùng"
 
 #: templates/table/partition/truncate.twig:2
 msgid "Truncate partition"
@@ -18304,8 +18275,6 @@ msgstr "Ngưng hoạt động ngay"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
