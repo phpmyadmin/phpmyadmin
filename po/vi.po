@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-11-03 19:25+0000\n"
+"PO-Revision-Date: 2025-03-07 10:59+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/vi/>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -542,16 +542,12 @@ msgid "Output"
 msgstr "Kết xuất"
 
 #: gis_data_editor.php:423
-#, fuzzy
-#| msgid ""
-#| "Choose \"GeomFromText\" from the \"Function\" column and paste the string "
-#| "below into the \"Value\" field."
 msgid ""
 "Choose \"ST_GeomFromText\" from the \"Function\" column and paste the string "
 "below into the \"Value\" field."
 msgstr ""
-"Chọn \"GeomFromText\" từ cột \"Function\" và dán chuỗi bên dưới vào trường "
-"\"Value\"."
+"Chọn \"ST_GeomFromText\" từ cột \"Function\" và dán chuỗi bên dưới vào "
+"trường \"Value\"."
 
 #: import.php:73
 msgid "Succeeded"
@@ -7157,7 +7153,7 @@ msgstr "Mật khẩu:"
 
 #: libraries/classes/Display/ChangePassword.php:79
 msgid "Enter:"
-msgstr ""
+msgstr "Nhập:"
 
 #: libraries/classes/Display/ChangePassword.php:87
 #: libraries/classes/ReplicationGui.php:878
@@ -10286,6 +10282,8 @@ msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
+"Bây giờ, hãy thêm các dòng sau ở cuối phần [mysqld] trong my.cnf của bạn và "
+"vui lòng khởi động lại máy chủ MySQL sau đó."
 
 #: libraries/classes/ReplicationGui.php:126
 msgid ""
@@ -11313,6 +11311,8 @@ msgid ""
 "Allows user to give to other users or remove from other users the privileges "
 "that user possess yourself."
 msgstr ""
+"Cho phép người dùng cung cấp cho người dùng khác hoặc xóa khỏi người dùng "
+"khác các đặc quyền mà người dùng sở hữu."
 
 #: libraries/classes/Server/Privileges.php:1440
 #: libraries/classes/Server/Privileges.php:1471
@@ -12763,10 +12763,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Trục trặc với chỉ mục của bảng “%s“"
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Chạy (các) truy vấn SQL trên máy chủ %s"
+msgstr "Chạy (các) truy vấn SQL trên máy chủ “%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -13197,19 +13196,17 @@ msgid "A date, supported range is %1$s to %2$s"
 msgstr "Kiểu ngày, vùng được hỗ trợ là từ %1$s đến %2$s"
 
 #: libraries/classes/Types.php:270
-#, fuzzy, php-format
+#, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
-msgstr "Một sự tổ hợp của ngày và giờ, phạm vi được hỗ trợ là %1$s đến %2$s"
+msgstr "Một sự kết hợp ngày và giờ, phạm vi hỗ trợ là %1$s đến %2$s"
 
 #: libraries/classes/Types.php:275
-#, fuzzy
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Một timestamp, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 03:14:07 "
-"UTC, được lưu trữ dưới dạng số giây kể từ kỷ nguyên (1970-01-01 00:00:00 "
-"UTC )"
+"Một dấu thời gian, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 03:14:"
+"07 UTC, được lưu dưới dạng số giây kể từ thời (1970-01-01 00:00:00 UTC )"
 
 #: libraries/classes/Types.php:281
 #, php-format
@@ -13275,12 +13272,16 @@ msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Tương tự như loại CHAR, nhưng lưu trữ chuỗi byte nhị phân hơn là chuỗi ký tự "
+"không nhị phân"
 
 #: libraries/classes/Types.php:332
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
+"Tương tự như loại VARCHAR, nhưng lưu chuỗi byte nhị phân chứ không phải "
+"chuỗi ký tự không nhị phân"
 
 #: libraries/classes/Types.php:337
 msgid ""
@@ -13311,22 +13312,24 @@ msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
+"Một bảng liệt kê, được chọn từ danh sách lên tới 65,535 giá trị hoặc giá trị "
+"lỗi '' đặc biệt"
 
 #: libraries/classes/Types.php:363
 msgid "A single value chosen from a set of up to 64 members"
-msgstr ""
+msgstr "Một giá trị duy nhất được chọn từ một bộ lên tới 64 thành viên"
 
 #: libraries/classes/Types.php:365
 msgid "A type that can store a geometry of any type"
-msgstr ""
+msgstr "Một loại có thể lưu trữ một hình học thuộc bất kỳ loại nào"
 
 #: libraries/classes/Types.php:367
 msgid "A point in 2-dimensional space"
-msgstr ""
+msgstr "Một điểm trong không gian 2 chiều"
 
 #: libraries/classes/Types.php:369
 msgid "A curve with linear interpolation between points"
-msgstr ""
+msgstr "Một đường cong với phép nội suy tuyến tính giữa các điểm"
 
 #: libraries/classes/Types.php:371
 msgid "A polygon"
@@ -13338,7 +13341,7 @@ msgstr "Một tập hợp tọa độ"
 
 #: libraries/classes/Types.php:376
 msgid "A collection of curves with linear interpolation between points"
-msgstr ""
+msgstr "Một tập hợp các đường cong với phép nội suy tuyến tính giữa các điểm"
 
 #: libraries/classes/Types.php:379
 msgid "A collection of polygons"
@@ -13376,10 +13379,8 @@ msgid "The profile has been updated."
 msgstr "Hồ sơ đã được cập nhật."
 
 #: libraries/classes/UserPassword.php:74
-#, fuzzy
-#| msgid "Password Hashing:"
 msgid "Password is too long!"
-msgstr "Mã băm mật khẩu:"
+msgstr "Mật khẩu quá dài!"
 
 #: libraries/classes/UserPreferences.php:157
 msgid "Could not save configuration"
@@ -13785,10 +13786,8 @@ msgid "View dump (schema) of databases"
 msgstr "Xem phần đổ (lược đồ) của cơ sở dữ liệu"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Cho phép xóa dữ liệu."
+msgstr "Cho phép xóa các hàng lịch sử."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -14440,7 +14439,7 @@ msgstr "Lưu trên máy chủ ở thư mục <strong>%s</strong>"
 
 #: templates/login/twofactor.twig:5
 msgid "Verify"
-msgstr ""
+msgstr "Xác nhận"
 
 #: templates/table/chart/tbl_chart.twig:15
 msgctxt "Chart type"
@@ -14612,7 +14611,7 @@ msgstr ""
 
 #: templates/prefs_twofactor.twig:10
 msgid "Following composer packages are missing:"
-msgstr ""
+msgstr "Các gói composer sau bị thiếu:"
 
 #: templates/prefs_twofactor.twig:18
 msgid "Two-factor authentication is available and configured for this account."
@@ -15365,8 +15364,6 @@ msgstr "Cập nhật"
 
 #: templates/table/tracking/report_table.twig:4
 #: templates/table/tracking/structure_snapshot_columns.twig:5
-#, fuzzy
-#| msgid "#"
 msgctxt "Number"
 msgid "#"
 msgstr "#"
@@ -16132,6 +16129,8 @@ msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} được đặt thành 10 giây trở lên, do đó chỉ các truy vấn "
+"chậm mất trên 10 giây được ghi lại."
 
 #: libraries/advisory_rules_generic.txt:81
 msgid ""
@@ -16244,6 +16243,10 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"Nếu bạn không biên dịch từ nguồn, bạn có thể đang sử dụng gói được sửa đổi "
+"bởi một phân phối. Hướng dẫn MySQL chỉ chính xác cho các nhị phân MySQL "
+"chính thức, không phải bất kỳ phân phối gói nào (như Redhat, Debian/Ubuntu, "
+"v.v.)."
 
 #: libraries/advisory_rules_generic.txt:126
 msgid "'source' found in version_comment"
@@ -16349,7 +16352,7 @@ msgstr "Tỉ lệ sắp xếp phát sinh bảng tạm"
 #, php-format
 msgid ""
 "Temporary tables average: %s, this value should be less than 1 per hour."
-msgstr ""
+msgstr "Bảng tạm thời trung bình: %s, giá trị này phải ít hơn 1 mỗi giờ."
 
 #: libraries/advisory_rules_generic.txt:168
 msgid "Sort rows"
@@ -17016,6 +17019,16 @@ msgid ""
 "\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/"
 "\">this article</a>"
 msgstr ""
+"Nhóm bộ đệm Innodb có tác động sâu sắc đến hiệu suất cho các bảng Innodb. "
+"Gán tất cả bộ nhớ còn lại của bạn cho bộ đệm này. Đối với các máy chủ cơ sở "
+"dữ liệu chỉ sử dụng innodb làm công cụ lưu trữ và không có dịch vụ nào khác ("
+"ví dụ: máy chủ web) đang chạy, bạn có thể đặt cái này cao như 80%% của bộ "
+"nhớ có sẵn của bạn. Nếu đó không phải là trường hợp, bạn cần đánh giá cẩn "
+"thận mức tiêu thụ bộ nhớ của các dịch vụ khác và các bảng không innodb và "
+"đặt biến này cho phù hợp. Nếu nó được đặt quá cao, hệ thống của bạn sẽ bắt "
+"đầu hoán đổi, làm giảm hiệu suất đáng kể. Xem thêm <a href="
+"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\""
+">bài viết này</a>"
 
 #: libraries/advisory_rules_generic.txt:387
 #, php-format
