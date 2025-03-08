@@ -4237,6 +4237,12 @@ parameters:
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
+			message: '#^Parameter \#2 \$moveColumns of method PhpMyAdmin\\Controllers\\Table\\Structure\\MoveColumnsController\:\:generateAlterTableSql\(\) expects list\<string\>, list given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Table/Structure/MoveColumnsController.php
+
+		-
 			message: '#^Cannot call method get\(\) on PhpMyAdmin\\SqlParser\\Components\\OptionsArray\|null\.$#'
 			identifier: method.nonObject
 			count: 16

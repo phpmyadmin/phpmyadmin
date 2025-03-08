@@ -52,8 +52,9 @@ final class MoveColumnsController implements InvocableController
         $createTableSql = $this->dbi->getTable(Current::$database, Current::$table)->showCreate();
         $sqlQuery = $this->generateAlterTableSql($createTableSql, $moveColumns);
 
-        if ($sqlQuery === null) {
+        if ($sqlQuery instanceof Message) {
             $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $sqlQuery);
 
             return $this->response->response();
         }
@@ -85,11 +86,8 @@ final class MoveColumnsController implements InvocableController
         return $this->response->response();
     }
 
-    /**
-     * @param array<int,mixed> $moveColumns
-     * @psalm-param list<mixed> $moveColumns
-     */
-    private function generateAlterTableSql(string $createTableSql, array $moveColumns): string|null
+    /** @param list<string> $moveColumns */
+    private function generateAlterTableSql(string $createTableSql, array $moveColumns): string|Message
     {
         $parser = new Parser($createTableSql);
         /** @var CreateStatement $statement */
@@ -111,13 +109,12 @@ final class MoveColumnsController implements InvocableController
             count($columnNames) !== count($moveColumns) ||
             array_diff($columnNames, $moveColumns) !== []
         ) {
-            return null;
+            return Message::error(__('The selected columns do not match the columns in the table.'));
         }
 
         $changes = [];
 
         // move columns from first to last
-        /** @psalm-var list<string> $moveColumns */
         foreach ($moveColumns as $i => $columnName) {
             // is this column already correctly placed?
             if ($columnNames[$i] == $columnName) {
@@ -136,7 +133,7 @@ final class MoveColumnsController implements InvocableController
         }
 
         if ($changes === []) {
-            return null;
+            return Message::error(__('The selected columns are already in the correct order.'));
         }
 
         assert($statement->name !== null, 'Alter table statement has no name');
