@@ -20,7 +20,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_diff;
 use function array_is_list;
-use function array_keys;
 use function array_search;
 use function array_splice;
 use function assert;
@@ -95,15 +94,16 @@ final class MoveColumnsController implements InvocableController
         /** @var CreateDefinition[] $fields */
         $fields = $statement->fields;
         $columns = [];
+        $columnNames = [];
         foreach ($fields as $field) {
             if ($field->name === null) {
                 continue;
             }
 
             $columns[$field->name] = $field;
+            $columnNames[] = $field->name;
         }
 
-        $columnNames = array_keys($columns);
         // Ensure the columns from client match the columns from the table
         if (
             count($columnNames) !== count($moveColumns) ||
@@ -117,7 +117,7 @@ final class MoveColumnsController implements InvocableController
         // move columns from first to last
         foreach ($moveColumns as $i => $columnName) {
             // is this column already correctly placed?
-            if ($columnNames[$i] == $columnName) {
+            if ($columnNames[$i] === $columnName) {
                 continue;
             }
 
@@ -126,7 +126,10 @@ final class MoveColumnsController implements InvocableController
                 ($i === 0 ? ' FIRST' : ' AFTER ' . Util::backquote($columnNames[$i - 1]));
 
             // Move column to its new position
-            /** @var int $j */
+            /**
+             * @var int $j
+             * We are sure that the value exists because we checked it with array_diff and the type of both is string
+             */
             $j = array_search($columnName, $columnNames, true);
             array_splice($columnNames, $j, 1);
             array_splice($columnNames, $i, 0, $columnName);

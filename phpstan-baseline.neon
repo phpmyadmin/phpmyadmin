@@ -4225,12 +4225,6 @@ parameters:
 			path: src/Controllers/Table/Structure/ChangeController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
-			count: 1
-			path: src/Controllers/Table/Structure/MoveColumnsController.php
-
-		-
 			message: '#^PHPDoc tag @var with type int is not subtype of type int\<0, max\>\|false\.$#'
 			identifier: varTag.type
 			count: 1
