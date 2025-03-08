@@ -20,7 +20,6 @@ use PhpMyAdmin\Util;
 use function __;
 use function array_diff;
 use function array_is_list;
-use function array_keys;
 use function array_search;
 use function array_splice;
 use function assert;
@@ -52,8 +51,9 @@ final class MoveColumnsController implements InvocableController
         $createTableSql = $this->dbi->getTable(Current::$database, Current::$table)->showCreate();
         $sqlQuery = $this->generateAlterTableSql($createTableSql, $moveColumns);
 
-        if ($sqlQuery === null) {
+        if ($sqlQuery instanceof Message) {
             $this->response->setRequestStatus(false);
+            $this->response->addJSON('message', $sqlQuery);
 
             return $this->response->response();
         }
@@ -85,11 +85,8 @@ final class MoveColumnsController implements InvocableController
         return $this->response->response();
     }
 
-    /**
-     * @param array<int,mixed> $moveColumns
-     * @psalm-param list<mixed> $moveColumns
-     */
-    private function generateAlterTableSql(string $createTableSql, array $moveColumns): string|null
+    /** @param list<string> $moveColumns */
+    private function generateAlterTableSql(string $createTableSql, array $moveColumns): string|Message
     {
         $parser = new Parser($createTableSql);
         /** @var CreateStatement $statement */
@@ -97,30 +94,30 @@ final class MoveColumnsController implements InvocableController
         /** @var CreateDefinition[] $fields */
         $fields = $statement->fields;
         $columns = [];
+        $columnNames = [];
         foreach ($fields as $field) {
             if ($field->name === null) {
                 continue;
             }
 
             $columns[$field->name] = $field;
+            $columnNames[] = $field->name;
         }
 
-        $columnNames = array_keys($columns);
         // Ensure the columns from client match the columns from the table
         if (
             count($columnNames) !== count($moveColumns) ||
             array_diff($columnNames, $moveColumns) !== []
         ) {
-            return null;
+            return Message::error(__('The selected columns do not match the columns in the table.'));
         }
 
         $changes = [];
 
         // move columns from first to last
-        /** @psalm-var list<string> $moveColumns */
         foreach ($moveColumns as $i => $columnName) {
             // is this column already correctly placed?
-            if ($columnNames[$i] == $columnName) {
+            if ($columnNames[$i] === $columnName) {
                 continue;
             }
 
@@ -129,14 +126,17 @@ final class MoveColumnsController implements InvocableController
                 ($i === 0 ? ' FIRST' : ' AFTER ' . Util::backquote($columnNames[$i - 1]));
 
             // Move column to its new position
-            /** @var int $j */
+            /**
+             * @var int $j
+             * We are sure that the value exists because we checked it with array_diff and the type of both is string
+             */
             $j = array_search($columnName, $columnNames, true);
             array_splice($columnNames, $j, 1);
             array_splice($columnNames, $i, 0, $columnName);
         }
 
         if ($changes === []) {
-            return null;
+            return Message::error(__('The selected columns are already in the correct order.'));
         }
 
         assert($statement->name !== null, 'Alter table statement has no name');

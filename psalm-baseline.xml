@@ -2808,6 +2808,11 @@
       <code><![CDATA[[$request->getParam('field')]]]></code>
     </MixedArgumentTypeCoercion>
   </file>
+  <file src="src/Controllers/Table/Structure/MoveColumnsController.php">
+    <MixedArgumentTypeCoercion>
+      <code><![CDATA[$moveColumns]]></code>
+    </MixedArgumentTypeCoercion>
+  </file>
   <file src="src/Controllers/Table/Structure/PartitioningController.php">
     <PossiblyNullArgument>
       <code><![CDATA[$stmt->partitions]]></code>

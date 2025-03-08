@@ -4225,14 +4225,14 @@ parameters:
 			path: src/Controllers/Table/Structure/ChangeController.php
 
 		-
-			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
-			identifier: equal.notAllowed
+			message: '#^PHPDoc tag @var with type int is not subtype of type int\<0, max\>\|false\.$#'
+			identifier: varTag.type
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
 		-
-			message: '#^PHPDoc tag @var with type int is not subtype of type int\<0, max\>\|false\.$#'
-			identifier: varTag.type
+			message: '#^Parameter \#2 \$moveColumns of method PhpMyAdmin\\Controllers\\Table\\Structure\\MoveColumnsController\:\:generateAlterTableSql\(\) expects list\<string\>, list given\.$#'
+			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/Structure/MoveColumnsController.php
 
