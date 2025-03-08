@@ -6,6 +6,7 @@ namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 
 use PhpMyAdmin\Controllers\Table\Structure\MoveColumnsController;
 use PhpMyAdmin\Current;
+use PhpMyAdmin\Message;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer as ResponseStub;
@@ -23,8 +24,11 @@ class MoveColumnsControllerTest extends AbstractTestCase
      * @psalm-param list<string> $columnNames
      */
     #[DataProvider('providerForTestGenerateAlterTableSql')]
-    public function testGenerateAlterTableSql(string $createStatement, array $columnNames, string|null $expected): void
-    {
+    public function testGenerateAlterTableSql(
+        string $createStatement,
+        array $columnNames,
+        string|Message $expected,
+    ): void {
         $class = new ReflectionClass(MoveColumnsController::class);
         $method = $class->getMethod('generateAlterTableSql');
 
@@ -38,19 +42,26 @@ class MoveColumnsControllerTest extends AbstractTestCase
             new Template(),
             $dbi,
         );
-        /** @var string|null $alterStatement */
+        /** @var string|Message $alterStatement */
         $alterStatement = $method->invoke($controller, $createStatement, $columnNames);
 
-        $expected = $expected === null ? null : preg_replace('/\r?\n/', "\n", $expected);
-        $alterStatement = $alterStatement === null ? null : preg_replace('/\r?\n/', "\n", $alterStatement);
+        if ($expected instanceof Message) {
+            self::assertInstanceOf(Message::class, $alterStatement);
+            self::assertSame($expected->getMessage(), $alterStatement->getMessage());
+
+            return;
+        }
+
+        self::assertIsString($alterStatement);
+        $expected = preg_replace('/\r?\n/', "\n", $expected);
+        $alterStatement = preg_replace('/\r?\n/', "\n", $alterStatement);
         self::assertSame($expected, $alterStatement);
     }
 
     /**
      * Data provider for testGenerateAlterTableSql
      *
-     * @return array<array<string[]|string|null>>
-     * @psalm-return list<array{string,list<string>,string}>
+     * @return list<array{string,list<string>,string|Message}>
      */
     public static function providerForTestGenerateAlterTableSql(): array
     {
@@ -115,6 +126,56 @@ class MoveColumnsControllerTest extends AbstractTestCase
                 <<<'SQL'
                     ALTER TABLE `test`
                       CHANGE `enum` `enum` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no' FIRST
+                    SQL,
+            ],
+            [
+                <<<'SQL'
+                    CREATE TABLE `test` (
+                      `id` int(11) NOT NULL,
+                      `enum` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci
+                    SQL,
+                ['foo', 'id'],
+                Message::error('The selected columns do not match the columns in the table.'),
+            ],
+            [
+                <<<'SQL'
+                    CREATE TABLE `test` (
+                      `id` int(11) NOT NULL,
+                      `enum` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci
+                    SQL,
+                ['id', 'enum'],
+                Message::error('The selected columns are already in the correct order.'),
+            ],
+            [
+                <<<'SQL'
+                    CREATE TABLE `test` (
+                      `"` int(11) NOT NULL,
+                      `'` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci
+                    SQL,
+                ['\'', '"'],
+                <<<'SQL'
+                    ALTER TABLE `test`
+                      CHANGE `'` `'` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no' FIRST
+                    SQL,
+            ],
+            [
+                <<<'SQL'
+                    CREATE TABLE `test` (
+                      `1` int(11) NOT NULL,
+                      `0` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no',
+                      PRIMARY KEY (`id`)
+                    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci
+                    SQL,
+                ['0', '1'],
+                <<<'SQL'
+                    ALTER TABLE `test`
+                      CHANGE `0` `0` enum('yes','no') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'no' FIRST
                     SQL,
             ],
         ];
