@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-02 00:25+0000\n"
+"POT-Creation-Date: 2025-03-09 00:21+0000\n"
 "PO-Revision-Date: 2022-12-06 00:47+0000\n"
 "Last-Translator: MP-van-Niekerk <manie@wedoweb.co.za>\n"
 "Language-Team: Afrikaans <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15831,6 +15831,14 @@ msgstr ""
 #| msgid "Database %s has been dropped."
 msgid "The columns have been moved successfully."
 msgstr "Databasis %s is verwyder."
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:112
+msgid "The selected columns do not match the columns in the table."
+msgstr ""
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:139
+msgid "The selected columns are already in the correct order."
+msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264

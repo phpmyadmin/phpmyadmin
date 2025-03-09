@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-02 00:25+0000\n"
+"POT-Creation-Date: 2025-03-09 00:21+0000\n"
 "PO-Revision-Date: 2025-03-07 10:59+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15411,6 +15411,16 @@ msgstr "Chỉ thị không hợp lệ \"%s\" đưa cho tham số."
 msgid "The columns have been moved successfully."
 msgstr "Các cột được di chuyển thành công."
 
+#: src/Controllers/Table/Structure/MoveColumnsController.php:112
+#, fuzzy
+#| msgid "The selected user was not found in the privilege table."
+msgid "The selected columns do not match the columns in the table."
+msgstr "Người dùng đã chọn không tìm thấy trong bảng đặc quyền."
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:139
+msgid "The selected columns are already in the correct order."
+msgstr ""
+
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264
 #: src/Tracking/Tracking.php:731
@@ -18574,8 +18584,9 @@ msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Một dấu thời gian, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 03:14:"
-"07 UTC, được lưu dưới dạng số giây kể từ thời (1970-01-01 00:00:00 UTC )"
+"Một dấu thời gian, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 "
+"03:14:07 UTC, được lưu dưới dạng số giây kể từ thời (1970-01-01 00:00:00 "
+"UTC )"
 
 #: src/Types.php:198
 #, php-format

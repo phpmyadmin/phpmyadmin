@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-02 00:25+0000\n"
+"POT-Creation-Date: 2025-03-09 00:21+0000\n"
 "PO-Revision-Date: 2025-01-12 23:24+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15165,6 +15165,16 @@ msgstr "リクエストパラメータが無効です。"
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
 msgstr "カラムは正常に移動されました。"
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:112
+#, fuzzy
+#| msgid "The selected user was not found in the privilege table."
+msgid "The selected columns do not match the columns in the table."
+msgstr "選択したユーザが権限テーブルで見つかりません。"
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:139
+msgid "The selected columns are already in the correct order."
+msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264

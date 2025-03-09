@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-02 00:25+0000\n"
+"POT-Creation-Date: 2025-03-09 00:21+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Mongolian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -16542,6 +16542,16 @@ msgstr ""
 #| msgid "The selected users have been deleted successfully."
 msgid "The columns have been moved successfully."
 msgstr "Сонгогдсон хэрэглэгч устгагдлаа."
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:112
+#, fuzzy
+#| msgid "The selected user was not found in the privilege table."
+msgid "The selected columns do not match the columns in the table."
+msgstr "Сонгогдсон хэрэглэгч онцгой эрхийн хүснэгтэд алга байна."
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:139
+msgid "The selected columns are already in the correct order."
+msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264

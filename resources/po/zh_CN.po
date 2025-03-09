@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-02 00:25+0000\n"
+"POT-Creation-Date: 2025-03-09 00:21+0000\n"
 "PO-Revision-Date: 2024-06-14 16:09+0000\n"
 "Last-Translator: Ricky From Hong Kong <lamricky11@hotmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
@@ -14645,6 +14645,16 @@ msgstr "发送到安全密钥的请求无效。"
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
 msgstr "已成功移动字段。"
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:112
+#, fuzzy
+#| msgid "The selected user was not found in the privilege table."
+msgid "The selected columns do not match the columns in the table."
+msgstr "在权限表内找不到选中的用户。"
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:139
+msgid "The selected columns are already in the correct order."
+msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264

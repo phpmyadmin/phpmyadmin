@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-02 00:25+0000\n"
+"POT-Creation-Date: 2025-03-09 00:21+0000\n"
 "PO-Revision-Date: 2024-04-18 08:29+0000\n"
 "Last-Translator: Nicoara Alex <alex.nicoara@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -15485,6 +15485,16 @@ msgstr "Cerere nevalidă trimisă către cheia de securitate."
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
 msgstr "Coloanele au fost mutate cu succes."
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:112
+#, fuzzy
+#| msgid "The selected user was not found in the privilege table."
+msgid "The selected columns do not match the columns in the table."
+msgstr "Utilizatorul selectat nu a fost găsit în tabelul de privilegii."
+
+#: src/Controllers/Table/Structure/MoveColumnsController.php:139
+msgid "The selected columns are already in the correct order."
+msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264
