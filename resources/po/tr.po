@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-09 00:21+0000\n"
-"PO-Revision-Date: 2025-02-28 03:42+0000\n"
+"PO-Revision-Date: 2025-03-09 04:13+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.2-rc\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -15308,14 +15308,12 @@ msgid "The columns have been moved successfully."
 msgstr "Sütunlar başarılı olarak taşındı."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:112
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "Seçilen kullanıcı yetki tablosunda bulunamadı."
+msgstr "Seçilen sütunlar tablodaki sütunlarla eşleşmiyor."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:139
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Seçilen sütunlar zaten doğru sırada."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264
