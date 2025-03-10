@@ -74,8 +74,8 @@ class TypesTest extends AbstractTestCase
     public function testgetTextOperators(): void
     {
         self::assertSame([
-            'LIKE %...%',
             'LIKE',
+            'LIKE %...%',
             'NOT LIKE',
             'NOT LIKE %...%',
             '=',
@@ -166,8 +166,8 @@ class TypesTest extends AbstractTestCase
                 'CHAR',
                 true,
                 [
-                    'LIKE %...%',
                     'LIKE',
+                    'LIKE %...%',
                     'NOT LIKE',
                     'NOT LIKE %...%',
                     '=',
