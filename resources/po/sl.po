@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-09 00:21+0000\n"
-"PO-Revision-Date: 2025-01-28 04:37+0000\n"
+"PO-Revision-Date: 2025-03-11 20:22+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -15280,14 +15280,12 @@ msgid "The columns have been moved successfully."
 msgstr "Stolpce smo uspešno premaknili."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:112
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "Izbranega uporabnika v tabelah privilegijev nismo našli."
+msgstr "Izbrani stolpci se ne ujemajo s stolpci v tabeli."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:139
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Izbrani stolpci so že v pravem vrstnem redu."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264
