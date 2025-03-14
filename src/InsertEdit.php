@@ -1865,7 +1865,11 @@ class InsertEdit
     /** @return array<string|null> */
     public function getColumnDefaultValues(string $database, string $table): array
     {
-        $sql = 'SELECT COLUMN_NAME, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '
+        $sql = 'SELECT COLUMN_NAME, CASE WHEN INSTR(EXTRA, \'DEFAULT_GENERATED\')'
+            . ' THEN COLUMN_DEFAULT '
+            . ' ELSE CONCAT(\'\'\'\', COLUMN_DEFAULT, \'\'\'\')'
+            . ' END AS COLUMN_DEFAULT'
+            . ' FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '
             . $this->dbi->quoteString($table)
             . ' AND TABLE_SCHEMA = ' . $this->dbi->quoteString($database);
 

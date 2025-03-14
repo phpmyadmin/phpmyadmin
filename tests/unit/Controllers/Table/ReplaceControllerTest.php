@@ -133,7 +133,8 @@ class ReplaceControllerTest extends AbstractTestCase
         $dummyDbi->addSelectDb('my_db');
         $dummyDbi->addSelectDb('my_db');
         $dummyDbi->addResult(
-            'SELECT COLUMN_NAME, COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS '
+            "SELECT COLUMN_NAME, CASE WHEN INSTR(EXTRA, 'DEFAULT_GENERATED') THEN COLUMN_DEFAULT "
+                . "ELSE CONCAT('''', COLUMN_DEFAULT, '''') END AS COLUMN_DEFAULT FROM INFORMATION_SCHEMA.COLUMNS "
                 . "WHERE TABLE_NAME = 'test_tbl' AND TABLE_SCHEMA = 'my_db'",
             [],
         );
