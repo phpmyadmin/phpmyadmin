@@ -480,6 +480,7 @@ class Message implements Stringable
         }
 
         if ($this->params !== []) {
+            // phpcs:disable SlevomatCodingStandard.PHP.OptimizedFunctionsWithoutUnpacking.UnpackingUsed
             $message = sprintf($message, ...$this->params);
         }
 

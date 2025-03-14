@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.8.6@34ba9e1e5ea2e7396d3e2e644ee3e3a1d4336603">
+<files psalm-version="6.8.9@e856423a5dc38d65e56b5792750c557277afe393">
   <file src="app/services_loader.php">
     <MixedArgument>
       <code><![CDATA[$argumentName]]></code>

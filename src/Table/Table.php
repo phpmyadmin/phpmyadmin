@@ -34,7 +34,6 @@ use function array_merge;
 use function count;
 use function end;
 use function explode;
-use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function intval;

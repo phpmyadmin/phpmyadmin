@@ -164,7 +164,7 @@ class GisPoint extends GisGeometry
             'id' => $label . $this->getRandomId(),
             'class' => 'point vector',
             'fill' => 'white',
-            'stroke' => sprintf('#%02x%02x%02x', ...$color),
+            'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'stroke-width' => 2,
         ];
 

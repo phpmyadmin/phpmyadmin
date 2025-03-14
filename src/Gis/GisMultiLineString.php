@@ -191,7 +191,7 @@ class GisMultiLineString extends GisGeometry
             'data-label' => $label,
             'class' => 'linestring vector',
             'fill' => 'none',
-            'stroke' => sprintf('#%02x%02x%02x', ...$color),
+            'stroke' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'stroke-width' => 2,
         ];
 

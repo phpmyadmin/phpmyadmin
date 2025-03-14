@@ -6079,7 +6079,7 @@ parameters:
 			path: src/Dbal/DbiMysqli.php
 
 		-
-			message: '#^Method PhpMyAdmin\\Dbal\\MysqliResult\:\:fetchAllAssoc\(\) should return list\<array\<string\|null\>\> but returns array\.$#'
+			message: '#^Method PhpMyAdmin\\Dbal\\MysqliResult\:\:fetchAllAssoc\(\) should return list\<array\<string\|null\>\> but returns list\<array\>\.$#'
 			identifier: return.type
 			count: 1
 			path: src/Dbal/MysqliResult.php
@@ -13204,12 +13204,6 @@ parameters:
 			path: src/Plugins/TwoFactor/Key.php
 
 		-
-			message: '#^PHPDoc tag @var with type mixed is not subtype of native type mixed\.$#'
-			identifier: varTag.nativeType
-			count: 2
-			path: src/Plugins/TwoFactor/WebAuthn.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -17236,12 +17230,6 @@ parameters:
 			message: '#^Cannot access offset ''notice'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: tests/unit/Config/ServerConfigChecksTest.php
-
-		-
-			message: '#^PHPDoc tag @var with type mixed is not subtype of native type mixed\.$#'
-			identifier: varTag.nativeType
-			count: 3
 			path: tests/unit/Config/ServerConfigChecksTest.php
 
 		-

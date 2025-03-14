@@ -198,7 +198,7 @@ class GisMultiPolygon extends GisGeometry
             'class' => 'multipolygon vector',
             'stroke' => 'black',
             'stroke-width' => 0.5,
-            'fill' => sprintf('#%02x%02x%02x', ...$color),
+            'fill' => sprintf('#%02x%02x%02x', $color[0], $color[1], $color[2]),
             'fill-rule' => 'evenodd',
             'fill-opacity' => 0.8,
         ];
