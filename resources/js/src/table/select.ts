@@ -95,8 +95,8 @@ AJAX.registerOnload('table/select.js', function () {
         var unaryFunctions = [
             'IS NULL',
             'IS NOT NULL',
-            'EMPTY',
-            'NOT EMPTY',
+            '= \'\' (empty)',
+            '!= \'\' (not empty)',
         ];
 
         var geomUnaryFunctions = [
