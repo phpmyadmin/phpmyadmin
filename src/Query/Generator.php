@@ -169,7 +169,8 @@ class Generator
             . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
             . ' = ' . $quotedDatabase
             . ' AND `TABLE_NAME` ' . Util::getCollateForIS()
-            . ' = ' . $quotedTable;
+            . ' = ' . $quotedTable
+            . ' ORDER BY `ORDINAL_POSITION`';
     }
 
     public static function getInformationSchemaRoutinesRequest(
