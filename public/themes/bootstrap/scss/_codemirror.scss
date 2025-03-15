@@ -3,10 +3,15 @@ $textarea-rows: 15;
 
 .CodeMirror {
   height: 20rem;
-  direction: ltr;
   border: $card-border-width solid $card-border-color;
   background-color: var(--#{$prefix}body-bg);
   color: var(--#{$prefix}body-color);
+
+  /* rtl:begin:ignore */
+  direction: ltr;
+  text-align: left;
+  
+  /* rtl:end:ignore */
 
   @include border-radius($card-border-radius);
 }
