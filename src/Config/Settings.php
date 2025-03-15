@@ -92,6 +92,7 @@ use const VERSION_CHECK_DEFAULT;
  *     CaptchaLoginPublicKey: string,
  *     CaptchaLoginPrivateKey: string,
  *     CaptchaSiteVerifyURL: string,
+ *     CaptchaExpectedHostname: string,
  *     enable_drag_drop_import: bool,
  *     ShowDatabasesNavigationAsTree: bool,
  *     FirstLevelNavigationItems: int<1, max>,
@@ -861,6 +862,17 @@ final class Settings
      * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaSiteVerifyURL
      */
     public string $CaptchaSiteVerifyURL;
+
+    /**
+     * if reCaptcha is enabled may need to ensure the hostname matches
+     *
+     * ```php
+     * $cfg['CaptchaExpectedHostname'] = '';
+     * ```
+     *
+     * @link https://docs.phpmyadmin.net/en/latest/config.html#cfg_CaptchaExpectedHostname
+     */
+    public string $CaptchaExpectedHostname;
 
     /**
      * Enable drag and drop import
@@ -2663,6 +2675,7 @@ final class Settings
         $this->CaptchaLoginPublicKey = $this->setCaptchaLoginPublicKey($settings);
         $this->CaptchaLoginPrivateKey = $this->setCaptchaLoginPrivateKey($settings);
         $this->CaptchaSiteVerifyURL = $this->setCaptchaSiteVerifyURL($settings);
+        $this->CaptchaExpectedHostname = $this->setCaptchaExpectedHostname($settings);
         $this->enable_drag_drop_import = $this->setEnableDragDropImport($settings);
         $this->ShowDatabasesNavigationAsTree = $this->setShowDatabasesNavigationAsTree($settings);
         $this->FirstLevelNavigationItems = $this->setFirstLevelNavigationItems($settings);
@@ -2860,6 +2873,7 @@ final class Settings
             'CaptchaLoginPublicKey' => $this->CaptchaLoginPublicKey,
             'CaptchaLoginPrivateKey' => $this->CaptchaLoginPrivateKey,
             'CaptchaSiteVerifyURL' => $this->CaptchaSiteVerifyURL,
+            'CaptchaExpectedHostname' => $this->CaptchaExpectedHostname,
             'enable_drag_drop_import' => $this->enable_drag_drop_import,
             'ShowDatabasesNavigationAsTree' => $this->ShowDatabasesNavigationAsTree,
             'FirstLevelNavigationItems' => $this->FirstLevelNavigationItems,
@@ -3626,6 +3640,16 @@ final class Settings
         }
 
         return (string) $settings['CaptchaSiteVerifyURL'];
+    }
+
+    /** @param array<int|string, mixed> $settings */
+    private function setCaptchaExpectedHostname(array $settings): string
+    {
+        if (! isset($settings['CaptchaExpectedHostname'])) {
+            return '';
+        }
+
+        return (string) $settings['CaptchaExpectedHostname'];
     }
 
     /** @param array<int|string, mixed> $settings */
