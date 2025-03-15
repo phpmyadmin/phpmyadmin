@@ -119,8 +119,8 @@ class SearchTest extends AbstractTestCase
             '=',
             'IS NULL',
             'IS NOT NULL',
-            'EMPTY',
-            'NOT EMPTY',
+            '= \'\' (empty)',
+            '!= \'\' (not empty)',
         ];
         $_POST['criteriaValues'] = [
             '10',
@@ -135,8 +135,8 @@ class SearchTest extends AbstractTestCase
             'int(11)',
             'int(11)',
             'int(11)',
-            'int(11)',
-            'int(11)',
+            'varchar',
+            'varchar',
         ];
 
         $expected = 'SELECT * FROM `PMA` WHERE `b` <= 10'

@@ -157,9 +157,9 @@ final class Search
         $backquoted_name = Util::backquote($names);
         $where = '';
         if ($unaryFlag) {
-            if ($func_type === 'EMPTY') {
+            if ($func_type === '= \'\' (empty)') {
                 $func_type = "= ''";
-            } elseif ($func_type === 'NOT EMPTY') {
+            } elseif ($func_type === '!= \'\' (not empty)') {
                 $func_type = "!= ''";
             }
 
