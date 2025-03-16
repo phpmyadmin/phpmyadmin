@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-16 00:27+0000\n"
-"PO-Revision-Date: 2025-03-11 20:22+0000\n"
+"PO-Revision-Date: 2025-03-16 16:42+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2073,10 +2073,8 @@ msgid "Update query"
 msgstr "Posodobi poizvedbo"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Posodobi poizvedbo"
+msgstr "Kopiraj poizvedbo"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
