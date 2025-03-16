@@ -74,7 +74,8 @@ final class BrowseForeignersControllerTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'\' AND `TABLE_NAME`'
-                . ' COLLATE utf8_bin = \'actor\'',
+                . ' COLLATE utf8_bin = \'actor\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [
                 ['actor_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
                 ['first_name', 'varchar(45)', null, 'NO', '', null, '', '', ''],
