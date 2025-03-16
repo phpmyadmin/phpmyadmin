@@ -1555,8 +1555,8 @@ class Table implements Stringable
 
         $this->messages[] = sprintf(
             __('Table %1$s has been renamed to %2$s.'),
-            $oldName,
-            $newName
+            htmlspecialchars($oldName),
+            htmlspecialchars($newName)
         );
 
         return true;

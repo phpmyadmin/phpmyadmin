@@ -410,9 +410,7 @@ AJAX.registerOnload('sql.js', function () {
      */
     $(document).on('makeGrid', '.sqlqueryresults', function () {
         $('.table_results').each(function () {
-            if ($(this).find('td.grid_edit').length > 0) {
-                makeGrid(this);
-            }
+            makeGrid(this);
         });
     });
 

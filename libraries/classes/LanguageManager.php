@@ -67,7 +67,6 @@ class LanguageManager
             'ar[_-]ly|arabic (libya)|libian arabic',
             'ar_LY',
         ],
-        'ast' => ['ast', 'Asturian', 'Asturianu', 'ast|asturian', ''],
         'az' => [
             'az',
             'Azerbaijani',
