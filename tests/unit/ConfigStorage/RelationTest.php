@@ -64,7 +64,8 @@ class RelationTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'information_schema\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'PMA\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'PMA\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [],
         );
 
@@ -108,7 +109,8 @@ class RelationTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'information_schema\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'NON_EXISTING_TABLE\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'NON_EXISTING_TABLE\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [],
         );
         $db = 'information_schema';
