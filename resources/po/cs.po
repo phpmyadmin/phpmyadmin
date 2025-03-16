@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2024-03-29 10:58+0000\n"
 "Last-Translator: Vaniron CZ <vanironcz@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2083,6 +2083,12 @@ msgid "Update query"
 msgstr "Aktualizovat dotaz"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update query"
+msgid "Copy query"
+msgstr "Aktualizovat dotaz"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Provést dotaz"
@@ -18213,24 +18219,24 @@ msgstr "Zdrojová databáze „%s“ nebyla nalezena!"
 msgid "Target database `%s` was not found!"
 msgstr "Cílová databáze „%s“ nebyla nalezena!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "Chybný název databáze:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "Chybný název tabulky:"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabulka %1$s byla přejmenována na %2$s."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "Nepodařilo se uložit nastavení prohlížení tabulky!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18239,7 +18245,7 @@ msgstr ""
 "Selhalo vyčištění tabulky s nastavením procházení (viz $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18249,7 +18255,7 @@ msgstr ""
 "Nepodařilo se uložit nastavení „%s“. Změny se neprojeví po novém načtení "
 "stránky. Prosím zkontrolujte jestli se nezměnila struktura tabulky."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Chyba při vytváření cizího klíče na %1$s (zkontrolujte datové typy)"

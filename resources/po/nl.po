@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2025-02-06 17:02+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2073,6 +2073,12 @@ msgid "Update query"
 msgstr "Werk query bij"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update query"
+msgid "Copy query"
+msgstr "Werk query bij"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Query verzenden"
@@ -18418,24 +18424,24 @@ msgstr "Brondatabase `%s` is niet gevonden!"
 msgid "Target database `%s` was not found!"
 msgstr "Doeldatabase `%s` niet gevonden!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "Ongeldige database:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "Ongeldige tabelnaam:"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabel %1$s is hernoemd naar %2$s."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "Tabelinterfacevoorkeuren konden niet worden opgeslagen!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18444,7 +18450,7 @@ msgstr ""
 "Opkuisen van tabelinterfacevoorkeuren is mislukt (zie $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18455,7 +18461,7 @@ msgstr ""
 "wijzigingen zullen verdwijnen na verversen van deze pagina. Controleer of de "
 "tabelstructuur is gewijzigd."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

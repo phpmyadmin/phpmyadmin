@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2022-12-13 20:50+0000\n"
 "Last-Translator: Kristijan Fremen Velkovski <me@krisfremen.com>\n"
 "Language-Team: Serbian (latin) <https://hosted.weblate.org/projects/"
@@ -2319,6 +2319,12 @@ msgid "Update query"
 msgstr "Ažuriraj upit"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Copy query"
+msgstr "Ažuriraj upit"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 #, fuzzy
 #| msgid "Submit Query"
@@ -19623,31 +19629,31 @@ msgstr "Pretraživanje baze"
 msgid "Target database `%s` was not found!"
 msgstr "Nije pronađena tema %s!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Neispravna baza podataka"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Neispravan naziv tabele"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Tabeli %s promenjeno ime u %s"
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "Nije bilo moguće saćuvati podešavanja korisničkog interfejsa tabele"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19656,7 +19662,7 @@ msgstr ""
 "Neuspelo brisanje podešavanja korisničkog interfejsa tabele (pogledajte "
 "$cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19667,7 +19673,7 @@ msgstr ""
 "neće biti trajne nakon osveženja ove strane. Molimo vas da proverite da li "
 "je struktura tabele izmenjena."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

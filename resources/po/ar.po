@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2024-02-01 15:01+0000\n"
 "Last-Translator: Mohammed Al Otaibi <mopes.03.belle@icloud.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2164,6 +2164,11 @@ msgid "Update query"
 msgstr "تجديد الإستعلام"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+msgid "Copy query"
+msgstr "تجديد الإستعلام"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "إرسال الإستعلام"
@@ -17816,31 +17821,31 @@ msgstr "لم يعثر على قاعدة البيانات المصدر `%s`!"
 msgid "Target database `%s` was not found!"
 msgstr "لم يعثر على قاعدة البيانات الهدف `%s`!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "قاعدة بيانات غير صالحة:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "اسم الجدول غير صالح :"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "تمّت تسمية الجدول %1$s إلى %2$s."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "تعذر حفظ تفضيلات واجهة مستخدم الجدول!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -17848,7 +17853,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2024-03-15 15:17+0000\n"
 "Last-Translator: Prasanth-k <prasanthpra.k@gmail.com>\n"
 "Language-Team: Telugu <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2314,6 +2314,12 @@ msgid "Update query"
 msgstr "క్వెరీ ని మార్చు"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Copy query"
+msgstr "క్వెరీ ని మార్చు"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 #, fuzzy
 #| msgid "Submit Query"
@@ -18877,39 +18883,39 @@ msgstr ""
 msgid "Target database `%s` was not found!"
 msgstr ""
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 #, fuzzy
 #| msgid "Rename database to"
 msgid "Invalid database:"
 msgstr "డేటాబేసుకు ఈ పేరు పెట్టండి"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 #, fuzzy
 #| msgid "Use Tables"
 msgid "Invalid table name:"
 msgstr "పట్టికల్ని వాడు"
 
 # మొదటి అనువాదము
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, fuzzy, php-format
 #| msgid "Page has been created."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "పుటను సృష్టించడమైనది"
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 #, fuzzy
 #| msgid "Server configuration"
 msgid "Could not save table UI preferences!"
 msgstr "సేవకి స్వరూపణం"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18917,7 +18923,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

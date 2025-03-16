@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2338,6 +2338,12 @@ msgid "Update query"
 msgstr "क्वरी का नवीनीकरण करें"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Copy query"
+msgstr "क्वरी का नवीनीकरण करें"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 #, fuzzy
 #| msgid "Submit Query"
@@ -19767,38 +19773,38 @@ msgstr "स्रोत डेटाबेस"
 msgid "Target database `%s` was not found!"
 msgstr "विषयवस्तु %s नहीं मिला है!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "अमान्य डेटाबेस"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "अवैध टेबल नाम"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "टेबल %s का नाम बदल कर %s रखा गया है."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 #, fuzzy
 #| msgid "Could not save configuration"
 msgid "Could not save table UI preferences!"
 msgstr "विन्यास सहेज नहीं सकते"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19806,7 +19812,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "विदेशी कुंजी बनाने में त्रुटि %1$s ( डेटा टाइप चेक करें)"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2139,6 +2139,12 @@ msgid "Update query"
 msgstr "Lekérdezés frissítése"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Copy query"
+msgstr "Lekérdezés frissítése"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Lekérdezés indítása"
@@ -19186,24 +19192,24 @@ msgstr "A(z) „%s” forrás adatbázis nem található!"
 msgid "Target database `%s` was not found!"
 msgstr "A(z) „%s” cél adatbázis nem található!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "Érvénytelen adatbázis:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "Érvénytelen táblanév:"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "A(z) %1$s tábla átnevezése %2$s névre megtörtént."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "Nem sikerült elmenteni a tábla UI beállításait!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19212,7 +19218,7 @@ msgstr ""
 "Tábla UI beállításainak tisztítása sikertelen (lásd $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19222,7 +19228,7 @@ msgstr ""
 "\"%s\" UI érték mentése sikertelen. A változtatás az oldal frissítése után "
 "nem jelenik meg. Ellenőrizze, hogy a tábla struktúrája megváltozott-e."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

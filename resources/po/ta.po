@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2025-01-27 16:17+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -2072,6 +2072,12 @@ msgid "Update query"
 msgstr "வினவலைப் புதுப்பிக்கவும்"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update query"
+msgid "Copy query"
+msgstr "வினவலைப் புதுப்பிக்கவும்"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "வினவலை சமர்ப்பிக்கவும்"
@@ -18117,24 +18123,24 @@ msgstr "மூல தரவுத்தளம் `%s` காணப்படவ�
 msgid "Target database `%s` was not found!"
 msgstr "இலக்கு தரவுத்தளம் `%s` காணப்படவில்லை!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "செல்லாத தரவுத்தளம்:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "செல்லாத அட்டவணைப் பெயர்:"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s அட்டவணையானது %2$s ஆக பெயர் மாற்றப்பட்டது."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "அட்டவணை இடைமுகம் விருப்பங்களை சேமிக்க முடியவில்லை!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18143,7 +18149,7 @@ msgstr ""
 "அட்டவணை இடைமுகம் விருப்பங்களை தூய்மை செய்வதில் தோல்வி ($ cfg ['சேவையகங்கள்'] [$ i] "
 "['maxtableuiprefs'] %s ஐப் பார்க்கவும்)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18154,7 +18160,7 @@ msgstr ""
 "செய்யப்பட்ட மாற்றங்கள் தொடர்ந்து இருக்காது. அட்டவணை அமைப்பு மாற்றப்பட்டுள்ளதா என்பதை "
 "சரிபார்க்கவும்."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s இல் வெளிநாட்டு விசையை உருவாக்கும் பிழை (தரவு வகைகளை சரிபார்க்கவும்)"

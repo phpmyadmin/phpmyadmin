@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2024-08-09 14:09+0000\n"
 "Last-Translator: Hojat Ghanad <hojat.ghanad@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2273,6 +2273,12 @@ msgid "Update query"
 msgstr "به‌هنگام سازي پرس و جو"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Copy query"
+msgstr "به‌هنگام سازي پرس و جو"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 #, fuzzy
 #| msgid "Submit Query"
@@ -19006,31 +19012,31 @@ msgstr "جستجو در پايگاه‌داده"
 msgid "Target database `%s` was not found!"
 msgstr "جستجو در پايگاه‌داده"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "پایگاه داده  نامعتبر"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid table name:"
 msgstr "پایگاه داده  نامعتبر"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "جدول %s به %s تغيير نام داده‌شد"
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "تنظیمات UI جدول قابل ذخیره سازی نیست"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19039,7 +19045,7 @@ msgstr ""
 "پاک سازی تنظیمات UI جداول موفقیت آمیز نبود(به $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s مراجعه کنید)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19049,7 +19055,7 @@ msgstr ""
 "مقدار UI \"%s\" را نمی توان ذخیره کرد.تغییرات انجام شد اما با رفرش صفحه از "
 "بین می روند.لطفا ساختار جدول خود را برای تغییرات چک کنید."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

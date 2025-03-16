@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2022-07-05 15:20+0000\n"
 "Last-Translator: Ugnius Vaičeskas <ugninis.vai@gmail.com>\n"
 "Language-Team: Lithuanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2332,6 +2332,12 @@ msgid "Update query"
 msgstr "Atnaujinti užklausą"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update query"
+msgid "Copy query"
+msgstr "Atnaujinti užklausą"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Vykdyti užklausą"
@@ -19966,38 +19972,38 @@ msgstr "Iš duomenų bazės"
 msgid "Target database `%s` was not found!"
 msgstr "Tema %s nerasta!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 #, fuzzy
 #| msgid "Invalid database"
 msgid "Invalid database:"
 msgstr "Neteisingas duomenų bazės vardas"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 #, fuzzy
 #| msgid "Invalid table name"
 msgid "Invalid table name:"
 msgstr "Neteisingas lentelės vardas"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, fuzzy, php-format
 #| msgid "Table %s has been renamed to %s."
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Lentelė %s pervadinta į %s"
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 #, fuzzy
 #| msgid "Could not save table UI preferences"
 msgid "Could not save table UI preferences!"
 msgstr "Nepavyko išsaugoti lentelės naudotojo sąsajos nustatymų"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s)"
 msgstr ""
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -20005,7 +20011,7 @@ msgid ""
 "changed."
 msgstr ""
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr ""

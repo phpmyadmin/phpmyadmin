@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2024-12-10 12:00+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2070,6 +2070,12 @@ msgid "Update query"
 msgstr "Обновить запрос"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update query"
+msgid "Copy query"
+msgstr "Обновить запрос"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 msgid "Submit query"
 msgstr "Отправить запрос"
@@ -18333,24 +18339,24 @@ msgstr "База данных `%s`, являющаяся источником, �
 msgid "Target database `%s` was not found!"
 msgstr "База данных `%s`, являющаяся целевой, не найдена!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "Некорректная база данных:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "Некорректное имя таблицы:"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "Таблица %1$s была переименована в %2$s."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "Не удалось сохранить настройки пользовательского интерфейса!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -18359,7 +18365,7 @@ msgstr ""
 "Ошибка при очистке таблицы содержащей настройки пользовательского интерфейса "
 "(смотрите переменную $cfg['Servers'][$i]['MaxTableUiprefs'] %s)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -18370,7 +18376,7 @@ msgstr ""
 "перезагрузки страницы, изменения интерфейса будут отменены. Пожалуйста, "
 "проверьте изменена ли структура таблицы."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "Ошибка создания внешнего ключа на %1$s (проверьте типы данных)"

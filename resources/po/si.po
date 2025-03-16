@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-09 00:21+0000\n"
+"POT-Creation-Date: 2025-03-16 00:27+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -2311,6 +2311,12 @@ msgid "Update query"
 msgstr "විමසුම යාවත්කාලීන කරන්න"
 
 #: resources/templates/database/multi_table_query/form.twig:175
+#, fuzzy
+#| msgid "Update Query"
+msgid "Copy query"
+msgstr "විමසුම යාවත්කාලීන කරන්න"
+
+#: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
 #, fuzzy
 #| msgid "Submit Query"
@@ -19342,24 +19348,24 @@ msgstr "`%s` මූලාශ්‍ර දත්තගබඩාව හමු න�
 msgid "Target database `%s` was not found!"
 msgstr "`%s` ඉලක්කගත දත්තගබඩාව හමු නොවිණි!"
 
-#: src/Table/Table.php:813
+#: src/Table/Table.php:812
 msgid "Invalid database:"
 msgstr "වලංගු නොවන දත්තගබඩාව:"
 
-#: src/Table/Table.php:831
+#: src/Table/Table.php:830
 msgid "Invalid table name:"
 msgstr "වලංගු නොවන වගු නම:"
 
-#: src/Table/Table.php:876
+#: src/Table/Table.php:875
 #, php-format
 msgid "Table %1$s has been renamed to %2$s."
 msgstr "%1$s වගුව %2$s ලෙසට නම වෙනස් කරන ලදි."
 
-#: src/Table/Table.php:1112
+#: src/Table/Table.php:1111
 msgid "Could not save table UI preferences!"
 msgstr "වගු පරිශීලක අතුරුමුහුණත් සඳහා අභිමතයන් සුරැකීම අසමත් විය!"
 
-#: src/Table/Table.php:1134
+#: src/Table/Table.php:1133
 #, php-format
 msgid ""
 "Failed to cleanup table UI preferences (see $cfg['Servers'][$i]"
@@ -19368,7 +19374,7 @@ msgstr ""
 "අතුරුමුහුණත සඳහා තේරීම් අඩංගු ගොනුව පවිත්‍ර කිරීම අසමත් විය ($cfg['Servers'][$i]"
 "['MaxTableUiprefs'] %s බලන්න)"
 
-#: src/Table/Table.php:1252
+#: src/Table/Table.php:1251
 #, php-format
 msgid ""
 "Cannot save UI property \"%s\". The changes made will not be persistent "
@@ -19378,7 +19384,7 @@ msgstr ""
 "අතුරුමුහුණත් විචල්‍යය \"%s\" සුරැකිය නොහැක. මෙම පිටුව ප්‍රතිපූර්ණයෙන් පසු සිදුකල වෙනස්කම් අහිමි වනු "
 "ඇත. අදාල වගුවේ සැකිල්ල වෙනස් වී ඇත්දැයි පරීක්ෂාකර බලන්න."
 
-#: src/Table/Table.php:1573
+#: src/Table/Table.php:1572
 #, php-format
 msgid "Error creating foreign key on %1$s (check data types)"
 msgstr "%1$s මත අන්‍ය මූලය සෑදීමේදී දෝෂ ඇතිවිය (දත්ත වර්ග පරීක්ෂා කරන්න)"
