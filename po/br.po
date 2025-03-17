@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"PO-Revision-Date: 2025-03-17 07:46+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/4-9/br/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -47,7 +47,7 @@ msgstr "Gwel al linennoù %1$s - %2$s."
 
 #: db_datadict.php:61 libraries/classes/Operations.php:60
 msgid "Database comment"
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù :"
+msgstr "Evezhiadenn an diaz roadennoù"
 
 #: db_datadict.php:108
 #: libraries/classes/Plugins/Schema/Pdf/PdfRelationSchema.php:596
@@ -8834,10 +8834,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:41
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Database operations"
-msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+msgstr "Oberiadennoù an diaz roadennoù"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:685
 #, fuzzy
@@ -9209,10 +9207,8 @@ msgid "No partial dependencies found!"
 msgstr ""
 
 #: libraries/classes/Operations.php:104
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "Cheñch anv an diaz roadennoù hag e envel"
+msgstr "Adenvel an diaz roadennoù e"
 
 #: libraries/classes/Operations.php:120 libraries/classes/Operations.php:259
 #: libraries/classes/Operations.php:878 libraries/classes/Operations.php:965
@@ -9234,7 +9230,7 @@ msgstr "Dilemel an diaz roadennoù"
 
 #: libraries/classes/Operations.php:176
 msgid "Drop the database (DROP)"
-msgstr "Diverkañ an diaz roadennoù (DROP)"
+msgstr "Dilemel an diaz roadennoù (DROP)"
 
 #: libraries/classes/Operations.php:222
 #, fuzzy
@@ -16728,10 +16724,8 @@ msgid "Select database:"
 msgstr "Diuzañ pep tra"
 
 #: templates/export/alias_add.twig:15
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "New database name"
-msgstr "Goullo eo anv an diaz roadennoù !"
+msgstr "Anv nevez an diaz roadennoù"
 
 #: templates/export/alias_add.twig:23
 #, fuzzy
