@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"PO-Revision-Date: 2025-03-17 07:46+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/5-2/br/"
 ">\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -10369,10 +10369,8 @@ msgid "New"
 msgstr ""
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:43
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Database operations"
-msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+msgstr "Oberiadennoù an diaz roadennoù"
 
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:648
 #, fuzzy
@@ -14897,19 +14895,15 @@ msgstr "Hizivaat ar reked"
 #: templates/database/operations/index.twig:9
 #: templates/database/operations/index.twig:13
 msgid "Database comment"
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù :"
+msgstr "Evezhiadenn an diaz roadennoù"
 
 #: templates/database/operations/index.twig:54
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "Cheñch anv an diaz roadennoù hag e envel"
+msgstr "Adenvel an diaz roadennoù e"
 
 #: templates/database/operations/index.twig:58 templates/export.twig:282
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "New database name"
-msgstr "Goullo eo anv an diaz roadennoù !"
+msgstr "Anv nevez an diaz roadennoù"
 
 #: templates/database/operations/index.twig:66
 #: templates/database/operations/index.twig:171
@@ -14920,6 +14914,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
+"N'eo ket uhel a-walc'h gwirioù an implijer evit seveniñ an oberiadenn-mañ ; "
+"sellit ouzh an teuliadur evit gouzout hiroc'h."
 
 #: templates/database/operations/index.twig:83
 msgid "Remove database"
@@ -14932,7 +14928,7 @@ msgstr "Diverket eo bet an diaz roadennoù %s."
 
 #: templates/database/operations/index.twig:94
 msgid "Drop the database (DROP)"
-msgstr "Diverkañ an diaz roadennoù (DROP)"
+msgstr "Dilemel an diaz roadennoù (DROP)"
 
 #: templates/database/operations/index.twig:118
 #, fuzzy
