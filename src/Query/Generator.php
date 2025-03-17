@@ -154,7 +154,8 @@ class Generator
             . ' = ' . $quotedDatabase
             . ' AND `TABLE_NAME` ' . Util::getCollateForIS()
             . ' = ' . $quotedTable
-            . ($quotedColumn !== null ? ' AND `COLUMN_NAME` = ' . $quotedColumn : '');
+            . ($quotedColumn !== null ? ' AND `COLUMN_NAME` = ' . $quotedColumn : '')
+            . ' ORDER BY `ORDINAL_POSITION`';
     }
 
     public static function getColumnNamesAndTypes(
@@ -168,7 +169,8 @@ class Generator
             . ' WHERE `TABLE_SCHEMA` ' . Util::getCollateForIS()
             . ' = ' . $quotedDatabase
             . ' AND `TABLE_NAME` ' . Util::getCollateForIS()
-            . ' = ' . $quotedTable;
+            . ' = ' . $quotedTable
+            . ' ORDER BY `ORDINAL_POSITION`';
     }
 
     public static function getInformationSchemaRoutinesRequest(

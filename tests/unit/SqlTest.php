@@ -544,7 +544,8 @@ class SqlTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'country\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'country\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [
                 [
                     'country_id',
@@ -589,7 +590,8 @@ class SqlTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'country\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'country\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [
                 ['country_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
                 ['country', 'varchar(50)', null, 'NO', '', null, '', '', ''],

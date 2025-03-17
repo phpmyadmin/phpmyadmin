@@ -865,7 +865,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
                 . ' `TABLE_NAME` COLLATE utf8_bin = \'test_table\''
-                . ' AND `COLUMN_NAME` = \'test_column\'',
+                . ' AND `COLUMN_NAME` = \'test_column\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [['test_column', 'varchar(45)', null, 'NO', '', null, '', '', '']],
             ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
         );
@@ -889,7 +890,8 @@ class DatabaseInterfaceTest extends AbstractTestCase
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
                 . ' `TABLE_NAME` COLLATE utf8_bin = \'test_table\''
-                . ' AND `COLUMN_NAME` = \'test_column\'',
+                . ' AND `COLUMN_NAME` = \'test_column\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             // phpcs:ignore Generic.Files.LineLength.TooLong
             [['test_column', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', '']],
             ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],

@@ -85,7 +85,8 @@ class ImportControllerTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'table1\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'table1\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [],
         );
 

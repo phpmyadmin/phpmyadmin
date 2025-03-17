@@ -45,7 +45,7 @@ class SetValuesControllerTest extends AbstractTestCase
             . ' `COLUMN_COMMENT` AS `Comment`'
             . ' FROM `information_schema`.`COLUMNS`'
             . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'cvv\' AND `TABLE_NAME`'
-            . ' COLLATE utf8_bin = \'enums\' AND `COLUMN_NAME` = \'set\'', false);
+            . ' COLLATE utf8_bin = \'enums\' AND `COLUMN_NAME` = \'set\' ORDER BY `ORDINAL_POSITION`', false);
         $this->dummyDbi->addResult('SHOW INDEXES FROM `cvv`.`enums`', false);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
@@ -90,7 +90,8 @@ class SetValuesControllerTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'cvv\' AND `TABLE_NAME` COLLATE utf8_bin = \'enums\''
-                . ' AND `COLUMN_NAME` = \'set\'',
+                . ' AND `COLUMN_NAME` = \'set\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [
                 [
                     'set',

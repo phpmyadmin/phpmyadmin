@@ -39,7 +39,8 @@ class ColumnsDefinitionTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'sakila\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'actor\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'actor\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [
                 ['actor_id', 'smallint(5) unsigned', null, 'NO', 'PRI', null, 'auto_increment', 'select,insert,update,references', ''],
                 ['first_name', 'varchar(45)', 'utf8mb4_general_ci', 'NO', '', null, '', 'select,insert,update,references', ''],

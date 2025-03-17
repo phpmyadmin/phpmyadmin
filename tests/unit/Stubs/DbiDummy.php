@@ -446,7 +446,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND `TABLE_NAME` COLLATE utf8_bin = \'table1\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND `TABLE_NAME` COLLATE utf8_bin = \'table1\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['i', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
@@ -459,7 +459,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND `TABLE_NAME` COLLATE utf8_bin = \'table2\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma_test\' AND `TABLE_NAME` COLLATE utf8_bin = \'table2\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['i', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
@@ -473,7 +473,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma\' AND `TABLE_NAME` COLLATE utf8_bin = \'table1\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'pma\' AND `TABLE_NAME` COLLATE utf8_bin = \'table1\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['i', 'int(11)', null, 'NO', 'PRI', 'NULL', 'auto_increment', '', ''],
@@ -1333,7 +1333,7 @@ class DbiDummy implements DbiExtension
                     . ' `Null`, `COLUMN_KEY` AS `Key`, `COLUMN_DEFAULT` AS `Default`,'
                     . ' `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`,'
                     . ' `COLUMN_COMMENT` AS `Comment` FROM `information_schema`.`COLUMNS`'
-                    . " WHERE `TABLE_SCHEMA` = 'information_schema' AND `TABLE_NAME` = 'PMA'",
+                    . " WHERE `TABLE_SCHEMA` = 'information_schema' AND `TABLE_NAME` = 'PMA' ORDER BY `ORDINAL_POSITION`",
                 'result' => [],
             ],
             [
@@ -1363,7 +1363,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'my_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_tbl\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'my_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_tbl\' ORDER BY `ORDINAL_POSITION`',
                 'result' => [],
             ],
             [
@@ -1385,7 +1385,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'PMA_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'PMA_table\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'PMA_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'PMA_table\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['id', 'int(11)', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
@@ -1499,7 +1499,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mysql\' AND `TABLE_NAME` COLLATE utf8_bin = \'user\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'mysql\' AND `TABLE_NAME` COLLATE utf8_bin = \'user\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [['host', 'char(60)', null, 'NO', '', null, '', '', '']],
             ],
@@ -1626,7 +1626,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'testdb\' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'testdb\' AND `TABLE_NAME` COLLATE utf8_bin = \'mytable\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['aid', 'tinyint(4)', null, 'NO', 'PRI', null, '', 'select,insert,update,references', ''],
@@ -1664,7 +1664,7 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SELECT `COLUMN_NAME`, `COLUMN_TYPE` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\'',
+                'query' => 'SELECT `COLUMN_NAME`, `COLUMN_TYPE` FROM `information_schema`.`COLUMNS` WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['COLUMN_NAME', 'COLUMN_TYPE'],
                 'result' => [
                     ['id', 'int(11)'],
@@ -1686,7 +1686,7 @@ class DbiDummy implements DbiExtension
                     . ' `IS_NULLABLE` AS `Null`, `COLUMN_KEY` AS `Key`,'
                     . ' `COLUMN_DEFAULT` AS `Default`, `EXTRA` AS `Extra`, `PRIVILEGES` AS `Privileges`, `COLUMN_COMMENT` AS `Comment`'
                     . ' FROM `information_schema`.`COLUMNS`'
-                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\'',
+                    . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND `TABLE_NAME` COLLATE utf8_bin = \'test_table\' ORDER BY `ORDINAL_POSITION`',
                 'columns' => ['Field', 'Type', 'Collation', 'Null', 'Key', 'Default', 'Extra', 'Privileges', 'Comment'],
                 'result' => [
                     ['id', 'int(11)', null, 'NO', 'PRI', "'NULL'", 'auto_increment', '', ''],

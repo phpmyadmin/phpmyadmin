@@ -42,7 +42,8 @@ class GetFieldControllerTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'table_with_blob\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'table_with_blob\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             [
                 ['id', 'int(11)', null, 'NO', 'PRI', null, 'auto_increment', '', ''],
                 ['file', 'blob', null, 'NO', '', null, '', '', ''],

@@ -40,7 +40,8 @@ class CreateControllerTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'new_test_table\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'new_test_table\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             false,
         );
         $dummyDbi->addResult(
@@ -50,7 +51,8 @@ class CreateControllerTest extends AbstractTestCase
                 . ' `COLUMN_COMMENT` AS `Comment`'
                 . ' FROM `information_schema`.`COLUMNS`'
                 . ' WHERE `TABLE_SCHEMA` COLLATE utf8_bin = \'test_db\' AND'
-                . ' `TABLE_NAME` COLLATE utf8_bin = \'new_test_table\'',
+                . ' `TABLE_NAME` COLLATE utf8_bin = \'new_test_table\''
+                . ' ORDER BY `ORDINAL_POSITION`',
             false,
         );
         $dummyDbi->addResult('SHOW CREATE TABLE `test_db`.`new_test_table`', false);
