@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-16 00:27+0000\n"
-"PO-Revision-Date: 2024-10-16 15:51+0000\n"
+"PO-Revision-Date: 2025-03-17 07:46+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "br/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2268,10 +2268,8 @@ msgid "Update query"
 msgstr "Hizivaat ar reked"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update Query"
 msgid "Copy query"
-msgstr "Hizivaat ar reked"
+msgstr "Eilañ ar reked"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2282,28 +2280,22 @@ msgstr "Kas ar reked"
 
 #: resources/templates/database/operations/index.twig:2
 #: src/Navigation/Nodes/NodeDatabase.php:51
-#, fuzzy
-#| msgid "Databases display options"
 msgid "Database operations"
-msgstr "Dibarzhioù diskwel an diazoù roadennoù"
+msgstr "Oberiadennoù an diaz roadennoù"
 
 #: resources/templates/database/operations/index.twig:10
 #: resources/templates/database/operations/index.twig:14
 msgid "Database comment"
-msgstr "Evezhiadenn diwar-benn an diaz roadennoù :"
+msgstr "Evezhiadenn an diaz roadennoù"
 
 #: resources/templates/database/operations/index.twig:55
-#, fuzzy
-#| msgid "Rename database to"
 msgid "Rename database to"
-msgstr "Cheñch anv an diaz roadennoù hag e envel"
+msgstr "Adenvel an diaz roadennoù e"
 
 #: resources/templates/database/operations/index.twig:59
 #: resources/templates/export.twig:278
-#, fuzzy
-#| msgid "The database name is empty!"
 msgid "New database name"
-msgstr "Goullo eo anv an diaz roadennoù !"
+msgstr "Anv nevez an diaz roadennoù"
 
 #: resources/templates/database/operations/index.twig:67
 #: resources/templates/database/operations/index.twig:172
@@ -2314,6 +2306,8 @@ msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
+"N'eo ket uhel a-walc'h gwirioù an implijer evit seveniñ an oberiadenn-mañ ; "
+"sellit ouzh an teuliadur evit gouzout hiroc'h."
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -2326,7 +2320,7 @@ msgstr "Diverket eo bet an diaz roadennoù %s."
 
 #: resources/templates/database/operations/index.twig:95
 msgid "Drop the database (DROP)"
-msgstr "Diverkañ an diaz roadennoù (DROP)"
+msgstr "Dilemel an diaz roadennoù (DROP)"
 
 #: resources/templates/database/operations/index.twig:119
 #, fuzzy
