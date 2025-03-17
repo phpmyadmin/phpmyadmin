@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-16 00:27+0000\n"
-"PO-Revision-Date: 2025-03-17 07:46+0000\n"
+"PO-Revision-Date: 2025-03-17 19:29+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "br/>\n"
@@ -2323,41 +2323,39 @@ msgid "Drop the database (DROP)"
 msgstr "Dilemel an diaz roadennoù (DROP)"
 
 #: resources/templates/database/operations/index.twig:119
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
-msgstr "Eilañ an diaz roadennoù war"
+msgstr "Eilañ an diaz roadennoù war-zu"
 
 #: resources/templates/database/operations/index.twig:123
 #: resources/templates/server/databases/index.twig:24
 #: src/Config/Descriptions.php:885
 msgid "Database name"
-msgstr ""
+msgstr "Anv an diaz roadennoù"
 
 #: resources/templates/database/operations/index.twig:132
 #: resources/templates/database/structure/copy_form.twig:21
 #: resources/templates/table/operations/index.twig:276
 #: src/Tracking/Tracking.php:272
 msgid "Structure only"
-msgstr "Ar framm hepken"
+msgstr "Framm hepken"
 
 #: resources/templates/database/operations/index.twig:138
 #: resources/templates/database/structure/copy_form.twig:17
 #: resources/templates/table/operations/index.twig:282
 #: src/Tracking/Tracking.php:278
 msgid "Structure and data"
-msgstr "Ar framm hag ar roadennoù ennañ"
+msgstr "Framm ha roadennoù"
 
 #: resources/templates/database/operations/index.twig:144
 #: resources/templates/database/structure/copy_form.twig:25
 #: resources/templates/table/operations/index.twig:288
 #: src/Tracking/Tracking.php:275
 msgid "Data only"
-msgstr "Ar roadennoù hepken"
+msgstr "Roadennoù hepken"
 
 #: resources/templates/database/operations/index.twig:151
 msgid "CREATE DATABASE before copying"
-msgstr "KROUIÑ AN DIAZ ROADENNOÙ a-raok eilañ"
+msgstr "Ober CREATE DATABASE a-raok eilañ"
 
 #: resources/templates/database/operations/index.twig:156
 #: resources/templates/table/operations/index.twig:296
@@ -2374,7 +2372,7 @@ msgstr "Ouzhpennañ %s"
 #: resources/templates/table/operations/index.twig:301
 #: src/Config/Descriptions.php:687
 msgid "Add AUTO_INCREMENT value"
-msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
+msgstr "Ouzhpennañ talvoud AUTO_INCREMENT"
 
 #: resources/templates/database/operations/index.twig:166
 #: resources/templates/database/structure/copy_form.twig:39
@@ -2387,20 +2385,18 @@ msgid "Switch to copied database"
 msgstr "Mont d'an diaz roadennoù eilet"
 
 #: resources/templates/database/operations/index.twig:217
-#, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
-msgstr "Enklozañ an istitloù"
+msgstr "Kemmañ holl etrerummadoù an taolennoù"
 
 #: resources/templates/database/operations/index.twig:221
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "Cheñch etrerummadoù pep bann en holl daolennoù"
 
 #: resources/templates/database/privileges/index.twig:5
 #: resources/templates/table/privileges/index.twig:5
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr ""
+msgstr "Implijerien ganto ur moned ouzh \"%s\""
 
 #: resources/templates/database/privileges/index.twig:17
 #: resources/templates/server/privileges/login_information_fields.twig:7
@@ -2411,17 +2407,15 @@ msgstr ""
 #: resources/templates/server/replication/primary_add_replica_user.twig:24
 #: resources/templates/table/privileges/index.twig:19
 msgid "User name"
-msgstr ""
+msgstr "Anv implijer"
 
 #: resources/templates/database/privileges/index.twig:18
 #: resources/templates/server/privileges/login_information_fields.twig:26
 #: resources/templates/server/privileges/login_information_fields.twig:38
 #: resources/templates/server/privileges/users_overview.twig:9
 #: resources/templates/table/privileges/index.twig:20
-#, fuzzy
-#| msgid "Add constraints"
 msgid "Host name"
-msgstr "Ouzhpennañ ar strishadurioù"
+msgstr "Anv ostiz"
 
 #: resources/templates/database/privileges/index.twig:20
 #: resources/templates/server/privileges/privileges_summary.twig:16
@@ -2431,7 +2425,7 @@ msgstr "Ouzhpennañ ar strishadurioù"
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
 #: src/Menu.php:365 src/Util.php:1378 src/Util.php:1394
 msgid "Privileges"
-msgstr ""
+msgstr "Dreistwirioù"
 
 #: resources/templates/database/privileges/index.twig:21
 #: resources/templates/server/privileges/privileges_summary.twig:17
@@ -2446,45 +2440,41 @@ msgstr ""
 #: resources/templates/server/privileges/users_overview.twig:36
 #: resources/templates/table/privileges/index.twig:38
 msgid "Any"
-msgstr ""
+msgstr "Ne vern"
 
 #: resources/templates/database/privileges/index.twig:47
 #: resources/templates/table/privileges/index.twig:49
 msgid "global"
-msgstr ""
+msgstr "hollek"
 
 #: resources/templates/database/privileges/index.twig:50
 #: resources/templates/table/privileges/index.twig:52
 msgid "database-specific"
-msgstr ""
+msgstr "dibar d'an diaz roadennoù-mañ"
 
 #: resources/templates/database/privileges/index.twig:52
 #: resources/templates/table/privileges/index.twig:54
 msgid "wildcard"
-msgstr ""
+msgstr "joker"
 
 #: resources/templates/database/privileges/index.twig:55
 #: resources/templates/table/privileges/index.twig:59
-#, fuzzy
-#| msgid "Edit routine"
 msgid "routine"
-msgstr "Kemmañ un argerzh"
+msgstr "argerzh"
 
 #: resources/templates/database/privileges/index.twig:80
 #: resources/templates/server/privileges/new_user_ajax.twig:45
 #: resources/templates/server/privileges/users_overview.twig:75
 #: resources/templates/table/privileges/index.twig:84
 #: src/Server/Privileges.php:1275
-#, fuzzy
-#| msgid "Reloading Privileges"
 msgid "Edit privileges"
-msgstr "Oc'h adkargañ an dreistgwirioù"
+msgstr "Kemmañ an dreistgwirioù"
 
 #: resources/templates/database/privileges/index.twig:102
 #: resources/templates/table/privileges/index.twig:106
 #: src/Server/Privileges.php:2061
 msgid "No user found."
-msgstr ""
+msgstr "N'eus bet kavet implijer ebet."
 
 #: resources/templates/database/privileges/index.twig:111
 #: resources/templates/database/privileges/index.twig:114
@@ -2498,13 +2488,13 @@ msgstr ""
 #: resources/templates/table/privileges/index.twig:115
 #: resources/templates/table/privileges/index.twig:118
 msgid "With selected:"
-msgstr "Evit ar re zo diuzet :"
+msgstr "Gant ar re diuzet :"
 
 #: resources/templates/database/privileges/index.twig:122
 #: resources/templates/table/privileges/index.twig:126
 #: src/Server/Privileges.php:1219
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Dreistgwirioù re izel evit gallout gwelet an implijerien."
 
 #: resources/templates/database/privileges/index.twig:131
 #: resources/templates/server/privileges/add_user_fieldset.twig:5
@@ -2512,10 +2502,8 @@ msgstr ""
 #: resources/templates/server/privileges/user_overview.twig:23
 #: resources/templates/server/privileges/users_overview.twig:139
 #: resources/templates/table/privileges/index.twig:136
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
-msgstr "Ouzhpennañ un implijer"
+msgstr "Ouzhpennañ un gont implijer"
 
 #: resources/templates/database/routines/editor_form.twig:25
 msgid "Routine name"
@@ -7907,28 +7895,30 @@ msgstr ""
 
 #: src/Advisory/Rules.php:34
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Amzer hegerzded dindan un devezh"
 
 #: src/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"N'eus ket un devezh emañ ar reizhad o vont en-dro, diresis e c'hall bezañ an "
+"alioù berzhusded."
 
 #: src/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Evit kaout disoc'hoù gwelloc'h eo erbedet lezel ar servijer da vont en-dro e-"
+"pad ouzhpenn un devezh a-raok implijout an dielfenner"
 
 #: src/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "An amzer hegerzhded a sav da %s hepken"
 
 #: src/Advisory/Rules.php:47
-#, fuzzy
-#| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Goulennoù"
+msgstr "Goulennoù dindan 1000"
 
 #: src/Advisory/Rules.php:51
 msgid ""
