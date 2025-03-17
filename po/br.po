@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-03-17 07:46+0000\n"
+"PO-Revision-Date: 2025-03-17 19:29+0000\n"
 "Last-Translator: Fulup Jakez <fulup.jakez@gmail.com>\n"
 "Language-Team: Breton <https://hosted.weblate.org/projects/phpmyadmin/4-9/br/"
 ">\n"
@@ -4399,7 +4399,7 @@ msgstr "Derc'hel soñj eus patrom anv ar restr"
 #: libraries/classes/Operations.php:243 libraries/classes/Operations.php:866
 #: libraries/classes/Operations.php:1303
 msgid "Add AUTO_INCREMENT value"
-msgstr "Ouzhpennañ talvoud an AUTO_INCREMENT"
+msgstr "Ouzhpennañ talvoud AUTO_INCREMENT"
 
 #: libraries/classes/Config/Descriptions.php:356
 msgid "Enclose table and column names with backquotes"
@@ -5830,7 +5830,7 @@ msgstr ""
 #: libraries/classes/Config/Descriptions.php:1112
 #: templates/server/databases/create.twig:21
 msgid "Database name"
-msgstr ""
+msgstr "Anv an diaz roadennoù"
 
 #: libraries/classes/Config/Descriptions.php:1114
 msgid "Port on which MySQL server is listening, leave empty for default."
@@ -7742,7 +7742,7 @@ msgstr ""
 #: templates/database/structure/check_all_tables.twig:9
 #: templates/select_all.twig:2 templates/select_all.twig:6
 msgid "With selected:"
-msgstr "Evit ar re zo diuzet :"
+msgstr "Gant ar re diuzet :"
 
 #: libraries/classes/Display/Results.php:4693
 #: libraries/classes/Display/Results.php:4695
@@ -8533,7 +8533,7 @@ msgstr "Ensoc'hañ"
 #: templates/server/sub_page_header.twig:2
 #: templates/privileges/privileges_summary.twig:15
 msgid "Privileges"
-msgstr ""
+msgstr "Dreistwirioù"
 
 #: libraries/classes/Menu.php:410 libraries/classes/Menu.php:418
 #: libraries/classes/Menu.php:504 libraries/classes/Util.php:3055
@@ -8656,17 +8656,17 @@ msgstr[1] "%1$d linenn ensoc'het."
 #: libraries/classes/MultSubmits.php:399 libraries/classes/Operations.php:197
 #: libraries/classes/Operations.php:1286 libraries/classes/Tracking.php:395
 msgid "Structure only"
-msgstr "Ar framm hepken"
+msgstr "Framm hepken"
 
 #: libraries/classes/MultSubmits.php:401 libraries/classes/Operations.php:198
 #: libraries/classes/Operations.php:1287 libraries/classes/Tracking.php:401
 msgid "Structure and data"
-msgstr "Ar framm hag ar roadennoù ennañ"
+msgstr "Framm ha roadennoù"
 
 #: libraries/classes/MultSubmits.php:403 libraries/classes/Operations.php:199
 #: libraries/classes/Operations.php:1288 libraries/classes/Tracking.php:398
 msgid "Data only"
-msgstr "Ar roadennoù hepken"
+msgstr "Roadennoù hepken"
 
 #: libraries/classes/MultSubmits.php:407
 #, fuzzy
@@ -9233,28 +9233,24 @@ msgid "Drop the database (DROP)"
 msgstr "Dilemel an diaz roadennoù (DROP)"
 
 #: libraries/classes/Operations.php:222
-#, fuzzy
-#| msgid "Copy database to"
 msgid "Copy database to"
-msgstr "Eilañ an diaz roadennoù war"
+msgstr "Eilañ an diaz roadennoù war-zu"
 
 #: libraries/classes/Operations.php:234
 msgid "CREATE DATABASE before copying"
-msgstr "KROUIÑ AN DIAZ ROADENNOÙ a-raok eilañ"
+msgstr "Ober CREATE DATABASE a-raok eilañ"
 
 #: libraries/classes/Operations.php:272
 msgid "Switch to copied database"
 msgstr "Mont d'an diaz roadennoù eilet"
 
 #: libraries/classes/Operations.php:320
-#, fuzzy
-#| msgid "Continued table caption"
 msgid "Change all tables collations"
-msgstr "Enklozañ an istitloù"
+msgstr "Kemmañ holl etrerummadoù an taolennoù"
 
 #: libraries/classes/Operations.php:326
 msgid "Change all tables columns collations"
-msgstr ""
+msgstr "Cheñch etrerummadoù pep bann en holl daolennoù"
 
 #: libraries/classes/Operations.php:799
 msgid "Alter table order by"
@@ -10962,7 +10958,7 @@ msgstr "Anv implijer :"
 #: libraries/classes/Server/Privileges.php:2581
 #: libraries/classes/Server/Privileges.php:3559
 msgid "User name"
-msgstr ""
+msgstr "Anv implijer"
 
 #: libraries/classes/ReplicationGui.php:437
 #: libraries/classes/ReplicationGui.php:862
@@ -11502,10 +11498,8 @@ msgid "Export of routine %s"
 msgstr "Ezporzhiañ an argerzh %s"
 
 #: libraries/classes/Rte/Words.php:35
-#, fuzzy
-#| msgid "Edit routine"
 msgid "routine"
-msgstr "Kemmañ un argerzh"
+msgstr "argerzh"
 
 #: libraries/classes/Rte/Words.php:37
 msgid "You do not have the necessary privileges to create a routine."
@@ -11935,10 +11929,8 @@ msgstr "Anv implijer :"
 #: libraries/classes/Server/Privileges.php:1655
 #: libraries/classes/Server/Privileges.php:2582
 #: libraries/classes/Server/Privileges.php:3560
-#, fuzzy
-#| msgid "Add constraints"
 msgid "Host name"
-msgstr "Ouzhpennañ ar strishadurioù"
+msgstr "Anv ostiz"
 
 #: libraries/classes/Server/Privileges.php:1678
 msgid "Do not change the password"
@@ -11968,10 +11960,8 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2175
 #: templates/privileges/add_user_fieldset.twig:7
-#, fuzzy
-#| msgid "Add user"
 msgid "Add user account"
-msgstr "Ouzhpennañ un implijer"
+msgstr "Ouzhpennañ un gont implijer"
 
 #: libraries/classes/Server/Privileges.php:2184
 #, fuzzy
@@ -11997,7 +11987,7 @@ msgstr "Gwiriañ ar gwirioù evit an diaz roadennoù \"%s\"."
 #: libraries/classes/Server/Privileges.php:2462
 #, php-format
 msgid "Users having access to \"%s\""
-msgstr ""
+msgstr "Implijerien ganto ur moned ouzh \"%s\""
 
 #: libraries/classes/Server/Privileges.php:2432
 msgid "User has been added."
@@ -12011,40 +12001,38 @@ msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2600
 msgid "Not enough privilege to view users."
-msgstr ""
+msgstr "Dreistgwirioù re izel evit gallout gwelet an implijerien."
 
 #: libraries/classes/Server/Privileges.php:2619
 #: libraries/classes/Server/Privileges.php:3993
 msgid "No user found."
-msgstr ""
+msgstr "N'eus bet kavet implijer ebet."
 
 #: libraries/classes/Server/Privileges.php:2650
 #: libraries/classes/Server/Privileges.php:2986
 #: libraries/classes/Server/Privileges.php:3652
 msgid "Any"
-msgstr ""
+msgstr "Ne vern"
 
 #: libraries/classes/Server/Privileges.php:2701
 msgid "global"
-msgstr ""
+msgstr "hollek"
 
 #: libraries/classes/Server/Privileges.php:2704
 msgid "database-specific"
-msgstr ""
+msgstr "dibar d'an diaz roadennoù-mañ"
 
 #: libraries/classes/Server/Privileges.php:2706
 msgid "wildcard"
-msgstr ""
+msgstr "joker"
 
 #: libraries/classes/Server/Privileges.php:2712
 msgid "table-specific"
 msgstr ""
 
 #: libraries/classes/Server/Privileges.php:2855
-#, fuzzy
-#| msgid "Reloading Privileges"
 msgid "Edit privileges"
-msgstr "Oc'h adkargañ an dreistgwirioù"
+msgstr "Kemmañ an dreistgwirioù"
 
 #: libraries/classes/Server/Privileges.php:2858
 msgid "Revoke"
@@ -16916,28 +16904,30 @@ msgstr "Diverkañ an diaz roadennoù (DROP)"
 
 #: libraries/advisory_rules_generic.txt:49
 msgid "Uptime below one day"
-msgstr ""
+msgstr "Amzer hegerzded dindan un devezh"
 
 #: libraries/advisory_rules_generic.txt:52
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
 msgstr ""
+"N'eus ket un devezh emañ ar reizhad o vont en-dro, diresis e c'hall bezañ an "
+"alioù berzhusded."
 
 #: libraries/advisory_rules_generic.txt:53
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"Evit kaout disoc'hoù gwelloc'h eo erbedet lezel ar servijer da vont en-dro e-"
+"pad ouzhpenn un devezh a-raok implijout an dielfenner"
 
 #: libraries/advisory_rules_generic.txt:54
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "An amzer hegerzhded a sav da %s hepken"
 
 #: libraries/advisory_rules_generic.txt:56
-#, fuzzy
-#| msgid "Questions"
 msgid "Questions below 1,000"
-msgstr "Goulennoù"
+msgstr "Goulennoù dindan 1000"
 
 #: libraries/advisory_rules_generic.txt:59
 msgid ""
