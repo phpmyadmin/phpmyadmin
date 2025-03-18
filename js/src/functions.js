@@ -3145,7 +3145,10 @@ AJAX.registerOnload('functions.js', function () {
             var valueArray = [];
             $('#enumEditorModal').find('.values input').each(function (index, elm) {
                 var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
-                valueArray.push('\'' + val + '\'');
+
+                if (val.length) {
+                    valueArray.push('\'' + val + '\'');
+                }
             });
             // get the Length/Values text field where this value belongs
             var valuesId = $('#enumEditorModal').find('input[type=\'hidden\']').val();
