@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-16 00:27+0000\n"
-"PO-Revision-Date: 2022-11-07 12:02+0000\n"
+"PO-Revision-Date: 2025-03-18 14:23+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "th/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 #, fuzzy
@@ -8059,77 +8059,80 @@ msgstr "ต่อวัน"
 
 #: src/Advisory/Rules.php:34
 msgid "Uptime below one day"
-msgstr "เวลาทำงานต่ำกว่าหนึ่งวัน"
+msgstr "เวลาทำงานไม่ถึงหนึ่งวัน"
 
 #: src/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "เนื่องจากเวลาทำงานมีน้อยกว่า 1 วัน การปรับประสิทธิภาพอาจจะไม่แม่นยำ"
 
 #: src/Advisory/Rules.php:39
 msgid ""
 "To have more accurate averages it is recommended to let the server run for "
 "longer than a day before running this analyzer"
 msgstr ""
+"หากต้องการให้ความแม่นยำโดยเฉลี่ยมีมากขึ้น "
+"แนะนำให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่าหนึ่งวันแล้วค่อยเรียกใช้เครื่องมือวิเคราะห์นี้"
 
 #: src/Advisory/Rules.php:42
 #, php-format
 msgid "The uptime is only %s"
-msgstr ""
+msgstr "เวลาทำงานมีเพียง %s เท่านั้น"
 
 #: src/Advisory/Rules.php:47
-#, fuzzy
-#| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "รุ่น"
+msgstr "จำนวนคำถามไม่ถึง 1,000"
 
 #: src/Advisory/Rules.php:51
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
 msgstr ""
+"มีคำถามที่ถูกเรียกใช้ผ่านเซิร์ฟเวอร์นี้น้อยกว่า 1,000 คำถาม คำแนะนำอาจจะไม่แม่นยำ"
 
 #: src/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
 msgstr ""
+"ให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่านี้จนกว่าเซิร์ฟเวอร์จะดำเนินงานกับแบบสอบถามได้ในจำนวนที่"
+"มากกว่านี้"
 
 #: src/Advisory/Rules.php:57
-#, fuzzy, php-format
-#| msgid "Connections"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "การเชื่อมต่อ"
+msgstr "จำนวนคำถามปัจจุบัน: %s"
 
 #: src/Advisory/Rules.php:62
-#, fuzzy
 msgid "Percentage of slow queries"
-msgstr "แสดงคำค้นแบบเต็ม"
+msgstr "ค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้า"
 
 #: src/Advisory/Rules.php:66
 msgid ""
 "There is a lot of slow queries compared to the overall amount of Queries."
-msgstr ""
+msgstr "มีแบบสอบถามที่ทำงานช้าจำนวนมากเมื่อเทียบกับจำนวนแบบสอบถามโดยรวม"
 
 #: src/Advisory/Rules.php:68 src/Advisory/Rules.php:81
 msgid ""
 "You might want to increase {long_query_time} or optimize the queries listed "
 "in the slow query log"
 msgstr ""
+"คุณอาจต้องเพิ่ม {long_query_time} "
+"หรือเร่งประสิทธิภาพแบบสอบถามที่แสดงในข้อมูลบันทึกแบบสอบถามที่ทำงานช้า"
 
 #: src/Advisory/Rules.php:70
 #, php-format
 msgid "The slow query rate should be below 5%%, your value is %s%%."
-msgstr ""
+msgstr "อัตราแบบสอบถามที่ทำงานช้าควรจะต่ำกว่า 5%% แต่ค่าของคุณอยู่ที่ %s%%"
 
 #: src/Advisory/Rules.php:75
-#, fuzzy
 msgid "Slow query rate"
-msgstr "คำค้น SQL"
+msgstr "อัตราแบบสอบถามที่ทำงานช้า"
 
 #: src/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
 msgstr ""
+"มีค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้าสูงเมื่อเทียบกับเวลาทำงานของเซิร์ฟเวอร์"
 
 #: src/Advisory/Rules.php:84
 #, php-format
@@ -8137,27 +8140,30 @@ msgid ""
 "You have a slow query rate of %s per hour, you should have less than 1%% per "
 "hour."
 msgstr ""
+"คุณมีอัตราแบบสอบถามที่ทำงานช้าอยู่ที่ %s ต่อชั่วโมง ซึ่งค่าของคุณควรจะน้อยกว่า 1%% ต่อชั่วโมง"
 
 #: src/Advisory/Rules.php:90
-#, fuzzy
 msgid "Long query time"
-msgstr "คำค้น SQL"
+msgstr "เวลาแบบสอบถามที่ทำงานนาน"
 
 #: src/Advisory/Rules.php:94
 msgid ""
 "{long_query_time} is set to 10 seconds or more, thus only slow queries that "
 "take above 10 seconds are logged."
 msgstr ""
+"{long_query_time} ถูกตั้งค่าเป็น 10 วินาทีขึ้นไป "
+"ดังนั้นจะบันทึกเฉพาะแบบสอบถามที่ทำงานช้าซึ่งใช้เวลาเกิน 10 วินาทีขึ้นไปเท่านั้น"
 
 #: src/Advisory/Rules.php:98
 msgid ""
 "It is suggested to set {long_query_time} to a lower value, depending on your "
 "environment. Usually a value of 1-5 seconds is suggested."
 msgstr ""
+"แนะนำให้ตั้งค่า {long_query_time} เป็นค่าที่ต่ำลง โดยขึ้นอยู่กับสภาพแวดล้อมของคุณ "
+"ซึ่งปกติแล้วแนะนำให้ตั้งค่าที่ 1-5 วินาที"
 
 #: src/Advisory/Rules.php:101
-#, fuzzy, php-format
-#| msgid "long_query_time is set to %d second(s)."
+#, php-format
 msgid "long_query_time is currently set to %ds."
 msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
 
@@ -8198,10 +8204,8 @@ msgid "slow_query_log is set to 'OFF'"
 msgstr "long_query_time ถูกตั้งไว้ที่ %d วินาที"
 
 #: src/Advisory/Rules.php:133
-#, fuzzy
-#| msgid "Select Tables"
 msgid "Release Series"
-msgstr "เลือกตาราง"
+msgstr "ชุดการออกรุ่น"
 
 #: src/Advisory/Rules.php:136
 msgid "The MySQL server version less than 5.1."
@@ -8235,19 +8239,19 @@ msgstr ""
 
 #: src/Advisory/Rules.php:163
 msgid "Version less than 5.5.8 (the first GA release of 5.5)."
-msgstr ""
+msgstr "รุ่นต่ำกว่า 5.5.8 (GA รุ่นแรกของ 5.5)"
 
 #: src/Advisory/Rules.php:164
 msgid "You should upgrade, to a stable version of MySQL 5.5."
-msgstr ""
+msgstr "คุณควรอัพเกรดเป็น MySQL 5.5 รุ่นเสถียร"
 
 #: src/Advisory/Rules.php:170 src/Advisory/Rules.php:183
 msgid "Distribution"
-msgstr "การกระจาย"
+msgstr "ชุดเผยแพร่"
 
 #: src/Advisory/Rules.php:173
 msgid "Version is compiled from source, not a MySQL official binary."
-msgstr ""
+msgstr "รุ่นนี้ถูกคอมไพล์จากซอร์ส ไม่ได้คอมไพล์จากไบนารีทางการของ MySQL"
 
 #: src/Advisory/Rules.php:175
 msgid ""
@@ -8255,6 +8259,9 @@ msgid ""
 "distribution. The MySQL manual only is accurate for official MySQL binaries, "
 "not any package distributions (such as RedHat, Debian/Ubuntu etc)."
 msgstr ""
+"หากคุณไม่ได้คอมไพล์จากซอร์ส คุณอาจกำลังใช้แพ็กเกจที่มีการดัดแปลงโดยชุดเผยแพร่ คู่มือ MySQL "
+"นั้นจะมีความแม่นยำสำหรับไบนารี MySQL ทางการเท่านั้น ไม่ใช่ชุดเผยแพร่แพ็กเกจ (เช่น RedHat, "
+"Debian/Ubuntu และอื่นๆ)"
 
 #: src/Advisory/Rules.php:179
 msgid "'source' found in version_comment"
@@ -8280,7 +8287,7 @@ msgstr "สถาปัตยกรรม ของ MySQL"
 
 #: src/Advisory/Rules.php:199
 msgid "MySQL is not compiled as a 64-bit package."
-msgstr ""
+msgstr "MySQL ไม่ได้ถูกคอมไพล์เป็นแพ็กเกจแบบ 64 บิต"
 
 #: src/Advisory/Rules.php:201
 msgid ""
@@ -8288,11 +8295,13 @@ msgid ""
 "so MySQL might not be able to access all of your memory. You might want to "
 "consider installing the 64-bit version of MySQL."
 msgstr ""
+"ความจุหน่วยความจำของคุณสูงกว่า 3 GiB (สมมุติว่าเซิร์ฟเวอร์อยู่บน localhost) ดังนั้น MySQL "
+"จึงอาจจะไม่สามารถเข้าถึงหน่วยความจำของคุณได้ทั้งหมด คุณอาจต้องพิจารณาติดตั้ง MySQL รุ่น 64 บิต"
 
 #: src/Advisory/Rules.php:205
 #, php-format
 msgid "Available memory on this host: %s"
-msgstr ""
+msgstr "หน่วยความจำที่ใช้ได้บนโฮสต์นี้: %s"
 
 #: src/Advisory/Rules.php:211
 msgid "Query caching method"
@@ -16901,7 +16910,7 @@ msgstr ""
 #: src/Http/Middleware/DatabaseServerVersionChecking.php:42
 #, php-format
 msgid "You should upgrade to %s %s or later."
-msgstr ""
+msgstr "คุณควรอัพเกรดเป็น %s%s ขึ้นไป"
 
 #: src/Http/Middleware/PhpExtensionsChecking.php:82
 #, php-format
