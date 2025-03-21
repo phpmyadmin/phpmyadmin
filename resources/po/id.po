@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-16 00:27+0000\n"
-"PO-Revision-Date: 2025-03-21 10:22+0000\n"
+"PO-Revision-Date: 2025-03-22 03:59+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -4343,15 +4343,15 @@ msgid ""
 msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
 
 #: resources/templates/relation/check_relations.twig:24
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "%sCreate%s the phpMyAdmin configuration storage in the current database."
-msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
+msgstr "%sBuat%s penyimpanan konfigurasi phpMyAdmin di basis data saat ini."
 
 #: resources/templates/relation/check_relations.twig:31
-#, fuzzy, php-format
+#, php-format
 msgid "%sCreate%s missing phpMyAdmin configuration storage tables."
-msgstr "%sTabel%s penyimpanan konfigurasi phpMyAdmin tidak ditemukan."
+msgstr "%sBuat%s tidak memiliki tabel penyimpanan konfigurasi phpMyAdmin."
 
 #: resources/templates/relation/check_relations.twig:42
 #: resources/templates/relation/check_relations.twig:54
@@ -4424,11 +4424,9 @@ msgid "Browser transformation:"
 msgstr "Transformasi Browser"
 
 #: resources/templates/relation/check_relations.twig:172
-#, fuzzy
 msgid "Please see the documentation on how to update your column_info table."
 msgstr ""
-"Silakan lihat dokumentasi mengenai bagaimana memperbarui tabel column_info "
-"anda."
+"Silakan lihat dokumentasi tentang cara memperbarui tabel column_info Anda."
 
 #: resources/templates/relation/check_relations.twig:195
 #, fuzzy
@@ -4505,23 +4503,22 @@ msgid "Create the needed tables with the <code>%screate_tables.sql</code>."
 msgstr "Membuat tabel yang dibutuhkan dengan <code>%screate_tables.sql</code>."
 
 #: resources/templates/relation/check_relations.twig:527
-#, fuzzy
 msgid "Create a pma user and give access to these tables."
-msgstr "Membuat user pma dan memberikan akses ke tabel ini."
+msgstr "Buat pengguna pma dan berikan akses ke tabel ini."
 
 #: resources/templates/relation/check_relations.twig:531
-#, fuzzy
 msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Aktifkan fitur-fitur canggih dalam file konfigurasi (<code> config.inc.php</"
-"code>), misalnya dengan memulai dari <code> config.sample.inc.php</code>."
+"Aktifkan fitur lanjutan dalam berkas konfigurasi "
+"(<code>config.inc.php</code>), misalnya dengan memulai dari "
+"<code>config.sample.inc.php</code>."
 
 #: resources/templates/relation/check_relations.twig:535
-#, fuzzy
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
-msgstr "Login ulang ke phpMyAdmin untuk memuat file konfigurasi yang baru."
+msgstr ""
+"Masuk kembali ke phpMyAdmin untuk memuat berkas konfigurasi yang diperbarui."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
 #: src/Server/Status/Data.php:119 src/Util.php:1363
@@ -4928,13 +4925,12 @@ msgstr "Gunakan Host Table"
 
 #: resources/templates/server/privileges/login_information_fields.twig:40
 #: resources/templates/server/replication/primary_add_replica_user.twig:44
-#, fuzzy
 msgid ""
 "When Host table is used, this field is ignored and values stored in Host "
 "table are used instead."
 msgstr ""
-"Ketika tabel Host digunakan, bidang ini diabaikan dan nilai-nilai yang "
-"tersimpan dalam tabel host yang digunakan sebagai gantinya."
+"Bila tabel Host digunakan, bidang ini diabaikan dan nilai yang disimpan "
+"dalam tabel Host digunakan sebagai gantinya."
 
 #: resources/templates/server/privileges/login_information_fields.twig:46
 #: resources/templates/server/privileges/login_information_fields.twig:54
@@ -5555,13 +5551,12 @@ msgid "Please select databases:"
 msgstr "Harap pilih basis data:"
 
 #: resources/templates/server/replication/primary_configuration.twig:15
-#, fuzzy
 msgid ""
 "Now, add the following lines at the end of [mysqld] section in your my.cnf "
 "and please restart the MySQL server afterwards."
 msgstr ""
-"Sekarang, tambahkan baris berikut pada akhir seksi [mysqld] di my.cnf Anda "
-"dan silakan restart server MySQL sesudahnya."
+"Sekarang, tambahkan baris berikut di akhir bagian [mysqld] di my.cnf Anda "
+"dan silakan mulai ulang server MySQL sesudahnya."
 
 #: resources/templates/server/replication/primary_configuration.twig:19
 #, fuzzy
@@ -16005,9 +16000,9 @@ msgstr "Tidak dapat memuat skema plugin, harap periksa instalasi Anda!"
 #: src/Database/Routines.php:130 src/Database/Routines.php:208
 #: src/Database/Routines.php:1004 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
-#, fuzzy, php-format
+#, php-format
 msgid "The following query has failed: \"%s\""
-msgstr "Query berikut telah gagal: \"%s\""
+msgstr "Kueri berikut telah gagal: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
@@ -17778,24 +17773,21 @@ msgstr ""
 "0x616263)</i>"
 
 #: src/Plugins/Export/ExportSql.php:515
-#, fuzzy
 msgid ""
 "Dump TIMESTAMP columns in UTC <i>(enables TIMESTAMP columns to be dumped and "
 "reloaded between servers in different time zones)</i>"
 msgstr ""
-"Dump kolom TIMESTAMP di UTC <i>(memungkinkan kolom TIMESTAMP akan dibuang "
-"dan mengisi antara server di zona waktu yang berbeda)</i>"
+"Buang kolom TIMESTAMP dalam UTC <i>(memungkinkan kolom TIMESTAMP dibuang dan "
+"dimuat ulang antara server di zona waktu yang berbeda)</i>"
 
 #: src/Plugins/Export/ExportSql.php:592
-#, fuzzy
 msgid "It appears your database uses routines;"
-msgstr "Tampaknya database Anda menggunakan fungsi;"
+msgstr "Tampaknya database Anda menggunakan rutin;"
 
 #: src/Plugins/Export/ExportSql.php:595 src/Plugins/Export/ExportSql.php:1505
 #: src/Plugins/Export/ExportSql.php:1938
-#, fuzzy
 msgid "alias export may not work reliably in all cases."
-msgstr "ekspor alias mungkin tidak bekerja andal dalam semua kasus."
+msgstr "ekspor alias mungkin tidak berfungsi dengan baik dalam semua kasus."
 
 #: src/Plugins/Export/ExportSql.php:1052
 msgid "Metadata"
@@ -17817,9 +17809,8 @@ msgid "Error reading structure for table %s:"
 msgstr "Kesalahan membaca struktur untuk tabel %s:"
 
 #: src/Plugins/Export/ExportSql.php:1502
-#, fuzzy
 msgid "It appears your database uses views;"
-msgstr "Tampaknya database Anda menggunakan pandangan;"
+msgstr "Tampaknya basis data Anda menggunakan tampilan;"
 
 #: src/Plugins/Export/ExportSql.php:1646
 msgid "Constraints for dumped tables"
@@ -17830,9 +17821,8 @@ msgid "Constraints for table"
 msgstr "Ketidakleluasaan untuk tabel"
 
 #: src/Plugins/Export/ExportSql.php:1673
-#, fuzzy
 msgid "Indexes for dumped tables"
-msgstr "Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)"
+msgstr "Indeks untuk tabel yang dibuang"
 
 #: src/Plugins/Export/ExportSql.php:1674
 msgid "Indexes for table"
@@ -17928,7 +17918,6 @@ msgid "Import these many number of rows (optional):"
 msgstr "Impor seberapa banyak baris ini (opsional):"
 
 #: src/Plugins/Import/ImportCsv.php:126 src/Plugins/Import/ImportOds.php:73
-#, fuzzy
 msgid ""
 "The first line of the file contains the table column names <i>(if this is "
 "unchecked, the first line will become part of the data)</i>"
@@ -17937,15 +17926,14 @@ msgstr ""
 "dicentang, baris pertama akan menjadi bagian dari data)</i>"
 
 #: src/Plugins/Import/ImportCsv.php:143
-#, fuzzy
 msgid ""
 "If the data in each row of the file is not in the same order as in the "
 "database, list the corresponding column names here. Column names must be "
 "separated by commas and not enclosed in quotations."
 msgstr ""
-"Jika data di setiap baris file tersebut tidak dalam urutan yang sama seperti "
-"dalam database, daftar nama kolom yang sesuai di sini. Nama kolom harus "
-"dipisahkan oleh koma dan tidak tertutup dalam kutipan."
+"Jika data di setiap baris berkas tidak dalam urutan yang sama seperti dalam "
+"basis data, cantumkan nama kolom yang sesuai di sini. Nama kolom harus "
+"dipisahkan dengan koma dan tidak boleh diapit tanda kutip."
 
 #: src/Plugins/Import/ImportCsv.php:151
 msgid "Column names:"
@@ -17968,13 +17956,13 @@ msgid "Invalid parameter for CSV import: %s"
 msgstr "Parameter yang tidak valid untuk impor CSV: %s"
 
 #: src/Plugins/Import/ImportCsv.php:764
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Invalid column (%s) specified! Ensure that columns names are spelled "
 "correctly, separated by commas, and not enclosed in quotes."
 msgstr ""
-"Kolom tidak valid (%s) yang ditentukan! Pastikan bahwa nama kolom dieja "
-"dengan benar, dipisahkan dengan koma, dan tidak tertutup dalam tanda kutip."
+"Kolom yang tidak valid (%s) ditentukan! Pastikan nama kolom dieja dengan "
+"benar, dipisahkan dengan koma, dan tidak diapit tanda kutip."
 
 #: src/Plugins/Import/ImportLdi.php:73
 msgid "Column names: "
@@ -18017,19 +18005,18 @@ msgid "Could not parse OpenDocument Spreadsheet!"
 msgstr "Tidak dapat mengurai OpenDocument Spreadsheet!"
 
 #: src/Plugins/Import/ImportShp.php:75
-#, fuzzy
 msgid "ESRI Shape File"
-msgstr "ESRI Shape file"
+msgstr "Berkas Bentuk ESRI"
 
 #: src/Plugins/Import/ImportShp.php:112 src/Plugins/Import/ImportShp.php:179
-#, fuzzy, php-format
+#, php-format
 msgid "There was an error importing the ESRI shape file: \"%s\"."
-msgstr "Ada kesalahan mengimpor ESRI bentuk file: \"%s\"."
+msgstr "Terjadi galat saat mengimpor berkas bentuk ESRI: \"%s\"."
 
 #: src/Plugins/Import/ImportShp.php:204
-#, fuzzy, php-format
+#, php-format
 msgid "MySQL Spatial Extension does not support ESRI type \"%s\"."
-msgstr "MySQL Spatial Ekstensi tidak mendukung ESRI Jenis \"%s\"."
+msgstr "Ekstensi Spasial MySQL tidak mendukung tipe ESRI \"%s\"."
 
 #: src/Plugins/Import/ImportShp.php:249
 msgid "The imported file does not contain any data!"
@@ -18074,7 +18061,7 @@ msgid "PDF export page"
 msgstr "Ekspor halaman PDF"
 
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:117
-#, fuzzy, php-format
+#, php-format
 msgid "Schema of the %s database"
 msgstr "Skema basis data %s"
 
@@ -18102,9 +18089,8 @@ msgstr "Orientasi"
 
 #: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
 #: src/Plugins/Schema/SchemaPdf.php:68
-#, fuzzy
 msgid "Landscape"
-msgstr "Datar"
+msgstr "Lanskap"
 
 #: src/Plugins/Schema/SchemaDia.php:58 src/Plugins/Schema/SchemaEps.php:66
 #: src/Plugins/Schema/SchemaPdf.php:68
@@ -18121,9 +18107,8 @@ msgid "Show grid"
 msgstr "Tampilkan garis"
 
 #: src/Plugins/Schema/SchemaPdf.php:93
-#, fuzzy
 msgid "Order of the tables"
-msgstr "tidak keduanya dari yang di atas"
+msgstr "Urutan tabel"
 
 #: src/Plugins/Schema/SchemaPdf.php:96
 msgid "Name (Ascending)"
@@ -18134,13 +18119,12 @@ msgid "Name (Descending)"
 msgstr "Nama (Menurun)"
 
 #: src/Plugins/Transformations/Abs/Bool2TextTransformationsPlugin.php:27
-#, fuzzy
 msgid ""
 "Converts Boolean values to text (default 'T' and 'F'). First option is for "
 "TRUE, second for FALSE. Nonzero=true."
 msgstr ""
-"Mengkonversi nilai Boolean teks (default 'T' dan 'F'). Opsi pertama adalah "
-"untuk TRUE, kedua untuk SALAH. Nol = true."
+"Mengonversi nilai Boolean ke teks (nilai default 'T' dan 'F'). Opsi pertama "
+"adalah TRUE, opsi kedua adalah FALSE. Nonzero=true."
 
 #: src/Plugins/Transformations/Abs/DateFormatTransformationsPlugin.php:42
 msgid ""
@@ -18231,13 +18215,13 @@ msgid "Displays a link to download this image."
 msgstr "Tampilkan tautan untuk mengunduh gambar ini."
 
 #: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Image upload functionality which also displays a thumbnail. The options are "
 "the width and height of the thumbnail in pixels. Defaults to 100 X 100."
 msgstr ""
-"Gambar fungsi meng-upload yang juga menampilkan thumbnail. Pilihannya adalah "
-"lebar dan tinggi dari thumbnail dalam piksel. Standarnya 100 X 100."
+"Fungsionalitas unggah gambar yang juga menampilkan gambar mini. Pilihannya "
+"adalah lebar dan tinggi gambar mini dalam piksel. Ukuran defaultnya adalah "
+"100 X 100."
 
 #: src/Plugins/Transformations/Abs/ImageUploadTransformationsPlugin.php:76
 msgid "Image preview here"
@@ -18252,24 +18236,22 @@ msgstr ""
 "tinggi dalam piksel. aspek rasio asli dipertahankan."
 
 #: src/Plugins/Transformations/Abs/LongToIPv4TransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Converts an (IPv4) Internet network address stored as a BIGINT into a string "
 "in Internet standard dotted format."
 msgstr ""
-"Mengkonversi sebuah (IPv4) alamat jaringan Internet menjadi string dalam "
-"standar Internet Format bertitik."
+"Mengonversi alamat jaringan Internet (IPv4) yang disimpan sebagai BIGINT "
+"menjadi string dalam format titik standar Internet."
 
 #: src/Plugins/Transformations/Abs/PreApPendTransformationsPlugin.php:28
-#, fuzzy
 msgid ""
 "Prepends and/or Appends text to a string. First option is text to be "
 "prepended, second is appended (enclosed in single quotes, default empty "
 "string)."
 msgstr ""
-"Menambahkan header dan / atau menambahkan teks ke string. Opsi pertama "
-"adalah teks yang akan didahului, kedua ditambahkan (tertutup dalam tanda "
-"kutip tunggal, bawaan string kosong)."
+"Menambahkan dan/atau menambahkan teks ke string. Opsi pertama adalah teks "
+"yang akan ditambahkan, opsi kedua adalah teks yang ditambahkan (diapit tanda "
+"kutip tunggal, string kosong default)."
 
 #: src/Plugins/Transformations/Abs/RegexValidationTransformationsPlugin.php:30
 msgid ""
@@ -18354,13 +18336,12 @@ msgid "Syntax highlighted CodeMirror editor for XML (and HTML)."
 msgstr "Sintaks disorot penyunting CodeMirror untuk XML (dan HTML)."
 
 #: src/Plugins/Transformations/Output/Text_Plain_Binarytoip.php:27
-#, fuzzy
 msgid ""
 "Converts an Internet network address stored as a binary string into a string "
 "in Internet standard (IPv4/IPv6) format."
 msgstr ""
-"Mengkonversi sebuah (IPv4) alamat jaringan Internet menjadi string dalam "
-"standar Internet Format bertitik."
+"Mengubah alamat jaringan Internet yang disimpan sebagai string biner menjadi "
+"string dalam format standar Internet (IPv4/IPv6)."
 
 #: src/Plugins/Transformations/Output/Text_Plain_Json.php:43
 msgid "Formats text as JSON with syntax highlighting."
@@ -18371,9 +18352,8 @@ msgid "Formats text as XML with syntax highlighting."
 msgstr "Format teks sebagai XML dengan penyorotan sintaks."
 
 #: src/Plugins/TwoFactor/Application.php:128
-#, fuzzy
 msgid "Authentication Application (2FA)"
-msgstr "Autentikasi"
+msgstr "Aplikasi Autentikasi (2FA)"
 
 #: src/Plugins/TwoFactor/Application.php:137
 msgid ""
@@ -18414,9 +18394,8 @@ msgid "Login using password only."
 msgstr "Masuk hanya dengan password."
 
 #: src/Plugins/TwoFactor/Simple.php:47
-#, fuzzy
 msgid "Simple two-factor authentication"
-msgstr "Autentikasi signon"
+msgstr "Autentikasi dua faktor sederhana"
 
 #: src/Plugins/TwoFactor/Simple.php:55
 msgid "For testing purposes only!"
