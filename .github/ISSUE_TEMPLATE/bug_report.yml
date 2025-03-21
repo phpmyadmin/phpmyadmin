@@ -63,6 +63,9 @@ body:
       options:
         - MySQL
         - MariaDB
+        - PerconaDB
+        - AuroraDB (by AWS)
+        - Other
     validations:
       required: true
   - type: input
