@@ -64,7 +64,7 @@ body:
     id: database-version
     attributes:
       label: Database version
-      placeholder: 8.0.33
+      placeholder: SELECT @@version;
   - type: input
     id: php-version
     attributes:
