@@ -41,8 +41,8 @@ class TypesTest extends AbstractTestCase
         self::assertSame([
             'IS NULL',
             'IS NOT NULL',
-            "= ''",
-            "!= ''",
+            '= \'\' (empty)',
+            '!= \'\' (not empty)',
         ], $this->object->getUnaryOperators());
     }
 
@@ -83,8 +83,8 @@ class TypesTest extends AbstractTestCase
             'REGEXP',
             'REGEXP ^...$',
             'NOT REGEXP',
-            "= ''",
-            "!= ''",
+            '= \'\' (empty)',
+            '!= \'\' (not empty)',
             'IN (...)',
             'NOT IN (...)',
             'BETWEEN',
@@ -175,8 +175,8 @@ class TypesTest extends AbstractTestCase
                     'REGEXP',
                     'REGEXP ^...$',
                     'NOT REGEXP',
-                    '= \'\'',
-                    '!= \'\'',
+                    '= \'\' (empty)',
+                    '!= \'\' (not empty)',
                     'IN (...)',
                     'NOT IN (...)',
                     'BETWEEN',
