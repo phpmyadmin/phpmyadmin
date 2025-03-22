@@ -3142,10 +3142,14 @@ AJAX.registerOnload('functions.js', function () {
         $('#enumEditorGoButton').on('click', function () {
             // When the submit button is clicked,
             // put the data back into the original form
-            var valueArray = [];
+            let valueArray = [];
             $('#enumEditorModal').find('.values input').each(function (index, elm) {
-                var val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
-                valueArray.push('\'' + val + '\'');
+                let val = elm.value.replace(/\\/g, '\\\\').replace(/'/g, '\'\'');
+                val = '\'' + val + '\'';
+
+                if (! valueArray.includes(val)) {
+                    valueArray.push(val);
+                }
             });
             // get the Length/Values text field where this value belongs
             var valuesId = $('#enumEditorModal').find('input[type=\'hidden\']').val();
