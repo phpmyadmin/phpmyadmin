@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-23 00:32+0000\n"
-"PO-Revision-Date: 2025-03-23 10:38+0000\n"
+"PO-Revision-Date: 2025-03-23 21:15+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -5285,14 +5285,12 @@ msgstr "Kunci akun ini."
 
 #: resources/templates/server/privileges/users_overview.twig:102
 #: src/Controllers/JavaScriptMessagesController.php:154
-#, fuzzy
 msgctxt "Unlock the account."
 msgid "Unlock"
 msgstr "Buka kunci"
 
 #: resources/templates/server/privileges/users_overview.twig:105
 #: src/Controllers/JavaScriptMessagesController.php:153
-#, fuzzy
 msgctxt "Lock the account."
 msgid "Lock"
 msgstr "Kunci"
@@ -9149,47 +9147,40 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Aktifkan kompresi bzip2 untuk operasi impor."
 
 #: src/Config/Descriptions.php:92
-#, fuzzy
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan URL untuk API Anda yang kompatibel dengan reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:93
-#, fuzzy
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
-"Masukkan cuplikan Content-Security-Policy untuk API Anda yang kompatibel "
-"dengan reChaptha v2."
+"Masukkan cuplikan Kebijakan Keamanan Konten untuk API Anda yang kompatibel "
+"dengan reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:94
-#, fuzzy
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
-"Masukkan parameter permintaan yang digunakan oleh API kompatibel reCaptcha "
-"v2 Anda."
+"Masukkan parameter permintaan yang digunakan oleh API Anda yang kompatibel "
+"dengan reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:95
-#, fuzzy
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Masukkan parameter respons yang digunakan oleh API Anda yang kompatibel "
-"dengan reCaptcha v2."
+"dengan reCAPTCHA v2."
 
 #: src/Config/Descriptions.php:96
-#, fuzzy
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Masukkan kunci publik Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan kunci publik Anda untuk layanan reCAPTCHA di domain Anda."
 
 #: src/Config/Descriptions.php:97
-#, fuzzy
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan kunci pribadi Anda untuk layanan reCAPTCHA domain Anda."
 
 #: src/Config/Descriptions.php:98
-#, fuzzy
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan URL siteverify Anda untuk layanan reCAPTCHA Anda."
 
 #: src/Config/Descriptions.php:100
 msgid ""
@@ -10129,17 +10120,16 @@ msgstr ""
 "ini, lepas centang kotak di sebelah kanan."
 
 #: src/Config/Descriptions.php:517
-#, fuzzy
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"Url proxy untuk digunakan saat mengambil informasi mengenai versi terbaru "
-"dari phpMyAdmin atau ketika mengirimkan laporan kesalahan. Anda perlu ini "
-"jika server yang terinstal phpMyAdmin tidak memiliki akses langsung ke "
-"internet. Formatnya adalah: \"hostname:portnumber\"."
+"URL proxy yang akan digunakan saat mengambil informasi tentang versi terbaru "
+"phpMyAdmin, atau saat mengirimkan laporan kesalahan. Anda memerlukan ini "
+"jika server tempat phpMyAdmin diinstal tidak memiliki akses langsung ke "
+"Internet. Formatnya adalah: \"hostname:portnumber\"."
 
 #: src/Config/Descriptions.php:523
 msgid ""
@@ -10160,13 +10150,12 @@ msgstr ""
 "disisipkan dengan Shift + Enter."
 
 #: src/Config/Descriptions.php:533
-#, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
-"Aktifkan mode Zero Configuration yang memungkinkan anda mengatur phpMyAdmin "
-"tabel penyimpanan konfigurasi otomatis."
+"Aktifkan mode Konfigurasi Zero yang memungkinkan Anda mengatur tabel "
+"penyimpanan konfigurasi phpMyAdmin secara otomatis."
 
 #: src/Config/Descriptions.php:536
 msgid "Highlight selected rows."
@@ -10527,7 +10516,6 @@ msgid "Maximum execution time"
 msgstr "Waktu eksekusi maksimum"
 
 #: src/Config/Descriptions.php:635
-#, fuzzy
 msgid "Use [code]LOCK TABLES[/code] statement"
 msgstr "Gunakan pernyataan [code]LOCK TABLES[/code]"
 
@@ -10647,14 +10635,12 @@ msgid "Export as separate files"
 msgstr "Ekspor sebagai file terpisah"
 
 #: src/Config/Descriptions.php:685
-#, fuzzy
 msgid "Remember filename template"
 msgstr "Ingat templat nama berkas"
 
 #: src/Config/Descriptions.php:686
-#, fuzzy
 msgid "Remove DEFINER clause from definitions"
-msgstr "Menghapus kolom dari daftar pusat"
+msgstr "Hapus klausa DEFINER dari definisi"
 
 #: src/Config/Descriptions.php:688
 msgid "Enclose table and column names with backquotes"
@@ -11464,9 +11450,8 @@ msgid "Version check"
 msgstr "Pemeriksaan versi"
 
 #: src/Config/Descriptions.php:943
-#, fuzzy
 msgid "Proxy URL"
-msgstr "Alamat proxy"
+msgstr "URL proksi"
 
 #: src/Config/Descriptions.php:944
 msgid "Proxy username"
@@ -11481,39 +11466,32 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: src/Config/Descriptions.php:947
-#, fuzzy
 msgid "URL for reCAPTCHA v2 API"
-msgstr "URL untuk situs reCaptcha verifikasi"
+msgstr "URL untuk API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:948
-#, fuzzy
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr "Cuplikan Content-Security-Policy untuk API reCaptcha v2"
+msgstr "Cuplikan Kebijakan Keamanan Konten untuk API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:949
-#, fuzzy
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr "Parameter permintaan untuk reCaptcha v2 API"
+msgstr "Parameter permintaan untuk API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:950
-#, fuzzy
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr "Parameter permintaan untuk reCaptcha v2 API"
+msgstr "Parameter respons untuk API reCAPTCHA v2"
 
 #: src/Config/Descriptions.php:951
-#, fuzzy
 msgid "Public key for reCAPTCHA"
-msgstr "Kunci publik untuk reCaptcha"
+msgstr "Kunci publik untuk reCAPTCHA"
 
 #: src/Config/Descriptions.php:952
-#, fuzzy
 msgid "Private key for reCAPTCHA"
-msgstr "Kunci publik untuk reCaptcha"
+msgstr "Kunci pribadi untuk reCAPTCHA"
 
 #: src/Config/Descriptions.php:953
-#, fuzzy
 msgid "URL for reCAPTCHA siteverify"
-msgstr "URL untuk situs reCaptcha verifikasi"
+msgstr "URL untuk reCAPTCHA siteverify"
 
 #: src/Config/Descriptions.php:954
 msgid "Send error reports"
@@ -12324,6 +12302,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"File konfigurasi memerlukan kunci yang valid untuk enkripsi kuki. Kunci "
+"sementara dibuat secara otomatis untuk Anda. Silakan lihat dokumentasi "
+"[doc@cfg_blowfish_secret][/doc]."
 
 #: src/Controllers/HomeController.php:330
 #, php-format
@@ -12332,6 +12313,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Kunci enkripsi kuki dalam berkas konfigurasi lebih panjang dari yang "
+"diperlukan. Panjangnya seharusnya hanya %d byte. Silakan lihat dokumentasi "
+"[doc@cfg_blowfish_secret][/doc]."
 
 #: src/Controllers/HomeController.php:348
 msgid ""
@@ -12483,9 +12467,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Anda akan MENGOSONGKAN sebuah tabel lengkap!"
 
 #: src/Controllers/JavaScriptMessagesController.php:60
-#, fuzzy
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Anda akan MENGHANCURKAN sebuah tabel lengkap!"
+msgstr "Anda akan MENGHAPUS semua baris tabel!"
 
 #: src/Controllers/JavaScriptMessagesController.php:61
 msgid "Delete tracking data for this table?"
@@ -12567,9 +12550,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Apakah Anda yakin ingin menghapus partisi?"
 
 #: src/Controllers/JavaScriptMessagesController.php:84
-#, fuzzy
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
+msgstr "Apakah Anda benar-benar ingin mengatur ulang replika (RESET REPLICA)?"
 
 #: src/Controllers/JavaScriptMessagesController.php:86
 msgid ""
@@ -13311,9 +13293,8 @@ msgid "Show query box"
 msgstr "Tampilkan kotak kueri"
 
 #: src/Controllers/JavaScriptMessagesController.php:407
-#, fuzzy
 msgid "Edit query"
-msgstr "Kirim Kueri"
+msgstr "Sunting kueri"
 
 #: src/Controllers/JavaScriptMessagesController.php:409
 #, php-format
