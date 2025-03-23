@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-03-23 10:38+0000\n"
+"PO-Revision-Date: 2025-03-23 22:10+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
@@ -2734,7 +2734,7 @@ msgstr "Sembunyikan"
 #: js/messages.php:786
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Sebelum"
+msgstr "Sblm"
 
 #: js/messages.php:791
 msgctxt "Next month"
