@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2025-03-22 03:59+0000\n"
+"PO-Revision-Date: 2025-03-23 08:00+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/id/>\n"
@@ -7974,15 +7974,14 @@ msgid "The number of times a row was deleted from a table."
 msgstr "Berapa kali suatu baris dihapus dari suatu tabel."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:275
-#, fuzzy
 msgid ""
 "The MySQL server can ask the NDB Cluster storage engine if it knows about a "
 "table with a given name. This is called discovery. Handler_discover "
 "indicates the number of time tables have been discovered."
 msgstr ""
-"The MySQL server dapat meminta mesin penyimpanan Cluster NDB jika tahu "
-"tentang meja dengan nama yang diberikan. Ini disebut penemuan. "
-"Handler_discover menunjukkan jumlah waktu tabel telah ditemukan."
+"Server MySQL dapat menanyakan mesin penyimpanan NDB Cluster apakah ia "
+"mengetahui tentang tabel dengan nama tertentu. Ini disebut penemuan. "
+"Handler_discover menunjukkan berapa kali tabel telah ditemukan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:281
 msgid ""
@@ -8066,77 +8065,68 @@ msgid "The number of pages currently dirty."
 msgstr "Jumlah halaman kotor saat ini."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:320
-#, fuzzy
 msgid "The number of buffer pool pages that have been requested to be flushed."
-msgstr "Jumlah halaman kolam penyangga yang telah diminta untuk memerah."
+msgstr "Jumlah halaman kumpulan buffer yang telah diminta untuk dibersihkan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:322
 msgid "The number of free pages."
 msgstr "Jumlah halaman bebas."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:324
-#, fuzzy
 msgid ""
 "The number of latched pages in InnoDB buffer pool. These are pages currently "
 "being read or written or that can't be flushed or removed for some other "
 "reason."
 msgstr ""
-"Jumlah halaman terkunci di InnoDB kolam buffer. Ini adalah halaman saat ini "
-"sedang dibaca atau ditulis atau yang tidak dapat memerah atau dihapus karena "
-"beberapa alasan lainnya."
+"Jumlah halaman yang terkunci dalam kumpulan buffer InnoDB. Ini adalah "
+"halaman yang sedang dibaca atau ditulis atau yang tidak dapat dihapus atau "
+"dihapus karena alasan lain."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:329
-#, fuzzy
 msgid ""
 "The number of pages busy because they have been allocated for administrative "
 "overhead such as row locks or the adaptive hash index. This value can also "
 "be calculated as Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 msgstr ""
-"Jumlah halaman sibuk karena mereka telah dialokasikan untuk biaya overhead "
-"administratif seperti baris kunci atau indeks hash adaptif. Nilai ini juga "
+"Jumlah halaman yang sibuk karena telah dialokasikan untuk beban "
+"administratif seperti kunci baris atau indeks hash adaptif. Nilai ini juga "
 "dapat dihitung sebagai Innodb_buffer_pool_pages_total - "
 "Innodb_buffer_pool_pages_free - Innodb_buffer_pool_pages_data."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:335
-#, fuzzy
 msgid "Total size of buffer pool, in pages."
-msgstr "Total ukuran buffer pool, di halaman."
+msgstr "Ukuran total kumpulan buffer, dalam halaman."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:337
-#, fuzzy
 msgid ""
 "The number of \"random\" read-aheads InnoDB initiated. This happens when a "
 "query is to scan a large portion of a table but in random order."
 msgstr ""
-"Jumlah \"random\" read-aheads InnoDB dimulai. Hal ini terjadi ketika "
-"permintaan adalah untuk memindai sebagian besar meja tapi secara acak."
+"Jumlah pembacaan \"acak\" yang dimulai InnoDB. Hal ini terjadi saat kueri "
+"memindai sebagian besar tabel tetapi dalam urutan acak."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:342
-#, fuzzy
 msgid ""
 "The number of sequential read-aheads InnoDB initiated. This happens when "
 "InnoDB does a sequential full table scan."
 msgstr ""
-"Jumlah sequential read-aheads InnoDB dimulai. Hal ini terjadi ketika InnoDB "
-"melakukan sekuensial penuh scan meja."
+"Jumlah pembacaan berurutan yang dimulai InnoDB. Hal ini terjadi saat InnoDB "
+"melakukan pemindaian tabel lengkap secara berurutan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:345
-#, fuzzy
 msgid "The number of logical read requests InnoDB has done."
-msgstr "Jumlah permintaan membaca logis InnoDB telah dilakukan."
+msgstr "Jumlah permintaan baca logis yang telah dilakukan InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:347
-#, fuzzy
 msgid ""
 "The number of logical reads that InnoDB could not satisfy from buffer pool "
 "and had to do a single-page read."
 msgstr ""
-"Jumlah logis membaca bahwa InnoDB tidak bisa memuaskan dari kolam buffer dan "
-"harus melakukan satu halaman dibaca."
+"Jumlah pembacaan logis yang tidak dapat dipenuhi InnoDB dari kumpulan buffer "
+"dan harus melakukan pembacaan satu halaman."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:351
-#, fuzzy
 msgid ""
 "Normally, writes to the InnoDB buffer pool happen in the background. "
 "However, if it's necessary to read or create a page and no clean pages are "
@@ -8144,21 +8134,19 @@ msgid ""
 "counter counts instances of these waits. If the buffer pool size was set "
 "properly, this value should be small."
 msgstr ""
-"Biasanya, menulis ke InnoDB kolam buffer terjadi di latar belakang. Namun, "
-"jika itu perlu untuk membaca atau membuat halaman dan tidak ada halaman "
-"bersih yang tersedia, itu perlu untuk menunggu halaman yang akan memerah "
-"pertama. Counter ini menghitung contoh menunggu ini. Jika ukuran kolam "
-"penyangga ditetapkan dengan benar, nilai ini harus kecil."
+"Biasanya, penulisan ke buffer pool InnoDB terjadi di latar belakang. Namun, "
+"jika perlu untuk membaca atau membuat halaman dan tidak ada halaman bersih "
+"yang tersedia, maka perlu menunggu halaman di-flush terlebih dahulu. "
+"Penghitung ini menghitung kejadian penantian ini. Jika ukuran buffer pool "
+"ditetapkan dengan benar, nilai ini seharusnya kecil."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:358
-#, fuzzy
 msgid "The number writes done to the InnoDB buffer pool."
-msgstr "Jumlah menulis dilakukan untuk buffer pool InnoDB."
+msgstr "Jumlah penulisan yang dilakukan pada kumpulan buffer InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:359
-#, fuzzy
 msgid "The number of fsync() operations so far."
-msgstr "Jumlah fsync() operasi sejauh ini."
+msgstr "Jumlah operasi fsync() sejauh ini."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:360
 msgid "The current number of pending fsync() operations."
@@ -8185,73 +8173,61 @@ msgid "The total number of data writes."
 msgstr "Jumlah total tulis data."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:366
-#, fuzzy
 msgid "The amount of data written so far, in bytes."
 msgstr "Jumlah data yang ditulis sejauh ini, dalam byte."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:368
-#, fuzzy
 msgid "The number of pages that have been written for doublewrite operations."
-msgstr "Jumlah halaman yang telah ditulis untuk operasi Doublewrite."
+msgstr "Jumlah halaman yang telah ditulis untuk operasi penulisan ganda."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:370
-#, fuzzy
 msgid "The number of doublewrite operations that have been performed."
-msgstr "Jumlah operasi Doublewrite yang telah dilakukan."
+msgstr "Jumlah operasi penulisan ganda yang telah dilakukan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:372
-#, fuzzy
 msgid ""
 "The number of waits we had because log buffer was too small and we had to "
 "wait for it to be flushed before continuing."
 msgstr ""
-"Jumlah menunggu kami punya karena log buffer terlalu kecil dan kami harus "
-"menunggu untuk itu harus memerah sebelum melanjutkan."
+"Jumlah waktu tunggu yang kami alami karena buffer log terlalu kecil dan kami "
+"harus menunggu hingga buffer tersebut dibersihkan sebelum melanjutkan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:375
-#, fuzzy
 msgid "The number of log write requests."
-msgstr "Jumlah permintaan log menulis."
+msgstr "Jumlah permintaan penulisan log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:376
-#, fuzzy
 msgid "The number of physical writes to the log file."
-msgstr "Jumlah fisik menulis ke file log."
+msgstr "Jumlah penulisan fisik pada berkas log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:377
-#, fuzzy
 msgid "The number of fsync() writes done to the log file."
-msgstr "Jumlah fsync() menulis dilakukan ke file log."
+msgstr "Jumlah penulisan fsync() yang dilakukan pada berkas log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:378
-#, fuzzy
 msgid "The number of pending log file fsyncs."
-msgstr "Jumlah tertunda fsyncs file log."
+msgstr "Jumlah fsync berkas log yang tertunda."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:379
-#, fuzzy
 msgid "Pending log file writes."
-msgstr "Tertunda file log menulis."
+msgstr "Penulisan berkas log tertunda."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:380
-#, fuzzy
 msgid "The number of bytes written to the log file."
-msgstr "Jumlah byte yang ditulis ke file log."
+msgstr "Jumlah byte yang ditulis ke berkas log."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:381
-#, fuzzy
 msgid "The number of pages created."
 msgstr "Jumlah halaman yang dibuat."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:383
-#, fuzzy
 msgid ""
 "The compiled-in InnoDB page size (default 16KB). Many values are counted in "
 "pages; the page size allows them to be easily converted to bytes."
 msgstr ""
-"Ukuran halaman InnoDB dikompilasi-in (16KB default). Banyak nilai-nilai yang "
-"dihitung dalam halaman; ukuran halaman memungkinkan mereka untuk dapat "
-"dengan mudah dikonversi ke byte."
+"Ukuran halaman InnoDB yang dikompilasi (default 16KB). Banyak nilai dihitung "
+"dalam halaman; ukuran halaman memungkinkan nilai tersebut untuk dengan mudah "
+"dikonversi ke byte."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:387
 msgid "The number of pages read."
@@ -8262,30 +8238,25 @@ msgid "The number of pages written."
 msgstr "Jumlah halaman yang ditulis."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:389
-#, fuzzy
 msgid "The number of row locks currently being waited for."
-msgstr "Jumlah baris kunci saat ini sedang menunggu."
+msgstr "Jumlah kunci baris yang sedang ditunggu."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:390
-#, fuzzy
 msgid "The average time to acquire a row lock, in milliseconds."
-msgstr "Rata-rata waktu untuk mendapatkan kunci baris, dalam milidetik."
+msgstr "Waktu rata-rata untuk memperoleh kunci baris, dalam milidetik."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:391
-#, fuzzy
 msgid "The total time spent in acquiring row locks, in milliseconds."
 msgstr ""
-"Total waktu yang dihabiskan untuk memperoleh baris kunci, dalam milidetik."
+"Total waktu yang dihabiskan untuk memperoleh kunci baris, dalam milidetik."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:392
-#, fuzzy
 msgid "The maximum time to acquire a row lock, in milliseconds."
-msgstr "Waktu maksimum untuk mendapatkan kunci baris, dalam milidetik."
+msgstr "Waktu maksimum untuk memperoleh kunci baris, dalam milidetik."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:393
-#, fuzzy
 msgid "The number of times a row lock had to be waited for."
-msgstr "Frekuensi kunci berturut-turut harus menunggu."
+msgstr "Jumlah kali penguncian baris harus ditunggu."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:394
 msgid "The number of rows deleted from InnoDB tables."
@@ -8304,94 +8275,82 @@ msgid "The number of rows updated in InnoDB tables."
 msgstr "Jumlah baris yang diperbarui pada tabel InnoDB."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:399
-#, fuzzy
 msgid ""
 "The number of key blocks in the key cache that have changed but haven't yet "
 "been flushed to disk. It used to be known as Not_flushed_key_blocks."
 msgstr ""
-"Jumlah blok kunci dalam cache kunci yang telah berubah tetapi belum memerah "
-"ke disk. Dulu dikenal sebagai Not_flushed_key_blocks."
+"Jumlah blok kunci dalam cache kunci yang telah berubah tetapi belum "
+"dipindahkan ke disk. Sebelumnya dikenal sebagai Not_flushed_key_blocks."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:404
-#, fuzzy
 msgid ""
 "The number of unused blocks in the key cache. You can use this value to "
 "determine how much of the key cache is in use."
 msgstr ""
-"Jumlah blok yang tidak digunakan dalam cache kunci. Anda dapat menggunakan "
-"nilai ini untuk menentukan berapa banyak dari cache kunci sedang digunakan."
+"Jumlah blok yang tidak digunakan dalam tembolok kunci. Anda dapat "
+"menggunakan nilai ini untuk menentukan seberapa banyak tembolok kunci yang "
+"digunakan."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:408
-#, fuzzy
 msgid ""
 "The number of used blocks in the key cache. This value is a high-water mark "
 "that indicates the maximum number of blocks that have ever been in use at "
 "one time."
 msgstr ""
-"Jumlah blok yang digunakan dalam cache kunci. Nilai ini adalah tanda tinggi "
-"air yang menunjukkan jumlah maksimum blok yang pernah digunakan pada satu "
-"waktu."
+"Jumlah blok yang digunakan dalam tembolok kunci. Nilai ini merupakan titik "
+"tertinggi yang menunjukkan jumlah maksimum blok yang pernah digunakan pada "
+"satu waktu."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:412
-#, fuzzy
-#| msgid "Percentage of used open files limit"
 msgid "Percentage of used key cache (calculated value)"
-msgstr "Persentase limit berkas terbuka yang dipakai"
+msgstr "Persentase tembolok kunci yang digunakan (nilai terhitung)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:413
-#, fuzzy
 msgid "The number of requests to read a key block from the cache."
-msgstr "Jumlah permintaan untuk membaca blok kunci dari cache."
+msgstr "Jumlah permintaan untuk membaca blok kunci dari tembolok."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:415
-#, fuzzy
 msgid ""
 "The number of physical reads of a key block from disk. If Key_reads is big, "
 "then your key_buffer_size value is probably too small. The cache miss rate "
 "can be calculated as Key_reads/Key_read_requests."
 msgstr ""
-"Jumlah fisik membaca dari blok kunci dari disk. Jika Key_reads besar, maka "
-"nilai key_buffer_size Anda mungkin terlalu kecil. Tingkat cache miss dapat "
-"dihitung sebagai Key_reads / Key_read_requests."
+"Jumlah pembacaan fisik blok kunci dari cakram. Jika Key_reads besar, maka "
+"nilai key_buffer_size Anda mungkin terlalu kecil. Tingkat kehilangan "
+"tembolok dapat dihitung sebagai Key_reads/Key_read_requests."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:421
-#, fuzzy
 msgid ""
 "Key cache miss calculated as rate of physical reads compared to read "
 "requests (calculated value)"
 msgstr ""
-"Key Cache rindu dihitung sebagai tingkat fisik berbunyi dibandingkan dengan "
-"membaca permintaan (nilai yang dihitung)"
+"Kehilangan tembolok kunci dihitung sebagai tingkat pembacaan fisik "
+"dibandingkan dengan permintaan pembacaan (nilai terhitung)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:423
-#, fuzzy
 msgid "The number of requests to write a key block to the cache."
-msgstr "Jumlah permintaan untuk menulis blok kunci untuk cache."
+msgstr "Jumlah permintaan untuk menulis blok kunci ke tembolok."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:424
-#, fuzzy
 msgid "The number of physical writes of a key block to disk."
-msgstr "Jumlah menulis fisik blok kunci disk."
+msgstr "Jumlah penulisan fisik blok kunci ke cakram."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:425
-#, fuzzy
 msgid ""
 "Percentage of physical writes compared to write requests (calculated value)"
 msgstr ""
-"Persentase menulis fisik dibandingkan dengan menulis permintaan (nilai yang "
-"dihitung)"
+"Persentase penulisan fisik dibandingkan dengan permintaan penulisan (nilai "
+"terhitung)"
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:427
-#, fuzzy
 msgid ""
 "The total cost of the last compiled query as computed by the query "
 "optimizer. Useful for comparing the cost of different query plans for the "
 "same query. The default value of 0 means that no query has been compiled yet."
 msgstr ""
-"Total biaya query terakhir dikompilasi sebagai dihitung dengan query "
-"optimizer. Berguna untuk membandingkan biaya rencana permintaan yang berbeda "
-"untuk pertanyaan yang sama. Nilai default 0 berarti bahwa tidak ada "
-"permintaan telah disusun belum."
+"Total biaya kueri terkompilasi terakhir yang dihitung oleh pengoptimal "
+"kueri. Berguna untuk membandingkan biaya paket kueri yang berbeda untuk "
+"kueri yang sama. Nilai default 0 berarti belum ada kueri yang dikompilasi."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:433
 msgid ""
@@ -8402,9 +8361,8 @@ msgstr ""
 "dimulai."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:435
-#, fuzzy
 msgid "The number of rows waiting to be written in INSERT DELAYED queues."
-msgstr "Jumlah baris yang menunggu untuk ditulis dalam INSERT DELAYED antrian."
+msgstr "Jumlah baris yang menunggu untuk ditulis dalam antrian INSERT DELAYED."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:437
 #, fuzzy
@@ -9058,10 +9016,8 @@ msgstr "Event %1$s telah dibuat."
 #: libraries/classes/Database/Events.php:160
 #: libraries/classes/Database/Routines.php:266
 #: libraries/classes/Database/Triggers.php:174
-#, fuzzy
 msgid "One or more errors have occurred while processing your request:"
-msgstr ""
-"Satu atau lebih kesalahan telah terjadi saat memproses permintaan Anda:"
+msgstr "Satu atau beberapa galat telah terjadi saat memproses permintaan Anda:"
 
 #: libraries/classes/Database/Events.php:239
 msgid "Add event"
@@ -9074,9 +9030,8 @@ msgstr "Edit kejadian"
 #: libraries/classes/Database/Events.php:404
 #: libraries/classes/Database/Routines.php:982
 #: libraries/classes/Database/Triggers.php:381
-#, fuzzy
 msgid "The definer must be in the \"username@hostname\" format!"
-msgstr "Pembuat definisi harus dengan format \"username@hostname\"!"
+msgstr "Pendefinisi harus dalam format \"username@hostname\"!"
 
 #: libraries/classes/Database/Events.php:412
 msgid "You must provide an event name!"
@@ -9105,9 +9060,8 @@ msgstr "Maaf, kami gagal memulihkan event yang dihapus."
 #: libraries/classes/Database/Events.php:503
 #: libraries/classes/Database/Routines.php:1536
 #: libraries/classes/Database/Triggers.php:435
-#, fuzzy
 msgid "The backed up query was:"
-msgstr "Didukung query adalah:"
+msgstr "Kueri yang dicadangkan adalah:"
 
 #: libraries/classes/Database/Events.php:534
 #: libraries/classes/Database/Routines.php:151
@@ -9231,10 +9185,9 @@ msgid "Routine %1$s has been created."
 msgstr "Routine %1$s telah dibuat."
 
 #: libraries/classes/Database/Routines.php:412
-#, fuzzy, php-format
-#| msgid "Routine %1$s has been modified."
+#, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
-msgstr "Routine %1$s telah diubah."
+msgstr "Rutin %1$s telah dimodifikasi. Hak istimewa telah disesuaikan."
 
 #: libraries/classes/Database/Routines.php:417
 #, php-format
@@ -9246,9 +9199,9 @@ msgid "You must provide a name and a type for each routine parameter."
 msgstr "Anda harus memasukkan nama dan jenis setiap parameter rutin."
 
 #: libraries/classes/Database/Routines.php:841
-#, fuzzy, php-format
+#, php-format
 msgid "Invalid direction \"%s\" given for parameter."
-msgstr "Arah tidak valid \"%s\" diberikan untuk parameter."
+msgstr "Arah \"%s\" yang diberikan untuk parameter tidak valid."
 
 #: libraries/classes/Database/Routines.php:861
 #: libraries/classes/Database/Routines.php:928
@@ -12730,19 +12683,16 @@ msgstr "Anda telah mencabut hak akses untuk %s."
 #: libraries/classes/Server/Privileges.php:1443
 #: templates/database/privileges/index.twig:124
 #: templates/table/privileges/index.twig:127
-#, fuzzy
 msgid "Not enough privilege to view users."
-msgstr "Hak akses tidak cukup untuk melihat pengguna."
+msgstr "Hak istimewa tidak cukup untuk melihat pengguna."
 
 #: libraries/classes/Server/Privileges.php:1505
 #: templates/database/privileges/index.twig:80
 #: templates/server/privileges/new_user_ajax.twig:45
 #: templates/server/privileges/users_overview.twig:75
 #: templates/table/privileges/index.twig:84
-#, fuzzy
-#| msgid "Edit Privileges"
 msgid "Edit privileges"
-msgstr "Edit Hak Akses"
+msgstr "Sunting hak istimewa"
 
 #: libraries/classes/Server/Privileges.php:1509
 msgid "Revoke"
@@ -12770,10 +12720,8 @@ msgstr "Rutinitas"
 
 #: libraries/classes/Server/Privileges.php:1832
 #: templates/server/privileges/edit_routine_privileges.twig:47
-#, fuzzy
-#| msgid "Column-specific privileges"
 msgid "Routine-specific privileges"
-msgstr "Hak akses khusus kolom"
+msgstr "Hak istimewa khusus rutin"
 
 #: libraries/classes/Server/Privileges.php:2173
 msgid "No users selected for deleting!"
@@ -12834,31 +12782,19 @@ msgstr ""
 "host dari akun mereka mengizinkan koneksi dari host mana pun (%)."
 
 #: libraries/classes/Server/Privileges.php:3015
-#, fuzzy, php-format
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
+#, php-format
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
 "server uses, if they have been changed manually. In this case, you should "
 "%sreload the privileges%s before you continue."
 msgstr ""
-"Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
-"tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
-"pengguna yang digunakan oleh Server pada saat ini bila tabel tsb. pernah "
-"diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
-"melanjut."
+"Catatan: phpMyAdmin mendapatkan hak istimewa pengguna secara langsung dari "
+"tabel hak istimewa MySQL. Konten tabel ini mungkin berbeda dari hak istimewa "
+"yang digunakan server, jika telah diubah secara manual. Dalam kasus ini, "
+"Anda harus %smemuat ulang hak istimewa%s sebelum melanjutkan."
 
 #: libraries/classes/Server/Privileges.php:3031
-#, fuzzy
-#| msgid ""
-#| "Note: phpMyAdmin gets the users' privileges directly from MySQL's "
-#| "privilege tables. The content of these tables may differ from the "
-#| "privileges the server uses, if they have been changed manually. In this "
-#| "case, you should %sreload the privileges%s before you continue."
 msgid ""
 "Note: phpMyAdmin gets the users’ privileges directly from MySQL’s privilege "
 "tables. The content of these tables may differ from the privileges the "
@@ -12866,11 +12802,11 @@ msgid ""
 "privileges have to be reloaded but currently, you don't have the RELOAD "
 "privilege."
 msgstr ""
-"Perhatian: phpMyAdmin membaca data tentang pengguna secara langsung dari "
-"tabel profil pengguna MySQL. Isi dari tabel bisa saja berbeda dengan profil "
-"pengguna yang digunakan oleh Server pada saat ini bila tabel tsb. pernah "
-"diubah secara manual. Disarankan untuk %sme-reload profil pengguna%s sebelum "
-"melanjut."
+"Catatan: phpMyAdmin mendapatkan hak istimewa pengguna secara langsung dari "
+"tabel hak istimewa MySQL. Konten tabel ini mungkin berbeda dari hak istimewa "
+"yang digunakan server, jika telah diubah secara manual. Dalam kasus ini, hak "
+"istimewa harus dimuat ulang, tetapi saat ini, Anda tidak memiliki hak "
+"istimewa RELOAD."
 
 #: libraries/classes/Server/Privileges.php:3345
 msgid "You have added a new user."
@@ -15248,7 +15184,6 @@ msgstr "khusus basis data"
 
 #: templates/database/privileges/index.twig:52
 #: templates/table/privileges/index.twig:54
-#, fuzzy
 msgid "wildcard"
 msgstr "wildcard"
 
@@ -15288,10 +15223,8 @@ msgstr "Baru"
 #: templates/server/privileges/user_overview.twig:24
 #: templates/server/privileges/users_overview.twig:140
 #: templates/table/privileges/index.twig:140
-#, fuzzy
-#| msgid "Add user group"
 msgid "Add user account"
-msgstr "Tambah grup pengguna"
+msgstr "Tambahkan akun pengguna"
 
 #: templates/database/qbe/index.twig:16
 #, php-format
@@ -16105,8 +16038,6 @@ msgstr "Konversi Pengodean:"
 
 #: templates/filter.twig:2 templates/server/status/processes/index.twig:6
 #: templates/server/status/variables/index.twig:7
-#, fuzzy
-#| msgid "Filter"
 msgid "Filters"
 msgstr "Filter"
 
@@ -17640,10 +17571,8 @@ msgid "deleted"
 msgstr "Hapus"
 
 #: templates/server/privileges/add_user.twig:12
-#, fuzzy
-#| msgid "Database for user"
 msgid "Database for user account"
-msgstr "Basis data untuk pengguna"
+msgstr "Basis data untuk akun pengguna"
 
 #: templates/server/privileges/add_user.twig:15
 msgid "Create database with same name and grant all privileges."
@@ -17654,10 +17583,9 @@ msgid "Grant all privileges on wildcard name (username\\_%)."
 msgstr "Berikan semua hak untuk nama wildcard (pengguna\\_%)."
 
 #: templates/server/privileges/add_user.twig:24
-#, fuzzy, php-format
-#| msgid "Grant all privileges on database \"%s\"."
+#, php-format
 msgid "Grant all privileges on database %s."
-msgstr "Berikan semua hak untuk basis data \"%s\"."
+msgstr "Berikan semua hak istimewa pada basis data %s."
 
 #: templates/server/privileges/change_password.twig:15
 msgid "No Password"
@@ -17713,12 +17641,12 @@ msgstr "Akun pengguna"
 
 #: templates/server/privileges/edit_routine_privileges.twig:34
 #: templates/server/privileges/user_properties.twig:53
-#, fuzzy
 msgid ""
 "Note: You are attempting to edit privileges of the user with which you are "
 "currently logged in."
 msgstr ""
-"Catatan: Anda mencoba untuk mengedit hak-hak user yang Anda sedang login."
+"Catatan: Anda mencoba mengedit hak istimewa pengguna yang saat ini Anda "
+"masuki."
 
 #: templates/server/privileges/edit_routine_privileges.twig:51
 #: templates/server/privileges/privileges_table.twig:10
@@ -17776,13 +17704,12 @@ msgid "Use text field"
 msgstr "Gunakan text field"
 
 #: templates/server/privileges/login_information_fields.twig:16
-#, fuzzy
 msgid ""
 "An account already exists with the same username but possibly a different "
 "hostname."
 msgstr ""
-"Account yang sudah ada dengan nama pengguna yang sama tapi mungkin nama host "
-"yang berbeda."
+"Akun sudah ada dengan nama pengguna yang sama tetapi mungkin nama host yang "
+"berbeda."
 
 #: templates/server/privileges/login_information_fields.twig:22
 msgid "Host name:"
@@ -18356,47 +18283,43 @@ msgid "Instructions"
 msgstr "Instruksi"
 
 #: templates/server/status/advisor/index.twig:24
-#, fuzzy
 msgid ""
 "The Advisor system can provide recommendations on server variables by "
 "analyzing the server status variables."
 msgstr ""
-"Sistem Advisor dapat memberikan rekomendasi tentang variabel server dengan "
+"Sistem Penasihat dapat memberikan rekomendasi pada variabel server dengan "
 "menganalisis variabel status server."
 
 #: templates/server/status/advisor/index.twig:29
-#, fuzzy
 msgid ""
 "Do note however that this system provides recommendations based on simple "
 "calculations and by rule of thumb which may not necessarily apply to your "
 "system."
 msgstr ""
-"Namun catatan agenda bahwa sistem ini memberikan rekomendasi berdasarkan "
-"perhitungan sederhana dan dengan aturan praktis yang mungkin tidak selalu "
-"berlaku untuk sistem anda."
+"Namun perlu dicatat bahwa sistem ini memberikan rekomendasi berdasarkan "
+"perhitungan sederhana dan aturan praktis yang belum tentu berlaku untuk "
+"sistem Anda."
 
 #: templates/server/status/advisor/index.twig:34
-#, fuzzy
 msgid ""
 "Prior to changing any of the configuration, be sure to know what you are "
 "changing (by reading the documentation) and how to undo the change. Wrong "
 "tuning can have a very negative effect on performance."
 msgstr ""
-"Sebelum mengubah salah satu dari konfigurasi, pastikan untuk mengetahui apa "
-"yang Anda berubah (dengan membaca dokumentasi) dan bagaimana untuk "
-"membatalkan perubahan. Tuning yang salah dapat memiliki efek yang sangat "
-"negatif pada kinerja."
+"Sebelum mengubah konfigurasi apa pun, pastikan Anda mengetahui apa yang Anda "
+"ubah (dengan membaca dokumentasi) dan cara membatalkan perubahan. Penyetelan "
+"yang salah dapat berdampak sangat negatif pada kinerja."
 
 #: templates/server/status/advisor/index.twig:39
-#, fuzzy
 msgid ""
 "The best way to tune your system would be to change only one setting at a "
 "time, observe or benchmark your database, and undo the change if there was "
 "no clearly measurable improvement."
 msgstr ""
-"Cara terbaik untuk menyempurnakan sistem anda akan berubah hanya satu "
-"pengaturan pada suatu waktu, mengamati atau patokan database Anda, dan "
-"membatalkan perubahan jika tidak ada perbaikan jelas terukur."
+"Cara terbaik untuk menyempurnakan sistem Anda adalah dengan mengubah hanya "
+"satu pengaturan pada satu waktu, mengamati atau melakukan pembandingan basis "
+"data Anda, dan membatalkan perubahan jika tidak ada peningkatan yang dapat "
+"diukur dengan jelas."
 
 #: templates/server/status/advisor/index.twig:53
 #, fuzzy
@@ -18463,20 +18386,16 @@ msgid "Instructions/Setup"
 msgstr "Petunjuk/Penyiapan"
 
 #: templates/server/status/monitor/index.twig:20
-#, fuzzy
-#| msgid "Done rearranging/editing charts"
 msgid "Done dragging (rearranging) charts"
-msgstr "Selesai mengatur ulang/mengedit bagan"
+msgstr "Selesai menyeret (menata ulang) grafik"
 
 #: templates/server/status/monitor/index.twig:27
 msgid "Add chart"
 msgstr "Tambahkan bagan"
 
 #: templates/server/status/monitor/index.twig:31
-#, fuzzy
-#| msgid "Enable highlighting"
 msgid "Enable charts dragging"
-msgstr "Aktifkan penyorotan"
+msgstr "Aktifkan penarikan grafik"
 
 #: templates/server/status/monitor/index.twig:36
 #: templates/server/status/processes/index.twig:33
@@ -18522,13 +18441,12 @@ msgid "Chart arrangement"
 msgstr "Pengaturan bagan"
 
 #: templates/server/status/monitor/index.twig:75
-#, fuzzy
 msgid ""
 "The arrangement of the charts is stored to the browsers local storage. You "
 "may want to export it if you have a complicated set up."
 msgstr ""
-"Susunan tangga lagu disimpan untuk browser penyimpanan lokal. Anda mungkin "
-"ingin mengekspornya jika Anda memiliki satu set yang rumit up."
+"Susunan grafik disimpan di penyimpanan lokal browser. Anda mungkin ingin "
+"mengekspornya jika Anda memiliki pengaturan yang rumit."
 
 #: templates/server/status/monitor/index.twig:84
 msgid "Reset to default"
@@ -18539,7 +18457,6 @@ msgid "Monitor Instructions"
 msgstr "Instruksi Pemantauan"
 
 #: templates/server/status/monitor/index.twig:91
-#, fuzzy
 msgid ""
 "The phpMyAdmin Monitor can assist you in optimizing the server configuration "
 "and track down time intensive queries. For the latter you will need to set "
@@ -18547,59 +18464,55 @@ msgid ""
 "enabled. Note however, that the general_log produces a lot of data and "
 "increases server load by up to 15%."
 msgstr ""
-"The phpMyAdmin Monitor dapat membantu Anda dalam mengoptimalkan konfigurasi "
-"server dan melacak waktu intensif query. Untuk yang terakhir, Anda akan "
-"perlu untuk mengatur log_output untuk 'TABLE' dan memiliki baik "
-"slow_query_log atau general_log diaktifkan. Namun perlu dicatat, bahwa "
-"general_log menghasilkan banyak data dan meningkatkan beban server hingga "
-"15%."
+"Monitor phpMyAdmin dapat membantu Anda mengoptimalkan konfigurasi server dan "
+"melacak kueri yang memakan waktu. Untuk kueri yang terakhir, Anda perlu "
+"menyetel log_output ke 'TABLE' dan mengaktifkan slow_query_log atau "
+"general_log. Namun, perlu dicatat bahwa general_log menghasilkan banyak data "
+"dan meningkatkan beban server hingga 15%."
 
 #: templates/server/status/monitor/index.twig:101
 msgid "Using the monitor:"
 msgstr "Menggunakan monitor:"
 
 #: templates/server/status/monitor/index.twig:103
-#, fuzzy
 msgid ""
 "Your browser will refresh all displayed charts in a regular interval. You "
 "may add charts and change the refresh rate under 'Settings', or remove any "
 "chart using the cog icon on each respective chart."
 msgstr ""
-"Browser Anda akan me-refresh semua grafik ditampilkan dalam interval "
-"reguler. Anda dapat menambahkan grafik dan mengubah refresh rate di bawah "
-"'Settings', atau menghapus setiap tabel menggunakan ikon gigi pada setiap "
-"grafik masing."
+"Peramban Anda akan menyegarkan semua grafik yang ditampilkan secara berkala. "
+"Anda dapat menambahkan grafik dan mengubah kecepatan penyegaran di bawah "
+"'Pengaturan', atau menghapus grafik apa pun menggunakan ikon roda gigi pada "
+"setiap grafik."
 
 #: templates/server/status/monitor/index.twig:108
-#, fuzzy
 msgid ""
 "To display queries from the logs, select the relevant time span on any chart "
 "by holding down the left mouse button and panning over the chart. Once "
 "confirmed, this will load a table of grouped queries, there you may click on "
 "any occurring SELECT statements to further analyze them."
 msgstr ""
-"Untuk menampilkan query dari log, pilih rentang waktu yang relevan pada "
-"tabel apapun dengan menekan tombol kiri mouse dan panning atas bagan. "
-"Setelah dikonfirmasi, ini akan memuat tabel query dikelompokkan, di sana "
-"Anda bisa mengklik pada pernyataan SELECT yang terjadi untuk lebih "
-"menganalisis mereka."
+"Untuk menampilkan kueri dari log, pilih rentang waktu yang relevan pada "
+"bagan mana pun dengan menahan tombol kiri tetikus dan menggeser bagan. "
+"Setelah dikonfirmasi, tabel kueri yang dikelompokkan akan dimuat. Di sana, "
+"Anda dapat mengeklik pernyataan SELECT yang muncul untuk menganalisisnya "
+"lebih lanjut."
 
 #: templates/server/status/monitor/index.twig:114
 msgid "Please note:"
 msgstr "Harap catat:"
 
 #: templates/server/status/monitor/index.twig:117
-#, fuzzy
 msgid ""
 "Enabling the general_log may increase the server load by 5-15%. Also be "
 "aware that generating statistics from the logs is a load intensive task, so "
 "it is advisable to select only a small time span and to disable the "
 "general_log and empty its table once monitoring is not required any more."
 msgstr ""
-"Mengaktifkan general_log dapat meningkatkan beban server oleh 5-15%. Juga "
-"perlu diketahui bahwa menghasilkan statistik dari log adalah tugas beban "
-"intensif, sehingga disarankan untuk memilih hanya rentang waktu kecil dan "
-"untuk menonaktifkan general_log dan mengosongkan meja nya setelah pemantauan "
+"Mengaktifkan general_log dapat meningkatkan beban server hingga 5-15%. Perlu "
+"diketahui juga bahwa membuat statistik dari log merupakan tugas yang "
+"membutuhkan banyak beban, jadi sebaiknya pilih rentang waktu yang singkat "
+"dan nonaktifkan general_log serta kosongkan tabelnya setelah pemantauan "
 "tidak diperlukan lagi."
 
 #: templates/server/status/monitor/index.twig:128
@@ -18664,43 +18577,34 @@ msgid "Only retrieve SELECT,INSERT,UPDATE and DELETE Statements"
 msgstr "Hanya sertakan perintah SELECT, INSERT, UPDATE, dan DELETE"
 
 #: templates/server/status/monitor/index.twig:240
-#, fuzzy
 msgid "Remove variable data in INSERT statements for better grouping"
 msgstr ""
-"Hapus data variabel dalam laporan INSERT untuk pengelompokan yang lebih baik"
+"Hapus data variabel dalam pernyataan INSERT untuk pengelompokan yang lebih "
+"baik"
 
 #: templates/server/status/monitor/index.twig:244
-#, fuzzy
 msgid "Choose from which log you want the statistics to be generated from."
-msgstr ""
-"Memilih dari yang login Anda ingin statistik yang akan dihasilkan dari."
+msgstr "Pilih dari log mana Anda ingin statistik dihasilkan."
 
 #: templates/server/status/monitor/index.twig:247
-#, fuzzy
 msgid "Results are grouped by query text."
-msgstr "Hasil dikelompokkan oleh query teks."
+msgstr "Hasil dikelompokkan berdasarkan teks kueri."
 
 #: templates/server/status/monitor/index.twig:251
 msgid "Query analyzer"
 msgstr "Penganalisis kueri"
 
 #: templates/server/status/processes/index.twig:14
-#, fuzzy
-#| msgid "Show only alert values"
 msgid "Show only active"
-msgstr "Tampilkan hanya nilai peringatan"
+msgstr "Tampilkan hanya yang aktif"
 
 #: templates/server/status/processes/index.twig:28
-#, fuzzy
-#| msgid ""
-#| "Note: Enabling the database statistics here might cause heavy traffic "
-#| "between the web server and the MySQL server."
 msgid ""
 "Note: Enabling the auto refresh here might cause heavy traffic between the "
 "web server and the MySQL server."
 msgstr ""
-"Perhatian: Pengaktifan statistik basis data dapat mengakibatkan lalu lintas "
-"besar antara webserver dan server MySQL."
+"Catatan: Mengaktifkan penyegaran otomatis di sini dapat menyebabkan lalu "
+"lintas yang padat antara server web dan server MySQL."
 
 #. l10n: Questions is the name of a MySQL Status variable
 #: templates/server/status/queries/index.twig:8
@@ -18754,13 +18658,12 @@ msgstr ""
 "Server MySQL ini telah berjalan selama %1$s. Server ini dijalankan pada %2$s."
 
 #: templates/server/status/status/index.twig:15
-#, fuzzy
 msgid ""
 "On a busy server, the byte counters may overrun, so those statistics as "
 "reported by the MySQL server may be incorrect."
 msgstr ""
-"Pada server sibuk, counter byte dapat dikuasai, sehingga statistik tersebut "
-"seperti dilansir server MySQL mungkin salah."
+"Pada server yang sibuk, penghitung byte mungkin melebihi batas, sehingga "
+"statistik yang dilaporkan oleh server MySQL mungkin salah."
 
 #: templates/server/status/status/index.twig:59
 #, fuzzy
@@ -19519,10 +19422,8 @@ msgid "Truncate partition"
 msgstr "dipartisi"
 
 #: templates/table/privileges/index.twig:57
-#, fuzzy
-#| msgid "database-specific"
 msgid "table-specific"
-msgstr "khusus basis data"
+msgstr "tabel khusus"
 
 #: templates/table/relation/common_form.twig:9
 msgid "Foreign key constraints"
