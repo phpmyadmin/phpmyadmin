@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.1.4-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2022-04-21 15:39-0300\n"
-"PO-Revision-Date: 2025-03-23 10:38+0000\n"
+"PO-Revision-Date: 2025-03-23 22:10+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-1/id/>\n"
@@ -6985,7 +6985,7 @@ msgstr "Hapus halaman"
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:542
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
-"Beberapa tabel yang disimpan di halaman ini mungkin telah dinamai ulang atau "
+"Beberapa tabel yang disimpan di halaman ini mungkin telah diganti nama atau "
 "dihapus."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:543
@@ -7388,7 +7388,7 @@ msgstr "Waktu tunggu untuk aktivasi kunci keamanan habis."
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:718
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr "Permintaan yang tidak valid terkirim ke kunci keamanan."
+msgstr "Permintaan tidak valid dikirim ke kunci keamanan."
 
 #. l10n: unknown error code (from U2F API)
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:720
@@ -12409,8 +12409,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
-"Perutean cache tidak dapat ditulis, Anda perlu mengatur perizinan di folder/"
-"file \"%s\""
+"Tembolok routing tidak dapat ditulis, Anda perlu menyesuaikan izin pada "
+"folder/file \"%s\""
 
 #: libraries/classes/Routing.php:169
 #, php-format
@@ -16148,7 +16148,7 @@ msgstr "Silakan masukkan input HEX yang valid"
 #. l10n: To validate the usage of a MD5 function on the column
 #: templates/javascript/variables.twig:108
 msgid "This column can not contain a 32 chars value"
-msgstr "Kolom ini tidak boleh berisi sebuah nilai 32 karakter"
+msgstr "Kolom ini tidak dapat berisi nilai 32 karakter"
 
 #. l10n: To validate the usage of a AES_ENCRYPT/DES_ENCRYPT function on the column
 #: templates/javascript/variables.twig:109
@@ -16156,9 +16156,9 @@ msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
-"Fungsi ini dimaksudkan untuk mengembalikan sebuah hasil biner; untuk "
-"menghindari hasil yang tidak konsisten, Anda harus menyimpannya di sebuah "
-"kolom BINARY, VARBINARY, or BLOB."
+"Fungsi ini dimaksudkan untuk mengembalikan hasil biner; untuk menghindari "
+"hasil yang tidak konsisten, Anda harus menyimpannya dalam kolom BINARY, "
+"VARBINARY, atau BLOB."
 
 #: templates/login/form.twig:30
 msgid "Log in"
@@ -16950,7 +16950,7 @@ msgstr "Memungkinkan pembuatan hubungan kunci asing."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used on MariaDB."
-msgstr "Tidak digunakan di MariaDB."
+msgstr "Tidak digunakan pada MariaDB."
 
 #: templates/server/privileges/privileges_table.twig:646
 msgid "Not used for this MySQL version."
