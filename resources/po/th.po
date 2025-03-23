@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-16 00:27+0000\n"
+"POT-Creation-Date: 2025-03-23 00:32+0000\n"
 "PO-Revision-Date: 2025-03-18 14:23+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -8086,16 +8086,13 @@ msgstr "จำนวนคำถามไม่ถึง 1,000"
 msgid ""
 "Fewer than 1,000 questions have been run against this server. The "
 "recommendations may not be accurate."
-msgstr ""
-"มีคำถามที่ถูกเรียกใช้ผ่านเซิร์ฟเวอร์นี้น้อยกว่า 1,000 คำถาม คำแนะนำอาจจะไม่แม่นยำ"
+msgstr "มีคำถามที่ถูกเรียกใช้ผ่านเซิร์ฟเวอร์นี้น้อยกว่า 1,000 คำถาม คำแนะนำอาจจะไม่แม่นยำ"
 
 #: src/Advisory/Rules.php:55
 msgid ""
 "Let the server run for a longer time until it has executed a greater amount "
 "of queries."
-msgstr ""
-"ให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่านี้จนกว่าเซิร์ฟเวอร์จะดำเนินงานกับแบบสอบถามได้ในจำนวนที่"
-"มากกว่านี้"
+msgstr "ให้ปล่อยเซิร์ฟเวอร์ทำงานเป็นเวลานานกว่านี้จนกว่าเซิร์ฟเวอร์จะดำเนินงานกับแบบสอบถามได้ในจำนวนที่มากกว่านี้"
 
 #: src/Advisory/Rules.php:57
 #, php-format
@@ -8131,8 +8128,7 @@ msgstr "อัตราแบบสอบถามที่ทำงานช้
 #: src/Advisory/Rules.php:79
 msgid ""
 "There is a high percentage of slow queries compared to the server uptime."
-msgstr ""
-"มีค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้าสูงเมื่อเทียบกับเวลาทำงานของเซิร์ฟเวอร์"
+msgstr "มีค่าเปอร์เซ็นต์ของแบบสอบถามที่ทำงานช้าสูงเมื่อเทียบกับเวลาทำงานของเซิร์ฟเวอร์"
 
 #: src/Advisory/Rules.php:84
 #, php-format

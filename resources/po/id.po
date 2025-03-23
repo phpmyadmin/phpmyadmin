@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-16 00:27+0000\n"
+"POT-Creation-Date: 2025-03-23 00:32+0000\n"
 "PO-Revision-Date: 2025-03-22 03:59+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -4511,9 +4511,8 @@ msgid ""
 "Enable advanced features in configuration file (<code>config.inc.php</"
 "code>), for example by starting from <code>config.sample.inc.php</code>."
 msgstr ""
-"Aktifkan fitur lanjutan dalam berkas konfigurasi "
-"(<code>config.inc.php</code>), misalnya dengan memulai dari "
-"<code>config.sample.inc.php</code>."
+"Aktifkan fitur lanjutan dalam berkas konfigurasi (<code>config.inc.php</"
+"code>), misalnya dengan memulai dari <code>config.sample.inc.php</code>."
 
 #: resources/templates/relation/check_relations.twig:535
 msgid "Re-login to phpMyAdmin to load the updated configuration file."
@@ -8093,9 +8092,9 @@ msgstr ""
 "dari nilai variabel-variabel ini. Untuk menghilangkannya, Anda harus menulis "
 "ulang kueri Anda untuk menghindari kondisi tersebut (Di dalam tabel "
 "sementara: Adanya kolom BLOB atau TEXT atau adanya kolom yang lebih besar "
-"dari 512 byte) seperti yang disebutkan di awal <a href="
-"\"https://www.facebook.com/note.php?note_id=10150111255065841&comments\""
-">Artikel oleh Pythian Group</a>"
+"dari 512 byte) seperti yang disebutkan di awal <a href=\"https://www."
+"facebook.com/note.php?note_id=10150111255065841&comments\">Artikel oleh "
+"Pythian Group</a>"
 
 #: src/Advisory/Rules.php:362
 #, php-format
@@ -10083,8 +10082,8 @@ msgid ""
 "Leave blank for no PDF schema support, suggested: [kbd]pma__table_coords[/"
 "kbd]."
 msgstr ""
-"Biarkan kosong jika tidak ada dukungan skema PDF, disarankan: [kbd]"
-"pma__table_coords[/kbd]."
+"Biarkan kosong jika tidak ada dukungan skema PDF, disarankan: "
+"[kbd]pma__table_coords[/kbd]."
 
 #: src/Config/Descriptions.php:403
 msgid ""
@@ -10137,8 +10136,8 @@ msgid ""
 "Leave blank for no SQL query tracking support, suggested: "
 "[kbd]pma__tracking[/kbd]."
 msgstr ""
-"Biarkan kosong jika tidak ada dukungan pelacakan kueri SQL, disarankan: [kbd]"
-"pma__tracking[/kbd]."
+"Biarkan kosong jika tidak ada dukungan pelacakan kueri SQL, disarankan: "
+"[kbd]pma__tracking[/kbd]."
 
 #: src/Config/Descriptions.php:429
 msgid ""
@@ -10288,7 +10287,8 @@ msgstr ""
 
 #: src/Config/Descriptions.php:483
 msgid "Whether a user should be displayed a \"show all (rows)\" button."
-msgstr "Apakah pengguna harus diperlihatkan tombol \"tampilkan semua (baris)\"."
+msgstr ""
+"Apakah pengguna harus diperlihatkan tombol \"tampilkan semua (baris)\"."
 
 #: src/Config/Descriptions.php:484
 msgid "Show or hide a column displaying the comments for all tables."
@@ -10372,8 +10372,8 @@ msgid ""
 "HTTP_X_FORWARDED_FOR[/kbd]."
 msgstr ""
 "Masukkan proxy sebagai [kbd]IP: header HTTP tepercaya[/kbd]. Contoh berikut "
-"menentukan bahwa phpMyAdmin harus mempercayai header HTTP_X_FORWARDED_FOR (X"
-"-Forwarded-For) yang berasal dari proxy 1.2.3.4:[br][kbd]1.2.3.4: "
+"menentukan bahwa phpMyAdmin harus mempercayai header HTTP_X_FORWARDED_FOR (X-"
+"Forwarded-For) yang berasal dari proxy 1.2.3.4:[br][kbd]1.2.3.4: "
 "HTTP_X_FORWARDED_FOR[/kbd]."
 
 #: src/Config/Descriptions.php:514
@@ -11959,8 +11959,8 @@ msgstr ""
 "Anda menetapkan jenis autentikasi [kbd]config[/kbd] dan menyertakan nama "
 "pengguna dan kata sandi untuk masuk otomatis, yang bukan merupakan opsi yang "
 "diinginkan untuk host langsung. Siapa pun yang mengetahui atau menebak URL "
-"phpMyAdmin Anda dapat langsung mengakses panel phpMyAdmin Anda. Tetapkan %1$"
-"sauthentication type%2$s ke [kbd]cookie[/kbd] atau [kbd]http[/kbd]."
+"phpMyAdmin Anda dapat langsung mengakses panel phpMyAdmin Anda. Tetapkan "
+"%1$sauthentication type%2$s ke [kbd]cookie[/kbd] atau [kbd]http[/kbd]."
 
 #: src/Config/ServerConfigChecks.php:204
 msgid "You allow for connecting to the server without a password."
@@ -15893,7 +15893,8 @@ msgstr "Sunting pemicu"
 #: src/Controllers/Triggers/IndexController.php:209
 #, php-format
 msgid "No trigger with name %1$s found in database %2$s."
-msgstr "Tidak ada pemicu dengan nama %1$s yang ditemukan dalam basis data %2$s."
+msgstr ""
+"Tidak ada pemicu dengan nama %1$s yang ditemukan dalam basis data %2$s."
 
 #: src/Controllers/Triggers/IndexController.php:250
 #, fuzzy, php-format
@@ -15948,8 +15949,8 @@ msgctxt ""
 msgid ""
 "phpMyAdmin configuration storage is not configured for \"Display Features\"."
 msgstr ""
-"Penyimpanan konfigurasi phpMyAdmin tidak dikonfigurasi untuk "
-"\"Fitur Tampilan\"."
+"Penyimpanan konfigurasi phpMyAdmin tidak dikonfigurasi untuk \"Fitur "
+"Tampilan\"."
 
 #: src/Database/Designer/Common.php:487
 msgid "Error: relationship already exists."
@@ -17262,8 +17263,8 @@ msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
-"Tidak ada ketergantungan parsial yang mungkin terjadi karena kunci utama ( "
-"%1$s ) hanya memiliki satu kolom."
+"Tidak ada ketergantungan parsial yang mungkin terjadi karena kunci utama "
+"( %1$s ) hanya memiliki satu kolom."
 
 #: src/Normalization.php:466
 #, php-format
@@ -17339,7 +17340,8 @@ msgstr "Tabel sudah dalam bentuk normal ketiga!"
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
-msgstr "Daftar ini didasarkan pada sebagian data tabel dan belum tentu akurat. "
+msgstr ""
+"Daftar ini didasarkan pada sebagian data tabel dan belum tentu akurat. "
 
 #: src/Normalization.php:960
 msgid "No partial dependencies found!"
@@ -17697,8 +17699,8 @@ msgid ""
 "names formed with special characters or keywords)</i>"
 msgstr ""
 "Lampirkan nama tabel dan kolom dengan tanda kutip terbalik <i>(Melindungi "
-"nama kolom dan tabel yang dibentuk dengan karakter khusus atau kata "
-"kunci)</i>"
+"nama kolom dan tabel yang dibentuk dengan karakter khusus atau kata kunci)</"
+"i>"
 
 #: src/Plugins/Export/ExportSql.php:413
 msgid "Data creation options"
