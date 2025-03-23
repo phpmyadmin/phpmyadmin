@@ -104,7 +104,7 @@ msgstr "Informasi Git hilang!"
 #: resources/templates/database/central_columns/main.twig:71
 #: resources/templates/database/central_columns/main.twig:304
 msgid "Edit ENUM/SET values"
-msgstr "Edit nilai ENUM/SET"
+msgstr "Sunting nilai ENUM/SET"
 
 #: resources/templates/columns_definitions/column_attributes.twig:38
 #: resources/templates/database/central_columns/edit_table_row.twig:30
@@ -2695,9 +2695,8 @@ msgid "Remove columns from central list"
 msgstr "Hapus kolom dari daftar pusat"
 
 #: resources/templates/database/structure/check_all_tables.twig:35
-#, fuzzy
 msgid "Make consistent with central list"
-msgstr "Kolom textarea CHAR"
+msgstr "Buat konsisten dengan daftar pusat"
 
 #: resources/templates/database/structure/check_all_tables.twig:48
 msgid "Are you sure?"
