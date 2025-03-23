@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-03-23 00:32+0000\n"
-"PO-Revision-Date: 2025-03-23 21:15+0000\n"
+"PO-Revision-Date: 2025-03-23 22:10+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -20,9 +20,8 @@ msgid "Javascript must be enabled past this point!"
 msgstr "Javascript harus diaktifkan lewat point ini!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
 msgid "Open user account menu"
-msgstr "Tambah grup pengguna"
+msgstr "Buka menu akun pengguna"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -30,22 +29,18 @@ msgid "phpMyAdmin documentation"
 msgstr "Dokumentasi phpMyAdmin"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MariaDB documentation"
-msgstr "Dokumentasi"
+msgstr "Dokumentasi MariaDB"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MySQL documentation"
-msgstr "Dokumentasi"
+msgstr "Dokumentasi MySQL"
 
 #: resources/templates/base.twig:73
-#, fuzzy
 msgid "Appearance:"
-msgstr "Pengaturan tampilan"
+msgstr "Tampilan:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
-#, fuzzy
 msgid "Color mode for the theme"
 msgstr "Mode warna untuk tema"
 
@@ -349,8 +344,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
-"Lebar kolom tipe integer diabaikan pada versi MySQL Anda kecuali jika kolom "
-"TINYINT(1) didefinisikan"
+"Lebar kolom tipe integer diabaikan dalam versi MySQL Anda kecuali "
+"mendefinisikan kolom TINYINT(1)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:176
 #: resources/templates/database/designer/main.twig:1094
@@ -1166,9 +1161,8 @@ msgid "Hide trace"
 msgstr "Sembunyikan jejak"
 
 #: resources/templates/console/display.twig:120
-#, fuzzy
 msgid "Count:"
-msgstr "Jumlah"
+msgstr "Jumlah:"
 
 #: resources/templates/console/display.twig:121
 #: src/Controllers/JavaScriptMessagesController.php:671
@@ -1213,7 +1207,6 @@ msgid "OK"
 msgstr "Oke"
 
 #: resources/templates/console/display.twig:178
-#, fuzzy
 msgid "Restore default values"
 msgstr "Kembalikan nilai bawaan"
 
@@ -1230,13 +1223,12 @@ msgid "Show current browsing query"
 msgstr "Tampilkan kueri penelusuran saat ini"
 
 #: resources/templates/console/display.twig:197
-#, fuzzy
 msgid ""
 "Execute queries on Enter and insert new line with Shift+Enter. To make this "
 "permanent, view settings."
 msgstr ""
-"Mengeksekusi query pada Masukkan dan memasukkan baris baru dengan Shift + "
-"Enter. Untuk membuat ini permanen, pengaturan tampilan."
+"Jalankan kueri pada Enter dan masukkan baris baru dengan Shift+Enter. Untuk "
+"membuatnya permanen, lihat pengaturan."
 
 #: resources/templates/console/display.twig:201 src/Config/Descriptions.php:961
 msgid "Switch to dark theme"
@@ -1294,9 +1286,8 @@ msgstr "Daftar kolom pusat untuk database saat ini kosong"
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
-#, fuzzy
 msgid "Filter rows:"
-msgstr "Saring baris"
+msgstr "Filter baris:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:143
@@ -1370,9 +1361,8 @@ msgstr "Batal"
 
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
-#, fuzzy
 msgid "Create new table"
-msgstr "Buat tabel"
+msgstr "Buat tabel baru"
 
 #: resources/templates/database/create_table.twig:10
 #: resources/templates/database/operations/index.twig:35
@@ -1719,9 +1709,8 @@ msgid "Select page"
 msgstr "Pilih halaman"
 
 #: resources/templates/database/designer/schema_export.twig:6
-#, fuzzy
 msgid "Select export relational type:"
-msgstr "Pilih Ekspor Relational Jenis"
+msgstr "Pilih jenis relasional ekspor:"
 
 #: resources/templates/database/events/editor_form.twig:10
 #: resources/templates/database/routines/editor_form.twig:11
@@ -1903,9 +1892,8 @@ msgid "Drop"
 msgstr "Hapus"
 
 #: resources/templates/database/events/index.twig:29
-#, fuzzy
 msgid "Create new event"
-msgstr "Membuat versi"
+msgstr "Buat peristiwa baru"
 
 #: resources/templates/database/events/index.twig:38
 msgid "There are no events to display."
@@ -1974,9 +1962,8 @@ msgid "Data"
 msgstr "Data"
 
 #: resources/templates/database/export/index.twig:30
-#, fuzzy
 msgid "Export the structure of all tables."
-msgstr "Mengizinkan untuk mengubah struktur dari tabel yang ada."
+msgstr "Ekspor struktur semua tabel."
 
 #: resources/templates/database/export/index.twig:33
 msgid "Export the data of all tables."
@@ -2087,9 +2074,8 @@ msgid "Update query"
 msgstr "Perbarui kueri"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
 msgid "Copy query"
-msgstr "Perbarui Kueri"
+msgstr "Salin kueri"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2415,9 +2401,8 @@ msgid "Search"
 msgstr "Cari"
 
 #: resources/templates/database/routines/index.twig:36
-#, fuzzy
 msgid "Create new routine"
-msgstr "Buat versi"
+msgstr "Buat rutinitas baru"
 
 #: resources/templates/database/routines/index.twig:45
 msgid "There are no routines to display."
@@ -2483,7 +2468,7 @@ msgstr "Opsi:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "sertakan pencocokan hex"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -2515,10 +2500,10 @@ msgid "Browse"
 msgstr "Jelajahi"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<b>Total:</b> <i>%s</i> cocok"
+msgstr[0] "<strong>Total:</strong> <em>%s</em> kecocokan"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -2909,17 +2894,16 @@ msgstr "Lacak tabel"
 
 #: resources/templates/display/results/checkbox_and_links.twig:16
 #: resources/templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
 msgid "You can also edit most values by clicking directly on them."
 msgstr ""
-"Anda juga dapat mengedit sebagian nilai<br>dengan mengeklik langsung konten."
+"Anda juga dapat menyunting sebagian besar nilai dengan mengkliknya langsung."
 
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
 msgid "You can also edit most values by double-clicking directly on them."
 msgstr ""
-"Anda juga dapat mengedit sebagian nilai<br>dengan mengeklik langsung konten."
+"Anda juga dapat mengedit sebagian besar nilai dengan mengklik dua kali "
+"langsung pada nilai tersebut."
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
@@ -2989,9 +2973,8 @@ msgstr "Urut berdasarkan kunci:"
 
 #: resources/templates/display/results/table.twig:200
 #: resources/templates/table/search/index.twig:101
-#, fuzzy
 msgid "Extra options"
-msgstr "Opsi hasil"
+msgstr "Opsi tambahan"
 
 #: resources/templates/display/results/table.twig:212
 #: src/Display/Results.php:1112
@@ -3127,7 +3110,6 @@ msgstr "Terjadi kesalahan"
 #: resources/templates/error/simple.twig:7
 #: resources/templates/modals/index_dialog_modal.twig:30
 #: resources/templates/table/structure/display_structure.twig:352
-#, fuzzy
 msgid "Go back"
 msgstr "Kembali"
 
@@ -3312,9 +3294,8 @@ msgstr ""
 "detailnya."
 
 #: resources/templates/export.twig:394
-#, fuzzy
 msgid "Use this for future exports"
-msgstr "gunakan ini untuk ekspor kedepannya"
+msgstr "Gunakan ini untuk ekspor di masa mendatang"
 
 #: resources/templates/export.twig:405 resources/templates/import.twig:98
 msgid "Character set of the file:"
@@ -3345,9 +3326,8 @@ msgid "Skip tables larger than:"
 msgstr "Lewati tabel yang lebih besar dari:"
 
 #: resources/templates/export.twig:472
-#, fuzzy
 msgid "The size is measured in MiB."
-msgstr "Ukuran dalam MiB."
+msgstr "Ukuran diukur dalam MiB."
 
 #: resources/templates/export.twig:478 resources/templates/import.twig:173
 msgid "Format-specific options:"
@@ -3369,14 +3349,12 @@ msgid "Containing the word:"
 msgstr "Mengandung kata:"
 
 #: resources/templates/gis_data_editor_form.twig:26
-#, fuzzy
-#| msgid "Geometry %d:"
 msgid "Geometry type:"
-msgstr "Geometri %d:"
+msgstr "Tipe geometri:"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgid "Spatial Reference System Identifier"
-msgstr ""
+msgstr "Pengidentifikasi Sistem Referensi Spasial"
 
 #: resources/templates/gis_data_editor_form.twig:41
 msgctxt "Spatial Reference System Identifier"
@@ -3466,10 +3444,9 @@ msgid "Theme"
 msgstr "Tema"
 
 #: resources/templates/home/index.twig:142
-#, fuzzy
 msgctxt "View all themes"
 msgid "View all"
-msgstr "Hanya melihat"
+msgstr "Lihat semua"
 
 #: resources/templates/home/index.twig:178
 msgid "Database server"
@@ -3553,14 +3530,12 @@ msgid "Warning"
 msgstr "Peringatan"
 
 #: resources/templates/home/index.twig:299
-#, fuzzy
 msgid "Notice"
-msgstr "Pemberitahuan"
+msgstr "Perhatian"
 
 #: resources/templates/home/index.twig:312
-#, fuzzy
 msgid "phpMyAdmin Themes"
-msgstr "Situs phpMyAdmin"
+msgstr "Tema phpMyAdmin"
 
 #: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
@@ -3623,9 +3598,8 @@ msgstr ""
 "[compression]</strong>. Contoh: <strong>.sql.zip</strong>"
 
 #: resources/templates/import.twig:37
-#, fuzzy
 msgid "Upload a file"
-msgstr "Unduh berkas"
+msgstr "Unggah berkas"
 
 #: resources/templates/import.twig:40
 msgid "Select file to import"
@@ -3652,9 +3626,8 @@ msgid "Select from the web server upload directory [strong]%s[/strong]:"
 msgstr "Pilih dari direktori unggah server web [strong]%s[/strong]:"
 
 #: resources/templates/import.twig:65 resources/templates/import.twig:91
-#, fuzzy
 msgid "There are no files to import!"
-msgstr "Tidak ada arsip untuk diunggah!"
+msgstr "Tidak ada berkas untuk diimpor!"
 
 #: resources/templates/import.twig:95
 msgid "File uploads are not allowed on this server."
@@ -3681,14 +3654,12 @@ msgstr ""
 "batas waktu habis PHP."
 
 #: resources/templates/import.twig:135
-#, fuzzy
 msgid ""
 "This might be a good way to import large files, however it can break "
 "transactions."
 msgstr ""
-"Izinkan interupsi impor ketika script mendeteksi batas waktu penutupan. Hal "
-"ini cara yang baik ketika mengimpor file yang besar, sehingga transaksi "
-"dapat dibatalkan."
+"Ini mungkin cara yang baik untuk mengimpor file besar, tetapi dapat merusak "
+"transaksi."
 
 #: resources/templates/import.twig:139
 msgid "Skip this number of queries (for SQL) starting from the first one:"
@@ -3819,19 +3790,20 @@ msgid ""
 "The FIDO U2F API has been deprecated in favor of the Web Authentication API "
 "(WebAuthn)."
 msgstr ""
+"API FIDO U2F telah ditinggalkan dan digantikan oleh API Autentikasi Web "
+"(WebAuthn)."
 
 #: resources/templates/login/twofactor/key_configure.twig:6
 #: resources/templates/login/twofactor/key.twig:6
 #: resources/templates/preferences/two_factor/main.twig:59
-#, fuzzy
 msgid ""
 "You can still use Firefox to authenticate your account using the FIDO U2F "
 "API, however it's recommended that you use the WebAuthn authentication "
 "instead."
 msgstr ""
-"Anda masih dapat menggunakan Firefox untuk mengotentikasi akun Anda "
-"menggunakan API FIDO U2F, namun sangat disarankan untuk menggunakan "
-"otentikasi WebAuthn."
+"Anda masih dapat menggunakan Firefox untuk mengautentikasi akun Anda "
+"menggunakan FIDO U2F API, namun direkomendasikan agar Anda menggunakan "
+"autentikasi WebAuthn sebagai gantinya."
 
 #: resources/templates/login/twofactor/key_configure.twig:10
 msgid ""
@@ -3862,21 +3834,19 @@ msgid "Verify"
 msgstr "Verifikasi"
 
 #: resources/templates/login/twofactor/webauthn_creation.twig:1
-#, fuzzy
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm registration on the "
 "device."
 msgstr ""
-"Sambungkan perangkat FIDO U2F Anda ke port USB komputer Anda. Kemudian "
-"konfirmasikan pendaftaran di perangkat."
+"Harap hubungkan perangkat WebAuthn/FIDO2 Anda. Lalu konfirmasikan "
+"pendaftaran pada perangkat tersebut."
 
 #: resources/templates/login/twofactor/webauthn_request.twig:1
-#, fuzzy
 msgid ""
 "Please connect your WebAuthn/FIDO2 device. Then confirm login on the device."
 msgstr ""
-"Sambungkan perangkat FIDO U2F Anda ke port USB komputer Anda. Kemudian "
-"konfirmasikan login di perangkat."
+"Harap hubungkan perangkat WebAuthn/FIDO2 Anda. Kemudian konfirmasikan login "
+"pada perangkat tersebut."
 
 #: resources/templates/menu/main.twig:27
 msgid "View:"
@@ -3967,9 +3937,8 @@ msgid "Clear fast filter"
 msgstr "Bersihkan filter cepat"
 
 #: resources/templates/navigation/tree/quick_warp.twig:5
-#, fuzzy
 msgid "Recently visited tables"
-msgstr "Tabel yang terakhir digunakan"
+msgstr "Tabel yang baru saja dikunjungi"
 
 #: resources/templates/navigation/tree/quick_warp.twig:6
 msgid "Recent"
@@ -4170,12 +4139,11 @@ msgstr ""
 "Otentikasi dua langkah tersedia, tetapi tidak dikonfigurasikan pada akun ini."
 
 #: resources/templates/preferences/two_factor/main.twig:26
-#, fuzzy
 msgid ""
 "Please install optional dependencies to enable more authentication backends."
 msgstr ""
-"Otentikasi dua langkah tidak tersedia, silakan pasang dependensi opsional "
-"untuk mengaktifkan backend otentikasi."
+"Harap instal dependensi opsional untuk mengaktifkan lebih banyak backend "
+"autentikasi."
 
 #: resources/templates/preferences/two_factor/main.twig:37
 msgid ""
@@ -4207,9 +4175,8 @@ msgid "There are no recent tables."
 msgstr "Tidak ada tabel terbaru."
 
 #: resources/templates/relation/check_relations.twig:3
-#, fuzzy
 msgid "phpMyAdmin configuration storage"
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "penyimpanan konfigurasi phpMyAdmin"
 
 #: resources/templates/relation/check_relations.twig:9
 msgid "Configuration of pmadb…"
@@ -4463,10 +4430,9 @@ msgid "Character sets and collations"
 msgstr "Set karakter dan kolase"
 
 #: resources/templates/server/collations/index.twig:23
-#, fuzzy
 msgctxt "The collation is the default one"
 msgid "default"
-msgstr "Bawaan"
+msgstr "bawaan"
 
 #: resources/templates/server/databases/index.twig:3
 msgid "Databases statistics"
@@ -4483,15 +4449,13 @@ msgstr "Tidak ada hak istimewa untuk membuat database"
 #: resources/templates/server/databases/index.twig:156
 #: resources/templates/server/replication/index.twig:18
 #: resources/templates/server/replication/primary_replication.twig:3
-#, fuzzy
 msgid "Primary replication"
-msgstr "Replikasi master"
+msgstr "Replikasi primer"
 
 #: resources/templates/server/databases/index.twig:160
 #: resources/templates/server/replication/replica_configuration.twig:2
-#, fuzzy
 msgid "Replica replication"
-msgstr "Replikasi slave"
+msgstr "Replikasi replika"
 
 #: resources/templates/server/databases/index.twig:181
 #, php-format
@@ -4633,9 +4597,8 @@ msgid "Grant all privileges on database %s."
 msgstr "Berikan semua hak istimewa pada basis data %s."
 
 #: resources/templates/server/privileges/add_user.twig:38
-#, fuzzy
 msgid "Create user"
-msgstr "Membuat Pengguna"
+msgstr "Buat pengguna"
 
 #: resources/templates/server/privileges/change_password.twig:18
 msgid "No Password"
@@ -4733,9 +4696,8 @@ msgid "Allows executing this routine."
 msgstr "Mengizinkan eksekusi rutinitas ini."
 
 #: resources/templates/server/privileges/initials_row.twig:1
-#, fuzzy
 msgid "Pagination of user accounts"
-msgstr "Ubah informasi masuk / Salin akun pengguna"
+msgstr "Paginasi akun pengguna"
 
 #: resources/templates/server/privileges/login_information_fields.twig:2
 #: resources/templates/server/privileges/user_properties.twig:105
@@ -5126,9 +5088,8 @@ msgid "Allows creating foreign key relations."
 msgstr "Memungkinkan pembuatan hubungan kunci asing."
 
 #: resources/templates/server/privileges/privileges_table.twig:680
-#, fuzzy
 msgid "Not used on MariaDB."
-msgstr "Tidak digunakan di MariaDB."
+msgstr "Tidak digunakan pada MariaDB."
 
 #: resources/templates/server/privileges/privileges_table.twig:680
 msgid "Not used for this MySQL version."
@@ -5137,17 +5098,14 @@ msgstr "Tidak digunakan untuk versi MySQL ini."
 #: resources/templates/server/privileges/privileges_table.twig:691
 #: resources/templates/server/privileges/privileges_table.twig:694
 #: src/Server/Privileges.php:346
-#, fuzzy
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr ""
-"Memberi hak kepada pengguna untuk menanyakan lokasi dari slaves / masters."
+msgstr "Memungkinkan pengguna untuk menanyakan di mana replika/primer berada."
 
 #: resources/templates/server/privileges/privileges_table.twig:704
 #: resources/templates/server/privileges/privileges_table.twig:707
 #: src/Server/Privileges.php:342
-#, fuzzy
 msgid "Needed for the replication replicas."
-msgstr "Digunakan untuk replikasi dari slaves."
+msgstr "Diperlukan untuk replika replikasi."
 
 #: resources/templates/server/privileges/privileges_table.twig:717
 #: resources/templates/server/privileges/privileges_table.twig:720
@@ -5221,9 +5179,8 @@ msgstr ""
 "Mensyaratkan sertifikat X509 yang valid dengan subjek ini harus ditunjukkan."
 
 #: resources/templates/server/privileges/privileges_table.twig:877
-#, fuzzy
 msgid "Update user privileges"
-msgstr "Edit Hak Akses"
+msgstr "Perbarui hak istimewa pengguna"
 
 #: resources/templates/server/privileges/subnav.twig:5
 #: resources/templates/server/privileges/user_overview.twig:5
@@ -5308,14 +5265,12 @@ msgid "Drop the databases that have the same names as the users."
 msgstr "Hapus basis data yang memiliki nama yang sama dengan pengguna."
 
 #: resources/templates/server/privileges/users_overview.twig:177
-#, fuzzy
 msgid "Save changes"
-msgstr "Simpan halaman"
+msgstr "Simpan perubahan"
 
 #: resources/templates/server/replication/change_primary.twig:7
-#, fuzzy
 msgid "Replica configuration - Change or reconfigure primary server"
-msgstr "Ubah atau konfigurasikan ulang server master"
+msgstr "Konfigurasi replika - Ubah atau konfigurasi ulang server utama"
 
 #: resources/templates/server/replication/change_primary.twig:12
 msgid ""
@@ -5337,13 +5292,13 @@ msgid "Port:"
 msgstr "Porta:"
 
 #: resources/templates/server/replication/index.twig:21
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as primary in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Server ini tidak dikonfigurasikan sebagai master dalam proses replikasi. "
-"Apakah Anda ingin %smengonfigurasikannya%s?"
+"Server ini tidak dikonfigurasi sebagai server utama dalam proses replikasi. "
+"Apakah Anda ingin %smengonfigurasinya%s?"
 
 #: resources/templates/server/replication/index.twig:41
 msgid "No privileges"
@@ -5351,9 +5306,8 @@ msgstr "Tanpa hak akses"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:11
 #: resources/templates/server/replication/primary_replication.twig:44
-#, fuzzy
 msgid "Add replica replication user"
-msgstr "Tambahkan pengguna replikasi slave"
+msgstr "Tambahkan pengguna replikasi replika"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:21
 #: resources/templates/server/replication/primary_add_replica_user.twig:40
@@ -5378,12 +5332,10 @@ msgid "Generate"
 msgstr "Buatkan"
 
 #: resources/templates/server/replication/primary_configuration.twig:2
-#, fuzzy
 msgid "Primary configuration"
-msgstr "Konfigurasi server"
+msgstr "Konfigurasi utama"
 
 #: resources/templates/server/replication/primary_configuration.twig:6
-#, fuzzy
 msgid ""
 "This server is not configured as a primary server in a replication process. "
 "You can choose from either replicating all databases and ignoring some of "
@@ -5391,11 +5343,12 @@ msgid ""
 "can choose to ignore all databases by default and allow only certain "
 "databases to be replicated. Please select the mode:"
 msgstr ""
-"Server ini tidak dikonfigurasi sebagai master server dalam proses replikasi. "
-"Anda dapat memilih dari salah mereplikasi semua database dan mengabaikan "
-"tertentu (berguna jika Anda ingin meniru sebagian dari database) atau Anda "
-"dapat memilih untuk mengabaikan semua database secara default dan "
-"memungkinkan hanya database tertentu untuk direplikasi. Silakan pilih mode:"
+"Server ini tidak dikonfigurasi sebagai server utama dalam proses replikasi. "
+"Anda dapat memilih untuk mereplikasi semua basis data dan mengabaikan "
+"beberapa di antaranya (berguna jika Anda ingin mereplikasi sebagian besar "
+"basis data) atau Anda dapat memilih untuk mengabaikan semua basis data "
+"secara default dan hanya mengizinkan basis data tertentu untuk direplikasi. "
+"Harap pilih mode:"
 
 #: resources/templates/server/replication/primary_configuration.twig:9
 msgid "Replicate all databases; Ignore:"
@@ -5428,67 +5381,56 @@ msgstr ""
 "<strong>dikonfigurasi</strong> sebagai server utama."
 
 #: resources/templates/server/replication/primary_replication.twig:5
-#, fuzzy
 msgid "This server is configured as primary in a replication process."
-msgstr "Server ini dikonfigurasikan sebagai master dalam proses replikasi."
+msgstr "Server ini dikonfigurasikan sebagai utama dalam proses replikasi."
 
 #: resources/templates/server/replication/primary_replication.twig:9
 #: src/Server/Status/Data.php:163
-#, fuzzy
 msgid "Show primary status"
-msgstr "Tampilkan status master"
+msgstr "Tampilkan status utama"
 
 #: resources/templates/server/replication/primary_replication.twig:16
-#, fuzzy
 msgid "Show connected replicas"
-msgstr "Tampilkan slave yang tersambung"
+msgstr "Tampilkan replika yang terhubung"
 
 #: resources/templates/server/replication/primary_replication.twig:38
-#, fuzzy
 msgid ""
 "Only replicas started with the --report-host=host_name option are visible in "
 "this list."
 msgstr ""
-"Hanya anak dimulai dengan pilihan --report-host=host_name yang terlihat "
+"Hanya replika yang dimulai dengan opsi --report-host=host_name yang terlihat "
 "dalam daftar ini."
 
 #: resources/templates/server/replication/replica_configuration.twig:5
-#, fuzzy
 msgid "Primary connection:"
-msgstr "Koneksi server:"
+msgstr "Koneksi utama:"
 
 #: resources/templates/server/replication/replica_configuration.twig:25
-#, fuzzy
 msgid "Replica SQL Thread not running!"
-msgstr "Thread SQL slave tidak berjalan!"
+msgstr "Replika SQL Thread tidak berjalan!"
 
 #: resources/templates/server/replication/replica_configuration.twig:28
-#, fuzzy
 msgid "Replica IO Thread not running!"
-msgstr "Thread IO slave tidak berjalan!"
+msgstr "Replika IO Thread tidak berjalan!"
 
 #: resources/templates/server/replication/replica_configuration.twig:31
-#, fuzzy
 msgid ""
 "Server is configured as replica in a replication process. Would you like to:"
 msgstr ""
-"Server ini dikonfiguraskan sebagai slave dalam proses replikasi. Apakah Anda "
+"Server dikonfigurasi sebagai replika dalam proses replikasi. Apakah Anda "
 "ingin:"
 
 #: resources/templates/server/replication/replica_configuration.twig:34
-#, fuzzy
 msgid "See replica status table"
-msgstr "Lihat tabel status slave"
+msgstr "Lihat tabel status replika"
 
 #: resources/templates/server/replication/replica_configuration.twig:38
-#, fuzzy
 msgid "Control replica:"
-msgstr "Kendalikan slave:"
+msgstr "Replika kontrol:"
 
 #: resources/templates/server/replication/replica_configuration.twig:48
-#, fuzzy
 msgid "Reset replica"
-msgstr "Tidak direplikasi"
+msgstr "Setel ulang replika"
 
 #: resources/templates/server/replication/replica_configuration.twig:54
 msgid "Start SQL Thread only"
@@ -5511,10 +5453,8 @@ msgid "Error management:"
 msgstr "Kelola galat:"
 
 #: resources/templates/server/replication/replica_configuration.twig:77
-#, fuzzy
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
-msgstr ""
-"Pengabaian galat dapat menyebabkan master dan slave tidak tersinkronisasi!"
+msgstr "Galat lompatan mungkin menyebabkan ketidaksinkronan primer dan replika!"
 
 #: resources/templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -5526,28 +5466,25 @@ msgid "Skip next %s errors."
 msgstr "Lewati %s galat berikutnya."
 
 #: resources/templates/server/replication/replica_configuration.twig:97
-#, fuzzy
 msgid "Change or reconfigure primary server"
-msgstr "Ubah atau konfigurasikan ulang server master"
+msgstr "Ubah atau konfigurasikan ulang server utama"
 
 #: resources/templates/server/replication/replica_configuration.twig:103
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "This server is not configured as replica in a replication process. Would you "
 "like to %sconfigure%s it?"
 msgstr ""
-"Server ini tidak dikonfigurasikan sebagai slave dalam proses replikasi. "
-"Apakah Anda ingin %smengonfigurasikannya%s?"
+"Server ini tidak dikonfigurasi sebagai replika dalam proses replikasi. "
+"Apakah Anda ingin %smengonfigurasinya%s?"
 
 #: resources/templates/server/replication/status_table.twig:6
-#, fuzzy
 msgid "Primary status"
-msgstr "Impor status"
+msgstr "Status utama"
 
 #: resources/templates/server/replication/status_table.twig:8
-#, fuzzy
 msgid "Replica status"
-msgstr "Status replikasi"
+msgstr "Status replika"
 
 #: resources/templates/server/replication/status_table.twig:16
 #: resources/templates/server/status/variables/index.twig:75
@@ -5673,14 +5610,12 @@ msgid "Advisor"
 msgstr "Penasihat"
 
 #: resources/templates/server/status/monitor/index.twig:4
-#, fuzzy
 msgid "System monitor"
-msgstr "Memori sistem"
+msgstr "Monitor sistem"
 
 #: resources/templates/server/status/monitor/index.twig:7
-#, fuzzy
 msgid "Start monitor"
-msgstr "Jalankan Pemantauan"
+msgstr "Mulai monitor"
 
 #: resources/templates/server/status/monitor/index.twig:9
 msgid "Instructions/Setup"
@@ -5705,17 +5640,17 @@ msgstr "Laju penyegaran"
 
 #: resources/templates/server/status/monitor/index.twig:28
 #: resources/templates/server/status/processes/index.twig:39
-#, fuzzy, php-format
+#, php-format
 msgid "%d second"
 msgid_plural "%d seconds"
 msgstr[0] "%d detik"
 
 #: resources/templates/server/status/monitor/index.twig:30
 #: resources/templates/server/status/processes/index.twig:41
-#, fuzzy, php-format
+#, php-format
 msgid "%d minute"
 msgid_plural "%d minutes"
-msgstr[0] "per menit"
+msgstr[0] "%d menit"
 
 #: resources/templates/server/status/monitor/index.twig:38
 msgid "Chart columns"
@@ -5771,17 +5706,15 @@ msgstr ""
 "setiap grafik."
 
 #: resources/templates/server/status/monitor/index.twig:77
-#, fuzzy
 msgid ""
 "To display queries from the logs, click on any chart. Once confirmed, this "
 "will load a table of grouped queries, there you may click on any occurring "
 "SELECT statements to further analyze them."
 msgstr ""
-"Untuk menampilkan query dari log, pilih rentang waktu yang relevan pada "
-"tabel apapun dengan menekan tombol kiri mouse dan panning atas bagan. "
-"Setelah dikonfirmasi, ini akan memuat tabel query dikelompokkan, di sana "
-"Anda bisa mengklik pada pernyataan SELECT yang terjadi untuk lebih "
-"menganalisis mereka."
+"Untuk menampilkan kueri dari log, klik pada bagan mana pun. Setelah "
+"dikonfirmasi, tabel kueri yang dikelompokkan akan dimuat. Di sana, Anda "
+"dapat mengklik pernyataan SELECT yang muncul untuk menganalisisnya lebih "
+"lanjut."
 
 #: resources/templates/server/status/monitor/index.twig:81
 msgid "Please note:"
@@ -5929,21 +5862,21 @@ msgstr "Pertanyaan sejak awal:"
 
 #. l10n: Average per hour
 #: resources/templates/server/status/queries/index.twig:15
-#, fuzzy, php-format
+#, php-format
 msgid "ø per hour: %s"
-msgstr "dalam sejam"
+msgstr "ø per jam: %s"
 
 #. l10n: Average per minute
 #: resources/templates/server/status/queries/index.twig:16
-#, fuzzy, php-format
+#, php-format
 msgid "ø per minute: %s"
-msgstr "per menit"
+msgstr "ø per menit: %s"
 
 #. l10n: Average per second
 #: resources/templates/server/status/queries/index.twig:18
-#, fuzzy, php-format
+#, php-format
 msgid "ø per second: %s"
-msgstr "per detik"
+msgstr "ø per detik: %s"
 
 #: resources/templates/server/status/queries/index.twig:32
 msgid "Statements"
@@ -5963,7 +5896,7 @@ msgstr "ø per jam"
 
 #: resources/templates/server/status/queries/index.twig:52
 msgid "Pie chart with the most frequent statements."
-msgstr ""
+msgstr "Diagram lingkaran dengan pernyataan yang paling sering muncul."
 
 #: resources/templates/server/status/status/index.twig:6
 #, php-format
@@ -5995,29 +5928,26 @@ msgid "Connections"
 msgstr "Koneksi"
 
 #: resources/templates/server/status/status/index.twig:59
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>primary</b> and <b>replica</b> in "
 "<b>replication</b> process."
 msgstr ""
-"Server MySQL ini berfungsi sebagai <b>master</b> dan <b>slave</b> dalam "
-"proses <b>replication</b>."
+"Server MySQL ini berfungsi sebagai <b>utama</b> dan <b>replika</b> dalam "
+"proses <b>replikasi</b>."
 
 #: resources/templates/server/status/status/index.twig:61
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Server MySQL ini berfungsi sebagai <b>master</b> dalam proses "
-"<b>replication</b>."
+"Server MySQL ini berfungsi sebagai <b>utama</b> dalam proses "
+"<b>replikasi</b>."
 
 #: resources/templates/server/status/status/index.twig:63
-#, fuzzy
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Server MySQL ini berfungsi sebagai <b>slave</b> dalam proses <b>replication</"
-"b>."
+"Server MySQL ini berfungsi sebagai <b>replika</b> dalam proses "
+"<b>replikasi</b>."
 
 #: resources/templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -6080,9 +6010,8 @@ msgid "Table level tabs"
 msgstr "Tab tingkat tabel"
 
 #: resources/templates/server/user_groups/user_groups.twig:50
-#, fuzzy
 msgid "Delete user group"
-msgstr "Edit pengguna grup"
+msgstr "Hapus grup pengguna"
 
 #: resources/templates/server/user_groups/user_listings.twig:1
 #, php-format
@@ -6221,9 +6150,8 @@ msgid "Bookmark this SQL query"
 msgstr "Markahi kueri SQL ini"
 
 #: resources/templates/sql/bookmark.twig:14
-#, fuzzy
 msgid "Bookmark label:"
-msgstr "Tabel markah"
+msgstr "Label penanda:"
 
 #: resources/templates/sql/bookmark.twig:21
 #: resources/templates/sql/query.twig:95
@@ -6231,9 +6159,8 @@ msgid "Let every user access this bookmark"
 msgstr "Izinkan semua pengguna untuk mengakses markah ini"
 
 #: resources/templates/sql/bookmark.twig:26
-#, fuzzy
 msgid "Create new bookmark"
-msgstr "Buat bookmark"
+msgstr "Buat penanda baru"
 
 #: resources/templates/sql/profiling_chart.twig:7
 msgid "Detailed profile"
@@ -6281,9 +6208,8 @@ msgid "ø Time"
 msgstr "ø Waktu"
 
 #: resources/templates/sql/profiling_chart.twig:66
-#, fuzzy
 msgid "Pie chart with profiling results."
-msgstr "Profil Hasil"
+msgstr "Bagan pai dengan hasil profil."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
@@ -6314,7 +6240,7 @@ msgstr "Queri SQL"
 
 #: resources/templates/sql/query.twig:41
 msgid "Format as a single line"
-msgstr ""
+msgstr "Format sebagai satu baris"
 
 #: resources/templates/sql/query.twig:45
 msgid "Get auto-saved query"
@@ -6389,9 +6315,8 @@ msgid "Use this value"
 msgstr "Gunakan nilai ini"
 
 #: resources/templates/table/chart/tbl_chart.twig:10
-#, fuzzy
 msgid "Chart type"
-msgstr "Judul bagan"
+msgstr "Jenis grafik"
 
 #: resources/templates/table/chart/tbl_chart.twig:13
 msgctxt "Chart type"
@@ -6480,7 +6405,7 @@ msgstr "Nilai Kolom:"
 #: resources/templates/table/chart/tbl_chart.twig:145
 #: resources/templates/table/zoom_search/result_form.twig:16
 msgid "The generated chart"
-msgstr ""
+msgstr "Bagan yang dihasilkan"
 
 #: resources/templates/table/chart/tbl_chart.twig:148
 msgid "Save chart as image"
@@ -6684,9 +6609,8 @@ msgid "Edit/Insert"
 msgstr "Edit/Tambah"
 
 #: resources/templates/table/insert/continue_insertion_form.twig:14
-#, fuzzy
 msgid "Amount of rows to insert"
-msgstr "Jumlah baris untuk dimasukkan"
+msgstr "Jumlah baris yang akan disisipkan"
 
 #: resources/templates/table/maintenance/checksum.twig:13
 msgid "Checksum"
@@ -6722,9 +6646,8 @@ msgid "Third step of normalization (1NF+2NF+3NF)"
 msgstr "Normalisasi tahap ketiga (1NF+2NF+3NF)"
 
 #: resources/templates/table/operations/index.twig:2
-#, fuzzy
 msgid "Table operations"
-msgstr "Pilihan untuk tabel"
+msgstr "Operasi tabel"
 
 #: resources/templates/table/operations/index.twig:10
 msgid "Alter table order by"
@@ -6788,9 +6711,8 @@ msgid "Empty the table (TRUNCATE)"
 msgstr "Kosongkan tabel (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:432
-#, fuzzy
 msgid "Empty the table (DELETE FROM)"
-msgstr "Kosongkan tabel (TRUNCATE)"
+msgstr "Kosongkan tabel (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
@@ -7175,9 +7097,8 @@ msgid "Next autoindex"
 msgstr "Indeks otomatis berikut"
 
 #: resources/templates/table/structure/drop_confirm.twig:2
-#, fuzzy
 msgid "Dropping columns from the table"
-msgstr "DROP kolom %s dari tabel %s"
+msgstr "Menghapus kolom dari tabel"
 
 #: resources/templates/table/tracking/main.twig:64
 #: resources/templates/table/tracking/main.twig:90
@@ -7302,9 +7223,8 @@ msgid "Triggers"
 msgstr "Trigger"
 
 #: resources/templates/triggers/list.twig:29
-#, fuzzy
 msgid "Create new trigger"
-msgstr "Membuat versi"
+msgstr "Buat pemicu baru"
 
 #: resources/templates/triggers/list.twig:40
 msgid "There are no triggers to display."
@@ -8969,49 +8889,42 @@ msgstr "Tutup"
 
 #: src/Config/ConfigFile.php:608
 #: src/Controllers/JavaScriptMessagesController.php:748
-#, fuzzy
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Senin"
 
 #: src/Config/ConfigFile.php:609
 #: src/Controllers/JavaScriptMessagesController.php:749
-#, fuzzy
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Selasa"
 
 #: src/Config/ConfigFile.php:610
 #: src/Controllers/JavaScriptMessagesController.php:750
-#, fuzzy
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Rabu"
 
 #: src/Config/ConfigFile.php:611
 #: src/Controllers/JavaScriptMessagesController.php:751
-#, fuzzy
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Kamis"
 
 #: src/Config/ConfigFile.php:612
 #: src/Controllers/JavaScriptMessagesController.php:752
-#, fuzzy
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Jumat"
 
 #: src/Config/ConfigFile.php:613
 #: src/Controllers/JavaScriptMessagesController.php:753
-#, fuzzy
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sabtu"
 
 #: src/Config/ConfigFile.php:614
 #: src/Controllers/JavaScriptMessagesController.php:747
-#, fuzzy
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Minggu"
@@ -9660,11 +9573,9 @@ msgstr ""
 "untuk menampilkan riwayat query(hilang ketika jendela ditutup)."
 
 #: src/Config/Descriptions.php:331
-#, fuzzy
 msgid "Allow users to create bookmarks that are available for all other users"
 msgstr ""
-"Izinkan pengguna untuk membuat bookmark yang tersedia untuk semua pengguna "
-"lainnya."
+"Izinkan pengguna membuat penanda yang tersedia untuk semua pengguna lain"
 
 #: src/Config/Descriptions.php:333
 msgid ""
@@ -11116,9 +11027,8 @@ msgid "Query history length"
 msgstr "Panjang riwayat kueri"
 
 #: src/Config/Descriptions.php:851
-#, fuzzy
 msgid "Allow shared bookmarks between users"
-msgstr "Izinkan berbagi bookmark antarpengguna"
+msgstr "Izinkan penanda bersama antar pengguna"
 
 #: src/Config/Descriptions.php:852
 msgid "Recoding engine"
@@ -11900,16 +11810,14 @@ msgid "Succeeded"
 msgstr "Berhasil"
 
 #: src/Controllers/Console/UpdateConfigController.php:49
-#, fuzzy
 msgid "Console settings has been updated successfully."
-msgstr "Tabel %1$s berhasil diubah."
+msgstr "Pengaturan konsol telah berhasil diperbarui."
 
 #: src/Controllers/Console/UpdateConfigController.php:71
 #: src/Controllers/Console/UpdateConfigController.php:110
 #: src/Controllers/Navigation/UpdateNavWidthConfigController.php:28
-#, fuzzy
 msgid "Unexpected parameter value."
-msgstr "Karakter tidak diharapkan pada baris %s."
+msgstr "Nilai parameter tidak terduga."
 
 #: src/Controllers/Database/CentralColumnsController.php:145
 #, php-format
@@ -12156,6 +12064,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
+"Pencarian di dalam database dinonaktifkan oleh konfigurasi [code]$cfg"
+"['UseDbSearch'][/code]."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:47
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:46
@@ -12377,9 +12287,8 @@ msgstr ""
 "%sdokumentasi%s untuk mendapatkan solusi tentang batasan ini."
 
 #: src/Controllers/Import/ImportController.php:186
-#, fuzzy
 msgid "Incorrect format parameter"
-msgstr "Formulir salah yang ditentukan!"
+msgstr "Parameter format salah"
 
 #: src/Controllers/Import/ImportController.php:297
 #: src/Controllers/Import/ImportController.php:511
@@ -12452,11 +12361,10 @@ msgid "You are about to DESTROY a complete database!"
 msgstr "Anda akan MENGHANCURKAN sebuah database lengkap!"
 
 #: src/Controllers/JavaScriptMessagesController.php:56
-#, fuzzy
 msgid "Cannot rename database to the same name. Change the name and try again."
 msgstr ""
-"Tidak bisa mengubah nama database ke nama yang sama. Gunakan nama lain dan "
-"coba lagi"
+"Tidak dapat mengganti nama basis data dengan nama yang sama. Ubah nama dan "
+"coba lagi."
 
 #: src/Controllers/JavaScriptMessagesController.php:58
 msgid "You are about to DESTROY a complete table!"
@@ -12682,6 +12590,9 @@ msgid ""
 "configuration directive <code>AllowNoPassword</code> is false. If you "
 "proceed, the account will not be able to log in through phpMyAdmin."
 msgstr ""
+"Anda mencoba menyetel akun ini untuk masuk tanpa kata sandi, tetapi perintah "
+"konfigurasi <code>AllowNoPassword</code> salah. Jika Anda melanjutkan, akun "
+"tersebut tidak akan dapat masuk melalui phpMyAdmin."
 
 #: src/Controllers/JavaScriptMessagesController.php:151
 msgid "Removing Selected Users"
@@ -12726,9 +12637,8 @@ msgid "Connections / Processes"
 msgstr "Koneksi / Proses"
 
 #: src/Controllers/JavaScriptMessagesController.php:173
-#, fuzzy
 msgid "Number of statements"
-msgstr "Jumlah tabel"
+msgstr "Jumlah pernyataan"
 
 #: src/Controllers/JavaScriptMessagesController.php:176
 msgid "Local monitor configuration incompatible!"
@@ -13437,16 +13347,12 @@ msgid "No dependencies selected!"
 msgstr "Dependensi belum dipilih!"
 
 #: src/Controllers/JavaScriptMessagesController.php:454
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Gunakan nilai ini"
+msgstr "Masukkan nilai pertama"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Nilai sesi"
+msgstr "Masukkan nilai kedua"
 
 #: src/Controllers/JavaScriptMessagesController.php:461
 msgid "Hide search criteria"
@@ -13632,11 +13538,10 @@ msgstr "Hapus halaman"
 
 #. l10n: When the user opens a page saved in the Designer
 #: src/Controllers/JavaScriptMessagesController.php:551
-#, fuzzy
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
-"Sebagian tabel yang disimpan pada laman ini mungkin telah diubah namanya "
-"atau dihapus."
+"Beberapa tabel yang disimpan di halaman ini mungkin telah diganti nama atau "
+"dihapus."
 
 #: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Please select a page to continue"
@@ -13668,14 +13573,13 @@ msgid "%d object(s) created."
 msgstr "%d objek dibuat."
 
 #: src/Controllers/JavaScriptMessagesController.php:562
-#, fuzzy
 msgid "Column name"
 msgstr "Nama kolom"
 
 #: src/Controllers/JavaScriptMessagesController.php:566
-#, fuzzy
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
-msgstr "Tekan escape untuk membatalkan perubahan."
+msgstr ""
+"Tekan escape untuk membatalkan pengeditan.<br>- Shift+Enter untuk baris baru."
 
 #: src/Controllers/JavaScriptMessagesController.php:568
 msgid ""
@@ -13712,10 +13616,8 @@ msgid "Double-click to copy column name."
 msgstr "Klik dua kali untuk menyalin nama kolom."
 
 #: src/Controllers/JavaScriptMessagesController.php:580
-#, fuzzy
-#| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
-msgstr "Klik tanda panah ke bawah<br>untuk beralih visibilitas kolom."
+msgstr "Klik tanda panah drop-down untuk mengubah visibilitas kolom."
 
 #: src/Controllers/JavaScriptMessagesController.php:583
 msgid ""
@@ -13803,9 +13705,8 @@ msgid "up to date"
 msgstr "Mutakhir"
 
 #: src/Controllers/JavaScriptMessagesController.php:624
-#, fuzzy
 msgid "There was an error in loading the Git information."
-msgstr "Ada kesalahan mengimpor ESRI bentuk file: \"%s\"."
+msgstr "Terjadi kesalahan saat memuat informasi Git."
 
 #: src/Controllers/JavaScriptMessagesController.php:627
 msgid ""
@@ -13861,14 +13762,12 @@ msgstr ""
 "Sesuai pengaturan Anda, mereka sedang diajukan saat ini, harap bersabar."
 
 #: src/Controllers/JavaScriptMessagesController.php:658
-#, fuzzy
 msgid "Column name successfully copied to clipboard!"
 msgstr "Nama kolom berhasil disalin ke clipboard!"
 
 #: src/Controllers/JavaScriptMessagesController.php:659
-#, fuzzy
 msgid "Column name copying to clipboard failed!"
-msgstr "Nama kolom gagal disalin ke clipboard!"
+msgstr "Penyalinan nama kolom ke papan klip gagal!"
 
 #: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Successfully copied!"
@@ -13965,7 +13864,7 @@ msgstr "Waktu tunggu untuk aktivasi kunci keamanan habis."
 #: src/Controllers/JavaScriptMessagesController.php:696
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
-msgstr ""
+msgstr "Permintaan tidak valid dikirim ke kunci keamanan."
 
 #. l10n: unknown error code (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:698
@@ -13975,7 +13874,6 @@ msgstr "Galat kunci keamanan tidak diketahui."
 
 #. l10n: error code 3 (from U2F API)
 #: src/Controllers/JavaScriptMessagesController.php:700
-#, fuzzy
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Klien tidak mendukung kunci keamanan."
@@ -13993,12 +13891,12 @@ msgid "Invalid security key."
 msgstr "Kunci keamanan tidak valid."
 
 #: src/Controllers/JavaScriptMessagesController.php:707
-#, fuzzy
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
-"WebAuthn tidak tersedia. Silahkan gunakan browser yang didukung pada HTTPS."
+"WebAuthn tidak tersedia. Harap gunakan peramban yang didukung dalam konteks "
+"aman (HTTPS)."
 
 #: src/Controllers/JavaScriptMessagesController.php:712
 msgid ""
@@ -14023,145 +13921,121 @@ msgid "Hide"
 msgstr "Sembunyikan"
 
 #: src/Controllers/JavaScriptMessagesController.php:723
-#, fuzzy
 msgctxt "Month name"
 msgid "January"
 msgstr "Januari"
 
 #: src/Controllers/JavaScriptMessagesController.php:724
-#, fuzzy
 msgctxt "Month name"
 msgid "February"
 msgstr "Februari"
 
 #: src/Controllers/JavaScriptMessagesController.php:725
-#, fuzzy
 msgctxt "Month name"
 msgid "March"
 msgstr "Maret"
 
 #: src/Controllers/JavaScriptMessagesController.php:726
-#, fuzzy
 msgctxt "Month name"
 msgid "April"
 msgstr "April"
 
 #: src/Controllers/JavaScriptMessagesController.php:727
-#, fuzzy
 msgctxt "Month name"
 msgid "May"
 msgstr "Mei"
 
 #: src/Controllers/JavaScriptMessagesController.php:728
-#, fuzzy
 msgctxt "Month name"
 msgid "June"
 msgstr "Juni"
 
 #: src/Controllers/JavaScriptMessagesController.php:729
-#, fuzzy
 msgctxt "Month name"
 msgid "July"
 msgstr "Juli"
 
 #: src/Controllers/JavaScriptMessagesController.php:730
-#, fuzzy
 msgctxt "Month name"
 msgid "August"
 msgstr "Agustus"
 
 #: src/Controllers/JavaScriptMessagesController.php:731
-#, fuzzy
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
 #: src/Controllers/JavaScriptMessagesController.php:732
-#, fuzzy
 msgctxt "Month name"
 msgid "October"
 msgstr "Oktober"
 
 #: src/Controllers/JavaScriptMessagesController.php:733
-#, fuzzy
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
 #: src/Controllers/JavaScriptMessagesController.php:734
-#, fuzzy
 msgctxt "Month name"
 msgid "December"
 msgstr "Desember"
 
 #: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
-#, fuzzy
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
 #: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
-#, fuzzy
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
 #: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
-#, fuzzy
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
 #: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
-#, fuzzy
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
 #: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
-#, fuzzy
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mei"
 
 #: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
-#, fuzzy
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
 #: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
-#, fuzzy
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
 #: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
-#, fuzzy
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Agu"
 
 #: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
-#, fuzzy
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
 #: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
-#, fuzzy
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
 #: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
-#, fuzzy
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
 #: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
-#, fuzzy
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Des"
@@ -14172,150 +14046,126 @@ msgid "Sun"
 msgstr "Min"
 
 #: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
-#, fuzzy
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Sen"
 
 #: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
-#, fuzzy
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Sel"
 
 #: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
-#, fuzzy
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Rab"
 
 #: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
-#, fuzzy
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Kam"
 
 #: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
-#, fuzzy
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Jum"
 
 #: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
-#, fuzzy
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sab"
 
 #: src/Controllers/JavaScriptMessagesController.php:761
-#, fuzzy
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Min"
 
 #: src/Controllers/JavaScriptMessagesController.php:762
-#, fuzzy
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Sn"
 
 #: src/Controllers/JavaScriptMessagesController.php:763
-#, fuzzy
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Sl"
 
 #: src/Controllers/JavaScriptMessagesController.php:764
-#, fuzzy
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Rb"
 
 #: src/Controllers/JavaScriptMessagesController.php:765
-#, fuzzy
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Km"
 
 #: src/Controllers/JavaScriptMessagesController.php:766
-#, fuzzy
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Jm"
 
 #: src/Controllers/JavaScriptMessagesController.php:767
-#, fuzzy
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sb"
 
 #: src/Controllers/JavaScriptMessagesController.php:768
-#, fuzzy
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
-msgstr "Mingguan"
+msgstr "Mg"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
 #: src/Controllers/JavaScriptMessagesController.php:770
-#, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
 #: src/Controllers/JavaScriptMessagesController.php:771
-#, fuzzy
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
-msgstr "Kosong"
+msgstr "kosong"
 
 #: src/Controllers/JavaScriptMessagesController.php:772
-#, fuzzy
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Waktu"
 
 #: src/Controllers/JavaScriptMessagesController.php:773
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Jam"
 
 #: src/Controllers/JavaScriptMessagesController.php:774
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Menit"
 
 #: src/Controllers/JavaScriptMessagesController.php:775
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Detik"
 
 #: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Millisecond"
-msgstr "Detik"
+msgstr "Milidetik"
 
 #: src/Controllers/JavaScriptMessagesController.php:777
-#, fuzzy
 msgctxt "Unit of time"
 msgid "Microsecond"
-msgstr "per detik"
+msgstr "Mikrodetik"
 
 #: src/Controllers/JavaScriptMessagesController.php:778
-#, fuzzy
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
-msgstr "Garis waktu"
+msgstr "Zona waktu"
 
 #. l10n: Display text for previous month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:782
-#, fuzzy
 msgctxt "Previous month"
 msgid "Prev"
-msgstr "Sebelum"
+msgstr "Sblm"
 
 #. l10n: Display text for next month link in calendar
 #: src/Controllers/JavaScriptMessagesController.php:784
@@ -14403,22 +14253,22 @@ msgstr "Silakan masukkan input HEX yang valid"
 #. l10n: To validate the usage of a MD5 function on the column
 #: src/Controllers/JavaScriptMessagesController.php:808
 msgid "This column can not contain a 32 chars value"
-msgstr ""
+msgstr "Kolom ini tidak dapat berisi nilai 32 karakter"
 
 #: src/Controllers/JavaScriptMessagesController.php:811
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
+"Fungsi ini dimaksudkan untuk mengembalikan hasil biner; untuk menghindari "
+"hasil yang tidak konsisten, Anda harus menyimpannya dalam kolom BINARY, "
+"VARBINARY, atau BLOB."
 
 #: src/Controllers/JavaScriptMessagesController.php:816
-#, fuzzy
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
-"File yang diupload mungkin lebih besar dari ukuran maksimum diperbolehkan "
-"atau ini adalah bug yang dikenal dalam webkit berbasis (Safari, Google "
-"Chrome, Arora dll) browser."
+"Berkas yang diunggah mungkin lebih besar dari ukuran maksimum yang diizinkan."
 
 #: src/Controllers/JavaScriptMessagesController.php:818
 #, php-format
@@ -14572,9 +14422,8 @@ msgstr ""
 "ditutup terlebih dahulu."
 
 #: src/Controllers/Server/Status/QueriesController.php:89
-#, fuzzy
 msgid "Other statements"
-msgstr "Tambahkan statement:"
+msgstr "Pernyataan lainnya"
 
 #: src/Controllers/Server/Status/StatusController.php:129
 msgid "Received"
@@ -15179,24 +15028,22 @@ msgid "The number of joins that did a full scan of the first table."
 msgstr "Jumlah gabungan yang melakukan pemindaian penuh pada tabel pertama."
 
 #: src/Controllers/Server/Status/VariablesController.php:459
-#, fuzzy
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
-msgstr "Jumlah tabel sementara yang sedang terbuka oleh thread budak SQL."
+msgstr "Jumlah tabel sementara yang saat ini dibuka oleh urutan SQL replika."
 
 #: src/Controllers/Server/Status/VariablesController.php:461
-#, fuzzy
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Jumlah (sejak startup) beberapa kali replikasi budak SQL benang telah dicoba "
-"transaksi."
+"Jumlah total (sejak permulaan) berapa kali urutan replika replikasi SQL "
+"mencoba lagi transaksi."
 
 #: src/Controllers/Server/Status/VariablesController.php:463
-#, fuzzy
 msgid "This is ON if this server is a replica that is connected to a primary."
-msgstr "Ini adalah ON jika server ini adalah budak yang terhubung ke master."
+msgstr ""
+"Ini ON jika server ini merupakan replika yang terhubung ke server utama."
 
 #: src/Controllers/Server/Status/VariablesController.php:465
 msgid ""
@@ -15284,9 +15131,8 @@ msgid "The number of threads that are not sleeping."
 msgstr "Jumlah urutan yang tidak tidur."
 
 #: src/Controllers/Server/UserGroupsFormController.php:53
-#, fuzzy
 msgid "User groups management is not enabled."
-msgstr "Singgahan kueri tidak diaktifkan."
+msgstr "Manajemen grup pengguna tidak diaktifkan."
 
 #: src/Controllers/Server/Variables/SetVariableController.php:81
 msgid "Setting variable failed"
@@ -15395,10 +15241,10 @@ msgid "No column selected."
 msgstr "Tidak ada kolom yang dipilih."
 
 #: src/Controllers/Table/DropColumnController.php:67
-#, fuzzy, php-format
+#, php-format
 msgid "%1$d column has been dropped successfully."
 msgid_plural "%1$d columns have been dropped successfully."
-msgstr[0] "Basis data %1$d berhasil dihapus."
+msgstr[0] "Kolom %1$d telah berhasil dihapus."
 
 #: src/Controllers/Table/GetFieldController.php:59
 msgid "Invalid table name"
@@ -15417,9 +15263,8 @@ msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
 #: src/Controllers/Table/GisVisualizationController.php:98
-#, fuzzy
 msgid "No spatial column found for this SQL query."
-msgstr "Tidak ada efek dalam versi MySQL yang digunakan."
+msgstr "Tidak ada kolom spasial yang ditemukan untuk kueri SQL ini."
 
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:65
 #: src/Controllers/Table/Maintenance/CheckController.php:65
@@ -15436,14 +15281,12 @@ msgstr "Operasi pemeliharaan pada beberapa tabel dinonaktifkan."
 #: src/Controllers/Table/Partition/RebuildController.php:34
 #: src/Controllers/Table/Partition/RepairController.php:34
 #: src/Controllers/Table/Partition/TruncateController.php:34
-#, fuzzy
 msgid "The partition name must be a non-empty string."
-msgstr "Nama tabel kosong!"
+msgstr "Nama partisi tidak boleh berupa string kosong."
 
 #: src/Controllers/Table/RecentFavoriteController.php:35
-#, fuzzy
 msgid "Invalid database or table name."
-msgstr "Nama tabel tidak valid"
+msgstr "Nama database atau tabel tidak valid."
 
 #: src/Controllers/Table/RelationController.php:317
 msgid "Display column was successfully updated."
@@ -15459,23 +15302,20 @@ msgid "Row: %1$s, Column: %2$s, Error: %3$s"
 msgstr "Baris: %1$s, Kolom: %2$s, Kesalahan: %3$s"
 
 #: src/Controllers/Table/Structure/AddKeyController.php:24
-#, fuzzy
 msgid "Invalid request parameter."
-msgstr "Arah tidak valid \"%s\" diberikan untuk parameter."
+msgstr "Parameter permintaan tidak valid."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:80
 msgid "The columns have been moved successfully."
 msgstr "Kolom sukses dipindah."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:112
-#, fuzzy
-#| msgid "The selected user was not found in the privilege table."
 msgid "The selected columns do not match the columns in the table."
-msgstr "Pengguna yang dipilih tidak ditemukan pada tabel hak akses."
+msgstr "Kolom yang dipilih tidak cocok dengan kolom dalam tabel."
 
 #: src/Controllers/Table/Structure/MoveColumnsController.php:139
 msgid "The selected columns are already in the correct order."
-msgstr ""
+msgstr "Kolom yang dipilih sudah dalam urutan yang benar."
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
 #: src/Controllers/Table/Structure/SaveController.php:264
@@ -15795,14 +15635,14 @@ msgid "Showing rows %1s - %2s"
 msgstr "Menampilkan baris %1s - %2s"
 
 #: src/Display/Results.php:3309
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s total, %2$s in query"
-msgstr "total %1$d, %2$d dalam kueri"
+msgstr "Total %1$s, %2$s dalam kueri"
 
 #: src/Display/Results.php:3314
-#, fuzzy, php-format
+#, php-format
 msgid "%s total"
-msgstr "total %d"
+msgstr "Jumlah total %s"
 
 #: src/Display/Results.php:3327 src/Sql.php:869
 #, php-format
@@ -16168,10 +16008,8 @@ msgid "Report"
 msgstr "Laporan"
 
 #: src/Exceptions/AuthenticationFailure.php:35
-#, fuzzy
-#| msgid "Cannot log in to the MySQL server"
 msgid "Cannot log in to the database server."
-msgstr "Gagal masuk ke MySQL server"
+msgstr "Tidak dapat masuk ke server basis data."
 
 #: src/Exceptions/AuthenticationFailure.php:43
 #: src/Exceptions/AuthenticationFailure.php:51
@@ -16181,15 +16019,11 @@ msgid "Access denied!"
 msgstr "Akses ditolak!"
 
 #: src/Exceptions/AuthenticationFailure.php:61
-#, fuzzy
-#| msgid ""
-#| "Login without a password is forbidden by configuration (see "
-#| "AllowNoPassword)"
 msgid ""
 "Login without a password is forbidden by configuration (see AllowNoPassword)."
 msgstr ""
-"Masuk tanpa kata sandi tidak diperbolehkan dalam konfigurasi (lihat "
-"AllowNoPassword)"
+"Login tanpa kata sandi dilarang berdasarkan konfigurasi (lihat "
+"AllowNoPassword)."
 
 #: src/Exceptions/AuthenticationFailure.php:73
 #, php-format
@@ -16401,58 +16235,51 @@ msgid "Ignoring unsupported language code."
 msgstr "Mengabaikan kode bahasa yang tidak didukung."
 
 #: src/Identifiers/InvalidDatabaseName.php:14
-#, fuzzy
 msgid "The database name must be a non-empty string."
-msgstr "Nama database kosong!"
+msgstr "Nama basis data tidak boleh berupa string kosong."
 
 #: src/Identifiers/InvalidDatabaseName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The database name cannot be longer than %d characters."
-msgstr "Silakan masukkan tidak lebih dari {0} karakter"
+msgstr "Nama basis data tidak boleh lebih panjang dari %d karakter."
 
 #: src/Identifiers/InvalidDatabaseName.php:25
-#, fuzzy
 msgid "The database name cannot end with a space character."
-msgstr "Kata dipisahkan oleh karakter spasi (\" \")."
+msgstr "Nama basis data tidak dapat diakhiri dengan karakter spasi."
 
 #: src/Identifiers/InvalidTableName.php:14
-#, fuzzy
 msgid "The table name must be a non-empty string."
-msgstr "Nama tabel kosong!"
+msgstr "Nama tabel tidak boleh berupa string kosong."
 
 #: src/Identifiers/InvalidTableName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The table name cannot be longer than %d characters."
-msgstr "Silakan masukkan tidak lebih dari {0} karakter"
+msgstr "Nama tabel tidak boleh lebih panjang dari %d karakter."
 
 #: src/Identifiers/InvalidTableName.php:25
-#, fuzzy
 msgid "The table name cannot end with a space character."
-msgstr "Kata dipisahkan oleh karakter spasi (\" \")."
+msgstr "Nama tabel tidak dapat diakhiri dengan karakter spasi."
 
 #: src/Identifiers/InvalidTriggerName.php:14
-#, fuzzy
 msgid "The trigger name must not be empty."
-msgstr "Lihat nama tidak boleh kosong"
+msgstr "Nama pemicu tidak boleh kosong."
 
 #: src/Identifiers/InvalidTriggerName.php:20
-#, fuzzy, php-format
+#, php-format
 msgid "The trigger name cannot be longer than %d characters."
-msgstr "Silakan masukkan tidak lebih dari {0} karakter"
+msgstr "Nama pemicu tidak boleh lebih panjang dari %d karakter."
 
 #: src/Identifiers/InvalidTriggerName.php:25
-#, fuzzy
 msgid "The trigger name cannot end with a space character."
-msgstr "Kata dipisahkan oleh karakter spasi (\" \")."
+msgstr "Nama pemicu tidak dapat diakhiri dengan karakter spasi."
 
 #: src/Import/Import.php:951
-#, fuzzy
 msgid ""
 "Only INSERT, UPDATE, DELETE, REPLACE and SET (without options like GLOBAL) "
 "SQL queries containing transactional engine tables can be rolled back."
 msgstr ""
-"Hanya INSERT, UPDATE, DELETE dan REPLACE query SQL yang berisi tabel mesin "
-"transaksional dapat digulung kembali."
+"Hanya kueri SQL INSERT, UPDATE, DELETE, REPLACE dan SET (tanpa opsi seperti "
+"GLOBAL) yang memuat tabel mesin transaksi yang dapat dibatalkan."
 
 #: src/Import/Import.php:1173
 #, php-format
@@ -16689,9 +16516,8 @@ msgid "New"
 msgstr "Baru"
 
 #: src/Navigation/Nodes/NodeTrigger.php:24
-#, fuzzy
 msgid "Trigger"
-msgstr "Trigger"
+msgstr "Pemicu"
 
 #: src/Navigation/Nodes/NodeViewContainer.php:32
 msgctxt "Create new view"
@@ -17048,9 +16874,8 @@ msgid "Your session has expired. Please log in again."
 msgstr "Sesi anda telah berakhir. Silakan log in kembali."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:236
-#, fuzzy
 msgid "Missing Captcha verification, maybe it has been blocked by adblock?"
-msgstr "Verifikasi reCAPTCHA hilang, mungkin telah diblokir oleh adblock?"
+msgstr "Verifikasi Captcha hilang, mungkin telah diblokir oleh adblock?"
 
 #: src/Plugins/Auth/AuthenticationCookie.php:271
 msgid "Failed to connect to the reCAPTCHA service!"
@@ -17065,6 +16890,8 @@ msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
+"Kata sandi Anda terlalu panjang. Untuk mencegah serangan penolakan layanan, "
+"phpMyAdmin membatasi kata sandi hingga kurang dari 2000 karakter."
 
 #: src/Plugins/Auth/AuthenticationCookie.php:303
 msgid "You are not allowed to log in to this MySQL server!"
@@ -17075,10 +16902,9 @@ msgid "Wrong username/password. Access denied."
 msgstr "Nama pengguna/kata sandi salah. Akses ditolak."
 
 #: src/Plugins/Auth/AuthenticationSignon.php:129
-#, fuzzy, php-format
-#| msgid "Can not find signon authentication script:"
+#, php-format
 msgid "Can not find signon authentication script: %s"
-msgstr "Tidak dapat menemukan script otentikasi signon:"
+msgstr "Tidak dapat menemukan skrip autentikasi masuk: %s"
 
 #: src/Plugins/AuthenticationPluginFactory.php:31
 msgid "Invalid authentication method set in configuration:"
@@ -17781,9 +17607,10 @@ msgid ""
 "Displays a link to download the binary data of the column. You can use the "
 "option to specify the filename."
 msgstr ""
+"Menampilkan tautan untuk mengunduh data biner kolom. Anda dapat menggunakan "
+"opsi untuk menentukan nama berkas."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:38
-#, fuzzy
 msgid ""
 "LINUX ONLY: Launches an external application and feeds it the column data "
 "via standard input. Returns the standard output of the application. The "
@@ -17796,16 +17623,16 @@ msgid ""
 "(Default 1). The fourth option, if set to 1, will prevent wrapping and "
 "ensure that the output appears all on one line (Default 1)."
 msgstr ""
-"HANYA UNTUK LINUX: Jalankan aplikasi eksternal dan berikan data kolom "
-"melalui masukan standar. Mengembalikan keluaran standar kepada aplikasi. "
-"Bawaan adalah Tidy, untuk mempercantik cetakan kode HTML. Untuk keamanan, "
-"Anda harus mengedit berkas libraries/transformations/text_plain__external."
-"inc.php secara manual dan mendaftarkan alat yang ingin Anda sediakan. Opsi "
-"pertama adalah jumlah aplikasi yang ingin dipakai dan opsi kedua adalah "
-"parameter untuk program. Opsi ketiga, jika disetel menjadi 1, akan mengubah "
-"keluaran dengan menggunakan htmlspecialchars() (Bawaan 1). Opsi keempat, "
-"jika disetel menjadi 1, akan mencegah pemenggalan dan memastikan bahwa semua "
-"keluaran tampil dalam satu baris (Bawaan 1)."
+"HANYA LINUX: Meluncurkan aplikasi eksternal dan memasukkannya ke dalam kolom "
+"data melalui input standar. Mengembalikan output standar aplikasi. Bawaannya "
+"adalah Tidy, untuk mempercantik kode HTML. Demi alasan keamanan, Anda harus "
+"mengedit file src/Plugins/Transformations/Abs/"
+"ExternalTransformationsPlugin.php secara manual dan mencantumkan alat yang "
+"ingin Anda sediakan. Opsi pertama adalah nomor program yang ingin Anda "
+"gunakan. Opsi kedua harus kosong karena alasan historis. Opsi ketiga, jika "
+"ditetapkan ke 1, akan mengonversi output menggunakan htmlspecialchars() ("
+"Bawaan 1). Opsi keempat, jika ditetapkan ke 1, akan mencegah pembungkusan "
+"dan memastikan bahwa output muncul dalam satu baris (Bawaan 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
@@ -17992,13 +17819,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Kunci Keamanan Perangkat Keras (FIDO U2F)"
 
 #: src/Plugins/TwoFactor/Key.php:211
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Menyediakan otentikasi menggunakan token keamanan perangkat keras yang "
-"mendukung FIDO U2F."
+"Menyediakan autentikasi menggunakan token keamanan perangkat keras yang "
+"mendukung FIDO U2F, seperti YubiKey."
 
 #: src/Plugins/TwoFactorPlugin.php:57
 #, php-format
@@ -18026,18 +17852,16 @@ msgid "For testing purposes only!"
 msgstr "Hanya untuk keperluan pengujian!"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:176
-#, fuzzy
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Kunci Keamanan Perangkat Keras (FIDO U2F)"
+msgstr "Kunci Keamanan Perangkat Keras (WebAuthn/FIDO2)"
 
 #: src/Plugins/TwoFactor/WebAuthn.php:182
-#, fuzzy
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Menyediakan otentikasi menggunakan token keamanan perangkat keras yang "
-"mendukung FIDO U2F."
+"Menyediakan autentikasi menggunakan token keamanan perangkat keras yang "
+"mendukung protokol WebAuthn/FIDO2, seperti YubiKey."
 
 #: src/Query/Utilities.php:93
 msgid ""
@@ -18104,17 +17928,16 @@ msgid "Error."
 msgstr "Galat."
 
 #: src/Replication/ReplicationGui.php:522
-#, fuzzy, php-format
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Tidak dapat tersambung ke master %s."
+msgstr "Tidak dapat terhubung ke %s utama."
 
 #: src/Replication/ReplicationGui.php:532
-#, fuzzy
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Tidak dapat membaca posisi log master. Mungkin ada masalah hak akses pada "
-"master."
+"Tidak dapat membaca posisi log utama. Kemungkinan masalah hak istimewa pada "
+"log utama."
 
 #: src/Replication/ReplicationGui.php:550
 msgid "Unable to change primary!"
@@ -18131,6 +17954,8 @@ msgid ""
 "The routing cache could not be written, you need to adjust permissions on "
 "the folder/file \"%s\""
 msgstr ""
+"Tembolok routing tidak dapat ditulis, Anda perlu menyesuaikan izin pada "
+"folder/file \"%s\""
 
 #: src/Routing/Routing.php:157 src/Routing/Routing.php:200
 #, php-format
@@ -18151,24 +17976,21 @@ msgid "SHA256 password authentication"
 msgstr "Autentikasi kata sandi SHA256"
 
 #: src/Server/Plugins.php:63
-#, fuzzy
 msgid "Caching sha2 authentication"
-msgstr "Konfigurasi Autentikasi"
+msgstr "Menyimpan autentikasi sha2"
 
 #: src/Server/Plugins.php:68
-#, fuzzy
 msgid "Unix Socket based authentication"
-msgstr "Autentikasi kuki"
+msgstr "Autentikasi berbasis Soket Unix"
 
 #: src/Server/Plugins.php:73
-#, fuzzy
 msgid "Old MySQL-4.0 authentication"
-msgstr "Autentikasi asli MySQL"
+msgstr "Autentikasi MySQL-4.0 lama"
 
 #: src/Server/Privileges/AccountLocking.php:24
 #: src/Server/Privileges/AccountLocking.php:43
 msgid "Account locking is not supported."
-msgstr ""
+msgstr "Penguncian akun tidak didukung."
 
 #: src/Server/Privileges.php:274
 msgid "No privileges."
@@ -18314,14 +18136,12 @@ msgid "Show open tables"
 msgstr "Tampilkan tabel terbuka"
 
 #: src/Server/Status/Data.php:159
-#, fuzzy
 msgid "Show replica hosts"
-msgstr "Tampilkan host slave"
+msgstr "Tampilkan host replika"
 
 #: src/Server/Status/Data.php:167
-#, fuzzy
 msgid "Show replica status"
-msgstr "Tampilka status slave"
+msgstr "Tampilkan status replika"
 
 #: src/Server/Status/Data.php:172
 msgid "Flush query cache"
@@ -18928,9 +18748,8 @@ msgstr ""
 "pemetaan konvensional alamat IPv4 menjadi alamat IPv6"
 
 #: src/Types.php:276
-#, fuzzy
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Simpan Universally Unique Identifier (UUID)"
+msgstr "UUID (Pengidentifikasi Unik Universal) 128-bit"
 
 #: src/Types.php:584
 msgctxt "numeric types"
