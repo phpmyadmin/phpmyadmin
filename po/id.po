@@ -13840,9 +13840,8 @@ msgstr "Data salah atau tidak ada validasi untuk %s"
 #: templates/database/central_columns/edit_table_row.twig:23
 #: templates/database/central_columns/main.twig:71
 #: templates/database/central_columns/main.twig:298
-#, fuzzy
 msgid "Edit ENUM/SET values"
-msgstr "Edit nilai ENUM/SET"
+msgstr "Sunting nilai ENUM/SET"
 
 #: templates/columns_definitions/column_attributes.twig:38
 #: templates/database/central_columns/edit_table_row.twig:30
