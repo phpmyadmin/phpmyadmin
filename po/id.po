@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2025-03-23 10:38+0000\n"
-"Last-Translator: Neoubs <corneliuscheka@gmail.com>\n"
+"PO-Revision-Date: 2025-03-23 21:15+0000\n"
+"Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/id/>\n"
 "Language: id\n"
@@ -1823,58 +1823,40 @@ msgid "Enable bzip2 compression for import operations."
 msgstr "Aktifkan kompresi bzip2 untuk operasi impor."
 
 #: libraries/classes/Config/Descriptions.php:105
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter the URL for your reCAPTCHA v2 compatible API."
-msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan URL untuk API Anda yang kompatibel dengan reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:106
-#, fuzzy
-#| msgid ""
-#| "Enter the Content-Security-Policy snippet for your reCaptcha v2 "
-#| "compatible API."
 msgid ""
 "Enter the Content-Security-Policy snippet for your reCAPTCHA v2 compatible "
 "API."
 msgstr ""
-"Masukkan cuplikan Content-Security-Policy untuk API Anda yang kompatibel "
-"dengan reChaptha v2."
+"Masukkan cuplikan Kebijakan Keamanan Konten untuk API Anda yang kompatibel "
+"dengan reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:107
-#, fuzzy
-#| msgid ""
-#| "Enter the request parameter used by your reCaptcha v2 compatible API."
 msgid "Enter the request parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
-"Masukkan parameter permintaan yang digunakan oleh API kompatibel reCaptcha "
-"v2 Anda."
+"Masukkan parameter permintaan yang digunakan oleh API Anda yang kompatibel "
+"dengan reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:108
-#, fuzzy
-#| msgid ""
-#| "Enter the response parameter used by your reCaptcha v2 compatible API."
 msgid "Enter the response parameter used by your reCAPTCHA v2 compatible API."
 msgstr ""
 "Masukkan parameter respons yang digunakan oleh API Anda yang kompatibel "
-"dengan reCaptcha v2."
+"dengan reCAPTCHA v2."
 
 #: libraries/classes/Config/Descriptions.php:109
-#, fuzzy
-#| msgid "Enter your public key for your domain reCaptcha service."
 msgid "Enter your public key for the reCAPTCHA service on your domain."
-msgstr "Masukkan kunci publik Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan kunci publik Anda untuk layanan reCAPTCHA di domain Anda."
 
 #: libraries/classes/Config/Descriptions.php:110
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your private key for your domain reCAPTCHA service."
-msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan kunci pribadi Anda untuk layanan reCAPTCHA domain Anda."
 
 #: libraries/classes/Config/Descriptions.php:111
-#, fuzzy
-#| msgid "Enter your private key for your domain reCaptcha service."
 msgid "Enter your siteverify URL for your reCAPTCHA service."
-msgstr "Masukkan kunci privat Anda untuk layanan reCAPTCHA domain Anda."
+msgstr "Masukkan URL siteverify Anda untuk layanan reCAPTCHA Anda."
 
 #: libraries/classes/Config/Descriptions.php:113
 msgid ""
@@ -2824,22 +2806,16 @@ msgstr ""
 "ini, lepas centang kotak di sebelah kanan."
 
 #: libraries/classes/Config/Descriptions.php:532
-#, fuzzy
-#| msgid ""
-#| "The url of the proxy to be used when retrieving the information about the "
-#| "latest version of phpMyAdmin or when submitting error reports. You need "
-#| "this if the server where phpMyAdmin is installed does not have direct "
-#| "access to the internet. The format is: \"hostname:portnumber\"."
 msgid ""
 "The URL of the proxy to be used when retrieving the information about the "
 "latest version of phpMyAdmin, or when submitting error reports. You need "
 "this if the server where phpMyAdmin is installed does not have direct access "
 "to the Internet. The format is: \"hostname:portnumber\"."
 msgstr ""
-"Url proxy untuk digunakan saat mengambil informasi mengenai versi terbaru "
-"dari phpMyAdmin atau ketika mengirimkan laporan kesalahan. Anda perlu ini "
-"jika server yang terinstal phpMyAdmin tidak memiliki akses langsung ke "
-"internet. Formatnya adalah: \"hostname:portnumber\"."
+"URL proxy yang akan digunakan saat mengambil informasi tentang versi terbaru "
+"phpMyAdmin, atau saat mengirimkan laporan kesalahan. Anda memerlukan ini "
+"jika server tempat phpMyAdmin diinstal tidak memiliki akses langsung ke "
+"Internet. Formatnya adalah: \"hostname:portnumber\"."
 
 #: libraries/classes/Config/Descriptions.php:538
 msgid ""
@@ -2860,13 +2836,12 @@ msgstr ""
 "disisipkan dengan Shift + Enter."
 
 #: libraries/classes/Config/Descriptions.php:548
-#, fuzzy
 msgid ""
 "Enable Zero Configuration mode which lets you set up phpMyAdmin "
 "configuration storage tables automatically."
 msgstr ""
-"Aktifkan mode Zero Configuration yang memungkinkan anda mengatur phpMyAdmin "
-"tabel penyimpanan konfigurasi otomatis."
+"Aktifkan mode Konfigurasi Zero yang memungkinkan Anda mengatur tabel "
+"penyimpanan konfigurasi phpMyAdmin secara otomatis."
 
 #: libraries/classes/Config/Descriptions.php:551
 msgid "Highlight selected rows."
@@ -3236,7 +3211,7 @@ msgstr "Waktu eksekusi maksimum"
 
 #: libraries/classes/Config/Descriptions.php:655
 msgid "Use [code]LOCK TABLES[/code] statement"
-msgstr ""
+msgstr "Gunakan pernyataan [code]LOCK TABLES[/code]"
 
 #: libraries/classes/Config/Descriptions.php:656
 msgid "Save as file"
@@ -3422,15 +3397,12 @@ msgid "Export as separate files"
 msgstr "Ekspor sebagai file terpisah"
 
 #: libraries/classes/Config/Descriptions.php:705
-#, fuzzy
-#| msgid "Remember file name template"
 msgid "Remember filename template"
 msgstr "Ingat templat nama berkas"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
 msgid "Remove DEFINER clause from definitions"
-msgstr "Menghapus kolom dari daftar pusat"
+msgstr "Hapus klausa DEFINER dari definisi"
 
 # Imperative verb
 #: libraries/classes/Config/Descriptions.php:707
@@ -4452,10 +4424,8 @@ msgid "Version check"
 msgstr "Pemeriksaan versi"
 
 #: libraries/classes/Config/Descriptions.php:963
-#, fuzzy
-#| msgid "Proxy url"
 msgid "Proxy URL"
-msgstr "Alamat proxy"
+msgstr "URL proksi"
 
 #: libraries/classes/Config/Descriptions.php:964
 msgid "Proxy username"
@@ -4470,46 +4440,32 @@ msgid "ZIP"
 msgstr "ZIP"
 
 #: libraries/classes/Config/Descriptions.php:967
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA v2 API"
-msgstr "URL untuk situs reCaptcha verifikasi"
+msgstr "URL untuk API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:968
-#, fuzzy
-#| msgid "Content-Security-Policy snippet for reCaptcha v2 API"
 msgid "Content-Security-Policy snippet for reCAPTCHA v2 API"
-msgstr "Cuplikan Content-Security-Policy untuk API reCaptcha v2"
+msgstr "Cuplikan Kebijakan Keamanan Konten untuk API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:969
-#, fuzzy
-#| msgid "Request parameter for reCaptcha v2 API"
 msgid "Request parameter for reCAPTCHA v2 API"
-msgstr "Parameter permintaan untuk reCaptcha v2 API"
+msgstr "Parameter permintaan untuk API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:970
-#, fuzzy
-#| msgid "Request parameter for reCaptcha v2 API"
 msgid "Response parameter for reCAPTCHA v2 API"
-msgstr "Parameter permintaan untuk reCaptcha v2 API"
+msgstr "Parameter respons untuk API reCAPTCHA v2"
 
 #: libraries/classes/Config/Descriptions.php:971
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Public key for reCAPTCHA"
-msgstr "Kunci publik untuk reCaptcha"
+msgstr "Kunci publik untuk reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:972
-#, fuzzy
-#| msgid "Public key for reCaptcha"
 msgid "Private key for reCAPTCHA"
-msgstr "Kunci publik untuk reCaptcha"
+msgstr "Kunci pribadi untuk reCAPTCHA"
 
 #: libraries/classes/Config/Descriptions.php:973
-#, fuzzy
-#| msgid "URL for reCaptcha siteverify"
 msgid "URL for reCAPTCHA siteverify"
-msgstr "URL untuk situs reCaptcha verifikasi"
+msgstr "URL untuk reCAPTCHA siteverify"
 
 #: libraries/classes/Config/Descriptions.php:974
 msgid "Send error reports"
@@ -5369,6 +5325,9 @@ msgid ""
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"File konfigurasi memerlukan kunci yang valid untuk enkripsi kuki. Kunci "
+"sementara dibuat secara otomatis untuk Anda. Silakan lihat dokumentasi "
+"[doc@cfg_blowfish_secret][/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:338
 #, php-format
@@ -5377,6 +5336,9 @@ msgid ""
 "necessary. It should only be %d bytes long. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
+"Kunci enkripsi kuki dalam berkas konfigurasi lebih panjang dari yang "
+"diperlukan. Panjangnya seharusnya hanya %d byte. Silakan lihat dokumentasi "
+"[doc@cfg_blowfish_secret][/doc]."
 
 #: libraries/classes/Controllers/HomeController.php:356
 msgid ""
@@ -5536,10 +5498,8 @@ msgid "You are about to TRUNCATE a complete table!"
 msgstr "Anda akan MENGOSONGKAN sebuah tabel lengkap!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:47
-#, fuzzy
-#| msgid "You are about to DESTROY a complete table!"
 msgid "You are about to DELETE all the rows of the table!"
-msgstr "Anda akan MENGHANCURKAN sebuah tabel lengkap!"
+msgstr "Anda akan MENGHAPUS semua baris tabel!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:48
 msgid "Delete tracking data for this table?"
@@ -5630,10 +5590,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Apakah Anda yakin ingin menghapus partisi?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Anda yakin akan menghapus pengguna yang dipilih?"
+msgstr "Apakah Anda benar-benar ingin mengatur ulang replika (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -5855,13 +5813,13 @@ msgstr "Tutup"
 #: templates/server/privileges/users_overview.twig:105
 msgctxt "Lock the account."
 msgid "Lock"
-msgstr ""
+msgstr "Kunci"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:138
 #: templates/server/privileges/users_overview.twig:102
 msgctxt "Unlock the account."
 msgid "Unlock"
-msgstr ""
+msgstr "Buka kunci"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:139
 #: templates/server/privileges/users_overview.twig:100
@@ -6689,10 +6647,8 @@ msgid "Show query box"
 msgstr "Tampilkan kotak kueri"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Kirim Kueri"
+msgstr "Sunting kueri"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
 #: libraries/classes/Display/Results.php:3046
