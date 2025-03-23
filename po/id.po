@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-03-23 08:00+0000\n"
+"PO-Revision-Date: 2025-03-23 08:42+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "4-9/id/>\n"
@@ -12755,230 +12755,201 @@ msgid "The number of files that are open."
 msgstr "Jumlah file yang terbuka."
 
 #: libraries/classes/Server/Status/Variables.php:653
-#, fuzzy
 msgid "The number of streams that are open (used mainly for logging)."
-msgstr "Jumlah aliran yang terbuka (digunakan terutama untuk logging)."
+msgstr "Jumlah aliran yang terbuka (terutama digunakan untuk pencatatan)."
 
 #: libraries/classes/Server/Status/Variables.php:656
 msgid "The number of tables that are open."
 msgstr "Jumlah tabel yang terbuka."
 
 #: libraries/classes/Server/Status/Variables.php:659
-#, fuzzy
 msgid ""
 "The number of free memory blocks in query cache. High numbers can indicate "
 "fragmentation issues, which may be solved by issuing a FLUSH QUERY CACHE "
 "statement."
 msgstr ""
-"Jumlah blok memori bebas di cache query. Angka tinggi dapat menunjukkan "
-"masalah fragmentasi, yang dapat dipecahkan dengan mengeluarkan pernyataan "
-"FLUSH QUERY CACHE."
+"Jumlah blok memori bebas dalam tembolok kueri. Angka yang tinggi dapat "
+"mengindikasikan masalah fragmentasi, yang dapat diatasi dengan mengeluarkan "
+"pernyataan FLUSH QUERY CACHE."
 
 #: libraries/classes/Server/Status/Variables.php:664
 msgid "The amount of free memory for query cache."
 msgstr "Jumlah memori kosong untuk cache query."
 
 #: libraries/classes/Server/Status/Variables.php:667
-#, fuzzy
 msgid "The number of cache hits."
-msgstr "Jumlah cache hits."
+msgstr "Jumlah tembolok yang ditemukan."
 
 #: libraries/classes/Server/Status/Variables.php:670
-#, fuzzy
 msgid "The number of queries added to the cache."
-msgstr "Jumlah query ditambahkan ke cache."
+msgstr "Jumlah kueri yang ditambahkan ke tembolok."
 
 #: libraries/classes/Server/Status/Variables.php:673
-#, fuzzy
 msgid ""
 "The number of queries that have been removed from the cache to free up "
 "memory for caching new queries. This information can help you tune the query "
 "cache size. The query cache uses a least recently used (LRU) strategy to "
 "decide which queries to remove from the cache."
 msgstr ""
-"Jumlah pertanyaan yang telah dihapus dari cache untuk membebaskan memori "
-"untuk caching query baru. Informasi ini dapat membantu Anda menyetel ukuran "
-"cache query. The cache query menggunakan setidaknya baru-baru digunakan "
-"(LRU) strategi untuk memutuskan mana query untuk menghapus dari cache."
+"Jumlah kueri yang telah dihapus dari tembolok untuk mengosongkan memori guna "
+"menyimpan kueri baru. Informasi ini dapat membantu Anda menyesuaikan ukuran "
+"tembolok kueri. Tembolok kueri menggunakan strategi paling jarang digunakan "
+"(LRU) untuk memutuskan kueri mana yang akan dihapus dari tembolok."
 
 #: libraries/classes/Server/Status/Variables.php:680
-#, fuzzy
 msgid ""
 "The number of non-cached queries (not cachable, or not cached due to the "
 "query_cache_type setting)."
 msgstr ""
-"Jumlah permintaan non-cache (tidak cachable, atau tidak di-cache karena "
-"pengaturan query_cache_type)."
+"Jumlah kueri yang tidak ditembolok (tidak dapat ditembolok, atau tidak "
+"ditembolok karena pengaturan query_cache_type)."
 
 #: libraries/classes/Server/Status/Variables.php:684
-#, fuzzy
 msgid "The number of queries registered in the cache."
-msgstr "Jumlah query terdaftar dalam cache."
+msgstr "Jumlah kueri yang terdaftar dalam tembolok."
 
 #: libraries/classes/Server/Status/Variables.php:687
-#, fuzzy
 msgid "The total number of blocks in the query cache."
-msgstr "Total jumlah blok dalam cache query."
+msgstr "Jumlah total blok dalam tembolok kueri."
 
 #: libraries/classes/Server/Status/Variables.php:690
-#, fuzzy
 msgid "The status of failsafe replication (not yet implemented)."
-msgstr "Status replikasi failsafe (belum diimplementasikan)."
+msgstr "Status replikasi yang aman (belum diimplementasikan)."
 
 #: libraries/classes/Server/Status/Variables.php:693
-#, fuzzy
 msgid ""
 "The number of joins that do not use indexes. If this value is not 0, you "
 "should carefully check the indexes of your tables."
 msgstr ""
-"Jumlah bergabung yang tidak menggunakan indeks. Jika nilai ini tidak 0, Anda "
-"harus hati-hati memeriksa indeks dari tabel Anda."
+"Jumlah gabungan yang tidak menggunakan indeks. Jika nilai ini bukan 0, Anda "
+"harus memeriksa indeks tabel Anda dengan saksama."
 
 #: libraries/classes/Server/Status/Variables.php:697
-#, fuzzy
 msgid "The number of joins that used a range search on a reference table."
-msgstr "Jumlah bergabung yang digunakan pencarian range di tabel referensi."
+msgstr ""
+"Jumlah gabungan yang menggunakan pencarian rentang pada tabel referensi."
 
 #: libraries/classes/Server/Status/Variables.php:700
-#, fuzzy
 msgid ""
 "The number of joins without keys that check for key usage after each row. "
 "(If this is not 0, you should carefully check the indexes of your tables.)"
 msgstr ""
-"Jumlah bergabung tanpa kunci yang memeriksa penggunaan kunci setelah setiap "
-"baris. (Jika hal ini tidak 0, Anda harus hati-hati memeriksa indeks dari "
-"tabel Anda.)"
+"Jumlah gabungan tanpa kunci yang memeriksa penggunaan kunci setelah setiap "
+"baris. (Jika ini bukan 0, Anda harus memeriksa indeks tabel Anda dengan "
+"saksama.)"
 
 #: libraries/classes/Server/Status/Variables.php:705
-#, fuzzy
 msgid ""
 "The number of joins that used ranges on the first table. (It's normally not "
 "critical even if this is big.)"
 msgstr ""
-"Jumlah bergabung yang digunakan berkisar pada tabel pertama. (Ini biasanya "
-"tidak kritis bahkan jika ini adalah besar.)"
+"Jumlah gabungan yang digunakan berkisar pada tabel pertama. (Biasanya tidak "
+"penting meskipun jumlahnya besar.)"
 
 #: libraries/classes/Server/Status/Variables.php:709
-#, fuzzy
 msgid "The number of joins that did a full scan of the first table."
-msgstr "Jumlah bergabung yang melakukan scan penuh meja pertama."
+msgstr "Jumlah gabungan yang melakukan pemindaian penuh pada tabel pertama."
 
 #: libraries/classes/Server/Status/Variables.php:712
-#, fuzzy
 msgid "The number of temporary tables currently open by the slave SQL thread."
-msgstr "Jumlah tabel sementara yang sedang terbuka oleh thread budak SQL."
+msgstr "Jumlah tabel sementara yang saat ini dibuka oleh urutan anak SQL."
 
 #: libraries/classes/Server/Status/Variables.php:716
-#, fuzzy
 msgid ""
 "Total (since startup) number of times the replication slave SQL thread has "
 "retried transactions."
 msgstr ""
-"Jumlah (sejak startup) beberapa kali replikasi budak SQL benang telah dicoba "
-"transaksi."
+"Jumlah total (sejak permulaan) berapa kali urutan anak SQL replikasi mencoba "
+"lagi transaksi."
 
 #: libraries/classes/Server/Status/Variables.php:720
-#, fuzzy
 msgid "This is ON if this server is a slave that is connected to a master."
-msgstr "Ini adalah ON jika server ini adalah budak yang terhubung ke master."
+msgstr "Ini ON jika server ini merupakan anak yang terhubung ke master."
 
 #: libraries/classes/Server/Status/Variables.php:723
-#, fuzzy
 msgid ""
 "The number of threads that have taken more than slow_launch_time seconds to "
 "create."
 msgstr ""
-"Jumlah thread yang telah mengambil lebih dari slow_launch_time detik untuk "
-"membuat."
+"Jumlah urutan yang memerlukan waktu lebih dari slow_launch_time detik untuk "
+"dibuat."
 
 #: libraries/classes/Server/Status/Variables.php:727
-#, fuzzy
 msgid ""
 "The number of queries that have taken more than long_query_time seconds."
-msgstr ""
-"Jumlah pertanyaan yang telah mengambil lebih dari long_query_time detik."
+msgstr "Jumlah kueri yang memerlukan waktu lebih dari long_query_time detik."
 
 #: libraries/classes/Server/Status/Variables.php:731
-#, fuzzy
 msgid ""
 "The number of merge passes the sort algorithm has had to do. If this value "
 "is large, you should consider increasing the value of the sort_buffer_size "
 "system variable."
 msgstr ""
-"Jumlah gabungan melewati algoritma semacam telah dapat dilakukan. Jika nilai "
-"ini besar, Anda harus mempertimbangkan untuk meningkatkan nilai variabel "
-"sistem sort_buffer_size."
+"Jumlah gabungan yang harus dilakukan oleh algoritma sortir. Jika nilainya "
+"besar, Anda harus mempertimbangkan untuk meningkatkan nilai variabel sistem "
+"sort_buffer_size."
 
 #: libraries/classes/Server/Status/Variables.php:736
-#, fuzzy
 msgid "The number of sorts that were done with ranges."
-msgstr "Jumlah macam yang dilakukan dengan rentang."
+msgstr "Jumlah penyortiran yang dilakukan dengan rentang."
 
 #: libraries/classes/Server/Status/Variables.php:739
 msgid "The number of sorted rows."
 msgstr "Jumlah baris diurutkan."
 
 #: libraries/classes/Server/Status/Variables.php:742
-#, fuzzy
 msgid "The number of sorts that were done by scanning the table."
-msgstr "Jumlah macam yang dilakukan dengan memindai meja."
+msgstr "Jumlah penyortiran yang dilakukan dengan memindai tabel."
 
 #: libraries/classes/Server/Status/Variables.php:745
-#, fuzzy
 msgid "The number of times that a table lock was acquired immediately."
-msgstr "Frekuensi yang kunci meja diakuisisi segera."
+msgstr "Jumlah kali kunci meja diperoleh dengan segera."
 
 #: libraries/classes/Server/Status/Variables.php:748
-#, fuzzy
 msgid ""
 "The number of times that a table lock could not be acquired immediately and "
 "a wait was needed. If this is high, and you have performance problems, you "
 "should first optimize your queries, and then either split your table or "
 "tables or use replication."
 msgstr ""
-"Frekuensi yang kunci tabel tidak dapat diperoleh segera dan menunggu "
-"diperlukan. Jika ini tinggi, dan Anda memiliki masalah kinerja, Anda harus "
-"terlebih dahulu mengoptimalkan pertanyaan Anda, dan kemudian membagi meja "
-"Anda atau meja atau penggunaan replikasi."
+"Jumlah kali kunci tabel tidak dapat diperoleh dengan segera dan diperlukan "
+"waktu tunggu. Jika ini tinggi, dan Anda memiliki masalah kinerja, Anda harus "
+"mengoptimalkan kueri terlebih dahulu, lalu membagi tabel atau tabel-tabel "
+"Anda atau menggunakan replikasi."
 
 #: libraries/classes/Server/Status/Variables.php:754
-#, fuzzy
 msgid ""
 "The number of threads in the thread cache. The cache hit rate can be "
 "calculated as Threads_created/Connections. If this value is red you should "
 "raise your thread_cache_size."
 msgstr ""
-"Jumlah thread di cache benang. Hit rate Cache dapat dihitung sebagai "
-"threads_created / Koneksi. Jika nilai ini merah Anda harus meningkatkan "
-"thread_cache_size Anda."
+"Jumlah thread dalam thread tembolok. Tingkat hit tembolok dapat dihitung "
+"sebagai Threads_created/Connections. Jika nilai ini berwarna merah, Anda "
+"harus menaikkan thread_cache_size."
 
 #: libraries/classes/Server/Status/Variables.php:759
 msgid "The number of currently open connections."
 msgstr "Jumlah koneksi yang sedang terbuka."
 
 #: libraries/classes/Server/Status/Variables.php:762
-#, fuzzy
 msgid ""
 "The number of threads created to handle connections. If Threads_created is "
 "big, you may want to increase the thread_cache_size value. (Normally this "
 "doesn't give a notable performance improvement if you have a good thread "
 "implementation.)"
 msgstr ""
-"Jumlah benang yang dibuat untuk menangani koneksi. Jika threads_created "
+"Jumlah urutan yang dibuat untuk menangani koneksi. Jika Threads_created "
 "besar, Anda mungkin ingin meningkatkan nilai thread_cache_size. (Biasanya "
-"ini tidak memberikan peningkatan kinerja penting jika Anda memiliki "
-"implementasi benang yang baik.)"
+"ini tidak memberikan peningkatan kinerja yang signifikan jika Anda memiliki "
+"implementasi thread yang baik.)"
 
 #: libraries/classes/Server/Status/Variables.php:769
-#, fuzzy
-#| msgid "Thread cache hit rate %%"
 msgid "Thread cache hit rate (calculated value)"
-msgstr "Tingkat penggunaan singgahan thread %%"
+msgstr "Tingkat hit thread tembolok (nilai terhitung)"
 
 #: libraries/classes/Server/Status/Variables.php:772
-#, fuzzy
 msgid "The number of threads that are not sleeping."
-msgstr "Jumlah thread yang tidak tidur."
+msgstr "Jumlah urutan yang tidak tidur."
 
 #: libraries/classes/Server/UserGroups.php:32
 #, php-format
@@ -12986,9 +12957,9 @@ msgid "Users of '%s' user group"
 msgstr "Anggota dari grup pengguna '%s'"
 
 #: libraries/classes/Server/UserGroups.php:45
-#, fuzzy
 msgid "No users were found belonging to this user group."
-msgstr "Tidak ada pengguna ditemukan milik kelompok pengguna ini."
+msgstr ""
+"Tidak ada pengguna yang ditemukan yang termasuk dalam grup pengguna ini."
 
 #: libraries/classes/Server/UserGroups.php:75
 #: libraries/classes/Server/Users.php:38
@@ -12996,22 +12967,16 @@ msgid "User groups"
 msgstr "Grup pengguna"
 
 #: libraries/classes/Server/UserGroups.php:90
-#, fuzzy
-#| msgid "Server version"
 msgid "Server level tabs"
-msgstr "Versi Server"
+msgstr "Tab tingkat server"
 
 #: libraries/classes/Server/UserGroups.php:91
-#, fuzzy
-#| msgid "Database server"
 msgid "Database level tabs"
-msgstr "Server basis data"
+msgstr "Tab tingkat basis data"
 
 #: libraries/classes/Server/UserGroups.php:92
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table level tabs"
-msgstr "Komentar tabel"
+msgstr "Tab tingkat tabel"
 
 #: libraries/classes/Server/UserGroups.php:121
 msgid "View users"
@@ -13036,22 +13001,16 @@ msgid "Group name:"
 msgstr "Nama kolom:"
 
 #: libraries/classes/Server/UserGroups.php:289
-#, fuzzy
-#| msgid "Server version"
 msgid "Server-level tabs"
-msgstr "Versi Server"
+msgstr "Tab tingkat server"
 
 #: libraries/classes/Server/UserGroups.php:292
-#, fuzzy
-#| msgid "Database server"
 msgid "Database-level tabs"
-msgstr "Server basis data"
+msgstr "Tab tingkat basis data"
 
 #: libraries/classes/Server/UserGroups.php:295
-#, fuzzy
-#| msgid "Table comments"
 msgid "Table-level tabs"
-msgstr "Komentar tabel"
+msgstr "Tab tingkat tabel"
 
 #: libraries/classes/Sql.php:266 libraries/classes/Util.php:1147
 #: templates/console/display.twig:31 templates/console/display.twig:175
@@ -13059,10 +13018,8 @@ msgid "Profiling"
 msgstr "Profil"
 
 #: libraries/classes/Sql.php:269
-#, fuzzy
-#| msgid "Data file grow size"
 msgid "Detailed profile"
-msgstr "Besar pertumbuhan berkas data"
+msgstr "Profil terperinci"
 
 #: libraries/classes/Sql.php:274 libraries/classes/Sql.php:290
 msgid "State"
@@ -13137,10 +13094,9 @@ msgid "Problems with indexes of table `%s`"
 msgstr "Ditemukan masalah dengan indeks dalam tabel `%s`"
 
 #: libraries/classes/SqlQueryForm.php:140
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on server %s"
+#, php-format
 msgid "Run SQL query/queries on server “%s”"
-msgstr "Jalankan perintah SQL pada basis data %s"
+msgstr "Menjalankan kueri SQL pada server “%s”"
 
 #: libraries/classes/SqlQueryForm.php:157
 #, php-format
@@ -13148,10 +13104,9 @@ msgid "Run SQL query/queries on database %s"
 msgstr "Jalankan perintah SQL pada basis data %s"
 
 #: libraries/classes/SqlQueryForm.php:178
-#, fuzzy, php-format
-#| msgid "Run SQL query/queries on database %s"
+#, php-format
 msgid "Run SQL query/queries on table %s"
-msgstr "Jalankan perintah SQL pada basis data %s"
+msgstr "Jalankan kueri SQL pada tabel %s"
 
 #: libraries/classes/SqlQueryForm.php:248 setup/frames/index.inc.php:255
 #: templates/console/display.twig:7
@@ -13183,9 +13138,8 @@ msgid "Show this query here again"
 msgstr "Tampilkan ulang perintah SQL"
 
 #: libraries/classes/SqlQueryForm.php:363
-#, fuzzy
 msgid "Rollback when finished"
-msgstr "Kembalikan ketika selesai"
+msgstr "Kembalikan saat selesai"
 
 #: libraries/classes/SqlQueryForm.php:410
 msgid "shared"
@@ -13338,10 +13292,8 @@ msgid "Updated"
 msgstr "Diperbarui"
 
 #: libraries/classes/Tracking.php:170 libraries/classes/Tracking.php:234
-#, fuzzy
-#| msgid "Create version"
 msgid "Delete version"
-msgstr "Buat versi"
+msgstr "Hapus versi"
 
 #: libraries/classes/Tracking.php:171 libraries/classes/Tracking.php:334
 #: templates/database/tracking/tracked_tables.twig:76
@@ -13423,14 +13375,12 @@ msgstr ""
 "sementara. Harap pastikan Anda mempunyai hak untuk melakukannya."
 
 #: libraries/classes/Tracking.php:803
-#, fuzzy
 msgid "Comment out these two lines if you do not need them."
-msgstr "Komentar dari dua baris ini jika Anda tidak membutuhkan mereka."
+msgstr "Komentari kedua baris ini jika Anda tidak membutuhkannya."
 
 #: libraries/classes/Tracking.php:813
-#, fuzzy
 msgid "SQL statements exported. Please copy the dump or execute it."
-msgstr "Pernyataan SQL diekspor. Silahkan salin dump atau melaksanakannya."
+msgstr "Pernyataan SQL diekspor. Salin dump atau jalankan."
 
 #: libraries/classes/Tracking.php:861
 #, php-format
@@ -13834,10 +13784,9 @@ msgid "Missing parameter:"
 msgstr "Parameter yang hilang:"
 
 #: libraries/classes/Util.php:2440
-#, fuzzy, php-format
-#| msgid "Jump to database \"%s\"."
+#, php-format
 msgid "Jump to database “%s”."
-msgstr "Langsung ke basis data \"%s\"."
+msgstr "Lompat ke basis data “%s”."
 
 #: libraries/classes/Util.php:2465
 #, php-format
@@ -14042,23 +13991,21 @@ msgid "Manage your settings"
 msgstr "Kelola pengaturan Anda"
 
 #: libraries/user_preferences.inc.php:38
-#, fuzzy
-#| msgid "Config authentication"
 msgid "Two-factor authentication"
-msgstr "Konfigurasi Autentikasi"
+msgstr "Autentikasi dua faktor"
 
 #: libraries/user_preferences.inc.php:63 prefs_manage.php:298
 msgid "Configuration has been saved."
 msgstr "Konfigurasi telah disimpan."
 
 #: libraries/user_preferences.inc.php:71
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Your preferences will be saved for current session only. Storing them "
 "permanently requires %sphpMyAdmin configuration storage%s."
 msgstr ""
-"Preferensi Anda akan disimpan untuk sesi saat ini saja. Menyimpannya secara "
-"permanen membutuhkan %sphpMyAdmin penyimpanan konfigurasi%s."
+"Preferensi Anda akan disimpan hanya untuk sesi saat ini. Penyimpanan secara "
+"permanen memerlukan penyimpanan konfigurasi %sphpMyAdmin%s."
 
 #: navigation.php:24
 msgid "Fatal error: The navigation can only be accessed via AJAX"
@@ -14074,10 +14021,8 @@ msgstr ""
 "Tidak dapat menyimpan pengaturan, formulir yang dikirimkan mengandung galat!"
 
 #: prefs_manage.php:52
-#, fuzzy
-#| msgid "Missing phpMyAdmin configuration storage tables"
 msgid "phpMyAdmin configuration snippet"
-msgstr "Tabel penyimpanan konfigurasi phpMyAdmin tidak ditemukan"
+msgstr "cuplikan konfigurasi phpMyAdmin"
 
 #: prefs_manage.php:53
 msgid "Paste it to your config.inc.php"
@@ -14133,10 +14078,8 @@ msgstr ""
 "dengan menggunakan %sskrip pengaturan%s."
 
 #: prefs_manage.php:309
-#, fuzzy
-#| msgid "Save as file"
 msgid "Save as JSON file"
-msgstr "Simpan sebagai berkas"
+msgstr "Simpan sebagai file JSON"
 
 #: prefs_manage.php:314
 msgid "Save as PHP file"
@@ -14160,10 +14103,8 @@ msgstr ""
 "Anda dapat mengatur ulang semua pengaturan Anda dan memulihkan nilai bawaan."
 
 #: prefs_twofactor.php:29
-#, fuzzy
-#| msgid "Internal relation has been removed."
 msgid "Two-factor authentication has been removed."
-msgstr "Relasi internal telah dihapus."
+msgstr "Autentikasi dua faktor telah dihapus."
 
 #: prefs_twofactor.php:39
 msgid "Two-factor authentication has been configured."
@@ -14174,10 +14115,8 @@ msgid "View dump (schema) of databases"
 msgstr "Tampilkan dump (skema) basis data"
 
 #: server_privileges.php:74
-#, fuzzy
-#| msgid "Allows deleting data."
 msgid "Allows deleting historical rows."
-msgstr "Mengizinkan untuk menghapus data."
+msgstr "Memungkinkan penghapusan baris historis."
 
 #: server_privileges.php:145 server_replication.php:38
 #: server_user_groups.php:31 templates/server/databases/create.twig:46
@@ -14201,9 +14140,8 @@ msgid "Not enough privilege to view server status."
 msgstr "Hak akses tidak cukup untuk melihat status peladen."
 
 #: server_status_advisor.php:33
-#, fuzzy
 msgid "Not enough privilege to view the advisor."
-msgstr "Hak akses tidak cukup untuk melihat pengguna."
+msgstr "Hak istimewa tidak cukup untuk melihat penasihat."
 
 #: server_status_processes.php:33
 #, php-format
@@ -14235,23 +14173,20 @@ msgid "Download"
 msgstr "Unduh"
 
 #: setup/frames/index.inc.php:49
-#, fuzzy
 msgid ""
 "You are not using a secure connection; all data (including potentially "
 "sensitive information, like passwords) is transferred unencrypted!"
 msgstr ""
 "Anda tidak menggunakan koneksi yang aman; semua data (termasuk informasi "
-"yang berpotensi sensitif, seperti password) yang ditransfer tidak "
-"terenkripsi!"
+"yang berpotensi sensitif, seperti kata sandi) ditransfer tidak terenkripsi!"
 
 #: setup/frames/index.inc.php:54
-#, fuzzy
 msgid ""
 "If your server is also configured to accept HTTPS requests follow this link "
 "to use a secure connection."
 msgstr ""
-"Jika server Anda juga dikonfigurasi untuk menerima permintaan HTTPS "
-"mengikuti [a@%s] link ini [/a] untuk menggunakan sambungan aman."
+"Jika server Anda juga dikonfigurasi untuk menerima permintaan HTTPS, ikuti "
+"tautan ini untuk menggunakan koneksi aman."
 
 #: setup/frames/index.inc.php:58
 msgid "Insecure connection"
@@ -14262,30 +14197,28 @@ msgid "Configuration saved."
 msgstr "Konfigurasi disimpan."
 
 #: setup/frames/index.inc.php:87
-#, fuzzy
 msgid ""
 "Configuration saved to file config/config.inc.php in phpMyAdmin top level "
 "directory, copy it to top level one and delete directory config to use it."
 msgstr ""
-"Konfigurasi disimpan ke dalam berkas config/config.inc.php di phpMyAdmin "
-"direktori tingkat atas, salin ke atas tingkat satu dan menghapus direktori "
-"config untuk menggunakannya."
+"Konfigurasi disimpan ke file config/config.inc.php di direktori tingkat atas "
+"phpMyAdmin, salin ke direktori tingkat atas satu dan hapus direktori config "
+"untuk menggunakannya."
 
 #: setup/frames/index.inc.php:97
 msgid "Configuration not saved!"
 msgstr "Pengaturan tidak disimpan!"
 
 #: setup/frames/index.inc.php:100
-#, fuzzy
 msgid ""
 "Please create web server writable folder [em]config[/em] in phpMyAdmin top "
 "level directory as described in [doc@setup_script]documentation[/doc]. "
 "Otherwise you will be only able to download or display it."
 msgstr ""
-"Silakan membuat server web folder dapat ditulis [em]config [/em] di "
-"phpMyAdmin direktori tingkat atas seperti yang dijelaskan dalam "
-"[doc@setup_script]dokumentasi [/doc]. Jika tidak, Anda hanya akan dapat men-"
-"download atau menampilkannya."
+"Harap buat folder yang dapat ditulis server web [em]config[/em] di direktori "
+"tingkat atas phpMyAdmin seperti yang dijelaskan dalam dokumentasi "
+"[doc@setup_script][/doc]. Jika tidak, Anda hanya akan dapat mengunduh atau "
+"menampilkannya."
 
 #: setup/frames/index.inc.php:112 setup/frames/menu.inc.php:20
 msgid "Overview"
@@ -14352,23 +14285,20 @@ msgid "Configuration already exists, setup is disabled!"
 msgstr "Konfigurasi sudah ada, persiapan di non-aktifkan!"
 
 #: setup/index.php:28
-#, fuzzy
 msgid "Wrong GET file attribute value"
-msgstr "GET Salah nilai atribut file"
+msgstr "Nilai atribut file GET salah"
 
 #: setup/lib/FormProcessing.php:63
 msgid "Warning"
 msgstr "Peringatan"
 
 #: setup/lib/FormProcessing.php:64
-#, fuzzy
 msgid "Submitted form contains errors"
-msgstr "Formulir yang diajukan mengandung kesalahan"
+msgstr "Formulir yang dikirimkan mengandung galat"
 
 #: setup/lib/FormProcessing.php:66
-#, fuzzy
 msgid "Try to revert erroneous fields to their default values"
-msgstr "Cobalah untuk kembali bidang yang salah ke nilai standar"
+msgstr "Cobalah untuk mengembalikan bidang yang salah ke nilai defaultnya"
 
 #: setup/lib/FormProcessing.php:71
 msgid "Ignore errors"
@@ -14392,9 +14322,8 @@ msgid "Got invalid version string from server"
 msgstr "Mendapatkan string versi tidak valid dari server"
 
 #: setup/lib/Index.php:159
-#, fuzzy
 msgid "Unparsable version string"
-msgstr "Unparsable string versi"
+msgstr "String versi yang tidak dapat diurai"
 
 #: setup/lib/Index.php:179
 #, php-format
@@ -14438,10 +14367,8 @@ msgstr "Nama tabel tidak valid"
 
 #. l10n: In case a SQL query did not pass a security check
 #: tbl_get_field.php:46 transformation_wrapper.php:69
-#, fuzzy
-#| msgid "There are too many joins without indexes."
 msgid "There is an issue with your request."
-msgstr "Terlalu banyak join tanpa indeks."
+msgstr "Ada masalah dengan permintaan Anda."
 
 #: tbl_replace.php:258
 #, php-format
@@ -14453,16 +14380,13 @@ msgid "No row selected."
 msgstr "Tidak ada baris yang dipilih."
 
 #: tbl_tracking.php:34
-#, fuzzy, php-format
-#| msgid "Tracking of %s.%s is activated."
+#, php-format
 msgid "Tracking of %s is activated."
 msgstr "Pelacakan %s diaktifkan."
 
 #: tbl_tracking.php:103
-#, fuzzy
-#| msgid "The selected users have been deleted successfully."
 msgid "Tracking versions deleted successfully."
-msgstr "Sukses menghapus pengguna yang dipilih."
+msgstr "Versi pelacakan berhasil dihapus."
 
 #: tbl_tracking.php:108
 msgid "No versions selected."
@@ -14485,30 +14409,22 @@ msgid "Available MIME types"
 msgstr "Jenis MIME yang tersedia"
 
 #: transformation_overview.php:39
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available browser display transformations"
-msgstr "Transformasi yang tersedia"
+msgstr "Transformasi tampilan peramban yang tersedia"
 
 #: transformation_overview.php:40
-#, fuzzy
-#| msgid "Available transformations"
 msgid "Available input transformations"
-msgstr "Transformasi yang tersedia"
+msgstr "Transformasi masukan yang tersedia"
 
 #: transformation_overview.php:43
 #: templates/columns_definitions/table_fields_definitions.twig:78
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Browser display transformation"
-msgstr "Transformasi Browser"
+msgstr "Transformasi tampilan peramban"
 
 #: transformation_overview.php:44
 #: templates/columns_definitions/table_fields_definitions.twig:89
-#, fuzzy
-#| msgid "Browser transformation"
 msgid "Input transformation"
-msgstr "Transformasi Browser"
+msgstr "Transformasi masukan"
 
 #: transformation_overview.php:55
 msgctxt "for MIME transformation"
@@ -14590,10 +14506,8 @@ msgstr "Tampilan edit"
 
 #: templates/table/structure/display_structure.twig:194
 #: templates/table/structure/display_partitions.twig:4
-#, fuzzy
-#| msgid "Partition %s"
 msgid "Partitions"
-msgstr "Partisi %s"
+msgstr "Partisi"
 
 #: templates/console/display.twig:7
 msgid "History"
@@ -14608,10 +14522,8 @@ msgid "Press Ctrl+Enter to execute query"
 msgstr "Tekan Ctrl+Enter untuk menjalankan kueri"
 
 #: templates/console/display.twig:23
-#, fuzzy
-#| msgid "Execute every"
 msgid "Press Enter to execute query"
-msgstr "Dieksekusi setiap"
+msgstr "Tekan Enter untuk menjalankan kueri"
 
 #: templates/console/display.twig:31 templates/console/display.twig:84
 #: templates/console/display.twig:175 templates/console/bookmark_content.twig:7
@@ -14649,16 +14561,12 @@ msgid "During current session"
 msgstr "Sesi saat ini"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Ascending"
 msgid "ascending"
-msgstr "Menaik"
+msgstr "menaik"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Descending"
 msgid "descending"
-msgstr "Menurun"
+msgstr "menurun"
 
 #: templates/console/display.twig:64
 msgid "Order:"
@@ -14670,10 +14578,8 @@ msgid "Count"
 msgstr "Jumlah"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "Execute every"
 msgid "Execution order"
-msgstr "Dieksekusi setiap"
+msgstr "Urutan eksekusi"
 
 #: templates/console/display.twig:64 templates/console/display.twig:84
 msgid "Time taken"
@@ -14684,22 +14590,16 @@ msgid "Order by:"
 msgstr "Urutkan berdasarkan:"
 
 #: templates/console/display.twig:64
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Ungroup queries"
-msgstr "Kueri SQL"
+msgstr "Pisahkan pengelompokan kueri"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Show color"
 msgid "Show trace"
-msgstr "Tampilkan warna"
+msgstr "Tampilkan jejak"
 
 #: templates/console/display.twig:84
-#, fuzzy
-#| msgid "Hide Panel"
 msgid "Hide trace"
-msgstr "Sembunyikan Panel"
+msgstr "Sembunyikan jejak"
 
 #: templates/console/display.twig:99
 #: templates/columns_definitions/column_definitions_form.twig:32
@@ -14746,8 +14646,6 @@ msgid "Expression"
 msgstr "Ekspresi"
 
 #: templates/privileges/add_user_fieldset.twig:2
-#, fuzzy
-#| msgid "New"
 msgctxt "Create new user"
 msgid "New"
 msgstr "Baru"
@@ -14775,22 +14673,16 @@ msgid "Check tables having overhead"
 msgstr "Pilih tabel berbeban tambahan"
 
 #: templates/database/structure/check_all_tables.twig:10
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy table"
-msgstr "Salin"
+msgstr "Salin tabel"
 
 #: templates/database/structure/check_all_tables.twig:11
-#, fuzzy
-#| msgid "Show color"
 msgid "Show create"
-msgstr "Tampilkan warna"
+msgstr "Tampilkan buat"
 
 #: templates/database/structure/check_all_tables.twig:25
-#, fuzzy
-#| msgid "Add prefix"
 msgid "Prefix"
-msgstr "Tambahkan prefiks"
+msgstr "Awalan"
 
 #: templates/database/structure/check_all_tables.twig:26
 msgid "Add prefix to table"
@@ -14801,21 +14693,16 @@ msgid "Replace table prefix"
 msgstr "Ganti prefiks tabel"
 
 #: templates/database/structure/check_all_tables.twig:33
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Add columns to central list"
-msgstr "Kolom textarea CHAR"
+msgstr "Tambahkan kolom ke daftar pusat"
 
 #: templates/database/structure/check_all_tables.twig:34
-#, fuzzy
 msgid "Remove columns from central list"
-msgstr "Menghapus kolom dari daftar pusat"
+msgstr "Hapus kolom dari daftar pusat"
 
 #: templates/database/structure/check_all_tables.twig:35
-#, fuzzy
-#| msgid "CHAR textarea columns"
 msgid "Make consistent with central list"
-msgstr "Kolom textarea CHAR"
+msgstr "Buat konsisten dengan daftar pusat"
 
 #: templates/columns_definitions/column_length.twig:9
 #, fuzzy
