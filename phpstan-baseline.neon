@@ -7281,27 +7281,22 @@ parameters:
 			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
 
 		-
+			message: "#^Cannot access offset 'Server' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
+
+		-
+			message: "#^Cannot access offset 'pmadb' on mixed\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
+
+		-
 			message: "#^Cannot access property \\$databases on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
 
 		-
 			message: "#^Cannot call method build\\(\\) on mixed\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\ConfigStorage\\\\RelationCleanup\\:\\:database\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$db of method PhpMyAdmin\\\\Transformations\\:\\:clear\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Server/Databases/DestroyController.php
 
@@ -12067,7 +12062,7 @@ parameters:
 
 		-
 			message: "#^Construct empty\\(\\) is not allowed\\. Use more strict comparison\\.$#"
-			count: 8
+			count: 7
 			path: libraries/classes/Core.php
 
 		-
@@ -15652,7 +15647,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'MaxExactCount' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15762,7 +15757,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'max_rows' on mixed\\.$#"
-			count: 19
+			count: 20
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -15927,7 +15922,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 4
+			count: 6
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16532,7 +16527,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$var of function intval expects array\\|bool\\|float\\|int\\|resource\\|string\\|null, mixed given\\.$#"
-			count: 4
+			count: 2
 			path: libraries/classes/Display/Results.php
 
 		-
@@ -16766,7 +16761,7 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:listEncodings\\(\\) should return array but returns mixed\\.$#"
+			message: "#^Method PhpMyAdmin\\\\Encoding\\:\\:listEncodings\\(\\) should return array but returns \\(array\\|null\\)\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -16786,7 +16781,17 @@ parameters:
 			path: libraries/classes/Encoding.php
 
 		-
+			message: "#^Parameter \\#1 \\$input of function array_filter expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Encoding.php
+
+		-
 			message: "#^Parameter \\#2 \\$arr2 of function array_intersect expects array, mixed given\\.$#"
+			count: 1
+			path: libraries/classes/Encoding.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function array_filter expects \\(callable\\(mixed\\)\\: bool\\)\\|null, Closure\\(string\\)\\: bool given\\.$#"
 			count: 1
 			path: libraries/classes/Encoding.php
 
@@ -28856,16 +28861,6 @@ parameters:
 			path: libraries/classes/Plugins/Import/ImportOds.php
 
 		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
-			message: "#^Variable property access on SimpleXMLElement\\.$#"
-			count: 2
-			path: libraries/classes/Plugins/Import/ImportOds.php
-
-		-
 			message: "#^Variable property access on mixed\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportOds.php
@@ -29082,11 +29077,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$str1 of function strcmp expects string, array\\<int\\<0, max\\>, array\\<int\\<0, max\\>, string\\>\\|string\\>\\|string given\\.$#"
-			count: 1
-			path: libraries/classes/Plugins/Import/ImportXml.php
-
-		-
-			message: "#^Variable property access on \\(SimpleXMLElement\\|null\\)\\.$#"
 			count: 1
 			path: libraries/classes/Plugins/Import/ImportXml.php
 
@@ -42922,7 +42912,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method set\\(\\) on mixed\\.$#"
-			count: 10
+			count: 8
 			path: test/classes/CoreTest.php
 
 		-
@@ -44082,7 +44072,7 @@ parameters:
 
 		-
 			message: "#^Cannot access offset 'AvailableCharsets' on mixed\\.$#"
-			count: 1
+			count: 2
 			path: test/classes/EncodingTest.php
 
 		-
@@ -49287,7 +49277,12 @@ parameters:
 
 		-
 			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 2 will always evaluate to true\\.$#"
-			count: 2
+			count: 1
+			path: test/classes/VersionTest.php
+
+		-
+			message: "#^Call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertIsInt\\(\\) with 3 will always evaluate to true\\.$#"
+			count: 1
 			path: test/classes/VersionTest.php
 
 		-

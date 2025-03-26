@@ -14,7 +14,6 @@ use stdClass;
 use function __;
 use function _pgettext;
 use function hash;
-use function header;
 use function htmlspecialchars;
 use function mb_strpos;
 use function ob_end_clean;
@@ -936,57 +935,30 @@ class CoreTest extends AbstractNetworkTestCase
         ];
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     * @requires extension xdebug
-     * @group ext-xdebug
-     */
-    public function testDownloadHeader(): void
+    public function testGetDownloadHeaders(): void
     {
-        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+        $headersList = Core::getDownloadHeaders('test.sql', 'text/x-sql', 100, false);
 
-        header('Cache-Control: private, max-age=10800');
-
-        Core::downloadHeader('test.sql', 'text/x-sql', 100, false);
-
-        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
-        $headersList = \xdebug_get_headers();
-        // phpcs:enable
-
-        self::assertContains('Cache-Control: private, max-age=10800', $headersList);
-        self::assertContains('Content-Description: File Transfer', $headersList);
-        self::assertContains('Content-Disposition: attachment; filename="test.sql"', $headersList);
-        self::assertContains('Content-type: text/x-sql;charset=UTF-8', $headersList);
-        self::assertContains('Content-Transfer-Encoding: binary', $headersList);
-        self::assertContains('Content-Length: 100', $headersList);
-        self::assertNotContains('Content-Encoding: gzip', $headersList);
+        $expected = [
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="test.sql"',
+            'Content-Type' => 'text/x-sql',
+            'Content-Transfer-Encoding' => 'binary',
+            'Content-Length' => '100',
+        ];
+        self::assertSame($expected, $headersList);
     }
 
-    /**
-     * @runInSeparateProcess
-     * @preserveGlobalState disabled
-     * @requires extension xdebug
-     * @group ext-xdebug
-     */
-    public function testDownloadHeader2(): void
+    public function testGetDownloadHeaders2(): void
     {
-        $GLOBALS['config']->set('PMA_USR_BROWSER_AGENT', 'FIREFOX');
+        $headersList = Core::getDownloadHeaders('test.sql.gz', 'application/x-gzip', 0, false);
 
-        header('Cache-Control: private, max-age=10800');
-
-        Core::downloadHeader('test.sql.gz', 'application/x-gzip', 0, false);
-
-        // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly.ReferenceViaFullyQualifiedName
-        $headersList = \xdebug_get_headers();
-        // phpcs:enable
-
-        self::assertContains('Cache-Control: private, max-age=10800', $headersList);
-        self::assertContains('Content-Description: File Transfer', $headersList);
-        self::assertContains('Content-Disposition: attachment; filename="test.sql.gz"', $headersList);
-        self::assertContains('Content-Type: application/x-gzip', $headersList);
-        self::assertNotContains('Content-Encoding: gzip', $headersList);
-        self::assertContains('Content-Transfer-Encoding: binary', $headersList);
-        self::assertNotContains('Content-Length: 0', $headersList);
+        $expected = [
+            'Content-Description' => 'File Transfer',
+            'Content-Disposition' => 'attachment; filename="test.sql.gz"',
+            'Content-Type' => 'application/x-gzip',
+            'Content-Transfer-Encoding' => 'binary',
+        ];
+        self::assertSame($expected, $headersList);
     }
 }

@@ -2455,18 +2455,6 @@
     <MixedPropertyFetch occurrences="1">
       <code>$dblist-&gt;databases</code>
     </MixedPropertyFetch>
-    <PossiblyInvalidArgument occurrences="3">
-      <code>$database</code>
-      <code>$database</code>
-      <code>$database</code>
-    </PossiblyInvalidArgument>
-    <PossiblyInvalidCast occurrences="2">
-      <code>$database</code>
-      <code>$database</code>
-    </PossiblyInvalidCast>
-    <TypeDoesNotContainType occurrences="1">
-      <code>$selected_dbs === []</code>
-    </TypeDoesNotContainType>
   </file>
   <file src="libraries/classes/Controllers/Server/DatabasesController.php">
     <MixedArgument occurrences="9">
@@ -6074,7 +6062,7 @@
       <code>$sortExpression</code>
       <code>$urlParams</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="68">
+    <MixedArrayAccess occurrences="69">
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
       <code>$_SESSION['tmpval']['display_binary']</code>
@@ -6086,6 +6074,7 @@
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
       <code>$_SESSION['tmpval']['hide_transformation']</code>
+      <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
@@ -6220,7 +6209,7 @@
       <code>$row[$sortedColumnIndex]</code>
       <code>$row[$sortedColumnIndex]</code>
     </MixedArrayTypeCoercion>
-    <MixedAssignment occurrences="48">
+    <MixedAssignment occurrences="49">
       <code>$_SESSION['tmpval']['geoOption']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pftext']</code>
@@ -6245,6 +6234,7 @@
       <code>$i</code>
       <code>$identifier</code>
       <code>$index</code>
+      <code>$lastShownRec</code>
       <code>$lastShownRec</code>
       <code>$lastShownRec</code>
       <code>$linkingUrlParams[$new_param['param_info']]</code>
@@ -6274,7 +6264,7 @@
       <code>new $className()</code>
       <code>new $this-&gt;transformationInfo[$dbLower][$tblLower][$nameLower][1]()</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="13">
+    <MixedOperand occurrences="14">
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['max_rows']</code>
       <code>$_SESSION['tmpval']['pos']</code>
@@ -6285,6 +6275,7 @@
       <code>$displaySize[0]</code>
       <code>$displaySize[1]</code>
       <code>$file</code>
+      <code>$firstShownRec</code>
       <code>$firstShownRec</code>
       <code>$firstShownRec</code>
       <code>$sortExpressionNoDirection[$indexInExpression]</code>
@@ -6385,9 +6376,6 @@
       <code>self::$engine</code>
       <code>self::$engine</code>
     </MixedAssignment>
-    <MixedOperand occurrences="1">
-      <code>$GLOBALS['cfg']['IconvExtraParams'] ?? ''</code>
-    </MixedOperand>
     <PossiblyNullArgument occurrences="1">
       <code>$GLOBALS['config']-&gt;getUploadTempDir()</code>
     </PossiblyNullArgument>
@@ -7816,12 +7804,10 @@
     <MixedArrayOffset occurrences="1">
       <code>$typeArray[$analyses[$i][self::TYPES][$j]]</code>
     </MixedArrayOffset>
-    <MixedAssignment occurrences="24">
+    <MixedAssignment occurrences="22">
       <code>$GLOBALS['offset']</code>
       <code>$active</code>
       <code>$cellValue</code>
-      <code>$charset</code>
-      <code>$collation</code>
       <code>$complete_query</code>
       <code>$count</code>
       <code>$createDb</code>
@@ -7849,11 +7835,7 @@
       <code>getExtension</code>
       <code>getProperties</code>
     </MixedMethodCall>
-    <MixedOperand occurrences="23">
-      <code>$charset</code>
-      <code>$charset</code>
-      <code>$collation</code>
-      <code>$collation</code>
+    <MixedOperand occurrences="19">
       <code>$complete_query</code>
       <code>$display_query</code>
       <code>$executed_queries</code>
@@ -8093,7 +8075,7 @@
       <code>$specialChars</code>
       <code>$specialChars</code>
       <code>$specialCharsEncoded</code>
-      <code>$textDefault !== false ? $textDefault : $column['Default']</code>
+      <code>$textDefault !== '' ? $textDefault : $column['Default']</code>
       <code>$transformationPlugin-&gt;getScripts()</code>
       <code>$transformation[$type . '_options'] ?? ''</code>
       <code>$trueType</code>

@@ -1,10 +1,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: phpMyAdmin 5.2.2-dev\n"
+"Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-01-12 15:57-0300\n"
-"PO-Revision-Date: 2024-12-19 00:14+0000\n"
+"POT-Creation-Date: 2025-02-27 14:25-0300\n"
+"PO-Revision-Date: 2025-02-07 22:02+0000\n"
 "Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/pt/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"X-Generator: Weblate 5.10-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -1762,7 +1762,7 @@ msgstr "deve actualizar para %s %s ou mais recente."
 msgid "Error: Token mismatch"
 msgstr "Erro: testemunho inválido ou trocado"
 
-#: libraries/classes/Common.php:491
+#: libraries/classes/Common.php:498
 msgid ""
 "Failed to set session cookie. Maybe you are using HTTP instead of HTTPS to "
 "access phpMyAdmin."
@@ -1770,7 +1770,7 @@ msgstr ""
 "Falha ao configurar o cookie da sessão. Talvez você esteja usando HTTP em "
 "vez de HTTPS para acessar o phpMyAdmin."
 
-#: libraries/classes/Common.php:552
+#: libraries/classes/Common.php:559
 msgid ""
 "You have enabled mbstring.func_overload in your PHP configuration. This "
 "option is incompatible with phpMyAdmin and might cause some data to be "
@@ -1779,7 +1779,7 @@ msgstr ""
 "Ativou a função mbstring.func_overload na sua configuração PHP. Esta opção é "
 "incompatível com o phpMyAdmin e pode causar alguns danos aos dados!"
 
-#: libraries/classes/Common.php:569
+#: libraries/classes/Common.php:576
 msgid ""
 "The ini_get and/or ini_set functions are disabled in php.ini. phpMyAdmin "
 "requires these functions!"
@@ -1787,11 +1787,11 @@ msgstr ""
 "As funções ini_get e/ou ini_set estão desabilitadas no php.ini. O phpMyAdmin "
 "requer estas funções!"
 
-#: libraries/classes/Common.php:580
+#: libraries/classes/Common.php:587
 msgid "GLOBALS overwrite attempt"
 msgstr "Tentativa de sobrescrever GLOBALS"
 
-#: libraries/classes/Common.php:590
+#: libraries/classes/Common.php:597
 msgid "possible exploit"
 msgstr "possível 'exploit'"
 
@@ -3450,10 +3450,8 @@ msgid "Remember filename template"
 msgstr "Lembrar modelo do nome de ficheiros"
 
 #: libraries/classes/Config/Descriptions.php:706
-#, fuzzy
-#| msgid "Remove columns from central list"
 msgid "Remove DEFINER clause from definitions"
-msgstr "Remover colunas da lista central"
+msgstr "Remover cláusula DEFINER das definições"
 
 #: libraries/classes/Config/Descriptions.php:707
 #: templates/database/operations/index.twig:160
@@ -4340,7 +4338,7 @@ msgstr "Ignorar tabelas bloqueadas"
 #: libraries/classes/Config/Descriptions.php:946
 #: libraries/classes/ConfigStorage/UserGroups.php:122
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:387
-#: libraries/classes/Display/Results.php:2965
+#: libraries/classes/Display/Results.php:2978
 #: libraries/classes/Html/Generator.php:614
 #: libraries/classes/Html/Generator.php:868
 #: templates/console/bookmark_content.twig:7 templates/console/display.twig:31
@@ -4645,7 +4643,7 @@ msgstr "Personalizado"
 #: libraries/classes/Config/Forms/User/ExportForm.php:100
 #: libraries/classes/Config/Forms/User/ExportForm.php:128
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:712
-#: libraries/classes/Import.php:1308 libraries/classes/Menu.php:247
+#: libraries/classes/Import.php:1307 libraries/classes/Menu.php:247
 #: libraries/classes/Menu.php:357
 #: libraries/classes/Navigation/Nodes/NodeColumn.php:42
 #: libraries/classes/Navigation/Nodes/NodeDatabase.php:51
@@ -5050,7 +5048,7 @@ msgstr "Consola de Consulta SQL"
 
 #: libraries/classes/Controllers/AbstractController.php:73
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:342
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:68
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:73
 #: libraries/classes/DbTableExists.php:47
 msgid "No databases selected."
 msgstr "Nenhuma base de dados selecionada."
@@ -5080,7 +5078,7 @@ msgstr ""
 
 #: libraries/classes/Controllers/Database/ExportController.php:81
 #: libraries/classes/Controllers/Database/TrackingController.php:130
-#: libraries/classes/Controllers/Export/ExportController.php:442
+#: libraries/classes/Controllers/Export/ExportController.php:443
 #: libraries/classes/Database/Qbe.php:322
 #: templates/database/structure/index.twig:25
 #: templates/navigation/tree/path.twig:9
@@ -5192,7 +5190,7 @@ msgid "Table %s has been emptied."
 msgstr "A tabela %s foi limpa."
 
 #: libraries/classes/Controllers/Database/StructureController.php:575
-#: libraries/classes/Display/Results.php:3976
+#: libraries/classes/Display/Results.php:3989
 #, php-format
 msgid ""
 "This view has at least this number of rows. Please refer to "
@@ -5252,11 +5250,11 @@ msgstr "Sim"
 #: libraries/classes/Controllers/Table/DropColumnController.php:74
 #: libraries/classes/Controllers/Table/OperationsController.php:318
 #: libraries/classes/Controllers/Table/ReplaceController.php:415
-#: libraries/classes/Core.php:719 templates/preview_sql.twig:3
+#: libraries/classes/Core.php:737 templates/preview_sql.twig:3
 msgid "No change"
 msgstr "Sem alterações"
 
-#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:109
+#: libraries/classes/Controllers/Database/Structure/FavoriteTableController.php:113
 msgid "Favorite List is full!"
 msgstr "Lista de Favoritos está cheia!"
 
@@ -5649,10 +5647,8 @@ msgid "Do you really want to remove partitioning?"
 msgstr "Deseja realmente remover o particionamento?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:73
-#, fuzzy
-#| msgid "Do you really want to revoke the selected user(s) ?"
 msgid "Do you really want to reset the replica (RESET REPLICA)?"
-msgstr "Deseja realmente revogar o(s) utilizador(es) selecionado(s)?"
+msgstr "Deseja realmente redefinir a réplica (RESET REPLICA)?"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:75
 msgid ""
@@ -6104,7 +6100,7 @@ msgid "Please add at least one variable to the series!"
 msgstr "Por favor, adicione pelo menos uma variável às series!"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:207
-#: libraries/classes/Display/Results.php:1261
+#: libraries/classes/Display/Results.php:1274
 #: libraries/classes/Plugins/Export/ExportSql.php:2259
 #: libraries/classes/Plugins/Schema/SchemaPdf.php:99
 #: libraries/config.values.php:111
@@ -6712,13 +6708,11 @@ msgid "Show query box"
 msgstr "Mostrar Caixa do query"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:388
-#, fuzzy
-#| msgid "Submit query"
 msgid "Edit query"
-msgstr "Executar consulta"
+msgstr "Editar consulta"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:389
-#: libraries/classes/Display/Results.php:3033
+#: libraries/classes/Display/Results.php:3046
 #: libraries/classes/Tracking.php:260 templates/console/bookmark_content.twig:7
 #: templates/database/central_columns/main.twig:268
 #: templates/database/central_columns/main.twig:380
@@ -6984,7 +6978,7 @@ msgstr "Conteúdo do ponto de dados"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:475
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:633
-#: libraries/classes/ErrorHandler.php:422 libraries/classes/InsertEdit.php:2012
+#: libraries/classes/ErrorHandler.php:427 libraries/classes/InsertEdit.php:2012
 #: templates/table/index_form.twig:167 templates/table/index_form.twig:203
 msgid "Ignore"
 msgstr "Ignorar"
@@ -6995,7 +6989,7 @@ msgid "Copy to clipboard"
 msgstr "Copiar para área de transferência"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:477
-#: libraries/classes/Display/Results.php:2969
+#: libraries/classes/Display/Results.php:2982
 #: libraries/classes/Html/Generator.php:75
 #: templates/display/results/table.twig:234
 #: templates/display/results/table.twig:235
@@ -7379,10 +7373,8 @@ msgid "up to date"
 msgstr "atualizada"
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:613
-#, fuzzy
-#| msgid "There was an error importing the ESRI shape file: \"%s\"."
 msgid "There was an error in loading the Git information."
-msgstr "Um erro ocorreu ao importar o ficheiro do tipo shape ESRI: \"%s\"."
+msgstr "Ocorreu um erro ao carregar informações do Git."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:616
 msgid ""
@@ -7427,7 +7419,7 @@ msgid "Please look at the bottom of this window."
 msgstr "Por favor olhe para a parte inferior desta janela."
 
 #: libraries/classes/Controllers/JavaScriptMessagesController.php:636
-#: libraries/classes/ErrorHandler.php:427
+#: libraries/classes/ErrorHandler.php:432
 msgid "Ignore All"
 msgstr "Ignorar tudo"
 
@@ -7689,7 +7681,7 @@ msgstr "Suspenso"
 msgid "Database %1$s has been created."
 msgstr "A base de dados %1$s foi criada."
 
-#: libraries/classes/Controllers/Server/Databases/DestroyController.php:93
+#: libraries/classes/Controllers/Server/Databases/DestroyController.php:98
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -8360,33 +8352,24 @@ msgstr ""
 "tabela."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:479
-#, fuzzy
-#| msgid ""
-#| "The number of temporary tables currently open by the slave SQL thread."
 msgid ""
 "The number of temporary tables currently open by the replica SQL thread."
 msgstr ""
-"A quantidade de tabelas temporárias abertas atualmente pelo thread SQL do "
-"slave."
+"A quantidade de tabelas temporárias abertas atualmente pelo processo SQL da "
+"réplica."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:481
-#, fuzzy
-#| msgid ""
-#| "Total (since startup) number of times the replication slave SQL thread "
-#| "has retried transactions."
 msgid ""
 "Total (since startup) number of times the replication replica SQL thread has "
 "retried transactions."
 msgstr ""
-"Número total de vezes (desde o início) que o processo de replicação SQL "
-"slave tentou refazer transações."
+"Número total de vezes (desde o início) que o processo de replicação da "
+"réplica SQL tentou refazer transações."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:483
-#, fuzzy
-#| msgid "This is ON if this server is a slave that is connected to a master."
 msgid "This is ON if this server is a replica that is connected to a primary."
 msgstr ""
-"Isto está LIGADO se este servidor é um slave que está conectado a um master."
+"Isto está LIGADO se este servidor for uma réplica ligada a um primário."
 
 #: libraries/classes/Controllers/Server/Status/VariablesController.php:485
 msgid ""
@@ -8578,7 +8561,7 @@ msgstr "A tabela %s já existe!"
 #: libraries/classes/Controllers/Table/RelationController.php:241
 #: libraries/classes/Controllers/View/OperationsController.php:87
 #: libraries/classes/Database/Routines.php:1222
-#: libraries/classes/Display/Results.php:3691 libraries/classes/Message.php:172
+#: libraries/classes/Display/Results.php:3704 libraries/classes/Message.php:172
 #: templates/sql/query.twig:7
 msgid "Your SQL query has been executed successfully."
 msgstr "A sua consulta SQL foi executada com êxito."
@@ -9239,44 +9222,44 @@ msgstr ""
 "Erro 1045: Acesso negado para o utilizador. Informações de erro adicionais "
 "podem estar disponíveis, mas são ocultadas pela diretiva de configuração %s."
 
-#: libraries/classes/Display/Results.php:897 templates/list_navigator.twig:8
+#: libraries/classes/Display/Results.php:910 templates/list_navigator.twig:8
 #: templates/list_navigator.twig:13
 msgctxt "First page"
 msgid "Begin"
 msgstr "Início"
 
-#: libraries/classes/Display/Results.php:904 templates/list_navigator.twig:16
+#: libraries/classes/Display/Results.php:917 templates/list_navigator.twig:16
 #: templates/list_navigator.twig:21 templates/server/binlog/index.twig:47
 #: templates/server/binlog/index.twig:52
 msgctxt "Previous page"
 msgid "Previous"
 msgstr "Anterior"
 
-#: libraries/classes/Display/Results.php:930 templates/list_navigator.twig:33
+#: libraries/classes/Display/Results.php:943 templates/list_navigator.twig:33
 #: templates/list_navigator.twig:35 templates/server/binlog/index.twig:72
 #: templates/server/binlog/index.twig:77
 msgctxt "Next page"
 msgid "Next"
 msgstr "Seguinte"
 
-#: libraries/classes/Display/Results.php:960 templates/list_navigator.twig:42
+#: libraries/classes/Display/Results.php:973 templates/list_navigator.twig:42
 #: templates/list_navigator.twig:44
 msgctxt "Last page"
 msgid "End"
 msgstr "Fim"
 
-#: libraries/classes/Display/Results.php:1468
+#: libraries/classes/Display/Results.php:1481
 #: templates/display/results/table.twig:132
 msgid "Partial texts"
 msgstr "Textos parciais"
 
-#: libraries/classes/Display/Results.php:1472
+#: libraries/classes/Display/Results.php:1485
 #: templates/display/results/table.twig:136
 msgid "Full texts"
 msgstr "Textos completos"
 
-#: libraries/classes/Display/Results.php:1815
-#: libraries/classes/Display/Results.php:1841 libraries/classes/Util.php:2567
+#: libraries/classes/Display/Results.php:1828
+#: libraries/classes/Display/Results.php:1854 libraries/classes/Util.php:2567
 #: libraries/classes/Util.php:2590 libraries/config.values.php:113
 #: templates/database/multi_table_query/form.twig:69
 #: templates/database/qbe/sort_select_cell.twig:7
@@ -9289,8 +9272,8 @@ msgstr "Textos completos"
 msgid "Descending"
 msgstr "Descendente"
 
-#: libraries/classes/Display/Results.php:1823
-#: libraries/classes/Display/Results.php:1833 libraries/classes/Util.php:2559
+#: libraries/classes/Display/Results.php:1836
+#: libraries/classes/Display/Results.php:1846 libraries/classes/Util.php:2559
 #: libraries/classes/Util.php:2582 libraries/config.values.php:112
 #: templates/database/multi_table_query/form.twig:68
 #: templates/database/qbe/sort_select_cell.twig:5
@@ -9303,41 +9286,41 @@ msgstr "Descendente"
 msgid "Ascending"
 msgstr "Ascendente"
 
-#: libraries/classes/Display/Results.php:3009
-#: libraries/classes/Display/Results.php:3024
+#: libraries/classes/Display/Results.php:3022
+#: libraries/classes/Display/Results.php:3037
 msgid "The row has been deleted."
 msgstr "Registo eliminado."
 
-#: libraries/classes/Display/Results.php:3056
+#: libraries/classes/Display/Results.php:3069
 #: templates/server/status/processes/list.twig:44
 msgid "Kill"
 msgstr "Termina"
 
-#: libraries/classes/Display/Results.php:3624
+#: libraries/classes/Display/Results.php:3637
 msgid "May be approximate. See [doc@faq3-11]FAQ 3.11[/doc]."
 msgstr "Pode ser aproximado. Veja o [doc@faq3-11]FAQ 3.11[/doc]."
 
-#: libraries/classes/Display/Results.php:3985
+#: libraries/classes/Display/Results.php:3998
 #, php-format
 msgid "Showing rows %1s - %2s"
 msgstr "A mostrar registos de %1s - %2s"
 
-#: libraries/classes/Display/Results.php:3999
+#: libraries/classes/Display/Results.php:4012
 #, php-format
 msgid "%1$d total, %2$d in query"
 msgstr "%1$d no total, %2$d na consulta"
 
-#: libraries/classes/Display/Results.php:4004
+#: libraries/classes/Display/Results.php:4017
 #, php-format
 msgid "%d total"
 msgstr "%d total"
 
-#: libraries/classes/Display/Results.php:4017 libraries/classes/Sql.php:988
+#: libraries/classes/Display/Results.php:4030 libraries/classes/Sql.php:988
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "A consulta demorou %01.4f segundos."
 
-#: libraries/classes/Display/Results.php:4348
+#: libraries/classes/Display/Results.php:4361
 msgid "Link not found!"
 msgstr "Link não encontrado!"
 
@@ -9703,11 +9686,11 @@ msgstr ""
 msgid "Too many error messages, some are not displayed."
 msgstr "Excesso de mensagens de erro, algumas não serão mostradas."
 
-#: libraries/classes/ErrorHandler.php:411
+#: libraries/classes/ErrorHandler.php:416
 msgid "Report"
 msgstr "Reportar"
 
-#: libraries/classes/ErrorHandler.php:416 templates/error/report_form.twig:25
+#: libraries/classes/ErrorHandler.php:421 templates/error/report_form.twig:25
 msgid "Automatically send report next time"
 msgstr "Enviar o relatóro automáticamente da próxima vez"
 
@@ -9884,27 +9867,27 @@ msgstr "%d erros foram encontrados durante análise."
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocorreu um ROLLBACK.]"
 
-#: libraries/classes/Import.php:1267
+#: libraries/classes/Import.php:1266
 msgid ""
 "The following structures have either been created or altered. Here you can:"
 msgstr "As estruturas a seguir foram criadas ou alteradas. Aqui você pode:"
 
-#: libraries/classes/Import.php:1269
+#: libraries/classes/Import.php:1268
 msgid "View a structure's contents by clicking on its name."
 msgstr "Visualizar o conteúdo da estrutura clicando em seu nome."
 
-#: libraries/classes/Import.php:1270
+#: libraries/classes/Import.php:1269
 msgid ""
 "Change any of its settings by clicking the corresponding \"Options\" link."
 msgstr ""
 "Alterar qualquer uma destas definições clicando no link \"Opções\" "
 "correspondente."
 
-#: libraries/classes/Import.php:1271
+#: libraries/classes/Import.php:1270
 msgid "Edit structure by following the \"Structure\" link."
 msgstr "Editar a estrutura seguindo o link \"Estrutura\"."
 
-#: libraries/classes/Import.php:1275 libraries/classes/Import.php:1309
+#: libraries/classes/Import.php:1274 libraries/classes/Import.php:1308
 #: libraries/classes/Plugins/Export/ExportCodegen.php:66
 #: libraries/classes/Plugins/Export/ExportCsv.php:46
 #: libraries/classes/Plugins/Export/ExportExcel.php:39
@@ -9934,32 +9917,32 @@ msgstr "Editar a estrutura seguindo o link \"Estrutura\"."
 msgid "Options"
 msgstr "Opções"
 
-#: libraries/classes/Import.php:1278
+#: libraries/classes/Import.php:1277
 #, php-format
 msgid "Go to database: %s"
 msgstr "Ir para a base de dados: %s"
 
-#: libraries/classes/Import.php:1284 libraries/classes/Import.php:1327
+#: libraries/classes/Import.php:1283 libraries/classes/Import.php:1326
 #, php-format
 msgid "Edit settings for %s"
 msgstr "Editar as definições para %s"
 
-#: libraries/classes/Import.php:1312
+#: libraries/classes/Import.php:1311
 #, php-format
 msgid "Go to table: %s"
 msgstr "Ir para a tabela: %s"
 
-#: libraries/classes/Import.php:1320
+#: libraries/classes/Import.php:1319
 #, php-format
 msgid "Structure of %s"
 msgstr "Estrutura do %s"
 
-#: libraries/classes/Import.php:1338
+#: libraries/classes/Import.php:1337
 #, php-format
 msgid "Go to view: %s"
 msgstr "Ir para a view: %s"
 
-#: libraries/classes/Import.php:1366
+#: libraries/classes/Import.php:1365
 msgid ""
 "Only INSERT, UPDATE, DELETE and REPLACE SQL queries containing transactional "
 "engine tables can be rolled back."
@@ -10045,7 +10028,7 @@ msgstr "Exibindo consulta SQL"
 msgid "Inserted row id: %1$d"
 msgstr "Id da linha inserida: %1$d"
 
-#: libraries/classes/LanguageManager.php:979
+#: libraries/classes/LanguageManager.php:980
 msgid "Ignoring unsupported language code."
 msgstr "A ignorar código de linguagem não suportado."
 
@@ -10880,16 +10863,12 @@ msgstr ""
 "O valor digitado na imagem de verificação está errado, tente novamente!"
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:297
-#, fuzzy
-#| msgid ""
-#| "Your password is too long. To prevent denial-of-service attacks, "
-#| "phpMyAdmin restricts passwords to less than 1000 characters."
 msgid ""
 "Your password is too long. To prevent denial-of-service attacks, phpMyAdmin "
 "restricts passwords to less than 2000 characters."
 msgstr ""
-"A sua palavra-passe é comprida demais. Para evitar ataques de negação de "
-"serviço, o phpMyAdmin restringe as palavras-passe a menos de 1000 caracteres."
+"A sua palavra-passe é comprida demais. Para evitar ataques de recusa de "
+"serviço, o phpMyAdmin restringe as palavras-passe a menos de 2000 caracteres."
 
 #: libraries/classes/Plugins/Auth/AuthenticationCookie.php:316
 msgid "You are not allowed to log in to this MySQL server!"
@@ -12061,16 +12040,12 @@ msgid "Hardware Security Key (FIDO U2F)"
 msgstr "Chave de Segurança de Hardware (FIDO U2F)"
 
 #: libraries/classes/Plugins/TwoFactor/Key.php:218
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting FIDO U2F, "
 "such as a YubiKey."
 msgstr ""
-"Fornece autenticação usando tokens de segurança de hardware suportando FIDO "
-"U2F, como a Yubikey."
+"Fornece autenticação usando tokens de segurança de hardware com suporte a "
+"FIDO U2F, como a Yubikey."
 
 #: libraries/classes/Plugins/TwoFactorPlugin.php:73
 #, php-format
@@ -12098,22 +12073,16 @@ msgid "For testing purposes only!"
 msgstr "Apenas para fins de teste!"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:180
-#, fuzzy
-#| msgid "Hardware Security Key (FIDO U2F)"
 msgid "Hardware Security Key (WebAuthn/FIDO2)"
-msgstr "Chave de Segurança de Hardware (FIDO U2F)"
+msgstr "Chave de segurança por hardware (WebAuthn/FIDO2)"
 
 #: libraries/classes/Plugins/TwoFactor/WebAuthn.php:186
-#, fuzzy
-#| msgid ""
-#| "Provides authentication using hardware security tokens supporting FIDO "
-#| "U2F, such as a Yubikey."
 msgid ""
 "Provides authentication using hardware security tokens supporting the "
 "WebAuthn/FIDO2 protocol, such as a YubiKey."
 msgstr ""
-"Fornece autenticação usando tokens de segurança de hardware suportando FIDO "
-"U2F, como a Yubikey."
+"Fornece autenticação usando tokens de segurança de hardware com suporte ao "
+"protocolo the WebAuthn/FIDO2, tal como a Yubikey."
 
 #: libraries/classes/Query/Utilities.php:97
 msgid ""
@@ -12204,20 +12173,16 @@ msgid "Unknown error"
 msgstr "Erro desconhecido"
 
 #: libraries/classes/ReplicationGui.php:545
-#, fuzzy, php-format
-#| msgid "Unable to connect to master %s."
+#, php-format
 msgid "Unable to connect to primary %s."
-msgstr "Não foi possível conectar ao master %s."
+msgstr "Não foi possível ligar ao primário %s."
 
 #: libraries/classes/ReplicationGui.php:555
-#, fuzzy
-#| msgid ""
-#| "Unable to read master log position. Possible privilege problem on master."
 msgid ""
 "Unable to read primary log position. Possible privilege problem on primary."
 msgstr ""
-"Não foi possível ler a posição do master log. Possívelmente é um problema de "
-"permissões no master."
+"Não foi possível ler a posição do historial do primário. Possivelmente é um "
+"problema de permissões no primário."
 
 #: libraries/classes/ReplicationGui.php:573
 msgid "Unable to change primary!"
@@ -12477,18 +12442,15 @@ msgstr "Permite bloquear tabelas para a thread atual."
 #: libraries/classes/Server/Privileges.php:440
 #: templates/server/privileges/privileges_table.twig:694
 #: templates/server/privileges/privileges_table.twig:697
-#, fuzzy
-#| msgid "Needed for the replication slaves."
 msgid "Needed for the replication replicas."
-msgstr "Necessário para a replicação dos slaves."
+msgstr "Necessário para a replicação das réplicas."
 
 #: libraries/classes/Server/Privileges.php:445
 #: templates/server/privileges/privileges_table.twig:681
 #: templates/server/privileges/privileges_table.twig:684
-#, fuzzy
-#| msgid "Allows the user to ask where the slaves / masters are."
 msgid "Allows the user to ask where the replicas / primaries are."
-msgstr "Permitir que o utilizador pergunte onde os slaves / masters estão."
+msgstr ""
+"Permitir que o utilizador pergunte onde estão as réplicas e os primários."
 
 #: libraries/classes/Server/Privileges.php:455
 #: templates/server/privileges/privileges_table.twig:524
@@ -12726,23 +12688,17 @@ msgid "Show open tables"
 msgstr "Ver tabelas abertas"
 
 #: libraries/classes/Server/Status/Data.php:193
-#, fuzzy
-#| msgid "Show slave hosts"
 msgid "Show replica hosts"
-msgstr "Mostrar anfitriões secundários"
+msgstr "Mostrar anfitriões réplicas"
 
 #: libraries/classes/Server/Status/Data.php:200
 #: templates/server/replication/primary_replication.twig:9
-#, fuzzy
-#| msgid "Show master status"
 msgid "Show primary status"
-msgstr "Ver estado do master"
+msgstr "Ver estado do primário"
 
 #: libraries/classes/Server/Status/Data.php:207
-#, fuzzy
-#| msgid "Show slave status"
 msgid "Show replica status"
-msgstr "Ver estado do secundário"
+msgstr "Ver estado da réplica"
 
 #: libraries/classes/Server/Status/Data.php:215
 msgid "Flush query cache"
@@ -12870,7 +12826,7 @@ msgstr "Este servidor MySQL não suporta o mecanismo de armazenamento %s."
 msgid "The name of the primary key must be \"PRIMARY\"!"
 msgstr "O nome da chave primária tem de ser \"PRIMARY\"!"
 
-#: libraries/classes/Table/Maintenance.php:122
+#: libraries/classes/Table/Maintenance.php:123
 #, php-format
 msgid "Problems with indexes of table `%s`"
 msgstr "Problemas com os índices da tabela `%s`"
@@ -13385,10 +13341,8 @@ msgstr ""
 "assumindo o mapeamento convencional de endereços IPv4 em endereços IPv6"
 
 #: libraries/classes/Types.php:445
-#, fuzzy
-#| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
-msgstr "Guarda um Identificador Universal Único (UUID)"
+msgstr "Guarda um UUID de 128-bit (Identificador Universal Único)"
 
 #: libraries/classes/Types.php:791
 msgctxt "numeric types"
@@ -14720,10 +14674,8 @@ msgid "Export the structure of all tables."
 msgstr "Permite alterar a estrutura de tabelas existentes."
 
 #: templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Exportar visualizações como tabelas"
+msgstr "Exportar dados de todas as tabelas."
 
 #: templates/database/import/index.twig:3
 #, php-format
@@ -16441,10 +16393,8 @@ msgstr ""
 #: templates/login/twofactor/key_configure.twig:3
 #: templates/login/twofactor/key.twig:3
 #: templates/preferences/two_factor/main.twig:56
-#, fuzzy
-#| msgid "Replicated"
 msgid "Deprecated!"
-msgstr "Replicado"
+msgstr "Obsoleto!"
 
 #: templates/login/twofactor/key_configure.twig:4
 #: templates/login/twofactor/key.twig:4

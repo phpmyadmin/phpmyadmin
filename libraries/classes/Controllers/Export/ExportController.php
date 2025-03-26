@@ -379,7 +379,8 @@ final class ExportController extends AbstractController
         // Do we need to convert charset?
         $output_charset_conversion = $asfile
             && Encoding::isSupported()
-            && isset($charset) && $charset !== 'utf-8';
+            && isset($charset) && $charset !== 'utf-8'
+            && in_array($charset, Encoding::listEncodings(), true);
 
         // Use on the fly compression?
         $GLOBALS['onfly_compression'] = $GLOBALS['cfg']['CompressOnFly']

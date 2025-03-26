@@ -185,4 +185,23 @@ class EncodingTest extends AbstractTestCase
         $result = Encoding::listEncodings();
         self::assertContains('utf-8', $result);
     }
+
+    public function testListEncodingsForIso2022CnExt(): void
+    {
+        Encoding::setEngine(Encoding::ENGINE_ICONV);
+        $GLOBALS['cfg']['AvailableCharsets'] = [
+            'utf-8',
+            'ISO-2022-CN',
+            'ISO2022CN',
+            'ISO-2022-CN-EXT',
+            'ISO2022CNEXT',
+            ' iso-2022-cn-ext ',
+            'ISO-2022-CN-EXT//TRANSLIT',
+            ' I S O - 2 0 2 2 - C N - E X T ',
+            ' I S O 2 0 2 2 C N E X T ',
+            'IS%O-20(22-CN-E$XT',
+        ];
+
+        self::assertSame(['utf-8', 'ISO-2022-CN', 'ISO2022CN'], Encoding::listEncodings());
+    }
 }
