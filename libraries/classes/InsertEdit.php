@@ -1630,6 +1630,10 @@ class InsertEdit
                     . $this->dbi->escapeString($multiEditSalt[$key]) . "')";
             }
 
+            if ($multiEditFuncs[$key] === 'NOW') {
+                return $multiEditFuncs[$key] . "(" . $this->dbi->escapeString($currentValue) . ")";
+            }
+
             return $multiEditFuncs[$key] . "('" . $this->dbi->escapeString($currentValue) . "')";
         }
 
