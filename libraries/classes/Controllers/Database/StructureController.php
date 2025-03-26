@@ -563,7 +563,7 @@ class StructureController extends AbstractController
         if (isset($currentTable['TABLE_ROWS']) && ($currentTable['ENGINE'] != null || $tableIsView)) {
             // InnoDB/TokuDB table: we did not get an accurate row count
             $approxRows = ! $tableIsView
-                && in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'])
+                && in_array($currentTable['ENGINE'], ['CSV', 'InnoDB', 'TokuDB'])
                 && ! $currentTable['COUNTED'];
 
             if ($tableIsView && $currentTable['TABLE_ROWS'] >= $GLOBALS['cfg']['MaxExactCountViews']) {
@@ -726,6 +726,12 @@ class StructureController extends AbstractController
                     $sumSize
                 );
                 break;
+            case 'CSV':
+                [$currentTable, $formattedSize, $unit, $sumSize] = $this->getValuesForCsvTable(
+                    $currentTable,
+                    $sumSize
+                );
+                break;
             // Mysql 5.0.x (and lower) uses MRG_MyISAM
             // and MySQL 5.1.x (and higher) uses MRG_MYISAM
             // Both are aliases for MERGE
@@ -881,6 +887,70 @@ class StructureController extends AbstractController
             $unit,
             $sumSize,
         ];
+    }
+
+    /**
+     * Get values for CSV table
+     *
+     * https://bugs.mysql.com/bug.php?id=53929
+     *
+     * @param array $currentTable current table
+     * @param int   $sumSize      sum size
+     *
+     * @return array
+     */
+    protected function getValuesForCsvTable(
+        array $currentTable,
+        $sumSize
+    ) {
+        $formattedSize = $unit = '';
+
+        if ($currentTable['ENGINE'] === 'CSV') {
+            $currentTable['COUNTED'] = true;
+            $currentTable['TABLE_ROWS'] = $this->dbi
+                ->getTable($this->db, $currentTable['TABLE_NAME'])
+                ->countRecords(true);
+        } else {
+            $currentTable['COUNTED'] = false;
+        }
+
+        if ($this->isShowStats) {
+            // Only count columns that have double quotes
+            $columnCount = (int) $this->dbi->fetchValue(
+                'SELECT COUNT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = \''
+                . $this->dbi->escapeString($this->db) . '\' AND TABLE_NAME = \''
+                . $this->dbi->escapeString($currentTable['TABLE_NAME']) . '\' AND NUMERIC_SCALE IS NULL;'
+            );
+
+            // Get column names
+            $columnNames = $this->dbi->fetchValue(
+                'SELECT GROUP_CONCAT(COLUMN_NAME) FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = \''
+                . $this->dbi->escapeString($this->db) . '\' AND TABLE_NAME = \''
+                . $this->dbi->escapeString($currentTable['TABLE_NAME']) . '\';'
+            );
+
+            // 10Mb buffer for CONCAT_WS
+            // not sure if is needed
+            $this->dbi->query('SET SESSION group_concat_max_len = 10 * 1024 * 1024');
+
+            // Calculate data length
+            $dataLength = (int) $this->dbi->fetchValue('
+                SELECT SUM(CHAR_LENGTH(REPLACE(REPLACE(REPLACE(
+                    CONCAT_WS(\',\', ' . $columnNames . '),
+                    UNHEX(\'0A\'), \'nn\'), UNHEX(\'22\'), \'nn\'), UNHEX(\'5C\'), \'nn\'
+                ))) FROM ' . Util::backquote($this->db) . '.' . Util::backquote($currentTable['TABLE_NAME']));
+
+            // Calculate quotes length
+            $quotesLength = $currentTable['TABLE_ROWS'] * $columnCount * 2;
+
+            /** @var int $tblsize */
+            $tblsize = $dataLength + $quotesLength + $currentTable['TABLE_ROWS'];
+
+            $sumSize += $tblsize;
+            [$formattedSize, $unit] = Util::formatByteDown($tblsize, 3, $tblsize > 0 ? 1 : 0);
+        }
+
+        return [$currentTable, $formattedSize, $unit, $sumSize];
     }
 
     /**
