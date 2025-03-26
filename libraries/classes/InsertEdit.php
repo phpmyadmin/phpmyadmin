@@ -1631,7 +1631,7 @@ class InsertEdit
             }
 
             if ($multiEditFuncs[$key] === 'NOW') {
-                return $multiEditFuncs[$key] . "(" . $this->dbi->escapeString($currentValue) . ")";
+                return $multiEditFuncs[$key] . '(' . $this->dbi->escapeString($currentValue) . ')';
             }
 
             return $multiEditFuncs[$key] . "('" . $this->dbi->escapeString($currentValue) . "')";
