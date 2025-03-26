@@ -893,6 +893,11 @@ class StructureController extends AbstractController
      * Get values for CSV table
      *
      * https://bugs.mysql.com/bug.php?id=53929
+     *
+     * @param array $currentTable current table
+     * @param int   $sumSize      sum size
+     *
+     * @return array
      */
     protected function getValuesForCsvTable(
         array $currentTable,
