@@ -24,6 +24,7 @@ use function htmlspecialchars;
 use function implode;
 use function in_array;
 use function is_array;
+use function is_numeric;
 use function is_string;
 use function json_encode;
 use function max;
@@ -44,7 +45,7 @@ use const PASSWORD_DEFAULT;
 
 class InsertEdit
 {
-    private const FUNC_OPTIONAL_PARAM = ['RAND', 'UNIX_TIMESTAMP'];
+    private const FUNC_OPTIONAL_PARAM = ['NOW', 'RAND', 'UNIX_TIMESTAMP'];
 
     private const FUNC_NO_PARAM = [
         'CONNECTION_ID',
@@ -1130,6 +1131,13 @@ class InsertEdit
             ) {
                 return $editField->function . '(' . $this->dbi->quoteString($editField->value) . ','
                     . $this->dbi->quoteString($editField->salt) . ')';
+            }
+
+            if (
+                $editField->function === 'NOW'
+                && (is_numeric($editField->value) && $editField->value >= 0 && $editField->value <= 6)
+            ) {
+                return $editField->function . '(' . (int) $editField->value . ')';
             }
 
             return $editField->function . '(' . $this->dbi->quoteString($editField->value) . ')';

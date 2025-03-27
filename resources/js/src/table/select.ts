@@ -306,7 +306,7 @@ AJAX.registerOnload('table/select.js', function () {
 
         // Get the operator.
         const operator = ($(this).val() as string);
-        const $targetField = $(this).closest('tr').find('[name*="criteriaValues"]')
+        const $targetField = $(this).closest('tr').find('[name*="criteriaValues"]');
 
         $targetField.prop('disabled', opIsUnary(operator));
         $targetField.siblings('.ui-datepicker-trigger').eq(0).toggle(!opIsUnary(operator));
