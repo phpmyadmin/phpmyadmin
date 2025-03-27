@@ -2196,6 +2196,9 @@ class InsertEdit
         //add data attributes "no of decimals" and "data type"
         $noDecimals = 0;
         $type = current(explode('(', $column['pma_type']));
+        if ($type === 'timestamp') {
+            $noDecimals = 6;
+        }
         if (preg_match('/\(([^()]+)\)/', $column['pma_type'], $match)) {
             $match[0] = trim($match[0], '()');
             $noDecimals = $match[0];
