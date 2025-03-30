@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-23 00:32+0000\n"
+"POT-Creation-Date: 2025-03-30 00:27+0000\n"
 "PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -595,7 +595,7 @@ msgstr "Nom"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:257
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:339
 #: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
@@ -2378,7 +2378,7 @@ msgstr "Paramètres de procédure"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:256
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Fonction"
@@ -3067,7 +3067,7 @@ msgstr "Convertir en Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:455
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
 #: src/Message.php:138
 msgid "Error"
 msgstr "Erreur"
@@ -3620,7 +3620,7 @@ msgstr ""
 "page."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:456
+#: src/InsertEdit.php:457
 msgid "The directory you set for upload work cannot be reached."
 msgstr "Le répertoire de transfert est inaccessible."
 
@@ -4864,7 +4864,7 @@ msgstr "Permission de lire des données."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:464
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
 msgid "Or"
 msgstr "Ou"
 
@@ -6577,7 +6577,7 @@ msgstr "Faire glisser pour réordonner"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:492
 #: src/Controllers/JavaScriptMessagesController.php:644
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1457
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "Ignorer"
 
@@ -14080,7 +14080,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "La table %s existe déjà !"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:241
+#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Masquer"
@@ -15441,7 +15441,7 @@ msgstr "Il y a un problème avec votre requête."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:158 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
 
@@ -16547,15 +16547,15 @@ msgstr ""
 "Les index %1$s et %2$s semblent identiques et l'un d'eux pourrait être "
 "supprimé."
 
-#: src/InsertEdit.php:465
+#: src/InsertEdit.php:466
 msgid "web server upload directory:"
 msgstr "répertoire de transfert du serveur Web :"
 
-#: src/InsertEdit.php:882 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
-#: src/InsertEdit.php:906 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identifiant de la ligne insérée : %1$d"

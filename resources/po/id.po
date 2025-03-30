@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-23 00:32+0000\n"
+"POT-Creation-Date: 2025-03-30 00:27+0000\n"
 "PO-Revision-Date: 2025-03-23 22:10+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -595,7 +595,7 @@ msgstr "Nama"
 #: resources/templates/table/structure/display_structure.twig:465
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:7
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:6
-#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:257
+#: resources/templates/table/zoom_search/index.twig:37 src/InsertEdit.php:258
 #: src/Plugins/Export/ExportHtmlword.php:263
 #: src/Plugins/Export/ExportHtmlword.php:339
 #: src/Plugins/Export/ExportLatex.php:500 src/Plugins/Export/ExportOdt.php:367
@@ -624,8 +624,8 @@ msgstr ""
 "Jika tipe kolom adalah \"enum\" atau \"set\", harap masukkan nilai "
 "menggunakan format ini: 'a','b','c'…<br>Jika Anda perlu meletakkan garis "
 "miring terbalik (\"\\\") atau tanda kutip tunggal (\"'\") di antara nilai-"
-"nilai tersebut, awali dengan garis miring terbalik (misalnya '\\\\xyz' atau '"
-"a\\'b')."
+"nilai tersebut, awali dengan garis miring terbalik (misalnya '\\\\xyz' atau "
+"'a\\'b')."
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:20
 #: resources/templates/database/central_columns/edit.twig:11
@@ -2377,7 +2377,7 @@ msgstr "Parameter routine"
 
 #: resources/templates/database/routines/execute_form.twig:18
 #: resources/templates/table/search/index.twig:36
-#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:256
+#: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Fungsi"
@@ -3064,7 +3064,7 @@ msgstr "Mengonversi ke Kana"
 #: src/Controllers/Table/Partition/DropController.php:54
 #: src/Controllers/Table/Partition/RebuildController.php:54
 #: src/Controllers/Table/Partition/TruncateController.php:54
-#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:455
+#: src/Html/Generator.php:739 src/Import/Import.php:119 src/InsertEdit.php:456
 #: src/Message.php:138
 msgid "Error"
 msgstr "Galat"
@@ -3615,7 +3615,7 @@ msgid "You may also drag and drop a file on any page."
 msgstr "Anda juga dapat drag dan drop sebuah file pada halaman manapun."
 
 #: resources/templates/import.twig:56 resources/templates/import.twig:80
-#: src/InsertEdit.php:456
+#: src/InsertEdit.php:457
 msgid "The directory you set for upload work cannot be reached."
 msgstr ""
 "Direktori yang telah ditetapkan untuk mengunggah tidak dapat dihubungi."
@@ -4842,7 +4842,7 @@ msgstr "Mengizinkan untuk baca data."
 #: resources/templates/server/privileges/privileges_table.twig:60
 #: resources/templates/server/privileges/privileges_table.twig:87
 #: resources/templates/server/privileges/privileges_table.twig:114
-#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:464
+#: resources/templates/table/search/index.twig:128 src/InsertEdit.php:465
 msgid "Or"
 msgstr "Atau"
 
@@ -5454,7 +5454,8 @@ msgstr "Kelola galat:"
 
 #: resources/templates/server/replication/replica_configuration.twig:77
 msgid "Skipping errors might lead into unsynchronized primary and replica!"
-msgstr "Galat lompatan mungkin menyebabkan ketidaksinkronan primer dan replika!"
+msgstr ""
+"Galat lompatan mungkin menyebabkan ketidaksinkronan primer dan replika!"
 
 #: resources/templates/server/replication/replica_configuration.twig:81
 msgid "Skip current error"
@@ -5939,15 +5940,15 @@ msgstr ""
 msgid ""
 "This MySQL server works as <b>primary</b> in <b>replication</b> process."
 msgstr ""
-"Server MySQL ini berfungsi sebagai <b>utama</b> dalam proses "
-"<b>replikasi</b>."
+"Server MySQL ini berfungsi sebagai <b>utama</b> dalam proses <b>replikasi</"
+"b>."
 
 #: resources/templates/server/status/status/index.twig:63
 msgid ""
 "This MySQL server works as <b>replica</b> in <b>replication</b> process."
 msgstr ""
-"Server MySQL ini berfungsi sebagai <b>replika</b> dalam proses "
-"<b>replikasi</b>."
+"Server MySQL ini berfungsi sebagai <b>replika</b> dalam proses <b>replikasi</"
+"b>."
 
 #: resources/templates/server/status/status/index.twig:69
 msgid "Replication status"
@@ -6538,7 +6539,7 @@ msgstr "Seret untuk menyusun ulang"
 #: resources/templates/table/index_form.twig:203
 #: src/Controllers/JavaScriptMessagesController.php:492
 #: src/Controllers/JavaScriptMessagesController.php:644
-#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1457
+#: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "Abaikan"
 
@@ -7811,9 +7812,8 @@ msgstr ""
 "dari nilai variabel-variabel ini. Untuk menghilangkannya, Anda harus menulis "
 "ulang kueri Anda untuk menghindari kondisi tersebut (Di dalam tabel "
 "sementara: Adanya kolom BLOB atau TEXT atau adanya kolom yang lebih besar "
-"dari 512 byte) sebagaimana disebutkan dalam <a href="
-"\"https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html\""
-">Dokumentasi MySQL</a>"
+"dari 512 byte) sebagaimana disebutkan dalam <a href=\"https://dev.mysql.com/"
+"doc/refman/8.0/en/internal-temporary-tables.html\">Dokumentasi MySQL</a>"
 
 #: src/Advisory/Rules.php:383
 #, php-format
@@ -7854,7 +7854,8 @@ msgstr "Maksimum % buffer kunci MyISAM yang pernah digunakan"
 #: src/Advisory/Rules.php:407 src/Advisory/Rules.php:424
 #, no-php-format
 msgid "MyISAM key buffer (index cache) % used is low."
-msgstr "Persentase buffer kunci MyISAM (tembolok indeks) yang digunakan rendah."
+msgstr ""
+"Persentase buffer kunci MyISAM (tembolok indeks) yang digunakan rendah."
 
 #: src/Advisory/Rules.php:409 src/Advisory/Rules.php:426
 msgid ""
@@ -8123,9 +8124,8 @@ msgid ""
 "of-aborted_connects/\">This article</a> might help you track down the source."
 msgstr ""
 "Koneksi biasanya dibatalkan jika tidak dapat diotorisasi. <a href=\"https://"
-"www.percona.com/blog/2008/08/23/"
-"how-to-track-down-the-source-of-aborted_connects/\">Artikel ini</a> dapat "
-"membantu Anda melacak sumbernya."
+"www.percona.com/blog/2008/08/23/how-to-track-down-the-source-of-"
+"aborted_connects/\">Artikel ini</a> dapat membantu Anda melacak sumbernya."
 
 #: src/Advisory/Rules.php:584
 #, php-format
@@ -8264,13 +8264,12 @@ msgstr ""
 "Biasanya cukup dengan menetapkan {innodb_log_file_size} ke 25% dari ukuran "
 "{innodb_buffer_pool_size}. {innodb_log_file_size} yang sangat besar "
 "memperlambat waktu pemulihan setelah basis data crash secara signifikan. "
-"Lihat juga <a href=\"https://www.percona.com/blog/2006/07/03/"
-"choosing-proper-innodb_log_file_size/\">Artikel ini</a>. Anda perlu "
-"mematikan server, menghapus file log InnoDB, menetapkan nilai baru di "
-"my.cnf, memulai server, lalu memeriksa log kesalahan jika semuanya berjalan "
-"lancar. Lihat juga <a href=\"https://"
-"mysqldatabaseadministration.blogspot.com/2007/01/increase-innodblogfilesize-"
-"proper-way.html\">entri blog ini</a>"
+"Lihat juga <a href=\"https://www.percona.com/blog/2006/07/03/choosing-proper-"
+"innodb_log_file_size/\">Artikel ini</a>. Anda perlu mematikan server, "
+"menghapus file log InnoDB, menetapkan nilai baru di my.cnf, memulai server, "
+"lalu memeriksa log kesalahan jika semuanya berjalan lancar. Lihat juga <a "
+"href=\"https://mysqldatabaseadministration.blogspot.com/2007/01/increase-"
+"innodblogfilesize-proper-way.html\">entri blog ini</a>"
 
 #: src/Advisory/Rules.php:717
 #, php-format
@@ -8307,9 +8306,8 @@ msgstr ""
 "menilai dengan cermat konsumsi memori layanan lain dan tabel non-InnoDB dan "
 "menetapkan variabel ini sebagaimana mestinya. Jika ditetapkan terlalu "
 "tinggi, sistem Anda akan mulai bertukar, yang akan menurunkan kinerja secara "
-"signifikan. Lihat juga <a href="
-"\"https://www.percona.com/blog/2007/11/03/choosing-innodb_buffer_pool_size/\""
-">artikel ini</a>"
+"signifikan. Lihat juga <a href=\"https://www.percona.com/blog/2007/11/03/"
+"choosing-innodb_buffer_pool_size/\">artikel ini</a>"
 
 #: src/Advisory/Rules.php:738
 #, php-format
@@ -9439,8 +9437,8 @@ msgid ""
 "The number of bytes a script is allowed to allocate, e.g. [kbd]32M[/kbd] "
 "([kbd]-1[/kbd] for no limit and [kbd]0[/kbd] for no change)."
 msgstr ""
-"Jumlah byte yang dapat dialokasikan oleh skrip, misalnya [kbd]32M[/kbd] ("
-"[kbd]-1[/kbd] jika tidak ada batas dan [kbd]0[/kbd] jika tidak ada "
+"Jumlah byte yang dapat dialokasikan oleh skrip, misalnya [kbd]32M[/kbd] "
+"([kbd]-1[/kbd] jika tidak ada batas dan [kbd]0[/kbd] jika tidak ada "
 "perubahan)."
 
 #: src/Config/Descriptions.php:278
@@ -9598,8 +9596,8 @@ msgid ""
 "Leave blank for no column comments/media types, suggested: "
 "[kbd]pma__column_info[/kbd]."
 msgstr ""
-"Biarkan kosong jika tidak ada komentar kolom/jenis media, disarankan: [kbd]"
-"pma__column_info[/kbd]."
+"Biarkan kosong jika tidak ada komentar kolom/jenis media, disarankan: "
+"[kbd]pma__column_info[/kbd]."
 
 #: src/Config/Descriptions.php:342
 msgid ""
@@ -9633,9 +9631,9 @@ msgid ""
 "issues/8970]phpMyAdmin issue tracker[/a] and [a@https://bugs.mysql."
 "com/19588]MySQL Bugs[/a]"
 msgstr ""
-"Informasi lebih lanjut kunjungi "
-"[a@https://github.com/phpmyadmin/phpmyadmin/issues/8970]phpMyAdmin issue "
-"tracker[/a] dan [a@https://bugs.mysql.com/19588]MySQL Bugs[/a]"
+"Informasi lebih lanjut kunjungi [a@https://github.com/phpmyadmin/phpmyadmin/"
+"issues/8970]phpMyAdmin issue tracker[/a] dan [a@https://bugs.mysql."
+"com/19588]MySQL Bugs[/a]"
 
 #: src/Config/Descriptions.php:358
 msgid ""
@@ -9658,8 +9656,8 @@ msgid ""
 "Leave blank for no export template support, suggested: "
 "[kbd]pma__export_templates[/kbd]."
 msgstr ""
-"Biarkan kosong agar tidak mendukung templat ekspor apapun, saran: [kbd]"
-"pma__export_templates[/kbd]."
+"Biarkan kosong agar tidak mendukung templat ekspor apapun, saran: "
+"[kbd]pma__export_templates[/kbd]."
 
 #: src/Config/Descriptions.php:368
 msgid ""
@@ -9692,9 +9690,9 @@ msgid ""
 "tables]pmadb[/doc] for complete information. Leave blank for no support. "
 "Suggested: [kbd]phpmyadmin[/kbd]."
 msgstr ""
-"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat "
-"[doc@linked-tables[/doc] untuk informasi lengkap. Biarkan kosong agar tanpa "
-"dukungan tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
+"Database digunakan untuk relasi, bookmark, dan fitur PDF. Lihat [doc@linked-"
+"tables[/doc] untuk informasi lengkap. Biarkan kosong agar tanpa dukungan "
+"tersebut. Disarankan: [kbd]phpmyadmin[/kbd]."
 
 #: src/Config/Descriptions.php:384
 msgid ""
@@ -12064,8 +12062,8 @@ msgid ""
 "Searching inside the database is disabled by the [code]$cfg['UseDbSearch'][/"
 "code] configuration."
 msgstr ""
-"Pencarian di dalam database dinonaktifkan oleh konfigurasi [code]$cfg"
-"['UseDbSearch'][/code]."
+"Pencarian di dalam database dinonaktifkan oleh konfigurasi "
+"[code]$cfg['UseDbSearch'][/code]."
 
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:47
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:46
@@ -13915,7 +13913,7 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:241
+#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Sembunyikan"
@@ -15258,7 +15256,7 @@ msgstr "Ada masalah dengan permintaan Anda."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:158 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:863
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL memberikan hasil kosong (atau nol baris)."
 
@@ -16333,15 +16331,15 @@ msgstr ""
 "Indeks %1$s dan %2$s sepertinya sama dan salah satu dari mereka memungkinkan "
 "untuk dibuang."
 
-#: src/InsertEdit.php:465
+#: src/InsertEdit.php:466
 msgid "web server upload directory:"
 msgstr "direktori unggahan server web:"
 
-#: src/InsertEdit.php:882 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:860
 msgid "Showing SQL query"
 msgstr "Menampilkan kueri SQL"
 
-#: src/InsertEdit.php:906 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:840
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Nomor baris baru: %1$d"
@@ -17626,13 +17624,13 @@ msgstr ""
 "HANYA LINUX: Meluncurkan aplikasi eksternal dan memasukkannya ke dalam kolom "
 "data melalui input standar. Mengembalikan output standar aplikasi. Bawaannya "
 "adalah Tidy, untuk mempercantik kode HTML. Demi alasan keamanan, Anda harus "
-"mengedit file src/Plugins/Transformations/Abs/"
-"ExternalTransformationsPlugin.php secara manual dan mencantumkan alat yang "
-"ingin Anda sediakan. Opsi pertama adalah nomor program yang ingin Anda "
-"gunakan. Opsi kedua harus kosong karena alasan historis. Opsi ketiga, jika "
-"ditetapkan ke 1, akan mengonversi output menggunakan htmlspecialchars() ("
-"Bawaan 1). Opsi keempat, jika ditetapkan ke 1, akan mencegah pembungkusan "
-"dan memastikan bahwa output muncul dalam satu baris (Bawaan 1)."
+"mengedit file src/Plugins/Transformations/Abs/ExternalTransformationsPlugin."
+"php secara manual dan mencantumkan alat yang ingin Anda sediakan. Opsi "
+"pertama adalah nomor program yang ingin Anda gunakan. Opsi kedua harus "
+"kosong karena alasan historis. Opsi ketiga, jika ditetapkan ke 1, akan "
+"mengonversi output menggunakan htmlspecialchars() (Bawaan 1). Opsi keempat, "
+"jika ditetapkan ke 1, akan mencegah pembungkusan dan memastikan bahwa output "
+"muncul dalam satu baris (Bawaan 1)."
 
 #: src/Plugins/Transformations/Abs/ExternalTransformationsPlugin.php:117
 #, php-format
