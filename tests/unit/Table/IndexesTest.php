@@ -6,7 +6,7 @@ namespace PhpMyAdmin\Tests\Table;
 
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
-use PhpMyAdmin\Index;
+use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Table\Indexes;
 use PhpMyAdmin\Table\Table;

@@ -8,7 +8,7 @@ use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Dbal\Warning;
 use PhpMyAdmin\Identifiers\DatabaseName;
 use PhpMyAdmin\Identifiers\TableName;
-use PhpMyAdmin\Index;
+use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Table\Maintenance\Message;
 use PhpMyAdmin\Util;
 

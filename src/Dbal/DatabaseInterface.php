@@ -13,7 +13,7 @@ use PhpMyAdmin\FieldMetadata;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\I18n\LanguageManager;
 use PhpMyAdmin\Identifiers\DatabaseName;
-use PhpMyAdmin\Index;
+use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\ListDatabase;
 use PhpMyAdmin\Query\Cache;
 use PhpMyAdmin\Query\Compatibility;

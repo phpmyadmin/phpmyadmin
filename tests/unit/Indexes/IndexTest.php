@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin\Tests;
+namespace PhpMyAdmin\Tests\Indexes;
 
-use PhpMyAdmin\Index;
+use PhpMyAdmin\Indexes\Index;
+use PhpMyAdmin\Tests\AbstractTestCase;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(Index::class)]

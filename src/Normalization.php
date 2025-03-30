@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Query\Compatibility;
 
 use function __;

@@ -5258,7 +5258,7 @@
       <code><![CDATA[ImportSettings::$runQuery]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
-  <file src="src/Index.php">
+  <file src="src/Indexes/Index.php">
     <DeprecatedMethod>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -5294,7 +5294,7 @@
       <code><![CDATA[isPacked]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="src/IndexColumn.php">
+  <file src="src/Indexes/IndexColumn.php">
     <MixedAssignment>
       <code><![CDATA[$this->collation]]></code>
       <code><![CDATA[$this->expression]]></code>
@@ -11546,7 +11546,7 @@
       <code><![CDATA[providerContentWithByteOrderMarks]]></code>
     </PossiblyUnusedMethod>
   </file>
-  <file src="tests/unit/IndexTest.php">
+  <file src="tests/unit/Indexes/IndexTest.php">
     <MixedArgument>
       <code><![CDATA[$this->params['columns']]]></code>
       <code><![CDATA[$this->params['columns']]]></code>
