@@ -5137,7 +5137,7 @@ parameters:
 
 		-
 			message: "#^Cannot use array destructuring on array\\|null\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -5182,6 +5182,16 @@ parameters:
 
 		-
 			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForAriaTable\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForCsvTable\\(\\) has parameter \\$currentTable with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Method PhpMyAdmin\\\\Controllers\\\\Database\\\\StructureController\\:\\:getValuesForCsvTable\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Controllers/Database/StructureController.php
 
@@ -5257,7 +5267,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$identifier of static method PhpMyAdmin\\\\Util\\:\\:backquote\\(\\) expects string\\|Stringable\\|null, mixed given\\.$#"
-			count: 2
+			count: 3
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -5268,6 +5278,11 @@ parameters:
 		-
 			message: "#^Parameter \\#1 \\$str of function md5 expects string, mixed given\\.$#"
 			count: 1
+			path: libraries/classes/Controllers/Database/StructureController.php
+
+		-
+			message: "#^Parameter \\#1 \\$str of method PhpMyAdmin\\\\DatabaseInterface\\:\\:escapeString\\(\\) expects string, mixed given\\.$#"
+			count: 2
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
@@ -5337,7 +5352,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#2 \\$table_name of method PhpMyAdmin\\\\DatabaseInterface\\:\\:getTable\\(\\) expects string, mixed given\\.$#"
-			count: 4
+			count: 5
 			path: libraries/classes/Controllers/Database/StructureController.php
 
 		-
