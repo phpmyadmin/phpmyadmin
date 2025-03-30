@@ -1,7 +1,7 @@
 name: Feature request
 description: Suggest an idea for phpMyAdmin
 title: "[Feat]: "
-labels: ["feature"]
+labels: ["Enhancement"]
 
 body:
   - type: input

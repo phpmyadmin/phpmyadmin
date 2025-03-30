@@ -1,7 +1,7 @@
 name: Security report
 description: Disclose a security vulnerability responsibly by first reporting it to us privately
 title: "[Security]: "
-labels: ["security"]
+labels: ["Bug"]
 
 body:
   - type: textarea
