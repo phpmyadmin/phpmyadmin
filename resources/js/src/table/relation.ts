@@ -260,7 +260,7 @@ AJAX.registerOnload('table/relation.js', function () {
             $.post(url, params, function (data) {
                 if (data.success === true) {
                     ajaxRemoveMessage($msg);
-                    refreshMainContent(false);
+                    $currRow.remove();
                     AJAX.callback = () => {
                         // Do nothing
                     };
