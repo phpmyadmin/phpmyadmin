@@ -2,9 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PhpMyAdmin;
+namespace PhpMyAdmin\Indexes;
 
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Message;
 
 use function __;
 use function array_pop;

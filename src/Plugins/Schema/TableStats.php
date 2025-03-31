@@ -10,7 +10,7 @@ namespace PhpMyAdmin\Plugins\Schema;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Font;
-use PhpMyAdmin\Index;
+use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Util;
 

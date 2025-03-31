@@ -3934,7 +3934,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#2 \$table of static method PhpMyAdmin\\Index\:\:getPrimary\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$table of static method PhpMyAdmin\\Indexes\\Index\:\:getPrimary\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -3958,7 +3958,7 @@ parameters:
 			path: src/Controllers/Table/RelationController.php
 
 		-
-			message: '#^Parameter \#3 \$schema of static method PhpMyAdmin\\Index\:\:getPrimary\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#3 \$schema of static method PhpMyAdmin\\Indexes\\Index\:\:getPrimary\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Table/RelationController.php
@@ -8569,7 +8569,7 @@ parameters:
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '''
@@ -8578,139 +8578,139 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 3
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Cannot access offset mixed on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Only booleans are allowed in &&, int\<0, 1\> given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Only booleans are allowed in &&, int\<0, 2\> given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Only booleans are allowed in &&, int\<0, 4\> given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Only booleans are allowed in &&, int\<0, 8\> given on the left side\.$#'
 			identifier: booleanAnd.leftNotBoolean
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Parameter \#1 \$columns of method PhpMyAdmin\\Index\:\:addColumns\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$columns of method PhpMyAdmin\\Indexes\\Index\:\:addColumns\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Parameter \#1 \$params of method PhpMyAdmin\\Index\:\:addColumn\(\) expects array\<string, string\|null\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$params of method PhpMyAdmin\\Indexes\\Index\:\:addColumn\(\) expects array\<string, string\|null\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$choice \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$choice \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$comment \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$comment \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$name \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$name \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$packed \(string\|null\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$packed \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$parser \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$parser \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$remarks \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$remarks \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$schema \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$schema \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$table \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$table \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Index\:\:\$type \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\Index\:\:\$type \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/Index.php
+			path: src/Indexes/Index.php
 
 		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 3
-			path: src/IndexColumn.php
+			path: src/Indexes/IndexColumn.php
 
 		-
-			message: '#^Property PhpMyAdmin\\IndexColumn\:\:\$collation \(string\|null\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\IndexColumn\:\:\$collation \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/IndexColumn.php
+			path: src/Indexes/IndexColumn.php
 
 		-
-			message: '#^Property PhpMyAdmin\\IndexColumn\:\:\$expression \(string\|null\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\IndexColumn\:\:\$expression \(string\|null\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/IndexColumn.php
+			path: src/Indexes/IndexColumn.php
 
 		-
-			message: '#^Property PhpMyAdmin\\IndexColumn\:\:\$name \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\IndexColumn\:\:\$name \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/IndexColumn.php
+			path: src/Indexes/IndexColumn.php
 
 		-
-			message: '#^Property PhpMyAdmin\\IndexColumn\:\:\$null \(string\) does not accept mixed\.$#'
+			message: '#^Property PhpMyAdmin\\Indexes\\IndexColumn\:\:\$null \(string\) does not accept mixed\.$#'
 			identifier: assign.propertyType
 			count: 1
-			path: src/IndexColumn.php
+			path: src/Indexes/IndexColumn.php
 
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
@@ -9547,13 +9547,13 @@ parameters:
 			path: src/Normalization.php
 
 		-
-			message: '#^Parameter \#2 \$table of static method PhpMyAdmin\\Index\:\:getPrimary\(\) expects string, \(int\|string\) given\.$#'
+			message: '#^Parameter \#2 \$table of static method PhpMyAdmin\\Indexes\\Index\:\:getPrimary\(\) expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Normalization.php
 
 		-
-			message: '#^Parameter \#2 \$table of static method PhpMyAdmin\\Index\:\:getPrimary\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$table of static method PhpMyAdmin\\Indexes\\Index\:\:getPrimary\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Normalization.php
@@ -18991,13 +18991,13 @@ parameters:
 			message: '#^Cannot access an offset on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 3
-			path: tests/unit/IndexTest.php
+			path: tests/unit/Indexes/IndexTest.php
 
 		-
-			message: '#^Parameter \#1 \$columns of method PhpMyAdmin\\Index\:\:addColumns\(\) expects array\<mixed\>, mixed given\.$#'
+			message: '#^Parameter \#1 \$columns of method PhpMyAdmin\\Indexes\\Index\:\:addColumns\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 2
-			path: tests/unit/IndexTest.php
+			path: tests/unit/Indexes/IndexTest.php
 
 		-
 			message: '''

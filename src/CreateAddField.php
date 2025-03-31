@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Identifiers\DatabaseName;
+use PhpMyAdmin\Indexes\Index;
 use PhpMyAdmin\Table\Table;
 
 use function count;
