@@ -30,22 +30,22 @@ class Types
     private const UNARY_OPERATORS = ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
     private const NULL_OPERATORS = ['IS NULL', 'IS NOT NULL'];
     private const ENUM_OPERATORS = ['=', '!='];
-    private const TEXT_OPERATORS = [    // value => display.
-        'LIKE %...%' => 'LIKE %...%',
-        'LIKE' => 'LIKE',
-        'NOT LIKE' => 'NOT LIKE',
-        'NOT LIKE %...%' => 'NOT LIKE %...%',
-        '=' => '=',
-        '!=' => '!=',
-        'REGEXP' => 'REGEXP',
-        'REGEXP ^...$' => 'REGEXP ^...$',
-        'NOT REGEXP' => 'NOT REGEXP',
-        '= \'\'' => '= \'\' (empty)',
-        '!= \'\'' =>'!= \'\' (not empty)',
-        'IN (...)' => 'IN (...)',
-        'NOT IN (...)' => 'NOT IN (...)',
-        'BETWEEN' => 'BETWEEN',
-        'NOT BETWEEN' => 'NOT BETWEEN',
+    private const TEXT_OPERATORS = [
+        'LIKE %...%',
+        'LIKE',
+        'NOT LIKE',
+        'NOT LIKE %...%',
+        '=',
+        '!=',
+        'REGEXP',
+        'REGEXP ^...$',
+        'NOT REGEXP',
+        "= ''",
+        "!= ''",
+        'IN (...)',
+        'NOT IN (...)',
+        'BETWEEN',
+        'NOT BETWEEN',
     ];
     private const NUMBER_OPERATORS = [
         '=',
@@ -89,6 +89,19 @@ class Types
     }
 
     /**
+     * Returns the display of operators.
+     */
+    public function displayOfOperator(string $operator): string
+    {
+        $displays = [
+            "= ''" => sprintf("= '' (%s)", __('empty')),
+            "!= ''" => sprintf("!= '' (%s)", __('not empty')),
+        ];
+
+        return $displays[$operator] ?? $operator;
+    }
+
+    /**
      * Returns operators for given type
      *
      * @param string $type Type of field
@@ -124,14 +137,12 @@ class Types
     {
         $html = '';
 
-        foreach ($this->getTypeOperators($type, $null) as $operator => $display) {
-            $selected = $selectedOperator !== null && $selectedOperator === $display ? ' selected' : '';
+        foreach ($this->getTypeOperators($type, $null) as $fc) {
+            $selected = $selectedOperator !== null && $selectedOperator === $fc ? ' selected' : '';
 
-            if (is_numeric($operator)) {
-                $operator = $display;
-            }
+            $display = $this->displayOfOperator($fc);
 
-            $html .= '<option value="' . htmlspecialchars($operator) . '"'
+            $html .= '<option value="' . htmlspecialchars($fc) . '"'
                 . $selected . '>'
                 . htmlspecialchars($display) . '</option>';
         }
