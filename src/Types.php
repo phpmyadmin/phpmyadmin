@@ -30,22 +30,22 @@ class Types
     private const UNARY_OPERATORS = ['IS NULL', 'IS NOT NULL', "= ''", "!= ''"];
     private const NULL_OPERATORS = ['IS NULL', 'IS NOT NULL'];
     private const ENUM_OPERATORS = ['=', '!='];
-    private const TEXT_OPERATORS = [
-        'LIKE %...%',
-        'LIKE',
-        'NOT LIKE',
-        'NOT LIKE %...%',
-        '=',
-        '!=',
-        'REGEXP',
-        'REGEXP ^...$',
-        'NOT REGEXP',
-        "= ''",
-        "!= ''",
-        'IN (...)',
-        'NOT IN (...)',
-        'BETWEEN',
-        'NOT BETWEEN',
+    private const TEXT_OPERATORS = [    // value => display.
+        'LIKE %...%' => 'LIKE %...%',
+        'LIKE' => 'LIKE',
+        'NOT LIKE' => 'NOT LIKE',
+        'NOT LIKE %...%' => 'NOT LIKE %...%',
+        '=' => '=',
+        '!=' => '!=',
+        'REGEXP' => 'REGEXP',
+        'REGEXP ^...$' => 'REGEXP ^...$',
+        'NOT REGEXP' => 'NOT REGEXP',
+        '= \'\'' => '= \'\' (empty)',
+        '!= \'\'' =>'!= \'\' (not empty)',
+        'IN (...)' => 'IN (...)',
+        'NOT IN (...)' => 'NOT IN (...)',
+        'BETWEEN' => 'BETWEEN',
+        'NOT BETWEEN' => 'NOT BETWEEN',
     ];
     private const NUMBER_OPERATORS = [
         '=',
@@ -124,12 +124,16 @@ class Types
     {
         $html = '';
 
-        foreach ($this->getTypeOperators($type, $null) as $fc) {
-            $selected = $selectedOperator !== null && $selectedOperator === $fc ? ' selected' : '';
+        foreach ($this->getTypeOperators($type, $null) as $operator => $display) {
+            $selected = $selectedOperator !== null && $selectedOperator === $display ? ' selected' : '';
 
-            $html .= '<option value="' . htmlspecialchars($fc) . '"'
+            if (is_numeric($operator)) {
+                $operator = $display;
+            }
+
+            $html .= '<option value="' . htmlspecialchars($operator) . '"'
                 . $selected . '>'
-                . htmlspecialchars($fc) . '</option>';
+                . htmlspecialchars($display) . '</option>';
         }
 
         return $html;
