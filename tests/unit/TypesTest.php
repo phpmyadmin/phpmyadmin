@@ -39,8 +39,8 @@ class TypesTest extends AbstractTestCase
     /**
      * Test for displayOfOperator
      *
-     * @param string    $operator Operator
-     * @param string    $display  Display of $operator
+     * @param string $operator Operator
+     * @param string $display  Display of $operator
      */
     #[DataProvider('providerForTestDisplay')]
     public function testDisplay(string $operator, string $display): void
