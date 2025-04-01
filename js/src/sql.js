@@ -55,7 +55,6 @@ Sql.autoSave = function (query) {
             }
         } catch (e) {
             console.error(e);
-            
             Functions.ajaxShowMessage(
                 '<div class="alert alert-danger" role="alert">' +
                 e +
