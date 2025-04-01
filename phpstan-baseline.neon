@@ -4399,12 +4399,6 @@ parameters:
 			path: src/Controllers/Table/Structure/SaveController.php
 
 		-
-			message: '#^Only booleans are allowed in an if condition, mixed given\.$#'
-			identifier: if.condNotBoolean
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 3
@@ -10297,7 +10291,7 @@ parameters:
 			path: src/Plugins/Auth/AuthenticationSignon.php
 
 		-
-			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept non\-empty\-array\<mixed, mixed\>\.$#'
+			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept non\-empty\-array\.$#'
 			identifier: assign.propertyType
 			count: 1
 			path: src/Plugins/Auth/AuthenticationSignon.php
@@ -11814,12 +11808,6 @@ parameters:
 		-
 			message: '#^Cannot access property \$spreadsheet on SimpleXMLElement\|null\.$#'
 			identifier: property.nonObject
-			count: 1
-			path: src/Plugins/Import/ImportOds.php
-
-		-
-			message: '#^Cannot call method __toString\(\) on mixed\.$#'
-			identifier: method.nonObject
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
 
@@ -18325,6 +18313,12 @@ parameters:
 			path: tests/unit/CoreTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{pos\: ''0'', db\: ''test_db'', table\: ''test_table''\} and array\{pos\: ''0'', eq\: string\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 2
+			path: tests/unit/CoreTest.php
+
+		-
 			message: '#^Cannot access offset ''arr1'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 5
@@ -18376,6 +18370,18 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 4
+			path: tests/unit/Crypto/CryptoTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''URLQueryEncryptionS…'' and array\{URLQueryEncryptionSecretKey\: ''aaaaaaaaaaaaaaaaaaa…''\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Crypto/CryptoTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''URLQueryEncryptionS…'' and array\{\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
 			path: tests/unit/Crypto/CryptoTest.php
 
 		-
@@ -18567,23 +18573,11 @@ parameters:
 		-
 			message: '#^Cannot access offset ''display_binary'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: tests/unit/Display/ResultsTest.php
-
-		-
-			message: '#^Cannot access offset ''display_blob'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: tests/unit/Display/ResultsTest.php
-
-		-
-			message: '#^Cannot access offset ''geoOption'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
 			path: tests/unit/Display/ResultsTest.php
 
 		-
-			message: '#^Cannot access offset ''hide_transformation'' on mixed\.$#'
+			message: '#^Cannot access offset ''display_blob'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
 			path: tests/unit/Display/ResultsTest.php
@@ -18591,41 +18585,23 @@ parameters:
 		-
 			message: '#^Cannot access offset ''max_rows'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 6
+			count: 4
 			path: tests/unit/Display/ResultsTest.php
 
 		-
 			message: '#^Cannot access offset ''pftext'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
+			count: 2
 			path: tests/unit/Display/ResultsTest.php
 
 		-
 			message: '#^Cannot access offset ''pos'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 3
-			path: tests/unit/Display/ResultsTest.php
-
-		-
-			message: '#^Cannot access offset ''possible_as_geometry'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
-			path: tests/unit/Display/ResultsTest.php
-
-		-
-			message: '#^Cannot access offset ''query'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/Display/ResultsTest.php
 
 		-
 			message: '#^Cannot access offset ''relational_display'' on mixed\.$#'
-			identifier: offsetAccess.nonOffsetAccessible
-			count: 4
-			path: tests/unit/Display/ResultsTest.php
-
-		-
-			message: '#^Cannot access offset ''repeat_cells'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
 			path: tests/unit/Display/ResultsTest.php
@@ -18728,6 +18704,12 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 3
 			path: tests/unit/FileListingTest.php
+
+		-
+			message: '#^Offset ''FlashMessenger'' does not exist on array\<mixed, mixed\>\.$#'
+			identifier: offsetAccess.notFound
+			count: 2
+			path: tests/unit/FlashMessengerTest.php
 
 		-
 			message: '#^@readonly property PhpMyAdmin\\Config\\Settings\\Debug\:\:\$sql is assigned outside of its declaring class\.$#'
@@ -18865,6 +18847,18 @@ parameters:
 			path: tests/unit/GitTest.php
 
 		-
+			message: '#^Cannot unset offset ''git_location'' on array\<mixed, mixed\>\.$#'
+			identifier: unset.offset
+			count: 2
+			path: tests/unit/GitTest.php
+
+		-
+			message: '#^Cannot unset offset ''is_git_revision'' on array\<mixed, mixed\>\.$#'
+			identifier: unset.offset
+			count: 2
+			path: tests/unit/GitTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -18953,6 +18947,18 @@ parameters:
 			identifier: staticMethod.deprecated
 			count: 1
 			path: tests/unit/Html/MySQLDocumentationTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''test'' and array\{test\: ''test''\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''test'' and ''test'' will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Http/Middleware/TokenRequestParamCheckingTest.php
 
 		-
 			message: '#^Binary operation "\." between mixed and ''/'' results in an error\.$#'
@@ -19393,6 +19399,12 @@ parameters:
 			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
 
 		-
+			message: '#^Offset non\-falsy\-string does not exist on array\{\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: tests/unit/Plugins/Auth/AuthenticationCookieTest.php
+
+		-
 			message: '#^Property PhpMyAdmin\\Config\:\:\$selectedServer \(array\{host\: string, port\: string, socket\: string, ssl\: bool, ssl_key\: string\|null, ssl_cert\: string\|null, ssl_ca\: string\|null, ssl_ca_path\: string\|null, \.\.\.\}\) does not accept array\{auth_type\: ''cookie''\}\.$#'
 			identifier: assign.propertyType
 			count: 1
@@ -19450,6 +19462,12 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 13
+			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with ''https\://example\.com…'' and ''https\://example\.com…'' will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
 			path: tests/unit/Plugins/Auth/AuthenticationSignonTest.php
 
 		-
@@ -19585,12 +19603,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: tests/unit/Plugins/Import/ImportLdiTest.php
-
-		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with ''auto'' will always evaluate to false\.$#'
-			identifier: staticMethod.impossibleType
-			count: 1
 			path: tests/unit/Plugins/Import/ImportLdiTest.php
 
 		-
@@ -19839,7 +19851,7 @@ parameters:
 		-
 			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertIsString\(\) with null will always evaluate to false\.$#'
 			identifier: staticMethod.impossibleType
-			count: 1
+			count: 2
 			path: tests/unit/SessionTest.php
 
 		-
@@ -19852,6 +19864,12 @@ parameters:
 			path: tests/unit/Setup/IndexTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertSame\(\) with array\{array\{array\{0\: ''foo'', fresh\: false, active\: false\}, array\{0\: ''bar'', fresh\: false, active\: false\}\}\} and array\{array\{array\{''foo''\}, array\{''bar''\}\}\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/Setup/IndexTest.php
+
+		-
 			message: '#^Cannot access offset ''123'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -19860,6 +19878,12 @@ parameters:
 		-
 			message: '#^Cannot access offset ''type'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: tests/unit/Setup/IndexTest.php
+
+		-
+			message: '#^Offset ''messages'' does not exist on array\<mixed, mixed\>\.$#'
+			identifier: offsetAccess.notFound
 			count: 1
 			path: tests/unit/Setup/IndexTest.php
 
@@ -20077,6 +20101,12 @@ parameters:
 			path: tests/unit/TwoFactorTest.php
 
 		-
+			message: '#^Cannot unset offset ''2fa_code'' on array\<mixed, mixed\>\.$#'
+			identifier: unset.offset
+			count: 1
+			path: tests/unit/TwoFactorTest.php
+
+		-
 			message: '#^Method PhpMyAdmin\\Tests\\TwoFactorTest\:\:loadResultForConfig\(\) has parameter \$config with no value type specified in iterable type array\.$#'
 			identifier: missingType.iterableValue
 			count: 1
@@ -20155,9 +20185,15 @@ parameters:
 			path: tests/unit/UserPreferencesTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with false will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 1
+			path: tests/unit/UserPreferencesTest.php
+
+		-
 			message: '#^Cannot access offset ''db'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
-			count: 2
+			count: 1
 			path: tests/unit/UserPreferencesTest.php
 
 		-
@@ -20176,6 +20212,12 @@ parameters:
 			message: '#^Cannot access offset ''userprefs'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
+			path: tests/unit/UserPreferencesTest.php
+
+		-
+			message: '#^Offset ''userconfig'' does not exist on array\<mixed, mixed\>\.$#'
+			identifier: offsetAccess.notFound
+			count: 3
 			path: tests/unit/UserPreferencesTest.php
 
 		-
@@ -20296,6 +20338,12 @@ parameters:
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertArrayHasKey\(\) with ''cache'' and array\{\} will always evaluate to false\.$#'
+			identifier: staticMethod.impossibleType
+			count: 2
+			path: tests/unit/Utils/SessionCacheTest.php
+
+		-
 			message: '#^Cannot access offset ''server_2'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 4
@@ -20311,6 +20359,12 @@ parameters:
 			message: '#^Cannot access offset ''test_data_3'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
+			path: tests/unit/Utils/SessionCacheTest.php
+
+		-
+			message: '#^Offset ''cache'' does not exist on array\{\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 4
 			path: tests/unit/Utils/SessionCacheTest.php
 
 		-
