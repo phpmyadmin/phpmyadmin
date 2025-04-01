@@ -47,8 +47,8 @@ class Types
         return [
             'IS NULL',
             'IS NOT NULL',
-            '= \'\' (empty)',
-            '!= \'\' (not empty)',
+            '= \'\'',
+            '!= \'\'',
         ];
     }
 
@@ -89,28 +89,28 @@ class Types
     }
 
     /**
-     * TEXT search operators
+     * TEXT search operators (value => display)
      *
      * @return string[]
      */
     public function getTextOperators()
     {
         return [
-            'LIKE %...%',
-            'LIKE',
-            'NOT LIKE',
-            'NOT LIKE %...%',
-            '=',
-            '!=',
-            'REGEXP',
-            'REGEXP ^...$',
-            'NOT REGEXP',
-            '= \'\' (empty)',
-            '!= \'\' (not empty)',
-            'IN (...)',
-            'NOT IN (...)',
-            'BETWEEN',
-            'NOT BETWEEN',
+            'LIKE %...%' => 'LIKE %...%',
+            'LIKE' => 'LIKE',
+            'NOT LIKE' => 'NOT LIKE',
+            'NOT LIKE %...%' => 'NOT LIKE %...%',
+            '=' => '=',
+            '!=' => '!=',
+            'REGEXP' => 'REGEXP',
+            'REGEXP ^...$' => 'REGEXP ^...$',
+            'NOT REGEXP' => 'NOT REGEXP',
+            '= \'\'' => '= \'\' (empty)',
+            '!= \'\'' =>'!= \'\' (not empty)',
+            'IN (...)' => 'IN (...)',
+            'NOT IN (...)' => 'NOT IN (...)',
+            'BETWEEN' => 'BETWEEN',
+            'NOT BETWEEN' => 'NOT BETWEEN',
         ];
     }
 
@@ -201,16 +201,20 @@ class Types
     {
         $html = '';
 
-        foreach ($this->getTypeOperators($type, $null) as $fc) {
-            if (isset($selectedOperator) && $selectedOperator == $fc) {
+        foreach ($this->getTypeOperators($type, $null) as $operator => $display) {
+            if (isset($selectedOperator) && $selectedOperator == $display) {
                 $selected = ' selected="selected"';
             } else {
                 $selected = '';
             }
 
-            $html .= '<option value="' . htmlspecialchars($fc) . '"'
+            if (is_numeric($operator)) {
+                $operator = $display;
+            }
+
+            $html .= '<option value="' . htmlspecialchars($operator) . '"'
                 . $selected . '>'
-                . htmlspecialchars($fc) . '</option>';
+                . htmlspecialchars($display) . '</option>';
         }
 
         return $html;

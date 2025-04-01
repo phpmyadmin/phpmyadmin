@@ -87,7 +87,7 @@ class SearchTest extends AbstractTestCase
 
         unset($_POST['customWhereClause']);
         $_POST['criteriaColumnNames'] = ['b', 'a', 'c', 'd', 'e', 'f'];
-        $_POST['criteriaColumnOperators'] = ['<=', '=', 'IS NULL', 'IS NOT NULL', '= \'\' (empty)', '!= \'\' (not empty)'];
+        $_POST['criteriaColumnOperators'] = ['<=', '=', 'IS NULL', 'IS NOT NULL', '= \'\'', '!= \'\''];
         $_POST['criteriaValues'] = ['10', '2', '', '', '', ''];
         $_POST['criteriaColumnTypes'] = ['int(11)', 'int(11)', 'int(11)', 'int(11)', 'varchar', 'varchar'];
 
