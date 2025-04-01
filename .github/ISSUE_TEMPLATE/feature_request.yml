@@ -1,0 +1,45 @@
+name: Feature request
+description: Suggest an idea for phpMyAdmin
+title: "[Feat]: "
+labels: ["Enhancement"]
+
+body:
+  - type: input
+    id: phpmyadmin-version
+    attributes:
+      label: phpMyAdmin version
+      placeholder: 5.2.1
+    validations:
+      required: true
+  - type: textarea
+    id: feat-description
+    attributes:
+      label: Describe the feature
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+    validations:
+      required: true
+  - type: textarea
+    id: solution-description
+    attributes:
+      label: Describe the solution
+      description: Describe the solution you'd like
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives-description
+    attributes:
+      label: Describe the alternatives
+      description: Describe alternatives you've considered
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: false
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add additional context here
+      placeholder: Add any other context or screenshots about the feature request here.
+    validations:
+      required: false
