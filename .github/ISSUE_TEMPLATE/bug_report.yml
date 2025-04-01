@@ -1,0 +1,89 @@
+name: Bug report
+description: Create a report to help us improve phpMyAdmin
+title: "[Bug]: "
+labels: ["Bug"]
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: When ...
+    validations:
+      required: true
+  - type: textarea
+    id: how-to-reproduce
+    attributes:
+      label: How to Reproduce
+      description: Give us the steps to reproduce the bug on our side.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: I expected ...
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots to help explain the bug.
+  - type: dropdown
+    id: operating-systems
+    attributes:
+      label: Operating System
+      description: In which operating system this bug appears?
+      multiple: true
+      options:
+        - Linux
+        - macOS
+        - Windows
+  - type: input
+    id: web-server
+    attributes:
+      label: Web Server
+      placeholder: Apache/2.4.63
+  - type: dropdown
+    id: database-server
+    attributes:
+      label: Database Server
+      description: In which database server this bug appears?
+      multiple: true
+      options:
+        - MySQL
+        - MariaDB
+        - PerconaDB
+        - AuroraDB (by AWS)
+        - Other
+  - type: input
+    id: database-version
+    attributes:
+      label: Database version
+      placeholder: SELECT @@version;
+  - type: input
+    id: php-version
+    attributes:
+      label: PHP version
+      placeholder: 8.3.1
+  - type: input
+    id: phpmyadmin-version
+    attributes:
+      label: phpMyAdmin version
+      placeholder: 5.2.1
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: browser
+      placeholder: Firefox v136.0.2
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add any other context about the bug here.
