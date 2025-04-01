@@ -52,6 +52,8 @@ final class ServerRequestFactoryTest extends TestCase
             'PHP_SELF' => $_SERVER['PHP_SELF'],
             'argv' => $_SERVER['argv'],
         ];
+        $_GET = [];
+        $_POST = [];
     }
 
     /**
