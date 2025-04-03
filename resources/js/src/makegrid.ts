@@ -108,8 +108,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 objWidth: $(g.t).find('th.draggable:visible').eq(n).find('span').outerWidth()
             };
 
-            // eslint-disable-next-line compat/compat
-            $(document.body).css('cursor', 'col-resize').noSelect();
+            $(document.body).css('cursor', 'col-resize').addClass('user-select-none');
             if (g.isCellEditActive) {
                 g.hideEditCell();
             }
@@ -149,8 +148,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 objLeft: objPos.left
             };
 
-            // eslint-disable-next-line compat/compat
-            $(document.body).css('cursor', 'move').noSelect();
+            $(document.body).css('cursor', 'move').addClass('user-select-none');
             if (g.isCellEditActive) {
                 g.hideEditCell();
             }
@@ -250,8 +248,7 @@ const makeGrid = function (t, enableResize = undefined, enableReorder = undefine
                 g.colReorder = false;
             }
 
-            // eslint-disable-next-line compat/compat
-            $(document.body).css('cursor', 'inherit').noSelect(false);
+            $(document.body).css('cursor', 'inherit').removeClass('user-select-none');
         },
 
         /**
@@ -2431,44 +2428,3 @@ declare global {
 }
 
 window.makeGrid = makeGrid;
-
-/**
- * jQuery plugin to cancel selection in HTML code.
- */
-(function ($) {
-    $.fn.noSelect = function (p = null) { // no select plugin by Paulo P.Marinas
-        var prevent = (p === null) ? true : p;
-        /* eslint-disable compat/compat */
-        var isMsie = navigator.userAgent.indexOf('MSIE') > -1 || !! window.navigator.userAgent.match(/Trident.*rv:11\./);
-        var isFirefox = navigator.userAgent.indexOf('Firefox') > -1;
-        var isSafari = navigator.userAgent.indexOf('Safari') > -1;
-        var isOpera = navigator.userAgent.indexOf('Presto') > -1;
-        /* eslint-enable compat/compat */
-        if (prevent) {
-            return this.each(function () {
-                if (isMsie || isSafari) {
-                    $(this).on('selectstart', false);
-                } else if (isFirefox) {
-                    $(this).css('MozUserSelect', 'none');
-                    $('body').trigger('focus');
-                } else if (isOpera) {
-                    $(this).on('mousedown', false);
-                } else {
-                    $(this).attr('unselectable', 'on');
-                }
-            });
-        } else {
-            return this.each(function () {
-                if (isMsie || isSafari) {
-                    $(this).off('selectstart');
-                } else if (isFirefox) {
-                    $(this).css('MozUserSelect', 'inherit');
-                } else if (isOpera) {
-                    $(this).off('mousedown');
-                } else {
-                    $(this).removeAttr('unselectable');
-                }
-            });
-        }
-    }; // end noSelect
-}($));
