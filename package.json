@@ -16,7 +16,7 @@
     "@popperjs/core": "^2.11.8",
     "@zxcvbn-ts/core": "^2.0.1",
     "autoprefixer": "^10.4.17",
-    "bootstrap": "5.3.3",
+    "bootstrap": "5.3.5",
     "codemirror": "5.65.10",
     "jquery": "3.7.1",
     "jquery-debounce-throttle": "^1.0.6-rc.0",
