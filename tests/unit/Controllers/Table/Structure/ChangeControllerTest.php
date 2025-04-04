@@ -60,7 +60,7 @@ class ChangeControllerTest extends AbstractTestCase
             . '        type="text"' . "\n"
             . '    name="field_name[0]"' . "\n"
             . '    maxlength="64"' . "\n"
-            . '    class="textfield"' . "\n"
+            . '    class="textfield form-control"' . "\n"
             . '    title="Column"' . "\n"
             . '    size="10"' . "\n"
             . '    value="_id">' . "\n",
