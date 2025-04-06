@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-06 00:27+0000\n"
 "PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -273,7 +273,7 @@ msgstr "colonne(s)"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "Exécuter"
@@ -875,7 +875,7 @@ msgstr "Désactivé"
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -910,9 +910,9 @@ msgstr "Oui"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -6674,7 +6674,7 @@ msgstr ""
 "normalisation correcte"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr "Première étape de la normalisation (1FN)"
 
@@ -12213,7 +12213,7 @@ msgstr ""
 "Cette vue contient au moins ce nombre de lignes. Merci de se référer à "
 "%sdocumentation%s."
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "inconnu"
 
@@ -12474,7 +12474,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "L'instruction « DROP DATABASE » est désactivée."
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr "[Un ROLLBACK a eu lieu]"
 
@@ -13363,7 +13363,7 @@ msgid "Variable %d:"
 msgstr "Variable %d :"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "Choisir"
 
@@ -13398,7 +13398,7 @@ msgid "Primary key added."
 msgstr "Une clé primaire a été ajoutée."
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "Vers l'étape suivante…"
 
@@ -13409,8 +13409,8 @@ msgstr ""
 "La première étape de la normalisation est terminée pour la table « %s »."
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "Fin de l'étape"
 
@@ -13421,7 +13421,7 @@ msgstr "Deuxième étape de la normalisation (2FN)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "Fermer"
 
@@ -14474,17 +14474,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Erreur fatale : la navigation requiert AJAX"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 msgid "Select one…"
 msgstr "En sélectionner une…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 msgid "No such column"
 msgstr "Aucune colonne"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "Chaîne de caractères"
@@ -15363,7 +15363,7 @@ msgstr "Données incorrectes"
 msgid "Wrong data or no validation for %s"
 msgstr "Données erronées ou aucune validation pour %s"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Le signet %s a été créé."
@@ -15441,7 +15441,7 @@ msgstr "Il y a un problème avec votre requête."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a retourné un résultat vide (c'est à dire aucune ligne)."
 
@@ -15840,7 +15840,7 @@ msgstr "%1$s au total, %2$s dans la requête"
 msgid "%s total"
 msgstr "total de %s"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "traitement en %01.4f seconde(s)."
@@ -16538,7 +16538,7 @@ msgstr "Éditer la structure via le lien « Structure »."
 msgid "Go to database: %s"
 msgstr "Aller à la base de données : %s"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -16551,11 +16551,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "répertoire de transfert du serveur Web :"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Affichage de la requête SQL"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Identifiant de la ligne insérée : %1$d"
@@ -16738,16 +16738,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Nouvelle vue"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr "Rendre toutes les colonnes atomiques"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr "Étape 1."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -16755,12 +16755,12 @@ msgstr ""
 "Y-a-t-il une colonne qui peut être scindée en plusieurs colonnes ? Par "
 "exemple : l'adresse peut être divisée en rue, ville, pays et code postal."
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 "Afficher la liste centrale de colonnes qui ne sont pas déjà dans cette table"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -16768,19 +16768,19 @@ msgstr ""
 "Sélectionner une colonne qui peut être scindée (en choisissant « aucune "
 "colonne », cela ira à l'étape suivante)."
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr "scinder en "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 msgid "Have a primary key"
 msgstr "Avoir une clé primaire"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Primary key already exists."
 msgstr "La clé primaire existe déjà."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -16789,26 +16789,26 @@ msgstr ""
 "primaire est une colonne (ou une combinaison de colonnes) qui identifie de "
 "manière unique toutes les lignes."
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr "Ajouter une clé primaire sur la(es) colonne(s) existante(s)"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "S'il n'est pas possible d'utiliser des combinaisons de colonnes existantes "
 "comme clé primaire"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 msgid "+ Add a new primary key column"
 msgstr "+ Ajouter une colonne comme clé primaire"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 msgid "Remove redundant columns"
 msgstr "Retirer les colonnes redondantes"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -16818,7 +16818,7 @@ msgstr ""
 "colonne existante ? Par exemple, avec prénom, nom et nom_complet et en "
 "combinant prénom et nom on obtient nom_complet qui est redondant."
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -16826,19 +16826,19 @@ msgstr ""
 "Vérifier les colonnes qui sont redondantes et cliquer sur Retirer. Si aucune "
 "colonne n'est redondante, cliquer sur « Aucune colonne redondante »"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 msgid "Remove selected"
 msgstr "Retirer les colonnes sélectionnées"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 msgid "No redundant column"
 msgstr "Aucune colonne redondante"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr "Déplacer les groupes répétitifs"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -16853,7 +16853,7 @@ msgstr ""
 "répétitif. Dans ce cas, une nouvelle table (id_libre, auteur) devrait être "
 "créée."
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -16861,19 +16861,19 @@ msgstr ""
 "Vérifier les colonnes qui forment un groupe répétitif. S'il n'y en a pas, "
 "cliquez sur « Aucun groupe répétitif »"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr "Aucun groupe répétitif"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr "Étape 2."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr "Trouver les dépendances partielles"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -16883,11 +16883,11 @@ msgstr ""
 "n'existe puisque la clé primaire (%1$s) est composée de toutes les colonnes "
 "de la table."
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr "La table est déjà en deuxième forme normale."
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -16896,7 +16896,7 @@ msgstr ""
 "La clé primaire (%1$s) se compose de plusieurs colonnes et il faut donc "
 "trouver les dépendances partielles."
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -16904,13 +16904,13 @@ msgstr ""
 "Merci de répondre soigneusement à la(aux) question(s) suivante(s) afin "
 "d'obtenir une normalisation correcte."
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "+ Afficher les dépendances partielles possibles en se basant sur les données "
 "de la table"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16920,12 +16920,12 @@ msgstr ""
 "minimal</b> de colonnes dont les valeurs combinées sont suffisantes pour "
 "déterminer la valeur de la colonne."
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "« %1$s » dépend de :"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -16934,7 +16934,7 @@ msgstr ""
 "Aucune dépendance partielle possible car la clé primaire (%1$s) ne comporte "
 "qu'une colonne."
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -16943,18 +16943,18 @@ msgstr ""
 "Afin de transformer la table d'origine « %1$s » en deuxième forme normale, "
 "il faut créer les tables suivantes :"
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 "La deuxième étape de la normalisation est terminée pour la table « %1$s »."
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 msgid "Error in processing!"
 msgstr "Erreur de traitement !"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -16963,24 +16963,24 @@ msgstr ""
 "Afin de transformer la table d'origine « %1$s » en troisième forme normale, "
 "il va falloir créer les tables suivantes :"
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr "La troisième étape de la normalisation est terminée."
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Le groupe répétitif sélectionné a été déplacé vers la table « %s »"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Step 3."
 msgstr "Étape 3."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr "Trouver les dépendances transitives"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16993,7 +16993,7 @@ msgstr ""
 "dépendance transitive, auquel cas il n'y a aucune sélection à faire pour "
 "cette colonne."
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -17001,11 +17001,11 @@ msgstr ""
 "Aucune dépendance transitive possible car la table ne comporte aucune "
 "colonne non primaire"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr "La table est déjà en troisième forme normale !"
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -17013,7 +17013,7 @@ msgstr ""
 "Cette liste est basée sur un sous-ensemble des données de la table et n'est "
 "pas nécessairement exacte. "
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr "Aucune dépendance partielle trouvée !"
 
@@ -18411,16 +18411,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Aucune version stable plus récente n'est disponible"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Le signet « %s » a été utilisé comme requête par défaut."
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "Affichage du code PHP"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18430,7 +18430,7 @@ msgstr ""
 "d'édition, les cases à cocher ainsi que les liens Éditer, Copier et "
 "Supprimer ne sont pas disponibles. %s"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

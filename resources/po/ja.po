@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-06 00:27+0000\n"
 "PO-Revision-Date: 2025-01-12 23:24+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -273,7 +273,7 @@ msgstr "カラム"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "実行"
@@ -871,7 +871,7 @@ msgstr "無効"
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -906,9 +906,9 @@ msgstr "はい"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -6590,7 +6590,7 @@ msgid ""
 msgstr "ヒント：正しい正規化を得るために慎重に手順に従ってください"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr "第1正規化(1NF)"
 
@@ -11992,7 +11992,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "このビューの最低行数。詳しくは%sドキュメント%sをご覧ください。"
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "不明"
 
@@ -12239,7 +12239,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "DROP DATABASE 文は無効にされています。"
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
@@ -13112,7 +13112,7 @@ msgid "Variable %d:"
 msgstr "変数 %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "選択"
 
@@ -13146,7 +13146,7 @@ msgid "Primary key added."
 msgstr "主キーを追加しました。"
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "次のステップに進みます…"
 
@@ -13156,8 +13156,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "テーブル「%s」の第１正規形は完了しました。"
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "最後のステップ"
 
@@ -13168,7 +13168,7 @@ msgstr "第２正規化 (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "決定"
 
@@ -14196,17 +14196,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "致命的なエラー：ナビゲーションへのアクセスに使用できるのはAjaxだけです"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 msgid "Select one…"
 msgstr "カラムを １つ選択してください…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 msgid "No such column"
 msgstr "カラムはありません"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "文字列"
@@ -15043,7 +15043,7 @@ msgstr "データが正しくありません"
 msgid "Wrong data or no validation for %s"
 msgstr "「%s」のデータが間違っているか、検証されていません"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "ブックマーク %s を作成しました。"
@@ -15121,7 +15121,7 @@ msgstr "リクエストに問題があります。"
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "返り値が空でした (行数 0)。"
 
@@ -15506,7 +15506,7 @@ msgstr "合計 %1$s, クエリで %2$s"
 msgid "%s total"
 msgstr "合計 %s"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "クエリの実行時間： %01.4f 秒。"
@@ -16185,7 +16185,7 @@ msgstr "名前の後ろにある「構造」のリンクより構造の編集が
 msgid "Go to database: %s"
 msgstr "データベース %s に移動"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -16198,11 +16198,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "ウェブサーバ上のアップロードディレクトリ:"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "SQL クエリを表示"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "id %1$d の行を挿入しました"
@@ -16381,16 +16381,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "新規作成"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr "すべてのカラムをアトミックにする"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr "ステップ １."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -16398,11 +16398,11 @@ msgstr ""
 "複数に分割できるカラムはありませんか？ 例えば、「住所」は「番地」、「市区町"
 "村」、「都道府県」、「郵便番号」、「国」などに分割できます。"
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "このテーブルに存在しない主要カラムのリストを表示します"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -16410,19 +16410,19 @@ msgstr ""
 "分割可能なカラムを選択（もしくは ’カラムがありません’ を選択）し、次のステッ"
 "プに進みます。"
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr "分割します "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 msgid "Have a primary key"
 msgstr "主キーが存在します"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Primary key already exists."
 msgstr "主キーは既に存在しています。"
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -16430,25 +16430,25 @@ msgstr ""
 "主キーがありません。１つ追加してください。<br>ヒント：主キーはすべての行を個"
 "別に識別できるカラム（や、カラムの組み合わせ）に指定します。"
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr "既存のカラムにプライマリーキーを設定します"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "プライマリキーとして既存のカラムの組み合わせを設定することができない場合"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 msgid "+ Add a new primary key column"
 msgstr "+ 主キーカラムを追加"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 msgid "Remove redundant columns"
 msgstr "不要なカラムを削除"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -16457,7 +16457,7 @@ msgstr ""
 "複数のカラムを統合して既に存在しているカラムの値になりますか？例：３つのカラ"
 "ムがあります：「姓」、「名」、「氏名」。この場合、「氏名」は不要です。"
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -16465,19 +16465,19 @@ msgstr ""
 "不要なカラムにチェックを入れて「削除」をクリック。不要なカラムがない場合、"
 "「不要カラムなし」をクリック"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 msgid "Remove selected"
 msgstr "選択項目を削除"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 msgid "No redundant column"
 msgstr "不要カラムなし"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr "連続グループを移動"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -16490,7 +16490,7 @@ msgstr ""
 "「author3」、等々で「繰り返しグループ」が作られています。この場合、新しいテー"
 "ブルを作成すべきです。"
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -16498,19 +16498,19 @@ msgstr ""
 "繰り返しグループのカラムを選択してください。存在していない場合、「繰り返しグ"
 "ループ無し」をクリック"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr "繰り返しグループ無し"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr "ステップ 2."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr "部分的な依存を見つける"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -16519,11 +16519,11 @@ msgstr ""
 "部分依存関係は不可能。理由：主キーのないカラムが存在しない。主キー「%1$s」は"
 "テーブルの全てのカラムになっている。"
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr "テーブルは既に第2正規形になっている。"
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -16532,17 +16532,17 @@ msgstr ""
 "主キー「%1$s」は複数カラムで作成されています。部分依存関係カラムを確認する必"
 "要があります。"
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr "正しい正規化を得るために慎重に次の質問に答えてください。"
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ テーブル内のデータに基づいて可能な部分的な依存関係を表示"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16551,19 +16551,19 @@ msgstr ""
 "以下の各カラムで、カラムの値を決定するために<b>最小限</b>のカラム組み合わせを"
 "指定してください。"
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s'が次に依存します:"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr "部分依存関係は不可能。理由：主キー「%1$s」は１つのカラムしかない。"
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -16571,17 +16571,17 @@ msgid ""
 msgstr ""
 "元テーブル「%1$s」を第2正規形になる為、次のテーブルを作成する必要があります："
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "テーブル「%1$s」の第２正規形は完了しました。"
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 msgid "Error in processing!"
 msgstr "処理中にエラーが発生しました!"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -16590,24 +16590,24 @@ msgstr ""
 "元のテーブル「%1$s」を第３正規形になる為、次のテーブルを作成する必要がありま"
 "す："
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr "第３正規化が完了しました。"
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "選択された繰り返しグループが「%s」のテーブルへ移動されました"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Step 3."
 msgstr "ステップ 3."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr "過渡的依存性を検知"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16618,17 +16618,17 @@ msgstr ""
 "指定してください。<br />※カラムは過渡的依存がない場合、選択する必要がありませ"
 "ん。"
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr "テーブルには主キーカラムがないので、過渡的依存性は不可能"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr "テーブルは既に第3正規形になっている!"
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -16636,7 +16636,7 @@ msgstr ""
 "この一覧はテーブルのデータサブセットの元で作成されたので、必ずしも正確ではあ"
 "りません。 "
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr "部分的な依存が見つかりませんでした!"
 
@@ -18002,16 +18002,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "入手可能な新しい安定バージョンはありません"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "デフォルトの表示クエリとしてブックマーク \"%s\" を使用する。"
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "PHP コードとして表示"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18020,7 +18020,7 @@ msgstr ""
 "現在の選択には、ユニークなカラムが含まれていません。グリッド編集、チェック"
 "ボックス、編集、コピー、削除機能は利用できません。%s"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

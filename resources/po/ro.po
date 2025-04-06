@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-06 00:27+0000\n"
 "PO-Revision-Date: 2024-04-18 08:29+0000\n"
 "Last-Translator: Nicoara Alex <alex.nicoara@yahoo.com>\n"
 "Language-Team: Romanian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -282,7 +282,7 @@ msgstr "coloană(e)"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "Execută"
@@ -884,7 +884,7 @@ msgstr "Dezactivată"
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -919,9 +919,9 @@ msgstr "Da"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -6761,7 +6761,7 @@ msgstr ""
 "corectă"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr "Primul pas al normalizării (1NF)"
 
@@ -12286,7 +12286,7 @@ msgstr ""
 "Această vizualizare are cel puțin acest număr de rânduri. Te rog vezi "
 "%sdocumentația%s."
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "necunoscut"
 
@@ -12537,7 +12537,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Declarațiile „ELIMINĂ BAZA DE DATE” sunt dezactivate."
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK s-a făcut.]"
 
@@ -13419,7 +13419,7 @@ msgid "Variable %d:"
 msgstr "Variabila %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "Alege"
 
@@ -13453,7 +13453,7 @@ msgid "Primary key added."
 msgstr "Cheie principală adăugată."
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "Te duc la pasul următor…"
 
@@ -13463,8 +13463,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Primul pas de normalizare este finalizat pentru tabelul „%s”."
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "Sfârșitul pasului"
 
@@ -13475,7 +13475,7 @@ msgstr "Al doilea pas de normalizare (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "Gata"
 
@@ -14521,17 +14521,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Eroare fatală: navigarea poate fi accesată numai prin AJAX"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 msgid "Select one…"
 msgstr "Selectează una…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 msgid "No such column"
 msgstr "Nicio astfel de coloană"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "Șir"
@@ -15354,7 +15354,7 @@ msgstr "Date greșite"
 msgid "Wrong data or no validation for %s"
 msgstr "Date greșite sau nicio validare pentru %s"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Semnul de carte %s a fost creat."
@@ -15434,7 +15434,7 @@ msgstr "Există prea multe asocieri fără indexuri."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL a returnat un set de rezultate gol (adică zero rânduri)."
 
@@ -15838,7 +15838,7 @@ msgstr "%1$s în total, %2$s în interogare"
 msgid "%s total"
 msgstr "%s total"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Interogarea a durat %01.4f secunde."
@@ -16541,7 +16541,7 @@ msgstr "Editează structura urmărind legătura „Structură”."
 msgid "Go to database: %s"
 msgstr "Du-te la baza de date: %s"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -16553,11 +16553,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "director încărcare pe server web:"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Arăt interogarea SQL"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "ID rând inserat: %1$d"
@@ -16745,16 +16745,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Nouă"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr "Face toate coloanele atomice"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr "Pasul 1."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -16762,11 +16762,11 @@ msgstr ""
 "Ai vreo coloană care poate fi împărțită în mai multe coloane? De exemplu: "
 "adresa poate fi împărțită în stradă, oraș, țară și cod poștal."
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Arată-mi lista centrală a coloanelor care nu sunt încă în acest tabel"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -16774,19 +16774,19 @@ msgstr ""
 "Selectează o coloană care poate fi împărțită în mai multe coloane (la "
 "selectarea „nicio astfel de coloană” se va trece la pasul următor)."
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr "împarte în "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 msgid "Have a primary key"
 msgstr "Ai o cheie principală"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Primary key already exists."
 msgstr "Cheia principală există deja."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -16795,25 +16795,25 @@ msgstr ""
 "principală este o coloană (sau o combinație de coloane) care identifică în "
 "mod unic toate rândurile."
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr "Adaugă o cheie principală la coloanele existente"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Dacă nu este posibilă combinarea coloanelor existente ca o cheie principală"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 msgid "+ Add a new primary key column"
 msgstr "+ Adaugă o nouă cheie principală la coloană"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 msgid "Remove redundant columns"
 msgstr "Înlătură coloanele redundante"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -16823,7 +16823,7 @@ msgstr ""
 "exemplu, dacă ai first_name, last_name și full_name atunci prin combinare "
 "first_name și last_name dă full_name care este redundant."
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -16831,19 +16831,19 @@ msgstr ""
 "Bifează coloanele care sunt redundante și dă clic pe înlătură. Dacă nu "
 "există nicio coloană redundantă, dă clic pe ”Nicio coloană redundantă”"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 msgid "Remove selected"
 msgstr "Înlătură cele selectate"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 msgid "No redundant column"
 msgstr "Nicio coloană redundantă"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr "Mută grupurile repetate"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -16857,7 +16857,7 @@ msgstr ""
 "departe, care formează un grup repetat. În acest caz, ar trebui creat un "
 "tabel nou (book_id, autor)."
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -16865,19 +16865,19 @@ msgstr ""
 "Bifează coloanele care formează un grup repetat. Dacă nu există un astfel de "
 "grup, dă clic pe „Niciun grup repetat”"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr "Niciun grup repetat"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr "Pasul 2."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr "Găsește dependențe parțiale"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -16887,11 +16887,11 @@ msgstr ""
 "care nu este principală deoarece cheia principală (%1$s) este compusă din "
 "toate coloanele din tabel."
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr "Tabelul este deja în a doua formă normală."
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -16900,7 +16900,7 @@ msgstr ""
 "Cheia principală (%1$s) constă din mai multe coloane, deci trebuie să găsim "
 "dependențele parțiale."
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -16908,11 +16908,11 @@ msgstr ""
 "Te rog răspunde la următoarele întrebări cu atenție pentru a obține o "
 "normalizare corectă."
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Arată-mi posibile dependențe parțiale pe baza datelor din tabel"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16922,12 +16922,12 @@ msgstr ""
 "coloanele din setul dat, ale cărui valori combinate sunt suficiente pentru a "
 "determina valoarea coloanei."
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "„%1$s” depinde de:"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -16936,7 +16936,7 @@ msgstr ""
 "Nu există posibile dependențe parțiale deoarece cheia principală (%1$s) are "
 "doar o coloană."
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -16945,17 +16945,17 @@ msgstr ""
 "Pentru a pune tabelul original „%1$s” în a doua formă normală, trebuie să "
 "creăm următoarele tabele:"
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Al doilea pas al normalizării este finalizat pentru tabelul „%1$s”."
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 msgid "Error in processing!"
 msgstr "Eroare la procesare!"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -16964,24 +16964,24 @@ msgstr ""
 "Pentru a pune tabelul original „%1$s” în a treia formă normală, trebuie să "
 "creăm următoarele tabele:"
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr "Al treilea pas al normalizării este finalizat."
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Grupul repetat selectat a fost mutat în tabelul „%s”"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Step 3."
 msgstr "Pasul 3."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr "Găsește dependențe tranzitive"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16993,7 +16993,7 @@ msgstr ""
 "determina valoarea coloanei.<br>Notă: o coloană poate să nu aibă nicio "
 "dependență tranzitivă, în acest caz nu trebuie să selectezi niciuna."
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -17001,11 +17001,11 @@ msgstr ""
 "Nu există posibile dependențe tranzitive deoarece tabelul nu are nicio "
 "coloană cu o cheie care nu este principală"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr "Tabelul este deja în a treia formă normală!"
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -17013,7 +17013,7 @@ msgstr ""
 "Această listă se bazează pe un subgrup al datelor din tabel și nu este "
 "neapărat corectă. "
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr "Nicio dependență parțială găsită!"
 
@@ -18402,16 +18402,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Nu este disponibilă nicio versiune stabilă mai nouă"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Folosește semnul de carte „%s” ca interogare de răsfoire implicită."
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "Arăt drept cod PHP"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18420,7 +18420,7 @@ msgstr ""
 "Selecția actuală nu conține o coloană unică. Funcționalitățile editare "
 "grilă, bifă, editează, copiază și șterge nu sunt disponibile. %s"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

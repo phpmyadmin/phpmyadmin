@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-06 00:27+0000\n"
 "PO-Revision-Date: 2025-01-27 16:17+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -276,7 +276,7 @@ msgstr "நெடுவரிசை (கள்)"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "செல்க"
@@ -876,7 +876,7 @@ msgstr "முடக்கப்பட்டது"
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -911,9 +911,9 @@ msgstr "ஆம்"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -6590,7 +6590,7 @@ msgid ""
 msgstr "குறிப்பு: சரியான இயல்பாக்கத்தைப் பெறுவதற்கு நடைமுறையை கவனமாகப் பின்பற்றுங்கள்"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr "இயல்பாக்கத்தின் முதல் படி (1NF)"
 
@@ -11981,7 +11981,7 @@ msgid ""
 msgstr ""
 "இவ்விவரபார்வை குறைந்தளவு இத்தனை நிரைவரிசைகள் கொண்டிருக்கலாம். %sஆவணச்சான்றை%s காண்க."
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "தெரியவில்லை"
 
@@ -12236,7 +12236,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" கூற்றுகள் முடக்கப்பட்டுள்ளன."
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr "[ரோல்பேக் ஏற்பட்டது.]"
 
@@ -13112,7 +13112,7 @@ msgid "Variable %d:"
 msgstr "மாறி %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "தேர்ந்தெடுக்கவும்"
 
@@ -13146,7 +13146,7 @@ msgid "Primary key added."
 msgstr "முதனிலை குறிப்பெழுத்து சேர்க்கப்பட்டது."
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "அடுத்த படிநிலைக்கு செல்கிறோம்…"
 
@@ -13156,8 +13156,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "'%s' அட்டவணையின் சீராக்கலின் முதல் படிநிலை நிறைவுற்றது."
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "செயல்முறையின் முடிவு"
 
@@ -13168,7 +13168,7 @@ msgstr "சீராக்கலின் இரண்டாம் படிந�
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "முடிந்த"
 
@@ -14190,17 +14190,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "அபாயகரமான பிழை: வழிசெலுத்தலை அசாக்ச் வழியாக மட்டுமே அணுக முடியும்"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 msgid "Select one…"
 msgstr "ஒன்றை தேர்ந்தெடுக்கவும்…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 msgid "No such column"
 msgstr "அதுபோல் நிரல்வரிசை இல்லை"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "சரம்"
@@ -15050,7 +15050,7 @@ msgstr "தவறான தரவு"
 msgid "Wrong data or no validation for %s"
 msgstr "தவறான தரவு அல்லது %s க்கு சரிபார்ப்பு இல்லை"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "புத்தகக்குறி %s குறிக்கப்பட்டது."
@@ -15128,7 +15128,7 @@ msgstr "உங்கள் கோரிக்கையில் சிக்க�
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ஒரு வெற்று முடிவு தொகுப்பை (அதாவது சுழிய வரிசைகள்) திருப்பி அளித்தது."
 
@@ -15516,7 +15516,7 @@ msgstr "%1$s மொத்தம், வினவலில் %2$s"
 msgid "%s total"
 msgstr "மொத்தம்"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "வினவல் %01.4f நொடிகள் எடுத்துக்கொண்டது."
@@ -16195,7 +16195,7 @@ msgstr "\"கட்டமைப்பு\" இணைப்பைப் பின
 msgid "Go to database: %s"
 msgstr "தரவுத்தளம்: %s க்கு செல்க"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -16206,11 +16206,11 @@ msgstr "குறியீடுகள் %1$s மற்றும் %2$s சம
 msgid "web server upload directory:"
 msgstr "வலை சேவையக பதிவேற்ற அடைவு:"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "கவிமொ வினவலைக் காட்டுகிறது"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "வரிசை ஐடி செருகப்பட்டது: %1$d"
@@ -16391,16 +16391,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "புதியது"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr "அனைத்து நெடுவரிசைகளையும் அணு செய்யுங்கள்"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr "படி 1."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -16408,11 +16408,11 @@ msgstr ""
 "ஒன்றுக்கு மேற்பட்ட நெடுவரிசைகளாக பிரிக்கக்கூடிய ஏதேனும் நெடுவரிசை உங்களிடம் உள்ளதா? "
 "எடுத்துக்காட்டாக: முகவரியை தெரு, நகரம், நாடு மற்றும் சிப் என பிரிக்கலாம்."
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "இந்த அட்டவணையில் ஏற்கனவே இல்லாத நெடுவரிசைகளின் மைய பட்டியலை எனக்குக் காட்டுங்கள்"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -16420,19 +16420,19 @@ msgstr ""
 "ஒன்றுக்கு மேற்பட்டதாகப் பிரிக்கக்கூடிய ஒரு நெடுவரிசையைத் தேர்ந்தெடுக்கவும் ('அத்தகைய "
 "நெடுவரிசை இல்லை' என்பதைத் தேர்ந்தெடுப்பதில், அது அடுத்த கட்டத்திற்கு நகரும்)."
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr "பிரிந்தது "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 msgid "Have a primary key"
 msgstr "முதன்மை விசை வேண்டும்"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Primary key already exists."
 msgstr "முதன்மை குறிப்பெழுத்து ஏற்கனவே உள்ளது."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -16441,24 +16441,24 @@ msgstr ""
 "என்பது அனைத்து வரிசைகளையும் தனித்தனியாக அடையாளம் காணும் ஒரு நெடுவரிசை (அல்லது "
 "நெடுவரிசைகளின் சேர்க்கை) ஆகும்."
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr "இருக்கும் நெடுவரிசையில் (கள்) முதன்மை விசையைச் சேர்க்கவும்"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr "ஏற்கனவே உள்ள நெடுவரிசை சேர்க்கைகளை முதன்மை விசையாக மாற்ற முடியாது என்றால்"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 msgid "+ Add a new primary key column"
 msgstr "+ புதிய முதன்மை குறிப்பெழுத்து நெடுவரிசையை சேர்க்க"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 msgid "Remove redundant columns"
 msgstr "மிகை நிரல்வரிசைகளை நீக்கவும்"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -16468,7 +16468,7 @@ msgstr ""
 "கடைசி_பெயர் மற்றும் முழு_பெயர் இருந்தால், பின்னர் முதல்_பெயர் மற்றும் லாச்ட்_பேம் ஆகியவற்றை "
 "இணைத்து முழு_பெயரைக் கொடுக்கும், இது தேவையற்றது."
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -16476,19 +16476,19 @@ msgstr ""
 "தேவையற்ற நெடுவரிசைகளை சரிபார்த்து அகற்று என்பதைக் சொடுக்கு செய்க. தேவையற்ற நெடுவரிசை "
 "இல்லை என்றால், 'தேவையற்ற நெடுவரிசை இல்லை' என்பதைக் சொடுக்கு செய்க"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 msgid "Remove selected"
 msgstr "தேர்ந்தெடுத்தவற்றை நீக்குக"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 msgid "No redundant column"
 msgstr "மிகுதியான நெடுவரிசை இல்லை"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr "மீண்டும் மீண்டும் குழுக்களை நகர்த்தவும்"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -16502,7 +16502,7 @@ msgstr ""
 "நெடுவரிசைகள் இருக்கலாம், அவை மீண்டும் மீண்டும் குழுவை உருவாக்குகின்றன. இந்த வழக்கில் ஒரு "
 "புதிய அட்டவணை (book_id, ஆசிரியர்) உருவாக்கப்பட வேண்டும்."
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -16510,19 +16510,19 @@ msgstr ""
 "மீண்டும் மீண்டும் குழுவை உருவாக்கும் நெடுவரிசைகளை சரிபார்க்கவும். அத்தகைய குழு இல்லை "
 "என்றால், 'மீண்டும் மீண்டும் குழு இல்லை' என்பதைக் சொடுக்கு செய்க"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr "மீண்டும் மீண்டும் குழு இல்லை"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr "படி 2."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr "பகுதி சார்புகளைக் கண்டறியவும்"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -16531,11 +16531,11 @@ msgstr ""
 "முதன்மை விசை ( %1$s) அட்டவணையில் உள்ள அனைத்து நெடுவரிசைகளையும் கொண்டிருப்பதால், "
 "முதன்மை அல்லாத நெடுவரிசை இல்லாததால் பகுதி சார்புகள் எதுவும் சாத்தியமில்லை."
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr "அட்டவணை ஏற்கனவே இரண்டாவது சாதாரண வடிவத்தில் உள்ளது."
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -16544,18 +16544,18 @@ msgstr ""
 "முதன்மை விசை ( %1$s) ஒன்றுக்கு மேற்பட்ட நெடுவரிசைகளைக் கொண்டுள்ளது, எனவே பகுதி "
 "சார்புகளை நாம் கண்டுபிடிக்க வேண்டும்."
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr "சரியான இயல்பாக்கத்தைப் பெற பின்வரும் கேள்வி (கள்) கவனமாக பதிலளிக்கவும்."
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "+ அட்டவணையில் உள்ள தரவின் அடிப்படையில் சாத்தியமான பகுதி சார்புகளை எனக்குக் காட்டுங்கள்"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16565,12 +16565,12 @@ msgstr ""
 "ஐத் தேர்ந்தெடுக்கவும், அதன் மதிப்புகள் ஒன்றாக இணைந்தவை நெடுவரிசையின் மதிப்பைத் தீர்மானிக்க "
 "போதுமானவை."
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' சார்ந்துள்ளது:"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -16579,7 +16579,7 @@ msgstr ""
 "முதன்மை விசையில் ( %1$s) ஒரு நெடுவரிசை மட்டுமே இருப்பதால் பகுதி சார்புகள் எதுவும் "
 "சாத்தியமில்லை."
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -16588,17 +16588,17 @@ msgstr ""
 "அசல் அட்டவணையை '%1$s' இரண்டாவது சாதாரண வடிவத்தில் வைக்க நாம் பின்வரும் அட்டவணைகளை "
 "உருவாக்க வேண்டும்:"
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "இயல்பாக்கத்தின் இரண்டாவது படி '%1$s' க்கு அட்டவணைக்கு முடிந்தது."
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 msgid "Error in processing!"
 msgstr "செயலாக்கதில் பிழை!"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -16607,24 +16607,24 @@ msgstr ""
 "அசல் அட்டவணையை '%1$s' மூன்றாவது சாதாரண வடிவத்தில் வைக்க நாம் பின்வரும் அட்டவணைகளை "
 "உருவாக்க வேண்டும்:"
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr "சீராக்கலின் மூன்றாம் படிநிலை நிறைவுற்றது."
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "தேர்ந்தெடுக்கப்பட்ட மீண்டும் மீண்டும் குழு '%s' அட்டவணைக்கு மாற்றப்பட்டுள்ளது"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Step 3."
 msgstr "படிநிலை 3."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr "நிலைபெறா சார்பு பட்டியலை கண்டறிக"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16636,7 +16636,7 @@ msgstr ""
 "மதிப்பைத் தீர்மானிக்க போதுமானவை. <br> குறிப்பு: ஒரு நெடுவரிசையில் இடைநிலை சார்பு "
 "இல்லை, இல் அந்த வழக்கு நீங்கள் எதையும் தேர்ந்தெடுக்க வேண்டியதில்லை."
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -16644,11 +16644,11 @@ msgstr ""
 "அட்டவணையில் எந்தவொரு முதன்மை முக்கிய நெடுவரிசைகளும் இல்லாததால் எந்த இடைக்கால சார்புகளும் "
 "சாத்தியமில்லை"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr "அட்டவணை ஏற்கனவே மூன்றாவது சாதாரண வடிவத்தில் உள்ளது!"
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -16656,7 +16656,7 @@ msgstr ""
 "இந்த பட்டியல் அட்டவணையின் தரவின் துணைக்குழுவை அடிப்படையாகக் கொண்டது மற்றும் இது "
 "துல்லியமாக இல்லை. "
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr "பகுதி சார்புகள் எதுவும் கிடைக்கவில்லை!"
 
@@ -18034,16 +18034,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "புதிய நிலையான பதிப்புகள் ஏதுமில்லை"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, fuzzy, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "இயல்புநிலை உலாவி வினவலாக புக்மார்க்குகளைப் பயன்படுத்துதல்."
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "பிஎச்பி குறியீடாகக் காட்டுகிறது"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18052,7 +18052,7 @@ msgstr ""
 "தற்போதைய தேர்வில் தனித்துவமான நெடுவரிசை இல்லை. கட்டம் திருத்து, தேர்வுப்பெட்டி, "
 "திருத்து, நகலெடுத்து நீக்குதல் நற்பொருத்தங்கள் கிடைக்கவில்லை. %s"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

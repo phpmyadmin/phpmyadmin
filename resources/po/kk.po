@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-06 00:27+0000\n"
 "PO-Revision-Date: 2021-01-22 17:26+0000\n"
 "Last-Translator: William Desportes <williamdes@wdes.fr>\n"
 "Language-Team: Kazakh <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -287,7 +287,7 @@ msgstr "baǵan"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "Ótý"
@@ -893,7 +893,7 @@ msgstr "Óshirilgen"
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -928,9 +928,9 @@ msgstr "Ia"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -6960,7 +6960,7 @@ msgid ""
 msgstr "Tuspal: Durys biryńǵaılaýdy alý úshin rásimdi muqıat oryndańyz"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr "Biryńǵaılaýdyń birinshi qadamy (1NF)"
 
@@ -12547,7 +12547,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Bul kóriniste keminde osy jol sany bar. %sQujattamany%s qarańyz."
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "belgisiz"
 
@@ -12800,7 +12800,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "«DROP DATABASE» nusqaýlary óshirilgen."
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK oryn aldy.]"
 
@@ -13691,7 +13691,7 @@ msgid "Variable %d:"
 msgstr "Aınymaly %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "Tańdaý"
 
@@ -13725,7 +13725,7 @@ msgid "Primary key added."
 msgstr "Alǵashqy kilt ústeldi."
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "Sizdi kelesi qadamǵa aparady…"
 
@@ -13735,8 +13735,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "«%s» kestesi úshin biryńǵaılaýdyń birinshi qadamy aıaqtaldy."
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "Qadam sońy"
 
@@ -13747,7 +13747,7 @@ msgstr "Biryńǵaılaýdyń ekinshi qadamy (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "Daıyn"
 
@@ -14900,17 +14900,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Túzetilmeıtin qate: Sharlaýǵa tek AJAX arqyly qatynaý bolady"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 msgid "Select one…"
 msgstr "Bireýin bólekteý…"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 msgid "No such column"
 msgstr "Mundaı baǵan joq"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "Jol"
@@ -15783,7 +15783,7 @@ msgstr "Durys emes derekter"
 msgid "Wrong data or no validation for %s"
 msgstr "Qate derekter nemese %s úshin jaramdylyq tekserýi joq"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Betbelgi %s jasaldy."
@@ -15865,7 +15865,7 @@ msgstr "Munda tym kóp ındekssiz jalǵasýlar bar."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL bos nátıje jıynyn qaıtardy (ıaǵnı nóldik joldar)."
 
@@ -16266,7 +16266,7 @@ msgstr "%1$d qorytyndy, %2$d saýalda"
 msgid "%s total"
 msgstr "%d qorytyndy"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Saýal %01.4f sekýnt jumsady."
@@ -16969,7 +16969,7 @@ msgstr "Qurylymdy kelesi «Qurylym» siltemesi boıynsha óńdeý."
 msgid "Go to database: %s"
 msgstr "Derekqorǵa ótý: %s"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -16982,11 +16982,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "ýeb-serverdiń júktep salý katalogy:"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "SQL-saýal kórsetý"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Kiristirilgen jol uqsatqyshy: %1$d"
@@ -17169,16 +17169,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Jańa"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr "Barlyq baǵandardy «atomic» etip jasaý"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr "1-qadam."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -17186,11 +17186,11 @@ msgstr ""
 "Birden kóp baǵanǵa bólinetin kezkelgen baǵan bar ma? Mysaly: mekenjaıdy "
 "kóshe, qala, el jáne poshta ındeksi dep bólýge bolady."
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Bul kestede áldeqashan joq baǵandardyń ortalyq tizimi kórsetilsin"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -17198,19 +17198,19 @@ msgstr ""
 "Bireýden kóbirek bólýge bolatyn baǵandy tańdańyz («mundaı baǵan joq» degendi "
 "bólektegende, bul kelesi qadamǵa ótkizedi)."
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr "mynaǵan bólý "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 msgid "Have a primary key"
 msgstr "Alǵashqy kilt bar"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Primary key already exists."
 msgstr "Alǵashqy kilt áldeqashan bar."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -17218,26 +17218,26 @@ msgstr ""
 "Alǵashqy kilt joq; bireýin qosyńyz.<br>Tuspal: Alǵashqy kilt - barlyq "
 "joldardy biregeı túrde anyqtaıtyn baǵan (nemese baǵandar quramasy)."
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr "Qoldanysta bar baǵan(dar) boıynsha alǵashqy kilt qosý"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 "Eger qoldanysta bar baǵandar quramasyn alǵashqy kilt retinde jasaý múmkin "
 "bolmasa"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 msgid "+ Add a new primary key column"
 msgstr "+ Jańa alǵashqy kilt baǵanyn ústeý"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 msgid "Remove redundant columns"
 msgstr "Qajetsiz baǵandardy alastaý"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -17247,7 +17247,7 @@ msgstr ""
 "Mysaly, eger first_name, last_name jáne full_name bolsa, first_name jáne "
 "last_name biriktirgende, full_name beredi, ol artyq bolady."
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -17255,19 +17255,19 @@ msgstr ""
 "Qajetsiz baǵandardy tekserip, «alastaý» degendi basyńyz. Qajetsiz baǵan "
 "bolmasa, «Qajetsiz baǵan joq» degendi basyńyz"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 msgid "Remove selected"
 msgstr "Bólektelgendi alastaý"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 msgid "No redundant column"
 msgstr "Qajetsiz baǵan joq"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr "Qaıtalanatyn toptardy jyljytý"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -17281,7 +17281,7 @@ msgstr ""
 "topty quraıtyn baǵandar bolýy múmkin. Bul jaǵdaıda jańa keste (book_id, "
 "author) jasalýy kerek."
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -17289,19 +17289,19 @@ msgstr ""
 "Qaıtalanatyn topty quraıtyn baǵandardy tekserińiz. Eger mundaı top bolmasa, "
 "«Qaıtalanatyn top joq» degendi basyńyz"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr "Qaıtalanatyn top joq"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr "2-qadam."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr "Ishinara táýeldilikterdi tabý"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -17310,11 +17310,11 @@ msgstr ""
 "Alǵashqy kilt (%1$s) kestedegi barlyq baǵandardan turatyndyqtan alǵashqy "
 "emes baǵan joq, sondyqtan ishinara táýeldilikter múmkin emes."
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr "Keste áldeqashan ekinshi qalypty pishinde."
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -17323,19 +17323,19 @@ msgstr ""
 "Alǵashqy kilt (%1$s) birden kóp baǵannan turady, sondyqtan ishinara "
 "táýeldilikterdi tabý qajet."
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 "Durys qalypqa keltirý úshin kelesi suraq(tarǵa)qa muqıat jaýap berińiz."
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "+ Kestedegi derekterge negizdelgen yqtımal ishinara táýeldilikter kórsetilsin"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -17345,12 +17345,12 @@ msgstr ""
 "tabylatyn, olardyń mánderi birge biriktirilgen, berilgen jıyn arasynda "
 "baǵandardyń <b>eń az jıynyn</b> bólekteńiz."
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "«%1$s» mynaǵan táýeldi:"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -17359,7 +17359,7 @@ msgstr ""
 "Ishinara táýeldilikter yqtımal emes, sebebi alǵashqy kiltte (%1$s) bir ǵana "
 "baǵany bar."
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -17368,17 +17368,17 @@ msgstr ""
 "«%1$s» túpnusqa kestesin Ekinshi qalypty pishinge qoıý úshin, biz kelesi "
 "kestelerdi jasaýymyz kerek:"
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "«%1$s» kestesi úshin biryńǵaılaýdyń ekinshi qadamy aıaqtaldy."
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 msgid "Error in processing!"
 msgstr "Óńdep shyǵarý qatesi!"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -17387,24 +17387,24 @@ msgstr ""
 "«%1$s» túpnusqa kestesin Úshinshi qalypty pishinge qoıý úshin, biz kelesi "
 "kestelerdi jasaýymyz kerek:"
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr "Biryńǵaılaýdyń úshinshi qadamy aıaqtaldy."
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Bólektelgen qaıtalanatyn top «%s» kestesine jyljytyldy"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Step 3."
 msgstr "3-qadam."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr "Ótpeli táýeldilikti tabý"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -17416,7 +17416,7 @@ msgstr ""
 "baǵandardyń <b>eń az jıynyn</b> bólekteńiz.<br>Eskerim: Baǵanda ótpeli "
 "táýeldilik bolmaýy múmkin, bul jaǵdaıda eshqandaı bólekteýdi qajet etpeısiz."
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -17424,11 +17424,11 @@ msgstr ""
 "Kestede kezkelgen alǵashqy emes kilt baǵandary bolmaǵandyqtan, ótpeli "
 "táýeldilikter yqtımal emes"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr "Keste áldeqashan úshinshi qalypty pishinde!"
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
@@ -17436,7 +17436,7 @@ msgstr ""
 "Bul tizim kesteniń derekteriniń ishki jıynyn negizge alady jáne durys bolýǵa "
 "qajet etpeıdi. "
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr "Ishinara táýeldilikter tabylmady!"
 
@@ -18872,16 +18872,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Jańaraq turaqty nusqasy qoljetimdi emes"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Ádepki sharlaý saýaly retinde «%s» betbelgisi paıdalanylady."
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "PHP-kod retinde kórsetilýde"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18890,7 +18890,7 @@ msgstr ""
 "Aǵymdyq bólekteýde biregeı baǵan joq. Tor óńdeý, qusbelgi, Óńdeý, Kóshiriý "
 "jáne Joıý múmkindikter qoljetimdi emes. %s"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "

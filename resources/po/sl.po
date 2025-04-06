@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-06 00:27+0000\n"
 "PO-Revision-Date: 2025-03-16 16:42+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -274,7 +274,7 @@ msgstr "stolpec(-ce)"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "Izvedi"
@@ -875,7 +875,7 @@ msgstr "Onemogočeno"
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -910,9 +910,9 @@ msgstr "Da"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -6627,7 +6627,7 @@ msgstr ""
 "Namig: Prosimo, pozorno sledite postopku, da dosežete pravilno normalizacijo"
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr "Prvi korak normalizacije (1NF)"
 
@@ -12054,7 +12054,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "Pogled ima vsaj toliko vrstic. Prosimo, oglejte si %sdokumentacijo%s."
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "neznano"
 
@@ -12311,7 +12311,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "Poizvedbe \"DROP DATABASE\" so izključene."
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr "[Zgodil se je ROLLBACK.]"
 
@@ -13189,7 +13189,7 @@ msgid "Variable %d:"
 msgstr "Spremenljivka %d:"
 
 #: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "Izberite"
 
@@ -13223,7 +13223,7 @@ msgid "Primary key added."
 msgstr "Dodali smo primarni ključ."
 
 #: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "Prestavili vas bomo na naslednji korak …"
 
@@ -13233,8 +13233,8 @@ msgid "The first step of normalization is complete for table '%s'."
 msgstr "Prvi korak normalizacije je končan za tabelo '%s'."
 
 #: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "Konec koraka"
 
@@ -13245,7 +13245,7 @@ msgstr "Druga stopnja normalizacije (2NF)"
 #. l10n: Display text for calendar close link
 #: src/Controllers/JavaScriptMessagesController.php:430
 #: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "Končano"
 
@@ -14281,17 +14281,17 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr "Usodna napaka: Do navigacije lahko dostopate samo z Ajaxom"
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 msgid "Select one…"
 msgstr "Izberite enega …"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 msgid "No such column"
 msgstr "Ni takšnega stolpca"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:630
 msgctxt "string types"
 msgid "String"
 msgstr "Niz"
@@ -15151,7 +15151,7 @@ msgstr "Napačni podatki"
 msgid "Wrong data or no validation for %s"
 msgstr "Napačni podatki ali pa ni preverjanja za %s"
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "Ustvarili smo zaznamek %s."
@@ -15232,7 +15232,7 @@ msgstr "Prišlo je do težave z vašo zahtevo."
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL je vrnil kot rezultat prazno množico (npr. nič vrstic)."
 
@@ -15625,7 +15625,7 @@ msgstr "skupno %1$s, %2$s v poizvedbi"
 msgid "%s total"
 msgstr "skupaj %s"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, php-format
 msgid "Query took %01.4f seconds."
 msgstr "Poizvedba je potrebovala %01.4f sekunde."
@@ -16304,7 +16304,7 @@ msgstr "Uredite strukturo s sledenjem povezavi \"Struktura\"."
 msgid "Go to database: %s"
 msgstr "Pojdi v zbirko podatkov: %s"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -16317,11 +16317,11 @@ msgstr ""
 msgid "web server upload directory:"
 msgstr "imenik za nalaganje datotek:"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "Prikazovanje poizvedbe SQL"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "Id vstavljene vrstice: %1$d"
@@ -16510,16 +16510,16 @@ msgctxt "Create new view"
 msgid "New"
 msgstr "Nov"
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr "Naredi vse stolpce atomske"
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr "Korak 1."
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
@@ -16527,11 +16527,11 @@ msgstr ""
 "Imate kakšen stolpec, ki ga je možno razbiti v več kot en stolpcev? Na "
 "primer: naslov lahko razbijete na ulico, mesto, državo in poštno številko."
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr "Prikaži mi osrednji seznam stolpcev, ki še niso v tej tabeli"
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
@@ -16539,19 +16539,19 @@ msgstr ""
 "Izberite stolpec, ki ga je možno razbiti v več kot enega (z izbiro »ni "
 "takšnega stolpca« se boste pomaknili na naslednji korak)."
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr "razbij v "
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 msgid "Have a primary key"
 msgstr "Obstoj primarnega ključa"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 msgid "Primary key already exists."
 msgstr "Primarni ključ že obstaja."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
@@ -16559,24 +16559,24 @@ msgstr ""
 "Ni primarnega ključa; prosimo, dodajte ga.<br>Namig: Primarni ključ je "
 "stolpec (ali kombinacija stolpcev), ki enolično identificira vse vrstice."
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr "Dodaj primarni ključ na obstoječih stolpcih"
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr "Obstoječe kombinacije stolpcev ni mogoče uporabiti kot primarni ključ"
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 msgid "+ Add a new primary key column"
 msgstr "+ Dodaj nov stolpec primarnega ključa"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 msgid "Remove redundant columns"
 msgstr "Odstrani odvečne stolpce"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
@@ -16586,7 +16586,7 @@ msgstr ""
 "imate ime, priimek in polno_ime, potem združitev stolpcev ime in priimek da "
 "polno_ime, ki je odvečen."
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
@@ -16594,19 +16594,19 @@ msgstr ""
 "Označite stolpce, ki so odvečni, in kliknite Odstrani. Če ni odvečnih "
 "stolpcev, kliknite »Ni odvečnih stolpcev«"
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 msgid "Remove selected"
 msgstr "Odstrani izbrane"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 msgid "No redundant column"
 msgstr "Ni odvečnih stolpcev"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr "Premakni ponavljajoče se skupine"
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -16620,7 +16620,7 @@ msgstr ""
 "ponavljajočo skupino. V takem primeru je bolje ustvariti novo tabelo "
 "(id_knjige, avtor)."
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
@@ -16628,19 +16628,19 @@ msgstr ""
 "Označite stolpce, ki tvorijo ponavljajočo skupino. Če ni take skupine, "
 "kliknite na »Ni ponavljajoče skupine«"
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr "Ni ponavljajoče skupine"
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr "Korak 2."
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr "Najdi delne odvisnosti"
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
@@ -16649,11 +16649,11 @@ msgstr ""
 "Delne odvisnosti niso možne, saj ni nobenega neprimarnega stolpca; primarni "
 "ključ (%1$s) je namreč sestavljen iz vseh stolpcev v tabeli."
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr "Tabela je že v drugi normalni obliki."
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
@@ -16662,7 +16662,7 @@ msgstr ""
 "Primarni ključ (%1$s) sestavlja več kot en stolpec, zato moramo najti delne "
 "odvisnosti."
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
@@ -16670,11 +16670,11 @@ msgstr ""
 "Prosimo, pozorno odgovorite na naslednja vprašanja, da dosežete pravilno "
 "normalizacijo."
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr "+ Pokaži mi možne delne odvisnosti glede na podatke v tabeli"
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16684,12 +16684,12 @@ msgstr ""
 "množice, katerih vrednosti, če jih združimo, zadostujejo, da lahko določimo "
 "vrednost stolpca."
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr "'%1$s' je odvisno od:"
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
@@ -16697,7 +16697,7 @@ msgid ""
 msgstr ""
 "Delne odvisnosti niso možne, saj ima primarni ključ (%1$s) samo en stolpec."
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
@@ -16706,17 +16706,17 @@ msgstr ""
 "Da pretvorimo izvirno tabelo '%1$s' v drugo normalno obliko, moramo "
 "ustvariti naslednje tabele:"
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr "Drugi korak normalizacije je končan za tabelo '%1$s'."
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 msgid "Error in processing!"
 msgstr "Napaka v obdelovanju!"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
@@ -16725,24 +16725,24 @@ msgstr ""
 "Da pretvorimo izvirno tabelo '%1$s' v tretjo normalno obliko, moramo "
 "ustvariti naslednje tabele:"
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr "Tretji korak normalizacije je končan."
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, php-format
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "Izbrano ponavljajočo skupino smo prestavili v tabelo '%s'"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Step 3."
 msgstr "Korak 3."
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr "Najdi prehodne odvisnosti"
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -16754,7 +16754,7 @@ msgstr ""
 "vrednost stolpca.<br>Opomba: Stolpec ne rabi imeti prehodnih odvisnosti; v "
 "tem primeru ne rabite izbrati nobenega."
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
@@ -16762,17 +16762,17 @@ msgstr ""
 "Prehodne odvisnosti niso možne, saj tabela nima nobenega stolpca z "
 "neprimarnim ključem"
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr "Tabela je že v tretji normalni obliki!"
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr "Seznam temelji na podmnožici podatkov iz tabele in ni nujno točen. "
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr "Našli nismo nobene delne odvisnosti!"
 
@@ -18153,16 +18153,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "Na voljo ni novejše stabilne različice"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr "Uporaba zaznamka \"%s\" kot privzeto poizvedbo med brskanjem."
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "Prikazovanje kot koda PHP"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, checkbox, "
@@ -18171,7 +18171,7 @@ msgstr ""
 "Trenutna izbira ne vsebuje unikatnega stolpca. Možnosti urejanja mreže, "
 "potrditvena polja, Uredi, Kopiraj in Izbriši niso na voljo. %s"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, php-format
 msgid ""
 "Current selection does not contain a unique column. Grid edit, Edit, Copy "
