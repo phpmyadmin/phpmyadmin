@@ -2484,42 +2484,44 @@ export function onloadEnumSetEditor (): void {
             searchIn = '';
         }
 
-        var seeMore = '';
+        let seeMore = '';
         if (listSize > maxRows) {
-            seeMore = '<div class="card-footer">' +
-                '<button type="button" class="btn btn-secondary" id="seeMore">' +
-                window.Messages.seeMore + '</button></div>';
+            seeMore = '<button type="button" class="btn btn-secondary" id="seeMore">' +
+                window.Messages.seeMore + '</button>';
         }
 
-        var centralColumnsDialog = '<div><div class="card">' +
-            '<div class="card-body">' +
-            searchIn +
-            '<table id="col_list" class="table table-borderless values">' + fields + '</table>' +
-            '</div>' +
-            seeMore +
-            '</div></div>';
+        let centralColumnsModal = document.getElementById('centralColumnsModal');
+        if (centralColumnsModal === null) {
+            const centralColumnsModalHtml = '<div class="modal fade" id="centralColumnsModal" tabindex="-1" aria-labelledby="centralColumnsModalLabel" aria-hidden="true">\n' +
+                '  <div class="modal-dialog modal-lg">\n' +
+                '    <div class="modal-content">\n' +
+                '      <div class="modal-header">\n' +
+                '        <h1 class="modal-title fs-5" id="centralColumnsModalLabel">' + window.Messages.pickColumnTitle + '</h1>\n' +
+                '        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="' + window.Messages.strClose + '"></button>\n' +
+                '      </div>\n' +
+                '      <div class="modal-body">\n' +
+                searchIn +
+                '<table id="col_list" class="table table-borderless values">' + fields + '</table>' +
+                '      </div>\n' +
+                '      <div class="modal-footer">\n' +
+                seeMore +
+                '        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">' + window.Messages.strClose + '</button>\n' +
+                '      </div>\n' +
+                '    </div>\n' +
+                '  </div>\n' +
+                '</div>\n';
 
-        var width = parseInt(
-            ((parseInt($('html').css('font-size'), 10) / 13) * 500).toString(),
-            10
-        );
-        if (! width) {
-            width = 500;
+            document.body.insertAdjacentHTML('beforeend', centralColumnsModalHtml);
+            centralColumnsModal = document.getElementById('centralColumnsModal');
         }
 
-        var buttonOptions = {};
-        var $centralColumnsDialog = $(centralColumnsDialog).dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            minWidth: width,
-            maxHeight: 450,
-            modal: true,
-            title: window.Messages.pickColumnTitle,
-            buttons: buttonOptions,
-            open: function () {
+        const modal = window.bootstrap.Modal.getOrCreateInstance(centralColumnsModal);
+
+        centralColumnsModal.addEventListener(
+            'shown.bs.modal',
+            function () {
                 $('#col_list').on('click', '.pick', function () {
-                    $centralColumnsDialog.remove();
+                    modal.hide();
                 });
 
                 $('.filter_rows').on('keyup', function () {
@@ -2560,19 +2562,21 @@ export function onloadEnumSetEditor (): void {
                         $('#seeMore').hide();
                     }
 
-                    return false;
+                    modal.handleUpdate();
                 });
+            }
+        );
 
-                $(this).closest('.ui-dialog').find('.ui-dialog-buttonpane button').first().trigger('focus');
-            },
-            close: function () {
+        centralColumnsModal.addEventListener(
+            'hidden.bs.modal',
+            function () {
                 $('#col_list').off('click', '.pick');
                 $('.filter_rows').off('keyup');
                 $(this).remove();
             }
-        });
+        );
 
-        return false;
+        modal.show();
     });
 
     // When "add a new value" is clicked, append an empty text field
