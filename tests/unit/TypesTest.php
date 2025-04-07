@@ -37,6 +37,18 @@ class TypesTest extends AbstractTestCase
     }
 
     /**
+     * Test for displayOfOperator
+     *
+     * @param string $operator Operator
+     * @param string $display  Display of $operator
+     */
+    #[DataProvider('providerForTestDisplay')]
+    public function testDisplay(string $operator, string $display): void
+    {
+        self::assertSame($display, $this->object->displayOfOperator($operator));
+    }
+
+    /**
      * Test for getting type operators
      *
      * @param string          $type   Type of field
@@ -633,6 +645,38 @@ class TypesTest extends AbstractTestCase
             ['JSON', TypeClass::Json],
             ['UUID', TypeClass::Uuid],
             ['UNKNOWN', TypeClass::Unknown],
+        ];
+    }
+
+    /**
+     * Data provider for display testing [operator, display]
+     *
+     * @return array<array{string, string}>
+     */
+    public static function providerForTestDisplay(): array
+    {
+        return [
+            ['LIKE %...%', 'LIKE %...%'],
+            ['LIKE', 'LIKE'],
+            ['NOT LIKE', 'NOT LIKE'],
+            ['NOT LIKE %...%', 'NOT LIKE %...%'],
+            ['=', '='],
+            ['!=', '!='],
+            ['>', '>'],
+            ['>=', '>='],
+            ['<', '<'],
+            ['<=', '<='],
+            ['IS NULL', 'IS NULL'],
+            ['IS NOT NULL', 'IS NOT NULL'],
+            ['REGEXP', 'REGEXP'],
+            ['REGEXP ^...$', 'REGEXP ^...$'],
+            ['NOT REGEXP', 'NOT REGEXP'],
+            ["= ''", "= '' (empty)"],
+            ["!= ''", "!= '' (not empty)"],
+            ['IN (...)', 'IN (...)'],
+            ['NOT IN (...)', 'NOT IN (...)'],
+            ['BETWEEN', 'BETWEEN'],
+            ['NOT BETWEEN', 'NOT BETWEEN'],
         ];
     }
 }

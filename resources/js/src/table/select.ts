@@ -104,7 +104,7 @@ AJAX.registerOnload('table/select.js', function () {
             'IS NULL',
             'IS NOT NULL',
             '= \'\'',
-            '!= \'\''
+            '!= \'\'',
         ];
 
         var geomUnaryFunctions = [
