@@ -812,20 +812,10 @@ const DatabaseRoutines = {
                 return;
             }
 
-            var buttonOptions = {
-                [window.Messages.strGo]: {
-                    text: window.Messages.strGo,
-                    class: 'btn btn-primary',
-                },
-                [window.Messages.strClose]: {
-                    text: window.Messages.strClose,
-                    class: 'btn btn-secondary',
-                },
-            };
-            // Define the function that is called when
-            // the user presses the "Go" button
-            // @ts-ignore
-            buttonOptions[window.Messages.strGo].click = function () {
+            const routinesExecuteModal = document.getElementById('routinesExecuteModal');
+            const modal = window.bootstrap.Modal.getOrCreateInstance(routinesExecuteModal);
+
+            const routinesExecuteButtonEventHandler = function () {
                 /**
                  * @var data Form data to be sent in the AJAX request
                  */
@@ -839,75 +829,71 @@ const DatabaseRoutines = {
                         // Routine executed successfully
                         ajaxRemoveMessage($msg);
                         slidingMessage(data.message);
-                        $ajaxDialog.dialog('close');
+                        modal.hide();
                     } else {
                         ajaxShowMessage(data.error, false);
                     }
                 });
             };
 
-            // @ts-ignore
-            buttonOptions[window.Messages.strClose].click = function () {
-                $(this).dialog('close');
-            };
+            routinesExecuteModal.addEventListener('hidden.bs.modal', function () {
+                routinesExecuteModal.querySelector('.modal-title').textContent = '';
+                routinesExecuteModal.querySelector('.modal-body').innerHTML = '';
 
-            /**
-             * Display the dialog to the user
-             */
-            var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                classes: {
-                    'ui-dialog-titlebar-close': 'btn-close'
-                },
-                width: 650,
-                // @ts-ignore
-                buttons: buttonOptions,
-                title: data.title,
-                modal: true,
-                close: function () {
-                    $(this).remove();
-                }
-            });
-            $ajaxDialog.find('input[name^=params]').first().trigger('focus');
-            /**
-             * Attach the datepickers to the relevant form fields
-             */
-            $ajaxDialog.find('input.datefield, input.datetimefield').each(function () {
-                addDatepicker($(this).css('width', '95%'));
+                const routinesExecuteModalExecuteButton = document.getElementById('routinesExecuteModalExecuteButton');
+                routinesExecuteModalExecuteButton?.removeEventListener('click', routinesExecuteButtonEventHandler);
             });
 
-            /*
-            * Define the function if the user presses enter
-            */
-            $('form.rte_form').on('keyup', function (event) {
-                event.preventDefault();
-                if (event.keyCode !== 13) {
-                    return;
-                }
+            routinesExecuteModal.addEventListener('shown.bs.modal', function () {
+                routinesExecuteModal.querySelector('.modal-title').textContent = data.title;
+                routinesExecuteModal.querySelector('.modal-body').innerHTML = data.message;
 
+                const routinesExecuteModalExecuteButton = document.getElementById('routinesExecuteModalExecuteButton');
+                routinesExecuteModalExecuteButton?.addEventListener('click', routinesExecuteButtonEventHandler);
+
+                const modalBody = $('#routinesExecuteModal .modal-body');
+                modalBody.find('input[name^=params]').first().trigger('focus');
                 /**
-                 * @var data Form data to be sent in the AJAX request
+                 * Attach the datepickers to the relevant form fields
                  */
-                var data = $(this).serialize();
-                $msg = ajaxShowMessage(
-                    window.Messages.strProcessingRequest
-                );
+                modalBody.find('input.datefield, input.datetimefield').each(function () {
+                    addDatepicker($(this).css('width', '95%'));
+                });
 
-                var url = $(this).attr('action');
-                $.post(url, data, function (data) {
-                    if (data.success !== true) {
-                        ajaxShowMessage(data.error, false);
-
+                /*
+                * Define the function if the user presses enter
+                */
+                $('form.rte_form').on('keyup', function (event) {
+                    event.preventDefault();
+                    if (event.keyCode !== 13) {
                         return;
                     }
 
-                    // Routine executed successfully
-                    ajaxRemoveMessage($msg);
-                    slidingMessage(data.message);
-                    $('form.rte_form').off('keyup');
-                    $ajaxDialog.remove();
+                    /**
+                     * @var data Form data to be sent in the AJAX request
+                     */
+                    var data = $(this).serialize();
+                    $msg = ajaxShowMessage(
+                        window.Messages.strProcessingRequest
+                    );
+
+                    var url = $(this).attr('action');
+                    $.post(url, data, function (data) {
+                        if (data.success !== true) {
+                            ajaxShowMessage(data.error, false);
+
+                            return;
+                        }
+
+                        // Routine executed successfully
+                        ajaxRemoveMessage($msg);
+                        slidingMessage(data.message);
+                        $('form.rte_form').off('keyup');
+                        modal.hide();
+                    });
                 });
             });
-        }); // end $.post()
+        });
     }
 };
 
@@ -979,7 +965,7 @@ AJAX.registerOnload('database/routines.js', function () {
          * @var routine_params_table jQuery object containing the reference
          *                           to the routine parameters table
          */
-        const $routineParamsTable = $(this).closest('div.ui-dialog').find('.routine_params_table');
+        const $routineParamsTable = $(this).closest('div.modal').find('.routine_params_table');
         /**
          * @var new_param_row A string containing the HTML code for the
          *                    new row for the routine parameters table
@@ -988,7 +974,7 @@ AJAX.registerOnload('database/routines.js', function () {
         // Append the new row to the parameters table
         $routineParamsTable.append(newParamRow);
         // Make sure that the row is correctly shown according to the type of routine
-        if ($(this).closest('div.ui-dialog').find('table.rte_table select[name=item_type]').val() === 'FUNCTION') {
+        if ($(this).closest('div.modal').find('table.rte_table select[name=item_type]').val() === 'FUNCTION') {
             $('tr.routine_return_row').show();
             $('td.routine_direction_cell').hide();
         }
@@ -997,7 +983,7 @@ AJAX.registerOnload('database/routines.js', function () {
          * @var newrow jQuery object containing the reference to the newly
          *             inserted row in the routine parameters table
          */
-        const $newrow = $(this).closest('div.ui-dialog').find('table.routine_params_table').find('tr').has('td').last();
+        const $newrow = $(this).closest('div.modal').find('table.routine_params_table').find('tr').has('td').last();
         // Enable/disable the 'options' dropdowns for parameters as necessary
         DatabaseRoutines.setOptionsForParameter(
             $newrow.find('select[name^=item_param_type]'),
