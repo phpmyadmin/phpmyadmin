@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-06 00:27+0000\n"
-"PO-Revision-Date: 2025-03-16 07:41+0000\n"
+"PO-Revision-Date: 2025-04-13 00:52+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -7748,7 +7748,7 @@ msgstr ""
 
 #: src/Advisory/Rules.php:37
 msgid "Uptime is less than 1 day, performance tuning may not be accurate."
-msgstr ""
+msgstr "זמן הפעילות הוא פחות מיום אחד, כוונון הביצועים עלול להיות לא מדויק."
 
 #: src/Advisory/Rules.php:39
 msgid ""
