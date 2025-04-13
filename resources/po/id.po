@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-13 00:52+0000\n"
-"PO-Revision-Date: 2025-03-23 22:10+0000\n"
+"PO-Revision-Date: 2025-04-14 12:33+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/id/>\n"
@@ -2419,10 +2419,8 @@ msgid "Returns"
 msgstr "Hasil"
 
 #: resources/templates/database/routines/index.twig:70
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Nama routine"
+msgstr "Penyunting rutin"
 
 #: resources/templates/database/routines/index.twig:75
 #: resources/templates/database/routines/index.twig:110
@@ -2442,10 +2440,8 @@ msgid "Save changes"
 msgstr "Simpan perubahan"
 
 #: resources/templates/database/routines/index.twig:90
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Ekspor routine %s"
+msgstr "Ekspor rutin"
 
 #: resources/templates/database/routines/index.twig:105
 #: src/Controllers/Database/RoutinesController.php:351
@@ -18486,16 +18482,12 @@ msgstr "Anda harus memasukkan definisi trigger."
 
 # Imperative menu
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Kosongkan"
+msgstr "kosong"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "tidak ada"
+msgstr "tidak kosong"
 
 #: src/Types.php:161
 msgid ""
