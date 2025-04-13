@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-13 00:52+0000\n"
-"PO-Revision-Date: 2025-03-16 07:41+0000\n"
+"PO-Revision-Date: 2025-04-14 12:33+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -2412,10 +2412,8 @@ msgid "Returns"
 msgstr "Dönüşler"
 
 #: resources/templates/database/routines/index.twig:70
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Yordam adı"
+msgstr "Yordam düzenleyicisi"
 
 #: resources/templates/database/routines/index.twig:75
 #: resources/templates/database/routines/index.twig:110
@@ -2435,10 +2433,8 @@ msgid "Save changes"
 msgstr "Değişiklikleri kaydet"
 
 #: resources/templates/database/routines/index.twig:90
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "%s yordamını dışa aktarma"
+msgstr "Yordamı dışa aktar"
 
 #: resources/templates/database/routines/index.twig:105
 #: src/Controllers/Database/RoutinesController.php:351
@@ -18491,16 +18487,12 @@ msgid "You must provide a trigger definition."
 msgstr "Bir tetikleyici tanımı vermek zorundasınız."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Boşalt"
+msgstr "boş"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "mevcut değil"
+msgstr "boş değil"
 
 #: src/Types.php:161
 msgid ""
