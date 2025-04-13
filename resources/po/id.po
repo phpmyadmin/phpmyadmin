@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-06 00:27+0000\n"
+"POT-Creation-Date: 2025-04-13 00:52+0000\n"
 "PO-Revision-Date: 2025-03-23 22:10+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -335,7 +335,7 @@ msgstr "Pratinjau SQL"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Save"
 msgstr "Simpan"
 
@@ -366,6 +366,12 @@ msgstr "Memproses"
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
+#: resources/templates/database/routines/index.twig:71
+#: resources/templates/database/routines/index.twig:79
+#: resources/templates/database/routines/index.twig:91
+#: resources/templates/database/routines/index.twig:95
+#: resources/templates/database/routines/index.twig:106
+#: resources/templates/database/routines/index.twig:114
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
@@ -548,7 +554,7 @@ msgstr "Grup simpul"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:722
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -872,7 +878,7 @@ msgstr "Tidak aktif"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:509
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
@@ -979,7 +985,7 @@ msgstr "Kueri ulang"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:407
 #: src/Display/Results.php:1805 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
@@ -998,7 +1004,7 @@ msgstr "Ubah"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:409
 #: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Hapus"
@@ -1165,7 +1171,7 @@ msgid "Count:"
 msgstr "Jumlah:"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:672
 msgid "Time taken:"
 msgstr "Waktu yang dipakai:"
 
@@ -1475,7 +1481,7 @@ msgid "Page to delete"
 msgstr "Halaman yang akan dihapus"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Untitled"
 msgstr "Belum ada nama"
 
@@ -1496,7 +1502,7 @@ msgstr "Keluar dari layar penuh"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Add tables from other databases"
 msgstr "Tambahkan tabel dari database-database lain"
 
@@ -1507,19 +1513,19 @@ msgstr "Halaman baru"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Open page"
 msgstr "Buka halaman"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Save page"
 msgstr "Simpan halaman"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Save page as"
 msgstr "Simpan halaman sebagai"
 
@@ -1542,7 +1548,7 @@ msgstr "Buat relasi"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Choose column to display"
 msgstr "Pilih kolom untuk ditampilkan"
 
@@ -1688,7 +1694,7 @@ msgstr "Opsi aktif"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Submit"
 msgstr "Kirim"
 
@@ -1992,7 +1998,7 @@ msgstr "pilih kolom"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:721
 #: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "Tampilkan"
@@ -2412,16 +2418,52 @@ msgstr "Tidak ada routine yang dapat ditampilkan."
 msgid "Returns"
 msgstr "Hasil"
 
-#: resources/templates/database/routines/parameter_row.twig:24
-#: resources/templates/modals/enum_set_editor.twig:5
-msgid "ENUM/SET editor"
-msgstr "Editor ENUM/SET"
+#: resources/templates/database/routines/index.twig:70
+#, fuzzy
+#| msgid "Routine name"
+msgid "Routine editor"
+msgstr "Nama routine"
 
+#: resources/templates/database/routines/index.twig:75
+#: resources/templates/database/routines/index.twig:110
+#: resources/templates/home/index.twig:317
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:66
+#: resources/templates/table/structure/display_structure.twig:348
+#: src/Controllers/JavaScriptMessagesController.php:349
+msgid "Loading…"
+msgstr "Memproses…"
+
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/server/privileges/users_overview.twig:177
+msgid "Save changes"
+msgstr "Simpan perubahan"
+
+#: resources/templates/database/routines/index.twig:90
+#, fuzzy
+#| msgid "Export of routine %s"
+msgid "Export routine"
+msgstr "Ekspor routine %s"
+
+#: resources/templates/database/routines/index.twig:105
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Database/RoutinesController.php:361
+msgid "Execute routine"
+msgstr "Jalankan routine"
+
+#: resources/templates/database/routines/index.twig:115
 #: resources/templates/database/routines/row.twig:34
 #: resources/templates/database/routines/row.twig:44
 #: resources/templates/database/routines/row.twig:48
 msgid "Execute"
 msgstr "Eksekusi"
+
+#: resources/templates/database/routines/parameter_row.twig:24
+#: resources/templates/modals/enum_set_editor.twig:5
+msgid "ENUM/SET editor"
+msgstr "Editor ENUM/SET"
 
 #: resources/templates/database/search/main.twig:2
 msgid "Search in database"
@@ -2618,7 +2660,7 @@ msgid "Replace table prefix"
 msgstr "Ganti prefiks tabel"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Copy table with prefix"
 msgstr "Salin tabel dengan prefiks"
 
@@ -2945,7 +2987,7 @@ msgstr "Akhir"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Show all"
 msgstr "Tampilkan semua"
 
@@ -3007,7 +3049,7 @@ msgid "Hide browser transformation"
 msgstr "Sembunyikan Transformasi Browser"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Geometry"
 msgstr "Geometri"
 
@@ -3022,7 +3064,7 @@ msgstr "Biner Diketahui"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:495
 #: src/Display/Results.php:1806 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Salin"
@@ -3033,7 +3075,7 @@ msgid "Query results operations"
 msgstr "Operasi hasil kueri"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr "Salin ke clipboard"
@@ -3537,16 +3579,6 @@ msgstr "Perhatian"
 msgid "phpMyAdmin Themes"
 msgstr "Tema phpMyAdmin"
 
-#: resources/templates/home/index.twig:317
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:66
-#: resources/templates/table/structure/display_structure.twig:348
-#: src/Controllers/JavaScriptMessagesController.php:349
-msgid "Loading…"
-msgstr "Memproses…"
-
 #: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Dapatkan tema lainnya!"
@@ -3563,7 +3595,7 @@ msgstr "Ambil ini"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:439
 #: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3909,7 +3941,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Sebuah kesalahan terjadi saat memuat tampilan navigasi"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:599
 msgid "Drop files here"
 msgstr "Letakkan berkas disini"
 
@@ -4652,6 +4684,7 @@ msgstr "Akun pengguna"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
+#: src/Controllers/JavaScriptMessagesController.php:393
 #: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
 msgstr "Rutinitas"
@@ -5264,10 +5297,6 @@ msgstr "Cabut semua hak akses dari pengguna dan hapus setelahnya."
 msgid "Drop the databases that have the same names as the users."
 msgstr "Hapus basis data yang memiliki nama yang sama dengan pengguna."
 
-#: resources/templates/server/privileges/users_overview.twig:177
-msgid "Save changes"
-msgstr "Simpan perubahan"
-
 #: resources/templates/server/replication/change_primary.twig:7
 msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "Konfigurasi replika - Ubah atau konfigurasi ulang server utama"
@@ -5327,7 +5356,7 @@ msgid "Generate password:"
 msgstr "Menghasilkan kata sandi:"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Generate"
 msgstr "Buatkan"
 
@@ -6307,7 +6336,7 @@ msgstr "Simulasikan query"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "Browse foreign values"
 msgstr "Menjelajahi nilai luar"
 
@@ -6537,8 +6566,8 @@ msgstr "Seret untuk menyusun ulang"
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:492
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:645
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "Abaikan"
@@ -6995,7 +7024,7 @@ msgid "Column %s has been dropped."
 msgstr "Kolom %s telah dihapus."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:609
 msgid "More"
 msgstr "Lainnya"
 
@@ -8886,43 +8915,43 @@ msgid "Closed"
 msgstr "Tutup"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Senin"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Selasa"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:751
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Rabu"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:752
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Kamis"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:753
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Jumat"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:754
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Sabtu"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Minggu"
@@ -10879,7 +10908,7 @@ msgid "Navigation panel width"
 msgstr "Lebar panel navigasi"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:614
 #: src/Navigation/NavigationTree.php:1292
 msgid "Link with main panel"
 msgstr "Link ke panel utama"
@@ -11439,7 +11468,7 @@ msgid "Missing data for %s"
 msgstr "Data hilang untuk %s"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:831
+#: src/Controllers/JavaScriptMessagesController.php:832
 msgid "Incorrect value!"
 msgstr "Nilai yang salah!"
 
@@ -11758,22 +11787,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Alamat IP tidak tepat: %s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:830
+#: src/Controllers/JavaScriptMessagesController.php:831
 msgid "Not a valid port number!"
 msgstr "Bukan angka port yang sah!"
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:828
+#: src/Controllers/JavaScriptMessagesController.php:829
 msgid "Not a positive number!"
 msgstr "Bukan angka positif!"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:829
+#: src/Controllers/JavaScriptMessagesController.php:830
 msgid "Not a non-negative number!"
 msgstr "Bukan angka non-negatif!"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:832
+#: src/Controllers/JavaScriptMessagesController.php:833
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "Nilai harus sama dengan atau lebih kecil dari %s!"
@@ -11799,7 +11828,7 @@ msgstr ""
 "lanjut."
 
 #: src/Controllers/Console/Bookmark/AddController.php:39
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "Gagal"
 
@@ -12035,11 +12064,6 @@ msgstr ""
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s."
-
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Database/RoutinesController.php:361
-msgid "Execute routine"
-msgstr "Jalankan routine"
 
 #: src/Controllers/Database/RoutinesController.php:413
 #, php-format
@@ -13167,67 +13191,67 @@ msgstr ""
 "Tidak ada rutin yang dapat diekspor. Hak akses yang diperlukan mungkin "
 "kurang."
 
-#: src/Controllers/JavaScriptMessagesController.php:395
+#: src/Controllers/JavaScriptMessagesController.php:396
 #, php-format
 msgid "Values for column %s"
 msgstr "Nilai untuk kolom %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:396
+#: src/Controllers/JavaScriptMessagesController.php:397
 msgid "Values for a new column"
 msgstr "Nilai untuk kolom baru"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 msgid "Enter each value in a separate field."
 msgstr "Masukkan setiap nilai dalam kolom terpisah."
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Tambahkan nilai %d"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "Catatan: Jika berkas mengandung banyak tabel, mereka akan di gabungkan "
 "menjadi satu."
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Hide query box"
 msgstr "Sembunyikan kotak kueri"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid "Show query box"
 msgstr "Tampilkan kotak kueri"
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 msgid "Edit query"
 msgstr "Sunting kueri"
 
-#: src/Controllers/JavaScriptMessagesController.php:409
+#: src/Controllers/JavaScriptMessagesController.php:410
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d bukanlah nomor baris yang berlaku."
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #, php-format
 msgid "Variable %d:"
 msgstr "Variabel %d:"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:415
 #: src/Normalization.php:950
 msgid "Pick"
 msgstr "Pilih"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 msgid "Column selector"
 msgstr "Pilih Kolom"
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:417
 msgid "Search this list"
 msgstr "Cari daftar ini"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -13236,54 +13260,54 @@ msgstr ""
 "Tidak ditemukan kolom pada daftar. Pastikan daftar kolom untuk database %s "
 "memiliki beberapa kolom yang tidak tertampilkan pada tabel saat ini."
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:422
 msgid "See more"
 msgstr "Lebih banyak"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Add primary key"
 msgstr "Tambahkan kunci primer"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 msgid "Primary key added."
 msgstr "Kunci primer telah ditambahkan."
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 #: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "Tunggu sebentar yach…"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "Langkah pertama normalisasi selesai untuk tabel '%s'."
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 #: src/Normalization.php:513 src/Normalization.php:572
 #: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "Langkah terakhir"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Second step of normalization (2NF)"
 msgstr "Langkah kedua normalisasi (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:430
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:781
 #: src/Normalization.php:345
 msgid "Done"
 msgstr "Selesai"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Confirm partial dependencies"
 msgstr "Konfirmasi dependensi parsial"
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Selected partial dependencies are as follows:"
 msgstr "Dependensi yang dipilih adalah:"
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -13291,19 +13315,19 @@ msgstr ""
 "Catatan: a, b -> d, f menyiratkan bahwa nilai gabungan antara kolom a dan b "
 "dapat menentukan nilai dari kolom d dan kolom f."
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "No partial dependencies selected!"
 msgstr "Tidak ada dependensi parsial yang dipilih!"
 
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:440
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr "Tunjukkan dependensi parsial yang ada pada data di dalam tabel"
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Hide partial dependencies list"
 msgstr "Sembunykan daftar dependensi parsial"
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -13311,166 +13335,166 @@ msgstr ""
 "Santai! Mungkin diperlukan beberapa detik tergantung pada ukuran data dan "
 "jumlah kolom tabel."
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Step"
 msgstr "Langkah"
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid "The following actions will be performed:"
 msgstr "Tindakan berikut akan dilakukan:"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:447
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "DROP kolom %s dari tabel %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Create the following table"
 msgstr "Buat tabel"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Third step of normalization (3NF)"
 msgstr "Tahap ketiga normalisasi (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Confirm transitive dependencies"
 msgstr "Konfirmasi dependensi transitif"
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:453
 msgid "Selected dependencies are as follows:"
 msgstr "Dependensi yang dipilih adalah sebagai berikut:"
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "No dependencies selected!"
 msgstr "Dependensi belum dipilih!"
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:455
 msgid "Enter first value"
 msgstr "Masukkan nilai pertama"
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 msgid "Enter second value"
 msgstr "Masukkan nilai kedua"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Hide search criteria"
 msgstr "Sembunyikan kriteria pencarian"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Show search criteria"
 msgstr "Tampilkan kriteria pencarian"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:464
 msgid "Column maximum:"
 msgstr "Jumlah kolom maksimal:"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:465
 msgid "Column minimum:"
 msgstr "Jumlah kolom minimal:"
 
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 msgid "Hide find and replace criteria"
 msgstr "Sembunyikan kriteria pencarian dan penggantian"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "Show find and replace criteria"
 msgstr "Tampilkan kriteria pencarian dan penggantian"
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Each point represents a data row."
 msgstr "Setiap titik mewakili sebaris data."
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Hovering over a point will show its label."
 msgstr "Melayang di atas titik akan menunjukkan labelnya."
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Untuk memperbesar, pilih bagian dari plot dengan mouse."
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Click reset zoom button to come back to original state."
 msgstr "Klik link reset Zoom untuk kembali ke keadaan semula."
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "Klik titik data untuk melihat dan mungkin mengedit baris data."
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "Plot dapat diubah ukurannya dengan menyeretnya di sepanjang sudut kanan "
 "bawah."
 
-#: src/Controllers/JavaScriptMessagesController.php:485
+#: src/Controllers/JavaScriptMessagesController.php:486
 msgid "Select two columns"
 msgstr "Pilih dua kolom"
 
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:488
 msgid "Select two different columns"
 msgstr "Pilih dua kolom yang berbeda"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:490
 msgid "Data point content"
 msgstr "Isi titk data"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Point"
 msgstr "Titik"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Linestring"
 msgstr "Segmen garis"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Polygon"
 msgstr "Poligon"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:502
 msgid "Inner ring"
 msgstr "Lingkar dalam"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Outer ring"
 msgstr "Lingkar luar"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Add a point"
 msgstr "Tambahkan poin"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:505
 msgid "Add a linestring"
 msgstr "Tambahkan segmen garis"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Add an inner ring"
 msgstr "Tambahkan lingkar dalam"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Add a polygon"
 msgstr "Tambahkan poligon"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:508
 msgid "Add geometry"
 msgstr "Tambahkan geometri"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Do you want to copy encryption key?"
 msgstr "Apakah anda yakin untuk menyalin kunci enskripsi?"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Encryption key"
 msgstr "Kunci Enskripsi"
 
-#: src/Controllers/JavaScriptMessagesController.php:513
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -13478,7 +13502,7 @@ msgstr ""
 "Fungsi HEX akan memperlakukan integer sebagai string saat menghitung nilai "
 "heksadesimal"
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -13486,7 +13510,7 @@ msgstr ""
 "MySQL menerima nilai tambahan yang tidak dapat terpilih oleh slider; "
 "masukkan nilai-nilai tersebut secara langsung jika diinginkan"
 
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -13494,7 +13518,7 @@ msgstr ""
 "MySQL menerima nilai tambahan yang tidak dapat terpilih oleh pemilih "
 "tanggal; masukkan nilai-nilai ini secara langsung jika diinginkan"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -13502,19 +13526,19 @@ msgstr ""
 "Sebagai indikasi telah ada perubaha di halaman ini; konfirmasi akan "
 "ditampilkan untuk mengabaikan perubahan"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid "Select referenced key"
 msgstr "Pilih kunci rujukan"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Select Foreign Key"
 msgstr "Pilih Foreign Key"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:538
 msgid "Please select the primary key or a unique key!"
 msgstr "Harap pilih kunci primer(primary key) atau kunci unik(unique key)!"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -13522,64 +13546,64 @@ msgstr ""
 "Anda belum menyimpan perubahan pada susunan. Mereka akan hilang jika Anda "
 "tidak menyimpannya. Apakah Anda ingin melanjutkan?"
 
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "value/subQuery is empty"
 msgstr "nilai/subKueri kosong"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Page name"
 msgstr "Nama halaman"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Delete page"
 msgstr "Hapus halaman"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "Beberapa tabel yang disimpan di halaman ini mungkin telah diganti nama atau "
 "dihapus."
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 msgid "Please select a page to continue"
 msgstr "Pilih halaman untuk lanjut"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Please enter a valid page name"
 msgstr "Masukan halaman yang benar"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Do you want to save the changes to the current page?"
 msgstr "Apakah Anda ingin menyimpan perubahan ke halaman ini?"
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Successfully deleted the page"
 msgstr "Halaman berhasil dihapus"
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:558
 msgid "Export relational schema"
 msgstr "Ekspor skema relasi"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Modifications have been saved"
 msgstr "Modifikasi telah disimpan"
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objek dibuat."
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:563
 msgid "Column name"
 msgstr "Nama kolom"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "Tekan escape untuk membatalkan pengeditan.<br>- Shift+Enter untuk baris baru."
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -13587,15 +13611,15 @@ msgstr ""
 "Anda telah mengedit beberapa data dan belum di simpan. Apakah anda yakin "
 "akan meninggalkan halaman ini sebelum menyimpan data?"
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Drag to reorder."
 msgstr "Seret untuk menyusun ulang."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Click to sort results by this column."
 msgstr "KIik untuk menyortir hasil dari kolom ini."
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -13605,19 +13629,19 @@ msgstr ""
 "DESC.<br >- Kontrol+Klik atau Alt+Click (Mac: Shift+Option+Click) untuk "
 "menghapus kolom dari ORDER BY clause"
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "Click to mark/unmark."
 msgstr "Klik untuk menambahkan/menghapus tanda."
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Double-click to copy column name."
 msgstr "Klik dua kali untuk menyalin nama kolom."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:581
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "Klik tanda panah drop-down untuk mengubah visibilitas kolom."
 
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -13626,11 +13650,11 @@ msgstr ""
 "grid, kotak centang, Edit, Copy dan Delete link mungkin tidak bekerja "
 "setelah disimpan."
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr "Masukkan string yang benar. Karakter yang benar adalah 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -13638,53 +13662,53 @@ msgstr ""
 "Apakah anda ingin melihat semua baris? Tabel ukuran besar bisa membuat "
 "peramban lambat."
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Original length"
 msgstr "Panjang asli"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:594
 msgid "cancel"
 msgstr "Batal"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:595
 #: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "Batalkan"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Success"
 msgstr "Sukses"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Import status"
 msgstr "Impor status"
 
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:600
 msgid "Select database first"
 msgstr "Pilih database dulu"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "Go to link:"
 msgstr "Pergi ke tautan:"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Generate password"
 msgstr "Buatkan kata sandi"
 
-#: src/Controllers/JavaScriptMessagesController.php:611
+#: src/Controllers/JavaScriptMessagesController.php:612
 msgid "Show panel"
 msgstr "Tampilkan panel"
 
-#: src/Controllers/JavaScriptMessagesController.php:612
+#: src/Controllers/JavaScriptMessagesController.php:613
 msgid "Hide panel"
 msgstr "Sembunyikan panel"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:615
 #: src/Navigation/NavigationTree.php:1295
 msgid "Unlink from main panel"
 msgstr "Unlink dari panel utama"
 
-#: src/Controllers/JavaScriptMessagesController.php:618 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:619 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -13694,19 +13718,19 @@ msgstr ""
 "untuk meng-upgrade. Versi terbaru adalah %s, dirilis pada %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:622
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid ", latest stable version:"
 msgstr ", versi stabil terakhir:"
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid "up to date"
 msgstr "Mutakhir"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "There was an error in loading the Git information."
 msgstr "Terjadi kesalahan saat memuat informasi Git."
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:628
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -13714,22 +13738,22 @@ msgstr ""
 "Kesalhaan fatal JavaScript telah terdeteksi. Anda ingin mengirimkan laporan "
 "kesalahan?"
 
-#: src/Controllers/JavaScriptMessagesController.php:628
+#: src/Controllers/JavaScriptMessagesController.php:629
 msgid "Change report settings"
 msgstr "Ubah pengaturan pelaporan"
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:630
 msgid "Show report details"
 msgstr "Tampilkan detail laporan"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:631
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "Ekspor anda tidak lengkap, karena batas waktu yang rendah di tingkat PHP!"
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:634
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -13739,73 +13763,73 @@ msgstr ""
 "beberapa bidang mungkin dibatalkan, karena konfigurasi max_input_vars dari "
 "PHP."
 
-#: src/Controllers/JavaScriptMessagesController.php:639
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Some errors have been detected on the server!"
 msgstr "Kesalahan terdeteksi di server!"
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:642
 msgid "Please look at the bottom of this window."
 msgstr "Silahkan lihat di bagian bawah jendela ini."
 
-#: src/Controllers/JavaScriptMessagesController.php:647
+#: src/Controllers/JavaScriptMessagesController.php:648
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr "Abaikan"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Sesuai pengaturan Anda, mereka sedang diajukan saat ini, harap bersabar."
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name successfully copied to clipboard!"
 msgstr "Nama kolom berhasil disalin ke clipboard!"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Column name copying to clipboard failed!"
 msgstr "Penyalinan nama kolom ke papan klip gagal!"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Successfully copied!"
 msgstr "Berhasil disalin!"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Copying failed!"
 msgstr "Gagal menyalin!"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:665
 msgid "Execute this query again?"
 msgstr "Jalankan kueri ini lagi?"
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Do you really want to delete this bookmark?"
 msgstr "Anda yakin akan menghapus penanda ini?"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Some error occurred while getting SQL debug info."
 msgstr "Terjadi beberapa kesalahan saat mendapatkan info debug SQL."
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:668
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s kueri tereksekusi %s kali dalam waktu %s detik."
 
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:669
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s argumen diberikan"
 
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:670
 msgid "Show arguments"
 msgstr "Perlihatkan argumen"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:671
 msgid "Hide arguments"
 msgstr "Sembunyikan argumen"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -13820,75 +13844,75 @@ msgstr ""
 "Offline\" Anda mungkin bisa membantu. Dalam Safari, masalah tersebut umumnya "
 "disebabkan oleh \"Mode Browsing Privat\"."
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Copy tables to"
 msgstr "Salin tabel ke"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Add table prefix"
 msgstr "Tambahkan prefiks tabel"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Replace table with prefix"
 msgstr "Ganti tabel dengan prefiks"
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Extremely weak"
 msgstr "Sangat sangat lemah"
 
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Very weak"
 msgstr "Sangat lemah"
 
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Weak"
 msgstr "Lemah"
 
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Good"
 msgstr "Bagus"
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 msgid "Strong"
 msgstr "Kuat"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:694
+#: src/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Waktu tunggu untuk aktivasi kunci keamanan habis."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "Permintaan tidak valid dikirim ke kunci keamanan."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:699
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Galat kunci keamanan tidak diketahui."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Klien tidak mendukung kunci keamanan."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:703
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Aktivasi kunci keamanan gagal."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:705
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Kunci keamanan tidak valid."
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -13896,7 +13920,7 @@ msgstr ""
 "WebAuthn tidak tersedia. Harap gunakan peramban yang didukung dalam konteks "
 "aman (HTTPS)."
 
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:713
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -13906,354 +13930,354 @@ msgstr ""
 "karena IndexedDB tidak berfungsi di peramban Anda dan penyimpanan "
 "konfigurasi phpMyAdmin Anda tidak dikonfigurasi untuk ini."
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "Tabel %s sudah ada!"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:242
+#: src/Controllers/JavaScriptMessagesController.php:720 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Sembunyikan"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Month name"
 msgid "January"
 msgstr "Januari"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "February"
 msgstr "Februari"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 msgctxt "Month name"
 msgid "March"
 msgstr "Maret"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "April"
 msgstr "April"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "May"
 msgstr "Mei"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 msgctxt "Month name"
 msgid "June"
 msgstr "Juni"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 msgctxt "Month name"
 msgid "July"
 msgstr "Juli"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 msgctxt "Month name"
 msgid "August"
 msgstr "Agustus"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:732
 msgctxt "Month name"
 msgid "September"
 msgstr "September"
 
-#: src/Controllers/JavaScriptMessagesController.php:732
+#: src/Controllers/JavaScriptMessagesController.php:733
 msgctxt "Month name"
 msgid "October"
 msgstr "Oktober"
 
-#: src/Controllers/JavaScriptMessagesController.php:733
+#: src/Controllers/JavaScriptMessagesController.php:734
 msgctxt "Month name"
 msgid "November"
 msgstr "November"
 
-#: src/Controllers/JavaScriptMessagesController.php:734
+#: src/Controllers/JavaScriptMessagesController.php:735
 msgctxt "Month name"
 msgid "December"
 msgstr "Desember"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Feb"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "Mar"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Apr"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mei"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Jun"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Jul"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Agu"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep"
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Okt"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:509
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Des"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "Min"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Sen"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Sel"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "Rab"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Kam"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Jum"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:518
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sab"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Min"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:763
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Sn"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Sl"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:765
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Rb"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:766
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Km"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Jm"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sb"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Mg"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "kosong"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Waktu"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Jam"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Menit"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Detik"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:777
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Milidetik"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "Mikrodetik"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:779
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Zona waktu"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Sblm"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgctxt "Next month"
 msgid "Next"
 msgstr "Berikutnya"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Today"
 msgstr "Hari ini"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "This field is required"
 msgstr "Wajib diisi"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please fix this field"
 msgstr "Silakan perbaiki kolom ini"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter a valid email address"
 msgstr "Silakan masukkan alamat email yang valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a valid URL"
 msgstr "Silakan masukkan URL yang valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter a valid date"
 msgstr "Silakan masukkan tanggal yang valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a valid date ( ISO )"
 msgstr "Silakan masukkan tanggal yang valid (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a valid number"
 msgstr "Silakan masukkan angka yang valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a valid credit card number"
 msgstr "Silakan masukkan nomor kartu kredit yang valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter only digits"
 msgstr "Silakan masukkan angka saja"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter the same value again"
 msgstr "Silakan masukkan lagi nilai yang sama"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter no more than {0} characters"
 msgstr "Silakan masukkan tidak lebih dari {0} karakter"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter at least {0} characters"
 msgstr "Silakan masukkan setidaknya {0} karakter"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Silakan masukkan nilai panjang karakter antara {0} dan {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Please enter a value between {0} and {1}"
 msgstr "Silakan masukkan"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Silakan masukkan nilai kurang dari atau sama dengan {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Silakan masukkan nilai lebih dari atau sama dengan {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:806
 msgid "Please enter a valid date or time"
 msgstr "Silakan masukkan tanggal dan jam yang valid"
 
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid "Please enter a valid HEX input"
 msgstr "Silakan masukkan input HEX yang valid"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:809
 msgid "This column can not contain a 32 chars value"
 msgstr "Kolom ini tidak dapat berisi nilai 32 karakter"
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:812
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -14262,39 +14286,39 @@ msgstr ""
 "hasil yang tidak konsisten, Anda harus menyimpannya dalam kolom BINARY, "
 "VARBINARY, atau BLOB."
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 "Berkas yang diunggah mungkin lebih besar dari ukuran maksimum yang diizinkan."
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:819
 #, php-format
 msgid "%s of %s"
 msgstr "%s dari %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:820
 #, php-format
 msgid "%s/sec."
 msgstr "%s/detik."
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:821
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Sekitar %MIN menit. %SEC detik. lagi."
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "About %SEC sec. remaining."
 msgstr "Sekitar %SEC detik. lagi."
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "The file is being processed, please be patient."
 msgstr "Berkas sedang diproses, harap bersabar."
 
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Uploading your import file…"
 msgstr "Sedang memuat file impor anda…"
 
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:826
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -14317,7 +14341,7 @@ msgid "No such column"
 msgstr "Tidak ada kolom seperti itu"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:645
 msgctxt "string types"
 msgid "String"
 msgstr "String"
@@ -18460,14 +18484,27 @@ msgstr "Anda harus memberikan nama tabel yang valid!"
 msgid "You must provide a trigger definition."
 msgstr "Anda harus memasukkan definisi trigger."
 
-#: src/Types.php:146
+# Imperative menu
+#: src/Types.php:97
+#, fuzzy
+#| msgid "Empty"
+msgid "empty"
+msgstr "Kosongkan"
+
+#: src/Types.php:98
+#, fuzzy
+#| msgid "not present"
+msgid "not empty"
+msgstr "tidak ada"
+
+#: src/Types.php:161
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1-byte integer, berkisar antara -128 sampai 127, unsigned berkisar antara 0 "
 "sampai 255"
 
-#: src/Types.php:147
+#: src/Types.php:162
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18475,7 +18512,7 @@ msgstr ""
 "2-byte integer, berkisar antara -32,768 sampai 32,767, unsigned berkisar "
 "antara 0 sampai 65,535"
 
-#: src/Types.php:149
+#: src/Types.php:164
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18483,7 +18520,7 @@ msgstr ""
 "3-byte integer, signed berkisar antara -8,388,608 sampai 8,388,607, unsigned "
 "berkisar antara 0 sampai 16,777,215"
 
-#: src/Types.php:152
+#: src/Types.php:167
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18491,7 +18528,7 @@ msgstr ""
 "4-byte integer, signed berkisar antara -2,147,483,648 sampai 2,147,483,647, "
 "unsigned berkisar antara 0 sampai 4,294,967,295"
 
-#: src/Types.php:157
+#: src/Types.php:172
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18500,7 +18537,7 @@ msgstr ""
 "9,223,372,036,854,775,807, unsigned berkisar antara 0 sampai "
 "18,446,744,073,709,551,615"
 
-#: src/Types.php:162
+#: src/Types.php:177
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18508,7 +18545,7 @@ msgstr ""
 "Sebuah Nomor fixed-point (M, D) - Jumlah maksimum digit (M) adalah 65 "
 "(standar 10), nomor maksimal desimal (D) adalah 30 (standar 0)"
 
-#: src/Types.php:167
+#: src/Types.php:182
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18516,7 +18553,7 @@ msgstr ""
 "small floating-point number, mengizinkan nilai dari -3.402823466E+38 sampai "
 "-1.175494351E-38, 0, dan 1.175494351E-38 sampai 3.402823466E+38"
 
-#: src/Types.php:172
+#: src/Types.php:187
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18526,7 +18563,7 @@ msgstr ""
 "-1.7976931348623157E+308 sampai -2.2250738585072014E-308, 0, dan "
 "2.2250738585072014E-308 sampai 1.7976931348623157E+308"
 
-#: src/Types.php:176
+#: src/Types.php:191
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -18534,7 +18571,7 @@ msgstr ""
 "Sinonim untuk DOUBLE (kecuali: dalam mode REAL_AS_FLOAT SQL adalah sinonim "
 "untuk FLOAT)"
 
-#: src/Types.php:177
+#: src/Types.php:192
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -18542,7 +18579,7 @@ msgstr ""
 "Sebuah tipe bit-field (M), menyimpan M dari bit tiap nilai (standar adalah "
 "1, maksimum adalah 64)"
 
-#: src/Types.php:179
+#: src/Types.php:194
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18550,21 +18587,21 @@ msgstr ""
 "Sinonim untuk TINYINT(1), nilai nol dianggal false, nilai selain nol "
 "dianggap true"
 
-#: src/Types.php:181
+#: src/Types.php:196
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Sebuah alias untuk BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:183
+#: src/Types.php:198
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Sebuah Tanggal, Didukung pada kisaran %1$s sampai %2$s"
 
-#: src/Types.php:188
+#: src/Types.php:203
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Kombinasi tanggal dan waktu, didukung pada kisaran %1$s sampai %2$s"
 
-#: src/Types.php:193
+#: src/Types.php:208
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -18573,12 +18610,12 @@ msgstr ""
 "03:14:07 UTC, disimpan sebagai jumlah detik sejak awal waktu (1970-01-01 "
 "00:00:00 UTC)"
 
-#: src/Types.php:198
+#: src/Types.php:213
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Waktu, berkisar %1$s sampai %2$s"
 
-#: src/Types.php:203
+#: src/Types.php:218
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18586,7 +18623,7 @@ msgstr ""
 "Format tahun dalam 4-digit (4, standar) atau 2 digit (2), mengizinkan nilai "
 "dari 70 (1970) sampai 69 (2069) atau 1901 sampai 2155 dan 0000"
 
-#: src/Types.php:208
+#: src/Types.php:223
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18594,7 +18631,7 @@ msgstr ""
 "Sebuah panjang tetap (0-255, standar 1) string yang selalu benar-diisi "
 "dengan spasi dengan panjang tertentu bila disimpan"
 
-#: src/Types.php:213
+#: src/Types.php:228
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18603,7 +18640,7 @@ msgstr ""
 "Sebuah pangjang-variabel(%s) string, panjang maksimum efektif tunduk pada "
 "ukuran baris"
 
-#: src/Types.php:218
+#: src/Types.php:233
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18611,7 +18648,7 @@ msgstr ""
 "kolom TEXT dengan panjang maksimum karakter 255 (2^8 - 1), disimpan dengan "
 "awalan satu-byte menunjukkan panjang nilai dalam byte"
 
-#: src/Types.php:223
+#: src/Types.php:238
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18619,7 +18656,7 @@ msgstr ""
 "Kolom TEXT dengan panjang maksimum karakter 65,535 (2^16 - 1), disimpan "
 "dengan awalan dua-byte menunjukan panjang nilai dalam byte"
 
-#: src/Types.php:228
+#: src/Types.php:243
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18627,7 +18664,7 @@ msgstr ""
 "Kolom TEXT dengan panjang maksimum karakter 16,777,215 (2^24 - 1), disimpan "
 "awalan tiga-byte menunjukan pajang nilai dalam byte"
 
-#: src/Types.php:233
+#: src/Types.php:248
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18637,7 +18674,7 @@ msgstr ""
 "karakter, disimpan dengan awalan empat byte menunjukkan panjang nilai dalam "
 "byte"
 
-#: src/Types.php:238
+#: src/Types.php:253
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18645,7 +18682,7 @@ msgstr ""
 "Serupa dengan tipe CHAR, tetapi string menyimpan karakter string biner byte "
 "daripada non-biner"
 
-#: src/Types.php:241
+#: src/Types.php:256
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18653,7 +18690,7 @@ msgstr ""
 "Serupa dengan tipe VARCHAR, tetapi string menyimpan karakter string biner "
 "byte daripada non-biner"
 
-#: src/Types.php:245
+#: src/Types.php:260
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18661,7 +18698,7 @@ msgstr ""
 "Sebuah kolom BLOB dengan panjang maksimum 255 (2^8 - 1) byte, disimpan "
 "dengan awalan satu-byte menunjukkan panjang nilai"
 
-#: src/Types.php:249
+#: src/Types.php:264
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18669,7 +18706,7 @@ msgstr ""
 "Sebuah kolom BLOB dengan panjang maksimum 16,777,215 (2^24 - 1) byte, "
 "disimpan dengan awalan tiga byte yang menunjukkan panjang nilai"
 
-#: src/Types.php:254
+#: src/Types.php:269
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18677,7 +18714,7 @@ msgstr ""
 "Sebuah kolom BLOB dengan panjang maksimum 65,535 (2^16 - 1) byte, disimpan "
 "dengan awalan dua-byte menunjukkan panjang nilai"
 
-#: src/Types.php:258
+#: src/Types.php:273
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18685,7 +18722,7 @@ msgstr ""
 "Sebuah kolom BLOB dengan panjang maksimum 4,294,967,295 atau 4GiB (2^32 - 1) "
 "byte, disimpan dengan awalan empat byte menunjukkan panjang nilai"
 
-#: src/Types.php:262
+#: src/Types.php:277
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18693,43 +18730,43 @@ msgstr ""
 "Sebuah pencacahan, nilai dipilih dari daftar hingga 65,535 atau nilai khusus "
 "'' error"
 
-#: src/Types.php:263
+#: src/Types.php:278
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Sebuah nilai tunggal dipilih dari satu set hingga 64 anggota"
 
-#: src/Types.php:264
+#: src/Types.php:279
 msgid "A type that can store a geometry of any type"
 msgstr "Suatu jenis yang dapat menyimpan geometri dari jenis apa pun"
 
-#: src/Types.php:265
+#: src/Types.php:280
 msgid "A point in 2-dimensional space"
 msgstr "Sebuah titik dalam ruang 2-dimensi"
 
-#: src/Types.php:266
+#: src/Types.php:281
 msgid "A curve with linear interpolation between points"
 msgstr "Kurva dengan interpolasi linier antara titik"
 
-#: src/Types.php:267
+#: src/Types.php:282
 msgid "A polygon"
 msgstr "Sebuah poligon"
 
-#: src/Types.php:268
+#: src/Types.php:283
 msgid "A collection of points"
 msgstr "Sebuah koleksi poin"
 
-#: src/Types.php:269
+#: src/Types.php:284
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Sebuah koleksi kurva dengan interpolasi linier antara titik"
 
-#: src/Types.php:270
+#: src/Types.php:285
 msgid "A collection of polygons"
 msgstr "Sebuah koleksi poligon"
 
-#: src/Types.php:271
+#: src/Types.php:286
 msgid "A collection of geometry objects of any type"
 msgstr "Sebuah koleksi objek geometri dari jenis apa pun"
 
-#: src/Types.php:272
+#: src/Types.php:287
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18737,7 +18774,7 @@ msgstr ""
 "Menyimpan dan memungkinkan akses efisien untuk data dalam dokumen JSON "
 "(JavaScript Object Notation)"
 
-#: src/Types.php:273
+#: src/Types.php:288
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18745,21 +18782,21 @@ msgstr ""
 "Ditujukan untuk penyimpanan alamat IPv6, serta alamat IPv4 dengan asumsi "
 "pemetaan konvensional alamat IPv4 menjadi alamat IPv6"
 
-#: src/Types.php:276
+#: src/Types.php:291
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "UUID (Pengidentifikasi Unik Universal) 128-bit"
 
-#: src/Types.php:584
+#: src/Types.php:599
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numerik"
 
-#: src/Types.php:602
+#: src/Types.php:617
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Tanggal dan waktu"
 
-#: src/Types.php:632
+#: src/Types.php:647
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spasial"
@@ -20807,9 +20844,6 @@ msgstr "Tidak ada berkas ditemukan dalam arsip ZIP!"
 
 #~ msgid "Data Synchronization"
 #~ msgstr "Sinkronisasi Data"
-
-#~ msgid "not present"
-#~ msgstr "tidak ada"
 
 #~ msgid "Structure Difference"
 #~ msgstr "Perbedaan Struktur"

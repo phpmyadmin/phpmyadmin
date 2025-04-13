@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-06 00:27+0000\n"
+"POT-Creation-Date: 2025-04-13 00:52+0000\n"
 "PO-Revision-Date: 2024-10-29 18:22+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -366,7 +366,7 @@ msgstr "SQL نى ئالدىن كۆرۈش"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Save"
 msgstr "ساقلاش"
 
@@ -399,6 +399,12 @@ msgstr "ھوقۇقسىز"
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
+#: resources/templates/database/routines/index.twig:71
+#: resources/templates/database/routines/index.twig:79
+#: resources/templates/database/routines/index.twig:91
+#: resources/templates/database/routines/index.twig:95
+#: resources/templates/database/routines/index.twig:106
+#: resources/templates/database/routines/index.twig:114
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
@@ -612,7 +618,7 @@ msgstr "قوشۇلغىنى %s"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:722
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -942,7 +948,7 @@ msgstr "تاقالدى"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:509
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
@@ -1051,7 +1057,7 @@ msgstr "تەكشۈرۈش"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:407
 #: src/Display/Results.php:1805 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
@@ -1070,7 +1076,7 @@ msgstr "تەھىرلەش"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:409
 #: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "ئۆچۈرۈش"
@@ -1267,7 +1273,7 @@ msgid "Count:"
 msgstr "سۆزلەم"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:672
 msgid "Time taken:"
 msgstr "ئېلىنغان ۋاقىت:"
 
@@ -1621,7 +1627,7 @@ msgid "Page to delete"
 msgstr ".باغلانمىلار ئۆچۈرۈلدى"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Untitled"
 msgstr "نامسىز"
 
@@ -1644,7 +1650,7 @@ msgstr "پۈتۈن ئېكراندىن چىقىڭ"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
@@ -1659,7 +1665,7 @@ msgstr "قىممەت ئىسمى"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:549
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -1667,7 +1673,7 @@ msgstr "ئاق(قۇرۇق)بەت"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:547
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page"
@@ -1675,7 +1681,7 @@ msgstr "ھەممىنى تاللاش"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 #, fuzzy
 #| msgid "Select All"
 msgid "Save page as"
@@ -1705,7 +1711,7 @@ msgstr "نەشىرنى قۇىماق"
 # column نى سۆزلەم دەپ ئالساق مۇۋاپىق بولغىدەك
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Choose column to display"
 msgstr "سۆزلەمنى كۆرسەتمەسلىك"
 
@@ -1877,7 +1883,7 @@ msgstr "ئامال"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Submit"
 msgstr "يوللاڭ"
 
@@ -2218,7 +2224,7 @@ msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:721
 #: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "كۆرسىتىش"
@@ -2696,16 +2702,55 @@ msgstr "ئىزلانغان جەدۋەل"
 msgid "Returns"
 msgstr "تۈرگە قايتىش"
 
-#: resources/templates/database/routines/parameter_row.twig:24
-#: resources/templates/modals/enum_set_editor.twig:5
-msgid "ENUM/SET editor"
-msgstr "ENUM / SET تەھرىرلىگۈچى"
+#: resources/templates/database/routines/index.twig:70
+#, fuzzy
+#| msgid "Routines"
+msgid "Routine editor"
+msgstr "دائىملىق"
 
+#: resources/templates/database/routines/index.twig:75
+#: resources/templates/database/routines/index.twig:110
+#: resources/templates/home/index.twig:317
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:66
+#: resources/templates/table/structure/display_structure.twig:348
+#: src/Controllers/JavaScriptMessagesController.php:349
+#, fuzzy
+#| msgid "No Privileges"
+msgid "Loading…"
+msgstr "ھوقۇقسىز"
+
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/server/privileges/users_overview.twig:177
+#, fuzzy
+#| msgid "Select All"
+msgid "Save changes"
+msgstr "ھەممىنى تاللاش"
+
+#: resources/templates/database/routines/index.twig:90
+#, fuzzy
+msgid "Export routine"
+msgstr "كۈندىلىك ئېكسپورت% s"
+
+#: resources/templates/database/routines/index.twig:105
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Database/RoutinesController.php:361
+msgid "Execute routine"
+msgstr "ئادەتنى ئىجرا قىلىڭ"
+
+#: resources/templates/database/routines/index.twig:115
 #: resources/templates/database/routines/row.twig:34
 #: resources/templates/database/routines/row.twig:44
 #: resources/templates/database/routines/row.twig:48
 msgid "Execute"
 msgstr "ئىجرا قىلىڭ"
+
+#: resources/templates/database/routines/parameter_row.twig:24
+#: resources/templates/modals/enum_set_editor.twig:5
+msgid "ENUM/SET editor"
+msgstr "ENUM / SET تەھرىرلىگۈچى"
 
 #: resources/templates/database/search/main.twig:2
 msgid "Search in database"
@@ -2934,7 +2979,7 @@ msgid "Replace table prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Copy table with prefix"
 msgstr "جەدۋەلنى ئالدى بىلەن كۆچۈرۈڭ"
 
@@ -3291,7 +3336,7 @@ msgstr "ئاخىرقىسى"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Show all"
 msgstr "ھەممىسىنى كۆرسىتىش"
 
@@ -3365,7 +3410,7 @@ msgid "Hide browser transformation"
 msgstr "توركۆرگۈنىڭ ئۆزگىرىشىنى يوشۇرۇش"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Geometry"
 msgstr "Geometry"
 
@@ -3380,7 +3425,7 @@ msgstr "ياخشى بىلىنگەن ئىككىلىك"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:495
 #: src/Display/Results.php:1806 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "كۆچۈرۈڭ"
@@ -3391,7 +3436,7 @@ msgid "Query results operations"
 msgstr "سۈرۈشتۈرۈش نەتىجىسى مەشغۇلاتى"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr "چاپلاش تاختىسىغا كۆچۈرۈڭ"
@@ -3993,18 +4038,6 @@ msgstr "دىققەت"
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin ھۆججىتى"
 
-#: resources/templates/home/index.twig:317
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:66
-#: resources/templates/table/structure/display_structure.twig:348
-#: src/Controllers/JavaScriptMessagesController.php:349
-#, fuzzy
-#| msgid "No Privileges"
-msgid "Loading…"
-msgstr "ھوقۇقسىز"
-
 #: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "تېخىمۇ كۆپ تېمىغا ئىرىشىش !"
@@ -4024,7 +4057,7 @@ msgstr "ئېلىش"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:439
 #: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -4405,7 +4438,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "يول باشلاش ئېكرانىنى يۈكلەۋاتقاندا خاتالىق كۆرۈلدى"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:599
 msgid "Drop files here"
 msgstr "ھۆججەتلەرنى بۇ يەرگە تاشلاڭ"
 
@@ -5264,6 +5297,7 @@ msgstr "ئىشلەتكۈچى ھېساباتى"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
+#: src/Controllers/JavaScriptMessagesController.php:393
 #: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 #, fuzzy
 #| msgid "Routines"
@@ -5907,12 +5941,6 @@ msgstr ""
 msgid "Drop the databases that have the same names as the users."
 msgstr "ئىشلەتكۈچىلەر بىلەن ئوخشاش ئىسىمدىكى سانداننى تاشلاڭ."
 
-#: resources/templates/server/privileges/users_overview.twig:177
-#, fuzzy
-#| msgid "Select All"
-msgid "Save changes"
-msgstr "ھەممىنى تاللاش"
-
 #: resources/templates/server/replication/change_primary.twig:7
 #, fuzzy
 #| msgid ""
@@ -5986,7 +6014,7 @@ msgid "Generate password:"
 msgstr "پارول ھاسىللاش"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Generate"
 msgstr "ھاسىللاش"
 
@@ -7060,7 +7088,7 @@ msgstr "يېڭلاش"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "Browse foreign values"
 msgstr "چەتئەل قىممىتىنى كۆرۈڭ"
 
@@ -7344,8 +7372,8 @@ msgstr "قايتا تەرتىپكە سېلىش"
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:492
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:645
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "پەرۋا قىلماڭ"
@@ -7874,7 +7902,7 @@ msgid "Column %s has been dropped."
 msgstr "ستون% s چۈشۈپ كەتتى."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:609
 msgid "More"
 msgstr "تېخىمۇ كۆپ"
 
@@ -9927,43 +9955,43 @@ msgid "Closed"
 msgstr "تاقالدى"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "دۈشەنبە"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "سەيشەنبە"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:751
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "چارشەنبە"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:752
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "پەيشەنبە"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:753
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "جۈمە"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:754
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "شەنبە"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "يەكشەنبە"
@@ -12026,7 +12054,7 @@ msgid "Navigation panel width"
 msgstr "جەدېۋەلنىڭ تىمىسى"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:614
 #: src/Navigation/NavigationTree.php:1292
 #, fuzzy
 #| msgid "Indexes"
@@ -12641,7 +12669,7 @@ msgid "Missing data for %s"
 msgstr "% S ئۈچۈن سانلىق مەلۇمات كەم"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:831
+#: src/Controllers/JavaScriptMessagesController.php:832
 msgid "Incorrect value!"
 msgstr "خاتا قىممەت!"
 
@@ -12977,24 +13005,24 @@ msgid "Incorrect IP address: %s"
 msgstr "IP ئادرېسى خاتا:% s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:830
+#: src/Controllers/JavaScriptMessagesController.php:831
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Not a valid port number!"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس."
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:828
+#: src/Controllers/JavaScriptMessagesController.php:829
 msgid "Not a positive number!"
 msgstr "ئىجابىي سان ئەمەس!"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:829
+#: src/Controllers/JavaScriptMessagesController.php:830
 msgid "Not a non-negative number!"
 msgstr "مەنپىي بولمىغان سان ئەمەس!"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:832
+#: src/Controllers/JavaScriptMessagesController.php:833
 #, fuzzy, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "قىممىتى چوقۇم% s دىن تۆۋەن ياكى تەڭ بولۇشى كېرەك!"
@@ -13022,7 +13050,7 @@ msgstr ""
 "ئۈچۈن% s نى زىيارەت قىلىڭ."
 
 #: src/Controllers/Console/Bookmark/AddController.php:39
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "مەغلۇب بولدى"
 
@@ -13275,11 +13303,6 @@ msgstr ""
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "سانداندا جەدۋەل يوق"
-
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Database/RoutinesController.php:361
-msgid "Execute routine"
-msgstr "ئادەتنى ئىجرا قىلىڭ"
 
 #: src/Controllers/Database/RoutinesController.php:413
 #, fuzzy, php-format
@@ -14567,76 +14590,76 @@ msgstr ""
 "ھېچقانداق كۈندىلىك ئېكسپورت قىلىشقا بولمايدۇ. تەلەپ قىلىنغان ئىمتىيازلار "
 "كەمچىل بولۇشى مۇمكىن."
 
-#: src/Controllers/JavaScriptMessagesController.php:395
+#: src/Controllers/JavaScriptMessagesController.php:396
 #, fuzzy, php-format
 #| msgid "Number of columns"
 msgid "Values for column %s"
 msgstr "سۆزلەم سانى"
 
-#: src/Controllers/JavaScriptMessagesController.php:396
+#: src/Controllers/JavaScriptMessagesController.php:397
 msgid "Values for a new column"
 msgstr "يېڭى ئىستوننىڭ قىممىتى"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 msgid "Enter each value in a separate field."
 msgstr "ھەر بىر قىممەتنى ئايرىم ساھەگە كىرگۈزۈڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 #, fuzzy, php-format
 msgid "Add %d value(s)"
 msgstr "% D قىممىتى (لەر) نى قوشۇڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "ئەسكەرتىش: ئەگەر ھۆججەتتە بىر قانچە جەدۋەل بولسا ، ئۇلار بىرلەشتۈرۈلىدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Hide query box"
 msgstr "سوئال رامكىسىنى يوشۇرۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show query box"
 msgstr "SQL سورىقى"
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Edit query"
 msgstr "تاپشۇرۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:409
+#: src/Controllers/JavaScriptMessagesController.php:410
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس."
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #, fuzzy, php-format
 #| msgid "Disabled"
 msgid "Variable %d:"
 msgstr "تاقالدى"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:415
 #: src/Normalization.php:950
 msgid "Pick"
 msgstr "تاللاڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 #, fuzzy
 #| msgid "Click to unselect"
 msgid "Column selector"
 msgstr "بىر چىكىپ بىكار قىلىڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:417
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "سانداندىن ئىزدەش"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 #, fuzzy, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -14645,58 +14668,58 @@ msgstr ""
 "مەركىزى تىزىملىكتە ئىستون يوق. ساندان% s نىڭ مەركىزى ئىستون تىزىملىكىدە "
 "نۆۋەتتىكى جەدۋەلدە يوق ئىستون بارلىقىغا كاپالەتلىك قىلىڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:422
 msgid "See more"
 msgstr "تەپسىلاتىنى كۆرۈڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Add primary key"
 msgstr "دەسلەپكى ئاچقۇچنى قوشۇڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 #, fuzzy
 #| msgid "The primary key has been dropped."
 msgid "Primary key added."
 msgstr "ئاساسىي قىممەت ئۆچۈرۈلدى"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 #: src/Normalization.php:257
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "ئىزلاش خاتىرىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 #, fuzzy, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr "جەدۋەل '% s' ئۈچۈن نورماللاشتۇرۇشنىڭ بىرىنچى قەدىمى تاماملاندى."
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 #: src/Normalization.php:513 src/Normalization.php:572
 #: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "باسقۇچنىڭ ئاخىرى"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Second step of normalization (2NF)"
 msgstr "نورماللاشتۇرۇشنىڭ ئىككىنچى قەدىمى (2NF)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:430
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:781
 #: src/Normalization.php:345
 msgid "Done"
 msgstr "تامام"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Confirm partial dependencies"
 msgstr "قىسمەن بېقىنىشنى جەزملەشتۈرۈڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Selected partial dependencies are as follows:"
 msgstr "تاللانغان قىسمەن بېقىنىشچانلىقى تۆۋەندىكىچە:"
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -14704,21 +14727,21 @@ msgstr ""
 "ئەسكەرتىش: a, b -> d, f بولسا a ۋە b ستونلارنىڭ قىممىتىنى كۆرسىتىدۇ ، d ستون "
 "ۋە f ستوننىڭ قىممىتىنى بەلگىلىيەلەيدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "No partial dependencies selected!"
 msgstr "قىسمەن بېقىنىشلار تاللانمىدى!"
 
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:440
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "جەدۋەلدىكى سانلىق مەلۇماتلارغا ئاساسەن ماڭا مۇمكىن بولغان قىسمەن "
 "بېقىنىشلارنى كۆرسىتىڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Hide partial dependencies list"
 msgstr "قىسمەن بېقىنىش تىزىملىكىنى يوشۇرۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -14726,195 +14749,195 @@ msgstr ""
 "چىڭ ئولتۇرۇڭ! جەدۋەلنىڭ سانلىق مەلۇمات چوڭلۇقى ۋە ستون سانىغا ئاساسەن بىر "
 "نەچچە سېكۇنت ۋاقىت كېتىشى مۇمكىن."
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Step"
 msgstr "قەدەم"
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid "The following actions will be performed:"
 msgstr "تۆۋەندىكى ھەرىكەتلەر ئېلىپ بېرىلىدۇ:"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:447
 #, fuzzy, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "% S جەدۋەلدىكى DROP ستونلىرى% s"
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Create the following table"
 msgstr "تۆۋەندىكى جەدۋەلنى قۇر"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Third step of normalization (3NF)"
 msgstr "نورماللاشتۇرۇشنىڭ ئۈچىنچى قەدىمى (3NF)"
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Confirm transitive dependencies"
 msgstr "ئۆتكۈنچى بېقىنىشنى جەزملەشتۈرۈڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:453
 msgid "Selected dependencies are as follows:"
 msgstr "تاللانغان بېقىنىشچانلىقى تۆۋەندىكىچە:"
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "No dependencies selected!"
 msgstr "بېقىنىشچانلىقى تاللانمىدى!"
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:455
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "مۇشۇ قىممەتنى ئىشلىتىش"
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
 msgstr "يىغىن قىممىتى"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Hide search criteria"
 msgstr "ئىزدەش ئۆلچىمىنى يوشۇرۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show search criteria"
 msgstr "SQL سورىقى"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:464
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column maximum:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:465
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column minimum:"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 #, fuzzy
 #| msgid "SQL query"
 msgid "Hide find and replace criteria"
 msgstr "SQL سورىقى"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 #, fuzzy
 #| msgid "SQL query"
 msgid "Show find and replace criteria"
 msgstr "SQL سورىقى"
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Each point represents a data row."
 msgstr "ھەر بىر نۇقتا سانلىق مەلۇمات قۇرغا ۋەكىللىك قىلىدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Hovering over a point will show its label."
 msgstr "بىر نۇقتىنى بېسىپ قويسىڭىز ئۇنىڭ بەلگىسى كۆرۈنىدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "چوڭايتىش ئۈچۈن ، چاشقىنەك بىلەن پىلاننىڭ بىر بۆلىكىنى تاللاڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Click reset zoom button to come back to original state."
 msgstr "ئەسلىگە كەلتۈرۈش چوڭايتىش كۇنۇپكىسىنى چېكىپ ئەسلى ھالىتىگە قايتىڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "سانلىق مەلۇمات نۇقتىسىنى چېكىپ سانلىق مەلۇمات قۇرنى تەھرىرلىشىڭىز مۇمكىن."
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "بۇ پىلاننى ئوڭ تەرەپ ئاستى تەرەپكە سۆرەپ چوڭ كىچىكلىگىلى بولىدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:485
+#: src/Controllers/JavaScriptMessagesController.php:486
 #, fuzzy
 #| msgid "Add/Delete columns"
 msgid "Select two columns"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:488
 msgid "Select two different columns"
 msgstr "ئوخشىمىغان ئىككى ئىستوننى تاللاڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:490
 #, fuzzy
 #| msgid "Data pointer size"
 msgid "Data point content"
 msgstr "سانلىق مەلۇمات قوللانمىسىنىڭ چوڭ كىچىكلىكى"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "X"
 msgstr "X."
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Y"
 msgstr "Y."
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Point"
 msgstr "نۇقتا"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:499
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Polygon"
 msgstr "كۆپ گۈللۈك"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:502
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Inner ring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:503
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Outer ring"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 #, fuzzy
 #| msgid "Routines"
 msgid "Add a point"
 msgstr "دائىملىق"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:505
 #, fuzzy
 #| msgid "Add constraints"
 msgid "Add a linestring"
 msgstr "مەجبۇرى قوشۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Add an inner ring"
 msgstr "ئىچكى ئۈزۈك قوشۇڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Add a polygon"
 msgstr "كۆپ قىرلىق"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:508
 #, fuzzy
 #| msgid "Add constraints"
 msgid "Add geometry"
 msgstr "مەجبۇرى قوشۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Do you want to copy encryption key?"
 msgstr "مەخپىيلەشتۈرۈش ئاچقۇچىنى كۆچۈرمەكچىمۇ؟"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Encryption key"
 msgstr "شىفىرلاش ئاچقۇچى"
 
-#: src/Controllers/JavaScriptMessagesController.php:513
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -14922,7 +14945,7 @@ msgstr ""
 "HEX ئىقتىدارى ئالتە خانىلىق قىممەتنى ھېسابلىغاندا پۈتۈن ساننى بىر قۇر دەپ "
 "قارايدۇ"
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -14930,7 +14953,7 @@ msgstr ""
 "MySQL سىيرىلما تاللىمايدىغان قوشۇمچە قىممەتلەرنى قوبۇل قىلىدۇ. ئەگەر لازىم "
 "بولسا بىۋاسىتە بۇ قىممەتتىكى ئاچقۇچ"
 
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -14938,7 +14961,7 @@ msgstr ""
 "MySQL چېسلا تاللىمايدىغان قوشۇمچە قىممەتلەرنى قوبۇل قىلىدۇ. ئەگەر لازىم "
 "بولسا بىۋاسىتە بۇ قىممەتتىكى ئاچقۇچ"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -14946,21 +14969,21 @@ msgstr ""
 "بۇ بەتكە ئۆزگەرتىش كىرگۈزگەنلىكىڭىزنى كۆرسىتىدۇ. ئۆزگەرتىشتىن ۋاز كېچىشتىن "
 "بۇرۇن جەزملەشتۈرۈشىڭىز تەلەپ قىلىنىدۇ"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid "Select referenced key"
 msgstr "سېرتقى ئۇلىنىشنى تاللاش"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Select Foreign Key"
 msgstr "تاشقى ئاچقۇق قىممىتى"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:538
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -14968,75 +14991,75 @@ msgstr ""
 "ئورۇنلاشتۇرۇشتىكى ئۆزگىرىشلەرنى ساقلىمىدىڭىز. ئەگەر ئۇلارنى قۇتۇلدۇرمىسىڭىز "
 "ئۇلار يوقىلىدۇ. داۋاملاشتۇرۇشنى خالامسىز؟"
 
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "value/subQuery is empty"
 msgstr "value / subQuery قۇرۇق"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Page name"
 msgstr "بەت ئىسمى"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:550
 #, fuzzy
 #| msgid "Select All"
 msgid "Delete page"
 msgstr "ھەممىنى تاللاش"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "بۇ بەتتە ساقلانغان بەزى جەدۋەللەرنىڭ ئىسمى ئۆزگەرتىلگەن ياكى ئۆچۈرۈلگەن "
 "بولۇشى مۇمكىن."
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select a page to continue"
 msgstr "ئاساسىي قىممەت ياكى بىردىنبىر قىمەتنى تاللاڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid page name"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Do you want to save the changes to the current page?"
 msgstr "نۆۋەتتىكى بەتتىكى ئۆزگەرتىشلەرنى ساقلىماقچىمۇ؟"
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Successfully deleted the page"
 msgstr "بۇ بەت مۇۋەپپەقىيەتلىك ئۆچۈرۈلدى"
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:558
 #, fuzzy
 #| msgid "Display PDF schema"
 msgid "Export relational schema"
 msgstr "PDF تىزىىسىنى كۆرسىتىش"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Modifications have been saved"
 msgstr "ئۆزگەرتىشلەر ساقلاندى"
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 #, fuzzy, php-format
 msgid "%d object(s) created."
 msgstr "% d ئوبيېكت (لار) قۇرۇلدى."
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:563
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Column name"
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "تەھرىرلەشنى ئەمەلدىن قالدۇرۇش ئۈچۈن قېچىشنى بېسىڭ. <br> - يېڭى لىنىيىگە "
 "Shift + Enter."
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -15044,15 +15067,15 @@ msgstr ""
 "سىز بەزى سانلىق مەلۇماتلارنى تەھرىرلىدىڭىز ، ئۇلار ساقلانمىدى. سانلىق "
 "مەلۇماتنى ساقلاشتىن بۇرۇن بۇ بەتتىن ئايرىلغۇڭىز بارمۇ؟"
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Drag to reorder."
 msgstr "قايتا تەرتىپكە سېلىش."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Click to sort results by this column."
 msgstr "بۇ ئىستون ئارقىلىق نەتىجىنى رەتلەش ئۈچۈن چېكىڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -15061,23 +15084,23 @@ msgstr ""
 "Shift + بۇ ئىستوننى ORDER BY ماددىسىغا قوشۇش ياكى ASC / DESC نى ئالماشتۇرۇش "
 "ئۈچۈن بېسىڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "Click to mark/unmark."
 msgstr "بەلگە / بەلگىسىز."
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:580
 #, fuzzy
 #| msgid "Columns terminated by"
 msgid "Double-click to copy column name."
 msgstr "خەت ئايرىش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:581
 #, fuzzy
 #| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "ئىستوننىڭ كۆرۈنۈشىنى ئۆزگەرتىش ئۈچۈن تارتما يا ئوق <br> نى چېكىڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -15086,12 +15109,12 @@ msgstr ""
 "تەھرىرلەش ، كۆچۈرۈش ۋە ئۆچۈرۈش ئۇلانمىلىرىغا مۇناسىۋەتلىك ئىقتىدارلار "
 "ساقلانغاندىن كېيىن ئىشلىمەسلىكى مۇمكىن."
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "ئىناۋەتلىك ئالتە ئۆلچەملىك سىزىق كىرگۈزۈڭ. ئىناۋەتلىك ھەرپلەر 0-9 ، A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -15099,67 +15122,67 @@ msgstr ""
 "قۇرلارنىڭ ھەممىسىنى كۆرۈشنى خالامسىز؟ چوڭ جەدۋەل ئۈچۈن بۇ توركۆرگۈچنى "
 "بۇزۇۋېتىشى مۇمكىن."
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Original length"
 msgstr "قۇر ئالماشۇرۇش بەلگىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:594
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "بىكار قىلىش"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:595
 #: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "ئەمەلدىن قالدۇرۇلدى"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Success"
 msgstr "مۇۋەپپەقىيەت"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 #, fuzzy
 #| msgid "Import"
 msgid "Import status"
 msgstr "كىرگۈزۈش"
 
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:600
 #, fuzzy
 #| msgid "Select All"
 msgid "Select database first"
 msgstr "ھەممىنى تاللاش"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "Go to link:"
 msgstr "ئۇلىنىشقا بېرىڭ:"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Generate password"
 msgstr "پارول ھاسىللاش"
 
-#: src/Controllers/JavaScriptMessagesController.php:611
+#: src/Controllers/JavaScriptMessagesController.php:612
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "ھەممىسىنى كۆرسىتىش"
 
-#: src/Controllers/JavaScriptMessagesController.php:612
+#: src/Controllers/JavaScriptMessagesController.php:613
 #, fuzzy
 #| msgid "Indexes"
 msgid "Hide panel"
 msgstr "تېزىسلار"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:615
 #: src/Navigation/NavigationTree.php:1295
 #, fuzzy
 #| msgid "Indexes"
 msgid "Unlink from main panel"
 msgstr "تېزىسلار"
 
-#: src/Controllers/JavaScriptMessagesController.php:618 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:619 src/Setup/Index.php:153
 #, fuzzy, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -15169,50 +15192,50 @@ msgstr ""
 "نەشرى% s بولۇپ ،% s دا ئېلان قىلىندى."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:622
+#: src/Controllers/JavaScriptMessagesController.php:623
 #, fuzzy
 #| msgid "Last version"
 msgid ", latest stable version:"
 msgstr "ېيڭى نەشىر"
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:624
 #, fuzzy
 #| msgid "%s table"
 #| msgid_plural "%s tables"
 msgid "up to date"
 msgstr "%s جەدۋەل"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "There was an error in loading the Git information."
 msgstr "Git ئۇچۇرلىرىنى يۈكلەشتە خاتالىق كۆرۈلدى."
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:628
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 "ئەجەللىك JavaScript خاتالىقى يۈز بەردى. خاتالىق دوكلاتىنى ئەۋەتمەكچىمۇ؟"
 
-#: src/Controllers/JavaScriptMessagesController.php:628
+#: src/Controllers/JavaScriptMessagesController.php:629
 #, fuzzy
 #| msgid "General relation features"
 msgid "Change report settings"
 msgstr "ئاساسىي ئالاقە ۋاريانتلىرى"
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:630
 #, fuzzy
 #| msgid "Report title"
 msgid "Show report details"
 msgstr "دوكلات تېمىسى"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:631
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 "PHP سەۋىيىسىدىكى ئىجرا ۋاقتى تۆۋەن بولغاچقا ، ئېكسپورتىڭىز تولۇق ئەمەس!"
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:634
 #, fuzzy, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -15221,80 +15244,80 @@ msgstr ""
 "ئاگاھلاندۇرۇش: بۇ بەتتىكى جەدۋەلنىڭ% d دىن ئارتۇق يېرى بار. يوللاشتا ، PHP "
 "نىڭ max_input_vars سەپلىمىسى سەۋەبىدىن ، بەزى ساھەگە سەل قاراشقا بولىدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:639
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Some errors have been detected on the server!"
 msgstr "مۇلازىمېتىردا بەزى خاتالىقلار بايقالدى!"
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:642
 msgid "Please look at the bottom of this window."
 msgstr "بۇ كۆزنەكنىڭ ئاستىغا قاراڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:647
+#: src/Controllers/JavaScriptMessagesController.php:648
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr "ھەممىگە پەرۋا قىلماڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr "تەڭشەكلىرىڭىزگە ئاساسەن ، ئۇلار ھازىر يوللىنىۋاتىدۇ ، سەۋر قىلىڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name successfully copied to clipboard!"
 msgstr "ستون ئىسمى مۇۋەپپەقىيەتلىك ھالدا چاپلاش تاختىسىغا كۆچۈرۈلدى!"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Column name copying to clipboard failed!"
 msgstr "چاپلاش تاختىسىغا ئىستون نامىنى كۆچۈرۈش مەغلۇب بولدى!"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Successfully copied!"
 msgstr "مۇۋەپپەقىيەتلىك كۆچۈرۈلدى!"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copying failed!"
 msgstr "كۆچۈرۈلگەن ساندان"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:665
 #, fuzzy
 #| msgid "Select All"
 msgid "Execute this query again?"
 msgstr "ھەممىنى تاللاش"
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:666
 #, fuzzy
 #| msgid "Do you really want to "
 msgid "Do you really want to delete this bookmark?"
 msgstr "راستىنلا ئجرا قىلىمسىز"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Some error occurred while getting SQL debug info."
 msgstr "SQL خاتالىق ئۇچۇرىغا ئېرىشىش جەريانىدا بەزى خاتالىقلار يۈز بەردى."
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:668
 #, fuzzy, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "% s سوئاللىرى% s سېكۇنتتا% s قېتىم ئىجرا قىلىندى."
 
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:669
 #, fuzzy, php-format
 msgid "%s argument(s) passed"
 msgstr "% s argument (لار) ئۆتۈپ كەتتى"
 
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:670
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "جەدۋەل ئىزاھى"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:671
 msgid "Hide arguments"
 msgstr "تالاش-تارتىشلارنى يوشۇرۇش"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -15309,83 +15332,83 @@ msgstr ""
 "ياردىمى بولۇشى مۇمكىن. سافارىدا بۇ خىل مەسىلە ئادەتتە «شەخسىي ھالەتنى كۆرۈش» "
 "سەۋەبىدىن كېلىپ چىقىدۇ."
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "كۆچۈرۈلگەن ساندان"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
 #| msgid "Repair table"
 msgid "Add table prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:683
 #, fuzzy
 #| msgid "Repair table"
 msgid "Replace table with prefix"
 msgstr "جەدۋەلنى ئوڭشاش"
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Extremely weak"
 msgstr "ئىنتايىن ئاجىز"
 
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Very weak"
 msgstr "بەك ئاجىز"
 
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Weak"
 msgstr "ئاجىز"
 
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Good"
 msgstr "ياخشى"
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 msgid "Strong"
 msgstr "كۈچلۈك"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:694
+#: src/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "بىخەتەرلىك ئاچقۇچىنى قوزغىتىشنى كۈتۈش ۋاقتى."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "بىخەتەرلىك ئاچقۇچىغا ئەۋەتىلگەن ئىناۋەتسىز تەلەپ."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:699
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "نامەلۇم بىخەتەرلىك ئاچقۇچ خاتالىقى."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "خېرىدار بىخەتەرلىك ئاچقۇچىنى قوللىمايدۇ."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:703
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "بىخەتەرلىك ئاچقۇچنى قوزغىتىش مەغلۇب بولدى."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
 #| msgid "Export"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "چىقىرىش"
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -15393,7 +15416,7 @@ msgstr ""
 "WebAuthn نى ئىشلەتكىلى بولمايدۇ. قوللايدىغان توركۆرگۈچنى بىخەتەر مۇھىتتا "
 "ئىشلىتىڭ (HTTPS)."
 
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:713
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -15403,7 +15426,7 @@ msgstr ""
 "بۇنىڭ ئۈچۈن تەڭشەلمىگەچكە ، بەت ئورۇنلاشتۇرۇشىڭىزنى ئاچالمايسىز ، "
 "ساقلىيالمايسىز ياكى ئۆچۈرەلمەيسىز."
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy, php-format
 #| msgid "Error: relation already exists."
 msgctxt ""
@@ -15411,134 +15434,134 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "!خاتالىق:بۇناسىۋەت ئاللىقاچان مەۋجۈت."
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:242
+#: src/Controllers/JavaScriptMessagesController.php:720 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "يوشۇر"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Month name"
 msgid "January"
 msgstr "قەھرىتان"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "February"
 msgstr "ھۇت"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 msgctxt "Month name"
 msgid "March"
 msgstr "نورۇز"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "April"
 msgstr "ئۈمىد"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "باھار"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 msgctxt "Month name"
 msgid "June"
 msgstr "6-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 msgctxt "Month name"
 msgid "July"
 msgstr "7-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 msgctxt "Month name"
 msgid "August"
 msgstr "8-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:732
 msgctxt "Month name"
 msgid "September"
 msgstr "9-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:732
+#: src/Controllers/JavaScriptMessagesController.php:733
 msgctxt "Month name"
 msgid "October"
 msgstr "10-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:733
+#: src/Controllers/JavaScriptMessagesController.php:734
 msgctxt "Month name"
 msgid "November"
 msgstr "11-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:734
+#: src/Controllers/JavaScriptMessagesController.php:735
 msgctxt "Month name"
 msgid "December"
 msgstr "12-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "1-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "2-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "3-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "4-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "باھار"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "6-ئاي"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "چىللە"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "تومۇز"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "مىزان"
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "ئوغۇز"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "ئوغلاق"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:509
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "كۆنەك"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -15546,127 +15569,127 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "يەكشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "دۈشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "سەيشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "چارشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "پەيشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "جۈمە"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:518
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "شەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "يەكشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:763
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "دۈشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "سەيشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:765
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "چارشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:766
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "پەيشەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "جۈمە"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "شەنبە"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "ھەپتە"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgid "None"
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "يوق"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "ۋاقىت"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "سائەت"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "مىنۇت"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgctxt "Unit of time"
 msgid "Second"
-msgstr "سېكنۇت"
-
-#: src/Controllers/JavaScriptMessagesController.php:776
-#, fuzzy
-#| msgid "seconds"
-msgctxt "Unit of time"
-msgid "Millisecond"
 msgstr "سېكنۇت"
 
 #: src/Controllers/JavaScriptMessagesController.php:777
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
-msgid "Microsecond"
+msgid "Millisecond"
 msgstr "سېكنۇت"
 
 #: src/Controllers/JavaScriptMessagesController.php:778
+#, fuzzy
+#| msgid "seconds"
+msgctxt "Unit of time"
+msgid "Microsecond"
+msgstr "سېكنۇت"
+
+#: src/Controllers/JavaScriptMessagesController.php:779
 #, fuzzy
 #| msgid "Time"
 msgctxt "The time zone for a time of day"
@@ -15674,7 +15697,7 @@ msgid "Time zone"
 msgstr "ۋاقىت"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 #, fuzzy
 #| msgid "Prev"
 msgctxt "Previous month"
@@ -15682,7 +15705,7 @@ msgid "Prev"
 msgstr "ئالدىنقى ئاي"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:785
 #, fuzzy
 #| msgid "Next"
 msgctxt "Next month"
@@ -15690,116 +15713,116 @@ msgid "Next"
 msgstr "كىيىنكى ئاي"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Today"
 msgstr "بۈگۈن"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "This field is required"
 msgstr "بۇ ساھە تەلەپ قىلىنىدۇ"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please fix this field"
 msgstr "بۇ يەرنى تۈزىتىڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:792
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid email address"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:793
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid URL"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:795
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date ( ISO )"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid number"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid credit card number"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter only digits"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter the same value again"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter no more than {0} characters"
 msgstr "{0} ھەرپتىن ئېشىپ كەتمەڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter at least {0} characters"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "ئۇزۇنلۇقى {0} بىلەن {1} ھەرپ ئارىلىقىدا قىممەت كىرگۈزۈڭ"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value between {0} and {1}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:804
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value less than or equal to {0}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:805
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:806
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid date or time"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:807
 #, fuzzy
 #| msgid "%d is not valid row number."
 msgid "Please enter a valid HEX input"
 msgstr "%dئۈنۈملۈك قۇر سانى ئەمەس"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:809
 msgid "This column can not contain a 32 chars value"
 msgstr "بۇ ئىستوندا 32 ھەرپ قىممىتى بولمايدۇ"
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:812
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -15808,40 +15831,40 @@ msgstr ""
 "نەتىجىدىن ساقلىنىش ئۈچۈن ئۇنى ئىككىلىك ، VARBINARY ياكى BLOB ستوندا "
 "ساقلىشىڭىز كېرەك."
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:819
 #, fuzzy, php-format
 msgid "%s of %s"
 msgstr "% s نىڭ% s"
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:820
 #, fuzzy, php-format
 msgid "%s/sec."
 msgstr "% s / سېكۇنت."
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:821
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "تەخمىنەن% MIN min. % SEC سېكۇنت. قالغان."
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "About %SEC sec. remaining."
 msgstr "تەخمىنەن% SEC سېكۇنت. قالغان."
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "The file is being processed, please be patient."
 msgstr "بىتەرەپ قىلىنىۋاتىدۇ، ساقلاڭ."
 
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:824
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
 msgstr "كىرگۈزگەن ھۆججەت شەكلى"
 
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:826
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -15867,7 +15890,7 @@ msgid "No such column"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:645
 #, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
@@ -20308,14 +20331,24 @@ msgstr "ئۈنۈمسىز جەدۋەل ئىسمى"
 msgid "You must provide a trigger definition."
 msgstr "سىز چوقۇم قوزغىتىش ئېنىقلىمىسى بىلەن تەمىنلىشىڭىز كېرەك."
 
-#: src/Types.php:146
+#: src/Types.php:97
+#, fuzzy
+#| msgid "Empty"
+msgid "empty"
+msgstr "تازىلاش"
+
+#: src/Types.php:98
+msgid "not empty"
+msgstr ""
+
+#: src/Types.php:161
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "1 بايىتلىق پۈتۈن سان ، ئىمزا قويۇلغان دائىرە -128 دىن 127 گىچە ، ئىمزاسىز "
 "دائىرە 0 دىن 255 گىچە"
 
-#: src/Types.php:147
+#: src/Types.php:162
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -20323,7 +20356,7 @@ msgstr ""
 "2 بايىتلىق پۈتۈن سان ، ئىمزا قويۇلغان دائىرە -32،768 دىن 32767 گىچە ، ئىمزا "
 "قويمىغان دائىرە 0 دىن 65،535"
 
-#: src/Types.php:149
+#: src/Types.php:164
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -20331,7 +20364,7 @@ msgstr ""
 "3 بايىتلىق پۈتۈن سان ، ئىمزا قويۇلغان دائىرە -8،388،608 دىن 8 مىليون "
 "388،607 ، ئىمزا قويمىغان دائىرە 0 دىن 16 مىليون 777،215"
 
-#: src/Types.php:152
+#: src/Types.php:167
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -20339,7 +20372,7 @@ msgstr ""
 "4 بايىتلىق پۈتۈن سان ، ئىمزا قويۇلغان دائىرە -2،147،483،648 دىن 2 مىليون 147 "
 "مىڭ 483 647 ، ئىمزاسىز دائىرە 0 دىن 4 مىليون 294 مىڭ 967،295"
 
-#: src/Types.php:157
+#: src/Types.php:172
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -20348,7 +20381,7 @@ msgstr ""
 "9 مىليون 223،372،036،854،775،807 ، ئىمزا قويمىغان دائىرە 0 دىن 18 مىليون "
 "446،744،073،709،551،615"
 
-#: src/Types.php:162
+#: src/Types.php:177
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -20356,7 +20389,7 @@ msgstr ""
 "مۇقىم نۇقتا نومۇرى (M, D) - ئەڭ چوڭ سان (M) 65 (سۈكۈتتىكى 10) ، ئونلۇق سان "
 "(D) نىڭ ئەڭ چوڭ سانى 30 (سۈكۈتتىكى 0)"
 
-#: src/Types.php:167
+#: src/Types.php:182
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -20364,7 +20397,7 @@ msgstr ""
 "كىچىك لەيلىمە چېكىتلىك سان ، رۇخسەت قىلىشقا بولىدىغان قىممەت -3.402823466E + "
 "38 دىن -1.175494351E-38 ، 0 ۋە 1.175494351E-38 دىن 3.402823466E + 38"
 
-#: src/Types.php:172
+#: src/Types.php:187
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -20374,7 +20407,7 @@ msgstr ""
 "-1.7976931348623157E + 308 دىن -2.2250738585072014E-308 ، 0 ۋە "
 "2.2250738585072014E-308 دىن 1.7976931348623157E + 308"
 
-#: src/Types.php:176
+#: src/Types.php:191
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -20382,7 +20415,7 @@ msgstr ""
 "DOUBLE نىڭ مەنىسى (بۇنىڭ سىرتىدا: REAL_AS_FLOAT SQL ھالەتتە ئۇ FLOAT نىڭ "
 "مەنىسى)"
 
-#: src/Types.php:177
+#: src/Types.php:192
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -20390,7 +20423,7 @@ msgstr ""
 "بىر ئاز ساھە تىپى (M) ، ھەر بىر قىممەتنىڭ M قىممىتى ساقلىنىدۇ (سۈكۈتتىكىسى "
 "1 ، ئەڭ يۇقىرىسى 64)"
 
-#: src/Types.php:179
+#: src/Types.php:194
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -20398,22 +20431,22 @@ msgstr ""
 "TINYINT (1) نىڭ مەنىسى ، نۆلنىڭ قىممىتى يالغان ، نۆل بولمىغان قىممەتلەر "
 "توغرا دەپ قارىلىدۇ"
 
-#: src/Types.php:181
+#: src/Types.php:196
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "BIGINT UNSIGNED NULL AUTO_INCREMENT UNIQUE نىڭ ئىسمى"
 
-#: src/Types.php:183
+#: src/Types.php:198
 #, fuzzy, php-format
 #| msgid "Create version"
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "نەشىرنى قۇىماق"
 
-#: src/Types.php:188
+#: src/Types.php:203
 #, fuzzy, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "چېسلا ۋە ۋاقىت بىرلەشتۈرۈلگەن ، قوللايدىغان دائىرە% 1 $ s دىن% 2 $ s"
 
-#: src/Types.php:193
+#: src/Types.php:208
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -20422,13 +20455,13 @@ msgstr ""
 "UTC ، دەۋردىن كېيىنكى سېكۇنت سانى سۈپىتىدە ساقلانغان (1970-01-01 00:00:00 "
 "UTC )"
 
-#: src/Types.php:198
+#: src/Types.php:213
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
 msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىشتە خاتالىق كۆرۈلدى."
 
-#: src/Types.php:203
+#: src/Types.php:218
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -20436,7 +20469,7 @@ msgstr ""
 "تۆت خانىلىق (4 ، سۈكۈتتىكى) ياكى ئىككى خانىلىق (2) فورماتتىكى بىر يىل ، "
 "رۇخسەت قىلىنغان قىممەت 70 (1970) دىن 69 (2069) ياكى 1901 دىن 2155 ۋە 0000."
 
-#: src/Types.php:208
+#: src/Types.php:223
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -20444,7 +20477,7 @@ msgstr ""
 "مۇقىم ئۇزۇنلۇق (0-255 ، سۈكۈتتىكى 1) تىزما ، ساقلىغاندا ھەمىشە بوشلۇق بىلەن "
 "ئوڭ تەرەپكە چاپلىنىدۇ"
 
-#: src/Types.php:213
+#: src/Types.php:228
 #, fuzzy, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -20453,7 +20486,7 @@ msgstr ""
 "ئۆزگىرىشچان ئۇزۇنلۇق (% s) تىزمىسى ، ئۈنۈملۈك ئەڭ چوڭ ئۇزۇنلۇقى ئەڭ چوڭ قۇر "
 "چوڭلۇقىغا بويسۇنىدۇ"
 
-#: src/Types.php:218
+#: src/Types.php:233
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -20462,7 +20495,7 @@ msgstr ""
 "قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان بىر بايىتلىق ئالدى قوشۇلغۇچى بىلەن "
 "ساقلىنىدۇ."
 
-#: src/Types.php:223
+#: src/Types.php:238
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -20471,7 +20504,7 @@ msgstr ""
 "بايىتلىق ئالدى قوشۇلغۇچى بىلەن ساقلىنىپ ، بايتنىڭ قىممىتىنىڭ ئۇزۇنلۇقىنى "
 "كۆرسىتىدۇ."
 
-#: src/Types.php:228
+#: src/Types.php:243
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -20480,7 +20513,7 @@ msgstr ""
 "ستون ، بايتتىكى قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئۈچ بايىتلىق ئالدى "
 "قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:233
+#: src/Types.php:248
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -20490,7 +20523,7 @@ msgstr ""
 "بولغان TEXT ستون ، بايتتىكى قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان تۆت "
 "بايىتلىق ئالدى قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:238
+#: src/Types.php:253
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -20498,7 +20531,7 @@ msgstr ""
 "CHAR تىپىغا ئوخشاش ، ئەمما ئىككىلىك بايت تىزمىسىنى ئىككىلىك بولمىغان ھەرپ "
 "تىزمىسىدىن ساقلايدۇ"
 
-#: src/Types.php:241
+#: src/Types.php:256
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -20506,7 +20539,7 @@ msgstr ""
 "VARCHAR تىپىغا ئوخشاش ، ئەمما ئىككىلىك ھەرپ تىزمىسىنى ئەمەس ، ئىككىلىك بايت "
 "تىزمىسىنى ساقلايدۇ"
 
-#: src/Types.php:245
+#: src/Types.php:260
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -20514,7 +20547,7 @@ msgstr ""
 "ئەڭ ئۇزۇن ئۇزۇنلۇقى 255 (2 ^ 8 - 1) بايت بولغان BLOB ستون ، قىممەتنىڭ "
 "ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان بىر بايىتلىق ئالدى قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:249
+#: src/Types.php:264
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -20523,7 +20556,7 @@ msgstr ""
 "قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئۈچ بايىتلىق ئالدى قوشۇلغۇچى بىلەن "
 "ساقلىنىدۇ."
 
-#: src/Types.php:254
+#: src/Types.php:269
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -20532,7 +20565,7 @@ msgstr ""
 "ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئىككى بايىتلىق ئالدى قوشۇلغۇچى بىلەن "
 "ساقلىنىدۇ."
 
-#: src/Types.php:258
+#: src/Types.php:273
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -20541,7 +20574,7 @@ msgstr ""
 "BLOB ستون ، قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان تۆت بايىتلىق ئالدى "
 "قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:262
+#: src/Types.php:277
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -20549,43 +20582,43 @@ msgstr ""
 "تىزىملىك ، 65،535 قىممەت تىزىملىكى ياكى ئالاھىدە '' خاتالىق قىممىتى "
 "تىزىملىكىدىن تاللانغان"
 
-#: src/Types.php:263
+#: src/Types.php:278
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "64 ئەزادىن تەركىب تاپقان بىر قىممەت"
 
-#: src/Types.php:264
+#: src/Types.php:279
 msgid "A type that can store a geometry of any type"
 msgstr "ھەر قانداق تىپتىكى گېئومېتىرىيەنى ساقلىيالايدىغان تىپ"
 
-#: src/Types.php:265
+#: src/Types.php:280
 msgid "A point in 2-dimensional space"
 msgstr "2 ئۆلچەملىك بوشلۇقتىكى بىر نۇقتا"
 
-#: src/Types.php:266
+#: src/Types.php:281
 msgid "A curve with linear interpolation between points"
 msgstr "نۇقسانلار ئارىسىدىكى سىزىق ئارىلىقى بار ئەگرى سىزىق"
 
-#: src/Types.php:267
+#: src/Types.php:282
 msgid "A polygon"
 msgstr "كۆپ قىرلىق"
 
-#: src/Types.php:268
+#: src/Types.php:283
 msgid "A collection of points"
 msgstr "نومۇرلار توپلىمى"
 
-#: src/Types.php:269
+#: src/Types.php:284
 msgid "A collection of curves with linear interpolation between points"
 msgstr "نۇقتىلار ئارا سىزىقلىق ئۆز ئارا باغلانغان ئەگرى سىزىقلار توپلىمى"
 
-#: src/Types.php:270
+#: src/Types.php:285
 msgid "A collection of polygons"
 msgstr "كۆپ خوتۇنلۇق توپلام"
 
-#: src/Types.php:271
+#: src/Types.php:286
 msgid "A collection of geometry objects of any type"
 msgstr "ھەر خىل تىپتىكى گېئومېتىرىيەلىك جىسىملار توپلىمى"
 
-#: src/Types.php:272
+#: src/Types.php:287
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -20593,7 +20626,7 @@ msgstr ""
 "JSON (JavaScript ئوبيېكتى ئىزاھاتى) ھۆججىتىدىكى سانلىق مەلۇماتلارنى ساقلايدۇ "
 "ۋە ئۈنۈملۈك زىيارەت قىلالايدۇ"
 
-#: src/Types.php:273
+#: src/Types.php:288
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -20601,23 +20634,23 @@ msgstr ""
 "IPv6 ئادرېسلىرىنى ساقلاشنى مەقسەت قىلىدۇ ، شۇنداقلا IPv4 ئادرېسلىرىنى IPv6 "
 "ئادرېسلارنىڭ ئادەتتىكى خەرىتىسىنى پەرەز قىلغان IPv4 ئادرېس."
 
-#: src/Types.php:276
+#: src/Types.php:291
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Universal Unique Identifier)"
 
-#: src/Types.php:584
+#: src/Types.php:599
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "سان"
 
-#: src/Types.php:602
+#: src/Types.php:617
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "نەشىرنى قۇىماق"
 
-#: src/Types.php:632
+#: src/Types.php:647
 #, fuzzy
 #| msgid "Log file count"
 msgctxt "spatial types"

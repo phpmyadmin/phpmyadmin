@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-06 00:27+0000\n"
+"POT-Creation-Date: 2025-04-13 00:52+0000\n"
 "PO-Revision-Date: 2024-10-16 15:51+0000\n"
 "Last-Translator: kjo-sdds <kjo@domo-supply.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -335,7 +335,7 @@ msgstr "Aperçu SQL"
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Save"
 msgstr "Enregistrer"
 
@@ -366,6 +366,12 @@ msgstr "Chargement en cours"
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
+#: resources/templates/database/routines/index.twig:71
+#: resources/templates/database/routines/index.twig:79
+#: resources/templates/database/routines/index.twig:91
+#: resources/templates/database/routines/index.twig:95
+#: resources/templates/database/routines/index.twig:106
+#: resources/templates/database/routines/index.twig:114
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
@@ -548,7 +554,7 @@ msgstr "Groupe de nœuds"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:722
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -871,7 +877,7 @@ msgstr "Désactivé"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:509
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
@@ -978,7 +984,7 @@ msgstr "Exécuter la requête à nouveau"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:407
 #: src/Display/Results.php:1805 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
@@ -997,7 +1003,7 @@ msgstr "Éditer"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:409
 #: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "Supprimer"
@@ -1164,7 +1170,7 @@ msgid "Count:"
 msgstr "Nombre :"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:672
 msgid "Time taken:"
 msgstr "Temps écoulé :"
 
@@ -1475,7 +1481,7 @@ msgid "Page to delete"
 msgstr "Page à supprimer"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 msgid "Untitled"
 msgstr "Sans titre"
 
@@ -1496,7 +1502,7 @@ msgstr "Quitter le plein écran"
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 msgid "Add tables from other databases"
 msgstr "Ajouter des tables depuis d'autres bases de données"
 
@@ -1507,19 +1513,19 @@ msgstr "Nouvelle page"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:549
 msgid "Open page"
 msgstr "Ouvrir la page"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:547
 msgid "Save page"
 msgstr "Enregistrer la page"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 msgid "Save page as"
 msgstr "Enregistrer la page sous"
 
@@ -1542,7 +1548,7 @@ msgstr "Nouvelle relation"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Choose column to display"
 msgstr "Choisir la colonne à afficher"
 
@@ -1688,7 +1694,7 @@ msgstr "Options actives"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Submit"
 msgstr "Soumettre"
 
@@ -1992,7 +1998,7 @@ msgstr "sélectionner une colonne"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:721
 #: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "Afficher"
@@ -2413,16 +2419,52 @@ msgstr "Aucune procédure à afficher."
 msgid "Returns"
 msgstr "Retourne"
 
-#: resources/templates/database/routines/parameter_row.twig:24
-#: resources/templates/modals/enum_set_editor.twig:5
-msgid "ENUM/SET editor"
-msgstr "Éditeur ENUM/SET"
+#: resources/templates/database/routines/index.twig:70
+#, fuzzy
+#| msgid "Routine name"
+msgid "Routine editor"
+msgstr "Nom de la procédure"
 
+#: resources/templates/database/routines/index.twig:75
+#: resources/templates/database/routines/index.twig:110
+#: resources/templates/home/index.twig:317
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:66
+#: resources/templates/table/structure/display_structure.twig:348
+#: src/Controllers/JavaScriptMessagesController.php:349
+msgid "Loading…"
+msgstr "Chargement en cours…"
+
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/server/privileges/users_overview.twig:177
+msgid "Save changes"
+msgstr "Enregistrer les modifications"
+
+#: resources/templates/database/routines/index.twig:90
+#, fuzzy
+#| msgid "Export of routine %s"
+msgid "Export routine"
+msgstr "Exporter la procédure %s"
+
+#: resources/templates/database/routines/index.twig:105
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Database/RoutinesController.php:361
+msgid "Execute routine"
+msgstr "Exécuter la procédure"
+
+#: resources/templates/database/routines/index.twig:115
 #: resources/templates/database/routines/row.twig:34
 #: resources/templates/database/routines/row.twig:44
 #: resources/templates/database/routines/row.twig:48
 msgid "Execute"
 msgstr "Exécuter"
+
+#: resources/templates/database/routines/parameter_row.twig:24
+#: resources/templates/modals/enum_set_editor.twig:5
+msgid "ENUM/SET editor"
+msgstr "Éditeur ENUM/SET"
 
 #: resources/templates/database/search/main.twig:2
 msgid "Search in database"
@@ -2621,7 +2663,7 @@ msgid "Replace table prefix"
 msgstr "Remplacer le préfixe de table"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Copy table with prefix"
 msgstr "Copier la table avec un préfixe"
 
@@ -2948,7 +2990,7 @@ msgstr "Fin"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Show all"
 msgstr "Tout afficher"
 
@@ -3010,7 +3052,7 @@ msgid "Hide browser transformation"
 msgstr "Masquer les transformations du navigateur"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Geometry"
 msgstr "Géométrie"
 
@@ -3025,7 +3067,7 @@ msgstr "Binaire bien connu"
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:495
 #: src/Display/Results.php:1806 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "Copier"
@@ -3036,7 +3078,7 @@ msgid "Query results operations"
 msgstr "Opérations sur les résultats de la requête"
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr "Copier dans le presse-papiers"
@@ -3540,16 +3582,6 @@ msgstr "Information"
 msgid "phpMyAdmin Themes"
 msgstr "Thèmes pour phpMyAdmin"
 
-#: resources/templates/home/index.twig:317
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:66
-#: resources/templates/table/structure/display_structure.twig:348
-#: src/Controllers/JavaScriptMessagesController.php:349
-msgid "Loading…"
-msgstr "Chargement en cours…"
-
 #: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "Obtenir d'autres thèmes !"
@@ -3566,7 +3598,7 @@ msgstr "Utiliser celui-ci"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:439
 #: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -3917,7 +3949,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr "Une erreur s'est produite lors du chargement du panneau de navigation"
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:599
 msgid "Drop files here"
 msgstr "Déposer des fichiers ici"
 
@@ -4675,6 +4707,7 @@ msgstr "Compte d'utilisateur"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
+#: src/Controllers/JavaScriptMessagesController.php:393
 #: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 msgid "Routine"
 msgstr "Procédure stockée"
@@ -5297,10 +5330,6 @@ msgid "Drop the databases that have the same names as the users."
 msgstr ""
 "Supprimer les bases de données portant le même nom que les utilisateurs."
 
-#: resources/templates/server/privileges/users_overview.twig:177
-msgid "Save changes"
-msgstr "Enregistrer les modifications"
-
 #: resources/templates/server/replication/change_primary.twig:7
 msgid "Replica configuration - Change or reconfigure primary server"
 msgstr "Configuration du réplica - Changer ou reconfigurer le serveur primaire"
@@ -5361,7 +5390,7 @@ msgid "Generate password:"
 msgstr "Générer un mot de passe :"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Generate"
 msgstr "Générer"
 
@@ -6345,7 +6374,7 @@ msgstr "Simuler la requête"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "Browse foreign values"
 msgstr "Parcourir les valeurs étrangères"
 
@@ -6575,8 +6604,8 @@ msgstr "Faire glisser pour réordonner"
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:492
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:645
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "Ignorer"
@@ -7035,7 +7064,7 @@ msgid "Column %s has been dropped."
 msgstr "La colonne %s a été supprimée."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:609
 msgid "More"
 msgstr "Plus"
 
@@ -8956,43 +8985,43 @@ msgid "Closed"
 msgstr "Fermé"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 msgctxt "Week day name"
 msgid "Monday"
 msgstr "Lundi"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 msgctxt "Week day name"
 msgid "Tuesday"
 msgstr "Mardi"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:751
 msgctxt "Week day name"
 msgid "Wednesday"
 msgstr "Mercredi"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:752
 msgctxt "Week day name"
 msgid "Thursday"
 msgstr "Jeudi"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:753
 msgctxt "Week day name"
 msgid "Friday"
 msgstr "Vendredi"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:754
 msgctxt "Week day name"
 msgid "Saturday"
 msgstr "Samedi"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 msgctxt "Week day name"
 msgid "Sunday"
 msgstr "Dimanche"
@@ -10994,7 +11023,7 @@ msgid "Navigation panel width"
 msgstr "Largeur du panneau de navigation"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:614
 #: src/Navigation/NavigationTree.php:1292
 msgid "Link with main panel"
 msgstr "Relier au panneau principal"
@@ -11557,7 +11586,7 @@ msgid "Missing data for %s"
 msgstr "Données manquantes pour %s"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:831
+#: src/Controllers/JavaScriptMessagesController.php:832
 msgid "Incorrect value!"
 msgstr "Valeur incorrecte !"
 
@@ -11878,22 +11907,22 @@ msgid "Incorrect IP address: %s"
 msgstr "Adresse IP incorrecte : %s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:830
+#: src/Controllers/JavaScriptMessagesController.php:831
 msgid "Not a valid port number!"
 msgstr "Numéro de port invalide !"
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:828
+#: src/Controllers/JavaScriptMessagesController.php:829
 msgid "Not a positive number!"
 msgstr "Nombre non positif !"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:829
+#: src/Controllers/JavaScriptMessagesController.php:830
 msgid "Not a non-negative number!"
 msgstr "Nombre non négatif !"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:832
+#: src/Controllers/JavaScriptMessagesController.php:833
 #, php-format
 msgid "Value must be less than or equal to %s!"
 msgstr "La valeur doit être égale ou plus petite que %s !"
@@ -11920,7 +11949,7 @@ msgstr ""
 "plus d'informations."
 
 #: src/Controllers/Console/Bookmark/AddController.php:39
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "Échec"
 
@@ -12167,11 +12196,6 @@ msgid "No routine with name %1$s found in database %2$s."
 msgstr ""
 "Aucune procédure portant le nom %1$s n'a été trouvée dans la base de données "
 "%2$s."
-
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Database/RoutinesController.php:361
-msgid "Execute routine"
-msgstr "Exécuter la procédure"
 
 #: src/Controllers/Database/RoutinesController.php:413
 #, php-format
@@ -13315,67 +13339,67 @@ msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 "Aucune routine n’est exportable. Des privilèges requis pourraient manquer."
 
-#: src/Controllers/JavaScriptMessagesController.php:395
+#: src/Controllers/JavaScriptMessagesController.php:396
 #, php-format
 msgid "Values for column %s"
 msgstr "Valeurs pour la colonne %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:396
+#: src/Controllers/JavaScriptMessagesController.php:397
 msgid "Values for a new column"
 msgstr "Valeurs pour une nouvelle colonne"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 msgid "Enter each value in a separate field."
 msgstr "Saisir chaque valeur dans un champ séparé."
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 #, php-format
 msgid "Add %d value(s)"
 msgstr "Ajouter %d valeur(s)"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr ""
 "NB : si le fichier contient plusieurs tables, elles seront combinées en une "
 "seule."
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Hide query box"
 msgstr "Masquer la zone SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid "Show query box"
 msgstr "Afficher la zone SQL"
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 msgid "Edit query"
 msgstr "Éditer la requête"
 
-#: src/Controllers/JavaScriptMessagesController.php:409
+#: src/Controllers/JavaScriptMessagesController.php:410
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d n'est pas un numéro de ligne valide."
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #, php-format
 msgid "Variable %d:"
 msgstr "Variable %d :"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
+#: src/Controllers/JavaScriptMessagesController.php:415
 #: src/Normalization.php:950
 msgid "Pick"
 msgstr "Choisir"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 msgid "Column selector"
 msgstr "Sélecteur de colonne"
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:417
 msgid "Search this list"
 msgstr "Chercher dans cette liste"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
@@ -13385,55 +13409,55 @@ msgstr ""
 "centrales pour la base de données %s comporte des colonnes qui ne sont pas "
 "présentes dans la table actuelle."
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:422
 msgid "See more"
 msgstr "Plus"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Add primary key"
 msgstr "Ajouter une clé primaire"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 msgid "Primary key added."
 msgstr "Une clé primaire a été ajoutée."
 
-#: src/Controllers/JavaScriptMessagesController.php:426
+#: src/Controllers/JavaScriptMessagesController.php:427
 #: src/Normalization.php:257
 msgid "Taking you to next step…"
 msgstr "Vers l'étape suivante…"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 "La première étape de la normalisation est terminée pour la table « %s »."
 
-#: src/Controllers/JavaScriptMessagesController.php:428
+#: src/Controllers/JavaScriptMessagesController.php:429
 #: src/Normalization.php:513 src/Normalization.php:572
 #: src/Normalization.php:659 src/Normalization.php:732
 msgid "End of step"
 msgstr "Fin de l'étape"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Second step of normalization (2NF)"
 msgstr "Deuxième étape de la normalisation (2FN)"
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:430
-#: src/Controllers/JavaScriptMessagesController.php:780
+#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:781
 #: src/Normalization.php:345
 msgid "Done"
 msgstr "Fermer"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Confirm partial dependencies"
 msgstr "Confirmer les dépendances partielles"
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Selected partial dependencies are as follows:"
 msgstr "Les dépendances partielles sélectionnées sont les suivantes :"
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
@@ -13441,21 +13465,21 @@ msgstr ""
 "NB : a, b -> d, f implique que les valeurs des colonnes a et b combinées "
 "peuvent déterminer les valeurs des colonnes d et f."
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 msgid "No partial dependencies selected!"
 msgstr "Aucune dépendance partielle sélectionnée !"
 
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:440
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 "Afficher les dépendances partielles possibles en se basant sur les données "
 "de la table"
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Hide partial dependencies list"
 msgstr "Masquer la liste des dépendances partielles"
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
@@ -13463,172 +13487,172 @@ msgstr ""
 "Patience ! Cela peut prendre quelques secondes selon la taille des données "
 "et le nombre de colonnes de la table."
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Step"
 msgstr "Étape"
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 msgid "The following actions will be performed:"
 msgstr "Les actions suivantes seront effectuées :"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:447
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr "Supprimer (DROP) les colonnes %s de la table %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 msgid "Create the following table"
 msgstr "Créer la table suivante"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Third step of normalization (3NF)"
 msgstr "Troisième étape de la normalisation (3FN)"
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Confirm transitive dependencies"
 msgstr "Confirmer les dépendances transitives"
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:453
 msgid "Selected dependencies are as follows:"
 msgstr "Les dépendances sélectionnées sont les suivantes :"
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 msgid "No dependencies selected!"
 msgstr "Aucune dépendance sélectionnée !"
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:455
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "Utiliser cette valeur"
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
 msgstr "Valeur pour la session"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Hide search criteria"
 msgstr "Masquer les critères de recherche"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Show search criteria"
 msgstr "Afficher les critères de recherche"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:464
 msgid "Column maximum:"
 msgstr "Maximum pour la colonne :"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:465
 msgid "Column minimum:"
 msgstr "Minimum pour la colonne :"
 
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 msgid "Hide find and replace criteria"
 msgstr "Masquer les critères de recherche et remplacement"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 msgid "Show find and replace criteria"
 msgstr "Afficher les critères de recherche et remplacement"
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Each point represents a data row."
 msgstr "Chaque point représente une ligne de données."
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Hovering over a point will show its label."
 msgstr "Survoler un point affichera son libellé."
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "Pour zoomer, sélectionner une section avec la souris."
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 "Cliquer le bouton « Réinitialiser le zoom » pour revenir à l'état d'origine."
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Click a data point to view and possibly edit the data row."
 msgstr ""
 "Cliquer sur un point pour visualiser et possiblement éditer la ligne de "
 "données."
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr ""
 "L'image peut être redimensionnée en faisant glisser le coin inférieur droit."
 
-#: src/Controllers/JavaScriptMessagesController.php:485
+#: src/Controllers/JavaScriptMessagesController.php:486
 msgid "Select two columns"
 msgstr "Sélectionner deux colonnes"
 
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:488
 msgid "Select two different columns"
 msgstr "Sélectionner deux colonnes différentes"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:490
 msgid "Data point content"
 msgstr "Données relatives à ce point"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "X"
 msgstr "X"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Y"
 msgstr "Y"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Point"
 msgstr "Point"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:499
 msgid "Linestring"
 msgstr "Ligne"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Polygon"
 msgstr "Polygone"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:502
 msgid "Inner ring"
 msgstr "Anneau intérieur"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:503
 msgid "Outer ring"
 msgstr "Anneau extérieur"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Add a point"
 msgstr "Ajouter un point"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:505
 msgid "Add a linestring"
 msgstr "Ajouter une ligne"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Add an inner ring"
 msgstr "Ajouter un anneau intérieur"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Add a polygon"
 msgstr "Ajouter un polygone"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:508
 msgid "Add geometry"
 msgstr "Ajouter une géométrie"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 msgid "Do you want to copy encryption key?"
 msgstr "Faut-il copier la clé de chiffrement ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Encryption key"
 msgstr "Clé de chiffrement"
 
-#: src/Controllers/JavaScriptMessagesController.php:513
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
@@ -13636,7 +13660,7 @@ msgstr ""
 "La fonction HEX va utiliser cet entier comme une chaîne de caractères lors "
 "du calcul de la valeur hexadécimale"
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
@@ -13644,7 +13668,7 @@ msgstr ""
 "MySQL accepte des valeurs non sélectionnables via le sélecteur ; saisir "
 "directement ces valeurs si besoin"
 
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
@@ -13652,7 +13676,7 @@ msgstr ""
 "MySQL accepte des valeurs non sélectionnables via le sélecteur de date ; "
 "saisir directement ces valeurs si besoin"
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
@@ -13660,19 +13684,19 @@ msgstr ""
 "Indique que des modifications ont été apportées à cette page ; une "
 "confirmation sera demandée avant d'abandonner ces modifications"
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid "Select referenced key"
 msgstr "Sélectionner la clé référencée"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Select Foreign Key"
 msgstr "Sélectionner la clé étrangère"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:538
 msgid "Please select the primary key or a unique key!"
 msgstr "Merci de sélectionner la clé primaire ou une clé unique !"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -13680,65 +13704,65 @@ msgstr ""
 "Les modifications de la disposition n'ont pas été enregistrées. Elles seront "
 "perdues si elles ne sont pas enregistrées. Faut-il vraiment continuer ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "value/subQuery is empty"
 msgstr "value/subQuery est vide"
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 msgid "Page name"
 msgstr "Nom de la page"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:550
 msgid "Delete page"
 msgstr "Supprimer la page"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 "Certaines tables sauvegardées dans cette page ont pu être renommées ou "
 "supprimées."
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 msgid "Please select a page to continue"
 msgstr "Merci de sélectionner une page pour continuer"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 msgid "Please enter a valid page name"
 msgstr "Merci de saisir un nom de page valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Do you want to save the changes to the current page?"
 msgstr "Faut-il enregistrer les modifications dans la page en cours ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Successfully deleted the page"
 msgstr "La page a été correctement supprimée"
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:558
 msgid "Export relational schema"
 msgstr "Exporter un schéma relationnel"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Modifications have been saved"
 msgstr "Les modifications ont été enregistrées"
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 #, php-format
 msgid "%d object(s) created."
 msgstr "%d objet(s) créé(s)."
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:563
 msgid "Column name"
 msgstr "Nom de colonne"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:567
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr ""
 "Appuyer sur la touche d'échappement pour annuler l'édition.<br>- Maj+Entrée "
 "pour une nouvelle ligne."
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -13746,15 +13770,15 @@ msgstr ""
 "Des données modifiées n'ont pas encore été sauvées. Faut-il vraiment quitter "
 "cette page avant de les enregistrer ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 msgid "Drag to reorder."
 msgstr "Faire glisser pour réordonner."
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Click to sort results by this column."
 msgstr "Cliquer pour trier les résultats sur cette colonne."
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
@@ -13764,21 +13788,21 @@ msgstr ""
 "ASC/DESC.<br>- Ctrl+Clic ou Alt+Clic (sur Mac : Maj+Option+Clic) pour "
 "enlever la colonne de la clause ORDER BY"
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:579
 msgid "Click to mark/unmark."
 msgstr "Cliquer pour marquer/retirer les marques."
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:580
 msgid "Double-click to copy column name."
 msgstr "Double-cliquer pour copier le nom de la colonne."
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:581
 #, fuzzy
 #| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "Cliquer sur la flèche<br>pour afficher/masquer la colonne."
 
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -13787,13 +13811,13 @@ msgstr ""
 "cases à cocher ainsi que les liens Éditer, Copier et Supprimer pourraient ne "
 "plus fonctionner après l'enregistrement."
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 "Merci de saisir une chaîne en hexadécimal valide. Les caractères possibles "
 "sont 0-9, A-F."
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
@@ -13801,53 +13825,53 @@ msgstr ""
 "Faut-il vraiment afficher toutes les lignes ? Pour une grande table, cela "
 "pourrait faire planter le navigateur."
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:591
 msgid "Original length"
 msgstr "Longueur d'origine"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:594
 msgid "cancel"
 msgstr "annuler"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:595
 #: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "Abandonnée(s)"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Success"
 msgstr "Succès"
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 msgid "Import status"
 msgstr "État de l'importation"
 
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:600
 msgid "Select database first"
 msgstr "Sélectionner d'abord une base de données"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 msgid "Go to link:"
 msgstr "Suivre le lien :"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Generate password"
 msgstr "Générer un mot de passe"
 
-#: src/Controllers/JavaScriptMessagesController.php:611
+#: src/Controllers/JavaScriptMessagesController.php:612
 msgid "Show panel"
 msgstr "Afficher le panneau"
 
-#: src/Controllers/JavaScriptMessagesController.php:612
+#: src/Controllers/JavaScriptMessagesController.php:613
 msgid "Hide panel"
 msgstr "Masquer le panneau"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:615
 #: src/Navigation/NavigationTree.php:1295
 msgid "Unlink from main panel"
 msgstr "Supprimer la liaison au panneau principal"
 
-#: src/Controllers/JavaScriptMessagesController.php:618 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:619 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -13857,19 +13881,19 @@ msgstr ""
 "une mise à niveau. La version la plus récente est %s, publiée le %s."
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:622
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid ", latest stable version:"
 msgstr ", dernière version stable :"
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid "up to date"
 msgstr "à jour"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "There was an error in loading the Git information."
 msgstr "Erreur lors du chargement des informations Git."
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:628
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
@@ -13877,15 +13901,15 @@ msgstr ""
 "Une erreur JavaScript fatale s'est produite. Faut-il envoyer un rapport "
 "d'erreurs ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:628
+#: src/Controllers/JavaScriptMessagesController.php:629
 msgid "Change report settings"
 msgstr "Modifier les paramètres de rapport"
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:630
 msgid "Show report details"
 msgstr "Afficher les détails du rapport"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:631
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
@@ -13893,7 +13917,7 @@ msgstr ""
 "L'exportation est incomplète en raison d'une limite de temps d'exécution "
 "trop basse au niveau PHP !"
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:634
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
@@ -13903,75 +13927,75 @@ msgstr ""
 "l'envoi, certains des champs pourraient être ignorés, en raison de la "
 "configuration max_input_vars de PHP."
 
-#: src/Controllers/JavaScriptMessagesController.php:639
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Some errors have been detected on the server!"
 msgstr "Des erreurs ont été détectées sur le serveur !"
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:642
 msgid "Please look at the bottom of this window."
 msgstr "Merci de regarder au bas de cette fenêtre."
 
-#: src/Controllers/JavaScriptMessagesController.php:647
+#: src/Controllers/JavaScriptMessagesController.php:648
 #: src/Error/ErrorHandler.php:431
 msgid "Ignore All"
 msgstr "Ignorer tout"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 "Selon les paramètres, ils sont actuellement soumis, merci de patienter."
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name successfully copied to clipboard!"
 msgstr "Le nom de la colonne a été copié avec succès dans le presse-papiers !"
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Column name copying to clipboard failed!"
 msgstr "Échec de la copie du nom de colonne dans le presse-papiers !"
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Successfully copied!"
 msgstr "Copie réussie !"
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 msgid "Copying failed!"
 msgstr "Échec de la copie !"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:665
 msgid "Execute this query again?"
 msgstr "Faut-il exécuter à nouveau cette requête ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:666
 msgid "Do you really want to delete this bookmark?"
 msgstr "Faut-il vraiment supprimer ce signet ?"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
+#: src/Controllers/JavaScriptMessagesController.php:667
 msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 "Une erreur s'est produite lors de l'obtention des informations de débogage "
 "SQL."
 
-#: src/Controllers/JavaScriptMessagesController.php:667
+#: src/Controllers/JavaScriptMessagesController.php:668
 #, php-format
 msgid "%s queries executed %s times in %s seconds."
 msgstr "%s requêtes exécutées %s fois en %s secondes."
 
-#: src/Controllers/JavaScriptMessagesController.php:668
+#: src/Controllers/JavaScriptMessagesController.php:669
 #, php-format
 msgid "%s argument(s) passed"
 msgstr "%s arguments passés"
 
-#: src/Controllers/JavaScriptMessagesController.php:669
+#: src/Controllers/JavaScriptMessagesController.php:670
 msgid "Show arguments"
 msgstr "Montrer les arguments"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:671
 msgid "Hide arguments"
 msgstr "Masquer les arguments"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -13987,75 +14011,75 @@ msgstr ""
 "Dans Safari, ce problème est habituellement causé par l'utilisation de la « "
 "Navigation en mode privé »."
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 msgid "Copy tables to"
 msgstr "Copier les tables vers"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:682
 msgid "Add table prefix"
 msgstr "Ajouter un préfixe de table"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:683
 msgid "Replace table with prefix"
 msgstr "Remplacer la table ayant le préfixe"
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Extremely weak"
 msgstr "Extrêmement faible"
 
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Very weak"
 msgstr "Très faible"
 
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Weak"
 msgstr "Faible"
 
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Good"
 msgstr "Bon"
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 msgid "Strong"
 msgstr "Fort"
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:694
+#: src/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr "Délai d'attente pour l'activation de la clé de sécurité dépassé."
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr "Requête invalide envoyée à la clé de sécurité."
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:699
 msgctxt "U2F error"
 msgid "Unknown security key error."
 msgstr "Erreur inconnue de la clé de sécurité."
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr "Le client ne prend pas en charge la clé de sécurité."
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:703
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr "Échec de l'activation de la clé de sécurité."
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:705
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "Clé de sécurité invalide."
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
@@ -14063,7 +14087,7 @@ msgstr ""
 "WebAuthn n'est pas disponible. Veuillez utiliser un navigateur supporté dans "
 "un contexte sécurisé (HTTPS)."
 
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:713
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
@@ -14073,354 +14097,354 @@ msgstr ""
 "IndexedDB ne fonctionne pas dans votre navigateur et votre stockage de "
 "configuration phpMyAdmin n'est pas configuré pour cela."
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, php-format
 msgctxt ""
 "The table already exists in the designer and can not be added once more."
 msgid "Table %s already exists!"
 msgstr "La table %s existe déjà !"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:242
+#: src/Controllers/JavaScriptMessagesController.php:720 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "Masquer"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:724
 msgctxt "Month name"
 msgid "January"
 msgstr "Janvier"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 msgctxt "Month name"
 msgid "February"
 msgstr "Février"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 msgctxt "Month name"
 msgid "March"
 msgstr "Mars"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 msgctxt "Month name"
 msgid "April"
 msgstr "Avril"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 msgctxt "Month name"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 msgctxt "Month name"
 msgid "June"
 msgstr "Juin"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 msgctxt "Month name"
 msgid "July"
 msgstr "Juillet"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 msgctxt "Month name"
 msgid "August"
 msgstr "Août"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:732
 msgctxt "Month name"
 msgid "September"
 msgstr "Septembre"
 
-#: src/Controllers/JavaScriptMessagesController.php:732
+#: src/Controllers/JavaScriptMessagesController.php:733
 msgctxt "Month name"
 msgid "October"
 msgstr "Octobre"
 
-#: src/Controllers/JavaScriptMessagesController.php:733
+#: src/Controllers/JavaScriptMessagesController.php:734
 msgctxt "Month name"
 msgid "November"
 msgstr "Novembre"
 
-#: src/Controllers/JavaScriptMessagesController.php:734
+#: src/Controllers/JavaScriptMessagesController.php:735
 msgctxt "Month name"
 msgid "December"
 msgstr "Décembre"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "Jan."
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "Fév."
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "mars"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "Avr."
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "Mai"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "Juin"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "Juil."
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "Août"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "Sep."
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "Oct."
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "Nov."
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:509
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "Déc."
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "dim."
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "Lun."
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "Mar."
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "mer."
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "Jeu."
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "Ven."
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:518
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "Sam."
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "Di"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:763
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "Lu"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "Ma"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:765
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "Me"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:766
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "Je"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "Ve"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "Sa"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 msgctxt "Column header for week of the year in calendar"
 msgid "Wk"
 msgstr "Sem"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "aucun(e)"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "Temps"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "Heure"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "Minute"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "Seconde"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:777
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "Milliseconde"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:778
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "Microseconde"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:779
 msgctxt "The time zone for a time of day"
 msgid "Time zone"
 msgstr "Fuseau horaire"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 msgctxt "Previous month"
 msgid "Prev"
 msgstr "Précédent"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgctxt "Next month"
 msgid "Next"
 msgstr "Suivant"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Today"
 msgstr "Aujourd'hui"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "This field is required"
 msgstr "Ce champ est obligatoire"
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:791
 msgid "Please fix this field"
 msgstr "Merci de corriger ce champ"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:792
 msgid "Please enter a valid email address"
 msgstr "Merci de saisir une adresse de courriel valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:793
 msgid "Please enter a valid URL"
 msgstr "Merci de saisir une URL valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 msgid "Please enter a valid date"
 msgstr "Merci de saisir une date valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:795
 msgid "Please enter a valid date ( ISO )"
 msgstr "Merci de saisir une date valide (ISO)"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 msgid "Please enter a valid number"
 msgstr "Merci de saisir un nombre valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 msgid "Please enter a valid credit card number"
 msgstr "Merci de saisir un numéro de carte de crédit valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 msgid "Please enter only digits"
 msgstr "Merci de saisir uniquement des chiffres"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 msgid "Please enter the same value again"
 msgstr "Merci de saisir la même valeur à nouveau"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter no more than {0} characters"
 msgstr "Merci de saisir au maximum {0} caractères"
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 msgid "Please enter at least {0} characters"
 msgstr "Merci de saisir au moins {0} caractères"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr "Merci de saisir une valeur d'une longueur entre {0} et {1} caractères"
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 msgid "Please enter a value between {0} and {1}"
 msgstr "Merci de saisir une valeur entre {0} et {1}"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:804
 msgid "Please enter a value less than or equal to {0}"
 msgstr "Merci de saisir une valeur inférieure ou égale à {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:805
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "Merci de saisir une valeur supérieure ou égale à {0}"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:806
 msgid "Please enter a valid date or time"
 msgstr "Merci de saisir une date ou une heure valide"
 
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:807
 msgid "Please enter a valid HEX input"
 msgstr "Veuillez saisir une valeur hexadécimale valide"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:809
 msgid "This column can not contain a 32 chars value"
 msgstr "Cette colonne ne peut pas contenir une valeur de 32 caractères"
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:812
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
@@ -14429,39 +14453,39 @@ msgstr ""
 "des résultats incohérents, vous devez le stocker dans une colonne BINARY, "
 "VARBINARY ou BLOB."
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 "Le fichier téléchargé est probablement plus grand que le maximum alloué."
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:819
 #, php-format
 msgid "%s of %s"
 msgstr "%s sur %s"
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:820
 #, php-format
 msgid "%s/sec."
 msgstr "%s/seconde."
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:821
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr "Il reste environ %MIN min et %SEC s."
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "About %SEC sec. remaining."
 msgstr "Il reste environ %SEC s."
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "The file is being processed, please be patient."
 msgstr "Le fichier est en cours de traitement, merci de patienter."
 
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:824
 msgid "Uploading your import file…"
 msgstr "Envoi du fichier d'importation en cours…"
 
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:826
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -14484,7 +14508,7 @@ msgid "No such column"
 msgstr "Aucune colonne"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:645
 msgctxt "string types"
 msgid "String"
 msgstr "Chaîne de caractères"
@@ -18699,14 +18723,26 @@ msgstr "Il faut fournir un nom de table valide !"
 msgid "You must provide a trigger definition."
 msgstr "Il faut fournir une définition pour le déclencheur."
 
-#: src/Types.php:146
+#: src/Types.php:97
+#, fuzzy
+#| msgid "Empty"
+msgid "empty"
+msgstr "Vider"
+
+#: src/Types.php:98
+#, fuzzy
+#| msgid "not present"
+msgid "not empty"
+msgstr "non présent"
+
+#: src/Types.php:161
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 "Un nombre entier de 1 octet. La fourchette des nombres avec signe est de "
 "-128 à 127. Pour les nombres sans signe, c'est de 0 à 255"
 
-#: src/Types.php:147
+#: src/Types.php:162
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
@@ -18714,7 +18750,7 @@ msgstr ""
 "Un nombre entier de 2 octets. La fourchette des nombres avec signe est de "
 "-32 768 à 32 767. Pour les nombres sans signe, c'est de 0 à 65 535"
 
-#: src/Types.php:149
+#: src/Types.php:164
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
@@ -18722,7 +18758,7 @@ msgstr ""
 "Un nombre entier de 3 octets. La fourchette des nombres avec signe est de -8 "
 "388 608 à 8 388 607. Pour les nombres sans signe, c'est de 0 à 16 777 215"
 
-#: src/Types.php:152
+#: src/Types.php:167
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
@@ -18731,7 +18767,7 @@ msgstr ""
 "147 483 648 à 2 147 483 647. Pour les entiers positifs, c'est de 0 à 4 294 "
 "967 295"
 
-#: src/Types.php:157
+#: src/Types.php:172
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
@@ -18740,7 +18776,7 @@ msgstr ""
 "223 372 036 854 775 808 à 9 223 372 036 854 775 807. Pour les nombres sans "
 "signe, c'est de 0 à 18 446 744 073 709 551 615"
 
-#: src/Types.php:162
+#: src/Types.php:177
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
@@ -18749,7 +18785,7 @@ msgstr ""
 "65 (10 par défaut), le nombre maximum de décimales (D) est de 30 (0 par "
 "défaut)"
 
-#: src/Types.php:167
+#: src/Types.php:182
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
@@ -18757,7 +18793,7 @@ msgstr ""
 "Un petit nombre en virgule flottante. La fourchette des valeurs est "
 "-3.402823466E+38 à -1.175494351E-38, 0, et 1.175494351E-38 à 3.402823466E+38"
 
-#: src/Types.php:172
+#: src/Types.php:187
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
@@ -18767,7 +18803,7 @@ msgstr ""
 "est -1.7976931348623157E+308 à -2.2250738585072014E-308, 0, et "
 "2.2250738585072014E-308 à 1.7976931348623157E+308"
 
-#: src/Types.php:176
+#: src/Types.php:191
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
@@ -18775,7 +18811,7 @@ msgstr ""
 "Synonyme de DOUBLE (exception : dans le mode SQL REAL_AS_FLOAT, c'est un "
 "synonyme de FLOAT)"
 
-#: src/Types.php:177
+#: src/Types.php:192
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
@@ -18783,7 +18819,7 @@ msgstr ""
 "Une colonne contenant des bits (M), stockant M bits par valeur (1 par "
 "défaut, maximum 64)"
 
-#: src/Types.php:179
+#: src/Types.php:194
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
@@ -18791,22 +18827,22 @@ msgstr ""
 "Un synonyme de TINYINT(1), une valeur de zéro signifie faux, une valeur non-"
 "zéro signifie vrai"
 
-#: src/Types.php:181
+#: src/Types.php:196
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr "Un alias pour BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 
-#: src/Types.php:183
+#: src/Types.php:198
 #, php-format
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "Une date, la fourchette est de «%1$s» à «%2$s»"
 
-#: src/Types.php:188
+#: src/Types.php:203
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 "Une combinaison date et heure, la fourchette est de « %1$s » à « %2$s »"
 
-#: src/Types.php:193
+#: src/Types.php:208
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
@@ -18815,12 +18851,12 @@ msgstr ""
 "2038-01-09 03:14:07 UTC, en nombre de secondes depuis le moment de référence "
 "(1970-01-01 00:00:00 UTC)"
 
-#: src/Types.php:198
+#: src/Types.php:213
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Une heure, la fourchette est de %1$s à %2$s"
 
-#: src/Types.php:203
+#: src/Types.php:218
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18828,7 +18864,7 @@ msgstr ""
 "Une année à quatre chiffres (4 par défaut) ou à deux chiffres (2), la "
 "fourchette est de 70 (1970) à 69 (2069) ou 1901 à 2155 ainsi que 0000"
 
-#: src/Types.php:208
+#: src/Types.php:223
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18836,7 +18872,7 @@ msgstr ""
 "Une chaîne de longueur fixe (0-255, 1 par défaut) qui est toujours complétée "
 "à droite par des espaces lorsqu'enregistrée"
 
-#: src/Types.php:213
+#: src/Types.php:228
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18845,7 +18881,7 @@ msgstr ""
 "Une chaîne de longueur variable (%s), la longueur effective réelle dépend de "
 "la taille maximale d'une ligne"
 
-#: src/Types.php:218
+#: src/Types.php:233
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18854,7 +18890,7 @@ msgstr ""
 "caractères, stockée avec un préfixe d'un octet indiquant la longueur de la "
 "valeur en octets"
 
-#: src/Types.php:223
+#: src/Types.php:238
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18863,7 +18899,7 @@ msgstr ""
 "stockée avec un préfixe de deux octets indiquant la longueur de la valeur en "
 "octets"
 
-#: src/Types.php:228
+#: src/Types.php:243
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18872,7 +18908,7 @@ msgstr ""
 "caractères, stockée avec un préfixe de trois octets indiquant la longueur de "
 "la valeur en octets"
 
-#: src/Types.php:233
+#: src/Types.php:248
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18882,7 +18918,7 @@ msgstr ""
 "1) caractères, stockée avec un préfixe de quatre octets indiquant la "
 "longueur de la valeur en octets"
 
-#: src/Types.php:238
+#: src/Types.php:253
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18890,7 +18926,7 @@ msgstr ""
 "Similaire au type CHAR, mais stocke des chaînes binaires au lieu de chaînes "
 "non binaires"
 
-#: src/Types.php:241
+#: src/Types.php:256
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18898,7 +18934,7 @@ msgstr ""
 "Similaire au type VARCHAR, mais stocke des chaînes binaires au lieu de "
 "chaînes non binaires"
 
-#: src/Types.php:245
+#: src/Types.php:260
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18906,7 +18942,7 @@ msgstr ""
 "Une colonne BLOB d'une longueur maximale de 255 (2^8 - 1) octets, stockée "
 "avec un préfixe d'un octet indiquant la longueur de la valeur"
 
-#: src/Types.php:249
+#: src/Types.php:264
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18914,7 +18950,7 @@ msgstr ""
 "Une colonne BLOB d'une longueur maximale de 16 777 215 (2^24 - 1) octets, "
 "stockée avec un préfixe de trois octets indiquant la longueur de la valeur"
 
-#: src/Types.php:254
+#: src/Types.php:269
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18922,7 +18958,7 @@ msgstr ""
 "Une colonne BLOB d'une longueur maximale de 65 535 (2^16 - 1) octets, "
 "stockée avec un préfixe de quatre octets indiquant la longueur de la valeur"
 
-#: src/Types.php:258
+#: src/Types.php:273
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18931,7 +18967,7 @@ msgstr ""
 "1), stockée avec un préfixe de quatre octets indiquant la longueur de la "
 "valeur"
 
-#: src/Types.php:262
+#: src/Types.php:277
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18939,44 +18975,44 @@ msgstr ""
 "Une énumération, choisie parmi une liste comportant jusqu'à 65 535 valeurs "
 "ou la valeur spéciale '' indiquant une erreur"
 
-#: src/Types.php:263
+#: src/Types.php:278
 msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
 "Une valeur unique choisie parmi un ensemble comportant jusqu'à 64 membres"
 
-#: src/Types.php:264
+#: src/Types.php:279
 msgid "A type that can store a geometry of any type"
 msgstr "Un type pouvant stocker une valeur géométrique de tout type"
 
-#: src/Types.php:265
+#: src/Types.php:280
 msgid "A point in 2-dimensional space"
 msgstr "Un point dans un espace à deux dimensions"
 
-#: src/Types.php:266
+#: src/Types.php:281
 msgid "A curve with linear interpolation between points"
 msgstr "Une courbe avec interpolation linéaire entre les points"
 
-#: src/Types.php:267
+#: src/Types.php:282
 msgid "A polygon"
 msgstr "Un polygone"
 
-#: src/Types.php:268
+#: src/Types.php:283
 msgid "A collection of points"
 msgstr "Une collection de points"
 
-#: src/Types.php:269
+#: src/Types.php:284
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Une collection de courbes avec interpolation linéaire entre les points"
 
-#: src/Types.php:270
+#: src/Types.php:285
 msgid "A collection of polygons"
 msgstr "Une collection de polygones"
 
-#: src/Types.php:271
+#: src/Types.php:286
 msgid "A collection of geometry objects of any type"
 msgstr "Une collection d'objets de géométrie de tout type"
 
-#: src/Types.php:272
+#: src/Types.php:287
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18984,7 +19020,7 @@ msgstr ""
 "Stocke et permet un accès efficace aux données dans les documents JSON "
 "(JavaScript Object Notation)"
 
-#: src/Types.php:273
+#: src/Types.php:288
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18992,21 +19028,21 @@ msgstr ""
 "Destiné au stockage des adresses IPv6, ainsi que des adresses IPv4 en "
 "supposant un mappage conventionnel des adresses IPv4 en adresses IPv6"
 
-#: src/Types.php:276
+#: src/Types.php:291
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "UUID 128-bits (identificateur universellement unique)"
 
-#: src/Types.php:584
+#: src/Types.php:599
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numérique"
 
-#: src/Types.php:602
+#: src/Types.php:617
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Date et l'heure"
 
-#: src/Types.php:632
+#: src/Types.php:647
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spatial"
@@ -21129,9 +21165,6 @@ msgstr "Aucun fichier présent dans l'archive Zip !"
 
 #~ msgid "Data Synchronization"
 #~ msgstr "Synchronisation des données"
-
-#~ msgid "not present"
-#~ msgstr "non présent"
 
 #~ msgid "Structure Difference"
 #~ msgstr "Différence dans la structure"
