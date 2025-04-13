@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-13 00:52+0000\n"
-"PO-Revision-Date: 2025-03-16 19:15+0000\n"
+"PO-Revision-Date: 2025-04-14 12:33+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -2414,10 +2414,8 @@ msgid "Returns"
 msgstr "Повернення"
 
 #: resources/templates/database/routines/index.twig:70
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Назва порядку"
+msgstr "Рутинний редактор"
 
 #: resources/templates/database/routines/index.twig:75
 #: resources/templates/database/routines/index.twig:110
@@ -2437,10 +2435,8 @@ msgid "Save changes"
 msgstr "Зберегти зміни"
 
 #: resources/templates/database/routines/index.twig:90
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Експортувати порядок %s"
+msgstr "Експорт процедури"
 
 #: resources/templates/database/routines/index.twig:105
 #: src/Controllers/Database/RoutinesController.php:351
@@ -18488,14 +18484,12 @@ msgid "You must provide a trigger definition."
 msgstr "Ви маєте вказати визначення тригеру."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Очистити"
+msgstr "порожньо"
 
 #: src/Types.php:98
 msgid "not empty"
-msgstr ""
+msgstr "не порожньо"
 
 #: src/Types.php:161
 msgid ""
