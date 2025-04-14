@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin-docs 4.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-13 00:52+0000\n"
-"PO-Revision-Date: 2025-03-09 23:10+0000\n"
+"PO-Revision-Date: 2025-04-15 07:10+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "de/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2075,10 +2075,8 @@ msgid "Update query"
 msgstr "Abfrage aktualisieren"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Abfrage aktualisieren"
+msgstr "Abfrage kopieren"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2414,10 +2412,8 @@ msgid "Returns"
 msgstr "Rückgabe-Wert"
 
 #: resources/templates/database/routines/index.twig:70
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Prozeduren-Name"
+msgstr "Routinen-Editor"
 
 #: resources/templates/database/routines/index.twig:75
 #: resources/templates/database/routines/index.twig:110
@@ -2437,10 +2433,8 @@ msgid "Save changes"
 msgstr "Änderungen speichern"
 
 #: resources/templates/database/routines/index.twig:90
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Exportieren der Prozedur %s"
+msgstr "Routine exportieren"
 
 #: resources/templates/database/routines/index.twig:105
 #: src/Controllers/Database/RoutinesController.php:351
@@ -18750,16 +18744,12 @@ msgid "You must provide a trigger definition."
 msgstr "Sie müssen die Definition des Triggers angeben."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Leeren"
+msgstr "leer"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "nicht vorhanden"
+msgstr "nicht leer"
 
 #: src/Types.php:161
 msgid ""
