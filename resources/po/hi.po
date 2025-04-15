@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-03-30 00:27+0000\n"
+"POT-Creation-Date: 2025-04-13 00:52+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Hindi <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -298,7 +298,7 @@ msgstr "काँलम जोड़ना"
 #: resources/templates/view_create.twig:123 src/BrowseForeigners.php:180
 #: src/Controllers/JavaScriptMessagesController.php:341
 #: src/Controllers/Server/PrivilegesController.php:303
-#: src/Normalization.php:230 src/Tracking/Tracking.php:287
+#: src/Normalization.php:231 src/Tracking/Tracking.php:287
 #: src/Tracking/Tracking.php:402
 msgid "Go"
 msgstr "जाएँ"
@@ -370,7 +370,7 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:142
 #: resources/templates/table/structure/partition_definition_form.twig:13
 #: resources/templates/table/zoom_search/result_form.twig:79
-#: src/Controllers/JavaScriptMessagesController.php:458
+#: src/Controllers/JavaScriptMessagesController.php:459
 msgid "Save"
 msgstr "सुरक्षित करें"
 
@@ -401,6 +401,12 @@ msgstr "लोड हो रहा है…"
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
+#: resources/templates/database/routines/index.twig:71
+#: resources/templates/database/routines/index.twig:79
+#: resources/templates/database/routines/index.twig:91
+#: resources/templates/database/routines/index.twig:95
+#: resources/templates/database/routines/index.twig:106
+#: resources/templates/database/routines/index.twig:114
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
@@ -618,7 +624,7 @@ msgstr "यूसर"
 #: src/Config/Forms/User/ExportForm.php:53
 #: src/Config/Forms/User/ExportForm.php:98
 #: src/Config/Forms/User/ExportForm.php:126
-#: src/Controllers/JavaScriptMessagesController.php:721
+#: src/Controllers/JavaScriptMessagesController.php:722
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
@@ -945,11 +951,11 @@ msgstr "अक्षम"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
 #: src/Controllers/Database/Structure/EmptyTableController.php:48
-#: src/Controllers/JavaScriptMessagesController.php:508
+#: src/Controllers/JavaScriptMessagesController.php:509
 #: src/Controllers/Table/DeleteRowsController.php:52
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
-#: src/IndexColumn.php:148 src/Index.php:471
+#: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
 #: src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
@@ -984,9 +990,9 @@ msgstr "हाँ"
 #: resources/templates/table/tracking/structure_snapshot_columns.twig:33
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
-#: src/Controllers/JavaScriptMessagesController.php:373 src/IndexColumn.php:145
-#: src/Index.php:445 src/Index.php:471
-#: src/Plugins/Export/ExportHtmlword.php:562
+#: src/Controllers/JavaScriptMessagesController.php:373
+#: src/Indexes/IndexColumn.php:145 src/Indexes/Index.php:446
+#: src/Indexes/Index.php:472 src/Plugins/Export/ExportHtmlword.php:562
 #: src/Plugins/Export/ExportLatex.php:567 src/Plugins/Export/ExportOdt.php:685
 #: src/Plugins/Export/ExportTexytext.php:522
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:669
@@ -1054,7 +1060,7 @@ msgstr "उप-क्वरी"
 #: resources/templates/triggers/row.twig:28
 #: resources/templates/triggers/row.twig:31 src/Config/Descriptions.php:926
 #: src/ConfigStorage/UserGroups.php:112
-#: src/Controllers/JavaScriptMessagesController.php:406
+#: src/Controllers/JavaScriptMessagesController.php:407
 #: src/Display/Results.php:1805 src/Html/Generator.php:520
 #: src/Html/Generator.php:788
 msgid "Edit"
@@ -1073,7 +1079,7 @@ msgstr "सम्पादन"
 #: resources/templates/server/user_groups/user_groups.twig:56
 #: resources/templates/setup/home/index.twig:69
 #: resources/templates/sql/query.twig:189
-#: src/Controllers/JavaScriptMessagesController.php:408
+#: src/Controllers/JavaScriptMessagesController.php:409
 #: src/Display/Results.php:2428 src/Tracking/Tracking.php:224
 msgid "Delete"
 msgstr "मिटाएँ"
@@ -1280,7 +1286,7 @@ msgid "Count:"
 msgstr "स्तम्भ"
 
 #: resources/templates/console/display.twig:121
-#: src/Controllers/JavaScriptMessagesController.php:671
+#: src/Controllers/JavaScriptMessagesController.php:672
 msgid "Time taken:"
 msgstr ""
 
@@ -1632,7 +1638,7 @@ msgid "Page to delete"
 msgstr "रिश्ते को नष्ट कर दिया"
 
 #: resources/templates/database/designer/main.twig:10
-#: src/Controllers/JavaScriptMessagesController.php:552
+#: src/Controllers/JavaScriptMessagesController.php:553
 #, fuzzy
 #| msgid "Unit"
 msgid "Untitled"
@@ -1657,7 +1663,7 @@ msgstr ""
 
 #: resources/templates/database/designer/main.twig:40
 #: resources/templates/database/designer/main.twig:43
-#: src/Controllers/JavaScriptMessagesController.php:544
+#: src/Controllers/JavaScriptMessagesController.php:545
 #, fuzzy
 #| msgid "No tables found in database."
 msgid "Add tables from other databases"
@@ -1672,7 +1678,7 @@ msgstr "नया नेम"
 
 #: resources/templates/database/designer/main.twig:56
 #: resources/templates/database/designer/main.twig:59
-#: src/Controllers/JavaScriptMessagesController.php:548
+#: src/Controllers/JavaScriptMessagesController.php:549
 #, fuzzy
 #| msgid "Free pages"
 msgid "Open page"
@@ -1680,7 +1686,7 @@ msgstr "मुक्त पृष्ठों"
 
 #: resources/templates/database/designer/main.twig:63
 #: resources/templates/database/designer/main.twig:66
-#: src/Controllers/JavaScriptMessagesController.php:546
+#: src/Controllers/JavaScriptMessagesController.php:547
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Save page"
@@ -1688,7 +1694,7 @@ msgstr "पेज चुनिये"
 
 #: resources/templates/database/designer/main.twig:70
 #: resources/templates/database/designer/main.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:547
+#: src/Controllers/JavaScriptMessagesController.php:548
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Save page as"
@@ -1717,7 +1723,7 @@ msgstr "संबंध बनायें"
 
 #: resources/templates/database/designer/main.twig:98
 #: resources/templates/database/designer/main.twig:101
-#: src/Controllers/JavaScriptMessagesController.php:538
+#: src/Controllers/JavaScriptMessagesController.php:539
 msgid "Choose column to display"
 msgstr "प्रदर्शित करने के लिए काँलम चुनें"
 
@@ -1891,7 +1897,7 @@ msgstr "सक्रिय विकल्प"
 
 #: resources/templates/database/designer/main.twig:1138
 #: resources/templates/sql/query.twig:181
-#: src/Controllers/JavaScriptMessagesController.php:563
+#: src/Controllers/JavaScriptMessagesController.php:564
 msgid "Submit"
 msgstr "सबमिट"
 
@@ -2238,7 +2244,7 @@ msgstr "दो कॉलम चुने"
 #: resources/templates/database/multi_table_query/form.twig:38
 #: resources/templates/database/tracking/tables.twig:19
 #: resources/templates/table/tracking/main.twig:33
-#: src/Controllers/JavaScriptMessagesController.php:720
+#: src/Controllers/JavaScriptMessagesController.php:721
 #: src/Controllers/Table/ChangeController.php:213
 msgid "Show"
 msgstr "दिखाओ"
@@ -2720,15 +2726,53 @@ msgstr "अपलोड करने के लिए फाइल उपलब�
 msgid "Returns"
 msgstr "रिटर्न प्रकार"
 
-#: resources/templates/database/routines/parameter_row.twig:24
-#: resources/templates/modals/enum_set_editor.twig:5
-msgid "ENUM/SET editor"
+#: resources/templates/database/routines/index.twig:70
+#, fuzzy
+#| msgid "Routines"
+msgid "Routine editor"
+msgstr "नियमित कार्य"
+
+#: resources/templates/database/routines/index.twig:75
+#: resources/templates/database/routines/index.twig:110
+#: resources/templates/home/index.twig:317
+#: resources/templates/modals/index_dialog_modal.twig:26
+#: resources/templates/navigation/main.twig:58
+#: resources/templates/server/privileges/users_overview.twig:172
+#: resources/templates/server/status/monitor/index.twig:66
+#: resources/templates/table/structure/display_structure.twig:348
+#: src/Controllers/JavaScriptMessagesController.php:349
+msgid "Loading…"
+msgstr "लोड हो रहा है…"
+
+#: resources/templates/database/routines/index.twig:80
+#: resources/templates/server/privileges/users_overview.twig:177
+#, fuzzy
+#| msgid "Select Tables"
+msgid "Save changes"
+msgstr "पेज चुनिये"
+
+#: resources/templates/database/routines/index.twig:90
+#, fuzzy
+#| msgid "Export defaults"
+msgid "Export routine"
+msgstr "निर्यात डिफ़ॉल्ट"
+
+#: resources/templates/database/routines/index.twig:105
+#: src/Controllers/Database/RoutinesController.php:351
+#: src/Controllers/Database/RoutinesController.php:361
+msgid "Execute routine"
 msgstr ""
 
+#: resources/templates/database/routines/index.twig:115
 #: resources/templates/database/routines/row.twig:34
 #: resources/templates/database/routines/row.twig:44
 #: resources/templates/database/routines/row.twig:48
 msgid "Execute"
+msgstr ""
+
+#: resources/templates/database/routines/parameter_row.twig:24
+#: resources/templates/modals/enum_set_editor.twig:5
+msgid "ENUM/SET editor"
 msgstr ""
 
 #: resources/templates/database/search/main.twig:2
@@ -2956,7 +3000,7 @@ msgid "Replace table prefix"
 msgstr "टेबल के उपसर्ग को पुनर्स्थापना करें"
 
 #: resources/templates/database/structure/check_all_tables.twig:28
-#: src/Controllers/JavaScriptMessagesController.php:683
+#: src/Controllers/JavaScriptMessagesController.php:684
 msgid "Copy table with prefix"
 msgstr "टेबल को इस उपसर्ग के साथ प्रतिलिपि बनाएँ"
 
@@ -3312,7 +3356,7 @@ msgstr "आखरी"
 #: resources/templates/server/privileges/initials_row.twig:21
 #: resources/templates/table/browse_foreigners/show_all.twig:2
 #: src/BrowseForeigners.php:287
-#: src/Controllers/JavaScriptMessagesController.php:581
+#: src/Controllers/JavaScriptMessagesController.php:582
 msgid "Show all"
 msgstr "सभी दिखाएँ"
 
@@ -3386,7 +3430,7 @@ msgid "Hide browser transformation"
 msgstr "सामग्री दिखाने"
 
 #: resources/templates/display/results/table.twig:263
-#: src/Controllers/JavaScriptMessagesController.php:500
+#: src/Controllers/JavaScriptMessagesController.php:501
 msgid "Geometry"
 msgstr "ज्यामिति"
 
@@ -3401,7 +3445,7 @@ msgstr ""
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
 #: resources/templates/gis_data_editor_form.twig:75
-#: src/Controllers/JavaScriptMessagesController.php:494
+#: src/Controllers/JavaScriptMessagesController.php:495
 #: src/Display/Results.php:1806 src/Html/Generator.php:83
 msgid "Copy"
 msgstr "प्रतिलिपि करें"
@@ -3412,7 +3456,7 @@ msgid "Query results operations"
 msgstr ""
 
 #: resources/templates/display/results/table.twig:353
-#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:494
 #: src/Export/Export.php:1100
 msgid "Copy to clipboard"
 msgstr ""
@@ -3979,16 +4023,6 @@ msgstr ""
 msgid "phpMyAdmin Themes"
 msgstr "phpMyAdmin मुखपृष्ठ"
 
-#: resources/templates/home/index.twig:317
-#: resources/templates/modals/index_dialog_modal.twig:26
-#: resources/templates/navigation/main.twig:58
-#: resources/templates/server/privileges/users_overview.twig:172
-#: resources/templates/server/status/monitor/index.twig:66
-#: resources/templates/table/structure/display_structure.twig:348
-#: src/Controllers/JavaScriptMessagesController.php:349
-msgid "Loading…"
-msgstr "लोड हो रहा है…"
-
 #: resources/templates/home/index.twig:323
 msgid "Get more themes!"
 msgstr "अधिक प्रसंग पाएं!"
@@ -4008,7 +4042,7 @@ msgstr "इसे ले लो"
 
 #: resources/templates/import_status.twig:2
 #: resources/templates/user_password.twig:2
-#: src/Controllers/JavaScriptMessagesController.php:438
+#: src/Controllers/JavaScriptMessagesController.php:439
 #: src/Export/Export.php:1123 src/Html/Generator.php:854
 #: src/Plugins/Schema/ExportRelationSchema.php:266
 msgid "Back"
@@ -4378,7 +4412,7 @@ msgid "An error has occurred while loading the navigation display"
 msgstr ""
 
 #: resources/templates/navigation/main.twig:84
-#: src/Controllers/JavaScriptMessagesController.php:598
+#: src/Controllers/JavaScriptMessagesController.php:599
 msgid "Drop files here"
 msgstr ""
 
@@ -5236,6 +5270,7 @@ msgstr "यूसर"
 #: resources/templates/server/privileges/edit_routine_privileges.twig:29
 #: resources/templates/server/privileges/edit_routine_privileges.twig:46
 #: resources/templates/server/privileges/edit_routine_privileges.twig:59
+#: src/Controllers/JavaScriptMessagesController.php:393
 #: src/Server/Privileges.php:1579 src/Server/Privileges.php:1581
 #, fuzzy
 #| msgid "Routines"
@@ -5884,12 +5919,6 @@ msgstr "यूसर से सभी सक्रिय विशेषाध�
 msgid "Drop the databases that have the same names as the users."
 msgstr ""
 
-#: resources/templates/server/privileges/users_overview.twig:177
-#, fuzzy
-#| msgid "Select Tables"
-msgid "Save changes"
-msgstr "पेज चुनिये"
-
 #: resources/templates/server/replication/change_primary.twig:7
 #, fuzzy
 #| msgid "Change or reconfigure master server"
@@ -5958,7 +5987,7 @@ msgid "Generate password:"
 msgstr "नया पासवर्ड उत्पन्न करें"
 
 #: resources/templates/server/replication/primary_add_replica_user.twig:73
-#: src/Controllers/JavaScriptMessagesController.php:605
+#: src/Controllers/JavaScriptMessagesController.php:606
 msgid "Generate"
 msgstr "उत्पन्न करें"
 
@@ -7029,7 +7058,7 @@ msgstr "क्वरी का नवीनीकरण करें"
 #: resources/templates/sql/relational_column_dropdown.twig:3
 #: resources/templates/table/insert/column_row.twig:48
 #: resources/templates/table/search/input_box.twig:21
-#: src/Controllers/JavaScriptMessagesController.php:410
+#: src/Controllers/JavaScriptMessagesController.php:411
 msgid "Browse foreign values"
 msgstr "विदेशी मूल्य ब्राउस करें"
 
@@ -7325,8 +7354,8 @@ msgstr "पुनः व्यवस्थित करने के लिए �
 
 #: resources/templates/table/index_form.twig:167
 #: resources/templates/table/index_form.twig:203
-#: src/Controllers/JavaScriptMessagesController.php:492
-#: src/Controllers/JavaScriptMessagesController.php:644
+#: src/Controllers/JavaScriptMessagesController.php:493
+#: src/Controllers/JavaScriptMessagesController.php:645
 #: src/Error/ErrorHandler.php:426 src/InsertEdit.php:1465
 msgid "Ignore"
 msgstr "उपेक्षा करें"
@@ -7427,7 +7456,7 @@ msgid ""
 msgstr ""
 
 #: resources/templates/table/normalization/normalization.twig:13
-#: src/Normalization.php:201
+#: src/Normalization.php:202
 msgid "First step of normalization (1NF)"
 msgstr ""
 
@@ -7858,7 +7887,7 @@ msgid "Column %s has been dropped."
 msgstr "टेबल %s को रद्द किया गया है."
 
 #: resources/templates/table/structure/display_structure.twig:130
-#: src/Controllers/JavaScriptMessagesController.php:608
+#: src/Controllers/JavaScriptMessagesController.php:609
 msgid "More"
 msgstr "अधिक"
 
@@ -9823,7 +9852,7 @@ msgid "Closed"
 msgstr "बंद"
 
 #: src/Config/ConfigFile.php:608
-#: src/Controllers/JavaScriptMessagesController.php:748
+#: src/Controllers/JavaScriptMessagesController.php:749
 #, fuzzy
 #| msgid "Monday"
 msgctxt "Week day name"
@@ -9831,7 +9860,7 @@ msgid "Monday"
 msgstr "सोमवार"
 
 #: src/Config/ConfigFile.php:609
-#: src/Controllers/JavaScriptMessagesController.php:749
+#: src/Controllers/JavaScriptMessagesController.php:750
 #, fuzzy
 #| msgid "Tuesday"
 msgctxt "Week day name"
@@ -9839,7 +9868,7 @@ msgid "Tuesday"
 msgstr "मंगलवार"
 
 #: src/Config/ConfigFile.php:610
-#: src/Controllers/JavaScriptMessagesController.php:750
+#: src/Controllers/JavaScriptMessagesController.php:751
 #, fuzzy
 #| msgid "Wednesday"
 msgctxt "Week day name"
@@ -9847,7 +9876,7 @@ msgid "Wednesday"
 msgstr "बुधवार"
 
 #: src/Config/ConfigFile.php:611
-#: src/Controllers/JavaScriptMessagesController.php:751
+#: src/Controllers/JavaScriptMessagesController.php:752
 #, fuzzy
 #| msgid "Thursday"
 msgctxt "Week day name"
@@ -9855,7 +9884,7 @@ msgid "Thursday"
 msgstr "गुरूवार"
 
 #: src/Config/ConfigFile.php:612
-#: src/Controllers/JavaScriptMessagesController.php:752
+#: src/Controllers/JavaScriptMessagesController.php:753
 #, fuzzy
 #| msgid "Friday"
 msgctxt "Week day name"
@@ -9863,7 +9892,7 @@ msgid "Friday"
 msgstr "शुक्रवार"
 
 #: src/Config/ConfigFile.php:613
-#: src/Controllers/JavaScriptMessagesController.php:753
+#: src/Controllers/JavaScriptMessagesController.php:754
 #, fuzzy
 #| msgid "Saturday"
 msgctxt "Week day name"
@@ -9871,7 +9900,7 @@ msgid "Saturday"
 msgstr "शनिवार"
 
 #: src/Config/ConfigFile.php:614
-#: src/Controllers/JavaScriptMessagesController.php:747
+#: src/Controllers/JavaScriptMessagesController.php:748
 #, fuzzy
 #| msgid "Sunday"
 msgctxt "Week day name"
@@ -12070,7 +12099,7 @@ msgid "Navigation panel width"
 msgstr "नेविगेशन फ्रेम"
 
 #: src/Config/Descriptions.php:811
-#: src/Controllers/JavaScriptMessagesController.php:613
+#: src/Controllers/JavaScriptMessagesController.php:614
 #: src/Navigation/NavigationTree.php:1292
 #, fuzzy
 #| msgid "Customize main frame"
@@ -12712,7 +12741,7 @@ msgid "Missing data for %s"
 msgstr "%s के लिए डेटा लापता"
 
 #: src/Config/FormDisplay.php:619 src/Config/Validator.php:595
-#: src/Controllers/JavaScriptMessagesController.php:831
+#: src/Controllers/JavaScriptMessagesController.php:832
 #, fuzzy
 #| msgid "Incorrect value"
 msgid "Incorrect value!"
@@ -13009,28 +13038,28 @@ msgid "Incorrect IP address: %s"
 msgstr "गलत IP पता: %s"
 
 #: src/Config/Validator.php:530
-#: src/Controllers/JavaScriptMessagesController.php:830
+#: src/Controllers/JavaScriptMessagesController.php:831
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Not a valid port number!"
 msgstr "वैध पोर्ट नहीं एक"
 
 #: src/Config/Validator.php:552
-#: src/Controllers/JavaScriptMessagesController.php:828
+#: src/Controllers/JavaScriptMessagesController.php:829
 #, fuzzy
 #| msgid "Not a positive number"
 msgid "Not a positive number!"
 msgstr "एक सकारात्मक संख्या नहीं"
 
 #: src/Config/Validator.php:574
-#: src/Controllers/JavaScriptMessagesController.php:829
+#: src/Controllers/JavaScriptMessagesController.php:830
 #, fuzzy
 #| msgid "Not a non-negative number"
 msgid "Not a non-negative number!"
 msgstr "गैर-नकारात्मक संख्या नहीं"
 
 #: src/Config/Validator.php:613
-#: src/Controllers/JavaScriptMessagesController.php:832
+#: src/Controllers/JavaScriptMessagesController.php:833
 #, fuzzy, php-format
 #| msgid "Value must be less than or equal to %s"
 msgid "Value must be less than or equal to %s!"
@@ -13056,7 +13085,7 @@ msgid ""
 msgstr "%s फ़ाइल सिस्टम  में उपलब्ध नहीं है, कृपया अधिक जानकारी के लिए %s पर जाएँ।"
 
 #: src/Controllers/Console/Bookmark/AddController.php:39
-#: src/Controllers/JavaScriptMessagesController.php:595
+#: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "असफल रहा"
 
@@ -13310,11 +13339,6 @@ msgstr ""
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "डाटाबेस में कोई टेबल नहीं।"
 
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Database/RoutinesController.php:361
-msgid "Execute routine"
-msgstr ""
-
 #: src/Controllers/Database/RoutinesController.php:413
 #, fuzzy, php-format
 #| msgid "Export defaults"
@@ -13349,7 +13373,7 @@ msgid ""
 "%sdocumentation%s."
 msgstr "इस द्रश्य में कम से कम इतनी रो हैं. और जानने के लिए %s दस्तावेज़%s  पढ़ें."
 
-#: src/Controllers/Database/StructureController.php:733
+#: src/Controllers/Database/StructureController.php:736
 msgid "unknown"
 msgstr "अज्ञात"
 
@@ -13588,7 +13612,7 @@ msgstr ""
 msgid "\"DROP DATABASE\" statements are disabled."
 msgstr "\"DROP DATABASE\" बयान अक्षम हैं."
 
-#: src/Controllers/Import/ImportController.php:678 src/Sql.php:877
+#: src/Controllers/Import/ImportController.php:678 src/Sql.php:878
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
@@ -14513,383 +14537,383 @@ msgstr "एक संगृहीत फंक्शन की परिभा�
 msgid "No routine is exportable. Required privileges may be lacking."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:395
+#: src/Controllers/JavaScriptMessagesController.php:396
 #, php-format
 msgid "Values for column %s"
 msgstr "%s स्तंभ के लिए मूल्य"
 
-#: src/Controllers/JavaScriptMessagesController.php:396
+#: src/Controllers/JavaScriptMessagesController.php:397
 msgid "Values for a new column"
 msgstr "नए स्तंभ के लिए मूल्य"
 
-#: src/Controllers/JavaScriptMessagesController.php:397
+#: src/Controllers/JavaScriptMessagesController.php:398
 #, fuzzy
 #| msgid "Enter each value in a separate field"
 msgid "Enter each value in a separate field."
 msgstr "हर एक मान अलग क्षेत्र में दर्ज करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:398
+#: src/Controllers/JavaScriptMessagesController.php:399
 #, php-format
 msgid "Add %d value(s)"
 msgstr "%d मान जोड़ें"
 
-#: src/Controllers/JavaScriptMessagesController.php:401
+#: src/Controllers/JavaScriptMessagesController.php:402
 msgid ""
 "Note: If the file contains multiple tables, they will be combined into one."
 msgstr "सूचना: यदि फ़ाईल में एक से अधिक टेबलें हैं तो वे एक में ही संगठित की जाएँगी।"
 
-#: src/Controllers/JavaScriptMessagesController.php:404
+#: src/Controllers/JavaScriptMessagesController.php:405
 msgid "Hide query box"
 msgstr "क्वॅरी बॉक्स छिपाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:405
+#: src/Controllers/JavaScriptMessagesController.php:406
 msgid "Show query box"
 msgstr "क्वॅरी बॉक्स दिखाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:407
+#: src/Controllers/JavaScriptMessagesController.php:408
 #, fuzzy
 #| msgid "Submit Query"
 msgid "Edit query"
 msgstr "क्वरी भेजें"
 
-#: src/Controllers/JavaScriptMessagesController.php:409
+#: src/Controllers/JavaScriptMessagesController.php:410
 #, php-format
 msgid "%d is not valid row number."
 msgstr "%d एक वैध पंक्ति संख्या नहीं है।"
 
-#: src/Controllers/JavaScriptMessagesController.php:411
+#: src/Controllers/JavaScriptMessagesController.php:412
 #, fuzzy, php-format
 #| msgid "Variable"
 msgid "Variable %d:"
 msgstr "स्थिति"
 
-#: src/Controllers/JavaScriptMessagesController.php:414
-#: src/Normalization.php:949
+#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Normalization.php:950
 msgid "Pick"
 msgstr "चुनिये"
 
-#: src/Controllers/JavaScriptMessagesController.php:415
+#: src/Controllers/JavaScriptMessagesController.php:416
 #, fuzzy
 #| msgid "No rows selected"
 msgid "Column selector"
 msgstr "कोई पंक्ति चयनित नहीं"
 
-#: src/Controllers/JavaScriptMessagesController.php:416
+#: src/Controllers/JavaScriptMessagesController.php:417
 #, fuzzy
 #| msgid "Search in database"
 msgid "Search this list"
 msgstr "डाटाबेस में खोजें"
 
-#: src/Controllers/JavaScriptMessagesController.php:418
+#: src/Controllers/JavaScriptMessagesController.php:419
 #, php-format
 msgid ""
 "No columns in the central list. Make sure the Central columns list for "
 "database %s has columns that are not present in the current table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:421
+#: src/Controllers/JavaScriptMessagesController.php:422
 #, fuzzy
 #| msgid "Free memory"
 msgid "See more"
 msgstr "मुक्त स्मृति"
 
-#: src/Controllers/JavaScriptMessagesController.php:424
+#: src/Controllers/JavaScriptMessagesController.php:425
 msgid "Add primary key"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
-#: src/Controllers/JavaScriptMessagesController.php:425
+#: src/Controllers/JavaScriptMessagesController.php:426
 #, fuzzy
 #| msgid "A primary key has been added on %s."
 msgid "Primary key added."
 msgstr "%s  पर एक प्राईमरी की जड़ी गयी है"
 
-#: src/Controllers/JavaScriptMessagesController.php:426
-#: src/Normalization.php:256
+#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Normalization.php:257
 #, fuzzy
 #| msgid "Tracking report"
 msgid "Taking you to next step…"
 msgstr "ट्रैकिंग रिपोर्ट"
 
-#: src/Controllers/JavaScriptMessagesController.php:427
+#: src/Controllers/JavaScriptMessagesController.php:428
 #, php-format
 msgid "The first step of normalization is complete for table '%s'."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:428
-#: src/Normalization.php:512 src/Normalization.php:571
-#: src/Normalization.php:658 src/Normalization.php:731
+#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Normalization.php:513 src/Normalization.php:572
+#: src/Normalization.php:659 src/Normalization.php:732
 #, fuzzy
 #| msgid "End of line"
 msgid "End of step"
 msgstr "लाइन के अंत"
 
-#: src/Controllers/JavaScriptMessagesController.php:429
+#: src/Controllers/JavaScriptMessagesController.php:430
 msgid "Second step of normalization (2NF)"
 msgstr ""
 
 #. l10n: Display text for calendar close link
-#: src/Controllers/JavaScriptMessagesController.php:430
-#: src/Controllers/JavaScriptMessagesController.php:780
-#: src/Normalization.php:344
+#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:781
+#: src/Normalization.php:345
 msgid "Done"
 msgstr "हो गया"
 
-#: src/Controllers/JavaScriptMessagesController.php:431
+#: src/Controllers/JavaScriptMessagesController.php:432
 msgid "Confirm partial dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:432
+#: src/Controllers/JavaScriptMessagesController.php:433
 msgid "Selected partial dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:434
+#: src/Controllers/JavaScriptMessagesController.php:435
 msgid ""
 "Note: a, b -> d,f implies values of columns a and b combined together can "
 "determine values of column d and column f."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:437
+#: src/Controllers/JavaScriptMessagesController.php:438
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No partial dependencies selected!"
 msgstr "कोइ डाटाबेस नहीं चुना गया है।"
 
-#: src/Controllers/JavaScriptMessagesController.php:439
+#: src/Controllers/JavaScriptMessagesController.php:440
 msgid "Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:440
+#: src/Controllers/JavaScriptMessagesController.php:441
 msgid "Hide partial dependencies list"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:442
+#: src/Controllers/JavaScriptMessagesController.php:443
 msgid ""
 "Sit tight! It may take few seconds depending on data size and column count "
 "of the table."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:444
+#: src/Controllers/JavaScriptMessagesController.php:445
 msgid "Step"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:445
+#: src/Controllers/JavaScriptMessagesController.php:446
 #, fuzzy
 #| msgid "The following queries have been executed:"
 msgid "The following actions will be performed:"
 msgstr "निम्नलिखित क्वरीों क्रियान्वित किया गया है"
 
-#: src/Controllers/JavaScriptMessagesController.php:446
+#: src/Controllers/JavaScriptMessagesController.php:447
 #, php-format
 msgid "DROP columns %s from the table %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:447
+#: src/Controllers/JavaScriptMessagesController.php:448
 #, fuzzy
 #| msgid "Add privileges on the following table"
 msgid "Create the following table"
 msgstr "इन टेबल के लिये विशेषाधिकार जोडें"
 
-#: src/Controllers/JavaScriptMessagesController.php:450
+#: src/Controllers/JavaScriptMessagesController.php:451
 msgid "Third step of normalization (3NF)"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:451
+#: src/Controllers/JavaScriptMessagesController.php:452
 msgid "Confirm transitive dependencies"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:452
+#: src/Controllers/JavaScriptMessagesController.php:453
 msgid "Selected dependencies are as follows:"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:453
+#: src/Controllers/JavaScriptMessagesController.php:454
 #, fuzzy
 #| msgid "No databases selected."
 msgid "No dependencies selected!"
 msgstr "कोइ डाटाबेस नहीं चुना गया है।"
 
-#: src/Controllers/JavaScriptMessagesController.php:454
+#: src/Controllers/JavaScriptMessagesController.php:455
 #, fuzzy
 #| msgid "Use this value"
 msgid "Enter first value"
 msgstr "इस मान का उपयोग करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:455
+#: src/Controllers/JavaScriptMessagesController.php:456
 #, fuzzy
 #| msgid "Session value"
 msgid "Enter second value"
 msgstr "सत्र मूल्य"
 
-#: src/Controllers/JavaScriptMessagesController.php:461
+#: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Hide search criteria"
 msgstr "ख़ोज मापदंड छिपाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:462
+#: src/Controllers/JavaScriptMessagesController.php:463
 msgid "Show search criteria"
 msgstr "खोज मापदंड दिखाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:463
+#: src/Controllers/JavaScriptMessagesController.php:464
 #, fuzzy
 #| msgid "Column names"
 msgid "Column maximum:"
 msgstr "कोलम नाम"
 
-#: src/Controllers/JavaScriptMessagesController.php:464
+#: src/Controllers/JavaScriptMessagesController.php:465
 #, fuzzy
 #| msgid "Column names"
 msgid "Column minimum:"
 msgstr "कोलम नाम"
 
-#: src/Controllers/JavaScriptMessagesController.php:467
+#: src/Controllers/JavaScriptMessagesController.php:468
 #, fuzzy
 #| msgid "Hide search criteria"
 msgid "Hide find and replace criteria"
 msgstr "ख़ोज मापदंड छिपाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:468
+#: src/Controllers/JavaScriptMessagesController.php:469
 #, fuzzy
 #| msgid "Show search criteria"
 msgid "Show find and replace criteria"
 msgstr "खोज मापदंड दिखाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:472
+#: src/Controllers/JavaScriptMessagesController.php:473
 msgid "Each point represents a data row."
 msgstr "प्रत्येक बिन्दु एक डॅटा पंक्ति को बताता है।"
 
-#: src/Controllers/JavaScriptMessagesController.php:474
+#: src/Controllers/JavaScriptMessagesController.php:475
 msgid "Hovering over a point will show its label."
 msgstr "लेबल देखने के लिए कर्सर बिन्दु के ऊपर लेकर जाएँ।"
 
-#: src/Controllers/JavaScriptMessagesController.php:476
+#: src/Controllers/JavaScriptMessagesController.php:477
 msgid "To zoom in, select a section of the plot with the mouse."
 msgstr "और बारीकी से देखने के लिए पुरे क्षेत्र का कोई भाग माउस से सेलेक्ट करें।"
 
-#: src/Controllers/JavaScriptMessagesController.php:478
+#: src/Controllers/JavaScriptMessagesController.php:479
 msgid "Click reset zoom button to come back to original state."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:480
+#: src/Controllers/JavaScriptMessagesController.php:481
 msgid "Click a data point to view and possibly edit the data row."
 msgstr "पंक्ति को देखने और संभावित सम्पादन के लिए डॅटा बिन्दु पर क्लिक करें।"
 
-#: src/Controllers/JavaScriptMessagesController.php:482
+#: src/Controllers/JavaScriptMessagesController.php:483
 msgid "The plot can be resized by dragging it along the bottom right corner."
 msgstr "दायीं तरफ नीचे के कोने के साथ पॉइंटर घसीटने पर क्षेत्र के अकार को बदला जा सकता है।"
 
-#: src/Controllers/JavaScriptMessagesController.php:485
+#: src/Controllers/JavaScriptMessagesController.php:486
 msgid "Select two columns"
 msgstr "दो कॉलम चुने"
 
-#: src/Controllers/JavaScriptMessagesController.php:487
+#: src/Controllers/JavaScriptMessagesController.php:488
 msgid "Select two different columns"
 msgstr "दो भिन्न कॉलम चुनें"
 
-#: src/Controllers/JavaScriptMessagesController.php:489
+#: src/Controllers/JavaScriptMessagesController.php:490
 msgid "Data point content"
 msgstr "डॅटा बिन्दु सामग्री"
 
-#: src/Controllers/JavaScriptMessagesController.php:495
+#: src/Controllers/JavaScriptMessagesController.php:496
 msgid "X"
 msgstr "क्ष"
 
-#: src/Controllers/JavaScriptMessagesController.php:496
+#: src/Controllers/JavaScriptMessagesController.php:497
 msgid "Y"
 msgstr "य"
 
-#: src/Controllers/JavaScriptMessagesController.php:497
+#: src/Controllers/JavaScriptMessagesController.php:498
 msgid "Point"
 msgstr "बिन्दु"
 
-#: src/Controllers/JavaScriptMessagesController.php:498
+#: src/Controllers/JavaScriptMessagesController.php:499
 #, fuzzy
 #| msgid "Lines terminated by"
 msgid "Linestring"
 msgstr "लाईन समाप्त होता है"
 
-#: src/Controllers/JavaScriptMessagesController.php:499
+#: src/Controllers/JavaScriptMessagesController.php:500
 msgid "Polygon"
 msgstr "बहुभुज"
 
-#: src/Controllers/JavaScriptMessagesController.php:501
+#: src/Controllers/JavaScriptMessagesController.php:502
 #, fuzzy
 #| msgid "Inner Ring"
 msgid "Inner ring"
 msgstr "आंतरिक वृत्त"
 
-#: src/Controllers/JavaScriptMessagesController.php:502
+#: src/Controllers/JavaScriptMessagesController.php:503
 #, fuzzy
 #| msgid "Outer ring:"
 msgid "Outer ring"
 msgstr "बाहरी वृत्त:"
 
-#: src/Controllers/JavaScriptMessagesController.php:503
+#: src/Controllers/JavaScriptMessagesController.php:504
 msgid "Add a point"
 msgstr "एक बिंदु जोड़ें"
 
-#: src/Controllers/JavaScriptMessagesController.php:504
+#: src/Controllers/JavaScriptMessagesController.php:505
 msgid "Add a linestring"
 msgstr "एक linestring जोड़ें"
 
-#: src/Controllers/JavaScriptMessagesController.php:505
+#: src/Controllers/JavaScriptMessagesController.php:506
 msgid "Add an inner ring"
 msgstr "नया आंतरिक वृत्त जोडें"
 
-#: src/Controllers/JavaScriptMessagesController.php:506
+#: src/Controllers/JavaScriptMessagesController.php:507
 msgid "Add a polygon"
 msgstr "नया बहुभुज जोडें"
 
-#: src/Controllers/JavaScriptMessagesController.php:507
+#: src/Controllers/JavaScriptMessagesController.php:508
 msgid "Add geometry"
 msgstr "ज्यामिति जोडें"
 
-#: src/Controllers/JavaScriptMessagesController.php:509
+#: src/Controllers/JavaScriptMessagesController.php:510
 #, fuzzy
 #| msgid "Do you want to import remaining settings?"
 msgid "Do you want to copy encryption key?"
 msgstr "क्या आप शेष सेटिंग्स आयात करना चाहते हैं?"
 
-#: src/Controllers/JavaScriptMessagesController.php:510
+#: src/Controllers/JavaScriptMessagesController.php:511
 msgid "Encryption key"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:513
+#: src/Controllers/JavaScriptMessagesController.php:514
 msgid ""
 "The HEX function will treat the integer as a string while calculating the "
 "hexadecimal value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:518
+#: src/Controllers/JavaScriptMessagesController.php:519
 msgid ""
 "MySQL accepts additional values not selectable by the slider; key in those "
 "values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:524
+#: src/Controllers/JavaScriptMessagesController.php:525
 msgid ""
 "MySQL accepts additional values not selectable by the datepicker; key in "
 "those values directly if desired"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:530
+#: src/Controllers/JavaScriptMessagesController.php:531
 msgid ""
 "Indicates that you have made changes to this page; you will be prompted for "
 "confirmation before abandoning changes"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:535
+#: src/Controllers/JavaScriptMessagesController.php:536
 msgid "Select referenced key"
 msgstr "संदर्भ कुंजी का चयन करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:536
+#: src/Controllers/JavaScriptMessagesController.php:537
 msgid "Select Foreign Key"
 msgstr "परदेशी कुंजी का चयन करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:537
+#: src/Controllers/JavaScriptMessagesController.php:538
 #, fuzzy
 #| msgid "Please select the primary key or a unique key"
 msgid "Please select the primary key or a unique key!"
 msgstr "कृपया प्राथमिक कुंजी या एक अद्वितीय कुंजी का चयन करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:540
+#: src/Controllers/JavaScriptMessagesController.php:541
 msgid ""
 "You haven't saved the changes in the layout. They will be lost if you don't "
 "save them. Do you want to continue?"
@@ -14897,75 +14921,75 @@ msgstr ""
 "आपने प्रदर्शन में बदलावों को सुरक्षित नहीं किया है। ये बदलाव खो जायेंगे यदि आपने सुरक्षित नहीं "
 "किया। क्या आप ज़ारी रखना चाहेंगे?"
 
-#: src/Controllers/JavaScriptMessagesController.php:543
+#: src/Controllers/JavaScriptMessagesController.php:544
 msgid "value/subQuery is empty"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:545
+#: src/Controllers/JavaScriptMessagesController.php:546
 #, fuzzy
 #| msgid "Page number:"
 msgid "Page name"
 msgstr "पृष्ठ नाम:"
 
-#: src/Controllers/JavaScriptMessagesController.php:549
+#: src/Controllers/JavaScriptMessagesController.php:550
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Delete page"
 msgstr "पेज चुनिये"
 
 #. l10n: When the user opens a page saved in the Designer
-#: src/Controllers/JavaScriptMessagesController.php:551
+#: src/Controllers/JavaScriptMessagesController.php:552
 msgid "Some tables saved in this page might have been renamed or deleted."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:553
+#: src/Controllers/JavaScriptMessagesController.php:554
 #, fuzzy
 #| msgid "Please choose a page to edit"
 msgid "Please select a page to continue"
 msgstr "एडिट करने के लिये पेज़ चुने"
 
-#: src/Controllers/JavaScriptMessagesController.php:554
+#: src/Controllers/JavaScriptMessagesController.php:555
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid page name"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:555
+#: src/Controllers/JavaScriptMessagesController.php:556
 msgid "Do you want to save the changes to the current page?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:556
+#: src/Controllers/JavaScriptMessagesController.php:557
 msgid "Successfully deleted the page"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:557
+#: src/Controllers/JavaScriptMessagesController.php:558
 #, fuzzy
 #| msgid "Edit or export relational schema"
 msgid "Export relational schema"
 msgstr "संबंधपरक स्कीमा को संपादित या निर्यात करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:558
+#: src/Controllers/JavaScriptMessagesController.php:559
 msgid "Modifications have been saved"
 msgstr "संशोधनों को बचाया गया है"
 
-#: src/Controllers/JavaScriptMessagesController.php:561
+#: src/Controllers/JavaScriptMessagesController.php:562
 #, php-format
 msgid "%d object(s) created."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:562
+#: src/Controllers/JavaScriptMessagesController.php:563
 #, fuzzy
 #| msgid "Column names"
 msgid "Column name"
 msgstr "कोलम के नाम"
 
-#: src/Controllers/JavaScriptMessagesController.php:566
+#: src/Controllers/JavaScriptMessagesController.php:567
 #, fuzzy
 #| msgid "Press escape to cancel editing"
 msgid "Press escape to cancel editing.<br>- Shift+Enter for a newline."
 msgstr "सम्पादन को रद्द करने के लिए एस्केप दबाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:568
+#: src/Controllers/JavaScriptMessagesController.php:569
 msgid ""
 "You have edited some data and they have not been saved. Are you sure you "
 "want to leave this page before saving the data?"
@@ -14973,42 +14997,42 @@ msgstr ""
 "आपने कुछ डॅटा को सम्पादित किया है पर सुरक्षित नहीं किया है। क्या आप उन्हें बिना सुरक्षित "
 "किये आगे बढ़ना चाहेंगे?"
 
-#: src/Controllers/JavaScriptMessagesController.php:571
+#: src/Controllers/JavaScriptMessagesController.php:572
 #, fuzzy
 #| msgid "Drag to reorder"
 msgid "Drag to reorder."
 msgstr "पुनः व्यवस्थित करने के लिए घसीटें"
 
-#: src/Controllers/JavaScriptMessagesController.php:572
+#: src/Controllers/JavaScriptMessagesController.php:573
 msgid "Click to sort results by this column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:574
+#: src/Controllers/JavaScriptMessagesController.php:575
 msgid ""
 "Shift+Click to add this column to ORDER BY clause or to toggle ASC/DESC."
 "<br>- Ctrl+Click or Alt+Click (Mac: Shift+Option+Click) to remove column "
 "from ORDER BY clause"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:578
+#: src/Controllers/JavaScriptMessagesController.php:579
 #, fuzzy
 #| msgid "Click to mark/unmark"
 msgid "Click to mark/unmark."
 msgstr "चिन्हित / अचिन्हित करने के लिए क्लिक करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:579
+#: src/Controllers/JavaScriptMessagesController.php:580
 #, fuzzy
 #| msgid "Column names"
 msgid "Double-click to copy column name."
 msgstr "कोलम के नाम"
 
-#: src/Controllers/JavaScriptMessagesController.php:580
+#: src/Controllers/JavaScriptMessagesController.php:581
 #, fuzzy
 #| msgid "Click the drop-down arrow<br>to toggle column's visibility."
 msgid "Click the drop-down arrow to toggle column's visibility."
 msgstr "कॉलम को दिखने / छुपाने के लिए <br> ड्रॉप-डाउन तीर पर क्लिक करें."
 
-#: src/Controllers/JavaScriptMessagesController.php:583
+#: src/Controllers/JavaScriptMessagesController.php:584
 msgid ""
 "This table does not contain a unique column. Features related to the grid "
 "edit, checkbox, Edit, Copy and Delete links may not work after saving."
@@ -15016,79 +15040,79 @@ msgstr ""
 "इस टेबल में कोई भी विशिष्ट (unique) कॉलम नहीं है। इस बात कि सम्भावना है कि ग्रिड "
 "सम्पादन, टिक-बॉक्स, सम्पादन, प्रतिलिपि एवं मिटाने के लिंक से जुडी सुविधाएँ काम न करें।"
 
-#: src/Controllers/JavaScriptMessagesController.php:586
+#: src/Controllers/JavaScriptMessagesController.php:587
 msgid "Please enter a valid hexadecimal string. Valid characters are 0-9, A-F."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:588
+#: src/Controllers/JavaScriptMessagesController.php:589
 msgid ""
 "Do you really want to see all of the rows? For a big table this could crash "
 "the browser."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:590
+#: src/Controllers/JavaScriptMessagesController.php:591
 #, fuzzy
 #| msgid "Original position"
 msgid "Original length"
 msgstr "मूल स्थिति"
 
-#: src/Controllers/JavaScriptMessagesController.php:593
+#: src/Controllers/JavaScriptMessagesController.php:594
 #, fuzzy
 #| msgid "Cancel"
 msgid "cancel"
 msgstr "रद्द"
 
-#: src/Controllers/JavaScriptMessagesController.php:594
+#: src/Controllers/JavaScriptMessagesController.php:595
 #: src/Controllers/Server/Status/StatusController.php:183
 msgid "Aborted"
 msgstr "रद्द"
 
-#: src/Controllers/JavaScriptMessagesController.php:596
+#: src/Controllers/JavaScriptMessagesController.php:597
 msgid "Success"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:597
+#: src/Controllers/JavaScriptMessagesController.php:598
 #, fuzzy
 #| msgid "Import defaults"
 msgid "Import status"
 msgstr "आयात"
 
-#: src/Controllers/JavaScriptMessagesController.php:599
+#: src/Controllers/JavaScriptMessagesController.php:600
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Select database first"
 msgstr "टेबल चुनिये"
 
-#: src/Controllers/JavaScriptMessagesController.php:601
+#: src/Controllers/JavaScriptMessagesController.php:602
 #, fuzzy
 #| msgid "Go to link"
 msgid "Go to link:"
 msgstr "लिंक पर जाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:604
+#: src/Controllers/JavaScriptMessagesController.php:605
 msgid "Generate password"
 msgstr "नया पासवर्ड उत्पन्न करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:611
+#: src/Controllers/JavaScriptMessagesController.php:612
 #, fuzzy
 #| msgid "Show all"
 msgid "Show panel"
 msgstr "सभी दिखाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:612
+#: src/Controllers/JavaScriptMessagesController.php:613
 #, fuzzy
 #| msgid "Add index"
 msgid "Hide panel"
 msgstr "अनुक्रमणिका जोड़"
 
-#: src/Controllers/JavaScriptMessagesController.php:614
+#: src/Controllers/JavaScriptMessagesController.php:615
 #: src/Navigation/NavigationTree.php:1295
 #, fuzzy
 #| msgid "Customize main frame"
 msgid "Unlink from main panel"
 msgstr "मुख्य फ्रेम को अनुकूलित करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:618 src/Setup/Index.php:153
+#: src/Controllers/JavaScriptMessagesController.php:619 src/Setup/Index.php:153
 #, php-format
 msgid ""
 "A newer version of phpMyAdmin is available and you should consider "
@@ -15097,127 +15121,127 @@ msgstr ""
 "phpMyAdmin का नवीन संस्करण उपलब्ध है। नया संस्करण %s है जो कि %s को प्रकाशित हुआ है।"
 
 #. l10n: Latest available phpMyAdmin version
-#: src/Controllers/JavaScriptMessagesController.php:622
+#: src/Controllers/JavaScriptMessagesController.php:623
 msgid ", latest stable version:"
 msgstr "नवीनतम स्थिर संस्करण:"
 
-#: src/Controllers/JavaScriptMessagesController.php:623
+#: src/Controllers/JavaScriptMessagesController.php:624
 msgid "up to date"
 msgstr "अद्यतन"
 
-#: src/Controllers/JavaScriptMessagesController.php:624
+#: src/Controllers/JavaScriptMessagesController.php:625
 msgid "There was an error in loading the Git information."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:627
+#: src/Controllers/JavaScriptMessagesController.php:628
 msgid ""
 "A fatal JavaScript error has occurred. Would you like to send an error "
 "report?"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:628
+#: src/Controllers/JavaScriptMessagesController.php:629
 #, fuzzy
 #| msgid "Change settings"
 msgid "Change report settings"
 msgstr "सेटिंग्स बदलें"
 
-#: src/Controllers/JavaScriptMessagesController.php:629
+#: src/Controllers/JavaScriptMessagesController.php:630
 #, fuzzy
 #| msgid "Show open tables"
 msgid "Show report details"
 msgstr "खुला टेबल शो"
 
-#: src/Controllers/JavaScriptMessagesController.php:630
+#: src/Controllers/JavaScriptMessagesController.php:631
 msgid ""
 "Your export is incomplete, due to a low execution time limit at the PHP "
 "level!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:633
+#: src/Controllers/JavaScriptMessagesController.php:634
 #, php-format
 msgid ""
 "Warning: a form on this page has more than %d fields. On submission, some of "
 "the fields might be ignored, due to PHP's max_input_vars configuration."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:639
-#: src/Controllers/JavaScriptMessagesController.php:652
+#: src/Controllers/JavaScriptMessagesController.php:640
+#: src/Controllers/JavaScriptMessagesController.php:653
 msgid "Some errors have been detected on the server!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:641
+#: src/Controllers/JavaScriptMessagesController.php:642
 msgid "Please look at the bottom of this window."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:647
+#: src/Controllers/JavaScriptMessagesController.php:648
 #: src/Error/ErrorHandler.php:431
 #, fuzzy
 #| msgid "Ignore"
 msgid "Ignore All"
 msgstr "उपेक्षा करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:654
+#: src/Controllers/JavaScriptMessagesController.php:655
 msgid ""
 "As per your settings, they are being submitted currently, please be patient."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:658
+#: src/Controllers/JavaScriptMessagesController.php:659
 msgid "Column name successfully copied to clipboard!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:659
+#: src/Controllers/JavaScriptMessagesController.php:660
 msgid "Column name copying to clipboard failed!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:660
+#: src/Controllers/JavaScriptMessagesController.php:661
 msgid "Successfully copied!"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:661
+#: src/Controllers/JavaScriptMessagesController.php:662
 #, fuzzy
 #| msgid "Copying Database"
 msgid "Copying failed!"
 msgstr "डॅटाबेस प्रतिलिपिकरण"
 
-#: src/Controllers/JavaScriptMessagesController.php:664
+#: src/Controllers/JavaScriptMessagesController.php:665
 #, fuzzy
 #| msgid "Show this query here again"
 msgid "Execute this query again?"
 msgstr "यह query वापस यहीं दिखायें"
 
-#: src/Controllers/JavaScriptMessagesController.php:665
+#: src/Controllers/JavaScriptMessagesController.php:666
 #, fuzzy
 #| msgid "Do you really want to execute \"%s\"?"
 msgid "Do you really want to delete this bookmark?"
 msgstr "क्या आप सचमुच \"%s\" निष्पादित चाहते है?"
 
-#: src/Controllers/JavaScriptMessagesController.php:666
-msgid "Some error occurred while getting SQL debug info."
-msgstr ""
-
 #: src/Controllers/JavaScriptMessagesController.php:667
-#, php-format
-msgid "%s queries executed %s times in %s seconds."
+msgid "Some error occurred while getting SQL debug info."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:668
 #, php-format
-msgid "%s argument(s) passed"
+msgid "%s queries executed %s times in %s seconds."
 msgstr ""
 
 #: src/Controllers/JavaScriptMessagesController.php:669
+#, php-format
+msgid "%s argument(s) passed"
+msgstr ""
+
+#: src/Controllers/JavaScriptMessagesController.php:670
 #, fuzzy
 #| msgid "Table comments"
 msgid "Show arguments"
 msgstr "टेबल की टिप्पणी"
 
-#: src/Controllers/JavaScriptMessagesController.php:670
+#: src/Controllers/JavaScriptMessagesController.php:671
 #, fuzzy
 #| msgid "Hide search results"
 msgid "Hide arguments"
 msgstr "खोज परिणाम छिपाएँ"
 
-#: src/Controllers/JavaScriptMessagesController.php:673
+#: src/Controllers/JavaScriptMessagesController.php:674
 msgid ""
 "There was a problem accessing your browser storage, some features may not "
 "work properly for you. It is likely that the browser doesn't support storage "
@@ -15226,58 +15250,58 @@ msgid ""
 "Safari, such problem is commonly caused by \"Private Mode Browsing\"."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:680
+#: src/Controllers/JavaScriptMessagesController.php:681
 #, fuzzy
 #| msgid "Copy database to"
 msgid "Copy tables to"
 msgstr "डेटाबेस को ______ में कॉपी करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:681
+#: src/Controllers/JavaScriptMessagesController.php:682
 #, fuzzy
 #| msgid "Add index"
 msgid "Add table prefix"
 msgstr "अनुक्रमणिका जोड़"
 
-#: src/Controllers/JavaScriptMessagesController.php:682
+#: src/Controllers/JavaScriptMessagesController.php:683
 #, fuzzy
 #| msgid "Replace table prefix"
 msgid "Replace table with prefix"
 msgstr "टेबल के उपसर्ग को पुनर्स्थापना करें"
 
-#: src/Controllers/JavaScriptMessagesController.php:686
+#: src/Controllers/JavaScriptMessagesController.php:687
 msgid "Extremely weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:687
+#: src/Controllers/JavaScriptMessagesController.php:688
 msgid "Very weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:688
+#: src/Controllers/JavaScriptMessagesController.php:689
 msgid "Weak"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:689
+#: src/Controllers/JavaScriptMessagesController.php:690
 msgid "Good"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:690
+#: src/Controllers/JavaScriptMessagesController.php:691
 msgid "Strong"
 msgstr ""
 
 #. l10n: error code 5 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:694
+#: src/Controllers/JavaScriptMessagesController.php:695
 msgctxt "U2F error"
 msgid "Timed out waiting for security key activation."
 msgstr ""
 
 #. l10n: error code 2 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:696
+#: src/Controllers/JavaScriptMessagesController.php:697
 msgctxt "U2F error"
 msgid "Invalid request sent to security key."
 msgstr ""
 
 #. l10n: unknown error code (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:698
+#: src/Controllers/JavaScriptMessagesController.php:699
 #, fuzzy
 #| msgid "Unknown error"
 msgctxt "U2F error"
@@ -15285,39 +15309,39 @@ msgid "Unknown security key error."
 msgstr "अज्ञात त्रुटि"
 
 #. l10n: error code 3 (from U2F API)
-#: src/Controllers/JavaScriptMessagesController.php:700
+#: src/Controllers/JavaScriptMessagesController.php:701
 msgctxt "U2F error"
 msgid "Client does not support security key."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on register
-#: src/Controllers/JavaScriptMessagesController.php:702
+#: src/Controllers/JavaScriptMessagesController.php:703
 msgctxt "U2F error"
 msgid "Failed security key activation."
 msgstr ""
 
 #. l10n: error code 4 (from U2F API) on authanticate
-#: src/Controllers/JavaScriptMessagesController.php:704
+#: src/Controllers/JavaScriptMessagesController.php:705
 #, fuzzy
 #| msgid "Invalid export type"
 msgctxt "U2F error"
 msgid "Invalid security key."
 msgstr "अमान्य निर्यात प्रकार"
 
-#: src/Controllers/JavaScriptMessagesController.php:707
+#: src/Controllers/JavaScriptMessagesController.php:708
 msgid ""
 "WebAuthn is not available. Please use a supported browser in a secure "
 "context (HTTPS)."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:712
+#: src/Controllers/JavaScriptMessagesController.php:713
 msgid ""
 "You can not open, save or delete your page layout, as IndexedDB is not "
 "working in your browser and your phpMyAdmin configuration storage is not "
 "configured for this."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:717
+#: src/Controllers/JavaScriptMessagesController.php:718
 #, fuzzy, php-format
 #| msgid "Table %s already exists!"
 msgctxt ""
@@ -15325,180 +15349,180 @@ msgctxt ""
 msgid "Table %s already exists!"
 msgstr "टेबल %s पहले से मौजूद है!"
 
-#: src/Controllers/JavaScriptMessagesController.php:719 src/InsertEdit.php:242
+#: src/Controllers/JavaScriptMessagesController.php:720 src/InsertEdit.php:242
 #: src/Navigation/Nodes/NodeDatabaseChild.php:50
 msgid "Hide"
 msgstr "छिपाना"
 
-#: src/Controllers/JavaScriptMessagesController.php:723
+#: src/Controllers/JavaScriptMessagesController.php:724
 #, fuzzy
 #| msgid "January"
 msgctxt "Month name"
 msgid "January"
 msgstr "जनवरी"
 
-#: src/Controllers/JavaScriptMessagesController.php:724
+#: src/Controllers/JavaScriptMessagesController.php:725
 #, fuzzy
 #| msgid "February"
 msgctxt "Month name"
 msgid "February"
 msgstr "फरवरी"
 
-#: src/Controllers/JavaScriptMessagesController.php:725
+#: src/Controllers/JavaScriptMessagesController.php:726
 #, fuzzy
 #| msgid "March"
 msgctxt "Month name"
 msgid "March"
 msgstr "मार्च"
 
-#: src/Controllers/JavaScriptMessagesController.php:726
+#: src/Controllers/JavaScriptMessagesController.php:727
 #, fuzzy
 #| msgid "April"
 msgctxt "Month name"
 msgid "April"
 msgstr "अप्रैल"
 
-#: src/Controllers/JavaScriptMessagesController.php:727
+#: src/Controllers/JavaScriptMessagesController.php:728
 #, fuzzy
 #| msgid "May"
 msgctxt "Month name"
 msgid "May"
 msgstr "मई"
 
-#: src/Controllers/JavaScriptMessagesController.php:728
+#: src/Controllers/JavaScriptMessagesController.php:729
 #, fuzzy
 #| msgid "June"
 msgctxt "Month name"
 msgid "June"
 msgstr "जून"
 
-#: src/Controllers/JavaScriptMessagesController.php:729
+#: src/Controllers/JavaScriptMessagesController.php:730
 #, fuzzy
 #| msgid "July"
 msgctxt "Month name"
 msgid "July"
 msgstr "जुलाई"
 
-#: src/Controllers/JavaScriptMessagesController.php:730
+#: src/Controllers/JavaScriptMessagesController.php:731
 #, fuzzy
 #| msgid "August"
 msgctxt "Month name"
 msgid "August"
 msgstr "अगस्त"
 
-#: src/Controllers/JavaScriptMessagesController.php:731
+#: src/Controllers/JavaScriptMessagesController.php:732
 #, fuzzy
 #| msgid "September"
 msgctxt "Month name"
 msgid "September"
 msgstr "सितम्बर"
 
-#: src/Controllers/JavaScriptMessagesController.php:732
+#: src/Controllers/JavaScriptMessagesController.php:733
 #, fuzzy
 #| msgid "October"
 msgctxt "Month name"
 msgid "October"
 msgstr "अक्तूबर"
 
-#: src/Controllers/JavaScriptMessagesController.php:733
+#: src/Controllers/JavaScriptMessagesController.php:734
 #, fuzzy
 #| msgid "November"
 msgctxt "Month name"
 msgid "November"
 msgstr "नवम्बर"
 
-#: src/Controllers/JavaScriptMessagesController.php:734
+#: src/Controllers/JavaScriptMessagesController.php:735
 #, fuzzy
 #| msgid "December"
 msgctxt "Month name"
 msgid "December"
 msgstr "दिसम्बर"
 
-#: src/Controllers/JavaScriptMessagesController.php:735 src/Util.php:498
+#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:498
 #, fuzzy
 #| msgid "Jan"
 msgctxt "Short month name for January"
 msgid "Jan"
 msgstr "जनवरी"
 
-#: src/Controllers/JavaScriptMessagesController.php:736 src/Util.php:499
+#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:499
 #, fuzzy
 #| msgid "Feb"
 msgctxt "Short month name for February"
 msgid "Feb"
 msgstr "फरवरी"
 
-#: src/Controllers/JavaScriptMessagesController.php:737 src/Util.php:500
+#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:500
 #, fuzzy
 #| msgid "Mar"
 msgctxt "Short month name for March"
 msgid "Mar"
 msgstr "मार्च"
 
-#: src/Controllers/JavaScriptMessagesController.php:738 src/Util.php:501
+#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:501
 #, fuzzy
 #| msgid "Apr"
 msgctxt "Short month name for April"
 msgid "Apr"
 msgstr "अप्रैल"
 
-#: src/Controllers/JavaScriptMessagesController.php:739 src/Util.php:502
+#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:502
 #, fuzzy
 #| msgid "May"
 msgctxt "Short month name for May"
 msgid "May"
 msgstr "मई"
 
-#: src/Controllers/JavaScriptMessagesController.php:740 src/Util.php:503
+#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:503
 #, fuzzy
 #| msgid "Jun"
 msgctxt "Short month name for June"
 msgid "Jun"
 msgstr "जून"
 
-#: src/Controllers/JavaScriptMessagesController.php:741 src/Util.php:504
+#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:504
 #, fuzzy
 #| msgid "Jul"
 msgctxt "Short month name for July"
 msgid "Jul"
 msgstr "जुलाई"
 
-#: src/Controllers/JavaScriptMessagesController.php:742 src/Util.php:505
+#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:505
 #, fuzzy
 #| msgid "Aug"
 msgctxt "Short month name for August"
 msgid "Aug"
 msgstr "अगस्त"
 
-#: src/Controllers/JavaScriptMessagesController.php:743 src/Util.php:506
+#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:506
 #, fuzzy
 #| msgid "Sep"
 msgctxt "Short month name for September"
 msgid "Sep"
 msgstr "सितम्बर"
 
-#: src/Controllers/JavaScriptMessagesController.php:744 src/Util.php:507
+#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:507
 #, fuzzy
 #| msgid "Oct"
 msgctxt "Short month name for October"
 msgid "Oct"
 msgstr "अक्तूबर"
 
-#: src/Controllers/JavaScriptMessagesController.php:745 src/Util.php:508
+#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:508
 #, fuzzy
 #| msgid "Nov"
 msgctxt "Short month name for November"
 msgid "Nov"
 msgstr "नवम्बर"
 
-#: src/Controllers/JavaScriptMessagesController.php:746 src/Util.php:509
+#: src/Controllers/JavaScriptMessagesController.php:747 src/Util.php:509
 #, fuzzy
 #| msgid "Dec"
 msgctxt "Short month name for December"
 msgid "Dec"
 msgstr "दिसमबर"
 
-#: src/Controllers/JavaScriptMessagesController.php:754 src/Util.php:512
+#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:512
 #, fuzzy
 #| msgctxt "Short week day name"
 #| msgid "Sun"
@@ -15506,98 +15530,98 @@ msgctxt "Short week day name for Sunday"
 msgid "Sun"
 msgstr "रविवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:755 src/Util.php:513
+#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:513
 #, fuzzy
 #| msgid "Mon"
 msgctxt "Short week day name for Monday"
 msgid "Mon"
 msgstr "सोमवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:756 src/Util.php:514
+#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:514
 #, fuzzy
 #| msgid "Tue"
 msgctxt "Short week day name for Tuesday"
 msgid "Tue"
 msgstr "मंगलवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:757 src/Util.php:515
+#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:515
 #, fuzzy
 #| msgid "Wed"
 msgctxt "Short week day name for Wednesday"
 msgid "Wed"
 msgstr "बुधवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:758 src/Util.php:516
+#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:516
 #, fuzzy
 #| msgid "Thu"
 msgctxt "Short week day name for Thursday"
 msgid "Thu"
 msgstr "गुरुवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:759 src/Util.php:517
+#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:517
 #, fuzzy
 #| msgid "Fri"
 msgctxt "Short week day name for Friday"
 msgid "Fri"
 msgstr "शुक्रवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:760 src/Util.php:518
+#: src/Controllers/JavaScriptMessagesController.php:761 src/Util.php:518
 #, fuzzy
 #| msgid "Sat"
 msgctxt "Short week day name for Saturday"
 msgid "Sat"
 msgstr "शनिवार"
 
-#: src/Controllers/JavaScriptMessagesController.php:761
+#: src/Controllers/JavaScriptMessagesController.php:762
 #, fuzzy
 #| msgid "Su"
 msgctxt "Minimal week day name for Sunday"
 msgid "Su"
 msgstr "रवि"
 
-#: src/Controllers/JavaScriptMessagesController.php:762
+#: src/Controllers/JavaScriptMessagesController.php:763
 #, fuzzy
 #| msgid "Mo"
 msgctxt "Minimal week day name for Monday"
 msgid "Mo"
 msgstr "सोम"
 
-#: src/Controllers/JavaScriptMessagesController.php:763
+#: src/Controllers/JavaScriptMessagesController.php:764
 #, fuzzy
 #| msgid "Tu"
 msgctxt "Minimal week day name for Tuesday"
 msgid "Tu"
 msgstr "मंगल"
 
-#: src/Controllers/JavaScriptMessagesController.php:764
+#: src/Controllers/JavaScriptMessagesController.php:765
 #, fuzzy
 #| msgid "We"
 msgctxt "Minimal week day name for Wednesday"
 msgid "We"
 msgstr "बुध"
 
-#: src/Controllers/JavaScriptMessagesController.php:765
+#: src/Controllers/JavaScriptMessagesController.php:766
 #, fuzzy
 #| msgid "Th"
 msgctxt "Minimal week day name for Thursday"
 msgid "Th"
 msgstr "गुरु"
 
-#: src/Controllers/JavaScriptMessagesController.php:766
+#: src/Controllers/JavaScriptMessagesController.php:767
 #, fuzzy
 #| msgid "Fr"
 msgctxt "Minimal week day name for Friday"
 msgid "Fr"
 msgstr "शुक्र"
 
-#: src/Controllers/JavaScriptMessagesController.php:767
+#: src/Controllers/JavaScriptMessagesController.php:768
 #, fuzzy
 #| msgid "Sa"
 msgctxt "Minimal week day name for Saturday"
 msgid "Sa"
 msgstr "शनि"
 
-#: src/Controllers/JavaScriptMessagesController.php:768
+#: src/Controllers/JavaScriptMessagesController.php:769
 #, fuzzy
 #| msgid "Wk"
 msgctxt "Column header for week of the year in calendar"
@@ -15605,13 +15629,13 @@ msgid "Wk"
 msgstr "सप्ताह"
 
 #. l10n: DO NOT TRANSLATE! Use either "calendar-month-year" or "calendar-year-month".
-#: src/Controllers/JavaScriptMessagesController.php:770
+#: src/Controllers/JavaScriptMessagesController.php:771
 #, fuzzy
 msgctxt "The month-year order in a calendar"
 msgid "calendar-month-year"
 msgstr "calendar-month-year"
 
-#: src/Controllers/JavaScriptMessagesController.php:771
+#: src/Controllers/JavaScriptMessagesController.php:772
 #, fuzzy
 #| msgctxt "Year suffix"
 #| msgid "none"
@@ -15619,49 +15643,49 @@ msgctxt "Year suffix for calendar, \"none\" is empty"
 msgid "none"
 msgstr "कुछ नहीं"
 
-#: src/Controllers/JavaScriptMessagesController.php:772
+#: src/Controllers/JavaScriptMessagesController.php:773
 #, fuzzy
 #| msgid "Time"
 msgctxt "A specific point in the day, as shown on a clock"
 msgid "Time"
 msgstr "समय"
 
-#: src/Controllers/JavaScriptMessagesController.php:773
+#: src/Controllers/JavaScriptMessagesController.php:774
 #, fuzzy
 #| msgid "Hour"
 msgctxt "Unit of time"
 msgid "Hour"
 msgstr "घंटा"
 
-#: src/Controllers/JavaScriptMessagesController.php:774
+#: src/Controllers/JavaScriptMessagesController.php:775
 #, fuzzy
 #| msgid "Minute"
 msgctxt "Unit of time"
 msgid "Minute"
 msgstr "मिनट"
 
-#: src/Controllers/JavaScriptMessagesController.php:775
+#: src/Controllers/JavaScriptMessagesController.php:776
 #, fuzzy
 #| msgid "Second"
 msgctxt "Unit of time"
 msgid "Second"
 msgstr "सेकण्ड"
 
-#: src/Controllers/JavaScriptMessagesController.php:776
+#: src/Controllers/JavaScriptMessagesController.php:777
 #, fuzzy
 #| msgid "seconds"
 msgctxt "Unit of time"
 msgid "Millisecond"
 msgstr "सेकंड"
 
-#: src/Controllers/JavaScriptMessagesController.php:777
+#: src/Controllers/JavaScriptMessagesController.php:778
 #, fuzzy
 #| msgid "per second"
 msgctxt "Unit of time"
 msgid "Microsecond"
 msgstr "प्रति सेकंड"
 
-#: src/Controllers/JavaScriptMessagesController.php:778
+#: src/Controllers/JavaScriptMessagesController.php:779
 #, fuzzy
 #| msgid "Time"
 msgctxt "The time zone for a time of day"
@@ -15669,7 +15693,7 @@ msgid "Time zone"
 msgstr "समय"
 
 #. l10n: Display text for previous month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:782
+#: src/Controllers/JavaScriptMessagesController.php:783
 #, fuzzy
 #| msgctxt "Previous month"
 #| msgid "Prev"
@@ -15678,163 +15702,163 @@ msgid "Prev"
 msgstr "पिछला"
 
 #. l10n: Display text for next month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:784
+#: src/Controllers/JavaScriptMessagesController.php:785
 msgctxt "Next month"
 msgid "Next"
 msgstr "अगला"
 
 #. l10n: Display text for current month link in calendar
-#: src/Controllers/JavaScriptMessagesController.php:786
+#: src/Controllers/JavaScriptMessagesController.php:787
 msgid "Today"
 msgstr "आज"
 
-#: src/Controllers/JavaScriptMessagesController.php:789
+#: src/Controllers/JavaScriptMessagesController.php:790
 msgid "This field is required"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:790
+#: src/Controllers/JavaScriptMessagesController.php:791
 #, fuzzy
 #| msgid "Text fields"
 msgid "Please fix this field"
 msgstr "पाठ फ़ील्ड"
 
-#: src/Controllers/JavaScriptMessagesController.php:791
+#: src/Controllers/JavaScriptMessagesController.php:792
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid email address"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:792
+#: src/Controllers/JavaScriptMessagesController.php:793
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid URL"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:793
+#: src/Controllers/JavaScriptMessagesController.php:794
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:794
+#: src/Controllers/JavaScriptMessagesController.php:795
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date ( ISO )"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:795
+#: src/Controllers/JavaScriptMessagesController.php:796
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid number"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:796
+#: src/Controllers/JavaScriptMessagesController.php:797
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid credit card number"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:797
+#: src/Controllers/JavaScriptMessagesController.php:798
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter only digits"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:798
+#: src/Controllers/JavaScriptMessagesController.php:799
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter the same value again"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:799
+#: src/Controllers/JavaScriptMessagesController.php:800
 msgid "Please enter no more than {0} characters"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:800
+#: src/Controllers/JavaScriptMessagesController.php:801
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter at least {0} characters"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:801
+#: src/Controllers/JavaScriptMessagesController.php:802
 msgid "Please enter a value between {0} and {1} characters long"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:802
+#: src/Controllers/JavaScriptMessagesController.php:803
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value between {0} and {1}"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:803
+#: src/Controllers/JavaScriptMessagesController.php:804
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value less than or equal to {0}"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:804
+#: src/Controllers/JavaScriptMessagesController.php:805
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a value greater than or equal to {0}"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:805
+#: src/Controllers/JavaScriptMessagesController.php:806
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid date or time"
 msgstr "वैध पोर्ट नहीं एक"
 
-#: src/Controllers/JavaScriptMessagesController.php:806
+#: src/Controllers/JavaScriptMessagesController.php:807
 #, fuzzy
 #| msgid "Not a valid port number"
 msgid "Please enter a valid HEX input"
 msgstr "वैध पोर्ट नहीं एक"
 
 #. l10n: To validate the usage of a MD5 function on the column
-#: src/Controllers/JavaScriptMessagesController.php:808
+#: src/Controllers/JavaScriptMessagesController.php:809
 msgid "This column can not contain a 32 chars value"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:811
+#: src/Controllers/JavaScriptMessagesController.php:812
 msgid ""
 "These functions are meant to return a binary result; to avoid inconsistent "
 "results you should store it in a BINARY, VARBINARY, or BLOB column."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:816
+#: src/Controllers/JavaScriptMessagesController.php:817
 msgid ""
 "The file being uploaded is probably larger than the maximum allowed size."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:818
+#: src/Controllers/JavaScriptMessagesController.php:819
 #, php-format
 msgid "%s of %s"
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:819
+#: src/Controllers/JavaScriptMessagesController.php:820
 #, php-format
 msgid "%s/sec."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:820
+#: src/Controllers/JavaScriptMessagesController.php:821
 msgid "About %MIN min. %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:821
+#: src/Controllers/JavaScriptMessagesController.php:822
 msgid "About %SEC sec. remaining."
 msgstr ""
 
-#: src/Controllers/JavaScriptMessagesController.php:822
+#: src/Controllers/JavaScriptMessagesController.php:823
 msgid "The file is being processed, please be patient."
 msgstr "फाइल संसाधित की जा रही है, कृपया धीरज रखें।"
 
-#: src/Controllers/JavaScriptMessagesController.php:823
+#: src/Controllers/JavaScriptMessagesController.php:824
 #, fuzzy
 #| msgid "Format of imported file"
 msgid "Uploading your import file…"
 msgstr "आयात की गई फ़ाइल का प्रारूप"
 
-#: src/Controllers/JavaScriptMessagesController.php:825
+#: src/Controllers/JavaScriptMessagesController.php:826
 msgid ""
 "Please be patient, the file is being uploaded. Details about the upload are "
 "not available."
@@ -15845,21 +15869,21 @@ msgid "Fatal error: The navigation can only be accessed via AJAX"
 msgstr ""
 
 #: src/Controllers/Normalization/GetColumnsController.php:27
-#: src/Normalization.php:220
+#: src/Normalization.php:221
 #, fuzzy
 #| msgid "Select two columns"
 msgid "Select one…"
 msgstr "दो कॉलम चुने"
 
 #: src/Controllers/Normalization/GetColumnsController.php:28
-#: src/Normalization.php:221
+#: src/Normalization.php:222
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "No such column"
 msgstr "काँलम हटाना"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:225 src/Types.php:630
+#: src/Normalization.php:226 src/Types.php:645
 #, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
@@ -16618,7 +16642,7 @@ msgstr "कोइ डाटाबेस नहिं"
 msgid "Wrong data or no validation for %s"
 msgstr ""
 
-#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1053
+#: src/Controllers/Sql/SqlController.php:213 src/Sql.php:1054
 #, php-format
 msgid "Bookmark %s has been created."
 msgstr "पृष्ठचिन्ह  %s बनाया."
@@ -16707,7 +16731,7 @@ msgstr "अपलोड करने के लिए फाइल उपलब�
 
 #: src/Controllers/Table/GetFieldController.php:85
 #: src/Database/Routines.php:1044 src/Import/Import.php:135
-#: src/InsertEdit.php:159 src/Sql.php:863
+#: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ने एक खाली परिणाम सेट लोताया।"
 
@@ -17151,7 +17175,7 @@ msgstr ""
 msgid "%s total"
 msgstr "कुल"
 
-#: src/Display/Results.php:3327 src/Sql.php:869
+#: src/Display/Results.php:3327 src/Sql.php:870
 #, fuzzy, php-format
 #| msgid "Query took %01.4f sec"
 msgid "Query took %01.4f seconds."
@@ -17819,7 +17843,7 @@ msgstr "इसकी संरचना को संपादित करन�
 msgid "Go to database: %s"
 msgstr "डेटाबेस पर जायें"
 
-#: src/Index.php:565
+#: src/Indexes/Index.php:566
 #, php-format
 msgid ""
 "The indexes %1$s and %2$s seem to be equal and one of them could possibly be "
@@ -17832,11 +17856,11 @@ msgstr "सूचकांक %1$s और %2$s बराबर लगने क�
 msgid "web server upload directory:"
 msgstr "वेब सर्वर अपलोड निर्देशिका"
 
-#: src/InsertEdit.php:883 src/Sql.php:860
+#: src/InsertEdit.php:883 src/Sql.php:861
 msgid "Showing SQL query"
 msgstr "SQL क्वेरी शो"
 
-#: src/InsertEdit.php:907 src/Sql.php:840
+#: src/InsertEdit.php:907 src/Sql.php:841
 #, php-format
 msgid "Inserted row id: %1$d"
 msgstr "इनसर्ट रो id: %1$d"
@@ -18034,104 +18058,104 @@ msgctxt "Create new view"
 msgid "New"
 msgstr ""
 
-#: src/Normalization.php:200
+#: src/Normalization.php:201
 msgid "Make all columns atomic"
 msgstr ""
 
-#: src/Normalization.php:203 src/Normalization.php:252
-#: src/Normalization.php:298 src/Normalization.php:330
+#: src/Normalization.php:204 src/Normalization.php:253
+#: src/Normalization.php:299 src/Normalization.php:331
 msgid "Step 1."
 msgstr ""
 
-#: src/Normalization.php:206
+#: src/Normalization.php:207
 msgid ""
 "Do you have any column which can be split into more than one column? For "
 "example: address can be split into street, city, country and zip."
 msgstr ""
 
-#: src/Normalization.php:211
+#: src/Normalization.php:212
 msgid "Show me the central list of columns that are not already in this table"
 msgstr ""
 
-#: src/Normalization.php:213
+#: src/Normalization.php:214
 msgid ""
 "Select a column which can be split into more than one (on select of 'no such "
 "column', it'll move to next step)."
 msgstr ""
 
-#: src/Normalization.php:228
+#: src/Normalization.php:229
 msgid "split into "
 msgstr ""
 
-#: src/Normalization.php:249
+#: src/Normalization.php:250
 #, fuzzy
 #| msgid "Add primary key"
 msgid "Have a primary key"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
-#: src/Normalization.php:255
+#: src/Normalization.php:256
 #, fuzzy
 #| msgid "Error: relation already exists."
 msgid "Primary key already exists."
 msgstr "त्रुटि: रिश्ता पहले से ही मौजूद है."
 
-#: src/Normalization.php:260
+#: src/Normalization.php:261
 msgid ""
 "There is no primary key; please add one.<br>Hint: A primary key is a column "
 "(or combination of columns) that uniquely identify all rows."
 msgstr ""
 
-#: src/Normalization.php:268
+#: src/Normalization.php:269
 msgid "Add a primary key on existing column(s)"
 msgstr ""
 
-#: src/Normalization.php:272
+#: src/Normalization.php:273
 msgid ""
 "If it's not possible to make existing column combinations as primary key"
 msgstr ""
 
-#: src/Normalization.php:274
+#: src/Normalization.php:275
 #, fuzzy
 #| msgid "Add primary key"
 msgid "+ Add a new primary key column"
 msgstr "प्राथमिक कुंजी जोड़ें"
 
-#: src/Normalization.php:297
+#: src/Normalization.php:298
 #, fuzzy
 #| msgid "Remove column(s)"
 msgid "Remove redundant columns"
 msgstr "काँलम हटाना"
 
-#: src/Normalization.php:300
+#: src/Normalization.php:301
 msgid ""
 "Do you have a group of columns which on combining gives an existing column? "
 "For example, if you have first_name, last_name and full_name then combining "
 "first_name and last_name gives full_name which is redundant."
 msgstr ""
 
-#: src/Normalization.php:306
+#: src/Normalization.php:307
 msgid ""
 "Check the columns which are redundant and click on remove. If no redundant "
 "column, click on 'No redundant column'"
 msgstr ""
 
-#: src/Normalization.php:311
+#: src/Normalization.php:312
 #, fuzzy
 #| msgid "Remove selected users"
 msgid "Remove selected"
 msgstr "चयनित यूसर हटायें"
 
-#: src/Normalization.php:313
+#: src/Normalization.php:314
 #, fuzzy
 #| msgid "Add column"
 msgid "No redundant column"
 msgstr "नया काँलम जोडें"
 
-#: src/Normalization.php:329
+#: src/Normalization.php:330
 msgid "Move repeating groups"
 msgstr ""
 
-#: src/Normalization.php:332
+#: src/Normalization.php:333
 msgid ""
 "Do you have a group of two or more columns that are closely related and are "
 "all repeating the same attribute? For example, a table that holds data on "
@@ -18140,118 +18164,118 @@ msgid ""
 "should be created."
 msgstr ""
 
-#: src/Normalization.php:340
+#: src/Normalization.php:341
 msgid ""
 "Check the columns which form a repeating group. If no such group, click on "
 "'No repeating group'"
 msgstr ""
 
-#: src/Normalization.php:345
+#: src/Normalization.php:346
 msgid "No repeating group"
 msgstr ""
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Step 2."
 msgstr ""
 
-#: src/Normalization.php:373
+#: src/Normalization.php:374
 msgid "Find partial dependencies"
 msgstr ""
 
-#: src/Normalization.php:394
+#: src/Normalization.php:395
 #, php-format
 msgid ""
 "No partial dependencies possible as no non-primary column exists since "
 "primary key ( %1$s ) is composed of all the columns in the table."
 msgstr ""
 
-#: src/Normalization.php:400 src/Normalization.php:442
+#: src/Normalization.php:401 src/Normalization.php:443
 msgid "Table is already in second normal form."
 msgstr ""
 
-#: src/Normalization.php:405
+#: src/Normalization.php:406
 #, php-format
 msgid ""
 "The primary key ( %1$s ) consists of more than one column so we need to find "
 "the partial dependencies."
 msgstr ""
 
-#: src/Normalization.php:409 src/Normalization.php:820
+#: src/Normalization.php:410 src/Normalization.php:821
 msgid ""
 "Please answer the following question(s) carefully to obtain a correct "
 "normalization."
 msgstr ""
 
-#: src/Normalization.php:411
+#: src/Normalization.php:412
 msgid "+ Show me the possible partial dependencies based on data in the table"
 msgstr ""
 
-#: src/Normalization.php:414
+#: src/Normalization.php:415
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
 "value of the column."
 msgstr ""
 
-#: src/Normalization.php:427 src/Normalization.php:862
+#: src/Normalization.php:428 src/Normalization.php:863
 #, php-format
 msgid "'%1$s' depends on:"
 msgstr ""
 
-#: src/Normalization.php:438
+#: src/Normalization.php:439
 #, php-format
 msgid ""
 "No partial dependencies possible as the primary key ( %1$s ) has just one "
 "column."
 msgstr ""
 
-#: src/Normalization.php:466
+#: src/Normalization.php:467
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Second normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:508
+#: src/Normalization.php:509
 #, php-format
 msgid "The second step of normalization is complete for table '%1$s'."
 msgstr ""
 
-#: src/Normalization.php:560 src/Normalization.php:720
-#: src/Normalization.php:795
+#: src/Normalization.php:561 src/Normalization.php:721
+#: src/Normalization.php:796
 #, fuzzy
 #| msgid "Error in Processing Request"
 msgid "Error in processing!"
 msgstr "याचिका प्रसंस्करणमें त्रुटि"
 
-#: src/Normalization.php:607
+#: src/Normalization.php:608
 #, php-format
 msgid ""
 "In order to put the original table '%1$s' into Third normal form we need to "
 "create the following tables:"
 msgstr ""
 
-#: src/Normalization.php:656
+#: src/Normalization.php:657
 msgid "The third step of normalization is complete."
 msgstr ""
 
-#: src/Normalization.php:771
+#: src/Normalization.php:772
 #, fuzzy, php-format
 #| msgid "Selected target tables have been synchronized with source tables."
 msgid "Selected repeating group has been moved to the table '%s'"
 msgstr "चयनित लक्ष्य टेबल स्रोत टेबल के साथ सिंक्रनाइज़ किया जा चूका है"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 #, fuzzy
 #| msgid "Sep"
 msgid "Step 3."
 msgstr "सितम्बर"
 
-#: src/Normalization.php:818
+#: src/Normalization.php:819
 msgid "Find transitive dependencies"
 msgstr ""
 
-#: src/Normalization.php:822
+#: src/Normalization.php:823
 msgid ""
 "For each column below, please select the <b>minimal set</b> of columns among "
 "given set whose values combined together are sufficient to determine the "
@@ -18259,23 +18283,23 @@ msgid ""
 "that case you don't have to select any."
 msgstr ""
 
-#: src/Normalization.php:876
+#: src/Normalization.php:877
 msgid ""
 "No Transitive dependencies possible as the table doesn't have any non "
 "primary key columns"
 msgstr ""
 
-#: src/Normalization.php:879
+#: src/Normalization.php:880
 msgid "Table is already in Third normal form!"
 msgstr ""
 
-#: src/Normalization.php:945
+#: src/Normalization.php:946
 msgid ""
 "This list is based on a subset of the table's data and is not necessarily "
 "accurate. "
 msgstr ""
 
-#: src/Normalization.php:960
+#: src/Normalization.php:961
 msgid "No partial dependencies found!"
 msgstr ""
 
@@ -19673,16 +19697,16 @@ msgstr ""
 msgid "No newer stable version is available"
 msgstr "कोई नए स्थिर संस्करण उपलब्ध नहीं है"
 
-#: src/Sql.php:443
+#: src/Sql.php:444
 #, php-format
 msgid "Using bookmark \"%s\" as default browse query."
 msgstr ""
 
-#: src/Sql.php:857
+#: src/Sql.php:858
 msgid "Showing as PHP code"
 msgstr "PHP कोड की तरह दिखाएँ"
 
-#: src/Sql.php:1211
+#: src/Sql.php:1212
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19694,7 +19718,7 @@ msgstr ""
 "इस टेबल में कोई भी विशिष्ट (unique) कॉलम नहीं है। इस बात कि सम्भावना है कि ग्रिड "
 "सम्पादन, टिक-बॉक्स, सम्पादन, प्रतिलिपि एवं मिटाने के लिंक से जुडी सुविधाएँ काम न करें।"
 
-#: src/Sql.php:1225
+#: src/Sql.php:1226
 #, fuzzy, php-format
 #| msgid ""
 #| "This table does not contain a unique column. Features related to the grid "
@@ -19989,252 +20013,264 @@ msgstr "अवैध टेबल नाम"
 msgid "You must provide a trigger definition."
 msgstr ""
 
-#: src/Types.php:146
+#: src/Types.php:97
+#, fuzzy
+#| msgid "Empty"
+msgid "empty"
+msgstr "खाली"
+
+#: src/Types.php:98
+#, fuzzy
+#| msgid "not present"
+msgid "not empty"
+msgstr "मौजूद नहीं"
+
+#: src/Types.php:161
 msgid ""
 "A 1-byte integer, signed range is -128 to 127, unsigned range is 0 to 255"
 msgstr ""
 
-#: src/Types.php:147
+#: src/Types.php:162
 msgid ""
 "A 2-byte integer, signed range is -32,768 to 32,767, unsigned range is 0 to "
 "65,535"
 msgstr ""
 
-#: src/Types.php:149
+#: src/Types.php:164
 msgid ""
 "A 3-byte integer, signed range is -8,388,608 to 8,388,607, unsigned range is "
 "0 to 16,777,215"
 msgstr ""
 
-#: src/Types.php:152
+#: src/Types.php:167
 msgid ""
 "A 4-byte integer, signed range is -2,147,483,648 to 2,147,483,647, unsigned "
 "range is 0 to 4,294,967,295"
 msgstr ""
 
-#: src/Types.php:157
+#: src/Types.php:172
 msgid ""
 "An 8-byte integer, signed range is -9,223,372,036,854,775,808 to "
 "9,223,372,036,854,775,807, unsigned range is 0 to 18,446,744,073,709,551,615"
 msgstr ""
 
-#: src/Types.php:162
+#: src/Types.php:177
 msgid ""
 "A fixed-point number (M, D) - the maximum number of digits (M) is 65 "
 "(default 10), the maximum number of decimals (D) is 30 (default 0)"
 msgstr ""
 
-#: src/Types.php:167
+#: src/Types.php:182
 msgid ""
 "A small floating-point number, allowable values are -3.402823466E+38 to "
 "-1.175494351E-38, 0, and 1.175494351E-38 to 3.402823466E+38"
 msgstr ""
 
-#: src/Types.php:172
+#: src/Types.php:187
 msgid ""
 "A double-precision floating-point number, allowable values are "
 "-1.7976931348623157E+308 to -2.2250738585072014E-308, 0, and "
 "2.2250738585072014E-308 to 1.7976931348623157E+308"
 msgstr ""
 
-#: src/Types.php:176
+#: src/Types.php:191
 msgid ""
 "Synonym for DOUBLE (exception: in REAL_AS_FLOAT SQL mode it is a synonym for "
 "FLOAT)"
 msgstr ""
 
-#: src/Types.php:177
+#: src/Types.php:192
 msgid ""
 "A bit-field type (M), storing M of bits per value (default is 1, maximum is "
 "64)"
 msgstr ""
 
-#: src/Types.php:179
+#: src/Types.php:194
 msgid ""
 "A synonym for TINYINT(1), a value of zero is considered false, nonzero "
 "values are considered true"
 msgstr ""
 
-#: src/Types.php:181
+#: src/Types.php:196
 msgid "An alias for BIGINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE"
 msgstr ""
 
-#: src/Types.php:183
+#: src/Types.php:198
 #, fuzzy, php-format
 #| msgid "Create version %s of %s.%s"
 msgid "A date, supported range is %1$s to %2$s"
 msgstr "%s संस्करण बनायें %s.%s"
 
-#: src/Types.php:188
+#: src/Types.php:203
 #, php-format
 msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr ""
 
-#: src/Types.php:193
+#: src/Types.php:208
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
 "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 
-#: src/Types.php:198
+#: src/Types.php:213
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
 msgstr "टेबल का नाम %1$s से %2$s में बदलने में त्रुटि."
 
-#: src/Types.php:203
+#: src/Types.php:218
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
 msgstr ""
 
-#: src/Types.php:208
+#: src/Types.php:223
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr ""
 
-#: src/Types.php:213
+#: src/Types.php:228
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr ""
 
-#: src/Types.php:218
+#: src/Types.php:233
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:223
+#: src/Types.php:238
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:228
+#: src/Types.php:243
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:233
+#: src/Types.php:248
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
 
-#: src/Types.php:238
+#: src/Types.php:253
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 
-#: src/Types.php:241
+#: src/Types.php:256
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 
-#: src/Types.php:245
+#: src/Types.php:260
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:249
+#: src/Types.php:264
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:254
+#: src/Types.php:269
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:258
+#: src/Types.php:273
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:262
+#: src/Types.php:277
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
 
-#: src/Types.php:263
+#: src/Types.php:278
 msgid "A single value chosen from a set of up to 64 members"
 msgstr ""
 
-#: src/Types.php:264
+#: src/Types.php:279
 msgid "A type that can store a geometry of any type"
 msgstr ""
 
-#: src/Types.php:265
+#: src/Types.php:280
 msgid "A point in 2-dimensional space"
 msgstr ""
 
-#: src/Types.php:266
+#: src/Types.php:281
 msgid "A curve with linear interpolation between points"
 msgstr ""
 
-#: src/Types.php:267
+#: src/Types.php:282
 #, fuzzy
 #| msgid "Add column"
 msgid "A polygon"
 msgstr "नया काँलम जोडें"
 
-#: src/Types.php:268
+#: src/Types.php:283
 msgid "A collection of points"
 msgstr ""
 
-#: src/Types.php:269
+#: src/Types.php:284
 msgid "A collection of curves with linear interpolation between points"
 msgstr ""
 
-#: src/Types.php:270
+#: src/Types.php:285
 msgid "A collection of polygons"
 msgstr ""
 
-#: src/Types.php:271
+#: src/Types.php:286
 msgid "A collection of geometry objects of any type"
 msgstr ""
 
-#: src/Types.php:272
+#: src/Types.php:287
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
 
-#: src/Types.php:273
+#: src/Types.php:288
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:276
+#: src/Types.php:291
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr ""
 
-#: src/Types.php:584
+#: src/Types.php:599
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr ""
 
-#: src/Types.php:602
+#: src/Types.php:617
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "एक नया इन्डेक्स बनाऐं"
 
-#: src/Types.php:632
+#: src/Types.php:647
 #, fuzzy
 #| msgid "Total"
 msgctxt "spatial types"
@@ -21906,9 +21942,6 @@ msgstr "ज़िप संग्रह के अंदर कोई फाइ�
 
 #~ msgid "Data Synchronization"
 #~ msgstr "डेटा तुल्यकालन"
-
-#~ msgid "not present"
-#~ msgstr "मौजूद नहीं"
 
 #~ msgid "Structure Difference"
 #~ msgstr "संरचना अंतर"

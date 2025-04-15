@@ -11,7 +11,7 @@
 {% endif %}
 {% set attribute = attribute|upper %}
 <select name="field_attribute[{{ column_number }}]"
-    id="field_{{ column_number }}_{{ ci - ci_offset }}">
+    id="field_{{ column_number }}_{{ ci - ci_offset }}" class="form-select">
     {% set cnt_attribute_types = attribute_types|length - 1 %}
     {% for i in 0..cnt_attribute_types %}
         <option value="{{ attribute_types[i] }}"

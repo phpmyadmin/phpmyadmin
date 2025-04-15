@@ -89,6 +89,19 @@ class Types
     }
 
     /**
+     * Returns the display of operators.
+     */
+    public function displayOfOperator(string $operator): string
+    {
+        $displays = [
+            "= ''" => sprintf("= '' (%s)", __('empty')),
+            "!= ''" => sprintf("!= '' (%s)", __('not empty')),
+        ];
+
+        return $displays[$operator] ?? $operator;
+    }
+
+    /**
      * Returns operators for given type
      *
      * @param string $type Type of field
@@ -127,9 +140,11 @@ class Types
         foreach ($this->getTypeOperators($type, $null) as $fc) {
             $selected = $selectedOperator !== null && $selectedOperator === $fc ? ' selected' : '';
 
+            $display = $this->displayOfOperator($fc);
+
             $html .= '<option value="' . htmlspecialchars($fc) . '"'
                 . $selected . '>'
-                . htmlspecialchars($fc) . '</option>';
+                . htmlspecialchars($display) . '</option>';
         }
 
         return $html;

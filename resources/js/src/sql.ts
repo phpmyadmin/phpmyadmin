@@ -1183,30 +1183,46 @@ function browseForeignDialog ($thisA) {
     var showAllId = '#foreign_showAll';
     var tableId = '#browse_foreign_table';
     var filterId = '#input_foreign_filter';
-    var $dialog = null;
     var argSep = CommonParams.get('arg_separator');
     var params = $thisA.getPostData();
     params += argSep + 'ajax_request=true';
+
+    let browseForeignModal = document.getElementById('browseForeignModal');
+    if (browseForeignModal === null) {
+        const browseForeignModalHtml = '<div class="modal fade" id="browseForeignModal" tabindex="-1" aria-labelledby="browseForeignModalLabel" aria-hidden="true">\n' +
+            '  <div class="modal-dialog modal-lg">\n' +
+            '    <div class="modal-content">\n' +
+            '      <div class="modal-header">\n' +
+            '        <h1 class="modal-title fs-5" id="browseForeignModalLabel">' + window.Messages.strBrowseForeignValues + '</h1>\n' +
+            '        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="' + window.Messages.strClose + '"></button>\n' +
+            '      </div>\n' +
+            '      <div class="modal-body">\n' +
+            '        <div class="spinner-border" role="status">\n' +
+            '          <span class="visually-hidden">' + window.Messages.strLoading + '</span>\n' +
+            '        </div>\n' +
+            '      </div>\n' +
+            '    </div>\n' +
+            '  </div>\n' +
+            '</div>\n';
+
+        document.body.insertAdjacentHTML('beforeend', browseForeignModalHtml);
+        browseForeignModal = document.getElementById('browseForeignModal');
+    }
+
+    const modal = window.bootstrap.Modal.getOrCreateInstance(browseForeignModal);
+
+    browseForeignModal.addEventListener('hidden.bs.modal', function () {
+        // remove event handlers attached to elements related to dialog
+        $(tableId).off('click', 'td a.foreign_value');
+        $(formId).off('click', showAllId);
+        $(formId).off('submit');
+        // remove dialog itself
+        $(this).remove();
+    });
+
     $.post($thisA.attr('href'), params, function (data) {
-        // Creates browse foreign value dialog
-        $dialog = $('<div>').append(data.message).dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            title: window.Messages.strBrowseForeignValues,
-            width: Math.min($(window).width() - 100, 700),
-            maxHeight: $(window).height() - 100,
-            dialogClass: 'browse_foreign_modal',
-            close: function () {
-                // remove event handlers attached to elements related to dialog
-                $(tableId).off('click', 'td a.foreign_value');
-                $(formId).off('click', showAllId);
-                $(formId).off('submit');
-                // remove dialog itself
-                $(this).remove();
-            },
-            modal: true
-        });
+        browseForeignModal.querySelector('.modal-body').innerHTML = data.message;
+        modal.show();
     }).done(function () {
         var showAll = false;
         $(tableId).on('click', 'td a.foreign_value', function (e) {
@@ -1222,7 +1238,7 @@ function browseForeignDialog ($thisA) {
             // Unchecks the Ignore checkbox for the current row
             $input.trigger('change');
 
-            $dialog.dialog('close');
+            modal.hide();
         });
 
         $(formId).on('click', showAllId, function () {

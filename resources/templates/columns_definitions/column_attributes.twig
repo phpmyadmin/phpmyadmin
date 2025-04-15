@@ -18,7 +18,7 @@
     {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-  <select class="column_type" name="field_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}"
+  <select class="column_type form-select" name="field_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}"
     {{- column_meta['column_status'] is defined and not column_meta['column_status']['isEditable'] ? ' disabled' }}>
     {{ get_supported_datatypes(type_upper) }}
   </select>
@@ -26,14 +26,14 @@
 </td>
 <td class="text-center">
   <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_length[{{ column_number }}]" size="
-    {{- length_values_input_size }}" value="{{ length }}" class="textfield">
+    {{- length_values_input_size }}" value="{{ length }}" class="textfield form-control">
   <p class="enum_notice" id="enum_notice_{{ column_number }}_{{ ci - ci_offset }}">
     <a href="#" class="open_enum_editor">{{ t('Edit ENUM/SET values') }}</a>
   </p>
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-  <select name="field_default_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="default_type">
+  <select name="field_default_type[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="default_type form-select">
     <option value="NONE"{{ column_meta['DefaultType'] is defined and column_meta['DefaultType'] == 'NONE' ? ' selected' }}>
       {{ t('None', context = 'for default') }}
     </option>
@@ -53,15 +53,15 @@
     {% endif %}
   </select>
   {% if char_editing == 'textarea' %}
-    <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value">{{ default_value }}</textarea>
+    <textarea name="field_default_value[{{ column_number }}]" cols="15" class="textfield default_value form-control" style="resize: both;">{{ default_value }}</textarea>
   {% else %}
-    <input type="text" name="field_default_value[{{ column_number }}]" size="12" value="{{ default_value ?? '' }}" class="textfield default_value">
+    <input type="text" name="field_default_value[{{ column_number }}]" size="12" value="{{ default_value ?? '' }}" class="textfield default_value form-control">
   {% endif %}
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
   {# column collation #}
-  <select lang="en" dir="ltr" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}">
+  <select lang="en" dir="ltr" name="field_collation[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="form-select">
     <option value=""></option>
     {% for charset in charsets %}
       <optgroup label="{{ charset.name }}" title="{{ charset.description }}">
@@ -90,14 +90,14 @@
     {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-    <input name="field_null[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="YES" class="allow_null"
+    <input name="field_null[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="YES" class="allow_null form-check-input"
       {{- column_meta['Null'] is defined and column_meta['Null'] is not empty and column_meta['Null'] != 'NO' and column_meta['Null'] != 'NOT NULL' ? ' checked' }}>
     {% set ci = ci + 1 %}
 </td>
 {% if change_column is defined and change_column is not empty %}
     {# column Adjust privileges, Only for 'Edit' Column(s) #}
     <td class="text-center">
-      <input name="field_adjust_privileges[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="NULL" class="allow_null"
+      <input name="field_adjust_privileges[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="NULL" class="allow_null form-check-input"
         {%- if privs_available %} checked>
         {%- else %} title="{{ t("You don't have sufficient privileges to perform this operation; Please refer to the documentation for more details") }}" disabled>
         {%- endif %}
@@ -107,7 +107,7 @@
 {% if not is_backup %}
     {# column indexes, See my other comment about  this 'if'. #}
     <td class="text-center">
-      <select name="field_key[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" data-index="">
+      <select name="field_key[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="form-select" data-index="">
         <option value="none_{{ column_number }}">---</option>
         <option value="primary_{{ column_number }}" title="{{ t('Primary') }}"
           {{- column_meta['Key'] is defined and column_meta['Key'] == 'PRI' ? ' selected' }}>
@@ -134,12 +134,12 @@
     </td>
 {% endif %}
 <td class="text-center">
-  <input name="field_extra[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="AUTO_INCREMENT"
+  <input name="field_extra[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" type="checkbox" value="AUTO_INCREMENT" class="form-check-input"
     {{- column_meta['Extra'] is defined and column_meta['Extra']|lower == 'auto_increment' ? ' checked' }}>
   {% set ci = ci + 1 %}
 </td>
 <td class="text-center">
-  <textarea id="field_{{ column_number }}_{{ ci - ci_offset }}" rows="1" name="field_comments[{{ column_number }}]" maxlength="{{ max_length }}">
+  <textarea id="field_{{ column_number }}_{{ ci - ci_offset }}" rows="1" name="field_comments[{{ column_number }}]" maxlength="{{ max_length }}" class="form-control" style="resize: both;">
     {{- column_meta['Field'] is defined and comments_map is iterable and comments_map[column_meta['Field']] is defined ? comments_map[column_meta['Field']] -}}
   </textarea>
   {% set ci = ci + 1 %}
@@ -147,7 +147,7 @@
  {# column virtuality #}
 {% if is_virtual_columns_supported %}
     <td class="text-center">
-      <select name="field_virtuality[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="virtuality">
+      <select name="field_virtuality[{{ column_number }}]" id="field_{{ column_number }}_{{ ci - ci_offset }}" class="virtuality form-select">
         {% for key, value in options %}
           {% set virtuality = column_meta['Extra'] is defined ? column_meta['Extra'] : null %}
           {# Creating a new row on create table sends a Virtuality field #}
@@ -160,9 +160,9 @@
       </select>
 
       {% if char_editing == 'textarea' %}
-        <textarea name="field_expression[{{ column_number }}]" cols="15" class="textfield expression">{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}</textarea>
+        <textarea name="field_expression[{{ column_number }}]" cols="15" class="textfield expression form-control" style="resize: both;">{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}</textarea>
       {% else %}
-        <input type="text" name="field_expression[{{ column_number }}]" size="12" value="{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}" placeholder="{{ t('Expression') }}" class="textfield expression">
+        <input type="text" name="field_expression[{{ column_number }}]" size="12" value="{{ column_meta['Expression'] is defined ? column_meta['Expression'] }}" placeholder="{{ t('Expression') }}" class="textfield expression form-control">
       {% endif %}
       {% set ci = ci + 1 %}
     </td>
@@ -179,7 +179,7 @@
     {% endfor %}
 
     <td class="text-center">
-      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" name="field_move_to[{{ column_number }}]" size="1" width="5em">
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" name="field_move_to[{{ column_number }}]" size="1" class="form-select">
         <option value="" selected>&nbsp;</option>
         <option value="-first"{{ current_index == 0 ? ' disabled' }}>
           {{ t('first') }}
@@ -197,7 +197,7 @@
 
 {% if relation_parameters.browserTransformationFeature is not null and relation_parameters.columnCommentsFeature is not null and browse_mime %}
     <td class="text-center">
-      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_mimetype[{{ column_number }}]">
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_mimetype[{{ column_number }}]" class="form-select">
         <option value="">&nbsp;</option>
         {% if available_mime['mimetype'] is defined and available_mime['mimetype'] is iterable %}
           {% for media_type in available_mime['mimetype'] %}
@@ -212,7 +212,7 @@
       {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_transformation[{{ column_number }}]">
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_transformation[{{ column_number }}]" class="form-select">
         <option value="" title="{{ t('None') }}"></option>
         {% if available_mime['transformation'] is defined and available_mime['transformation'] is iterable %}
           {% for mimekey, transform in available_mime['transformation'] %}
@@ -230,12 +230,12 @@
       {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-      <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_transformation_options[{{ column_number }}]" size="16" class="textfield" value="
+      <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_transformation_options[{{ column_number }}]" size="16" class="textfield form-control" value="
         {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['transformation_options'] is defined ? mime_map[column_meta['Field']]['transformation_options'] }}">
       {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_input_transformation[{{ column_number }}]">
+      <select id="field_{{ column_number }}_{{ ci - ci_offset }}" size="1" name="field_input_transformation[{{ column_number }}]" class="form-select">
         <option value="" title="{{ t('None') }}"></option>
         {% if available_mime['input_transformation'] is defined and available_mime['input_transformation'] is iterable %}
           {% for mimekey, transform in available_mime['input_transformation'] %}
@@ -251,7 +251,7 @@
       {% set ci = ci + 1 %}
     </td>
     <td class="text-center">
-      <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_input_transformation_options[{{ column_number }}]" size="16" class="textfield" value="
+      <input id="field_{{ column_number }}_{{ ci - ci_offset }}" type="text" name="field_input_transformation_options[{{ column_number }}]" size="16" class="textfield form-control" value="
         {{- column_meta['Field'] is defined and mime_map[column_meta['Field']]['input_transformation_options'] is defined ? mime_map[column_meta['Field']]['input_transformation_options'] }}">
       {% set ci = ci + 1 %}
     </td>

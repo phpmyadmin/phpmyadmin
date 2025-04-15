@@ -390,6 +390,7 @@ final class JavaScriptMessagesController implements InvocableController
             'MissingReturn' => __('The definition of a stored function must contain a RETURN statement!'),
             'strExport' => __('Export'),
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
+            'strRoutine' => __('Routine'),
 
             /* For ENUM/SET editor*/
             'enum_columnVals' => __('Values for column %s'),
