@@ -11,6 +11,7 @@ use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
+use PhpMyAdmin\Html\Generator;
 use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -18,14 +19,18 @@ use PhpMyAdmin\Identifiers\TableName;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Template;
+use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
+use function array_slice;
+use function count;
 use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
+use function max;
 use function mb_strtoupper;
 use function sprintf;
 use function trim;
@@ -453,6 +458,31 @@ final class RoutinesController implements InvocableController
         }
 
         $items = Routines::getDetails($this->dbi, Current::$database, $type);
+        $totalNumRoutines = count($items);
+        $pageSize = $config->settings['MaxRoutineList'];
+        $pos = (int) $request->getParam('pos');
+
+        // Checks if there are any routines to be shown on current page.
+        // If there are no routines, the user is redirected to the last page
+        // having any.
+        if ($totalNumRoutines > 0 && $pos >= $totalNumRoutines) {
+            $redirParams = [
+                'db' => Current::$database,
+                'pos' => max(0, $totalNumRoutines - $pageSize),
+                'reload' => 1,
+            ];
+            if ($this->response->isAjax()) {
+                $redirParams['ajax_request'] = 'true';
+                $redirParams['ajax_page_request'] = 'true';
+            }
+
+            $this->response->redirectToRoute('/database/routines', $redirParams);
+
+            return $this->response->response();
+        }
+
+        $items = array_slice($items, $pos, $pageSize);
+
         $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
 
         $rows = '';
@@ -463,12 +493,24 @@ final class RoutinesController implements InvocableController
             );
         }
 
+        $urlParams = ['pos' => $pos, 'db' => Current::$database];
+
+        $listNavigator = Generator::getListNavigator(
+            $totalNumRoutines,
+            $pos,
+            $urlParams,
+            Url::getFromRoute('/database/routines'),
+            'frame_content',
+            $pageSize,
+        );
+
         $this->response->render('database/routines/index', [
             'db' => Current::$database,
             'table' => Current::$table,
             'has_any_routines' => $items !== [],
             'rows' => $rows,
             'has_privilege' => Util::currentUserHasPrivilege('CREATE ROUTINE', Current::$database, Current::$table),
+            'list_navigator_html' => $listNavigator,
         ]);
 
         return $this->response->response();
