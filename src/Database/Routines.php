@@ -1162,16 +1162,8 @@ class Routines
             Util::backquote($routine->name),
         );
 
-        // this is for our purpose to decide whether to
-        // show the edit link or not, so we need the DEFINER for the routine
-        $where = 'ROUTINE_SCHEMA ' . Util::getCollateForIS() . '=' . $this->dbi->quoteString(Current::$database)
-            . ' AND SPECIFIC_NAME=' . $this->dbi->quoteString($routine->name)
-            . ' AND ROUTINE_TYPE=' . $this->dbi->quoteString($routine->type);
-        $query = 'SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ' . $where . ';';
-        $routineDefiner = $this->dbi->fetchValue($query);
-
         $currentUser = $this->dbi->getCurrentUser();
-        $currentUserIsRoutineDefiner = $currentUser === $routineDefiner;
+        $currentUserIsRoutineDefiner = $currentUser === $routine->definer;
 
         // Since editing a procedure involved dropping and recreating, check also for
         // CREATE ROUTINE privilege to avoid lost procedures.
@@ -1280,9 +1272,14 @@ class Routines
         }
 
         $ret = [];
-        /** @var array{Name:string, Type:string, DTD_IDENTIFIER:string|null} $routine */
+        /** @var array{Name:string, Type:string, Definer:string, DTD_IDENTIFIER:string|null} $routine */
         foreach ($routines as $routine) {
-            $ret[] = new Routine($routine['Name'], $routine['Type'], $routine['DTD_IDENTIFIER'] ?? '');
+            $ret[] = new Routine(
+                $routine['Name'],
+                $routine['Type'],
+                $routine['DTD_IDENTIFIER'] ?? '',
+                $routine['Definer'],
+            );
         }
 
         // Sort results by name

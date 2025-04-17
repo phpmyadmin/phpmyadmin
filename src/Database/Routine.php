@@ -10,6 +10,7 @@ final readonly class Routine
         public string $name,
         public string $type,
         public string $returns,
+        public string $definer,
     ) {
     }
 }
