@@ -1543,7 +1543,7 @@ class Table implements Stringable
                 }
             }
 
-            $tmpErrorCreate = false;
+            $tmpErrorCreate = '';
             if (! $create) {
                 continue;
             }
@@ -1586,7 +1586,7 @@ class Table implements Stringable
 
             // this is an alteration and the old constraint has been dropped
             // without creation of a new one
-            if (! $drop || $tmpErrorCreate === '' || $tmpErrorCreate === false) {
+            if (! $drop || $tmpErrorCreate === '') {
                 continue;
             }
 
