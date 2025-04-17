@@ -8014,24 +8014,6 @@ parameters:
 			path: src/Git.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{0\?\: string, 1\?\: non\-empty\-string, 2\?\: non\-empty\-string, 3\?\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Git.php
-
-		-
-			message: '#^Offset 2 might not exist on array\{0\?\: string, 1\?\: non\-empty\-string, 2\?\: non\-empty\-string, 3\?\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Git.php
-
-		-
-			message: '#^Offset 3 might not exist on array\{0\?\: string, 1\?\: non\-empty\-string, 2\?\: non\-empty\-string, 3\?\: numeric\-string, 4\?\: non\-falsy\-string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Git.php
-
-		-
 			message: '#^Only booleans are allowed in an if condition, string\|false given\.$#'
 			identifier: if.condNotBoolean
 			count: 1
@@ -8769,12 +8751,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\InsertEdit\:\:getFormParametersForInsertForm\(\) should return array\<string, string\> but returns array\<string, mixed\>\.$#'
 			identifier: return.type
-			count: 1
-			path: src/InsertEdit.php
-
-		-
-			message: '#^Offset 2 might not exist on array\{0\?\: string, 1\?\: string, 2\?\: string, 3\?\: numeric\-string\}\.$#'
-			identifier: offsetAccess.notFound
 			count: 1
 			path: src/InsertEdit.php
 
@@ -11770,7 +11746,7 @@ parameters:
 			path: src/Plugins/Import/ImportCsv.php
 
 		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, array\<int\<0, max\>, array\> given\.$#'
+			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, list\<array\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportCsv.php
@@ -11878,7 +11854,7 @@ parameters:
 			path: src/Plugins/Import/ImportOds.php
 
 		-
-			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, non\-empty\-array\<int\<0, max\>, array\> given\.$#'
+			message: '#^Parameter \#3 \$rows of class PhpMyAdmin\\Import\\ImportTable constructor expects list\<list\<mixed\>\>, non\-empty\-list\<array\> given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Plugins/Import/ImportOds.php
@@ -14221,12 +14197,6 @@ parameters:
 			path: src/Server/Status/Monitor.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{0\?\: string, 1\?\: non\-empty\-string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Server/Status/Monitor.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, mixed given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 4
@@ -16069,12 +16039,6 @@ parameters:
 			path: src/Util.php
 
 		-
-			message: '#^Offset 1 might not exist on array\{0\?\: string, 1\?\: string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: src/Util.php
-
-		-
 			message: '#^Offset int\<1, 6\> on array\{string, string, string, string, string, string, string\} in isset\(\) always exists and is not nullable\.$#'
 			identifier: isset.offset
 			count: 1
@@ -16239,12 +16203,6 @@ parameters:
 		-
 			message: '#^Method PhpMyAdmin\\Utils\\HttpRequest\:\:response\(\) should return bool\|string\|null but returns mixed\.$#'
 			identifier: return.type
-			count: 1
-			path: src/Utils/HttpRequest.php
-
-		-
-			message: '#^Offset 1 might not exist on array\{0\?\: string, 1\?\: numeric\-string\}\.$#'
-			identifier: offsetAccess.notFound
 			count: 1
 			path: src/Utils/HttpRequest.php
 
@@ -17117,12 +17075,6 @@ parameters:
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
 			path: tests/unit/Config/FormDisplayTest.php
-
-		-
-			message: '#^Offset 1 might not exist on array\{0\?\: string, 1\?\: numeric\-string\}\.$#'
-			identifier: offsetAccess.notFound
-			count: 1
-			path: tests/unit/Config/FormTest.php
 
 		-
 			message: '''
