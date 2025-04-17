@@ -170,6 +170,8 @@ const DatabaseRoutines = {
             // We have successfully fetched the editor form
             ajaxRemoveMessage($msg);
 
+            let isEditMode = false;
+
             const routinesEditorModalSaveEventHandler = function () {
                 // Move the data from the codemirror editor back to the
                 // textarea, where it can be used in the form submission.
@@ -206,7 +208,7 @@ const DatabaseRoutines = {
                     var tableId = '#' + data.tableType + 'Table';
                     // If we are in 'edit' mode, we must
                     // remove the reference to the old row.
-                    if (mode === 'edit' && $editRow !== null) {
+                    if (isEditMode && $editRow !== null) {
                         $editRow.remove();
                     }
 
@@ -326,6 +328,25 @@ const DatabaseRoutines = {
 
                 // @ts-ignore
                 $.datepicker.initialized = false;
+
+                if ($('input[name=editor_process_edit]').length > 0) {
+                    isEditMode = true;
+                }
+
+                // Attach syntax highlighted editor to the definition
+                /**
+                 * @var elm jQuery object containing the reference to
+                 *                 the Definition textarea.
+                 */
+                var $elm = $('textarea[name=item_definition]').last();
+                var linterOptions = {
+                    editorType: 'routine',
+                };
+                that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
+                window.codeMirrorEditor = that.syntaxHiglighter;
+
+                // Execute item-specific code
+                that.postDialogShow(data);
             });
 
             routinesEditorModal.addEventListener('hidden.bs.modal', function () {
@@ -335,31 +356,7 @@ const DatabaseRoutines = {
                     '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
             });
 
-            /**
-             * @var mode Used to remember whether the editor is in
-             *           "Edit" or "Add" mode
-             */
-            var mode = 'add';
-            if ($('input[name=editor_process_edit]').length > 0) {
-                mode = 'edit';
-            }
-
-            // Attach syntax highlighted editor to the definition
-            /**
-             * @var elm jQuery object containing the reference to
-             *                 the Definition textarea.
-             */
-            var $elm = $('textarea[name=item_definition]').last();
-            var linterOptions = {
-                editorType: 'routine',
-            };
-            that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
-            window.codeMirrorEditor = that.syntaxHiglighter;
-
             window.bootstrap.Modal.getOrCreateInstance(routinesEditorModal).show();
-
-            // Execute item-specific code
-            that.postDialogShow(data);
         });
     },
 
@@ -893,6 +890,8 @@ const DatabaseRoutines = {
                     });
                 });
             });
+
+            modal.show();
         });
     }
 };
