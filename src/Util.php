@@ -1172,17 +1172,6 @@ class Util
     }
 
     /**
-     * Returns a list of datatypes that are not (yet) handled by PMA.
-     * Used by: /table/change and libraries/Routines.php
-     *
-     * @return string[] list of datatypes
-     */
-    public static function unsupportedDatatypes(): array
-    {
-        return [];
-    }
-
-    /**
      * This function is to check whether database support UUID
      */
     public static function isUUIDSupported(): bool

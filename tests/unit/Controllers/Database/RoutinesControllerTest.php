@@ -186,10 +186,10 @@ final class RoutinesControllerTest extends AbstractTestCase
       </a>
       </td>
   <td>
-                  <a class="ajax exec_anchor" href="index.php?route=/database/routines&db=test_db&table=&execute_dialog=1&item_name=test_func&item_type=FUNCTION&server=2&lang=en">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Execute" alt="Execute" class="icon ic_b_nextpage">&nbsp;Execute</span>
-        </a>
-            </td>
+          <a class="ajax exec_anchor" href="index.php?route=/database/routines&db=test_db&table=&execute_dialog=1&item_name=test_func&item_type=FUNCTION&server=2&lang=en">
+        <span class="text-nowrap"><img src="themes/dot.gif" title="Execute" alt="Execute" class="icon ic_b_nextpage">&nbsp;Execute</span>
+      </a>
+      </td>
   <td>
           <a class="ajax export_anchor" href="index.php?route=/database/routines&db=test_db&table=&export_item=1&item_name=test_func&item_type=FUNCTION&server=2&lang=en">
         <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>
@@ -215,10 +215,10 @@ final class RoutinesControllerTest extends AbstractTestCase
       </a>
       </td>
   <td>
-                  <a class="ajax exec_anchor" href="index.php?route=/database/routines&db=test_db&table=&execute_dialog=1&item_name=test_proc&item_type=PROCEDURE&server=2&lang=en">
-          <span class="text-nowrap"><img src="themes/dot.gif" title="Execute" alt="Execute" class="icon ic_b_nextpage">&nbsp;Execute</span>
-        </a>
-            </td>
+          <a class="ajax exec_anchor" href="index.php?route=/database/routines&db=test_db&table=&execute_dialog=1&item_name=test_proc&item_type=PROCEDURE&server=2&lang=en">
+        <span class="text-nowrap"><img src="themes/dot.gif" title="Execute" alt="Execute" class="icon ic_b_nextpage">&nbsp;Execute</span>
+      </a>
+      </td>
   <td>
           <a class="ajax export_anchor" href="index.php?route=/database/routines&db=test_db&table=&export_item=1&item_name=test_proc&item_type=PROCEDURE&server=2&lang=en">
         <span class="text-nowrap"><img src="themes/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export</span>

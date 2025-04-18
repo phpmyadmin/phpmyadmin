@@ -1002,15 +1002,6 @@ class UtilTest extends AbstractTestCase
         return [['test', 'test'], ["\r\ntest", "\n\r\ntest"], ["\ntest", "\ntest"], ["\n\r\ntest", "\n\r\ntest"]];
     }
 
-    public function testUnsupportedDatatypes(): void
-    {
-        $noSupportTypes = [];
-        self::assertSame(
-            $noSupportTypes,
-            Util::unsupportedDatatypes(),
-        );
-    }
-
     public function testGetPageFromPosition(): void
     {
         self::assertSame(Util::getPageFromPosition(0, 1), 1);

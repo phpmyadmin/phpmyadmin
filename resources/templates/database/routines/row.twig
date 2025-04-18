@@ -24,26 +24,16 @@
     {% endif %}
   </td>
   <td>
-    {% if has_execute_privilege and execute_action is not empty %}
-      {% if execute_action == 'execute_routine' %}
-        <a class="ajax exec_anchor" href="{{ url('/database/routines', {'db': db, 'table': table}) }}" data-post="{{ get_common({
-          'execute_routine': true,
-          'item_name': routine.name,
-          'item_type': routine.type
-        }, '') }}">
-          {{ get_icon('b_nextpage', t('Execute')) }}
-        </a>
-      {% else %}
-        <a class="ajax exec_anchor" href="{{ url('/database/routines', {
-          'db': db,
-          'table': table,
-          'execute_dialog': true,
-          'item_name': routine.name,
-          'item_type': routine.type
-        }) }}">
-          {{ get_icon('b_nextpage', t('Execute')) }}
-        </a>
-      {% endif %}
+    {% if has_execute_privilege %}
+      <a class="ajax exec_anchor" href="{{ url('/database/routines', {
+        'db': db,
+        'table': table,
+        'execute_dialog': true,
+        'item_name': routine.name,
+        'item_type': routine.type
+      }) }}">
+        {{ get_icon('b_nextpage', t('Execute')) }}
+      </a>
     {% else %}
       {{ get_icon('bd_nextpage', t('Execute')) }}
     {% endif %}

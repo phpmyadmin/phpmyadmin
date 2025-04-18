@@ -1084,10 +1084,7 @@ class Routines
             $routine['item_param_name'][$i] = htmlentities($routine['item_param_name'][$i], ENT_QUOTES);
         }
 
-        $noSupportTypes = Util::unsupportedDatatypes();
-
         $params = [];
-        $params['no_support_types'] = $noSupportTypes;
 
         for ($i = 0; $i < $routine['item_num_params']; $i++) {
             if ($routine['item_type'] === 'PROCEDURE' && $routine['item_param_dir'][$i] === 'OUT') {
@@ -1098,11 +1095,6 @@ class Routines
                 if (
                     stripos($routine['item_param_type'][$i], 'enum') !== false
                     || stripos($routine['item_param_type'][$i], 'set') !== false
-                    || in_array(
-                        mb_strtolower($routine['item_param_type'][$i]),
-                        $noSupportTypes,
-                        true,
-                    )
                 ) {
                     $params[$i]['generator'] = null;
                 } else {
@@ -1137,8 +1129,6 @@ class Routines
                     $value = htmlentities(Util::unQuote($value), ENT_QUOTES);
                     $params[$i]['htmlentities'][] = $value;
                 }
-            } elseif (in_array(mb_strtolower($routine['item_param_type'][$i]), $noSupportTypes, true)) {
-                $params[$i]['input_type'] = null;
             } else {
                 $params[$i]['input_type'] = 'text';
             }
@@ -1186,33 +1176,6 @@ class Routines
         // we will show a dialog to get values for these parameters,
         // otherwise we can execute it directly.
 
-        if ($routine->type === 'FUNCTION') {
-            $definition = self::getFunctionDefinition($this->dbi, Current::$database, $routine->name);
-        } else {
-            $definition = self::getProcedureDefinition($this->dbi, Current::$database, $routine->name);
-        }
-
-        $executeAction = '';
-
-        if ($definition !== null && $hasExecutePrivilege) {
-            $parser = new Parser('DELIMITER $$' . "\n" . $definition);
-
-            /** @var CreateStatement $stmt */
-            $stmt = $parser->statements[0];
-
-            $executeAction = 'execute_routine';
-            if ($stmt->parameters !== null) {
-                foreach ($stmt->parameters as $param) {
-                    if ($routine->type === 'PROCEDURE' && $param->inOut === 'OUT') {
-                        continue;
-                    }
-
-                    $executeAction = 'execute_dialog';
-                    break;
-                }
-            }
-        }
-
         return [
             'db' => Current::$database,
             'table' => Current::$table,
@@ -1222,7 +1185,6 @@ class Routines
             'has_edit_privilege' => $hasEditPrivilege,
             'has_export_privilege' => $hasExportPrivilege,
             'has_execute_privilege' => $hasExecutePrivilege,
-            'execute_action' => $executeAction,
         ];
     }
 
