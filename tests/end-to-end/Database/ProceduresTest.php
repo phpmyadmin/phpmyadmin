@@ -144,16 +144,7 @@ class ProceduresTest extends TestBase
             'READS SQL DATA',
         );
 
-        $action = $this->webDriver->action();
-        // Resize the too big text box to access Go button
-        $element = $this->byXPath('//*[@class="ui-resizable-handle ui-resizable-s"]');
-        $action->moveToElement($element)
-            ->clickAndHold()
-            ->moveByOffset(0, -120)// Resize
-            ->click()// Click to free the mouse
-            ->perform();
-
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('routinesEditorModalSaveButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         self::assertStringContainsString('Routine `test_procedure` has been created', $success->getText());
@@ -185,7 +176,7 @@ class ProceduresTest extends TestBase
         $this->byName('item_param_length[0]')->clear();
         $this->byName('item_param_length[0]')->sendKeys('30');
 
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('routinesEditorModalSaveButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         self::assertStringContainsString('Routine `test_procedure` has been modified', $success->getText());
@@ -229,7 +220,7 @@ class ProceduresTest extends TestBase
         $this->waitAjax();
         $this->waitUntilElementIsVisible('partialLinkText', 'Execute', 30)->click();
         $this->waitUntilElementIsVisible('name', 'params[inp]', 30)->sendKeys($text);
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('routinesExecuteModalExecuteButton')->click();
 
         $this->waitAjax();
         $this->waitForElement('cssSelector', 'span#PMA_slidingMessage table tbody');
