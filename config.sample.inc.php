@@ -34,6 +34,7 @@ $cfg['Servers'][$i]['AllowNoPassword'] = false;
 /**
  * phpMyAdmin configuration storage settings.
  */
+$cfg['MaxExactCountViews'] = 10000;
 
 /* User used to manipulate with storage */
 // $cfg['Servers'][$i]['controlhost'] = '';
