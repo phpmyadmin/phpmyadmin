@@ -86,8 +86,12 @@ final class SimulateDmlController implements InvocableController
             }
 
             // Get the matched rows for the query.
-            $result = $this->simulateDml->getMatchedRows($parser, $statement);
-            $this->error = $this->simulateDml->getError();
+            try {
+                $result = $this->simulateDml->getMatchedRows($parser, $statement);
+                $this->error = $this->simulateDml->getError();
+            } catch (\InvalidArgumentException $e) {
+                $this->error = $e->getMessage();
+            }
 
             if ($this->error !== '') {
                 break;
