@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-13 00:52+0000\n"
+"POT-Creation-Date: 2025-04-20 00:28+0000\n"
 "PO-Revision-Date: 2025-04-14 12:33+0000\n"
 "Last-Translator: Zahid Rizky Fakhri <zahidrizkyfakhri@gmail.com>\n"
 "Language-Team: Indonesian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -57,7 +57,7 @@ msgstr "Gelap"
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
-#: src/Util.php:1362
+#: src/Util.php:1351
 msgid "Settings"
 msgstr "Pengaturan"
 
@@ -230,7 +230,7 @@ msgstr "kolom"
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
-#: resources/templates/database/routines/execute_form.twig:55
+#: resources/templates/database/routines/execute_form.twig:61
 #: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
@@ -366,12 +366,12 @@ msgstr "Memproses"
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
-#: resources/templates/database/routines/index.twig:71
 #: resources/templates/database/routines/index.twig:79
-#: resources/templates/database/routines/index.twig:91
-#: resources/templates/database/routines/index.twig:95
-#: resources/templates/database/routines/index.twig:106
+#: resources/templates/database/routines/index.twig:87
+#: resources/templates/database/routines/index.twig:99
+#: resources/templates/database/routines/index.twig:103
 #: resources/templates/database/routines/index.twig:114
+#: resources/templates/database/routines/index.twig:122
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
@@ -558,8 +558,8 @@ msgstr "Grup simpul"
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1371
-#: src/Util.php:1388
+#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1360
+#: src/Util.php:1377
 msgid "Structure"
 msgstr "Struktur"
 
@@ -569,8 +569,8 @@ msgstr "Struktur"
 #: resources/templates/database/central_columns/main.twig:226
 #: resources/templates/database/events/index.twig:45
 #: resources/templates/database/routines/editor_form.twig:55
-#: resources/templates/database/routines/execute_form.twig:15
-#: resources/templates/database/routines/index.twig:52
+#: resources/templates/database/routines/execute_form.twig:16
+#: resources/templates/database/routines/index.twig:56
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
@@ -591,8 +591,8 @@ msgstr "Nama"
 #: resources/templates/database/privileges/index.twig:19
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
-#: resources/templates/database/routines/execute_form.twig:16
-#: resources/templates/database/routines/index.twig:53
+#: resources/templates/database/routines/execute_form.twig:17
+#: resources/templates/database/routines/index.twig:57
 #: resources/templates/database/structure/table_header.twig:30
 #: resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
@@ -1644,7 +1644,7 @@ msgstr "Kecuali"
 #: resources/templates/database/designer/main.twig:646
 #: resources/templates/database/designer/main.twig:852
 #: resources/templates/database/designer/main.twig:1045
-#: resources/templates/database/routines/execute_form.twig:20
+#: resources/templates/database/routines/execute_form.twig:21
 #: resources/templates/server/replication/status_table.twig:17
 #: resources/templates/server/status/variables/index.twig:76
 #: resources/templates/server/variables/index.twig:32
@@ -1735,7 +1735,7 @@ msgstr "Nama event"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1358
+#: src/Server/Status/Processes.php:96 src/Util.php:1347
 msgid "Status"
 msgstr "Status"
 
@@ -1803,7 +1803,7 @@ msgstr "Pendefinisi"
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1380
+#: src/Util.php:1369
 msgid "Events"
 msgstr "Event"
 
@@ -1842,8 +1842,8 @@ msgstr "Pilih Semua"
 #: resources/templates/database/privileges/index.twig:116
 #: resources/templates/database/routines/index.twig:17
 #: resources/templates/database/routines/index.twig:18
-#: resources/templates/database/routines/row.twig:60
-#: resources/templates/database/routines/row.twig:63
+#: resources/templates/database/routines/row.twig:50
+#: resources/templates/database/routines/row.twig:53
 #: resources/templates/database/structure/check_all_tables.twig:12
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
@@ -1865,7 +1865,7 @@ msgstr "Pilih Semua"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1360 src/Util.php:1375 src/Util.php:1392
+#: src/Util.php:1349 src/Util.php:1364 src/Util.php:1381
 msgid "Export"
 msgstr "Ekspor"
 
@@ -1878,7 +1878,7 @@ msgstr "Ekspor"
 #: resources/templates/database/routines/index.twig:20
 #: resources/templates/database/routines/index.twig:21
 #: resources/templates/database/routines/parameter_row.twig:51
-#: resources/templates/database/routines/row.twig:73
+#: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:16
 #: resources/templates/database/structure/structure_table_row.twig:87
 #: resources/templates/indexes.twig:59
@@ -2020,7 +2020,7 @@ msgid "criteria"
 msgstr "kriteria"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1830
+#: src/Util.php:1819
 msgid "Sort"
 msgstr "Urutan"
 
@@ -2032,7 +2032,7 @@ msgstr "Urutan"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1838 src/Util.php:1855
+#: src/Display/Results.php:1398 src/Util.php:1827 src/Util.php:1844
 msgid "Ascending"
 msgstr "Menaik"
 
@@ -2044,7 +2044,7 @@ msgstr "Menaik"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1843 src/Util.php:1860
+#: src/Display/Results.php:1403 src/Util.php:1832 src/Util.php:1849
 msgid "Descending"
 msgstr "Menurun"
 
@@ -2234,7 +2234,7 @@ msgstr "Nama pemilik"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1378 src/Util.php:1394
+#: src/Menu.php:365 src/Util.php:1367 src/Util.php:1383
 msgid "Privileges"
 msgstr "Hak Akses"
 
@@ -2377,19 +2377,23 @@ msgid "SQL data access"
 msgstr "Akses data SQL"
 
 #: resources/templates/database/routines/execute_form.twig:7
-#: resources/templates/database/routines/execute_form.twig:12
+#: resources/templates/database/routines/execute_form.twig:13
 msgid "Routine parameters"
 msgstr "Parameter routine"
 
-#: resources/templates/database/routines/execute_form.twig:18
+#: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Fungsi"
 
+#: resources/templates/database/routines/execute_form.twig:54
+msgid "This routine does not require any parameters."
+msgstr ""
+
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1379
+#: src/Util.php:1368
 msgid "Routines"
 msgstr "Routine"
 
@@ -2402,7 +2406,7 @@ msgstr "Routine"
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1054
-#: src/Util.php:1373 src/Util.php:1390
+#: src/Util.php:1362 src/Util.php:1379
 msgid "Search"
 msgstr "Cari"
 
@@ -2410,20 +2414,20 @@ msgstr "Cari"
 msgid "Create new routine"
 msgstr "Buat rutinitas baru"
 
-#: resources/templates/database/routines/index.twig:45
+#: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
 msgstr "Tidak ada routine yang dapat ditampilkan."
 
-#: resources/templates/database/routines/index.twig:54
+#: resources/templates/database/routines/index.twig:58
 msgid "Returns"
 msgstr "Hasil"
 
-#: resources/templates/database/routines/index.twig:70
+#: resources/templates/database/routines/index.twig:78
 msgid "Routine editor"
 msgstr "Penyunting rutin"
 
-#: resources/templates/database/routines/index.twig:75
-#: resources/templates/database/routines/index.twig:110
+#: resources/templates/database/routines/index.twig:83
+#: resources/templates/database/routines/index.twig:118
 #: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
@@ -2434,25 +2438,24 @@ msgstr "Penyunting rutin"
 msgid "Loading…"
 msgstr "Memproses…"
 
-#: resources/templates/database/routines/index.twig:80
+#: resources/templates/database/routines/index.twig:88
 #: resources/templates/server/privileges/users_overview.twig:177
 msgid "Save changes"
 msgstr "Simpan perubahan"
 
-#: resources/templates/database/routines/index.twig:90
+#: resources/templates/database/routines/index.twig:98
 msgid "Export routine"
 msgstr "Ekspor rutin"
 
-#: resources/templates/database/routines/index.twig:105
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Database/RoutinesController.php:361
+#: resources/templates/database/routines/index.twig:113
+#: src/Controllers/Database/RoutinesController.php:356
+#: src/Controllers/Database/RoutinesController.php:366
 msgid "Execute routine"
 msgstr "Jalankan routine"
 
-#: resources/templates/database/routines/index.twig:115
-#: resources/templates/database/routines/row.twig:34
-#: resources/templates/database/routines/row.twig:44
-#: resources/templates/database/routines/row.twig:48
+#: resources/templates/database/routines/index.twig:123
+#: resources/templates/database/routines/row.twig:35
+#: resources/templates/database/routines/row.twig:38
 msgid "Execute"
 msgstr "Eksekusi"
 
@@ -2533,7 +2536,7 @@ msgstr[0] "%1$s cocok dengan <strong>%2$s</strong>"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1387
+#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1376
 msgid "Browse"
 msgstr "Jelajahi"
 
@@ -2556,7 +2559,7 @@ msgstr[0] "%s tabel"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1364
+#: src/Server/Status/Data.php:124 src/Util.php:1353
 msgid "Replication"
 msgstr "Replikasi"
 
@@ -2661,7 +2664,7 @@ msgid "Copy table with prefix"
 msgstr "Salin tabel dengan prefiks"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1384
+#: src/Menu.php:405 src/Util.php:1373
 msgid "Central columns"
 msgstr "Tengah kolom"
 
@@ -2809,7 +2812,7 @@ msgstr "Direplikasi"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1391
+#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1380
 msgid "Insert"
 msgstr "Tambahkan"
 
@@ -3603,8 +3606,8 @@ msgstr "Kembali"
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1361 src/Util.php:1376
-#: src/Util.php:1393
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1350 src/Util.php:1365
+#: src/Util.php:1382
 msgid "Import"
 msgstr "Impor"
 
@@ -3951,7 +3954,7 @@ msgstr "Unggahan SQL"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1356
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1345
 msgid "Databases"
 msgstr "Basis data"
 
@@ -4406,7 +4409,7 @@ msgstr ""
 "Masuk kembali ke phpMyAdmin untuk memuat berkas konfigurasi yang diperbarui."
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1363
+#: src/Server/Status/Data.php:119 src/Util.php:1352
 msgid "Binary log"
 msgstr "Log biner"
 
@@ -4546,7 +4549,7 @@ msgstr "Deskripsi"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1365
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1354
 msgid "Variables"
 msgstr "Variabel"
 
@@ -4567,7 +4570,7 @@ msgid "Importing into the current server"
 msgstr "Mengimpor ke dalam server saat ini"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1367
+#: src/Util.php:1356
 msgid "Plugins"
 msgstr "Plugin"
 
@@ -6772,7 +6775,7 @@ msgstr "Periksa integritas referensial"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1057 src/Util.php:1377 src/Util.php:1395
+#: src/Menu.php:358 src/Util.php:1057 src/Util.php:1366 src/Util.php:1384
 msgid "Operations"
 msgstr "Operasi"
 
@@ -7244,7 +7247,7 @@ msgstr "Ekspor trigger %s"
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
 #: src/Plugins/Export/ExportSql.php:1906
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1381 src/Util.php:1397
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1370 src/Util.php:1386
 msgid "Triggers"
 msgstr "Trigger"
 
@@ -8856,7 +8859,7 @@ msgstr "Vietnam"
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
 #: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1053
-#: src/Util.php:1357 src/Util.php:1372 src/Util.php:1389
+#: src/Util.php:1346 src/Util.php:1361 src/Util.php:1378
 msgid "SQL"
 msgstr "SQL"
 
@@ -11694,7 +11697,7 @@ msgstr ""
 "%1$sGZip compression and decompression%2$s membutuhkan fungsi (%3$s) yang "
 "tidak tersedia pada sistem ini."
 
-#: src/Config/Settings.php:3149
+#: src/Config/Settings.php:3165
 #, php-format
 msgid "Server %d"
 msgstr "Server %d"
@@ -11862,8 +11865,8 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:60
 #: src/Controllers/Database/ImportController.php:59
 #: src/Controllers/Database/ImportController.php:64
-#: src/Controllers/Database/RoutinesController.php:74
-#: src/Controllers/Database/RoutinesController.php:93
+#: src/Controllers/Database/RoutinesController.php:79
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
@@ -11934,9 +11937,9 @@ msgid "Edit event"
 msgstr "Edit kejadian"
 
 #: src/Controllers/Database/EventsController.php:175
-#: src/Controllers/Database/RoutinesController.php:270
-#: src/Controllers/Database/RoutinesController.php:300
-#: src/Controllers/Database/RoutinesController.php:368
+#: src/Controllers/Database/RoutinesController.php:275
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "Galat dalam memproses permintaan:"
@@ -11984,7 +11987,7 @@ msgstr "Tidak Ada Hak Akses"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Anda tidak memiliki hak istimewa untuk mengelola pengguna!"
 
-#: src/Controllers/Database/RoutinesController.php:82
+#: src/Controllers/Database/RoutinesController.php:87
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:37
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:36
@@ -12038,15 +12041,15 @@ msgstr "Anda tidak memiliki hak istimewa untuk mengelola pengguna!"
 msgid "No table selected."
 msgstr "Tidak ada tabel yang dipilih."
 
-#: src/Controllers/Database/RoutinesController.php:170
+#: src/Controllers/Database/RoutinesController.php:175
 msgid "Add routine"
 msgstr "Tambahkan routine"
 
-#: src/Controllers/Database/RoutinesController.php:174
+#: src/Controllers/Database/RoutinesController.php:179
 msgid "Edit routine"
 msgstr "Edit rutinitas"
 
-#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:278
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12055,18 +12058,18 @@ msgstr ""
 "Tidak ada rutinitas ditemukan dengan nama %1$s dalam database %2$s. Anda "
 "mungkin tidak memiliki otoritas untuk menyunting rutinitas ini."
 
-#: src/Controllers/Database/RoutinesController.php:302
-#: src/Controllers/Database/RoutinesController.php:370
+#: src/Controllers/Database/RoutinesController.php:307
+#: src/Controllers/Database/RoutinesController.php:375
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Routine dengan nama %1$s tidak ditemukan dalam basis data %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:413
+#: src/Controllers/Database/RoutinesController.php:418
 #, php-format
 msgid "Export of routine %s"
 msgstr "Ekspor routine %s"
 
-#: src/Controllers/Database/RoutinesController.php:432
+#: src/Controllers/Database/RoutinesController.php:437
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -16375,7 +16378,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr "%1$s (dekat <code>%2$s</code>)"
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1382 src/Util.php:1396
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1371 src/Util.php:1385
 msgid "Tracking"
 msgstr "Pelacakan"
 
@@ -16383,11 +16386,11 @@ msgstr "Pelacakan"
 msgid "Database seems to be empty!"
 msgstr "Basis data kelihatannya kosong!"
 
-#: src/Menu.php:335 src/Util.php:1374
+#: src/Menu.php:335 src/Util.php:1363
 msgid "Query"
 msgstr "Kueri"
 
-#: src/Menu.php:398 src/Util.php:1383
+#: src/Menu.php:398 src/Util.php:1372
 msgid "Designer"
 msgstr "Desainer"
 
@@ -16395,11 +16398,11 @@ msgstr "Desainer"
 msgid "User accounts"
 msgstr "Akun pengguna"
 
-#: src/Menu.php:508 src/Util.php:1366
+#: src/Menu.php:508 src/Util.php:1355
 msgid "Charsets"
 msgstr "Set Karakter"
 
-#: src/Menu.php:513 src/Util.php:1368
+#: src/Menu.php:513 src/Util.php:1357
 msgid "Engines"
 msgstr "Mesin"
 
@@ -18829,7 +18832,7 @@ msgstr "AM"
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s hari, %s jam, %s menit dan %s detik"
 
-#: src/Util.php:1359
+#: src/Util.php:1348
 msgid "Users"
 msgstr "Pengguna"
 

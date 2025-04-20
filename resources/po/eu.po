@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-13 00:52+0000\n"
+"POT-Creation-Date: 2025-04-20 00:28+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Basque <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -67,7 +67,7 @@ msgstr ""
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
 #: src/Controllers/JavaScriptMessagesController.php:222 src/Menu.php:475
-#: src/Util.php:1362
+#: src/Util.php:1351
 #, fuzzy
 #| msgid "General relation features"
 msgid "Settings"
@@ -255,7 +255,7 @@ msgstr "Zutabe izenak"
 #: resources/templates/database/operations/index.twig:186
 #: resources/templates/database/operations/index.twig:226
 #: resources/templates/database/routines/editor_form.twig:186
-#: resources/templates/database/routines/execute_form.twig:55
+#: resources/templates/database/routines/execute_form.twig:61
 #: resources/templates/display/results/table.twig:279
 #: resources/templates/modals/change_password.twig:10
 #: resources/templates/modals/create_view.twig:10
@@ -396,12 +396,12 @@ msgstr "Lokal"
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
-#: resources/templates/database/routines/index.twig:71
 #: resources/templates/database/routines/index.twig:79
-#: resources/templates/database/routines/index.twig:91
-#: resources/templates/database/routines/index.twig:95
-#: resources/templates/database/routines/index.twig:106
+#: resources/templates/database/routines/index.twig:87
+#: resources/templates/database/routines/index.twig:99
+#: resources/templates/database/routines/index.twig:103
 #: resources/templates/database/routines/index.twig:114
+#: resources/templates/database/routines/index.twig:122
 #: resources/templates/error/report_modal.twig:14
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
@@ -618,8 +618,8 @@ msgstr "Erabiltzailea"
 #: src/Import/Import.php:1169 src/Menu.php:214 src/Menu.php:318
 #: src/Navigation/Nodes/NodeColumn.php:40
 #: src/Navigation/Nodes/NodeDatabase.php:59
-#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1371
-#: src/Util.php:1388
+#: src/Navigation/Nodes/NodeTable.php:277 src/Util.php:1052 src/Util.php:1360
+#: src/Util.php:1377
 msgid "Structure"
 msgstr "Egitura"
 
@@ -629,8 +629,8 @@ msgstr "Egitura"
 #: resources/templates/database/central_columns/main.twig:226
 #: resources/templates/database/events/index.twig:45
 #: resources/templates/database/routines/editor_form.twig:55
-#: resources/templates/database/routines/execute_form.twig:15
-#: resources/templates/database/routines/index.twig:52
+#: resources/templates/database/routines/execute_form.twig:16
+#: resources/templates/database/routines/index.twig:56
 #: resources/templates/setup/home/index.twig:50
 #: resources/templates/table/structure/display_structure.twig:21
 #: resources/templates/triggers/list.twig:47
@@ -651,8 +651,8 @@ msgstr "Izena"
 #: resources/templates/database/privileges/index.twig:19
 #: resources/templates/database/routines/editor_form.twig:31
 #: resources/templates/database/routines/editor_form.twig:56
-#: resources/templates/database/routines/execute_form.twig:16
-#: resources/templates/database/routines/index.twig:53
+#: resources/templates/database/routines/execute_form.twig:17
+#: resources/templates/database/routines/index.twig:57
 #: resources/templates/database/structure/table_header.twig:30
 #: resources/templates/indexes.twig:18
 #: resources/templates/table/privileges/index.twig:21
@@ -1845,7 +1845,7 @@ msgstr "Esportatu"
 #: resources/templates/database/designer/main.twig:646
 #: resources/templates/database/designer/main.twig:852
 #: resources/templates/database/designer/main.twig:1045
-#: resources/templates/database/routines/execute_form.twig:20
+#: resources/templates/database/routines/execute_form.twig:21
 #: resources/templates/server/replication/status_table.twig:17
 #: resources/templates/server/status/variables/index.twig:76
 #: resources/templates/server/variables/index.twig:32
@@ -1957,7 +1957,7 @@ msgstr "Esportazio mota"
 #: resources/templates/table/tracking/main.twig:31
 #: src/Config/ConfigFile.php:578
 #: src/Controllers/JavaScriptMessagesController.php:292 src/Menu.php:446
-#: src/Server/Status/Processes.php:96 src/Util.php:1358
+#: src/Server/Status/Processes.php:96 src/Util.php:1347
 msgid "Status"
 msgstr "Egoera"
 
@@ -2036,7 +2036,7 @@ msgstr ""
 #: src/Navigation/Nodes/NodeEventContainer.php:22
 #: src/Navigation/Nodes/NodeEventContainer.php:24
 #: src/Plugins/Export/ExportSql.php:996 src/Plugins/Export/ExportXml.php:96
-#: src/Util.php:1380
+#: src/Util.php:1369
 msgid "Events"
 msgstr ""
 
@@ -2077,8 +2077,8 @@ msgstr "Guztiak egiaztatu"
 #: resources/templates/database/privileges/index.twig:116
 #: resources/templates/database/routines/index.twig:17
 #: resources/templates/database/routines/index.twig:18
-#: resources/templates/database/routines/row.twig:60
-#: resources/templates/database/routines/row.twig:63
+#: resources/templates/database/routines/row.twig:50
+#: resources/templates/database/routines/row.twig:53
 #: resources/templates/database/structure/check_all_tables.twig:12
 #: resources/templates/display/results/table.twig:332
 #: resources/templates/display/results/table.twig:333
@@ -2100,7 +2100,7 @@ msgstr "Guztiak egiaztatu"
 #: src/Config/Forms/User/ExportForm.php:148
 #: src/Controllers/JavaScriptMessagesController.php:391 src/Menu.php:241
 #: src/Menu.php:343 src/Menu.php:465 src/Server/Privileges.php:1283
-#: src/Util.php:1360 src/Util.php:1375 src/Util.php:1392
+#: src/Util.php:1349 src/Util.php:1364 src/Util.php:1381
 msgid "Export"
 msgstr "Esportatu"
 
@@ -2113,7 +2113,7 @@ msgstr "Esportatu"
 #: resources/templates/database/routines/index.twig:20
 #: resources/templates/database/routines/index.twig:21
 #: resources/templates/database/routines/parameter_row.twig:51
-#: resources/templates/database/routines/row.twig:73
+#: resources/templates/database/routines/row.twig:63
 #: resources/templates/database/structure/check_all_tables.twig:16
 #: resources/templates/database/structure/structure_table_row.twig:87
 #: resources/templates/indexes.twig:59
@@ -2272,7 +2272,7 @@ msgid "criteria"
 msgstr "Irizpidea"
 
 #: resources/templates/database/multi_table_query/form.twig:56
-#: src/Util.php:1830
+#: src/Util.php:1819
 msgid "Sort"
 msgstr "Ordenatu"
 
@@ -2284,7 +2284,7 @@ msgstr "Ordenatu"
 #: resources/templates/table/operations/index.twig:28
 #: resources/templates/table/search/index.twig:158
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1392
-#: src/Display/Results.php:1398 src/Util.php:1838 src/Util.php:1855
+#: src/Display/Results.php:1398 src/Util.php:1827 src/Util.php:1844
 msgid "Ascending"
 msgstr "Goranzko"
 
@@ -2296,7 +2296,7 @@ msgstr "Goranzko"
 #: resources/templates/table/operations/index.twig:32
 #: resources/templates/table/search/index.twig:162
 #: src/Config/ConfigFile.php:554 src/Display/Results.php:1387
-#: src/Display/Results.php:1403 src/Util.php:1843 src/Util.php:1860
+#: src/Display/Results.php:1403 src/Util.php:1832 src/Util.php:1849
 msgid "Descending"
 msgstr "Beherantz"
 
@@ -2513,7 +2513,7 @@ msgstr "Taularentzako murrizketak"
 #: resources/templates/table/privileges/index.twig:22
 #: src/Config/ConfigFile.php:582
 #: src/Controllers/Server/PrivilegesController.php:427 src/Menu.php:257
-#: src/Menu.php:365 src/Util.php:1378 src/Util.php:1394
+#: src/Menu.php:365 src/Util.php:1367 src/Util.php:1383
 msgid "Privileges"
 msgstr "Pribilegioak"
 
@@ -2674,19 +2674,23 @@ msgid "SQL data access"
 msgstr ""
 
 #: resources/templates/database/routines/execute_form.twig:7
-#: resources/templates/database/routines/execute_form.twig:12
+#: resources/templates/database/routines/execute_form.twig:13
 msgid "Routine parameters"
 msgstr ""
 
-#: resources/templates/database/routines/execute_form.twig:18
+#: resources/templates/database/routines/execute_form.twig:19
 #: resources/templates/table/search/index.twig:36
 #: resources/templates/table/zoom_search/index.twig:34 src/InsertEdit.php:257
 #: src/Navigation/Nodes/NodeFunction.php:24
 msgid "Function"
 msgstr "Funtzioak"
 
+#: resources/templates/database/routines/execute_form.twig:54
+msgid "This routine does not require any parameters."
+msgstr ""
+
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
-#: src/Util.php:1379
+#: src/Util.php:1368
 msgid "Routines"
 msgstr ""
 
@@ -2699,7 +2703,7 @@ msgstr ""
 #: src/Config/ConfigFile.php:522 src/Config/ConfigFile.php:536
 #: src/Config/ConfigFile.php:590 src/Config/ConfigFile.php:600 src/Menu.php:223
 #: src/Menu.php:327 src/Navigation/Nodes/NodeTable.php:278 src/Util.php:1054
-#: src/Util.php:1373 src/Util.php:1390
+#: src/Util.php:1362 src/Util.php:1379
 msgid "Search"
 msgstr "Bilatu"
 
@@ -2708,24 +2712,24 @@ msgstr "Bilatu"
 msgid "Create new routine"
 msgstr "Zerbitzariaren bertsioa"
 
-#: resources/templates/database/routines/index.twig:45
+#: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
 msgstr ""
 
-#: resources/templates/database/routines/index.twig:54
+#: resources/templates/database/routines/index.twig:58
 #, fuzzy
 #| msgid "Table options"
 msgid "Returns"
 msgstr "Taularen hobespenak"
 
-#: resources/templates/database/routines/index.twig:70
+#: resources/templates/database/routines/index.twig:78
 #, fuzzy
 #| msgid "Column names"
 msgid "Routine editor"
 msgstr "Zutabe izenak"
 
-#: resources/templates/database/routines/index.twig:75
-#: resources/templates/database/routines/index.twig:110
+#: resources/templates/database/routines/index.twig:83
+#: resources/templates/database/routines/index.twig:118
 #: resources/templates/home/index.twig:317
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
@@ -2737,28 +2741,27 @@ msgstr "Zutabe izenak"
 msgid "Loading…"
 msgstr "Lokal"
 
-#: resources/templates/database/routines/index.twig:80
+#: resources/templates/database/routines/index.twig:88
 #: resources/templates/server/privileges/users_overview.twig:177
 #, fuzzy
 #| msgid "Select Tables"
 msgid "Save changes"
 msgstr "Taulak hautatu"
 
-#: resources/templates/database/routines/index.twig:90
+#: resources/templates/database/routines/index.twig:98
 #, fuzzy
 msgid "Export routine"
 msgstr "Esportazio mota"
 
-#: resources/templates/database/routines/index.twig:105
-#: src/Controllers/Database/RoutinesController.php:351
-#: src/Controllers/Database/RoutinesController.php:361
+#: resources/templates/database/routines/index.twig:113
+#: src/Controllers/Database/RoutinesController.php:356
+#: src/Controllers/Database/RoutinesController.php:366
 msgid "Execute routine"
 msgstr ""
 
-#: resources/templates/database/routines/index.twig:115
-#: resources/templates/database/routines/row.twig:34
-#: resources/templates/database/routines/row.twig:44
-#: resources/templates/database/routines/row.twig:48
+#: resources/templates/database/routines/index.twig:123
+#: resources/templates/database/routines/row.twig:35
+#: resources/templates/database/routines/row.twig:38
 msgid "Execute"
 msgstr ""
 
@@ -2850,7 +2853,7 @@ msgstr[1] "%s emaitzak <i>%s</i> taulan"
 #: resources/templates/table/structure/display_structure.twig:271
 #: src/Config/ConfigFile.php:526 src/Config/ConfigFile.php:540
 #: src/Config/ConfigFile.php:604 src/Menu.php:207
-#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1387
+#: src/Navigation/Nodes/NodeTable.php:281 src/Util.php:1056 src/Util.php:1376
 msgid "Browse"
 msgstr "Arakatu"
 
@@ -2877,7 +2880,7 @@ msgstr[1] "%s taulak"
 #: resources/templates/database/structure/body_for_table_summary.twig:8
 #: resources/templates/database/structure/table_header.twig:10
 #: resources/templates/server/replication/index.twig:5 src/Menu.php:497
-#: src/Server/Status/Data.php:124 src/Util.php:1364
+#: src/Server/Status/Data.php:124 src/Util.php:1353
 msgid "Replication"
 msgstr "Ihardetsi"
 
@@ -2993,7 +2996,7 @@ msgid "Copy table with prefix"
 msgstr "Taula aurrizkiarekin kopiatu"
 
 #: resources/templates/database/structure/check_all_tables.twig:32
-#: src/Menu.php:405 src/Util.php:1384
+#: src/Menu.php:405 src/Util.php:1373
 #, fuzzy
 #| msgid "Add/Delete Field Columns"
 msgid "Central columns"
@@ -3157,7 +3160,7 @@ msgstr "Erlazioak"
 #: resources/templates/database/structure/structure_table_row.twig:59
 #: resources/templates/sql/query.twig:76 src/Config/ConfigFile.php:524
 #: src/Config/ConfigFile.php:538 src/Config/ConfigFile.php:602 src/Menu.php:234
-#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1391
+#: src/Navigation/Nodes/NodeTable.php:279 src/Util.php:1055 src/Util.php:1380
 msgid "Insert"
 msgstr "Txertatu"
 
@@ -4068,8 +4071,8 @@ msgstr "Itzuli"
 #: resources/templates/server/status/monitor/index.twig:53
 #: src/Config/Forms/User/ImportForm.php:58
 #: src/Controllers/JavaScriptMessagesController.php:327 src/Menu.php:250
-#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1361 src/Util.php:1376
-#: src/Util.php:1393
+#: src/Menu.php:353 src/Menu.php:470 src/Util.php:1350 src/Util.php:1365
+#: src/Util.php:1382
 #, fuzzy
 msgid "Import"
 msgstr "Esportatu"
@@ -4420,7 +4423,7 @@ msgstr "SQL emaitza"
 #: resources/templates/server/export/index.twig:14
 #: resources/templates/server/privileges/user_properties.twig:20
 #: src/Config/ConfigFile.php:576 src/Config/Descriptions.php:728
-#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1356
+#: src/Config/Descriptions.php:739 src/Menu.php:436 src/Util.php:1345
 msgid "Databases"
 msgstr "Datu-baseak"
 
@@ -4925,7 +4928,7 @@ msgid "Re-login to phpMyAdmin to load the updated configuration file."
 msgstr ""
 
 #: resources/templates/server/binlog/index.twig:3 src/Menu.php:490
-#: src/Server/Status/Data.php:119 src/Util.php:1363
+#: src/Server/Status/Data.php:119 src/Util.php:1352
 #, fuzzy
 msgid "Binary log"
 msgstr "Binarioa "
@@ -5091,7 +5094,7 @@ msgstr "Deskribapena"
 #: resources/templates/server/engines/show.twig:18
 #: resources/templates/server/engines/show.twig:21
 #: resources/templates/sql/query.twig:194 src/Config/ConfigFile.php:580
-#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1365
+#: src/Menu.php:503 src/Server/Status/Data.php:186 src/Util.php:1354
 msgid "Variables"
 msgstr "Aldagaiak"
 
@@ -5116,7 +5119,7 @@ msgid "Importing into the current server"
 msgstr "Ezinezkoa MySql zerbitzarian saioa hastea"
 
 #: resources/templates/server/plugins/index.twig:4 src/Menu.php:518
-#: src/Util.php:1367
+#: src/Util.php:1356
 msgid "Plugins"
 msgstr ""
 
@@ -7546,7 +7549,7 @@ msgstr "Erreferentzien integritatea egiaztatu:"
 
 #: resources/templates/table/operations/view.twig:8
 #: src/Config/ConfigFile.php:592 src/Menu.php:268 src/Menu.php:278
-#: src/Menu.php:358 src/Util.php:1057 src/Util.php:1377 src/Util.php:1395
+#: src/Menu.php:358 src/Util.php:1057 src/Util.php:1366 src/Util.php:1384
 msgid "Operations"
 msgstr "Eragiketak"
 
@@ -8114,7 +8117,7 @@ msgstr ""
 #: src/Plugins/Export/ExportOdt.php:626 src/Plugins/Export/ExportPdf.php:234
 #: src/Plugins/Export/ExportSql.php:1906
 #: src/Plugins/Export/ExportTexytext.php:465
-#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1381 src/Util.php:1397
+#: src/Plugins/Export/ExportXml.php:116 src/Util.php:1370 src/Util.php:1386
 msgid "Triggers"
 msgstr ""
 
@@ -9659,7 +9662,7 @@ msgstr "Erabiltzaile-izena"
 #: src/Config/ConfigFile.php:588 src/Config/ConfigFile.php:598
 #: src/Config/Descriptions.php:755 src/Menu.php:219 src/Menu.php:323
 #: src/Menu.php:441 src/Navigation/Nodes/NodeTable.php:280 src/Util.php:1053
-#: src/Util.php:1357 src/Util.php:1372 src/Util.php:1389
+#: src/Util.php:1346 src/Util.php:1361 src/Util.php:1378
 msgid "SQL"
 msgstr "SQL"
 
@@ -12485,7 +12488,7 @@ msgid ""
 "are unavailable on this system."
 msgstr ""
 
-#: src/Config/Settings.php:3149
+#: src/Config/Settings.php:3165
 #, fuzzy, php-format
 #| msgid "Server"
 msgid "Server %d"
@@ -12654,8 +12657,8 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:60
 #: src/Controllers/Database/ImportController.php:59
 #: src/Controllers/Database/ImportController.php:64
-#: src/Controllers/Database/RoutinesController.php:74
-#: src/Controllers/Database/RoutinesController.php:93
+#: src/Controllers/Database/RoutinesController.php:79
+#: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
@@ -12728,9 +12731,9 @@ msgid "Edit event"
 msgstr "Bidalita"
 
 #: src/Controllers/Database/EventsController.php:175
-#: src/Controllers/Database/RoutinesController.php:270
-#: src/Controllers/Database/RoutinesController.php:300
-#: src/Controllers/Database/RoutinesController.php:368
+#: src/Controllers/Database/RoutinesController.php:275
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #: src/Controllers/Triggers/IndexController.php:207
 #, fuzzy
 #| msgid "Processes"
@@ -12782,7 +12785,7 @@ msgstr "Pribilegiorik gabe"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Ez daukazu baimen nahikorik hemen orain egoteko!"
 
-#: src/Controllers/Database/RoutinesController.php:82
+#: src/Controllers/Database/RoutinesController.php:87
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:37
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:36
@@ -12838,36 +12841,36 @@ msgstr "Ez daukazu baimen nahikorik hemen orain egoteko!"
 msgid "No table selected."
 msgstr "Ez da datu-baserik hautatu."
 
-#: src/Controllers/Database/RoutinesController.php:170
+#: src/Controllers/Database/RoutinesController.php:175
 #, fuzzy
 #| msgid "Add %s field(s)"
 msgid "Add routine"
 msgstr "Gehitu %s zutabe"
 
-#: src/Controllers/Database/RoutinesController.php:174
+#: src/Controllers/Database/RoutinesController.php:179
 msgid "Edit routine"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:278
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:302
-#: src/Controllers/Database/RoutinesController.php:370
+#: src/Controllers/Database/RoutinesController.php:307
+#: src/Controllers/Database/RoutinesController.php:375
 #, fuzzy, php-format
 #| msgid "No tables found in database."
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Ez da taularik aurkitu datu-basean."
 
-#: src/Controllers/Database/RoutinesController.php:413
+#: src/Controllers/Database/RoutinesController.php:418
 #, php-format
 msgid "Export of routine %s"
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:432
+#: src/Controllers/Database/RoutinesController.php:437
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -17275,7 +17278,7 @@ msgstr ""
 msgid "%1$s (near <code>%2$s</code>)"
 msgstr ""
 
-#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1382 src/Util.php:1396
+#: src/Menu.php:284 src/Menu.php:391 src/Util.php:1371 src/Util.php:1385
 msgid "Tracking"
 msgstr ""
 
@@ -17283,11 +17286,11 @@ msgstr ""
 msgid "Database seems to be empty!"
 msgstr ""
 
-#: src/Menu.php:335 src/Util.php:1374
+#: src/Menu.php:335 src/Util.php:1363
 msgid "Query"
 msgstr "Kontsulta"
 
-#: src/Menu.php:398 src/Util.php:1383
+#: src/Menu.php:398 src/Util.php:1372
 msgid "Designer"
 msgstr ""
 
@@ -17297,11 +17300,11 @@ msgstr ""
 msgid "User accounts"
 msgstr "Erabiltzailea"
 
-#: src/Menu.php:508 src/Util.php:1366
+#: src/Menu.php:508 src/Util.php:1355
 msgid "Charsets"
 msgstr "Karaktere-multzoa"
 
-#: src/Menu.php:513 src/Util.php:1368
+#: src/Menu.php:513 src/Util.php:1357
 msgid "Engines"
 msgstr ""
 
@@ -19742,7 +19745,7 @@ msgstr ""
 msgid "%s days, %s hours, %s minutes and %s seconds"
 msgstr "%s egun, %s ordu, %s minutu eta %s segundu"
 
-#: src/Util.php:1359
+#: src/Util.php:1348
 #, fuzzy
 #| msgid "User"
 msgid "Users"
