@@ -280,4 +280,27 @@ class SimulateDmlControllerTest extends AbstractTestCase
             ],
         ];
     }
+
+    public function testStatementWithParsingError(): void
+    {
+        $_POST['sql_delimiter'] = ';';
+        $GLOBALS['sql_query'] = 'UPDATE actor SET';
+
+        $responseRenderer = new ResponseRenderer();
+        $controller = new SimulateDmlController(
+            $responseRenderer,
+            new Template(),
+            new SimulateDml($this->createDatabaseInterface())
+        );
+        $controller();
+
+        $expectedMessage = <<<'HTML'
+<div class="alert alert-danger" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Missing assignment in SET operation.
+</div>
+
+HTML;
+
+        self::assertSame(['message' => $expectedMessage, 'sql_data' => false], $responseRenderer->getJSONResult());
+    }
 }
