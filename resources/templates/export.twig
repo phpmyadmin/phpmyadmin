@@ -422,7 +422,10 @@
                 <li class="list-group-item">
                   <div class="row">
                     <div class="col-auto">
-                      <label for="compression" class="col-form-label">{{ t('Compression:') }}</label>
+                      <label for="compression" class="col-form-label">
+                        {{ t('Compression:') }}
+                        {{ show_hint('Compressing big tables requires PHP memory. Be aware that this might produce invalid files %s'|format(get_formatted_maximum_upload_size(export_memory_limit))) }}
+                      </label>
                     </div>
                     <div class="col-auto">
                       <select class="form-select" id="compression" name="compression">
