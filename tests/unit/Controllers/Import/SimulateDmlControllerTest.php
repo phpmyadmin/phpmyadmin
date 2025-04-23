@@ -8,6 +8,7 @@ use PhpMyAdmin\Controllers\Import\SimulateDmlController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Import\SimulateDml;
 use PhpMyAdmin\SqlParser\Parser;
 use PhpMyAdmin\SqlParser\Statements\DeleteStatement;
@@ -19,6 +20,7 @@ use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 use function count;
+use function json_decode;
 
 #[CoversClass(SimulateDmlController::class)]
 final class SimulateDmlControllerTest extends AbstractTestCase
@@ -275,5 +277,32 @@ final class SimulateDmlControllerTest extends AbstractTestCase
                 ],
             ],
         ];
+    }
+
+    public function testStatementWithParsingError(): void
+    {
+        Current::$sqlQuery = 'UPDATE actor SET';
+
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody(['sql_delimiter' => ';']);
+
+        $responseRenderer = new ResponseRenderer();
+        $responseRenderer->setAjax(true);
+        $controller = new SimulateDmlController($responseRenderer, new SimulateDml($this->createDatabaseInterface()));
+        $response = $controller($request);
+
+        $expectedMessage = <<<'HTML'
+            <div class="alert alert-danger" role="alert">
+              <img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Missing assignment in SET operation.
+            </div>
+
+            HTML;
+
+        $body = (string) $response->getBody();
+        self::assertJson($body);
+        self::assertSame(
+            ['message' => $expectedMessage, 'sql_data' => false, 'success' => true],
+            json_decode($body, true),
+        );
     }
 }
