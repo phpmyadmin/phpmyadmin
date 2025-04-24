@@ -45,6 +45,11 @@
         {
             "type": "composer",
             "url": "https://www.phpmyadmin.net"
+        },
+        {
+            "type": "github",
+            "url":  "https://github.com/MauricioFauth/thecodingmachine-safe.git",
+            "no-api": true
         }
     ],
     "require": {
@@ -114,6 +119,7 @@
         "roave/security-advisories": "dev-latest",
         "symfony/console": "^5.2.3",
         "tecnickcom/tcpdf": "^6.4.4",
+        "thecodingmachine/safe": "1.3.3.1",
         "vimeo/psalm": "^4.30",
         "web-auth/webauthn-lib": "^3.3.2"
     },

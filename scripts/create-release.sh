@@ -563,7 +563,7 @@ composer update --no-interaction --no-dev
 
 # Parse the required versions from composer.json
 PACKAGES_VERSIONS=''
-PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server web-auth/webauthn-lib'
+PACKAGE_LIST='tecnickcom/tcpdf pragmarx/google2fa-qrcode bacon/bacon-qr-code code-lts/u2f-php-server web-auth/webauthn-lib thecodingmachine/safe'
 
 for PACKAGES in $PACKAGE_LIST
 do
