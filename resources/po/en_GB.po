@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-20 00:28+0000\n"
-"PO-Revision-Date: 2025-03-11 01:21+0000\n"
+"PO-Revision-Date: 2025-04-24 14:25+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom) <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/en_GB/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.11.1-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2080,10 +2080,8 @@ msgid "Update query"
 msgstr "Update query"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Update query"
+msgstr "Copy query"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2389,10 +2387,8 @@ msgid "Function"
 msgstr "Function"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "This page does not contain any tables!"
+msgstr "This routine does not require any parameters."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
@@ -2425,10 +2421,8 @@ msgid "Returns"
 msgstr "Returns"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Routine name"
+msgstr "Routine editor"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
@@ -2448,10 +2442,8 @@ msgid "Save changes"
 msgstr "Save changes"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Export of routine %s"
+msgstr "Export routine"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:356
@@ -18335,16 +18327,12 @@ msgid "You must provide a trigger definition."
 msgstr "You must provide a trigger definition."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Empty"
+msgstr "empty"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "not present"
+msgstr "not empty"
 
 #: src/Types.php:161
 msgid ""
