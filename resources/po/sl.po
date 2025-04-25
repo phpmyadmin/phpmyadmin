@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-20 00:28+0000\n"
-"PO-Revision-Date: 2025-03-16 16:42+0000\n"
+"PO-Revision-Date: 2025-04-26 06:52+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
 "n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2386,10 +2386,8 @@ msgid "Function"
 msgstr "Funkcija"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "Stran ne vsebuje nobenih tabel!"
+msgstr "Rutina ne potrebuje nobenih parametrov."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
@@ -2422,10 +2420,8 @@ msgid "Returns"
 msgstr "Vrnjeno"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Ime rutine"
+msgstr "Urejevalnik rutin"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
@@ -2445,10 +2441,8 @@ msgid "Save changes"
 msgstr "Shrani spremembe"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Izvoz rutine %s"
+msgstr "Izvoz rutine"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:356
@@ -18467,16 +18461,12 @@ msgid "You must provide a trigger definition."
 msgstr "Navesti morate opredelitev sprožilca."
 
 #: src/Types.php:97
-#, fuzzy
-#| msgid "Empty"
 msgid "empty"
-msgstr "Izprazni"
+msgstr "prazno"
 
 #: src/Types.php:98
-#, fuzzy
-#| msgid "not present"
 msgid "not empty"
-msgstr "ni prisotno"
+msgstr "ni prazno"
 
 #: src/Types.php:161
 msgid ""
