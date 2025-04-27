@@ -16480,6 +16480,21 @@ parameters:
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
+			message: '#^Call to method findAllForUserEntity\(\) of deprecated interface Webauthn\\PublicKeyCredentialSourceRepository\.$#'
+			identifier: method.deprecatedInterface
+			count: 1
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: '''
+				#^Call to method load\(\) of deprecated class Webauthn\\PublicKeyCredentialLoader\:
+				since 4\.8\.0 and will be removed in 5\.0\.0\. Please use the Symfony serializer instead$#
+			'''
+			identifier: method.deprecatedClass
+			count: 2
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
 			message: '#^Call to static method Webmozart\\Assert\\Assert\:\:isInstanceOf\(\) with Webauthn\\PublicKeyCredentialCreationOptions and ''Webauthn\\\\PublicKeyCredentialCreationOptions'' will always evaluate to true\.$#'
 			identifier: staticMethod.alreadyNarrowedType
 			count: 1
@@ -16523,7 +16538,7 @@ parameters:
 				#^Instantiation of deprecated class Webauthn\\TokenBinding\\IgnoreTokenBindingHandler\:
 				Since 4\.3\.0 and will be removed in 5\.0\.0$#
 			'''
-			identifier: new.deprecated
+			identifier: new.deprecatedClass
 			count: 2
 			path: src/WebAuthn/WebauthnLibServer.php
 
@@ -18793,12 +18808,6 @@ parameters:
 			path: tests/unit/GitTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with array\{hash\: string, branch\: string\|false, message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/GitTest.php
-
-		-
 			message: '#^Cannot unset offset ''git_location'' on array\<mixed, mixed\>\.$#'
 			identifier: unset.offset
 			count: 2
@@ -19516,6 +19525,12 @@ parameters:
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
+			path: tests/unit/Plugins/Export/ExportSqlTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 3
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-
