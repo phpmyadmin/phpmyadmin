@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2024-10-29 18:22+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@mfauth.net>\n"
 "Language-Team: Uyghur <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -13611,7 +13611,7 @@ msgstr "ساندان ئۆچۈرۈش بۇيرۇقى (\"DROP DATABASE\") چەكل�
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK يۈز بەردى.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "پەقەت بىرلا جەدۋەلدىكى UPDATE ۋە DELETE سوئاللىرىنى تەقلىد قىلغىلى بولىدۇ."
@@ -15895,7 +15895,7 @@ msgid "No such column"
 msgstr "سۆزلەم قوشۇش\\ئۆچۈرۈش"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 #, fuzzy
 #| msgid "Lines terminated by"
 msgctxt "string types"
@@ -20452,21 +20452,27 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "چېسلا ۋە ۋاقىت بىرلەشتۈرۈلگەن ، قوللايدىغان دائىرە% 1 $ s دىن% 2 $ s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "ۋاقىت جەدۋىلى ، دائىرىسى 1970-01-01 00:00:01 UTC دىن 2038-01-09 03:14:07 "
 "UTC ، دەۋردىن كېيىنكى سېكۇنت سانى سۈپىتىدە ساقلانغان (1970-01-01 00:00:00 "
 "UTC )"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, fuzzy, php-format
 #| msgid "Error renaming table %1$s to %2$s"
 msgid "A time, range is %1$s to %2$s"
 msgstr "%1$s بۇ جەدۋەل ئىسمىنى %2$s غا ئۆزگەرتىشتە خاتالىق كۆرۈلدى."
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -20474,7 +20480,7 @@ msgstr ""
 "تۆت خانىلىق (4 ، سۈكۈتتىكى) ياكى ئىككى خانىلىق (2) فورماتتىكى بىر يىل ، "
 "رۇخسەت قىلىنغان قىممەت 70 (1970) دىن 69 (2069) ياكى 1901 دىن 2155 ۋە 0000."
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -20482,7 +20488,7 @@ msgstr ""
 "مۇقىم ئۇزۇنلۇق (0-255 ، سۈكۈتتىكى 1) تىزما ، ساقلىغاندا ھەمىشە بوشلۇق بىلەن "
 "ئوڭ تەرەپكە چاپلىنىدۇ"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, fuzzy, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -20491,7 +20497,7 @@ msgstr ""
 "ئۆزگىرىشچان ئۇزۇنلۇق (% s) تىزمىسى ، ئۈنۈملۈك ئەڭ چوڭ ئۇزۇنلۇقى ئەڭ چوڭ قۇر "
 "چوڭلۇقىغا بويسۇنىدۇ"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -20500,7 +20506,7 @@ msgstr ""
 "قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان بىر بايىتلىق ئالدى قوشۇلغۇچى بىلەن "
 "ساقلىنىدۇ."
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -20509,7 +20515,7 @@ msgstr ""
 "بايىتلىق ئالدى قوشۇلغۇچى بىلەن ساقلىنىپ ، بايتنىڭ قىممىتىنىڭ ئۇزۇنلۇقىنى "
 "كۆرسىتىدۇ."
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -20518,7 +20524,7 @@ msgstr ""
 "ستون ، بايتتىكى قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئۈچ بايىتلىق ئالدى "
 "قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -20528,7 +20534,7 @@ msgstr ""
 "بولغان TEXT ستون ، بايتتىكى قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان تۆت "
 "بايىتلىق ئالدى قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -20536,7 +20542,7 @@ msgstr ""
 "CHAR تىپىغا ئوخشاش ، ئەمما ئىككىلىك بايت تىزمىسىنى ئىككىلىك بولمىغان ھەرپ "
 "تىزمىسىدىن ساقلايدۇ"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -20544,7 +20550,7 @@ msgstr ""
 "VARCHAR تىپىغا ئوخشاش ، ئەمما ئىككىلىك ھەرپ تىزمىسىنى ئەمەس ، ئىككىلىك بايت "
 "تىزمىسىنى ساقلايدۇ"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -20552,7 +20558,7 @@ msgstr ""
 "ئەڭ ئۇزۇن ئۇزۇنلۇقى 255 (2 ^ 8 - 1) بايت بولغان BLOB ستون ، قىممەتنىڭ "
 "ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان بىر بايىتلىق ئالدى قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -20561,7 +20567,7 @@ msgstr ""
 "قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئۈچ بايىتلىق ئالدى قوشۇلغۇچى بىلەن "
 "ساقلىنىدۇ."
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -20570,7 +20576,7 @@ msgstr ""
 "ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان ئىككى بايىتلىق ئالدى قوشۇلغۇچى بىلەن "
 "ساقلىنىدۇ."
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -20579,7 +20585,7 @@ msgstr ""
 "BLOB ستون ، قىممەتنىڭ ئۇزۇنلۇقىنى كۆرسىتىپ بېرىدىغان تۆت بايىتلىق ئالدى "
 "قوشۇلغۇچى بىلەن ساقلىنىدۇ."
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -20587,43 +20593,43 @@ msgstr ""
 "تىزىملىك ، 65،535 قىممەت تىزىملىكى ياكى ئالاھىدە '' خاتالىق قىممىتى "
 "تىزىملىكىدىن تاللانغان"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "64 ئەزادىن تەركىب تاپقان بىر قىممەت"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "ھەر قانداق تىپتىكى گېئومېتىرىيەنى ساقلىيالايدىغان تىپ"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "2 ئۆلچەملىك بوشلۇقتىكى بىر نۇقتا"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "نۇقسانلار ئارىسىدىكى سىزىق ئارىلىقى بار ئەگرى سىزىق"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "كۆپ قىرلىق"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "نومۇرلار توپلىمى"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "نۇقتىلار ئارا سىزىقلىق ئۆز ئارا باغلانغان ئەگرى سىزىقلار توپلىمى"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "كۆپ خوتۇنلۇق توپلام"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "ھەر خىل تىپتىكى گېئومېتىرىيەلىك جىسىملار توپلىمى"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -20631,7 +20637,7 @@ msgstr ""
 "JSON (JavaScript ئوبيېكتى ئىزاھاتى) ھۆججىتىدىكى سانلىق مەلۇماتلارنى ساقلايدۇ "
 "ۋە ئۈنۈملۈك زىيارەت قىلالايدۇ"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -20639,23 +20645,23 @@ msgstr ""
 "IPv6 ئادرېسلىرىنى ساقلاشنى مەقسەت قىلىدۇ ، شۇنداقلا IPv4 ئادرېسلىرىنى IPv6 "
 "ئادرېسلارنىڭ ئادەتتىكى خەرىتىسىنى پەرەز قىلغان IPv4 ئادرېس."
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Universal Unique Identifier)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "سان"
 
-#: src/Types.php:617
+#: src/Types.php:618
 #, fuzzy
 #| msgid "Create an index"
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "نەشىرنى قۇىماق"
 
-#: src/Types.php:647
+#: src/Types.php:648
 #, fuzzy
 #| msgid "Log file count"
 msgctxt "spatial types"

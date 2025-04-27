@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2025-01-12 23:24+0000\n"
 "Last-Translator: Masahiro Fujimoto <mfujimot@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12272,7 +12272,7 @@ msgstr "DROP DATABASE 文は無効にされています。"
 msgid "[ROLLBACK occurred.]"
 msgstr "[ロールバックが発生しました。]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "１つのテーブルのUPDATEとDELETEクエリをシミュレートすることができます。"
 
@@ -14235,7 +14235,7 @@ msgid "No such column"
 msgstr "カラムはありません"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "文字列"
@@ -18429,19 +18429,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "日時 (日付と時刻)、有効範囲は %1$s から %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "タイムスタンプ、範囲は 1970-01-01 00:00:01 UTC から 2038-01-09 03:14:07 UTC "
 "で、1970-01-01 00:00:00 UTC からの経過秒数を示しています"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "時刻、範囲は %1$s から %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18449,7 +18455,7 @@ msgstr ""
 "年、4 桁 (デフォルト) または 2 桁、有効な値は 2 桁が 70 (1970) から 69 "
 "(2069)、4 桁が 1901 から 2155 および 0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18457,7 +18463,7 @@ msgstr ""
 "固定長文字列 (長さは 0-255、デフォルトは 1)、満たない分は右側が空白で埋められ"
 "ます"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18465,7 +18471,7 @@ msgid ""
 msgstr ""
 "可変長文字列 (長さは %s)、長さの有効上限は行の最大サイズの制約を受けます"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18473,7 +18479,7 @@ msgstr ""
 "TEXT カラム、最大長 255 (2^8 - 1)、バイト単位で長さを示す 1 バイトの接頭辞つ"
 "きで格納されます"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18481,7 +18487,7 @@ msgstr ""
 "TEXT カラム、最大長 65,535 (2^16 - 1)、バイト単位で長さを示す 2 バイトの接頭"
 "辞つきで格納されます"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18489,7 +18495,7 @@ msgstr ""
 "TEXT カラム、最大長 16,777,215 (2^24 - 1)、バイト単位で長さを示す 3 バイトの"
 "接頭辞つきで格納されます"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18498,14 +18504,14 @@ msgstr ""
 "TEXT カラム、最大長 4,294,967,295 または 4GiB (2^32 - 1)、バイト単位で長さを"
 "示す 4 バイトの接頭辞つきで格納されます"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr ""
 "CHAR 型と似ていますが、非バイナリ文字列ではなくバイナリ文字列で保存されます"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18513,7 +18519,7 @@ msgstr ""
 "VARCHAR 型と似ていますが、非バイナリ文字列ではなくバイナリ文字列で保存されま"
 "す"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18521,7 +18527,7 @@ msgstr ""
 "BLOB カラム、最大 255 (2^8 - 1) バイト、バイト単位で長さを示す 1 バイトの接頭"
 "辞つきで格納されます"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18529,7 +18535,7 @@ msgstr ""
 "BLOB カラム、最大 16,777,215 (2^24 - 1) バイト、バイト単位で長さを示す 3 バイ"
 "トの接頭辞つきで格納されます"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18537,7 +18543,7 @@ msgstr ""
 "BLOB カラム、最大 65,535 (2^16 - 1) バイト、バイト単位で長さを示す 2 バイトの"
 "接頭辞つきで格納されます"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18545,7 +18551,7 @@ msgstr ""
 "BLOB カラム、最大 4,294,967,295 バイトまたは 4GiB (2^32 - 1)、バイト単位で長"
 "さを示す 4 バイトの接頭辞つきで格納されます"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18553,43 +18559,43 @@ msgstr ""
 "﻿列挙型、最大 65,535 個の列挙値または特殊な値 (エラー値 '') を取ることができま"
 "す"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "最大 64 メンバに対しての有無を一括で扱う単一の値"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "任意の型の幾何データが保存できるデータ型"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "2 次元空間の点"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "多点間の線形補間による曲線"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "ポリゴン"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "座標の集合"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "多点間の線形補間による曲線の集合"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "ポリゴンの集合"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "任意の型の幾何物体の集合"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18597,7 +18603,7 @@ msgstr ""
 "JSON (JavaScript Object Notation) 文書内のデータを格納し、効率的にデータにア"
 "クセスする"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18605,21 +18611,21 @@ msgstr ""
 "従来の IPv 4 アドレスから IPv 6 アドレスへのマッピングを想定した IPv 6 アドレ"
 "スおよび IPv 4 アドレスの格納を目的としています"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128 ビット UUID (Universally Unique Identifier)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "数値"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "日付・時刻"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空間データ"

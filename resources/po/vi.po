@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2025-03-07 10:59+0000\n"
 "Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12438,7 +12438,7 @@ msgstr "Câu lệnh \"DROP DATABASE\" bị tăt."
 msgid "[ROLLBACK occurred.]"
 msgstr "[đã nảy sinh ROLLBACK.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Chỉ các truy vấn UPDATE và DELETE trên một bảng được mô phỏng."
 
@@ -14542,7 +14542,7 @@ msgid "No such column"
 msgstr "Không có cột nào như vậy"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "Chuỗi"
@@ -18623,20 +18623,26 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Một sự kết hợp ngày và giờ, phạm vi hỗ trợ là %1$s đến %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Một dấu thời gian, phạm vi từ 1970-01-01 00:00:01 UTC đến 2038-01-09 "
 "03:14:07 UTC, được lưu dưới dạng số giây kể từ thời (1970-01-01 00:00:00 "
 "UTC )"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Giờ giấc, vùng là từ %1$s đến %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18644,7 +18650,7 @@ msgstr ""
 "Một năm với định dạng 4 chữ số (4, mặc định) hoặc 2 chữ số (2), giá trị cho "
 "phép là 70 (1970) đến 69 (2069) hoặc 1901 đến 2555 và 0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 #, fuzzy
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
@@ -18653,7 +18659,7 @@ msgstr ""
 "Chuỗi có độ dài cố định (0-255, mặc định 1), luôn luôn được đệm bên phải với "
 "không gian với độ dài đã chỉ định khi được lưu trữ"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, fuzzy, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18662,7 +18668,7 @@ msgstr ""
 "Chuỗi có độ dài thay đổi (%s), độ dài tối đa có hiệu quả phụ thuộc vào kích "
 "thước tối đa của dãy"
 
-#: src/Types.php:233
+#: src/Types.php:234
 #, fuzzy
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
@@ -18671,26 +18677,26 @@ msgstr ""
 "Một cột VĂN BẢN với độ dài tối đa là 255 (2^8 - 1) ký tự, được lưu trữ với "
 "tiền tố 1-byte cho biết độ dài của giá trị bằng byte"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
 msgstr ""
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
 "value in bytes"
 msgstr ""
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18698,7 +18704,7 @@ msgstr ""
 "Tương tự như loại CHAR, nhưng lưu trữ chuỗi byte nhị phân hơn là chuỗi ký tự "
 "không nhị phân"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18706,31 +18712,31 @@ msgstr ""
 "Tương tự như loại VARCHAR, nhưng lưu chuỗi byte nhị phân chứ không phải "
 "chuỗi ký tự không nhị phân"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
 msgstr ""
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18738,43 +18744,43 @@ msgstr ""
 "Một bảng liệt kê, được chọn từ danh sách lên tới 65,535 giá trị hoặc giá trị "
 "lỗi '' đặc biệt"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Một giá trị duy nhất được chọn từ một bộ lên tới 64 thành viên"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "Một loại có thể lưu trữ một hình học thuộc bất kỳ loại nào"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "Một điểm trong không gian 2 chiều"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "Một đường cong với phép nội suy tuyến tính giữa các điểm"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "Một đa giác"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "Một tập hợp tọa độ"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Một tập hợp các đường cong với phép nội suy tuyến tính giữa các điểm"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "Một tập hợp của đa giác"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "Một tập hợp của các đối tượng hình dạng của bất kỳ kiểu nào"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18782,7 +18788,7 @@ msgstr ""
 "Lưu trữ và bật truy cập hiệu quả đến dữ liệu trong tài liệu JSON (JavaScript "
 "Object Notation)"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18790,21 +18796,21 @@ msgstr ""
 "Dự định lưu trữ địa chỉ IPv6, cũng như địa chỉ IPv4 giả sử ánh xạ thông "
 "thường của địa chỉ IPv4 vào địa chỉ IPv6"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Định danh duy nhất toàn cầu)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Dạng số"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Ngày giờ"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Spatial"

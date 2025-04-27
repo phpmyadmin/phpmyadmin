@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: \"Yong Kim (Neatnet)\" <neatnet@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12106,7 +12106,7 @@ msgstr "\"DROP DATABASE\" 구문은 허락되지 않습니다."
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK이 발생했습니다.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "단일 테이블 UPDATE 및 DELETE 쿼리만 시뮬레이션할 수 있습니다."
 
@@ -14057,7 +14057,7 @@ msgid "No such column"
 msgstr "그런 컬럼이 없습니다"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "문자열"
@@ -18199,19 +18199,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "날짜와 시간 조합, %1$s 부터 %2$s 까지 지원됨"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "타임스탬프 형식, 1970-01-01 00:00:01 UTC 부터 2038-01-09 03:14:07 UTC 까지, "
 "EPOCH (1970-01-01 00:00:00 UTC) 이후 경과된 초 단위 시간을 숫자로 저장함"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "%1$s 에서 %2$s 사이의 범위를 가진 시간값"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18219,7 +18225,7 @@ msgstr ""
 "네 자리(4, 기본값) 또는 두 자리(2)로 표현한 연도, 70(1970) 부터 69(2069) 또"
 "는 1901 부터 2155 까지 및 0000 값이 허용됨"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18227,14 +18233,14 @@ msgstr ""
 "저장시 항상 지정된 길이까지 오른쪽을 공백으로 채우는 고정 길이 (0-255, 기본"
 "값 1) 문자열"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr "가변 길이 (%s) 문자열, 효율적인 최대 길이는 최대 열 크기에 따라 다름"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18242,7 +18248,7 @@ msgstr ""
 "최대 255(2^8-1)글자의 길이를 가지는 TEXT 칼럼, 값의 길이를 바이트 단위로 나타"
 "내는 1바이트 인디케이터를 앞에 붙여서 저장함"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18250,7 +18256,7 @@ msgstr ""
 "최대 65,535(2^16-1)글자의 길이를 가지는 TEXT 칼럼, 값의 길이를 바이트 단위로 "
 "나타내는 2바이트 인디케이터를 앞에 붙여서 저장함"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18258,7 +18264,7 @@ msgstr ""
 "최대 16,777,215(2^24-1)글자의 길이를 가지는 TEXT 칼럼, 값의 길이를 바이트 단"
 "위로 나타내는 3바이트 인디케이터를 앞에 붙여서 저장함"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18267,19 +18273,19 @@ msgstr ""
 "최대 4,294,967,295 또는 4GiB (2^32 - 1) 글자 길이를 가지는 TEXT 칼럼, 값의 길"
 "이를 바이트 단위로 나타내는 4바이트 인디케이터를 앞에 붙여서 저장함"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "CHAR형과 비슷하나, 일반 문자열 대신 바이너리값을 저장할 수 있음"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "VARCHAR형과 비슷하나, 일반 문자열 대신 바이너리 값을 저장할 수 있음"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18287,7 +18293,7 @@ msgstr ""
 "최대 크기가 255 (2^8 - 1) 바이트인 BLOB 컬럼은, 데이터의 현재 크기를 나타내"
 "는 1바이트의 값이 데이터 앞에 붙습니다"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18295,7 +18301,7 @@ msgstr ""
 "최대 크기가 16,777,215 (2^24 - 1) 바이트인 BLOB 컬럼은, 데이터의 현재 크기를 "
 "나타내는 3바이트의 값이 데이터 앞에 붙습니다"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18303,7 +18309,7 @@ msgstr ""
 "최대 크기가 65,535 (2^16 - 1) 바이트인 BLOB 컬럼은, 데이터의 현재 크기를 나타"
 "내는 2 바이트의 값이 데이터 앞에 붙음"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18311,7 +18317,7 @@ msgstr ""
 "최대 크기가 4,294,967,295(2^32 - 1) 바이트(4GiB)인 BLOB 컬럼은, 데이터의 현"
 "재 크기를 나타내는 4바이트의 값이 데이터 앞에 붙습니다"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18319,43 +18325,43 @@ msgstr ""
 "열거형, 최대 65,535개의 지정된 값 또는 특수 오류 값 ('') 중에서 선택될 수 있"
 "음"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "최대 64개의 맴버 집합으로부터 선택되는 단일 값"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "모든 종류의 기하데이터를 저장할 수 있는 타입"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "2차원 공간의 점"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "점들로부터 생성된 하나의 선형 곡선"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "폴리곤"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "포인트들의 집합"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "포인트간의 선형 보간을 거친 커브들의 집합"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "폴리곤들의 집합"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "모든 종류의 기하데이터 객체들의 집합"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18363,7 +18369,7 @@ msgstr ""
 "JSON (JavaScript Object Notation) 문서로 데이터를 저장하면 데이터에 효율적으"
 "로 접근할 수 있습니다"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18371,21 +18377,21 @@ msgstr ""
 "IPv6 주소의 저장용이며, 기존방식으로 IPv6 주소로 매핑한 IPv4 주소도 저장합니"
 "다"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128비트 UUID(범용 고유 식별자)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "숫자"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "날짜와 시간"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "공간(좌표)형"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2025-03-20 18:17+0000\n"
 "Last-Translator: 吴绮 <rs2.free@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
@@ -11849,7 +11849,7 @@ msgstr "已禁用“删除数据库”语句。"
 msgid "[ROLLBACK occurred.]"
 msgstr "[发生 ROLLBACK.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "只能预览单一数据表的UPDATE和DELETE查询。"
 
@@ -13760,7 +13760,7 @@ msgid "No such column"
 msgstr "没有这样的字段"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "文本"
@@ -17769,19 +17769,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "日期与时间，支持的范围从 %1$s 到 %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "时间戳，范围从 1970-01-01 00:00:01 UTC 到 2038-01-09 03:14:07 UTC，存储为自纪"
 "元（1970-01-01 00:00:00 UTC）起的秒数"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "时间，范围从 %1$s 到 %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -17789,20 +17795,20 @@ msgstr ""
 "四位数（4，默认）或两位数（2）的年份，取值范围从 70（1970）到 69（2069）或从 "
 "1901 到 2155 以及 0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
 msgstr "定长（0-255，默认 1）字符串，存储时会向右边补足空格到指定长度"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr "变长（%s）字符串，最大有效长度取决于最大行大小"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -17810,7 +17816,7 @@ msgstr ""
 "最多存储 255（2^8 - 1）字节的文本字段，存储时在内容前使用 1 字节表示内容的字"
 "节数"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -17818,7 +17824,7 @@ msgstr ""
 "最多存储 65535（2^16 - 1）字节的文本字段，存储时在内容前使用 2 字节表示内容的"
 "字节数"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -17826,7 +17832,7 @@ msgstr ""
 "最多存储 16777215（2^24 - 1）字节的文本字段，存储时在内容前使用 3 字节表示内"
 "容的字节数"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -17835,19 +17841,19 @@ msgstr ""
 "最多存储 4294967295 字节即 4GB（2^32 - 1）的文本字段，存储时在内容前使用 4 字"
 "节表示内容的字节数"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "类似于 CHAR 类型，但其存储的是二进制字节串而不是非二进制字符串"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "类似于 VARCHAR 类型，但其存储的是二进制字节串而不是非二进制字符串"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -17855,7 +17861,7 @@ msgstr ""
 "最多存储 255（2^8 - 1）字节的 BLOB 字段，存储时在内容前使用 1 字节表示内容的"
 "字节数"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -17863,7 +17869,7 @@ msgstr ""
 "最多存储 16777215（2^24 - 1）字节的 BLOB 字段，存储时在内容前使用 3 字节表示"
 "内容的字节数"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -17871,7 +17877,7 @@ msgstr ""
 "最多存储 65535（2^16 - 1）字节的 BLOB 字段，存储时在内容前使用 2 字节表示内容"
 "的字节数"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -17879,75 +17885,75 @@ msgstr ""
 "最多存储 4294967295 字节即 4GB（2^32 - 1）的 BLOB 字段，存储时在内容前使用 4 "
 "字节表示内容的字节数"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr "枚举，可从最多 65535 个值的列表中选择或特殊的错误值 ''"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "可从最多 64 个成员中选择集合为一个值"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "一种能存储任意类型几何体的类型"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "二维空间中的点"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "点之间的线性插值曲线"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "多边形"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "点的集合"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "点之间的线性插值曲线的集合"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "多边形的集合"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "任意类型几何体对象的集合"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr "存储并可高效访问 JSON （JavaScript 对象） 文档中的数据"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr "旨在存储IPv6地址以及假定IPv4地址到IPv6地址的常规映射的IPv4地址"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128 位 UUID（通用唯一标识符）"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "数字"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "日期与时间"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "空间"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Sinhala <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13255,7 +13255,7 @@ msgstr "\"DROP DATABASE\" ප්‍රකාශ අක්‍රීය කර ඇ
 msgid "[ROLLBACK occurred.]"
 msgstr ""
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 
@@ -15471,7 +15471,7 @@ msgid "No such column"
 msgstr "පේළිය ගෙනයන්න"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "පෙළ"
@@ -19679,19 +19679,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "දිනය සහ වේලාවේ සංයුක්තයකි, සහයැති පරාසය %1$s සිට %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "කාල මුද්‍රාවකි, පරාසය 1970-01-01 00:00:01 UTC සිට 2038-01-09 03:14:07 UTC, "
 "කාලරම්භයේ (1970-01-01 00:00:00 UTC) සිට ගත වූ තත්පර ගණන ලෙස ගබඩා කර ඇත"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "වේලාවකි, පරාසය %1$s සිට %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -19699,7 +19705,7 @@ msgstr ""
 "අංක හතරකින් (4, පෙරනිමි) හෝ අංක දෙකකින් (2) දැක්වෙන වර්ෂයකි, ගත හැකි අගයන් වන්නේ 70 "
 "(1970) සිට 69 (2069) හෝ 1901 සිට 2155 සහ 0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -19707,14 +19713,14 @@ msgstr ""
 "ස්ථිර-දිගැති පෙළකි (0-255, පෙරනිමි 1), සෑම විටම නියමිත දිග ලැබෙන තුරු දකුණු පසින් හිස් අවකාශ එක් "
 "කෙරේ"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
 "the maximum row size"
 msgstr "විචල්‍ය-දිගැති පෙළකි (%s), පෙළෙහි උපරිම දිග, පේළියේ උපරිම ප්‍රමාණය මත තීරණය වේ"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -19722,7 +19728,7 @@ msgstr ""
 "සලකුණු 255 (2^8 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -19730,7 +19736,7 @@ msgstr ""
 "සලකුණු 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන බයිට දෙකක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -19738,7 +19744,7 @@ msgstr ""
 "සලකුණු 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග "
 "සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -19747,19 +19753,19 @@ msgstr ""
 "සලකුණු 4,294,967,295 නැතිනම් 4GiB (2^32 - 1) ක උපරිම දිගක් සහිත පෙළ තීරුවකි, ඉදිරියෙන් "
 "යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "CHAR වර්ගයට සමාන මුත් ද්වීමය නොවන සලකුණු පෙළක් වෙනුවට ද්වීමය බයිට පෙළක් ගබඩා කරයි"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
 msgstr "VARCHAR වර්ගයට සමාන මුත් ද්වීමය නොවන සලකුණු පෙළක් වෙනුවට ද්වීමය බයිට පෙළක් ගබඩා කරයි"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -19767,7 +19773,7 @@ msgstr ""
 "බයිට 255(2^8 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන එක් බයිටයක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -19775,7 +19781,7 @@ msgstr ""
 "බයිට 16,777,215 (2^24 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග "
 "සඳහන් කෙරෙන බයිට තුනක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -19783,7 +19789,7 @@ msgstr ""
 "බයිට 65,535 (2^16 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් යෙදු, අන්තර්ගතයේ දිග සඳහන් "
 "කෙරෙන බයිට දෙකක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -19791,7 +19797,7 @@ msgstr ""
 "බයිට 4,294,967,295 නැතිනම් 4GiB (2^32 - 1) ක උපරිම දිගක් සහිත බ්ලොබ් තීරුවකි, ඉදිරියෙන් "
 "යෙදු, අන්තර්ගතයේ දිග සඳහන් කෙරෙන බයිට හතරක් සමඟ ගබඩා කෙරේ"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -19799,71 +19805,71 @@ msgstr ""
 "අගයන් 65535 ක් දක්වා ඇතුලත් කල හැකි ලැයිස්තුවකින් තෝරාගන්නා අගයක් හෝ විශේෂ දෝෂ අගය වන '' "
 "හෝ වේ"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "අගයන් 64 ක් දක්වා අඩංගු විය හැකි කුලකයකින් තෝරාගන්නා අගයකි"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතියක් ගබඩා කල හැකි වර්ගයකි"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "ද්වීමාන අවකාශයේ ලක්ෂ්‍යයකි"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "ලක්ෂ්‍ය අතර සරල රේඛා අඩංගු වක්‍රයකි"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "බහු අස්‍රයකි"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "ලක්ෂ්‍ය එකතුවකි"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "ලක්ෂ්‍ය අතර සරල රේඛා අඩංගු වක්‍ර එකතුවකි"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "බහු අස්‍ර එකතුවකි"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "ඕනෑම වර්ගයක ජ්‍යාමිතීන් එකතුවකි"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
 msgstr ""
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:291
+#: src/Types.php:292
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "විශ්වීය අනන්‍ය හැඳුනුමක් (UUID) ගබඩා කරයි"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "සංඛ්‍යාත්මක"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "දිනය සහ වේලාව"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "අවකාශීය"

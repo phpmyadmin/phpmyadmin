@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2025-02-07 22:02+0000\n"
 "Last-Translator: Horus68 <horus68@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12527,7 +12527,7 @@ msgstr "Os comandos \"DROP DATABASE\" estão desactivados."
 msgid "[ROLLBACK occurred.]"
 msgstr "[Ocorreu um ROLLBACK.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Somente pesquisas de UPDATE e DELETE em uma só tabela podem ser simuladas."
@@ -14565,7 +14565,7 @@ msgid "No such column"
 msgstr "Nenhuma coluna"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "Cadeia"
@@ -18890,20 +18890,26 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Uma combinação de data e hora, o intervalo suportado é %1$s até %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Um carimbo temporal, intervalo é desde 1970-01-01 00:00:01 UTC até "
 "2038-01-09 03:14:07 UTC, guardado como um número de segundos desde a época "
 "(1970-01-01 00:00:00 UTC)"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Uma hora, intervalo é %1$s até %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18912,7 +18918,7 @@ msgstr ""
 "(2), os valores permitidos são de 70 (1970) até 69 (2069) ou 1901 até 2155 e "
 "0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18921,7 +18927,7 @@ msgstr ""
 "sempre preenchida à direita com espaços até o tamanho especificado quando "
 "armazenado"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18930,7 +18936,7 @@ msgstr ""
 "Uma cadeia de comprimento variável (%s), o comprimento efetivo máximo está "
 "sujeito ao tamanho máximo de linha"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18938,7 +18944,7 @@ msgstr ""
 "Uma coluna de texto com um comprimento máximo de 255 (2^8 - 1) caracteres, "
 "guardados com um prefixo de um byte indicando o comprimento do valor em bytes"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18947,7 +18953,7 @@ msgstr ""
 "caracteres, guardada com um prefixo de dois bytes indicando o comprimento do "
 "valor em bytes"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18956,7 +18962,7 @@ msgstr ""
 "caracteres, guardada com um prefixo de três bytes que indica o comprimento "
 "do valor em bytes"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18966,7 +18972,7 @@ msgstr ""
 "- 1) caracteres, guardada com um prefixo de quatro bytes que indica o "
 "comprimento do valor em bytes"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18974,7 +18980,7 @@ msgstr ""
 "Semelhante ao tipo CHAR, mas armazena cadeias de bytes binários em vez de "
 "cadeias de caracteres não-binários"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18982,7 +18988,7 @@ msgstr ""
 "Semelhante ao tipo VARCHAR, mas armazena cadeias de bytes binários em vez de "
 "cadeias de caracteres não-binários"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18990,7 +18996,7 @@ msgstr ""
 "Uma coluna tipo BLOB com um comprimento máximo de 255 (2^8 - 1) bytes, "
 "armazenada com um prefixo de um byte indicando o comprimento do valor"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18999,7 +19005,7 @@ msgstr ""
 "bytes, armazenada com um prefixo de três bytes que indica o comprimento do "
 "valor"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -19007,7 +19013,7 @@ msgstr ""
 "Uma coluna tipo BLOB com um comprimento máximo de 65.535 (2^16 - 1) bytes, "
 "armazenada com um prefixo de dois byte indicando o comprimento do valor"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -19016,7 +19022,7 @@ msgstr ""
 "bytes, armazenados com um prefixo de quatro bytes indicando o comprimento do "
 "valor"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -19024,43 +19030,43 @@ msgstr ""
 "Uma enumeração, escolhida a partir da lista de até 65.535 valores ou o valor "
 "especial '' do erro"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Um valor único escolhido de um conjunto de até 64 membros"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "Um tipo que pode armazenar uma geometria de qualquer tipo"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "Um ponto no espaço de 2 dimensões"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "Uma curva com uma interpolação linear entre os pontos"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "Um polígono"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "Uma coleção de pontos"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Uma coleção de curvas com uma interpolação linear entre os pontos"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "Uma coleção de polígonos"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "Uma coleção de objetos geométricos de qualquer tipo"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -19068,7 +19074,7 @@ msgstr ""
 "Armazena e ativa acesso eficiente a dados em documentos JSON (Notação de "
 "Objectos em JavaScript)"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -19076,21 +19082,21 @@ msgstr ""
 "Destinado ao armazenamento de endereços IPv6, assim como endereços IPv4 "
 "assumindo o mapeamento convencional de endereços IPv4 em endereços IPv6"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Guarda um UUID de 128-bit (Identificador Universal Único)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numérico"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Data e hora"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Espacial"

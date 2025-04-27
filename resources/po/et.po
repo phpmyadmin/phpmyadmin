@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2023-11-25 02:27+0000\n"
 "Last-Translator: Kristjan Räts <kristjanrats@gmail.com>\n"
 "Language-Team: Estonian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -12299,7 +12299,7 @@ msgstr "\"DROP DATABASE\" käsud on keelatud."
 msgid "[ROLLBACK occurred.]"
 msgstr "[Toimus tagasipööramine.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Simuleerida on võimalik ainult ühe tabeli uuendamise ja kustutamise "
@@ -14275,7 +14275,7 @@ msgid "No such column"
 msgstr "Sellist veergu ei ole"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "Sõne"
@@ -18517,20 +18517,26 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Kuupäeva ja aja kombinatsioon, sobiv vahemik on %1$s kuni %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Ajatempel, ulatus on \"1970-01-01 00:00:01\" UTC kuni \"2038-01-09 "
 "03:14:07\" UTC, säilitatakse sekundite hulgana alates ajastu algusest "
 "(\"1970-01-01 00:00:00\" UTC)"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Aeg, vahemik on %1$s kuni %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18538,7 +18544,7 @@ msgstr ""
 "Neljanumbriline aastaarv (vaikimisi 4) või kahenumbriline (2) formaat. "
 "Lubatud väärtused on 70 (1970) kuni 69 (2069) või 1901 kuni 2155 ja 0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18546,7 +18552,7 @@ msgstr ""
 "Fikseeritud pikkusega (0-255, vaikimisi 1) sõne, mis salvestamisel "
 "pikendatakse sobivasse pikkusesse paremal pool asuvate tühikute abil"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18555,7 +18561,7 @@ msgstr ""
 "Muutuva pikkusega (%s) sõne. Parim sobiv maksimaalne pikkus on rea "
 "maksimaalne suurus"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18563,7 +18569,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 255 (2^8 - 1) sümbolit) salvestatakse "
 "ühebitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18571,7 +18577,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 65,535 (2^16 - 1) sümbolit) salvestatakse "
 "kahebitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18579,7 +18585,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 16,777,215 (2^24 - 1) sümbolit) "
 "salvestatakse kolmebitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18588,7 +18594,7 @@ msgstr ""
 "TEXT veerg (maksimaalse pikkusega 4,294,967,295 or 4GiB (2^32 - 1) sümbolit) "
 "salvestatakse neljabitise eesliitega, mis märgib väärtuse pikkust baitides"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18596,7 +18602,7 @@ msgstr ""
 "Sarnane CHAR tüübile, kuid salvestab binaarse baidi sõned pigem "
 "mittebinaarse sümboli sõnedena"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18604,7 +18610,7 @@ msgstr ""
 "Sarnane VARCHAR tüübile, kuid salvestab binaarse baidi sõned pigem "
 "mittebinaarse sümboli sõnedena"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18612,7 +18618,7 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 255 (2^8 - 1) baiti) salvestatakse "
 "ühebaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18620,7 +18626,7 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 16,777,215 (2^24 - 1) baiti) salvestatakse "
 "kolmebaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18628,7 +18634,7 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 65,535 (2^16 - 1) baiti) salvestatakse "
 "kahebaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18636,49 +18642,49 @@ msgstr ""
 "BLOB veerg (maksimaalse pikkusega 4,294,967,295 or 4GiB (2^32 - 1) baiti) "
 "salvestatakse neljabaidise eesliitega, mis märgib väärtuse pikkust"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr "Loend, valitakse kuni 65535 väärtusest või spetsiaalne '' vea tunnus"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Üks väärtus, mis valitakse kuni 64 elemendiga hulgast"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "Tüüp, mis suudab salvestada mistahes tüüpi geomeetriat"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "Punkt kahemõõtmelises ruumis"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "Punktidevaheline kaar koos sirgjoonega"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "Hulktahukas"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "Punktide kogum"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Punktidevaheliste sirgjoontega kaarte kogum"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "Hulktahukate kogum"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "Igat tüüpi geomeetriliste objektide kogum"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18686,7 +18692,7 @@ msgstr ""
 "Salvestab ja lubab efektiivse juurdepääsu JSON (JavaScript Object Notation) "
 "dokumentides olevatele andmetele"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18694,21 +18700,21 @@ msgstr ""
 "Mõeldud IPv6 aadresside salvestamiseks, aga ka IPv4 aadressidele, eeldades "
 "tavapärast IPv4 aadresside vastendamist IPv6 aadressideks"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bitine UUID (universaalselt unikaalne identifikaator)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Arv"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Kuupäev ja aeg"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Ruumiline"

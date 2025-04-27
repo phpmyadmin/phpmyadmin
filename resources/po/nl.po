@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2025-02-06 17:02+0000\n"
 "Last-Translator: dingo thirteen <dingo13@d404.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -12451,7 +12451,7 @@ msgstr "\"DROP DATABASE\" opdrachten zijn uitgeschakeld."
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK is uitgevoerd]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr ""
 "Enkel UPDATE- en DELETE-query's die inwerken op 1 tabel kunnen gesimuleerd "
@@ -14448,7 +14448,7 @@ msgid "No such column"
 msgstr "Geen dergelijke kolom"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "Tekenreeks"
@@ -18766,19 +18766,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Een dag en tijd combinatie, ondersteunde reeks gaat van %1$s tot %2$s"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Een tijdstip, van 1970-01-01 00:00:01 UTC tot 2038-01-09 03:14:07 UTC, wordt "
 "opgeslaan als aantal seconden sinds het beginmoment (1970-01-01 00:00:00 UTC)"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Een uur, bereik is %1$s tot %2$s"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18787,7 +18793,7 @@ msgstr ""
 "toegelaten waarden lopen van 70 (1970) tot 69 (2069) of van 1901 tot 2155 en "
 "0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18795,7 +18801,7 @@ msgstr ""
 "Een string met vaste lengte (0-255, standaard 1) wordt bij opslag met "
 "spaties rechts tot de gespecificeerde lengte aangevuld"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18804,7 +18810,7 @@ msgstr ""
 "Een string met variabele lengte (%s), de effectieve maximale lengte is "
 "afhankelijk van de maximale rij grootte"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18813,7 +18819,7 @@ msgstr ""
 "wordt opgeslagen met een 1-byte voorvoegsel dat de lengte van de waarde in "
 "bytes aangeeft"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18822,7 +18828,7 @@ msgstr ""
 "tekens, wordt opgeslagen met een 2-byte voorvoegsel dat de lengte van de "
 "waarde in bytes aangeeft"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18831,7 +18837,7 @@ msgstr ""
 "1) tekens, wordt opgeslagen met een 3-byte voorvoegsel dat de lengte van de "
 "waarde in bytes aangeeft"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18841,7 +18847,7 @@ msgstr ""
 "4GiB (2^32 - 1) tekens, wordt opgeslagen met een 4-byte voorvoegsel dat de "
 "lengte van de waarde in bytes aangeeft"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18849,7 +18855,7 @@ msgstr ""
 "Vergelijkbaar met het CHAR type, maar opgeslagen in een binaire byte "
 "tekenreeks in plaats van een niet-binaire reeks lettertekens"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18857,7 +18863,7 @@ msgstr ""
 "Vergelijkbaar met het VARCHAR type, maar slaat de waarde op als binaire byte "
 "tekenreeks in plaats van een niet-binaire tekenreeks"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18866,7 +18872,7 @@ msgstr ""
 "wordt opgeslagen met een 1-byte voorvoegsel dat de lengte van de waarde "
 "aangeeft"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18875,7 +18881,7 @@ msgstr ""
 "bytes, wordt opgeslagen met een 3-byte voorvoegsel dat de lengte van de "
 "waarde aangeeft"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18884,7 +18890,7 @@ msgstr ""
 "bytes, wordt opgeslagen met een 2-byte voorvoegsel dat de lengte van de "
 "waarde aangeeft"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18893,7 +18899,7 @@ msgstr ""
 "(2^32 - 1) bytes, wordt opgeslagen met een 4-byte voorvoegsel dat de lengte "
 "van de waarde aangeeft"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18901,43 +18907,43 @@ msgstr ""
 "Een opsomming, geselecteerd uit een lijst met tot 65.535 waarden of de "
 "speciale '' foutwaarde"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Een enkele waarde geselecteerd uit een lijst met tot 64 waarden"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "Een type dat een meetkundig object van gelijk welk type op kan slaan"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "Een punt in een 2-dimensionale ruimte"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "Een kromme met lineaire interpolatie tussen punten"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "Een veelhoek"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "Een verzameling van punten"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Een verzameling van krommen met lineaire interpolatie tussen punten"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "Een verzameling van veelhoeken"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "Een verzameling van meetkundige objecten van gelijk welk type"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18945,7 +18951,7 @@ msgstr ""
 "Maakt efficiënte datatoegang beschikbaar en slaat het op in JSON (JavaScript "
 "Object Notation) documenten"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18953,21 +18959,21 @@ msgstr ""
 "Bedoeld voor opslag van IPv6 adressen, als ook IPv4 adressen waarbij de "
 "gebruikelijke omzetting van IPv4 adressen in IPv6 adressen wordt aangenomen"
 
-#: src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-bit UUID (Universele Unieke Identificatie)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Numeriek"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Datum en tijd"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Ruimtelijk"

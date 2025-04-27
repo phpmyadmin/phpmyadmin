@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-20 00:28+0000\n"
+"POT-Creation-Date: 2025-04-27 00:27+0000\n"
 "PO-Revision-Date: 2022-02-17 10:35+0000\n"
 "Last-Translator: Péter Báthory <bathory86p@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -13006,7 +13006,7 @@ msgstr "A \"DROP DATABASE\" utasítást letiltották."
 msgid "[ROLLBACK occurred.]"
 msgstr "[ROLLBACK történt.]"
 
-#: src/Controllers/Import/SimulateDmlController.php:84
+#: src/Controllers/Import/SimulateDmlController.php:90
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Csak egyedülálló táblák UPDATE és DELETE lekérdezései szimulálhatók."
 
@@ -15126,7 +15126,7 @@ msgid "No such column"
 msgstr "Nincs ilyen oszlop"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "Karakterlánc"
@@ -19529,19 +19529,25 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Dátum és idő kombináció, értéktartomány %1$s és %2$s között"
 
 #: src/Types.php:208
+#, fuzzy
+#| msgid ""
+#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
+"32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
+"UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
+"seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
 "Időbélyeg, tartomány 1970-01-01 00:00:01 UTC és 2038-01-09 03:14:07 UTC "
 "között, másodpercek számaként tárolva a kezdettől"
 
-#: src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Egy idő, a tartomány %1$s és %2$s között van"
 
-#: src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -19549,7 +19555,7 @@ msgstr ""
 "4 vagy 2 karakteres évszám, megengedett értékei 70 (1970) és 69 (2069), vagy "
 "1901 és 2155 között és 0000"
 
-#: src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -19557,7 +19563,7 @@ msgstr ""
 "Fix hosszúságú (0-255, alapértelmezett 1) sztring, amely szóközökkel van "
 "jobbról kitöltve a meghatározott hossz eléréséhez"
 
-#: src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -19566,7 +19572,7 @@ msgstr ""
 "Változó hosszúságú (%s) sztring, a tényleges maximális hossz függ a "
 "maximális sormérettől"
 
-#: src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -19574,7 +19580,7 @@ msgstr ""
 "TEXT oszlop, maximális hossz 255 karakter, tárolása 1 bájt előtaggal, amely "
 "az érték hosszát tartalmazza bájtokban"
 
-#: src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -19582,7 +19588,7 @@ msgstr ""
 "TEXT oszlop maximum 65 535 karakterhosszúsággal, 2 bájtos előtaggal tárolva, "
 "amely az érték hosszát tartalmazza bájtokban"
 
-#: src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -19590,7 +19596,7 @@ msgstr ""
 "TEXT oszlop 16 777 215 maximális hosszúsággal, három bájt előtaggal tárolva, "
 "amely az érték hosszát tartalmazza bájtokban"
 
-#: src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -19599,7 +19605,7 @@ msgstr ""
 "TEXT oszlop maximum 4 294 967 295 vagy 4 GB hosszal, 4 bájtos előtaggal "
 "tárolva, amely az érték hosszát tartalmazza bájtokban"
 
-#: src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -19607,7 +19613,7 @@ msgstr ""
 "Hasonló a CHAR típushoz, de bináris bájtláncot tárol nem-bináris "
 "karakterláncok helyett"
 
-#: src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -19615,7 +19621,7 @@ msgstr ""
 "Hasonló a VARCHAR típushoz, de bináris bájtláncot tárol nem-bináris "
 "karakterláncok helyett"
 
-#: src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -19623,7 +19629,7 @@ msgstr ""
 "BLOB oszlop maximális hossza 255 (2 ^ 8 - 1) bájt, tárolt érték hosszát "
 "jelző egybájtos előtaggal"
 
-#: src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -19631,7 +19637,7 @@ msgstr ""
 "BLOB-oszlop 16 777 215 maximális hosszal (2 ^ 24 - 1), tárolt érték hosszát "
 "jelző három byte-os előtaggal"
 
-#: src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -19639,7 +19645,7 @@ msgstr ""
 "BLOB oszlop maximális hossza a 65 535 (2 ^ 16 - 1) bájt, tárolt érték "
 "hosszát jelző két byte-os előtaggal"
 
-#: src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -19647,50 +19653,50 @@ msgstr ""
 "BLOB oszlop 4 294 967 295 vagy 4 GB maximális hosszal (2 ^ 32 - 1), tárolt "
 "érték hosszát jelző négybájtos előtaggal"
 
-#: src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
 msgstr ""
 "Felsorolás, legfeljebb 65 535 értékkel vagy a speciális '' hibaértékkel"
 
-#: src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Egyetlen érték egy 64 tagú készletből"
 
-#: src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "Típus, amely bármely típus geometriáját tudja tárolni"
 
-#: src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "Pont 2 dimenziós pozícióban"
 
-#: src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "Görbe lineáris interpolációval a pontjai között"
 
-#: src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "Egy sokszög"
 
-#: src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "Pontok összessége"
 
-#: src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Görbék összessége lineáris interpolációval a pontjaik közt"
 
-#: src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "Sokszögek összessége"
 
-#: src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "Bármely típusú geometriai tárgyak összessége"
 
-#: src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -19698,29 +19704,29 @@ msgstr ""
 "Eltárolja és bekapcsolja a hatékony hozzáférést a JSON (JavaScript Object "
 "Notation) dokumentumok adataihoz"
 
-#: src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
 msgstr ""
 
-#: src/Types.php:291
+#: src/Types.php:292
 #, fuzzy
 #| msgid "Stores a Universally Unique Identifier (UUID)"
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "Tárolja az univerzálisan egyedi azonosítót (UUID)"
 
-#: src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "numerikus"
 
-#: src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Dátum és idő"
 
-#: src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Térbeli"
