@@ -16319,15 +16319,6 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method allowCredentials\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.7\.0\. No replacement\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
 				#^Call to deprecated method createFromArray\(\) of class Webauthn\\AuthenticatorSelectionCriteria\:
 				since 4\.8\.0\. Please use \{Webauthn\\Denormalizer\\WebauthnSerializerFactory\} for converting the object\.$#
 			'''
@@ -16360,114 +16351,6 @@ parameters:
 			'''
 			identifier: staticMethod.deprecated
 			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getId\(\) of class Webauthn\\PublicKeyCredentialRpEntity\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getId\(\) of class Webauthn\\PublicKeyCredentialUserEntity\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getPublicKeyCredentialId\(\) of class Webauthn\\PublicKeyCredentialSource\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getRawId\(\) of class Webauthn\\PublicKeyCredential\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getResponse\(\) of class Webauthn\\PublicKeyCredential\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getUserHandle\(\) of class Webauthn\\PublicKeyCredentialSource\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setAttestation\(\) of class Webauthn\\PublicKeyCredentialCreationOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setAuthenticatorSelection\(\) of class Webauthn\\PublicKeyCredentialCreationOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setExtensions\(\) of class Webauthn\\PublicKeyCredentialOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setRpId\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setTimeout\(\) of class Webauthn\\PublicKeyCredentialOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setUserVerification\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
@@ -16522,15 +16405,6 @@ parameters:
 			message: '#^Cannot access offset ''response'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 6
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Instantiation of deprecated class Webauthn\\AuthenticationExtensions\\AuthenticationExtensionsClientInputs\:
-				since 4\.8\.0\. Use \{Webauthn\\AuthenticationExtensions\\AuthenticationExtensions\} instead\.$#
-			'''
-			identifier: new.deprecated
-			count: 2
 			path: src/WebAuthn/WebauthnLibServer.php
 
 		-
