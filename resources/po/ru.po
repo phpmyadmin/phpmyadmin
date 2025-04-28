@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-20 00:28+0000\n"
-"PO-Revision-Date: 2025-04-25 17:45+0000\n"
+"PO-Revision-Date: 2025-04-28 18:49+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ru/>\n"
@@ -2383,10 +2383,8 @@ msgid "Function"
 msgstr "Функция"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "Данная страница не содержит таблиц!"
+msgstr "Эта процедура не требует параметров."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
@@ -2419,10 +2417,8 @@ msgid "Returns"
 msgstr "Возвращает"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Имя процедуры"
+msgstr "Редактор процедуры"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
@@ -2442,10 +2438,8 @@ msgid "Save changes"
 msgstr "Сохранить изменения"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Экспорт процедуры %s"
+msgstr "Экспорт процедуры"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:356
@@ -13406,16 +13400,12 @@ msgid "No dependencies selected!"
 msgstr "Не выбраны зависимости!"
 
 #: src/Controllers/JavaScriptMessagesController.php:455
-#, fuzzy
-#| msgid "Use this value"
 msgid "Enter first value"
-msgstr "Использовать это значение"
+msgstr "Ввести первое значение"
 
 #: src/Controllers/JavaScriptMessagesController.php:456
-#, fuzzy
-#| msgid "Session value"
 msgid "Enter second value"
-msgstr "Значение сессии"
+msgstr "Ввести второе значение"
 
 #: src/Controllers/JavaScriptMessagesController.php:462
 msgid "Hide search criteria"
