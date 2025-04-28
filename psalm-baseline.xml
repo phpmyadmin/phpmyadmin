@@ -7119,7 +7119,7 @@
       <code><![CDATA[string[]]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCondition>
-      <code><![CDATA[$paragraphValue === '' && isset($paragraph->{'a'})]]></code>
+      <code><![CDATA[$paragraphValue === '' && isset($paragraph->a)]]></code>
     </RedundantCondition>
   </file>
   <file src="src/Plugins/Import/ImportShp.php">

@@ -221,8 +221,8 @@ class ImportOds extends ImportPlugin
             // Maybe a text node has the content ? (email, url, ...)
             // Example: <text:a ... xlink:href="mailto:contact@example.org">test@example.fr</text:a>
             $paragraphValue = $paragraph->__toString();
-            if ($paragraphValue === '' && isset($paragraph->{'a'})) {
-                $values[] = $paragraph->{'a'}->__toString();
+            if ($paragraphValue === '' && isset($paragraph->a)) {
+                $values[] = $paragraph->a->__toString();
                 continue;
             }
 
