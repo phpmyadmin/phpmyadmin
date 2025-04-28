@@ -13,7 +13,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Webauthn\AttestationStatement\AttestationObjectLoader;
 use Webauthn\AttestationStatement\AttestationStatementSupportManager;
 use Webauthn\AttestationStatement\NoneAttestationStatementSupport;
-use Webauthn\AuthenticationExtensions\AuthenticationExtensionsClientInputs;
+use Webauthn\AuthenticationExtensions\AuthenticationExtensions;
 use Webauthn\AuthenticationExtensions\ExtensionOutputCheckerHandler;
 use Webauthn\AuthenticatorAssertionResponse;
 use Webauthn\AuthenticatorAssertionResponseValidator;
@@ -49,10 +49,8 @@ use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 final class WebauthnLibServer implements Server
 {
-    private int $timeout = 60000;
-
-    /** @phpstan-var int<1, max> */
-    private int $challengeSize = 32;
+    private const TIMEOUT = 60000;
+    private const CHALLENGE_SIZE = 32;
 
     private ManagerFactory $coseAlgorithmManagerFactory;
 
@@ -100,13 +98,14 @@ final class WebauthnLibServer implements Server
         $publicKeyCredentialCreationOptions = PublicKeyCredentialCreationOptions::create(
             $relyingPartyEntity,
             $userEntity,
-            random_bytes($this->challengeSize),
+            random_bytes(self::CHALLENGE_SIZE),
             $publicKeyCredentialParametersList,
-        )
-            ->setAuthenticatorSelection($criteria)
-            ->setAttestation(PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE)
-            ->setExtensions(new AuthenticationExtensionsClientInputs())
-            ->setTimeout($this->timeout);
+            $criteria,
+            PublicKeyCredentialCreationOptions::ATTESTATION_CONVEYANCE_PREFERENCE_NONE,
+            [],
+            self::TIMEOUT,
+            new AuthenticationExtensions(),
+        );
 
         /** @psalm-var array{
          *   challenge: non-empty-string,
@@ -145,13 +144,15 @@ final class WebauthnLibServer implements Server
             $credentialSources,
         );
 
-        $challenge = random_bytes($this->challengeSize);
-        $publicKeyCredentialRequestOptions = PublicKeyCredentialRequestOptions::create($challenge)
-            ->setRpId($relyingPartyEntity->getId())
-            ->setUserVerification(PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED)
-            ->allowCredentials(...$allowedCredentials)
-            ->setTimeout($this->timeout)
-            ->setExtensions(new AuthenticationExtensionsClientInputs());
+        $challenge = random_bytes(self::CHALLENGE_SIZE);
+        $publicKeyCredentialRequestOptions = PublicKeyCredentialRequestOptions::create(
+            $challenge,
+            $relyingPartyEntity->id,
+            $allowedCredentials,
+            PublicKeyCredentialRequestOptions::USER_VERIFICATION_REQUIREMENT_DISCOURAGED,
+            self::TIMEOUT,
+            new AuthenticationExtensions(),
+        );
 
         /**
          * @psalm-var array{
@@ -223,7 +224,7 @@ final class WebauthnLibServer implements Server
         $publicKeyCredential = $publicKeyCredentialLoader->load(
             json_encode($assertionResponseDecoded, JSON_THROW_ON_ERROR),
         );
-        $authenticatorResponse = $publicKeyCredential->getResponse();
+        $authenticatorResponse = $publicKeyCredential->response;
         Assert::isInstanceOf(
             $authenticatorResponse,
             AuthenticatorAssertionResponse::class,
@@ -238,11 +239,11 @@ final class WebauthnLibServer implements Server
         );
 
         $authenticatorAssertionResponseValidator->check(
-            $publicKeyCredential->getRawId(),
+            $publicKeyCredential->rawId,
             $authenticatorResponse,
             $requestOptions,
             $request,
-            $userEntity->getId(),
+            $userEntity->id,
         );
     }
 
@@ -304,7 +305,7 @@ final class WebauthnLibServer implements Server
         $publicKeyCredential = $publicKeyCredentialLoader->load(
             json_encode($attestationResponseDecoded, JSON_THROW_ON_ERROR),
         );
-        $authenticatorResponse = $publicKeyCredential->getResponse();
+        $authenticatorResponse = $publicKeyCredential->response;
         Assert::isInstanceOf(
             $authenticatorResponse,
             AuthenticatorAttestationResponse::class,
@@ -351,7 +352,7 @@ final class WebauthnLibServer implements Server
                 $sources = [];
                 foreach ($this->read() as $data) {
                     $source = PublicKeyCredentialSource::createFromArray($data);
-                    if ($source->getUserHandle() !== $publicKeyCredentialUserEntity->getId()) {
+                    if ($source->userHandle !== $publicKeyCredentialUserEntity->id) {
                         continue;
                     }
 
@@ -364,7 +365,7 @@ final class WebauthnLibServer implements Server
             public function saveCredentialSource(PublicKeyCredentialSource $publicKeyCredentialSource): void
             {
                 $data = $this->read();
-                $id = $publicKeyCredentialSource->getPublicKeyCredentialId();
+                $id = $publicKeyCredentialSource->publicKeyCredentialId;
                 $encoded = json_encode($publicKeyCredentialSource, JSON_THROW_ON_ERROR);
                 $normalized = json_decode($encoded, true, flags: JSON_THROW_ON_ERROR);
                 Assert::isArray($normalized);

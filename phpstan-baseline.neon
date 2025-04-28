@@ -16319,15 +16319,6 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method allowCredentials\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.7\.0\. No replacement\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
 				#^Call to deprecated method createFromArray\(\) of class Webauthn\\AuthenticatorSelectionCriteria\:
 				since 4\.8\.0\. Please use \{Webauthn\\Denormalizer\\WebauthnSerializerFactory\} for converting the object\.$#
 			'''
@@ -16364,118 +16355,25 @@ parameters:
 
 		-
 			message: '''
-				#^Call to deprecated method getId\(\) of class Webauthn\\PublicKeyCredentialRpEntity\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getId\(\) of class Webauthn\\PublicKeyCredentialUserEntity\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getPublicKeyCredentialId\(\) of class Webauthn\\PublicKeyCredentialSource\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getRawId\(\) of class Webauthn\\PublicKeyCredential\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getResponse\(\) of class Webauthn\\PublicKeyCredential\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method getUserHandle\(\) of class Webauthn\\PublicKeyCredentialSource\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setAttestation\(\) of class Webauthn\\PublicKeyCredentialCreationOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setAuthenticatorSelection\(\) of class Webauthn\\PublicKeyCredentialCreationOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setExtensions\(\) of class Webauthn\\PublicKeyCredentialOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setRpId\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setTimeout\(\) of class Webauthn\\PublicKeyCredentialOptions\:
-				since 4\.7\.0\. Please use the \{self\:\:create\} instead\.$#
-			'''
-			identifier: method.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
-				#^Call to deprecated method setUserVerification\(\) of class Webauthn\\PublicKeyCredentialRequestOptions\:
-				since 4\.7\.0\. Please use the property directly\.$#
-			'''
-			identifier: method.deprecated
-			count: 1
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
 				#^Call to method create\(\) of deprecated class Webauthn\\PublicKeyCredentialLoader\:
 				since 4\.8\.0 and will be removed in 5\.0\.0\. Please use the Symfony serializer instead$#
 			'''
 			identifier: staticMethod.deprecatedClass
+			count: 2
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: '#^Call to method findAllForUserEntity\(\) of deprecated interface Webauthn\\PublicKeyCredentialSourceRepository\.$#'
+			identifier: method.deprecatedInterface
+			count: 1
+			path: src/WebAuthn/WebauthnLibServer.php
+
+		-
+			message: '''
+				#^Call to method load\(\) of deprecated class Webauthn\\PublicKeyCredentialLoader\:
+				since 4\.8\.0 and will be removed in 5\.0\.0\. Please use the Symfony serializer instead$#
+			'''
+			identifier: method.deprecatedClass
 			count: 2
 			path: src/WebAuthn/WebauthnLibServer.php
 
@@ -16511,19 +16409,10 @@ parameters:
 
 		-
 			message: '''
-				#^Instantiation of deprecated class Webauthn\\AuthenticationExtensions\\AuthenticationExtensionsClientInputs\:
-				since 4\.8\.0\. Use \{Webauthn\\AuthenticationExtensions\\AuthenticationExtensions\} instead\.$#
-			'''
-			identifier: new.deprecated
-			count: 2
-			path: src/WebAuthn/WebauthnLibServer.php
-
-		-
-			message: '''
 				#^Instantiation of deprecated class Webauthn\\TokenBinding\\IgnoreTokenBindingHandler\:
 				Since 4\.3\.0 and will be removed in 5\.0\.0$#
 			'''
-			identifier: new.deprecated
+			identifier: new.deprecatedClass
 			count: 2
 			path: src/WebAuthn/WebauthnLibServer.php
 
@@ -18793,12 +18682,6 @@ parameters:
 			path: tests/unit/GitTest.php
 
 		-
-			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertNotNull\(\) with array\{hash\: string, branch\: string\|false, message\: string, author\: array\{name\: string, email\: string, date\: string\}, committer\: array\{name\: string, email\: string, date\: string\}, is_remote_commit\: bool, is_remote_branch\: bool\} will always evaluate to true\.$#'
-			identifier: staticMethod.alreadyNarrowedType
-			count: 1
-			path: tests/unit/GitTest.php
-
-		-
 			message: '#^Cannot unset offset ''git_location'' on array\<mixed, mixed\>\.$#'
 			identifier: unset.offset
 			count: 2
@@ -19516,6 +19399,12 @@ parameters:
 			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
+			path: tests/unit/Plugins/Export/ExportSqlTest.php
+
+		-
+			message: '#^Parameter \#2 \$haystack of static method PHPUnit\\Framework\\Assert\:\:assertStringContainsString\(\) expects string, string\|null given\.$#'
+			identifier: argument.type
+			count: 3
 			path: tests/unit/Plugins/Export/ExportSqlTest.php
 
 		-
