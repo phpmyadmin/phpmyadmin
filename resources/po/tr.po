@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-27 00:27+0000\n"
-"PO-Revision-Date: 2025-04-20 08:57+0000\n"
+"PO-Revision-Date: 2025-04-29 23:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18602,19 +18602,17 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Bir tarih ve saat birleşimi, desteklenen aralık %1$s ile %2$s arası"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Bir zaman damgası, aralığı \"1970-01-01 00:00:01\" UTC ile \"2038-01-09 "
-"03:14:07\" UTC arası, devirden (\"1970-01-01 00:00:00\" UTC) bu yana saniye "
-"sayısı olarak saklanır"
+"Bir zaman damgası, 32-bit platformlarda (MariaDB 11.3 ve öncesi) ve 64-bit "
+"platformlarda (MariaDB 11.5 ve sonrası) 2106-02-07 06:28:15 UTC zamanına "
+"kadar, aralığı \"1970-01-01 00:00:01\" UTC ile \"2038-01-19 03:14:07\" UTC "
+"arası, devirden (\"1970-01-01 00:00:00\" UTC) bu yana saniye sayısı olarak "
+"saklanır"
 
 #: src/Types.php:214
 #, php-format
