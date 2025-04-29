@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-04-27 00:27+0000\n"
-"PO-Revision-Date: 2025-04-20 08:57+0000\n"
+"PO-Revision-Date: 2025-04-29 23:01+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.11.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -18600,18 +18600,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Комбінація дати і часу, підтримуваний інтервал від %1$s до %2$s"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Мітка часу, інтервал від 1970-01-01 00:00:01 UTC до 2038-01-09 03:14:07 UTC "
-"у кількості секунд з початку епохи (1970-01-01 00:00:00 UTC)"
+"Мітка часу, діапазон від 1970-01-01 00:00:01 UTC до 2038-01-19 03:14:07 UTC "
+"на 32-бітних платформах (MariaDB 11.3 і вище), і до 2106-02-07 06:28:15 UTC "
+"на 64-бітних платформах (MariaDB 11.5 і вище), зберігається як кількість "
+"секунд від епохи (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
