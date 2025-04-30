@@ -2029,6 +2029,12 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Database\\RoutineType\:\:tryFrom\(\) expects int\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Database/RoutinesController.php
+
+		-
 			message: '#^Parameter \#2 \$type of method PhpMyAdmin\\Database\\Routines\:\:getDataFromName\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
@@ -2042,12 +2048,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Parameter \#3 \$which of static method PhpMyAdmin\\Database\\Routines\:\:getDetails\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/RoutinesController.php

@@ -1189,23 +1189,21 @@ class Routines
      * returns details about the PROCEDUREs or FUNCTIONs for a specific database
      * or details about a specific routine
      *
-     * @param string      $db    db name
-     * @param string|null $which PROCEDURE | FUNCTION or null for both
-     * @param string      $name  name of the routine (to fetch a specific routine)
+     * @param string $name name of the routine (to fetch a specific routine)
      *
      * @return Routine[]
      */
     public static function getDetails(
         DatabaseInterface $dbi,
         string $db,
-        string|null $which = null,
+        RoutineType|null $which = null,
         string $name = '',
         int $limit = 0,
         int $offset = 0,
     ): array {
         $query = QueryGenerator::getInformationSchemaRoutinesRequest(
             $dbi->quoteString($db),
-            in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+            $which,
             $name === '' ? null : $dbi->quoteString($name),
             $limit,
             $offset,
@@ -1226,11 +1224,11 @@ class Routines
         return $ret;
     }
 
-    public static function getRoutineCount(DatabaseInterface $dbi, string $db, string|null $which = null): int
+    public static function getRoutineCount(DatabaseInterface $dbi, string $db, RoutineType|null $which = null): int
     {
         $query = QueryGenerator::getInformationSchemaRoutinesCountRequest(
             $dbi->quoteString($db),
-            in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+            $which,
         );
 
         return (int) $dbi->fetchValue($query);

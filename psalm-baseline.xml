@@ -973,8 +973,8 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['type'] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['item_name']]]></code>
