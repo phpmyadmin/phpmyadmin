@@ -1258,38 +1258,14 @@ class Routines
      * @return array<int, string>
      * @psalm-return list<non-empty-string>
      */
-    public static function getFunctionNames(DatabaseInterface $dbi, string $db): array
+    public static function getNames(DatabaseInterface $dbi, string $db, RoutineType $type): array
     {
-        /** @psalm-var list<array{Db: string, Name: string, Type: string}> $functions */
-        $functions = $dbi->fetchResultSimple('SHOW FUNCTION STATUS;');
-        $names = [];
-        foreach ($functions as $function) {
-            if ($function['Db'] !== $db || $function['Type'] !== 'FUNCTION' || $function['Name'] === '') {
-                continue;
-            }
-
-            $names[] = $function['Name'];
-        }
-
-        return $names;
-    }
-
-    /**
-     * @return array<int, string>
-     * @psalm-return list<non-empty-string>
-     */
-    public static function getProcedureNames(DatabaseInterface $dbi, string $db): array
-    {
-        /** @psalm-var list<array{Db: string, Name: string, Type: string}> $procedures */
-        $procedures = $dbi->fetchResultSimple('SHOW PROCEDURE STATUS;');
-        $names = [];
-        foreach ($procedures as $procedure) {
-            if ($procedure['Db'] !== $db || $procedure['Type'] !== 'PROCEDURE' || $procedure['Name'] === '') {
-                continue;
-            }
-
-            $names[] = $procedure['Name'];
-        }
+        /** @var list<non-empty-string> $names */
+        $names = $dbi->fetchSingleColumn(
+            'SELECT SPECIFIC_NAME FROM information_schema.ROUTINES'
+            . ' WHERE ROUTINE_SCHEMA = ' . $dbi->quoteString($db)
+            . " AND ROUTINE_TYPE = '" . $type->value . "' AND SPECIFIC_NAME != ''",
+        );
 
         return $names;
     }

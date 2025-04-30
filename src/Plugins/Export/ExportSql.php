@@ -13,6 +13,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Exceptions\ExportException;
@@ -617,8 +618,8 @@ class ExportSql extends ExportPlugin
         $delimiter = '$$';
 
         $dbi = DatabaseInterface::getInstance();
-        $procedureNames = Routines::getProcedureNames($dbi, $db);
-        $functionNames = Routines::getFunctionNames($dbi, $db);
+        $procedureNames = Routines::getNames($dbi, $db, RoutineType::Procedure);
+        $functionNames = Routines::getNames($dbi, $db, RoutineType::Function);
 
         if ($procedureNames || $functionNames) {
             $text .= "\n"

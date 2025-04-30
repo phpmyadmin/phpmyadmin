@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Export\Export;
@@ -307,7 +308,7 @@ class ExportXml extends ExportPlugin
                 $head .= $this->exportDefinitions(
                     Current::$database,
                     'function',
-                    Routines::getFunctionNames($dbi, Current::$database),
+                    Routines::getNames($dbi, Current::$database, RoutineType::Function),
                 );
             }
 
@@ -315,7 +316,7 @@ class ExportXml extends ExportPlugin
                 $head .= $this->exportDefinitions(
                     Current::$database,
                     'procedure',
-                    Routines::getProcedureNames($dbi, Current::$database),
+                    Routines::getNames($dbi, Current::$database, RoutineType::Procedure),
                 );
             }
 

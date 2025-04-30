@@ -1780,14 +1780,14 @@ class DbiDummy implements DbiExtension
                 ],
             ],
             [
-                'query' => 'SHOW PROCEDURE STATUS;',
-                'columns' => ['Db', 'Name', 'Type'],
-                'result' => [['test_db', 'test_proc1', 'PROCEDURE'], ['test_db', 'test_proc2', 'PROCEDURE']],
+                'query' => "SELECT SPECIFIC_NAME FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA = 'test_db' AND ROUTINE_TYPE = 'PROCEDURE' AND SPECIFIC_NAME != ''",
+                'columns' => ['Name'],
+                'result' => [['test_proc1'], ['test_proc2']],
             ],
             [
-                'query' => 'SHOW FUNCTION STATUS;',
-                'columns' => ['Db', 'Name', 'Type'],
-                'result' => [['test_db', 'test_func', 'FUNCTION']],
+                'query' => "SELECT SPECIFIC_NAME FROM information_schema.ROUTINES WHERE ROUTINE_SCHEMA = 'test_db' AND ROUTINE_TYPE = 'FUNCTION' AND SPECIFIC_NAME != ''",
+                'columns' => ['Name'],
+                'result' => [['test_func']],
             ],
             [
                 'query' => 'SHOW CREATE PROCEDURE `test_db`.`test_proc1`',

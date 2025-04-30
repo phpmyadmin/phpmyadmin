@@ -7,6 +7,7 @@ namespace PhpMyAdmin;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Database\Events;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Engines\Innodb;
 use PhpMyAdmin\Identifiers\DatabaseName;
@@ -55,7 +56,7 @@ class Operations
      */
     public function runProcedureAndFunctionDefinitions(string $db, DatabaseName $newDatabaseName): void
     {
-        foreach (Routines::getProcedureNames($this->dbi, $db) as $procedureName) {
+        foreach (Routines::getNames($this->dbi, $db, RoutineType::Procedure) as $procedureName) {
             $this->dbi->selectDb($db);
             $query = Routines::getProcedureDefinition($this->dbi, $db, $procedureName);
             if ($query === null) {
@@ -68,7 +69,7 @@ class Operations
             $this->dbi->query($query);
         }
 
-        foreach (Routines::getFunctionNames($this->dbi, $db) as $functionName) {
+        foreach (Routines::getNames($this->dbi, $db, RoutineType::Function) as $functionName) {
             $this->dbi->selectDb($db);
             $query = Routines::getFunctionDefinition($this->dbi, $db, $functionName);
             if ($query === null) {
