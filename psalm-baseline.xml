@@ -3579,14 +3579,13 @@
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
+      <code><![CDATA[$_POST['item_type'] ?? '']]></code>
       <code><![CDATA[$itemDefiner]]></code>
       <code><![CDATA[$itemName]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemType]]></code>
-      <code><![CDATA[$itemType]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_POST['item_comment']]]></code>
@@ -3603,7 +3602,6 @@
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemType]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$retval['item_param_dir']]]></code>
@@ -3615,6 +3613,7 @@
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$createRoutine]]></code>
+      <code><![CDATA[$itemType]]></code>
       <code><![CDATA[$param->type->parameters]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>

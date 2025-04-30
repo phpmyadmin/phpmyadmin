@@ -627,7 +627,6 @@ class Routines
      * @param mixed[]  $itemParamLength   A length or not for the parameter
      * @param mixed[]  $itemParamOpsText  An optional charset for the parameter
      * @param mixed[]  $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
-     * @param string   $itemType          The item type (PROCEDURE/FUNCTION)
      * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given
      */
     private function processParamsAndBuild(
@@ -637,7 +636,7 @@ class Routines
         array $itemParamLength,
         array $itemParamOpsText,
         array $itemParamOpsNum,
-        string $itemType,
+        RoutineType $itemType,
         bool &$warnedAboutLength,
     ): string {
         $params = '';
@@ -650,14 +649,14 @@ class Routines
             }
 
             if (
-                $itemType === 'PROCEDURE'
+                $itemType === RoutineType::Procedure
                 && ! empty($itemParamDir[$i])
                 && in_array($itemParamDir[$i], $this->directions, true)
             ) {
                 $params .= $itemParamDir[$i] . ' '
                     . Util::backquote($itemParamName[$i])
                     . ' ' . $itemParamType[$i];
-            } elseif ($itemType === 'FUNCTION') {
+            } elseif ($itemType === RoutineType::Function) {
                 $params .= Util::backquote($itemParamName[$i])
                     . ' ' . $itemParamType[$i];
             } elseif (! $warnedAboutDir) {
@@ -777,7 +776,7 @@ class Routines
      */
     public function getQueryFromRequest(): string
     {
-        $itemType = $_POST['item_type'] ?? '';
+        $itemType = RoutineType::tryFrom($_POST['item_type'] ?? '');
         $itemDefiner = $_POST['item_definer'] ?? '';
         $itemName = $_POST['item_name'] ?? '';
 
@@ -804,13 +803,10 @@ class Routines
             }
         }
 
-        if ($itemType === 'FUNCTION' || $itemType === 'PROCEDURE') {
-            $query .= $itemType . ' ';
+        if ($itemType !== null) {
+            $query .= $itemType->value . ' ';
         } else {
-            $this->errors[] = sprintf(
-                __('Invalid routine type: "%s"'),
-                htmlspecialchars($itemType),
-            );
+            $this->errors[] = __('Invalid routine type!');
         }
 
         if (! empty($itemName)) {
@@ -850,7 +846,7 @@ class Routines
         }
 
         $query .= '(' . $params . ') ';
-        if ($itemType === 'FUNCTION') {
+        if ($itemType === RoutineType::Function) {
             $query = $this->processFunctionSpecificParameters($query, $warnedAboutLength);
         }
 

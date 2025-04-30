@@ -5337,7 +5337,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -5356,6 +5356,12 @@ parameters:
 			message: '#^Parameter \#1 \$type of method PhpMyAdmin\\Types\:\:getTypeClass\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 4
+			path: src/Database/Routines.php
+
+		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Database\\RoutineType\:\:tryFrom\(\) expects int\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -5413,7 +5419,7 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects PhpMyAdmin\\Database\\RoutineType, PhpMyAdmin\\Database\\RoutineType\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
