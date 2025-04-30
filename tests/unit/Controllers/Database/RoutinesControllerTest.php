@@ -39,20 +39,20 @@ final class RoutinesControllerTest extends AbstractTestCase
             ['Grants for definer@localhost'],
         );
         $dummyDbi->addResult(
-            'SHOW FUNCTION STATUS WHERE `Db` = \'test_db\'',
-            [['test_db', 'test_func', 'FUNCTION', 'definer@localhost']],
-            ['Db', 'Name', 'Type', 'Definer'],
-        );
-        $dummyDbi->addResult(
-            'SHOW PROCEDURE STATUS WHERE `Db` = \'test_db\'',
-            [['test_db', 'test_proc', 'PROCEDURE', 'definer@localhost']],
-            ['Db', 'Name', 'Type', 'Definer'],
+            "SELECT `SPECIFIC_NAME` AS `Name`, `ROUTINE_TYPE` AS `Type`, `DEFINER` AS `Definer`, `DTD_IDENTIFIER` FROM `information_schema`.`ROUTINES` WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin = 'test_db' ORDER BY `SPECIFIC_NAME` LIMIT 250",
+            [['test_db', 'test_func', 'FUNCTION', 'definer@localhost', null], ['test_db', 'test_proc', 'PROCEDURE', 'definer@localhost', null]],
+            ['Db', 'Name', 'Type', 'Definer', 'DTD_IDENTIFIER'],
         );
         $dummyDbi->addResult('SELECT @@lower_case_table_names', []);
         $dummyDbi->addResult(
-            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA COLLATE utf8_bin='test_db' AND SPECIFIC_NAME='test_func' AND ROUTINE_TYPE='FUNCTION';",
-            [['definer@localhost']],
-            ['DEFINER'],
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='CREATE ROUTINE'",
+            [['CREATE ROUTINE']],
+            ['PRIVILEGE_TYPE'],
+        );
+        $dummyDbi->addResult(
+            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='EXECUTE'",
+            [['EXECUTE']],
+            ['PRIVILEGE_TYPE'],
         );
         $dummyDbi->addResult(
             "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='CREATE ROUTINE'",
@@ -65,34 +65,14 @@ final class RoutinesControllerTest extends AbstractTestCase
             ['PRIVILEGE_TYPE'],
         );
         $dummyDbi->addResult(
-            'SHOW CREATE FUNCTION `test_db`.`test_func`',
-            [['test_func', 'CREATE FUNCTION `test_func` (p INT) RETURNS int(11) BEGIN END']],
-            ['Function', 'Create Function'],
-        );
-        $dummyDbi->addResult(
-            "SELECT `DEFINER` FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_SCHEMA COLLATE utf8_bin='test_db' AND SPECIFIC_NAME='test_proc' AND ROUTINE_TYPE='PROCEDURE';",
-            [['definer@localhost']],
-            ['DEFINER'],
-        );
-        $dummyDbi->addResult(
             "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='CREATE ROUTINE'",
             [['CREATE ROUTINE']],
             ['PRIVILEGE_TYPE'],
         );
         $dummyDbi->addResult(
-            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='EXECUTE'",
-            [['EXECUTE']],
-            ['PRIVILEGE_TYPE'],
-        );
-        $dummyDbi->addResult(
-            'SHOW CREATE PROCEDURE `test_db`.`test_proc`',
-            [['test_proc2', 'CREATE PROCEDURE `test_proc2` (p INT) BEGIN END']],
-            ['Procedure', 'Create Procedure'],
-        );
-        $dummyDbi->addResult(
-            "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='CREATE ROUTINE'",
-            [['CREATE ROUTINE']],
-            ['PRIVILEGE_TYPE'],
+            "SELECT COUNT(*) AS `count` FROM `information_schema`.`ROUTINES` WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin = 'test_db'",
+            [[2]],
+            ['count'],
         );
         // phpcs:enable
 
@@ -293,6 +273,8 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, $actual);
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 
     public function testWithoutRoutines(): void
@@ -312,12 +294,21 @@ HTML;
             [['GRANT ALL PRIVILEGES ON *.* TO `definer`@`localhost`']],
             ['Grants for definer@localhost'],
         );
-        $dummyDbi->addResult('SHOW FUNCTION STATUS WHERE `Db` = \'test_db\'', [], ['Db', 'Name', 'Type', 'Definer']);
-        $dummyDbi->addResult('SHOW PROCEDURE STATUS WHERE `Db` = \'test_db\'', [], ['Db', 'Name', 'Type', 'Definer']);
         $dummyDbi->addResult(
             "SELECT `PRIVILEGE_TYPE` FROM `INFORMATION_SCHEMA`.`USER_PRIVILEGES` WHERE GRANTEE='''definer''@''localhost''' AND PRIVILEGE_TYPE='CREATE ROUTINE'",
             [['CREATE ROUTINE']],
             ['PRIVILEGE_TYPE'],
+        );
+        $dummyDbi->addResult('SELECT @@lower_case_table_names', []);
+        $dummyDbi->addResult(
+            "SELECT COUNT(*) AS `count` FROM `information_schema`.`ROUTINES` WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin = 'test_db'",
+            [[1]],
+            ['count'],
+        );
+        $dummyDbi->addResult(
+            "SELECT `SPECIFIC_NAME` AS `Name`, `ROUTINE_TYPE` AS `Type`, `DEFINER` AS `Definer`, `DTD_IDENTIFIER` FROM `information_schema`.`ROUTINES` WHERE `ROUTINE_SCHEMA` COLLATE utf8_bin = 'test_db' ORDER BY `SPECIFIC_NAME` LIMIT 250",
+            [],
+            ['Db', 'Name', 'Type', 'Definer', 'DTD_IDENTIFIER'],
         );
         // phpcs:enable
 
@@ -438,5 +429,7 @@ HTML;
         // phpcs:enable
 
         self::assertSame($expected, $actual);
+        $dummyDbi->assertAllQueriesConsumed();
+        $dummyDbi->assertAllSelectsConsumed();
     }
 }
