@@ -105,7 +105,7 @@ final readonly class RoutinesController implements InvocableController
         }
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database);
+            $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database, $request);
             if ($request->isAjax()) {
                 if (! (Current::$message instanceof Message && Current::$message->isSuccess())) {
                     $this->response->setRequestStatus(false);
@@ -117,7 +117,7 @@ final readonly class RoutinesController implements InvocableController
                 $routines = Routines::getDetails(
                     $this->dbi,
                     Current::$database,
-                    RoutineType::tryFrom($request->getParsedBodyParamAsString('item_type')),
+                    RoutineType::tryFrom($request->getParsedBodyParamAsString('item_type', '')),
                     $_POST['item_name'],
                 );
                 $routine = $routines[0];

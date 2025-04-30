@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Parser;
@@ -68,10 +69,13 @@ class Routines
     /**
      * Handle request to create or edit a routine
      */
-    public function handleRequestCreateOrEdit(UserPrivileges $userPrivileges, string $db): string
-    {
+    public function handleRequestCreateOrEdit(
+        UserPrivileges $userPrivileges,
+        string $db,
+        ServerRequest $request,
+    ): string {
         $sqlQuery = '';
-        $routineQuery = $this->getQueryFromRequest();
+        $routineQuery = $this->getQueryFromRequest($request);
 
         // set by getQueryFromRequest()
         if ($this->errors === []) {
@@ -774,14 +778,14 @@ class Routines
      *
      * @return string  The CREATE [ROUTINE | PROCEDURE] query.
      */
-    public function getQueryFromRequest(): string
+    public function getQueryFromRequest(ServerRequest $request): string
     {
-        $itemType = RoutineType::tryFrom($_POST['item_type'] ?? '');
-        $itemDefiner = $_POST['item_definer'] ?? '';
-        $itemName = $_POST['item_name'] ?? '';
+        $itemType = RoutineType::tryFrom($request->getParsedBodyParamAsString('item_type', ''));
+        $itemDefiner = $request->getParsedBodyParamAsString('item_definer', '');
+        $itemName = $request->getParsedBodyParamAsString('item_name', '');
 
         $query = 'CREATE ';
-        if (! empty($itemDefiner)) {
+        if ($itemDefiner !== '') {
             if (str_contains($itemDefiner, '@')) {
                 $arr = explode('@', $itemDefiner);
 
@@ -809,7 +813,7 @@ class Routines
             $this->errors[] = __('Invalid routine type!');
         }
 
-        if (! empty($itemName)) {
+        if ($itemName !== '') {
             $query .= Util::backquote($itemName);
         } else {
             $this->errors[] = __('You must provide a routine name!');
@@ -817,18 +821,18 @@ class Routines
 
         $warnedAboutLength = false;
 
-        $itemParamName = $_POST['item_param_name'] ?? '';
-        $itemParamType = $_POST['item_param_type'] ?? '';
-        $itemParamLength = $_POST['item_param_length'] ?? '';
-        $itemParamDir = (array) ($_POST['item_param_dir'] ?? []);
-        $itemParamOpsText = (array) ($_POST['item_param_opts_text'] ?? []);
-        $itemParamOpsNum = (array) ($_POST['item_param_opts_num'] ?? []);
+        $itemParamName = $request->getParsedBodyParam('item_param_name', '');
+        $itemParamType = $request->getParsedBodyParam('item_param_type', '');
+        $itemParamLength = $request->getParsedBodyParam('item_param_length', '');
+        $itemParamDir = (array) $request->getParsedBodyParam('item_param_dir', []);
+        $itemParamOpsText = (array) $request->getParsedBodyParam('item_param_opts_text', []);
+        $itemParamOpsNum = (array) $request->getParsedBodyParam('item_param_opts_num', []);
 
         $params = '';
         if (
-            ! empty($itemParamName)
-            && ! empty($itemParamType)
-            && ! empty($itemParamLength)
+            $itemParamName !== []
+            && $itemParamType !== []
+            && $itemParamLength !== []
             && is_array($itemParamName)
             && is_array($itemParamType)
             && is_array($itemParamLength)
@@ -850,30 +854,29 @@ class Routines
             $query = $this->processFunctionSpecificParameters($query, $warnedAboutLength);
         }
 
-        if (! empty($_POST['item_comment'])) {
-            $query .= 'COMMENT ' . $this->dbi->quoteString($_POST['item_comment']) . ' ';
+        $itemComment = $request->getParsedBodyParamAsString('item_comment', '');
+        if ($itemComment !== '') {
+            $query .= 'COMMENT ' . $this->dbi->quoteString($itemComment) . ' ';
         }
 
-        if (isset($_POST['item_isdeterministic'])) {
+        if ($request->hasBodyParam('item_isdeterministic')) {
             $query .= 'DETERMINISTIC ';
         } else {
             $query .= 'NOT DETERMINISTIC ';
         }
 
-        $itemSqlDataAccess = $_POST['item_sqldataaccess'] ?? '';
+        $itemSqlDataAccess = $request->getParsedBodyParamAsString('item_sqldataaccess', '');
         if (in_array($itemSqlDataAccess, $this->sqlDataAccess, true)) {
             $query .= $itemSqlDataAccess . ' ';
         }
 
-        $itemSecurityType = $_POST['item_securitytype'] ?? '';
-        if (! empty($itemSecurityType)) {
-            if ($itemSecurityType === 'DEFINER' || $itemSecurityType === 'INVOKER') {
-                $query .= 'SQL SECURITY ' . $itemSecurityType . ' ';
-            }
+        $itemSecurityType = $request->getParsedBodyParamAsString('item_securitytype', '');
+        if ($itemSecurityType === 'DEFINER' || $itemSecurityType === 'INVOKER') {
+            $query .= 'SQL SECURITY ' . $itemSecurityType . ' ';
         }
 
-        $itemDefinition = $_POST['item_definition'] ?? '';
-        if (! empty($itemDefinition)) {
+        $itemDefinition = $request->getParsedBodyParamAsString('item_definition', '');
+        if ($itemDefinition !== '') {
             $query .= $itemDefinition;
         } else {
             $this->errors[] = __('You must provide a routine definition.');

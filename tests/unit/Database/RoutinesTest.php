@@ -10,6 +10,7 @@ use PhpMyAdmin\Database\Routines;
 use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -254,7 +255,9 @@ class RoutinesTest extends AbstractTestCase
 
         unset($_POST);
         $_POST = $request;
-        self::assertSame($query, $routines->getQueryFromRequest());
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody($request);
+        self::assertSame($query, $routines->getQueryFromRequest($request));
         self::assertSame($numErr, $routines->getErrorCount());
 
         // reset
