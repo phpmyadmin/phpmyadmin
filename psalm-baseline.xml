@@ -13397,7 +13397,7 @@
     <InvalidReturnStatement occurrences="1">
       <code>$tableAutoIncrement ?? ''</code>
     </InvalidReturnStatement>
-    <MixedArgument occurrences="49">
+    <MixedArgument occurrences="50">
       <code>$GLOBALS['sql_auto_increments']</code>
       <code>$GLOBALS['sql_indexes']</code>
       <code>$_POST['constraint_name'][$masterFieldMd5]</code>
@@ -13413,7 +13413,8 @@
       <code>$errorUrl</code>
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
-      <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['index_list']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_db_name'] ?? $GLOBALS['db']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
       <code>$fields[$column]['expr']</code>
@@ -13459,7 +13460,7 @@
       <code>$where</code>
       <code>$where</code>
     </MixedArgumentTypeCoercion>
-    <MixedArrayAccess occurrences="32">
+    <MixedArrayAccess occurrences="33">
       <code>$_SESSION['tmpval']['table_uiprefs'][$serverId][$this-&gt;dbName][$this-&gt;name]</code>
       <code>$column['Extra']</code>
       <code>$column['Extra']</code>
@@ -13468,6 +13469,7 @@
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['index_list']</code>
       <code>$existrelForeign[$masterFieldMd5]['index_list']</code>
       <code>$existrelForeign[$masterFieldMd5]['on_delete']</code>
       <code>$existrelForeign[$masterFieldMd5]['on_delete']</code>
@@ -13619,21 +13621,23 @@
       <code>$_POST['on_update'][$masterFieldMd5]</code>
       <code>$_POST['on_update'][$masterFieldMd5]</code>
     </PossiblyInvalidArrayOffset>
-    <PossiblyNullArgument occurrences="10">
+    <PossiblyNullArgument occurrences="11">
       <code>$GLOBALS['showtable']['Name']</code>
       <code>$commentsCopyRow['column_name']</code>
       <code>$commentsCopyRow['comment']</code>
       <code>$commentsCopyRow['mimetype']</code>
       <code>$commentsCopyRow['transformation']</code>
       <code>$commentsCopyRow['transformation_options']</code>
-      <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
+      <code>$existrelForeign[$masterFieldMd5]['index_list']</code>
+      <code>$existrelForeign[$masterFieldMd5]['ref_db_name'] ?? $GLOBALS['db']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_index_list']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_table_name']</code>
       <code>$val</code>
     </PossiblyNullArgument>
-    <PossiblyNullArrayAccess occurrences="7">
+    <PossiblyNullArrayAccess occurrences="8">
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
       <code>$existrelForeign[$masterFieldMd5]['constraint']</code>
+      <code>$existrelForeign[$masterFieldMd5]['index_list']</code>
       <code>$existrelForeign[$masterFieldMd5]['on_delete']</code>
       <code>$existrelForeign[$masterFieldMd5]['on_update']</code>
       <code>$existrelForeign[$masterFieldMd5]['ref_db_name']</code>
@@ -13653,7 +13657,8 @@
       <code>Generator::mysqlDie($tmpErrorCreate, $createQuery, false, '', false)</code>
       <code>Generator::mysqlDie($tmpErrorDrop, $dropQuery, false, '', false)</code>
     </PossiblyNullOperand>
-    <PossiblyNullReference occurrences="7">
+    <PossiblyNullReference occurrences="8">
+      <code>$existrelForeign[$masterFieldMd5]</code>
       <code>$existrelForeign[$masterFieldMd5]</code>
       <code>$existrelForeign[$masterFieldMd5]</code>
       <code>$existrelForeign[$masterFieldMd5]</code>
