@@ -1377,7 +1377,11 @@ class Table implements Stringable
             $masterField = $multiEditColumnsName[$masterFieldMd5];
             $foreignTable = $destinationTable[$masterFieldMd5];
             $foreignField = $destinationColumn[$masterFieldMd5];
-            if (! empty($foreignDb) && ! empty($foreignTable) && ! empty($foreignField)) {
+            if (
+                $foreignDb !== ''
+                && $foreignTable !== '' && $foreignTable !== null
+                && $foreignField !== '' && $foreignField !== null
+            ) {
                 if (! isset($existrel[$masterField])) {
                     $updQuery = 'INSERT INTO '
                         . Util::backquote($relationFeature->database)
@@ -1477,20 +1481,20 @@ class Table implements Stringable
             $emptyFields = false;
             foreach ($masterField as $key => $oneField) {
                 if (
-                    (! empty($oneField) && empty($foreignField[$key]))
-                    || (empty($oneField) && ! empty($foreignField[$key]))
+                    ($oneField !== '' && (! isset($foreignField[$key]) || $foreignField[$key] === ''))
+                    || ($oneField === '' && (isset($foreignField[$key]) && $foreignField[$key] !== ''))
                 ) {
                     $emptyFields = true;
                 }
 
-                if (! empty($oneField) || ! empty($foreignField[$key])) {
+                if ($oneField !== '' || (isset($foreignField[$key]) && $foreignField[$key] !== '')) {
                     continue;
                 }
 
                 unset($masterField[$key], $foreignField[$key]);
             }
 
-            if (! empty($foreignDb) && ! empty($foreignTable) && ! $emptyFields) {
+            if ($foreignDb !== '' && $foreignTable !== '' && ! $emptyFields) {
                 if (isset($existrelForeign[$masterFieldMd5])) {
                     $constraintName = $existrelForeign[$masterFieldMd5]->constraint;
                     $onDelete = ! empty($existrelForeign[$masterFieldMd5]->onDelete)
@@ -1595,7 +1599,7 @@ class Table implements Stringable
             $sqlQueryRecreate .= $this->getSQLToCreateForeignKey(
                 $table,
                 $masterField,
-                $existrelForeign[$masterFieldMd5]->refDbName,
+                $existrelForeign[$masterFieldMd5]->refDbName ?? Current::$database,
                 $existrelForeign[$masterFieldMd5]->refTableName,
                 $existrelForeign[$masterFieldMd5]->refIndexList,
                 $existrelForeign[$masterFieldMd5]->constraint,

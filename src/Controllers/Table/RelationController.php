@@ -185,16 +185,16 @@ final class RelationController implements InvocableController
 
         foreach ($relationsForeign as $oneKey) {
             $foreignDb = $oneKey->refDbName ?? Current::$database;
-            $foreignTable = false;
+            $foreignTable = '';
             if ($foreignDb !== '') {
-                $foreignTable = $oneKey->refTableName ?? false;
+                $foreignTable = $oneKey->refTableName ?? '';
                 $tables = $this->relation->getTables($foreignDb, $storageEngine);
             } else {
                 $tables = $this->relation->getTables(Current::$database, $storageEngine);
             }
 
             $uniqueColumns = [];
-            if ($foreignDb !== '' && $foreignTable !== false && $foreignTable !== '') {
+            if ($foreignDb !== '' && $foreignTable !== '') {
                 $tableObject = new Table($foreignTable, $foreignDb, $this->dbi);
                 $uniqueColumns = $tableObject->getUniqueColumns(false, false);
             }
@@ -228,8 +228,8 @@ final class RelationController implements InvocableController
             'table' => Current::$table,
             'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
-            'foreign_db' => false,
-            'foreign_table' => false,
+            'foreign_db' => '',
+            'foreign_table' => '',
             'unique_columns' => [],
             'tables' => $tables,
         ]);
@@ -240,7 +240,7 @@ final class RelationController implements InvocableController
             // (see bug https://github.com/phpmyadmin/phpmyadmin/issues/8827)
             $fieldHash = md5($column->field);
 
-            $foreignTable = false;
+            $foreignTable = '';
             $foreignColumn = false;
 
             // Database dropdown
@@ -264,7 +264,7 @@ final class RelationController implements InvocableController
 
             // Column dropdown
             $uniqueColumns = [];
-            if ($foreignDb !== '' && $foreignTable !== false && $foreignTable !== '') {
+            if ($foreignDb !== '' && $foreignTable !== '') {
                 if (isset($relations[$column->field])) {
                     /** @var string $foreignColumn */
                     $foreignColumn = $relations[$column->field]['foreign_field'];

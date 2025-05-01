@@ -15132,7 +15132,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 13
+			count: 2
 			path: src/Table/Table.php
 
 		-
@@ -15227,12 +15227,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Table/Table.php
-
-		-
-			message: '#^Parameter \#3 \$foreignDb of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects string, string\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Table/Table.php

@@ -8997,7 +8997,6 @@
     <PossiblyNullArgument>
       <code><![CDATA[$column['Extra']]]></code>
       <code><![CDATA[$column['Extra']]]></code>
-      <code><![CDATA[$existrelForeign[$masterFieldMd5]->refDbName]]></code>
       <code><![CDATA[$existrelForeign[$masterFieldMd5]->refTableName]]></code>
     </PossiblyNullArgument>
     <PossiblyNullOperand>
@@ -9010,11 +9009,6 @@
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onDelete)]]></code>
       <code><![CDATA[empty($existrelForeign[$masterFieldMd5]->onUpdate)]]></code>
-      <code><![CDATA[empty($foreignField)]]></code>
-      <code><![CDATA[empty($foreignField[$key])]]></code>
-      <code><![CDATA[empty($foreignField[$key])]]></code>
-      <code><![CDATA[empty($foreignField[$key])]]></code>
-      <code><![CDATA[empty($foreignTable)]]></code>
     </RiskyTruthyFalsyComparison>
     <UnsupportedPropertyReferenceUsage>
       <code><![CDATA[$this->uiprefs =& $_SESSION['tmpval']['table_uiprefs'][$serverId][$this->dbName][$this->name]]]></code>
