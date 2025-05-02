@@ -845,7 +845,7 @@ function addNewContinueInsertionFields (event) {
             // Clone the insert tables
             $lastRow
                 .clone(true, true)
-                .insertBefore('#actions_panel')
+                .insertBefore($('#actions_panel').closest('div'))
                 .find('input[name*=multi_edit],select[name*=multi_edit],textarea[name*=multi_edit]')
                 .each(tempIncrementIndex)
                 .end()
