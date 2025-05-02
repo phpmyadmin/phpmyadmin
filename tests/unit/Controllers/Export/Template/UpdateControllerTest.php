@@ -33,7 +33,8 @@ class UpdateControllerTest extends AbstractTestCase
 
     public function testUpdate(): void
     {
-        Config::getInstance()->selectedServer['user'] = 'user';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
         $request = self::createStub(ServerRequest::class);
@@ -42,6 +43,7 @@ class UpdateControllerTest extends AbstractTestCase
             $response,
             new TemplateModel($this->dbi),
             new Relation($this->dbi),
+            $config,
         ))($request);
 
         self::assertTrue($response->hasSuccessState());

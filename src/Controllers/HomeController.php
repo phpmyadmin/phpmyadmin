@@ -100,15 +100,14 @@ final class HomeController implements InvocableController
         $syncFavoriteTables = RecentFavoriteTables::getInstance(TableType::Favorite)
             ->getHtmlSyncFavoriteTables();
 
-        $config = Config::getInstance();
-        $hasServer = Current::$server > 0 || count($config->settings['Servers']) > 1;
+        $hasServer = Current::$server > 0 || count($this->config->settings['Servers']) > 1;
         if ($hasServer) {
-            $hasServerSelection = $config->settings['ServerDefault'] == 0
+            $hasServerSelection = $this->config->settings['ServerDefault'] == 0
                 || (
-                    $config->settings['NavigationDisplayServers']
+                    $this->config->settings['NavigationDisplayServers']
                     && (
-                        count($config->settings['Servers']) > 1
-                        || (Current::$server === 0 && count($config->settings['Servers']) === 1)
+                        count($this->config->settings['Servers']) > 1
+                        || (Current::$server === 0 && count($this->config->settings['Servers']) === 1)
                     )
                 );
             if ($hasServerSelection) {
@@ -116,8 +115,8 @@ final class HomeController implements InvocableController
             }
 
             if (Current::$server > 0) {
-                $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
-                $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
+                $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
+                $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
                 $charsetsList = [];
                 foreach ($charsets as $charset) {
                     $collationsList = [];
@@ -139,24 +138,24 @@ final class HomeController implements InvocableController
         }
 
         $availableLanguages = [];
-        if ($config->config->Lang === '' && $languageManager->hasChoice()) {
+        if ($this->config->config->Lang === '' && $languageManager->hasChoice()) {
             $availableLanguages = $languageManager->sortedLanguages();
         }
 
-        $showServerInfo = $config->settings['ShowServerInfo'];
+        $showServerInfo = $this->config->settings['ShowServerInfo'];
         $databaseServer = [];
         if (Current::$server > 0 && ($showServerInfo === true || $showServerInfo === 'database-server')) {
             $hostInfo = '';
-            if (! empty($config->selectedServer['verbose'])) {
-                $hostInfo .= $config->selectedServer['verbose'] . ' (';
+            if (! empty($this->config->selectedServer['verbose'])) {
+                $hostInfo .= $this->config->selectedServer['verbose'] . ' (';
             }
 
             $hostInfo .= $this->dbi->getHostInfo();
-            if (! empty($config->selectedServer['verbose'])) {
+            if (! empty($this->config->selectedServer['verbose'])) {
                 $hostInfo .= ')';
             }
 
-            $serverCharset = Charsets::getServerCharset($this->dbi, $config->selectedServer['DisableIS']);
+            $serverCharset = Charsets::getServerCharset($this->dbi, $this->config->selectedServer['DisableIS']);
             $databaseServer = [
                 'host' => $hostInfo,
                 'type' => Util::getServerType(),
@@ -186,13 +185,16 @@ final class HomeController implements InvocableController
         $relation = new Relation($this->dbi);
         if (Current::$server > 0 && $relation->arePmadbTablesAllDisabled() === false) {
             $relationParameters = $relation->getRelationParameters();
-            if (! $relationParameters->hasAllFeatures() && $config->settings['PmaNoRelation_DisableWarning'] == false) {
+            if (
+                ! $relationParameters->hasAllFeatures()
+                && $this->config->settings['PmaNoRelation_DisableWarning'] == false
+            ) {
                 $messageText = __(
                     'The phpMyAdmin configuration storage is not completely '
                     . 'configured, some extended features have been deactivated. '
                     . '%sFind out why%s. ',
                 );
-                if ($config->settings['ZeroConf'] == true) {
+                if ($this->config->settings['ZeroConf'] == true) {
                     $messageText .= '<br>'
                         . __('Or alternately go to \'Operations\' tab of any database to set it up there.');
                 }
@@ -204,7 +206,7 @@ final class HomeController implements InvocableController
                 );
                 $messageInstance->addParamHtml('</a>');
                 /* Show error if user has configured something, notice elsewhere */
-                if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
+                if (! empty($this->config->settings['Servers'][Current::$server]['pmadb'])) {
                     $messageInstance->setType(MessageType::Error);
                 }
 
@@ -225,20 +227,20 @@ final class HomeController implements InvocableController
             'server' => Current::$server,
             'sync_favorite_tables' => $syncFavoriteTables,
             'has_server' => $hasServer,
-            'is_demo' => $config->config->debug->demo,
+            'is_demo' => $this->config->config->debug->demo,
             'has_server_selection' => $hasServerSelection ?? false,
             'server_selection' => $serverSelection ?? '',
-            'has_change_password_link' => ($config->selectedServer['auth_type'] ?? '') !== 'config'
-                && $config->settings['ShowChgPassword'],
+            'has_change_password_link' => ($this->config->selectedServer['auth_type'] ?? '') !== 'config'
+                && $this->config->settings['ShowChgPassword'],
             'charsets' => $charsetsList ?? [],
             'available_languages' => $availableLanguages,
             'database_server' => $databaseServer,
             'web_server' => $webServer,
-            'show_php_info' => $config->settings['ShowPhpInfo'],
-            'is_version_checked' => $config->settings['VersionCheck'],
+            'show_php_info' => $this->config->settings['ShowPhpInfo'],
+            'is_version_checked' => $this->config->settings['VersionCheck'],
             'phpmyadmin_major_version' => Version::SERIES,
             'config_storage_message' => $configStorageMessage ?? '',
-            'has_theme_manager' => $config->settings['ThemeManager'],
+            'has_theme_manager' => $this->config->settings['ThemeManager'],
             'themes' => $this->themeManager->getThemesArray(),
             'errors' => $this->errors,
         ]);
@@ -250,13 +252,12 @@ final class HomeController implements InvocableController
     {
         $this->checkPhpExtensionsRequirements();
 
-        $config = Config::getInstance();
-        if ($config->settings['LoginCookieValidityDisableWarning'] == false) {
+        if ($this->config->settings['LoginCookieValidityDisableWarning'] == false) {
             /**
              * Check whether session.gc_maxlifetime limits session validity.
              */
             $gcTime = (int) ini_get('session.gc_maxlifetime');
-            if ($gcTime < $config->settings['LoginCookieValidity']) {
+            if ($gcTime < $this->config->settings['LoginCookieValidity']) {
                 $this->errors[] = [
                     'message' => __(
                         'Your PHP parameter [a@https://www.php.net/manual/en/session.' .
@@ -274,8 +275,8 @@ final class HomeController implements InvocableController
          * Check whether LoginCookieValidity is limited by LoginCookieStore.
          */
         if (
-            $config->settings['LoginCookieStore'] != 0
-            && $config->settings['LoginCookieStore'] < $config->settings['LoginCookieValidity']
+            $this->config->settings['LoginCookieStore'] != 0
+            && $this->config->settings['LoginCookieStore'] < $this->config->settings['LoginCookieValidity']
         ) {
             $this->errors[] = [
                 'message' => __(
@@ -291,10 +292,10 @@ final class HomeController implements InvocableController
          * Warning if using the default MySQL controluser account
          */
         if (
-            isset($config->selectedServer['controluser'], $config->selectedServer['controlpass'])
+            isset($this->config->selectedServer['controluser'], $this->config->selectedServer['controlpass'])
             && Current::$server > 0
-            && $config->selectedServer['controluser'] === 'pma'
-            && $config->selectedServer['controlpass'] === 'pmapass'
+            && $this->config->selectedServer['controluser'] === 'pma'
+            && $this->config->selectedServer['controlpass'] === 'pmapass'
         ) {
             $this->errors[] = [
                 'message' => __(
@@ -312,7 +313,7 @@ final class HomeController implements InvocableController
          */
         if (! empty($_SESSION['encryption_key'])) {
             // This can happen if the user did use getenv() to set blowfish_secret
-            $encryptionKeyLength = mb_strlen($config->settings['blowfish_secret'], '8bit');
+            $encryptionKeyLength = mb_strlen($this->config->settings['blowfish_secret'], '8bit');
 
             if ($encryptionKeyLength < SODIUM_CRYPTO_SECRETBOX_KEYBYTES) {
                 $this->errors[] = [
@@ -359,7 +360,7 @@ final class HomeController implements InvocableController
          * Warning about Suhosin only if its simulation mode is not enabled
          */
         if (
-            $config->settings['SuhosinDisableWarning'] == false
+            $this->config->settings['SuhosinDisableWarning'] == false
             && ini_get('suhosin.request.max_value_length')
             && ini_get('suhosin.simulation') == '0'
         ) {
@@ -404,13 +405,12 @@ final class HomeController implements InvocableController
             return;
         }
 
-        $config = Config::getInstance();
         /** @psalm-suppress MissingFile */
         $languageStats = include ROOT_PATH . 'app/language_stats.inc.php';
         if (
             ! is_array($languageStats)
             || ! isset($languageStats[Current::$lang])
-            || $languageStats[Current::$lang] >= $config->settings['TranslationWarningThreshold']
+            || $languageStats[Current::$lang] >= $this->config->settings['TranslationWarningThreshold']
         ) {
             return;
         }

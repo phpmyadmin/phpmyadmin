@@ -13,11 +13,12 @@ use PhpMyAdmin\ResponseRenderer;
 
 use function __;
 
-final class AddController implements InvocableController
+final readonly class AddController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly BookmarkRepository $bookmarkRepository,
+        private ResponseRenderer $response,
+        private BookmarkRepository $bookmarkRepository,
+        private Config $config,
     ) {
     }
 
@@ -31,7 +32,7 @@ final class AddController implements InvocableController
         $bookmark = $this->bookmarkRepository->createBookmark(
             $bookmarkQuery,
             $label,
-            Config::getInstance()->selectedServer['user'],
+            $this->config->selectedServer['user'],
             $db,
             $shared === 'true',
         );
@@ -43,7 +44,7 @@ final class AddController implements InvocableController
 
         $bookmarkFields = [
             'bkm_database' => $db,
-            'bkm_user' => Config::getInstance()->selectedServer['user'],
+            'bkm_user' => $this->config->selectedServer['user'],
             'bkm_sql_query' => $bookmarkQuery,
             'bkm_label' => $label,
         ];

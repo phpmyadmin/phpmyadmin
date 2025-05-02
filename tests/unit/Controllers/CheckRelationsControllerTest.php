@@ -44,9 +44,10 @@ class CheckRelationsControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
 
         $response = new ResponseRenderer();
-        Config::getInstance()->selectedServer['pmadb'] = '';
+        $config = Config::getInstance();
+        $config->selectedServer['pmadb'] = '';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
-        $controller = new CheckRelationsController($response, new Relation($this->dbi));
+        $controller = new CheckRelationsController($response, new Relation($this->dbi), $config);
         $controller($request);
 
         $actual = $response->getHTMLResult();
@@ -126,7 +127,7 @@ class CheckRelationsControllerTest extends AbstractTestCase
         $dbiDummy->addResult('SELECT NULL FROM `pma__history` LIMIT 0', []);
         $dbiDummy->addResult('SELECT NULL FROM `pma__relation` LIMIT 0', []);
 
-        $controller = new CheckRelationsController(new ResponseRenderer(), new Relation($dbi, $config));
+        $controller = new CheckRelationsController(new ResponseRenderer(), new Relation($dbi, $config), $config);
         $response = $controller($request);
 
         $responseBody = (string) $response->getBody();

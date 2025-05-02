@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
 use Fig\Http\Message\StatusCodeInterface;
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\GisVisualizationController;
 use PhpMyAdmin\Core;
 use PhpMyAdmin\Current;
@@ -120,6 +121,7 @@ class GisVisualizationControllerTest extends AbstractTestCase
             $dbi,
             new DbTableExists($dbi),
             ResponseFactory::create(),
+            new Config(),
         );
         $response = $controller($request);
 

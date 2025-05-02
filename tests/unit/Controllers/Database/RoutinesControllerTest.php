@@ -25,7 +25,8 @@ final class RoutinesControllerTest extends AbstractTestCase
     {
         Current::$server = 2;
         Current::$database = 'test_db';
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -110,6 +111,7 @@ final class RoutinesControllerTest extends AbstractTestCase
             $dbi,
             new Routines($dbi),
             new DbTableExists($dbi),
+            $config,
         ))($request);
 
         $actual = $response->getHTMLResult();
@@ -297,7 +299,8 @@ HTML;
     {
         Current::$server = 2;
         Current::$database = 'test_db';
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         $dummyDbi = $this->createDbiDummy();
         // phpcs:disable Generic.Files.LineLength.TooLong
@@ -333,6 +336,7 @@ HTML;
             $dbi,
             new Routines($dbi),
             new DbTableExists($dbi),
+            $config,
         ))($request);
 
         $actual = $response->getHTMLResult();

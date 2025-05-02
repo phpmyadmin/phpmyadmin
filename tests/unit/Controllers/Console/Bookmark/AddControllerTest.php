@@ -35,14 +35,15 @@ class AddControllerTest extends AbstractTestCase
             ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, $bookmarkRepository);
+        $controller = new AddController($response, $bookmarkRepository, new Config());
         $this->expectException(InvalidArgumentException::class);
         $controller($request);
     }
 
     public function testWithoutRelationParameters(): void
     {
-        Config::getInstance()->selectedServer['user'] = 'user';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, null);
         $dbi = $this->createDatabaseInterface();
         DatabaseInterface::$instance = $dbi;
@@ -50,14 +51,15 @@ class AddControllerTest extends AbstractTestCase
         $request = self::createStub(ServerRequest::class);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, $bookmarkRepository);
+        $controller = new AddController($response, $bookmarkRepository, $config);
         $controller($request);
         self::assertSame(['message' => 'Failed'], $response->getJSONResult());
     }
 
     public function testWithValidParameters(): void
     {
-        Config::getInstance()->selectedServer['user'] = 'test_user';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'test_user';
         $relationParameters = RelationParameters::fromArray([
             'user' => 'test_user',
             'db' => 'pmadb',
@@ -84,7 +86,7 @@ class AddControllerTest extends AbstractTestCase
             ]);
         $relation = new Relation($dbi);
         $bookmarkRepository = new BookmarkRepository($dbi, $relation);
-        $controller = new AddController($response, $bookmarkRepository);
+        $controller = new AddController($response, $bookmarkRepository, $config);
         $controller($request);
         self::assertSame(
             [

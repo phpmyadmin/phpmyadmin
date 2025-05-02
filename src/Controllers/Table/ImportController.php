@@ -31,13 +31,14 @@ use function __;
 use function is_numeric;
 use function is_string;
 
-final class ImportController implements InvocableController
+final readonly class ImportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly PageSettings $pageSettings,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private PageSettings $pageSettings,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -58,7 +59,6 @@ final class ImportController implements InvocableController
         }
 
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-        $config = Config::getInstance();
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -113,7 +113,7 @@ final class ImportController implements InvocableController
         $localImportFile = $_REQUEST['local_import_file'] ?? null;
         $compressions = Import::getCompressions();
 
-        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+        $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
 
         $idKey = $_SESSION[Ajax::SESSION_KEY]['handler']::getIdKey();
         $hiddenInputs = [
@@ -144,19 +144,19 @@ final class ImportController implements InvocableController
             'skip_queries_default' => $skipQueriesDefault,
             'is_allow_interrupt_checked' => $isAllowInterruptChecked,
             'local_import_file' => $localImportFile,
-            'is_upload' => $config->isUploadEnabled(),
-            'upload_dir' => $config->settings['UploadDir'] ?? null,
+            'is_upload' => $this->config->isUploadEnabled(),
+            'upload_dir' => $this->config->settings['UploadDir'] ?? null,
             'timeout_passed_global' => ImportSettings::$timeoutPassed,
             'compressions' => $compressions,
             'is_encoding_supported' => Encoding::isSupported(),
             'encodings' => Encoding::listEncodings(),
-            'import_charset' => $config->settings['Import']['charset'] ?? null,
+            'import_charset' => $this->config->settings['Import']['charset'] ?? null,
             'timeout_passed' => $timeoutPassed,
             'offset' => $offset,
             'can_convert_kanji' => Encoding::canConvertKanji(),
             'charsets' => $charsets,
             'is_foreign_key_check' => ForeignKey::isCheckEnabled(),
-            'user_upload_dir' => Util::userDir($config->settings['UploadDir'] ?? ''),
+            'user_upload_dir' => Util::userDir($this->config->settings['UploadDir'] ?? ''),
             'local_files' => Import::getLocalFiles($importList),
         ]);
 
@@ -169,7 +169,7 @@ final class ImportController implements InvocableController
             return $formatParam;
         }
 
-        return Config::getInstance()->settings['Import']['format'];
+        return $this->config->settings['Import']['format'];
     }
 
     private function getSkipQueries(mixed $skipQueriesParam): int
@@ -178,6 +178,6 @@ final class ImportController implements InvocableController
             return (int) $skipQueriesParam;
         }
 
-        return Config::getInstance()->settings['Import']['skip_queries'];
+        return $this->config->settings['Import']['skip_queries'];
     }
 }

@@ -22,14 +22,14 @@ use PhpMyAdmin\UserPreferences;
 use function define;
 use function ltrim;
 
-final class ImportController implements InvocableController
+final readonly class ImportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly UserPreferences $userPreferences,
-        private readonly Relation $relation,
-        private readonly Config $config,
-        private readonly ThemeManager $themeManager,
+        private ResponseRenderer $response,
+        private UserPreferences $userPreferences,
+        private Relation $relation,
+        private Config $config,
+        private ThemeManager $themeManager,
     ) {
     }
 
@@ -51,7 +51,7 @@ final class ImportController implements InvocableController
         $result = null;
         if ($formDisplay->process(false) && ! $formDisplay->hasErrors()) {
             // Load 2FA settings
-            $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
+            $twoFactor = new TwoFactor($this->config->selectedServer['user']);
             // save settings
             $result = $this->userPreferences->save($configFile->getConfigArray());
             // save back the 2FA setting only

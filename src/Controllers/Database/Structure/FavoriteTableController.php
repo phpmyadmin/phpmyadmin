@@ -27,12 +27,13 @@ use function json_decode;
 use function json_encode;
 use function md5;
 
-final class FavoriteTableController implements InvocableController
+final readonly class FavoriteTableController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -41,8 +42,6 @@ final class FavoriteTableController implements InvocableController
         if (Current::$database === '') {
             return $this->response->response();
         }
-
-        $config = Config::getInstance();
 
         if (! $request->isAjax()) {
             return $this->response->response();
@@ -56,7 +55,7 @@ final class FavoriteTableController implements InvocableController
         }
 
         // Required to keep each user's preferences separate.
-        $user = hash('sha1', $config->selectedServer['user']);
+        $user = hash('sha1', $this->config->selectedServer['user']);
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -81,7 +80,7 @@ final class FavoriteTableController implements InvocableController
         } elseif (isset($_REQUEST['add_favorite'])) {
             if (! $alreadyFavorite) {
                 $numTables = count($favoriteInstance->getTables());
-                if ($numTables == $config->settings['NumFavoriteTables']) {
+                if ($numTables == $this->config->settings['NumFavoriteTables']) {
                     $changes = false;
                 } else {
                     // Otherwise add to favorite list.

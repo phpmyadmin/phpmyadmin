@@ -24,12 +24,13 @@ use PhpMyAdmin\Utils\ForeignKey;
 use function __;
 use function sprintf;
 
-final class DeleteRowsController implements InvocableController
+final readonly class DeleteRowsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private Config $config,
     ) {
     }
 
@@ -46,7 +47,7 @@ final class DeleteRowsController implements InvocableController
             new Transformations(),
             $this->template,
             new BookmarkRepository($this->dbi, $relation),
-            Config::getInstance(),
+            $this->config,
         );
 
         if ($multBtn === __('Yes')) {

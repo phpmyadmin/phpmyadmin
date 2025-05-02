@@ -94,7 +94,7 @@ class ImportControllerTest extends AbstractTestCase
             ->withQueryParams(['db' => 'test_db', 'table' => 'test_table', 'format' => 'xml']);
 
         $response = new ResponseRenderer();
-        (new ImportController($response, $dbi, $pageSettings, new DbTableExists($dbi)))($request);
+        (new ImportController($response, $dbi, $pageSettings, new DbTableExists($dbi), $config))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }
 }

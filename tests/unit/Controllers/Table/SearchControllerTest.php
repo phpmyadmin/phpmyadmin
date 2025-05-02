@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Current;
@@ -47,6 +48,7 @@ final class SearchControllerTest extends AbstractTestCase
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),
+            new Config(),
         );
         $controller($request);
 

@@ -46,6 +46,7 @@ final class SaveController implements InvocableController
         private readonly DatabaseInterface $dbi,
         private readonly StructureController $structureController,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly Config $config,
     ) {
         $this->tableObj = $this->dbi->getTable(Current::$database, Current::$table);
     }
@@ -290,7 +291,7 @@ final class SaveController implements InvocableController
         if (
             isset($_POST['field_mimetype'])
             && is_array($_POST['field_mimetype'])
-            && Config::getInstance()->settings['BrowseMIME']
+            && $this->config->settings['BrowseMIME']
         ) {
             foreach ($_POST['field_mimetype'] as $fieldindex => $mimetype) {
                 if (! isset($_POST['field_name'][$fieldindex]) || strlen($_POST['field_name'][$fieldindex]) <= 0) {

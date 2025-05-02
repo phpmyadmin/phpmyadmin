@@ -24,14 +24,15 @@ use function count;
 use function is_array;
 use function is_string;
 
-final class DestroyController implements InvocableController
+final readonly class DestroyController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly Transformations $transformations,
-        private readonly RelationCleanup $relationCleanup,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private Transformations $transformations,
+        private RelationCleanup $relationCleanup,
+        private UserPrivilegesFactory $userPrivilegesFactory,
+        private Config $config,
     ) {
     }
 
@@ -39,10 +40,9 @@ final class DestroyController implements InvocableController
     {
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $config = Config::getInstance();
         if (
             ! $request->isAjax()
-            || (! $this->dbi->isSuperUser() && ! $config->settings['AllowUserDropDatabase'])
+            || (! $this->dbi->isSuperUser() && ! $this->config->settings['AllowUserDropDatabase'])
         ) {
             $message = Message::error();
             $json = ['message' => $message];
@@ -54,10 +54,11 @@ final class DestroyController implements InvocableController
 
         $selectedDbs = $request->getParsedBodyParam('selected_dbs');
         $selectedDbs = is_array($selectedDbs) ? $selectedDbs : [];
-        $selectedDbs = array_filter($selectedDbs, static function ($database) use ($config): bool {
+        $pmadb = $this->config->selectedServer['pmadb'] ?? '';
+        $selectedDbs = array_filter($selectedDbs, static function ($database) use ($pmadb): bool {
             return is_string($database)
                 && ! Utilities::isSystemSchema($database, true)
-                && $database !== ($config->selectedServer['pmadb'] ?? '');
+                && $database !== $pmadb;
         });
 
         if ($selectedDbs === []) {

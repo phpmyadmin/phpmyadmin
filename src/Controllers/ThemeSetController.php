@@ -12,19 +12,20 @@ use PhpMyAdmin\Theme\ThemeManager;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UserPreferences;
 
-final class ThemeSetController implements InvocableController
+final readonly class ThemeSetController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly ThemeManager $themeManager,
-        private readonly UserPreferences $userPreferences,
+        private ResponseRenderer $response,
+        private ThemeManager $themeManager,
+        private UserPreferences $userPreferences,
+        private Config $config,
     ) {
     }
 
     public function __invoke(ServerRequest $request): Response
     {
         $theme = $request->getParsedBodyParamAsString('set_theme');
-        if (! Config::getInstance()->settings['ThemeManager'] || $theme === '') {
+        if (! $this->config->settings['ThemeManager'] || $theme === '') {
             if ($request->isAjax()) {
                 $this->response->addJSON('themeColorMode', '');
 

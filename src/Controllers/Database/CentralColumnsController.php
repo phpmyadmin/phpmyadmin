@@ -24,11 +24,12 @@ use function is_numeric;
 use function parse_str;
 use function sprintf;
 
-final class CentralColumnsController implements InvocableController
+final readonly class CentralColumnsController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly CentralColumns $centralColumns,
+        private ResponseRenderer $response,
+        private CentralColumns $centralColumns,
+        private Config $config,
     ) {
     }
 
@@ -139,7 +140,7 @@ final class CentralColumnsController implements InvocableController
         $numberOfColumns = $this->centralColumns->getColumnsCount(
             $db->getName(),
             $pos,
-            Config::getInstance()->settings['MaxRows'],
+            $this->config->settings['MaxRows'],
         );
         Current::$message = Message::success(
             sprintf(__('Showing rows %1$s - %2$s.'), $pos + 1, $pos + $numberOfColumns),

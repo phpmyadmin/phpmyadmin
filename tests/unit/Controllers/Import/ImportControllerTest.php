@@ -41,7 +41,8 @@ class ImportControllerTest extends AbstractTestCase
     {
         $this->setLanguage();
 
-        Config::getInstance()->selectedServer['user'] = 'user';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
 
         // Some params were not added as they are not required for this test
         Sql::$showAsPhp = null;
@@ -101,7 +102,7 @@ class ImportControllerTest extends AbstractTestCase
             self::createStub(Transformations::class),
             $template,
             $bookmarkRepository,
-            Config::getInstance(),
+            $config,
         );
 
         $importController = new ImportController(
@@ -110,6 +111,7 @@ class ImportControllerTest extends AbstractTestCase
             $sql,
             $this->dbi,
             $bookmarkRepository,
+            $config,
         );
 
         $this->dummyDbi->addSelectDb('pma_test');

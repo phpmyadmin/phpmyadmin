@@ -99,6 +99,7 @@ class IndexesControllerTest extends AbstractTestCase
             $dbi,
             new Indexes($dbi),
             new DbTableExists($dbi),
+            Config::getInstance(),
         );
 
         $_POST['create_index'] = true;

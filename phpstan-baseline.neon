@@ -1783,33 +1783,6 @@ parameters:
 			path: src/Console.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/CheckRelationsController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Controllers/Console/Bookmark/AddController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/CentralColumnsController.php
-
-		-
 			message: '#^Binary operation "\.\=" between mixed and '' \-\> '' results in an error\.$#'
 			identifier: assignOp.invalid
 			count: 1
@@ -1960,15 +1933,6 @@ parameters:
 			path: src/Controllers/Database/EventsController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Controllers/Database/ImportController.php
-
-		-
 			message: '#^Cannot access offset ''handler'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -1987,27 +1951,9 @@ parameters:
 			path: src/Controllers/Database/MultiTableQuery/QueryController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/PrivilegesController.php
-
-		-
 			message: '#^Binary operation "\-" between mixed and 1 results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 6
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
@@ -2113,15 +2059,6 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/SearchController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -2173,15 +2110,6 @@ parameters:
 			path: src/Controllers/Database/Structure/DropTableController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -2192,15 +2120,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/Structure/EmptyTableController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/Structure/FavoriteTableController.php
 
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
@@ -2248,15 +2167,6 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Controllers/Database/StructureController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 5
 			path: src/Controllers/Database/StructureController.php
 
 		-
@@ -2386,15 +2296,6 @@ parameters:
 			path: src/Controllers/Database/StructureController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Database/TrackingController.php
-
-		-
 			message: '#^Parameter \#2 \$selected of method PhpMyAdmin\\Tracking\\Tracking\:\:createTrackingForMultipleTables\(\) expects array\<mixed\>, mixed given\.$#'
 			identifier: argument.type
 			count: 1
@@ -2409,15 +2310,6 @@ parameters:
 		-
 			message: '#^Binary operation "\-" between mixed and int\<1, max\> results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/ErrorReportController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Controllers/ErrorReportController.php
 
@@ -2438,15 +2330,6 @@ parameters:
 			identifier: booleanAnd.rightNotBoolean
 			count: 1
 			path: src/Controllers/ErrorReportController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Export/ExportController.php
 
 		-
 			message: '#^Cannot access offset ''aliases'' on mixed\.$#'
@@ -2521,42 +2404,6 @@ parameters:
 			path: src/Controllers/Export/ExportController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Export/Template/CreateController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Export/Template/DeleteController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Export/Template/LoadController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Export/Template/UpdateController.php
-
-		-
 			message: '#^Cannot cast mixed to int\.$#'
 			identifier: cast.int
 			count: 1
@@ -2567,15 +2414,6 @@ parameters:
 			identifier: missingType.iterableValue
 			count: 1
 			path: src/Controllers/GisDataEditorController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Controllers/HomeController.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
@@ -2606,15 +2444,6 @@ parameters:
 			identifier: booleanOr.rightNotBoolean
 			count: 1
 			path: src/Controllers/HomeController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Import/ImportController.php
 
 		-
 			message: '#^Cannot access offset ''go_back_url'' on mixed\.$#'
@@ -2809,15 +2638,6 @@ parameters:
 			path: src/Controllers/Normalization/ThirdNormalForm/NewTablesController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Operations/DatabaseController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -2840,15 +2660,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Operations/DatabaseController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Operations/TableController.php
 
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
@@ -2879,42 +2690,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Operations/TableController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/ExportController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/FeaturesController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/ImportController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/MainPanelController.php
 
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
@@ -2971,82 +2746,10 @@ parameters:
 			path: src/Controllers/Preferences/ManageController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/NavigationController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/SqlController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Preferences/TwoFactorController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Server/BinlogController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Server/CollationsController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Server/Databases/CreateController.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, PhpMyAdmin\\Dbal\\ResultInterface\|false given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
 			path: src/Controllers/Server/Databases/CreateController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Server/Databases/DestroyController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Controllers/Server/DatabasesController.php
 
 		-
 			message: '#^Call to function array_search\(\) requires parameter \#3 to be set\.$#'
@@ -3119,15 +2822,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Server/DatabasesController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Controllers/Server/ImportController.php
 
 		-
 			message: '#^Cannot access offset ''handler'' on mixed\.$#'
@@ -3400,15 +3094,6 @@ parameters:
 			path: src/Controllers/Sql/RelationalValuesController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Sql/SqlController.php
-
-		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
 			identifier: notEqual.notAllowed
 			count: 3
@@ -3425,15 +3110,6 @@ parameters:
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Sql/SqlController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/SyncFavoriteTablesController.php
 
 		-
 			message: '#^Cannot access offset ''db'' on mixed\.$#'
@@ -3556,15 +3232,6 @@ parameters:
 			path: src/Controllers/Table/ChartController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/ChartController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -3633,15 +3300,6 @@ parameters:
 		-
 			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
-			count: 1
-			path: src/Controllers/Table/DeleteRowsController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Controllers/Table/DeleteRowsController.php
 
@@ -3718,15 +3376,6 @@ parameters:
 			path: src/Controllers/Table/ExportRowsController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/FindReplaceController.php
-
-		-
 			message: '#^Cannot access offset 0 on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -3769,15 +3418,6 @@ parameters:
 			path: src/Controllers/Table/GetFieldController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Controllers/Table/GisVisualizationController.php
-
-		-
 			message: '#^Cannot access offset ''max_rows'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -3802,15 +3442,6 @@ parameters:
 			path: src/Controllers/Table/GisVisualizationController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Controllers/Table/ImportController.php
-
-		-
 			message: '#^Cannot access offset ''handler'' on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 2
@@ -3825,15 +3456,6 @@ parameters:
 		-
 			message: '#^Binary operation "\+\=" between int and mixed results in an error\.$#'
 			identifier: assignOp.invalid
-			count: 1
-			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Controllers/Table/IndexesController.php
 
@@ -3872,24 +3494,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Table/IndexesController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/PrivilegesController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Controllers/Table/RelationController.php
 
 		-
 			message: '#^Parameter \#1 \$dbName of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:getTable\(\) expects string, mixed given\.$#'
@@ -4144,15 +3748,6 @@ parameters:
 			path: src/Controllers/Table/ReplaceController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 3
-			path: src/Controllers/Table/SearchController.php
-
-		-
 			message: '#^Cannot access offset int on mixed\.$#'
 			identifier: offsetAccess.nonOffsetAccessible
 			count: 1
@@ -4309,15 +3904,6 @@ parameters:
 			path: src/Controllers/Table/Structure/ReservedWordCheckController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/Table/Structure/ReservedWordCheckController.php
-
-		-
 			message: '#^Only booleans are allowed in a negated boolean, int\|null given\.$#'
 			identifier: booleanNot.exprNotBoolean
 			count: 1
@@ -4344,15 +3930,6 @@ parameters:
 		-
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
-			count: 1
-			path: src/Controllers/Table/Structure/SaveController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
 			count: 1
 			path: src/Controllers/Table/Structure/SaveController.php
 
@@ -4579,15 +4156,6 @@ parameters:
 			path: src/Controllers/Table/StructureController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 2
-			path: src/Controllers/Table/StructureController.php
-
-		-
 			message: '#^Call to function in_array\(\) requires parameter \#3 to be set\.$#'
 			identifier: function.strict
 			count: 1
@@ -4639,15 +4207,6 @@ parameters:
 			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
 			identifier: binaryOp.invalid
 			count: 1
-			path: src/Controllers/Table/ZoomSearchController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 4
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
@@ -4783,15 +4342,6 @@ parameters:
 			path: src/Controllers/Table/ZoomSearchController.php
 
 		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/ThemeSetController.php
-
-		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
 			count: 1
@@ -4826,15 +4376,6 @@ parameters:
 			identifier: argument.type
 			count: 2
 			path: src/Controllers/Triggers/IndexController.php
-
-		-
-			message: '''
-				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
-				Use dependency injection instead\.$#
-			'''
-			identifier: staticMethod.deprecated
-			count: 1
-			path: src/Controllers/UserPasswordController.php
 
 		-
 			message: '#^Loose comparison via "\!\=" is not allowed\.$#'
@@ -17319,7 +16860,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 6
 			path: tests/unit/Controllers/Database/StructureControllerTest.php
 
 		-
@@ -17436,7 +16977,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 2
+			count: 1
 			path: tests/unit/Controllers/Import/ImportControllerTest.php
 
 		-
@@ -17502,7 +17043,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: tests/unit/Controllers/Server/BinlogControllerTest.php
 
 		-
@@ -17520,7 +17061,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: tests/unit/Controllers/Server/CollationsControllerTest.php
 
 		-
@@ -18018,7 +17559,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 2
 			path: tests/unit/Controllers/Table/IndexesControllerTest.php
 
 		-
@@ -18045,7 +17586,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 1
+			count: 5
 			path: tests/unit/Controllers/Table/RelationControllerTest.php
 
 		-
@@ -18054,7 +17595,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 2
 			path: tests/unit/Controllers/Table/ReplaceControllerTest.php
 
 		-

@@ -76,6 +76,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             new Relation($this->dbi),
             $this->dbi,
+            Config::getInstance(),
         );
 
         $ctrl->getDropdownValueForTable();
@@ -109,6 +110,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             new Relation($this->dbi),
             $this->dbi,
+            Config::getInstance(),
         );
 
         $ctrl->getDropdownValueForTable();
@@ -140,6 +142,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             new Relation($this->dbi),
             $this->dbi,
+            Config::getInstance(),
         );
 
         $_POST['foreign'] = 'true';
@@ -173,6 +176,7 @@ class RelationControllerTest extends AbstractTestCase
             $this->template,
             new Relation($this->dbi),
             $this->dbi,
+            Config::getInstance(),
         );
 
         $_POST['foreign'] = 'false';

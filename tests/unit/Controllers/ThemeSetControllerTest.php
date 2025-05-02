@@ -27,7 +27,8 @@ class ThemeSetControllerTest extends AbstractTestCase
 
     public function testSetTheme(): void
     {
-        Config::getInstance()->settings['ThemeManager'] = true;
+        $config = Config::getInstance();
+        $config->settings['ThemeManager'] = true;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['set_theme' => 'theme_name', 'themeColorMode' => '']);
@@ -42,13 +43,14 @@ class ThemeSetControllerTest extends AbstractTestCase
         $userPreferences->expects(self::once())->method('save')
             ->with(self::equalTo(['ThemeDefault' => 'theme_name']));
 
-        (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences))($request);
+        (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences, $config))($request);
     }
 
     #[DataProvider('providerForTestWithoutTheme')]
     public function testWithoutTheme(bool $hasThemes, string $themeName): void
     {
-        Config::getInstance()->settings['ThemeManager'] = $hasThemes;
+        $config = Config::getInstance();
+        $config->settings['ThemeManager'] = $hasThemes;
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['set_theme' => $themeName]);
@@ -61,7 +63,7 @@ class ThemeSetControllerTest extends AbstractTestCase
         $userPreferences->expects(self::never())->method('load');
         $userPreferences->expects(self::never())->method('save');
 
-        (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences))($request);
+        (new ThemeSetController(new ResponseRenderer(), $themeManager, $userPreferences, $config))($request);
     }
 
     /**

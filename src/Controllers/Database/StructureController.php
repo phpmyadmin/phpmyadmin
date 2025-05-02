@@ -87,6 +87,7 @@ final class StructureController implements InvocableController
         private readonly TrackingChecker $trackingChecker,
         private readonly PageSettings $pageSettings,
         private readonly DbTableExists $dbTableExists,
+        private readonly Config $config,
     ) {
         $this->replicationInfo = new ReplicationInfo($this->dbi);
     }
@@ -106,7 +107,7 @@ final class StructureController implements InvocableController
         /**
          * whether to display extended stats
          */
-        $this->isShowStats = Config::getInstance()->settings['ShowStats'];
+        $this->isShowStats = $this->config->settings['ShowStats'];
 
         /**
          * whether selected db is information_schema
@@ -128,8 +129,6 @@ final class StructureController implements InvocableController
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
-
-        $config = Config::getInstance();
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -156,7 +155,7 @@ final class StructureController implements InvocableController
         if ($this->totalNumTables > 0 && $this->position > $this->totalNumTables) {
             $this->response->redirectToRoute('/database/structure', [
                 'db' => Current::$database,
-                'pos' => max(0, $this->totalNumTables - $config->settings['MaxTableList']),
+                'pos' => max(0, $this->totalNumTables - $this->config->settings['MaxTableList']),
                 'reload' => 1,
             ]);
         }
@@ -184,7 +183,7 @@ final class StructureController implements InvocableController
                 $urlParams,
                 Url::getFromRoute('/database/structure'),
                 'frame_content',
-                $config->settings['MaxTableList'],
+                $this->config->settings['MaxTableList'],
             );
 
             $tableList = $this->displayTableList($replicaInfo);
@@ -220,9 +219,8 @@ final class StructureController implements InvocableController
         $createTimeAll = null;
         $updateTimeAll = null;
         $checkTimeAll = null;
-        $config = Config::getInstance();
-        $numColumns = $config->settings['PropertiesNumColumns'] > 1
-            ? ceil($this->numTables / $config->settings['PropertiesNumColumns']) + 1
+        $numColumns = $this->config->settings['PropertiesNumColumns'] > 1
+            ? ceil($this->numTables / $this->config->settings['PropertiesNumColumns']) + 1
             : 0;
         $rowCount = 0;
         $sumSize = 0;
@@ -267,7 +265,7 @@ final class StructureController implements InvocableController
             if (isset($currentTable['Collation'])) {
                 $tableCollation = Charsets::findCollationByName(
                     $this->dbi,
-                    $config->selectedServer['DisableIS'],
+                    $this->config->selectedServer['DisableIS'],
                     $currentTable['Collation'],
                 );
                 if ($tableCollation !== null) {
@@ -291,7 +289,7 @@ final class StructureController implements InvocableController
                 }
             }
 
-            if ($config->settings['ShowDbStructureCharset']) {
+            if ($this->config->settings['ShowDbStructureCharset']) {
                 $charset = '';
                 if (isset($tableCollation)) {
                     $charset = $tableCollation->getCharset();
@@ -299,7 +297,7 @@ final class StructureController implements InvocableController
             }
 
             $createTime = null;
-            if ($config->settings['ShowDbStructureCreation'] && isset($currentTable['Create_time'])) {
+            if ($this->config->settings['ShowDbStructureCreation'] && isset($currentTable['Create_time'])) {
                 $createTime = $this->createDateTime($currentTable['Create_time']);
                 if ($createTime !== null && ($createTimeAll === null || $createTime < $createTimeAll)) {
                     $createTimeAll = $createTime;
@@ -307,7 +305,7 @@ final class StructureController implements InvocableController
             }
 
             $updateTime = null;
-            if ($config->settings['ShowDbStructureLastUpdate'] && isset($currentTable['Update_time'])) {
+            if ($this->config->settings['ShowDbStructureLastUpdate'] && isset($currentTable['Update_time'])) {
                 $updateTime = $this->createDateTime($currentTable['Update_time']);
                 if ($updateTime !== null && ($updateTimeAll === null || $updateTime < $updateTimeAll)) {
                     $updateTimeAll = $updateTime;
@@ -315,7 +313,7 @@ final class StructureController implements InvocableController
             }
 
             $checkTime = null;
-            if ($config->settings['ShowDbStructureLastCheck'] && isset($currentTable['Check_time'])) {
+            if ($this->config->settings['ShowDbStructureLastCheck'] && isset($currentTable['Check_time'])) {
                 $checkTime = $this->createDateTime($currentTable['Check_time']);
                 if ($checkTime !== null && ($checkTimeAll === null || $checkTime < $checkTimeAll)) {
                     $checkTimeAll = $checkTime;
@@ -369,14 +367,14 @@ final class StructureController implements InvocableController
                     'db' => Current::$database,
                     'db_is_system_schema' => $this->dbIsSystemSchema,
                     'replication' => $replicaInfo['status'],
-                    'properties_num_columns' => $config->settings['PropertiesNumColumns'],
+                    'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
                     'is_show_stats' => $this->isShowStats,
-                    'show_charset' => $config->settings['ShowDbStructureCharset'],
-                    'show_comment' => $config->settings['ShowDbStructureComment'],
-                    'show_creation' => $config->settings['ShowDbStructureCreation'],
-                    'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
-                    'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
-                    'num_favorite_tables' => $config->settings['NumFavoriteTables'],
+                    'show_charset' => $this->config->settings['ShowDbStructureCharset'],
+                    'show_comment' => $this->config->settings['ShowDbStructureComment'],
+                    'show_creation' => $this->config->settings['ShowDbStructureCreation'],
+                    'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
+                    'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
+                    'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
                     'structure_table_rows' => $structureTableRows,
                 ]);
                 $structureTableRows = [];
@@ -431,14 +429,14 @@ final class StructureController implements InvocableController
                         TableName::from($currentTable['TABLE_NAME']),
                     ),
                 ),
-                'num_favorite_tables' => $config->settings['NumFavoriteTables'],
-                'properties_num_columns' => $config->settings['PropertiesNumColumns'],
-                'limit_chars' => $config->settings['LimitChars'],
-                'show_charset' => $config->settings['ShowDbStructureCharset'],
-                'show_comment' => $config->settings['ShowDbStructureComment'],
-                'show_creation' => $config->settings['ShowDbStructureCreation'],
-                'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
-                'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
+                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
+                'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
+                'limit_chars' => $this->config->settings['LimitChars'],
+                'show_charset' => $this->config->settings['ShowDbStructureCharset'],
+                'show_comment' => $this->config->settings['ShowDbStructureComment'],
+                'show_creation' => $this->config->settings['ShowDbStructureCreation'],
+                'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
+                'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
             ];
 
             $overallApproxRows = $overallApproxRows || $approxRows;
@@ -448,7 +446,7 @@ final class StructureController implements InvocableController
         $databaseCharset = '';
         $collation = Charsets::findCollationByName(
             $this->dbi,
-            $config->selectedServer['DisableIS'],
+            $this->config->selectedServer['DisableIS'],
             $this->dbi->getDbCollation(Current::$database),
         );
         if ($collation !== null) {
@@ -459,7 +457,7 @@ final class StructureController implements InvocableController
         $relationParameters = $this->relation->getRelationParameters();
 
         $defaultStorageEngine = '';
-        if ($config->settings['PropertiesNumColumns'] < 2) {
+        if ($this->config->settings['PropertiesNumColumns'] < 2) {
             // MySQL <= 5.5.2
             $defaultStorageEngine = $this->dbi->fetchValue('SELECT @@storage_engine;');
             if (! is_string($defaultStorageEngine) || $defaultStorageEngine === '') {
@@ -472,14 +470,14 @@ final class StructureController implements InvocableController
             'db' => Current::$database,
             'db_is_system_schema' => $this->dbIsSystemSchema,
             'replication' => $replicaInfo['status'],
-            'properties_num_columns' => $config->settings['PropertiesNumColumns'],
+            'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
             'is_show_stats' => $this->isShowStats,
-            'show_charset' => $config->settings['ShowDbStructureCharset'],
-            'show_comment' => $config->settings['ShowDbStructureComment'],
-            'show_creation' => $config->settings['ShowDbStructureCreation'],
-            'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
-            'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
-            'num_favorite_tables' => $config->settings['NumFavoriteTables'],
+            'show_charset' => $this->config->settings['ShowDbStructureCharset'],
+            'show_comment' => $this->config->settings['ShowDbStructureComment'],
+            'show_creation' => $this->config->settings['ShowDbStructureCreation'],
+            'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
+            'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
+            'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
             'structure_table_rows' => $structureTableRows,
             'body_for_table_summary' => [
                 'num_tables' => $this->numTables,
@@ -495,21 +493,21 @@ final class StructureController implements InvocableController
                 'update_time_all' => $updateTimeAll !== null ? Util::localisedDate($updateTimeAll) : '-',
                 'check_time_all' => $checkTimeAll !== null ? Util::localisedDate($checkTimeAll) : '-',
                 'approx_rows' => $overallApproxRows,
-                'num_favorite_tables' => $config->settings['NumFavoriteTables'],
+                'num_favorite_tables' => $this->config->settings['NumFavoriteTables'],
                 'db' => Current::$database,
-                'properties_num_columns' => $config->settings['PropertiesNumColumns'],
+                'properties_num_columns' => $this->config->settings['PropertiesNumColumns'],
                 'default_storage_engine' => $defaultStorageEngine,
-                'show_charset' => $config->settings['ShowDbStructureCharset'],
-                'show_comment' => $config->settings['ShowDbStructureComment'],
-                'show_creation' => $config->settings['ShowDbStructureCreation'],
-                'show_last_update' => $config->settings['ShowDbStructureLastUpdate'],
-                'show_last_check' => $config->settings['ShowDbStructureLastCheck'],
+                'show_charset' => $this->config->settings['ShowDbStructureCharset'],
+                'show_comment' => $this->config->settings['ShowDbStructureComment'],
+                'show_creation' => $this->config->settings['ShowDbStructureCreation'],
+                'show_last_update' => $this->config->settings['ShowDbStructureLastUpdate'],
+                'show_last_check' => $this->config->settings['ShowDbStructureLastCheck'],
             ],
             'check_all_tables' => [
                 'overhead_check' => $overheadCheck,
                 'db_is_system_schema' => $this->dbIsSystemSchema,
                 'hidden_fields' => $hiddenFields,
-                'disable_multi_table' => $config->config->DisableMultiTableMaintenance,
+                'disable_multi_table' => $this->config->config->DisableMultiTableMaintenance,
                 'central_columns_work' => $relationParameters->centralColumnsFeature !== null,
             ],
         ]);
@@ -560,7 +558,7 @@ final class StructureController implements InvocableController
                 && in_array($currentTable['ENGINE'], ['CSV', 'InnoDB', 'TokuDB'], true)
                 && ! $currentTable['COUNTED'];
 
-            if ($tableIsView && $currentTable['TABLE_ROWS'] >= Config::getInstance()->settings['MaxExactCountViews']) {
+            if ($tableIsView && $currentTable['TABLE_ROWS'] >= $this->config->settings['MaxExactCountViews']) {
                 $approxRows = true;
                 $showSuperscript = Generator::showHint(
                     Sanitize::convertBBCode(
@@ -816,7 +814,7 @@ final class StructureController implements InvocableController
 
         if (
             (in_array($currentTable['ENGINE'], ['InnoDB', 'TokuDB'], true)
-            && $currentTable['TABLE_ROWS'] < Config::getInstance()->settings['MaxExactCount'])
+            && $currentTable['TABLE_ROWS'] < $this->config->settings['MaxExactCount'])
             || ! isset($currentTable['TABLE_ROWS'])
         ) {
             $currentTable['COUNTED'] = true;

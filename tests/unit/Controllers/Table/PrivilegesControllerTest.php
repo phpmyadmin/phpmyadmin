@@ -36,7 +36,8 @@ class PrivilegesControllerTest extends AbstractTestCase
     {
         Current::$database = 'db';
         Current::$table = 'table';
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
 
         $privileges = [];
 
@@ -52,6 +53,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             $serverPrivileges,
             DatabaseInterface::getInstance(),
+            $config,
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -102,6 +104,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             self::createStub(Privileges::class),
             $this->createDatabaseInterface(),
+            new Config(),
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -119,6 +122,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             self::createStub(Privileges::class),
             $this->createDatabaseInterface(),
+            new Config(),
         ))($request);
         $actual = $response->getHTMLResult();
 

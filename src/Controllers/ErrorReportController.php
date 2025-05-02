@@ -28,14 +28,15 @@ use function time;
 /**
  * Handle error report submission
  */
-final class ErrorReportController implements InvocableController
+final readonly class ErrorReportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly ErrorReport $errorReport,
-        private readonly ErrorHandler $errorHandler,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private ErrorReport $errorReport,
+        private ErrorHandler $errorHandler,
+        private DatabaseInterface $dbi,
+        private Config $config,
     ) {
     }
 
@@ -49,7 +50,6 @@ final class ErrorReportController implements InvocableController
             return $this->response->response();
         }
 
-        $config = Config::getInstance();
         if ($request->hasBodyParam('send_error_report')) {
             if ($exceptionType === 'php') {
                 /**
@@ -87,7 +87,7 @@ final class ErrorReportController implements InvocableController
 
                 /* Message to show to the user */
                 if ($success) {
-                    if ($automatic === 'true' || $config->config->SendErrorReports === 'always') {
+                    if ($automatic === 'true' || $this->config->config->SendErrorReports === 'always') {
                         $msg = __(
                             'An error has been detected and an error report has been '
                             . 'automatically submitted based on your settings.',
@@ -134,7 +134,7 @@ final class ErrorReportController implements InvocableController
                 }
             }
         } elseif ($request->hasBodyParam('get_settings')) {
-            $this->response->addJSON('report_setting', $config->config->SendErrorReports);
+            $this->response->addJSON('report_setting', $this->config->config->SendErrorReports);
         } elseif ($exceptionType === 'js') {
             $this->response->addJSON('report_modal', $this->errorReport->getEmptyModal());
             $this->response->addHTML($this->errorReport->getForm());

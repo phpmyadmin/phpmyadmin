@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\FindReplaceController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -37,6 +38,7 @@ final class FindReplaceControllerTest extends AbstractTestCase
             new Template(),
             $dbi,
             new DbTableExists($dbi),
+            new Config(),
         );
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')
@@ -83,6 +85,7 @@ final class FindReplaceControllerTest extends AbstractTestCase
             new Template(),
             $dbi,
             new DbTableExists($dbi),
+            new Config(),
         );
 
         $request = ServerRequestFactory::create()->createServerRequest('GET', 'http://example.com/')

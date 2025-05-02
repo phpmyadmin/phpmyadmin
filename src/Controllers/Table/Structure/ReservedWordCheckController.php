@@ -18,15 +18,15 @@ use function implode;
 use function sprintf;
 use function trim;
 
-final class ReservedWordCheckController implements InvocableController
+final readonly class ReservedWordCheckController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response)
+    public function __construct(private ResponseRenderer $response, private Config $config)
     {
     }
 
     public function __invoke(ServerRequest $request): Response
     {
-        if (Config::getInstance()->settings['ReservedWordDisableWarning'] !== false) {
+        if ($this->config->settings['ReservedWordDisableWarning'] !== false) {
             $this->response->setRequestStatus(false);
 
             return $this->response->response();

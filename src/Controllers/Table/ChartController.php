@@ -32,12 +32,13 @@ use function min;
 /**
  * Handles creation of the chart.
  */
-final class ChartController implements InvocableController
+final readonly class ChartController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -67,7 +68,6 @@ final class ChartController implements InvocableController
 
         $urlParams = [];
 
-        $config = Config::getInstance();
         /**
          * Runs common work
          */
@@ -106,11 +106,11 @@ final class ChartController implements InvocableController
                 return $this->response->response();
             }
 
-            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabTable']);
+            $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabTable']);
             $urlParams['back'] = Url::getFromRoute('/table/sql');
             $this->dbi->selectDb(Current::$database);
         } elseif (Current::$database !== '') {
-            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabDatabase']);
+            $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -127,7 +127,7 @@ final class ChartController implements InvocableController
                 return $this->response->response();
             }
         } else {
-            $urlParams['goto'] = Url::getFromRoute($config->settings['DefaultTabServer']);
+            $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabServer']);
             $urlParams['back'] = Url::getFromRoute('/sql');
 
             if ($this->dbi->isSuperUser()) {

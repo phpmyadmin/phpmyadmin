@@ -720,11 +720,6 @@
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
-  <file src="src/Controllers/CheckRelationsController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
-  </file>
   <file src="src/Controllers/CollationConnectionController.php">
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
@@ -736,10 +731,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Console/Bookmark/AddController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -755,9 +746,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/CentralColumnsController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -876,11 +864,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/ImportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
@@ -914,17 +897,11 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/PrivilegesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Database/RoutinesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$routine['item_param_length'][$i]]]></code>
       <code><![CDATA[$routine['item_param_name'][$i]]]></code>
@@ -1045,9 +1022,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/SearchController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
     </MixedArgument>
@@ -1140,9 +1114,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/Structure/EmptyTableController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
@@ -1154,9 +1125,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Database/Structure/FavoriteTableController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$favoriteTables]]></code>
     </MixedAssignment>
@@ -1190,13 +1158,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Database/StructureController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$currentTable['Collation']]]></code>
       <code><![CDATA[$currentTable['Data_free']]]></code>
@@ -1285,9 +1246,6 @@
     </PossiblyUndefinedArrayOffset>
   </file>
   <file src="src/Controllers/Database/TrackingController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$request->getParsedBodyParam('selected')]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -1302,9 +1260,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/ErrorReportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$decodedResponse['success']]]></code>
     </MixedArrayAccess>
@@ -1326,9 +1281,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Export/ExportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$dbSelect]]></code>
     </MixedArgument>
@@ -1379,7 +1331,7 @@
       <code><![CDATA[$asSeparateFiles]]></code>
       <code><![CDATA[$onServerParam]]></code>
       <code><![CDATA[$quickExportOnServer]]></code>
-      <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
+      <code><![CDATA[empty($this->config->settings['MemoryLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Export/TablesController.php">
@@ -1388,33 +1340,21 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Export/Template/CreateController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Export/Template/DeleteController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Export/Template/LoadController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Export/Template/UpdateController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -1425,28 +1365,23 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/HomeController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$languageStats[Current::$lang]]]></code>
     </MixedArrayAccess>
     <MixedArrayOffset>
-      <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
+      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayOffset>
     <MixedArrayTypeCoercion>
-      <code><![CDATA[$config->settings['Servers'][Current::$server]]]></code>
+      <code><![CDATA[$this->config->settings['Servers'][Current::$server]]]></code>
     </MixedArrayTypeCoercion>
     <MixedAssignment>
       <code><![CDATA[$languageStats]]></code>
     </MixedAssignment>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($_REQUEST['access_time'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
-      <code><![CDATA[empty($config->selectedServer['verbose'])]]></code>
-      <code><![CDATA[empty($config->settings['Servers'][Current::$server]['pmadb'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
+      <code><![CDATA[empty($this->config->selectedServer['verbose'])]]></code>
+      <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
       <code><![CDATA[ini_get('allow_url_fopen')]]></code>
       <code><![CDATA[ini_get('suhosin.request.max_value_length')]]></code>
     </RiskyTruthyFalsyComparison>
@@ -1458,9 +1393,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$memoryLimit]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[UrlParams::$params]]></code>
     </MixedArgumentTypeCoercion>
@@ -1488,7 +1420,7 @@
       <code><![CDATA[$request->getParsedBodyParamAsString('import_type', '')]]></code>
     </PropertyTypeCoercion>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($config->settings['MemoryLimit'])]]></code>
+      <code><![CDATA[empty($this->config->settings['MemoryLimit'])]]></code>
     </RiskyTruthyFalsyComparison>
     <UnusedProperty>
       <code><![CDATA[$sql]]></code>
@@ -1663,9 +1595,6 @@
     <ArgumentTypeCoercion>
       <code><![CDATA[$exportSqlPlugin]]></code>
     </ArgumentTypeCoercion>
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$database]]></code>
@@ -1681,13 +1610,10 @@
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
     <RiskyTruthyFalsyComparison>
-      <code><![CDATA[empty($config->settings['Servers'][Current::$server]['pmadb'])]]></code>
+      <code><![CDATA[empty($this->config->settings['Servers'][Current::$server]['pmadb'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Operations/TableController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgumentTypeCoercion>
       <code><![CDATA[is_array($partitionNames) ? $partitionNames : []]]></code>
     </MixedArgumentTypeCoercion>
@@ -1711,33 +1637,21 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ExportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/FeaturesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/ImportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/MainPanelController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
@@ -1786,57 +1700,36 @@
     </RedundantCondition>
   </file>
   <file src="src/Controllers/Preferences/NavigationController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/SqlController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Preferences/TwoFactorController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedMethod>
       <code><![CDATA[__construct]]></code>
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/BinlogController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/CollationsController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Databases/CreateController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/Databases/DestroyController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedAssignment>
       <code><![CDATA[$selectedDbs]]></code>
     </MixedAssignment>
@@ -1845,10 +1738,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Server/DatabasesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$database['DEFAULT_COLLATION_NAME']]]></code>
       <code><![CDATA[$database['SCHEMA_NAME']]]></code>
@@ -1903,11 +1792,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Server/ImportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
@@ -2187,9 +2071,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Sql/SqlController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$request->getQueryParam('sql_signature')]]></code>
     </MixedArgument>
@@ -2199,9 +2080,6 @@
     </MixedAssignment>
   </file>
   <file src="src/Controllers/SyncFavoriteTablesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$value['db']]]></code>
       <code><![CDATA[$value['table']]]></code>
@@ -2278,9 +2156,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/ChartController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[Current::$database]]></code>
       <code><![CDATA[Current::$sqlQuery]]></code>
@@ -2353,9 +2228,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/DeleteRowsController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_REQUEST['pos']]]></code>
     </InvalidArgument>
@@ -2437,9 +2309,6 @@
     </UnusedProperty>
   </file>
   <file src="src/Controllers/Table/FindReplaceController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$column]]></code>
       <code><![CDATA[$column]]></code>
@@ -2487,10 +2356,6 @@
     </PossiblyInvalidArgument>
   </file>
   <file src="src/Controllers/Table/GisVisualizationController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION['tmpval']['max_rows']]]></code>
       <code><![CDATA[$_SESSION['tmpval']['pos']]]></code>
@@ -2507,11 +2372,6 @@
     </RiskyCast>
   </file>
   <file src="src/Controllers/Table/ImportController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArrayAccess>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
       <code><![CDATA[$_SESSION[Ajax::SESSION_KEY]['handler']]]></code>
@@ -2540,9 +2400,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/IndexesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$_POST['index']['columns']['names']]]></code>
       <code><![CDATA[$fields]]></code>
@@ -2629,9 +2486,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/PrivilegesController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -2642,11 +2496,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/RelationController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$_POST['destination_column']]]></code>
       <code><![CDATA[$_POST['destination_db']]]></code>
@@ -2756,11 +2605,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/SearchController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$foreignData->foreignField]]></code>
     </MixedArgument>
@@ -2778,7 +2622,7 @@
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['MaxRows']]]></code>
+      <code><![CDATA[(int) $this->config->settings['MaxRows']]]></code>
     </RedundantCastGivenDocblockType>
     <RiskyTruthyFalsyComparison>
       <code><![CDATA[empty($row->collation)]]></code>
@@ -2868,9 +2712,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/Table/Structure/ReservedWordCheckController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$column]]></code>
     </MixedArgument>
@@ -2887,9 +2728,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/Table/Structure/SaveController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$adjustPrivileges]]></code>
     </InvalidArgument>
@@ -2990,10 +2828,6 @@
     </PossiblyUnusedReturnValue>
   </file>
   <file src="src/Controllers/Table/StructureController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[Current::$table]]></code>
     </MixedArgument>
@@ -3062,12 +2896,6 @@
     </MixedPropertyTypeCoercion>
   </file>
   <file src="src/Controllers/Table/ZoomSearchController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <InvalidArrayOffset>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][0]]]]></code>
       <code><![CDATA[$row[$_POST['criteriaColumnNames'][1]]]]></code>
@@ -3107,7 +2935,7 @@
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
     <RedundantCastGivenDocblockType>
-      <code><![CDATA[(int) $config->settings['maxRowPlotLimit']]]></code>
+      <code><![CDATA[(int) $this->config->settings['maxRowPlotLimit']]]></code>
     </RedundantCastGivenDocblockType>
     <RiskyCast>
       <code><![CDATA[$_POST['maxPlotLimit']]]></code>
@@ -3123,9 +2951,6 @@
     </PossiblyUnusedMethod>
   </file>
   <file src="src/Controllers/ThemeSetController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <PossiblyUnusedReturnValue>
       <code><![CDATA[Response]]></code>
     </PossiblyUnusedReturnValue>
@@ -3193,9 +3018,6 @@
     </RiskyTruthyFalsyComparison>
   </file>
   <file src="src/Controllers/UserPasswordController.php">
-    <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
-    </DeprecatedMethod>
     <MixedArgument>
       <code><![CDATA[$message->getDisplay()]]></code>
     </MixedArgument>
@@ -10132,6 +9954,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
@@ -10220,7 +10045,6 @@
   <file src="tests/unit/Controllers/Import/ImportControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Navigation/UpdateNavWidthConfigControllerTest.php">
@@ -10269,11 +10093,13 @@
   <file src="tests/unit/Controllers/Server/BinlogControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Server/CollationsControllerTest.php">
     <DeprecatedMethod>
+      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
@@ -10504,6 +10330,7 @@
   <file src="tests/unit/Controllers/Table/IndexesControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Table/PrivilegesControllerTest.php">
@@ -10515,11 +10342,14 @@
   <file src="tests/unit/Controllers/Table/RelationControllerTest.php">
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
+      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
   </file>
   <file src="tests/unit/Controllers/Table/ReplaceControllerTest.php">
     <DeprecatedMethod>
-      <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>

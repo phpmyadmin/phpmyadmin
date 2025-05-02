@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\Table\ChartController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -104,7 +105,7 @@ class ChartControllerTest extends AbstractTestCase
                 'unlim_num_rows' => '4',
             ]);
 
-        (new ChartController($response, $dbi, new DbTableExists($dbi)))($request);
+        (new ChartController($response, $dbi, new DbTableExists($dbi), new Config()))($request);
         self::assertSame($expected, $response->getHTMLResult());
     }
 }

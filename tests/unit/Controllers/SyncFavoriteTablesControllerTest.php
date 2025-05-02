@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\ConfigStorage\RelationParameters;
 use PhpMyAdmin\Controllers\SyncFavoriteTablesController;
@@ -52,10 +53,7 @@ final class SyncFavoriteTablesControllerTest extends AbstractTestCase
 
         $response = new ResponseStub();
         $response->setAjax(true);
-        $controller = new SyncFavoriteTablesController(
-            $response,
-            new Relation($dbi),
-        );
+        $controller = new SyncFavoriteTablesController($response, new Relation($dbi), new Config());
 
         // The user hash for test
         $user = 'dc76e9f0c0006e8f919e0c515c66dbba3982f785';

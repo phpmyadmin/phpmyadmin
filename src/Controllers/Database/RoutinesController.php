@@ -40,15 +40,16 @@ use const ENT_QUOTES;
 /**
  * Routines management.
  */
-final class RoutinesController implements InvocableController
+final readonly class RoutinesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
-        private readonly DatabaseInterface $dbi,
-        private readonly Routines $routines,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private UserPrivilegesFactory $userPrivilegesFactory,
+        private DatabaseInterface $dbi,
+        private Routines $routines,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -60,7 +61,6 @@ final class RoutinesController implements InvocableController
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
-        $config = Config::getInstance();
         if (! $request->isAjax()) {
             if (Current::$database === '') {
                 return $this->response->missingParameterError('db');
@@ -241,7 +241,7 @@ final class RoutinesController implements InvocableController
                     );
                 }
 
-                $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
+                $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
 
                 $editor = $this->template->render('database/routines/editor_form', [
                     'db' => Current::$database,
@@ -349,7 +349,7 @@ final class RoutinesController implements InvocableController
                     'db' => Current::$database,
                     'routine' => $routine,
                     'ajax' => $request->isAjax(),
-                    'show_function_fields' => $config->settings['ShowFunctionFields'],
+                    'show_function_fields' => $this->config->settings['ShowFunctionFields'],
                     'params' => $params,
                 ]);
                 if ($request->isAjax()) {
@@ -459,7 +459,7 @@ final class RoutinesController implements InvocableController
 
         $items = Routines::getDetails($this->dbi, Current::$database, $type);
         $totalNumRoutines = count($items);
-        $pageSize = $config->settings['MaxRoutineList'];
+        $pageSize = $this->config->settings['MaxRoutineList'];
         $pos = (int) $request->getParam('pos');
 
         // Checks if there are any routines to be shown on current page.

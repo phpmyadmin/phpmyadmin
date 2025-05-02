@@ -35,13 +35,14 @@ final class CreateControllerTest extends AbstractTestCase
 
     public function testCreateDatabase(): void
     {
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
         Current::$database = 'pma_test';
         Current::$table = '';
 
         $response = new ResponseRenderer();
 
-        $controller = new CreateController($response, $this->dbi);
+        $controller = new CreateController($response, $this->dbi, $config);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([
@@ -57,7 +58,7 @@ final class CreateControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new CreateController($response, $this->dbi);
+        $controller = new CreateController($response, $this->dbi, $config);
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
         ->withParsedBody([
