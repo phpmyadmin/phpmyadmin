@@ -159,6 +159,7 @@ final class HomeController implements InvocableController
             $serverCharset = Charsets::getServerCharset($this->dbi, $config->selectedServer['DisableIS']);
             $databaseServer = [
                 'host' => $hostInfo,
+                'hostname' => $this->dbi->fetchValue('SELECT @@hostname;'),
                 'type' => Util::getServerType(),
                 'connection' => Generator::getServerSSL(),
                 'version' => $this->dbi->getVersionString() . ' - ' . $this->dbi->getVersionComment(),
