@@ -1107,7 +1107,8 @@ input#auto_increment_opt {
 }
 
 #table_name_col_no_outer {
-  margin-top: 45px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #table_name_col_no {

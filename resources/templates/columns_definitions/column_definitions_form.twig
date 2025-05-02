@@ -17,32 +17,29 @@
 
     {% if action == '/table/create' %}
         <div id="table_name_col_no_outer">
-            <table id="table_name_col_no" class="table table-borderless tdblock">
-                <tr class="align-middle float-start">
-                    <td>{{ t('Table name') }}:
-                    <input type="text"
-                        name="table"
-                        size="40"
-                        maxlength="64"
-                        value="{{ table is defined ? table }}"
-                        class="textfield" autofocus required>
-                    </td>
-                    <td>
-                        {{ t('Add') }}
-                        <input type="number"
-                            id="added_fields"
-                            name="added_fields"
-                            size="2"
-                            value="1"
-                            min="1"
-                            onfocus="this.select()">
-                        {{ t('column(s)') }}
-                        <input class="btn btn-secondary" type="button"
-                            name="submit_num_fields"
-                            value="{{ t('Go') }}">
-                    </td>
-                </tr>
-            </table>
+            <span>
+                {{ t('Table name') }}:
+                <input type="text"
+                    name="table"
+                    size="40"
+                    maxlength="64"
+                    value="{{ table is defined ? table }}"
+                    class="textfield" autofocus required>
+            </span>
+            <span>
+                {{ t('Add') }}
+                <input type="number"
+                    id="added_fields"
+                    name="added_fields"
+                    size="2"
+                    value="1"
+                    min="1"
+                    onfocus="this.select()">
+                {{ t('column(s)') }}
+                <input class="btn btn-secondary" type="button"
+                    name="submit_num_fields"
+                    value="{{ t('Go') }}">
+            </span>
         </div>
     {% endif %}
     {% if content_cells is iterable %}
