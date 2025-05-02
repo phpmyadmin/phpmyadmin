@@ -309,22 +309,19 @@ class InsertEdit
         array $foreigners,
         bool $foreignLink,
     ): string {
-        $foreigner = $this->relation->searchColumnInForeigners($foreigners, $column->field);
         if ($column->trueType === 'enum') {
-            $nullifyCode = mb_strlen($column->type) > 20 ? '1' : '2';
-        } elseif ($column->trueType === 'set') {
-            $nullifyCode = '3';
-        } elseif ($foreigner !== false && ! $foreignLink) {
-            // foreign key in a drop-down
-            $nullifyCode = '4';
-        } elseif ($foreigner !== false) {
-            // foreign key with a browsing icon
-            $nullifyCode = '6';
-        } else {
-            $nullifyCode = '5';
+            return mb_strlen($column->type) > 20 ? '1' : '2';
         }
 
-        return $nullifyCode;
+        if ($column->trueType === 'set') {
+            return '3';
+        }
+
+        if ($this->relation->searchColumnInForeigners($foreigners, $column->field) !== false) {
+            return $foreignLink ? '6' : '4';
+        }
+
+        return '5';
     }
 
     /**
