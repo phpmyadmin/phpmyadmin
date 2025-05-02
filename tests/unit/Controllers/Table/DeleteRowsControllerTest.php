@@ -57,7 +57,7 @@ class DeleteRowsControllerTest extends AbstractTestCase
             ->withParsedBody(['original_sql_query' => 'SELECT * FROM `test_db`.`test_table`']);
 
         $response = new ResponseRenderer();
-        (new DeleteRowsController($response, new Template(), $dbi))($request);
+        (new DeleteRowsController($response, new Template(), $dbi, $config))($request);
         $actual = $response->getHTMLResult();
         self::assertStringContainsString(
             '<div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0"'

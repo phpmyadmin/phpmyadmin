@@ -188,7 +188,12 @@ final class ExportControllerTest extends AbstractTestCase
             COMMIT;
             SQL;
 
-        $exportController = new ExportController(new ResponseRenderer(), new Export($dbi), ResponseFactory::create());
+        $exportController = new ExportController(
+            new ResponseRenderer(),
+            new Export($dbi),
+            ResponseFactory::create(),
+            $config,
+        );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
 
@@ -348,7 +353,12 @@ final class ExportControllerTest extends AbstractTestCase
             COMMIT;
             SQL;
 
-        $exportController = new ExportController(new ResponseRenderer(), new Export($dbi), ResponseFactory::create());
+        $exportController = new ExportController(
+            new ResponseRenderer(),
+            new Export($dbi),
+            ResponseFactory::create(),
+            $config,
+        );
         $response = $exportController($request);
         $output = $this->getActualOutputForAssertion();
 
@@ -498,7 +508,7 @@ final class ExportControllerTest extends AbstractTestCase
         self::assertInstanceOf(Export::class, $export);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
-        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create());
+        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create(), $config);
         $response = $exportController($request);
 
         $output = $this->getActualOutputForAssertion();
@@ -652,7 +662,7 @@ final class ExportControllerTest extends AbstractTestCase
         self::assertInstanceOf(Export::class, $export);
         (new ReflectionProperty(Export::class, 'dbi'))->setValue($export, $dbi);
 
-        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create());
+        $exportController = new ExportController(new ResponseRenderer(), $export, ResponseFactory::create(), $config);
         $response = $exportController($request);
 
         $output = (string) $response->getBody();

@@ -42,7 +42,8 @@ class LoadControllerTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        Config::getInstance()->selectedServer['user'] = 'user';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
@@ -52,6 +53,7 @@ class LoadControllerTest extends AbstractTestCase
             $response,
             new TemplateModel($this->dbi),
             new Relation($this->dbi),
+            $config,
         ))($request);
 
         self::assertTrue($response->hasSuccessState());

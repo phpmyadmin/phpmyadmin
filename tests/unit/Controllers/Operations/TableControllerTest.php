@@ -135,6 +135,7 @@ class TableControllerTest extends AbstractTestCase
             $relation,
             $this->dbi,
             new DbTableExists($this->dbi),
+            $config,
         );
         $controller($request);
 

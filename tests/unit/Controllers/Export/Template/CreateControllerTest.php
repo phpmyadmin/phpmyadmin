@@ -44,7 +44,8 @@ class CreateControllerTest extends AbstractTestCase
         ]);
         (new ReflectionProperty(Relation::class, 'cache'))->setValue(null, $relationParameters);
 
-        Config::getInstance()->selectedServer['user'] = 'user';
+        $config = Config::getInstance();
+        $config->selectedServer['user'] = 'user';
 
         $response = new ResponseRenderer();
         $template = new Template();
@@ -61,6 +62,7 @@ class CreateControllerTest extends AbstractTestCase
             $template,
             new TemplateModel($this->dbi),
             new Relation($this->dbi),
+            $config,
         ))($request);
 
         $templates = [

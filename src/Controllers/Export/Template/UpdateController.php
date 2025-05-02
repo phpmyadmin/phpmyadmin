@@ -13,12 +13,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 
-final class UpdateController implements InvocableController
+final readonly class UpdateController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly TemplateModel $model,
-        private readonly Relation $relation,
+        private ResponseRenderer $response,
+        private TemplateModel $model,
+        private Relation $relation,
+        private Config $config,
     ) {
     }
 
@@ -34,7 +35,7 @@ final class UpdateController implements InvocableController
 
         $template = ExportTemplate::fromArray([
             'id' => $templateId,
-            'username' => Config::getInstance()->selectedServer['user'],
+            'username' => $this->config->selectedServer['user'],
             'data' => $templateData,
         ]);
         $result = $this->model->update(

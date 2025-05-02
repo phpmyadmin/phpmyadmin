@@ -39,7 +39,8 @@ class PrivilegesControllerTest extends AbstractTestCase
     public function testIndex(): void
     {
         Current::$database = 'test_db';
-        Config::getInstance()->selectedServer['DisableIS'] = false;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = false;
 
         $this->dummyDbi->addResult(
             'SHOW TABLES FROM `test_db`;',
@@ -69,6 +70,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             $serverPrivileges,
             DatabaseInterface::getInstance(),
+            $config,
         ))($request);
         $actual = $response->getHTMLResult();
 
@@ -115,6 +117,7 @@ class PrivilegesControllerTest extends AbstractTestCase
             $response,
             self::createStub(Privileges::class),
             $this->createDatabaseInterface(),
+            new Config(),
         ))($request);
         $actual = $response->getHTMLResult();
 

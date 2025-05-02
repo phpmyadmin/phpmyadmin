@@ -13,12 +13,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 
-final class LoadController implements InvocableController
+final readonly class LoadController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly TemplateModel $model,
-        private readonly Relation $relation,
+        private ResponseRenderer $response,
+        private TemplateModel $model,
+        private Relation $relation,
+        private Config $config,
     ) {
     }
 
@@ -34,7 +35,7 @@ final class LoadController implements InvocableController
         $template = $this->model->load(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            Config::getInstance()->selectedServer['user'],
+            $this->config->selectedServer['user'],
             $templateId,
         );
 

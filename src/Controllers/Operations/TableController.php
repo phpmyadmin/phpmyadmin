@@ -41,15 +41,16 @@ use function preg_replace;
 use function str_contains;
 use function urldecode;
 
-final class TableController implements InvocableController
+final readonly class TableController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Operations $operations,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
-        private readonly Relation $relation,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Operations $operations,
+        private UserPrivilegesFactory $userPrivilegesFactory,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -75,7 +76,6 @@ final class TableController implements InvocableController
 
         $isSystemSchema = Utilities::isSystemSchema(Current::$database);
         UrlParams::$params = ['db' => Current::$database, 'table' => Current::$table];
-        $config = Config::getInstance();
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -438,8 +438,8 @@ final class TableController implements InvocableController
 
         $storageEngines = StorageEngine::getArray();
 
-        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
+        $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
 
         $hasPackKeys = isset($createOptions['pack_keys'])
             && $pmaTable->isEngine(['MYISAM', 'ARIA', 'ISAM']);
@@ -452,7 +452,7 @@ final class TableController implements InvocableController
 
         $databaseList = [];
         $listDatabase = $this->dbi->getDatabaseList();
-        if (count($listDatabase) <= $config->settings['MaxDbList']) {
+        if (count($listDatabase) <= $this->config->settings['MaxDbList']) {
             $databaseList = $listDatabase->getList();
         }
 

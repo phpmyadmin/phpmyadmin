@@ -103,6 +103,7 @@ class StructureControllerTest extends AbstractTestCase
             $this->dbi,
             $pageSettings,
             new DbTableExists($this->dbi),
+            $config,
         ))($request);
 
         $expected = $pageSettings->getHTML();

@@ -25,10 +25,13 @@ use function is_string;
 use function mb_strtolower;
 use function str_contains;
 
-final class CreateController implements InvocableController
+final readonly class CreateController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
-    {
+    public function __construct(
+        private ResponseRenderer $response,
+        private DatabaseInterface $dbi,
+        private Config $config,
+    ) {
     }
 
     public function __invoke(ServerRequest $request): Response
@@ -50,11 +53,10 @@ final class CreateController implements InvocableController
          * Builds and executes the db creation sql query
          */
         $sqlQuery = 'CREATE DATABASE ' . Util::backquote($newDb);
-        $config = Config::getInstance();
         if (is_string($dbCollation) && $dbCollation !== '') {
             [$databaseCharset] = explode('_', $dbCollation);
-            $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
-            $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
+            $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
             if (
                 array_key_exists($databaseCharset, $charsets)
                 && array_key_exists($dbCollation, $collations[$databaseCharset])
@@ -82,7 +84,7 @@ final class CreateController implements InvocableController
             $message = Message::success(__('Database %1$s has been created.'));
             $message->addParam($newDb);
 
-            $scriptName = Url::getFromRoute($config->settings['DefaultTabDatabase']);
+            $scriptName = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
 
             $json = [
                 'message' => $message,

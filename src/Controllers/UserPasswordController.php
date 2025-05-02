@@ -19,12 +19,13 @@ use function __;
 /**
  * Displays and handles the form where the user can change their password.
  */
-final class UserPasswordController implements InvocableController
+final readonly class UserPasswordController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly UserPassword $userPassword,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private UserPassword $userPassword,
+        private DatabaseInterface $dbi,
+        private Config $config,
     ) {
     }
 
@@ -32,16 +33,15 @@ final class UserPasswordController implements InvocableController
     {
         $this->response->addScriptFiles(['server/privileges.js', 'vendor/zxcvbn-ts.js']);
 
-        $config = Config::getInstance();
         /**
          * Displays an error message and exits if the user isn't allowed to use this
          * script
          */
-        if (! $config->settings['ShowChgPassword']) {
-            $config->settings['ShowChgPassword'] = $this->dbi->selectDb('mysql');
+        if (! $this->config->settings['ShowChgPassword']) {
+            $this->config->settings['ShowChgPassword'] = $this->dbi->selectDb('mysql');
         }
 
-        if ($config->selectedServer['auth_type'] === 'config' || ! $config->settings['ShowChgPassword']) {
+        if ($this->config->selectedServer['auth_type'] === 'config' || ! $this->config->settings['ShowChgPassword']) {
             $this->response->addHTML(Message::error(
                 __('You don\'t have sufficient privileges to be here right now!'),
             )->getDisplay());

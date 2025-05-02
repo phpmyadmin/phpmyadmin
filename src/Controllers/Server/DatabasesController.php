@@ -61,6 +61,7 @@ final class DatabasesController implements InvocableController
         private readonly ResponseRenderer $response,
         private readonly DatabaseInterface $dbi,
         private readonly UserPrivilegesFactory $userPrivilegesFactory,
+        private readonly Config $config,
     ) {
     }
 
@@ -117,10 +118,9 @@ final class DatabasesController implements InvocableController
         $databases = $this->getDatabases($primaryInfo, $replicaInfo);
 
         $charsetsList = [];
-        $config = Config::getInstance();
-        if ($config->settings['ShowCreateDb'] && $userPrivileges->isCreateDatabase) {
-            $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
-            $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
+        if ($this->config->settings['ShowCreateDb'] && $userPrivileges->isCreateDatabase) {
+            $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
+            $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
             $serverCollation = $this->dbi->getServerCollation();
             foreach ($charsets as $charset) {
                 $collationsList = [];
@@ -143,7 +143,7 @@ final class DatabasesController implements InvocableController
         $headerStatistics = $this->getStatisticsColumns();
 
         $this->response->render('server/databases/index', [
-            'is_create_database_shown' => $config->settings['ShowCreateDb'],
+            'is_create_database_shown' => $this->config->settings['ShowCreateDb'],
             'has_create_database_privileges' => $userPrivileges->isCreateDatabase,
             'has_statistics' => $this->hasStatistics,
             'database_to_create' => $userPrivileges->databaseToCreate,
@@ -154,10 +154,10 @@ final class DatabasesController implements InvocableController
             'database_count' => $this->databaseCount,
             'pos' => $position,
             'url_params' => $urlParams,
-            'max_db_list' => $config->settings['MaxDbList'],
+            'max_db_list' => $this->config->settings['MaxDbList'],
             'has_primary_replication' => $primaryInfo['status'],
             'has_replica_replication' => $replicaInfo['status'],
-            'is_drop_allowed' => $this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'],
+            'is_drop_allowed' => $this->dbi->isSuperUser() || $this->config->settings['AllowUserDropDatabase'],
         ]);
 
         return $this->response->response();
@@ -213,8 +213,7 @@ final class DatabasesController implements InvocableController
                 }
             }
 
-            $config = Config::getInstance();
-            $url = Url::getFromRoute($config->settings['DefaultTabDatabase']);
+            $url = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
             $url .= Url::getCommonRaw(
                 ['db' => $database['SCHEMA_NAME']],
                 ! str_contains($url, '?') ? '?' : '&',
@@ -225,12 +224,12 @@ final class DatabasesController implements InvocableController
                 'statistics' => $statistics,
                 'replication' => $replication,
                 'is_system_schema' => Utilities::isSystemSchema($database['SCHEMA_NAME'], true),
-                'is_pmadb' => $database['SCHEMA_NAME'] === ($config->selectedServer['pmadb'] ?? ''),
+                'is_pmadb' => $database['SCHEMA_NAME'] === ($this->config->selectedServer['pmadb'] ?? ''),
                 'url' => $url,
             ];
             $collation = Charsets::findCollationByName(
                 $this->dbi,
-                $config->selectedServer['DisableIS'],
+                $this->config->selectedServer['DisableIS'],
                 $database['DEFAULT_COLLATION_NAME'],
             );
             if ($collation === null) {

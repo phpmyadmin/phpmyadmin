@@ -46,7 +46,7 @@ class DatabasesControllerTest extends AbstractTestCase
 
         $response = new ResponseRenderer();
 
-        $controller = new DatabasesController($response, $this->dbi, new UserPrivilegesFactory($this->dbi));
+        $controller = new DatabasesController($response, $this->dbi, new UserPrivilegesFactory($this->dbi), $config);
 
         $this->dummyDbi->addResult(
             'SELECT `SCHEMA_NAME` FROM `INFORMATION_SCHEMA`.`SCHEMATA`',
@@ -84,7 +84,7 @@ class DatabasesControllerTest extends AbstractTestCase
         $response = new ResponseRenderer();
 
         $dbi = DatabaseInterface::getInstance();
-        $controller = new DatabasesController($response, $dbi, new UserPrivilegesFactory($dbi));
+        $controller = new DatabasesController($response, $dbi, new UserPrivilegesFactory($dbi), $config);
 
         $config->settings['ShowCreateDb'] = true;
 

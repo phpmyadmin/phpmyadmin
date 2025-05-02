@@ -38,12 +38,13 @@ use function is_array;
 use function register_shutdown_function;
 use function time;
 
-final class ExportController implements InvocableController
+final readonly class ExportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Export $export,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private Export $export,
+        private ResponseFactory $responseFactory,
+        private Config $config,
     ) {
     }
 
@@ -118,18 +119,17 @@ final class ExportController implements InvocableController
             return $this->response->response();
         }
 
-        $config = Config::getInstance();
-        $exportPlugin->setExportOptions($request, $config->settings['Export']);
+        $exportPlugin->setExportOptions($request, $this->config->settings['Export']);
 
         /**
          * valid compression methods
          */
         $compressionMethods = [];
-        if ($config->settings['ZipDump'] && function_exists('gzcompress')) {
+        if ($this->config->settings['ZipDump'] && function_exists('gzcompress')) {
             $compressionMethods[] = 'zip';
         }
 
-        if ($config->settings['GZipDump'] && function_exists('gzencode')) {
+        if ($this->config->settings['GZipDump'] && function_exists('gzencode')) {
             $compressionMethods[] = 'gzip';
         }
 
@@ -162,7 +162,7 @@ final class ExportController implements InvocableController
 
             if (($isQuickExport && $quickExportOnServer) || (! $isQuickExport && $onServerParam)) {
                 // Will we save dump on server?
-                Export::$saveOnServer = $config->settings['SaveDir'] !== '';
+                Export::$saveOnServer = $this->config->settings['SaveDir'] !== '';
             }
         }
 
@@ -205,8 +205,8 @@ final class ExportController implements InvocableController
          * Increase time limit for script execution and initializes some variables
          */
         Util::setTimeLimit();
-        if (! empty($config->settings['MemoryLimit'])) {
-            ini_set('memory_limit', $config->settings['MemoryLimit']);
+        if (! empty($this->config->settings['MemoryLimit'])) {
+            ini_set('memory_limit', $this->config->settings['MemoryLimit']);
         }
 
         register_shutdown_function([$this->export, 'shutdown']);
@@ -229,7 +229,7 @@ final class ExportController implements InvocableController
             && in_array(Current::$charset, Encoding::listEncodings(), true);
 
         // Use on the fly compression?
-        Export::$onFlyCompression = $config->settings['CompressOnFly'] && Export::$compression === 'gzip';
+        Export::$onFlyCompression = $this->config->settings['CompressOnFly'] && Export::$compression === 'gzip';
         if (Export::$onFlyCompression) {
             Export::$memoryLimit = $this->export->getMemoryLimit();
         }
@@ -240,7 +240,7 @@ final class ExportController implements InvocableController
             $filenameTemplate = $request->getParsedBodyParamAsString('filename_template');
 
             if ((bool) $rememberTemplate) {
-                $this->export->rememberFilename($config, $exportType, $filenameTemplate);
+                $this->export->rememberFilename($this->config, $exportType, $filenameTemplate);
             }
 
             $filename = $this->export->getFinalFilename(

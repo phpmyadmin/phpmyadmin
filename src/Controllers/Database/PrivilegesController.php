@@ -25,12 +25,13 @@ use function mb_strtolower;
 /**
  * Controller for database privileges
  */
-final class PrivilegesController implements InvocableController
+final readonly class PrivilegesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Privileges $privileges,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Privileges $privileges,
+        private DatabaseInterface $dbi,
+        private Config $config,
     ) {
     }
 
@@ -71,7 +72,7 @@ final class PrivilegesController implements InvocableController
             )->getDisplay());
         }
 
-        $scriptName = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
+        $scriptName = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
 
         $privileges = [];
         if ($this->dbi->isSuperUser()) {

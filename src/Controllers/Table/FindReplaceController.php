@@ -50,6 +50,7 @@ final class FindReplaceController implements InvocableController
         private readonly Template $template,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
+        private readonly Config $config,
     ) {
     }
 
@@ -170,7 +171,7 @@ final class FindReplaceController implements InvocableController
     private function displaySelectionFormAction(): void
     {
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute(Config::getInstance()->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
         }
 
         $types = [];

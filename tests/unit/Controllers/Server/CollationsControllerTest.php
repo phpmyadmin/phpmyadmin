@@ -43,7 +43,7 @@ class CollationsControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new CollationsController($response, DatabaseInterface::getInstance());
+        $controller = new CollationsController($response, DatabaseInterface::getInstance(), Config::getInstance());
 
         $this->dummyDbi->addSelectDb('mysql');
         $controller(self::createStub(ServerRequest::class));

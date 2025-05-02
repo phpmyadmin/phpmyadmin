@@ -36,16 +36,17 @@ use function mb_strtolower;
 /**
  * Handles miscellaneous database operations.
  */
-final class DatabaseController implements InvocableController
+final readonly class DatabaseController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Operations $operations,
-        private readonly UserPrivilegesFactory $userPrivilegesFactory,
-        private readonly Relation $relation,
-        private readonly RelationCleanup $relationCleanup,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Operations $operations,
+        private UserPrivilegesFactory $userPrivilegesFactory,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -224,8 +225,6 @@ final class DatabaseController implements InvocableController
             return $this->response->missingParameterError('db');
         }
 
-        $config = Config::getInstance();
-
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
             if ($request->isAjax()) {
@@ -262,15 +261,17 @@ final class DatabaseController implements InvocableController
         $hasAdjustPrivileges = $userPrivileges->database && $userPrivileges->table
             && $userPrivileges->column && $userPrivileges->routines && $userPrivileges->isReload;
 
-        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $config->settings['AllowUserDropDatabase'])
+        $isDropDatabaseAllowed = ($this->dbi->isSuperUser() || $this->config->settings['AllowUserDropDatabase'])
             && Current::$database !== 'mysql';
 
         $switchToNew = isset($_SESSION['pma_switch_to_new']) && $_SESSION['pma_switch_to_new'];
 
-        $charsets = Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
-        $collations = Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
+        $charsets = Charsets::getCharsets($this->dbi, $this->config->selectedServer['DisableIS']);
+        $collations = Charsets::getCollations($this->dbi, $this->config->selectedServer['DisableIS']);
 
-        if (! $relationParameters->hasAllFeatures() && $config->settings['PmaNoRelation_DisableWarning'] == false) {
+        if (
+            ! $relationParameters->hasAllFeatures() && $this->config->settings['PmaNoRelation_DisableWarning'] == false
+        ) {
             Current::$message = Message::notice(
                 __(
                     'The phpMyAdmin configuration storage has been deactivated. %sFind out why%s.',
@@ -282,7 +283,7 @@ final class DatabaseController implements InvocableController
             );
             Current::$message->addParamHtml('</a>');
             /* Show error if user has configured something, notice elsewhere */
-            if (! empty($config->settings['Servers'][Current::$server]['pmadb'])) {
+            if (! empty($this->config->settings['Servers'][Current::$server]['pmadb'])) {
                 Current::$message->setType(MessageType::Error);
             }
         }

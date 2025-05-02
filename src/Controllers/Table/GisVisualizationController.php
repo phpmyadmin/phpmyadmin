@@ -35,14 +35,15 @@ use function ob_start;
 /**
  * Handles creation of the GIS visualizations.
  */
-final class GisVisualizationController implements InvocableController
+final readonly class GisVisualizationController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
-        private readonly ResponseFactory $responseFactory,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private ResponseFactory $responseFactory,
+        private Config $config,
     ) {
     }
 
@@ -132,7 +133,7 @@ final class GisVisualizationController implements InvocableController
          * Displays the page
          */
         $urlParams = UrlParams::$params;
-        $urlParams['goto'] = Url::getFromRoute(Config::getInstance()->settings['DefaultTabDatabase']);
+        $urlParams['goto'] = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
         $urlParams['back'] = Url::getFromRoute('/sql');
         $urlParams['sql_query'] = $sqlQuery;
         $urlParams['sql_signature'] = Core::signSqlQuery($sqlQuery);
@@ -236,7 +237,7 @@ final class GisVisualizationController implements InvocableController
         }
 
         if ($_SESSION['tmpval']['max_rows'] === 'all') {
-            return Config::getInstance()->settings['MaxRows'];
+            return $this->config->settings['MaxRows'];
         }
 
         return (int) $_SESSION['tmpval']['max_rows'];

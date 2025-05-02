@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table\Structure;
 
+use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
 use PhpMyAdmin\Controllers\Table\Structure\SaveController;
 use PhpMyAdmin\Controllers\Table\StructureController;
@@ -100,6 +101,7 @@ class SaveControllerTest extends AbstractTestCase
             $dbi,
             $mock,
             new UserPrivilegesFactory($dbi),
+            new Config(),
         ))($request);
 
         self::assertArrayNotHasKey('selected', $_POST);
@@ -122,6 +124,7 @@ class SaveControllerTest extends AbstractTestCase
             $dbi,
             self::createStub(StructureController::class),
             new UserPrivilegesFactory($dbi),
+            new Config(),
         );
 
         self::assertFalse(

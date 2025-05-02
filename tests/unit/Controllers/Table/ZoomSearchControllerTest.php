@@ -26,7 +26,8 @@ final class ZoomSearchControllerTest extends AbstractTestCase
         Current::$server = 2;
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
         UrlParams::$goto = '';
 
         $dbiDummy = $this->createDbiDummy();
@@ -48,6 +49,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),
+            $config,
         );
         $controller($request);
 
@@ -72,7 +74,8 @@ final class ZoomSearchControllerTest extends AbstractTestCase
     {
         Current::$database = 'test_db';
         Current::$table = 'test_table';
-        Config::getInstance()->selectedServer['DisableIS'] = true;
+        $config = Config::getInstance();
+        $config->selectedServer['DisableIS'] = true;
 
         $_POST['field'] = 'datetimefield';
 
@@ -96,6 +99,7 @@ final class ZoomSearchControllerTest extends AbstractTestCase
             new Relation($dbi),
             $dbi,
             new DbTableExists($dbi),
+            $config,
         );
         $controller($request);
 

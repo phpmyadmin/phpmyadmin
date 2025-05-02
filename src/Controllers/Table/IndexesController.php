@@ -33,14 +33,15 @@ use function min;
 /**
  * Displays index edit/creation form and handles it.
  */
-final class IndexesController implements InvocableController
+final readonly class IndexesController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-        private readonly Indexes $indexes,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private Indexes $indexes,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -229,7 +230,7 @@ final class IndexesController implements InvocableController
             'form_params' => $formParams,
             'add_fields' => $addFields,
             'create_edit_table' => isset($_POST['create_edit_table']),
-            'default_sliders_state' => Config::getInstance()->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
             'is_from_nav' => isset($_POST['is_from_nav']),
         ]);
     }

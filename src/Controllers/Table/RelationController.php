@@ -38,13 +38,14 @@ use function usort;
  *
  * Includes phpMyAdmin relations and InnoDB relations.
  */
-final class RelationController implements InvocableController
+final readonly class RelationController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly Relation $relation,
-        private readonly DatabaseInterface $dbi,
+        private ResponseRenderer $response,
+        private Template $template,
+        private Relation $relation,
+        private DatabaseInterface $dbi,
+        private Config $config,
     ) {
     }
 
@@ -175,8 +176,7 @@ final class RelationController implements InvocableController
             $columnArray[$column->field] = $column->field;
         }
 
-        $config = Config::getInstance();
-        if ($config->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             uksort($columnArray, strnatcasecmp(...));
         }
 
@@ -296,7 +296,7 @@ final class RelationController implements InvocableController
             'internal_relation_columns' => $internalRelationColumns,
             'url_params' => UrlParams::$params,
             'databases' => $this->dbi->getDatabaseList(),
-            'default_sliders_state' => $config->settings['InitialSlidersState'],
+            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
             'route' => $request->getRoute(),
             'display_field' => $this->relation->getDisplayField(Current::$database, Current::$table),
             'foreign_key_row' => $foreignKeyRow,
@@ -370,7 +370,7 @@ final class RelationController implements InvocableController
             $columnList = $tableObj->getIndexedColumns(false, false);
         }
 
-        if (Config::getInstance()->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($columnList, strnatcasecmp(...));
         }
 
@@ -413,7 +413,7 @@ final class RelationController implements InvocableController
             $tables = $tablesRs->fetchAllColumn();
         }
 
-        if (Config::getInstance()->settings['NaturalOrder']) {
+        if ($this->config->settings['NaturalOrder']) {
             usort($tables, strnatcasecmp(...));
         }
 

@@ -17,9 +17,9 @@ use function __;
 use function count;
 use function define;
 
-final class TwoFactorController implements InvocableController
+final readonly class TwoFactorController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Relation $relation)
+    public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)
     {
     }
 
@@ -33,7 +33,7 @@ final class TwoFactorController implements InvocableController
             'has_config_storage' => $relationParameters->userPreferencesFeature !== null,
         ]);
 
-        $twoFactor = new TwoFactor(Config::getInstance()->selectedServer['user']);
+        $twoFactor = new TwoFactor($this->config->selectedServer['user']);
 
         if ($request->hasBodyParam('2fa_remove')) {
             if (! $twoFactor->check($request, true)) {

@@ -27,13 +27,14 @@ use function sprintf;
 /**
  * Tracking configuration for database.
  */
-final class TrackingController implements InvocableController
+final readonly class TrackingController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Tracking $tracking,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Tracking $tracking,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -44,8 +45,6 @@ final class TrackingController implements InvocableController
         if (Current::$database === '') {
             return $this->response->missingParameterError('db');
         }
-
-        $config = Config::getInstance();
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
         if ($databaseName === null || ! $this->dbTableExists->selectDatabase($databaseName)) {
@@ -105,7 +104,7 @@ final class TrackingController implements InvocableController
                         'db' => Current::$database,
                         'selected' => $selectedTable,
                         'type' => 'both',
-                        'default_statements' => $config->selectedServer['tracking_default_statements'],
+                        'default_statements' => $this->config->selectedServer['tracking_default_statements'],
                     ]);
 
                     return $this->response->response();

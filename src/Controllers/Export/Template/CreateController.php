@@ -16,13 +16,14 @@ use PhpMyAdmin\Template;
 
 use function is_array;
 
-final class CreateController implements InvocableController
+final readonly class CreateController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly TemplateModel $model,
-        private readonly Relation $relation,
+        private ResponseRenderer $response,
+        private Template $template,
+        private TemplateModel $model,
+        private Relation $relation,
+        private Config $config,
     ) {
     }
 
@@ -39,7 +40,7 @@ final class CreateController implements InvocableController
         }
 
         $template = ExportTemplate::fromArray([
-            'username' => Config::getInstance()->selectedServer['user'],
+            'username' => $this->config->selectedServer['user'],
             'exportType' => $exportType,
             'name' => $templateName,
             'data' => $templateData,

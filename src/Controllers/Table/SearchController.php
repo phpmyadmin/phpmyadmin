@@ -95,6 +95,7 @@ final class SearchController implements InvocableController
         private readonly Relation $relation,
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
+        private readonly Config $config,
     ) {
     }
 
@@ -243,7 +244,7 @@ final class SearchController implements InvocableController
             new Transformations(),
             $this->template,
             new BookmarkRepository($this->dbi, $this->relation),
-            Config::getInstance(),
+            $this->config,
         );
 
         $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
@@ -266,9 +267,8 @@ final class SearchController implements InvocableController
      */
     private function displaySelectionFormAction(): void
     {
-        $config = Config::getInstance();
         if (UrlParams::$goto === '') {
-            UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
+            UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
         }
 
         $properties = [];
@@ -285,8 +285,8 @@ final class SearchController implements InvocableController
             'column_names' => $this->columnNames,
             'column_types' => $this->columnTypes,
             'column_collations' => $this->columnCollations,
-            'default_sliders_state' => $config->settings['InitialSlidersState'],
-            'max_rows' => (int) $config->settings['MaxRows'],
+            'default_sliders_state' => $this->config->settings['InitialSlidersState'],
+            'max_rows' => (int) $this->config->settings['MaxRows'],
         ]);
     }
 
@@ -380,7 +380,7 @@ final class SearchController implements InvocableController
                 $foreignData->foreignField,
                 $foreignData->foreignDisplay,
                 '',
-                Config::getInstance()->settings['ForeignKeyMaxLimit'],
+                $this->config->settings['ForeignKeyMaxLimit'],
             );
         }
 

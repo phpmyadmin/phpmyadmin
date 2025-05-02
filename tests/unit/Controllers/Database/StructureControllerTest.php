@@ -75,6 +75,7 @@ class StructureControllerTest extends AbstractTestCase
         $class = new ReflectionClass(StructureController::class);
         $method = $class->getMethod('getValuesForInnodbTable');
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         $controller = new StructureController(
             $this->response,
             $this->template,
@@ -84,12 +85,13 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            $config,
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
         $property->setValue($controller, true);
 
-        Config::getInstance()->settings['MaxExactCount'] = 10;
+        $config->settings['MaxExactCount'] = 10;
         $currentTable = [
             'ENGINE' => 'InnoDB',
             'TABLE_ROWS' => 5,
@@ -124,6 +126,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            $config,
         );
 
         $currentTable['ENGINE'] = 'InnoDB';
@@ -146,6 +149,7 @@ class StructureControllerTest extends AbstractTestCase
         $method = $class->getMethod('getValuesForAriaTable');
 
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         $controller = new StructureController(
             $this->response,
             $this->template,
@@ -155,6 +159,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            $config,
         );
         // Showing statistics
         $property = $class->getProperty('isShowStats');
@@ -187,6 +192,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            $config,
         );
         [$currentTable, , , , , , $sumSize] = $method->invokeArgs(
             $controller,
@@ -203,6 +209,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            $config,
         );
         [$currentTable] = $method->invokeArgs(
             $controller,
@@ -229,6 +236,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            Config::getInstance(),
         );
 
         // When parameter $db is empty
@@ -265,6 +273,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            Config::getInstance(),
         );
         // Showing statistics
         $class = new ReflectionClass(StructureController::class);
@@ -313,6 +322,7 @@ class StructureControllerTest extends AbstractTestCase
         Current::$table = 'mytable';
 
         $dbi = DatabaseInterface::getInstance();
+        $config = Config::getInstance();
         $structureController = new StructureController(
             $this->response,
             $this->template,
@@ -322,6 +332,7 @@ class StructureControllerTest extends AbstractTestCase
             self::createStub(TrackingChecker::class),
             self::createStub(PageSettings::class),
             new DbTableExists($dbi),
+            $config,
         );
 
         self::assertSame(
@@ -335,7 +346,7 @@ class StructureControllerTest extends AbstractTestCase
         );
 
         // Enable stats
-        Config::getInstance()->settings['ShowStats'] = true;
+        $config->settings['ShowStats'] = true;
         $this->callFunction(
             $structureController,
             StructureController::class,

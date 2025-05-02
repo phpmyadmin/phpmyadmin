@@ -22,13 +22,14 @@ use PhpMyAdmin\UrlParams;
 
 use function __;
 
-final class SearchController implements InvocableController
+final readonly class SearchController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-        private readonly DbTableExists $dbTableExists,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private DbTableExists $dbTableExists,
+        private Config $config,
     ) {
     }
 
@@ -40,8 +41,7 @@ final class SearchController implements InvocableController
             return $this->response->missingParameterError('db');
         }
 
-        $config = Config::getInstance();
-        $errorUrl = Url::getFromRoute($config->settings['DefaultTabDatabase']);
+        $errorUrl = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
         $errorUrl .= Url::getCommon(['db' => Current::$database], '&');
 
         $databaseName = DatabaseName::tryFrom($request->getParam('db'));
@@ -58,7 +58,7 @@ final class SearchController implements InvocableController
             return $this->response->response();
         }
 
-        if (! $config->settings['UseDbSearch']) {
+        if (! $this->config->settings['UseDbSearch']) {
             $errorMessage = __(
                 'Searching inside the database is disabled by the [code]$cfg[\'UseDbSearch\'][/code] configuration.',
             );

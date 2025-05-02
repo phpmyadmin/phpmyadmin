@@ -28,8 +28,11 @@ final class BinlogController implements InvocableController
      */
     private array $binaryLogs;
 
-    public function __construct(private readonly ResponseRenderer $response, private readonly DatabaseInterface $dbi)
-    {
+    public function __construct(
+        private readonly ResponseRenderer $response,
+        private readonly DatabaseInterface $dbi,
+        private readonly Config $config,
+    ) {
         $this->binaryLogs = $this->dbi->fetchResult('SHOW BINARY LOGS', 'Log_name');
     }
 
@@ -53,8 +56,7 @@ final class BinlogController implements InvocableController
             $urlParams['is_full_query'] = 1;
         }
 
-        $config = Config::getInstance();
-        $sqlQuery = $this->getSqlQuery($log, $position, $config->settings['MaxRows']);
+        $sqlQuery = $this->getSqlQuery($log, $position, $this->config->settings['MaxRows']);
         $result = $this->dbi->query($sqlQuery);
 
         $numRows = $result->numRows();
@@ -64,8 +66,8 @@ final class BinlogController implements InvocableController
         $nextParams = $urlParams;
         if ($position > 0) {
             $fullQueriesParams['pos'] = $position;
-            if ($position > $config->settings['MaxRows']) {
-                $previousParams['pos'] = $position - $config->settings['MaxRows'];
+            if ($position > $this->config->settings['MaxRows']) {
+                $previousParams['pos'] = $position - $this->config->settings['MaxRows'];
             }
         }
 
@@ -74,8 +76,8 @@ final class BinlogController implements InvocableController
             unset($fullQueriesParams['is_full_query']);
         }
 
-        if ($numRows >= $config->settings['MaxRows']) {
-            $nextParams['pos'] = $position + $config->settings['MaxRows'];
+        if ($numRows >= $this->config->settings['MaxRows']) {
+            $nextParams['pos'] = $position + $this->config->settings['MaxRows'];
         }
 
         $values = $result->fetchAllAssoc();
@@ -87,7 +89,7 @@ final class BinlogController implements InvocableController
             'sql_message' => Generator::getMessage(Message::success(), $sqlQuery),
             'values' => $values,
             'has_previous' => $position > 0,
-            'has_next' => $numRows >= $config->settings['MaxRows'],
+            'has_next' => $numRows >= $this->config->settings['MaxRows'],
             'previous_params' => $previousParams,
             'full_queries_params' => $fullQueriesParams,
             'next_params' => $nextParams,

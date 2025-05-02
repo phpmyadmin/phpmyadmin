@@ -48,7 +48,7 @@ class BinlogControllerTest extends AbstractTestCase
     {
         $response = new ResponseRenderer();
 
-        $controller = new BinlogController($response, DatabaseInterface::getInstance());
+        $controller = new BinlogController($response, DatabaseInterface::getInstance(), Config::getInstance());
 
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody([

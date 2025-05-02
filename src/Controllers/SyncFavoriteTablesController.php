@@ -21,12 +21,10 @@ use function is_array;
 use function json_decode;
 use function json_encode;
 
-final class SyncFavoriteTablesController implements InvocableController
+final readonly class SyncFavoriteTablesController implements InvocableController
 {
-    public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Relation $relation,
-    ) {
+    public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)
+    {
     }
 
     public function __invoke(ServerRequest $request): Response
@@ -43,7 +41,7 @@ final class SyncFavoriteTablesController implements InvocableController
         }
 
         // Required to keep each user's preferences separate.
-        $user = hash('sha1', Config::getInstance()->selectedServer['user']);
+        $user = hash('sha1', $this->config->selectedServer['user']);
 
         $relationParameters = $this->relation->getRelationParameters();
         if ($relationParameters->favoriteTablesFeature !== null) {

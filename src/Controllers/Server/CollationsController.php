@@ -32,10 +32,10 @@ final class CollationsController implements InvocableController
     public function __construct(
         private readonly ResponseRenderer $response,
         private readonly DatabaseInterface $dbi,
+        Config $config,
         array|null $charsets = null,
         array|null $collations = null,
     ) {
-        $config = Config::getInstance();
         $this->charsets = $charsets ?? Charsets::getCharsets($this->dbi, $config->selectedServer['DisableIS']);
         $this->collations = $collations ?? Charsets::getCollations($this->dbi, $config->selectedServer['DisableIS']);
     }

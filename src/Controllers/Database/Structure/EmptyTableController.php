@@ -26,16 +26,17 @@ use PhpMyAdmin\Utils\ForeignKey;
 
 use function __;
 
-final class EmptyTableController implements InvocableController
+final readonly class EmptyTableController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Template $template,
-        private readonly DatabaseInterface $dbi,
-        private readonly Relation $relation,
-        private readonly RelationCleanup $relationCleanup,
-        private readonly FlashMessenger $flashMessenger,
-        private readonly StructureController $structureController,
+        private ResponseRenderer $response,
+        private Template $template,
+        private DatabaseInterface $dbi,
+        private Relation $relation,
+        private RelationCleanup $relationCleanup,
+        private FlashMessenger $flashMessenger,
+        private StructureController $structureController,
+        private Config $config,
     ) {
     }
 
@@ -78,7 +79,7 @@ final class EmptyTableController implements InvocableController
                 new Transformations(),
                 $this->template,
                 new BookmarkRepository($this->dbi, $this->relation),
-                Config::getInstance(),
+                $this->config,
             );
 
             $_REQUEST['pos'] = $sql->calculatePosForLastPage(Current::$database, Current::$table, $_REQUEST['pos']);

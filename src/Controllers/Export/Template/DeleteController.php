@@ -12,12 +12,13 @@ use PhpMyAdmin\Http\Response;
 use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\ResponseRenderer;
 
-final class DeleteController implements InvocableController
+final readonly class DeleteController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly TemplateModel $model,
-        private readonly Relation $relation,
+        private ResponseRenderer $response,
+        private TemplateModel $model,
+        private Relation $relation,
+        private Config $config,
     ) {
     }
 
@@ -33,7 +34,7 @@ final class DeleteController implements InvocableController
         $result = $this->model->delete(
             $exportTemplatesFeature->database,
             $exportTemplatesFeature->exportTemplates,
-            Config::getInstance()->selectedServer['user'],
+            $this->config->selectedServer['user'],
             $templateId,
         );
 

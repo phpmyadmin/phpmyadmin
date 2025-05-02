@@ -18,9 +18,9 @@ use const SQL_DIR;
 /**
  * Displays status of phpMyAdmin configuration storage
  */
-final class CheckRelationsController implements InvocableController
+final readonly class CheckRelationsController implements InvocableController
 {
-    public function __construct(private readonly ResponseRenderer $response, private readonly Relation $relation)
+    public function __construct(private ResponseRenderer $response, private Relation $relation, private Config $config)
     {
     }
 
@@ -56,7 +56,7 @@ final class CheckRelationsController implements InvocableController
 
         $this->response->render('relation/check_relations', [
             'db' => $db?->getName() ?? '',
-            'zero_conf' => Config::getInstance()->settings['ZeroConf'],
+            'zero_conf' => $this->config->settings['ZeroConf'],
             'relation_parameters' => $relationParameters->toArray(),
             'sql_dir' => SQL_DIR,
             'config_storage_database_name' => $cfgStorageDbName,

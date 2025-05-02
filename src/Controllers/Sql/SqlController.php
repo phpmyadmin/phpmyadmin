@@ -28,14 +28,15 @@ use function mb_strpos;
 use function str_contains;
 use function urlencode;
 
-class SqlController implements InvocableController
+readonly class SqlController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Sql $sql,
-        private readonly DatabaseInterface $dbi,
-        private readonly PageSettings $pageSettings,
-        private readonly BookmarkRepository $bookmarkRepository,
+        private ResponseRenderer $response,
+        private Sql $sql,
+        private DatabaseInterface $dbi,
+        private PageSettings $pageSettings,
+        private BookmarkRepository $bookmarkRepository,
+        private Config $config,
     ) {
     }
 
@@ -56,12 +57,11 @@ class SqlController implements InvocableController
          * Defines the url to return to in case of error in a sql statement
          */
         $isGotofile = true;
-        $config = Config::getInstance();
         if (UrlParams::$goto === '') {
             if (Current::$table === '') {
-                UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabDatabase']);
+                UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabDatabase']);
             } else {
-                UrlParams::$goto = Url::getFromRoute($config->settings['DefaultTabTable']);
+                UrlParams::$goto = Url::getFromRoute($this->config->settings['DefaultTabTable']);
             }
         }
 
@@ -135,7 +135,7 @@ class SqlController implements InvocableController
         if (
             $this->sql->hasNoRightsToDropDatabase(
                 $statementInfo,
-                $config->settings['AllowUserDropDatabase'],
+                $this->config->settings['AllowUserDropDatabase'],
                 $this->dbi->isSuperUser(),
             )
         ) {

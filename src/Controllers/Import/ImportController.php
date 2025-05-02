@@ -49,14 +49,15 @@ use function preg_quote;
 use function preg_replace;
 use function time;
 
-final class ImportController implements InvocableController
+final readonly class ImportController implements InvocableController
 {
     public function __construct(
-        private readonly ResponseRenderer $response,
-        private readonly Import $import,
-        private readonly Sql $sql,
-        private readonly DatabaseInterface $dbi,
-        private readonly BookmarkRepository $bookmarkRepository,
+        private ResponseRenderer $response,
+        private Import $import,
+        private Sql $sql,
+        private DatabaseInterface $dbi,
+        private BookmarkRepository $bookmarkRepository,
+        private Config $config,
     ) {
     }
 
@@ -221,9 +222,8 @@ final class ImportController implements InvocableController
         }
 
         Util::setTimeLimit();
-        $config = Config::getInstance();
-        if (! empty($config->settings['MemoryLimit'])) {
-            ini_set('memory_limit', $config->settings['MemoryLimit']);
+        if (! empty($this->config->settings['MemoryLimit'])) {
+            ini_set('memory_limit', $this->config->settings['MemoryLimit']);
         }
 
         ImportSettings::$timestamp = time();
@@ -258,7 +258,7 @@ final class ImportController implements InvocableController
             switch ($actionBookmark) {
                 case 0: // bookmarked query that have to be run
                     $bookmark = $this->bookmarkRepository->get(
-                        $request->hasBodyParam('action_bookmark_all') ? null : $config->selectedServer['user'],
+                        $request->hasBodyParam('action_bookmark_all') ? null : $this->config->selectedServer['user'],
                         $idBookmark,
                     );
                     if (! $bookmark instanceof Bookmark) {
@@ -287,7 +287,7 @@ final class ImportController implements InvocableController
 
                     break;
                 case 1: // bookmarked query that have to be displayed
-                    $bookmark = $this->bookmarkRepository->get($config->selectedServer['user'], $idBookmark);
+                    $bookmark = $this->bookmarkRepository->get($this->config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -306,7 +306,7 @@ final class ImportController implements InvocableController
                     ImportSettings::$runQuery = false;
                     break;
                 case 2: // bookmarked query that have to be deleted
-                    $bookmark = $this->bookmarkRepository->get($config->selectedServer['user'], $idBookmark);
+                    $bookmark = $this->bookmarkRepository->get($this->config->selectedServer['user'], $idBookmark);
                     if (! $bookmark instanceof Bookmark) {
                         break;
                     }
@@ -365,11 +365,11 @@ final class ImportController implements InvocableController
             ImportSettings::$importFileName = $_FILES['import_file']['name'];
         }
 
-        if (ImportSettings::$localImportFile !== '' && $config->settings['UploadDir'] !== '') {
+        if (ImportSettings::$localImportFile !== '' && $this->config->settings['UploadDir'] !== '') {
             // sanitize $local_import_file as it comes from a POST
             ImportSettings::$localImportFile = Core::securePath(ImportSettings::$localImportFile);
 
-            ImportSettings::$importFile = Util::userDir($config->settings['UploadDir'])
+            ImportSettings::$importFile = Util::userDir($this->config->settings['UploadDir'])
                 . ImportSettings::$localImportFile;
 
             /**
@@ -582,7 +582,7 @@ final class ImportController implements InvocableController
         // (but if the query is too large, in case of an imported file, the parser
         //  can choke on it so avoid parsing)
         $sqlLength = mb_strlen(Current::$sqlQuery);
-        if ($sqlLength <= $config->settings['MaxCharactersInDisplayedSQL']) {
+        if ($sqlLength <= $this->config->settings['MaxCharactersInDisplayedSQL']) {
             [$statementInfo, Current::$database, $tableFromSql] = ParseAnalyze::sqlQuery(
                 Current::$sqlQuery,
                 Current::$database,
@@ -621,7 +621,7 @@ final class ImportController implements InvocableController
                 if (
                     $this->sql->hasNoRightsToDropDatabase(
                         $statementInfo,
-                        $config->settings['AllowUserDropDatabase'],
+                        $this->config->settings['AllowUserDropDatabase'],
                         $this->dbi->isSuperUser(),
                     )
                 ) {
@@ -658,7 +658,7 @@ final class ImportController implements InvocableController
             if (! empty($request->getParsedBodyParam('bkm_label')) && Import::$importText !== '') {
                 $this->sql->storeTheQueryAsBookmark(
                     Current::$database,
-                    $config->selectedServer['user'],
+                    $this->config->selectedServer['user'],
                     $request->getParsedBodyParamAsString('sql_query'),
                     $request->getParsedBodyParamAsString('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
@@ -685,7 +685,7 @@ final class ImportController implements InvocableController
 
                 $this->sql->storeTheQueryAsBookmark(
                     Current::$database,
-                    $config->selectedServer['user'],
+                    $this->config->selectedServer['user'],
                     $request->getParsedBodyParamAsString('sql_query'),
                     $request->getParsedBodyParamAsString('bkm_label'),
                     $request->hasBodyParam('bkm_replace'),
