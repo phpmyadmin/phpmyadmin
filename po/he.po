@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-04-13 22:07+0000\n"
+"PO-Revision-Date: 2025-05-04 17:35+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-9/he/"
 ">\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: ajax.php:21 ajax.php:50 export.php:196 libraries/classes/Export.php:1095
 msgid "Bad type!"
@@ -9312,10 +9312,8 @@ msgstr ""
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:80
 #: libraries/classes/Plugins/Import/ImportLdi.php:75
-#, fuzzy
-#| msgid "Column names"
 msgid "Column names: "
-msgstr "שמות עמודה"
+msgstr "שמות עמודות: "
 
 #: libraries/classes/Plugins/Import/ImportCsv.php:120
 #: libraries/classes/Plugins/Import/ImportCsv.php:135
@@ -9819,10 +9817,8 @@ msgid "Enabled"
 msgstr "מופעל"
 
 #: libraries/classes/Relation.php:116
-#, fuzzy
-#| msgid "Modifications have been saved"
 msgid "Configuration of pmadb…"
-msgstr "שינויים נשמרו"
+msgstr "תצורה של pmadb…"
 
 #: libraries/classes/Relation.php:120 libraries/classes/Relation.php:156
 msgid "General relation features"
@@ -15196,13 +15192,11 @@ msgid "Username"
 msgstr "שם משתמש"
 
 #: templates/database/search/results.twig:12
-#, fuzzy, php-format
-#| msgid "%1$s match inside table <i>%2$s</i>"
-#| msgid_plural "%1$s matches inside table <i>%2$s</i>"
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "תוצאה אחת (%1$s) בטבלה <i>%2$s</i>"
-msgstr[1] "%1$s תוצאות בטבלה <i>%2$s</i>"
+msgstr[0] "תוצאה אחת (%1$s) בטבלה <strong>%2$s</strong>"
+msgstr[1] "%1$s תוצאות בטבלה <strong>%2$s</strong>"
 
 #: templates/database/search/results.twig:56
 msgid "<strong>Total:</strong> <em>%count%</em> match"
