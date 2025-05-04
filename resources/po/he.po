@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-04 00:29+0000\n"
-"PO-Revision-Date: 2025-03-16 07:41+0000\n"
+"PO-Revision-Date: 2025-05-04 17:35+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "he/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -367,9 +367,8 @@ msgstr ""
 #: resources/templates/table/relation/common_form.twig:150
 #: resources/templates/table/zoom_search/result_form.twig:24
 #: resources/templates/table/zoom_search/result_form.twig:95
-#, fuzzy
 msgid "Loading"
-msgstr "בטעינה…"
+msgstr "בטעינה"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:177
 #: resources/templates/columns_definitions/column_definitions_form.twig:182
@@ -2621,11 +2620,11 @@ msgid "Inside column:"
 msgstr "בתוך העמודה:"
 
 #: resources/templates/database/search/results.twig:11
-#, fuzzy, php-format
+#, php-format
 msgid "%1$s match in <strong>%2$s</strong>"
 msgid_plural "%1$s matches in <strong>%2$s</strong>"
-msgstr[0] "תוצאה אחת (%1$s) בטבלה <i>%2$s</i>"
-msgstr[1] "%1$s תוצאות בטבלה <i>%2$s</i>"
+msgstr[0] "תוצאה אחת (%1$s) בטבלה <strong>%2$s</strong>"
+msgstr[1] "%1$s תוצאות בטבלה <strong>%2$s</strong>"
 
 #: resources/templates/database/search/results.twig:25
 #: resources/templates/database/structure/structure_table_row.twig:43
@@ -3611,8 +3610,6 @@ msgid "Server:"
 msgstr "שרת:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "שם מארח:"
 
@@ -4302,9 +4299,8 @@ msgid "phpMyAdmin configuration storage"
 msgstr "תיעוד phpMyAdmin"
 
 #: resources/templates/relation/check_relations.twig:9
-#, fuzzy
 msgid "Configuration of pmadb…"
-msgstr "שינויים נשמרו"
+msgstr "תצורה של pmadb…"
 
 #: resources/templates/relation/check_relations.twig:10
 #: resources/templates/relation/check_relations.twig:56
@@ -6735,9 +6731,8 @@ msgid "Use the NULL value for this column."
 msgstr "ערך עבור העמודה „%s“"
 
 #: resources/templates/table/insert/column_row.twig:65
-#, fuzzy
 msgid "Because of its length,<br> this column might not be editable."
-msgstr "משום אורכם, <br /> השדה הזה יכול להיות בלתי עריך "
+msgstr "עקב אורכה,<br>העמודה הזאת עלולה להיות נעולה לעריכה."
 
 #: resources/templates/table/insert/column_row.twig:93
 msgid "Binary - do not edit"
@@ -8007,12 +8002,11 @@ msgid "Percentage of used open files limit"
 msgstr "אחוז מגבלת הקבצים הפתוחים שנוצל"
 
 #: src/Advisory/Rules.php:464
-#, fuzzy
 msgid ""
 "The number of open files is approaching the max number of open files. You "
 "may get a \"Too many open files\" error."
 msgstr ""
-"מספר הקבצים הפתוחים מגיע לסף המרבי של קבצים פתוחים.  יתכן ותתקבל שגיאת „יותר "
+"מספר הקבצים הפתוחים מגיע לסף המרבי של קבצים פתוחים. אולי תתקבל שגיאת „יותר "
 "מדי קבצים פתוחים”."
 
 #: src/Advisory/Rules.php:468 src/Advisory/Rules.php:481
@@ -16862,9 +16856,8 @@ msgid ""
 msgstr ""
 
 #: src/Plugins/Import/ImportLdi.php:73
-#, fuzzy
 msgid "Column names: "
-msgstr "שמות עמודה"
+msgstr "שמות עמודות: "
 
 #: src/Plugins/Import/ImportLdi.php:126
 msgid "This plugin does not support compressed imports!"
