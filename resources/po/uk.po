@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-04 00:29+0000\n"
-"PO-Revision-Date: 2025-04-29 23:01+0000\n"
+"PO-Revision-Date: 2025-05-04 17:35+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -3500,10 +3500,8 @@ msgid "Server:"
 msgstr "Сервер:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
-msgstr "Ім'я хоста:"
+msgstr "Ім'я хосту:"
 
 #: resources/templates/home/index.twig:190
 msgid "Server type:"
