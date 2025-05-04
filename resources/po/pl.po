@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-27 00:27+0000\n"
+"POT-Creation-Date: 2025-05-04 00:29+0000\n"
 "PO-Revision-Date: 2024-10-17 16:16+0000\n"
 "Last-Translator: KwiatekMiki <niecierpiehiszpanskiego@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -377,8 +377,8 @@ msgstr "Ładowanie"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:313
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
+#: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -811,7 +811,7 @@ msgid "Reset"
 msgstr "Resetuj"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:261
+#: resources/templates/home/index.twig:265
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -876,9 +876,9 @@ msgstr "Wyłączone"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:48
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/JavaScriptMessagesController.php:509
-#: src/Controllers/Table/DeleteRowsController.php:52
+#: src/Controllers/Table/DeleteRowsController.php:53
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
@@ -1407,7 +1407,7 @@ msgstr "Odsyłacze do"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:450
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:260
+#: src/Controllers/Server/DatabasesController.php:259
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1946,7 +1946,7 @@ msgstr "Tabele:"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:257
+#: src/Controllers/Server/DatabasesController.php:256
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
@@ -1960,7 +1960,7 @@ msgstr "Tabele"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:259
+#: src/Controllers/Server/DatabasesController.php:258
 msgid "Data"
 msgstr "Dane"
 
@@ -2429,7 +2429,7 @@ msgstr "Nazwa procedury"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:317
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -2751,7 +2751,7 @@ msgstr "Słownik danych"
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
-#: src/Controllers/Database/TrackingController.php:125
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:288
 msgid "No tables found in database."
 msgstr "Nie znaleziono żadnych tabel w bazie danych."
@@ -2793,7 +2793,7 @@ msgstr "Widoki"
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
 #: src/Controllers/Operations/TableController.php:321
-#: src/Controllers/Table/StructureController.php:149
+#: src/Controllers/Table/StructureController.php:150
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Widok"
@@ -2833,7 +2833,7 @@ msgstr "w użyciu"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:258 src/Import/Import.php:130
+#: src/Controllers/Server/DatabasesController.php:257 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Rekordy"
 
@@ -2852,7 +2852,7 @@ msgstr "Rozmiar"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:32
-#: src/Controllers/Server/DatabasesController.php:262
+#: src/Controllers/Server/DatabasesController.php:261
 msgid "Overhead"
 msgstr "Nadmiar"
 
@@ -3508,86 +3508,92 @@ msgid "Server:"
 msgstr "Serwer:"
 
 #: resources/templates/home/index.twig:186
+#, fuzzy
+#| msgid "Host name:"
+msgid "Hostname:"
+msgstr "Nazwa hosta:"
+
+#: resources/templates/home/index.twig:190
 msgid "Server type:"
 msgstr "Typ serwera:"
 
-#: resources/templates/home/index.twig:190
+#: resources/templates/home/index.twig:194
 msgid "Server connection:"
 msgstr "Połączenie z serwerem:"
 
-#: resources/templates/home/index.twig:194
+#: resources/templates/home/index.twig:198
 #: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "Wersja serwera:"
 
-#: resources/templates/home/index.twig:198
+#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Użytkownik:"
 
-#: resources/templates/home/index.twig:202
+#: resources/templates/home/index.twig:206
 msgid "Server charset:"
 msgstr "Kodowanie znaków serwera:"
 
-#: resources/templates/home/index.twig:214
+#: resources/templates/home/index.twig:218
 msgid "Web server"
 msgstr "Serwer WWW"
 
-#: resources/templates/home/index.twig:224
+#: resources/templates/home/index.twig:228
 msgid "Database client version:"
 msgstr "Wersja klienta bazy danych:"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:232
 msgid "PHP extension:"
 msgstr "Rozszerzenie PHP:"
 
-#: resources/templates/home/index.twig:235
+#: resources/templates/home/index.twig:239
 msgid "PHP version:"
 msgstr "Wersja PHP:"
 
-#: resources/templates/home/index.twig:242
+#: resources/templates/home/index.twig:246
 msgid "Show PHP information"
 msgstr "Pokaż informacje o PHP"
 
-#: resources/templates/home/index.twig:256
+#: resources/templates/home/index.twig:260
 msgid "Version information:"
 msgstr "Informacja o wersji:"
 
-#: resources/templates/home/index.twig:266
+#: resources/templates/home/index.twig:270
 msgid "Official Homepage"
 msgstr "Oficjalna strona phpMyAdmina"
 
-#: resources/templates/home/index.twig:271
+#: resources/templates/home/index.twig:275
 msgid "Contribute"
 msgstr "Współpraca"
 
-#: resources/templates/home/index.twig:276
+#: resources/templates/home/index.twig:280
 msgid "Get support"
 msgstr "Pomoc techniczna"
 
-#: resources/templates/home/index.twig:281
+#: resources/templates/home/index.twig:285
 msgid "List of changes"
 msgstr "Lista zmian"
 
-#: resources/templates/home/index.twig:286
+#: resources/templates/home/index.twig:290
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Licencja"
 
-#: resources/templates/home/index.twig:297
+#: resources/templates/home/index.twig:301
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Ostrzeżenie"
 
-#: resources/templates/home/index.twig:299
+#: resources/templates/home/index.twig:303
 msgid "Notice"
 msgstr "Informacja"
 
-#: resources/templates/home/index.twig:312
+#: resources/templates/home/index.twig:316
 msgid "phpMyAdmin Themes"
 msgstr "Motywy phpMyAdmin"
 
-#: resources/templates/home/index.twig:323
+#: resources/templates/home/index.twig:327
 msgid "Get more themes!"
 msgstr "Pobierz więcej motywów!"
 
@@ -4199,7 +4205,7 @@ msgstr "Aktywowałeś podwójną weryfikację."
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/Operations/TableController.php:337
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
@@ -6254,8 +6260,8 @@ msgstr "Wykres kołowy z wynikami profilowania."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
-#: src/Controllers/Table/DeleteRowsController.php:74
-#: src/Controllers/Table/FindReplaceController.php:118
+#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
 #: src/Controllers/Table/Maintenance/ChecksumController.php:73
@@ -6268,7 +6274,7 @@ msgstr "Wykres kołowy z wynikami profilowania."
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:139
+#: src/Controllers/Table/RelationController.php:140
 #: src/Database/Routines.php:1027 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
@@ -6740,7 +6746,7 @@ msgstr "Wyczyść tabelę (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Tabela %s została opróżniona."
@@ -6755,13 +6761,13 @@ msgstr "Opróżnij tabelę (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Widok %s został usunięty."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Tabela %s została usunięta."
@@ -7099,7 +7105,7 @@ msgid "Effective"
 msgstr "Efektywne"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
-#: src/Controllers/Server/DatabasesController.php:261
+#: src/Controllers/Server/DatabasesController.php:260
 #: src/Controllers/Server/Status/StatusController.php:139
 #: src/Controllers/Server/Status/StatusController.php:189
 msgid "Total"
@@ -11847,12 +11853,12 @@ msgstr ""
 "Plik %s nie jest dostępny w tym systemie. Proszę odwiedzić %s, aby uzyskać "
 "więcej informacji."
 
-#: src/Controllers/Console/Bookmark/AddController.php:39
+#: src/Controllers/Console/Bookmark/AddController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "Nie udało się"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:52
 msgid "Succeeded"
 msgstr "Udało się"
 
@@ -11866,7 +11872,7 @@ msgstr "Ustawienia konsoli zostały pomyślnie zaktualizowane."
 msgid "Unexpected parameter value."
 msgstr "Nieoczekiwana wartość parametru."
 
-#: src/Controllers/Database/CentralColumnsController.php:145
+#: src/Controllers/Database/CentralColumnsController.php:146
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Pokazano wiersze %1$s - %2$s."
@@ -11883,29 +11889,29 @@ msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 #: src/Controllers/Database/EventsController.php:48
 #: src/Controllers/Database/ExportController.php:55
 #: src/Controllers/Database/ExportController.php:60
-#: src/Controllers/Database/ImportController.php:59
-#: src/Controllers/Database/ImportController.php:64
+#: src/Controllers/Database/ImportController.php:58
+#: src/Controllers/Database/ImportController.php:63
 #: src/Controllers/Database/RoutinesController.php:79
 #: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
 #: src/Controllers/Database/SqlController.php:57
-#: src/Controllers/Database/StructureController.php:138
-#: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/Structure/FavoriteTableController.php:64
+#: src/Controllers/Database/StructureController.php:137
+#: src/Controllers/Database/StructureController.php:142
+#: src/Controllers/Database/Structure/FavoriteTableController.php:63
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
-#: src/Controllers/Database/TrackingController.php:54
-#: src/Controllers/Database/TrackingController.php:59
+#: src/Controllers/Database/TrackingController.php:53
+#: src/Controllers/Database/TrackingController.php:58
 #: src/Controllers/JavaScriptMessagesController.php:360
 #: src/Controllers/Operations/Database/CollationController.php:52
-#: src/Controllers/Operations/DatabaseController.php:233
-#: src/Controllers/Operations/DatabaseController.php:238
+#: src/Controllers/Operations/DatabaseController.php:232
+#: src/Controllers/Operations/DatabaseController.php:237
 #: src/Controllers/Operations/TableController.php:84
 #: src/Controllers/Operations/TableController.php:89
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Server/Databases/DestroyController.php:64
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:159
 #: src/Controllers/Table/AddFieldController.php:164
 #: src/Controllers/Table/ChangeController.php:68
@@ -11919,22 +11925,22 @@ msgstr "Istnieje już strona nazwana \"%s\", proszę zmień nazwę na inną."
 #: src/Controllers/Table/DeleteConfirmController.php:60
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:72
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/GisVisualizationController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:64
+#: src/Controllers/Table/FindReplaceController.php:73
+#: src/Controllers/Table/FindReplaceController.php:78
+#: src/Controllers/Table/GisVisualizationController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:65
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
-#: src/Controllers/Table/IndexesController.php:64
-#: src/Controllers/Table/IndexesController.php:69
+#: src/Controllers/Table/IndexesController.php:65
+#: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:53
 #: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/SearchController.php:173
-#: src/Controllers/Table/SearchController.php:178
+#: src/Controllers/Table/SearchController.php:174
+#: src/Controllers/Table/SearchController.php:179
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
-#: src/Controllers/Table/StructureController.php:89
-#: src/Controllers/Table/StructureController.php:94
+#: src/Controllers/Table/StructureController.php:90
+#: src/Controllers/Table/StructureController.php:95
 #: src/Controllers/Table/Structure/PrimaryController.php:67
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
@@ -11988,22 +11994,22 @@ msgstr ""
 msgid "Could not load export plugins, please check your installation!"
 msgstr "Nie udało się załadować modułów eksportu, proszę sprawdzić instalację!"
 
-#: src/Controllers/Database/ImportController.php:76
-#: src/Controllers/Server/ImportController.php:57
+#: src/Controllers/Database/ImportController.php:75
+#: src/Controllers/Server/ImportController.php:58
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Nie udało się wczytać wtyczek importu. Proszę sprawdzić instalację!"
 
-#: src/Controllers/Database/PrivilegesController.php:61
+#: src/Controllers/Database/PrivilegesController.php:62
 #: src/Controllers/Server/PrivilegesController.php:96
 #: src/Controllers/Server/UserGroupsController.php:45
-#: src/Controllers/Table/PrivilegesController.php:64
+#: src/Controllers/Table/PrivilegesController.php:65
 msgid "No Privileges"
 msgstr "Brak uprawnień"
 
-#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Database/PrivilegesController.php:71
 #: src/Controllers/Server/PrivilegesController.php:105
-#: src/Controllers/Table/PrivilegesController.php:73
+#: src/Controllers/Table/PrivilegesController.php:74
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Nie masz uprawnień do administrowania użytkownikami!"
 
@@ -12034,12 +12040,12 @@ msgstr "Nie masz uprawnień do administrowania użytkownikami!"
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:86
-#: src/Controllers/Table/FindReplaceController.php:91
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
 #: src/Controllers/Table/ImportController.php:81
 #: src/Controllers/Table/ImportController.php:86
-#: src/Controllers/Table/IndexesController.php:78
-#: src/Controllers/Table/IndexesController.php:83
+#: src/Controllers/Table/IndexesController.php:79
+#: src/Controllers/Table/IndexesController.php:84
 #: src/Controllers/Table/IndexRenameController.php:67
 #: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:44
@@ -12047,12 +12053,12 @@ msgstr "Nie masz uprawnień do administrowania użytkownikami!"
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:187
-#: src/Controllers/Table/SearchController.php:192
+#: src/Controllers/Table/SearchController.php:188
+#: src/Controllers/Table/SearchController.php:193
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
-#: src/Controllers/Table/StructureController.php:103
-#: src/Controllers/Table/StructureController.php:108
+#: src/Controllers/Table/StructureController.php:104
+#: src/Controllers/Table/StructureController.php:109
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/Structure/PrimaryController.php:86
 #: src/Controllers/Table/ZoomSearchController.php:114
@@ -12114,7 +12120,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Sukces!"
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3286
 #, php-format
 msgid ""
@@ -12124,20 +12130,20 @@ msgstr ""
 "Ten widok ma przynajmniej taką liczbę wierszy (rekordów). Proszę odnieść się "
 "do %sdokumentacji%s."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "nieznany"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:100
+#: src/Controllers/Database/Structure/FavoriteTableController.php:99
 msgid "Favorite List is full!"
 msgstr "Lista ulubionych jest pełna!"
 
-#: src/Controllers/Database/TrackingController.php:72
-#: src/Controllers/Database/TrackingController.php:98
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "Dane śledzenia zostały poprawnie usunięte."
 
-#: src/Controllers/Database/TrackingController.php:83
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
@@ -12145,11 +12151,11 @@ msgstr ""
 "Dla wybranych tabel została stworzona wersja%1$s, śledzenie jest dla nich "
 "aktywne."
 
-#: src/Controllers/Database/TrackingController.php:115
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "Nie wybrano żadnych tabel."
 
-#: src/Controllers/Database/TrackingController.php:150
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "Dziennik bazy danych"
 
@@ -12182,7 +12188,7 @@ msgstr ""
 msgid "You may want to refresh the page."
 msgstr "Jeśli chcesz, możesz odświeżyć stronę."
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1061
+#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1061
 msgid "Bad type!"
 msgstr "Zły typ!"
 
@@ -12199,7 +12205,7 @@ msgstr ""
 "Wylogowałeś się z jednego serwera. Aby się całkowicie wylogować z "
 "phpMyAdmin, musisz wylogować się ze wszystkich serwerów."
 
-#: src/Controllers/HomeController.php:191
+#: src/Controllers/HomeController.php:194
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12209,14 +12215,14 @@ msgstr ""
 "przechowywania danych, niektóre rozszerzone funkcje zostały wyłączone. Aby "
 "dowiedzieć się dlaczego kliknij %stutaj%s. "
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Lub, alternatywnie, przejdź do zakładki 'Operacje', w dowolnej bazie danych, "
 "aby tam to skonfigurować."
 
-#: src/Controllers/HomeController.php:262
+#: src/Controllers/HomeController.php:264
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12228,7 +12234,7 @@ msgstr ""
 "niż czas przechowywania ciasteczka skonfigurowany w phpMyAdmin. Z tego "
 "powodu sesja wygaśnie wcześniej niż jest to skonfigurowane w phpMyAdmin."
 
-#: src/Controllers/HomeController.php:282
+#: src/Controllers/HomeController.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12237,7 +12243,7 @@ msgstr ""
 "ciasteczek skonfigurowanego w phpMyAdmin, z tego powodu, swój login wygasa "
 "wcześniej niż skonfigurowane w phpMyAdmin."
 
-#: src/Controllers/HomeController.php:301
+#: src/Controllers/HomeController.php:303
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12247,7 +12253,7 @@ msgstr ""
 "(controlpass) i jest otwarty na włamania; naprawdę powinieneś naprawić ten "
 "słaby punkt bezpieczeństwa, zmieniając hasło użytkownika kontrolnego 'pma'."
 
-#: src/Controllers/HomeController.php:320
+#: src/Controllers/HomeController.php:322
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12257,7 +12263,7 @@ msgstr ""
 "Wygenerowany został dla Ciebie klucz tymczasowy. Więcej informacji "
 "znajdziesz w [doc@cfg_blowfish_secret]dokumentacji[/doc]."
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12268,7 +12274,7 @@ msgstr ""
 "wymagane. Wymagane %d bajtów. Więcej informacji znajdziesz w "
 "[doc@cfg_blowfish_secret]dokumentacji[/doc]."
 
-#: src/Controllers/HomeController.php:348
+#: src/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12281,7 +12287,7 @@ msgstr ""
 "serwera jest zagrożone przez osoby nieupoważnione ściągające twoją "
 "konfigurację."
 
-#: src/Controllers/HomeController.php:369
+#: src/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12290,7 +12296,7 @@ msgstr ""
 "Serwer działa pod ochroną Suhosina. Możliwe problemy opisuje "
 "%sdokumentacja%s."
 
-#: src/Controllers/HomeController.php:383
+#: src/Controllers/HomeController.php:385
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12299,7 +12305,7 @@ msgstr ""
 "$Cfg['TempDir'] (%s) nie jest dostępne. phpMyAdmin nie może buforować "
 "szablonów i będzie z tego powodu powolny."
 
-#: src/Controllers/HomeController.php:439
+#: src/Controllers/HomeController.php:440
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12310,7 +12316,7 @@ msgstr ""
 "phpMyAdmin nie ma możliwości poprawnego rozbijania napisów, co może "
 "skutkować niespodziewanymi rezultatami."
 
-#: src/Controllers/HomeController.php:457
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12319,7 +12325,7 @@ msgstr ""
 "allow_url_fopen. W związku z tym niektóre funkcjonalności, jak raportowanie "
 "błędów czy sprawdzanie wersji nie będą dostępne."
 
-#: src/Controllers/Import/ImportController.php:160
+#: src/Controllers/Import/ImportController.php:161
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12328,7 +12334,7 @@ msgstr ""
 "Prawdopodobnie próbowano wczytać zbyt duży plik. Proszę zapoznać się z "
 "%sdokumentacją%s, aby obejść to ograniczenie."
 
-#: src/Controllers/Import/ImportController.php:186
+#: src/Controllers/Import/ImportController.php:187
 msgid "Incorrect format parameter"
 msgstr "Nieprawidłowy parametr formatu"
 
@@ -14376,23 +14382,23 @@ msgstr "Ciąg"
 msgid "No collation provided."
 msgstr "Brak zestawień."
 
-#: src/Controllers/Operations/DatabaseController.php:81
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Nie można utworzyć kopii bazy danych o takiej samej nazwie. Zmień nazwę i "
 "spróbuj ponownie."
 
-#: src/Controllers/Operations/DatabaseController.php:161
+#: src/Controllers/Operations/DatabaseController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "Nazwę bazy danych %1$s zmieniono na %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:175
+#: src/Controllers/Operations/DatabaseController.php:176
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "Baza danych %1$s została przekopiowana do %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:276
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14426,12 +14432,12 @@ msgstr "Skonfigurowano uwierzytelnianie dwuskładnikowe."
 msgid "Missing parameter:"
 msgstr "Brakuje parametru:"
 
-#: src/Controllers/Server/Databases/CreateController.php:82
+#: src/Controllers/Server/Databases/CreateController.php:84
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "Baza danych %1$s została utworzona."
 
-#: src/Controllers/Server/Databases/DestroyController.php:87
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15247,10 +15253,10 @@ msgid "Bookmark not created!"
 msgstr "Zakładka nie utworzona!"
 
 #: src/Controllers/Table/AddFieldController.php:134
-#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexesController.php:138
 #: src/Controllers/Table/IndexRenameController.php:125
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:214
+#: src/Controllers/Table/Structure/SaveController.php:215
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Tabela %1$s została pomyślnie zmodyfikowana."
@@ -15261,8 +15267,8 @@ msgstr "Tabela %1$s została pomyślnie zmodyfikowana."
 msgid "No row selected."
 msgstr "Nie wybrano wiersza."
 
-#: src/Controllers/Table/ChartController.php:56
-#: src/Controllers/Table/GisVisualizationController.php:76
+#: src/Controllers/Table/ChartController.php:57
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr "Brak zapytania SQL został ustawiony, aby pobrać dane."
 
@@ -15320,7 +15326,7 @@ msgstr "Wystąpił problem z Twoją prośbą."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL zwrócił pusty wynik (zero wierszy)."
 
-#: src/Controllers/Table/GisVisualizationController.php:98
+#: src/Controllers/Table/GisVisualizationController.php:99
 msgid "No spatial column found for this SQL query."
 msgstr "Nie znaleziono kolumny przestrzennej dla tego zapytania SQL."
 
@@ -15378,7 +15384,7 @@ msgid "The selected columns are already in the correct order."
 msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:265
 #: src/Tracking/Tracking.php:731
 msgid "Query error"
 msgstr "Błąd zapytania"
@@ -15391,7 +15397,7 @@ msgstr[0] "Nazwa '%s' jest zastrzeżonym słowem kluczowym MySQL."
 msgstr[1] "Nazwy '%s' to zastrzeżone słowa kluczowe MySQL."
 msgstr[2] "Nazwy '%s' to zastrzeżone słowa kluczowe MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:209
+#: src/Controllers/Table/Structure/SaveController.php:210
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."

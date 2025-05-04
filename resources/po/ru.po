@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-27 00:27+0000\n"
+"POT-Creation-Date: 2025-05-04 00:29+0000\n"
 "PO-Revision-Date: 2025-04-25 17:45+0000\n"
 "Last-Translator: Andrei Stepanov <adem4ik@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -377,8 +377,8 @@ msgstr "Загрузка"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:313
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
+#: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -810,7 +810,7 @@ msgid "Reset"
 msgstr "Сбросить"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:261
+#: resources/templates/home/index.twig:265
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -875,9 +875,9 @@ msgstr "Недоступно"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:48
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/JavaScriptMessagesController.php:509
-#: src/Controllers/Table/DeleteRowsController.php:52
+#: src/Controllers/Table/DeleteRowsController.php:53
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
@@ -1406,7 +1406,7 @@ msgstr "Ссылки на"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:450
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:260
+#: src/Controllers/Server/DatabasesController.php:259
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -1945,7 +1945,7 @@ msgstr "Таблицы:"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:257
+#: src/Controllers/Server/DatabasesController.php:256
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
@@ -1959,7 +1959,7 @@ msgstr "Таблицы"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:259
+#: src/Controllers/Server/DatabasesController.php:258
 msgid "Data"
 msgstr "Данные"
 
@@ -2422,7 +2422,7 @@ msgstr "Редактор процедуры"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:317
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -2740,7 +2740,7 @@ msgstr "Словарь данных"
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
-#: src/Controllers/Database/TrackingController.php:125
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:288
 msgid "No tables found in database."
 msgstr "Таблиц в базе данных не обнаружено."
@@ -2782,7 +2782,7 @@ msgstr "Представления"
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
 #: src/Controllers/Operations/TableController.php:321
-#: src/Controllers/Table/StructureController.php:149
+#: src/Controllers/Table/StructureController.php:150
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "Представление"
@@ -2822,7 +2822,7 @@ msgstr "используется"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:258 src/Import/Import.php:130
+#: src/Controllers/Server/DatabasesController.php:257 src/Import/Import.php:130
 msgid "Rows"
 msgstr "Строки"
 
@@ -2841,7 +2841,7 @@ msgstr "Размер"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:32
-#: src/Controllers/Server/DatabasesController.php:262
+#: src/Controllers/Server/DatabasesController.php:261
 msgid "Overhead"
 msgstr "Фрагментировано"
 
@@ -3497,86 +3497,92 @@ msgid "Server:"
 msgstr "Сервер:"
 
 #: resources/templates/home/index.twig:186
+#, fuzzy
+#| msgid "Host name:"
+msgid "Hostname:"
+msgstr "Имя хоста:"
+
+#: resources/templates/home/index.twig:190
 msgid "Server type:"
 msgstr "Тип сервера:"
 
-#: resources/templates/home/index.twig:190
+#: resources/templates/home/index.twig:194
 msgid "Server connection:"
 msgstr "Соединение сервера:"
 
-#: resources/templates/home/index.twig:194
+#: resources/templates/home/index.twig:198
 #: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "Версия сервера:"
 
-#: resources/templates/home/index.twig:198
+#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "Пользователь:"
 
-#: resources/templates/home/index.twig:202
+#: resources/templates/home/index.twig:206
 msgid "Server charset:"
 msgstr "Кодировка сервера:"
 
-#: resources/templates/home/index.twig:214
+#: resources/templates/home/index.twig:218
 msgid "Web server"
 msgstr "Веб-сервер"
 
-#: resources/templates/home/index.twig:224
+#: resources/templates/home/index.twig:228
 msgid "Database client version:"
 msgstr "Версия клиента базы данных:"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:232
 msgid "PHP extension:"
 msgstr "PHP расширение:"
 
-#: resources/templates/home/index.twig:235
+#: resources/templates/home/index.twig:239
 msgid "PHP version:"
 msgstr "Версия PHP:"
 
-#: resources/templates/home/index.twig:242
+#: resources/templates/home/index.twig:246
 msgid "Show PHP information"
 msgstr "Показать информацию PHP"
 
-#: resources/templates/home/index.twig:256
+#: resources/templates/home/index.twig:260
 msgid "Version information:"
 msgstr "Информация о версии:"
 
-#: resources/templates/home/index.twig:266
+#: resources/templates/home/index.twig:270
 msgid "Official Homepage"
 msgstr "Официальная страница phpMyAdmin"
 
-#: resources/templates/home/index.twig:271
+#: resources/templates/home/index.twig:275
 msgid "Contribute"
 msgstr "Пожертвовать"
 
-#: resources/templates/home/index.twig:276
+#: resources/templates/home/index.twig:280
 msgid "Get support"
 msgstr "Получить помощь"
 
-#: resources/templates/home/index.twig:281
+#: resources/templates/home/index.twig:285
 msgid "List of changes"
 msgstr "Список изменений"
 
-#: resources/templates/home/index.twig:286
+#: resources/templates/home/index.twig:290
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "Лицензия"
 
-#: resources/templates/home/index.twig:297
+#: resources/templates/home/index.twig:301
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "Предупреждение"
 
-#: resources/templates/home/index.twig:299
+#: resources/templates/home/index.twig:303
 msgid "Notice"
 msgstr "Уведомление"
 
-#: resources/templates/home/index.twig:312
+#: resources/templates/home/index.twig:316
 msgid "phpMyAdmin Themes"
 msgstr "Темы phpMyAdmin"
 
-#: resources/templates/home/index.twig:323
+#: resources/templates/home/index.twig:327
 msgid "Get more themes!"
 msgstr "Другие темы!"
 
@@ -4185,7 +4191,7 @@ msgstr "Вы включили двухфакторную авторизацию.
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/Operations/TableController.php:337
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
@@ -6241,8 +6247,8 @@ msgstr "Круговая диаграмма с результатами проф
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
-#: src/Controllers/Table/DeleteRowsController.php:74
-#: src/Controllers/Table/FindReplaceController.php:118
+#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
 #: src/Controllers/Table/Maintenance/ChecksumController.php:73
@@ -6255,7 +6261,7 @@ msgstr "Круговая диаграмма с результатами проф
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:139
+#: src/Controllers/Table/RelationController.php:140
 #: src/Database/Routines.php:1027 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
@@ -6727,7 +6733,7 @@ msgstr "Обновить кеш таблицы (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "Таблица %s была очищена."
@@ -6742,13 +6748,13 @@ msgstr "Очистить таблицу (DELETE FROM)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "View %s has been dropped."
 msgstr "Представление %s было удалено."
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, php-format
 msgid "Table %s has been dropped."
 msgstr "Таблица %s была удалена."
@@ -7088,7 +7094,7 @@ msgid "Effective"
 msgstr "Эффективность"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
-#: src/Controllers/Server/DatabasesController.php:261
+#: src/Controllers/Server/DatabasesController.php:260
 #: src/Controllers/Server/Status/StatusController.php:139
 #: src/Controllers/Server/Status/StatusController.php:189
 msgid "Total"
@@ -11858,12 +11864,12 @@ msgstr ""
 "Файл %s недоступен на этой системе, пройдите по адресу %s для подробной "
 "информации."
 
-#: src/Controllers/Console/Bookmark/AddController.php:39
+#: src/Controllers/Console/Bookmark/AddController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "Ошибка"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:52
 msgid "Succeeded"
 msgstr "Удалось"
 
@@ -11877,7 +11883,7 @@ msgstr "Настройки консоли успешно обновлены."
 msgid "Unexpected parameter value."
 msgstr "Неожиданное значение параметра."
 
-#: src/Controllers/Database/CentralColumnsController.php:145
+#: src/Controllers/Database/CentralColumnsController.php:146
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "Отображение строк %1$s - %2$s."
@@ -11895,29 +11901,29 @@ msgstr ""
 #: src/Controllers/Database/EventsController.php:48
 #: src/Controllers/Database/ExportController.php:55
 #: src/Controllers/Database/ExportController.php:60
-#: src/Controllers/Database/ImportController.php:59
-#: src/Controllers/Database/ImportController.php:64
+#: src/Controllers/Database/ImportController.php:58
+#: src/Controllers/Database/ImportController.php:63
 #: src/Controllers/Database/RoutinesController.php:79
 #: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
 #: src/Controllers/Database/SqlController.php:57
-#: src/Controllers/Database/StructureController.php:138
-#: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/Structure/FavoriteTableController.php:64
+#: src/Controllers/Database/StructureController.php:137
+#: src/Controllers/Database/StructureController.php:142
+#: src/Controllers/Database/Structure/FavoriteTableController.php:63
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
-#: src/Controllers/Database/TrackingController.php:54
-#: src/Controllers/Database/TrackingController.php:59
+#: src/Controllers/Database/TrackingController.php:53
+#: src/Controllers/Database/TrackingController.php:58
 #: src/Controllers/JavaScriptMessagesController.php:360
 #: src/Controllers/Operations/Database/CollationController.php:52
-#: src/Controllers/Operations/DatabaseController.php:233
-#: src/Controllers/Operations/DatabaseController.php:238
+#: src/Controllers/Operations/DatabaseController.php:232
+#: src/Controllers/Operations/DatabaseController.php:237
 #: src/Controllers/Operations/TableController.php:84
 #: src/Controllers/Operations/TableController.php:89
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Server/Databases/DestroyController.php:64
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:159
 #: src/Controllers/Table/AddFieldController.php:164
 #: src/Controllers/Table/ChangeController.php:68
@@ -11931,22 +11937,22 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:60
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:72
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/GisVisualizationController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:64
+#: src/Controllers/Table/FindReplaceController.php:73
+#: src/Controllers/Table/FindReplaceController.php:78
+#: src/Controllers/Table/GisVisualizationController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:65
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
-#: src/Controllers/Table/IndexesController.php:64
-#: src/Controllers/Table/IndexesController.php:69
+#: src/Controllers/Table/IndexesController.php:65
+#: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:53
 #: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/SearchController.php:173
-#: src/Controllers/Table/SearchController.php:178
+#: src/Controllers/Table/SearchController.php:174
+#: src/Controllers/Table/SearchController.php:179
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
-#: src/Controllers/Table/StructureController.php:89
-#: src/Controllers/Table/StructureController.php:94
+#: src/Controllers/Table/StructureController.php:90
+#: src/Controllers/Table/StructureController.php:95
 #: src/Controllers/Table/Structure/PrimaryController.php:67
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
@@ -12002,22 +12008,22 @@ msgstr ""
 "Отсутствуют плагины экспорта. Проверьте содержимое установленной копии "
 "phpMyAdmin!"
 
-#: src/Controllers/Database/ImportController.php:76
-#: src/Controllers/Server/ImportController.php:57
+#: src/Controllers/Database/ImportController.php:75
+#: src/Controllers/Server/ImportController.php:58
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr "Не удалось загрузить плагины импорта. Пожалуйста, проверьте установку!"
 
-#: src/Controllers/Database/PrivilegesController.php:61
+#: src/Controllers/Database/PrivilegesController.php:62
 #: src/Controllers/Server/PrivilegesController.php:96
 #: src/Controllers/Server/UserGroupsController.php:45
-#: src/Controllers/Table/PrivilegesController.php:64
+#: src/Controllers/Table/PrivilegesController.php:65
 msgid "No Privileges"
 msgstr "Нет привилегий"
 
-#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Database/PrivilegesController.php:71
 #: src/Controllers/Server/PrivilegesController.php:105
-#: src/Controllers/Table/PrivilegesController.php:73
+#: src/Controllers/Table/PrivilegesController.php:74
 msgid "You do not have the privileges to administrate the users!"
 msgstr "У вас нет прав администрировать пользователей!"
 
@@ -12048,12 +12054,12 @@ msgstr "У вас нет прав администрировать пользо�
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:86
-#: src/Controllers/Table/FindReplaceController.php:91
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
 #: src/Controllers/Table/ImportController.php:81
 #: src/Controllers/Table/ImportController.php:86
-#: src/Controllers/Table/IndexesController.php:78
-#: src/Controllers/Table/IndexesController.php:83
+#: src/Controllers/Table/IndexesController.php:79
+#: src/Controllers/Table/IndexesController.php:84
 #: src/Controllers/Table/IndexRenameController.php:67
 #: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:44
@@ -12061,12 +12067,12 @@ msgstr "У вас нет прав администрировать пользо�
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:187
-#: src/Controllers/Table/SearchController.php:192
+#: src/Controllers/Table/SearchController.php:188
+#: src/Controllers/Table/SearchController.php:193
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
-#: src/Controllers/Table/StructureController.php:103
-#: src/Controllers/Table/StructureController.php:108
+#: src/Controllers/Table/StructureController.php:104
+#: src/Controllers/Table/StructureController.php:109
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/Structure/PrimaryController.php:86
 #: src/Controllers/Table/ZoomSearchController.php:114
@@ -12127,7 +12133,7 @@ msgstr ""
 msgid "Success!"
 msgstr "Успех!"
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3286
 #, php-format
 msgid ""
@@ -12137,30 +12143,30 @@ msgstr ""
 "Данное представление имеет, по меньшей мере, указанное количество строк. "
 "Пожалуйста, обратитесь к %sдокументации%s."
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "неизвестно"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:100
+#: src/Controllers/Database/Structure/FavoriteTableController.php:99
 msgid "Favorite List is full!"
 msgstr "Список избранного полностью заполнен!"
 
-#: src/Controllers/Database/TrackingController.php:72
-#: src/Controllers/Database/TrackingController.php:98
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "Данные слежения успешно удалены."
 
-#: src/Controllers/Database/TrackingController.php:83
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "Версия %1$s для выбранных таблиц создана, отслеживание включено."
 
-#: src/Controllers/Database/TrackingController.php:115
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "Ни одна таблица не выбрана."
 
-#: src/Controllers/Database/TrackingController.php:150
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "Журнал базы данных"
 
@@ -12190,7 +12196,7 @@ msgstr "Если у вас возникают проблемы, отправьт
 msgid "You may want to refresh the page."
 msgstr "Возможно вы хотите перезагрузить страницу."
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1061
+#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1061
 msgid "Bad type!"
 msgstr "Неучтённый тип!"
 
@@ -12207,7 +12213,7 @@ msgstr ""
 "Вы вышли из одного сервера, чтобы полностью выйти из phpMyAdmin, вам нужно "
 "выйти со всех серверов."
 
-#: src/Controllers/HomeController.php:191
+#: src/Controllers/HomeController.php:194
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12216,14 +12222,14 @@ msgstr ""
 "Хранилище конфигурации phpMyAdmin не полностью настроено, некоторые "
 "расширенные функции были отключены. %sУзнайте причину%s. "
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr ""
 "Или перейдите на вкладку 'Операции' любой базы данных, чтобы настроить "
 "хранилище в ней."
 
-#: src/Controllers/HomeController.php:262
+#: src/Controllers/HomeController.php:264
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12236,7 +12242,7 @@ msgstr ""
 "этой причине сессия входа может закончиться быстрее установленной в "
 "phpMyAdmin."
 
-#: src/Controllers/HomeController.php:282
+#: src/Controllers/HomeController.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12244,7 +12250,7 @@ msgstr ""
 "Значение длительности хранения cookie меньше, чем определено в phpMyAdmin. "
 "По этой причине сессия входа завершится быстрее установленной в phpMyAdmin."
 
-#: src/Controllers/HomeController.php:301
+#: src/Controllers/HomeController.php:303
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
@@ -12255,7 +12261,7 @@ msgstr ""
 "исправить эту уязвимость безопасности, изменив пароль для управляющего "
 "пользователя 'pma'."
 
-#: src/Controllers/HomeController.php:320
+#: src/Controllers/HomeController.php:322
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
@@ -12265,7 +12271,7 @@ msgstr ""
 "Временный ключ был автоматически создан для вас. Пожалуйста, обратитесь к "
 "[doc@cfg_blowfish_secret]документации[/doc] ."
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12276,7 +12282,7 @@ msgstr ""
 "длина должна быть всего %d байт. Пожалуйста, обратитесь к "
 "[doc@cfg_blowfish_secret]документации[/doc] ."
 
-#: src/Controllers/HomeController.php:348
+#: src/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -12289,7 +12295,7 @@ msgstr ""
 "может быть скомпрометирована через свободный доступ к загрузке "
 "конфигурационного файла."
 
-#: src/Controllers/HomeController.php:369
+#: src/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -12298,7 +12304,7 @@ msgstr ""
 "Сервер использует защитную систему Suhosin. Для решения возможных проблем "
 "обратитесь к %sдокументации%s."
 
-#: src/Controllers/HomeController.php:383
+#: src/Controllers/HomeController.php:385
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -12307,7 +12313,7 @@ msgstr ""
 "$Cfg['TempDir'] (%s) недоступен. Из-за этого phpMyAdmin не может кэшировать "
 "шаблоны и будет медленным."
 
-#: src/Controllers/HomeController.php:439
+#: src/Controllers/HomeController.php:440
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -12317,7 +12323,7 @@ msgstr ""
 "mbstring phpMyAdmin не в состоянии производить корректное разбиение строк, "
 "что может привести к непредсказуемым результатам."
 
-#: src/Controllers/HomeController.php:457
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -12326,7 +12332,7 @@ msgstr ""
 "этим, некоторые возможности, включая отправление ошибок и проверка версий, "
 "отключены."
 
-#: src/Controllers/Import/ImportController.php:160
+#: src/Controllers/Import/ImportController.php:161
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -12335,7 +12341,7 @@ msgstr ""
 "Вероятно, размер загружаемого файла слишком велик. Способы обхода данного "
 "ограничения описаны в %sдокументации%s."
 
-#: src/Controllers/Import/ImportController.php:186
+#: src/Controllers/Import/ImportController.php:187
 msgid "Incorrect format parameter"
 msgstr "Неверный параметр формата"
 
@@ -12395,7 +12401,6 @@ msgid "[ROLLBACK occurred.]"
 msgstr "[Произошел откат.]"
 
 #: src/Controllers/Import/SimulateDmlController.php:90
-#: src/Controllers/Import/SimulateDmlController.php:84
 msgid "Only single-table UPDATE and DELETE queries can be simulated."
 msgstr "Можно эмулировать только запросы UPDATE и DELETE с одной таблицей."
 
@@ -14375,7 +14380,7 @@ msgid "No such column"
 msgstr "Нет такого столбца"
 
 #: src/Controllers/Normalization/GetColumnsController.php:33
-#: src/Normalization.php:226 src/Types.php:646 src/Types.php:645
+#: src/Normalization.php:226 src/Types.php:646
 msgctxt "string types"
 msgid "String"
 msgstr "Символьные"
@@ -14385,23 +14390,23 @@ msgstr "Символьные"
 msgid "No collation provided."
 msgstr "Не предоставлено сопоставление."
 
-#: src/Controllers/Operations/DatabaseController.php:81
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr ""
 "Невозможно скопировать базу данных с тем же именем. Измените имя и повторите "
 "попытку."
 
-#: src/Controllers/Operations/DatabaseController.php:161
+#: src/Controllers/Operations/DatabaseController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "База данных %1$s переименована в %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:175
+#: src/Controllers/Operations/DatabaseController.php:176
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "База данных %1$s скопирована в %2$s."
 
-#: src/Controllers/Operations/DatabaseController.php:276
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -14433,12 +14438,12 @@ msgstr "Двухфакторная аутентификация сконфигу
 msgid "Missing parameter:"
 msgstr "Отсутствующий параметр:"
 
-#: src/Controllers/Server/Databases/CreateController.php:82
+#: src/Controllers/Server/Databases/CreateController.php:84
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "База данных %1$s создана."
 
-#: src/Controllers/Server/Databases/DestroyController.php:87
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, php-format
 msgid "%1$d database has been dropped successfully."
 msgid_plural "%1$d databases have been dropped successfully."
@@ -15260,10 +15265,10 @@ msgid "Bookmark not created!"
 msgstr "Закладка не создана!"
 
 #: src/Controllers/Table/AddFieldController.php:134
-#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexesController.php:138
 #: src/Controllers/Table/IndexRenameController.php:125
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:214
+#: src/Controllers/Table/Structure/SaveController.php:215
 #, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "Таблица %1$s была успешно изменена."
@@ -15274,8 +15279,8 @@ msgstr "Таблица %1$s была успешно изменена."
 msgid "No row selected."
 msgstr "Строка не выбрана."
 
-#: src/Controllers/Table/ChartController.php:56
-#: src/Controllers/Table/GisVisualizationController.php:76
+#: src/Controllers/Table/ChartController.php:57
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr "Не был задан SQL запрос для выборки данных."
 
@@ -15333,7 +15338,7 @@ msgstr "С вашим запросом возникла проблема."
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL вернула пустой результат (т.е. ноль строк)."
 
-#: src/Controllers/Table/GisVisualizationController.php:98
+#: src/Controllers/Table/GisVisualizationController.php:99
 msgid "No spatial column found for this SQL query."
 msgstr "Для этого SQL-запроса не найден пространственный столбец."
 
@@ -15390,7 +15395,7 @@ msgid "The selected columns are already in the correct order."
 msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:265
 #: src/Tracking/Tracking.php:731
 msgid "Query error"
 msgstr "Ошибка запроса"
@@ -15403,7 +15408,7 @@ msgstr[0] "Имя '%s' является зарезервированным сл�
 msgstr[1] "Имена '%s' являются зарезервированными словами MySQL."
 msgstr[2] "Имена '%s' являются зарезервированными словами MySQL."
 
-#: src/Controllers/Table/Structure/SaveController.php:209
+#: src/Controllers/Table/Structure/SaveController.php:210
 #, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
@@ -18674,12 +18679,12 @@ msgstr ""
 "03:14:07\" UTC, содержит количество секунд прошедших со времени "
 "(\"1970-01-01 00:00:00\" UTC)"
 
-#: src/Types.php:214 src/Types.php:213
+#: src/Types.php:214
 #, php-format
 msgid "A time, range is %1$s to %2$s"
 msgstr "Время, диапазон от %1$s до %2$s"
 
-#: src/Types.php:219 src/Types.php:218
+#: src/Types.php:219
 msgid ""
 "A year in four-digit (4, default) or two-digit (2) format, the allowable "
 "values are 70 (1970) to 69 (2069) or 1901 to 2155 and 0000"
@@ -18687,7 +18692,7 @@ msgstr ""
 "Год в четырехзначном (4, по умолчанию) или двухзначном (2) формате, "
 "допустимые значения от 70 (1970) до 69 (2069) или от 1901 до 2155 и 0000"
 
-#: src/Types.php:224 src/Types.php:223
+#: src/Types.php:224
 msgid ""
 "A fixed-length (0-255, default 1) string that is always right-padded with "
 "spaces to the specified length when stored"
@@ -18695,7 +18700,7 @@ msgstr ""
 "Строка фиксированной длины (0-255, по-умолчанию 1), при хранении всегда "
 "дополняется пробелами в конце строки до заданной длины"
 
-#: src/Types.php:229 src/Types.php:228
+#: src/Types.php:229
 #, php-format
 msgid ""
 "A variable-length (%s) string, the effective maximum length is subject to "
@@ -18704,7 +18709,7 @@ msgstr ""
 "Строка переменной длины (%s), эффективная максимальная длина зависит от "
 "максимального размера строки"
 
-#: src/Types.php:234 src/Types.php:233
+#: src/Types.php:234
 msgid ""
 "A TEXT column with a maximum length of 255 (2^8 - 1) characters, stored with "
 "a one-byte prefix indicating the length of the value in bytes"
@@ -18712,7 +18717,7 @@ msgstr ""
 "Столбец типа TEXT с максимальной длиной 255 (2^8 - 1) символов, сохраняется "
 "с одно-байтовым префиксом, указывающим длину значения в байтах"
 
-#: src/Types.php:239 src/Types.php:238
+#: src/Types.php:239
 msgid ""
 "A TEXT column with a maximum length of 65,535 (2^16 - 1) characters, stored "
 "with a two-byte prefix indicating the length of the value in bytes"
@@ -18720,7 +18725,7 @@ msgstr ""
 "Столбец типа TEXT с максимальной длиной 65,535 (2^16 - 1) символов, "
 "сохраняется с двух-байтовым префиксом, указывающим длину значения в байтах"
 
-#: src/Types.php:244 src/Types.php:243
+#: src/Types.php:244
 msgid ""
 "A TEXT column with a maximum length of 16,777,215 (2^24 - 1) characters, "
 "stored with a three-byte prefix indicating the length of the value in bytes"
@@ -18728,7 +18733,7 @@ msgstr ""
 "Столбец типа TEXT с максимальной длиной 16,777,215 (2^24 - 1) символов, "
 "сохраняется с трех-байтовым префиксом, указывающим длину значения в байтах"
 
-#: src/Types.php:249 src/Types.php:248
+#: src/Types.php:249
 msgid ""
 "A TEXT column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "characters, stored with a four-byte prefix indicating the length of the "
@@ -18738,7 +18743,7 @@ msgstr ""
 "символов, сохраняется с четырех-байтовым префиксом, указывающим длину "
 "значения в байтах"
 
-#: src/Types.php:254 src/Types.php:253
+#: src/Types.php:254
 msgid ""
 "Similar to the CHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18746,7 +18751,7 @@ msgstr ""
 "Аналогичен типу CHAR, но предназначен для хранения бинарных байт-строк, "
 "вместо не бинарных символьных строк"
 
-#: src/Types.php:257 src/Types.php:256
+#: src/Types.php:257
 msgid ""
 "Similar to the VARCHAR type, but stores binary byte strings rather than non-"
 "binary character strings"
@@ -18754,7 +18759,7 @@ msgstr ""
 "Аналогичен типу VARCHAR, но предназначен для хранения бинарных байт-строк, "
 "вместо не бинарных символьных строк"
 
-#: src/Types.php:261 src/Types.php:260
+#: src/Types.php:261
 msgid ""
 "A BLOB column with a maximum length of 255 (2^8 - 1) bytes, stored with a "
 "one-byte prefix indicating the length of the value"
@@ -18762,7 +18767,7 @@ msgstr ""
 "Столбец типа BLOB с максимальной длиной 255 (2^8 - 1) байт, сохраняется с "
 "одно-байтовым префиксом, указывающим длину значения"
 
-#: src/Types.php:265 src/Types.php:264
+#: src/Types.php:265
 msgid ""
 "A BLOB column with a maximum length of 16,777,215 (2^24 - 1) bytes, stored "
 "with a three-byte prefix indicating the length of the value"
@@ -18770,7 +18775,7 @@ msgstr ""
 "Столбец типа BLOB с максимальной длиной 16,777,215 (2^24 - 1) байт, "
 "сохраняется с трех-байтовым префиксом, указывающим длину значения"
 
-#: src/Types.php:270 src/Types.php:269
+#: src/Types.php:270
 msgid ""
 "A BLOB column with a maximum length of 65,535 (2^16 - 1) bytes, stored with "
 "a two-byte prefix indicating the length of the value"
@@ -18778,7 +18783,7 @@ msgstr ""
 "Столбец типа BLOB с максимальной длиной 65,535 (2^16 - 1) байт, сохраняется "
 "с двух-байтовым префиксом, указывающим длину значения"
 
-#: src/Types.php:274 src/Types.php:273
+#: src/Types.php:274
 msgid ""
 "A BLOB column with a maximum length of 4,294,967,295 or 4GiB (2^32 - 1) "
 "bytes, stored with a four-byte prefix indicating the length of the value"
@@ -18786,7 +18791,7 @@ msgstr ""
 "Столбец типа BLOB с максимальной длиной 4,294,967,295 или 4ГиБ (2^32 - 1) "
 "байт, сохраняется с четырех-байтовым префиксом, указывающим длину значения"
 
-#: src/Types.php:278 src/Types.php:277
+#: src/Types.php:278
 msgid ""
 "An enumeration, chosen from the list of up to 65,535 values or the special "
 "'' error value"
@@ -18794,43 +18799,43 @@ msgstr ""
 "Перечисляемый тип данных, который может содержать максимум 65,535 различных "
 "величин или специальную величину ошибки ''"
 
-#: src/Types.php:279 src/Types.php:278
+#: src/Types.php:279
 msgid "A single value chosen from a set of up to 64 members"
 msgstr "Единственное значение выбираемое из набора не более 64 членов"
 
-#: src/Types.php:280 src/Types.php:279
+#: src/Types.php:280
 msgid "A type that can store a geometry of any type"
 msgstr "Тип для хранения любого вида геометрических данных"
 
-#: src/Types.php:281 src/Types.php:280
+#: src/Types.php:281
 msgid "A point in 2-dimensional space"
 msgstr "Точка в двухмерном пространстве"
 
-#: src/Types.php:282 src/Types.php:281
+#: src/Types.php:282
 msgid "A curve with linear interpolation between points"
 msgstr "Кривая с линейной интерполяцией между точек"
 
-#: src/Types.php:283 src/Types.php:282
+#: src/Types.php:283
 msgid "A polygon"
 msgstr "Многоугольник"
 
-#: src/Types.php:284 src/Types.php:283
+#: src/Types.php:284
 msgid "A collection of points"
 msgstr "Набор точек"
 
-#: src/Types.php:285 src/Types.php:284
+#: src/Types.php:285
 msgid "A collection of curves with linear interpolation between points"
 msgstr "Набор кривых с линейной интерполяцией между точками"
 
-#: src/Types.php:286 src/Types.php:285
+#: src/Types.php:286
 msgid "A collection of polygons"
 msgstr "Набор многоугольников"
 
-#: src/Types.php:287 src/Types.php:286
+#: src/Types.php:287
 msgid "A collection of geometry objects of any type"
 msgstr "Набор геометрических объектов любого типа"
 
-#: src/Types.php:288 src/Types.php:287
+#: src/Types.php:288
 msgid ""
 "Stores and enables efficient access to data in JSON (JavaScript Object "
 "Notation) documents"
@@ -18838,7 +18843,7 @@ msgstr ""
 "Тип данных для эффективного хранения и использования данных в JSON "
 "(JavaScript Object Notation)"
 
-#: src/Types.php:289 src/Types.php:288
+#: src/Types.php:289
 msgid ""
 "Intended for storage of IPv6 addresses, as well as IPv4 addresses assuming "
 "conventional mapping of IPv4 addresses into IPv6 addresses"
@@ -18846,21 +18851,21 @@ msgstr ""
 "Предназначен для хранения адресов IPv6, а также адресов IPv4, предполагающих "
 "обычное отображение адресов IPv4 в адреса IPv6"
 
-#: src/Types.php:292 src/Types.php:291
+#: src/Types.php:292
 msgid "128-bit UUID (Universally Unique Identifier)"
 msgstr "128-битный UUID (универсальный уникальный идентификатор)"
 
-#: src/Types.php:600 src/Types.php:599
+#: src/Types.php:600
 msgctxt "numeric types"
 msgid "Numeric"
 msgstr "Числовые"
 
-#: src/Types.php:618 src/Types.php:617
+#: src/Types.php:618
 msgctxt "date and time types"
 msgid "Date and time"
 msgstr "Дата и время"
 
-#: src/Types.php:648 src/Types.php:647
+#: src/Types.php:648
 msgctxt "spatial types"
 msgid "Spatial"
 msgstr "Пространственные"
@@ -18914,14 +18919,13 @@ msgstr "Ошибка в ZIP-архиве:"
 msgid "No files found inside ZIP archive!"
 msgstr "Файлов внутри ZIP-архива не найдено!"
 
-#: src/Types.php:208
-msgid ""
-"A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-"stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
-msgstr ""
-"Временная метка, диапазон от \"1970-01-01 00:00:01\" UTC до \"2038-01-09 "
-"03:14:07\" UTC, содержит количество секунд прошедших со времени "
-"(\"1970-01-01 00:00:00\" UTC)"
+#~ msgid ""
+#~ "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
+#~ "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
+#~ msgstr ""
+#~ "Временная метка, диапазон от \"1970-01-01 00:00:01\" UTC до \"2038-01-09 "
+#~ "03:14:07\" UTC, содержит количество секунд прошедших со времени "
+#~ "(\"1970-01-01 00:00:00\" UTC)"
 
 #~ msgid "Connection for controluser as defined in your configuration failed."
 #~ msgstr "Ошибка при указании соединения для controluser в конфигурации."

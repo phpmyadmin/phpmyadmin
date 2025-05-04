@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-04-27 00:27+0000\n"
+"POT-Creation-Date: 2025-05-04 00:29+0000\n"
 "PO-Revision-Date: 2025-03-18 14:23+0000\n"
 "Last-Translator: AefghThreenine <aefgh39622@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/phpmyadmin/master/"
@@ -400,8 +400,8 @@ msgstr "กำลังโหลด…"
 #: resources/templates/export_modal.twig:6
 #: resources/templates/export_modal.twig:10 resources/templates/export.twig:82
 #: resources/templates/export.twig:92 resources/templates/export.twig:190
-#: resources/templates/home/index.twig:313
-#: resources/templates/home/index.twig:321
+#: resources/templates/home/index.twig:317
+#: resources/templates/home/index.twig:325
 #: resources/templates/modals/change_password.twig:6
 #: resources/templates/modals/create_view.twig:6
 #: resources/templates/modals/create_view.twig:11
@@ -883,7 +883,7 @@ msgid "Reset"
 msgstr "รีเซ็ต"
 
 #: resources/templates/config/form_display/input.twig:10
-#: resources/templates/home/index.twig:261
+#: resources/templates/home/index.twig:265
 #: resources/templates/server/variables/index.twig:17
 #: resources/templates/setup/home/index.twig:116
 #: resources/templates/setup/home/index.twig:134 src/Engines/Pbxt.php:167
@@ -948,9 +948,9 @@ msgstr "ระงับการใช้อยู่"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:48
+#: src/Controllers/Database/Structure/EmptyTableController.php:49
 #: src/Controllers/JavaScriptMessagesController.php:509
-#: src/Controllers/Table/DeleteRowsController.php:52
+#: src/Controllers/Table/DeleteRowsController.php:53
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
@@ -1539,7 +1539,7 @@ msgstr "เชื่อมไปยัง"
 #: resources/templates/indexes.twig:3
 #: resources/templates/table/structure/display_structure.twig:450
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:1
-#: src/Controllers/Server/DatabasesController.php:260
+#: src/Controllers/Server/DatabasesController.php:259
 #: src/Navigation/Nodes/NodeIndexContainer.php:23
 #: src/Navigation/Nodes/NodeIndexContainer.php:25
 msgid "Indexes"
@@ -2151,7 +2151,7 @@ msgstr "ตาราง"
 #: resources/templates/database/export/index.twig:22
 #: resources/templates/database/structure/show_create.twig:6
 #: src/Config/Descriptions.php:743
-#: src/Controllers/Server/DatabasesController.php:257
+#: src/Controllers/Server/DatabasesController.php:256
 #: src/Navigation/Nodes/NodeTableContainer.php:22
 #: src/Navigation/Nodes/NodeTableContainer.php:24
 #: src/Plugins/Export/ExportXml.php:111 src/Server/Status/Data.php:126
@@ -2165,7 +2165,7 @@ msgstr "ตาราง"
 #: src/Config/Forms/User/ExportForm.php:106
 #: src/Config/Forms/User/ExportForm.php:131
 #: src/Config/Forms/User/ExportForm.php:137
-#: src/Controllers/Server/DatabasesController.php:259
+#: src/Controllers/Server/DatabasesController.php:258
 msgid "Data"
 msgstr "ข้อมูล"
 
@@ -2698,7 +2698,7 @@ msgstr "ชื่อคอลัมน์"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
-#: resources/templates/home/index.twig:317
+#: resources/templates/home/index.twig:321
 #: resources/templates/modals/index_dialog_modal.twig:26
 #: resources/templates/navigation/main.twig:58
 #: resources/templates/server/privileges/users_overview.twig:172
@@ -3057,7 +3057,7 @@ msgstr "พจนานุกรมข้อมูล"
 #: resources/templates/database/structure/index.twig:19
 #: resources/templates/navigation/tree/path.twig:9
 #: src/Controllers/Database/ExportController.php:73
-#: src/Controllers/Database/TrackingController.php:125
+#: src/Controllers/Database/TrackingController.php:124
 #: src/Controllers/Export/ExportController.php:288
 msgid "No tables found in database."
 msgstr "ไม่พบตารางใดๆ ในฐานข้อมูล"
@@ -3100,7 +3100,7 @@ msgstr ""
 #: resources/templates/database/structure/structure_table_row.twig:186
 #: src/Controllers/Operations/TableController.php:120
 #: src/Controllers/Operations/TableController.php:321
-#: src/Controllers/Table/StructureController.php:149
+#: src/Controllers/Table/StructureController.php:150
 #: src/Navigation/Nodes/NodeView.php:24
 msgid "View"
 msgstr "ตารางจำลอง (View)"
@@ -3140,7 +3140,7 @@ msgstr "ใช้อยู่"
 #: resources/templates/table/structure/display_partitions.twig:29
 #: resources/templates/table/structure/display_structure.twig:220
 #: resources/templates/table/structure/display_table_stats.twig:119
-#: src/Controllers/Server/DatabasesController.php:258 src/Import/Import.php:130
+#: src/Controllers/Server/DatabasesController.php:257 src/Import/Import.php:130
 msgid "Rows"
 msgstr "แถว"
 
@@ -3159,7 +3159,7 @@ msgstr "ขนาด"
 
 #: resources/templates/database/structure/table_header.twig:38
 #: resources/templates/table/structure/display_table_stats.twig:32
-#: src/Controllers/Server/DatabasesController.php:262
+#: src/Controllers/Server/DatabasesController.php:261
 msgid "Overhead"
 msgstr "เกินความจำเป็น"
 
@@ -3886,88 +3886,94 @@ msgid "Server:"
 msgstr "เซิร์ฟเวอร์:"
 
 #: resources/templates/home/index.twig:186
+#, fuzzy
+#| msgid "User name"
+msgid "Hostname:"
+msgstr "ชื่อผู้ใช้"
+
+#: resources/templates/home/index.twig:190
 msgid "Server type:"
 msgstr "ชนิดเซิร์ฟเวอร์:"
 
-#: resources/templates/home/index.twig:190
+#: resources/templates/home/index.twig:194
 msgid "Server connection:"
 msgstr "การเชื่อมต่อเซิร์ฟเวอร์:"
 
-#: resources/templates/home/index.twig:194
+#: resources/templates/home/index.twig:198
 #: src/Plugins/Export/ExportLatex.php:233 src/Plugins/Export/ExportSql.php:765
 #: src/Plugins/Export/ExportXml.php:215
 msgid "Server version:"
 msgstr "เวอร์ชันของเซิร์ฟเวอร์:"
 
-#: resources/templates/home/index.twig:198
+#: resources/templates/home/index.twig:202
 msgid "User:"
 msgstr "ผู้ใช้:"
 
-#: resources/templates/home/index.twig:202
+#: resources/templates/home/index.twig:206
 msgid "Server charset:"
 msgstr "ชุดอักขระของเซิร์ฟเวอร์:"
 
-#: resources/templates/home/index.twig:214
+#: resources/templates/home/index.twig:218
 msgid "Web server"
 msgstr "เว็บเซิร์ฟเวอร์"
 
-#: resources/templates/home/index.twig:224
+#: resources/templates/home/index.twig:228
 msgid "Database client version:"
 msgstr "เวอร์ชันของไคลเอนต์ฐานข้อมูล:"
 
-#: resources/templates/home/index.twig:228
+#: resources/templates/home/index.twig:232
 msgid "PHP extension:"
 msgstr "ส่วนขยาย PHP:"
 
-#: resources/templates/home/index.twig:235
+#: resources/templates/home/index.twig:239
 msgid "PHP version:"
 msgstr "เวอร์ชันของ PHP:"
 
-#: resources/templates/home/index.twig:242
+#: resources/templates/home/index.twig:246
 msgid "Show PHP information"
 msgstr "แสดงข้อมูลของ PHP"
 
-#: resources/templates/home/index.twig:256
+#: resources/templates/home/index.twig:260
 msgid "Version information:"
 msgstr "ข้อมูลเวอร์ชัน:"
 
-#: resources/templates/home/index.twig:266
+#: resources/templates/home/index.twig:270
 msgid "Official Homepage"
 msgstr "โฮมเพจอย่างเป็นทางการ"
 
-#: resources/templates/home/index.twig:271
+#: resources/templates/home/index.twig:275
 msgid "Contribute"
 msgstr "สนับสนุน"
 
-#: resources/templates/home/index.twig:276
+#: resources/templates/home/index.twig:280
 msgid "Get support"
 msgstr "รับการสนับสนุน"
 
-#: resources/templates/home/index.twig:281
+#: resources/templates/home/index.twig:285
 msgid "List of changes"
 msgstr "รายการของการเปลี่ยนแปลง"
 
-#: resources/templates/home/index.twig:286
+#: resources/templates/home/index.twig:290
 #: resources/templates/server/plugins/index.twig:30
 msgid "License"
 msgstr "ลิขสิทธิ์"
 
-#: resources/templates/home/index.twig:297
+#: resources/templates/home/index.twig:301
 #: resources/templates/setup/error.twig:2
 msgid "Warning"
 msgstr "คำเตือน"
 
-#: resources/templates/home/index.twig:299
+#: resources/templates/home/index.twig:303
 msgid "Notice"
 msgstr ""
 
-#: resources/templates/home/index.twig:312
+#: resources/templates/home/index.twig:316
 #, fuzzy
 #| msgid "phpMyAdmin homepage"
 msgid "phpMyAdmin Themes"
 msgstr "หน้าเว็บ phpMyAdmin"
 
-#: resources/templates/home/index.twig:323
+#: resources/templates/home/index.twig:327
 msgid "Get more themes!"
 msgstr "รับชุดรูปแบบเพิ่มเติม!"
 
@@ -4602,7 +4608,7 @@ msgstr ""
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/EmptyTableController.php:50
 #: src/Controllers/Operations/TableController.php:337
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
@@ -6861,8 +6867,8 @@ msgstr "ผลลัพธ์"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
-#: src/Controllers/Table/DeleteRowsController.php:74
-#: src/Controllers/Table/FindReplaceController.php:118
+#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
 #: src/Controllers/Table/Maintenance/ChecksumController.php:73
@@ -6875,7 +6881,7 @@ msgstr "ผลลัพธ์"
 #: src/Controllers/Table/Partition/RebuildController.php:48
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
-#: src/Controllers/Table/RelationController.php:139
+#: src/Controllers/Table/RelationController.php:140
 #: src/Database/Routines.php:1027 src/Display/Results.php:3013
 #: src/Message.php:122
 #, fuzzy
@@ -7419,7 +7425,7 @@ msgstr "ล้างตาราง (FLUSH)"
 
 #: resources/templates/table/operations/index.twig:411
 #: resources/templates/table/operations/index.twig:429
-#: src/Controllers/Database/StructureController.php:403
+#: src/Controllers/Database/StructureController.php:401
 #, php-format
 msgid "Table %s has been emptied."
 msgstr "ลบข้อมูลในตาราง %s เรียบร้อยแล้ว"
@@ -7436,14 +7442,14 @@ msgstr "ลบข้อมูลตาราง (TRUNCATE)"
 
 #: resources/templates/table/operations/index.twig:452
 #: resources/templates/table/operations/view.twig:32
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, fuzzy, php-format
 #| msgid "View %s has been dropped."
 msgid "View %s has been dropped."
 msgstr "โยนวิว %s ทิ้งไปเรียบร้อยแล้ว"
 
 #: resources/templates/table/operations/index.twig:452
-#: src/Controllers/Database/StructureController.php:356
+#: src/Controllers/Database/StructureController.php:354
 #, fuzzy, php-format
 #| msgid "Table %s has been dropped."
 msgid "Table %s has been dropped."
@@ -7847,7 +7853,7 @@ msgid "Effective"
 msgstr "มีผล"
 
 #: resources/templates/table/structure/display_table_stats.twig:45
-#: src/Controllers/Server/DatabasesController.php:261
+#: src/Controllers/Server/DatabasesController.php:260
 #: src/Controllers/Server/Status/StatusController.php:139
 #: src/Controllers/Server/Status/StatusController.php:189
 msgid "Total"
@@ -12586,12 +12592,12 @@ msgid ""
 "information."
 msgstr "แฟ้ม %s ไม่สามารถใช้งานได้ในระบบนี้ สำหรับข้อมูลเพิ่มเติมกรุณาเยี่ยมชม %s"
 
-#: src/Controllers/Console/Bookmark/AddController.php:39
+#: src/Controllers/Console/Bookmark/AddController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:596
 msgid "Failed"
 msgstr "ล้มเหลว"
 
-#: src/Controllers/Console/Bookmark/AddController.php:51
+#: src/Controllers/Console/Bookmark/AddController.php:52
 msgid "Succeeded"
 msgstr "สำเร็จ"
 
@@ -12608,7 +12614,7 @@ msgstr "ลบผู้ใช้ที่เลือกไว้เรียบ
 msgid "Unexpected parameter value."
 msgstr "ตัวอักษรที่ไม่คาดหวังบนบรรทัดที่ %s"
 
-#: src/Controllers/Database/CentralColumnsController.php:145
+#: src/Controllers/Database/CentralColumnsController.php:146
 #, php-format
 msgid "Showing rows %1$s - %2$s."
 msgstr "กำลังแสดงแถวที่ %1$s - %2$s"
@@ -12625,29 +12631,29 @@ msgstr ""
 #: src/Controllers/Database/EventsController.php:48
 #: src/Controllers/Database/ExportController.php:55
 #: src/Controllers/Database/ExportController.php:60
-#: src/Controllers/Database/ImportController.php:59
-#: src/Controllers/Database/ImportController.php:64
+#: src/Controllers/Database/ImportController.php:58
+#: src/Controllers/Database/ImportController.php:63
 #: src/Controllers/Database/RoutinesController.php:79
 #: src/Controllers/Database/RoutinesController.php:98
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
 #: src/Controllers/Database/SqlController.php:57
-#: src/Controllers/Database/StructureController.php:138
-#: src/Controllers/Database/StructureController.php:143
-#: src/Controllers/Database/Structure/FavoriteTableController.php:64
+#: src/Controllers/Database/StructureController.php:137
+#: src/Controllers/Database/StructureController.php:142
+#: src/Controllers/Database/Structure/FavoriteTableController.php:63
 #: src/Controllers/Database/Structure/RealRowCountController.php:50
-#: src/Controllers/Database/TrackingController.php:54
-#: src/Controllers/Database/TrackingController.php:59
+#: src/Controllers/Database/TrackingController.php:53
+#: src/Controllers/Database/TrackingController.php:58
 #: src/Controllers/JavaScriptMessagesController.php:360
 #: src/Controllers/Operations/Database/CollationController.php:52
-#: src/Controllers/Operations/DatabaseController.php:233
-#: src/Controllers/Operations/DatabaseController.php:238
+#: src/Controllers/Operations/DatabaseController.php:232
+#: src/Controllers/Operations/DatabaseController.php:237
 #: src/Controllers/Operations/TableController.php:84
 #: src/Controllers/Operations/TableController.php:89
 #: src/Controllers/Operations/ViewController.php:59
 #: src/Controllers/Operations/ViewController.php:64
-#: src/Controllers/Server/Databases/DestroyController.php:64
+#: src/Controllers/Server/Databases/DestroyController.php:65
 #: src/Controllers/Table/AddFieldController.php:159
 #: src/Controllers/Table/AddFieldController.php:164
 #: src/Controllers/Table/ChangeController.php:68
@@ -12661,22 +12667,22 @@ msgstr ""
 #: src/Controllers/Table/DeleteConfirmController.php:60
 #: src/Controllers/Table/DropColumnConfirmationController.php:50
 #: src/Controllers/Table/DropColumnConfirmationController.php:55
-#: src/Controllers/Table/FindReplaceController.php:72
-#: src/Controllers/Table/FindReplaceController.php:77
-#: src/Controllers/Table/GisVisualizationController.php:59
-#: src/Controllers/Table/GisVisualizationController.php:64
+#: src/Controllers/Table/FindReplaceController.php:73
+#: src/Controllers/Table/FindReplaceController.php:78
+#: src/Controllers/Table/GisVisualizationController.php:60
+#: src/Controllers/Table/GisVisualizationController.php:65
 #: src/Controllers/Table/ImportController.php:67
 #: src/Controllers/Table/ImportController.php:72
-#: src/Controllers/Table/IndexesController.php:64
-#: src/Controllers/Table/IndexesController.php:69
+#: src/Controllers/Table/IndexesController.php:65
+#: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:53
 #: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/SearchController.php:173
-#: src/Controllers/Table/SearchController.php:178
+#: src/Controllers/Table/SearchController.php:174
+#: src/Controllers/Table/SearchController.php:179
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
-#: src/Controllers/Table/StructureController.php:89
-#: src/Controllers/Table/StructureController.php:94
+#: src/Controllers/Table/StructureController.php:90
+#: src/Controllers/Table/StructureController.php:95
 #: src/Controllers/Table/Structure/PrimaryController.php:67
 #: src/Controllers/Table/Structure/PrimaryController.php:72
 #: src/Controllers/Table/TrackingController.php:66
@@ -12734,22 +12740,22 @@ msgstr "ไม่พบตารางใด ๆ ในฐานข้อมู�
 msgid "Could not load export plugins, please check your installation!"
 msgstr ""
 
-#: src/Controllers/Database/ImportController.php:76
-#: src/Controllers/Server/ImportController.php:57
+#: src/Controllers/Database/ImportController.php:75
+#: src/Controllers/Server/ImportController.php:58
 #: src/Controllers/Table/ImportController.php:101
 msgid "Could not load import plugins, please check your installation!"
 msgstr "ไม่สามารถโหลดนำเข้าปลั๊กอินได้ กรุณาตรวจสอบการติดตั้งของคุณ!"
 
-#: src/Controllers/Database/PrivilegesController.php:61
+#: src/Controllers/Database/PrivilegesController.php:62
 #: src/Controllers/Server/PrivilegesController.php:96
 #: src/Controllers/Server/UserGroupsController.php:45
-#: src/Controllers/Table/PrivilegesController.php:64
+#: src/Controllers/Table/PrivilegesController.php:65
 msgid "No Privileges"
 msgstr "ไม่มีสิทธิ"
 
-#: src/Controllers/Database/PrivilegesController.php:70
+#: src/Controllers/Database/PrivilegesController.php:71
 #: src/Controllers/Server/PrivilegesController.php:105
-#: src/Controllers/Table/PrivilegesController.php:73
+#: src/Controllers/Table/PrivilegesController.php:74
 #, fuzzy
 #| msgid "You do not have the necessary privileges to create a trigger"
 msgid "You do not have the privileges to administrate the users!"
@@ -12782,12 +12788,12 @@ msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!
 #: src/Controllers/Table/DeleteConfirmController.php:74
 #: src/Controllers/Table/DropColumnConfirmationController.php:63
 #: src/Controllers/Table/DropColumnConfirmationController.php:68
-#: src/Controllers/Table/FindReplaceController.php:86
-#: src/Controllers/Table/FindReplaceController.php:91
+#: src/Controllers/Table/FindReplaceController.php:87
+#: src/Controllers/Table/FindReplaceController.php:92
 #: src/Controllers/Table/ImportController.php:81
 #: src/Controllers/Table/ImportController.php:86
-#: src/Controllers/Table/IndexesController.php:78
-#: src/Controllers/Table/IndexesController.php:83
+#: src/Controllers/Table/IndexesController.php:79
+#: src/Controllers/Table/IndexesController.php:84
 #: src/Controllers/Table/IndexRenameController.php:67
 #: src/Controllers/Table/IndexRenameController.php:72
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:44
@@ -12795,12 +12801,12 @@ msgstr "คุณไม่มีสิทธิที่สร้าง Trigger!
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:187
-#: src/Controllers/Table/SearchController.php:192
+#: src/Controllers/Table/SearchController.php:188
+#: src/Controllers/Table/SearchController.php:193
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
-#: src/Controllers/Table/StructureController.php:103
-#: src/Controllers/Table/StructureController.php:108
+#: src/Controllers/Table/StructureController.php:104
+#: src/Controllers/Table/StructureController.php:109
 #: src/Controllers/Table/Structure/PrimaryController.php:81
 #: src/Controllers/Table/Structure/PrimaryController.php:86
 #: src/Controllers/Table/ZoomSearchController.php:114
@@ -12860,7 +12866,7 @@ msgstr ""
 msgid "Success!"
 msgstr ""
 
-#: src/Controllers/Database/StructureController.php:569
+#: src/Controllers/Database/StructureController.php:567
 #: src/Display/Results.php:3286
 #, php-format
 msgid ""
@@ -12868,30 +12874,30 @@ msgid ""
 "%sdocumentation%s."
 msgstr "การแสดงผลนี้ จะแสดงเพียงจำนวนข้อมูลนี้เท่านั้น ดูข้อมูลเพิ่มเติมได้ที่ %sdocumentation%s"
 
-#: src/Controllers/Database/StructureController.php:736
+#: src/Controllers/Database/StructureController.php:734
 msgid "unknown"
 msgstr "ไม่ระบุ"
 
-#: src/Controllers/Database/Structure/FavoriteTableController.php:100
+#: src/Controllers/Database/Structure/FavoriteTableController.php:99
 msgid "Favorite List is full!"
 msgstr ""
 
-#: src/Controllers/Database/TrackingController.php:72
-#: src/Controllers/Database/TrackingController.php:98
+#: src/Controllers/Database/TrackingController.php:71
+#: src/Controllers/Database/TrackingController.php:97
 msgid "Tracking data deleted successfully."
 msgstr "ลบข้อมูลติดตามเรียบร้อยแล้ว"
 
-#: src/Controllers/Database/TrackingController.php:83
+#: src/Controllers/Database/TrackingController.php:82
 #, php-format
 msgid ""
 "Version %1$s was created for selected tables, tracking is active for them."
 msgstr "เวอร์ชัน %1$s ถูกสร้างขึ้นสำหรับตารางที่เลือก การติดตามจะเปิดใช้งานกับตารางพวกนั้น"
 
-#: src/Controllers/Database/TrackingController.php:115
+#: src/Controllers/Database/TrackingController.php:114
 msgid "No tables selected."
 msgstr "ไม่มีตารางที่ถูกเลือก"
 
-#: src/Controllers/Database/TrackingController.php:150
+#: src/Controllers/Database/TrackingController.php:149
 msgid "Database Log"
 msgstr "ประวัติการเข้าใช้ของฐานข้อมูล"
 
@@ -12919,7 +12925,7 @@ msgstr "หากคุณพบปัญหาในการใช้งาน
 msgid "You may want to refresh the page."
 msgstr "คุณอาจจะต้องการรีเฟรซหน้านี้"
 
-#: src/Controllers/Export/ExportController.php:116 src/Export/Export.php:1061
+#: src/Controllers/Export/ExportController.php:117 src/Export/Export.php:1061
 msgid "Bad type!"
 msgstr "ประเภทไม่ถูกต้อง!"
 
@@ -12936,7 +12942,7 @@ msgstr ""
 "คุณได้ออกจากระบบจากเครื่องแม่ข่ายหนึ่งแล้ว หากต้องการออกจากระบบ phpMyAdmin โดยสมบูรณ์ "
 "คุณต้องออกจากระบบจากเครื่องแม่ข่ายทั้งหมด"
 
-#: src/Controllers/HomeController.php:191
+#: src/Controllers/HomeController.php:194
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage is not completely configured, some "
@@ -12945,12 +12951,12 @@ msgstr ""
 "พื้นที่จัดเก็บการกำหนดค่า phpMyAdmin ยังตั้งค่าไม่เสร็จสมบูรณ์ "
 "คุณลักษณะเพิ่มเติมบางอย่างได้ถูกปิดใช้งานแล้ว %sเรียนรู้เพิ่มเติม%s "
 
-#: src/Controllers/HomeController.php:197
+#: src/Controllers/HomeController.php:200
 msgid ""
 "Or alternately go to 'Operations' tab of any database to set it up there."
 msgstr "หรือเข้าไปที่แท็บ 'การดำเนินการ' ของฐานข้อมูลใดๆ เพื่อตั้งค่า"
 
-#: src/Controllers/HomeController.php:262
+#: src/Controllers/HomeController.php:264
 msgid ""
 "Your PHP parameter [a@https://www.php.net/manual/en/session.configuration."
 "php#ini.session.gc-maxlifetime@_blank]session.gc_maxlifetime[/a] is lower "
@@ -12962,7 +12968,7 @@ msgstr ""
 "ของคุณต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
 "สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
 
-#: src/Controllers/HomeController.php:282
+#: src/Controllers/HomeController.php:284
 msgid ""
 "Login cookie store is lower than cookie validity configured in phpMyAdmin, "
 "because of this, your login will expire sooner than configured in phpMyAdmin."
@@ -12970,21 +12976,21 @@ msgstr ""
 "การจัดเก็บคุกกี้เข้าสู่ระบบต่ำกว่าระยะเวลามีผลของคุกกี้ที่ได้กำหนดไว้ใน phpMyAdmin "
 "สิ่งนี้จะทำให้การเข้าสู่ระบบของคุณอาจหมดอายุเร็วกว่าที่กำหนดไว้ใน phpMyAdmin"
 
-#: src/Controllers/HomeController.php:301
+#: src/Controllers/HomeController.php:303
 msgid ""
 "Your server is running with default values for the controluser and password "
 "(controlpass) and is open to intrusion; you really should fix this security "
 "weakness by changing the password for controluser 'pma'."
 msgstr ""
 
-#: src/Controllers/HomeController.php:320
+#: src/Controllers/HomeController.php:322
 msgid ""
 "The configuration file needs a valid key for cookie encryption. A temporary "
 "key was automatically generated for you. Please refer to the "
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:330
+#: src/Controllers/HomeController.php:332
 #, php-format
 msgid ""
 "The cookie encryption key in the configuration file is longer than "
@@ -12992,7 +12998,7 @@ msgid ""
 "[doc@cfg_blowfish_secret]documentation[/doc]."
 msgstr ""
 
-#: src/Controllers/HomeController.php:348
+#: src/Controllers/HomeController.php:350
 msgid ""
 "Directory [code]config[/code], which is used by the setup script, still "
 "exists in your phpMyAdmin directory. It is strongly recommended to remove it "
@@ -13003,7 +13009,7 @@ msgstr ""
 "ของคุณ เราขอแนะนำเป็นอย่างยิ่งว่าให้ลบออกหากได้กำหนดค่า phpMyAdmin เรียบร้อยแล้ว "
 "มิเช่นนั้นความปลอดภัยของเครื่องแม่ข่ายของคุณอาจถูกบุกรุกโดยบุคคลที่ไม่ได้รับอนุญาตที่เข้ามาดาวน์โหลดไฟล์กำหนดค่าของคุณ"
 
-#: src/Controllers/HomeController.php:369
+#: src/Controllers/HomeController.php:371
 #, php-format
 msgid ""
 "Server running with Suhosin. Please refer to %sdocumentation%s for possible "
@@ -13012,7 +13018,7 @@ msgstr ""
 "เครื่องแม่ข่ายกำลังทำงานโดยใช้ Suhosin "
 "โปรดศึกษา%sเอกสารกำกับโปรแกรม%sเพื่อดูปัญหาที่อาจเกิดขึ้นได้"
 
-#: src/Controllers/HomeController.php:383
+#: src/Controllers/HomeController.php:385
 #, php-format
 msgid ""
 "The $cfg['TempDir'] (%s) is not accessible. phpMyAdmin is not able to cache "
@@ -13021,7 +13027,7 @@ msgstr ""
 "ไม่สามารถเข้าถึง $cfg['TempDir'] (%s) ได้ phpMyAdmin "
 "จึงไม่สามารถทำการแคชแม่แบบได้และจะทำงานช้าลง"
 
-#: src/Controllers/HomeController.php:439
+#: src/Controllers/HomeController.php:440
 msgid ""
 "The mbstring PHP extension was not found and you seem to be using a "
 "multibyte charset. Without the mbstring extension phpMyAdmin is unable to "
@@ -13030,7 +13036,7 @@ msgstr ""
 "ไม่พบส่วนขยาย mbstring ของ PHP และดูเหมือนคุณต้องใช้ชุดอักขระโดยไม่มีส่วนขยาย mbstring "
 "ของ phpMyAdmin ซึ่งไม่สามารถแยกอักขระได้อย่างถูกต้อง และอาจทำให้ผลลัพธ์ที่ไม่คาดคิดได้"
 
-#: src/Controllers/HomeController.php:457
+#: src/Controllers/HomeController.php:458
 msgid ""
 "The curl extension was not found and allow_url_fopen is disabled. Due to "
 "this some features such as error reporting or version check are disabled."
@@ -13038,7 +13044,7 @@ msgstr ""
 "ไม่พบส่วนขยาย curl และ allow_url_fopen ถูกปิดใช้งานอยู่ "
 "ทำให้บางคุณลักษณะอย่างการรายงานข้อผิดพลาดหรือตรวจสอบรุ่นล่าสุดจะถูกปิดไว้"
 
-#: src/Controllers/Import/ImportController.php:160
+#: src/Controllers/Import/ImportController.php:161
 #, php-format
 msgid ""
 "You probably tried to upload a file that is too large. Please refer to "
@@ -13047,7 +13053,7 @@ msgstr ""
 "คุณพยายามที่จะอัพโหลดไฟล์ที่มีขนาดใหญ่เกินไป กรุณาดูที่ %s เอกสารช่วยเหลือ%s "
 "เพื่อแก้ไขปัญหาดังกล่าวนี้"
 
-#: src/Controllers/Import/ImportController.php:186
+#: src/Controllers/Import/ImportController.php:187
 #, fuzzy
 #| msgid "Remove database"
 msgid "Incorrect format parameter"
@@ -15159,21 +15165,21 @@ msgstr "แถวข้อความ"
 msgid "No collation provided."
 msgstr ""
 
-#: src/Controllers/Operations/DatabaseController.php:81
+#: src/Controllers/Operations/DatabaseController.php:82
 msgid "Cannot copy database to the same name. Change the name and try again."
 msgstr "ไม่สามารถคัดลอกฐานข้อมูลเป็นชื่อเดียวกันได้ เปลี่ยนชื่อแล้วลองใหม่อีกครั้ง"
 
-#: src/Controllers/Operations/DatabaseController.php:161
+#: src/Controllers/Operations/DatabaseController.php:162
 #, php-format
 msgid "Database %1$s has been renamed to %2$s."
 msgstr "ฐานข้อมูล %1$s ได้ถูกเปลี่ยนชื่อเป็น %2$s แล้ว"
 
-#: src/Controllers/Operations/DatabaseController.php:175
+#: src/Controllers/Operations/DatabaseController.php:176
 #, php-format
 msgid "Database %1$s has been copied to %2$s."
 msgstr "ฐานข้อมูล %1$s ได้ทำสำเนาในชื่อ %2$s แล้ว"
 
-#: src/Controllers/Operations/DatabaseController.php:276
+#: src/Controllers/Operations/DatabaseController.php:277
 #, php-format
 msgid ""
 "The phpMyAdmin configuration storage has been deactivated. %sFind out why%s."
@@ -15210,12 +15216,12 @@ msgstr ""
 msgid "Missing parameter:"
 msgstr "เพิ่มฟิลด์ใหม่"
 
-#: src/Controllers/Server/Databases/CreateController.php:82
+#: src/Controllers/Server/Databases/CreateController.php:84
 #, php-format
 msgid "Database %1$s has been created."
 msgstr "ฐานข้อมูล %1$s ถูกสร้างเรียบร้อยแล้ว"
 
-#: src/Controllers/Server/Databases/DestroyController.php:87
+#: src/Controllers/Server/Databases/DestroyController.php:88
 #, fuzzy, php-format
 #| msgid "%s databases have been dropped successfully."
 msgid "%1$d database has been dropped successfully."
@@ -15911,10 +15917,10 @@ msgid "Bookmark not created!"
 msgstr "ที่คั่นหน้า %s ได้ถูกสร้างขึ้น"
 
 #: src/Controllers/Table/AddFieldController.php:134
-#: src/Controllers/Table/IndexesController.php:137
+#: src/Controllers/Table/IndexesController.php:138
 #: src/Controllers/Table/IndexRenameController.php:125
 #: src/Controllers/Table/Structure/PartitioningController.php:265
-#: src/Controllers/Table/Structure/SaveController.php:214
+#: src/Controllers/Table/Structure/SaveController.php:215
 #, fuzzy, php-format
 msgid "Table %1$s has been altered successfully."
 msgstr "ลบผู้ใช้ที่เลือกไว้เรียบร้อยแล้ว."
@@ -15927,8 +15933,8 @@ msgstr "ลบผู้ใช้ที่เลือกไว้เรียบ
 msgid "No row selected."
 msgstr "ยังไม่ได้เลือกแถว"
 
-#: src/Controllers/Table/ChartController.php:56
-#: src/Controllers/Table/GisVisualizationController.php:76
+#: src/Controllers/Table/ChartController.php:57
+#: src/Controllers/Table/GisVisualizationController.php:77
 msgid "No SQL query was set to fetch data."
 msgstr ""
 
@@ -15991,7 +15997,7 @@ msgstr "ตารางที่ถูกติดตาม"
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL คืนผลลัพธ์ว่างเปล่ากลับมา (null / 0 แถว)."
 
-#: src/Controllers/Table/GisVisualizationController.php:98
+#: src/Controllers/Table/GisVisualizationController.php:99
 #, fuzzy
 #| msgid "Has no effect in this MySQL version."
 msgid "No spatial column found for this SQL query."
@@ -16060,7 +16066,7 @@ msgid "The selected columns are already in the correct order."
 msgstr ""
 
 #: src/Controllers/Table/Structure/PartitioningController.php:257
-#: src/Controllers/Table/Structure/SaveController.php:264
+#: src/Controllers/Table/Structure/SaveController.php:265
 #: src/Tracking/Tracking.php:731
 #, fuzzy
 #| msgid "Query type"
@@ -16073,7 +16079,7 @@ msgid "The name '%s' is a MySQL reserved keyword."
 msgid_plural "The names '%s' are MySQL reserved keywords."
 msgstr[0] ""
 
-#: src/Controllers/Table/Structure/SaveController.php:209
+#: src/Controllers/Table/Structure/SaveController.php:210
 #, fuzzy, php-format
 msgid ""
 "Table %1$s has been altered successfully. Privileges have been adjusted."
