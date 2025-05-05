@@ -5205,7 +5205,7 @@ parameters:
 				Use dependency injection instead\.$#
 			'''
 			identifier: staticMethod.deprecated
-			count: 3
+			count: 2
 			path: src/Database/Routines.php
 
 		-
@@ -5271,7 +5271,7 @@ parameters:
 		-
 			message: '#^Loose comparison via "\=\=" is not allowed\.$#'
 			identifier: equal.notAllowed
-			count: 3
+			count: 1
 			path: src/Database/Routines.php
 
 		-

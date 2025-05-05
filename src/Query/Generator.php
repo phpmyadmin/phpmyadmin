@@ -177,20 +177,44 @@ class Generator
         string $quotedDbName,
         string|null $routineType,
         string|null $quotedRoutineName,
+        int $limit = 0,
+        int $offset = 0,
     ): string {
         $query = 'SELECT'
-            . ' `ROUTINE_SCHEMA` AS `Db`,'
             . ' `SPECIFIC_NAME` AS `Name`,'
             . ' `ROUTINE_TYPE` AS `Type`,'
             . ' `DEFINER` AS `Definer`,'
-            . ' `LAST_ALTERED` AS `Modified`,'
-            . ' `CREATED` AS `Created`,'
-            . ' `SECURITY_TYPE` AS `Security_type`,'
-            . ' `ROUTINE_COMMENT` AS `Comment`,'
-            . ' `CHARACTER_SET_CLIENT` AS `character_set_client`,'
-            . ' `COLLATION_CONNECTION` AS `collation_connection`,'
-            . ' `DATABASE_COLLATION` AS `Database Collation`,'
             . ' `DTD_IDENTIFIER`'
+            . ' FROM `information_schema`.`ROUTINES`'
+            . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
+            . ' = ' . $quotedDbName;
+        if ($routineType !== null) {
+            $query .= " AND `ROUTINE_TYPE` = '" . $routineType . "'";
+        }
+
+        if ($quotedRoutineName !== null) {
+            $query .= ' AND `SPECIFIC_NAME` = ' . $quotedRoutineName;
+        }
+
+        $query .= ' ORDER BY `SPECIFIC_NAME`';
+
+        if ($limit > 0) {
+            $query .= ' LIMIT ' . $limit;
+        }
+
+        if ($offset > 0) {
+            $query .= ' OFFSET ' . $offset;
+        }
+
+        return $query;
+    }
+
+    public static function getInformationSchemaRoutinesCountRequest(
+        string $quotedDbName,
+        string|null $routineType,
+        string|null $quotedRoutineName = null,
+    ): string {
+        $query = 'SELECT COUNT(*) AS `count`'
             . ' FROM `information_schema`.`ROUTINES`'
             . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
             . ' = ' . $quotedDbName;

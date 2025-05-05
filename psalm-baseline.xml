@@ -3467,7 +3467,6 @@
     <DeprecatedMethod>
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
-      <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
     <InvalidArgument>
       <code><![CDATA[$itemParamDir]]></code>

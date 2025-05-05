@@ -20,9 +20,7 @@ use PhpMyAdmin\Util;
 
 use function __;
 use function _ngettext;
-use function array_column;
 use function array_merge;
-use function array_multisort;
 use function count;
 use function explode;
 use function htmlentities;
@@ -42,7 +40,6 @@ use function str_starts_with;
 use function stripos;
 
 use const ENT_QUOTES;
-use const SORT_ASC;
 
 /**
  * Functions for routine management.
@@ -1203,35 +1200,17 @@ class Routines
         string $db,
         string|null $which = null,
         string $name = '',
+        int $limit = 0,
+        int $offset = 0,
     ): array {
-        if (! Config::getInstance()->selectedServer['DisableIS']) {
-            $query = QueryGenerator::getInformationSchemaRoutinesRequest(
-                $dbi->quoteString($db),
-                in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
-                $name === '' ? null : $dbi->quoteString($name),
-            );
-            $routines = $dbi->fetchResultSimple($query);
-        } else {
-            $routines = [];
-
-            if ($which === 'FUNCTION' || $which == null) {
-                $query = 'SHOW FUNCTION STATUS WHERE `Db` = ' . $dbi->quoteString($db);
-                if ($name !== '') {
-                    $query .= ' AND `Name` = ' . $dbi->quoteString($name);
-                }
-
-                $routines = $dbi->fetchResultSimple($query);
-            }
-
-            if ($which === 'PROCEDURE' || $which == null) {
-                $query = 'SHOW PROCEDURE STATUS WHERE `Db` = ' . $dbi->quoteString($db);
-                if ($name !== '') {
-                    $query .= ' AND `Name` = ' . $dbi->quoteString($name);
-                }
-
-                $routines = array_merge($routines, $dbi->fetchResultSimple($query));
-            }
-        }
+        $query = QueryGenerator::getInformationSchemaRoutinesRequest(
+            $dbi->quoteString($db),
+            in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+            $name === '' ? null : $dbi->quoteString($name),
+            $limit,
+            $offset,
+        );
+        $routines = $dbi->fetchResultSimple($query);
 
         $ret = [];
         /** @var array{Name:string, Type:string, Definer:string, DTD_IDENTIFIER:string|null} $routine */
@@ -1244,11 +1223,17 @@ class Routines
             );
         }
 
-        // Sort results by name
-        $name = array_column($ret, 'name');
-        array_multisort($name, SORT_ASC, $ret);
-
         return $ret;
+    }
+
+    public static function getRoutineCount(DatabaseInterface $dbi, string $db, string|null $which = null): int
+    {
+        $query = QueryGenerator::getInformationSchemaRoutinesCountRequest(
+            $dbi->quoteString($db),
+            in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+        );
+
+        return (int) $dbi->fetchValue($query);
     }
 
     public static function getFunctionDefinition(DatabaseInterface $dbi, string $db, string $name): string|null

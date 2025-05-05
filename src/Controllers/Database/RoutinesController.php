@@ -25,8 +25,6 @@ use PhpMyAdmin\UserPrivilegesFactory;
 use PhpMyAdmin\Util;
 
 use function __;
-use function array_slice;
-use function count;
 use function htmlentities;
 use function htmlspecialchars;
 use function in_array;
@@ -457,8 +455,7 @@ final readonly class RoutinesController implements InvocableController
             $type = null;
         }
 
-        $items = Routines::getDetails($this->dbi, Current::$database, $type);
-        $totalNumRoutines = count($items);
+        $totalNumRoutines = Routines::getRoutineCount($this->dbi, Current::$database, $type);
         $pageSize = $this->config->settings['MaxRoutineList'];
         $pos = (int) $request->getParam('pos');
 
@@ -481,7 +478,7 @@ final readonly class RoutinesController implements InvocableController
             return $this->response->response();
         }
 
-        $items = array_slice($items, $pos, $pageSize);
+        $items = Routines::getDetails($this->dbi, Current::$database, $type, limit: $pageSize, offset: $pos);
 
         $isAjax = $request->isAjax() && empty($_REQUEST['ajax_page_request']);
 
