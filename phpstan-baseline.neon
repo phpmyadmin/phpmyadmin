@@ -15226,6 +15226,12 @@ parameters:
 			path: src/Table/Table.php
 
 		-
+			message: '#^Parameter \#2 \$field of method PhpMyAdmin\\Table\\Table\:\:getSQLToCreateForeignKey\(\) expects array\<string\>, array\<int\|string\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Table/Table.php
+
+		-
 			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1

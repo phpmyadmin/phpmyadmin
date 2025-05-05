@@ -1598,7 +1598,7 @@ class Table implements Stringable
             $sqlQueryRecreate = '# Restoring the dropped constraint...' . "\n";
             $sqlQueryRecreate .= $this->getSQLToCreateForeignKey(
                 $table,
-                $masterField,
+                $existrelForeign[$masterFieldMd5]->indexList,
                 $existrelForeign[$masterFieldMd5]->refDbName ?? Current::$database,
                 $existrelForeign[$masterFieldMd5]->refTableName,
                 $existrelForeign[$masterFieldMd5]->refIndexList,

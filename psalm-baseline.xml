@@ -8937,6 +8937,9 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[DatabaseInterface::getInstance()]]></code>
     </DeprecatedMethod>
+    <InvalidArgument>
+      <code><![CDATA[$existrelForeign[$masterFieldMd5]->indexList]]></code>
+    </InvalidArgument>
     <InvalidReturnStatement>
       <code><![CDATA[$tableAutoIncrement ?? '']]></code>
       <code><![CDATA[$this->getStatusInfo('TABLE_COLLATION') ?? '']]></code>
