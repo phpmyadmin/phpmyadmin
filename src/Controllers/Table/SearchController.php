@@ -4,10 +4,8 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Table;
 
-use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
@@ -21,7 +19,6 @@ use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Url;
 use PhpMyAdmin\UrlParams;
 use PhpMyAdmin\Util;
@@ -96,6 +93,7 @@ final class SearchController implements InvocableController
         private readonly DatabaseInterface $dbi,
         private readonly DbTableExists $dbTableExists,
         private readonly Config $config,
+        private readonly Sql $sql,
     ) {
     }
 
@@ -237,17 +235,7 @@ final class SearchController implements InvocableController
         /**
          * Add this to ensure following procedures included running correctly.
          */
-        $sql = new Sql(
-            $this->dbi,
-            $this->relation,
-            new RelationCleanup($this->dbi, $this->relation),
-            new Transformations(),
-            $this->template,
-            new BookmarkRepository($this->dbi, $this->relation),
-            $this->config,
-        );
-
-        $this->response->addHTML($sql->executeQueryAndSendQueryResponse(
+        $this->response->addHTML($this->sql->executeQueryAndSendQueryResponse(
             null,
             false, // is_gotofile
             Current::$database, // db

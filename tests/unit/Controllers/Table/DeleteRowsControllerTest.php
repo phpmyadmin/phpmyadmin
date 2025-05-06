@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
+use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\DeleteRowsController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
 use PhpMyAdmin\UrlParams;
 use PHPUnit\Framework\Attributes\CoversClass;
 
@@ -56,8 +61,19 @@ class DeleteRowsControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
             ->withParsedBody(['original_sql_query' => 'SELECT * FROM `test_db`.`test_table`']);
 
+        $relation = new Relation($dbi, $config);
+        $sql = new Sql(
+            $dbi,
+            $relation,
+            new RelationCleanup($dbi, $relation),
+            new Transformations(),
+            new Template($config),
+            new BookmarkRepository($dbi, $relation),
+            $config,
+        );
+
         $response = new ResponseRenderer();
-        (new DeleteRowsController($response, new Template(), $dbi, $config))($request);
+        (new DeleteRowsController($response, $dbi, $sql))($request);
         $actual = $response->getHTMLResult();
         self::assertStringContainsString(
             '<div class="alert alert-success border-top-0 border-start-0 border-end-0 rounded-bottom-0 mb-0"'
