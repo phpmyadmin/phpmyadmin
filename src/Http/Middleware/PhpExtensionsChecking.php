@@ -27,6 +27,10 @@ final class PhpExtensionsChecking implements MiddlewareInterface
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
+        if ($request->getRoute() === '/url') {
+            return $handler->handle($request);
+        }
+
         try {
             $this->checkRequiredPhpExtensions();
         } catch (MissingExtensionException $exception) {
