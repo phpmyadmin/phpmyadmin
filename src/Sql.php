@@ -57,11 +57,11 @@ class Sql
     public static Message|null $usingBookmarkMessage = null;
 
     public function __construct(
-        private DatabaseInterface $dbi,
-        private Relation $relation,
-        private RelationCleanup $relationCleanup,
-        private Transformations $transformations,
-        private Template $template,
+        private readonly DatabaseInterface $dbi,
+        private readonly Relation $relation,
+        private readonly RelationCleanup $relationCleanup,
+        private readonly Transformations $transformations,
+        private readonly Template $template,
         private readonly BookmarkRepository $bookmarkRepository,
         private readonly Config $config,
     ) {

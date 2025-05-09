@@ -4,17 +4,21 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Tests\Controllers\Table;
 
+use PhpMyAdmin\Bookmarks\BookmarkRepository;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\ConfigStorage\Relation;
+use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Table\SearchController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Http\Factory\ServerRequestFactory;
+use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Search;
 use PhpMyAdmin\Template;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Tests\Stubs\ResponseRenderer;
+use PhpMyAdmin\Transformations;
 use PHPUnit\Framework\Attributes\CoversClass;
 
 #[CoversClass(SearchController::class)]
@@ -40,15 +44,29 @@ final class SearchControllerTest extends AbstractTestCase
         $request = ServerRequestFactory::create()->createServerRequest('POST', 'http://example.com')
             ->withParsedBody(['db' => 'test_db', 'table' => 'test_table']);
 
+        $config = new Config();
+        $relation = new Relation($dbi, $config);
+        $template = new Template($config);
+        $sql = new Sql(
+            $dbi,
+            $relation,
+            new RelationCleanup($dbi, $relation),
+            new Transformations(),
+            $template,
+            new BookmarkRepository($dbi, $relation),
+            $config,
+        );
+
         $responseRenderer = new ResponseRenderer();
         $controller = new SearchController(
             $responseRenderer,
-            new Template(),
+            $template,
             new Search($dbi),
-            new Relation($dbi),
+            $relation,
             $dbi,
             new DbTableExists($dbi),
-            new Config(),
+            $config,
+            $sql,
         );
         $controller($request);
 

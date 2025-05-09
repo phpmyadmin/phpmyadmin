@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Controllers\Database\Structure;
 
-use PhpMyAdmin\Bookmarks\BookmarkRepository;
-use PhpMyAdmin\Config;
-use PhpMyAdmin\ConfigStorage\Relation;
-use PhpMyAdmin\ConfigStorage\RelationCleanup;
 use PhpMyAdmin\Controllers\Database\StructureController;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
@@ -19,8 +15,6 @@ use PhpMyAdmin\Message;
 use PhpMyAdmin\ResponseRenderer;
 use PhpMyAdmin\Sql;
 use PhpMyAdmin\Table\Table;
-use PhpMyAdmin\Template;
-use PhpMyAdmin\Transformations;
 use PhpMyAdmin\Util;
 use PhpMyAdmin\Utils\ForeignKey;
 
@@ -30,13 +24,10 @@ final readonly class EmptyTableController implements InvocableController
 {
     public function __construct(
         private ResponseRenderer $response,
-        private Template $template,
         private DatabaseInterface $dbi,
-        private Relation $relation,
-        private RelationCleanup $relationCleanup,
         private FlashMessenger $flashMessenger,
         private StructureController $structureController,
-        private Config $config,
+        private Sql $sql,
     ) {
     }
 
@@ -72,17 +63,11 @@ final readonly class EmptyTableController implements InvocableController
         }
 
         if (! empty($_REQUEST['pos'])) {
-            $sql = new Sql(
-                $this->dbi,
-                $this->relation,
-                $this->relationCleanup,
-                new Transformations(),
-                $this->template,
-                new BookmarkRepository($this->dbi, $this->relation),
-                $this->config,
+            $_REQUEST['pos'] = $this->sql->calculatePosForLastPage(
+                Current::$database,
+                Current::$table,
+                $_REQUEST['pos'],
             );
-
-            $_REQUEST['pos'] = $sql->calculatePosForLastPage(Current::$database, Current::$table, $_REQUEST['pos']);
         }
 
         ForeignKey::handleDisableCheckCleanup($defaultFkCheckValue);

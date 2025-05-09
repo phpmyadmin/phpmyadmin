@@ -313,13 +313,10 @@ return [
             'class' => Database\Structure\EmptyTableController::class,
             'arguments' => [
                 '$response' => '@response',
-                '$template' => '@template',
                 '$dbi' => '@dbi',
-                '$relation' => '@relation',
-                '$relationCleanup' => '@relation_cleanup',
                 '$flashMessenger' => '@' . FlashMessenger::class,
                 '$structureController' => '@' . Database\StructureController::class,
-                '$config' => '@config',
+                '$sql' => '@sql',
             ],
         ],
         Database\Structure\FavoriteTableController::class => [
@@ -999,12 +996,7 @@ return [
         ],
         Table\DeleteRowsController::class => [
             'class' => Table\DeleteRowsController::class,
-            'arguments' => [
-                '$response' => '@response',
-                '$template' => '@template',
-                '$dbi' => '@dbi',
-                '$config' => '@config',
-            ],
+            'arguments' => ['$response' => '@response', '$dbi' => '@dbi', '$sql' => '@sql'],
         ],
         Table\DropColumnConfirmationController::class => [
             'class' => Table\DropColumnConfirmationController::class,
@@ -1194,6 +1186,7 @@ return [
                 '$dbi' => '@dbi',
                 '$dbTableExists' => '@' . DbTableExists::class,
                 '$config' => '@config',
+                '$sql' => '@sql',
             ],
         ],
         Table\SqlController::class => [
