@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2022-02-17 10:35+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2025-05-10 06:01+0000\n"
+"Last-Translator: ClearanceClarence <adrian.thomassen92@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/5-2/nb_NO/>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -37,10 +37,8 @@ msgid "The uptime is only %s"
 msgstr "Oppetid er bare %s"
 
 #: libraries/advisory_rules_generic.php:22
-#, fuzzy
-#| msgid "Versions"
 msgid "Questions below 1,000"
-msgstr "Versjoner"
+msgstr "Spørsmål under 1 000"
 
 #: libraries/advisory_rules_generic.php:26
 msgid ""
@@ -58,16 +56,13 @@ msgstr ""
 "La serveren kjøre i lengre tid til den har utført en større mengde spørsmål."
 
 #: libraries/advisory_rules_generic.php:32
-#, fuzzy, php-format
-#| msgid "Current connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Nåværende tilkobling"
+msgstr "Nåværende antall spørsmål: %s"
 
 #: libraries/advisory_rules_generic.php:37
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Vis SQL spørringer"
+msgstr "Prosentandel av trege spørringer"
 
 #: libraries/advisory_rules_generic.php:41
 msgid ""
@@ -91,10 +86,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Den sakte spørringsgraden bør være under 5%%, verdien din er %s%%."
 
 #: libraries/advisory_rules_generic.php:50
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "Langsom spørringsfrekvens"
 
 #: libraries/advisory_rules_generic.php:54
 msgid ""
@@ -112,10 +105,8 @@ msgstr ""
 "per time."
 
 #: libraries/advisory_rules_generic.php:63
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL spørringer"
+msgstr "Lang spørringstid"
 
 #: libraries/advisory_rules_generic.php:67
 msgid ""
