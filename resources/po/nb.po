@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-04 00:29+0000\n"
-"PO-Revision-Date: 2024-09-26 08:15+0000\n"
-"Last-Translator: Sebastian Kålås Møller <sebastianmollerkalas@gmail.com>\n"
+"PO-Revision-Date: 2025-05-10 06:01+0000\n"
+"Last-Translator: ClearanceClarence <adrian.thomassen92@gmail.com>\n"
 "Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/"
 "phpmyadmin/master/nb_NO/>\n"
 "Language: nb\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -8221,16 +8221,13 @@ msgstr ""
 "La serveren kjøre i lengre tid til den har utført en større mengde spørsmål."
 
 #: src/Advisory/Rules.php:57
-#, fuzzy, php-format
-#| msgid "Current connection"
+#, php-format
 msgid "Current amount of Questions: %s"
-msgstr "Nåværende tilkobling"
+msgstr "Nåværende antall spørsmål: %s"
 
 #: src/Advisory/Rules.php:62
-#, fuzzy
-#| msgid "Show SQL queries"
 msgid "Percentage of slow queries"
-msgstr "Vis SQL spørringer"
+msgstr "Prosentandel av trege spørringer"
 
 #: src/Advisory/Rules.php:66
 msgid ""
@@ -8253,10 +8250,8 @@ msgid "The slow query rate should be below 5%%, your value is %s%%."
 msgstr "Den sakte spørringsgraden bør være under 5%%, verdien din er %s%%."
 
 #: src/Advisory/Rules.php:75
-#, fuzzy
-#| msgid "Flush query cache"
 msgid "Slow query rate"
-msgstr "Flush query cache"
+msgstr "Langsom spørringsfrekvens"
 
 #: src/Advisory/Rules.php:79
 msgid ""
@@ -8274,10 +8269,8 @@ msgstr ""
 "per time."
 
 #: src/Advisory/Rules.php:90
-#, fuzzy
-#| msgid "SQL queries"
 msgid "Long query time"
-msgstr "SQL spørringer"
+msgstr "Lang spørringstid"
 
 #: src/Advisory/Rules.php:94
 msgid ""
