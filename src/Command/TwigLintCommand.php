@@ -139,7 +139,7 @@ class TwigLintCommand extends Command
     }
 
     /** @return array{template: string, file: string, exception?:Error}[] */
-    protected function getFilesInfo(string $templatesPath): array
+    public function getFilesInfo(string $templatesPath): array
     {
         $filesInfo = [];
         $filesFound = $this->findFiles($templatesPath);
