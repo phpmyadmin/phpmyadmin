@@ -701,22 +701,7 @@ parameters:
 			path: libraries/classes/Command/TwigLintCommand.php
 
 		-
-			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:findFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
 			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getContext\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getFilesInfo\\(\\) return type has no value type specified in iterable type array\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) return type has no value type specified in iterable type array\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
 
@@ -742,16 +727,6 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$callback of function set_error_handler expects \\(callable\\(int, string, string, int, array\\)\\: bool\\)\\|null, Closure\\(int, string, string, int\\)\\: mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Parameter \\#1 \\$filePath of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:getTemplateContents\\(\\) expects string, mixed given\\.$#"
-			count: 1
-			path: libraries/classes/Command/TwigLintCommand.php
-
-		-
-			message: "#^Parameter \\#2 \\$file of method PhpMyAdmin\\\\Command\\\\TwigLintCommand\\:\\:validate\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: libraries/classes/Command/TwigLintCommand.php
 
@@ -40973,11 +40948,6 @@ parameters:
 		-
 			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\Assert\\:\\:markTestSkipped\\(\\)\\.$#"
 			count: 1
-			path: test/classes/Command/TwigLintCommandTest.php
-
-		-
-			message: "#^Dynamic call to static method PHPUnit\\\\Framework\\\\TestCase\\:\\:exactly\\(\\)\\.$#"
-			count: 2
 			path: test/classes/Command/TwigLintCommandTest.php
 
 		-

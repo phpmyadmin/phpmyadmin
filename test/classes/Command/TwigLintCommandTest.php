@@ -8,7 +8,6 @@ use PhpMyAdmin\Command\TwigLintCommand;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use Symfony\Component\Console\Command\Command;
 use Twig\Error\SyntaxError;
-use Twig\Source;
 
 use function class_exists;
 use function sort;
@@ -98,53 +97,21 @@ class TwigLintCommandTest extends AbstractTestCase
         ], $filesInfos);
     }
 
-    /**
-     * @requires PHPUnit < 10
-     */
     public function testGetFilesInfoInvalidFile(): void
     {
-        $command = $this->getMockBuilder(TwigLintCommand::class)
-            ->onlyMethods(['getTemplateContents', 'findFiles'])
-            ->getMock();
+        $twigLintCommand = new TwigLintCommand();
+        $path = __DIR__ . '/../_data/templates/lint_command';
+        $filesFound = $twigLintCommand->getFilesInfo($path);
 
-        $command->expects($this->exactly(1))
-            ->method('findFiles')
-            ->willReturn(
-                [
-                    'foo.twig',
-                    'foo-invalid.twig',
-                ]
-            );
-
-        $command->expects($this->exactly(2))
-            ->method('getTemplateContents')
-            ->withConsecutive(
-                ['foo.twig'],
-                ['foo-invalid.twig']
-            )
-            ->willReturnOnConsecutiveCalls('{{ file }}', '{{ file }');
-
-        $filesFound = $this->callFunction($command, TwigLintCommand::class, 'getFilesInfo', [
-            TEST_PATH . 'test/classes/_data/file_listing',
-        ]);
-
-        self::assertEquals([
-            [
-                'template' => '{{ file }}',
-                'file' => 'foo.twig',
-                'valid' => true,
-            ],
-            [
-                'template' => '{{ file }',
-                'file' => 'foo-invalid.twig',
-                'valid' => false,
-                'line' => 1,
-                'exception' => new SyntaxError('Unexpected "}".', 1, new Source(
-                    '{{ file }',
-                    'foo-invalid.twig'
-                )),
-            ],
-        ], $filesFound);
+        self::assertCount(2, $filesFound);
+        self::assertSame('{{ file }' . "\n", $filesFound[0]['template']);
+        self::assertSame($path . '/foo-invalid.twig', $filesFound[0]['file']);
+        self::assertArrayHasKey('exception', $filesFound[0]);
+        $exception = $filesFound[0]['exception'];
+        self::assertInstanceOf(SyntaxError::class, $exception);
+        self::assertSame('Unexpected "}" in "' . $path . '/foo-invalid.twig" at line 1.', $exception->getMessage());
+        self::assertSame('{{ file }}' . "\n", $filesFound[1]['template']);
+        self::assertSame($path . '/foo-valid.twig', $filesFound[1]['file']);
     }
 
     public function testGetContext(): void

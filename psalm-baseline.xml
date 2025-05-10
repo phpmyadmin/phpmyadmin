@@ -233,9 +233,8 @@
     </NonInvariantDocblockPropertyType>
   </file>
   <file src="libraries/classes/Command/TwigLintCommand.php">
-    <MixedArgument occurrences="6">
+    <MixedArgument occurrences="5">
       <code>$code</code>
-      <code>$file</code>
       <code>$info['exception']</code>
       <code>$info['file']</code>
       <code>$info['file']</code>
@@ -251,9 +250,8 @@
       <code>$info['valid']</code>
       <code>$info['valid']</code>
     </MixedArrayAccess>
-    <MixedAssignment occurrences="4">
+    <MixedAssignment occurrences="3">
       <code>$code</code>
-      <code>$file</code>
       <code>$info</code>
       <code>$showDeprecations</code>
     </MixedAssignment>
@@ -14719,13 +14717,15 @@
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedArgument>
-    <MixedAssignment occurrences="5">
+    <MixedAssignment occurrences="4">
       <code>$context</code>
       <code>$context</code>
-      <code>$filesFound</code>
       <code>$filesFound</code>
       <code>$filesInfos</code>
     </MixedAssignment>
+    <PossiblyUndefinedArrayOffset occurrences="1">
+      <code>$filesFound[0]['exception']</code>
+    </PossiblyUndefinedArrayOffset>
   </file>
   <file src="test/classes/CommonTest.php">
     <DocblockTypeContradiction occurrences="2">
