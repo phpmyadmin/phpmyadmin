@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-04 00:29+0000\n"
+"POT-Creation-Date: 2025-05-11 00:29+0000\n"
 "PO-Revision-Date: 2022-02-15 16:21+0000\n"
 "Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -218,13 +218,13 @@ msgstr "%s এর পরে"
 msgid "None"
 msgstr "কিছু না"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:22
+#: resources/templates/columns_definitions/column_definitions_form.twig:21
 #: resources/templates/database/create_table.twig:6
 #: resources/templates/database/operations/index.twig:31
 msgid "Table name"
 msgstr "টেবিলের নাম"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:31
+#: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
 #: resources/templates/export.twig:281 resources/templates/export.twig:297
@@ -234,13 +234,13 @@ msgstr "টেবিলের নাম"
 msgid "Add"
 msgstr "এবং"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:39
+#: resources/templates/columns_definitions/column_definitions_form.twig:38
 #, fuzzy
 #| msgid "Columns"
 msgid "column(s)"
 msgstr "স্তম্ভসমূহ"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:42
+#: resources/templates/columns_definitions/column_definitions_form.twig:41
 #: resources/templates/database/designer/main.twig:1099
 #: resources/templates/database/events/editor_form.twig:121
 #: resources/templates/database/operations/index.twig:20
@@ -296,30 +296,30 @@ msgstr "স্তম্ভসমূহ"
 msgid "Go"
 msgstr "যাও"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:71
+#: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:554
 msgid "Table comments:"
 msgstr "টেবিলের মন্তব্য সমূহ:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:73
+#: resources/templates/columns_definitions/column_definitions_form.twig:70
 #, fuzzy
 #| msgid "Collation"
 msgid "Collation:"
 msgstr "একত্রীকরণ"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:76
+#: resources/templates/columns_definitions/column_definitions_form.twig:73
 msgid "Storage Engine:"
 msgstr "মজুদ ইঞ্জিন:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:81
+#: resources/templates/columns_definitions/column_definitions_form.twig:78
 #, fuzzy
 #| msgid "Connections"
 msgid "Connection:"
 msgstr "সংযোগসমূহ"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:112
+#: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
 #, fuzzy
@@ -327,18 +327,18 @@ msgstr "সংযোগসমূহ"
 msgid "Storage engine"
 msgstr "মজুদ ব্যবস্থা"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:135
+#: resources/templates/columns_definitions/column_definitions_form.twig:132
 msgid "PARTITION definition:"
 msgstr "পাটির্শানের ব্যাখ্যা:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:154
+#: resources/templates/columns_definitions/column_definitions_form.twig:151
 #, fuzzy
 #| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "লেনদেন এ রফতানী সংযুক্ত কর"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:157
+#: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
 #: resources/templates/modals/index_dialog_modal.twig:21
 #: resources/templates/table/index_form.twig:246
@@ -351,7 +351,7 @@ msgstr "লেনদেন এ রফতানী সংযুক্ত কর"
 msgid "Preview SQL"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:160
+#: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/database/central_columns/edit.twig:22
 #: resources/templates/database/central_columns/main.twig:119
 #: resources/templates/database/central_columns/main.twig:278
@@ -365,13 +365,13 @@ msgstr ""
 msgid "Save"
 msgstr "সংরক্ষন"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:167
+#: resources/templates/columns_definitions/column_definitions_form.twig:164
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:176
+#: resources/templates/columns_definitions/column_definitions_form.twig:173
 #: resources/templates/database/designer/main.twig:1094
 #: resources/templates/database/designer/main.twig:1109
 #: resources/templates/database/designer/main.twig:1126
@@ -388,8 +388,8 @@ msgstr ""
 msgid "Loading"
 msgstr "লোডিং…"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:177
-#: resources/templates/columns_definitions/column_definitions_form.twig:182
+#: resources/templates/columns_definitions/column_definitions_form.twig:174
+#: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
 #: resources/templates/database/routines/index.twig:79
@@ -949,9 +949,9 @@ msgstr "অকার্যকর"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/EmptyTableController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:509
-#: src/Controllers/Table/DeleteRowsController.php:53
+#: src/Controllers/Table/DeleteRowsController.php:32
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
@@ -2695,8 +2695,8 @@ msgid "Export routine"
 msgstr "রুটিন %s এর রফতানী"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:356
-#: src/Controllers/Database/RoutinesController.php:366
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "রুটিন নির্বাহ কর"
 
@@ -4613,7 +4613,7 @@ msgstr ""
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:337
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
@@ -6864,7 +6864,7 @@ msgstr "প্রোফাইলিং এর ফলাফল"
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:58
 #: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
@@ -6879,7 +6879,7 @@ msgstr "প্রোফাইলিং এর ফলাফল"
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:1027 src/Display/Results.php:3013
+#: src/Database/Routines.php:1024 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "আপনার SQL অনুসন্ধানটি সফলভাবে কাজ করেছে."
@@ -12758,8 +12758,8 @@ msgstr ""
 #: src/Controllers/Database/ExportController.php:60
 #: src/Controllers/Database/ImportController.php:58
 #: src/Controllers/Database/ImportController.php:63
-#: src/Controllers/Database/RoutinesController.php:79
-#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/RoutinesController.php:77
+#: src/Controllers/Database/RoutinesController.php:96
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
@@ -12802,8 +12802,8 @@ msgstr ""
 #: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:53
 #: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
+#: src/Controllers/Table/SearchController.php:172
+#: src/Controllers/Table/SearchController.php:177
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
 #: src/Controllers/Table/StructureController.php:90
@@ -12830,9 +12830,9 @@ msgid "Edit event"
 msgstr "ইভেন্ট সম্পাদনা"
 
 #: src/Controllers/Database/EventsController.php:175
-#: src/Controllers/Database/RoutinesController.php:275
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "নির্দেশ প্রক্রিয়া করনে সমস্যা হয়েছে:"
@@ -12883,7 +12883,7 @@ msgstr "কোন অধিকার নাই"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "একটি ট্রিগার তৈরীর জন্য প্রয়োজনীয় অধিকার নাই"
 
-#: src/Controllers/Database/RoutinesController.php:87
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:37
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:36
@@ -12923,8 +12923,8 @@ msgstr "একটি ট্রিগার তৈরীর জন্য প্�
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
 #: src/Controllers/Table/StructureController.php:104
@@ -12939,34 +12939,34 @@ msgstr "একটি ট্রিগার তৈরীর জন্য প্�
 msgid "No table selected."
 msgstr "কোনো তালিকা নিবার্চন করা হয়নি।"
 
-#: src/Controllers/Database/RoutinesController.php:175
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "রুটিন যোগকর"
 
-#: src/Controllers/Database/RoutinesController.php:179
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "রুটিন সম্পাদনা"
 
-#: src/Controllers/Database/RoutinesController.php:278
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
 "necessary privileges to edit this routine."
 msgstr ""
 
-#: src/Controllers/Database/RoutinesController.php:307
-#: src/Controllers/Database/RoutinesController.php:375
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, fuzzy, php-format
 #| msgid "No routine with name %1$s found in database %2$s"
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "ডাটাবেইজ %2$s তে %1$s নামের কোন রুটিন পাওয়া যায়নি"
 
-#: src/Controllers/Database/RoutinesController.php:418
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "রুটিন %s এর রফতানী"
 
-#: src/Controllers/Database/RoutinesController.php:437
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -16417,7 +16417,7 @@ msgid "There is an issue with your request."
 msgstr "ইনডেক্স বিহীন জোড়ার পরিমান অনেক বেশী।"
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1044 src/Import/Import.php:135
+#: src/Database/Routines.php:1041 src/Import/Import.php:135
 #: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "মাইএসকিউএল কিছু পায়নি। (শুন্য তথ্য)।"
@@ -16671,9 +16671,9 @@ msgstr ""
 "আমদানি সহায়ক (plugin) পাওয়া যাচ্ছে না, অনুগ্রহ করে আপনার ইন্সষ্টলেশন পরীক্ষা করুন"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:104
-#: src/Database/Routines.php:130 src/Database/Routines.php:208
-#: src/Database/Routines.php:1004 src/Triggers/Triggers.php:83
+#: src/Database/Events.php:136 src/Database/Routines.php:101
+#: src/Database/Routines.php:127 src/Database/Routines.php:205
+#: src/Database/Routines.php:1001 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -16681,9 +16681,9 @@ msgstr "নিন্মোক্ত অনুসন্ধানটি ব্য�
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:108 src/Database/Routines.php:134
-#: src/Database/Routines.php:212 src/Database/Routines.php:226
-#: src/Database/Routines.php:1008 src/Html/Generator.php:804
+#: src/Database/Routines.php:105 src/Database/Routines.php:131
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:1005 src/Html/Generator.php:804
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -16693,7 +16693,7 @@ msgstr "MySQL বলেছে: "
 msgid "Sorry, we failed to restore the dropped event."
 msgstr "দুঃখিত, আমরা মুছে ফেলা ইভেন্ট ফিরিয়ে আনতে পারিনি।"
 
-#: src/Database/Events.php:117 src/Database/Routines.php:224
+#: src/Database/Events.php:117 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:108
 msgid "The backed up query was:"
 msgstr "ব্যাকআপকৃত অনুসন্ধানটি ছিল:"
@@ -16708,12 +16708,12 @@ msgstr "ইভেন্ট %1$s পরিবর্তন হয়েছে।"
 msgid "Event %1$s has been created."
 msgstr "ইভেন্ট %1$s তৈরী হয়েছে।"
 
-#: src/Database/Events.php:157 src/Database/Routines.php:150
+#: src/Database/Events.php:157 src/Database/Routines.php:147
 #: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr "আপনার কাজ প্রক্রিয়া করার সময় এক বা একাধীক ভুল হয়েছে:"
 
-#: src/Database/Events.php:270 src/Database/Routines.php:806
+#: src/Database/Events.php:270 src/Database/Routines.php:803
 #: src/Triggers/Triggers.php:190
 #, fuzzy
 #| msgid "The definer must be in the \"username@hostname\" format"
@@ -16742,41 +16742,41 @@ msgstr "আপনাকে অবশ্যই এই ইভেন্টের �
 msgid "You must provide an event definition."
 msgstr "আপনাকে অবশ্যই ইভেন্টের সংজ্ঞা দিতে হবে।"
 
-#: src/Database/Routines.php:85 src/Database/Routines.php:814
+#: src/Database/Routines.php:82 src/Database/Routines.php:811
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "অকার্যকর রুটিন ধরন:\"%s\""
 
-#: src/Database/Routines.php:137
+#: src/Database/Routines.php:134
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "রুটিন %1$s তৈরী করা হয়েছে।"
 
-#: src/Database/Routines.php:223
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr "দুখিত, মুছে ফেলা রুটিনটি ফেরত আনা যায়নি।"
 
-#: src/Database/Routines.php:272
+#: src/Database/Routines.php:269
 #, fuzzy, php-format
 #| msgid "Routine %1$s has been modified."
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "রুটিন %1$s পরিবর্তীত হয়েছে।"
 
-#: src/Database/Routines.php:277
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "রুটিন %1$s পরিবর্তীত হয়েছে।"
 
-#: src/Database/Routines.php:651
+#: src/Database/Routines.php:648
 msgid "You must provide a name and a type for each routine parameter."
 msgstr "প্রতিটি রুটিন প্যারামিটারের জন্য অবশ্যই একটি নাম এবং ধরন দিতে হবে।"
 
-#: src/Database/Routines.php:669
+#: src/Database/Routines.php:666
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "প্যারামিটারের জন্য অকার্যকর নির্দেশনা \"%s\"।"
 
-#: src/Database/Routines.php:689 src/Database/Routines.php:754
+#: src/Database/Routines.php:686 src/Database/Routines.php:751
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -16784,26 +16784,26 @@ msgstr ""
 "ENUM, SET,VARCHAR and VARBINARY এর রুটিনের প্যারামিটরে দৈর্ঘ্য/মান অবশ্যই দিতে "
 "হবে।"
 
-#: src/Database/Routines.php:736
+#: src/Database/Routines.php:733
 msgid "You must provide a valid return type for the routine."
 msgstr "আপনাকে অবশ্যই রুটিনের কার্যকর ফেরত ধরণ দিতে হবে।"
 
-#: src/Database/Routines.php:822
+#: src/Database/Routines.php:819
 #, fuzzy
 #| msgid "You must provide a routine name"
 msgid "You must provide a routine name!"
 msgstr "আপনাকে অবশ্যই একটি রুটিনের নাম দিতে হবে"
 
-#: src/Database/Routines.php:886
+#: src/Database/Routines.php:883
 msgid "You must provide a routine definition."
 msgstr "আপনাকে অবশ্যই রুটিনের একটি সংজ্ঞা দিতে হবে।"
 
-#: src/Database/Routines.php:1020
+#: src/Database/Routines.php:1017
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "রুটিন %s এর সম্পাদনের ফলাফল"
 
-#: src/Database/Routines.php:1035
+#: src/Database/Routines.php:1032
 #, fuzzy, php-format
 #| msgid "%d row affected by the last statement inside the procedure"
 #| msgid_plural "%d rows affected by the last statement inside the procedure"

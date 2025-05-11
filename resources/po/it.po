@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
-"POT-Creation-Date: 2025-05-04 00:29+0000\n"
+"POT-Creation-Date: 2025-05-11 00:29+0000\n"
 "PO-Revision-Date: 2025-01-20 13:00+0000\n"
 "Last-Translator: Matteo Regazzi <mregazzi@tiscali.it>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/phpmyadmin/"
@@ -212,13 +212,13 @@ msgstr "dopo %s"
 msgid "None"
 msgstr "Nessuno"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:22
+#: resources/templates/columns_definitions/column_definitions_form.twig:21
 #: resources/templates/database/create_table.twig:6
 #: resources/templates/database/operations/index.twig:31
 msgid "Table name"
 msgstr "Nome tabella"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:31
+#: resources/templates/columns_definitions/column_definitions_form.twig:30
 #: resources/templates/console/display.twig:136
 #: resources/templates/database/central_columns/main.twig:202
 #: resources/templates/export.twig:281 resources/templates/export.twig:297
@@ -226,11 +226,11 @@ msgstr "Nome tabella"
 msgid "Add"
 msgstr "Aggiungi"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:39
+#: resources/templates/columns_definitions/column_definitions_form.twig:38
 msgid "column(s)"
 msgstr "campo/i"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:42
+#: resources/templates/columns_definitions/column_definitions_form.twig:41
 #: resources/templates/database/designer/main.twig:1099
 #: resources/templates/database/events/editor_form.twig:121
 #: resources/templates/database/operations/index.twig:20
@@ -286,41 +286,41 @@ msgstr "campo/i"
 msgid "Go"
 msgstr "Esegui"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:71
+#: resources/templates/columns_definitions/column_definitions_form.twig:68
 #: resources/templates/database/data_dictionary/index.twig:16
 #: resources/templates/table/structure/display_table_stats.twig:6
 #: src/Plugins/Schema/Pdf/PdfRelationSchema.php:554
 msgid "Table comments:"
 msgstr "Commenti alla tabella:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:73
+#: resources/templates/columns_definitions/column_definitions_form.twig:70
 msgid "Collation:"
 msgstr "Raccolta (Collazione):"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:76
+#: resources/templates/columns_definitions/column_definitions_form.twig:73
 msgid "Storage Engine:"
 msgstr "Motore di Memorizzazione:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:81
+#: resources/templates/columns_definitions/column_definitions_form.twig:78
 msgid "Connection:"
 msgstr "Connessione:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:112
+#: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
 msgid "Storage engine"
 msgstr "Motore di memorizzazione"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:135
+#: resources/templates/columns_definitions/column_definitions_form.twig:132
 msgid "PARTITION definition:"
 msgstr "Definizione PARTITION:"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:154
+#: resources/templates/columns_definitions/column_definitions_form.twig:151
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
 msgstr "Transazione online"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:157
+#: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
 #: resources/templates/modals/index_dialog_modal.twig:21
 #: resources/templates/table/index_form.twig:246
@@ -333,7 +333,7 @@ msgstr "Transazione online"
 msgid "Preview SQL"
 msgstr "Anteprima SQL"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:160
+#: resources/templates/columns_definitions/column_definitions_form.twig:157
 #: resources/templates/database/central_columns/edit.twig:22
 #: resources/templates/database/central_columns/main.twig:119
 #: resources/templates/database/central_columns/main.twig:278
@@ -347,7 +347,7 @@ msgstr "Anteprima SQL"
 msgid "Save"
 msgstr "Salva"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:167
+#: resources/templates/columns_definitions/column_definitions_form.twig:164
 msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
@@ -355,7 +355,7 @@ msgstr ""
 "La larghezza del campo degli interi è ignorata nella tua versione di MySQL a "
 "meno di definire un campo TINYINT(1)"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:176
+#: resources/templates/columns_definitions/column_definitions_form.twig:173
 #: resources/templates/database/designer/main.twig:1094
 #: resources/templates/database/designer/main.twig:1109
 #: resources/templates/database/designer/main.twig:1126
@@ -370,8 +370,8 @@ msgstr ""
 msgid "Loading"
 msgstr "Caricamento"
 
-#: resources/templates/columns_definitions/column_definitions_form.twig:177
-#: resources/templates/columns_definitions/column_definitions_form.twig:182
+#: resources/templates/columns_definitions/column_definitions_form.twig:174
+#: resources/templates/columns_definitions/column_definitions_form.twig:179
 #: resources/templates/database/designer/main.twig:1127
 #: resources/templates/database/designer/main.twig:1137
 #: resources/templates/database/routines/index.twig:79
@@ -884,9 +884,9 @@ msgstr "Disabilitata"
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:23
 #: resources/templates/table/tracking/structure_snapshot_indexes.twig:24
 #: src/Controllers/Database/Structure/DropTableController.php:41
-#: src/Controllers/Database/Structure/EmptyTableController.php:49
+#: src/Controllers/Database/Structure/EmptyTableController.php:40
 #: src/Controllers/JavaScriptMessagesController.php:509
-#: src/Controllers/Table/DeleteRowsController.php:53
+#: src/Controllers/Table/DeleteRowsController.php:32
 #: src/Controllers/Table/DropColumnController.php:44
 #: src/Controllers/Table/Structure/PrimaryController.php:100
 #: src/Indexes/IndexColumn.php:148 src/Indexes/Index.php:472
@@ -2463,8 +2463,8 @@ msgid "Export routine"
 msgstr "Esportazione della routine %s"
 
 #: resources/templates/database/routines/index.twig:113
-#: src/Controllers/Database/RoutinesController.php:356
-#: src/Controllers/Database/RoutinesController.php:366
+#: src/Controllers/Database/RoutinesController.php:354
+#: src/Controllers/Database/RoutinesController.php:364
 msgid "Execute routine"
 msgstr "Esegui routine"
 
@@ -4226,7 +4226,7 @@ msgstr "Hai abilitato l'autenticazione a due fattori."
 
 #: resources/templates/preview_sql.twig:3
 #: src/Controllers/Database/Structure/DropTableController.php:42
-#: src/Controllers/Database/Structure/EmptyTableController.php:50
+#: src/Controllers/Database/Structure/EmptyTableController.php:41
 #: src/Controllers/Operations/TableController.php:337
 #: src/Controllers/Table/DropColumnController.php:61
 #: src/Controllers/Table/ReplaceController.php:287 src/Core.php:516
@@ -6299,7 +6299,7 @@ msgstr "Grafico a torta con i risultati del profiling."
 
 #: resources/templates/sql/query.twig:7
 #: src/Controllers/Operations/ViewController.php:112
-#: src/Controllers/Table/DeleteRowsController.php:75
+#: src/Controllers/Table/DeleteRowsController.php:58
 #: src/Controllers/Table/FindReplaceController.php:119
 #: src/Controllers/Table/Maintenance/AnalyzeController.php:73
 #: src/Controllers/Table/Maintenance/CheckController.php:73
@@ -6314,7 +6314,7 @@ msgstr "Grafico a torta con i risultati del profiling."
 #: src/Controllers/Table/Partition/RepairController.php:47
 #: src/Controllers/Table/Partition/TruncateController.php:48
 #: src/Controllers/Table/RelationController.php:140
-#: src/Database/Routines.php:1027 src/Display/Results.php:3013
+#: src/Database/Routines.php:1024 src/Display/Results.php:3013
 #: src/Message.php:122
 msgid "Your SQL query has been executed successfully."
 msgstr "La query SQL è stata eseguita con successo."
@@ -12027,8 +12027,8 @@ msgstr "Esiste già una pagina chiamata \"%s\" per favore scegli un altro nome."
 #: src/Controllers/Database/ExportController.php:60
 #: src/Controllers/Database/ImportController.php:58
 #: src/Controllers/Database/ImportController.php:63
-#: src/Controllers/Database/RoutinesController.php:79
-#: src/Controllers/Database/RoutinesController.php:98
+#: src/Controllers/Database/RoutinesController.php:77
+#: src/Controllers/Database/RoutinesController.php:96
 #: src/Controllers/Database/SearchController.php:51
 #: src/Controllers/Database/SearchController.php:56
 #: src/Controllers/Database/SqlController.php:52
@@ -12071,8 +12071,8 @@ msgstr "Esiste già una pagina chiamata \"%s\" per favore scegli un altro nome."
 #: src/Controllers/Table/IndexesController.php:70
 #: src/Controllers/Table/IndexRenameController.php:53
 #: src/Controllers/Table/IndexRenameController.php:58
-#: src/Controllers/Table/SearchController.php:174
-#: src/Controllers/Table/SearchController.php:179
+#: src/Controllers/Table/SearchController.php:172
+#: src/Controllers/Table/SearchController.php:177
 #: src/Controllers/Table/SqlController.php:57
 #: src/Controllers/Table/SqlController.php:62
 #: src/Controllers/Table/StructureController.php:90
@@ -12099,9 +12099,9 @@ msgid "Edit event"
 msgstr "Modifica evento"
 
 #: src/Controllers/Database/EventsController.php:175
-#: src/Controllers/Database/RoutinesController.php:275
-#: src/Controllers/Database/RoutinesController.php:305
-#: src/Controllers/Database/RoutinesController.php:373
+#: src/Controllers/Database/RoutinesController.php:273
+#: src/Controllers/Database/RoutinesController.php:303
+#: src/Controllers/Database/RoutinesController.php:371
 #: src/Controllers/Triggers/IndexController.php:207
 msgid "Error in processing request:"
 msgstr "Errore nell'elaborazione della richiesta:"
@@ -12153,7 +12153,7 @@ msgstr "Nessun Privilegio"
 msgid "You do not have the privileges to administrate the users!"
 msgstr "Non hai le autorizzazioni per amministrare i dati degli utenti!"
 
-#: src/Controllers/Database/RoutinesController.php:87
+#: src/Controllers/Database/RoutinesController.php:85
 #: src/Controllers/Database/Structure/AddPrefixController.php:33
 #: src/Controllers/Database/Structure/CentralColumns/AddController.php:37
 #: src/Controllers/Database/Structure/CentralColumns/MakeConsistentController.php:36
@@ -12193,8 +12193,8 @@ msgstr "Non hai le autorizzazioni per amministrare i dati degli utenti!"
 #: src/Controllers/Table/Maintenance/ChecksumController.php:44
 #: src/Controllers/Table/Maintenance/OptimizeController.php:44
 #: src/Controllers/Table/Maintenance/RepairController.php:44
-#: src/Controllers/Table/SearchController.php:188
-#: src/Controllers/Table/SearchController.php:193
+#: src/Controllers/Table/SearchController.php:186
+#: src/Controllers/Table/SearchController.php:191
 #: src/Controllers/Table/SqlController.php:71
 #: src/Controllers/Table/SqlController.php:76
 #: src/Controllers/Table/StructureController.php:104
@@ -12207,15 +12207,15 @@ msgstr "Non hai le autorizzazioni per amministrare i dati degli utenti!"
 msgid "No table selected."
 msgstr "Nessuna tabella selezionata."
 
-#: src/Controllers/Database/RoutinesController.php:175
+#: src/Controllers/Database/RoutinesController.php:173
 msgid "Add routine"
 msgstr "Aggiungi una routine"
 
-#: src/Controllers/Database/RoutinesController.php:179
+#: src/Controllers/Database/RoutinesController.php:177
 msgid "Edit routine"
 msgstr "Modifica routine"
 
-#: src/Controllers/Database/RoutinesController.php:278
+#: src/Controllers/Database/RoutinesController.php:276
 #, php-format
 msgid ""
 "No routine with name %1$s found in database %2$s. You might be lacking the "
@@ -12224,18 +12224,18 @@ msgstr ""
 "Non c'è alcuna routine di nome %1$s nel database %2$s. Potresti non avere le "
 "autorizzazioni necessarie per editare questa routine."
 
-#: src/Controllers/Database/RoutinesController.php:307
-#: src/Controllers/Database/RoutinesController.php:375
+#: src/Controllers/Database/RoutinesController.php:305
+#: src/Controllers/Database/RoutinesController.php:373
 #, php-format
 msgid "No routine with name %1$s found in database %2$s."
 msgstr "Non é stata trovata alcuna routine con nome %1$s nel database %2$s."
 
-#: src/Controllers/Database/RoutinesController.php:418
+#: src/Controllers/Database/RoutinesController.php:416
 #, php-format
 msgid "Export of routine %s"
 msgstr "Esportazione della routine %s"
 
-#: src/Controllers/Database/RoutinesController.php:437
+#: src/Controllers/Database/RoutinesController.php:435
 #, php-format
 msgid ""
 "Error in processing request: No routine with name %1$s found in database "
@@ -15521,7 +15521,7 @@ msgid "There is an issue with your request."
 msgstr "C'è un problema con la tua richiesta."
 
 #: src/Controllers/Table/GetFieldController.php:85
-#: src/Database/Routines.php:1044 src/Import/Import.php:135
+#: src/Database/Routines.php:1041 src/Import/Import.php:135
 #: src/InsertEdit.php:159 src/Sql.php:864
 msgid "MySQL returned an empty result set (i.e. zero rows)."
 msgstr "MySQL ha restituito un insieme vuoto (i.e. zero righe)."
@@ -15744,9 +15744,9 @@ msgstr ""
 "installazione!"
 
 #: src/Database/Events.php:93 src/Database/Events.php:102
-#: src/Database/Events.php:136 src/Database/Routines.php:104
-#: src/Database/Routines.php:130 src/Database/Routines.php:208
-#: src/Database/Routines.php:1004 src/Triggers/Triggers.php:83
+#: src/Database/Events.php:136 src/Database/Routines.php:101
+#: src/Database/Routines.php:127 src/Database/Routines.php:205
+#: src/Database/Routines.php:1001 src/Triggers/Triggers.php:83
 #: src/Triggers/Triggers.php:92 src/Triggers/Triggers.php:127
 #, php-format
 msgid "The following query has failed: \"%s\""
@@ -15754,9 +15754,9 @@ msgstr "La seguente query è fallita: \"%s\""
 
 #: src/Database/Events.php:97 src/Database/Events.php:106
 #: src/Database/Events.php:119 src/Database/Events.php:140
-#: src/Database/Routines.php:108 src/Database/Routines.php:134
-#: src/Database/Routines.php:212 src/Database/Routines.php:226
-#: src/Database/Routines.php:1008 src/Html/Generator.php:804
+#: src/Database/Routines.php:105 src/Database/Routines.php:131
+#: src/Database/Routines.php:209 src/Database/Routines.php:223
+#: src/Database/Routines.php:1005 src/Html/Generator.php:804
 #: src/Triggers/Triggers.php:87 src/Triggers/Triggers.php:96
 #: src/Triggers/Triggers.php:110 src/Triggers/Triggers.php:131
 msgid "MySQL said: "
@@ -15767,7 +15767,7 @@ msgid "Sorry, we failed to restore the dropped event."
 msgstr ""
 "Ci dispiace, non siamo riusciti a ripristinare l'evento che è stato rimosso."
 
-#: src/Database/Events.php:117 src/Database/Routines.php:224
+#: src/Database/Events.php:117 src/Database/Routines.php:221
 #: src/Triggers/Triggers.php:108
 msgid "The backed up query was:"
 msgstr "La query di backup è:"
@@ -15782,13 +15782,13 @@ msgstr "L'evento %1$s è stato modificato."
 msgid "Event %1$s has been created."
 msgstr "L'evento %1$s è stato creato."
 
-#: src/Database/Events.php:157 src/Database/Routines.php:150
+#: src/Database/Events.php:157 src/Database/Routines.php:147
 #: src/Triggers/Triggers.php:148
 msgid "One or more errors have occurred while processing your request:"
 msgstr ""
 "Si sono verificati uno o più errori durante l'esecuzione della tua richiesta:"
 
-#: src/Database/Events.php:270 src/Database/Routines.php:806
+#: src/Database/Events.php:270 src/Database/Routines.php:803
 #: src/Triggers/Triggers.php:190
 msgid "The definer must be in the \"username@hostname\" format!"
 msgstr "Il definer deve essere nel seguente formato: \"nomeutente@nomehost\"!"
@@ -15813,43 +15813,43 @@ msgstr "È necessario fornire un valido tipo per l'evento."
 msgid "You must provide an event definition."
 msgstr "È necessario fornire una definizione per l'evento."
 
-#: src/Database/Routines.php:85 src/Database/Routines.php:814
+#: src/Database/Routines.php:82 src/Database/Routines.php:811
 #, php-format
 msgid "Invalid routine type: \"%s\""
 msgstr "Tipo di routine non valido: \"%s\""
 
-#: src/Database/Routines.php:137
+#: src/Database/Routines.php:134
 #, php-format
 msgid "Routine %1$s has been created."
 msgstr "La routine %1$s é stata creata."
 
-#: src/Database/Routines.php:223
+#: src/Database/Routines.php:220
 msgid "Sorry, we failed to restore the dropped routine."
 msgstr ""
 "Ci dispiace, non siamo riusciti a ripristinare la routine che é stata "
 "rimossa."
 
-#: src/Database/Routines.php:272
+#: src/Database/Routines.php:269
 #, php-format
 msgid "Routine %1$s has been modified. Privileges have been adjusted."
 msgstr "La routine %1$s é stata modificata. I privilegi sono stati adattati."
 
-#: src/Database/Routines.php:277
+#: src/Database/Routines.php:274
 #, php-format
 msgid "Routine %1$s has been modified."
 msgstr "La routine %1$s é stata modificata."
 
-#: src/Database/Routines.php:651
+#: src/Database/Routines.php:648
 msgid "You must provide a name and a type for each routine parameter."
 msgstr ""
 "È necessario fornire un nome ed un tipo per ogni parametro della routine."
 
-#: src/Database/Routines.php:669
+#: src/Database/Routines.php:666
 #, php-format
 msgid "Invalid direction \"%s\" given for parameter."
 msgstr "Direzione invalida \"%s\" é stata fornita per un parametro."
 
-#: src/Database/Routines.php:689 src/Database/Routines.php:754
+#: src/Database/Routines.php:686 src/Database/Routines.php:751
 msgid ""
 "You must provide length/values for routine parameters of type ENUM, SET, "
 "VARCHAR and VARBINARY."
@@ -15857,24 +15857,24 @@ msgstr ""
 "È necessario fornire lunghezza o valori per parameteri della routine del "
 "tipo ENUM, SET, VARCHAR e VARBINARY."
 
-#: src/Database/Routines.php:736
+#: src/Database/Routines.php:733
 msgid "You must provide a valid return type for the routine."
 msgstr "È necessario fornire un valido tipo del risultato."
 
-#: src/Database/Routines.php:822
+#: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
 msgstr "Devi fornire un nome di routine!"
 
-#: src/Database/Routines.php:886
+#: src/Database/Routines.php:883
 msgid "You must provide a routine definition."
 msgstr "È necessario fornire una definizione per la routine."
 
-#: src/Database/Routines.php:1020
+#: src/Database/Routines.php:1017
 #, php-format
 msgid "Execution results of routine %s"
 msgstr "Risultato di esecuzione della routine %s"
 
-#: src/Database/Routines.php:1035
+#: src/Database/Routines.php:1032
 #, php-format
 msgid "%d row affected by the last statement inside the procedure."
 msgid_plural "%d rows affected by the last statement inside the procedure."
