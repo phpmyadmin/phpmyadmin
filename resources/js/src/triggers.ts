@@ -15,11 +15,6 @@ AJAX.registerTeardown('triggers.js', function () {
 
 const DatabaseTriggers = {
     /**
-     * @var $ajaxDialog Query object containing the reference to the
-     *                  dialog that contains the editor
-     */
-    $ajaxDialog: null,
-    /**
      * @var syntaxHiglighter Reference to the codemirror editor
      */
     syntaxHiglighter: null,
@@ -185,22 +180,12 @@ const DatabaseTriggers = {
                 return;
             }
 
-            var buttonOptions = {
-                [window.Messages.strGo]: {
-                    text: window.Messages.strGo,
-                    class: 'btn btn-primary',
-                },
-                [window.Messages.strClose]: {
-                    text: window.Messages.strClose,
-                    class: 'btn btn-secondary',
-                },
-            };
             // We have successfully fetched the editor form
             ajaxRemoveMessage($msg);
-            // Now define the function that is called when
-            // the user presses the "Go" button
-            // @ts-ignore
-            buttonOptions[window.Messages.strGo].click = function () {
+
+            let isEditMode = false;
+
+            function triggersEditorModalSaveEventHandler () {
                 // Move the data from the codemirror editor back to the
                 // textarea, where it can be used in the form submission.
                 if (typeof window.CodeMirror !== 'undefined') {
@@ -231,10 +216,10 @@ const DatabaseTriggers = {
                     // Item created successfully
                     ajaxRemoveMessage($msg);
                     slidingMessage(data.message);
-                    that.$ajaxDialog.dialog('close');
+                    window.bootstrap.Modal.getOrCreateInstance('#triggersEditorModal').hide();
                     // If we are in 'edit' mode, we must
                     // remove the reference to the old row.
-                    if (mode === 'edit' && $editRow !== null) {
+                    if (isEditMode && $editRow !== null) {
                         $editRow.remove();
                     }
 
@@ -328,72 +313,59 @@ const DatabaseTriggers = {
 
                     Navigation.reload();
                 }); // end $.post()
-            }; // end of function that handles the submission of the Editor
-
-            // @ts-ignore
-            buttonOptions[window.Messages.strClose].click = function () {
-                $(this).dialog('close');
-            };
-
-            /**
-             * Display the dialog to the user
-             */
-            that.$ajaxDialog = $('<div id="rteDialog">' + data.message + '</div>').dialog({
-                classes: {
-                    'ui-dialog-titlebar-close': 'btn-close'
-                },
-                width: '70%',
-                minWidth: 500,
-                // @ts-ignore
-                buttons: buttonOptions,
-                // Issue #15810 - use button titles for modals (eg: new procedure)
-                // Respect the order: title on href tag, href content, title sent in response
-                title: $this.attr('title') || $this.text() || $(data.title).text(),
-                modal: true,
-                open: function () {
-                    $('#rteDialog').dialog('option', 'max-height', $(window).height());
-                    if ($('#rteDialog').parents('.ui-dialog').height() > $(window).height()) {
-                        $('#rteDialog').dialog('option', 'height', $(window).height());
-                    }
-
-                    $(this).find('input[name=item_name]').trigger('focus');
-                    $(this).find('input.datefield').each(function () {
-                        addDatepicker($(this).css('width', '95%'), 'date');
-                    });
-
-                    $(this).find('input.datetimefield').each(function () {
-                        addDatepicker($(this).css('width', '95%'), 'datetime');
-                    });
-
-                    // @ts-ignore
-                    $.datepicker.initialized = false;
-                },
-                close: function () {
-                    $(this).remove();
-                }
-            });
-
-            /**
-             * @var mode Used to remember whether the editor is in
-             *           "Edit" or "Add" mode
-             */
-            var mode = 'add';
-            if ($('input[name=editor_process_edit]').length > 0) {
-                mode = 'edit';
             }
 
-            // Attach syntax highlighted editor to the definition
-            /**
-             * @var elm jQuery object containing the reference to
-             *                 the Definition textarea.
-             */
-            var $elm = $('textarea[name=item_definition]').last();
-            var linterOptions = {
-                editorType: 'trigger',
-            };
-            that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
-            window.codeMirrorEditor = that.syntaxHiglighter;
-        }); // end $.get()
+            const triggersEditorModal = document.getElementById('triggersEditorModal');
+
+            triggersEditorModal.addEventListener('shown.bs.modal', function () {
+                /**
+                 * Issue #15810 - use button titles for modals (eg: new procedure)
+                 * Respect the order: title on href tag, href content, title sent in response
+                 */
+                triggersEditorModal.querySelector('.modal-title').textContent = $this.attr('title') || $this.text() || $(data.title).text();
+                triggersEditorModal.querySelector('.modal-body').innerHTML = data.message;
+
+                const triggersEditorModalSaveButton = document.getElementById('triggersEditorModalSaveButton');
+                triggersEditorModalSaveButton?.addEventListener('click', triggersEditorModalSaveEventHandler);
+
+                $(this).find('input[name=item_name]').trigger('focus');
+                $(this).find('input.datefield').each(function () {
+                    addDatepicker($(this).css('width', '95%'), 'date');
+                });
+
+                $(this).find('input.datetimefield').each(function () {
+                    addDatepicker($(this).css('width', '95%'), 'datetime');
+                });
+
+                // @ts-ignore
+                $.datepicker.initialized = false;
+
+                if ($('input[name=editor_process_edit]').length > 0) {
+                    isEditMode = true;
+                }
+
+                // Attach syntax highlighted editor to the definition
+                /**
+                 * @var elm jQuery object containing the reference to
+                 *                 the Definition textarea.
+                 */
+                var $elm = $('textarea[name=item_definition]').last();
+                var linterOptions = {
+                    editorType: 'trigger',
+                };
+                that.syntaxHiglighter = getSqlEditor($elm, {}, 'vertical', linterOptions);
+                window.codeMirrorEditor = that.syntaxHiglighter;
+            });
+
+            triggersEditorModal.addEventListener('hidden.bs.modal', function () {
+                const triggersEditorModalSaveButton = document.getElementById('triggersEditorModalSaveButton');
+                triggersEditorModalSaveButton?.removeEventListener('click', triggersEditorModalSaveEventHandler);
+                document.getElementById('triggersEditorModal').querySelector('.modal-body').innerHTML = '<div class="spinner-border" role="status">' +
+                    '<span class="visually-hidden">' + window.Messages.strLoading + '</span></div>';
+            });
+
+            window.bootstrap.Modal.getOrCreateInstance(triggersEditorModal).show();
+        });
     },
 
     dropDialog: function ($this) {
