@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-11 00:29+0000\n"
-"PO-Revision-Date: 2025-04-26 06:52+0000\n"
+"PO-Revision-Date: 2025-05-12 23:02+0000\n"
 "Last-Translator: Domen <mitenem@outlook.com>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/sl/>\n"
@@ -3499,8 +3499,6 @@ msgid "Server:"
 msgstr "Strežnik:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "Ime gostitelja:"
 
@@ -18580,18 +18578,16 @@ msgid "A date and time combination, supported range is %1$s to %2$s"
 msgstr "Kombinacija datuma in časa; podprt je razpon od %1$s do %2$s"
 
 #: src/Types.php:208
-#, fuzzy
-#| msgid ""
-#| "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-09 03:14:07 UTC, "
-#| "stored as the number of seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgid ""
 "A timestamp, range is 1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07 UTC on "
 "32-bit platforms (MariaDB 11.3 and earlier), and up to 2106-02-07 06:28:15 "
 "UTC on 64-bit platforms (MariaDB 11.5 and later), stored as the number of "
 "seconds since the epoch (1970-01-01 00:00:00 UTC)"
 msgstr ""
-"Časovni žig; razpon je od 1970-01-01 00:00:01 UTC do 2038-01-09 03:14:07 "
-"UTC, shranjeno kot število sekund od dobe (1970-01-01 00:00:00 UTC)"
+"Časovni žig; razpon je od 1970-01-01 00:00:01 UTC do 2038-01-19 03:14:07 UTC "
+"na 32-bitnih platformah (MariaDB 11.3 in prej) in do 2106-02-07 06:28:15 UTC "
+"na 64-bitnih platformah (MariaDB 11.5 in pozneje), shranjeno kot število "
+"sekund od dobe (1970-01-01 00:00:00 UTC)"
 
 #: src/Types.php:214
 #, php-format
