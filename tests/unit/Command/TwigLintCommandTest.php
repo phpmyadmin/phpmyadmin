@@ -91,13 +91,16 @@ class TwigLintCommandTest extends AbstractTestCase
 
         self::assertCount(2, $filesFound);
         self::assertSame('{{ file }' . "\n", $filesFound[0]['template']);
-        self::assertSame($path . '/foo-invalid.twig', $filesFound[0]['file']);
+        self::assertSame($path . DIRECTORY_SEPARATOR . 'foo-invalid.twig', $filesFound[0]['file']);
         self::assertArrayHasKey('exception', $filesFound[0]);
         $exception = $filesFound[0]['exception'];
         self::assertInstanceOf(SyntaxError::class, $exception);
-        self::assertSame('Unexpected "}" in "' . $path . '/foo-invalid.twig" at line 1.', $exception->getMessage());
+        self::assertSame(
+            'Unexpected "}" in "' . $path . DIRECTORY_SEPARATOR . 'foo-invalid.twig" at line 1.',
+            $exception->getMessage(),
+        );
         self::assertSame('{{ file }}' . "\n", $filesFound[1]['template']);
-        self::assertSame($path . '/foo-valid.twig', $filesFound[1]['file']);
+        self::assertSame($path . DIRECTORY_SEPARATOR . 'foo-valid.twig', $filesFound[1]['file']);
     }
 
     public function testGetContext(): void
