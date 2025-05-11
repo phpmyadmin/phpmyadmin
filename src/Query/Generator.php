@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace PhpMyAdmin\Query;
 
+use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Triggers\Trigger;
 use PhpMyAdmin\Util;
 
@@ -175,7 +176,7 @@ class Generator
 
     public static function getInformationSchemaRoutinesRequest(
         string $quotedDbName,
-        string|null $routineType,
+        RoutineType|null $routineType,
         string|null $quotedRoutineName,
         int $limit = 0,
         int $offset = 0,
@@ -189,7 +190,7 @@ class Generator
             . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
             . ' = ' . $quotedDbName;
         if ($routineType !== null) {
-            $query .= " AND `ROUTINE_TYPE` = '" . $routineType . "'";
+            $query .= " AND `ROUTINE_TYPE` = '" . $routineType->value . "'";
         }
 
         if ($quotedRoutineName !== null) {
@@ -211,7 +212,7 @@ class Generator
 
     public static function getInformationSchemaRoutinesCountRequest(
         string $quotedDbName,
-        string|null $routineType,
+        RoutineType|null $routineType,
         string|null $quotedRoutineName = null,
     ): string {
         $query = 'SELECT COUNT(*) AS `count`'
@@ -219,7 +220,7 @@ class Generator
             . ' WHERE `ROUTINE_SCHEMA` ' . Util::getCollateForIS()
             . ' = ' . $quotedDbName;
         if ($routineType !== null) {
-            $query .= " AND `ROUTINE_TYPE` = '" . $routineType . "'";
+            $query .= " AND `ROUTINE_TYPE` = '" . $routineType->value . "'";
         }
 
         if ($quotedRoutineName !== null) {

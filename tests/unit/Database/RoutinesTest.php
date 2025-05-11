@@ -7,8 +7,10 @@ namespace PhpMyAdmin\Tests\Database;
 use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\ConnectionType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
+use PhpMyAdmin\Http\Factory\ServerRequestFactory;
 use PhpMyAdmin\Tests\AbstractTestCase;
 use PhpMyAdmin\Types;
 use PHPUnit\Framework\Attributes\CoversClass;
@@ -253,7 +255,9 @@ class RoutinesTest extends AbstractTestCase
 
         unset($_POST);
         $_POST = $request;
-        self::assertSame($query, $routines->getQueryFromRequest());
+        $request = ServerRequestFactory::create()->createServerRequest('POST', 'https://example.com/')
+            ->withParsedBody($request);
+        self::assertSame($query, $routines->getQueryFromRequest($request));
         self::assertSame($numErr, $routines->getErrorCount());
 
         // reset
@@ -476,18 +480,16 @@ class RoutinesTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW FUNCTION STATUS;',
+            'SELECT SPECIFIC_NAME FROM information_schema.ROUTINES '
+            . "WHERE ROUTINE_SCHEMA = 'test_db' AND ROUTINE_TYPE = 'FUNCTION' AND SPECIFIC_NAME != ''",
             [
-                ['db_test', 'test_func', 'FUNCTION'],
-                ['test_db', 'test_func1', 'FUNCTION'],
-                ['test_db', '', 'FUNCTION'],
-                ['test_db', 'test_func2', 'FUNCTION'],
-                ['test_db', 'test_func', 'PROCEDURE'],
+                ['test_func1'],
+                ['test_func2'],
             ],
-            ['Db', 'Name', 'Type'],
+            ['Name'],
         );
 
-        $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $names = Routines::getNames($this->createDatabaseInterface($dbiDummy), 'test_db', RoutineType::Function);
         self::assertSame(['test_func1', 'test_func2'], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
@@ -497,12 +499,13 @@ class RoutinesTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW FUNCTION STATUS;',
-            [['db_test', 'test_func', 'FUNCTION'], ['test_db', '', 'FUNCTION'], ['test_db', 'test_func', 'PROCEDURE']],
+            'SELECT SPECIFIC_NAME FROM information_schema.ROUTINES '
+            . "WHERE ROUTINE_SCHEMA = 'test_db' AND ROUTINE_TYPE = 'FUNCTION' AND SPECIFIC_NAME != ''",
+            [],
             ['Db', 'Name', 'Type'],
         );
 
-        $names = Routines::getFunctionNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $names = Routines::getNames($this->createDatabaseInterface($dbiDummy), 'test_db', RoutineType::Function);
         self::assertSame([], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
@@ -512,18 +515,16 @@ class RoutinesTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW PROCEDURE STATUS;',
+            'SELECT SPECIFIC_NAME FROM information_schema.ROUTINES '
+            . "WHERE ROUTINE_SCHEMA = 'test_db' AND ROUTINE_TYPE = 'PROCEDURE' AND SPECIFIC_NAME != ''",
             [
-                ['db_test', 'test_proc', 'PROCEDURE'],
-                ['test_db', 'test_proc1', 'PROCEDURE'],
-                ['test_db', '', 'PROCEDURE'],
-                ['test_db', 'test_proc2', 'PROCEDURE'],
-                ['test_db', 'test_proc', 'FUNCTION'],
+                ['test_proc1', 'PROCEDURE'],
+                ['test_proc2', 'PROCEDURE'],
             ],
-            ['Db', 'Name', 'Type'],
+            ['Name'],
         );
 
-        $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $names = Routines::getNames($this->createDatabaseInterface($dbiDummy), 'test_db', RoutineType::Procedure);
         self::assertSame(['test_proc1', 'test_proc2'], $names);
 
         $dbiDummy->assertAllQueriesConsumed();
@@ -533,16 +534,13 @@ class RoutinesTest extends AbstractTestCase
     {
         $dbiDummy = $this->createDbiDummy();
         $dbiDummy->addResult(
-            'SHOW PROCEDURE STATUS;',
-            [
-                ['db_test', 'test_proc', 'PROCEDURE'],
-                ['test_db', '', 'PROCEDURE'],
-                ['test_db', 'test_proc', 'FUNCTION'],
-            ],
+            'SELECT SPECIFIC_NAME FROM information_schema.ROUTINES '
+            . "WHERE ROUTINE_SCHEMA = 'test_db' AND ROUTINE_TYPE = 'PROCEDURE' AND SPECIFIC_NAME != ''",
+            [],
             ['Db', 'Name', 'Type'],
         );
 
-        $names = Routines::getProcedureNames($this->createDatabaseInterface($dbiDummy), 'test_db');
+        $names = Routines::getNames($this->createDatabaseInterface($dbiDummy), 'test_db', RoutineType::Procedure);
         self::assertSame([], $names);
 
         $dbiDummy->assertAllQueriesConsumed();

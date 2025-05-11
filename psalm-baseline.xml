@@ -973,8 +973,8 @@
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$_POST['item_type']]]></code>
       <code><![CDATA[$_REQUEST['item_name']]]></code>
+      <code><![CDATA[$_REQUEST['type'] ?? '']]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
       <code><![CDATA[$_GET['item_name']]]></code>
@@ -3468,10 +3468,6 @@
       <code><![CDATA[Config::getInstance()]]></code>
       <code><![CDATA[Config::getInstance()]]></code>
     </DeprecatedMethod>
-    <InvalidArgument>
-      <code><![CDATA[$itemParamDir]]></code>
-      <code><![CDATA[$itemParamName]]></code>
-    </InvalidArgument>
     <InvalidArrayOffset>
       <code><![CDATA[$retval['item_param_dir'][$key]]]></code>
     </InvalidArrayOffset>
@@ -3500,6 +3496,8 @@
       <code><![CDATA[$value]]></code>
     </MixedArgument>
     <MixedArgumentTypeCoercion>
+      <code><![CDATA[$itemParamDir]]></code>
+      <code><![CDATA[$itemParamName]]></code>
       <code><![CDATA[$options]]></code>
       <code><![CDATA[$options]]></code>
       <code><![CDATA[$retval['item_param_opts_num'][$idx]]]></code>
@@ -3546,6 +3544,9 @@
     </MixedArrayOffset>
     <MixedAssignment>
       <code><![CDATA[$i]]></code>
+      <code><![CDATA[$itemParamLength]]></code>
+      <code><![CDATA[$itemParamName]]></code>
+      <code><![CDATA[$itemParamType]]></code>
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$opt]]></code>
       <code><![CDATA[$options[]]]></code>
@@ -3565,7 +3566,6 @@
     </MixedReturnTypeCoercion>
     <PossiblyInvalidArgument>
       <code><![CDATA[$_POST['funcs'][$routine['item_param_name'][$i]]]]></code>
-      <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
@@ -3579,17 +3579,12 @@
       <code><![CDATA[$_POST['item_returnopts_num']]]></code>
       <code><![CDATA[$_POST['item_returnopts_text']]]></code>
       <code><![CDATA[$_POST['item_type']]]></code>
-      <code><![CDATA[$itemDefiner]]></code>
-      <code><![CDATA[$itemName]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemType]]></code>
-      <code><![CDATA[$itemType]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code><![CDATA[$_POST['item_comment']]]></code>
       <code><![CDATA[$_POST['item_isdeterministic']]]></code>
       <code><![CDATA[$_POST['item_name']]]></code>
       <code><![CDATA[$_POST['item_original_name']]]></code>
@@ -3603,7 +3598,6 @@
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
       <code><![CDATA[$itemReturnType]]></code>
-      <code><![CDATA[$itemType]]></code>
     </PossiblyInvalidCast>
     <PossiblyInvalidIterator>
       <code><![CDATA[$retval['item_param_dir']]]></code>
@@ -3611,10 +3605,10 @@
     <PossiblyInvalidOperand>
       <code><![CDATA[$_POST['item_original_type']]]></code>
       <code><![CDATA[$_POST['item_returnlength']]]></code>
-      <code><![CDATA[$itemDefinition]]></code>
     </PossiblyInvalidOperand>
     <PossiblyNullArgument>
       <code><![CDATA[$createRoutine]]></code>
+      <code><![CDATA[$itemType]]></code>
       <code><![CDATA[$param->type->parameters]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
       <code><![CDATA[$routine['SPECIFIC_NAME']]]></code>
@@ -3648,20 +3642,12 @@
       <code><![CDATA[empty($_POST['editor_process_edit'])]]></code>
       <code><![CDATA[empty($_POST['funcs'][$routine['item_param_name'][$i]])]]></code>
       <code><![CDATA[empty($_POST['item_adjust_privileges'])]]></code>
-      <code><![CDATA[empty($_POST['item_comment'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
       <code><![CDATA[empty($_POST['item_returnlength'])]]></code>
       <code><![CDATA[empty($_POST['item_returnopts_num'])]]></code>
       <code><![CDATA[empty($_POST['item_returnopts_text'])]]></code>
-      <code><![CDATA[empty($itemDefiner)]]></code>
-      <code><![CDATA[empty($itemDefinition)]]></code>
-      <code><![CDATA[empty($itemName)]]></code>
       <code><![CDATA[empty($itemParamDir[$i])]]></code>
-      <code><![CDATA[empty($itemParamLength)]]></code>
-      <code><![CDATA[empty($itemParamName)]]></code>
       <code><![CDATA[empty($itemParamName[$i])]]></code>
-      <code><![CDATA[empty($itemParamType)]]></code>
-      <code><![CDATA[empty($itemSecurityType)]]></code>
       <code><![CDATA[empty($routine['DTD_IDENTIFIER'])]]></code>
     </RiskyTruthyFalsyComparison>
   </file>

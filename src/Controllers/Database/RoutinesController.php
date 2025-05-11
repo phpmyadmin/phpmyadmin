@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Controllers\InvocableController;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Database\Routines;
+use PhpMyAdmin\Database\RoutineType;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\DbTableExists;
 use PhpMyAdmin\Html\Generator;
@@ -55,7 +56,7 @@ final readonly class RoutinesController implements InvocableController
     {
         $this->response->addScriptFiles(['database/routines.js', 'sql.js']);
 
-        $type = $_REQUEST['type'] ?? null;
+        $type = RoutineType::tryFrom($_REQUEST['type'] ?? '');
 
         $userPrivileges = $this->userPrivilegesFactory->getPrivileges();
 
@@ -104,7 +105,7 @@ final readonly class RoutinesController implements InvocableController
         }
 
         if (! empty($_POST['editor_process_add']) || ! empty($_POST['editor_process_edit'])) {
-            $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database);
+            $output = $this->routines->handleRequestCreateOrEdit($userPrivileges, Current::$database, $request);
             if ($request->isAjax()) {
                 if (! (Current::$message instanceof Message && Current::$message->isSuccess())) {
                     $this->response->setRequestStatus(false);
@@ -116,7 +117,7 @@ final readonly class RoutinesController implements InvocableController
                 $routines = Routines::getDetails(
                     $this->dbi,
                     Current::$database,
-                    $_POST['item_type'],
+                    RoutineType::tryFrom($request->getParsedBodyParamAsString('item_type', '')),
                     $_POST['item_name'],
                 );
                 $routine = $routines[0];
@@ -449,10 +450,6 @@ final readonly class RoutinesController implements InvocableController
 
                 $this->response->addHTML($message->getDisplay());
             }
-        }
-
-        if (! isset($type) || ! in_array($type, ['FUNCTION', 'PROCEDURE'], true)) {
-            $type = null;
         }
 
         $totalNumRoutines = Routines::getRoutineCount($this->dbi, Current::$database, $type);

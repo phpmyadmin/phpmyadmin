@@ -2029,6 +2029,12 @@ parameters:
 			path: src/Controllers/Database/RoutinesController.php
 
 		-
+			message: '#^Parameter \#1 \$value of static method PhpMyAdmin\\Database\\RoutineType\:\:tryFrom\(\) expects int\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: src/Controllers/Database/RoutinesController.php
+
+		-
 			message: '#^Parameter \#2 \$type of method PhpMyAdmin\\Database\\Routines\:\:getDataFromName\(\) expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 3
@@ -2042,12 +2048,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#3 \$name of static method PhpMyAdmin\\Database\\Routines\:\:getProcedureDefinition\(\) expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Controllers/Database/RoutinesController.php
-
-		-
-			message: '#^Parameter \#3 \$which of static method PhpMyAdmin\\Database\\Routines\:\:getDetails\(\) expects string\|null, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Controllers/Database/RoutinesController.php
@@ -5194,12 +5194,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
-			identifier: assignOp.invalid
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -5259,7 +5253,7 @@ parameters:
 		-
 			message: '#^Construct empty\(\) is not allowed\. Use more strict comparison\.$#'
 			identifier: empty.notAllowed
-			count: 21
+			count: 13
 			path: src/Database/Routines.php
 
 		-
@@ -5293,12 +5287,6 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#1 \$haystack of function str_contains expects string, mixed given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function stripos expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
@@ -5307,7 +5295,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$identifier of static method PhpMyAdmin\\Util\:\:backquote\(\) expects string\|Stringable\|null, mixed given\.$#'
 			identifier: argument.type
-			count: 9
+			count: 8
 			path: src/Database/Routines.php
 
 		-
@@ -5325,7 +5313,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$str of method PhpMyAdmin\\Dbal\\DatabaseInterface\:\:quoteString\(\) expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 7
+			count: 6
 			path: src/Database/Routines.php
 
 		-
@@ -5337,7 +5325,7 @@ parameters:
 		-
 			message: '#^Parameter \#1 \$string of function htmlspecialchars expects string, mixed given\.$#'
 			identifier: argument.type
-			count: 2
+			count: 1
 			path: src/Database/Routines.php
 
 		-
@@ -5366,12 +5354,6 @@ parameters:
 
 		-
 			message: '#^Parameter \#2 \$itemParamDir of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects array\<string\>, array\<mixed, mixed\> given\.$#'
-			identifier: argument.type
-			count: 1
-			path: src/Database/Routines.php
-
-		-
-			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php
@@ -5413,7 +5395,7 @@ parameters:
 			path: src/Database/Routines.php
 
 		-
-			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#7 \$itemType of method PhpMyAdmin\\Database\\Routines\:\:processParamsAndBuild\(\) expects PhpMyAdmin\\Database\\RoutineType, PhpMyAdmin\\Database\\RoutineType\|null given\.$#'
 			identifier: argument.type
 			count: 1
 			path: src/Database/Routines.php

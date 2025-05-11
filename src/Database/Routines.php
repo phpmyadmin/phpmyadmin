@@ -9,6 +9,7 @@ use PhpMyAdmin\Config;
 use PhpMyAdmin\Current;
 use PhpMyAdmin\Dbal\DatabaseInterface;
 use PhpMyAdmin\Html\Generator;
+use PhpMyAdmin\Http\ServerRequest;
 use PhpMyAdmin\Message;
 use PhpMyAdmin\Query\Generator as QueryGenerator;
 use PhpMyAdmin\SqlParser\Parser;
@@ -68,10 +69,13 @@ class Routines
     /**
      * Handle request to create or edit a routine
      */
-    public function handleRequestCreateOrEdit(UserPrivileges $userPrivileges, string $db): string
-    {
+    public function handleRequestCreateOrEdit(
+        UserPrivileges $userPrivileges,
+        string $db,
+        ServerRequest $request,
+    ): string {
         $sqlQuery = '';
-        $routineQuery = $this->getQueryFromRequest();
+        $routineQuery = $this->getQueryFromRequest($request);
 
         // set by getQueryFromRequest()
         if ($this->errors === []) {
@@ -627,7 +631,6 @@ class Routines
      * @param mixed[]  $itemParamLength   A length or not for the parameter
      * @param mixed[]  $itemParamOpsText  An optional charset for the parameter
      * @param mixed[]  $itemParamOpsNum   An optional parameter for a $itemParamType NUMBER
-     * @param string   $itemType          The item type (PROCEDURE/FUNCTION)
      * @param bool     $warnedAboutLength A boolean that will be switched if a the length warning is given
      */
     private function processParamsAndBuild(
@@ -637,7 +640,7 @@ class Routines
         array $itemParamLength,
         array $itemParamOpsText,
         array $itemParamOpsNum,
-        string $itemType,
+        RoutineType $itemType,
         bool &$warnedAboutLength,
     ): string {
         $params = '';
@@ -650,14 +653,14 @@ class Routines
             }
 
             if (
-                $itemType === 'PROCEDURE'
+                $itemType === RoutineType::Procedure
                 && ! empty($itemParamDir[$i])
                 && in_array($itemParamDir[$i], $this->directions, true)
             ) {
                 $params .= $itemParamDir[$i] . ' '
                     . Util::backquote($itemParamName[$i])
                     . ' ' . $itemParamType[$i];
-            } elseif ($itemType === 'FUNCTION') {
+            } elseif ($itemType === RoutineType::Function) {
                 $params .= Util::backquote($itemParamName[$i])
                     . ' ' . $itemParamType[$i];
             } elseif (! $warnedAboutDir) {
@@ -775,14 +778,14 @@ class Routines
      *
      * @return string  The CREATE [ROUTINE | PROCEDURE] query.
      */
-    public function getQueryFromRequest(): string
+    public function getQueryFromRequest(ServerRequest $request): string
     {
-        $itemType = $_POST['item_type'] ?? '';
-        $itemDefiner = $_POST['item_definer'] ?? '';
-        $itemName = $_POST['item_name'] ?? '';
+        $itemType = RoutineType::tryFrom($request->getParsedBodyParamAsString('item_type', ''));
+        $itemDefiner = $request->getParsedBodyParamAsString('item_definer', '');
+        $itemName = $request->getParsedBodyParamAsString('item_name', '');
 
         $query = 'CREATE ';
-        if (! empty($itemDefiner)) {
+        if ($itemDefiner !== '') {
             if (str_contains($itemDefiner, '@')) {
                 $arr = explode('@', $itemDefiner);
 
@@ -804,16 +807,13 @@ class Routines
             }
         }
 
-        if ($itemType === 'FUNCTION' || $itemType === 'PROCEDURE') {
-            $query .= $itemType . ' ';
+        if ($itemType !== null) {
+            $query .= $itemType->value . ' ';
         } else {
-            $this->errors[] = sprintf(
-                __('Invalid routine type: "%s"'),
-                htmlspecialchars($itemType),
-            );
+            $this->errors[] = __('Invalid routine type!');
         }
 
-        if (! empty($itemName)) {
+        if ($itemName !== '') {
             $query .= Util::backquote($itemName);
         } else {
             $this->errors[] = __('You must provide a routine name!');
@@ -821,18 +821,18 @@ class Routines
 
         $warnedAboutLength = false;
 
-        $itemParamName = $_POST['item_param_name'] ?? '';
-        $itemParamType = $_POST['item_param_type'] ?? '';
-        $itemParamLength = $_POST['item_param_length'] ?? '';
-        $itemParamDir = (array) ($_POST['item_param_dir'] ?? []);
-        $itemParamOpsText = (array) ($_POST['item_param_opts_text'] ?? []);
-        $itemParamOpsNum = (array) ($_POST['item_param_opts_num'] ?? []);
+        $itemParamName = $request->getParsedBodyParam('item_param_name', '');
+        $itemParamType = $request->getParsedBodyParam('item_param_type', '');
+        $itemParamLength = $request->getParsedBodyParam('item_param_length', '');
+        $itemParamDir = (array) $request->getParsedBodyParam('item_param_dir', []);
+        $itemParamOpsText = (array) $request->getParsedBodyParam('item_param_opts_text', []);
+        $itemParamOpsNum = (array) $request->getParsedBodyParam('item_param_opts_num', []);
 
         $params = '';
         if (
-            ! empty($itemParamName)
-            && ! empty($itemParamType)
-            && ! empty($itemParamLength)
+            $itemParamName !== []
+            && $itemParamType !== []
+            && $itemParamLength !== []
             && is_array($itemParamName)
             && is_array($itemParamType)
             && is_array($itemParamLength)
@@ -850,34 +850,33 @@ class Routines
         }
 
         $query .= '(' . $params . ') ';
-        if ($itemType === 'FUNCTION') {
+        if ($itemType === RoutineType::Function) {
             $query = $this->processFunctionSpecificParameters($query, $warnedAboutLength);
         }
 
-        if (! empty($_POST['item_comment'])) {
-            $query .= 'COMMENT ' . $this->dbi->quoteString($_POST['item_comment']) . ' ';
+        $itemComment = $request->getParsedBodyParamAsString('item_comment', '');
+        if ($itemComment !== '') {
+            $query .= 'COMMENT ' . $this->dbi->quoteString($itemComment) . ' ';
         }
 
-        if (isset($_POST['item_isdeterministic'])) {
+        if ($request->hasBodyParam('item_isdeterministic')) {
             $query .= 'DETERMINISTIC ';
         } else {
             $query .= 'NOT DETERMINISTIC ';
         }
 
-        $itemSqlDataAccess = $_POST['item_sqldataaccess'] ?? '';
+        $itemSqlDataAccess = $request->getParsedBodyParamAsString('item_sqldataaccess', '');
         if (in_array($itemSqlDataAccess, $this->sqlDataAccess, true)) {
             $query .= $itemSqlDataAccess . ' ';
         }
 
-        $itemSecurityType = $_POST['item_securitytype'] ?? '';
-        if (! empty($itemSecurityType)) {
-            if ($itemSecurityType === 'DEFINER' || $itemSecurityType === 'INVOKER') {
-                $query .= 'SQL SECURITY ' . $itemSecurityType . ' ';
-            }
+        $itemSecurityType = $request->getParsedBodyParamAsString('item_securitytype', '');
+        if ($itemSecurityType === 'DEFINER' || $itemSecurityType === 'INVOKER') {
+            $query .= 'SQL SECURITY ' . $itemSecurityType . ' ';
         }
 
-        $itemDefinition = $_POST['item_definition'] ?? '';
-        if (! empty($itemDefinition)) {
+        $itemDefinition = $request->getParsedBodyParamAsString('item_definition', '');
+        if ($itemDefinition !== '') {
             $query .= $itemDefinition;
         } else {
             $this->errors[] = __('You must provide a routine definition.');
@@ -1189,23 +1188,21 @@ class Routines
      * returns details about the PROCEDUREs or FUNCTIONs for a specific database
      * or details about a specific routine
      *
-     * @param string      $db    db name
-     * @param string|null $which PROCEDURE | FUNCTION or null for both
-     * @param string      $name  name of the routine (to fetch a specific routine)
+     * @param string $name name of the routine (to fetch a specific routine)
      *
      * @return Routine[]
      */
     public static function getDetails(
         DatabaseInterface $dbi,
         string $db,
-        string|null $which = null,
+        RoutineType|null $which = null,
         string $name = '',
         int $limit = 0,
         int $offset = 0,
     ): array {
         $query = QueryGenerator::getInformationSchemaRoutinesRequest(
             $dbi->quoteString($db),
-            in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+            $which,
             $name === '' ? null : $dbi->quoteString($name),
             $limit,
             $offset,
@@ -1226,11 +1223,11 @@ class Routines
         return $ret;
     }
 
-    public static function getRoutineCount(DatabaseInterface $dbi, string $db, string|null $which = null): int
+    public static function getRoutineCount(DatabaseInterface $dbi, string $db, RoutineType|null $which = null): int
     {
         $query = QueryGenerator::getInformationSchemaRoutinesCountRequest(
             $dbi->quoteString($db),
-            in_array($which, ['FUNCTION', 'PROCEDURE'], true) ? $which : null,
+            $which,
         );
 
         return (int) $dbi->fetchValue($query);
@@ -1260,38 +1257,14 @@ class Routines
      * @return array<int, string>
      * @psalm-return list<non-empty-string>
      */
-    public static function getFunctionNames(DatabaseInterface $dbi, string $db): array
+    public static function getNames(DatabaseInterface $dbi, string $db, RoutineType $type): array
     {
-        /** @psalm-var list<array{Db: string, Name: string, Type: string}> $functions */
-        $functions = $dbi->fetchResultSimple('SHOW FUNCTION STATUS;');
-        $names = [];
-        foreach ($functions as $function) {
-            if ($function['Db'] !== $db || $function['Type'] !== 'FUNCTION' || $function['Name'] === '') {
-                continue;
-            }
-
-            $names[] = $function['Name'];
-        }
-
-        return $names;
-    }
-
-    /**
-     * @return array<int, string>
-     * @psalm-return list<non-empty-string>
-     */
-    public static function getProcedureNames(DatabaseInterface $dbi, string $db): array
-    {
-        /** @psalm-var list<array{Db: string, Name: string, Type: string}> $procedures */
-        $procedures = $dbi->fetchResultSimple('SHOW PROCEDURE STATUS;');
-        $names = [];
-        foreach ($procedures as $procedure) {
-            if ($procedure['Db'] !== $db || $procedure['Type'] !== 'PROCEDURE' || $procedure['Name'] === '') {
-                continue;
-            }
-
-            $names[] = $procedure['Name'];
-        }
+        /** @var list<non-empty-string> $names */
+        $names = $dbi->fetchSingleColumn(
+            'SELECT SPECIFIC_NAME FROM information_schema.ROUTINES'
+            . ' WHERE ROUTINE_SCHEMA = ' . $dbi->quoteString($db)
+            . " AND ROUTINE_TYPE = '" . $type->value . "' AND SPECIFIC_NAME != ''",
+        );
 
         return $names;
     }
