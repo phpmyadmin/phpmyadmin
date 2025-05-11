@@ -16345,6 +16345,12 @@ parameters:
 			path: tests/unit/Advisory/RulesTest.php
 
 		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertContainsOnlyString\(\) with array\{id\: non\-empty\-string, name\: string, precondition\?\: non\-empty\-string, formula\: non\-empty\-string, test\: non\-empty\-string, issue\: string, recommendation\: string, justification\: string, \.\.\.\} will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 1
+			path: tests/unit/Advisory/RulesTest.php
+
+		-
 			message: '''
 				#^Call to deprecated method getInstance\(\) of class PhpMyAdmin\\Config\:
 				Use dependency injection instead\.$#
@@ -16385,6 +16391,12 @@ parameters:
 			identifier: phpunit.callParent
 			count: 1
 			path: tests/unit/CacheTest.php
+
+		-
+			message: '#^Call to static method PHPUnit\\Framework\\Assert\:\:assertContainsOnlyArray\(\) with non\-empty\-array\<string, array\<string, PhpMyAdmin\\Charsets\\Collation\>\> will always evaluate to true\.$#'
+			identifier: staticMethod.alreadyNarrowedType
+			count: 3
+			path: tests/unit/CharsetsTest.php
 
 		-
 			message: '#^Class PhpMyAdmin\\Tests\\Command\\SetVersionCommandTest has an uninitialized property \$command\. Give it default value or assign it in the constructor\.$#'
