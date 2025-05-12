@@ -25,16 +25,20 @@
             color: #ffffff;
             background-color: #ff0000;
         }
+        .errormessage {
+            border: 0.1em solid red;
+            background-color: #ffeeee;
+        }
         p {
             margin: 0;
             padding: 0.5em;
-            border: 0.1em solid red;
-            background-color: #ffeeee;
         }
     </style>
 </head>
 <body>
 <h1>phpMyAdmin - {{ t('Error') }}</h1>
+<div class="errormessage">
 <p>{{ error_message|raw }}</p>
+</div>
 </body>
 </html>
