@@ -1432,15 +1432,6 @@ input#auto_increment_opt {
     position: static;
   }
 
-  tbody td span {
-    display: block;
-    overflow: hidden;
-
-    code span {
-      display: inline;
-    }
-  }
-
   th.draggable {
     span {
       margin-right: 10px;
@@ -2552,4 +2543,8 @@ body .ui-dialog {
 
 .bg-secondary {
   color: #333;
+}
+
+pre {
+  margin: 0;
 }

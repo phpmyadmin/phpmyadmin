@@ -52,9 +52,7 @@ class Text_Plain_Json extends TransformationsPlugin
      */
     public function applyTransformation(string $buffer, array $options = [], FieldMetadata|null $meta = null): string
     {
-        return '<code class="json"><pre>' . "\n"
-        . htmlspecialchars($buffer) . "\n"
-        . '</pre></code>';
+        return '<pre><code class="json">' . htmlspecialchars($buffer) . '</code></pre>';
     }
 
     /* ~~~~~~~~~~~~~~~~~~~~ Getters and Setters ~~~~~~~~~~~~~~~~~~~~ */

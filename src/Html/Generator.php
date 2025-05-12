@@ -450,12 +450,12 @@ class Generator
         /* SQL-Parser-Analyzer */
 
         if (Sql::$showAsPhp === true) {
-            $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
+            $newLine = '\\n"' . "\n" . '    . "';
             $queryBase = htmlspecialchars(addslashes($sqlQuery));
             $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
-            $queryBase = '<code class="php" dir="ltr"><pre>' . "\n"
-                . '$sql = "' . $queryBase . '";' . "\n"
-                . '</pre></code>';
+            $queryBase = '<pre><code class="php" dir="ltr">'
+                . '$sql = "' . $queryBase . '";'
+                . '</code></pre>';
         } else {
             $queryBase = self::formatSql($sqlQuery, true);
         }
@@ -1072,9 +1072,9 @@ class Generator
             $sqlQuery = mb_substr($sqlQuery, 0, $config->settings['MaxCharactersInDisplayedSQL']) . '[...]';
         }
 
-        return '<code class="sql" dir="ltr"><pre>' . "\n"
-            . htmlspecialchars($sqlQuery, ENT_COMPAT) . "\n"
-            . '</pre></code>';
+        return '<pre><code class="sql" dir="ltr">'
+            . htmlspecialchars($sqlQuery, ENT_COMPAT)
+            . '</code></pre>';
     }
 
     /**

@@ -564,9 +564,9 @@ class TransformationPluginsTest extends AbstractTestCase
             [
                 new Text_Plain_Sql(),
                 ['select *', ['option1', 'option2']],
-                '<code class="sql" dir="ltr"><pre>' . "\n"
-                . 'select *' . "\n"
-                . '</pre></code>',
+                '<pre><code class="sql" dir="ltr">'
+                . 'select *'
+                . '</code></pre>',
             ],
             [new Text_Plain_Link(), ['PMA_TXT_LINK', ['./php/', 'text_name']], './php/PMA_TXT_LINK'],
             [new Text_Plain_Link(), ['PMA_TXT_LINK', []], 'PMA_TXT_LINK'],
