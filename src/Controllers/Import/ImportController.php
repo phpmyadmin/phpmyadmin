@@ -331,7 +331,7 @@ final readonly class ImportController implements InvocableController
         }
 
         // Do no run query if we show PHP code
-        if (isset(Sql::$showAsPhp)) {
+        if (Sql::$showAsPhp !== null) {
             ImportSettings::$runQuery = false;
             ImportSettings::$goSql = true;
         }

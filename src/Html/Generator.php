@@ -449,7 +449,7 @@ class Generator
         // If we want to show some sql code it is easiest to create it here
         /* SQL-Parser-Analyzer */
 
-        if (! empty(Sql::$showAsPhp)) {
+        if (Sql::$showAsPhp === true) {
             $newLine = '\\n"<br>' . "\n" . '&nbsp;&nbsp;&nbsp;&nbsp;. "';
             $queryBase = htmlspecialchars(addslashes($sqlQuery));
             $queryBase = preg_replace('/((\015\012)|(\015)|(\012))/', $newLine, $queryBase);
@@ -512,7 +512,7 @@ class Generator
 
         // even if the query is big and was truncated, offer the chance
         // to edit it (unless it's enormous, see linkOrButton() )
-        if (! empty($config->settings['SQLQuery']['Edit']) && empty(Sql::$showAsPhp)) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && Sql::$showAsPhp !== true) {
             $editLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     Url::getFromRoute($editLinkRoute, $urlParams),
@@ -528,7 +528,7 @@ class Generator
         // Also we would like to get the SQL formed in some nice
         // php-code
         if (! empty($config->settings['SQLQuery']['ShowAsPHP']) && ! $queryTooBig) {
-            if (! empty(Sql::$showAsPhp)) {
+            if (Sql::$showAsPhp === true) {
                 $phpLink = '<div class="col-auto">'
                     . self::linkOrButton(
                         Url::getFromRoute('/import', $urlParams),
@@ -565,7 +565,7 @@ class Generator
         // Refresh query
         if (
             ! empty($config->settings['SQLQuery']['Refresh'])
-            && ! isset(Sql::$showAsPhp) // 'Submit query' does the same
+            && Sql::$showAsPhp === null // 'Submit query' does the same
             && preg_match('@^(SELECT|SHOW)[[:space:]]+@i', $sqlQuery) === 1
         ) {
             $refreshLink = Url::getFromRoute('/sql', $urlParams);
@@ -613,7 +613,7 @@ class Generator
         /**
          * TODO: Should we have $cfg['SQLQuery']['InlineEdit']?
          */
-        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && empty(Sql::$showAsPhp)) {
+        if (! empty($config->settings['SQLQuery']['Edit']) && ! $queryTooBig && Sql::$showAsPhp !== true) {
             $inlineEditLink = '<div class="col-auto">'
                 . self::linkOrButton(
                     '#',
