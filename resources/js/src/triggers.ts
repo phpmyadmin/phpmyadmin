@@ -116,43 +116,23 @@ const DatabaseTriggers = {
             }
 
             ajaxRemoveMessage($msg);
-            /**
-             * @var buttonOptions Object containing options
-             *                     for jQueryUI dialog buttons
-             */
-            var buttonOptions = {
-                [window.Messages.strClose]: {
-                    text: window.Messages.strClose,
-                    class: 'btn btn-primary',
-                },
-            };
-            // @ts-ignore
-            buttonOptions[window.Messages.strClose].click = function () {
-                $(this).dialog('close').remove();
-            };
 
-            /**
-             * Display the dialog to the user
-             */
-            data.message = '<textarea cols="40" rows="15" class="w-100">' + data.message + '</textarea>';
-            var $ajaxDialog = $('<div>' + data.message + '</div>').dialog({
-                classes: {
-                    'ui-dialog-titlebar-close': 'btn-close'
-                },
-                width: 500,
-                // @ts-ignore
-                buttons: buttonOptions,
-                title: data.title
+            const triggersExportTextarea = '<textarea id="triggersExportTextarea" cols="40" rows="15" class="form-control" aria-label="' + window.Messages.strTrigger + '"></textarea>';
+            const triggersExportModal = document.getElementById('triggersExportModal');
+            triggersExportModal.addEventListener('shown.bs.modal', function () {
+                triggersExportModal.querySelector('.modal-title').textContent = data.title;
+                triggersExportModal.querySelector('.modal-body').innerHTML = triggersExportTextarea;
+                document.getElementById('triggersExportTextarea').textContent = data.message;
+                getSqlEditor($('#triggersExportTextarea'));
             });
-            // Attach syntax highlighted editor to export dialog
-            /**
-             * @var $elm jQuery object containing the reference
-             *           to the Export textarea.
-             */
-            var $elm = $ajaxDialog.find('textarea');
-            getSqlEditor($elm);
-        } // end showExport()
-    },  // end exportDialog()
+
+            triggersExportModal.addEventListener('hidden.bs.modal', function () {
+                triggersExportModal.querySelector('.modal-body').innerHTML = triggersExportTextarea;
+            });
+
+            window.bootstrap.Modal.getOrCreateInstance(triggersExportModal).show();
+        }
+    },
     editorDialog: function (isNew, $this) {
         var that = this;
         /**
