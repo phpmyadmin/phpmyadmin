@@ -81,12 +81,12 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text"
-                        name="comment"
-                        size="40"
-                        maxlength="60"
-                        value="{{ comment is defined ? comment }}"
-                        class="textfield">
+                  <textarea 
+                    name="comment" 
+                    maxlength="2048" 
+                    class="textfield" 
+                    rows="1"
+                    cols="30">{{ comment is defined ? comment }}</textarea>
                 </td>
                 <td width="25">&nbsp;</td>
                 <td>
