@@ -4,9 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-11 00:29+0000\n"
-"PO-Revision-Date: 2025-03-09 07:24+0000\n"
-"Last-Translator: 109247019824 <109247019824@users.noreply.hosted.weblate."
-"org>\n"
+"PO-Revision-Date: 2025-05-14 19:50+0000\n"
+"Last-Translator: Мария Рангелова <rangelova1186@gmail.com>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -14,16 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Оттук нататък е необходим javascript!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
 msgid "Open user account menu"
-msgstr "Нов потребител"
+msgstr "Отваряне на менюто на потребителския акаунт"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -31,29 +29,26 @@ msgid "phpMyAdmin documentation"
 msgstr "phpMyAdmin документация"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MariaDB documentation"
-msgstr "Документация"
+msgstr "MariaDB документация"
 
 #: resources/templates/base.twig:62
-#, fuzzy
 msgid "MySQL documentation"
-msgstr "Документация"
+msgstr "MySQL документация"
 
 #: resources/templates/base.twig:73
 #, fuzzy
 msgid "Appearance:"
-msgstr "Визуални настройки"
+msgstr "Външен вид"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
 msgstr ""
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Дясно"
+msgstr "Светла тема"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
@@ -179,9 +174,8 @@ msgstr "Пространствен"
 
 #: resources/templates/columns_definitions/column_attributes.twig:165
 #: resources/templates/table/structure/display_partitions.twig:27
-#, fuzzy
 msgid "Expression"
-msgstr "Компресия"
+msgstr "Израз"
 
 #: resources/templates/columns_definitions/column_attributes.twig:185
 msgid "first"
@@ -226,9 +220,8 @@ msgid "Add"
 msgstr "Добави"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:38
-#, fuzzy
 msgid "column(s)"
-msgstr "Добавяне колона(и)"
+msgstr "колона(и)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:41
 #: resources/templates/database/designer/main.twig:1099
@@ -308,19 +301,19 @@ msgstr "Връзка:"
 #: resources/templates/columns_definitions/column_definitions_form.twig:109
 #: resources/templates/columns_definitions/partitions.twig:137
 #: resources/templates/table/operations/index.twig:134
-#, fuzzy
 msgid "Storage engine"
-msgstr "Хранилища на данни"
+msgstr ""
+"софтуерен компонент, който се използва за създаване, четене, актуализиране и "
+"изтриване на данни"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:132
 msgid "PARTITION definition:"
 msgstr ""
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:151
-#, fuzzy
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Изолиране на експорта в транзакция"
+msgstr "Онлайн транзакция"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
