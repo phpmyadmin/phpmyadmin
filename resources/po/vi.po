@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-11 00:29+0000\n"
-"PO-Revision-Date: 2025-03-07 10:59+0000\n"
-"Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
+"PO-Revision-Date: 2025-05-14 19:50+0000\n"
+"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/vi/>\n"
 "Language: vi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2082,10 +2082,8 @@ msgid "Update query"
 msgstr "Cập nhật truy vấn"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Cập nhật truy vấn"
+msgstr "Sao chép truy vấn"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2392,7 +2390,7 @@ msgstr "Hàm"
 
 #: resources/templates/database/routines/execute_form.twig:54
 msgid "This routine does not require any parameters."
-msgstr ""
+msgstr "Thủ tục không yêu cầu bất kỳ tham số nào."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
@@ -2413,10 +2411,8 @@ msgid "Search"
 msgstr "Tìm kiếm"
 
 #: resources/templates/database/routines/index.twig:36
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
-msgstr "Phiên bản tạo"
+msgstr "Tạo mới thủ tục"
 
 #: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
@@ -2427,10 +2423,8 @@ msgid "Returns"
 msgstr "Trả về"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Tên thủ tục"
+msgstr "Trình soạn thảo thủ tục"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
@@ -2450,10 +2444,8 @@ msgid "Save changes"
 msgstr "Lưu thay đổi"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Xuất của thủ tục %s"
+msgstr "Xuất thủ tục"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -3057,12 +3049,14 @@ msgid "Geometry"
 msgstr "Hình dạng"
 
 #: resources/templates/display/results/table.twig:268
+#, fuzzy
 msgid "Well Known Text"
-msgstr "Văn bản nổi tiếng"
+msgstr "Định dạng văn bản được biết đến (WKT)"
 
 #: resources/templates/display/results/table.twig:272
+#, fuzzy
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Định dạng nhị phân được biết đến (WKB)"
 
 #: resources/templates/display/results/table.twig:323
 #: resources/templates/display/results/table.twig:324
@@ -3254,7 +3248,7 @@ msgstr "Đổi tên các cơ sở dữ liệu/bảng/cột đã xuất"
 
 #: resources/templates/export.twig:197
 msgid "Defined aliases"
-msgstr ""
+msgstr "Bí danh đã được xác định"
 
 #: resources/templates/export.twig:206
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -3501,8 +3495,6 @@ msgid "Server:"
 msgstr "Máy chủ:"
 
 #: resources/templates/home/index.twig:186
-#, fuzzy
-#| msgid "Host name:"
 msgid "Hostname:"
 msgstr "Tên máy:"
 
