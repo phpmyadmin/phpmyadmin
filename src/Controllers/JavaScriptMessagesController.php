@@ -392,6 +392,7 @@ final class JavaScriptMessagesController implements InvocableController
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
             'strRoutine' => __('Routine'),
             'strTrigger' => __('Trigger'),
+            'strEvent' => __('Event'),
 
             /* For ENUM/SET editor*/
             'enum_columnVals' => __('Values for column %s'),
