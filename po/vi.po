@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2025-03-07 10:59+0000\n"
-"Last-Translator: hoanghuy309 <hoanghuy309@gmail.com>\n"
+"PO-Revision-Date: 2025-05-15 11:04+0000\n"
+"Last-Translator: Xuan Hung <mr.hungdx@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/phpmyadmin/"
 "5-2/vi/>\n"
 "Language: vi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: libraries/advisory_rules_generic.php:9
 msgid "Uptime below one day"
@@ -14714,10 +14714,8 @@ msgid "Routine parameters"
 msgstr "Tham số thủ tục"
 
 #: templates/database/routines/index.twig:36
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
-msgstr "Phiên bản tạo"
+msgstr "Tạo mới thủ tục"
 
 #: templates/database/routines/index.twig:45
 msgid "There are no routines to display."
@@ -15108,12 +15106,14 @@ msgid "Hide browser transformation"
 msgstr "Ẩn trình duyệt chuyển đổi"
 
 #: templates/display/results/table.twig:182
+#, fuzzy
 msgid "Well Known Text"
-msgstr "Văn bản nổi tiếng"
+msgstr "Định dạng văn bản được biết đến (WKT)"
 
 #: templates/display/results/table.twig:186
+#, fuzzy
 msgid "Well Known Binary"
-msgstr ""
+msgstr "Định dạng nhị phân được biết đến (WKB)"
 
 #: templates/display/results/table.twig:258
 #: templates/sql/no_results_returned.twig:9
@@ -15246,7 +15246,7 @@ msgstr "Đổi tên các cơ sở dữ liệu/bảng/cột đã xuất"
 
 #: templates/export.twig:201
 msgid "Defined aliases"
-msgstr ""
+msgstr "Bí danh đã được xác định"
 
 #: templates/export.twig:216 templates/export.twig:230
 #: templates/export.twig:243 templates/export.twig:260
