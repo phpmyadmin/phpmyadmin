@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-11 00:29+0000\n"
-"PO-Revision-Date: 2022-02-15 16:21+0000\n"
-"Last-Translator: Maurício Meneghini Fauth <mauricio@fauth.dev>\n"
+"PO-Revision-Date: 2025-05-14 19:50+0000\n"
+"Last-Translator: Spyridon Eftychios Kokotos <spiroskoeu@gmail.com>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/phpmyadmin/master/"
 "el/>\n"
 "Language: el\n"
@@ -13,17 +13,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
 msgstr "Από αυτό το σημείο πρέπει να έχετε ενεργοποιημένη την Javascript!"
 
 #: resources/templates/base.twig:46
-#, fuzzy
-#| msgid "Add user account"
 msgid "Open user account menu"
-msgstr "Προσθήκη λογαριασμού χρήστη"
+msgstr "Ανοίξτε το μενού λογαριασμού χρήστη"
 
 #: resources/templates/base.twig:57 resources/templates/navigation/main.twig:35
 #: resources/templates/navigation/main.twig:36
@@ -43,26 +41,22 @@ msgid "MySQL documentation"
 msgstr "Τεκμηρίωση"
 
 #: resources/templates/base.twig:73
-#, fuzzy
-#| msgid "Appearance settings"
 msgid "Appearance:"
-msgstr "Ρυθμίσεις εμφάνισης"
+msgstr "Εμφάνιση:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
-msgstr ""
+msgstr "Λειτουργία χρωμάτων για το θέμα"
 
 #: resources/templates/base.twig:80 resources/templates/home/index.twig:154
-#, fuzzy
-#| msgid "Right"
 msgctxt "Light color mode of the theme"
 msgid "Light"
-msgstr "Δεξιά"
+msgstr "Φωτεινό"
 
 #: resources/templates/base.twig:82 resources/templates/home/index.twig:156
 msgctxt "Dark color mode of the theme"
 msgid "Dark"
-msgstr ""
+msgstr "Σκοτεινό"
 
 #: resources/templates/base.twig:95
 #: resources/templates/server/status/monitor/index.twig:8
@@ -320,11 +314,9 @@ msgid "PARTITION definition:"
 msgstr "Ορισμός PARTITION:"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:151
-#, fuzzy
-#| msgid "Enclose export in a transaction"
 msgctxt "Online transaction part of the SQL DDL for InnoDB"
 msgid "Online transaction"
-msgstr "Συμπερίληψη εξαγωγής στη συναλλαγή"
+msgstr "Διαδικτυακή συναλλαγή"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:154
 #: resources/templates/modals/index_dialog_modal.twig:11
@@ -358,6 +350,8 @@ msgid ""
 "The column width of integer types is ignored in your MySQL version unless "
 "defining a TINYINT(1) column"
 msgstr ""
+"Στην έκδοση MySQL που χρησιμοποιείτε, το πλάτος της στήλης για τους "
+"ακέραιους τύπους δεδομένων αγνοείται, εκτός αν ορίζετε μια στήλη TINYINT(1)"
 
 #: resources/templates/columns_definitions/column_definitions_form.twig:173
 #: resources/templates/database/designer/main.twig:1094
@@ -770,10 +764,8 @@ msgstr "Απομάκρυνση στήλης"
 #: src/Plugins/Export/ExportOdt.php:467
 #: src/Plugins/Export/ExportTexytext.php:366
 #: src/Plugins/Export/Helpers/Pdf.php:517
-#, fuzzy
-#| msgid "MIME type"
 msgid "Media type"
-msgstr "Τύπος MIME"
+msgstr "Τύπος μέσου"
 
 #: resources/templates/columns_definitions/table_fields_definitions.twig:75
 #: resources/templates/columns_definitions/table_fields_definitions.twig:86
@@ -1284,11 +1276,9 @@ msgid "Create version"
 msgstr "Δημιουργία έκδοσης"
 
 #: resources/templates/database/central_columns/edit.twig:15
-#, fuzzy
-#| msgid "A_I"
 msgctxt "Auto Increment"
 msgid "A_I"
-msgstr "Α/Α"
+msgstr "A_I"
 
 #: resources/templates/database/central_columns/main.twig:4
 msgid "Add new column"
@@ -1296,10 +1286,8 @@ msgstr "Προσθήκη νέας στήλης"
 
 #: resources/templates/database/central_columns/main.twig:24
 #: resources/templates/database/central_columns/main.twig:234
-#, fuzzy
-#| msgid "Length/Values"
 msgid "Length/Value"
-msgstr "Μήκος/Τιμές*"
+msgstr "Μήκος/Τιμή"
 
 #: resources/templates/database/central_columns/main.twig:36
 #: resources/templates/database/central_columns/main.twig:246
@@ -1319,10 +1307,8 @@ msgstr "Η κεντρική λίστα στηλών για την τρέχουσ
 
 #: resources/templates/database/central_columns/main.twig:168
 #: resources/templates/display/results/table.twig:139
-#, fuzzy
-#| msgid "Filter rows"
 msgid "Filter rows:"
-msgstr "Φιλτράρισμα εγγραφών"
+msgstr "Φιλτράρισμα εγγραφών:"
 
 #: resources/templates/database/central_columns/main.twig:171
 #: resources/templates/display/results/table.twig:143
@@ -1396,10 +1382,8 @@ msgstr "Άκυρο"
 
 #: resources/templates/database/create_table.twig:3
 #: resources/templates/database/operations/index.twig:28
-#, fuzzy
-#| msgid "Create table"
 msgid "Create new table"
-msgstr "Δημιουργία πίνακα"
+msgstr "Δημιουργήστε έναν νέο πίνακα"
 
 #: resources/templates/database/create_table.twig:10
 #: resources/templates/database/operations/index.twig:35
@@ -1414,10 +1398,8 @@ msgid "Create"
 msgstr "Δημιουργία"
 
 #: resources/templates/database/data_dictionary/index.twig:4
-#, fuzzy
-#| msgid "Database comment"
 msgid "Database comment:"
-msgstr "Σχόλιο βάσης δεδομένων"
+msgstr "Σχόλιο βάσης δεδομένων:"
 
 #: resources/templates/database/data_dictionary/index.twig:8
 #: resources/templates/database/data_dictionary/index.twig:124
@@ -1496,10 +1478,9 @@ msgid "See table structure"
 msgstr "Προβολή δομής πίνακα"
 
 #: resources/templates/database/designer/database_tables.twig:93
-#, fuzzy, php-format
-#| msgid "Select all"
+#, php-format
 msgid "Select \"%s\""
-msgstr "Επιλογή όλων"
+msgstr "Επιλέξτε \"%s\""
 
 #: resources/templates/database/designer/database_tables.twig:111
 #, php-format
@@ -1934,10 +1915,8 @@ msgid "Drop"
 msgstr "Διαγραφή"
 
 #: resources/templates/database/events/index.twig:29
-#, fuzzy
-#| msgid "Create event"
 msgid "Create new event"
-msgstr "Δημιουργία συμβάντος"
+msgstr "Δημιουργία νέου συμβάντος"
 
 #: resources/templates/database/events/index.twig:38
 msgid "There are no events to display."
@@ -1961,20 +1940,18 @@ msgid "OFF"
 msgstr "ΑΝΕΝΕΡΓΟ"
 
 #: resources/templates/database/export/index.twig:61
-#, fuzzy
-#| msgid ", @DATABASE@ will become the database name"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ", το @DATABASE@ θα γίνει το όνομα της βάσης δεδομένων"
+msgstr ""
+"Το \"@SERVER@\" θα αντικατασταθεί από το όνομα του διακομιστή και το "
+"\"@DATABASE@\" θα αντικατασταθεί από το όνομα της βάσης δεδομένων."
 
 #. l10n: A query that the user has written freely
 #: resources/templates/database/export/index.twig:5
 #: resources/templates/table/export/index.twig:5
-#, fuzzy
-#| msgid "Showing SQL query"
 msgid "Exporting a raw query"
-msgstr "Εμφάνιση ερωτήματος SQL"
+msgstr "Εξαγωγή ενός ακατέργαστου ερωτήματος"
 
 #: resources/templates/database/export/index.twig:7
 #, php-format
@@ -2008,16 +1985,12 @@ msgid "Data"
 msgstr "Δεδομένα"
 
 #: resources/templates/database/export/index.twig:30
-#, fuzzy
-#| msgid "Allows altering the structure of existing tables."
 msgid "Export the structure of all tables."
-msgstr "Επιτρέπει την αλλαγή δομής των υπαρχόντων πινάκων."
+msgstr "Εξαγωγή της δομής όλων των πινάκων."
 
 #: resources/templates/database/export/index.twig:33
-#, fuzzy
-#| msgid "Export views as tables"
 msgid "Export the data of all tables."
-msgstr "Εξαγωγή προβολών ως πίνακες"
+msgstr "Εξαγωγή των δεδομένων από όλους τους πίνακες"
 
 #: resources/templates/database/import/index.twig:3
 #, php-format
@@ -2124,10 +2097,8 @@ msgid "Update query"
 msgstr "Ενημέρωση ερωτήματος"
 
 #: resources/templates/database/multi_table_query/form.twig:175
-#, fuzzy
-#| msgid "Update query"
 msgid "Copy query"
-msgstr "Ενημέρωση ερωτήματος"
+msgstr "Αντιγραφή ερωτήματος"
 
 #: resources/templates/database/multi_table_query/form.twig:176
 #: src/Html/Generator.php:545
@@ -2158,16 +2129,12 @@ msgstr "Νέο όνομα βάσης δεδομένων"
 #: resources/templates/table/operations/index.twig:78
 #: resources/templates/table/operations/index.twig:114
 #: resources/templates/table/operations/index.twig:314
-#, fuzzy
-#| msgid ""
-#| "You don't have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You don't have sufficient privileges to perform this operation; Please refer "
 "to the documentation for more details."
 msgstr ""
-"Δεν έχετε αρκετά δικαιώματα για εκτέλεση αυτής της λειτουργίας. Δείτε την "
-"τεκμηρίωση για περισσότερες λεπτομέρειες"
+"Δεν έχετε αρκετά δικαιώματα για την εκτέλεση αυτής της λειτουργίας. "
+"Παρακαλώ, ανατρέξτε στην τεκμηρίωση για περισσότερες λεπτομέρειες."
 
 #: resources/templates/database/operations/index.twig:84
 msgid "Remove database"
@@ -2413,16 +2380,12 @@ msgid "Is deterministic"
 msgstr "Είναι προσδιοριστικό"
 
 #: resources/templates/database/routines/editor_form.twig:141
-#, fuzzy
-#| msgid ""
-#| "You do not have sufficient privileges to perform this operation; Please "
-#| "refer to the documentation for more details"
 msgid ""
 "You do not have sufficient privileges to perform this operation; Please "
 "refer to the documentation for more details."
 msgstr ""
-"Δεν έχετε επαρκή δικαιώματα για εκτέλεση αυτή της λειτουργίας. Δείτε την "
-"τεκμηρίωση για περισσότερες λεπτομέρειες"
+"Δεν έχετε επαρκή δικαιώματα για την εκτέλεση αυτή της λειτουργίας.  Παρακαλώ "
+"ανατρέξτε στην τεκμηρίωση για περισσότερες λεπτομέρειες."
 
 #: resources/templates/database/routines/editor_form.twig:154
 msgid "Security type"
@@ -2445,10 +2408,8 @@ msgid "Function"
 msgstr "Συνάρτηση"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
-#| msgid "This page does not contain any tables!"
 msgid "This routine does not require any parameters."
-msgstr "Αυτή η σελίδα δεν περιέχει κανένα πίνακα!"
+msgstr "Αυτή η ρουτίνα δεν απαιτεί καμία παράμετρο."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
@@ -2469,10 +2430,8 @@ msgid "Search"
 msgstr "Αναζήτηση"
 
 #: resources/templates/database/routines/index.twig:36
-#, fuzzy
-#| msgid "Create version"
 msgid "Create new routine"
-msgstr "Δημιουργία έκδοσης"
+msgstr "Δημιουργία νέας ρουτίνας"
 
 #: resources/templates/database/routines/index.twig:49
 msgid "There are no routines to display."
@@ -2483,10 +2442,8 @@ msgid "Returns"
 msgstr "Επιστροφές"
 
 #: resources/templates/database/routines/index.twig:78
-#, fuzzy
-#| msgid "Routine name"
 msgid "Routine editor"
-msgstr "Όνομα ρουτίνας"
+msgstr "Επεξεργαστής Ρουτίνας"
 
 #: resources/templates/database/routines/index.twig:83
 #: resources/templates/database/routines/index.twig:118
@@ -2502,16 +2459,12 @@ msgstr "Φόρτωση…"
 
 #: resources/templates/database/routines/index.twig:88
 #: resources/templates/server/privileges/users_overview.twig:177
-#, fuzzy
-#| msgid "Save page"
 msgid "Save changes"
-msgstr "Αποθήκευση σελίδας"
+msgstr "Αποθήκευση αλλαγών"
 
 #: resources/templates/database/routines/index.twig:98
-#, fuzzy
-#| msgid "Export of routine %s"
 msgid "Export routine"
-msgstr "Εξαγωγή της ρουτίνας %s"
+msgstr "Εξαγωγή ρουτίνας"
 
 #: resources/templates/database/routines/index.twig:113
 #: src/Controllers/Database/RoutinesController.php:354
@@ -2570,14 +2523,12 @@ msgstr "ως κανονική έκφραση"
 
 #: resources/templates/database/search/main.twig:36
 #: resources/templates/database/structure/copy_form.twig:14
-#, fuzzy
-#| msgid "Options"
 msgid "Options:"
-msgstr "Επιλογές"
+msgstr "Επιλογές:"
 
 #: resources/templates/database/search/main.twig:40
 msgid "include hex matches"
-msgstr ""
+msgstr "συμπερίληψη δεκαεξαδικού αντιστοιχιών"
 
 #: resources/templates/database/search/main.twig:45
 msgid "Inside tables:"
@@ -2610,13 +2561,11 @@ msgid "Browse"
 msgstr "Περιήγηση"
 
 #: resources/templates/database/search/results.twig:43
-#, fuzzy, php-format
-#| msgid "<strong>Total:</strong> <em>%count%</em> match"
-#| msgid_plural "<strong>Total:</strong> <em>%count%</em> matches"
+#, php-format
 msgid "<strong>Total:</strong> <em>%s</em> match"
 msgid_plural "<strong>Total:</strong> <em>%s</em> matches"
-msgstr[0] "<strong>Σύνολο:</strong> <em>%count%</em> αποτέλεσμα"
-msgstr[1] "<strong>Σύνολο:</strong> <em>%count%</em> αποτελέσματα"
+msgstr[0] "<strong>Σύνολο:</strong><em>%s</em> αποτέλεσμα"
+msgstr[1] "<strong>Σύνολο:</strong><em>%s</em> αποτελέσματα"
 
 #: resources/templates/database/structure/add_prefix.twig:4
 msgid "Add prefix"
@@ -3007,22 +2956,17 @@ msgstr "Προβολή παρακολούθησης πίνακα"
 
 #: resources/templates/display/results/checkbox_and_links.twig:16
 #: resources/templates/display/results/checkbox_and_links.twig:78
-#, fuzzy
-#| msgid "You can also edit most values<br>by clicking directly on them."
 msgid "You can also edit most values by clicking directly on them."
 msgstr ""
-"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές<br>πατώντας "
-"κατευθείαν σε αυτές."
+"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές κάνοντας απευθείας "
+"κλικ πάνω τους."
 
 #: resources/templates/display/results/checkbox_and_links.twig:18
 #: resources/templates/display/results/checkbox_and_links.twig:80
-#, fuzzy
-#| msgid ""
-#| "You can also edit most values<br>by double-clicking directly on them."
 msgid "You can also edit most values by double-clicking directly on them."
 msgstr ""
-"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές<br>πατώντας με "
-"διπλό κλικ κατευθείαν σε αυτές."
+"Μπορείτε επίσης να επεξεργαστείτε τις περισσότερες τιμές κάνοντας διπλό κλικ "
+"απευθείας πάνω τους."
 
 #: resources/templates/display/results/table.twig:18
 #: resources/templates/display/results/table.twig:21
