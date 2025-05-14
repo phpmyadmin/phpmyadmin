@@ -4,8 +4,9 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-11 00:29+0000\n"
-"PO-Revision-Date: 2025-05-14 19:50+0000\n"
-"Last-Translator: Мария Рангелова <rangelova1186@gmail.com>\n"
+"PO-Revision-Date: 2025-05-15 13:44+0000\n"
+"Last-Translator: 109247019824 <109247019824@users.noreply.hosted.weblate.org>"
+"\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/bg/>\n"
 "Language: bg\n"
@@ -30,16 +31,15 @@ msgstr "phpMyAdmin документация"
 
 #: resources/templates/base.twig:62
 msgid "MariaDB documentation"
-msgstr "MariaDB документация"
+msgstr "Документация на MariaDB"
 
 #: resources/templates/base.twig:62
 msgid "MySQL documentation"
-msgstr "MySQL документация"
+msgstr "Документация на MySQL"
 
 #: resources/templates/base.twig:73
-#, fuzzy
 msgid "Appearance:"
-msgstr "Външен вид"
+msgstr "Външен вид:"
 
 #: resources/templates/base.twig:76 resources/templates/home/index.twig:150
 msgid "Color mode for the theme"
