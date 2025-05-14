@@ -117,7 +117,6 @@ AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#monitorChartRefreshRateSelect').off('change');
     $('#monitorAddNewChartButton').off('click');
     $('#monitorExportConfigButton').off('click');
-    $('#monitorImportConfigButton').off('click');
     $('#monitorResetConfigButton').off('click');
     $('#monitorPauseResumeButton').off('click');
     $('#monitorInstructionsButton').off('click');
@@ -677,99 +676,71 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }, 100);
     });
 
-    $('#monitorImportConfigButton').on('click', function () {
-        $('#emptyDialog').dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            title: window.Messages.strImportDialogTitle
-        });
+    function monitorImportConfigImportEventHandler () {
+        var input = ($('#monitorImportConfigModal').find('#import_file') as JQuery<HTMLInputElement>)[0];
+        var reader = new FileReader();
 
-        $('#emptyDialog').html(window.Messages.strImportDialogMessage + '<br><form>' +
-            '<input type="file" name="file" id="import_file"> </form>');
-
-        var dlgBtns = {
-            [window.Messages.strImport]: {
-                text: window.Messages.strImport,
-                class: 'btn btn-primary',
-            },
-            [window.Messages.strCancel]: {
-                text: window.Messages.strCancel,
-                class: 'btn btn-secondary',
-            },
+        reader.onerror = function (event) {
+            alert(window.Messages.strFailedParsingConfig + '\n' + event.target.error.code);
         };
 
-        // @ts-ignore
-        dlgBtns[window.Messages.strImport].click = function () {
-            var input = ($('#emptyDialog').find('#import_file') as JQuery<HTMLInputElement>)[0];
-            var reader = new FileReader();
+        reader.onload = function (e) {
+            var data = (e.target.result as string);
+            var json = null;
+            // Try loading config
+            try {
+                json = JSON.parse(data);
+            } catch (err) {
+                alert(window.Messages.strFailedParsingConfig);
+                window.bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
 
-            reader.onerror = function (event) {
-                alert(window.Messages.strFailedParsingConfig + '\n' + event.target.error.code);
-            };
-
-            reader.onload = function (e) {
-                var data = (e.target.result as string);
-                var json = null;
-                // Try loading config
-                try {
-                    json = JSON.parse(data);
-                } catch (err) {
-                    alert(window.Messages.strFailedParsingConfig);
-                    $('#emptyDialog').dialog('close');
-
-                    return;
-                }
-
-                // Basic check, is this a monitor config json?
-                if (! json || ! json.monitorCharts || ! json.monitorCharts) {
-                    alert(window.Messages.strFailedParsingConfig);
-                    $('#emptyDialog').dialog('close');
-
-                    return;
-                }
-
-                // If json ok, try applying config
-                try {
-                    if (isStorageSupported('localStorage')) {
-                        window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
-                        window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
-                    }
-
-                    rebuildGrid();
-                } catch (err) {
-                    alert(window.Messages.strFailedBuildingGrid);
-                    // If an exception is thrown, load default again
-                    if (isStorageSupported('localStorage')) {
-                        window.localStorage.removeItem('monitorCharts');
-                        window.localStorage.removeItem('monitorSettings');
-                    }
-
-                    rebuildGrid();
-                }
-
-                $('#emptyDialog').dialog('close');
-            };
-
-            if (input.files[0]) {
-                reader.readAsText(input.files[0]);
+                return;
             }
+
+            // Basic check, is this a monitor config json?
+            if (! json || ! json.monitorCharts || ! json.monitorCharts) {
+                alert(window.Messages.strFailedParsingConfig);
+                window.bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
+
+                return;
+            }
+
+            // If json ok, try applying config
+            try {
+                if (isStorageSupported('localStorage')) {
+                    window.localStorage.monitorCharts = JSON.stringify(json.monitorCharts);
+                    window.localStorage.monitorSettings = JSON.stringify(json.monitorSettings);
+                }
+
+                rebuildGrid();
+            } catch (err) {
+                alert(window.Messages.strFailedBuildingGrid);
+                // If an exception is thrown, load default again
+                if (isStorageSupported('localStorage')) {
+                    window.localStorage.removeItem('monitorCharts');
+                    window.localStorage.removeItem('monitorSettings');
+                }
+
+                rebuildGrid();
+            }
+
+            window.bootstrap.Modal.getOrCreateInstance('#monitorImportConfigModal').hide();
         };
 
-        // @ts-ignore
-        dlgBtns[window.Messages.strCancel].click = function () {
-            $(this).dialog('close');
-        };
+        if (input.files[0]) {
+            reader.readAsText(input.files[0]);
+        }
+    }
 
-        $('#emptyDialog').dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            width: 'auto',
-            height: 'auto',
-            // @ts-ignore
-            buttons: dlgBtns
-        });
+    const monitorImportConfigModal = document.getElementById('monitorImportConfigModal');
+    monitorImportConfigModal.addEventListener('shown.bs.modal', function () {
+        const monitorImportConfigImportButton = document.getElementById('monitorImportConfigImportButton');
+        monitorImportConfigImportButton?.addEventListener('click', monitorImportConfigImportEventHandler);
+    });
+
+    monitorImportConfigModal.addEventListener('hidden.bs.modal', function () {
+        const monitorImportConfigImportButton = document.getElementById('monitorImportConfigImportButton');
+        monitorImportConfigImportButton?.removeEventListener('click', monitorImportConfigImportEventHandler);
     });
 
     $('#monitorResetConfigButton').on('click', function () {

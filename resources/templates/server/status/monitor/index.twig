@@ -50,7 +50,28 @@
             <span class="text-body-secondary">{{ t('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.') }}</span>
           </p>
           <div>
-            <button type="button" class="btn btn-secondary" id="monitorImportConfigButton">{{ t('Import') }}</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#monitorImportConfigModal">{{ t('Import') }}</button>
+            <div class="modal fade" id="monitorImportConfigModal" tabindex="-1" aria-labelledby="monitorImportConfigModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="monitorImportConfigModalLabel">{{ t('Importing system monitor configuration') }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <label for="import_file" class="form-label">{{ t('Please select the file you want to import:') }}</label>
+                      <input class="form-control" type="file" name="file" id="import_file">
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+                    <button type="button" class="btn btn-primary" id="monitorImportConfigImportButton">{{ t('Import') }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <button type="button" class="btn btn-secondary" id="monitorExportConfigButton">{{ t('Export') }}</button>
             <button type="button" class="btn btn-secondary" id="monitorResetConfigButton">{{ t('Reset to default') }}</button>
           </div>
