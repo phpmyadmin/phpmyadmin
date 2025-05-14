@@ -6,7 +6,7 @@
   <div class="mb-3 d-print-none">
     <button type="button" class="btn btn-primary" id="monitorPauseResumeButton">{{ get_icon('play', t('Start monitor')) }}</button>
     <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#monitorSettingsContent" aria-expanded="false" aria-controls="monitorSettingsContent">{{ get_icon('s_cog', t('Settings')) }}</button>
-    <button type="button" class="btn btn-secondary" id="monitorInstructionsButton">{{ get_icon('b_help', t('Instructions/Setup')) }}</button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#monitorInstructionsModal">{{ get_icon('b_help', t('Instructions/Setup')) }}</button>
   </div>
 
   <div class="collapse" id="monitorSettingsContent">
@@ -80,32 +80,41 @@
     </div>
   </div>
 
-<div id="monitorInstructionsDialog" title="{{ t('Monitor Instructions') }}" class="hide">
-  <p>
-    {{ t("The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to 'TABLE' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%.") }}
-  </p>
-  <img class="ajaxIcon" src="{{ image('ajax_clock_small.gif') }}" alt="{{ t('Loading…') }}">
+  <div class="modal fade" id="monitorInstructionsModal" tabindex="-1" aria-labelledby="monitorInstructionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="monitorInstructionsModalLabel">{{ t('System monitor instructions') }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            {{ t("The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to 'TABLE' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%.") }}
+          </p>
+          <img class="ajaxIcon" src="{{ image('ajax_clock_small.gif') }}" alt="{{ t('Loading…') }}">
 
-  <div class="ajaxContent"></div>
-  <br>
+          <div class="ajaxContent"></div>
 
-  <div class="monitorUse hide">
-    <p><strong>{{ t('Using the monitor:') }}</strong></p>
-    <p>
-      {{ t("Your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart using the cog icon on each respective chart.") }}
-    </p>
-    <p>
-      {{ t('To display queries from the logs, click on any chart. Once confirmed, this will load a table of grouped queries, there you may click on any occurring SELECT statements to further analyze them.') }}
-    </p>
-    <p>
-      {{ get_image('s_attention') }}
-      <strong>{{ t('Please note:') }}</strong>
-    </p>
-    <p>
-      {{ t('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.') }}
-    </p>
+          <div class="monitorUse hide">
+            <p><strong>{{ t('Using the monitor:') }}</strong></p>
+            <p>
+              {{ t("Your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart using the cog icon on each respective chart.") }}
+            </p>
+            <p>
+              {{ t('To display queries from the logs, click on any chart. Once confirmed, this will load a table of grouped queries, there you may click on any occurring SELECT statements to further analyze them.') }}
+            </p>
+            <p>
+              {{ get_image('s_attention') }}
+              <strong>{{ t('Please note:') }}</strong>
+            </p>
+            <p>
+              {{ t('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.') }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
 <div class="modal fade" id="addChartModal" tabindex="-1" aria-labelledby="addChartModalLabel" aria-hidden="true">
   <div class="modal-dialog">

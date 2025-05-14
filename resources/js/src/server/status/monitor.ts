@@ -119,7 +119,6 @@ AJAX.registerTeardown('server/status/monitor.js', function () {
     $('#monitorExportConfigButton').off('click');
     $('#monitorResetConfigButton').off('click');
     $('#monitorPauseResumeButton').off('click');
-    $('#monitorInstructionsButton').off('click');
     $('input[name="chartType"]').off('click');
     $('input[name="useDivisor"]').off('click');
     $('input[name="useUnit"]').off('click');
@@ -766,158 +765,138 @@ AJAX.registerOnload('server/status/monitor.js', function () {
         }
     });
 
-    $('#monitorInstructionsButton').on('click', function () {
-        var $dialog = $('#monitorInstructionsDialog');
-        var dlgBtns = {
-            [window.Messages.strClose]: {
-                text: window.Messages.strClose,
-                class: 'btn btn-primary',
-                click: function () {
-                    $(this).dialog('close');
-                }
-            },
+    const $dialog = $('#monitorInstructionsModal');
+
+    function loadLogVars (getvars = undefined) {
+        var vars = {
+            'ajax_request': true,
+            'server': CommonParams.get('server'),
         };
-        $dialog.dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            width: '60%',
-            height: 'auto',
-            // @ts-ignore
-            buttons: dlgBtns
-        }).find('img.ajaxIcon').show();
+        if (getvars) {
+            $.extend(vars, getvars);
+        }
 
-        var loadLogVars = function (getvars = undefined) {
-            var vars = {
-                'ajax_request': true,
-                'server': CommonParams.get('server')
-            };
-            if (getvars) {
-                $.extend(vars, getvars);
-            }
+        $.post('index.php?route=/server/status/monitor/log-vars', vars,
+            function (data) {
+                var logVars;
+                if (typeof data !== 'undefined' && data.success === true) {
+                    logVars = data.message;
+                } else {
+                    return serverResponseError();
+                }
 
-            $.post('index.php?route=/server/status/monitor/log-vars', vars,
-                function (data) {
-                    var logVars;
-                    if (typeof data !== 'undefined' && data.success === true) {
-                        logVars = data.message;
-                    } else {
-                        return serverResponseError();
-                    }
+                var icon = getImageTag('s_success');
+                var msg = '';
+                var str = '';
 
-                    var icon = getImageTag('s_success');
-                    var msg = '';
-                    var str = '';
-
-                    if (logVars.general_log === 'ON') {
-                        if (logVars.slow_query_log === 'ON') {
-                            msg = window.Messages.strBothLogOn;
-                        } else {
-                            msg = window.Messages.strGenLogOn;
-                        }
-                    }
-
-                    if (msg.length === 0 && logVars.slow_query_log === 'ON') {
-                        msg = window.Messages.strSlowLogOn;
-                    }
-
-                    if (msg.length === 0) {
-                        icon = getImageTag('s_error');
-                        msg = window.Messages.strBothLogOff;
-                    }
-
-                    str = '<b>' + window.Messages.strCurrentSettings + '</b><br><div class="smallIndent">';
-                    str += icon + msg + '<br>';
-
-                    if (logVars.log_output !== 'TABLE') {
-                        str += getImageTag('s_error') + ' ' + window.Messages.strLogOutNotTable + '<br>';
-                    } else {
-                        str += getImageTag('s_success') + ' ' + window.Messages.strLogOutIsTable + '<br>';
-                    }
-
+                if (logVars.general_log === 'ON') {
                     if (logVars.slow_query_log === 'ON') {
-                        if (logVars.long_query_time > 2) {
-                            str += getImageTag('s_attention') + ' ';
-                            str += window.sprintf(window.Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
-                            str += '<br>';
-                        }
+                        msg = window.Messages.strBothLogOn;
+                    } else {
+                        msg = window.Messages.strGenLogOn;
+                    }
+                }
 
-                        if (logVars.long_query_time < 2) {
-                            str += getImageTag('s_success') + ' ';
-                            str += window.sprintf(window.Messages.strLongQueryTimeSet, logVars.long_query_time);
-                            str += '<br>';
-                        }
+                if (msg.length === 0 && logVars.slow_query_log === 'ON') {
+                    msg = window.Messages.strSlowLogOn;
+                }
+
+                if (msg.length === 0) {
+                    icon = getImageTag('s_error');
+                    msg = window.Messages.strBothLogOff;
+                }
+
+                str = '<b>' + window.Messages.strCurrentSettings + '</b><br><div class="smallIndent">';
+                str += icon + msg + '<br>';
+
+                if (logVars.log_output !== 'TABLE') {
+                    str += getImageTag('s_error') + ' ' + window.Messages.strLogOutNotTable + '<br>';
+                } else {
+                    str += getImageTag('s_success') + ' ' + window.Messages.strLogOutIsTable + '<br>';
+                }
+
+                if (logVars.slow_query_log === 'ON') {
+                    if (logVars.long_query_time > 2) {
+                        str += getImageTag('s_attention') + ' ';
+                        str += window.sprintf(window.Messages.strSmallerLongQueryTimeAdvice, logVars.long_query_time);
+                        str += '<br>';
                     }
 
-                    str += '</div>';
+                    if (logVars.long_query_time < 2) {
+                        str += getImageTag('s_success') + ' ';
+                        str += window.sprintf(window.Messages.strLongQueryTimeSet, logVars.long_query_time);
+                        str += '<br>';
+                    }
+                }
 
-                    if (isSuperUser) {
-                        str += '<p></p><b>' + window.Messages.strChangeSettings + '</b>';
-                        str += '<div class="smallIndent">';
-                        str += window.Messages.strSettingsAppliedGlobal + '<br>';
+                str += '</div>';
 
-                        var varValue: string | number = 'TABLE';
-                        if (logVars.log_output === 'TABLE') {
-                            varValue = 'FILE';
-                        }
+                if (isSuperUser) {
+                    str += '<p></p><b>' + window.Messages.strChangeSettings + '</b>';
+                    str += '<div class="smallIndent">';
+                    str += window.Messages.strSettingsAppliedGlobal + '<br>';
 
-                        str += '- <a class="set" href="#log_output-' + varValue + '">';
-                        str += window.sprintf(window.Messages.strSetLogOutput, varValue);
-                        str += ' </a><br>';
+                    var varValue: string | number = 'TABLE';
+                    if (logVars.log_output === 'TABLE') {
+                        varValue = 'FILE';
+                    }
 
-                        if (logVars.general_log !== 'ON') {
-                            str += '- <a class="set" href="#general_log-ON">';
-                            str += window.sprintf(window.Messages.strEnableVar, 'general_log');
-                            str += ' </a><br>';
-                        } else {
-                            str += '- <a class="set" href="#general_log-OFF">';
-                            str += window.sprintf(window.Messages.strDisableVar, 'general_log');
-                            str += ' </a><br>';
-                        }
+                    str += '- <a class="set" href="#log_output-' + varValue + '">';
+                    str += window.sprintf(window.Messages.strSetLogOutput, varValue);
+                    str += ' </a><br>';
 
-                        if (logVars.slow_query_log !== 'ON') {
-                            str += '- <a class="set" href="#slow_query_log-ON">';
-                            str += window.sprintf(window.Messages.strEnableVar, 'slow_query_log');
-                            str += ' </a><br>';
-                        } else {
-                            str += '- <a class="set" href="#slow_query_log-OFF">';
-                            str += window.sprintf(window.Messages.strDisableVar, 'slow_query_log');
-                            str += ' </a><br>';
-                        }
-
-                        varValue = 5;
-                        if (logVars.long_query_time > 2) {
-                            varValue = 1;
-                        }
-
-                        str += '- <a class="set" href="#long_query_time-' + varValue + '">';
-                        str += window.sprintf(window.Messages.setSetLongQueryTime, varValue);
+                    if (logVars.general_log !== 'ON') {
+                        str += '- <a class="set" href="#general_log-ON">';
+                        str += window.sprintf(window.Messages.strEnableVar, 'general_log');
                         str += ' </a><br>';
                     } else {
-                        str += window.Messages.strNoSuperUser + '<br>';
+                        str += '- <a class="set" href="#general_log-OFF">';
+                        str += window.sprintf(window.Messages.strDisableVar, 'general_log');
+                        str += ' </a><br>';
                     }
 
-                    str += '</div>';
+                    if (logVars.slow_query_log !== 'ON') {
+                        str += '- <a class="set" href="#slow_query_log-ON">';
+                        str += window.sprintf(window.Messages.strEnableVar, 'slow_query_log');
+                        str += ' </a><br>';
+                    } else {
+                        str += '- <a class="set" href="#slow_query_log-OFF">';
+                        str += window.sprintf(window.Messages.strDisableVar, 'slow_query_log');
+                        str += ' </a><br>';
+                    }
 
-                    $dialog.find('div.monitorUse').toggle(
-                        logVars.log_output === 'TABLE' && (logVars.slow_query_log === 'ON' || logVars.general_log === 'ON')
-                    );
+                    varValue = 5;
+                    if (logVars.long_query_time > 2) {
+                        varValue = 1;
+                    }
 
-                    $dialog.find('div.ajaxContent').html(str);
-                    $dialog.find('img.ajaxIcon').hide();
-                    $dialog.find('a.set').on('click', function () {
-                        var nameValue = $(this).attr('href').split('-');
-                        loadLogVars({ varName: nameValue[0].substring(1), varValue: nameValue[1] });
-                        $dialog.find('img.ajaxIcon').show();
-                    });
+                    str += '- <a class="set" href="#long_query_time-' + varValue + '">';
+                    str += window.sprintf(window.Messages.setSetLongQueryTime, varValue);
+                    str += ' </a><br>';
+                } else {
+                    str += window.Messages.strNoSuperUser + '<br>';
                 }
-            );
-        };
 
+                str += '</div>';
 
+                $dialog.find('div.monitorUse').toggle(
+                    logVars.log_output === 'TABLE' && (logVars.slow_query_log === 'ON' || logVars.general_log === 'ON'),
+                );
+
+                $dialog.find('div.ajaxContent').html(str);
+                $dialog.find('img.ajaxIcon').hide();
+                $dialog.find('a.set').on('click', function () {
+                    var nameValue = $(this).attr('href').split('-');
+                    loadLogVars({ varName: nameValue[0].substring(1), varValue: nameValue[1] });
+                    $dialog.find('img.ajaxIcon').show();
+                });
+            },
+        );
+    }
+
+    const monitorInstructionsModal = document.getElementById('monitorInstructionsModal');
+    monitorInstructionsModal.addEventListener('shown.bs.modal', function () {
         loadLogVars();
-
-        return false;
     });
 
     ($('input[name="chartType"]') as JQuery<HTMLInputElement>).on('change', function () {
