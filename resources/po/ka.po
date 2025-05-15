@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-11 00:29+0000\n"
-"PO-Revision-Date: 2025-02-13 14:02+0000\n"
+"PO-Revision-Date: 2025-05-16 21:03+0000\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/ka/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: resources/templates/base.twig:36 resources/templates/login/header.twig:13
 msgid "Javascript must be enabled past this point!"
@@ -2368,9 +2368,8 @@ msgid "Function"
 msgstr "ფუნქცია"
 
 #: resources/templates/database/routines/execute_form.twig:54
-#, fuzzy
 msgid "This routine does not require any parameters."
-msgstr "File %s does not contain any key id"
+msgstr "ამ პროცედურას პარამეტრები არ სჭირდება."
 
 #: resources/templates/database/routines/index.twig:3 src/Menu.php:371
 #: src/Util.php:1368
