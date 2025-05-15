@@ -24,34 +24,11 @@ var chartSize;
 var monitorSettings;
 
 function serverResponseError () {
-    var btns = {
-        [window.Messages.strReloadPage]: {
-            text: window.Messages.strReloadPage,
-            class: 'btn btn-primary',
-            click: function () {
-                window.location.reload();
-            },
-        },
-    };
-    $('#emptyDialog').dialog({
-        classes: {
-            'ui-dialog-titlebar-close': 'btn-close'
-        },
-        title: window.Messages.strRefreshFailed
-    });
+    window.bootstrap.Modal.getOrCreateInstance('#serverResponseErrorModal').show();
+}
 
-    $('#emptyDialog').html(
-        getImageTag('s_attention') +
-        window.Messages.strInvalidResponseExplanation
-    );
-
-    $('#emptyDialog').dialog({
-        classes: {
-            'ui-dialog-titlebar-close': 'btn-close'
-        },
-        // @ts-ignore
-        buttons: btns
-    });
+function serverResponseErrorModalReloadEventHandler () {
+    window.location.reload();
 }
 
 /**
@@ -111,6 +88,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 });
 
 AJAX.registerTeardown('server/status/monitor.js', function () {
+    const serverResponseErrorModalReloadButton = document.getElementById('serverResponseErrorModalReloadButton');
+    serverResponseErrorModalReloadButton?.removeEventListener('click', serverResponseErrorModalReloadEventHandler);
+
     $('#monitorRearrangeChartButton').off('click');
     $('#monitorDoneRearrangeChartButton').off('click');
     $('#monitorChartColumnsSelect').off('change');
@@ -134,6 +114,9 @@ AJAX.registerTeardown('server/status/monitor.js', function () {
 });
 
 AJAX.registerOnload('server/status/monitor.js', function () {
+    const serverResponseErrorModalReloadButton = document.getElementById('serverResponseErrorModalReloadButton');
+    serverResponseErrorModalReloadButton?.addEventListener('click', serverResponseErrorModalReloadEventHandler);
+
     $('#loadingMonitorIcon').remove();
     // Codemirror is loaded on demand so we might need to initialize it
     if (! window.codeMirrorEditor) {
@@ -782,7 +765,10 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 if (typeof data !== 'undefined' && data.success === true) {
                     logVars = data.message;
                 } else {
-                    return serverResponseError();
+                    window.bootstrap.Modal.getOrCreateInstance('#monitorInstructionsModal').hide();
+                    serverResponseError();
+
+                    return;
                 }
 
                 var icon = getImageTag('s_success');
@@ -1033,33 +1019,7 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                 && typeof window.localStorage.monitorVersion !== 'undefined'
                 && monitorProtocolVersion !== window.localStorage.monitorVersion
             ) {
-                $('#emptyDialog').dialog({
-                    classes: {
-                        'ui-dialog-titlebar-close': 'btn-close'
-                    },
-                    title: window.Messages.strIncompatibleMonitorConfig
-                });
-
-                $('#emptyDialog').html(window.Messages.strIncompatibleMonitorConfigDescription);
-
-                var dlgBtns = {
-                    [window.Messages.strClose]: {
-                        text: window.Messages.strClose,
-                        class: 'btn btn-primary',
-                        click: function () {
-                            $(this).dialog('close');
-                        }
-                    },
-                };
-
-                $('#emptyDialog').dialog({
-                    classes: {
-                        'ui-dialog-titlebar-close': 'btn-close'
-                    },
-                    width: 400,
-                    // @ts-ignore
-                    buttons: dlgBtns
-                });
+                window.bootstrap.Modal.getOrCreateInstance('#incompatibleMonitorConfigModal').show();
             }
         }
 
@@ -1389,61 +1349,58 @@ AJAX.registerOnload('server/status/monitor.js', function () {
     }
 
     function getLogAnalyseDialog (min: Date, max: Date) {
-        var $logAnalyseDialog = $('#logAnalyseDialog');
-        var $dateStart = $logAnalyseDialog.find('input[name="dateStart"]');
-        var $dateEnd = $logAnalyseDialog.find('input[name="dateEnd"]');
-        $dateStart.prop('readonly', true);
-        $dateEnd.prop('readonly', true);
+        const logAnalyseModal = document.getElementById('logAnalyseModal');
 
-        var dlgBtns = {
-            [window.Messages.strFromSlowLog]: {
-                text: window.Messages.strFromSlowLog,
-                class: 'btn btn-secondary',
-            },
-            [window.Messages.strFromGeneralLog]: {
-                text: window.Messages.strFromGeneralLog,
-                class: 'btn btn-secondary',
-            },
-        };
-
-        // @ts-ignore
-        dlgBtns[window.Messages.strFromSlowLog].click = function () {
+        function logAnalyseModalSlowLogEventHandler () {
+            window.bootstrap.Modal.getOrCreateInstance(logAnalyseModal).hide();
             loadLog('slow', min, max);
-            $(this).dialog('close');
-        };
+        }
 
-        // @ts-ignore
-        dlgBtns[window.Messages.strFromGeneralLog].click = function () {
+        function logAnalyseModalGeneralLogEventHandler () {
+            window.bootstrap.Modal.getOrCreateInstance(logAnalyseModal).hide();
             loadLog('general', min, max);
-            $(this).dialog('close');
-        };
+        }
 
-        $logAnalyseDialog.dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            width: 'auto',
-            height: 'auto',
-            // @ts-ignore
-            buttons: dlgBtns
+        logAnalyseModal.addEventListener('shown.bs.modal', function () {
+            const logAnalyseModalSlowLogButton = document.getElementById('logAnalyseModalSlowLogButton');
+            logAnalyseModalSlowLogButton?.addEventListener('click', logAnalyseModalSlowLogEventHandler);
+
+            const logAnalyseModalGeneralLogButton = document.getElementById('logAnalyseModalGeneralLogButton');
+            logAnalyseModalGeneralLogButton?.addEventListener('click', logAnalyseModalGeneralLogEventHandler);
+
+            const $logAnalyseDialog = $('#logAnalyseDialog');
+            const $dateStart = $logAnalyseDialog.find('input[name="dateStart"]');
+            const $dateEnd = $logAnalyseDialog.find('input[name="dateEnd"]');
+            $dateStart.prop('readonly', true);
+            $dateEnd.prop('readonly', true);
+
+            addDatepicker($dateStart, 'datetime', {
+                showMillisec: false,
+                showMicrosec: false,
+                timeFormat: 'HH:mm:ss',
+                firstDay: window.firstDayOfCalendar
+            });
+
+            addDatepicker($dateEnd, 'datetime', {
+                showMillisec: false,
+                showMicrosec: false,
+                timeFormat: 'HH:mm:ss',
+                firstDay: window.firstDayOfCalendar
+            });
+
+            $dateStart.datepicker('setDate', min);
+            $dateEnd.datepicker('setDate', max);
         });
 
-        addDatepicker($dateStart, 'datetime', {
-            showMillisec: false,
-            showMicrosec: false,
-            timeFormat: 'HH:mm:ss',
-            firstDay: window.firstDayOfCalendar
+        logAnalyseModal.addEventListener('hidden.bs.modal', function () {
+            const logAnalyseModalSlowLogButton = document.getElementById('logAnalyseModalSlowLogButton');
+            logAnalyseModalSlowLogButton?.removeEventListener('click', logAnalyseModalSlowLogEventHandler);
+
+            const logAnalyseModalGeneralLogButton = document.getElementById('logAnalyseModalGeneralLogButton');
+            logAnalyseModalGeneralLogButton?.removeEventListener('click', logAnalyseModalGeneralLogEventHandler);
         });
 
-        addDatepicker($dateEnd, 'datetime', {
-            showMillisec: false,
-            showMicrosec: false,
-            timeFormat: 'HH:mm:ss',
-            firstDay: window.firstDayOfCalendar
-        });
-
-        $dateStart.datepicker('setDate', min);
-        $dateEnd.datepicker('setDate', max);
+        window.bootstrap.Modal.getOrCreateInstance(logAnalyseModal).show();
     }
 
     function loadLog (type: string, min: Date, max: Date) {
@@ -1471,7 +1428,9 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             if (typeof data !== 'undefined' && data.success === true) {
                 chartData = data.message;
             } else {
-                return serverResponseError();
+                serverResponseError();
+
+                return;
             }
 
             var value;
@@ -1697,42 +1656,15 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             opts.limitTypes = false;
         }
 
-        $('#emptyDialog').dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            title: window.Messages.strAnalysingLogsTitle
-        });
+        const analysingLogsModal = document.getElementById('analysingLogsModal');
 
-        $('#emptyDialog').html(window.Messages.strAnalysingLogs +
-            ' <img class="ajaxIcon" src="' + window.themeImagePath +
-            'ajax_clock_small.gif" alt="">');
-
-        var dlgBtns = {
-            [window.Messages.strCancelRequest]: {
-                text: window.Messages.strCancelRequest,
-                class: 'btn btn-primary',
-            },
-        };
-
-        // @ts-ignore
-        dlgBtns[window.Messages.strCancelRequest].click = function () {
+        analysingLogsModal.addEventListener('hidden.bs.modal', function () {
             if (logRequest !== null) {
                 logRequest.abort();
             }
-
-            $(this).dialog('close');
-        };
-
-        $('#emptyDialog').dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            width: 'auto',
-            height: 'auto',
-            // @ts-ignore
-            buttons: dlgBtns
         });
+
+        window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).show();
 
         var url = 'index.php?route=/server/status/monitor/slow-log';
         if (opts.src === 'general') {
@@ -1751,56 +1683,32 @@ AJAX.registerOnload('server/status/monitor.js', function () {
             },
             function (data) {
                 var logData;
-                var dlgBtns = {
-                    [window.Messages.strClose]: {
-                        text: window.Messages.strClose,
-                        class: 'btn btn-primary',
-                    },
-                };
                 if (typeof data !== 'undefined' && data.success === true) {
                     logData = data.message;
                 } else {
-                    return serverResponseError();
+                    window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
+                    serverResponseError();
+
+                    return;
                 }
 
                 if (logData.rows.length === 0) {
-                    $('#emptyDialog').dialog({
-                        classes: {
-                            'ui-dialog-titlebar-close': 'btn-close'
-                        },
-                        title: window.Messages.strNoDataFoundTitle,
-                    });
-
-                    $('#emptyDialog').html('<p>' + window.Messages.strNoDataFound + '</p>');
-
-                    // @ts-ignore
-                    dlgBtns[window.Messages.strClose].click = function () {
-                        $(this).dialog('close');
-                    };
-
-                    $('#emptyDialog').dialog('option', 'buttons', dlgBtns);
+                    window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
+                    window.bootstrap.Modal.getOrCreateInstance('#analysingLogsNoDataFoundModal').show();
 
                     return;
                 }
 
                 runtime.logDataCols = buildLogTable(logData, opts.removeVariables);
 
-                /* Show some stats in the dialog */
-                $('#emptyDialog').dialog({
-                    classes: {
-                        'ui-dialog-titlebar-close': 'btn-close'
-                    },
-                    title: window.Messages.strLoadingLogs
-                });
-
-                $('#emptyDialog').html('<p>' + window.Messages.strLogDataLoaded + '</p>');
+                const analysingLogsLogDataLoadedModalBody = $('#analysingLogsLogDataLoadedModal .modal-body');
                 $.each(logData.sum, function (key: string, value) {
                     var newKey = key.charAt(0).toUpperCase() + key.slice(1).toLowerCase();
                     if (newKey === 'Total') {
                         newKey = '<b>' + newKey + '</b>';
                     }
 
-                    $('#emptyDialog').append(newKey + ': ' + value + '<br>');
+                    analysingLogsLogDataLoadedModalBody.append(newKey + ': ' + value + '<br>');
                 });
 
                 /* Add filter options if more than a bunch of rows there to filter */
@@ -1832,17 +1740,25 @@ AJAX.registerOnload('server/status/monitor.js', function () {
                     }
                 }
 
-                dlgBtns[window.Messages.strJumpToTable] = {
-                    text: window.Messages.strJumpToTable,
-                    class: 'btn btn-secondary',
-                    // @ts-ignore
-                    click: function () {
-                        $(this).dialog('close');
-                        $(document).scrollTop($('#logTable').offset().top);
-                    },
-                };
+                const analysingLogsLogDataLoadedModal = document.getElementById('analysingLogsLogDataLoadedModal');
 
-                $('#emptyDialog').dialog('option', 'buttons', dlgBtns);
+                function analysingLogsLogDataLoadedModalJumpEventHandler () {
+                    window.bootstrap.Modal.getOrCreateInstance(analysingLogsLogDataLoadedModal).hide();
+                    $(document).scrollTop($('#logTable').offset().top);
+                }
+
+                analysingLogsLogDataLoadedModal.addEventListener('shown.bs.modal', function () {
+                    const analysingLogsLogDataLoadedModalJumpButton = document.getElementById('analysingLogsLogDataLoadedModalJumpButton');
+                    analysingLogsLogDataLoadedModalJumpButton?.addEventListener('click', analysingLogsLogDataLoadedModalJumpEventHandler);
+                });
+
+                analysingLogsLogDataLoadedModal.addEventListener('hidden.bs.modal', function () {
+                    const analysingLogsLogDataLoadedModalJumpButton = document.getElementById('analysingLogsLogDataLoadedModalJumpButton');
+                    analysingLogsLogDataLoadedModalJumpButton?.removeEventListener('click', analysingLogsLogDataLoadedModalJumpEventHandler);
+                });
+
+                window.bootstrap.Modal.getOrCreateInstance(analysingLogsModal).hide();
+                window.bootstrap.Modal.getOrCreateInstance(analysingLogsLogDataLoadedModal).show();
             }
         );
 
@@ -2116,64 +2032,48 @@ AJAX.registerOnload('server/status/monitor.js', function () {
 
     /* Opens the query analyzer dialog */
     function openQueryAnalyzer () {
-        var rowData = $(this).parent().data('query');
-        var query = rowData.argument || rowData.sql_text;
+        const rowData = $(this).parent().data('query');
+        let profilingChart = null;
 
-        if (window.codeMirrorEditor) {
-            window.codeMirrorEditor.setValue(query);
-            // Codemirror is bugged, it doesn't refresh properly sometimes.
-            // Following lines seem to fix that
-            setTimeout(function () {
-                window.codeMirrorEditor.refresh();
-            }, 50);
-        } else {
-            $('#sqlquery').val(query);
+        function queryAnalyzerModalSaveEventHandler () {
+            profilingChart = loadQueryAnalysis(rowData);
         }
 
-        var profilingChart = null;
-        var dlgBtns = {
-            [window.Messages.strAnalyzeQuery]: {
-                text: window.Messages.strAnalyzeQuery,
-                class: 'btn btn-primary',
-            },
-            [window.Messages.strClose]: {
-                text: window.Messages.strClose,
-                class: 'btn btn-secondary',
-            },
-        };
+        const queryAnalyzerModal = document.getElementById('queryAnalyzerModal');
+        queryAnalyzerModal.addEventListener('shown.bs.modal', function () {
+            const queryAnalyzerModalAnalyseButton = document.getElementById('queryAnalyzerModalAnalyseButton');
+            queryAnalyzerModalAnalyseButton?.addEventListener('click', queryAnalyzerModalSaveEventHandler);
 
-        // @ts-ignore
-        dlgBtns[window.Messages.strAnalyzeQuery].click = function () {
-            profilingChart = loadQueryAnalysis(rowData);
-        };
-
-        // @ts-ignore
-        dlgBtns[window.Messages.strClose].click = function () {
-            $(this).dialog('close');
-        };
-
-        $('#queryAnalyzerDialog').dialog({
-            classes: {
-                'ui-dialog-titlebar-close': 'btn-close'
-            },
-            width: 'auto',
-            height: 'auto',
-            resizable: true,
-            // @ts-ignore
-            buttons: dlgBtns,
-            close: function () {
-                if (profilingChart !== null) {
-                    profilingChart.destroy();
-                }
-
-                $('#queryAnalyzerDialog').find('div.placeHolder').html('');
-                if (window.codeMirrorEditor) {
-                    window.codeMirrorEditor.setValue('');
-                } else {
-                    $('#sqlquery').val('');
-                }
+            const query = rowData.argument || rowData.sql_text;
+            if (window.codeMirrorEditor) {
+                window.codeMirrorEditor.setValue(query);
+                // Codemirror is bugged, it doesn't refresh properly sometimes.
+                // Following lines seem to fix that
+                setTimeout(function () {
+                    window.codeMirrorEditor.refresh();
+                }, 50);
+            } else {
+                $('#sqlquery').val(query);
             }
         });
+
+        queryAnalyzerModal.addEventListener('hidden.bs.modal', function () {
+            const queryAnalyzerModalAnalyseButton = document.getElementById('queryAnalyzerModalAnalyseButton');
+            queryAnalyzerModalAnalyseButton?.removeEventListener('click', queryAnalyzerModalSaveEventHandler);
+
+            if (profilingChart !== null) {
+                profilingChart.destroy();
+            }
+
+            queryAnalyzerModal.querySelector('div.placeHolder').textContent = '';
+            if (window.codeMirrorEditor) {
+                window.codeMirrorEditor.setValue('');
+            } else {
+                $('#sqlquery').val('');
+            }
+        });
+
+        window.bootstrap.Modal.getOrCreateInstance(queryAnalyzerModal).show();
     }
 
     /* Loads and displays the analyzed query data */

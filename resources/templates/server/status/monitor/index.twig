@@ -216,37 +216,164 @@
   </div>
 </div>
 
-<div id="logAnalyseDialog" title="{{ t('Log statistics') }}" class="hide">
-  <p>
-    {{ t('Selected time range:') }}
-    <input type="text" name="dateStart" class="datetimefield" value="">
-    -
-    <input type="text" name="dateEnd" class="datetimefield" value="">
-  </p>
+<div class="modal fade" id="logAnalyseModal" tabindex="-1" aria-labelledby="logAnalyseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logAnalyseModalLabel">{{ t('Log statistics') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <div id="logAnalyseDialog">
+          <p>
+            {{ t('Selected time range:') }}
+            <input type="text" name="dateStart" class="datetimefield" value="">
+            -
+            <input type="text" name="dateEnd" class="datetimefield" value="">
+          </p>
 
-  <input type="checkbox" id="limitTypes" value="1" checked>
-  <label for="limitTypes">
-    {{ t('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements') }}
-  </label>
-  <br>
+          <input type="checkbox" id="limitTypes" value="1" checked>
+          <label for="limitTypes">
+            {{ t('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements') }}
+          </label>
+          <br>
 
-  <input type="checkbox" id="removeVariables" value="1" checked>
-  <label for="removeVariables">
-    {{ t('Remove variable data in INSERT statements for better grouping') }}
-  </label>
+          <input type="checkbox" id="removeVariables" value="1" checked>
+          <label for="removeVariables">
+            {{ t('Remove variable data in INSERT statements for better grouping') }}
+          </label>
 
-  <p>
-    {{ t('Choose from which log you want the statistics to be generated from.') }}
-  </p>
-  <p>
-    {{ t('Results are grouped by query text.') }}
-  </p>
+          <p>
+            {{ t('Choose from which log you want the statistics to be generated from.') }}
+          </p>
+          <p>
+            {{ t('Results are grouped by query text.') }}
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="logAnalyseModalSlowLogButton">{{ t('From slow log') }}</button>
+        <button type="button" class="btn btn-primary" id="logAnalyseModalGeneralLogButton">{{ t('From general log') }}</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="queryAnalyzerDialog" title="{{ t('Query analyzer') }}" class="overflow-y-scroll hide">
-  <textarea id="sqlquery"></textarea>
-  <br>
-  <div class="placeHolder"></div>
+<div class="modal fade" id="queryAnalyzerModal" tabindex="-1" aria-labelledby="queryAnalyzerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="queryAnalyzerModalLabel">{{ t('Query analyzer') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <div id="queryAnalyzerDialog">
+          <div>
+            <textarea id="sqlquery" aria-label="{{ t('Query') }}"></textarea>
+          </div>
+          <div class="placeHolder"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="queryAnalyzerModalAnalyseButton">{{ t('Analyse query') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="analysingLogsModal" tabindex="-1" aria-labelledby="analysingLogsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="analysingLogsModalLabel">{{ t('Analysing logs') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Cancel request') }}"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ t('Analysing and loading logs. This may take a while.') }}</p>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{{ t('Loading…') }}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Cancel request') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="analysingLogsNoDataFoundModal" tabindex="-1" aria-labelledby="analysingLogsNoDataFoundModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="analysingLogsNoDataFoundModalLabel">{{ t('No data found') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        {{ t('Log analysed, but no data found in this time span.') }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="analysingLogsLogDataLoadedModal" tabindex="-1" aria-labelledby="analysingLogsLogDataLoadedModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="analysingLogsLogDataLoadedModalLabel">{{ t('Loading logs') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ t('Log data loaded. Queries executed in this time span:') }}</p>
+        <div></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="analysingLogsLogDataLoadedModalJumpButton">{{ t('Jump to the log table') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="serverResponseErrorModal" tabindex="-1" aria-labelledby="serverResponseErrorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="serverResponseErrorModalLabel">{{ t('Monitor refresh failed') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <span aria-label="{{ t('Warning:') }}">{{ get_image('s_attention') }}</span>
+        {{ t('While requesting new chart data the server returned an invalid response. This is most likely because your session expired. Reloading the page and reentering your credentials should help.') }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="serverResponseErrorModalReloadButton">{{ t('Reload page') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="incompatibleMonitorConfigModal" tabindex="-1" aria-labelledby="incompatibleMonitorConfigModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="incompatibleMonitorConfigModalLabel">{{ t('Local monitor configuration incompatible!') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <span aria-label="{{ t('Warning:') }}">{{ get_image('s_attention') }}</span>
+        {{ t('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the [em]Settings[/em] menu.')|sanitize }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="clearfloat"></div>
