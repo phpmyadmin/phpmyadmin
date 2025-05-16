@@ -298,11 +298,6 @@ AJAX.registerOnload('table/structure.js', function () {
     $(document).on('click', '#move_columns_anchor', function (e) {
         e.preventDefault();
 
-        var buttonOptionsError = {};
-        buttonOptionsError[window.Messages.strOK] = function () {
-            $(this).dialog('close').remove();
-        };
-
         var columns = [];
 
         $('#tablestructure').find('tbody tr').each(function () {

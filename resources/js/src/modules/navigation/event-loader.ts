@@ -238,8 +238,6 @@ export default function onloadNavigation () {
         $(document).on('click', 'a.unhideNavItem.ajax', function (event) {
             event.preventDefault();
             var $tr = $(this).parents('tr');
-            var $hiddenTableCount = $tr.parents('tbody').children().length;
-            var $hideDialogBox = $tr.closest('div.ui-dialog');
             var $msg = ajaxShowMessage();
             var argSep = CommonParams.get('arg_separator');
             var params = $(this).getPostData();
@@ -252,10 +250,6 @@ export default function onloadNavigation () {
                     ajaxRemoveMessage($msg);
                     if (typeof data !== 'undefined' && data.success === true) {
                         $tr.remove();
-                        if ($hiddenTableCount === 1) {
-                            $hideDialogBox.remove();
-                        }
-
                         Navigation.reload();
                     } else {
                         ajaxShowMessage(data.error);

@@ -104,16 +104,7 @@ class EventsTest extends TestBase
         $proc = 'UPDATE ' . $this->databaseName . '.`test_table` SET val=val+1';
         $this->typeInTextArea($proc);
 
-        $action = $this->webDriver->action();
-        // Resize the too big text box to access Go button
-        $element = $this->byXPath('//*[@class="ui-resizable-handle ui-resizable-s"]');
-        $action->moveToElement($element)
-                ->clickAndHold()
-                ->moveByOffset(0, -120)// Resize
-                ->click()// Click to free the mouse
-                ->perform();
-
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('eventsEditorModalSaveButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         self::assertStringContainsString('Event `test_event` has been created', $success->getText());
@@ -172,7 +163,7 @@ class EventsTest extends TestBase
         $this->byName('item_interval_value')->clear();
         $this->byName('item_interval_value')->sendKeys('2');
 
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('eventsEditorModalSaveButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         self::assertStringContainsString('Event `test_event` has been modified', $success->getText());
