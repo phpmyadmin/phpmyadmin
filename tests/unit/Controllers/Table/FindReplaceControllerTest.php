@@ -54,10 +54,10 @@ final class FindReplaceControllerTest extends AbstractTestCase
         $controller($request);
 
         self::assertStringContainsString(
-            '<pre>' . "\n"
+            '<pre><code class="sql" dir="ltr">'
             . 'UPDATE `test_table` SET `id` = REPLACE(`id`, \'Field\', \'Column\')'
             . ' WHERE `id` LIKE \'%Field%\' COLLATE utf8mb4_bin'
-            . "\n" . '</pre>',
+            . '</code></pre>',
             $responseRenderer->getHTMLResult(),
         );
         self::assertSame([], $responseRenderer->getJSONResult());
@@ -102,9 +102,9 @@ final class FindReplaceControllerTest extends AbstractTestCase
         $controller($request);
 
         self::assertStringContainsString(
-            '<pre>' . "\n"
+            '<pre><code class="sql" dir="ltr">'
             . 'UPDATE `test_table` SET `id` = `id` WHERE `id` RLIKE \'Field\' COLLATE utf8mb4_bin'
-            . "\n" . '</pre>',
+            . '</code></pre>',
             $responseRenderer->getHTMLResult(),
         );
         self::assertSame([], $responseRenderer->getJSONResult());
