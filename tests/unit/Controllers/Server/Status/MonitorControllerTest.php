@@ -79,11 +79,8 @@ class MonitorControllerTest extends AbstractTestCase
         );
         self::assertStringContainsString('<option>3</option>', $html);
 
-        self::assertStringContainsString(
-            __('Monitor Instructions'),
-            $html,
-        );
-        self::assertStringContainsString('monitorInstructionsDialog', $html);
+        self::assertStringContainsString('System monitor instructions', $html);
+        self::assertStringContainsString('monitorInstructionsModal', $html);
 
         self::assertStringContainsString('<div class="modal fade" id="addChartModal"', $html);
         self::assertStringContainsString('<div id="chartVariableSettings">', $html);

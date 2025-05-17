@@ -694,8 +694,6 @@ div {
   }
 
   &#queryAnalyzerDialog {
-    min-width: 700px;
-
     div {
       &.CodeMirror-scroll {
         height: auto;
@@ -1777,10 +1775,6 @@ div#page_content div {
   }
 }
 
-.ui-dialog {
-  position: fixed;
-}
-
 .small_font {
   font-size: smaller;
 }
@@ -2435,23 +2429,6 @@ meter {
 
 // end of styles of sortable tables
 
-// styles for jQuery-ui to support rtl languages
-body .ui-dialog {
-  .ui-dialog-titlebar-close {
-    right: 0.3em;
-    left: initial;
-  }
-
-  .ui-dialog-title {
-    float: left;
-  }
-
-  .ui-dialog-buttonpane .ui-dialog-buttonset {
-    float: right;
-  }
-}
-// end of styles for jQuery-ui to support rtl languages
-
 // templates/database/designer
 // side menu
 #name-panel {
@@ -2493,11 +2470,6 @@ body .ui-dialog {
     .tablesorter {
       min-width: 100%;
     }
-  }
-
-  .ui-dialog {
-    margin: 1%;
-    width: 95% !important;
   }
 }
 

@@ -825,7 +825,6 @@ function createAliasModal (event): void {
     var modal = $('#renameExportModal');
     modal.modal('show');
     modal.on('shown.bs.modal', function () {
-        modal.closest('.ui-dialog').find('.ui-button').addClass('btn btn-secondary');
         var db = CommonParams.get('db');
         if (db) {
             var option = $('<option></option>');

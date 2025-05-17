@@ -853,10 +853,6 @@ export function onloadIdleEvent () {
                     if (! $('#modalOverlay').length) {
                         $('fieldset').not(':disabled').attr('disabled', 'disabled').addClass('disabled_for_expiration');
                         $('body').append(data.error);
-                        $('.ui-dialog').each(function () {
-                            $('#' + $(this).attr('aria-describedby')).dialog('close');
-                        });
-
                         $('#input_username').trigger('focus');
                     } else {
                         Navigation.update(CommonParams.set('token', data.new_token));
@@ -1776,11 +1772,6 @@ export function onloadCreateTableEvents (): void {
                     .html('');
 
                 ajaxShowMessage(data.message);
-                // Only if the create table dialog (distinct panel) exists
-                var $createTableDialog = $('#create_table_dialog');
-                if ($createTableDialog.length > 0) {
-                    $createTableDialog.dialog('close').remove();
-                }
 
                 $('#tableslistcontainer').before(data.formatted_sql);
 
@@ -2077,10 +2068,8 @@ export function onloadChangePasswordEvents (): void {
                     var $pageContent = $('#page_content');
                     $pageContent.prepend(data.message);
                     highlightSql($pageContent);
-                    $('#change_password_dialog').hide().remove();
-                    $('#edit_user_dialog').dialog('close').remove();
                     ajaxRemoveMessage($msgbox);
-                }); // end $.post()
+                });
 
                 $('#changePasswordModal').modal('hide');
             };
@@ -2116,15 +2105,7 @@ export function onloadChangePasswordEvents (): void {
             $('#fieldset_change_password_footer').hide();
             ajaxRemoveMessage($msgbox);
             displayPasswordGenerateButton();
-            $('#change_password_form').on('submit', function (e) {
-                e.preventDefault();
-                $(this)
-                    .closest('.ui-dialog')
-                    .find('.ui-dialog-buttonpane .ui-button')
-                    .first()
-                    .trigger('click');
-            });
-        }); // end $.get()
+        });
     });
 }
 
@@ -3310,24 +3291,6 @@ export function onloadCreateView () {
 
         return false;
     });
-
-    /**
-     * Attach Ajax event handlers for input fields in the editor
-     * and used to submit the Ajax request when the ENTER key is pressed.
-     */
-    if ($('#createViewModal').length !== 0) {
-        $(document).on('keydown', '#createViewModal input, #createViewModal select', function (e) {
-            if (e.which === 13) { // 13 is the ENTER key
-                e.preventDefault();
-
-                // with preventing default, selection by <select> tag
-                // was also prevented in IE
-                $(this).trigger('blur');
-
-                $(this).closest('.ui-dialog').find('.ui-button').first().trigger('click');
-            }
-        }); // end $(document).on()
-    }
 
     if ($('textarea[name="view[as]"]').length !== 0) {
         window.codeMirrorEditor = getSqlEditor($('textarea[name="view[as]"]'));

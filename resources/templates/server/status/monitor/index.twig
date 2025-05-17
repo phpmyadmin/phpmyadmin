@@ -6,7 +6,7 @@
   <div class="mb-3 d-print-none">
     <button type="button" class="btn btn-primary" id="monitorPauseResumeButton">{{ get_icon('play', t('Start monitor')) }}</button>
     <button type="button" class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#monitorSettingsContent" aria-expanded="false" aria-controls="monitorSettingsContent">{{ get_icon('s_cog', t('Settings')) }}</button>
-    <button type="button" class="btn btn-secondary" id="monitorInstructionsButton">{{ get_icon('b_help', t('Instructions/Setup')) }}</button>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#monitorInstructionsModal">{{ get_icon('b_help', t('Instructions/Setup')) }}</button>
   </div>
 
   <div class="collapse" id="monitorSettingsContent">
@@ -50,7 +50,28 @@
             <span class="text-body-secondary">{{ t('The arrangement of the charts is stored to the browsers local storage. You may want to export it if you have a complicated set up.') }}</span>
           </p>
           <div>
-            <button type="button" class="btn btn-secondary" id="monitorImportConfigButton">{{ t('Import') }}</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#monitorImportConfigModal">{{ t('Import') }}</button>
+            <div class="modal fade" id="monitorImportConfigModal" tabindex="-1" aria-labelledby="monitorImportConfigModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="monitorImportConfigModalLabel">{{ t('Importing system monitor configuration') }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form>
+                      <label for="import_file" class="form-label">{{ t('Please select the file you want to import:') }}</label>
+                      <input class="form-control" type="file" name="file" id="import_file">
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+                    <button type="button" class="btn btn-primary" id="monitorImportConfigImportButton">{{ t('Import') }}</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <button type="button" class="btn btn-secondary" id="monitorExportConfigButton">{{ t('Export') }}</button>
             <button type="button" class="btn btn-secondary" id="monitorResetConfigButton">{{ t('Reset to default') }}</button>
           </div>
@@ -59,32 +80,41 @@
     </div>
   </div>
 
-<div id="monitorInstructionsDialog" title="{{ t('Monitor Instructions') }}" class="hide">
-  <p>
-    {{ t("The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to 'TABLE' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%.") }}
-  </p>
-  <img class="ajaxIcon" src="{{ image('ajax_clock_small.gif') }}" alt="{{ t('Loading…') }}">
+  <div class="modal fade" id="monitorInstructionsModal" tabindex="-1" aria-labelledby="monitorInstructionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="monitorInstructionsModalLabel">{{ t('System monitor instructions') }}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            {{ t("The phpMyAdmin Monitor can assist you in optimizing the server configuration and track down time intensive queries. For the latter you will need to set log_output to 'TABLE' and have either the slow_query_log or general_log enabled. Note however, that the general_log produces a lot of data and increases server load by up to 15%.") }}
+          </p>
+          <img class="ajaxIcon" src="{{ image('ajax_clock_small.gif') }}" alt="{{ t('Loading…') }}">
 
-  <div class="ajaxContent"></div>
-  <br>
+          <div class="ajaxContent"></div>
 
-  <div class="monitorUse hide">
-    <p><strong>{{ t('Using the monitor:') }}</strong></p>
-    <p>
-      {{ t("Your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart using the cog icon on each respective chart.") }}
-    </p>
-    <p>
-      {{ t('To display queries from the logs, click on any chart. Once confirmed, this will load a table of grouped queries, there you may click on any occurring SELECT statements to further analyze them.') }}
-    </p>
-    <p>
-      {{ get_image('s_attention') }}
-      <strong>{{ t('Please note:') }}</strong>
-    </p>
-    <p>
-      {{ t('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.') }}
-    </p>
+          <div class="monitorUse hide">
+            <p><strong>{{ t('Using the monitor:') }}</strong></p>
+            <p>
+              {{ t("Your browser will refresh all displayed charts in a regular interval. You may add charts and change the refresh rate under 'Settings', or remove any chart using the cog icon on each respective chart.") }}
+            </p>
+            <p>
+              {{ t('To display queries from the logs, click on any chart. Once confirmed, this will load a table of grouped queries, there you may click on any occurring SELECT statements to further analyze them.') }}
+            </p>
+            <p>
+              {{ get_image('s_attention') }}
+              <strong>{{ t('Please note:') }}</strong>
+            </p>
+            <p>
+              {{ t('Enabling the general_log may increase the server load by 5-15%. Also be aware that generating statistics from the logs is a load intensive task, so it is advisable to select only a small time span and to disable the general_log and empty its table once monitoring is not required any more.') }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
 <div class="modal fade" id="addChartModal" tabindex="-1" aria-labelledby="addChartModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -186,37 +216,164 @@
   </div>
 </div>
 
-<div id="logAnalyseDialog" title="{{ t('Log statistics') }}" class="hide">
-  <p>
-    {{ t('Selected time range:') }}
-    <input type="text" name="dateStart" class="datetimefield" value="">
-    -
-    <input type="text" name="dateEnd" class="datetimefield" value="">
-  </p>
+<div class="modal fade" id="logAnalyseModal" tabindex="-1" aria-labelledby="logAnalyseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="logAnalyseModalLabel">{{ t('Log statistics') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <div id="logAnalyseDialog">
+          <p>
+            {{ t('Selected time range:') }}
+            <input type="text" name="dateStart" class="datetimefield" value="">
+            -
+            <input type="text" name="dateEnd" class="datetimefield" value="">
+          </p>
 
-  <input type="checkbox" id="limitTypes" value="1" checked>
-  <label for="limitTypes">
-    {{ t('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements') }}
-  </label>
-  <br>
+          <input type="checkbox" id="limitTypes" value="1" checked>
+          <label for="limitTypes">
+            {{ t('Only retrieve SELECT,INSERT,UPDATE and DELETE Statements') }}
+          </label>
+          <br>
 
-  <input type="checkbox" id="removeVariables" value="1" checked>
-  <label for="removeVariables">
-    {{ t('Remove variable data in INSERT statements for better grouping') }}
-  </label>
+          <input type="checkbox" id="removeVariables" value="1" checked>
+          <label for="removeVariables">
+            {{ t('Remove variable data in INSERT statements for better grouping') }}
+          </label>
 
-  <p>
-    {{ t('Choose from which log you want the statistics to be generated from.') }}
-  </p>
-  <p>
-    {{ t('Results are grouped by query text.') }}
-  </p>
+          <p>
+            {{ t('Choose from which log you want the statistics to be generated from.') }}
+          </p>
+          <p>
+            {{ t('Results are grouped by query text.') }}
+          </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="logAnalyseModalSlowLogButton">{{ t('From slow log') }}</button>
+        <button type="button" class="btn btn-primary" id="logAnalyseModalGeneralLogButton">{{ t('From general log') }}</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div id="queryAnalyzerDialog" title="{{ t('Query analyzer') }}" class="overflow-y-scroll hide">
-  <textarea id="sqlquery"></textarea>
-  <br>
-  <div class="placeHolder"></div>
+<div class="modal fade" id="queryAnalyzerModal" tabindex="-1" aria-labelledby="queryAnalyzerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="queryAnalyzerModalLabel">{{ t('Query analyzer') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <div id="queryAnalyzerDialog">
+          <div>
+            <textarea id="sqlquery" aria-label="{{ t('Query') }}"></textarea>
+          </div>
+          <div class="placeHolder"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="queryAnalyzerModalAnalyseButton">{{ t('Analyse query') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="analysingLogsModal" tabindex="-1" aria-labelledby="analysingLogsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="analysingLogsModalLabel">{{ t('Analysing logs') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Cancel request') }}"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ t('Analysing and loading logs. This may take a while.') }}</p>
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">{{ t('Loading…') }}</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Cancel request') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="analysingLogsNoDataFoundModal" tabindex="-1" aria-labelledby="analysingLogsNoDataFoundModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="analysingLogsNoDataFoundModalLabel">{{ t('No data found') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        {{ t('Log analysed, but no data found in this time span.') }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="analysingLogsLogDataLoadedModal" tabindex="-1" aria-labelledby="analysingLogsLogDataLoadedModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="analysingLogsLogDataLoadedModalLabel">{{ t('Loading logs') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ t('Log data loaded. Queries executed in this time span:') }}</p>
+        <div></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="analysingLogsLogDataLoadedModalJumpButton">{{ t('Jump to the log table') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="serverResponseErrorModal" tabindex="-1" aria-labelledby="serverResponseErrorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="serverResponseErrorModalLabel">{{ t('Monitor refresh failed') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <span aria-label="{{ t('Warning:') }}">{{ get_image('s_attention') }}</span>
+        {{ t('While requesting new chart data the server returned an invalid response. This is most likely because your session expired. Reloading the page and reentering your credentials should help.') }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+        <button type="button" class="btn btn-primary" id="serverResponseErrorModalReloadButton">{{ t('Reload page') }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="incompatibleMonitorConfigModal" tabindex="-1" aria-labelledby="incompatibleMonitorConfigModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="incompatibleMonitorConfigModalLabel">{{ t('Local monitor configuration incompatible!') }}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ t('Close') }}"></button>
+      </div>
+      <div class="modal-body">
+        <span aria-label="{{ t('Warning:') }}">{{ get_image('s_attention') }}</span>
+        {{ t('The chart arrangement configuration in your browsers local storage is not compatible anymore to the newer version of the monitor dialog. It is very likely that your current configuration will not work anymore. Please reset your configuration to default in the [em]Settings[/em] menu.')|sanitize }}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ t('Close') }}</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="clearfloat"></div>

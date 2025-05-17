@@ -172,15 +172,6 @@ final class JavaScriptMessagesController implements InvocableController
 
             'numberOfStatements' => __('Number of statements'),
 
-            /* server status monitor */
-            'strIncompatibleMonitorConfig' => __('Local monitor configuration incompatible!'),
-            'strIncompatibleMonitorConfigDescription' => __(
-                'The chart arrangement configuration in your browsers local storage is not '
-                . 'compatible anymore to the newer version of the monitor dialog. It is very '
-                . 'likely that your current configuration will not work anymore. Please reset '
-                . 'your configuration to default in the <i>Settings</i> menu.',
-            ),
-
             'strQueryCacheEfficiency' => __('Query cache efficiency'),
             'strQueryCacheUsage' => __('Query cache usage'),
             'strQueryCacheUsed' => __('Query cache used'),
@@ -265,12 +256,7 @@ final class JavaScriptMessagesController implements InvocableController
             'strDividedBy' => __('Divided by %s'),
             'strUnit' => __('Unit'),
 
-            'strFromSlowLog' => __('From slow log'),
-            'strFromGeneralLog' => __('From general log'),
             'strServerLogError' => __('The database name is not known for this query in the server\'s logs.'),
-            'strAnalysingLogsTitle' => __('Analysing logs'),
-            'strAnalysingLogs' => __('Analysing & loading logs. This may take a while.'),
-            'strCancelRequest' => __('Cancel request'),
             'strCountColumnExplanation' => __(
                 'This column shows the amount of identical queries that are grouped together. '
                 . 'However only the SQL query itself has been used as a grouping criteria, so '
@@ -281,11 +267,6 @@ final class JavaScriptMessagesController implements InvocableController
                 . 'same table are also being grouped together, disregarding of the inserted '
                 . 'data.',
             ),
-            'strLogDataLoaded' => __('Log data loaded. Queries executed in this time span:'),
-
-            'strJumpToTable' => __('Jump to Log table'),
-            'strNoDataFoundTitle' => __('No data found'),
-            'strNoDataFound' => __('Log analysed, but no data found in this time span.'),
 
             'strAnalyzing' => __('Analyzing…'),
             'strExplainOutput' => __('Explain output'),
@@ -309,29 +290,16 @@ final class JavaScriptMessagesController implements InvocableController
             'strSumRows' => __('Sum of grouped rows:'),
             'strTotal' => __('Total:'),
 
-            'strLoadingLogs' => __('Loading logs'),
-            'strRefreshFailed' => __('Monitor refresh failed'),
-            'strInvalidResponseExplanation' => __(
-                'While requesting new chart data the server returned an invalid response. This '
-                . 'is most likely because your session expired. Reloading the page and '
-                . 'reentering your credentials should help.',
-            ),
-            'strReloadPage' => __('Reload page'),
-
             'strAffectedRows' => __('Affected rows:'),
 
             'strFailedParsingConfig' => __('Failed parsing config file. It doesn\'t seem to be valid JSON code.'),
             'strFailedBuildingGrid' => __(
                 'Failed building chart grid with imported config. Resetting to default config…',
             ),
-            'strImport' => __('Import'),
-            'strImportDialogTitle' => __('Import monitor configuration'),
             'strImportDialogMessage' => __('Please select the file you want to import:'),
             'strTableNameDialogMessage' => __('Please enter a valid table name.'),
             'strDBNameDialogMessage' => __('Please enter a valid database name.'),
             'strNoImportFile' => __('No files available on server for import!'),
-
-            'strAnalyzeQuery' => __('Analyse query'),
 
             /* For query editor */
             'strFormatting' => __('Formatting SQL…'),
@@ -391,6 +359,8 @@ final class JavaScriptMessagesController implements InvocableController
             'strExport' => __('Export'),
             'NoExportable' => __('No routine is exportable. Required privileges may be lacking.'),
             'strRoutine' => __('Routine'),
+            'strTrigger' => __('Trigger'),
+            'strEvent' => __('Event'),
 
             /* For ENUM/SET editor*/
             'enum_columnVals' => __('Values for column %s'),

@@ -91,7 +91,7 @@ class TriggersTest extends TestBase
         $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+1';
         $this->typeInTextArea($proc);
 
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('triggersEditorModalSaveButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         self::assertStringContainsString('Trigger `test_trigger` has been created', $success->getText());
@@ -142,7 +142,7 @@ class TriggersTest extends TestBase
         $proc = 'UPDATE ' . $this->databaseName . '.`test_table2` SET val=val+10';
         $this->typeInTextArea($proc);
 
-        $this->byCssSelector('div.ui-dialog-buttonset button:nth-child(1)')->click();
+        $this->byId('triggersEditorModalSaveButton')->click();
 
         $success = $this->waitForElement('cssSelector', '.alert-success');
         self::assertStringContainsString('Trigger `test_trigger` has been modified', $success->getText());
