@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-18 00:29+0000\n"
-"PO-Revision-Date: 2025-05-04 17:35+0000\n"
+"PO-Revision-Date: 2025-05-19 07:01+0000\n"
 "Last-Translator: Hotripak <hotr1pak@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/uk/>\n"
@@ -1945,10 +1945,8 @@ msgid "OFF"
 msgstr "Відключити"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel версія"
+msgstr "Редактор події"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1973,10 +1971,8 @@ msgid "Save changes"
 msgstr "Зберегти зміни"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "Експортувати подію %s"
+msgstr "Експортувати подію"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -5744,10 +5740,8 @@ msgstr ""
 "експортувати, якщо при налаштуванні виникають складнощі."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "Імпорт налаштувань монітору"
+msgstr "Імпортування конфігурації системного монітора"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -5759,10 +5753,8 @@ msgid "Reset to default"
 msgstr "Скинути до початкових значень"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "Інструкції моніторингу"
+msgstr "Інструкції системного монітору"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5941,10 +5933,8 @@ msgid "Cancel request"
 msgstr "Скасувати запит"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
-msgstr "Аналіз та завантаження журналів. Це може зайняти деякий час."
+msgstr "Аналіз і завантаження журналів. Це може зайняти деякий час."
 
 #: resources/templates/server/status/monitor/index.twig:310
 msgid "No data found"
@@ -5963,10 +5953,8 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Журнальні дані завантажені. Запити виконані в цей проміжок часу:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
-msgstr "Перейти до таблиці Log"
+msgstr "Перейти до таблиці журналу"
 
 #: resources/templates/server/status/monitor/index.twig:346
 msgid "Monitor refresh failed"
@@ -5974,10 +5962,8 @@ msgstr "Оновлення монітору не вдалося"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Попередження"
+msgstr "Попередження:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -5998,22 +5984,16 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Несумісна конфігурація локального монітору!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
 "likely that your current configuration will not work anymore. Please reset "
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
-"Конфігурація графіку розташування в локальному сховищі вашого браузеру "
-"більше не сумісна з новою версією монітора діалогового вікна. Цілком "
-"імовірно, що ваша поточна конфігурація більше не буде працювати. Будь ласка, "
-"встановіть вашу конфігурацію за замовчанням в меню <i>Установки</i>."
+"Конфігурація розташування діаграм у локальному сховищі вашого браузера "
+"більше не сумісна з новою версією діалогового вікна монітору. Дуже ймовірно, "
+"що ваша поточна конфігурація більше не працюватиме. Будь ласка, скиньте "
+"конфігурацію до значень за замовчуванням в меню [em]Налаштування[/em]."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7413,16 +7393,12 @@ msgid "There are no triggers to display."
 msgstr "Немає тригерів."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Назва тригера"
+msgstr "Редактор тригеру"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "Експортувати тригер %s"
+msgstr "Експортувати тригер"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15697,10 +15673,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Необхідно задати коректний тип, що повертатиму процедуру."
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Неправильний тип порядку: \"%s\""
+msgstr "Невірний тип процедури!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
