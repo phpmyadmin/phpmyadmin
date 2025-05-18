@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 4.9.7-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2020-10-10 13:32-0300\n"
-"PO-Revision-Date: 2025-05-04 17:35+0000\n"
+"PO-Revision-Date: 2025-05-19 07:02+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/4-9/he/"
 ">\n"
@@ -10568,7 +10568,7 @@ msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1143
 msgid "You must provide a routine name!"
-msgstr ""
+msgstr "חובה לספק שם שגרה!"
 
 #: libraries/classes/Rte/Routines.php:1177
 #, php-format
@@ -10592,12 +10592,12 @@ msgstr ""
 
 #: libraries/classes/Rte/Routines.php:1306
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "חובה לספק הגדרת שגרה."
 
 #: libraries/classes/Rte/Routines.php:1418
-#, fuzzy, php-format
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "תוצאות הפעלת השגרה %s"
 
 #: libraries/classes/Rte/Routines.php:1473
 #, php-format
@@ -14380,10 +14380,9 @@ msgid "Exporting databases from the current server"
 msgstr "נכשל בכניסה לשרת MySQL"
 
 #: templates/display/export/option_header.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "מתבצע ייצוא של טבלאות ממסד הנתונים „%s”"
 
 #: templates/display/export/option_header.twig:9
 #, fuzzy, php-format
