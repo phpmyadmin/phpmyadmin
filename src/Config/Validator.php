@@ -213,18 +213,18 @@ class Validator
     /**
      * Test database connection
      *
-     * @param string $host     host name
-     * @param string $port     tcp port to use
-     * @param string $socket   socket to use
-     * @param string $user     username to use
-     * @param string $pass     password to use
-     * @param string $errorKey key to use in return array
+     * @param string     $host     host name
+     * @param string|int $port     tcp port to use
+     * @param string     $socket   socket to use
+     * @param string     $user     username to use
+     * @param string     $pass     password to use
+     * @param string     $errorKey key to use in return array
      *
      * @return array<string, string>|true
      */
     private static function testDBConnection(
         string $host,
-        string $port,
+        string|int $port,
         string $socket,
         string $user,
         string $pass,

@@ -1384,7 +1384,7 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: '#^Parameter \#2 \$port of static method PhpMyAdmin\\Config\\Validator\:\:testDBConnection\(\) expects string, mixed given\.$#'
+			message: '#^Parameter \#2 \$port of static method PhpMyAdmin\\Config\\Validator\:\:testDBConnection\(\) expects int\|string, mixed given\.$#'
 			identifier: argument.type
 			count: 2
 			path: src/Config/Validator.php
