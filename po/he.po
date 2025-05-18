@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 5.2.3-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-02-27 14:25-0300\n"
-"PO-Revision-Date: 2025-05-04 17:35+0000\n"
+"PO-Revision-Date: 2025-05-19 07:02+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <https://hosted.weblate.org/projects/phpmyadmin/5-2/he/"
 ">\n"
@@ -8350,11 +8350,11 @@ msgstr ""
 
 #: libraries/classes/Database/Routines.php:998
 msgid "You must provide a routine name!"
-msgstr ""
+msgstr "חובה לספק שם שגרה!"
 
 #: libraries/classes/Database/Routines.php:1063
 msgid "You must provide a routine definition."
-msgstr ""
+msgstr "חובה לספק הגדרת שגרה."
 
 #: libraries/classes/Database/Routines.php:1143
 #: libraries/classes/Database/Routines.php:1312
@@ -8363,9 +8363,9 @@ msgid "No routine with name %1$s found in database %2$s."
 msgstr "לא נמצאה שגרה עם השם %1$s במסד הנתונים %2$s."
 
 #: libraries/classes/Database/Routines.php:1182
-#, fuzzy, php-format
+#, php-format
 msgid "Execution results of routine %s"
-msgstr "מאפשר יצירת שגרות מאוחסנות."
+msgstr "תוצאות הפעלת השגרה %s"
 
 #: libraries/classes/Database/Routines.php:1230
 #, php-format
@@ -13908,18 +13908,17 @@ msgstr "כבוי"
 msgid ""
 "@SERVER@ will become the server name and @DATABASE@ will become the database "
 "name."
-msgstr ""
+msgstr "@SERVER@ יהפוך לשם השרת ואילו @DATABASE@ יהפוך לשם מסד הנתונים."
 
 #. l10n: A query that the user has written freely
 #: templates/database/export/index.twig:5 templates/table/export/index.twig:5
 msgid "Exporting a raw query"
-msgstr ""
+msgstr "מתבצע ייצוא של שאילתה גולמית"
 
 #: templates/database/export/index.twig:7
-#, fuzzy, php-format
-#| msgid "Create table on database %s"
+#, php-format
 msgid "Exporting tables from \"%s\" database"
-msgstr "יצירת טבלה חדשה על מאגר נתונים %s"
+msgstr "מתבצע ייצוא של טבלאות ממסד הנתונים „%s”"
 
 #: templates/database/export/index.twig:30
 #, fuzzy
