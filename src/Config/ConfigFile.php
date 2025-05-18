@@ -504,7 +504,7 @@ class ConfigFile
         return [
             'Servers' => [
                 1 => [
-                    'port' => 'integer',
+                    'port' => 'short_string',
                     'auth_type' => ['config', 'http', 'signon', 'cookie'],
                     'AllowDeny' => ['order' => ['', 'deny,allow', 'allow,deny', 'explicit']],
                     'only_db' => 'array',

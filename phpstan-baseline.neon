@@ -1300,12 +1300,6 @@ parameters:
 			path: src/Config/Validator.php
 
 		-
-			message: '#^PHPDoc tag @var with type string is not subtype of native type non\-empty\-string\|null\.$#'
-			identifier: varTag.nativeType
-			count: 1
-			path: src/Config/Validator.php
-
-		-
 			message: '#^Parameter \#1 \$haystack of function mb_strpos expects string, \(int\|string\) given\.$#'
 			identifier: argument.type
 			count: 1

@@ -241,9 +241,7 @@ class Validator
 
         error_clear_last();
 
-        /** @var string $socket */
         $socket = $socket === '' ? null : $socket;
-        /** @var int $port */
         $port = $port === '' ? null : (int) $port;
 
         mysqli_report(MYSQLI_REPORT_OFF);
