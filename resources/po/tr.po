@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: phpMyAdmin 6.0.0-dev\n"
 "Report-Msgid-Bugs-To: translators@phpmyadmin.net\n"
 "POT-Creation-Date: 2025-05-18 00:29+0000\n"
-"PO-Revision-Date: 2025-05-04 17:35+0000\n"
+"PO-Revision-Date: 2025-05-19 07:01+0000\n"
 "Last-Translator: Burak Yavuz <hitowerdigit@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/phpmyadmin/"
 "master/tr/>\n"
@@ -1943,10 +1943,8 @@ msgid "OFF"
 msgstr "KAPALI"
 
 #: resources/templates/database/events/index.twig:161
-#, fuzzy
-#| msgid "Excel edition"
 msgid "Event editor"
-msgstr "Excel yapısı"
+msgstr "Olay düzenleyicisi"
 
 #: resources/templates/database/events/index.twig:166
 #: resources/templates/database/routines/index.twig:83
@@ -1971,10 +1969,8 @@ msgid "Save changes"
 msgstr "Değişiklikleri kaydet"
 
 #: resources/templates/database/events/index.twig:181
-#, fuzzy
-#| msgid "Export of event %s"
 msgid "Export event"
-msgstr "%s olayını dışa aktarma"
+msgstr "Olayı dışa aktar"
 
 #: resources/templates/database/export/index.twig:61
 msgid ""
@@ -5739,10 +5735,8 @@ msgstr ""
 "ayarlamalarınız varsa, bunu dışa aktarmak isteyebilirsiniz."
 
 #: resources/templates/server/status/monitor/index.twig:58
-#, fuzzy
-#| msgid "Import monitor configuration"
 msgid "Importing system monitor configuration"
-msgstr "İzleme yapılandırmasını içe aktar"
+msgstr "Sistem izleme yapılandırması içe aktarılıyor"
 
 #: resources/templates/server/status/monitor/index.twig:63
 #: src/Controllers/JavaScriptMessagesController.php:299
@@ -5754,10 +5748,8 @@ msgid "Reset to default"
 msgstr "Varsayılana sıfırla"
 
 #: resources/templates/server/status/monitor/index.twig:87
-#, fuzzy
-#| msgid "Monitor Instructions"
 msgid "System monitor instructions"
-msgstr "İzleme Yönergeleri"
+msgstr "Sistem izleme talimatları"
 
 #: resources/templates/server/status/monitor/index.twig:92
 msgid ""
@@ -5938,8 +5930,6 @@ msgid "Cancel request"
 msgstr "İsteği iptal et"
 
 #: resources/templates/server/status/monitor/index.twig:294
-#, fuzzy
-#| msgid "Analysing & loading logs. This may take a while."
 msgid "Analysing and loading logs. This may take a while."
 msgstr "Günlükler çözümleniyor ve yükleniyor. Bu biraz zaman alabilir."
 
@@ -5960,8 +5950,6 @@ msgid "Log data loaded. Queries executed in this time span:"
 msgstr "Günlük verisi yüklendi. Sorgular bu zaman aralığında çalıştırıldı:"
 
 #: resources/templates/server/status/monitor/index.twig:336
-#, fuzzy
-#| msgid "Jump to Log table"
 msgid "Jump to the log table"
 msgstr "Günlük tablosuna atla"
 
@@ -5971,10 +5959,8 @@ msgstr "İzleyici yenileme başarısız oldu"
 
 #: resources/templates/server/status/monitor/index.twig:350
 #: resources/templates/server/status/monitor/index.twig:369
-#, fuzzy
-#| msgid "Warning"
 msgid "Warning:"
-msgstr "Uyarı"
+msgstr "Uyarı:"
 
 #: resources/templates/server/status/monitor/index.twig:351
 msgid ""
@@ -5995,12 +5981,6 @@ msgid "Local monitor configuration incompatible!"
 msgstr "Yerel izleme yapılandırması uyumsuz!"
 
 #: resources/templates/server/status/monitor/index.twig:370
-#, fuzzy
-#| msgid ""
-#| "The chart arrangement configuration in your browsers local storage is not "
-#| "compatible anymore to the newer version of the monitor dialog. It is very "
-#| "likely that your current configuration will not work anymore. Please "
-#| "reset your configuration to default in the <i>Settings</i> menu."
 msgid ""
 "The chart arrangement configuration in your browsers local storage is not "
 "compatible anymore to the newer version of the monitor dialog. It is very "
@@ -6008,9 +5988,9 @@ msgid ""
 "your configuration to default in the [em]Settings[/em] menu."
 msgstr ""
 "Tarayıcınızın yerel depolamasındaki çizelge ayarlama yapılandırması, izleme "
-"iletisinin en yeni sürümüyle daha fazla uyumlu değil. Şu anki yapılandırma "
-"büyük olasılıkla bundan sonra çalışmayacak. Lütfen <i>Ayarlar</i> menüsünden "
-"yapılandırmanızı varsayılana sıfırlayın."
+"ileti öğesinin en yeni sürümüyle artık uyumlu değil. Şu anki yapılandırma "
+"büyük olasılıkla bundan sonra çalışmayacak. Lütfen [em]Ayarlar[/em] "
+"menüsünden yapılandırmanızı varsayılana sıfırlayın."
 
 #: resources/templates/server/status/processes/index.twig:14
 msgid "Show only active"
@@ -7409,16 +7389,12 @@ msgid "There are no triggers to display."
 msgstr "Görüntülemek için tetikleyiciler yok."
 
 #: resources/templates/triggers/list.twig:81
-#, fuzzy
-#| msgid "Trigger name"
 msgid "Trigger editor"
-msgstr "Tetikleyici adı"
+msgstr "Tetikleyici düzenleyicisi"
 
 #: resources/templates/triggers/list.twig:101
-#, fuzzy
-#| msgid "Export of trigger %s"
 msgid "Export trigger"
-msgstr "%s tetikleyicisini dışa aktarma"
+msgstr "Tetikleyiciyi dışa aktar"
 
 #: resources/templates/view_create.twig:75
 msgid "VIEW name"
@@ -15698,10 +15674,8 @@ msgid "You must provide a valid return type for the routine."
 msgstr "Yordam için geçerli bir dönüş türü vermek zorundasınız."
 
 #: src/Database/Routines.php:813
-#, fuzzy
-#| msgid "Invalid routine type: \"%s\""
 msgid "Invalid routine type!"
-msgstr "Geçersiz yordam türü: \"%s\""
+msgstr "Geçersiz yordam türü!"
 
 #: src/Database/Routines.php:819
 msgid "You must provide a routine name!"
